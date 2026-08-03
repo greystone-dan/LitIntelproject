@@ -126,6 +126,7 @@ If you generate large local archives in [backups](backups), keep them out of Git
 - [OVERNIGHT.md](OVERNIGHT.md): unattended operation guide
 - [DOCS_INDEX.md](DOCS_INDEX.md): document authority map
 - [CHANGELOG.md](CHANGELOG.md): milestone and feature changes
+- [ROADMAP.md](ROADMAP.md): forward plan for missing features and QA
 
 ## Historical Notes
 

@@ -23,6 +23,9 @@ Current operational sources of truth:
 4. `MASTER_IDEAS.md`
 - Long-term feature backlog and prioritization input.
 
+5. `ROADMAP.md`
+- Forward-looking phased delivery plan for missing features, QA, and release readiness.
+
 Historical context (read with caution):
 
 1. `docs/history/AI_HANDOFF.md`

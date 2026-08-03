@@ -1,2 +1,0 @@
-class HumanValidationRequired(RuntimeError):
-    pass

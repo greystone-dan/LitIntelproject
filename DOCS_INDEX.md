@@ -25,12 +25,18 @@ Current operational sources of truth:
 
 Historical context (read with caution):
 
-1. `AI_HANDOFF.md`
-2. `AI_STAGE_SUMMARY_2026-07-31.md`
-3. `PROJECT_NOTES.md`
+1. `docs/history/AI_HANDOFF.md`
+2. `docs/history/AI_STAGE_SUMMARY_2026-07-31.md`
+3. `docs/history/PROJECT_NOTES.md`
 
 These files are useful for lineage and rationale but may contain stale counts,
 older endpoint lists, or outdated test totals.
+
+## Cleanup Status (2026-08-03)
+
+1. Historical handoff docs were moved from repository root to `docs/history/`.
+2. Local backup snapshots and runtime overnight state directories are now ignored for cleaner commits.
+3. Root documentation should prioritize `README.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

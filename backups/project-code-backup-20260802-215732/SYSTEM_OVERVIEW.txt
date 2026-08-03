@@ -1,0 +1,369 @@
+AI CASELIBRARY
+PLAIN-LANGUAGE SYSTEM OVERVIEW
+Current as of August 2, 2026
+
+Document role: live plain-language system state.
+For milestone deltas and recent endpoints, see CHANGELOG.md.
+For overnight operations, see OVERNIGHT.md.
+For document authority and patch checklist, see DOCS_INDEX.md.
+
+
+1. WHAT THE PROGRAM IS
+
+AI CaseLibrary is a Canadian legal research system. Its purpose is to collect and preserve court decisions and related legal materials, organize them in a consistent format, and make them easier to search and analyze.
+
+The system is being developed primarily for immigration litigation research. It can also store decisions from other areas of law because the Federal Court and other source datasets are not limited to immigration matters.
+
+The project follows one central rule:
+
+Preserve the source first, enrich it second, and keep every derived result traceable to its source.
+
+This means the original decision text and source metadata are retained before the system adds tags, chunks, citation links, or vector embeddings. Derived information does not replace the source material.
+
+AI CaseLibrary is a research aid. It does not provide legal advice. A2AJ and other third-party copies of decisions are unofficial and should be checked against an authoritative source when accuracy is important.
+
+
+2. WHAT THE SYSTEM IS INTENDED TO DO
+
+The system is designed to help a researcher:
+
+- Find cases by citation, title, court, date, source, party, language, or other metadata.
+- Search for cases that discuss the same legal ideas even when they use different wording.
+- Search inside long decisions and return the most relevant passages.
+- Identify legal subjects such as refugee protection, judicial review, PRRA, inadmissibility, detention, removal, procedural fairness, and standard of review.
+- Follow citation relationships between decisions.
+- Identify cases that are frequently cited or important within the stored citation network.
+- Preserve source URLs, licenses, hashes, retrieval dates, and source-specific metadata.
+- Keep legislation, policy, tribunal guidance, and other reference documents available beside the case collection without mixing those documents into the case database.
+- Eventually support citation-grounded research answers after retrieval quality has been properly tested.
+
+The system is not yet a finished legal research product. It has a working data, search, tagging, citation, and prototype exploration foundation. Full-corpus local semantic embedding and broad citation processing are still being completed and evaluated.
+
+
+3. THE THREE DATA LAYERS
+
+The project deliberately separates information into three layers.
+
+A. Source staging
+
+Raw downloads and collection results are stored before they are admitted to the main library. Staging uses SQLite databases, Parquet files, JSONL files, downloaded HTML, and downloaded PDFs.
+
+Staged records may be incomplete. For example, a collector may discover that an official decision exists without successfully obtaining its full text. A staged record is therefore not automatically treated as a complete case.
+
+B. Canonical case library
+
+PostgreSQL is the main case database. A canonical case is the system's normalized representation of one judicial decision. It contains the best available title, court, date, citation, text, source information, and enrichment data.
+
+If the same case appears from more than one source, the goal is to merge the sources around one canonical case rather than create unnecessary duplicates. Source records remain separately attributable so disagreements or later corrections can be examined.
+
+C. Reference document library
+
+Legislation, court rules, tribunal guidance, policy manuals, and government program materials are stored in a separate file-based reference library. They are useful for understanding the law but are not judicial decisions and are never inserted into the canonical case table.
+
+These three layers should not be added together as though every record were a different case. The Hugging Face staging archive, for example, overlaps substantially with cases already in PostgreSQL.
+
+
+4. CURRENT COLLECTION
+
+The canonical PostgreSQL library currently contains 35,902 cases.
+
+Of these, 35,851 came from A2AJ sources:
+
+- 35,813 Federal Court decisions
+- 20 Supreme Court of Canada decisions
+- 18 Federal Court of Appeal decisions
+
+The A2AJ Federal Court collection is not an all-IMM collection. Federal Court decisions include immigration and non-immigration subjects. The current evidence-based legal tagger classifies 28,517 A2AJ cases as immigration or refugee related. A smaller set of 300 cases was deliberately selected as an immigration-core collection.
+
+A2AJ did not preserve an explicit IMM court docket in the canonical metadata, so the system cannot prove that every content-classified immigration case had an IMM file number. Content tags are useful research signals, not substitutes for verified court metadata.
+
+Every canonical A2AJ case currently has:
+
+- Full decision text
+- Case title
+- Court and decision date
+- Citation
+- Source URL
+- Source metadata
+- Source provenance and license information
+- A full-text hash for identity and change detection
+- Stored cited-case and citing-case source fields where supplied by A2AJ
+- One or more searchable text chunks
+- Evidence-bearing legal tags
+
+The A2AJ decisions span June 1972 through July 2026. The canonical A2AJ collection contains 35,463 English decisions and 388 French decisions, with approximately 0.78 GiB of decision text.
+
+A separate Hugging Face/A2AJ staging archive contains 61,217 downloaded decisions:
+
+- Federal Court: 35,814
+- Refugee Protection Division: 6,729
+- Federal Court of Appeal: 7,785
+- Supreme Court of Canada: 10,889
+
+This 6.24 GiB SQLite archive preserves each complete source row, bilingual text fields, and metadata. It is a staging archive, not the production search database. The RPD, FCA, and SCC portions have not yet been broadly bridged into PostgreSQL. The bridge is designed to stream records, deduplicate them by citation and text hash, preserve provenance, and resume after interruption.
+
+
+5. TECHNICAL LAYOUT
+
+The main components are:
+
+FastAPI
+
+The Python FastAPI backend provides ingestion, case retrieval, search, inventory, citation, and prototype exploration endpoints. It also exposes interactive API documentation during local development.
+
+PostgreSQL
+
+PostgreSQL is the authoritative structured database. It stores canonical cases, source provenance, chunks, legal tags, citation edges, citation metrics, procedural histories, ingestion runs, and vector records.
+
+pgvector
+
+The pgvector extension stores embedding vectors and performs vector similarity searches. It supports both the older hosted embedding workflow and the newer model-specific local chunk embeddings.
+
+Alembic
+
+Alembic migrations track database schema changes. The current schema includes case provenance, chunks, citation networks, A2AJ mappings, Federal Court procedural histories, local embeddings, and versioned legal tags.
+
+Local files and SQLite
+
+Large source datasets and incomplete acquisition results are kept outside PostgreSQL until they pass the appropriate import checks. SQLite and JSONL make these collection jobs resumable and auditable without placing partial records directly into the case library.
+
+Python processing scripts
+
+Separate scripts perform ingestion, deduplication, legal tagging, chunking, citation extraction, local embedding, reference downloading, evaluation, and source-specific collection.
+
+
+6. WHAT HAPPENS TO EACH CASE
+
+Step 1: Acquire or receive the source record
+
+A decision may come from an A2AJ Parquet or Hugging Face dataset, an official court collector, a structured file, an API, or manual ingestion. The raw source record is preserved when the source format permits it.
+
+Step 2: Validate and normalize
+
+The importer checks that required information is present. It normalizes fields such as title, court, date, citation, language, URL, and full text. It computes a SHA-256 hash of the full text rather than trusting a supplied hash.
+
+Step 3: Deduplicate and create the canonical case
+
+The importer checks citation and full-text identity to avoid creating duplicate cases. It either creates a canonical case or merges source information with an existing case. Source-specific metadata remains attributable through provenance records.
+
+Step 4: Apply legal tags
+
+The deterministic ca_legal_v2 tagger scans the case text for defined legal concepts. Each tag includes a category, value, score, matched evidence, source, and taxonomy version.
+
+Tags cover areas such as immigration and refugee law, IRPA and IRPR provisions, RPD and RAD proceedings, PRRA, humanitarian and compassionate applications, CBSA activity, inadmissibility, detention, removals, judicial review, remedies, outcomes, international law, countries, and important authorities.
+
+All 35,902 canonical cases have completed this tagging stage. The database contains more than 770,000 evidence-bearing tags.
+
+Step 5: Split the decision into chunks
+
+Long decisions are divided into passages of approximately 6,000 characters. Adjacent passages overlap by 600 characters so important reasoning is not lost at a chunk boundary.
+
+Each chunk stores its parent case, sequence number, text, text hash, and estimated token count. Existing chunks are skipped on resume. Every canonical case now has chunks, with 168,282 chunks across the full library and 168,171 belonging to A2AJ cases.
+
+Step 6: Extract and resolve citations
+
+The citation processor scans decisions for Canadian case, neutral, reported, and statute citation patterns. It normalizes each citation and tries to match it to another canonical case.
+
+A citation row can record:
+
+- The case making the citation
+- The cited case, when found in the library
+- The citation as it appeared in the text
+- A normalized citation
+- The source chunk and text offsets
+- Whether the citation remains unresolved
+- Whether the edge came from local extraction or A2AJ source data
+
+After extraction, the system can calculate incoming citation count, outgoing citation count, and PageRank-style network importance. Citation processing is resumable and was still active at the time of this document. Intermediate counts should not be treated as final until the chunk-linked extraction and metrics stages finish.
+
+Step 7: Create local embeddings
+
+The local embedding process sends each text chunk through the BAAI BGE-M3 model running on the local computer. It stores one 1,024-dimensional vector for each chunk and model.
+
+A vector is a mathematical representation of the passage's meaning. It allows a query about an idea to locate relevant passages even when the exact query words do not appear in the decision.
+
+The process commits in small batches and skips chunk/model pairs that already have vectors, so it can resume safely. Local full-corpus embedding was queued behind citation processing at the time of this document.
+
+The older optional OpenAI workflow stores 1,536-dimensional embeddings for selected cases and chunks. That hosted workflow is separate, may incur cost, and is intentionally excluded from the safe overnight process.
+
+Step 8: Search and explore
+
+Once the relevant fields are available, users can search by metadata, keywords, citations, legal tags, or semantic similarity. Chunk search returns the passage that caused a case to match. Grouped search can return the strongest passages under the parent case.
+
+A prototype immigration explorer provides case browsing, topic filters, cohort summaries, and an interactive citation map for a 334-case immigration cohort.
+
+
+7. CURRENT SEARCH AND ANALYSIS CAPABILITIES
+
+The current backend can:
+
+- Retrieve an individual case by database ID.
+- Search by title, citation, court, jurisdiction, date, language, source, processing status, and source metadata.
+- Filter by cited or citing cases and citation-count ranges.
+- Expand common party and agency aliases such as Minister, IRCC, and CBSA.
+- Filter cases by evidence-bearing legal tags.
+- Perform metadata-first searches without calling an AI service.
+- Perform vector search where the required embeddings exist.
+- Return matching decision passages from embedded chunks.
+- Group matching passages by parent case.
+- Show outgoing, incoming, and passage-level citation information.
+- Expose citation metrics when metric processing is complete.
+- Browse the immigration prototype cohort and citation map.
+
+The broad corpus is fully stored, tagged, and chunked. Citation extraction is in progress and local BGE-M3 embeddings have not yet completed. As a result, metadata and tag search have full-corpus coverage, while local semantic search does not yet have full-corpus coverage.
+
+The system does not yet provide a production-ready research chat or broad-corpus RAG answer. That feature is intentionally deferred until retrieval and citation accuracy are measured against questions with known authorities.
+
+
+8. THE REFERENCE DOCUMENT LIBRARY
+
+The reference library contains legal and operational materials that help explain and apply the cases. Examples include legislation, tribunal guidance, court procedure, and immigration program documents.
+
+The current library contains 18 validated documents:
+
+- 5 source-native PDF files
+- 13 source-native HTML snapshots
+
+Every manifest record includes the publisher, title, original and final URL, source type, document date when known, jurisdiction, topics, local path, retrieval time, MIME type, byte count, SHA-256 checksum, status, and any failure reason.
+
+The manifest is the authoritative inventory. A CSV inventory provides a simpler filterable view.
+
+The downloader is deliberately strict. A document listed as a PDF must have both an appropriate PDF content type and a real PDF file signature. An HTML error page cannot be saved with a PDF extension and treated as a successful download. Downloads are written to temporary files, validated, and then atomically renamed. Valid existing checksums allow the process to resume without downloading the same document again.
+
+Reference documents remain separate from cases. They may later be chunked and searched through a reference-specific workflow, but they must retain their different document type and provenance.
+
+
+9. HOW CASE COLLECTION AND SCRAPING WORK
+
+The project does not use one universal scraper. Each source has different formats, permissions, limits, and failure modes, so each collector has a source-specific procedure.
+
+A2AJ and Hugging Face datasets
+
+A2AJ datasets are downloaded as structured bulk data rather than scraped page by page. The canlaw staging package downloads selected court datasets into SQLite and preserves normalized fields, raw payloads, and metadata. A separate bridge controls admission into PostgreSQL.
+
+Bulk ingestion is resumable and bounded. It supports dry runs and limited test batches before a large import. The bridge must not run at the same time as another bulk PostgreSQL writer.
+
+Official Federal Court decision discovery
+
+The official Federal Court decision importer has two distinct phases, even though one command can run them in sequence.
+
+Phase 1 is discovery. The collector searches the official Federal Court decision index in monthly date windows and identifies the item page for each matching IMM decision. Discovery establishes that a possible decision record exists and gives the system an official identifier and item URL. It does not, by itself, capture the judgment text or PDF.
+
+Phase 2 is decision ingestion. For each newly discovered item URL, the collector opens the item page, extracts available case metadata and document links, requests the judgment page, downloads a PDF when one is offered, and stores the completed material in the Federal Court staging database. A later explicit bridge is still required before suitable staged decisions become canonical PostgreSQL cases.
+
+The 830 official identifiers currently stored are a partial result from an earlier discovery pass. They are not evidence that discovery covered the full requested date range, and they are not 830 successfully captured judgments. At present those records contain no captured full text, document URLs, or PDFs.
+
+Discovery has not successfully resumed. The overnight resume did start the phase 1 job again, but all 20 monthly index windows from January 2025 through August 2, 2026 failed at the first index request with HTTP 403 responses. The job then stopped before it could discover new item URLs or run phase 2 for new decisions.
+
+The discovery phase therefore still needs to be resumed after the official index request procedure is repaired or the source begins accepting the compliant requests again. Existing identifiers will remain in SQLite and will be skipped when appropriate, so a successful rerun can continue collection without discarding earlier work. Phase 2 must then be rerun for newly discovered identifiers and for existing staged identifiers that still lack judgment content. A failed discovery run must never be reported as completed ingestion.
+
+Federal Court portal collection
+
+The portal collector searches court file numbers by prefixes such as IMM. It can page through listings, open detail pages, and emit import-ready structured rows when enough information is available.
+
+It observes a robots.txt safety check, spaces requests, retries transient failures with backoff, writes incremental JSONL output, deduplicates previously seen file numbers, and saves page checkpoints. It can rotate through a bounded set of prefixes on scheduled runs rather than attempting the entire portal every time.
+
+Portal listing records, detail records, and import-ready records are explicitly distinguished. A listing result alone is not treated as a complete judicial decision.
+
+Federal Court procedural history
+
+The procedural-history collector retrieves docket activity for known IMM file numbers. It uses request pacing and retries and commits records incrementally. The dedicated table currently contains 17,240 procedural-history records.
+
+Procedural history is related to a court file but is not the judgment itself. It is kept in its own table with fields such as leave result, judicial-review result, status, activity dates, entries, and conflict flags.
+
+CanLII
+
+CanLII collection is excluded from the current automated profiles. It has not been a reliable acquisition route for this project and should not be represented as an active source. No collector should bypass access controls or source terms.
+
+Staging before import
+
+Network collectors write to SQLite or JSONL first. Staged data is imported only through an explicit normalization and provenance-preserving bridge. This prevents incomplete network responses, listing-only records, and transient error pages from silently becoming canonical cases.
+
+
+10. SAFE OVERNIGHT PROCESSING
+
+The overnight runner performs long jobs sequentially so multiple bulk writers do not compete for PostgreSQL.
+
+The safe profile runs:
+
+1. Official Federal Court phase 1 index discovery, followed by phase 2 decision ingestion when discovery succeeds
+2. Federal Court portal collection
+3. IMM procedural-history collection
+4. Reference-library verification
+5. Legal tagging
+6. Case chunking
+7. Citation extraction and citation metrics
+8. Local BGE-M3 chunk embedding
+
+The runner provides:
+
+- An exclusive process lock
+- A timestamped run directory
+- One log for each job
+- An atomic state file
+- Preflight checks
+- A continue-on-error mode for independent jobs
+- Resume behavior that skips completed jobs and retries failed or interrupted jobs
+
+The safe profile does not use CanLII, Copilot, OpenAI, Anthropic, or another paid hosted AI service. Local BGE-M3 normally runs on CPU. Network collection and database enrichment remain sequential so a partially unavailable source does not corrupt unrelated work.
+
+
+11. RELIABILITY AND DATA-INTEGRITY CONTROLS
+
+The system uses several controls to protect the collection:
+
+- Citation and full-text-hash duplicate checks
+- Source-specific provenance records
+- SHA-256 hashes for decisions, chunks, and reference files
+- Atomic writes for state and reference downloads
+- Database transactions and bounded commit batches
+- Keyset pagination for large database jobs
+- Checkpoint and resume support for collectors
+- Model names and dimensions stored with local vectors
+- Taxonomy versions stored with legal tags
+- Separate records for acquisition runs and their outcomes
+- Tests for ingestion, collectors, citation processing, tagging, chunking, retrieval, and overnight orchestration
+
+The latest full automated regression baseline is 98 passing tests.
+
+
+12. IMPORTANT LIMITATIONS
+
+The most important current limitations are:
+
+- The 35,813 A2AJ Federal Court decisions are not all IMM decisions.
+- A2AJ canonical metadata does not include verified IMM docket numbers.
+- A2AJ texts are unofficial copies and may contain source or extraction errors.
+- The RPD, FCA, and SCC staging collections are not yet broadly imported into PostgreSQL.
+- Official Federal Court discovery is incomplete and its latest 20 monthly index windows all failed with HTTP 403 responses.
+- The 830 previously discovered Federal Court identifiers have not yet produced captured full text, document URLs, or PDFs through phase 2.
+- Citation extraction and metrics are still completing across the broad corpus.
+- Local BGE-M3 vectors are still pending for the full chunk collection.
+- Semantic search quality has not yet been fully benchmarked against human-reviewed expected authorities.
+- The prototype citation graph can depend on exported artifacts that must be regenerated when its cohort changes.
+- A production-ready citation-grounded RAG answer system has not yet been implemented.
+- Generated tags, similarity scores, and graph rankings are research signals, not legal conclusions.
+
+
+13. NEAR-TERM DIRECTION
+
+The next practical goals are:
+
+- Repair and resume phase 1 official Federal Court discovery, then run phase 2 ingestion for newly discovered and incomplete staged identifiers.
+- Finish citation extraction, chunk-level citation links, and graph metrics.
+- Complete local BGE-M3 embedding for the canonical case chunks.
+- Benchmark retrieval against research questions with known relevant cases.
+- Improve grouped passage results and hybrid keyword/semantic ranking.
+- Define and test the canonical bridge for the remaining staged RPD, FCA, and SCC decisions.
+- Improve official Federal Court document capture without weakening source validation or access safeguards.
+- Keep prototype graph data synchronized with live database state.
+- Add grounded research answers only after retrieval and citation reliability meet measured standards.
+
+
+14. SUMMARY
+
+AI CaseLibrary is a provenance-first Canadian case-law research platform. It has moved beyond a small search demonstration into a broad local corpus with full decision text, structured metadata, legal tags, chunks, citation infrastructure, source staging, and a separate official reference library.
+
+Its strongest completed capabilities are preservation, metadata search, legal classification, full-corpus chunking, provenance tracking, and resumable operations. Citation processing is actively expanding the case network, and local embeddings will provide broad passage-level semantic search after that stage completes.
+
+The project is designed to be cautious about what it claims. A discovered record is not called a captured judgment, a Federal Court decision is not automatically called an IMM case, a third-party copy is not called official, and generated research signals are not presented as legal advice.

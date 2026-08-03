@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "run_id": "20260801-234642",
+  "created_at": "2026-08-02T03:46:42.224005+00:00",
+  "updated_at": "2026-08-02T10:31:01.111782+00:00",
+  "status": "running",
+  "continue_on_error": true,
+  "selected_jobs": [
+    "fc_decisions",
+    "fc_portal",
+    "fc_history",
+    "reference_verify",
+    "tag_cases",
+    "chunk_cases",
+    "citations",
+    "local_embeddings"
+  ],
+  "jobs": {
+    "fc_decisions": {
+      "status": "failed",
+      "attempts": 2,
+      "started_at": "2026-08-02T10:28:42.926068+00:00",
+      "finished_at": "2026-08-02T10:30:58.997738+00:00",
+      "exit_code": 1,
+      "log": "fc_decisions.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "-m",
+        "fc_ingest",
+        "--db-path",
+        "data/raw/fc/fc_decisions.db",
+        "--monthly",
+        "--timeout",
+        "60",
+        "--retries",
+        "4",
+        "--item-delay-seconds",
+        "2",
+        "--page-delay-seconds",
+        "1.5"
+      ]
+    },
+    "fc_portal": {
+      "status": "completed",
+      "attempts": 1,
+      "started_at": "2026-08-02T03:46:51.094562+00:00",
+      "finished_at": "2026-08-02T03:46:57.586189+00:00",
+      "exit_code": 0,
+      "log": "fc_portal.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/fc_portal_collector.py",
+        "--prefixes",
+        "IMM",
+        "--delay-ms",
+        "1500",
+        "--expand-details",
+        "--emit-import-ready"
+      ]
+    },
+    "fc_history": {
+      "status": "completed",
+      "attempts": 2,
+      "started_at": "2026-08-02T10:30:59.000747+00:00",
+      "finished_at": "2026-08-02T10:31:01.111782+00:00",
+      "exit_code": 0,
+      "log": "fc_history.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/fetch_fc_procedural_history.py",
+        "--from-prototype",
+        "--delay-ms",
+        "1200"
+      ]
+    },
+    "reference_verify": {
+      "status": "completed",
+      "attempts": 1,
+      "started_at": "2026-08-02T03:46:59.524966+00:00",
+      "finished_at": "2026-08-02T03:47:00.021514+00:00",
+      "exit_code": 0,
+      "log": "reference_verify.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/download_reference_library.py",
+        "--timeout",
+        "90"
+      ]
+    },
+    "tag_cases": {
+      "status": "completed",
+      "attempts": 1,
+      "started_at": "2026-08-02T03:47:00.025255+00:00",
+      "finished_at": "2026-08-02T04:45:46.663636+00:00",
+      "exit_code": 0,
+      "log": "tag_cases.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/tag_cases.py",
+        "--batch-size",
+        "250"
+      ]
+    },
+    "chunk_cases": {
+      "status": "completed",
+      "attempts": 1,
+      "started_at": "2026-08-02T04:45:46.667637+00:00",
+      "finished_at": "2026-08-02T04:47:13.464557+00:00",
+      "exit_code": 0,
+      "log": "chunk_cases.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/chunk_cases.py",
+        "--batch-size",
+        "50"
+      ]
+    },
+    "citations": {
+      "status": "running",
+      "attempts": 2,
+      "started_at": "2026-08-02T10:31:01.111782+00:00",
+      "finished_at": null,
+      "exit_code": null,
+      "log": "citations.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.extract_citation_network",
+        "--cases",
+        "--chunks",
+        "--metrics",
+        "--batch-size",
+        "500"
+      ]
+    },
+    "local_embeddings": {
+      "status": "failed",
+      "attempts": 1,
+      "started_at": "2026-08-02T04:47:13.618479+00:00",
+      "finished_at": "2026-08-02T04:47:14.284984+00:00",
+      "exit_code": 1,
+      "log": "local_embeddings.log",
+      "command": [
+        "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\venv\\Scripts\\python.exe",
+        "scripts/embed_local_chunks.py",
+        "--batch-size",
+        "4"
+      ]
+    }
+  }
+}

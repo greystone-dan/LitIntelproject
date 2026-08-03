@@ -1,0 +1,37 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Logs and local data
+logs/
+*.log
+.cache/
+uploads/
+data/raw/
+data/processed/
+canlaw.db
+canlaw.db-journal
+canlaw.db-wal
+canlaw.db-shm
+
+# IDE files
+.vscode/
+.idea/
+
+# Local large archives
+backups/AI-CaseLibrary-backup-*.zip

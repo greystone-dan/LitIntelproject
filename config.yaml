@@ -1,0 +1,91 @@
+# ============================================================
+# config.yaml — AI-Friendly Dev Environment
+# Static, non-secret configuration. Loaded at startup.
+# Secret values belong in .env — never put them here.
+# ============================================================
+
+app:
+  name: "MyAIProject"
+  version: "0.1.0"
+  description: "AI-powered application with pgvector semantic search"
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1          # Increase for production
+  reload: true        # Hot-reload in development; set false in production
+  timeout: 60
+
+database:
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 1800
+  echo_sql: false     # Set true to log all SQL queries during debugging
+
+pgvector:
+  dimension: 1536     # Match VECTOR_DIMENSION in .env
+  index_type: ivfflat # ivfflat (faster insert) or hnsw (faster query)
+  ivfflat_lists: 100  # Tune: ~sqrt(number of rows)
+  hnsw_m: 16
+  hnsw_ef_construction: 64
+  similarity_metric: cosine  # cosine | l2 | inner_product
+
+ai:
+  default_provider: openai
+  temperature: 0.2
+  max_tokens: 2048
+  request_timeout: 30   # seconds
+  retry_attempts: 3
+  retry_backoff: 2.0    # exponential backoff multiplier
+
+  embeddings:
+    model: text-embedding-3-small
+    batch_size: 100     # Number of texts embedded per API call
+    cache_enabled: true
+
+  rag:
+    top_k: 5            # Number of vector search results to inject into prompt
+    score_threshold: 0.75  # Minimum similarity score (0–1) to include a result
+
+  rollout:
+    semantic_enabled: true
+    hybrid_enabled: true
+    local_semantic_enabled: false
+    embed_on_ingest_enabled: false
+
+logging:
+  level: DEBUG          # DEBUG | INFO | WARNING | ERROR
+  format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+  file: "logs/app.log"
+  max_bytes: 10485760   # 10 MB
+  backup_count: 5
+
+security:
+  bcrypt_rounds: 12
+  token_expire_minutes: 60
+  cors_max_age: 600
+
+copilot:
+  # Files and folders Copilot should index for context
+  workspace_root: "."
+  include_patterns:
+    - "**/*.py"
+    - "**/*.yaml"
+    - "**/*.yml"
+    - "**/*.md"
+    - "**/*.toml"
+    - "**/*.txt"
+  exclude_patterns:
+    - "**/__pycache__/**"
+    - "**/.venv/**"
+    - "**/node_modules/**"
+    - "**/.git/**"
+    - "**/logs/**"
+    - "**/*.pyc"
+
+paths:
+  logs: "logs/"
+  uploads: "uploads/"
+  cache: ".cache/"
+  migrations: "alembic/versions/"

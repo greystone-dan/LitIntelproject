@@ -72,6 +72,16 @@ Primary success criteria for this phase:
 - Paragraph pinpoints (for example, "at para. 10" / "at paras. 37 and 44") are preserved with the citation context.
 - Statute/instrument and metadata layers remain separate from case-citation QA decisions.
 
+## Legacy Separation
+
+To keep the project less scattered, legacy materials are explicitly separated:
+
+- `legacy/` for archived artifacts and legacy workflow references
+- `backend/legacy/` for modules intentionally excluded from active runtime paths
+- `docs/history/` for historical implementation notes
+
+Default active path remains Citation Pass and deterministic extraction hardening.
+
 ## Tech Stack
 
 - Python 3.11+

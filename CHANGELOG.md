@@ -19,6 +19,16 @@ strict execution order.
 - Repository checkpoint prepared for push from `main` to keep all work up to
 	this point synchronized on GitHub.
 
+## 2026-08-10 - Legacy system folder consolidation
+
+- Added a top-level `legacy/` archive zone to reduce root-level clutter and
+	make active-vs-legacy boundaries explicit.
+- Moved `Case Law Bookmarks - August 2026.docx` into
+	`legacy/artifacts/Case Law Bookmarks - August 2026.docx`.
+- Added `legacy/README.md` with rules for what belongs in legacy paths.
+- Updated `README.md` and `DOCS_INDEX.md` to point active work to Citation Pass
+	and classify legacy paths as reference-only.
+
 ## 2026-08-07 - Deterministic layered extraction review
 
 - Hardened the case-only citation layer for full case anchors, grounded

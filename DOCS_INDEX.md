@@ -26,6 +26,19 @@ Primary explainer docs that must stay aligned:
 3. `SYSTEM_OVERVIEW.txt` (plain-language status snapshot)
 4. `CHANGELOG.md` (what changed and verification notes)
 
+## Active Vs Legacy Locations
+
+Active implementation and operations:
+
+1. Root docs (`README.md`, `AI_HANDOFF.md`, `CHANGELOG.md`, `SYSTEM_OVERVIEW.txt`)
+2. Active backend modules under `backend/` (excluding `backend/legacy/`)
+
+Legacy/reference-only areas:
+
+1. `legacy/` (archived artifacts and legacy workflow references)
+2. `backend/legacy/` (deprecated or parked runtime modules)
+3. `docs/history/` (historical notes and prior snapshots)
+
 ## Documentation Authority
 
 Current operational sources of truth:

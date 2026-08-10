@@ -7,6 +7,9 @@ case, category, normalized value, confidence score, matched evidence, derivation
 source, and taxonomy version. `case_tagging_status` records completed cases even
 when no tags were found, making batch runs resumable.
 
+As of 2026-08-04, the live corpus is tagged at scale: all 35,902 cases have
+`case_tagging_status` rows and 770,395 tags are stored across the corpus.
+
 The taxonomy does not treat a text match as a legal conclusion. For example, an
 `organization=ipob` tag means the decision discusses IPOB, not that the Court made
 any particular finding about that organization. Evidence must be shown with tags
@@ -67,8 +70,8 @@ python scripts/tag_cases.py --batch-size 100 --limit 1000
 Use `--court`, `--source-type`, or `--retag` to scope or deliberately rebuild the
 current version. Bulk tagging should not run concurrently with ingestion-heavy jobs.
 
-As of 2026-08-01, no cases are recorded complete under `ca_legal_v2`; the safe
-overnight profile runs the full resumable tag job before chunking and embedding:
+The overnight profile remains resumable and safe for ongoing ingestion or rebuilds;
+it still runs tagging before chunking and embedding so new content stays consistent:
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --continue-on-error

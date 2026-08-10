@@ -1,0 +1,67 @@
+[
+  {
+    "id": "mixed_basic",
+    "text": "The panel applied 2024 FC 100 after reviewing IRPA s. 72(1).",
+    "expected": [
+      {
+        "kind": "neutral",
+        "citation_text": "2024 FC 100",
+        "normalized_citation": "2024 FC 100",
+        "offset_start": 18,
+        "offset_end": 29
+      },
+      {
+        "kind": "statute",
+        "citation_text": "IRPA s. 72(1)",
+        "normalized_citation": "IRPA s. 72(1)",
+        "offset_start": 46,
+        "offset_end": 59
+      }
+    ]
+  },
+  {
+    "id": "overlap_case_beats_neutral",
+    "text": "Brown v. Canada, 2019 FC 12 was followed.",
+    "expected": [
+      {
+        "kind": "case",
+        "citation_text": "Brown v. Canada, 2019 FC 12",
+        "normalized_citation": "Brown v. Canada, 2019 FC 12",
+        "offset_start": 0,
+        "offset_end": 27
+      }
+    ]
+  },
+  {
+    "id": "multiple_neutrals_and_statute",
+    "text": "Compare 2021 SCC 7 with 2021 FC 70 and IRPA s. 34(1).",
+    "expected": [
+      {
+        "kind": "neutral",
+        "citation_text": "2021 SCC 7",
+        "normalized_citation": "2021 SCC 7",
+        "offset_start": 8,
+        "offset_end": 18
+      },
+      {
+        "kind": "neutral",
+        "citation_text": "2021 FC 70",
+        "normalized_citation": "2021 FC 70",
+        "offset_start": 24,
+        "offset_end": 34
+      },
+      {
+        "kind": "statute",
+        "citation_text": "IRPA s. 34(1)",
+        "normalized_citation": "IRPA s. 34(1)",
+        "offset_start": 39,
+        "offset_end": 52
+      }
+    ]
+  },
+  {
+    "id": "no_citations",
+    "text": "No citation appears in this paragraph.",
+    "expected": []
+  }
+]

@@ -55,6 +55,10 @@ from .case_reader import case_reader_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
+from .citations import extract_case_citation_matches
+from .citations import extract_statute_reference_matches
+from .citations import extract_raw_citation_matches
+from .metadata import extract_metadata_matches
 from .database import (
 	Case,
 	CaseChunk,
@@ -64,6 +68,7 @@ from .database import (
 	Citation,
 	CitationMetrics,
 	IngestionRun,
+	StatuteReference,
 	get_db,
 )
 from .embedding_providers import SentenceTransformerEmbeddingProvider
@@ -72,9 +77,15 @@ from .ingestion import merge_case_record
 from .models import (
 	CaseIngestRequest,
 	CaseMergeResponse,
+	CaseReaderChunkResponse,
+	CaseReaderCitationResponse,
+	CaseReaderDataResponse,
+	CaseReaderMetadataFieldResponse,
+	CaseReaderTagResponse,
 	CaseResponse,
 	CaseSearchRequest,
 	CaseSearchResponse,
+	CaseSourceResponse,
 	InventoryResponse,
 	LocalChunkSearchRequest,
 	A2AJCaseMapResponse,
@@ -122,8 +133,66 @@ router = APIRouter(tags=["cases"])
 EMBEDDING_DIMENSIONS = 1536
 EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 PROTOTYPE_SET_NAME = "immigration_334_v1"
+
+_STATUTE_LIKE_RE = re.compile(r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE)
+
+
+def _is_statute_like_label(value: str | None) -> bool:
+	text = (value or "").strip()
+	return bool(_STATUTE_LIKE_RE.search(text))
 PROTOTYPE_IDS_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "prototype_case_ids_v1.csv"
 PROTOTYPE_EDGES_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "reports" / "prototype_v1_citation_edges.csv"
+FC_PRIORITY_CASE_MAP_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "fc_priority_seed_case_map.csv"
+
+
+@lru_cache(maxsize=4)
+def _load_review_case_ids(csv_path: str) -> list[int]:
+	path = Path(csv_path)
+	if not path.exists():
+		return []
+	case_ids: list[int] = []
+	seen_ids: set[int] = set()
+	with path.open("r", encoding="utf-8-sig", newline="") as handle:
+		reader = csv.DictReader(handle)
+		for row in reader:
+			if str(row.get("status") or "") != "matched":
+				continue
+			raw = str(row.get("local_case_id") or "").strip()
+			if raw.isdigit():
+				case_id = int(raw)
+				if case_id in seen_ids:
+					continue
+				seen_ids.add(case_id)
+				case_ids.append(case_id)
+	return case_ids
+
+
+def _review_fc_priority_cases(db: Session, limit: int) -> list[dict[str, Any]]:
+	case_ids = _load_review_case_ids(str(FC_PRIORITY_CASE_MAP_CSV))
+	if not case_ids:
+		return []
+	rows = list(db.scalars(select(Case).where(Case.id.in_(case_ids))))
+	rows_by_id = {row.id: row for row in rows}
+	ordered_rows = [rows_by_id[case_id] for case_id in case_ids if case_id in rows_by_id]
+	if limit > 0:
+		ordered_rows = ordered_rows[:limit]
+	metrics_by_case = {
+		row.case_id: row
+		for row in db.scalars(select(CitationMetrics).where(CitationMetrics.case_id.in_([case.id for case in ordered_rows])))
+	}
+	return [
+		{
+			"case_id": case.id,
+			"title": case.title,
+			"citation": case.citation,
+			"court": case.court,
+			"date": case.date,
+			"in_degree": int(getattr(metrics_by_case.get(case.id), "in_degree", 0) or 0),
+			"out_degree": int(getattr(metrics_by_case.get(case.id), "out_degree", 0) or 0),
+			"pagerank": getattr(metrics_by_case.get(case.id), "pagerank", None),
+		}
+		for case in ordered_rows
+	]
 
 
 def _env_bool(name: str) -> bool | None:
@@ -1875,6 +1944,10 @@ def _embed(text: str) -> list[float]:
 	return embedding
 
 
+def _normalize_whitespace(value: str) -> str:
+	return " ".join((value or "").split()).strip()
+
+
 def _extract_legal_citations(text: str | None) -> list[str]:
 	if not text or get_citations is None:
 		return []
@@ -1897,6 +1970,178 @@ def _extract_legal_citations(text: str | None) -> list[str]:
 			seen.add(normalized)
 			results.append(normalized)
 	return results
+
+
+def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
+	text_parts: list[str] = []
+	if case.full_text:
+		text_parts.append(case.full_text)
+	if case.summary:
+		text_parts.append(case.summary)
+	for chunk in chunks:
+		if chunk.text:
+			text_parts.append(chunk.text)
+	content = "\n".join(text_parts)
+	if not content.strip():
+		return []
+
+	catalog: list[tuple[str, str, str]] = [
+		("forum", "rad", r"\bRAD\b"),
+		("forum", "rpd", r"\bRPD\b"),
+		("forum", "irb", r"\bIRB\b"),
+		("statute", "irpa", r"\bIRPA\b"),
+		("statute", "irpr", r"\bIRPR\b"),
+		("analysis", "ifa", r"\bIFA\b"),
+		("analysis", "adr", r"\bADR\b|\bAdministrative\s+Deferral\s+of\s+Removal\b"),
+	]
+
+	tags: list[CaseReaderTagResponse] = []
+	seen_values: set[str] = set()
+	for category, value, pattern in catalog:
+		match = re.search(pattern, content, flags=re.IGNORECASE)
+		if match is None:
+			continue
+		key = f"{category}:{value}"
+		if key in seen_values:
+			continue
+		seen_values.add(key)
+		evidence = content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip()
+		tags.append(
+			CaseReaderTagResponse(
+				category=category,
+				value=value,
+				score=0.9,
+				evidence=evidence,
+				source="reader_keyword",
+				taxonomy_version="reader_v1",
+			)
+		)
+
+	section_hits: dict[str, str] = {}
+
+	def add_section_tag(tag_value: str, evidence: str) -> None:
+		if not tag_value or tag_value in section_hits:
+			return
+		section_hits[tag_value] = evidence
+
+	for match in re.finditer(r"\b(?:IRPA|IRPR)\s+(?:s\.|section)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)", content, flags=re.IGNORECASE):
+		section = _normalize_whitespace(match.group(1))
+		prefix = "irpr" if re.search(r"\bIRPR\b", match.group(0), flags=re.IGNORECASE) else "irpa"
+		add_section_tag(f"{prefix}_s_{section}", content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip())
+		if len(section_hits) >= 20:
+			break
+
+	for match in re.finditer(r"\b(?:ss?\.|sections?|subsections?|paragraphs?)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*(?:\s*(?:to|-|and|or)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)*)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b", content, flags=re.IGNORECASE):
+		sections = match.group(1)
+		law = match.group(2)
+		prefix = "irpr" if re.search(r"\bIRPR\b", law, flags=re.IGNORECASE) else "charter" if re.search(r"\bCharter\b", law, flags=re.IGNORECASE) else "criminal_code" if re.search(r"\bCriminal Code\b", law, flags=re.IGNORECASE) else "irpa"
+		for section_match in re.finditer(r"\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", sections):
+			section = _normalize_whitespace(section_match.group(0))
+			add_section_tag(f"{prefix}_s_{section}", content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip())
+		if len(section_hits) >= 20:
+			break
+
+	for section, evidence in section_hits.items():
+		tags.append(
+			CaseReaderTagResponse(
+				category="statute_section",
+				value=section,
+				score=0.85,
+				evidence=evidence,
+				source="reader_keyword",
+				taxonomy_version="reader_v1",
+			)
+		)
+
+	return tags
+
+
+def _build_reader_extracted_metadata(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderMetadataFieldResponse]:
+	text_parts: list[str] = []
+	if case.full_text:
+		text_parts.append(case.full_text)
+	if case.summary:
+		text_parts.append(case.summary)
+	for chunk in chunks[:2]:
+		if chunk.text:
+			text_parts.append(chunk.text)
+	content = "\n".join(text_parts)
+
+	rows: list[CaseReaderMetadataFieldResponse] = []
+	seen: set[tuple[str, str]] = set()
+
+	def add_row(key: str, value: str | None, evidence: str | None = None, source: str = "reader_extracted") -> None:
+		if value is None:
+			return
+		clean = _normalize_whitespace(value)
+		if not clean:
+			return
+		pair = (key, clean)
+		if pair in seen:
+			return
+		seen.add(pair)
+		rows.append(CaseReaderMetadataFieldResponse(key=key, value=clean, source=source, evidence=evidence))
+
+	add_row("decision_date", str(case.date), source="canonical_case")
+	if hasattr(case.date, "day") and hasattr(case.date, "strftime"):
+		add_row("decision_date_written", f"{case.date.strftime('%B')} {case.date.day}, {case.date.strftime('%Y')}", source="canonical_case")
+
+	for match in re.finditer(r"\bIMM[- ]?\d{1,6}-\d{2}\b", content, flags=re.IGNORECASE):
+		add_row("imm_number", match.group(0).upper().replace(" ", "-"), evidence=match.group(0))
+
+	match = re.search(r"\b([A-Z][a-z]+,\s+[A-Z][A-Za-z ]+),\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}\b", content)
+	if match is not None:
+		add_row("location", match.group(1), evidence=match.group(0))
+
+	match = re.search(
+		r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+(?:19|20)\d{2}\b",
+		content,
+		flags=re.IGNORECASE,
+	)
+	if match is not None:
+		add_row("decision_date_written", match.group(0), evidence=match.group(0))
+
+	match = re.search(r"\bDate\s*[:\-]?\s*((?:19|20)\d{2}[-/](?:0[1-9]|1[0-2])[-/](?:0[1-9]|[12]\d|3[01]))", content, flags=re.IGNORECASE)
+	if match is not None:
+		add_row("decision_date_text", match.group(1).replace("/", "-"), evidence=match.group(0))
+
+	match = re.search(r"(The\s+Honourable[^\n\r]{0,100}?Justice\s+[A-Z][A-Za-z'\-]+)", content, flags=re.IGNORECASE)
+	if match is not None:
+		add_row("judge", match.group(1), evidence=match.group(0))
+
+	match = re.search(r"\bApplicants\s+and\s+(.{8,180}?)\s+Respondent\b", content, flags=re.IGNORECASE | re.DOTALL)
+	if match is None:
+		match = re.search(r"\band\s+(.{8,180}?)\s+Respondent\b", content, flags=re.IGNORECASE | re.DOTALL)
+	if match is not None:
+		candidate = _normalize_whitespace(match.group(1))
+		candidate = re.sub(r"^[^A-Za-z]+", "", candidate)
+		candidate = re.sub(r"[^A-Za-z)\]'.\- ]+$", "", candidate)
+		if candidate.isupper():
+			candidate = candidate.title()
+		add_row("respondent", candidate, evidence=_normalize_whitespace(match.group(0)))
+
+	minister_match = re.search(
+		r"\bThe\s+Minister\s+of\s+Citizenship\s+and\s+Immigration\b",
+		content,
+		flags=re.IGNORECASE,
+	)
+	if minister_match is not None:
+		add_row(
+			"respondent",
+			"The Minister of Citizenship and Immigration",
+			evidence=minister_match.group(0),
+		)
+
+	match = re.search(r"\bcitizens\s+of\s+([A-Z][A-Za-z'\- ]{2,60})\b", content, flags=re.IGNORECASE)
+	if match is not None:
+		add_row("country", match.group(1).title(), evidence=match.group(0))
+
+	for match in re.finditer(r"\[(\d+)\]", content):
+		add_row("paragraph_marker", match.group(1), evidence=match.group(0), source="reader_structure")
+		if len([row for row in rows if row.key == "paragraph_marker"]) >= 12:
+			break
+
+	return rows
 
 
 def _party_filter_terms(filters: list[str]) -> list[str]:
@@ -2280,6 +2525,163 @@ def get_case(case_id: int, db: Session = Depends(get_db)) -> Case:
 	return case
 
 
+@router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
+def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
+	case = _get_case_or_404(case_id, db)
+
+	sources = list(
+		db.scalars(
+			select(CaseSource)
+			.where(CaseSource.case_id == case_id)
+			.order_by(CaseSource.is_primary.desc(), CaseSource.id)
+		)
+	)
+	chunks = list(
+		db.scalars(
+			select(CaseChunk)
+			.where(CaseChunk.case_id == case_id, CaseChunk.chunk_set.in_(["section", "legacy"]))
+			.order_by(CaseChunk.chunk_index)
+		)
+	)
+	if chunks:
+		if any((chunk.chunk_set or "") == "section" for chunk in chunks):
+			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "section"]
+		elif any((chunk.chunk_set or "") == "legacy" for chunk in chunks):
+			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "legacy"]
+	tags = list(
+		db.scalars(
+			select(CaseTag)
+			.where(CaseTag.case_id == case_id)
+			.order_by(CaseTag.category, CaseTag.value)
+		)
+	)
+	inferred_tags = _build_reader_inferred_tags(case, chunks)
+	extracted_metadata = _build_reader_extracted_metadata(case, chunks)
+
+	target_case = Case.__table__.alias("target_case")
+	citation_rows = db.execute(
+		select(
+			Citation,
+			target_case.c.id,
+			target_case.c.title,
+			target_case.c.citation,
+		)
+		.outerjoin(target_case, target_case.c.id == Citation.target_case_id)
+		.where(Citation.source_case_id == case_id)
+		.order_by(Citation.chunk_id, Citation.offset_start, Citation.id)
+	)
+
+	citation_responses = [
+		CaseReaderCitationResponse(
+			id=citation.id,
+			chunk_id=citation.chunk_id,
+			offset_start=citation.offset_start,
+			offset_end=citation.offset_end,
+			citation_text=citation.citation_text,
+			normalized_citation=citation.normalized_citation,
+			target_case_id=target_case_id,
+			target_title=target_title,
+			target_citation=target_citation,
+			provenance=citation.provenance,
+			unresolved=citation.unresolved,
+		)
+		for citation, target_case_id, target_title, target_citation in citation_rows
+	]
+
+	selected_chunk_ids = {chunk.id for chunk in chunks if chunk.id is not None}
+	if selected_chunk_ids:
+		citation_responses = [
+			row
+			for row in citation_responses
+			if row.chunk_id is None or row.chunk_id in selected_chunk_ids
+		]
+
+	has_statute_like = any(
+		_is_statute_like_label(row.target_citation)
+		or _is_statute_like_label(row.normalized_citation)
+		or _is_statute_like_label(row.citation_text)
+		for row in citation_responses
+	)
+
+	chunk_ids_with_rows = {row.chunk_id for row in citation_responses if row.chunk_id in selected_chunk_ids}
+	if selected_chunk_ids:
+		seen_live: set[tuple[int, int, int, str]] = set()
+		for row in citation_responses:
+			if row.chunk_id is None or row.offset_start is None or row.offset_end is None:
+				continue
+			seen_live.add(
+				(
+					row.chunk_id,
+					int(row.offset_start),
+					int(row.offset_end),
+					str(row.normalized_citation or row.citation_text or "").strip().lower(),
+				)
+			)
+
+		next_live_id = -1
+		process_all_chunks = (not chunk_ids_with_rows) or (not has_statute_like)
+		for chunk in chunks:
+			if chunk.id is None:
+				continue
+			if not process_all_chunks and chunk.id in chunk_ids_with_rows:
+				# Existing rows are present for this chunk, but we still run extraction
+				# and only append rows that are truly missing from payload spans.
+				pass
+			chunk_text = chunk.text or ""
+			if not chunk_text.strip():
+				continue
+			for raw in extract_raw_citation_matches(chunk_text):
+				if raw.kind not in {"case", "case_short", "case_name", "neutral", "statute", "instrument"}:
+					continue
+				normalized_key = str(raw.normalized_citation or raw.citation_text or "").strip().lower()
+				key = (chunk.id, raw.offset_start, raw.offset_end, normalized_key)
+				if key in seen_live:
+					continue
+				seen_live.add(key)
+				citation_responses.append(
+					CaseReaderCitationResponse(
+						id=next_live_id,
+						chunk_id=chunk.id,
+						offset_start=raw.offset_start,
+						offset_end=raw.offset_end,
+						citation_text=raw.citation_text,
+						normalized_citation=raw.normalized_citation,
+						target_case_id=None,
+						target_title=None,
+						target_citation=None,
+						provenance="reader_live_extract",
+						unresolved=True,
+					)
+				)
+				next_live_id -= 1
+
+	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
+
+	return CaseReaderDataResponse(
+		case=CaseResponse.model_validate(case, from_attributes=True),
+		sources=[CaseSourceResponse.model_validate(row, from_attributes=True) for row in sources],
+		chunks=[
+			CaseReaderChunkResponse(
+				id=chunk.id,
+				chunk_set=chunk.chunk_set,
+				chunk_index=chunk.chunk_index,
+				chunk_label=chunk.chunk_label,
+				paragraph_start=chunk.paragraph_start,
+				paragraph_end=chunk.paragraph_end,
+				text=chunk.text or "",
+				text_length=len(chunk.text or ""),
+				token_estimate=int(chunk.token_estimate or 0),
+				created_at=chunk.created_at,
+			)
+			for chunk in chunks
+		],
+		citations=citation_responses,
+		tags=[CaseReaderTagResponse.model_validate(tag, from_attributes=True) for tag in tags] + inferred_tags,
+		extracted_metadata=extracted_metadata,
+		metrics=CitationMetricsResponse.model_validate(metrics, from_attributes=True) if metrics is not None else None,
+	)
+
+
 def _get_case_or_404(case_id: int, db: Session) -> Case:
 	case = db.scalar(select(Case).where(Case.id == case_id))
 	if case is None:
@@ -2350,6 +2752,483 @@ def case_reader_page() -> str:
 	return case_reader_html()
 
 
+def _citation_pass_page_html() -> str:
+	return """<!doctype html>
+<html lang=\"en\">
+<head>
+	<meta charset=\"utf-8\">
+	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+	<title>Citation Pass | AI CaseLibrary</title>
+	<style>
+		:root{
+			--bg:#eef2f6;
+			--panel:#ffffff;
+			--panel-2:#f8fafc;
+			--text:#16202a;
+			--muted:#5f6b78;
+			--line:#d7dfe8;
+			--accent:#2457d6;
+			--accent-2:#6a7dff;
+			--accent-soft:#e8efff;
+			--gold:#f5b942;
+			--shadow:0 18px 50px rgba(22,32,42,.08);
+		}
+		*{box-sizing:border-box}
+		body{margin:0;color:var(--text);background:
+			radial-gradient(circle at top left, rgba(36,87,214,.12), transparent 34%),
+			radial-gradient(circle at top right, rgba(106,125,255,.10), transparent 26%),
+			linear-gradient(180deg,#f4f7fb 0%, #eef2f6 34%, #edf1f6 100%);
+			font-family:"Trebuchet MS","Segoe UI",sans-serif}
+		.shell{display:grid;grid-template-rows:auto 1fr;min-height:100vh}
+		.hero{position:relative;overflow:hidden;padding:22px 28px 18px;border-bottom:1px solid rgba(215,223,232,.85);background:rgba(255,255,255,.76);backdrop-filter:blur(12px)}
+		.hero::after{content:"";position:absolute;inset:auto -40px -90px auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle, rgba(36,87,214,.14), transparent 70%);pointer-events:none}
+		.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+		.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--accent);margin:0 0 8px}
+		h1{margin:0;font-size:30px;line-height:1.05;font-family:Georgia,serif;letter-spacing:-.02em}
+		.hero-copy{max-width:760px;margin-top:10px;color:var(--muted);font-size:13px;line-height:1.5}
+		.hero-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+		.stat{min-width:140px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.8);box-shadow:var(--shadow)}
+		.stat strong{display:block;font-size:20px;line-height:1;color:var(--text)}
+		.stat span{display:block;margin-top:4px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+		.main-grid{display:grid;grid-template-columns:340px 1fr;min-height:0;gap:16px;padding:16px 16px 18px}
+		.sidebar,.content{min-height:0}
+		.sidebar{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.75);box-shadow:var(--shadow)}
+		.sidebar-head{padding:14px 14px 12px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,250,252,.92))}
+		.sidebar-head strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+		.sidebar-head .sub{margin-top:6px;font-size:12px;color:var(--muted);line-height:1.45}
+		#cases{overflow:auto;min-height:0}
+		button.case{display:block;width:100%;text-align:left;padding:13px 14px;border:0;border-bottom:1px solid rgba(215,223,232,.75);background:transparent;cursor:pointer;transition:background .15s ease,transform .15s ease}
+		button.case:hover{background:#f4f8ff;transform:translateX(2px)}
+		button.case.active{background:linear-gradient(90deg,rgba(36,87,214,.10),rgba(106,125,255,.04));box-shadow:inset 3px 0 0 var(--accent)}
+		button.case strong{display:block;font-size:13px;line-height:1.35}
+		button.case small{display:block;color:var(--muted);font-size:11px;margin-top:4px;line-height:1.35}
+		.content{display:grid;grid-template-rows:auto auto auto 1fr;gap:16px;min-height:0}
+		.card{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:var(--shadow)}
+		.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+		.case-title{font-family:Georgia,serif;font-size:21px;line-height:1.15;margin:0 0 8px}
+		.case-meta{font-size:12px;color:var(--muted);line-height:1.5}
+		.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+		.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel-2);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+		.badge strong{color:var(--text);font-size:12px;letter-spacing:0;text-transform:none}
+		.detail-panel{background:rgba(255,255,255,.88);border:1px solid var(--line);border-left:4px solid var(--accent);padding:15px 18px;box-shadow:var(--shadow)}
+		.detail-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+		.detail-title h2{margin:0;font:700 17px/1.25 Georgia,serif}
+		.detail-title span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+		.detail-grid{display:grid;grid-template-columns:repeat(6,minmax(100px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+		.detail-field{min-width:0;padding:9px 10px;background:#fff}
+		.detail-field small{display:block;margin-bottom:4px;color:var(--muted);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+		.detail-field strong{display:block;overflow-wrap:anywhere;font-size:12px;line-height:1.35}
+		.detail-section{margin-top:12px}
+		.detail-section h3{margin:0 0 6px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+		.detail-text{margin:0;padding:10px 12px;overflow:auto;white-space:pre-wrap;border:1px solid var(--line);background:#f8fafc;font:12px/1.55 "Cascadia Mono",Consolas,monospace}
+		.chunk-detail{margin-top:6px;border:1px solid var(--line);background:#fff}
+		.chunk-detail summary{padding:9px 11px;cursor:pointer;font-size:11px;font-weight:700}
+		.chunk-detail .detail-text{border-width:1px 0 0}
+		.record-row{padding:9px 11px;border:1px solid var(--line);background:#fff;font-size:12px;line-height:1.5}
+		.record-row+.record-row{border-top:0}
+		.record-row a{color:var(--accent);font-weight:700}
+		.citation-panel{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.95fr);gap:16px;min-height:0}
+		.text-card,.table-card{min-height:0;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+		.text-card{display:flex;flex-direction:column;overflow:hidden}
+		.table-card{display:flex;flex-direction:column;overflow:hidden}
+		.panel-head{padding:14px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,250,252,.92))}
+		.panel-head strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+		.panel-head .sub{margin-top:6px;font-size:12px;color:var(--muted);line-height:1.45}
+		.case-text{flex:1;min-height:0;white-space:pre-wrap;background:linear-gradient(180deg,#fff,#fcfdff);padding:18px 18px 20px;overflow:auto;font-family:"Cascadia Mono","SFMono-Regular",Consolas,monospace;font-size:12px;line-height:1.62}
+		table{width:100%;border-collapse:collapse;background:transparent}
+		thead th{position:sticky;top:0;background:#f7f9fc;z-index:1}
+		th,td{padding:10px 11px;border-bottom:1px solid #e7edf4;vertical-align:top;text-align:left;font-size:12px}
+		th{font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+		tr.clickable{cursor:pointer}
+		tr.clickable:hover{background:#f4f8ff}
+		tr.active-row{background:rgba(36,87,214,.08)}
+		.empty{padding:18px;color:var(--muted)}
+		.list-wrap{overflow:auto;min-height:0}
+		.mark-help{font-size:12px;color:var(--muted);margin:0}
+		.mark-help strong{color:var(--text)}
+		mark.cite-case{background:rgba(245,185,66,.32);box-shadow:inset 0 -2px rgba(245,185,66,.9);padding:0 1px;border-radius:2px}
+		mark.cite-law{background:rgba(45,166,108,.22);box-shadow:inset 0 -2px rgba(35,139,89,.9);padding:0 1px;border-radius:2px}
+		mark.cite-metadata{background:rgba(64,120,220,.20);box-shadow:inset 0 -2px rgba(53,109,204,.92);padding:0 1px;border-radius:2px}
+		mark[data-row-key]{cursor:pointer}
+		mark[data-row-key]:hover{outline:2px solid rgba(36,87,214,.55)}
+		mark.active-hit{outline:2px solid var(--accent);background:rgba(36,87,214,.18)!important}
+		@media (max-width: 1100px){
+			.main-grid{grid-template-columns:1fr}
+			.citation-panel{grid-template-columns:1fr}
+			.detail-grid{grid-template-columns:repeat(3,minmax(100px,1fr))}
+			.sidebar{max-height:360px}
+		}
+		@media (max-width: 760px){
+			.hero{padding:18px 14px}
+			h1{font-size:24px}
+			.main-grid{padding:12px}
+			.card,.sidebar,.text-card,.table-card{border-radius:16px}
+			.detail-grid{grid-template-columns:repeat(2,minmax(100px,1fr))}
+		}
+	</style>
+</head>
+<body>
+	<div class=\"shell\">
+		<div class=\"hero\">
+			<div class=\"hero-top\">
+				<div>
+					<p class=\"kicker\">AI CaseLibrary</p>
+					<h1>Citation Pass</h1>
+					<div class=\"hero-copy\">Layered extraction review. Case citations are orange, statutes and legal instruments are green, and extracted metadata is blue. Each layer keeps its own extraction process and exact offsets.</div>
+				</div>
+				<div class=\"hero-stats\">
+					<div class=\"stat\"><strong id=\"liveCount\">0</strong><span>Live citations</span></div>
+					<div class=\"stat\"><strong id=\"lawCount\">0</strong><span>Statutes / laws</span></div>
+					<div class=\"stat\"><strong id=\"metadataCount\">0</strong><span>Metadata fields</span></div>
+					<div class=\"stat\"><strong id=\"selectedCount\">0</strong><span>Selected row</span></div>
+					<div class=\"stat\"><strong id=\"caseCount\">0</strong><span>Cases in list</span></div>
+				</div>
+			</div>
+		</div>
+		<div class=\"main-grid\">
+			<aside class=\"sidebar\">
+				<div class=\"sidebar-head\">
+					<strong>Review Cohort</strong>
+					<div class=\"sub\">Choose a case to inspect the extraction output. The list stays focused on the current proof-of-concept set.</div>
+				</div>
+				<div id=\"cases\" class=\"list-wrap\"><div class=\"empty\">Loading cases...</div></div>
+			</aside>
+			<section class=\"content\">
+				<div id=\"caseCard\" class=\"card\">Select a case.</div>
+				<section id=\"detailPanel\" class=\"detail-panel\"><div class=\"empty\">Select a reference to inspect its exact text, document position, chunks, and stored records.</div></section>
+				<div class=\"citation-panel\">
+					<div class=\"text-card\">
+						<div class=\"panel-head\">
+							<strong>Highlighted Text</strong>
+							<div class=\"sub\">Case citations are orange. Statutes and legal instruments are green. Metadata is blue.</div>
+						</div>
+						<div id=\"annotatedText\" class=\"case-text\">No case loaded.</div>
+					</div>
+					<div class=\"table-card\">
+						<div class=\"panel-head\">
+							<strong>Extracted References</strong>
+							<div class=\"sub\" id=\"tableSummary\">Waiting for a case selection.</div>
+						</div>
+						<div id=\"citationTables\" class=\"list-wrap empty\">No citation pass loaded yet.</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<script>
+		const state={selected:null,payload:null,activeRowKey:null,detail:null};
+		const esc=v=>String(v??'').replace(/[&<>\'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]));
+		async function json(url){const r=await fetch(url);if(!r.ok){throw new Error('Request failed: '+r.status)}return r.json();}
+		const shown=v=>v===null||v===undefined||v===''?'Not stored':String(v);
+		function renderCaseList(rows){document.getElementById('caseCount').textContent=String(rows.length);const box=document.getElementById('cases');box.innerHTML=rows.map(row=>`<button class=\"case ${state.selected===row.case_id?'active':''}\" data-id=\"${row.case_id}\"><strong>${esc(row.title)}</strong><small>${esc(row.citation||'No citation')} · ${esc(row.court)} · ${esc(row.date)}</small></button>`).join('')||'<div class="empty">No cases in review list.</div>';box.querySelectorAll('button.case').forEach(b=>b.onclick=()=>openCase(Number(b.dataset.id)));}
+		function rowsForView(payload){const cases=(payload.live_extracted||[]).map((row,index)=>({...row,__rowKey:`case:${index}`,__layer:'case'}));const laws=(payload.live_statutes||[]).map((row,index)=>({...row,__rowKey:`law:${index}`,__layer:'law'}));const metadata=(payload.live_metadata||[]).map((row,index)=>({...row,citation_text:row.text,normalized_citation:`${row.field}: ${row.value}`,__rowKey:`metadata:${index}`,__layer:'metadata'}));return [...cases,...laws,...metadata];}
+		function findRanges(text,rows){const candidates=[];const codePointToCodeUnit=[0];let codeUnits=0;for(const char of text){codeUnits+=char.length;codePointToCodeUnit.push(codeUnits);}for(const row of rows){const codePointStart=Number(row.offset_start),codePointEnd=Number(row.offset_end);if(!Number.isInteger(codePointStart)||!Number.isInteger(codePointEnd)||codePointStart<0||codePointEnd<=codePointStart||codePointEnd>=codePointToCodeUnit.length)continue;const start=codePointToCodeUnit[codePointStart],end=codePointToCodeUnit[codePointEnd];const citationText=String(row.citation_text||'');if(!citationText||text.slice(start,end)!==citationText)continue;candidates.push({start,end,label:String(row.normalized_citation||citationText),rowKey:String(row.__rowKey||''),layer:String(row.__layer||'case')});}const ranges=[];for(const candidate of candidates.sort((a,b)=>(a.end-a.start)-(b.end-b.start)||a.start-b.start)){if(ranges.some(range=>candidate.start<range.end&&candidate.end>range.start))continue;ranges.push(candidate);}return ranges.sort((a,b)=>a.start-b.start||b.end-a.end);}
+		function highlightText(text,ranges){let out='';let cursor=0;for(const range of ranges){if(range.start<cursor||range.start>=text.length)continue;const end=Math.min(range.end,text.length);if(end<=cursor)continue;out+=esc(text.slice(cursor,range.start));const active=state.activeRowKey&&range.rowKey===state.activeRowKey?' active-hit':'';const layerClass=range.layer==='law'?'cite-law':range.layer==='metadata'?'cite-metadata':'cite-case';out+=`<mark class=\"${layerClass}${active}\" data-row-key=\"${esc(range.rowKey)}\" title=\"Click for details: ${esc(range.label)}\">${esc(text.slice(range.start,end))}</mark>`;cursor=end;}out+=esc(text.slice(cursor));return out;}
+		function renderHighlights(){if(!state.payload)return;const text=(state.payload.case.full_text||state.payload.case.summary||'').toString();if(!text){document.getElementById('annotatedText').textContent='No case text available.';return;}const ranges=findRanges(text,rowsForView(state.payload));document.getElementById('annotatedText').innerHTML=highlightText(text,ranges);document.querySelectorAll('mark[data-row-key]').forEach(mark=>{mark.onclick=()=>selectReference(String(mark.dataset.rowKey||''));});if(state.activeRowKey){const mark=document.querySelector('mark.active-hit');if(mark)mark.scrollIntoView({behavior:'smooth',block:'center'});}}
+		function renderRows(cases,laws,metadata){document.getElementById('liveCount').textContent=String(cases.length);document.getElementById('lawCount').textContent=String(laws.length);document.getElementById('metadataCount').textContent=String(metadata.length);document.getElementById('selectedCount').textContent=state.activeRowKey?'1':'0';document.getElementById('tableSummary').textContent=`${cases.length} case citation${cases.length===1?'':'s'} · ${laws.length} statute/law reference${laws.length===1?'':'s'} · ${metadata.length} metadata field${metadata.length===1?'':'s'}.`;const rows=[...cases.map((row,index)=>({...row,__rowKey:`case:${index}`,__layer:'Case'})),...laws.map((row,index)=>({...row,__rowKey:`law:${index}`,__layer:'Law'})),...metadata.map((row,index)=>({...row,kind:row.field,citation_text:row.text,normalized_citation:row.value,__rowKey:`metadata:${index}`,__layer:'Metadata'}))];if(!rows.length)return '<div class=\"empty\">No references extracted.</div>';return `<table><thead><tr><th>#</th><th>Layer</th><th>Kind</th><th>Reference text</th><th>Normalized</th><th>Where</th><th>Context</th></tr></thead><tbody>${rows.map((r,i)=>`<tr class=\"clickable ${state.activeRowKey===r.__rowKey?'active-row':''}\" data-row-key=\"${r.__rowKey}\"><td>${i+1}</td><td>${esc(r.__layer)}</td><td>${esc(r.kind||'')}</td><td>${esc(r.citation_text||'')}</td><td>${esc(r.normalized_citation||'')}</td><td>${esc(`${r.offset_start??''}-${r.offset_end??''}`)}</td><td>${esc(r.context||'')}</td></tr>`).join('')}</tbody></table>`;}
+		function detailField(label,value){return `<div class=\"detail-field\"><small>${esc(label)}</small><strong>${esc(shown(value))}</strong></div>`;}
+		function renderDetail(detail){const panel=document.getElementById('detailPanel');if(!detail){panel.innerHTML='<div class=\"empty\">Select a reference to inspect its exact text, document position, chunks, and stored records.</div>';return;}const location=detail.location||{},passage=detail.passage||{},metadata=detail.metadata||null;const chunks=(detail.chunks||[]).map(chunk=>`<details class=\"chunk-detail\"><summary>${esc(chunk.chunk_set)} #${esc(chunk.chunk_index)} · ${esc(shown(chunk.chunk_label))} · chunk id ${esc(chunk.chunk_id)}</summary><div class=\"detail-grid\">${detailField('Paragraph range',chunk.paragraph_start===null?'Not stored':chunk.paragraph_start===chunk.paragraph_end?chunk.paragraph_start:`${chunk.paragraph_start}-${chunk.paragraph_end}`)}${detailField('Chunk offsets',`${chunk.offset_start}-${chunk.offset_end}`)}${detailField('Document offsets',`${chunk.document_start}-${chunk.document_end}`)}${detailField('Text length',chunk.text_length)}${detailField('Token estimate',chunk.token_estimate)}${detailField('Exact chunk match',chunk.citation_text)}</div><pre class=\"detail-text\">${esc(chunk.text)}</pre></details>`).join('')||'<div class=\"record-row\">No stored chunk contains this exact document span.</div>';const records=(detail.stored_records||[]).map(record=>{const target=record.target;const targetHtml=record.target===undefined?'':target?` · resolved to <a href=\"/case-reader?case_id=${encodeURIComponent(target.case_id)}\">${esc(target.title||target.citation||`Case ${target.case_id}`)}</a> (${esc(shown(target.citation))})`:' · no resolved target';return `<div class=\"record-row\"><strong>Record ${esc(record.record_id)}</strong> · ${esc(shown(record.citation_kind))} · chunk ${esc(shown(record.chunk_id))} · offsets ${esc(shown(record.offset_start))}-${esc(shown(record.offset_end))}${record.provenance!==undefined?` · provenance ${esc(shown(record.provenance))}`:''}${record.unresolved!==undefined?` · ${record.unresolved?'unresolved':'resolved flag clear'}`:''}${targetHtml}</div>`;}).join('')||'<div class=\"record-row\">No matching stored record for this extracted occurrence.</div>';panel.innerHTML=`<div class=\"detail-title\"><h2>${esc(detail.citation_text)}</h2><span>${esc(detail.layer)} · ${esc(detail.kind)}</span></div><div class=\"detail-grid\">${detailField('Normalized value',detail.normalized_value)}${detailField('Document offsets',`${detail.offset_start}-${detail.offset_end}`)}${detailField('Span length',detail.span_length)}${detailField('Line / column',`${location.line_number} / ${location.column_number}`)}${detailField('Paragraph',location.paragraph_number)}${detailField('Document position',`${location.position_percent}%`)}${metadata?detailField('Confidence',metadata.confidence)+detailField('Source',metadata.source):''}</div><div class=\"detail-section\"><h3>Line-aligned passage · offsets ${esc(passage.offset_start)}-${esc(passage.offset_end)}</h3><pre class=\"detail-text\">${esc(passage.text)}</pre></div><div class=\"detail-section\"><h3>Containing chunks (${detail.chunks.length})</h3>${chunks}</div><div class=\"detail-section\"><h3>Stored records (${detail.stored_records.length})</h3>${records}</div>`;}
+		async function loadDetail(rowKey){const selectedRow=rowsForView(state.payload).find(row=>row.__rowKey===rowKey);if(!selectedRow)return;document.getElementById('detailPanel').innerHTML='<div class=\"empty\">Loading citation details...</div>';const query=new URLSearchParams({layer:selectedRow.__layer,offset_start:String(selectedRow.offset_start),offset_end:String(selectedRow.offset_end)});try{const detail=await json(`/cases/${state.selected}/citation-pass/detail?${query}`);if(state.activeRowKey!==rowKey)return;state.detail=detail;renderDetail(detail);}catch(error){if(state.activeRowKey===rowKey)document.getElementById('detailPanel').innerHTML=`<div class=\"empty\">${esc(error.message)}</div>`;}}
+		function selectReference(rowKey){if(!rowKey)return;state.activeRowKey=rowKey;state.detail=null;renderPayload(state.payload);loadDetail(rowKey);}
+		function bindRowClicks(){document.querySelectorAll('tr[data-row-key]').forEach(row=>{row.onclick=()=>selectReference(String(row.getAttribute('data-row-key')||''));});}
+		function renderPayload(payload){state.payload=payload;const c=payload.case;const s=payload.summary||{};document.getElementById('caseCard').innerHTML=`<div class=\"card-head\"><div><h2 class=\"case-title\">${esc(c.title)}</h2><div class=\"case-meta\">${esc(c.citation||'No citation')} · ${esc(c.court)} · ${esc(c.date)} · id ${c.id}</div></div><div class=\"badges\"><span class=\"badge\"><strong>${s.live_total||0}</strong> case citations</span><span class=\"badge\"><strong>${s.statute_total||0}</strong> statutes/laws</span><span class=\"badge\"><strong>${s.metadata_total||0}</strong> metadata fields</span><span class=\"badge\"><strong>${c.full_text?'Yes':'No'}</strong> full text</span></div></div><div class=\"badges\" style=\"margin-top:14px\"><span class=\"badge\">Orange: cases</span><span class=\"badge\">Green: statutes/laws</span><span class=\"badge\">Blue: metadata</span></div>`;const cases=(payload.live_extracted||[]).map(row=>({...row,context:row.context||''}));const laws=(payload.live_statutes||[]).map(row=>({...row,context:row.context||''}));const metadata=(payload.live_metadata||[]).map(row=>({...row,context:row.context||''}));document.getElementById('citationTables').innerHTML=renderRows(cases,laws,metadata);bindRowClicks();renderHighlights();}
+		async function openCase(caseId){state.selected=caseId;state.activeRowKey=null;state.detail=null;renderDetail(null);const payload=await json(`/cases/${caseId}/citation-pass`);renderPayload(payload);const list=await json('/citation-map/cases/review/fc-priority?limit=300');renderCaseList(list);}
+		async function load(){const list=await json('/citation-map/cases/review/fc-priority?limit=300');renderCaseList(list);if(list.length){await openCase(list[0].case_id);}}
+		load().catch(e=>{document.getElementById('cases').innerHTML=`<div class=\"empty\">${esc(e.message)}</div>`;});
+	</script>
+</body>
+</html>"""
+
+
+@router.get("/citation-pass", response_class=HTMLResponse, include_in_schema=False)
+def citation_pass_page() -> str:
+	return _citation_pass_page_html()
+
+
+@router.get("/cases/{case_id}/citation-pass", response_model=dict[str, Any])
+def get_case_citation_pass(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	case = _get_case_or_404(case_id, db)
+
+	full_text = case.full_text or case.summary or ""
+	live_rows = extract_case_citation_matches(full_text)
+	statute_rows = extract_statute_reference_matches(full_text)
+	metadata_rows = extract_metadata_matches(full_text)
+	live_payload = [
+		{
+			"kind": match.kind,
+			"citation_text": match.citation_text,
+			"normalized_citation": match.normalized_citation,
+			"offset_start": match.offset_start,
+			"offset_end": match.offset_end,
+			"context": full_text[max(0, (match.offset_start or 0) - 40):min(len(full_text), (match.offset_end or 0) + 40)].replace("\n", " ").strip(),
+		}
+		for match in live_rows
+	]
+	statute_payload = [
+		{
+			"kind": match.kind,
+			"citation_text": match.citation_text,
+			"normalized_citation": match.normalized_citation,
+			"offset_start": match.offset_start,
+			"offset_end": match.offset_end,
+			"context": full_text[max(0, match.offset_start - 40):min(len(full_text), match.offset_end + 40)].replace("\n", " ").strip(),
+		}
+		for match in statute_rows
+	]
+	metadata_payload = [
+		{
+			"field": match.field,
+			"text": match.text,
+			"value": match.value,
+			"offset_start": match.offset_start,
+			"offset_end": match.offset_end,
+			"confidence": match.confidence,
+			"source": match.source,
+			"context": full_text[max(0, match.offset_start - 40):min(len(full_text), match.offset_end + 40)].replace("\n", " ").strip(),
+		}
+		for match in metadata_rows
+	]
+
+	return {
+		"case": {
+			"id": case.id,
+			"title": case.title,
+			"citation": case.citation,
+			"court": case.court,
+			"date": case.date,
+			"summary": case.summary,
+			"full_text": case.full_text,
+		},
+		"summary": {
+			"live_total": len(live_payload),
+			"statute_total": len(statute_payload),
+			"metadata_total": len(metadata_payload),
+		},
+		"live_extracted": live_payload,
+		"live_statutes": statute_payload,
+		"live_metadata": metadata_payload,
+	}
+
+
+def _citation_pass_chunks(
+	db: Session,
+	case_id: int,
+	full_text: str,
+	offset_start: int,
+	offset_end: int,
+) -> list[dict[str, Any]]:
+	chunks = list(
+		db.scalars(
+			select(CaseChunk)
+			.where(CaseChunk.case_id == case_id)
+			.order_by(CaseChunk.chunk_set, CaseChunk.chunk_index, CaseChunk.id)
+		)
+	)
+	locations: list[dict[str, Any]] = []
+	for chunk in chunks:
+		chunk_text = chunk.text or ""
+		search_start = 0
+		while chunk_text:
+			chunk_start = full_text.find(chunk_text, search_start)
+			if chunk_start < 0:
+				break
+			chunk_end = chunk_start + len(chunk_text)
+			if chunk_start <= offset_start and offset_end <= chunk_end:
+				relative_start = offset_start - chunk_start
+				relative_end = offset_end - chunk_start
+				locations.append(
+					{
+						"chunk_id": chunk.id,
+						"chunk_set": chunk.chunk_set,
+						"chunk_index": chunk.chunk_index,
+						"chunk_label": chunk.chunk_label,
+						"paragraph_start": chunk.paragraph_start,
+						"paragraph_end": chunk.paragraph_end,
+						"document_start": chunk_start,
+						"document_end": chunk_end,
+						"offset_start": relative_start,
+						"offset_end": relative_end,
+						"citation_text": chunk_text[relative_start:relative_end],
+						"text": chunk_text,
+						"text_length": len(chunk_text),
+						"token_estimate": chunk.token_estimate,
+					}
+				)
+				break
+			search_start = chunk_start + 1
+	return locations
+
+
+def _stored_case_citation_details(
+	db: Session,
+	case_id: int,
+	selected: Any,
+	chunks: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+	chunk_locations = {int(chunk["chunk_id"]): chunk for chunk in chunks}
+	rows = list(db.scalars(select(Citation).where(Citation.source_case_id == case_id).order_by(Citation.id)))
+	details: list[dict[str, Any]] = []
+	for citation in rows:
+		chunk = chunk_locations.get(citation.chunk_id) if citation.chunk_id is not None else None
+		identity_matches = (
+			citation.normalized_citation == selected.normalized_citation
+			or citation.citation_text == selected.citation_text
+		)
+		if citation.chunk_id is None:
+			location_matches = (
+				citation.offset_start == selected.offset_start
+				and citation.offset_end == selected.offset_end
+			)
+		else:
+			location_matches = chunk is not None and (
+				citation.offset_start is None
+				or (
+					citation.offset_start == chunk["offset_start"]
+					and citation.offset_end == chunk["offset_end"]
+				)
+			)
+		if not identity_matches or not location_matches:
+			continue
+		target = db.get(Case, citation.target_case_id) if citation.target_case_id is not None else None
+		details.append(
+			{
+				"record_id": citation.id,
+				"citation_kind": getattr(citation, "citation_kind", "unknown"),
+				"chunk_id": citation.chunk_id,
+				"offset_start": citation.offset_start,
+				"offset_end": citation.offset_end,
+				"citation_text": citation.citation_text,
+				"normalized_citation": citation.normalized_citation,
+				"provenance": citation.provenance,
+				"unresolved": citation.unresolved,
+				"target": {
+					"case_id": target.id,
+					"title": target.title,
+					"citation": target.citation,
+					"court": target.court,
+					"date": target.date,
+				} if target is not None else None,
+			}
+		)
+	return details
+
+
+def _stored_statute_reference_details(
+	db: Session,
+	case_id: int,
+	selected: Any,
+	chunks: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+	chunk_locations = {int(chunk["chunk_id"]): chunk for chunk in chunks}
+	rows = list(db.scalars(select(StatuteReference).where(StatuteReference.source_case_id == case_id).order_by(StatuteReference.id)))
+	details: list[dict[str, Any]] = []
+	for reference in rows:
+		chunk = chunk_locations.get(reference.chunk_id) if reference.chunk_id is not None else None
+		identity_matches = (
+			reference.normalized_reference == selected.normalized_citation
+			or reference.reference_text == selected.citation_text
+		)
+		if reference.chunk_id is None:
+			location_matches = (
+				reference.offset_start == selected.offset_start
+				and reference.offset_end == selected.offset_end
+			)
+		else:
+			location_matches = chunk is not None and (
+				reference.offset_start is None
+				or (
+					reference.offset_start == chunk["offset_start"]
+					and reference.offset_end == chunk["offset_end"]
+				)
+			)
+		if identity_matches and location_matches:
+			details.append(
+				{
+					"record_id": reference.id,
+					"chunk_id": reference.chunk_id,
+					"offset_start": reference.offset_start,
+					"offset_end": reference.offset_end,
+					"reference_text": reference.reference_text,
+					"normalized_reference": reference.normalized_reference,
+					"reference_kind": reference.reference_kind,
+				}
+			)
+	return details
+
+
+@router.get("/cases/{case_id}/citation-pass/detail", response_model=dict[str, Any])
+def get_case_citation_pass_detail(
+	case_id: int,
+	layer: str,
+	offset_start: int,
+	offset_end: int,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	case = _get_case_or_404(case_id, db)
+	full_text = case.full_text or case.summary or ""
+	if layer not in {"case", "law", "metadata"}:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Unsupported citation layer")
+	if offset_start < 0 or offset_end <= offset_start or offset_end > len(full_text):
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Invalid citation offsets")
+
+	if layer == "case":
+		matches = extract_case_citation_matches(full_text)
+	elif layer == "law":
+		matches = extract_statute_reference_matches(full_text)
+	else:
+		matches = extract_metadata_matches(full_text)
+	selected = next(
+		(match for match in matches if match.offset_start == offset_start and match.offset_end == offset_end),
+		None,
+	)
+	if selected is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Extracted reference not found")
+
+	line_start = full_text.rfind("\n", 0, offset_start) + 1
+	line_end = full_text.find("\n", offset_end)
+	if line_end < 0:
+		line_end = len(full_text)
+	line_text = full_text[line_start:line_end]
+	paragraph_match = re.match(r"\s*\[(\d+)\]", line_text)
+	chunks = _citation_pass_chunks(db, case_id, full_text, offset_start, offset_end)
+	stored_records: list[dict[str, Any]] = []
+	if layer == "case":
+		stored_records = _stored_case_citation_details(db, case_id, selected, chunks)
+	elif layer == "law":
+		stored_records = _stored_statute_reference_details(db, case_id, selected, chunks)
+
+	citation_text = selected.text if layer == "metadata" else selected.citation_text
+	normalized = selected.value if layer == "metadata" else selected.normalized_citation
+	kind = selected.field if layer == "metadata" else selected.kind
+	return {
+		"layer": layer,
+		"kind": kind,
+		"citation_text": citation_text,
+		"normalized_value": normalized,
+		"offset_start": offset_start,
+		"offset_end": offset_end,
+		"span_length": offset_end - offset_start,
+		"location": {
+			"line_number": full_text.count("\n", 0, offset_start) + 1,
+			"column_number": offset_start - line_start + 1,
+			"paragraph_number": int(paragraph_match.group(1)) if paragraph_match else None,
+			"document_length": len(full_text),
+			"position_percent": round((offset_start / len(full_text)) * 100, 2) if full_text else 0.0,
+		},
+		"passage": {
+			"text": line_text,
+			"offset_start": line_start,
+			"offset_end": line_end,
+		},
+		"chunks": chunks,
+		"stored_records": stored_records,
+		"metadata": {
+			"confidence": selected.confidence,
+			"source": selected.source,
+		} if layer == "metadata" else None,
+	}
+
+
 @router.get("/citation-map/authorities", response_model=list[CitationMapAuthorityResponse])
 def get_citation_map_authorities(
 	limit: int = 50,
@@ -2365,6 +3244,14 @@ def search_citation_map_cases(
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	return _search_citation_cases(db, q, limit=max(1, min(30, limit)))
+
+
+@router.get("/citation-map/cases/review/fc-priority", response_model=list[CitationMapCaseNode])
+def review_fc_priority_cases(
+	limit: int = 300,
+	db: Session = Depends(get_db),
+) -> list[dict[str, Any]]:
+	return _review_fc_priority_cases(db, limit=max(1, min(500, limit)))
 
 
 @router.get("/citation-map/topics", response_model=list[CitationMapTopicResponse])

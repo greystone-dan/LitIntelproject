@@ -24,16 +24,13 @@ The project has now moved beyond backend-only validation into a prototype intera
 
 Current practical milestone:
 
-- A 334-case immigration prototype cohort is fully embedded and chunked.
-- The canonical PostgreSQL corpus contains 35,902 cases, but only 383 cases have
-	chunks and local BGE-M3 vectors have not yet been generated.
-- A lock-protected overnight pipeline is ready to tag, chunk, extract citations,
-	and locally embed the broader corpus with resumable commits.
-- A prototype explorer page can now show:
-	- cohort summary metrics
-	- topic-keyword distributions
-	- case-level browsing/filtering
-	- an interactive citation map with topic filters
+- The canonical PostgreSQL corpus now contains 35,902 cases, 168,282 chunks,
+	303,816 citations, and 5,808 chunk embeddings.
+- A lock-protected overnight pipeline remains ready to tag, chunk, extract
+	citations, and locally embed new corpus additions with resumable commits.
+- A prototype explorer page can show cohort summary metrics, topic-keyword
+	distributions, case-level browsing/filtering, and an interactive citation map
+	with topic filters.
 
 Near-term strategy should prioritize product trust and operator reliability:
 
@@ -227,3 +224,4 @@ Updated immediate implementation order:
 4. Group chunk results by parent case and expand citation-based evaluation fixtures.
 5. Align prototype graph data with live database state and add reproducible exports.
 6. Proceed to grounded RAG only after retrieval and citation reliability pass measured gates.
+CANLII_API_KEY should never be committed or stored in docs; set it only in local environment variables.

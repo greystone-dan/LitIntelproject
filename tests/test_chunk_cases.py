@@ -46,12 +46,58 @@ def test_build_case_chunks_falls_back_to_summary_and_hashes_text():
 
     rows = build_case_chunks(case)
 
-    assert len(rows) == 1
+    assert len(rows) == 2
     assert rows[0].case_id == 12
+    assert rows[0].chunk_set == "section"
     assert rows[0].chunk_index == 0
     assert rows[0].text == "summary text"
     assert rows[0].text_hash == sha256(b"summary text").hexdigest()
     assert rows[0].token_estimate == 3
+    assert rows[1].chunk_set == "paragraph"
+    assert rows[1].chunk_label == "0"
+
+
+def test_build_case_chunks_creates_section_and_paragraph_sets():
+    case = SimpleNamespace(
+        id=20,
+        full_text="Header line\nOVERVIEW\n[1] First paragraph.\n[2] Second paragraph.\nCONCLUSION\nDone.",
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+
+    assert [row.chunk_set for row in rows] == ["section", "section", "section", "paragraph", "paragraph", "paragraph"]
+    assert rows[0].chunk_label == "Intro Metadata"
+    assert rows[1].chunk_label == "Overview"
+    assert rows[2].chunk_label == "Conclusion"
+    assert rows[3].chunk_label == "0"
+    assert rows[4].chunk_label == "1"
+    assert rows[5].chunk_label == "2"
+    assert rows[4].paragraph_start == 1
+    assert rows[5].paragraph_end == 2
+
+
+def test_build_case_chunks_paragraph_pass_has_intro_numbered_and_tail_chunks():
+    case = SimpleNamespace(
+        id=21,
+        full_text=(
+            "Header material before numbered reasons\n"
+            "[1] First decision paragraph.\n"
+            "[2] Second decision paragraph.\n"
+            "APPEARANCES:\n"
+            "Counsel names in footer."
+        ),
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+    paragraph_rows = [row for row in rows if row.chunk_set == "paragraph"]
+
+    assert [row.chunk_label for row in paragraph_rows] == ["0", "1", "2", "tail"]
+    assert paragraph_rows[0].text == "Header material before numbered reasons"
+    assert paragraph_rows[1].paragraph_start == 1
+    assert paragraph_rows[2].paragraph_end == 2
+    assert paragraph_rows[3].text.startswith("APPEARANCES:")
 
 
 def test_chunk_pending_cases_commits_each_case_batch():
@@ -64,6 +110,6 @@ def test_chunk_pending_cases_commits_each_case_batch():
     cases_chunked, chunks_created = chunk_pending_cases(db, batch_size=2)
 
     assert cases_chunked == 2
-    assert chunks_created == 2
-    assert [row.case_id for row in db.added] == [4, 9]
+    assert chunks_created == 4
+    assert [row.case_id for row in db.added] == [4, 4, 9, 9]
     assert db.commits == 1

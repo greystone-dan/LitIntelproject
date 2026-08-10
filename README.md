@@ -17,9 +17,60 @@ This project is a research aid, not legal advice.
 ## Current Status
 
 - Canonical case store is populated and searchable
+- Citation graph analytics are live, including authority, path, missing-authority, lifecycle, and surprise surfaces
 - Chunk embeddings are populated for semantic chunk search
 - Semantic and hybrid search rollout flags are enabled
 - Quick search page is available in-app
+
+Current live scale is large enough for serious QA and graph analysis: 35,902 cases, 168,282 chunks, 303,816 citations, 770,395 tags, 5,808 chunk embeddings, and 429 case embeddings.
+
+## Citation Stabilization Scope (Current)
+
+- Active extraction hardening is focused on case-to-case citations.
+- Citation-pass review should be driven by live extraction output from case citations, not statute or convention filtering overlays.
+- Statute/instrument extraction remains available as a separate layer and should not be mixed into case-only QA decisions.
+- Do not start a broad 300-case re-ingest/rebuild until citation-pass reliability gates are satisfied.
+
+## Main Workflow (Canonical)
+
+Use this sequence as the default operating path before touching side scripts or broader reprocessing.
+
+1. Run the API locally.
+2. Open Citation Pass and review layered extraction output for the selected cohort case.
+3. Validate exact text spans and offsets first, then normalized citation quality.
+4. Add or update deterministic extractor rules and tests.
+5. Re-run focused tests, then cohort checks, then update docs/changelog.
+6. Commit and push only after the extraction/UI pass is reproducible.
+
+### Day-To-Day Commands
+
+Start API:
+
+~~~powershell
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8070
+~~~
+
+Open UI:
+
+- http://127.0.0.1:8070/citation-pass
+
+Focused citation tests:
+
+~~~powershell
+./venv/Scripts/python.exe -m pytest tests/test_citations.py -q
+~~~
+
+Optional full test sweep:
+
+~~~powershell
+./venv/Scripts/python.exe -m pytest -q
+~~~
+
+Primary success criteria for this phase:
+
+- Case citations are captured with exact source spans.
+- Paragraph pinpoints (for example, "at para. 10" / "at paras. 37 and 44") are preserved with the citation context.
+- Statute/instrument and metadata layers remain separate from case-citation QA decisions.
 
 ## Tech Stack
 
@@ -85,6 +136,12 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 
 ### Browser UI
 
+## Azure Hosting
+
+This project is set up to run as one web app. See [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md) for the Docker-based Azure path using Azure Container Apps or Azure App Service plus Azure PostgreSQL.
+
+For the proof of concept, keep the site to one UI and continue citation verification on the existing metadata and chunking base. Do not re-ingest the 300-case review list yet.
+
 After server startup, open:
 
 - http://127.0.0.1:8000/quick-search
@@ -113,6 +170,7 @@ python -m scripts.quick_search_engine "non-refoulement risk on return" --limit 1
 - Canonical data lives in PostgreSQL
 - Staging data may exist in SQLite/Parquet/JSON artifacts
 - Reference library documents are stored separately from canonical cases
+- Citation rows are stored as chunk-backed `Citation` records with offsets and normalized text; the citation record itself does not carry a dedicated timestamp column, so timing is inferred from the owning case and chunk timestamps.
 
 ## GitHub and Large Files
 

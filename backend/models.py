@@ -131,6 +131,66 @@ class CaseSourceResponse(BaseModel):
 	created_at: datetime
 
 
+class CaseReaderChunkResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	chunk_set: str = "legacy"
+	chunk_index: int
+	chunk_label: str | None = None
+	paragraph_start: int | None = None
+	paragraph_end: int | None = None
+	text: str
+	text_length: int
+	token_estimate: int
+	created_at: datetime
+
+
+class CaseReaderCitationResponse(BaseModel):
+	id: int
+	citation_kind: str = "unknown"
+	chunk_id: int | None = None
+	offset_start: int | None = None
+	offset_end: int | None = None
+	citation_text: str | None = None
+	normalized_citation: str | None = None
+	target_case_id: int | None = None
+	target_title: str | None = None
+	target_citation: str | None = None
+	provenance: str = "local"
+	unresolved: bool = False
+
+
+class CaseReaderTagResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int | None = None
+	category: str
+	value: str
+	score: float
+	evidence: str
+	source: str
+	taxonomy_version: str
+	created_at: datetime | None = None
+
+
+class CaseReaderMetadataFieldResponse(BaseModel):
+	key: str
+	value: str
+	source: str = "reader_extracted"
+	evidence: str | None = None
+
+
+class CaseReaderDataResponse(BaseModel):
+	case: CaseResponse
+	sources: list[CaseSourceResponse]
+	chunks: list[CaseReaderChunkResponse]
+	citations: list[CaseReaderCitationResponse]
+	tags: list[CaseReaderTagResponse]
+	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
+	metrics: "CitationMetricsResponse | None" = None
+
+
 class InventoryCaseResponse(BaseModel):
 	id: int
 	title: str
@@ -202,6 +262,7 @@ class CitationResponse(BaseModel):
 	id: int
 	source_case_id: int
 	target_case_id: int | None = None
+	citation_kind: str = "unknown"
 	citation_text: str | None = None
 	normalized_citation: str | None = None
 	provenance: str = "local"

@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import csv
+import os
 from collections import defaultdict
+from functools import lru_cache
 from math import ceil
 from math import log1p
+from pathlib import Path
 from typing import Any
 
-from sqlalchemy import case as sql_case, func, or_, select, union
+from sqlalchemy import case as sql_case, false, func, or_, select, union
 from sqlalchemy.orm import Session, aliased
 
 from .database import Case, CaseChunk, CaseTag, Citation, CitationMetrics
@@ -22,18 +26,54 @@ _STANDARD_TEST_PHRASES = (
 	"framework",
 )
 
+_MASTER_300_CASE_MAP_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "fc_priority_seed_case_map.csv"
+
+
+def _focus_master_300_enabled() -> bool:
+	value = (os.getenv("CASELIBRARY_FOCUS_MASTER_300") or "true").strip().lower()
+	return value in {"1", "true", "yes", "on"}
+
+
+@lru_cache(maxsize=1)
+def _focused_case_ids() -> tuple[int, ...]:
+	if not _focus_master_300_enabled():
+		return tuple()
+	if not _MASTER_300_CASE_MAP_CSV.exists():
+		return tuple()
+	ids: list[int] = []
+	seen: set[int] = set()
+	with _MASTER_300_CASE_MAP_CSV.open("r", encoding="utf-8-sig", newline="") as file_obj:
+		reader = csv.DictReader(file_obj)
+		for row in reader:
+			if str(row.get("status") or "") != "matched":
+				continue
+			raw = str(row.get("local_case_id") or "").strip()
+			if not raw.isdigit():
+				continue
+			case_id = int(raw)
+			if case_id in seen:
+				continue
+			seen.add(case_id)
+			ids.append(case_id)
+	return tuple(ids)
+
 
 def _aggregated_edges():
-	return (
-		select(
-			Citation.source_case_id.label("source_case_id"),
-			Citation.target_case_id.label("target_case_id"),
-			func.count(Citation.id).label("occurrence_count"),
-		)
-		.where(Citation.target_case_id.is_not(None))
-		.group_by(Citation.source_case_id, Citation.target_case_id)
-		.cte("aggregated_citation_edges")
-	)
+	focus_ids = _focused_case_ids()
+	statement = select(
+		Citation.source_case_id.label("source_case_id"),
+		Citation.target_case_id.label("target_case_id"),
+		func.count(Citation.id).label("occurrence_count"),
+	).where(Citation.target_case_id.is_not(None))
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			statement = statement.where(false())
+		else:
+			statement = statement.where(
+				Citation.source_case_id.in_(focus_ids),
+				Citation.target_case_id.in_(focus_ids),
+			)
+	return statement.group_by(Citation.source_case_id, Citation.target_case_id).cte("aggregated_citation_edges")
 
 
 def _case_node(case: Case, metrics: CitationMetrics | None = None) -> dict[str, Any]:
@@ -51,21 +91,36 @@ def _case_node(case: Case, metrics: CitationMetrics | None = None) -> dict[str, 
 
 def citation_map_summary(session: Session) -> dict[str, int]:
 	edges = _aggregated_edges()
+	focus_ids = _focused_case_ids()
 	connected = union(
 		select(edges.c.source_case_id.label("case_id")),
 		select(edges.c.target_case_id.label("case_id")),
 	).subquery()
+	case_count_statement = select(func.count(Case.id))
+	resolved_statement = select(func.count(Citation.id)).where(Citation.target_case_id.is_not(None))
+	unresolved_statement = select(func.count(Citation.id)).where(Citation.target_case_id.is_(None))
+	metrics_statement = select(func.count(CitationMetrics.case_id))
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			case_count_statement = case_count_statement.where(false())
+			resolved_statement = resolved_statement.where(false())
+			unresolved_statement = unresolved_statement.where(false())
+			metrics_statement = metrics_statement.where(false())
+		else:
+			case_count_statement = case_count_statement.where(Case.id.in_(focus_ids))
+			resolved_statement = resolved_statement.where(
+				Citation.source_case_id.in_(focus_ids),
+				Citation.target_case_id.in_(focus_ids),
+			)
+			unresolved_statement = unresolved_statement.where(Citation.source_case_id.in_(focus_ids))
+			metrics_statement = metrics_statement.where(CitationMetrics.case_id.in_(focus_ids))
 	return {
-		"total_cases": int(session.scalar(select(func.count(Case.id))) or 0),
-		"resolved_occurrences": int(
-			session.scalar(select(func.count(Citation.id)).where(Citation.target_case_id.is_not(None))) or 0
-		),
-		"unresolved_occurrences": int(
-			session.scalar(select(func.count(Citation.id)).where(Citation.target_case_id.is_(None))) or 0
-		),
+		"total_cases": int(session.scalar(case_count_statement) or 0),
+		"resolved_occurrences": int(session.scalar(resolved_statement) or 0),
+		"unresolved_occurrences": int(session.scalar(unresolved_statement) or 0),
 		"aggregated_edges": int(session.scalar(select(func.count()).select_from(edges)) or 0),
 		"connected_cases": int(session.scalar(select(func.count()).select_from(connected)) or 0),
-		"metrics_cases": int(session.scalar(select(func.count(CitationMetrics.case_id))) or 0),
+		"metrics_cases": int(session.scalar(metrics_statement) or 0),
 	}
 
 
@@ -99,10 +154,14 @@ def search_citation_cases(session: Session, query: str, limit: int = 12) -> list
 	if not term:
 		return []
 	pattern = f"%{term}%"
+	focus_ids = _focused_case_ids()
+	statement = select(Case, CitationMetrics).outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			return []
+		statement = statement.where(Case.id.in_(focus_ids))
 	rows = session.execute(
-		select(Case, CitationMetrics)
-		.outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
-		.where(or_(Case.citation.ilike(pattern), Case.title.ilike(pattern)))
+		statement.where(or_(Case.citation.ilike(pattern), Case.title.ilike(pattern)))
 		.order_by(
 			(Case.citation == term).desc(),
 			Case.date.desc(),
@@ -292,6 +351,7 @@ def citation_map_topics(
 	limit: int = 100,
 ) -> list[dict[str, Any]]:
 	term = query.strip()
+	focus_ids = _focused_case_ids()
 	statement = (
 		select(
 			CaseTag.category,
@@ -301,6 +361,10 @@ def citation_map_topics(
 		.where(CaseTag.category.in_(("issue", "statute", "legal_area")))
 		.group_by(CaseTag.category, CaseTag.value)
 	)
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			return []
+		statement = statement.where(CaseTag.case_id.in_(focus_ids))
 	if term:
 		statement = statement.where(CaseTag.value.ilike(f"%{term}%"))
 	rows = session.execute(
@@ -323,6 +387,7 @@ def citation_issue_map(
 	limit: int = 50,
 ) -> dict[str, Any]:
 	edges = _aggregated_edges()
+	focus_ids = _focused_case_ids()
 	influence = (
 		select(
 			edges.c.target_case_id.label("case_id"),
@@ -354,6 +419,11 @@ def citation_issue_map(
 			.limit(limit)
 		)
 	)
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			case_rows = []
+		else:
+			case_rows = [row for row in case_rows if row[0].id in focus_ids]
 	case_ids = [case.id for case, _, _ in case_rows]
 	issue_edges = list(
 		session.execute(
@@ -368,17 +438,20 @@ def citation_issue_map(
 		node["in_degree"] = int(in_degree)
 		node["out_degree"] = int(out_degree)
 		nodes.append(node)
+	available_statement = select(func.count(func.distinct(CaseTag.case_id))).where(
+		CaseTag.category == category,
+		CaseTag.value == value,
+	)
+	if _focus_master_300_enabled():
+		if not focus_ids:
+			available_statement = available_statement.where(false())
+		else:
+			available_statement = available_statement.where(CaseTag.case_id.in_(focus_ids))
+
 	return {
 		"category": category,
 		"value": value,
-		"available_cases": int(
-			session.scalar(
-				select(func.count(func.distinct(CaseTag.case_id))).where(
-					CaseTag.category == category,
-					CaseTag.value == value,
-				)
-			) or 0
-		),
+		"available_cases": int(session.scalar(available_statement) or 0),
 		"nodes": nodes,
 		"edges": [
 			{

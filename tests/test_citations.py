@@ -59,8 +59,628 @@ def test_extract_citations_from_text_normalizes_and_resolves(monkeypatch):
 	assert rows[0].normalized_citation == "2024 FC 100"
 	assert rows[1].target_case_id is None
 	assert rows[1].normalized_citation == "Smith v. Jones, 2023 FCA 5"
-	assert rows[2].normalized_citation == "IRPA s. 72(1)"
+	assert rows[2].normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 72(1)"
 	assert len(session.added) == 3
+
+
+def test_extract_raw_citation_matches_supports_canlii_and_section_keyword():
+	text = "See 2023 CanLII 12345 (SCC) and IRPA section 34(1)."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert len(matches) == 2
+	assert matches[0].kind == "neutral"
+	assert matches[0].normalized_citation == "2023 CanLII 12345 (SCC)"
+	assert matches[1].kind == "statute"
+	assert matches[1].normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)"
+
+
+def test_extract_raw_citation_matches_supports_long_form_law_citations():
+	text = (
+		"The Immigration and Refugee Protection Act, S.C. 2001, c. 27, section 98 applies, "
+		"as does the Canadian Charter of Rights and Freedoms, section 7, and the Criminal Code, section 57. "
+		"Article 1F(b) of the Refugee Convention, Can. T.S. 1969 No. 6 must also be considered."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(m.kind == "statute" and m.normalized_citation.startswith("Immigration and Refugee Protection Act, S.C. 2001, c. 27") for m in matches)
+	assert any(m.kind == "statute" and m.normalized_citation.startswith("Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982") for m in matches)
+	assert any(m.kind == "statute" and m.normalized_citation.startswith("Criminal Code, R.S.C. 1985, c. C-46") for m in matches)
+	assert any(m.kind == "instrument" and "Refugee Convention" in m.normalized_citation for m in matches)
+	assert any(m.kind == "instrument" and "art. 1F(b)" in m.normalized_citation for m in matches)
+	assert any(m.kind == "instrument" and "Can. T.S. 1969 No. 6" in m.normalized_citation for m in matches)
+
+
+def test_extract_statute_reference_matches_returns_only_law_layer():
+	text = (
+		"Vavilov v Canada, 2019 SCC 65 considered IRPA s. 72(1), the Canadian Charter "
+		"of Rights and Freedoms, section 7, and Article 1F(b) of the Refugee Convention."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert matches
+	assert all(match.kind in {"statute", "instrument"} for match in matches)
+	assert any("Immigration and Refugee Protection Act" in match.normalized_citation for match in matches)
+	assert any("Canadian Charter of Rights and Freedoms" in match.normalized_citation for match in matches)
+	assert any("Refugee Convention" in match.normalized_citation for match in matches)
+	assert not any("Vavilov" in match.citation_text for match in matches)
+
+
+def test_extract_statute_reference_matches_supports_orders_and_si_citations():
+	text = "Section 2 of the Canadian Passport Order, SI/81-86, states the following."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		match.kind == "statute"
+		and match.citation_text == "Section 2 of the Canadian Passport Order, SI/81-86"
+		and match.normalized_citation == "Canadian Passport Order, SI/81-86 s. 2"
+		for match in matches
+	)
+
+
+def test_extract_statute_reference_matches_propagates_anchored_article_subheadings():
+	text = (
+		"Articles 31 and 32 of the Vienna Convention on the Law of Treaties guide interpretation.\n"
+		"Article 31. General rule of interpretation\n"
+		"Article 32. Supplementary means of interpretation"
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(match.citation_text == "Article 31" for match in matches)
+	assert any(match.citation_text == "Article 32" for match in matches)
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in matches)
+	assert all(
+		"Vienna Convention on the Law of Treaties" in match.normalized_citation
+		for match in matches
+		if match.citation_text in {"Article 31", "Article 32"}
+	)
+
+
+def test_extract_statute_reference_matches_supports_short_vienna_convention_anchor():
+	text = (
+		"Articles 31 and 32 of the Vienna Convention guide interpretation.\n"
+		"Article 31. General rule of interpretation"
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		match.citation_text == "Articles 31 and 32 of the Vienna Convention"
+		and match.normalized_citation == "arts. 31, 32 of Vienna Convention on the Law of Treaties"
+		for match in matches
+	)
+	assert any(
+		match.citation_text == "Article 31"
+		and match.normalized_citation == "art. 31 of Vienna Convention on the Law of Treaties"
+		for match in matches
+	)
+
+
+def test_extract_statute_reference_matches_rejects_order_prose_and_judgment_paragraphs():
+	text = (
+		"The Immigration and Refugee Protection Act applies. In order to explain the result, "
+		"paragraph 35 of these reasons addresses jurisdiction."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert not any(match.citation_text == "In order" for match in matches)
+	assert not any(match.citation_text == "paragraph 35" for match in matches)
+
+
+def test_extract_statute_reference_matches_supports_named_refugee_instruments():
+	text = (
+		"Protocol relating to the Status of Refugees, 606 U.N.T.S. 267.\n"
+		"Statute of the Office of the United Nations High Commissioner for Refugees, "
+		"G.A. Res. 428(V) (1950), s. 7."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any("Protocol relating to the Status of Refugees" in match.citation_text for match in matches)
+	assert any("Statute of the Office of the United Nations High Commissioner for Refugees" in match.citation_text for match in matches)
+	assert all(match.kind == "instrument" for match in matches)
+
+
+def test_extract_raw_citation_matches_supports_article_1fb_variant():
+	text = "Article 1FB of the Refugee Convention, Can. T.S. 1969 No. 6 applies."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "instrument"
+		and "art. 1F(b)" in m.normalized_citation
+		and "Can. T.S. 1969 No. 6" in m.normalized_citation
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_section_of_statute_form():
+	text = "Section 7 of the Charter and s. 34(1) of IRPA are engaged."
+
+	matches = citations.extract_raw_citation_matches(text)
+	normalized = [m.normalized_citation for m in matches if m.kind == "statute"]
+
+	assert "Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982 s. 7" in normalized
+	assert "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)" in normalized
+
+
+def test_extract_raw_citation_matches_preserves_nested_statute_subsections():
+	text = "The decision turns on IRPA s. 3(2) (a) and the Charter section 7(1)(b)."
+
+	matches = citations.extract_raw_citation_matches(text)
+	normalized = [m.normalized_citation for m in matches if m.kind == "statute"]
+
+	assert "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 3(2) (a)" in normalized
+	assert "Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982 s. 7(1)(b)" in normalized
+
+
+def test_extract_raw_citation_matches_supports_generic_law_citations():
+	text = (
+		"Section 18.1 of the Federal Courts Act applies, and section 5(1) of the Citizenship Act, "
+		"R.S.C. 1985, c. C-29 is also engaged."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	normalized = [m.normalized_citation for m in matches if m.kind == "statute"]
+
+	assert any("Federal Courts Act s. 18.1" in item for item in normalized)
+	assert any("Citizenship Act, R.S.C. 1985, c. C-29" in item and "s. 5(1)" in item for item in normalized)
+
+
+def test_extract_raw_citation_matches_supports_immigration_act_punctuation_variant():
+	text = "Immigration Act, R.S.C., 1985, c. I-2"
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "statute"
+		and m.normalized_citation == "Immigration Act, R.S.C. 1985, c. I-2"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_irpa_plural_section_ranges():
+	text = "Under IRPA ss. 100 to 102, 101(1)(f), and 101(2)(b), the claim is ineligible."
+
+	matches = citations.extract_raw_citation_matches(text)
+	normalized = [m.normalized_citation for m in matches if m.kind == "statute"]
+
+	assert any(
+		item.startswith("Immigration and Refugee Protection Act, S.C. 2001, c. 27 ss. 100 to 102, 101(1)(f), 101(2)(b)")
+		for item in normalized
+	)
+
+
+def test_extract_raw_citation_matches_supports_vienna_convention_article_list():
+	text = "Articles 31 and 32 of the Vienna Convention on the Law of Treaties guide interpretation."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "instrument"
+		and m.normalized_citation == "arts. 31, 32 of Vienna Convention on the Law of Treaties"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_scr_pinpoint_citation():
+	text = "The Court relied on [1994] 3 S.C.R. 551, at pp. 577-78 for the test."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "secondary"
+		and m.normalized_citation == "[1994] 3 S.C.R. 551, at pp. 577-78"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_scr_paragraph_pinpoint_list():
+	text = "[2013] 2 S.C.R. 678, at paras. 38 and 101, and Pushpanathan, at paras. 65-66 and 70."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "secondary"
+		and m.normalized_citation == "[2013] 2 S.C.R. 678, at paras. 38 and 101"
+		for m in matches
+	)
+	assert any(
+		m.kind == "secondary"
+		and m.normalized_citation == "Pushpanathan, at paras. 65-66 and 70"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_pushpanathan_para_short_form():
+	text = "Pushpanathan, at para. 57."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "secondary"
+		and m.normalized_citation == "Pushpanathan, at para. 57"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_refugee_convention_article_33_subsection():
+	text = "The exception in Article 33(2) applies."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "instrument"
+		and m.normalized_citation == "art. 33(2) of Refugee Convention"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_does_not_capture_bare_charter_term():
+	text = "The Charter values at issue are discussed without a specific section."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert not any(m.kind == "statute" and m.normalized_citation == "Charter" for m in matches)
+
+
+def test_extract_raw_citation_matches_supports_multiword_party_names():
+	text = "Applied in R. v. Green Valley Holdings Ltd., 2018 FCA 12."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert len(matches) == 1
+	assert matches[0].kind == "case"
+	assert matches[0].normalized_citation == "R. v. Green Valley Holdings Ltd., 2018 FCA 12"
+
+
+def test_extract_raw_citation_matches_supports_short_form_followups():
+	text = (
+		"See Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1. "
+		"Suresh, at para. 10, is applied."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert len(matches) == 2
+	assert matches[0].kind == "case"
+	assert matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1"
+	assert matches[1].kind == "case_short"
+	assert matches[1].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1"
+
+
+def test_extract_raw_citation_matches_supports_case_short_multi_para_lists():
+	text = (
+		"Canada (Citizenship and Immigration) v. Jayasekara, 2008 FCA 404. "
+		"Febles v. Canada (Citizenship and Immigration), 2014 SCC 68. "
+		"Jayasekara at paras 37 and 44. "
+		"Febles at para 62. "
+		"Jayasekara at para 55; and Febles at para 62."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(m.citation_text == "Jayasekara at paras 37 and 44" for m in short_matches)
+	assert any(m.citation_text == "Febles at para 62" for m in short_matches)
+	assert any(m.citation_text == "Jayasekara at para 55" for m in short_matches)
+
+
+def test_extract_case_citations_handles_chained_cases_with_bracket_aliases():
+	text = (
+		"The RAD relied on Jayasekara v Canada (Minister of Citizenship and Immigration), "
+		"2008 FCA 404 [Jayasekara] and Febles v Canada (Citizenship and Immigration), "
+		"2014 SCC 68 [Febles]. Jayasekara at paras 37 and 44. Febles at para 62."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(
+		m.kind == "case"
+		and m.citation_text
+		== "Jayasekara v Canada (Minister of Citizenship and Immigration), 2008 FCA 404"
+		for m in matches
+	)
+	assert any(
+		m.kind == "case"
+		and m.citation_text
+		== "Febles v Canada (Citizenship and Immigration), 2014 SCC 68"
+		for m in matches
+	)
+	assert any(
+		m.kind == "case_short"
+		and m.citation_text == "Jayasekara at paras 37 and 44"
+		and m.normalized_citation
+		== "Jayasekara v. Canada (Minister of Citizenship and Immigration), 2008 FCA 404"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_supports_case_short_paragraph_wording():
+	text = (
+		"Canada (Citizenship and Immigration) v. Jayasekara, 2008 FCA 404. "
+		"Jayasekara at paragraph 24. Jayasekara at paragraph 26."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(m.citation_text == "Jayasekara at paragraph 24" for m in short_matches)
+	assert any(m.citation_text == "Jayasekara at paragraph 26" for m in short_matches)
+
+
+def test_extract_raw_citation_matches_supports_standalone_case_name_without_neutral():
+	text = "The panel relied on Nava AGUILAR v CANADA in its reasoning."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "case_name"
+		and m.normalized_citation == "Nava AGUILAR v. CANADA"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_trims_narrative_prefix_from_case_name():
+	text = "As noted by John Norris in Nava Aguilar v Canada (Citizenship and Immigration), 2024 FC 1714."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "case"
+		and m.normalized_citation == "Nava Aguilar v. Canada (Citizenship and Immigration), 2024 FC 1714"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_ignores_narrative_prefix_before_case_name():
+	text = (
+		"The Court may disregard argumentative affidavit passages "
+		"(Ray v Canada, 2003 FCA 317)."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert len(matches) == 1
+	assert matches[0].kind == "case"
+	assert matches[0].normalized_citation == "Ray v. Canada, 2003 FCA 317"
+
+
+def test_extract_raw_citation_matches_strips_judge_name_from_parenthetical_case():
+	text = (
+		"Justice Ahmed (Gnanapragasam v Canada (Public Safety and Emergency Preparedness), "
+		"2023 FC 1735) explained the point."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	assert any(
+		m.kind == "case"
+		and m.normalized_citation == "Gnanapragasam v. Canada (Public Safety and Emergency Preparedness), 2023 FC 1735"
+		for m in matches
+	)
+
+
+def test_extract_raw_citation_matches_short_form_does_not_capture_trailing_prose():
+	text = (
+		"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 was applied. "
+		"Vavilov at para 10). The Minister adds that the outcome is unchanged."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert len(short_matches) == 1
+	assert short_matches[0].citation_text == "Vavilov at para 10"
+	assert "The Minister" not in short_matches[0].citation_text
+
+
+def test_extract_case_citations_highlights_bare_alias_after_full_citation():
+	text = (
+		"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 "
+		"sets the framework. The Court applied Vavilov. Vavilov also requires "
+		"responsive reasons. Mr V gave evidence."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	bare_vavilov = [
+		m
+		for m in matches
+		if m.kind == "case_short" and m.citation_text == "Vavilov"
+	]
+
+	assert len(bare_vavilov) == 2
+	assert all(
+		m.normalized_citation
+		== "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65"
+		for m in bare_vavilov
+	)
+	assert not any(m.citation_text == "Mr V" for m in matches)
+
+
+def test_extract_case_citations_does_not_promote_narrative_words_from_case_name_span():
+	text = (
+		"The claimant was excluded from the Refugee Convention on the basis of grave "
+		"criminal conduct (X v Commissaire). The evidence came from another source, "
+		"and the conduct was later discussed."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(
+		m.kind == "case_name" and m.citation_text == "X v Commissaire"
+		for m in matches
+	)
+	assert not any(
+		m.kind == "case_short" and m.citation_text.lower() in {"from", "conduct"}
+		for m in matches
+	)
+
+
+def test_extract_case_citations_captures_complete_parenthetical_short_citation():
+	text = (
+		"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 "
+		"sets the framework. The decision must be justified (Vavilov at para 100)."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(
+		m.kind == "case_short"
+		and m.citation_text == "(Vavilov at para 100)"
+		and text[m.offset_start:m.offset_end] == "(Vavilov at para 100)"
+		for m in matches
+	)
+
+
+def test_extract_case_citations_captures_single_parenthetical_prefix_and_editorial_note():
+	text = (
+		"Febles v Canada (Citizenship and Immigration), 2014 SCC 68 applies. "
+		"The exclusion is narrow (cf. Febles at para 62). "
+		"The framework controls (Febles at para 84, internal quotation marks deleted)."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_texts = {m.citation_text for m in matches if m.kind == "case_short"}
+
+	assert "(cf. Febles at para 62)" in short_texts
+	assert "(Febles at para 84, internal quotation marks deleted)" in short_texts
+
+
+def test_extract_case_citations_keeps_multi_authority_parenthetical_spans_separate():
+	text = (
+		"Jayasekara v Canada (Minister of Citizenship and Immigration), 2008 FCA 404 and "
+		"Febles v Canada (Citizenship and Immigration), 2014 SCC 68 apply "
+		"(Jayasekara at para 55; and Febles at para 62)."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_texts = {m.citation_text for m in matches if m.kind == "case_short"}
+
+	assert "Jayasekara at para 55" in short_texts
+	assert "Febles at para 62" in short_texts
+
+
+def test_extract_raw_citation_matches_generic_short_form_prefers_anchor_and_rejects_fragments():
+	text = (
+		"Sharma v. Canada (Minister of Public Safety and Emergency Preparedness), 2016 FCA 319 sets the framework. "
+		"The factors and, at para 70, are discussed. In Sharma, at para 34, the Court explained why. "
+		"The assessment must be reasonable in the circumstances, at para 70."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(m.citation_text == "Sharma, at para 34" for m in short_matches)
+	assert any(
+		m.normalized_citation == "Sharma v. Canada (Minister of Public Safety and Emergency Preparedness), 2016 FCA 319"
+		for m in short_matches
+	)
+	assert not any("factors and" in m.citation_text for m in short_matches)
+	assert not any("reasonable in the circumstances" in m.citation_text for m in short_matches)
+
+
+def test_extract_raw_citation_matches_does_not_leak_bracket_alias_to_next_case():
+	text = (
+		"Penner v Niagara (Regional Police Services Board), 2013 SCC 19 [Penner], "
+		"and Exeter v Canada (Attorney General), 2012 FCA 119 [Exeter]. "
+		"Exeter at para 6 applies."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(m.citation_text == "Exeter at para 6" for m in short_matches)
+	assert any(
+		m.citation_text == "Exeter at para 6"
+		and m.normalized_citation == "Exeter v. Canada (Attorney General), 2012 FCA 119"
+		for m in short_matches
+	)
+
+
+def test_extract_raw_citation_matches_binds_alias_to_immediately_preceding_case():
+	text = (
+		"Samuel v Canada (Citizenship and Immigration), 2019 FC 227 at para 17. "
+		"The Respondent cites Shackleford v Canada (Citizenship and Immigration), "
+		"2019 FC 1313 [Shackleford]. Shackleford at para 12 applies."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(
+		m.citation_text == "Shackleford at para 12"
+		and m.normalized_citation
+		== "Shackleford v. Canada (Citizenship and Immigration), 2019 FC 1313"
+		for m in short_matches
+	)
+	assert not any(
+		m.citation_text == "Shackleford at para 12"
+		and m.normalized_citation
+		== "Samuel v. Canada (Citizenship and Immigration), 2019 FC 227"
+		for m in short_matches
+	)
+
+
+def test_extract_raw_citation_matches_prefers_company_name_over_suffix_start():
+	text = (
+		"As described in Jennings-Clyde, Inc (Vivatas, Inc) v Canada (Attorney General), 2024 FC 1141 "
+		"[Jennings-Clyde] at paragraph 39. Jennings-Clyde at para 40 follows."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	full_cases = [m for m in matches if m.kind == "case"]
+	short_matches = [m for m in matches if m.kind == "case_short"]
+
+	assert any(
+		m.normalized_citation == "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141"
+		for m in full_cases
+	)
+	assert any(
+		m.citation_text == "Jennings-Clyde at para 40"
+		and m.normalized_citation == "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141"
+		for m in short_matches
+	)
+
+
+def test_rebuild_stores_each_inline_case_name_with_chunk_location(monkeypatch):
+	section_1 = "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 sets the framework."
+	section_2 = "Vavilov explains the first issue. Vavilov also controls the second issue."
+	full_text = f"{section_1}\n{section_2}"
+	case = SimpleNamespace(id=11, full_text=full_text, summary=None)
+	chunks = [
+		SimpleNamespace(id=101, chunk_set="section", chunk_index=0, text=section_1),
+		SimpleNamespace(id=102, chunk_set="section", chunk_index=1, text=section_2),
+	]
+
+	class RebuildSession:
+		def __init__(self):
+			self.added = []
+
+		def execute(self, statement):
+			return None
+
+		def add_all(self, rows):
+			self.added.extend(rows)
+
+	monkeypatch.setattr(citations, "resolve_neutral_to_case_id", lambda session, neutral: 99)
+	session = RebuildSession()
+
+	inserted = citations.rebuild_citations_for_case(session, case, chunks)
+	inline_rows = [row for row in session.added if row.citation_text == "Vavilov"]
+
+	assert inserted == 3
+	assert len(inline_rows) == 2
+	assert all(row.citation_kind == "case_short" for row in inline_rows)
+	assert all(row.target_case_id == 99 for row in inline_rows)
+	assert all(row.chunk_id == 102 for row in inline_rows)
+	assert [section_2[row.offset_start:row.offset_end] for row in inline_rows] == ["Vavilov", "Vavilov"]
+	assert inline_rows[0].offset_start != inline_rows[1].offset_start
 
 
 def test_citation_endpoints_return_rows_and_metrics():
@@ -156,7 +776,7 @@ def test_citation_map_case_search_and_authority_map_are_bounded(monkeypatch):
 
 	assert calls["search"] == (database, "Vavilov", 30)
 	assert calls["authority_map"] == (database, 10, 12)
-	assert "Search and read the corpus" in routes.case_reader_page()
+	assert "Reader, citations, chunks, and tags in one place" in routes.case_reader_page()
 	assert "item.title" in routes.case_reader_page()
 	assert "item.citation||item.title" not in routes.case_reader_page()
 

@@ -1,6 +1,6 @@
 # AI CaseLibrary Forward Roadmap
 
-Last updated: 2026-08-03
+Last updated: 2026-08-07
 
 ## Objective
 
@@ -27,11 +27,13 @@ Current known strength:
 
 1. Rich citation analytics endpoints and CSV exports.
 2. Good route-level test coverage in the existing suite.
+3. The stored citation graph is now large enough for external QA sampling at scale.
 
 Current known gap:
 
 1. The roadmap-heavy features below are not yet implemented end to end.
 2. QA is strong at unit/route level, but still light on dataset quality gates, performance baselines, and end-to-end regression workflows.
+3. The 1000-case external audit surfaced likely truncation patterns in some stored case-to-case citations, so extraction hardening remains a priority.
 
 ## Missing Features (Prioritized)
 
@@ -159,6 +161,10 @@ Exit criteria:
 4. Safety and governance checks
 - Response disclaimer presence where required
 - Provenance traceability for every recommendation
+5. External citation audits
+- Cheap-model audit passes over stored case-to-case citations
+- Filter duplicate-only flags before turning findings into fixes
+- Track truncation, partial party-style citations, and reporter-style citations separately
 
 ## Suggested Quality Gates
 
@@ -190,7 +196,13 @@ By end of Phase 4, target:
 
 ## Immediate Next Actions (This Week)
 
-1. Finalize a benchmark question set and expected-authority answer key.
-2. Define endpoint SLO budgets for `/search/chunks/grouped` and top `/citation-map/*` surfaces.
-3. Create implementation tickets for Phase 1 and Phase 2 with explicit acceptance criteria.
-4. Add CI job stages for quality, performance smoke, and export-contract checks.
+1. Run a deterministic statute/instrument coverage audit over the priority
+	review cohort and group remaining misses by format before reprocessing.
+2. Expand law regressions for French forms, Parts/Schedules, additional treaties,
+	and safe short-form anchor boundaries.
+3. Repair the unrelated FC document-scraper test collection error and establish
+	a new full-suite baseline.
+4. Define endpoint SLO budgets for `/search/chunks/grouped` and top
+	`/citation-map/*` surfaces.
+5. Add CI stages for extraction quality, performance smoke, and API/export
+	contract checks.

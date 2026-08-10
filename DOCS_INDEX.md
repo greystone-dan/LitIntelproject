@@ -1,11 +1,30 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-08-03
+Last updated: 2026-08-10
 
 ## Purpose
 
 This file defines which documents are authoritative for current operations,
 which are historical, and what to update during a nighttime patch.
+
+## Canonical Workflow Pointer
+
+Current main workflow is Citation Pass driven deterministic extraction hardening.
+
+Use this sequence:
+
+1. Run API.
+2. Review extraction in `/citation-pass`.
+3. Fix parser/rule behavior with tests first.
+4. Re-run focused and then broader verification.
+5. Update explainer docs and changelog before push.
+
+Primary explainer docs that must stay aligned:
+
+1. `README.md` (entrypoint and operating workflow)
+2. `AI_HANDOFF.md` (active implementation state and next actions)
+3. `SYSTEM_OVERVIEW.txt` (plain-language status snapshot)
+4. `CHANGELOG.md` (what changed and verification notes)
 
 ## Documentation Authority
 
@@ -26,6 +45,9 @@ Current operational sources of truth:
 5. `ROADMAP.md`
 - Forward-looking phased delivery plan for missing features, QA, and release readiness.
 
+6. `AI_HANDOFF.md`
+- Active implementation handoff for citation stabilization, deployment scaffolding status, and next-agent entry tasks.
+
 Historical context (read with caution):
 
 1. `docs/history/AI_HANDOFF.md`
@@ -35,11 +57,11 @@ Historical context (read with caution):
 These files are useful for lineage and rationale but may contain stale counts,
 older endpoint lists, or outdated test totals.
 
-## Cleanup Status (2026-08-03)
+## Cleanup Status (2026-08-07)
 
-1. Historical handoff docs were moved from repository root to `docs/history/`.
-2. Local backup snapshots and runtime overnight state directories are now ignored for cleaner commits.
-3. Root documentation should prioritize `README.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+1. Active handoff authority now lives in root `AI_HANDOFF.md`; historical handoffs remain under `docs/history/`.
+2. Citation stabilization is currently case-to-case first; statute/instrument extraction is tracked separately.
+3. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

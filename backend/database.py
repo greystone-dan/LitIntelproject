@@ -126,6 +126,12 @@ class Case(Base):
 		back_populates="target_case",
 	)
 	metrics = relationship("CitationMetrics", uselist=False, back_populates="case")
+	statute_references = relationship(
+		"StatuteReference",
+		foreign_keys="StatuteReference.source_case_id",
+		back_populates="source_case",
+		cascade="all, delete-orphan",
+	)
 	tags = relationship("CaseTag", back_populates="case", cascade="all, delete-orphan")
 	tagging_statuses = relationship(
 		"CaseTaggingStatus", back_populates="case", cascade="all, delete-orphan"
@@ -166,7 +172,11 @@ class CaseChunk(Base):
 	case_id: Mapped[int] = mapped_column(
 		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
 	)
+	chunk_set: Mapped[str] = mapped_column(String(50), nullable=False, index=True, default="legacy")
 	chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
+	chunk_label: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	paragraph_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	paragraph_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	text: Mapped[str] = mapped_column(Text, nullable=False)
 	text_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
 	token_estimate: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -178,6 +188,7 @@ class CaseChunk(Base):
 
 	case = relationship("Case", back_populates="chunks")
 	citations = relationship("Citation", back_populates="chunk")
+	statute_references = relationship("StatuteReference", back_populates="chunk")
 	local_embeddings = relationship(
 		"CaseChunkEmbedding",
 		back_populates="chunk",
@@ -280,6 +291,7 @@ class Citation(Base):
 	target_case_id: Mapped[int | None] = mapped_column(
 		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=True, index=True
 	)
+	citation_kind: Mapped[str] = mapped_column(String(20), nullable=False, server_default="unknown", index=True)
 	citation_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 	normalized_citation: Mapped[str | None] = mapped_column(Text, nullable=True, index=True)
 	provenance: Mapped[str] = mapped_column(String(20), nullable=False, server_default="local", index=True)
@@ -306,6 +318,26 @@ class CitationMetrics(Base):
 	pagerank: Mapped[float | None] = mapped_column(Float, nullable=True)
 
 	case = relationship("Case", back_populates="metrics")
+
+
+class StatuteReference(Base):
+	__tablename__ = "statute_references"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
+	)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	reference_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	normalized_reference: Mapped[str | None] = mapped_column(Text, nullable=True, index=True)
+	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+
+	source_case = relationship("Case", back_populates="statute_references")
+	chunk = relationship("CaseChunk", back_populates="statute_references")
 
 
 class A2AJCase(Base):

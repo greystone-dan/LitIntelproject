@@ -203,3 +203,12 @@ def test_legal_tagger_captures_legislation_international_law_and_country_entitie
     assert ("organization", "bangladesh_nationalist_party") in values
     assert ("organization", "ipob") in values
     assert all(tag.evidence for tag in result)
+
+
+def test_legal_tagger_preserves_nested_statute_subsections():
+    text = "The panel relied on IRPA section 3(2)(a) and IRPR subsection 245(1)(c)."
+
+    values = {(tag.category, tag.value) for tag in LegalTagger().tag(text)}
+
+    assert ("statute", "irpa_s_3(2)(a)") in values
+    assert ("regulation", "irpr_s_245(1)(c)") in values

@@ -1,0 +1,109 @@
+{
+  "old_full": {
+    "cases": 294,
+    "missing": 311,
+    "mischaracterized": 165,
+    "total_flags": 476,
+    "spent_usd": 0.252643
+  },
+  "new_full_segmented": {
+    "cases": 294,
+    "missing": 103,
+    "mischaracterized": 39,
+    "total_flags": 142,
+    "failed": 0,
+    "spent_usd": 0.224646
+  },
+  "delta": {
+    "missing": -208,
+    "mischaracterized": -126,
+    "total_flags": -334,
+    "total_flags_pct_change": -70.17,
+    "spent_usd": -0.027996,
+    "truncation_issue_delta": -80
+  },
+  "top_old_issues": [
+    [
+      "truncation",
+      88
+    ],
+    [
+      "mischaracterized",
+      39
+    ],
+    [
+      "generic term \"charter\" used repeatedly without specifying \"canadian charter of rights and freedoms\" or section",
+      6
+    ],
+    [
+      "mischaracterization",
+      5
+    ],
+    [
+      "formatting",
+      5
+    ],
+    [
+      "citation includes trailing parenthesis and is a short form",
+      3
+    ],
+    [
+      "bracket included in citation text",
+      3
+    ],
+    [
+      "truncated citation",
+      2
+    ],
+    [
+      "citation includes extra text before case name",
+      2
+    ],
+    [
+      "case_short",
+      1
+    ]
+  ],
+  "top_new_issues": [
+    [
+      "mischaracterized",
+      17
+    ],
+    [
+      "truncation",
+      8
+    ],
+    [
+      "starts with bracket and partial name",
+      2
+    ],
+    [
+      "extra closing parenthesis in case name",
+      2
+    ],
+    [
+      "short form citation lacks full case name",
+      2
+    ],
+    [
+      "includes judge name, should be case only",
+      1
+    ],
+    [
+      "includes judge name and context, should be case only",
+      1
+    ],
+    [
+      "citation truncated",
+      1
+    ],
+    [
+      "court name included in citation text",
+      1
+    ],
+    [
+      "citation includes trailing text and is truncated",
+      1
+    ]
+  ]
+}

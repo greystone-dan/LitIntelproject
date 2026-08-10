@@ -102,12 +102,13 @@ JOBS: dict[str, Job] = {
     ),
     "citations": Job(
         "citations",
-        "Rebuild case citations and citation metrics",
+        "Rebuild case citations, statute references, and citation metrics",
         (
             "-m",
             "scripts.extract_citation_network",
             "--cases",
             "--chunks",
+            "--statutes",
             "--metrics",
             "--batch-size",
             "500",

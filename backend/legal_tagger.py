@@ -244,21 +244,22 @@ class LegalTagger:
         irpa_context = re.search(r"\b(?:IRPA|Immigration and Refugee Protection Act)\b", text, re.IGNORECASE)
         if irpa_context:
             self._add(found, LegalTag("statute", "irpa", 1.0, irpa_context.group(0)))
-            for match in re.finditer(r"\b(?:sections?|subsections?|paragraphs?|ss?\.)\s*(\d{1,3})(?:\s*\(\s*(\d+)\s*\))?", text, re.IGNORECASE):
-                suffix = f"_{match.group(2)}" if match.group(2) else ""
-                self._add(found, LegalTag("statute", f"irpa_s_{match.group(1)}{suffix}", 0.95, match.group(0)))
+            for match in re.finditer(r"\b(?:sections?|subsections?|paragraphs?|ss?\.)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)", text, re.IGNORECASE):
+                section = re.sub(r"\s+", "", match.group(1))
+                self._add(found, LegalTag("statute", f"irpa_s_{section}", 0.95, match.group(0)))
             for citation in re.finditer(
-                r"\b(?:sections?|subsections?|paragraphs?|ss?\.)\s*([\d(),.\s-]+(?:and|or|et|ou)[\d(),.\s-]+)",
+                r"\b(?:sections?|subsections?|paragraphs?|ss?\.)\s*([\dA-Za-z(),.\s-]+(?:and|or|et|ou)[\dA-Za-z(),.\s-]+)",
                 text,
                 re.IGNORECASE,
             ):
-                for section in re.finditer(r"\d{1,3}", citation.group(1)):
+                for section in re.finditer(r"\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", citation.group(1)):
                     evidence = citation.group(0).strip()
-                    self._add(found, LegalTag("statute", f"irpa_s_{section.group(0)}", 0.95, evidence))
+                    section_value = re.sub(r"\s+", "", section.group(0))
+                    self._add(found, LegalTag("statute", f"irpa_s_{section_value}", 0.95, evidence))
 
         irpr_context = re.search(r"\b(?:IRPR|Immigration and Refugee Protection Regulations?)\b", text, re.IGNORECASE)
         if irpr_context:
             self._add(found, LegalTag("regulation", "irpr", 1.0, irpr_context.group(0)))
-            for match in re.finditer(r"\b(?:regulations?|sections?|subsections?|paragraphs?|ss?\.)\s*(\d{1,3})(?:\s*\(\s*(\d+)\s*\))?", text, re.IGNORECASE):
-                suffix = f"_{match.group(2)}" if match.group(2) else ""
-                self._add(found, LegalTag("regulation", f"irpr_s_{match.group(1)}{suffix}", 0.95, match.group(0)))
+            for match in re.finditer(r"\b(?:regulations?|sections?|subsections?|paragraphs?|ss?\.)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)", text, re.IGNORECASE):
+                section = re.sub(r"\s+", "", match.group(1))
+                self._add(found, LegalTag("regulation", f"irpr_s_{section}", 0.95, match.group(0)))

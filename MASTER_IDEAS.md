@@ -17,6 +17,21 @@ tr th {
 }
 ```
 
+## Current Implemented Baseline
+
+Several ideas below are already implemented in the current citation-map and QA surface:
+
+1. Missing Authority Detection.
+2. Citation Completion.
+3. Citation Position Profiles.
+4. Hidden Authority Paths.
+5. Jurisprudential Shift Detection.
+6. Citation Surprise scoring.
+7. Authority Lifecycle tracking.
+8. Cross-Court Authority Flow.
+
+The remaining ideas should be treated as the forward research backlog, not as live capabilities unless they are explicitly listed elsewhere in current-state docs.
+
 ## Graph Foundation
 
 1. Citation Edge Graph - Track which cases cite which cases.

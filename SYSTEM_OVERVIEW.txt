@@ -1,6 +1,6 @@
 AI CASELIBRARY
 PLAIN-LANGUAGE SYSTEM OVERVIEW
-Current as of August 2, 2026
+Current as of August 7, 2026
 
 Document role: live plain-language system state.
 For milestone deltas and recent endpoints, see CHANGELOG.md.
@@ -160,9 +160,23 @@ Long decisions are divided into passages of approximately 6,000 characters. Adja
 
 Each chunk stores its parent case, sequence number, text, text hash, and estimated token count. Existing chunks are skipped on resume. Every canonical case now has chunks, with 168,282 chunks across the full library and 168,171 belonging to A2AJ cases.
 
-Step 6: Extract and resolve citations
+Step 6: Extract and resolve legal references
 
-The citation processor scans decisions for Canadian case, neutral, reported, and statute citation patterns. It normalizes each citation and tries to match it to another canonical case.
+The deterministic extraction workflow keeps three review layers separate:
+
+- Case-to-case citations, including neutral, full-name, and grounded short forms.
+- Statutes and legal instruments, including provisions and anchored short forms.
+- Decision metadata that can be mapped back to an exact source-text span.
+
+Each live layer owns its source offsets and normalization. The browser converts
+Python Unicode code-point offsets to JavaScript UTF-16 offsets for rendering; it
+does not reparse citation text. Case references are the only layer resolved to
+another canonical case. Statutes/instruments use separate extraction and storage,
+and metadata retains field confidence and provenance.
+
+The `/citation-pass` review surface displays case references in orange,
+statutes/instruments in green, and metadata in blue. Runtime extraction uses code
+only and does not call a hosted AI service.
 
 A citation row can record:
 

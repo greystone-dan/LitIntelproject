@@ -6,6 +6,49 @@ For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIG
 Note: entries on the same date may be grouped by feature theme rather than
 strict execution order.
 
+## 2026-08-10 - Workflow consolidation and explainer alignment
+
+- Declared Citation Pass as the canonical day-to-day workflow for current
+	extraction stabilization work.
+- Updated `README.md` with a single operating sequence (run API, review
+	`/citation-pass`, fix deterministic extraction, validate, then push).
+- Updated `DOCS_INDEX.md` so explainer-document authority and update order are
+	explicit for patch cycles.
+- Updated `AI_HANDOFF.md` to foreground the same primary workflow and reduce
+	context switching across parallel notes.
+- Repository checkpoint prepared for push from `main` to keep all work up to
+	this point synchronized on GitHub.
+
+## 2026-08-07 - Deterministic layered extraction review
+
+- Hardened the case-only citation layer for full case anchors, grounded
+	short-form aliases, complete parenthetical spans, and exact Unicode-safe
+	source offsets.
+- Added independent deterministic statute/instrument extraction through
+	`extract_statute_reference_matches()`; statute rows no longer depend on case
+	extraction or participate in case-layer overlap selection.
+- Expanded law coverage for Canadian Acts, Codes, Regulations, Rules, Orders,
+	SOR/SI citations, international instruments, plural provisions, and bounded
+	short-form section/article propagation from a named authority.
+- Added precision guards against ordinary prose such as `In order` and bare
+	judgment paragraph numbers inheriting a statute anchor.
+- Added a deterministic metadata span layer backed by the Federal Court
+	metadata extractor. Canonical text-derived fields retain exact offsets,
+	confidence, and source provenance.
+- Extended `GET /cases/{case_id}/citation-pass` with separate
+	`live_extracted`, `live_statutes`, and `live_metadata` arrays and independent
+	counts. The review UI renders case citations in orange, laws in green, and
+	metadata in blue without reparsing backend spans.
+- Added focused extractor and API regressions. Verified live code-point span
+	integrity with zero errors: Febles has `168` case citations and `442` law
+	references; Hasani has `48` case citations, `62` law references, and `10`
+	metadata fields.
+- Focused validation passes: `6` statute-layer tests, `1` citation-pass API
+	test, and `1` metadata-layer test. The full suite currently stops during test
+	collection on a pre-existing syntax error in
+	`tests/test_fc_document_scraper.py:58`; no full-suite pass count is claimed.
+- No AI/API extraction calls or broad cohort reprocessing were performed.
+
 ## 2026-08-02 - Direct A2AJ FC PDF ingestion with metadata tagging
 
 - Added direct Federal Court ingestion mode in `fc_ingest` (`--a2aj-direct`)

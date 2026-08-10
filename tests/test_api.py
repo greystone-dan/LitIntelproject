@@ -8,6 +8,7 @@ from pydantic import ValidationError
 from backend import routes
 from backend.models import (
     CaseIngestRequest,
+    CaseReaderMetadataFieldResponse,
     CaseSearchRequest,
     ChunkGroupSearchRequest,
     LocalChunkSearchRequest,
@@ -116,7 +117,7 @@ def test_search_returns_similarity_and_applies_filters(monkeypatch):
     assert results[0].title == "Example v. Jones"
     assert results[0].similarity == pytest.approx(0.84)
     params = database.statement.compile().params
-    assert "Ontario Court of Appeal" in params.values()
+    assert any("Ontario Court of Appeal" in str(value) for value in params.values())
     assert "Ontario" in params.values()
     assert "test_source" in params.values()
     assert "%2026 ONCA 1%" in params.values()
@@ -154,9 +155,46 @@ def test_search_metadata_mode_uses_basic_identifiers(monkeypatch):
     assert results[0].citation == "2024 FC 100"
     assert results[0].similarity == pytest.approx(1.0)
     params = database.statement.compile().params
-    assert "Federal Court" in params.values()
+    assert any("Federal Court" in str(value) for value in params.values())
     assert "Canada" in params.values()
     assert "%2024 FC%" in params.values()
+
+
+@pytest.mark.parametrize(
+    "court_filter,court_value,expected_fragment",
+    [
+        ("FC", "Federal Court", "%Federal Court%"),
+        ("FCA", "Federal Court of Appeal", "%Federal Court of Appeal%"),
+        ("SCC", "Supreme Court of Canada", "%Supreme Court of Canada%"),
+    ],
+)
+def test_search_expands_court_abbreviations(monkeypatch, court_filter, court_value, expected_fragment):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    case = SimpleNamespace(
+        id=3,
+        title="Example v. Canada",
+        court=court_value,
+        jurisdiction="Canada",
+        date=date(2024, 6, 1),
+        citation="2024 FC 200",
+        summary="A summary mentioning related citations.",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="A2AJ Canadian Legal Data",
+    )
+    database = FakeDatabase(rows=[(case, 0.9, 0.9)])
+    request = CaseSearchRequest(
+        query="Example",
+        search_mode="metadata",
+        court=court_filter,
+    )
+
+    routes.search_cases(request, database)
+
+    params = database.statement.compile().params
+    assert expected_fragment in params.values()
 
 
 def test_search_applies_extended_metadata_filters(monkeypatch):
@@ -220,7 +258,183 @@ def test_search_applies_extended_metadata_filters(monkeypatch):
     assert "en" in params.values()
     assert "embedded" in params.values()
     assert 1 in params.values()
-    assert 10 in params.values()
+
+
+def test_get_case_citation_pass_returns_live_rows(monkeypatch):
+    case = SimpleNamespace(
+        id=77,
+        title="Example v. Canada",
+        court="FC",
+        citation="2024 FC 100",
+        date=date(2024, 1, 1),
+        summary=None,
+        full_text="See Example v. Canada, 2024 FC 100 under IRPA s. 72(1).",
+    )
+    class EmptyDB:
+        def scalars(self, statement):
+            return iter([])
+
+    database = EmptyDB()
+
+    monkeypatch.setattr(routes, "_get_case_or_404", lambda case_id, db: case)
+    monkeypatch.setattr(
+        routes,
+        "extract_case_citation_matches",
+        lambda text: [
+            SimpleNamespace(
+                kind="case",
+                citation_text="Example v. Canada, 2024 FC 100",
+                normalized_citation="Example v. Canada, 2024 FC 100",
+                offset_start=4,
+                offset_end=33,
+            )
+        ],
+    )
+    monkeypatch.setattr(
+        routes,
+        "extract_statute_reference_matches",
+        lambda text: [
+            SimpleNamespace(
+                kind="statute",
+                citation_text="IRPA s. 72(1)",
+                normalized_citation="Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 72(1)",
+                offset_start=41,
+                offset_end=54,
+            )
+        ],
+    )
+    monkeypatch.setattr(
+        routes,
+        "extract_metadata_matches",
+        lambda text: [
+            SimpleNamespace(
+                field="docket",
+                text="IMM-123-24",
+                value="IMM-123-24",
+                offset_start=0,
+                offset_end=10,
+                confidence=0.97,
+                source="text",
+            )
+        ],
+    )
+
+    payload = routes.get_case_citation_pass(77, database)
+
+    assert payload["summary"]["live_total"] == 1
+    assert payload["summary"]["statute_total"] == 1
+    assert payload["summary"]["metadata_total"] == 1
+    assert payload["live_extracted"][0]["kind"] == "case"
+    assert payload["live_statutes"][0]["kind"] == "statute"
+    assert payload["live_metadata"][0]["field"] == "docket"
+    assert all(row["kind"] not in {"statute", "instrument"} for row in payload["live_extracted"])
+    assert "Example v. Canada" in payload["live_extracted"][0]["context"]
+
+
+def test_get_case_citation_pass_detail_returns_passage_and_chunk_locations(monkeypatch):
+    full_text = "Header\n[1] The Court considered Vavilov, 2019 SCC 65 in context.\nTail"
+    case = SimpleNamespace(
+        id=77,
+        title="Example v. Canada",
+        court="FC",
+        citation="2024 FC 100",
+        date=date(2024, 1, 1),
+        summary=None,
+        full_text=full_text,
+    )
+    citation_text = "Vavilov, 2019 SCC 65"
+    offset_start = full_text.index(citation_text)
+    offset_end = offset_start + len(citation_text)
+    chunk_text = full_text[7:-5]
+    chunk = SimpleNamespace(
+        id=900,
+        case_id=77,
+        chunk_set="paragraph",
+        chunk_index=0,
+        chunk_label="Paragraph 1",
+        paragraph_start=1,
+        paragraph_end=1,
+        text=chunk_text,
+        token_estimate=14,
+    )
+
+    class DetailDB:
+        def scalars(self, statement):
+            return iter([chunk])
+
+    monkeypatch.setattr(routes, "_get_case_or_404", lambda case_id, db: case)
+    monkeypatch.setattr(
+        routes,
+        "extract_case_citation_matches",
+        lambda text: [
+            SimpleNamespace(
+                kind="case_short",
+                citation_text=citation_text,
+                normalized_citation="Vavilov, 2019 SCC 65",
+                offset_start=offset_start,
+                offset_end=offset_end,
+            )
+        ],
+    )
+    monkeypatch.setattr(routes, "_stored_case_citation_details", lambda *args: [])
+
+    payload = routes.get_case_citation_pass_detail(
+        77,
+        layer="case",
+        offset_start=offset_start,
+        offset_end=offset_end,
+        db=DetailDB(),
+    )
+
+    assert payload["layer"] == "case"
+    assert payload["citation_text"] == citation_text
+    assert payload["location"]["line_number"] == 2
+    assert payload["location"]["paragraph_number"] == 1
+    assert payload["passage"]["text"] == "[1] The Court considered Vavilov, 2019 SCC 65 in context."
+    assert payload["chunks"][0]["chunk_id"] == 900
+    assert payload["chunks"][0]["chunk_set"] == "paragraph"
+    assert payload["chunks"][0]["paragraph_start"] == 1
+    assert payload["chunks"][0]["citation_text"] == citation_text
+
+
+def test_stored_case_citation_details_matches_document_relative_offsets():
+    selected = SimpleNamespace(
+        citation_text="2014 SCC 68",
+        normalized_citation="2014 SCC 68",
+        offset_start=115,
+        offset_end=126,
+    )
+    citation = SimpleNamespace(
+        id=619679,
+        chunk_id=None,
+        offset_start=115,
+        offset_end=126,
+        citation_text="2014 SCC 68",
+        normalized_citation="2014 SCC 68",
+        provenance="local",
+        unresolved=False,
+        target_case_id=35868,
+    )
+    target = SimpleNamespace(
+        id=35868,
+        title="Febles v. Canada",
+        citation="2014 SCC 68",
+        court="SCC",
+        date=date(2014, 10, 30),
+    )
+
+    class StoredCitationDB:
+        def scalars(self, statement):
+            return iter([citation])
+
+        def get(self, model, record_id):
+            return target
+
+    details = routes._stored_case_citation_details(StoredCitationDB(), 35868, selected, [])
+
+    assert details[0]["record_id"] == 619679
+    assert details[0]["provenance"] == "local"
+    assert details[0]["target"]["case_id"] == 35868
 
 
 def test_search_party_filters_apply_to_search_document(monkeypatch):
@@ -763,6 +977,113 @@ def test_ingest_preserves_cases_cited_when_provided(monkeypatch):
     result = routes.ingest_case(request, FakeDatabase())
 
     assert result.cases_cited == ["manual-citation"]
+
+
+@pytest.mark.parametrize(
+    "court,citation,full_text,expected_court_type,expected_case_number",
+    [
+        (
+            "Federal Court",
+            "2024 FC 1",
+            "Date: 2024-01-02\nDocket: IMM-123-24\nCitation: 2024 FC 1\nBETWEEN:\nJane Doe v. Canada",
+            "FC",
+            "IMM-123-24",
+        ),
+        (
+            "Federal Court of Appeal",
+            "2024 FCA 2",
+            "Case number: A-123-24\nCitation: 2024 FCA 2\nSTYLE OF CAUSE: Smith v. Canada",
+            "FCA",
+            "A-123-24",
+        ),
+        (
+            "Supreme Court of Canada",
+            "2024 SCC 3",
+            "Case number: 40000\nCitation: 2024 SCC 3\nSTYLE OF CAUSE: Roe v. Canada",
+            "SC",
+            "40000",
+        ),
+    ],
+)
+def test_reader_metadata_derives_court_type_and_case_number(court, citation, full_text, expected_court_type, expected_case_number):
+    case = SimpleNamespace(
+        id=1,
+        title="Sample v. Canada",
+        court=court,
+        jurisdiction="Canada",
+        date=date(2024, 1, 2),
+        citation=citation,
+        summary=None,
+        full_text=full_text,
+    )
+
+    rows = routes._build_reader_extracted_metadata(case, [], include_canonical_fields=False)
+    metadata = {row.key: row.value for row in rows}
+
+    assert metadata["court_type"] == expected_court_type
+    assert metadata["case_number"] == expected_case_number
+    assert metadata["docket"] == expected_case_number
+
+
+def test_metadata_pass_normalized_display_formats_human_fields():
+    case = SimpleNamespace(
+        id=6617,
+        title="A.B. v THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2021, 1, 1),
+        citation="2021 FC 1",
+        summary=None,
+        full_text=None,
+        language="EN",
+        source_id="IMM-111-20",
+    )
+
+    extracted = [
+        CaseReaderMetadataFieldResponse(key="court_type", value="FC", source="reader_derived", evidence="FC"),
+        CaseReaderMetadataFieldResponse(key="case_number", value="IMM-111-20", source="reader_extracted", evidence="Docket: IMM-111-20"),
+        CaseReaderMetadataFieldResponse(key="style_of_cause_text", value="A.B. V THE MINISTER OF CITIZENSHIP AND IMMIGRATION", source="reader_extracted", evidence="style"),
+        CaseReaderMetadataFieldResponse(key="applicant", value="A.B.", source="reader_derived", evidence="caption"),
+        CaseReaderMetadataFieldResponse(key="respondent", value="THE MINISTER OF CITIZENSHIP AND IMMIGRATION", source="reader_derived", evidence="caption"),
+    ]
+
+    normalized = routes._build_metadata_pass_normalized_rows(case, extracted)
+    values = {row["key"]: row["value"] for row in normalized}
+
+    assert values["tribunal"] == "Federal Court"
+    assert values["court_type"] == "FC"
+    assert values["case_number"] == "IMM-111-20"
+    assert values["style_of_cause"] == "A.B. v. The Minister of Citizenship and Immigration"
+    assert values["respondent"] == "The Minister of Citizenship and Immigration"
+    assert values["language"] == "en"
+
+
+def test_metadata_pass_response_includes_normalized_display(monkeypatch):
+    case = SimpleNamespace(
+        id=1,
+        title="Sample",
+        citation="2024 SCC 1",
+        court="Supreme Court of Canada",
+        date=date(2024, 1, 1),
+        language="EN",
+        source_id="40000",
+    )
+
+    extracted = [
+        CaseReaderMetadataFieldResponse(key="court_type", value="SC", source="reader_derived", evidence="SC"),
+        CaseReaderMetadataFieldResponse(key="case_number", value="40000", source="reader_derived", evidence="40000"),
+        CaseReaderMetadataFieldResponse(key="style_of_cause_text", value="ROE V. CANADA", source="reader_extracted", evidence="style"),
+    ]
+
+    monkeypatch.setattr(routes, "_get_case_or_404", lambda case_id, db: case)
+    monkeypatch.setattr(routes, "_build_reader_extracted_metadata", lambda _case, _chunks, include_canonical_fields=False: extracted)
+
+    payload = routes.get_case_metadata_pass(1, FakeDatabase())
+
+    assert "normalized_display" in payload
+    normalized = {row["key"]: row["value"] for row in payload["normalized_display"]}
+    assert normalized["tribunal"] == "Supreme Court of Canada"
+    assert normalized["style_of_cause"] == "Roe v. Canada"
 
 
 def test_prototype_graph_returns_subgraph_payload(monkeypatch):

@@ -1,0 +1,280 @@
+{
+  "sampled_cases": 300,
+  "min_critical_confidence": 0.9,
+  "coverage": {
+    "date": {
+      "count": 300,
+      "percent": 100.0
+    },
+    "docket": {
+      "count": 275,
+      "percent": 91.67
+    },
+    "neutral citation": {
+      "count": 276,
+      "percent": 92.0
+    },
+    "judge": {
+      "count": 267,
+      "percent": 89.0
+    },
+    "style of cause": {
+      "count": 267,
+      "percent": 89.0
+    },
+    "place of hearing": {
+      "count": 248,
+      "percent": 82.67
+    },
+    "date of hearing": {
+      "count": 251,
+      "percent": 83.67
+    },
+    "dated": {
+      "count": 264,
+      "percent": 88.0
+    },
+    "counsel": {
+      "count": 267,
+      "percent": 89.0
+    },
+    "present": {
+      "count": 266,
+      "percent": 88.67
+    },
+    "between": {
+      "count": 270,
+      "percent": 90.0
+    },
+    "solicitors of record": {
+      "count": 265,
+      "percent": 88.33
+    }
+  },
+  "confidence": {
+    "date": {
+      "avg": 0.96,
+      "observations": 300
+    },
+    "docket": {
+      "avg": 0.966,
+      "observations": 275
+    },
+    "neutral citation": {
+      "avg": 0.97,
+      "observations": 276
+    },
+    "judge": {
+      "avg": 0.968,
+      "observations": 267
+    },
+    "style of cause": {
+      "avg": 0.96,
+      "observations": 267
+    },
+    "place of hearing": {
+      "avg": 0.967,
+      "observations": 248
+    },
+    "date of hearing": {
+      "avg": 0.97,
+      "observations": 251
+    },
+    "dated": {
+      "avg": 0.97,
+      "observations": 264
+    },
+    "counsel": {
+      "avg": 0.97,
+      "observations": 267
+    },
+    "present": {
+      "avg": 0.97,
+      "observations": 266
+    },
+    "between": {
+      "avg": 0.97,
+      "observations": 270
+    },
+    "solicitors of record": {
+      "avg": 0.97,
+      "observations": 265
+    }
+  },
+  "issues": {
+    "invalid_shape:judge": 2,
+    "low_confidence_critical:judge": 2,
+    "critical_below_threshold:judge": 35,
+    "low_confidence_critical:docket": 7,
+    "critical_below_threshold:docket": 32,
+    "low_confidence_critical:date": 22,
+    "missing_critical:docket": 25,
+    "missing_critical:judge": 33,
+    "missing_critical:neutral citation": 24,
+    "missing_critical:style of cause": 33,
+    "critical_below_threshold:style of cause": 44,
+    "critical_below_threshold:date": 22,
+    "critical_below_threshold:neutral citation": 24,
+    "invalid_shape:style of cause": 11,
+    "low_confidence_critical:style of cause": 11
+  },
+  "style_samples": [
+    {
+      "case_id": 35859,
+      "citation": "2026 FC 171",
+      "style_of_cause": "ERROL MCHAYLE v. ATTORNEY GENERAL OF CANADA"
+    },
+    {
+      "case_id": 35858,
+      "citation": "2026 FC 159",
+      "style_of_cause": "MINISTER OF CITIZENSHIP AND IMMIGRATION AND MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS Plaintiffs v. JORGE VINICIO SOSA ORANTES"
+    },
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "style_of_cause": "Fadila Kharchi v. M.C.I."
+    }
+  ],
+  "issue_samples": [
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "Fadila Kharchi v. M.C.I.",
+      "judge": "The Honourable Paul U.C. Rouleau"
+    },
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "Fadila Kharchi v. M.C.I.",
+      "judge": "The Honourable Paul U.C. Rouleau"
+    },
+    {
+      "case_id": 35846,
+      "citation": "2026 FC 178",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "HUONG MAI v. THE ATTORNEY GENERAL OF CANADA",
+      "judge": "Madam Justice Gagné"
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "missing_critical:docket",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "missing_critical:judge",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "missing_critical:neutral citation",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "missing_critical:style of cause",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "missing_critical:docket",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "missing_critical:judge",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "missing_critical:neutral citation",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "missing_critical:style of cause",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35843,
+      "citation": "2026 FC 158",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "MUHAMMAD FARRUKH AZAD v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "Madam Justice Gagné"
+    },
+    {
+      "case_id": 35839,
+      "citation": "2006 FC 1154",
+      "flag": "invalid_shape:style of cause",
+      "style_of_cause": "OLGA VAKRUCHEV",
+      "judge": "The Honourable Mr. Justice Phelan"
+    },
+    {
+      "case_id": 35839,
+      "citation": "2006 FC 1154",
+      "flag": "low_confidence_critical:style of cause",
+      "style_of_cause": "OLGA VAKRUCHEV",
+      "judge": "The Honourable Mr. Justice Phelan"
+    },
+    {
+      "case_id": 35837,
+      "citation": "2026 FC 153",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "sahtu divisional education council v. ATTORNEY GENERAL OF CANADA",
+      "judge": "Madam Justice Gagné"
+    },
+    {
+      "case_id": 35833,
+      "citation": "2006 FC 1152",
+      "flag": "missing_critical:judge",
+      "style_of_cause": "ALEX BARTA v.",
+      "judge": null
+    },
+    {
+      "case_id": 35832,
+      "citation": "2026 CF 149",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": null,
+      "judge": null
+    },
+    {
+      "case_id": 35832,
+      "citation": "2026 CF 149",
+      "flag": "missing_critical:docket",
+      "style_of_cause": null,
+      "judge": null
+    }
+  ]
+}

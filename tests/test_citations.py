@@ -351,7 +351,18 @@ def test_extract_raw_citation_matches_supports_short_form_followups():
 	assert matches[0].kind == "case"
 	assert matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1"
 	assert matches[1].kind == "case_short"
-	assert matches[1].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1"
+	assert matches[1].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
+
+
+def test_extract_raw_citation_matches_preserves_full_case_trailing_pinpoint():
+	text = "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10 was applied."
+
+	matches = citations.extract_raw_citation_matches(text)
+	case_matches = [match for match in matches if match.kind == "case"]
+
+	assert len(case_matches) == 1
+	assert case_matches[0].citation_text == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
+	assert case_matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
 
 
 def test_extract_raw_citation_matches_supports_case_short_multi_para_lists():
@@ -396,7 +407,7 @@ def test_extract_case_citations_handles_chained_cases_with_bracket_aliases():
 		m.kind == "case_short"
 		and m.citation_text == "Jayasekara at paras 37 and 44"
 		and m.normalized_citation
-		== "Jayasekara v. Canada (Minister of Citizenship and Immigration), 2008 FCA 404"
+		== "Jayasekara v. Canada (Minister of Citizenship and Immigration), 2008 FCA 404, at paras. 37 and 44"
 		for m in matches
 	)
 
@@ -578,7 +589,8 @@ def test_extract_raw_citation_matches_generic_short_form_prefers_anchor_and_reje
 
 	assert any(m.citation_text == "Sharma, at para 34" for m in short_matches)
 	assert any(
-		m.normalized_citation == "Sharma v. Canada (Minister of Public Safety and Emergency Preparedness), 2016 FCA 319"
+		m.normalized_citation
+		== "Sharma v. Canada (Minister of Public Safety and Emergency Preparedness), 2016 FCA 319, at para. 34"
 		for m in short_matches
 	)
 	assert not any("factors and" in m.citation_text for m in short_matches)
@@ -598,7 +610,7 @@ def test_extract_raw_citation_matches_does_not_leak_bracket_alias_to_next_case()
 	assert any(m.citation_text == "Exeter at para 6" for m in short_matches)
 	assert any(
 		m.citation_text == "Exeter at para 6"
-		and m.normalized_citation == "Exeter v. Canada (Attorney General), 2012 FCA 119"
+		and m.normalized_citation == "Exeter v. Canada (Attorney General), 2012 FCA 119, at para. 6"
 		for m in short_matches
 	)
 
@@ -616,7 +628,7 @@ def test_extract_raw_citation_matches_binds_alias_to_immediately_preceding_case(
 	assert any(
 		m.citation_text == "Shackleford at para 12"
 		and m.normalized_citation
-		== "Shackleford v. Canada (Citizenship and Immigration), 2019 FC 1313"
+		== "Shackleford v. Canada (Citizenship and Immigration), 2019 FC 1313, at para. 12"
 		for m in short_matches
 	)
 	assert not any(
@@ -643,7 +655,8 @@ def test_extract_raw_citation_matches_prefers_company_name_over_suffix_start():
 	)
 	assert any(
 		m.citation_text == "Jennings-Clyde at para 40"
-		and m.normalized_citation == "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141"
+		and m.normalized_citation
+		== "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141, at para. 40"
 		for m in short_matches
 	)
 

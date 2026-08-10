@@ -112,6 +112,16 @@ def _resolve_status(session, kind: str, normalized_citation: str) -> tuple[int |
     return None, "unresolved", "non_case_non_neutral"
 
 
+def _linkability_from_resolution(status: str, reason: str) -> str:
+    if status == "resolved":
+        return "resolved"
+    if reason in {"neutral_not_found", "case_embedded_neutral_not_found"}:
+        return "unresolved_linkable_missing_target"
+    if reason in {"case_no_embedded_neutral", "non_case_non_neutral"}:
+        return "unresolved_unlinkable_no_neutral"
+    return "unresolved_other"
+
+
 def _is_probable_fc(case: Case) -> bool:
     court = (case.court or "").lower()
     citation = (case.citation or "").upper()
@@ -139,13 +149,17 @@ def main() -> None:
         "citations_total": 0,
         "resolved": 0,
         "unresolved": 0,
+        "unresolved_linkable": 0,
+        "unresolved_unlinkable": 0,
         "by_kind": {},
         "by_reason": {},
+        "by_linkability": {},
     }
 
     rows: list[dict[str, object]] = []
     by_kind: dict[str, int] = {}
     by_reason: dict[str, int] = {}
+    by_linkability: dict[str, int] = {}
 
     with SessionLocal() as session:
         query = select(Case).order_by(Case.id)
@@ -168,6 +182,7 @@ def main() -> None:
 
             for raw in extracted:
                 target_case_id, status, reason = _resolve_status(session, raw.kind, raw.normalized_citation)
+                linkability = _linkability_from_resolution(status, reason)
                 paragraph_number = _paragraph_for_offset(markers, raw.offset_start)
                 context_start = max(0, raw.offset_start - 80)
                 context_end = min(len(text), raw.offset_end + 80)
@@ -187,12 +202,14 @@ def main() -> None:
                         "target_case_id": target_case_id,
                         "resolution_status": status,
                         "resolution_reason": reason,
+                        "resolution_linkability": linkability,
                         "context": context,
                     }
                 )
 
                 by_kind[raw.kind] = by_kind.get(raw.kind, 0) + 1
                 by_reason[reason] = by_reason.get(reason, 0) + 1
+                by_linkability[linkability] = by_linkability.get(linkability, 0) + 1
 
     resolved = sum(1 for row in rows if row["resolution_status"] == "resolved")
     unresolved = sum(1 for row in rows if row["resolution_status"] != "resolved")
@@ -201,8 +218,11 @@ def main() -> None:
     summary["citations_total"] = len(rows)
     summary["resolved"] = resolved
     summary["unresolved"] = unresolved
+    summary["unresolved_linkable"] = by_linkability.get("unresolved_linkable_missing_target", 0)
+    summary["unresolved_unlinkable"] = by_linkability.get("unresolved_unlinkable_no_neutral", 0)
     summary["by_kind"] = dict(sorted(by_kind.items()))
     summary["by_reason"] = dict(sorted(by_reason.items()))
+    summary["by_linkability"] = dict(sorted(by_linkability.items()))
 
     args.out_csv.parent.mkdir(parents=True, exist_ok=True)
     with args.out_csv.open("w", encoding="utf-8", newline="") as file_obj:
@@ -221,6 +241,7 @@ def main() -> None:
                 "target_case_id",
                 "resolution_status",
                 "resolution_reason",
+                "resolution_linkability",
                 "context",
             ],
         )

@@ -119,6 +119,14 @@ STANDALONE_PROVISION_RE = re.compile(
 	re.IGNORECASE,
 )
 _SHORT_FORM_PARA_RE = re.compile(r"\b(?:at\s+)?para(?:s)?\.?\s+\d", re.IGNORECASE)
+_PINPOINT_FRAGMENT_RE = re.compile(
+	r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+\d+(?:\s*[-–]\s*\d+)?(?:\s*(?:,|;|and|or)\s*\d+(?:\s*[-–]\s*\d+)?)*",
+	re.IGNORECASE,
+)
+_TRAILING_PINPOINT_RE = re.compile(
+	rf"^\s*,?\s*({_PINPOINT_FRAGMENT_RE.pattern})\b",
+	re.IGNORECASE,
+)
 SULLIVAN_TREATISE_RE = re.compile(
 	r"\b(?:cf\s+)?Ruth\s+Sullivan,\s+Sullivan on the Construction of Statutes,\s+\d+(?:st|nd|rd|th)\s+ed\s*\([^)]*\d{4}\)",
 	re.IGNORECASE,
@@ -247,6 +255,62 @@ class _CaseAnchor:
 
 def _normalize_whitespace(value: str) -> str:
 	return " ".join(value.split()).strip()
+
+
+def _normalize_pinpoint_phrase(value: str) -> str:
+	text = _normalize_whitespace(value).replace("–", "-")
+	text = re.sub(r"^[,.;:\s]+", "", text)
+	if not text:
+		return ""
+	body = re.sub(r"^at\s+", "", text, flags=re.IGNORECASE)
+	body = _normalize_whitespace(body)
+	lower = body.lower()
+	if lower.startswith("paragraphs") or lower.startswith("paras"):
+		label = "paras."
+	elif lower.startswith("paragraph") or lower.startswith("para"):
+		label = "para."
+	else:
+		label = "para."
+	numbers = re.sub(r"^(?:paragraphs?|paras?\.?|para\.?)+\s*", "", body, flags=re.IGNORECASE)
+	numbers = _normalize_whitespace(numbers)
+	if not numbers:
+		return ""
+	return f"at {label} {numbers}"
+
+
+def _extract_pinpoint_phrase(value: str) -> str | None:
+	match = _PINPOINT_FRAGMENT_RE.search(value)
+	if match is None:
+		return None
+	pinpoint = _normalize_pinpoint_phrase(match.group(0))
+	return pinpoint or None
+
+
+def _append_pinpoint_to_normalized(normalized_citation: str, pinpoint: str | None) -> str:
+	if not pinpoint:
+		return normalized_citation
+	normalized_lower = normalized_citation.lower()
+	if pinpoint.lower() in normalized_lower:
+		return normalized_citation
+	separator = ", " if not normalized_citation.rstrip().endswith(",") else " "
+	return f"{normalized_citation}{separator}{pinpoint}"
+
+
+def _extend_case_with_trailing_pinpoint(
+	content: str,
+	start: int,
+	end: int,
+	normalized_citation: str,
+) -> tuple[int, str, str]:
+	window = content[end : min(len(content), end + 120)]
+	match = _TRAILING_PINPOINT_RE.match(window)
+	if match is None:
+		citation_text = content[start:end]
+		return end, citation_text, normalized_citation
+	new_end = end + match.end()
+	citation_text = content[start:new_end].rstrip()
+	pinpoint = _normalize_pinpoint_phrase(match.group(1))
+	return new_end, citation_text, _append_pinpoint_to_normalized(normalized_citation, pinpoint)
 
 
 def _normalize_neutral_parts(year: str, court: str, number: str) -> str:
@@ -589,13 +653,19 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 		global_parties_start = window_start + fragment_match.start(1) + parties_start
 		global_end = neutral_match.end()
 		normalized = _normalize_case_citation_parts(selected_parties, year, court, number)
+		global_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			global_parties_start,
+			global_end,
+			normalized,
+		)
 		candidates.append(
 			(
 				global_parties_start,
 				global_end,
 				_raw_match(
 					"case",
-					content[global_parties_start:global_end],
+					citation_text,
 					normalized,
 					global_parties_start,
 					global_end,
@@ -906,8 +976,15 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			if key in seen:
 				continue
 			seen.add(key)
+			citation_text = content[start:end]
 			short_matches.append(
-				_raw_match("case_short", content[start:end], anchor.normalized_citation, start, end)
+				_raw_match(
+					"case_short",
+					citation_text,
+					_append_pinpoint_to_normalized(anchor.normalized_citation, _extract_pinpoint_phrase(citation_text)),
+					start,
+					end,
+				)
 			)
 
 	para_index = r"\d+(?:\s*[-–]\s*\d+)?"
@@ -934,7 +1011,16 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		if key in seen:
 			continue
 		seen.add(key)
-		short_matches.append(_raw_match("case_short", content[start:end], normalized, start, end))
+		citation_text = content[start:end]
+		short_matches.append(
+			_raw_match(
+				"case_short",
+				citation_text,
+				_append_pinpoint_to_normalized(normalized, _extract_pinpoint_phrase(citation_text)),
+				start,
+				end,
+			)
+		)
 
 	for alias_key, alias_anchors in sorted(alias_to_anchors.items(), key=lambda item: len(item[0]), reverse=True):
 		alias = alias_anchors[0].alias
@@ -955,11 +1041,12 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			if key in seen:
 				continue
 			seen.add(key)
+			citation_text = content[start:end]
 			short_matches.append(
 				_raw_match(
 					"case_short",
-					content[start:end],
-					best_anchor.normalized_citation,
+					citation_text,
+					_append_pinpoint_to_normalized(best_anchor.normalized_citation, _extract_pinpoint_phrase(citation_text)),
 					start,
 					end,
 				)
@@ -1005,8 +1092,14 @@ def _promote_case_name_neutral_pairs(content: str, rows: list[RawCitationMatch])
 		case_start = match.offset_start + parties_match.start(1)
 		case_end = candidate_neutral.offset_end
 		normalized = f"{parties}, {candidate_neutral.normalized_citation}"
+		case_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			case_start,
+			case_end,
+			normalized,
+		)
 		promoted.append(
-			_raw_match("case", content[case_start:case_end], normalized, case_start, case_end)
+			_raw_match("case", citation_text, normalized, case_start, case_end)
 		)
 
 	return promoted
@@ -1045,11 +1138,17 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
+		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			citation_start,
+			match.end(),
+			normalized,
+		)
 		candidates.append(
 			(
 				citation_start,
-				match.end(),
-				_raw_match("case", content[citation_start : match.end()], normalized, citation_start, match.end()),
+				citation_end,
+				_raw_match("case", citation_text, normalized, citation_start, citation_end),
 			)
 		)
 
@@ -1062,11 +1161,17 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
+		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			citation_start,
+			match.end(),
+			normalized,
+		)
 		candidates.append(
 			(
 				citation_start,
-				match.end(),
-				_raw_match("case", content[citation_start : match.end()], normalized, citation_start, match.end()),
+				citation_end,
+				_raw_match("case", citation_text, normalized, citation_start, citation_end),
 			)
 		)
 

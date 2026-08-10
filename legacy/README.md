@@ -13,6 +13,7 @@ Current references:
 - Runtime legacy modules: backend/legacy/
 - Historical implementation notes: docs/history/
 - Archived artifact files: legacy/artifacts/
+- Archived helper scripts: legacy/scripts/
 
 Rules:
 - Do not import from legacy paths in new runtime code unless explicitly reactivated.

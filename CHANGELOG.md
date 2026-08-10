@@ -29,6 +29,12 @@ strict execution order.
 - Updated `README.md` and `DOCS_INDEX.md` to point active work to Citation Pass
 	and classify legacy paths as reference-only.
 
+## 2026-08-10 - Legacy helper script archive
+
+- Moved non-runtime, non-test-bound helper scripts from `scripts/` to
+	`legacy/scripts/` to keep the active scripts surface focused.
+- Added `legacy/scripts/README.md` documenting archived script intent and scope.
+
 ## 2026-08-07 - Deterministic layered extraction review
 
 - Hardened the case-only citation layer for full case anchors, grounded

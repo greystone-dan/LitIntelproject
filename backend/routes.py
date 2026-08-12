@@ -63,11 +63,13 @@ from .database import (
 	Case,
 	CaseChunk,
 	CaseChunkEmbedding,
+	CaseJudgeProfile,
 	CaseSource,
 	CaseTag,
 	Citation,
 	CitationMetrics,
 	IngestionRun,
+	JudgeProfile,
 	StatuteReference,
 	get_db,
 )
@@ -2056,7 +2058,145 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 	return tags
 
 
-def _build_reader_extracted_metadata(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderMetadataFieldResponse]:
+def _normalize_court_display(value: str | None) -> str | None:
+	if not value:
+		return None
+	text = str(value).strip()
+	if not text:
+		return None
+	by_abbrev = {
+		"FC": "Federal Court",
+		"FCT": "Federal Court",
+		"FCA": "Federal Court of Appeal",
+		"SCC": "Supreme Court of Canada",
+		"SC": "Supreme Court of Canada",
+		"TCC": "Tax Court of Canada",
+	}
+	upper = text.upper()
+	if upper in by_abbrev:
+		return by_abbrev[upper]
+	return text
+
+
+def _infer_court_type(court: str | None, citation: str | None, content: str | None) -> str | None:
+	for candidate in (court, citation, content):
+		if not candidate:
+			continue
+		value = str(candidate).upper()
+		if "SUPREME COURT OF CANADA" in value or "SCC" in value:
+			return "SC"
+		if "FEDERAL COURT OF APPEAL" in value or "FCA" in value:
+			return "FCA"
+		if "FEDERAL COURT" in value or "FC" in value or "FCT" in value:
+			return "FC"
+		if "TAX COURT OF CANADA" in value or "TCC" in value:
+			return "TCC"
+	return None
+
+
+def _extract_case_number(case: Case, content: str | None) -> str | None:
+	if not content:
+		content = ""
+	patterns = [
+		r"\b(?:Docket|Case\s+number|Court\s+file\s+no\.?|File\s+number|No\.?|File\s+no\.?|Court\s+file\s+number)\s*[:\-]?\s*([A-Za-z0-9][A-Za-z0-9\-]*?(?:[- ][A-Z0-9]+){0,5})\b",
+		r"\bIMM[- ]?\d{1,6}-\d{2}\b",
+		r"\b[A-Z]-\d{1,6}-\d{2}\b",
+		r"\b\d{5,8}\b",
+	]
+	for pattern in patterns:
+		match = re.search(pattern, content, flags=re.IGNORECASE)
+		if match:
+			value = match.group(1) if match.lastindex else match.group(0)
+			clean = _normalize_whitespace(value).replace(" ", "-") if "-" in value or re.search(r"\bIMM\b|\b[A-Z]-\d", value, flags=re.IGNORECASE) else _normalize_whitespace(value)
+			if clean:
+				return clean.upper() if re.search(r"^[A-Z0-9\-]+$", clean) else clean
+	if getattr(case, "source_id", None):
+		return str(case.source_id).strip()
+	return None
+
+
+def _format_style_of_cause(value: str | None) -> str | None:
+	if not value:
+		return None
+	text = _normalize_whitespace(str(value))
+	if not text:
+		return None
+	text = re.sub(r"\s+v\.?\s+", " v. ", text, flags=re.IGNORECASE)
+	text = re.sub(r"(?<![A-Za-z])v\.?\s+", " v. ", text, flags=re.IGNORECASE)
+	text = re.sub(r"\s+v\.\s+v\.", " v. ", text, flags=re.IGNORECASE)
+	parts = text.split()
+	formatted: list[str] = []
+	for part in parts:
+		lower = part.lower()
+		if lower in {"v", "v."}:
+			formatted.append("v.")
+		elif lower in {"of", "and", "in", "on", "for", "to", "by"}:
+			formatted.append(lower)
+		elif lower == "the":
+			formatted.append("The")
+		elif re.fullmatch(r"[A-Z0-9.\-]+", part) and "." in part:
+			formatted.append(part)
+		elif re.fullmatch(r"[A-Z0-9\-]+", part):
+			formatted.append(part.title())
+		else:
+			formatted.append(part.title() if not any(ch.islower() for ch in part) else part)
+	return " ".join(formatted)
+
+
+def _format_party_name(value: str | None) -> str | None:
+	if not value:
+		return None
+	text = _normalize_whitespace(str(value)).strip()
+	if not text:
+		return None
+	parts = text.split()
+	formatted: list[str] = []
+	for idx, part in enumerate(parts):
+		lower = part.lower()
+		if lower in {"of", "and", "in", "on", "for", "to", "by"}:
+			formatted.append(lower)
+		elif lower == "the":
+			formatted.append("The")
+		elif re.fullmatch(r"[A-Z0-9.\-]+", part) and "." in part:
+			formatted.append(part)
+		else:
+			formatted.append(part.title() if not any(ch.islower() for ch in part) else part)
+	return " ".join(formatted)
+
+
+def _build_metadata_pass_normalized_rows(case: Case, extracted_rows: list[CaseReaderMetadataFieldResponse]) -> list[dict[str, str]]:
+	field_values = {row.key: row.value for row in extracted_rows if getattr(row, "key", None)}
+	rows: list[dict[str, str]] = []
+	def add_row(key: str, value: str | None) -> None:
+		if value is None:
+			return
+		clean = _normalize_whitespace(str(value)).strip()
+		if not clean:
+			return
+		rows.append({"key": key, "value": clean})
+	tribunal = _normalize_court_display(getattr(case, "court", None))
+	if tribunal:
+		add_row("tribunal", tribunal)
+	court_type = field_values.get("court_type") or _infer_court_type(getattr(case, "court", None), getattr(case, "citation", None), getattr(case, "full_text", None))
+	if court_type:
+		add_row("court_type", court_type)
+	case_number = field_values.get("case_number") or field_values.get("docket") or _extract_case_number(case, getattr(case, "full_text", None)) or getattr(case, "source_id", None)
+	if case_number:
+		add_row("case_number", str(case_number))
+	style = field_values.get("style_of_cause_text") or getattr(case, "title", None)
+	if style:
+		add_row("style_of_cause", _format_style_of_cause(str(style)))
+	for key in ("respondent", "applicant", "judge"):
+		if key in field_values:
+			add_row(key, _format_party_name(field_values[key]))
+	if hasattr(case, "language") and getattr(case, "language", None):
+		add_row("language", str(case.language).lower())
+	elif "language" in field_values:
+		add_row("language", str(field_values["language"]).lower())
+	return rows
+
+
+def _build_reader_extracted_metadata(case: Case, chunks: list[CaseChunk], include_canonical_fields: bool = True) -> list[CaseReaderMetadataFieldResponse]:
 	text_parts: list[str] = []
 	if case.full_text:
 		text_parts.append(case.full_text)
@@ -2085,6 +2225,14 @@ def _build_reader_extracted_metadata(case: Case, chunks: list[CaseChunk]) -> lis
 	add_row("decision_date", str(case.date), source="canonical_case")
 	if hasattr(case.date, "day") and hasattr(case.date, "strftime"):
 		add_row("decision_date_written", f"{case.date.strftime('%B')} {case.date.day}, {case.date.strftime('%Y')}", source="canonical_case")
+
+	court_type = _infer_court_type(getattr(case, "court", None), getattr(case, "citation", None), content)
+	if court_type:
+		add_row("court_type", court_type, source="reader_derived", evidence=court_type)
+	case_number = _extract_case_number(case, content)
+	if case_number:
+		add_row("case_number", case_number, source="reader_extracted", evidence=case_number)
+		add_row("docket", case_number, source="reader_extracted", evidence=case_number)
 
 	for match in re.finditer(r"\bIMM[- ]?\d{1,6}-\d{2}\b", content, flags=re.IGNORECASE):
 		add_row("imm_number", match.group(0).upper().replace(" ", "-"), evidence=match.group(0))
@@ -2131,6 +2279,10 @@ def _build_reader_extracted_metadata(case: Case, chunks: list[CaseChunk]) -> lis
 			"The Minister of Citizenship and Immigration",
 			evidence=minister_match.group(0),
 		)
+	if getattr(case, "title", None):
+		add_row("style_of_cause_text", str(case.title), evidence=case.title)
+	if getattr(case, "language", None):
+		add_row("language", str(case.language), source="canonical_case")
 
 	match = re.search(r"\bcitizens\s+of\s+([A-Z][A-Za-z'\- ]{2,60})\b", content, flags=re.IGNORECASE)
 	if match is not None:
@@ -2179,7 +2331,13 @@ def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
 	if search.title_contains:
 		statement = statement.where(Case.title.ilike(f"%{search.title_contains}%"))
 	if search.court:
-		statement = statement.where(Case.court == search.court)
+		expanded_court = _court_name_from_abbreviation(search.court)
+		court_candidates = [search.court, expanded_court]
+		court_clauses = [Case.court == value for value in court_candidates if value]
+		if expanded_court:
+			court_clauses.append(Case.court.ilike(f"%{expanded_court}%"))
+		if court_clauses:
+			statement = statement.where(or_(*court_clauses))
 	if search.jurisdiction:
 		statement = statement.where(Case.jurisdiction == search.jurisdiction)
 	if search.source_name_contains:
@@ -2260,6 +2418,28 @@ def _validate_search_ranges(search: CaseSearchRequest) -> None:
 		and search.citing_cases_min > search.citing_cases_max
 	):
 		raise HTTPException(status_code=422, detail="citing_cases_min must be less than or equal to citing_cases_max")
+
+
+def _court_name_from_abbreviation(value: str | None) -> str | None:
+	if not value:
+		return None
+	lookup = {
+		"FC": "Federal Court",
+		"FCT": "Federal Court",
+		"FCA": "Federal Court of Appeal",
+		"SCC": "Supreme Court of Canada",
+		"SC": "Supreme Court of Canada",
+		"TCC": "Tax Court of Canada",
+		"ONCA": "Court of Appeal for Ontario",
+		"ABCA": "Court of Appeal of Alberta",
+		"BCCA": "Court of Appeal for British Columbia",
+		"MBCA": "Court of Appeal of Manitoba",
+		"SKCA": "Court of Appeal for Saskatchewan",
+	}
+	clean = str(value).strip()
+	if not clean:
+		return None
+	return lookup.get(clean.upper(), clean)
 
 
 def _case_search_document() -> Any:
@@ -2841,6 +3021,138 @@ def get_judge_outcomes(
 	}
 
 
+@router.get("/analytics/judges", response_model=dict[str, Any])
+def get_judge_directory(
+	query: str = "",
+	limit: int = 25,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	limit = max(1, min(limit, 100))
+	needle = f"%{query.strip()}%"
+	rows = db.execute(
+		sql_text(
+			"""
+			SELECT profile.slug, profile.display_name, profile.primary_court, COUNT(link.case_id) AS decision_count
+			FROM judge_profiles profile
+			JOIN case_judge_profiles link ON link.judge_profile_id = profile.id
+			WHERE :query = '%%' OR profile.display_name ILIKE :query OR profile.aliases::text ILIKE :query
+			GROUP BY profile.id
+			ORDER BY decision_count DESC, profile.display_name ASC
+			LIMIT :limit
+			"""
+		),
+		{"query": needle, "limit": limit},
+	).mappings().all()
+	return {"judges": [dict(row) for row in rows]}
+
+
+@router.get("/analytics/judges/{slug}", response_model=dict[str, Any])
+def get_judge_profile(slug: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	profile = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == slug))
+	if profile is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Judge profile not found")
+	profile_params = {"judge_profile_id": profile.id}
+	stats = db.execute(
+		sql_text(
+			"""
+			SELECT COUNT(*) AS decision_count,
+			       COUNT(*) FILTER (WHERE c.metadata_json->'reader_extracted'->>'government outcome' = 'won') AS government_wins,
+			       COUNT(*) FILTER (WHERE c.metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins,
+			       COALESCE(SUM(metrics.in_degree), 0) AS citations_received
+			FROM case_judge_profiles link
+			JOIN cases c ON c.id = link.case_id
+			LEFT JOIN citation_metrics metrics ON metrics.case_id = c.id
+			WHERE link.judge_profile_id = :judge_profile_id
+			"""
+		),
+		profile_params,
+	).mappings().one()
+	courts = db.execute(
+		sql_text(
+			"""
+			SELECT c.court, COUNT(*) AS decision_count
+			FROM case_judge_profiles link JOIN cases c ON c.id = link.case_id
+			WHERE link.judge_profile_id = :judge_profile_id
+			GROUP BY c.court ORDER BY decision_count DESC, c.court ASC LIMIT 10
+			"""
+		),
+		profile_params,
+	).mappings().all()
+	authorities = db.execute(
+		sql_text(
+			"""
+			SELECT target.id AS case_id, target.title, target.citation, COUNT(*) AS citation_count
+			FROM case_judge_profiles link
+			JOIN citations citation ON citation.source_case_id = link.case_id
+			JOIN cases target ON target.id = citation.target_case_id
+			WHERE link.judge_profile_id = :judge_profile_id
+			GROUP BY target.id, target.title, target.citation
+			ORDER BY citation_count DESC, target.date DESC NULLS LAST LIMIT 10
+			"""
+		),
+		profile_params,
+	).mappings().all()
+	recent_cases = db.execute(
+		sql_text(
+			"""
+			SELECT c.id AS case_id, c.title, c.citation, c.court, c.date,
+			       COALESCE(metrics.in_degree, 0) AS citations_received
+			FROM case_judge_profiles link
+			JOIN cases c ON c.id = link.case_id
+			LEFT JOIN citation_metrics metrics ON metrics.case_id = c.id
+			WHERE link.judge_profile_id = :judge_profile_id
+			ORDER BY c.date DESC, c.id DESC LIMIT 20
+			"""
+		),
+		profile_params,
+	).mappings().all()
+	government_wins = int(stats["government_wins"] or 0)
+	individual_wins = int(stats["individual_wins"] or 0)
+	return {
+		"profile": {
+			"slug": profile.slug,
+			"display_name": profile.display_name,
+			"primary_court": profile.primary_court,
+			"aliases": profile.aliases or [],
+		},
+		"metrics": {
+			"decisions": int(stats["decision_count"] or 0),
+			"citations_received": int(stats["citations_received"] or 0),
+			"government_wins": government_wins,
+			"individual_wins": individual_wins,
+			"unclassified_outcomes": int(stats["decision_count"] or 0) - government_wins - individual_wins,
+		},
+		"courts": [dict(row) for row in courts],
+		"top_cited_authorities": [dict(row) for row in authorities],
+		"recent_cases": [dict(row) for row in recent_cases],
+	}
+
+
+def _judge_explorer_page_html() -> str:
+	return """<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Judge Explorer | AI CaseLibrary</title><style>
+:root{--ink:#17222d;--muted:#5c6874;--paper:#f4f1ea;--panel:#fffdfb;--line:#d9d1c5;--blue:#214c73;--rust:#b8633d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 "Segoe UI",Arial,sans-serif}.shell{max-width:1180px;margin:auto;padding:30px 24px 60px}.masthead{border-bottom:3px solid var(--ink);padding-bottom:18px}.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)}h1,h2{font-family:Georgia,serif;font-weight:normal}h1{font-size:38px;margin:8px 0}h2{font-size:23px;margin:0 0 12px}.intro,.subtle{color:var(--muted)}.search{display:flex;gap:10px;margin:24px 0}input{flex:1;height:42px;border:1px solid var(--line);background:var(--panel);padding:0 12px;font:16px "Segoe UI",Arial,sans-serif}button{height:42px;border:0;background:var(--ink);color:white;padding:0 18px;font-weight:700;cursor:pointer}.results{border-top:1px solid var(--line)}.judge{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;background:transparent;border-bottom:1px solid var(--line);color:var(--ink);padding:14px 2px}.judge:hover{color:var(--blue)}.judge strong{font:600 18px Georgia,serif}.judge small{color:var(--muted)}.profile[hidden],#directory[hidden]{display:none}.back{background:transparent;color:var(--blue);padding:0;height:auto;margin:20px 0;font-size:14px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:20px 0}.metric{background:var(--panel);padding:16px}.metric strong{display:block;font:28px Georgia,serif}.metric small{color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.list{margin:0;padding:0;list-style:none}.list li{border-top:1px solid var(--line);padding:10px 0}.list a{color:var(--blue);text-decoration:none;font-weight:600}.note{margin-top:26px;color:var(--muted);font-size:13px}@media(max-width:680px){.shell{padding:22px 14px}.metrics,.grid{grid-template-columns:1fr 1fr}.search{flex-direction:column}.search button{width:100%}}
+</style></head><body><main class="shell"><header class="masthead"><div class="eyebrow">AI CaseLibrary</div><h1>Judge Explorer</h1><p class="intro">Decision and citation patterns drawn from linked case records. Counts describe the library; they are not evaluations of a judge.</p></header>
+<section id="directory"><form class="search" id="search"><input id="query" placeholder="Search a judge name" aria-label="Search judges"><button>Search</button></form><div class="results" id="results"></div></section>
+<section class="profile" id="profile" hidden><button class="back" id="back">&larr; All judges</button><div class="eyebrow" id="court"></div><h1 id="name">Judge profile</h1><p class="subtle" id="aliases"></p><div class="metrics" id="metrics"></div><div class="grid"><section><h2>Most cited authorities</h2><ul class="list" id="authorities"></ul></section><section><h2>Recent decisions</h2><ul class="list" id="cases"></ul></section></div><p class="note">Outcome fields are available only where extracted case metadata identifies a government-versus-individual result. Authority counts are citations made by decisions in this profile.</p></section>
+</main><script>
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const n=v=>new Intl.NumberFormat().format(Number(v||0));
+function showDirectory(){document.getElementById('directory').hidden=false;document.getElementById('profile').hidden=true;history.replaceState({},'', '/judges');}
+function renderDirectory(data){document.getElementById('results').innerHTML=data.judges.map(j=>`<button class="judge" data-slug="${esc(j.slug)}"><span><strong>${esc(j.display_name)}</strong><br><small>${esc(j.primary_court||'Court not recorded')}</small></span><small>${n(j.decision_count)} decisions</small></button>`).join('')||'<p class="subtle">No judge profiles matched that search.</p>';document.querySelectorAll('.judge').forEach(b=>b.onclick=()=>loadProfile(b.dataset.slug));}
+async function loadDirectory(){const response=await fetch('/analytics/judges?query='+encodeURIComponent(document.getElementById('query').value));if(!response.ok)throw new Error('Unable to load judge profiles');renderDirectory(await response.json());}
+function list(items,render){return items.map(render).join('')||'<li class="subtle">No linked records available.</li>';}
+async function loadProfile(slug){const response=await fetch('/analytics/judges/'+encodeURIComponent(slug));if(!response.ok)throw new Error('Unable to load this judge profile');const data=await response.json(),m=data.metrics;document.getElementById('directory').hidden=true;document.getElementById('profile').hidden=false;document.getElementById('name').textContent=data.profile.display_name;document.getElementById('court').textContent=data.profile.primary_court||'Court not recorded';document.getElementById('aliases').textContent=data.profile.aliases.length>1?'Also recorded as: '+data.profile.aliases.slice(1).join('; '):'';document.getElementById('metrics').innerHTML=[['Decisions',m.decisions],['Citations received',m.citations_received],['Government wins',m.government_wins],['Individual wins',m.individual_wins]].map(([label,value])=>`<div class="metric"><small>${label}</small><strong>${n(value)}</strong></div>`).join('');document.getElementById('authorities').innerHTML=list(data.top_cited_authorities,a=>`<li>${esc(a.title)}<br><small>${esc(a.citation||'No citation')} · ${n(a.citation_count)} mentions</small></li>`);document.getElementById('cases').innerHTML=list(data.recent_cases,c=>`<li><a href="/data-explorer">${esc(c.title)}</a><br><small>${esc(c.citation||'No citation')} · ${esc(c.date||'Date unavailable')}</small></li>`);history.pushState({},'', '/judges/'+slug);}
+document.getElementById('search').onsubmit=e=>{e.preventDefault();loadDirectory().catch(error=>document.getElementById('results').textContent=error.message)};document.getElementById('back').onclick=showDirectory;const slug=location.pathname.split('/').filter(Boolean)[1];if(slug)loadProfile(slug).catch(()=>showDirectory());else loadDirectory().catch(error=>document.getElementById('results').textContent=error.message);
+</script></body></html>"""
+
+
+@router.get("/judges", response_class=HTMLResponse, include_in_schema=False)
+@router.get("/judges/{slug}", response_class=HTMLResponse, include_in_schema=False)
+def judge_explorer_page(slug: str | None = None) -> HTMLResponse:
+	return HTMLResponse(content=_judge_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
 _ANALYTICS_FIELDS = {
 	"judge": ("Judge", "metadata_json->'reader_extracted'->>'judge'"),
 	"court": ("Court", "court"),
@@ -2856,42 +3168,245 @@ def _data_explorer_page_html() -> str:
 <html lang="en">
 <head>
 	<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Data Explorer | AI CaseLibrary</title>
-	<style>
+	<title>Case Research | AI CaseLibrary</title>
+	<style media="not all">
 		:root{--ink:#172630;--muted:#64717b;--paper:#f3f0e9;--panel:#fffdf9;--line:#d6d1c5;--blue:#2d6078;--rust:#b65f3e;--gold:#b68c35;--green:#4d7a63;--gray:#aaa69e}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}.shell{max-width:1320px;margin:auto;padding:30px 24px 58px}.masthead{border-bottom:3px solid var(--ink);padding-bottom:18px}.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue)}h1{font-size:36px;font-weight:normal;margin:7px 0}.intro{color:var(--muted);max-width:760px;font-size:16px;line-height:1.45;margin:0}.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);margin-top:18px}.tab{height:39px;background:transparent;color:var(--muted);padding:0;border:0;border-bottom:3px solid transparent;font:700 12px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase}.tab.active{color:var(--ink);border-bottom-color:var(--blue)}.controls{display:grid;grid-template-columns:minmax(190px,1fr) minmax(190px,1fr) 140px auto;gap:14px;align-items:end;padding:22px 0 18px;border-bottom:1px solid var(--line)}label{display:block;font:700 11px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}select{width:100%;height:38px;background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:0 10px;font:15px Georgia,serif}button{height:38px;border:0;background:var(--ink);color:white;padding:0 19px;font:700 12px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer}.summary{display:flex;gap:28px;padding:17px 0;font:13px Arial,sans-serif;color:var(--muted)}.summary strong{color:var(--ink);font-size:21px;font-family:Georgia,serif;font-weight:normal}.legend{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px;font:12px Arial,sans-serif;color:var(--muted)}.key{display:inline-flex;align-items:center;gap:5px}.dot{width:10px;height:10px}.table-wrap{overflow:auto;border:1px solid var(--line);background:var(--panel)}table{border-collapse:collapse;width:100%;min-width:760px}th{padding:12px 10px;text-align:left;border-bottom:2px solid var(--ink);font:700 11px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--muted)}td{padding:12px 10px;border-bottom:1px solid var(--line);font-size:15px}.rank,.number{text-align:right;font-variant-numeric:tabular-nums}.group{min-width:230px}.bar{width:210px;height:14px;display:flex;background:#ebe7df}.bar span{height:100%}.empty{padding:30px;color:var(--muted)}.note{font-size:13px;color:var(--muted);line-height:1.45;margin-top:16px}[hidden]{display:none!important}@media(max-width:720px){.shell{padding:22px 14px}.controls{grid-template-columns:1fr 1fr}.controls button{grid-column:span 2}h1{font-size:30px}}
 	</style>
-	<style>
+	<style media="not all">
 		.search-controls{display:grid;grid-template-columns:2fr 1.25fr 1fr 1fr;gap:12px;padding:20px 0 14px;border-bottom:1px solid var(--line)}.search-controls .wide{grid-column:span 2}.search-controls input{width:100%;height:38px;background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:0 10px;font:15px Georgia,serif}.search-actions{display:flex;gap:8px;align-items:end}.search-actions button+button{background:#e8e4db;color:var(--ink)}.search-meta{font:13px Arial,sans-serif;color:var(--muted);padding:14px 0}.results{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.case-result{width:100%;height:auto;text-align:left;background:var(--panel);border:1px solid var(--line);padding:14px 16px;color:var(--ink);font:inherit;letter-spacing:0}.case-result:hover{border-color:var(--blue);background:#f8fbfc}.result-title{font-size:17px}.result-meta{font:12px Arial,sans-serif;color:var(--muted);margin-top:6px}.result-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.tag{padding:3px 6px;background:#e8f1f5;color:#285a70;font:700 10px Arial,sans-serif;letter-spacing:.45px;text-transform:uppercase}.tag.win{background:#e7f1e9;color:#356346}.tag.loss{background:#f8e7df;color:#914626}dialog{width:min(1100px,96vw);height:min(88vh,900px);border:1px solid var(--ink);padding:0;background:var(--panel);color:var(--ink)}dialog::backdrop{background:rgba(20,32,40,.48)}.reader-head{position:sticky;top:0;background:var(--panel);padding:18px 22px 14px;border-bottom:2px solid var(--ink);z-index:1}.reader-head h2{font-size:22px;font-weight:normal;margin:0 42px 5px 0}.reader-meta{font:12px Arial,sans-serif;color:var(--muted)}.close-reader{position:absolute;right:16px;top:15px;background:transparent;color:var(--ink);font-size:25px;padding:0;width:30px}.reader-text{padding:22px;white-space:pre-wrap;font:15px/1.65 Georgia,"Times New Roman",serif}.reader-text mark{background:#f8df8a;padding:0 1px}.reader-text mark.primary{background:#e9a770}.reader-status{padding:22px;color:var(--muted)}@media(max-width:720px){.search-controls{grid-template-columns:1fr 1fr}.search-controls .wide{grid-column:span 2}.search-actions{grid-column:span 2}.reader-text{padding:15px;font-size:14px}}
+	</style>
+	<style>
+		:root{--ink:#17222d;--muted:#5c6874;--paper:#f4f1ea;--panel:#fffdfb;--line:#d9d1c5;--blue:#214c73;--blue-soft:#ebf3fa;--rust:#b8633d;--gold:#b9882d;--green:#426f4e;--gray:#a8a19a;--shadow:0 18px 48px rgba(23,34,45,.08)}
+		*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.45}.shell{max-width:1360px;margin:auto;padding:28px 24px 62px}.masthead{border-bottom:3px solid var(--ink);padding-bottom:18px}.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)}h1{font-size:38px;font-weight:600;line-height:1.1;margin:8px 0 0}.intro{color:var(--muted);max-width:820px;font-size:16px;line-height:1.45;margin:10px 0 0}.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);margin-top:18px}.tab{height:42px;background:transparent;color:var(--muted);padding:0 2px;border:0;border-bottom:3px solid transparent;font:700 12px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;cursor:pointer}.tab.active{color:var(--ink);border-bottom-color:var(--blue)}.controls{display:grid;grid-template-columns:minmax(190px,1fr) minmax(190px,1fr) 140px auto;gap:14px;align-items:end;padding:22px 0 18px;border-bottom:1px solid var(--line)}label{display:block;font:700 11px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}select,input{width:100%;height:42px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:0 12px;font:16px/1.4 "Segoe UI",Arial,sans-serif;box-shadow:inset 0 1px 2px rgba(0,0,0,.015)}button{height:42px;border:0;border-radius:10px;background:var(--ink);color:#fff;padding:0 18px;font:700 12px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}.button:hover,button:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(23,34,45,.08)}.summary{display:flex;gap:28px;padding:17px 0;font:13px Arial,sans-serif;color:var(--muted)}.summary strong{color:var(--ink);font-size:22px;font-family:Georgia,serif;font-weight:600}.legend{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px;font:12px Arial,sans-serif;color:var(--muted)}.key{display:inline-flex;align-items:center;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.table-wrap{overflow:auto;border:1px solid var(--line);background:var(--panel);border-radius:12px}table{width:100%;border-collapse:collapse}th,td{padding:13px 10px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top;text-align:left}th{font:700 11px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);background:#f8f5f0}td:last-child,th:last-child{border-right:none}.number{text-align:right;font-variant-numeric:tabular-nums}.group{text-transform:none}.rank{font:700 12px Arial,sans-serif;color:var(--muted)}.empty{padding:20px;color:var(--muted);font:15px Arial,sans-serif}.note{margin:12px 0 0;color:var(--muted);font:13px Arial,sans-serif}.bar{display:flex;gap:0;overflow:hidden;border-radius:999px;height:12px;background:#eee}.bar>span{display:block;height:100%}.search-controls{display:grid;grid-template-columns:2fr 1.25fr 1fr 1fr;gap:12px;padding:20px 0 14px;border-bottom:1px solid var(--line)}.search-controls .wide{grid-column:span 2}.search-actions{display:flex;gap:8px;align-items:end}.search-actions button+button{background:#e9e3d8;color:var(--ink)}.search-meta{font:13px Arial,sans-serif;color:var(--muted);padding:14px 0}.results{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}.case-result{width:100%;height:auto;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--ink);font:inherit;letter-spacing:0;box-shadow:0 2px 0 rgba(23,34,45,0.02)}.case-result:hover{border-color:var(--blue);background:linear-gradient(180deg, #fffdfb 0%, var(--blue-soft) 100%)}.result-title{font-size:17px;font-weight:600;line-height:1.35}.result-meta{font:12px Arial,sans-serif;color:var(--muted);margin-top:6px}.result-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tag{padding:4px 7px;border-radius:999px;background:#e8f1f5;color:#2f5a73;font:700 10px Arial,sans-serif;letter-spacing:.42px;text-transform:uppercase}.tag.win{background:#e7f1e9;color:#356346}.tag.loss{background:#f8e3d9;color:#8b4f36}dialog{width:min(1200px,96vw);height:min(90vh,960px);border:none;border-radius:18px;padding:0;background:var(--panel);color:var(--ink);box-shadow:var(--shadow)}dialog::backdrop{background:rgba(20,32,40,.45)}.reader-shell{display:flex;flex-direction:column;height:100%}.reader-head{position:sticky;top:0;background:var(--panel);padding:18px 52px 14px 22px;border-bottom:2px solid var(--ink);z-index:1;min-height:92px}.reader-head h2{font-size:22px;font-weight:600;line-height:1.25;margin:0 0 5px}.reader-meta{font:12px Arial,sans-serif;color:var(--muted)}.close-reader{position:absolute;right:14px;top:14px;background:transparent;color:var(--ink);font-size:28px;padding:0;width:34px;height:34px;border-radius:8px}.close-reader:hover{background:#f3efe8}.reader-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);height:calc(100% - 92px);min-height:0}.reader-pane{overflow:auto;border-right:1px solid var(--line);background:linear-gradient(180deg, #fffdfb, #f8f5f0)}.reader-pane.target{border-right:none;background:#f8f9fb}.reader-pane-header{padding:16px 18px 8px;border-bottom:1px solid var(--line);font:700 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.reader-text{padding:20px 22px 30px;white-space:pre-wrap;font:16px/1.7 Georgia,"Times New Roman",serif;max-width:none}.reader-text mark{background:#f9e2a7;padding:0 2px;border-radius:4px}.reader-text mark.primary{background:#f2be8a}.reader-text .citation-link{display:inline;background:var(--blue-soft);color:var(--blue);padding:1px 5px;border:none;border-radius:6px;font:700 11px Arial,sans-serif;letter-spacing:.3px;cursor:pointer;text-decoration:none;vertical-align:baseline}.reader-target-body{padding:18px}.reader-target-body h3{margin:0 0 8px;font-size:20px;line-height:1.3}.reader-target-meta{font:12px Arial,sans-serif;color:var(--muted);margin-bottom:14px}.reader-target-body .quote{white-space:pre-wrap;font:15px/1.7 Georgia,"Times New Roman",serif;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}.reader-status{padding:22px;color:var(--muted);font:15px Arial,sans-serif}
+	</style>
+	<style>
+		.case-search{padding:20px 0 14px;border-bottom:1px solid var(--line)}
+		.search-primary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}
+		.search-primary .search-actions{display:flex;gap:8px;align-items:end}
+		.advanced-search{margin-top:14px;border-top:1px solid var(--line)}
+		.advanced-search summary{padding:13px 0 0;color:var(--blue);font:700 12px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer}
+		.advanced-search[open] summary{padding-bottom:2px}
+		.advanced-search .search-controls{grid-template-columns:repeat(3,minmax(0,1fr));padding:14px 0 0;border-bottom:0}
+		@media(max-width:820px){
+			.shell{padding:20px 14px 42px}
+			.search-controls,.controls,.advanced-search .search-controls{grid-template-columns:1fr 1fr}
+			.search-controls .wide{grid-column:span 2}
+			.search-actions{grid-column:span 2}
+			.reader-layout{grid-template-columns:1fr;overflow:auto}
+			.reader-pane{min-height:52vh;border-right:none;border-bottom:1px solid var(--line)}
+			.reader-pane.target{min-height:34vh}
+			.reader-head{min-height:auto}
+			.reader-text{font-size:15px}
+		}
+		@media(max-width:520px){
+			h1{font-size:31px}
+			.tabs{gap:14px;overflow:auto}
+			.tab{white-space:nowrap}
+			.search-primary,.search-controls,.controls,.advanced-search .search-controls{grid-template-columns:1fr}
+			.search-controls .wide,.search-actions,.controls button{grid-column:span 1}
+			.search-primary .search-actions{justify-content:stretch}
+			.search-primary .search-actions button{flex:1}
+			.summary{gap:16px;flex-wrap:wrap}
+			dialog{width:100vw;height:100vh;border-radius:0}
+			.reader-target-body{padding:14px}
+		}
 	</style>
 </head>
 <body><main class="shell">
-	<header class="masthead"><div class="eyebrow">Decision Analytics</div><h1>Case Outcomes</h1><p class="intro">Review judge win rates or explore the decision data across two fields. Results count decisions, not citations.</p></header>
-	<nav class="tabs" aria-label="Analytics views"><button class="tab active" data-tab="search">Advanced search</button><button class="tab" data-tab="judge">Judge win rates</button><button class="tab" data-tab="explorer">Case data explorer</button></nav>
-	<section id="searchPanel"><form class="search-controls" id="caseSearch"><div class="wide"><label for="searchQuery">Search decision text, title, or citation</label><input id="searchQuery" placeholder="e.g. procedural fairness"></div><div><label for="cites">Cases citing</label><input id="cites" placeholder="e.g. Vavilov"></div><div><label for="governmentOutcome">Government outcome</label><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select></div><div><label for="decisionOutcome">Decision outcome</label><select id="decisionOutcome"><option value="">Any result</option><option value="dismissed">Dismissed</option><option value="allowed">Allowed</option><option value="granted">Granted</option></select></div><div><label for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select></div><div><label for="judgeFilter">Judge contains</label><input id="judgeFilter" placeholder="e.g. Zinn"></div><div><label for="courtFilter">Court contains</label><input id="courtFilter" placeholder="e.g. FC"></div><div><label for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div><div><label for="searchSort">Sort results</label><select id="searchSort"><option value="relevance">Most cited / newest</option><option value="newest">Newest decision</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select></div><div><label for="searchLimit">Results</label><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div><div class="search-actions"><button type="submit">Search cases</button><button type="button" id="clearSearch">Clear</button></div></form><div class="search-meta" id="searchMeta">Enter search terms or filters, then search the full case inventory.</div><div class="results" id="searchResults"></div></section>
+	<header class="masthead"><div class="eyebrow">AI CaseLibrary</div><h1>Case Research</h1><p class="intro">Search the case library, open decisions with linked authorities, or switch to outcome and dataset analysis.</p></header>
+	<nav class="tabs" aria-label="Research views"><button class="tab active" data-tab="search">Case search</button><button class="tab" data-tab="judge">Judge outcomes</button><button class="tab" data-tab="explorer">Case analytics</button><button class="tab" data-tab="neighborhood">Citation neighborhoods</button><button class="tab" data-tab="prominent">Prominent cases</button><a class="tab" href="/judges">Judge Explorer</a></nav>
+	<section id="searchPanel"><form class="case-search" id="caseSearch"><div class="search-primary"><div><label for="searchQuery">Search case name, citation, or cited authority</label><input id="searchQuery" placeholder="e.g. Vavilov"></div><div class="search-actions"><button type="submit">Search cases</button><button type="button" id="clearSearch">Clear</button></div></div><div class="search-suggestions" id="searchSuggestions" hidden></div><details class="advanced-search"><summary>Advanced search</summary><div class="search-controls"><div><label for="cites">Cases citing</label><input id="cites" placeholder="e.g. Vavilov"></div><div><label for="governmentOutcome">Government outcome</label><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select></div><div><label for="decisionOutcome">Decision outcome</label><select id="decisionOutcome"><option value="">Any result</option><option value="dismissed">Dismissed</option><option value="allowed">Allowed</option><option value="granted">Granted</option></select></div><div><label for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select></div><div><label for="judgeFilter">Judge contains</label><input id="judgeFilter" placeholder="e.g. Zinn"></div><div><label for="courtFilter">Court contains</label><input id="courtFilter" placeholder="e.g. FC"></div><div><label for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div><div><label for="searchSort">Sort results</label><select id="searchSort"><option value="relevance">Most cited / newest</option><option value="newest">Newest decision</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select></div><div><label for="searchLimit">Results</label><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div></div></details></form><div class="search-meta" id="searchMeta">Enter a case name, citation, or cited authority to search the library.</div><div class="results" id="searchResults"></div></section>
 	<section id="judgePanel" hidden><section class="summary" id="judgeSummary"><span>Loading judge outcomes...</span></section><div class="legend"><span class="key"><i class="dot" style="background:var(--blue)"></i>Government wins</span><span class="key"><i class="dot" style="background:var(--rust)"></i>Individual wins</span><span class="key"><i class="dot" style="background:var(--gray)"></i>Unclassified</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Judge</th><th class="number">Decisions</th><th>Outcome split</th><th class="number">Government wins</th><th class="number">Individual wins</th><th class="number">Unclassified</th><th class="number">Government win rate</th></tr></thead><tbody id="judgeRows"><tr><td colspan="8" class="empty">Loading judge outcomes...</td></tr></tbody></table></div><p class="note">Includes every judge with more than 100 decisions. Win rate uses classified government-versus-individual outcomes only.</p></section>
 	<section id="explorerPanel" hidden><section class="controls"><div><label for="groupBy">Field A: rank by</label><select id="groupBy"></select></div><div><label for="splitBy">Field B: break down by</label><select id="splitBy"></select></div><div><label for="limit">Results to show</label><select id="limit"><option>10</option><option>25</option><option selected>50</option><option>75</option><option>100</option></select></div><button id="apply">Update results</button></section>
 	<section class="summary" id="summary"><span>Loading results...</span></section><div class="legend" id="legend"></div><div class="table-wrap"><table><thead id="head"></thead><tbody id="rows"><tr><td class="empty">Loading analytics...</td></tr></tbody></table></div><p class="note">Missing values are shown as “Unknown.” Counts use the metadata extracted from each decision and update from the current database state.</p></section>
+	<section id="neighborhoodPanel" hidden><div class="search-controls" style="padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end;border-bottom:1px solid var(--line);margin-bottom:16px;"><div><label for="neighborhoodSearch">Case to inspect</label><input id="neighborhoodSearch" placeholder="e.g. Vavilov or 2021 FC 123"></div><div class="search-actions"><button id="neighborhoodSearchButton" type="button">Load neighborhood</button></div></div><div class="summary" id="neighborhoodSummary"><span>Choose a case to inspect the cases it commonly cites together with.</span></div><div class="table-wrap"><table><thead><tr><th>Neighboring case</th><th>Court</th><th>Date</th><th>Occurrences with focus</th></tr></thead><tbody id="neighborhoodRows"><tr><td class="empty" colspan="4">Select a case to see common citation neighbors.</td></tr></tbody></table></div></section>
+	<section id="prominentPanel" hidden><div class="summary" id="prominentSummary"><span>Loading prominent cases...</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Case</th><th>Court</th><th>Date</th><th>Citing cases</th><th>Citation occurrences</th></tr></thead><tbody id="prominentRows"><tr><td class="empty" colspan="6">Loading prominent cases...</td></tr></tbody></table></div></section>
 </main><script>
 	const palette=['var(--blue)','var(--rust)','var(--gold)','var(--green)','var(--gray)'];const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));const num=value=>new Intl.NumberFormat().format(Number(value||0));let fields=[];
 	function searchValues(){return {query:document.getElementById('searchQuery').value,cites:document.getElementById('cites').value,government_outcome:document.getElementById('governmentOutcome').value,decision_outcome:document.getElementById('decisionOutcome').value,minister:document.getElementById('ministerFilter').value,judge:document.getElementById('judgeFilter').value,court:document.getElementById('courtFilter').value,year:document.getElementById('yearFilter').value,sort_by:document.getElementById('searchSort').value,limit:document.getElementById('searchLimit').value};}
 	function resultCard(item){const tags=[item.citation,item.court,item.date,item.minister,item.judge,item.decision_outcome,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':''].filter(Boolean),citationInfo=`${num(item.citation_mentions)} citation mention${item.citation_mentions===1?'':'s'} · ${num(item.unique_cited_authorities)} unique cited ${item.unique_cited_authorities===1?'authority':'authorities'}${item.resolved_target_cases?` · ${num(item.resolved_target_cases)} linked case${item.resolved_target_cases===1?'':'s'}`:''}`;return `<button class="case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title||'Untitled decision')}</div><div class="result-meta">${tags.map(value=>esc(value)).join(' · ')}${item.matching_citations?` · ${num(item.matching_citations)} matching citation${item.matching_citations===1?'':'s'}`:''}</div><div class="result-meta">${citationInfo}</div><div class="result-tags">${tags.slice(-2).map(value=>`<span class="tag ${value==='Government won'?'win':value==='Individual won'?'loss':''}">${esc(value)}</span>`).join('')}</div></button>`;}
 	async function loadSearch(event){if(event)event.preventDefault();const values=searchValues(),params=new URLSearchParams();Object.entries(values).forEach(([key,value])=>{if(value)params.set(key,value)});document.getElementById('searchMeta').textContent='Searching full decisions and stored case citations...';document.getElementById('searchResults').innerHTML='';try{const response=await fetch(`/analytics/search/cases?${params}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();document.getElementById('searchMeta').textContent=`Showing ${num(data.results.length)} matching decision${data.results.length===1?'':'s'}.`;document.getElementById('searchResults').innerHTML=data.results.map(resultCard).join('')||'<div class="empty">No cases matched these filters.</div>';document.querySelectorAll('.case-result').forEach(button=>button.onclick=()=>openDecision(Number(button.dataset.caseId)));}catch(error){document.getElementById('searchMeta').textContent=String(error);}}
-	function highlightedDecision(text,citations){const chars=Array.from(text||''),needle=document.getElementById('cites').value.trim().toLocaleLowerCase(),ranges=(citations||[]).map(item=>({...item,start:Number(item.offset_start),end:Number(item.offset_end)})).filter(item=>Number.isInteger(item.start)&&Number.isInteger(item.end)&&item.end>item.start&&item.start>=0&&item.end<=chars.length).sort((a,b)=>a.start-b.start||b.end-a.end);let cursor=0,html='';for(const item of ranges){if(item.start<cursor)continue;html+=esc(chars.slice(cursor,item.start).join(''));const primary=needle&&String(item.text||'').toLocaleLowerCase().includes(needle);html+=`<mark class="${primary?'primary':''}" title="${esc(item.normalized||item.text)}">${esc(chars.slice(item.start,item.end).join(''))}</mark>`;cursor=item.end;}return html+esc(chars.slice(cursor).join(''));}
-	async function openDecision(caseId){const dialog=document.getElementById('decisionDialog'),body=document.getElementById('decisionBody');dialog.showModal();body.innerHTML='<div class="reader-status">Loading full decision...</div>';try{const response=await fetch(`/analytics/search/cases/${caseId}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json(),item=data.case,metrics=data.citation_metrics;document.getElementById('decisionTitle').textContent=item.title||'Untitled decision';document.getElementById('decisionMeta').textContent=[item.citation,item.court,item.date,item.judge,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':`${num(metrics.citation_mentions)} citation mentions`,`${num(metrics.unique_cited_authorities)} unique cited authorities`,metrics.resolved_target_cases?`${num(metrics.resolved_target_cases)} linked cases`:''].filter(Boolean).join(' · ');body.innerHTML=highlightedDecision(item.full_text,data.citations);}catch(error){body.innerHTML=`<div class="reader-status">${esc(error.message)}</div>`;}}
+	let suggestionTimer=null;
+	function debouncedSuggestions(){clearTimeout(suggestionTimer);suggestionTimer=setTimeout(loadSuggestions, 200);}
+	function renderSuggestions(data){const suggestions=data.suggestions||[];const panel=document.getElementById('searchSuggestions');if(!panel)return;panel.hidden = !suggestions.length;panel.innerHTML = suggestions.map(item => `<button class="suggestion-item" type="button" data-suggestion="${esc(item.title || item.citation || 'Untitled case')}"><span>${esc(item.title || 'Untitled case')}</span><small>${esc(item.citation || 'No citation')}</small></button>`).join('');panel.querySelectorAll('.suggestion-item').forEach(button=>button.onclick=()=>{const value=button.dataset.suggestion;document.getElementById('searchQuery').value=value;panel.hidden=true;loadSearch();});}
+	async function loadSuggestions(){const query=document.getElementById('searchQuery').value.trim();const panel=document.getElementById('searchSuggestions');if(!panel)return;if(!query || query.length < 2){panel.hidden=true;panel.innerHTML='';return;}try{const response=await fetch(`/analytics/search/suggestions?query=${encodeURIComponent(query)}&limit=6`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();renderSuggestions(data);}catch(error){panel.hidden=true;panel.innerHTML='';}}
+	function highlightCitationTarget(item, query){
+		if (!item.target_case_id) return `
+			<mark class="${query ? 'primary' : ''}" title="${esc(item.normalized || item.text)}">${esc(String(item.text || ''))}</mark>
+		`;
+		return `<button class="citation-link" type="button" data-target-case-id="${item.target_case_id}" data-target-title="${esc(item.target_title || 'Linked case')}" data-normalized="${esc(item.normalized || item.text || '')}" title="Open linked case: ${esc(item.target_title || 'Linked case')}">${esc(String(item.text || ''))}</button>`;
+	}
+	function highlightedDecision(text,citations){
+		const chars=Array.from(text||'');
+		const needle=document.getElementById('cites').value.trim().toLocaleLowerCase();
+		const ranges=(citations||[]).map(item=>({
+			...item,
+			start:Number(item.offset_start),
+			end:Number(item.offset_end),
+			text:item.text || item.normalized || item.citation_text || '',
+			target_case_id:item.target_case_id || null,
+			target_title:item.target_title || null,
+		})).filter(item => Number.isInteger(item.start) && Number.isInteger(item.end) && item.end > item.start && item.start >= 0 && item.end <= chars.length).sort((a,b)=>a.start-b.start||b.end-a.end);
+		let cursor=0, html='';
+		for (const item of ranges) {
+			if (item.start < cursor) continue;
+			html += esc(chars.slice(cursor, item.start).join(''));
+			const primary = needle && String(item.text || '').toLowerCase().includes(needle);
+			if (item.target_case_id) {
+				html += `<button class="citation-link" type="button" data-target-case-id="${item.target_case_id}" data-target-title="${esc(item.target_title || 'Linked case')}" data-normalized="${esc(item.normalized || item.text || '')}" title="Open linked case: ${esc(item.target_title || 'Linked case')}">${esc(chars.slice(item.start,item.end).join(''))}</button>`;
+			} else {
+				html += `<mark class="${primary ? 'primary' : ''}" title="${esc(item.normalized || item.text)}">${esc(chars.slice(item.start,item.end).join(''))}</mark>`;
+			}
+			cursor = item.end;
+		}
+		return html + esc(chars.slice(cursor).join(''));
+	}
+	async function openLinkedCase(caseId, label='Linked case'){
+		const targetPane = document.getElementById('decisionTarget');
+		targetPane.innerHTML = '<div class="reader-status">Loading linked case...</div>';
+		try {
+			const response = await fetch(`/analytics/search/cases/${caseId}`);
+			if (!response.ok) throw new Error(`Request failed (${response.status})`);
+			const data = await response.json();
+			const item = data.case || {};
+			const targetText = item.full_text || '';
+			targetPane.innerHTML = `
+				<div class="reader-target-body">
+					<h3>${esc(item.title || label)}</h3>
+					<div class="reader-target-meta">${esc(item.citation || 'No citation')} · ${esc(item.court || 'Unknown court')} · ${esc(item.date || '')}</div>
+					<div class="quote">${esc(targetText || 'No text available')}</div>
+				</div>
+			`;
+		} catch (error) {
+			targetPane.innerHTML = `<div class="reader-status">${esc(error.message)}</div>`;
+		}
+	}
+	async function openDecision(caseId){
+		const dialog=document.getElementById('decisionDialog');
+		const body=document.getElementById('decisionBody');
+		const targetPane=document.getElementById('decisionTarget');
+		dialog.showModal();
+		body.innerHTML='<div class="reader-status">Loading full decision...</div>';
+		targetPane.innerHTML='<div class="reader-status">Linked case preview</div>';
+		try{const response=await fetch(`/analytics/search/cases/${caseId}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json(),item=data.case,metrics=data.citation_metrics;document.getElementById('decisionTitle').textContent=item.title||'Untitled decision';document.getElementById('decisionMeta').textContent=[item.citation,item.court,item.date,item.judge,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':`${num(metrics.citation_mentions)} citation mentions`,`${num(metrics.unique_cited_authorities)} unique cited authorities`,metrics.resolved_target_cases?`${num(metrics.resolved_target_cases)} linked cases`:''].filter(Boolean).join(' · ');body.innerHTML=highlightedDecision(item.full_text,data.citations);body.querySelectorAll('.citation-link').forEach(button=>button.addEventListener('click', () => openLinkedCase(Number(button.dataset.targetCaseId), button.dataset.targetTitle || 'Linked case')));const firstLinked = (data.citations || []).find(citation => citation.target_case_id);if (firstLinked) { await openLinkedCase(firstLinked.target_case_id, firstLinked.target_title || 'Linked case'); } else { targetPane.innerHTML = '<div class="reader-status">No linked case found in this decision.</div>'; }}catch(error){body.innerHTML=`<div class="reader-status">${esc(error.message)}</div>`;}}
 	function renderJudge(data){document.getElementById('judgeSummary').innerHTML=`<span><strong>${num(data.judges.length)}</strong><br>judges with more than 100 decisions</span><span><strong>${num(data.totals.decisions)}</strong><br>decisions counted</span><span><strong>${num(data.totals.classified)}</strong><br>classified outcomes</span>`;document.getElementById('judgeRows').innerHTML=data.judges.map((item,index)=>{const classified=item.government_wins+item.individual_wins;const govWidth=classified?item.government_wins/classified*100:0;const individualWidth=classified?item.individual_wins/classified*100:0;const unknownWidth=item.decisions?item.unclassified/item.decisions*100:0;return `<tr><td class="rank">${index+1}</td><td class="group">${esc(item.judge)}</td><td class="number">${num(item.decisions)}</td><td><div class="bar"><span style="width:${govWidth}%;background:var(--blue)"></span><span style="width:${individualWidth}%;background:var(--rust)"></span><span style="width:${unknownWidth}%;background:var(--gray)"></span></div></td><td class="number">${num(item.government_wins)}</td><td class="number">${num(item.individual_wins)}</td><td class="number">${num(item.unclassified)}</td><td class="number">${classified?(govWidth).toFixed(1)+'%':'--'}</td></tr>`}).join('')};
 	async function loadJudge(){try{const response=await fetch('/analytics/judge-outcomes?min_decisions=100');if(!response.ok)throw new Error(`Request failed (${response.status})`);renderJudge(await response.json())}catch(error){document.getElementById('judgeRows').innerHTML=`<tr><td colspan="8" class="empty">${esc(error.message)}</td></tr>`}};
+	async function loadProminent(){try{const response=await fetch('/citation-map/authorities?limit=12');if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();document.getElementById('prominentSummary').innerHTML=`<span><strong>${num(data.length)}</strong><br>most-cited authorities in the graph</span>`;document.getElementById('prominentRows').innerHTML=data.map((item,index)=>`<tr><td class="rank">${index+1}</td><td><button class="case-result" type="button" data-case-id="${item.case_id}" style="background:transparent;border:0;padding:0;color:var(--ink);text-align:left;cursor:pointer;font:inherit;">${esc(item.title || 'Untitled case')}</button></td><td>${esc(item.court || 'Unknown')}</td><td>${esc(item.date || '')}</td><td class="number">${num(item.citing_cases)}</td><td class="number">${num(item.citation_occurrences)}</td></tr>`).join('')||'<tr><td class="empty" colspan="6">No prominent cases are available.</td></tr>';document.querySelectorAll('#prominentRows .case-result').forEach(button=>button.onclick=()=>openDecision(Number(button.dataset.caseId)));}catch(error){document.getElementById('prominentRows').innerHTML=`<tr><td class="empty" colspan="6">${esc(error.message)}</td></tr>`;}}
 	function options(selected){return fields.map(field=>`<option value="${field.key}" ${field.key===selected?'selected':''}>${esc(field.label)}</option>`).join('')};
 	function paintFields(){document.getElementById('groupBy').innerHTML=options('judge');document.getElementById('splitBy').innerHTML=options('government_outcome')}
 	async function loadMinisters(){const response=await fetch('/analytics/search/ministers');if(!response.ok)throw new Error('Unable to load minister options');const data=await response.json();document.getElementById('ministerFilter').innerHTML=`<option value="">Any minister or government party</option>${data.ministers.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('')}`;}
 	function render(data){const splitLabel=data.split_by.label;const colors=Object.fromEntries(data.split_values.map((value,index)=>[value,palette[index%palette.length]]));document.getElementById('summary').innerHTML=`<span><strong>${num(data.totals.decisions)}</strong><br>decisions counted</span><span><strong>${num(data.groups.length)}</strong><br>${esc(data.group_by.label.toLowerCase())} results shown</span>`;document.getElementById('legend').innerHTML=data.split_values.map(value=>`<span class="key"><i class="dot" style="background:${colors[value]}"></i>${esc(value)}</span>`).join('');document.getElementById('head').innerHTML=`<tr><th>#</th><th>${esc(data.group_by.label)}</th><th>Decisions</th><th>${esc(splitLabel)} split</th>${data.split_values.map(value=>`<th class="number">${esc(value)}</th>`).join('')}</tr>`;document.getElementById('rows').innerHTML=data.groups.map((item,index)=>{const bar=data.split_values.map(value=>{const count=item.breakdown[value]||0;return `<span style="width:${item.decisions?count/item.decisions*100:0}%;background:${colors[value]}" title="${esc(value)}: ${num(count)}"></span>`}).join('');return `<tr><td class="rank">${index+1}</td><td class="group">${esc(item.value)}</td><td class="number">${num(item.decisions)}</td><td><div class="bar">${bar}</div></td>${data.split_values.map(value=>`<td class="number">${num(item.breakdown[value]||0)}</td>`).join('')}</tr>`}).join('')||'<tr><td class="empty">No matching decision data.</td></tr>'};
 	async function load(){const groupBy=document.getElementById('groupBy').value,splitBy=document.getElementById('splitBy').value,limit=document.getElementById('limit').value;document.getElementById('rows').innerHTML='<tr><td class="empty">Loading analytics...</td></tr>';try{const response=await fetch(`/analytics/explorer?group_by=${encodeURIComponent(groupBy)}&split_by=${encodeURIComponent(splitBy)}&limit=${encodeURIComponent(limit)}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);render(await response.json())}catch(error){document.getElementById('rows').innerHTML=`<tr><td class="empty">${esc(error.message)}</td></tr>`}};
-	(async()=>{const response=await fetch('/analytics/explorer?limit=1');if(!response.ok)throw new Error('Unable to load available fields');const data=await response.json();fields=data.fields;paintFields();await loadMinisters();document.getElementById('apply').onclick=load;document.getElementById('caseSearch').onsubmit=loadSearch;document.getElementById('clearSearch').onclick=()=>{document.getElementById('caseSearch').reset();document.getElementById('searchMeta').textContent='Enter search terms or filters, then search the full case inventory.';document.getElementById('searchResults').innerHTML='';};document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{const active=tab.dataset.tab;document.getElementById('searchPanel').hidden=active!=='search';document.getElementById('judgePanel').hidden=active!=='judge';document.getElementById('explorerPanel').hidden=active!=='explorer';document.querySelectorAll('.tab').forEach(item=>item.classList.toggle('active',item===tab));if(active==='judge')loadJudge();if(active==='explorer')load();});})().catch(error=>document.getElementById('searchMeta').textContent=String(error));
-	</script><dialog id="decisionDialog"><div class="reader-head"><button class="close-reader" onclick="document.getElementById('decisionDialog').close()" title="Close">&times;</button><h2 id="decisionTitle">Decision</h2><div class="reader-meta" id="decisionMeta"></div></div><article class="reader-text" id="decisionBody"></article></dialog></body></html>"""
+	async function loadNeighborhoodCandidates(query='Vavilov', limit=10){
+		const response=await fetch(`/analytics/search/cases?query=${encodeURIComponent(query)}&sort_by=relevance&limit=${limit}`);
+		if(!response.ok) throw new Error(`Request failed (${response.status})`);
+		const data=await response.json();
+		const select=document.getElementById('neighborhoodCaseSelect');
+		if(!select){
+			const wrapper=document.getElementById('neighborhoodSearch').closest('div');
+			const selectEl=document.createElement('select');
+			selectEl.id='neighborhoodCaseSelect';
+			selectEl.style.width='100%';
+			selectEl.style.height='42px';
+			selectEl.innerHTML='<option value="">Select a case</option>';
+			wrapper.appendChild(selectEl);
+		}
+		const nextSelect=document.getElementById('neighborhoodCaseSelect');
+		nextSelect.innerHTML='<option value="">Select a case</option>' + (data.results||[]).map(item=>`<option value="${item.case_id}">${esc(item.title || 'Untitled case')} (${esc(item.citation || 'No citation')})</option>`).join('');
+		if((data.results||[]).length){
+			nextSelect.value = String(data.results[0].case_id);
+			await loadNeighborhood(data.results[0].case_id);
+		}
+	}
+	async function loadNeighborhood(caseId){
+		const response=await fetch(`/citation-map/cases/${caseId}/neighborhood?limit=25`);
+		if(!response.ok) throw new Error(`Request failed (${response.status})`);
+		const data=await response.json();
+		const focus=data.focus||{};
+		const rows=(data.edges||[]).reduce((acc, edge)=>{
+			const neighborId = Number(edge.source_case_id) === Number(caseId) ? Number(edge.target_case_id) : Number(edge.source_case_id);
+			const current=acc.get(neighborId)||{neighborId, occurrence_count:0};
+			current.occurrence_count += Number(edge.occurrence_count || 0);
+			acc.set(neighborId, current);
+			return acc;
+		}, new Map());
+		const neighborMap = Object.fromEntries((data.nodes||[]).filter(node => Number(node.case_id) !== Number(caseId)).map(node => [Number(node.case_id), node]));
+		const nodeRows = [...rows.entries()].map(([neighborId, edgeInfo]) => ({
+			...edgeInfo,
+			...neighborMap[neighborId],
+		})).filter(row => row && row.case_id).sort((a,b)=>b.occurrence_count-a.occurrence_count || (a.title||'').localeCompare(b.title||''));
+		document.getElementById('neighborhoodSummary').innerHTML=`<span><strong>${esc(focus.title || 'Selected case')}</strong><br>${esc(focus.citation || 'No citation')} · ${esc(focus.court || 'Unknown court')} · ${esc(focus.date || '')}<br>${num(nodeRows.length)} neighboring cases with linked citation counts</span>`;
+		document.getElementById('neighborhoodRows').innerHTML=nodeRows.length ? nodeRows.map(item => `<tr><td><button class="case-result" type="button" data-case-id="${item.case_id}" style="background:transparent;border:0;padding:0;color:var(--ink);text-align:left;cursor:pointer;font:inherit;text-decoration:underline;">${esc(item.title || 'Untitled case')}</button></td><td>${esc(item.court || 'Unknown')}</td><td>${esc(item.date || '')}</td><td class="number">${num(item.occurrence_count)}</td></tr>`).join('') : '<tr><td class="empty" colspan="4">No citation neighbors were found for this case.</td></tr>';
+		document.querySelectorAll('#neighborhoodRows .case-result').forEach(button=>button.onclick=()=>openDecision(Number(button.dataset.caseId)));
+	}
+	(async()=>{const response=await fetch('/analytics/explorer?limit=1');if(!response.ok)throw new Error('Unable to load available fields');const data=await response.json();fields=data.fields;paintFields();await loadMinisters();document.getElementById('apply').onclick=load;document.getElementById('caseSearch').onsubmit=loadSearch;document.getElementById('searchQuery')?.addEventListener('input',debouncedSuggestions);document.getElementById('clearSearch').onclick=()=>{document.getElementById('caseSearch').reset();document.getElementById('searchMeta').textContent='Enter search terms or filters, then search the full case inventory.';document.getElementById('searchResults').innerHTML='';};document.getElementById('neighborhoodSearchButton').onclick=async()=>{const value=document.getElementById('neighborhoodSearch').value.trim();if(!value){await loadNeighborhoodCandidates('Vavilov');return;}const caseSearch=await fetch(`/analytics/search/cases?query=${encodeURIComponent(value)}&sort_by=relevance&limit=10`);if(!caseSearch.ok)throw new Error(`Request failed (${caseSearch.status})`);const caseData=await caseSearch.json();const list=caseData.results||[];if(!list.length){document.getElementById('neighborhoodRows').innerHTML='<tr><td class="empty" colspan="4">No matching case was found.</td></tr>';return;}const first=list[0];const select=document.getElementById('neighborhoodCaseSelect');if(select){select.value=String(first.case_id);await loadNeighborhood(first.case_id);} else { await loadNeighborhoodCandidates(value, 10);} };document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{const active=tab.dataset.tab;document.getElementById('searchPanel').hidden=active!=='search';document.getElementById('judgePanel').hidden=active!=='judge';document.getElementById('explorerPanel').hidden=active!=='explorer';document.getElementById('neighborhoodPanel').hidden=active!=='neighborhood';document.getElementById('prominentPanel').hidden=active!=='prominent';document.querySelectorAll('.tab').forEach(item=>item.classList.toggle('active',item===tab));if(active==='judge')loadJudge();if(active==='explorer')load();if(active==='prominent')loadProminent();if(active==='neighborhood' && !document.getElementById('neighborhoodCaseSelect'))loadNeighborhoodCandidates('Vavilov');});})();
+	</script><dialog id="decisionDialog"><div class="reader-shell"><div class="reader-head"><button class="close-reader" onclick="document.getElementById('decisionDialog').close()" title="Close">&times;</button><h2 id="decisionTitle">Decision</h2><div class="reader-meta" id="decisionMeta"></div></div><div class="reader-layout"><article class="reader-pane source"><div class="reader-pane-header">Source decision</div><div class="reader-text" id="decisionBody"></div></article><aside class="reader-pane target"><div class="reader-pane-header">Linked case</div><div id="decisionTarget"><div class="reader-status">Click a linked citation to open the related case.</div></div></aside></div></div></dialog></body></html>"""
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
+def _analytics_case_order_sql(query: str, cites: str, sort_by: str) -> tuple[str, dict[str, Any]]:
+	query = " ".join((query or "").split())
+	cites = " ".join((cites or "").split())
+	params: dict[str, Any] = {
+		"query_exact": query,
+		"query_like": f"%{query}%",
+		"cites_exact": cites,
+		"cites_like": f"%{cites}%",
+	}
+	minister_expression = "COALESCE(NULLIF(TRIM(SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')), ''), 'Unknown')"
+	if sort_by == "newest":
+		return "c.date DESC NULLS LAST, c.id DESC", params
+	if sort_by == "oldest":
+		return "c.date ASC NULLS LAST, c.id ASC", params
+	if sort_by == "minister":
+		return f"{minister_expression} ASC, c.date DESC NULLS LAST, c.id DESC", params
+	return (
+		"""
+		CASE
+			WHEN LOWER(COALESCE(c.title, '')) = LOWER(:query_exact) THEN 100
+			WHEN LOWER(COALESCE(c.citation, '')) = LOWER(:query_exact) THEN 96
+			WHEN LOWER(COALESCE(c.title, '')) LIKE LOWER(:query_like) THEN 90
+			WHEN LOWER(COALESCE(c.citation, '')) LIKE LOWER(:query_like) THEN 85
+			WHEN EXISTS (
+				SELECT 1 FROM citations cited
+				WHERE cited.source_case_id = c.id
+				AND (
+					LOWER(COALESCE(cited.citation_text, '')) LIKE LOWER(:query_like)
+					OR LOWER(COALESCE(cited.normalized_citation, '')) LIKE LOWER(:query_like)
+				)
+			) THEN 70
+			ELSE 0
+		END DESC,
+		c.date DESC NULLS LAST,
+		c.id DESC
+		""",
+		params,
+	)
+
+
+@router.get("/cases/{case_id}/metadata-pass")
+def get_case_metadata_pass(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	case = _get_case_or_404(case_id, db)
+	chunks = list(
+		db.scalars(
+			select(CaseChunk)
+			.where(CaseChunk.case_id == case_id)
+			.order_by(CaseChunk.chunk_index, CaseChunk.id)
+		)
+	)
+	extracted = _build_reader_extracted_metadata(case, chunks, include_canonical_fields=True)
+	return {
+		"case_id": case_id,
+		"title": case.title,
+		"citation": case.citation,
+		"court": case.court,
+		"normalized_display": _build_metadata_pass_normalized_rows(case, extracted),
+		"extracted_metadata": [row.model_dump() for row in extracted],
+	}
 
 
 @router.get("/analytics/explorer", response_model=dict[str, Any])
@@ -2979,7 +3494,11 @@ def search_analytics_cases(
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
 	if query:
 		params["query"] = f"%{query}%"
-		filters.append("(c.title ILIKE :query OR c.citation ILIKE :query OR c.full_text ILIKE :query)")
+		filters.append(
+			"(c.title ILIKE :query OR c.citation ILIKE :query "
+			"OR EXISTS (SELECT 1 FROM citations cited WHERE cited.source_case_id = c.id "
+			"AND (cited.citation_text ILIKE :query OR cited.normalized_citation ILIKE :query)))"
+		)
 	if cites:
 		params["cites"] = f"%{cites}%"
 		filters.append(
@@ -3019,11 +3538,8 @@ def search_analytics_cases(
 		"(SELECT COUNT(DISTINCT cited.target_case_id) FROM citations cited "
 		"WHERE cited.source_case_id = c.id AND cited.target_case_id IS NOT NULL)"
 	)
-	sort_order = {
-		"newest": "c.date DESC NULLS LAST, c.id DESC",
-		"oldest": "c.date ASC NULLS LAST, c.id ASC",
-		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
-	}.get(sort_by, "matching_citations DESC, c.date DESC NULLS LAST, c.id DESC")
+	sort_sql, sort_params = _analytics_case_order_sql(query, cites, sort_by)
+	params.update(sort_params)
 	rows = db.execute(
 		sql_text(
 			f"""
@@ -3039,7 +3555,7 @@ def search_analytics_cases(
 				,{resolved_target_cases} AS resolved_target_cases
 			FROM cases c
 			WHERE {where_clause}
-			ORDER BY {sort_order}
+			ORDER BY {sort_sql}
 			LIMIT :limit OFFSET :offset
 			"""
 		),
@@ -3066,6 +3582,64 @@ def search_analytics_cases(
 		],
 		"limit": limit,
 		"offset": offset,
+	}
+
+
+@router.get("/analytics/search/suggestions", response_model=dict[str, list[dict[str, Any]]])
+def search_analytics_case_suggestions(
+	query: str = "",
+	limit: int = 8,
+	db: Session = Depends(get_db),
+) -> dict[str, list[dict[str, Any]]]:
+	query = " ".join((query or "").split())
+	if not query:
+		return {"suggestions": []}
+	limit = max(1, min(limit, 10))
+	params = {
+		"query_like": f"%{query}%",
+		"query_exact": query,
+		"limit": limit,
+	}
+	sort_sql, _ = _analytics_case_order_sql(query, "", "relevance")
+	rows = db.execute(
+		sql_text(
+			f"""
+			SELECT c.id, c.title, c.citation, c.court, c.date,
+			       CASE
+				   WHEN LOWER(COALESCE(c.title, '')) = LOWER(:query_exact) THEN 100
+				   WHEN LOWER(COALESCE(c.citation, '')) = LOWER(:query_exact) THEN 96
+				   WHEN LOWER(COALESCE(c.title, '')) LIKE LOWER(:query_like) THEN 90
+				   WHEN LOWER(COALESCE(c.citation, '')) LIKE LOWER(:query_like) THEN 85
+				   WHEN EXISTS (
+				       SELECT 1 FROM citations cited
+				       WHERE cited.source_case_id = c.id
+				       AND (
+				           LOWER(COALESCE(cited.citation_text, '')) LIKE LOWER(:query_like)
+				           OR LOWER(COALESCE(cited.normalized_citation, '')) LIKE LOWER(:query_like)
+				       )
+				   ) THEN 70
+				   ELSE 0
+			   END AS relevance
+			FROM cases c
+			WHERE c.title ILIKE :query_like OR c.citation ILIKE :query_like
+			ORDER BY {sort_sql}
+			LIMIT :limit
+			"""
+		),
+		params,
+	).mappings().all()
+	return {
+		"suggestions": [
+			{
+				"case_id": int(row["id"]),
+				"title": row["title"],
+				"citation": row["citation"],
+				"court": row["court"],
+				"date": row["date"],
+				"relevance": int(row["relevance"] or 0),
+			}
+			for row in rows
+		],
 	}
 
 
@@ -3124,12 +3698,16 @@ def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> di
 		end = chunk_start + citation.offset_end
 		if start < 0 or end <= start or end > len(full_text):
 			continue
+		target_case = citation.target_case
 		highlights.append(
 			{
 				"text": citation.citation_text,
 				"normalized": citation.normalized_citation,
 				"offset_start": start,
 				"offset_end": end,
+				"target_case_id": citation.target_case_id,
+				"target_title": target_case.title if target_case else None,
+				"target_citation": target_case.citation if target_case else None,
 			}
 		)
 	unique_cited_authorities = {
@@ -3253,12 +3831,15 @@ def _citation_pass_page_html() -> str:
 		.list-wrap{overflow:auto;min-height:0}
 		.mark-help{font-size:12px;color:var(--muted);margin:0}
 		.mark-help strong{color:var(--text)}
-		mark.cite-case{background:rgba(245,185,66,.32);box-shadow:inset 0 -2px rgba(245,185,66,.9);padding:0 1px;border-radius:2px}
-		mark.cite-law{background:rgba(45,166,108,.22);box-shadow:inset 0 -2px rgba(35,139,89,.9);padding:0 1px;border-radius:2px}
-		mark.cite-metadata{background:rgba(64,120,220,.20);box-shadow:inset 0 -2px rgba(53,109,204,.92);padding:0 1px;border-radius:2px}
+		mark.cite-case{background:linear-gradient(135deg,#f5d842 0%,#f4c835 100%);box-shadow:inset 0 -2px rgba(218,155,28,.9),0 1px 3px rgba(245,185,66,.25);padding:2px 4px;border-radius:3px;cursor:pointer;font-weight:500;transition:all .15s ease}
+		mark.cite-case:hover{background:linear-gradient(135deg,#f0ce2a 0%,#efbb22 100%);box-shadow:inset 0 -2.5px rgba(192,130,14,.95),0 2px 5px rgba(245,185,66,.35);transform:translateY(-1px)}
+		mark.cite-law{background:linear-gradient(135deg,#4caf50 0%,#43a047 100%);box-shadow:inset 0 -2px rgba(27,94,32,.95),0 1px 3px rgba(76,175,80,.2);padding:2px 4px;border-radius:3px;cursor:pointer;font-weight:500;transition:all .15s ease;color:#fff}
+		mark.cite-law:hover{background:linear-gradient(135deg,#45a049 0%,#3b8b40 100%);box-shadow:inset 0 -2.5px rgba(17,71,24,.95),0 2px 5px rgba(76,175,80,.3);transform:translateY(-1px)}
+		mark.cite-metadata{background:linear-gradient(135deg,#42a5f5 0%,#2196f3 100%);box-shadow:inset 0 -2px rgba(25,65,155,.95),0 1px 3px rgba(66,165,245,.2);padding:2px 4px;border-radius:3px;cursor:pointer;font-weight:500;transition:all .15s ease;color:#fff}
+		mark.cite-metadata:hover{background:linear-gradient(135deg,#1e88e5 0%,#1976d2 100%);box-shadow:inset 0 -2.5px rgba(13,47,125,.95),0 2px 5px rgba(66,165,245,.3);transform:translateY(-1px)}
 		mark[data-row-key]{cursor:pointer}
-		mark[data-row-key]:hover{outline:2px solid rgba(36,87,214,.55)}
-		mark.active-hit{outline:2px solid var(--accent);background:rgba(36,87,214,.18)!important}
+		mark[data-row-key]:hover{outline:2px solid rgba(36,87,214,.65);outline-offset:1px}
+		mark.active-hit{outline:2.5px solid var(--accent);background:rgba(36,87,214,.25)!important;outline-offset:2px}
 		@media (max-width: 1100px){
 			.main-grid{grid-template-columns:1fr}
 			.citation-panel{grid-template-columns:1fr}
@@ -5418,8 +5999,9 @@ def search_cases(
 
 	total_matches = db.scalar(select(func.count()).select_from(count_statement.subquery())) or 0
 	raw_rows = list(db.execute(statement))
-	prepared_rows: list[tuple[Case, float, float]] = []
+	prepared_rows: list[tuple[Case, float, float, int]] = []
 	max_lexical = 0.0
+	max_in_degree = 0
 
 	for row in raw_rows:
 		if effective_mode in {"semantic", "hybrid"}:
@@ -5442,10 +6024,13 @@ def search_cases(
 			else 0.0
 		)
 		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
+		graph_in_degree_int = int(graph_in_degree_value or 0)
 		max_lexical = max(max_lexical, lexical_score)
-		prepared_rows.append((case, semantic_similarity, lexical_score, int(graph_in_degree_value or 0)))
+		max_in_degree = max(max_in_degree, graph_in_degree_int)
+		prepared_rows.append((case, semantic_similarity, lexical_score, graph_in_degree_int))
 
 	weighted_rows: list[tuple[Case, float, float]] = []
+	authority_weight = 0.15  # 15% weight boost for highly-cited cases in ranking
 	for case, semantic_similarity, lexical_score, graph_in_degree_value in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
@@ -5457,8 +6042,16 @@ def search_cases(
 			final_score = (
 				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
 			) / denominator
-		graph_boost = min(0.05, math.log1p(max(0, graph_in_degree_value)) / 100.0)
-		weighted_rows.append((case, final_score, final_score + graph_boost))
+		
+		# Calculate authority score (0-1 range) based on citation count relative to max in batch
+		authority_score = (graph_in_degree_value / max_in_degree) if max_in_degree > 0 else 0.0
+		authority_score = min(1.0, authority_score)
+		
+		# Apply authority boost: highly-cited cases get up to 15% ranking boost
+		authority_boost = authority_weight * authority_score
+		weighted_final_score = final_score + authority_boost
+		
+		weighted_rows.append((case, final_score, weighted_final_score))
 
 	weighted_rows.sort(key=lambda item: item[2], reverse=True)
 	start = (search.page - 1) * search.page_size

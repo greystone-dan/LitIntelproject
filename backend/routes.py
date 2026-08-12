@@ -6030,7 +6030,6 @@ def search_cases(
 		prepared_rows.append((case, semantic_similarity, lexical_score, graph_in_degree_int))
 
 	weighted_rows: list[tuple[Case, float, float]] = []
-	authority_weight = 0.15  # 15% weight boost for highly-cited cases in ranking
 	for case, semantic_similarity, lexical_score, graph_in_degree_value in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
@@ -6043,13 +6042,14 @@ def search_cases(
 				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
 			) / denominator
 		
-		# Calculate authority score (0-1 range) based on citation count relative to max in batch
-		authority_score = (graph_in_degree_value / max_in_degree) if max_in_degree > 0 else 0.0
-		authority_score = min(1.0, authority_score)
-		
-		# Apply authority boost: highly-cited cases get up to 15% ranking boost
-		authority_boost = authority_weight * authority_score
-		weighted_final_score = final_score + authority_boost
+		# Only apply authority boost in hybrid/semantic modes; lexical/metadata rely purely on text matching
+		weighted_final_score = final_score
+		if effective_mode == "hybrid":
+			authority_weight = 0.15  # 15% weight boost for highly-cited cases in hybrid ranking
+			authority_score = (graph_in_degree_value / max_in_degree) if max_in_degree > 0 else 0.0
+			authority_score = min(1.0, authority_score)
+			authority_boost = authority_weight * authority_score
+			weighted_final_score = final_score + authority_boost
 		
 		weighted_rows.append((case, final_score, weighted_final_score))
 

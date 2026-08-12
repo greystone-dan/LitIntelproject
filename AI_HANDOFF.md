@@ -1,21 +1,22 @@
 # AI CaseLibrary Handoff
 
-Last updated: 2026-08-07
+Last updated: 2026-08-12
 
 This document is the expanded operating handoff for the current system state. It is meant to give a new agent or developer enough context to understand the platform layers, the data model, the citation-map capabilities, and the current QA posture without reading the entire repo first.
 
-## 0. Active Stabilization Focus (2026-08-07)
+## 0. Active Delivery Focus (2026-08-12)
 
-Current delivery focus is deterministic layered extraction reliability, not
-corpus expansion.
+Current delivery focus is user-facing advanced search and linked citation reading,
+with deterministic extractor QA retained as a supporting workflow.
 
 Primary workflow for this phase:
 
-1. Open `/citation-pass` and validate case-citation extraction from live text.
-2. Preserve exact citation spans and offsets as backend-owned truth.
-3. Keep case, statute/instrument, and metadata extraction concerns separated.
-4. Land parser/rule fixes with focused regression tests before wider runs.
-5. Update explainer docs in the same change set before push.
+1. Use `/data-explorer` as the primary research-facing surface.
+2. Use `/case-reader` for unified case detail and linked citation inspection.
+3. Preserve exact citation spans and offsets as backend-owned truth.
+4. Keep extraction, target resolution, and reader UX as separate concerns.
+5. Use `/citation-pass` only when validating extraction behavior.
+6. Update explainer docs in the same change set before push.
 
 Hard scope constraints currently in force:
 
@@ -23,7 +24,16 @@ Hard scope constraints currently in force:
 	and API payload layers.
 2. Runtime extraction must remain deterministic and must not require AI/API calls.
 3. Preserve exact backend-owned source spans; the UI must not infer or reparse them.
-4. Do not trigger full 300-case reprocessing as part of citation-pass UI stabilization.
+4. Keep case-to-case target resolution as a separate local pass after extraction.
+5. Keep side-project datasets isolated from canonical case tables and routes.
+
+Current live user-facing capabilities in this phase:
+
+1. `/data-explorer` now includes advanced search, judge outcomes, and case data explorer tabs.
+2. Advanced search supports cited-authority filtering, minister dropdown selection, date and outcome filters, and result sorting.
+3. The decision modal uses stored citation rows and returns exact highlight spans quickly even for heavily cited cases.
+4. Citation result cards and reader payloads expose citation counts, unique cited authorities, and linked target-case counts.
+5. Local target resolution is populated in the database and no longer just planned.
 
 Layered extraction work completed in this pass:
 
@@ -67,6 +77,22 @@ Immediate entry point for the next agent:
 	forms, Parts/Schedules, and provision references beyond the current anchor window.
 3. Repair or reconcile the unrelated FC document-scraper test syntax error, then
 	run the full suite and record a new baseline.
+
+### 0.1 Pickup Estimate And Statute Scope Guardrail (2026-08-10)
+
+Current rough citation pickup estimate for deterministic extraction:
+
+1. Fresh cohort audit (`data/eval/reports/case_citation_coverage_fresh.json`) over 294 matched FC-priority cases reports 18,623 extracted citations.
+2. Miss proxies in that audit are 156 anchored-alias misses and 88 parenthetical misses.
+3. Rough extraction pickup estimate is approximately 98.7% for this cohort.
+4. A more conservative case-level cleanliness read from the 480-case postpatch external audit remains about 93.1% (`33/480` cases flagged with missing citations).
+
+Statute work priority for the current phase:
+
+1. Do not expand broad statute/instrument scope right now beyond high-value fixes.
+2. Keep IRPA and IRPR extraction quality as a hard requirement.
+3. Ensure section-pattern references such as `34(1)(f)` (and similar nested subsection/paragraph forms) are consistently detected and normalized when cited in running text, parentheticals, and headings.
+4. Treat IRPA/IRPR section-format misses as release blockers for the citation-pass/statute layer even when non-IRPA statute coverage remains unchanged.
 
 ## 1. What This System Is
 
@@ -171,17 +197,18 @@ These counts came from the live database at the time of this handoff.
 | --- | ---: |
 | Cases | 35,902 |
 | Cases with chunks | 35,902 |
-| Case chunks | 168,282 |
-| Citations | 303,816 |
-| Resolved citations | 217,339 |
-| Unresolved citations | 86,477 |
-| Citation rows with chunk_id | 303,816 |
+| Text-bearing cases | 35,856 |
+| Case chunks | 1,390,886 |
+| Citations | 1,492,628 |
+| Linked citations | 760,197 |
+| Unresolved citations | 732,431 |
+| Unique linked target cases | 31,944 |
+| Citation rows with chunk_id | 1,492,628 |
 | Citation rows without chunk_id | 0 |
-| Citation metrics rows | 35,902 |
-| Case tags | 770,395 |
-| Cases with tags | 35,902 |
-| Case embeddings | 429 |
-| Chunk embeddings | 5,808 |
+| Case tags | 0 |
+| Chunk embeddings | 0 |
+| LotD side-project cases (`lotd.cases`) | 218,639 |
+| LotD side-project dockets (`lotd.dockets`) | 2,610,399 |
 
 ### Citation Graph Summary
 
@@ -198,9 +225,9 @@ The graph summary computed by `backend/citation_map.py` is:
 
 Interpretation:
 
-1. The system has broad citation coverage.
-2. Most stored citations are case-to-case links with a resolved target.
-3. The graph is dense enough to support authority analytics, pathing, and trend detection.
+1. The system has broad citation coverage and a substantial linked graph.
+2. The active database is currently centered on text, paragraph chunks, metadata, and citations rather than populated tags or embeddings.
+3. The separate `lotd` schema is present for side-project work and does not feed the main application.
 
 ## 4. Tags And Embeddings
 

@@ -256,6 +256,45 @@ def test_extract_raw_citation_matches_supports_irpa_plural_section_ranges():
 	)
 
 
+def test_extract_statute_reference_matches_supports_irpa_paragraph_style_nested_provision():
+	text = "The Minister relies on paragraph 34(1)(f) of IRPA."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		m.kind == "statute"
+		and m.citation_text == "paragraph 34(1)(f) of IRPA"
+		and m.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+		for m in matches
+	)
+
+
+def test_extract_statute_reference_matches_supports_irpa_prefix_paragraph_style_nested_provision():
+	text = "The issue arises under IRPA paragraph 34(1)(f)."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		m.kind == "statute"
+		and m.citation_text == "IRPA paragraph 34(1)(f)"
+		and m.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+		for m in matches
+	)
+
+
+def test_extract_statute_reference_matches_supports_bare_nested_irpa_provision_of_form():
+	text = "Inadmissibility under 34(1)(f) of IRPA is central to this appeal."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		m.kind == "statute"
+		and m.citation_text == "34(1)(f) of IRPA"
+		and m.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+		for m in matches
+	)
+
+
 def test_extract_raw_citation_matches_supports_vienna_convention_article_list():
 	text = "Articles 31 and 32 of the Vienna Convention on the Law of Treaties guide interpretation."
 
@@ -363,6 +402,35 @@ def test_extract_raw_citation_matches_preserves_full_case_trailing_pinpoint():
 	assert len(case_matches) == 1
 	assert case_matches[0].citation_text == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
 	assert case_matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
+
+
+def test_extract_raw_citation_matches_preserves_case_trailing_reporter_and_pinpoint():
+	text = (
+		"Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at para. 94 "
+		"was cited."
+	)
+
+	matches = citations.extract_raw_citation_matches(text)
+	case_matches = [match for match in matches if match.kind == "case"]
+
+	assert len(case_matches) == 1
+	assert case_matches[0].citation_text == (
+		"Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at para. 94"
+	)
+	assert case_matches[0].normalized_citation == (
+		"Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at para. 94"
+	)
+
+
+def test_extract_raw_citation_matches_preserves_parenthesized_year_reporter():
+	text = "In Baroud v. Canada (1998), 160 F.T.R. 91, the Court considered the delay."
+
+	matches = citations.extract_raw_citation_matches(text)
+	case_matches = [match for match in matches if match.kind == "case_name"]
+
+	assert len(case_matches) == 1
+	assert case_matches[0].citation_text == "Baroud v. Canada (1998), 160 F.T.R. 91"
+	assert case_matches[0].normalized_citation == "Baroud v. Canada, (1998), 160 F.T.R. 91"
 
 
 def test_extract_raw_citation_matches_supports_case_short_multi_para_lists():
@@ -681,7 +749,10 @@ def test_rebuild_stores_each_inline_case_name_with_chunk_location(monkeypatch):
 		def add_all(self, rows):
 			self.added.extend(rows)
 
-	monkeypatch.setattr(citations, "resolve_neutral_to_case_id", lambda session, neutral: 99)
+	def fail_if_resolved(*_args, **_kwargs):
+		raise AssertionError("extraction must not resolve targets")
+
+	monkeypatch.setattr(citations, "resolve_neutral_to_case_id", fail_if_resolved)
 	session = RebuildSession()
 
 	inserted = citations.rebuild_citations_for_case(session, case, chunks)
@@ -690,7 +761,8 @@ def test_rebuild_stores_each_inline_case_name_with_chunk_location(monkeypatch):
 	assert inserted == 3
 	assert len(inline_rows) == 2
 	assert all(row.citation_kind == "case_short" for row in inline_rows)
-	assert all(row.target_case_id == 99 for row in inline_rows)
+	assert all(row.target_case_id is None for row in inline_rows)
+	assert all(row.unresolved for row in inline_rows)
 	assert all(row.chunk_id == 102 for row in inline_rows)
 	assert [section_2[row.offset_start:row.offset_end] for row in inline_rows] == ["Vavilov", "Vavilov"]
 	assert inline_rows[0].offset_start != inline_rows[1].offset_start

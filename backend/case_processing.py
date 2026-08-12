@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from .citations import rebuild_citations_for_case, rebuild_statute_references_for_case
 from .database import Case, CaseChunk
+from .metadata import extract_case_metadata
 from scripts.chunk_cases import case_text, split_text, _build_section_chunks, _build_paragraph_chunks
 
 
@@ -18,7 +19,9 @@ StageRunner = Callable[[Session, Case], int]
 def _run_metadata_layer(session: Session, case: Case) -> int:
     changed = 0
     metadata = dict(case.metadata_json or {})
-    if case.metadata_json != metadata:
+    extracted = extract_case_metadata(case.full_text or case.summary)
+    if metadata.get("reader_extracted") != extracted:
+        metadata["reader_extracted"] = extracted
         case.metadata_json = metadata
         changed += 1
 

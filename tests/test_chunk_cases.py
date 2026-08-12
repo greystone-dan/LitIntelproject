@@ -46,18 +46,17 @@ def test_build_case_chunks_falls_back_to_summary_and_hashes_text():
 
     rows = build_case_chunks(case)
 
-    assert len(rows) == 2
+    assert len(rows) == 1
     assert rows[0].case_id == 12
-    assert rows[0].chunk_set == "section"
+    assert rows[0].chunk_set == "paragraph"
     assert rows[0].chunk_index == 0
     assert rows[0].text == "summary text"
     assert rows[0].text_hash == sha256(b"summary text").hexdigest()
     assert rows[0].token_estimate == 3
-    assert rows[1].chunk_set == "paragraph"
-    assert rows[1].chunk_label == "0"
+    assert rows[0].chunk_label == "document"
 
 
-def test_build_case_chunks_creates_section_and_paragraph_sets():
+def test_build_case_chunks_creates_only_intro_and_paragraph_chunks():
     case = SimpleNamespace(
         id=20,
         full_text="Header line\nOVERVIEW\n[1] First paragraph.\n[2] Second paragraph.\nCONCLUSION\nDone.",
@@ -66,15 +65,10 @@ def test_build_case_chunks_creates_section_and_paragraph_sets():
 
     rows = build_case_chunks(case)
 
-    assert [row.chunk_set for row in rows] == ["section", "section", "section", "paragraph", "paragraph", "paragraph"]
-    assert rows[0].chunk_label == "Intro Metadata"
-    assert rows[1].chunk_label == "Overview"
-    assert rows[2].chunk_label == "Conclusion"
-    assert rows[3].chunk_label == "0"
-    assert rows[4].chunk_label == "1"
-    assert rows[5].chunk_label == "2"
-    assert rows[4].paragraph_start == 1
-    assert rows[5].paragraph_end == 2
+    assert [row.chunk_set for row in rows] == ["paragraph", "paragraph", "paragraph"]
+    assert [row.chunk_label for row in rows] == ["intro", "1", "2"]
+    assert rows[1].paragraph_start == 1
+    assert rows[2].paragraph_end == 2
 
 
 def test_build_case_chunks_paragraph_pass_has_intro_numbered_and_tail_chunks():
@@ -91,13 +85,29 @@ def test_build_case_chunks_paragraph_pass_has_intro_numbered_and_tail_chunks():
     )
 
     rows = build_case_chunks(case)
-    paragraph_rows = [row for row in rows if row.chunk_set == "paragraph"]
 
-    assert [row.chunk_label for row in paragraph_rows] == ["0", "1", "2", "tail"]
-    assert paragraph_rows[0].text == "Header material before numbered reasons"
-    assert paragraph_rows[1].paragraph_start == 1
-    assert paragraph_rows[2].paragraph_end == 2
-    assert paragraph_rows[3].text.startswith("APPEARANCES:")
+    assert [row.chunk_label for row in rows] == ["intro", "1", "2", "tail"]
+    assert rows[0].text == "Header material before numbered reasons"
+    assert rows[1].paragraph_start == 1
+    assert rows[2].paragraph_end == 2
+    assert rows[3].text.startswith("APPEARANCES:")
+
+
+def test_build_case_chunks_does_not_treat_reporter_year_as_paragraph_marker():
+    case = SimpleNamespace(
+        id=22,
+        full_text=(
+            "Header material\n"
+            "[1] The governing authority is Thomson v. Thomson, [1994] 3 S.C.R. 551.\n"
+            "[2] The analysis follows that authority."
+        ),
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+
+    assert [row.chunk_label for row in rows] == ["intro", "1", "2"]
+    assert rows[1].text == "[1] The governing authority is Thomson v. Thomson, [1994] 3 S.C.R. 551."
 
 
 def test_chunk_pending_cases_commits_each_case_batch():
@@ -110,6 +120,6 @@ def test_chunk_pending_cases_commits_each_case_batch():
     cases_chunked, chunks_created = chunk_pending_cases(db, batch_size=2)
 
     assert cases_chunked == 2
-    assert chunks_created == 4
-    assert [row.case_id for row in db.added] == [4, 4, 9, 9]
+    assert chunks_created == 2
+    assert [row.case_id for row in db.added] == [4, 9]
     assert db.commits == 1

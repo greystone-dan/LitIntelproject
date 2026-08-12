@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-08-10
+Last updated: 2026-08-12
 
 ## Purpose
 
@@ -9,15 +9,15 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is Citation Pass driven deterministic extraction hardening.
+Current main workflow is advanced search and decision reading, with Citation Pass retained as the extractor QA surface.
 
 Use this sequence:
 
-1. Run API.
-2. Review extraction in `/citation-pass`.
-3. Fix parser/rule behavior with tests first.
-4. Re-run focused and then broader verification.
-5. Update explainer docs and changelog before push.
+1. Run the API.
+2. Use `/data-explorer` for research-facing search, filtering, judge analytics, and the full-decision reader.
+3. Use `/case-reader` for unified case detail and linked citation context.
+4. Use `/citation-pass` only when validating extraction behavior or offsets.
+5. Re-run focused verification and then update explainer docs and changelog.
 
 Primary explainer docs that must stay aligned:
 
@@ -32,6 +32,7 @@ Active implementation and operations:
 
 1. Root docs (`README.md`, `AI_HANDOFF.md`, `CHANGELOG.md`, `SYSTEM_OVERVIEW.txt`)
 2. Active backend modules under `backend/` (excluding `backend/legacy/`)
+3. Isolated side-project utilities under `side_projects/` when the task explicitly concerns non-core datasets
 
 Legacy/reference-only areas:
 
@@ -59,7 +60,10 @@ Current operational sources of truth:
 - Forward-looking phased delivery plan for missing features, QA, and release readiness.
 
 6. `AI_HANDOFF.md`
-- Active implementation handoff for citation stabilization, deployment scaffolding status, and next-agent entry tasks.
+- Active implementation handoff for advanced search, linked-citation resolution, deployment scaffolding status, and next-agent entry tasks.
+
+7. `side_projects/luck_of_the_draw_iii/README.md`
+- Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
 Historical context (read with caution):
 
@@ -73,8 +77,9 @@ older endpoint lists, or outdated test totals.
 ## Cleanup Status (2026-08-07)
 
 1. Active handoff authority now lives in root `AI_HANDOFF.md`; historical handoffs remain under `docs/history/`.
-2. Citation stabilization is currently case-to-case first; statute/instrument extraction is tracked separately.
-3. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+2. Research-facing work is currently centered on `/data-explorer`, `/case-reader`, and linked citation review; `/citation-pass` remains the extractor QA surface.
+3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
+4. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

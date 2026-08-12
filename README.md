@@ -7,40 +7,50 @@ This project is a research aid, not legal advice.
 
 ## What This Repo Provides
 
-- FastAPI backend for case ingestion, search, retrieval, and citation exploration
+- FastAPI backend for case ingestion, search, retrieval, case reading, analytics, and citation exploration
 - PostgreSQL + pgvector canonical case store
 - Source staging pipelines for A2AJ and Federal Court collection workflows
-- Case chunking and semantic embeddings
-- Legal tag extraction and citation network processing
-- Quick semantic search UI for manual testing
+- Paragraph chunking and citation-network processing
+- Search and reader UIs for decisions, analytics, and citation QA
+- Isolated side-project utilities that can store separate datasets without entering the canonical case workflow
 
 ## Current Status
 
 - Canonical case store is populated and searchable
-- Citation graph analytics are live, including authority, path, missing-authority, lifecycle, and surprise surfaces
-- Chunk embeddings are populated for semantic chunk search
-- Semantic and hybrid search rollout flags are enabled
-- Quick search page is available in-app
+- Advanced search UI is live at `/data-explorer` with filters, minister dropdown, result metrics, and a full-decision modal reader
+- Unified case detail is live at `/case-reader`
+- Citation graph analytics are live under `/citation-map/*`
+- Citation extraction and local target resolution are both populated in the database
+- Citation Pass remains available as the deterministic QA surface for extraction debugging
+- The isolated Luck of the Draw III utility lives under `side_projects/luck_of_the_draw_iii` and writes only to schema `lotd`
 
-Current live scale is large enough for serious QA and graph analysis: 35,902 cases, 168,282 chunks, 303,816 citations, 770,395 tags, 5,808 chunk embeddings, and 429 case embeddings.
+Current live scale in the main case library database:
 
-## Citation Stabilization Scope (Current)
+- 35,902 canonical cases
+- 35,856 cases with full text
+- 1,390,886 paragraph chunks
+- 1,492,628 stored citation rows
+- 760,197 citations linked to a target case
+- 31,944 unique linked target cases
+- Reader metadata coverage: 31,340 judges, 31,449 decision outcomes, 27,230 government outcomes
 
-- Active extraction hardening is focused on case-to-case citations.
-- Citation-pass review should be driven by live extraction output from case citations, not statute or convention filtering overlays.
-- Statute/instrument extraction remains available as a separate layer and should not be mixed into case-only QA decisions.
-- Do not start a broad 300-case re-ingest/rebuild until citation-pass reliability gates are satisfied.
+## Current Workflow
 
-## Main Workflow (Canonical)
+Use the repo in three distinct modes:
 
-Use this sequence as the default operating path before touching side scripts or broader reprocessing.
+1. Research workflow: `/data-explorer` for advanced search, filters, analytics tabs, and full-decision reading.
+2. Case inspection workflow: `/case-reader` for unified case detail, stored citations, chunks, sources, and metrics.
+3. Extractor QA workflow: `/citation-pass` when validating citation extraction offsets or layered extractor behavior.
 
-1. Run the API locally.
-2. Open Citation Pass and review layered extraction output for the selected cohort case.
-3. Validate exact text spans and offsets first, then normalized citation quality.
-4. Add or update deterministic extractor rules and tests.
-5. Re-run focused tests, then cohort checks, then update docs/changelog.
-6. Commit and push only after the extraction/UI pass is reproducible.
+Core research-facing capabilities now available:
+
+1. Search cases by text, cited authority, minister/government party, judge, court, year, government outcome, and decision outcome.
+2. Sort search results by citation relevance, date, or minister.
+3. Open full decisions in a modal reader with stored citation highlights.
+4. See per-case citation metrics such as total citation mentions, unique cited authorities, and linked target cases.
+5. Review judge-outcome summaries and flexible two-field analytics in the same `/data-explorer` surface.
+6. Explore citation graph, authority flow, lifecycle, surprises, hidden bridges, and contextual exports under `/citation-map/*`.
+7. Run deterministic extraction QA in `/citation-pass` without mixing statute/instrument and case-citation decisions.
 
 ### Day-To-Day Commands
 
@@ -52,7 +62,7 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8070
 
 Open UI:
 
-- http://127.0.0.1:8070/citation-pass
+- http://127.0.0.1:8070/data-explorer
 
 Focused citation tests:
 
@@ -68,8 +78,9 @@ Optional full test sweep:
 
 Primary success criteria for this phase:
 
-- Case citations are captured with exact source spans.
-- Paragraph pinpoints (for example, "at para. 10" / "at paras. 37 and 44") are preserved with the citation context.
+- Advanced search returns stored case-level citation evidence quickly enough to open heavily cited decisions interactively.
+- Stored citation rows retain chunk location and offset integrity.
+- Case-to-case target resolution remains a separate local pass after extraction.
 - Statute/instrument and metadata layers remain separate from case-citation QA decisions.
 
 ## Legacy Separation
@@ -80,7 +91,7 @@ To keep the project less scattered, legacy materials are explicitly separated:
 - `backend/legacy/` for modules intentionally excluded from active runtime paths
 - `docs/history/` for historical implementation notes
 
-Default active path remains Citation Pass and deterministic extraction hardening.
+Default active path for research is `/data-explorer` plus `/case-reader`; Citation Pass is the verification path.
 
 ## Tech Stack
 
@@ -97,6 +108,7 @@ See [requirements.txt](requirements.txt) for pinned dependency versions.
 
 - [backend](backend): API routes, models, database layer, retrieval logic
 - [scripts](scripts): ingestion, chunking, embeddings, evaluation, and operational scripts
+- [side_projects](side_projects): isolated non-core dataset utilities and outputs
 - [fc_ingest](fc_ingest): Federal Court source-specific staging pipeline
 - [alembic](alembic): schema migrations
 - [tests](tests): automated tests
@@ -142,6 +154,14 @@ alembic upgrade head
 python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 ~~~
 
+## Primary Interfaces
+
+- `GET /data-explorer`: advanced search, judge outcomes, and case data explorer tabs
+- `GET /case-reader`: unified case detail reader
+- `GET /citation-pass`: extractor QA surface
+- `GET /citation-map`: citation graph workbench
+- `GET /quick-search`: lightweight lexical/semantic search page
+
 ## Quick Search Testing
 
 ### Browser UI
@@ -167,7 +187,13 @@ python -m scripts.quick_search_engine "non-refoulement risk on return" --limit 1
 ## Useful Endpoints
 
 - GET / : backend health message
+- GET /data-explorer : advanced case search and analytics UI
+- GET /analytics/search/cases : filtered case search API
+- GET /analytics/search/ministers : minister dropdown source API
+- GET /analytics/search/cases/{case_id} : full-decision reader payload with citation highlights and metrics
+- GET /case-reader : unified case detail UI
 - GET /quick-search : lightweight semantic/hybrid search page
+- GET /citation-pass : citation QA UI
 - POST /search : case-level search
 - POST /search/chunks : chunk-level search
 - POST /search/chunks/grouped : grouped passage retrieval by case
@@ -181,6 +207,7 @@ python -m scripts.quick_search_engine "non-refoulement risk on return" --limit 1
 - Staging data may exist in SQLite/Parquet/JSON artifacts
 - Reference library documents are stored separately from canonical cases
 - Citation rows are stored as chunk-backed `Citation` records with offsets and normalized text; the citation record itself does not carry a dedicated timestamp column, so timing is inferred from the owning case and chunk timestamps.
+- The Luck of the Draw III side project stores its imported tables in PostgreSQL schema `lotd`, not in the canonical case tables.
 
 ## GitHub and Large Files
 
@@ -195,6 +222,7 @@ If you generate large local archives in [backups](backups), keep them out of Git
 - [DOCS_INDEX.md](DOCS_INDEX.md): document authority map
 - [CHANGELOG.md](CHANGELOG.md): milestone and feature changes
 - [ROADMAP.md](ROADMAP.md): forward plan for missing features and QA
+- [side_projects/luck_of_the_draw_iii/README.md](side_projects/luck_of_the_draw_iii/README.md): isolated LotD dataset utility
 
 ## Historical Notes
 

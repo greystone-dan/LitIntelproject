@@ -1,6 +1,6 @@
 AI CASELIBRARY
 PLAIN-LANGUAGE SYSTEM OVERVIEW
-Current as of August 7, 2026
+Current as of August 12, 2026
 
 Document role: live plain-language system state.
 For milestone deltas and recent endpoints, see CHANGELOG.md.
@@ -37,7 +37,7 @@ The system is designed to help a researcher:
 - Keep legislation, policy, tribunal guidance, and other reference documents available beside the case collection without mixing those documents into the case database.
 - Eventually support citation-grounded research answers after retrieval quality has been properly tested.
 
-The system is not yet a finished legal research product. It has a working data, search, tagging, citation, and prototype exploration foundation. Full-corpus local semantic embedding and broad citation processing are still being completed and evaluated.
+The system is not yet a finished legal research product. It has a working case store, advanced search interface, decision reader, citation graph, metadata extraction layer, and extractor QA surface. The current live database is strong on text, paragraph chunks, stored citations, and linked case-to-case resolution. Local embedding and tag tables exist in the schema but are not populated in the current active database snapshot.
 
 
 3. THE THREE DATA LAYERS
@@ -77,19 +77,29 @@ The A2AJ Federal Court collection is not an all-IMM collection. Federal Court de
 
 A2AJ did not preserve an explicit IMM court docket in the canonical metadata, so the system cannot prove that every content-classified immigration case had an IMM file number. Content tags are useful research signals, not substitutes for verified court metadata.
 
-Every canonical A2AJ case currently has:
+Most of the active research workflow now relies on the following populated fields:
 
 - Full decision text
 - Case title
 - Court and decision date
 - Citation
-- Source URL
-- Source metadata
-- Source provenance and license information
-- A full-text hash for identity and change detection
-- Stored cited-case and citing-case source fields where supplied by A2AJ
-- One or more searchable text chunks
-- Evidence-bearing legal tags
+- Reader-facing extracted metadata such as judge, decision outcome, government role, and government outcome when available
+- One or more searchable paragraph chunks
+- Stored case-to-case citation rows with chunk IDs and text offsets
+
+As of this document, the live database contains:
+
+- 35,856 text-bearing cases
+- 1,390,886 paragraph chunks
+- 1,492,628 stored citation rows
+- 760,197 citations linked to a target case through local resolution
+- 31,944 unique linked target cases
+
+Metadata coverage from the current `reader_extracted` payloads is:
+
+- 31,340 cases with a judge
+- 31,449 cases with a decision outcome
+- 27,230 cases with a government outcome
 
 The A2AJ decisions span June 1972 through July 2026. The canonical A2AJ collection contains 35,463 English decisions and 388 French decisions, with approximately 0.78 GiB of decision text.
 
@@ -113,7 +123,9 @@ The Python FastAPI backend provides ingestion, case retrieval, search, inventory
 
 PostgreSQL
 
-PostgreSQL is the authoritative structured database. It stores canonical cases, source provenance, chunks, legal tags, citation edges, citation metrics, procedural histories, ingestion runs, and vector records.
+PostgreSQL is the authoritative structured database. It stores canonical cases, source provenance, chunks, citation rows, citation metrics, procedural histories, ingestion runs, and vector-capable tables.
+
+The same PostgreSQL server now also hosts an isolated side-project schema named `lotd`. That schema is intentionally separate from the canonical case library and is not read by the main application routes.
 
 pgvector
 
@@ -146,19 +158,17 @@ Step 3: Deduplicate and create the canonical case
 
 The importer checks citation and full-text identity to avoid creating duplicate cases. It either creates a canonical case or merges source information with an existing case. Source-specific metadata remains attributable through provenance records.
 
-Step 4: Apply legal tags
+Step 4: Apply extracted metadata
 
-The deterministic ca_legal_v2 tagger scans the case text for defined legal concepts. Each tag includes a category, value, score, matched evidence, source, and taxonomy version.
+The active reader workflow currently relies most heavily on deterministic metadata stored in `metadata_json["reader_extracted"]`. That layer supplies fields such as judge, decision outcome, government role, and government outcome for the advanced search UI and analytics tabs.
 
-Tags cover areas such as immigration and refugee law, IRPA and IRPR provisions, RPD and RAD proceedings, PRRA, humanitarian and compassionate applications, CBSA activity, inadmissibility, detention, removals, judicial review, remedies, outcomes, international law, countries, and important authorities.
+Tagging code and tables still exist in the repository, but they are not populated in the current active database snapshot and should not be described as live coverage.
 
-All 35,902 canonical cases have completed this tagging stage. The database contains more than 770,000 evidence-bearing tags.
+Step 5: Split the decision into paragraph chunks
 
-Step 5: Split the decision into chunks
+The active chunk model is one chunk per numbered case paragraph, plus one chunk before the first numbered paragraph and one chunk after the last numbered paragraph when needed.
 
-Long decisions are divided into passages of approximately 6,000 characters. Adjacent passages overlap by 600 characters so important reasoning is not lost at a chunk boundary.
-
-Each chunk stores its parent case, sequence number, text, text hash, and estimated token count. Existing chunks are skipped on resume. Every canonical case now has chunks, with 168,282 chunks across the full library and 168,171 belonging to A2AJ cases.
+Each chunk stores its parent case, sequence number, text, text hash, and estimated token count. Existing chunks are skipped on resume. In the current active database, the only live chunk set is `paragraph`, with 1,390,886 rows.
 
 Step 6: Extract and resolve legal references
 
@@ -188,7 +198,9 @@ A citation row can record:
 - Whether the citation remains unresolved
 - Whether the edge came from local extraction or A2AJ source data
 
-After extraction, the system can calculate incoming citation count, outgoing citation count, and PageRank-style network importance. Citation processing is resumable and was still active at the time of this document. Intermediate counts should not be treated as final until the chunk-linked extraction and metrics stages finish.
+After extraction, the system runs a separate local target-resolution pass. This pass links citations to local target cases when the cited neutral citation can be matched safely. Extraction and resolution are intentionally kept separate so the extractor remains deterministic and resumable.
+
+This resolution pass has already linked 760,197 citation rows in the active database.
 
 Step 7: Create local embeddings
 
@@ -196,7 +208,7 @@ The local embedding process sends each text chunk through the BAAI BGE-M3 model 
 
 A vector is a mathematical representation of the passage's meaning. It allows a query about an idea to locate relevant passages even when the exact query words do not appear in the decision.
 
-The process commits in small batches and skips chunk/model pairs that already have vectors, so it can resume safely. Local full-corpus embedding was queued behind citation processing at the time of this document.
+The process commits in small batches and skips chunk/model pairs that already have vectors, so it can resume safely. In the current active database snapshot, chunk-embedding tables are present but not populated.
 
 The older optional OpenAI workflow stores 1,536-dimensional embeddings for selected cases and chunks. That hosted workflow is separate, may incur cost, and is intentionally excluded from the safe overnight process.
 
@@ -204,7 +216,19 @@ Step 8: Search and explore
 
 Once the relevant fields are available, users can search by metadata, keywords, citations, legal tags, or semantic similarity. Chunk search returns the passage that caused a case to match. Grouped search can return the strongest passages under the parent case.
 
-A prototype immigration explorer provides case browsing, topic filters, cohort summaries, and an interactive citation map for a 334-case immigration cohort.
+The main user-facing surface is now `/data-explorer`. It provides:
+
+- Advanced search across text, title, citation, cited authority, minister, judge, court, year, government outcome, and decision outcome
+- Sort controls and per-result citation metrics
+- A full-decision modal reader that highlights stored citations from the database
+- A judge-outcomes tab
+- A flexible two-field case data explorer tab
+
+Additional active interfaces are:
+
+- `/case-reader` for unified case detail
+- `/citation-map` and related `/citation-map/*` endpoints for graph analysis
+- `/citation-pass` for extractor QA
 
 
 7. CURRENT SEARCH AND ANALYSIS CAPABILITIES
@@ -215,16 +239,16 @@ The current backend can:
 - Search by title, citation, court, jurisdiction, date, language, source, processing status, and source metadata.
 - Filter by cited or citing cases and citation-count ranges.
 - Expand common party and agency aliases such as Minister, IRCC, and CBSA.
-- Filter cases by evidence-bearing legal tags.
+- Filter cases by extracted metadata and stored citation relationships.
 - Perform metadata-first searches without calling an AI service.
 - Perform vector search where the required embeddings exist.
 - Return matching decision passages from embedded chunks.
 - Group matching passages by parent case.
 - Show outgoing, incoming, and passage-level citation information.
-- Expose citation metrics when metric processing is complete.
+- Expose citation metrics and linked-citation counts in the advanced search reader flow.
 - Browse the immigration prototype cohort and citation map.
 
-The broad corpus is fully stored, tagged, and chunked. Citation extraction is in progress and local BGE-M3 embeddings have not yet completed. As a result, metadata and tag search have full-corpus coverage, while local semantic search does not yet have full-corpus coverage.
+The broad corpus is fully stored, paragraph-chunked, citation-extracted, and locally target-resolved. Metadata search has broad coverage. Local semantic embedding is not yet populated in the active database snapshot.
 
 The system does not yet provide a production-ready research chat or broad-corpus RAG answer. That feature is intentionally deferred until retrieval and citation accuracy are measured against questions with known authorities.
 
@@ -245,6 +269,26 @@ The manifest is the authoritative inventory. A CSV inventory provides a simpler 
 The downloader is deliberately strict. A document listed as a PDF must have both an appropriate PDF content type and a real PDF file signature. An HTML error page cannot be saved with a PDF extension and treated as a successful download. Downloads are written to temporary files, validated, and then atomically renamed. Valid existing checksums allow the process to resume without downloading the same document again.
 
 Reference documents remain separate from cases. They may later be chunked and searched through a reference-specific workflow, but they must retain their different document type and provenance.
+
+
+10. ISOLATED SIDE PROJECT DATA
+
+The repository can also host separate, non-core datasets when they are kept outside the canonical case workflow.
+
+The current example is the Luck of the Draw III utility under `side_projects/luck_of_the_draw_iii`.
+
+That utility:
+
+- Downloads two public parquet files from Hugging Face
+- Imports them into PostgreSQL schema `lotd`
+- Writes an Excel workbook with `Cases` and `Dockets` sheets
+
+Its current stored scale is:
+
+- 218,639 `lotd.cases` rows
+- 2,610,399 `lotd.dockets` rows
+
+These tables are not connected to the main application routes and should be treated as a separate side project.
 
 
 9. HOW CASE COLLECTION AND SCRAPING WORK

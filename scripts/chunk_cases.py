@@ -25,7 +25,7 @@ CHUNK_SET_LEGACY = "legacy"
 CHUNK_SET_SECTION = "section"
 CHUNK_SET_PARAGRAPH = "paragraph"
 SECTION_HEADINGS = ("OVERVIEW", "BACKGROUND", "ANALYSIS", "CONCLUSION")
-PARAGRAPH_MARKER_RE = re.compile(r"\[(\d+)\]")
+PARAGRAPH_MARKER_RE = re.compile(r"(?m)^[ \t]*\[(\d+)\]")
 SECTION_HEADING_RE = re.compile(
     r"(?mi)^\s*(?:[IVXLC]+\.\s+)?(OVERVIEW|BACKGROUND(?:\s+FACTS)?|ANALYSIS|CONCLUSION|INTRODUCTION|STANDARD OF REVIEW|ORDER|REASONS? AND ORDER)\b.*$"
 )
@@ -214,7 +214,7 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
                     chunk_set=CHUNK_SET_PARAGRAPH,
                     chunk_index=0,
                     text=text.strip(),
-                    chunk_label="0",
+                    chunk_label="document",
                     paragraph_start=0,
                     paragraph_end=0,
                 )
@@ -222,17 +222,18 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
         return rows
 
     intro = text[: matches[0].start()].strip()
-    rows.append(
-        _chunk_row(
-            case.id,
-            chunk_set=CHUNK_SET_PARAGRAPH,
-            chunk_index=len(rows),
-            text=intro,
-            chunk_label="0",
-            paragraph_start=0,
-            paragraph_end=0,
+    if intro:
+        rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_PARAGRAPH,
+                chunk_index=len(rows),
+                text=intro,
+                chunk_label="intro",
+                paragraph_start=0,
+                paragraph_end=0,
+            )
         )
-    )
 
     outro_start = len(text)
     for outro_match in OUTRO_HEADING_RE.finditer(text):
@@ -281,7 +282,7 @@ def build_case_chunks(case: Case) -> list[CaseChunk]:
     text = case_text(case)
     if not text.strip():
         return []
-    return _build_section_chunks(case, text) + _build_paragraph_chunks(case, text)
+    return _build_paragraph_chunks(case, text)
 
 
 def pending_case_query(

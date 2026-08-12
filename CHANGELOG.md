@@ -6,6 +6,34 @@ For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIG
 Note: entries on the same date may be grouped by feature theme rather than
 strict execution order.
 
+## 2026-08-12 - Advanced search, citation resolution, and isolated LotD import
+
+- Promoted `/data-explorer` into the main research-facing UI with three tabs:
+	advanced search, judge outcomes, and case data explorer.
+- Added advanced search filters for cited authority, government outcome,
+	decision outcome, judge, court, year, and minister/government party.
+- Added minister dropdown sourcing through `/analytics/search/ministers` and
+	sort controls for relevance, newest, oldest, and minister A-Z.
+- Added a full-decision modal reader backed by stored citation rows rather than
+	live re-extraction, preserving highlight spans while reducing open time for
+	heavily cited decisions.
+- Added per-case citation metrics in search results and reader payloads:
+	total citation mentions, unique cited authorities, and linked target cases.
+- Added local batch target-resolution scripts:
+	`scripts/resolve_citation_targets.py` and
+	`scripts/resolve_short_citation_targets.py`.
+- Completed local target resolution for the current citation inventory:
+	`1,492,628` citation rows total, `760,197` linked rows, and `31,944` unique
+	linked target cases.
+- Added isolated side-project dataset utility under
+	`side_projects/luck_of_the_draw_iii/`, including cached Hugging Face parquet
+	download, import into schema `lotd`, and workbook export.
+- Built the LotD dataset successfully: `218,639` cases, `2,610,399` dockets,
+	and workbook output at
+	`side_projects/luck_of_the_draw_iii/output/luck_of_the_draw_iii.xlsx`.
+- Verification performed through live database counts, focused API timing, and
+	targeted importer validation rather than a new full `pytest -q` baseline.
+
 ## 2026-08-10 - Workflow consolidation and explainer alignment
 
 - Declared Citation Pass as the canonical day-to-day workflow for current

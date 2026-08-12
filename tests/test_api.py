@@ -305,7 +305,7 @@ def test_get_case_citation_pass_returns_live_rows(monkeypatch):
     )
     monkeypatch.setattr(
         routes,
-        "extract_metadata_matches",
+        "extract_metadata_observations",
         lambda text: [
             SimpleNamespace(
                 field="docket",
@@ -315,6 +315,7 @@ def test_get_case_citation_pass_returns_live_rows(monkeypatch):
                 offset_end=10,
                 confidence=0.97,
                 source="text",
+                span_matched=True,
             )
         ],
     )

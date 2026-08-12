@@ -4,6 +4,9 @@ The overnight runner executes jobs sequentially, holds an exclusive lock, writes
 one log per job, and atomically updates `state.json` after every transition.
 CanLII and all hosted-AI embedding jobs are intentionally excluded.
 
+For a citations-only full-corpus refresh procedure, use
+`docs/EXTRACTION_35K_RUNBOOK.md`.
+
 ## Readiness Snapshot
 
 Operational guidance refresh:

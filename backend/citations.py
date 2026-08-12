@@ -73,6 +73,18 @@ SECTION_OF_STATUTE_DIRECT_RE = re.compile(
 	r"\b(?:s\.|section)\s*(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)\s+(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
 	re.IGNORECASE,
 )
+IRPA_IRPR_NESTED_PROVISION_OF_STATUTE_RE = re.compile(
+	r"\b(?:paragraphs?|paras?\.?|subparagraphs?|subparas?\.?|subsections?|subsecs?\.?)\s*(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\)){1,4})\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations)\b",
+	re.IGNORECASE,
+)
+IRPA_IRPR_NESTED_PROVISION_PREFIX_RE = re.compile(
+	r"\b(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations)\s*,?\s+(?:paragraphs?|paras?\.?|subparagraphs?|subparas?\.?|subsections?|subsecs?\.?)\s*(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\)){1,4})(?=$|\s|[.,;:)\]])",
+	re.IGNORECASE,
+)
+IRPA_IRPR_BARE_NESTED_PROVISION_OF_STATUTE_RE = re.compile(
+	r"\b(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\)){1,4})\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations)\b",
+	re.IGNORECASE,
+)
 SECTIONS_OF_STATUTE_RE = re.compile(
 	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+?)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
 	re.IGNORECASE,
@@ -124,7 +136,11 @@ _PINPOINT_FRAGMENT_RE = re.compile(
 	re.IGNORECASE,
 )
 _TRAILING_PINPOINT_RE = re.compile(
-	rf"^\s*,?\s*({_PINPOINT_FRAGMENT_RE.pattern})\b",
+	rf"^\s*[)\],;:\-]*\s*(?:\[\s*)?({_PINPOINT_FRAGMENT_RE.pattern})(?:\s*\])?\b",
+	re.IGNORECASE,
+)
+_TRAILING_REPORTER_RE = re.compile(
+	r"^\s*,?\s*(\[(?:19|20)\d{2}\]\s*\d+\s*[A-Z][A-Z. ]{0,14}\s*\d+|\((?:19|20)\d{2}\)\s*,?\s*\d+\s*[A-Z][A-Z. ]{0,14}\s*\d+)\b",
 	re.IGNORECASE,
 )
 SULLIVAN_TREATISE_RE = re.compile(
@@ -311,6 +327,48 @@ def _extend_case_with_trailing_pinpoint(
 	citation_text = content[start:new_end].rstrip()
 	pinpoint = _normalize_pinpoint_phrase(match.group(1))
 	return new_end, citation_text, _append_pinpoint_to_normalized(normalized_citation, pinpoint)
+
+
+def _extend_case_with_trailing_reporter(
+	content: str,
+	start: int,
+	end: int,
+	normalized_citation: str,
+) -> tuple[int, str, str]:
+	window = content[end : min(len(content), end + 180)]
+	match = _TRAILING_REPORTER_RE.match(window)
+	if match is None:
+		return _extend_case_with_trailing_pinpoint(content, start, end, normalized_citation)
+	reporter = _normalize_whitespace(match.group(1)).replace(" .", ".")
+	normalized_with_reporter = f"{normalized_citation}, {reporter}"
+	return _extend_case_with_trailing_pinpoint(
+		content,
+		start,
+		end + match.end(),
+		normalized_with_reporter,
+	)
+
+
+def _extend_case_layer_row(content: str, row: RawCitationMatch) -> RawCitationMatch:
+	if row.kind not in CASE_CITATION_KINDS:
+		return row
+	if row.kind in {"case", "case_name"}:
+		new_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+			content,
+			row.offset_start,
+			row.offset_end,
+			row.normalized_citation,
+		)
+	else:
+		new_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			row.offset_start,
+			row.offset_end,
+			row.normalized_citation,
+		)
+	if new_end == row.offset_end and citation_text == row.citation_text and normalized == row.normalized_citation:
+		return row
+	return _raw_match(row.kind, citation_text, normalized, row.offset_start, new_end)
 
 
 def _normalize_neutral_parts(year: str, court: str, number: str) -> str:
@@ -520,6 +578,13 @@ def _normalize_section_list(section_list: str) -> str:
 	return normalized
 
 
+def _normalize_nested_provision(value: str) -> str:
+	normalized = _normalize_whitespace(value)
+	normalized = re.sub(r"\s*\(\s*", "(", normalized)
+	normalized = re.sub(r"\s*\)\s*", ")", normalized)
+	return normalized
+
+
 def _normalize_refugee_convention_article(base: str, paren_letter: str | None, suffix_letter: str | None) -> str:
 	article = base.upper()
 	letter = (paren_letter or suffix_letter or "").strip().lower()
@@ -653,7 +718,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 		global_parties_start = window_start + fragment_match.start(1) + parties_start
 		global_end = neutral_match.end()
 		normalized = _normalize_case_citation_parts(selected_parties, year, court, number)
-		global_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+		global_end, citation_text, normalized = _extend_case_with_trailing_reporter(
 			content,
 			global_parties_start,
 			global_end,
@@ -1041,12 +1106,17 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			if key in seen:
 				continue
 			seen.add(key)
-			citation_text = content[start:end]
+			end, citation_text, normalized_with_pinpoint = _extend_case_with_trailing_pinpoint(
+				content,
+				start,
+				end,
+				best_anchor.normalized_citation,
+			)
 			short_matches.append(
 				_raw_match(
 					"case_short",
 					citation_text,
-					_append_pinpoint_to_normalized(best_anchor.normalized_citation, _extract_pinpoint_phrase(citation_text)),
+					normalized_with_pinpoint,
 					start,
 					end,
 				)
@@ -1092,7 +1162,7 @@ def _promote_case_name_neutral_pairs(content: str, rows: list[RawCitationMatch])
 		case_start = match.offset_start + parties_match.start(1)
 		case_end = candidate_neutral.offset_end
 		normalized = f"{parties}, {candidate_neutral.normalized_citation}"
-		case_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+		case_end, citation_text, normalized = _extend_case_with_trailing_reporter(
 			content,
 			case_start,
 			case_end,
@@ -1110,22 +1180,34 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 
 	for match in NEUTRAL_CIT_RE.finditer(content):
 		normalized = normalize_neutral_citation(match)
+		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			match.start(),
+			match.end(),
+			normalized,
+		)
 		candidates.append(
 			(
 				match.start(),
-				match.end(),
-				_raw_match("neutral", match.group(0), normalized, match.start(), match.end()),
+				citation_end,
+				_raw_match("neutral", citation_text, normalized, match.start(), citation_end),
 			)
 		)
 
 	for match in CANLII_CIT_RE.finditer(content):
 		year, number, court = match.groups()
 		normalized = f"{year} CanLII {int(number)} ({_normalize_whitespace(court)})"
+		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+			content,
+			match.start(),
+			match.end(),
+			normalized,
+		)
 		candidates.append(
 			(
 				match.start(),
-				match.end(),
-				_raw_match("neutral", match.group(0), normalized, match.start(), match.end()),
+				citation_end,
+				_raw_match("neutral", citation_text, normalized, match.start(), citation_end),
 			)
 		)
 
@@ -1138,7 +1220,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
-		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
 			content,
 			citation_start,
 			match.end(),
@@ -1161,7 +1243,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
-		citation_end, citation_text, normalized = _extend_case_with_trailing_pinpoint(
+		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
 			content,
 			citation_start,
 			match.end(),
@@ -1181,11 +1263,17 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_parties(selected_parties)
+		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+			content,
+			citation_start,
+			match.end(1),
+			normalized,
+		)
 		candidates.append(
 			(
 				citation_start,
-				match.end(1),
-				_raw_match("case_name", content[citation_start : match.end(1)], normalized, citation_start, match.end(1)),
+				citation_end,
+				_raw_match("case_name", citation_text, normalized, citation_start, citation_end),
 			)
 		)
 
@@ -1264,6 +1352,39 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 	for match in SECTION_OF_STATUTE_DIRECT_RE.finditer(content):
 		section, statute_name = match.groups()
 		normalized = f"{_full_statute_citation_name(statute_name)} s. {section}"
+		candidates.append(
+			(
+				match.start(),
+				match.end(),
+				_raw_match("statute", match.group(0), normalized, match.start(), match.end()),
+			)
+		)
+
+	for match in IRPA_IRPR_NESTED_PROVISION_OF_STATUTE_RE.finditer(content):
+		section, statute_name = match.groups()
+		normalized = f"{_full_statute_citation_name(statute_name)} s. {_normalize_nested_provision(section)}"
+		candidates.append(
+			(
+				match.start(),
+				match.end(),
+				_raw_match("statute", match.group(0), normalized, match.start(), match.end()),
+			)
+		)
+
+	for match in IRPA_IRPR_NESTED_PROVISION_PREFIX_RE.finditer(content):
+		statute_name, section = match.groups()
+		normalized = f"{_full_statute_citation_name(statute_name)} s. {_normalize_nested_provision(section)}"
+		candidates.append(
+			(
+				match.start(),
+				match.end(),
+				_raw_match("statute", match.group(0), normalized, match.start(), match.end()),
+			)
+		)
+
+	for match in IRPA_IRPR_BARE_NESTED_PROVISION_OF_STATUTE_RE.finditer(content):
+		section, statute_name = match.groups()
+		normalized = f"{_full_statute_citation_name(statute_name)} s. {_normalize_nested_provision(section)}"
 		candidates.append(
 			(
 				match.start(),
@@ -1562,7 +1683,7 @@ def extract_raw_citation_matches_v2(text: str | None) -> list[RawCitationMatch]:
 	if not content.strip():
 		return []
 	v2_rows = [
-		row
+		_extend_case_layer_row(content, row)
 		for row in _extract_raw_citation_matches_v2(content)
 		if row.kind != "case_name"
 	]
@@ -1857,19 +1978,11 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 
 	rows: list[Citation] = []
 	for raw_match in extract_case_citation_matches(case_text):
-		target_case_id = None
-		if raw_match.kind == "neutral":
-			target_case_id = resolve_neutral_to_case_id(session, raw_match.normalized_citation)
-		else:
-			embedded = NEUTRAL_CIT_RE.search(raw_match.normalized_citation)
-			if embedded is not None:
-				target_case_id = resolve_neutral_to_case_id(session, normalize_neutral_citation(embedded))
-
 		containing = next(
 			(
 				(chunk, chunk_start)
 				for chunk, chunk_start, chunk_end in chunk_locations
-				if chunk_start <= raw_match.offset_start and raw_match.offset_end <= chunk_end
+				if chunk_start <= raw_match.offset_start < chunk_end
 			),
 			None,
 		)
@@ -1878,14 +1991,14 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 		rows.append(
 			Citation(
 				source_case_id=case.id,
-				target_case_id=target_case_id,
+				target_case_id=None,
 				citation_kind=raw_match.kind,
 				citation_text=raw_match.citation_text,
 				normalized_citation=raw_match.normalized_citation,
 				chunk_id=chunk_id,
 				offset_start=raw_match.offset_start - offset_base,
 				offset_end=raw_match.offset_end - offset_base,
-				unresolved=target_case_id is None,
+				unresolved=True,
 			)
 		)
 

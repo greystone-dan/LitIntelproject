@@ -30,7 +30,7 @@ _MASTER_300_CASE_MAP_CSV = Path(__file__).resolve().parent.parent / "data" / "ev
 
 
 def _focus_master_300_enabled() -> bool:
-	value = (os.getenv("CASELIBRARY_FOCUS_MASTER_300") or "true").strip().lower()
+	value = (os.getenv("CASELIBRARY_FOCUS_MASTER_300") or "false").strip().lower()
 	return value in {"1", "true", "yes", "on"}
 
 
@@ -1886,7 +1886,7 @@ def citation_intelligence_outcomes(session: Session, case_id: int) -> dict[str, 
 	rows = session.execute(
 		select(
 			func.coalesce(
-				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext),
+				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].as_string()),
 				"unknown",
 			).label("outcome"),
 			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
@@ -1895,7 +1895,7 @@ def citation_intelligence_outcomes(session: Session, case_id: int) -> dict[str, 
 		.where(Citation.target_case_id == case_id)
 		.group_by(
 			func.coalesce(
-				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext),
+				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].as_string()),
 				"unknown",
 			)
 		)
@@ -1956,7 +1956,7 @@ def citation_intelligence_judges(session: Session, case_id: int, limit: int = 30
 	rows = session.execute(
 		select(
 			func.coalesce(
-				Case.metadata_json["reader_extracted"]["judge"].astext,
+				Case.metadata_json["reader_extracted"]["judge"].as_string(),
 				"Unknown",
 			).label("judge"),
 			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
@@ -1967,12 +1967,12 @@ def citation_intelligence_judges(session: Session, case_id: int, limit: int = 30
 		.join(Case, Case.id == Citation.source_case_id)
 		.where(
 			Citation.target_case_id == case_id,
-			Case.metadata_json["reader_extracted"]["judge"].astext.is_not(None),
-			Case.metadata_json["reader_extracted"]["judge"].astext != "",
+			Case.metadata_json["reader_extracted"]["judge"].as_string().is_not(None),
+			Case.metadata_json["reader_extracted"]["judge"].as_string() != "",
 		)
 		.group_by(
 			func.coalesce(
-				Case.metadata_json["reader_extracted"]["judge"].astext,
+				Case.metadata_json["reader_extracted"]["judge"].as_string(),
 				"Unknown",
 			)
 		)
@@ -2064,11 +2064,11 @@ def citation_intelligence_table(
 		base = base.where(Case.court.ilike(f"%{court}%"))
 	if judge:
 		base = base.where(
-			Case.metadata_json["reader_extracted"]["judge"].astext.ilike(f"%{judge}%")
+			Case.metadata_json["reader_extracted"]["judge"].as_string().ilike(f"%{judge}%")
 		)
 	if gov_outcome:
 		base = base.where(
-			func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext) == gov_outcome.lower()
+			func.lower(Case.metadata_json["reader_extracted"]["government outcome"].as_string()) == gov_outcome.lower()
 		)
 
 	total = session.scalar(select(func.count()).select_from(base.subquery())) or 0

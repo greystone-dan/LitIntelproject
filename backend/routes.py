@@ -391,12 +391,12 @@ def _about_page_html() -> str:
 
 	<h2>Current Case Inventory</h2>
 	<div class="stat-grid" id="statGrid">
-		<div class="stat"><strong id="sCases">35,902</strong><span>Canonical decisions</span></div>
-		<div class="stat"><strong id="sFulltext">35,856</strong><span>Decisions with full text</span></div>
-		<div class="stat"><strong id="sChunks">1,390,886</strong><span>Paragraph chunks indexed</span></div>
-		<div class="stat"><strong id="sCitations">1,492,628</strong><span>Citation rows extracted</span></div>
-		<div class="stat"><strong id="sLinked">760,197</strong><span>Case-to-case links resolved</span></div>
-		<div class="stat"><strong id="sAuthorities">31,944</strong><span>Unique cited authorities</span></div>
+		<div class="stat"><strong id="sCases">--</strong><span>Canonical decisions</span></div>
+		<div class="stat"><strong id="sFulltext">--</strong><span>Decisions with full text</span></div>
+		<div class="stat"><strong id="sChunks">--</strong><span>Paragraph chunks indexed</span></div>
+		<div class="stat"><strong id="sCitations">--</strong><span>Citation rows extracted</span></div>
+		<div class="stat"><strong id="sLinked">--</strong><span>Case-to-case links resolved</span></div>
+		<div class="stat"><strong id="sAuthorities">--</strong><span>Unique cited authorities</span></div>
 	</div>
 	<p class="note">Corpus covers Federal Court and Federal Court of Appeal immigration decisions. Statistics reflect the current database state and update as new decisions are ingested.</p>
 
@@ -428,10 +428,14 @@ def _about_page_html() -> str:
 	<a href="{_GITHUB_URL}" target="_blank" class="gh-link">View on GitHub ↗</a>
 </div>
 <script>
-// Update stats from live API if available
-fetch('/citation-map/summary').then(r => r.json()).then(d => {{
-	if (d.total_cases) document.getElementById('sCases').textContent = Number(d.total_cases).toLocaleString();
-	if (d.resolved_occurrences) document.getElementById('sLinked').textContent = Number(d.resolved_occurrences).toLocaleString();
+// Update stats from live API
+fetch('/api/about/stats').then(r => r.json()).then(d => {{
+	if (typeof d.total_cases === 'number') document.getElementById('sCases').textContent = Number(d.total_cases).toLocaleString();
+	if (typeof d.full_text_cases === 'number') document.getElementById('sFulltext').textContent = Number(d.full_text_cases).toLocaleString();
+	if (typeof d.chunk_count === 'number') document.getElementById('sChunks').textContent = Number(d.chunk_count).toLocaleString();
+	if (typeof d.citation_count === 'number') document.getElementById('sCitations').textContent = Number(d.citation_count).toLocaleString();
+	if (typeof d.resolved_occurrences === 'number') document.getElementById('sLinked').textContent = Number(d.resolved_occurrences).toLocaleString();
+	if (typeof d.unique_authorities === 'number') document.getElementById('sAuthorities').textContent = Number(d.unique_authorities).toLocaleString();
 }}).catch(() => {{}});
 </script>
 </body>
@@ -444,7 +448,7 @@ def _testing_page_html() -> str:
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>AI CaseLibrary API Tester</title>
+	<title>AI CaseLibrary API Tester (LEGACY/TEST)</title>
 	<style>
 		:root {
 			--bg: #f5f3ef;
@@ -710,7 +714,7 @@ def _testing_page_html() -> str:
 <body>
 	<div class="wrap">
 		<h1>AI CaseLibrary API Tester</h1>
-		<p class="lead">Manual testing interface for ingest and retrieval endpoints. Edit payloads, send requests, and inspect live JSON responses.</p>
+		<p class="lead">LEGACY/TEST interface for ingest and retrieval endpoints. Edit payloads, send requests, and inspect live JSON responses.</p>
 		<div class="pill">Base URL: current host</div>
 		<div class="pill">No auth required</div>
 		<div class="grid">
@@ -1560,7 +1564,7 @@ def _prototype_page_html() -> str:
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Prototype Explorer</title>
+	<title>Prototype Explorer (LEGACY/TEST)</title>
 	<style>
 		:root {
 			--bg: #f4efe6;
@@ -1648,7 +1652,7 @@ def _prototype_page_html() -> str:
 			<a href="/research" style="color:#0d6a5f;text-decoration:none;">Research</a>
 			<a href="/testing" style="color:#0d6a5f;text-decoration:none;">API Tester</a>
 		</nav>
-		<h1>Prototype Explorer</h1>
+		<h1>Prototype Explorer (LEGACY/TEST)</h1>
 		<p class="lead">Inspect the immigration prototype cohort, topic tags, and citation-map readiness.</p>
 		<div class="pills">
 			<div class="pill">Prototype set: immigration_334_v1</div>
@@ -3878,7 +3882,7 @@ def _citation_pass_page_html() -> str:
 <head>
 	<meta charset=\"utf-8\">
 	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-	<title>Citation Pass | AI CaseLibrary</title>
+	<title>Citation Pass (LEGACY/TEST) | AI CaseLibrary</title>
 	<style>
 		:root{
 			--bg:#eef2f6;
@@ -3996,7 +4000,7 @@ def _citation_pass_page_html() -> str:
 			<div class=\"hero-top\">
 				<div>
 					<p class=\"kicker\">AI CaseLibrary</p>
-					<h1>Citation Pass</h1>
+					<h1>Citation Pass (LEGACY/TEST)</h1>
 					<div class=\"hero-copy\">Layered extraction review. Case citations are orange, statutes and legal instruments are green, and extracted metadata is blue. Each layer keeps its own extraction process and exact offsets.</div>
 				</div>
 				<div class=\"hero-stats\">
@@ -4011,8 +4015,8 @@ def _citation_pass_page_html() -> str:
 		<div class=\"main-grid\">
 			<aside class=\"sidebar\">
 				<div class=\"sidebar-head\">
-					<strong>Review Cohort</strong>
-					<div class=\"sub\">Choose a case to inspect the extraction output. The list stays focused on the current proof-of-concept set.</div>
+					<strong>Review Cohort (LEGACY/TEST)</strong>
+					<div class=\"sub\">Choose a case to inspect the extraction output. This page intentionally stays focused on the proof-of-concept review cohort.</div>
 				</div>
 				<div id=\"cases\" class=\"list-wrap\"><div class=\"empty\">Loading cases...</div></div>
 			</aside>
@@ -4402,6 +4406,57 @@ def review_fc_priority_cases(
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	return _review_fc_priority_cases(db, limit=max(1, min(500, limit)))
+
+
+@router.get("/case-reader/cases", response_model=list[CitationMapCaseNode], include_in_schema=False)
+def case_reader_cases(
+	q: str = "",
+	limit: int = 300,
+	db: Session = Depends(get_db),
+) -> list[dict[str, Any]]:
+	limit = max(1, min(500, limit))
+	term = q.strip()
+	statement = select(Case, CitationMetrics).outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
+	if term:
+		pattern = f"%{term}%"
+		term_lower = term.lower()
+		title_v_match = or_(
+			Case.title.ilike(f"{term} v.%"),
+			Case.title.ilike(f"{term} v %"),
+		)
+		rows = db.execute(
+			statement
+			.where(or_(Case.citation.ilike(pattern), Case.title.ilike(pattern)))
+			.where(~Case.title.ilike("Demo Case%"))
+			.order_by(
+				(func.lower(Case.citation) == term_lower).desc(),
+				(func.lower(Case.title) == term_lower).desc(),
+				title_v_match.desc(),
+				Case.date.desc(),
+				Case.id.desc(),
+			)
+			.limit(limit)
+		)
+	else:
+		rows = db.execute(
+			statement
+			.where(~Case.title.ilike("Demo Case%"))
+			.order_by(Case.date.desc(), Case.id.desc())
+			.limit(limit)
+		)
+	return [
+		{
+			"case_id": case.id,
+			"title": case.title,
+			"citation": case.citation,
+			"court": case.court,
+			"date": case.date,
+			"in_degree": int(metrics.in_degree or 0) if metrics else 0,
+			"out_degree": int(metrics.out_degree or 0) if metrics else 0,
+			"pagerank": metrics.pagerank if metrics else None,
+		}
+		for case, metrics in rows
+	]
 
 
 @router.get("/citation-map/topics", response_model=list[CitationMapTopicResponse])
@@ -5868,6 +5923,30 @@ def about_page() -> HTMLResponse:
 	return HTMLResponse(content=_about_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/api/about/stats", response_model=dict[str, int], include_in_schema=False)
+def about_stats(db: Session = Depends(get_db)) -> dict[str, int]:
+	total_cases = db.scalar(select(func.count(Case.id))) or 0
+	full_text_cases = db.scalar(
+		select(func.count(Case.id)).where(Case.full_text.is_not(None), Case.full_text != "")
+	) or 0
+	chunk_count = db.scalar(select(func.count(CaseChunk.id))) or 0
+	citation_count = db.scalar(select(func.count(Citation.id))) or 0
+	resolved_occurrences = db.scalar(
+		select(func.count(Citation.id)).where(Citation.target_case_id.is_not(None))
+	) or 0
+	unique_authorities = db.scalar(
+		select(func.count(func.distinct(Citation.target_case_id))).where(Citation.target_case_id.is_not(None))
+	) or 0
+	return {
+		"total_cases": int(total_cases),
+		"full_text_cases": int(full_text_cases),
+		"chunk_count": int(chunk_count),
+		"citation_count": int(citation_count),
+		"resolved_occurrences": int(resolved_occurrences),
+		"unique_authorities": int(unique_authorities),
+	}
+
+
 @router.get("/testing", response_class=HTMLResponse, include_in_schema=False)
 def testing_interface() -> HTMLResponse:
 	return HTMLResponse(content=_testing_page_html(), status_code=status.HTTP_200_OK)
@@ -7010,6 +7089,7 @@ let currentPage = 1;
 let totalPages = 1;
 let tableData = [];
 let acTimer = null;
+let acResults = [];
 
 // Tab switching
 function switchTab(name) {
@@ -7035,11 +7115,19 @@ document.getElementById('authoritySearch').addEventListener('input', function() 
 	if (q.length < 2) { closeAc(); return; }
 	acTimer = setTimeout(() => fetchAc(q), 220);
 });
+document.getElementById('authoritySearch').addEventListener('keydown', async function(event) {
+	if (event.key !== 'Enter') return;
+	event.preventDefault();
+	const q = this.value.trim();
+	if (!q) return;
+	await resolveSearchSelection(q);
+});
 document.addEventListener('click', e => { if (!e.target.closest('.search-bar')) closeAc(); });
 
 function closeAc() {
 	document.getElementById('acDropdown').className = 'autocomplete';
 	document.getElementById('acDropdown').innerHTML = '';
+	acResults = [];
 }
 
 async function fetchAc(q) {
@@ -7048,15 +7136,41 @@ async function fetchAc(q) {
 		const data = await r.json();
 		const drop = document.getElementById('acDropdown');
 		if (!data.length) { closeAc(); return; }
-		drop.innerHTML = data.map(item => `<div class="ac-item" onclick="selectAuthority(${item.case_id},${JSON.stringify(esc(item.title))},${JSON.stringify(esc(item.citation||''))},${JSON.stringify(esc(item.court||''))},${JSON.stringify(esc(String(item.date||'')))})"><div class="ac-title">${esc(item.title)}</div><div class="ac-cite">${esc(item.citation||'')} · ${esc(item.court||'')} · ${esc(String(item.date||'').substring(0,4))}</div></div>`).join('');
+		acResults = data;
+		drop.innerHTML = data.map(item => `<div class="ac-item" data-case-id="${item.case_id}"><div class="ac-title">${esc(item.title)}</div><div class="ac-cite">${esc(item.citation||'')} · ${esc(item.court||'')} · ${esc(String(item.date||'').substring(0,4))}</div></div>`).join('');
+		drop.querySelectorAll('.ac-item').forEach(node => {
+			node.addEventListener('click', () => {
+				const caseId = Number(node.getAttribute('data-case-id'));
+				const item = acResults.find(row => Number(row.case_id) === caseId);
+				if (item) selectAuthority(item);
+			});
+		});
 		drop.className = 'autocomplete open';
 	} catch {}
 }
 
-function selectAuthority(id, title, citation, court, date) {
+async function resolveSearchSelection(query) {
+	if (acResults.length) {
+		selectAuthority(acResults[0]);
+		return;
+	}
+	try {
+		const r = await fetch('/api/citation-intelligence/search?q=' + encodeURIComponent(query) + '&limit=1');
+		const data = await r.json();
+		if (data.length) {
+			selectAuthority(data[0]);
+			return;
+		}
+		document.getElementById('authTitle').textContent = 'No authority matched that search';
+	} catch {
+		document.getElementById('authTitle').textContent = 'Search failed. Try again.';
+	}
+}
+
+function selectAuthority(item) {
 	closeAc();
-	currentCaseId = id;
-	document.getElementById('authoritySearch').value = title.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"');
+	currentCaseId = Number(item.case_id);
+	document.getElementById('authoritySearch').value = String(item.title || item.citation || '');
 	// Reset loaded flags
 	['timelineChart','courtsChart','outcomesGrid','companionsList','statutesChart','evidenceBody'].forEach(elId => {
 		const el = document.getElementById(elId);
@@ -7065,6 +7179,7 @@ function selectAuthority(id, title, citation, court, date) {
 	document.getElementById('judgesBody').dataset.loaded = '';
 	delete document.getElementById('judgesBody').dataset.loaded;
 	tableData = [];
+	history.replaceState(null, '', `/citation-intelligence?case_id=${currentCaseId}`);
 	loadOverview();
 }
 
@@ -7256,7 +7371,43 @@ def citation_intelligence_page() -> HTMLResponse:
 
 @router.get("/api/citation-intelligence/search")
 def citation_intelligence_search(q: str = "", limit: int = 12, db: Session = Depends(get_db)) -> list[dict]:
-	return _search_citation_cases(db, q, min(limit, 20))
+	term = q.strip()
+	if not term:
+		return []
+	max_limit = max(1, min(limit, 20))
+	pattern = f"%{term}%"
+	term_lower = term.lower()
+	title_v_match = or_(
+		Case.title.ilike(f"{term} v.%"),
+		Case.title.ilike(f"{term} v %"),
+	)
+	rows = db.execute(
+		select(Case, CitationMetrics)
+		.outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
+		.where(or_(Case.citation.ilike(pattern), Case.title.ilike(pattern)))
+		.where(~Case.title.ilike("Demo Case%"))
+		.order_by(
+			(func.lower(Case.citation) == term_lower).desc(),
+			(func.lower(Case.title) == term_lower).desc(),
+			title_v_match.desc(),
+			Case.date.desc(),
+			Case.id.desc(),
+		)
+		.limit(max_limit)
+	)
+	return [
+		{
+			"case_id": case.id,
+			"title": case.title,
+			"citation": case.citation,
+			"court": case.court,
+			"date": case.date,
+			"in_degree": int(metrics.in_degree or 0) if metrics else 0,
+			"out_degree": int(metrics.out_degree or 0) if metrics else 0,
+			"pagerank": metrics.pagerank if metrics else None,
+		}
+		for case, metrics in rows
+	]
 
 
 @router.get("/api/citation-intelligence/{case_id}/overview")

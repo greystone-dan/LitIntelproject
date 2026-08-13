@@ -311,6 +311,133 @@ except Exception:  # pragma: no cover
 	get_citations = None
 
 
+_GITHUB_URL = "https://github.com/greystone-dan/LitIntelproject"
+
+_SITE_HEADER_CSS = """
+<style>
+.sgh{display:flex;align-items:center;background:#0f1f2b;color:#fff;height:48px;padding:0 20px;gap:16px;position:sticky;top:0;z-index:500;flex-shrink:0}
+.sgh-brand{font:700 14px "Segoe UI",Arial,sans-serif;letter-spacing:.2px;white-space:nowrap;color:#fff;text-decoration:none}
+.sgh-brand em{font-style:normal;font-weight:400;opacity:.55;font-size:12px;margin-left:6px}
+.sgh-nav{display:flex;gap:2px;margin-left:auto;align-items:center}
+.sgh-nav a{color:rgba(255,255,255,.65);text-decoration:none;padding:0 10px;height:48px;display:flex;align-items:center;font:600 11px Arial,sans-serif;letter-spacing:.55px;text-transform:uppercase;transition:background .12s,color .12s}
+.sgh-nav a:hover,.sgh-nav a.sgh-active{color:#fff;background:rgba(255,255,255,.1)}
+.sgh-nav a.sgh-gh{opacity:.6;font-size:10px;letter-spacing:.3px}
+@media(max-width:700px){.sgh-brand em{display:none}.sgh-nav a{padding:0 7px;font-size:10px}}
+</style>"""
+
+
+def _site_header_html(active: str = "") -> str:
+	pages = [
+		("Research", "/data-explorer"),
+		("Case Reader", "/case-reader"),
+		("Citation Map", "/citation-map"),
+		("Citation Intel", "/citation-intelligence"),
+		("About", "/about"),
+	]
+	links = "".join(
+		f'<a href="{url}" class="{"sgh-active" if active == name else ""}">{name}</a>'
+		for name, url in pages
+	)
+	links += f'<a href="{_GITHUB_URL}" target="_blank" class="sgh-gh">GitHub ↗</a>'
+	return f"""{_SITE_HEADER_CSS}
+<header class="sgh">
+	<a class="sgh-brand" href="/data-explorer">ILIT<em>Immigration Litigation Intelligence System</em></a>
+	<nav class="sgh-nav">{links}</nav>
+</header>"""
+
+
+def _about_page_html() -> str:
+	return f"""<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>About | ILIT</title>
+	<style>
+		:root{{--ink:#172630;--muted:#64717b;--paper:#f3f0e9;--panel:#fffdf9;--line:#d6d1c5;--blue:#2d6078;--rust:#b65f3e;--gold:#b68c35;--green:#4d7a63}}
+		*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.6}}
+		.shell{{max-width:900px;margin:0 auto;padding:40px 24px 80px}}
+		h1{{font-size:38px;font-weight:normal;margin:28px 0 6px}}
+		.lead{{font-size:18px;color:var(--muted);margin:0 0 32px;max-width:680px;line-height:1.55}}
+		h2{{font-size:22px;font-weight:normal;margin:40px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}}
+		h3{{font-size:17px;margin:20px 0 6px}}
+		p{{margin:0 0 14px;max-width:720px}}
+		ul{{margin:0 0 16px;padding-left:22px}}
+		li{{margin-bottom:6px}}
+		.stat-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 28px}}
+		@media(max-width:600px){{.stat-grid{{grid-template-columns:repeat(2,1fr)}}}}
+		.stat{{background:var(--panel);border:1px solid var(--line);padding:16px 18px}}
+		.stat strong{{display:block;font-size:28px;font-weight:normal;font-family:Georgia,serif;color:var(--blue)}}
+		.stat span{{font:700 10px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}}
+		.feature-grid{{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 28px}}
+		@media(max-width:600px){{.feature-grid{{grid-template-columns:1fr}}}}
+		.feature{{background:var(--panel);border:1px solid var(--line);padding:16px 18px}}
+		.feature h3{{margin:0 0 6px;font-size:15px;color:var(--blue)}}
+		.feature p{{margin:0;font-size:14px;color:var(--muted)}}
+		a{{color:var(--blue)}}
+		.gh-link{{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 18px;background:var(--ink);color:#fff;text-decoration:none;font:700 12px Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase}}
+		.gh-link:hover{{background:var(--blue)}}
+		.note{{font:13px Arial,sans-serif;color:var(--muted);border-left:3px solid var(--line);padding:8px 14px;margin:16px 0}}
+	</style>
+</head>
+<body>
+{_site_header_html("About")}
+<div class="shell">
+	<h1>Immigration Litigation Intelligence System</h1>
+	<p class="lead">ILIT is a legal research platform for Canadian immigration and refugee law — purpose-built to make Federal Court and Federal Court of Appeal decisions searchable, traceable, and analytically useful.</p>
+
+	<h2>What Problem Does ILIT Solve?</h2>
+	<p>Immigration litigation generates a high volume of decisions that are difficult to research at scale. Finding which cases have applied a key authority, identifying how particular IRPA provisions are being interpreted, or understanding a judge's patterns across hundreds of decisions requires tools that standard legal databases don't provide at this level of specificity.</p>
+	<p>ILIT addresses this by extracting citation networks, tagging legal issues, and making the full text of decisions searchable — while surfacing analytics that answer the questions practitioners actually ask.</p>
+
+	<h2>Current Case Inventory</h2>
+	<div class="stat-grid" id="statGrid">
+		<div class="stat"><strong id="sCases">35,902</strong><span>Canonical decisions</span></div>
+		<div class="stat"><strong id="sFulltext">35,856</strong><span>Decisions with full text</span></div>
+		<div class="stat"><strong id="sChunks">1,390,886</strong><span>Paragraph chunks indexed</span></div>
+		<div class="stat"><strong id="sCitations">1,492,628</strong><span>Citation rows extracted</span></div>
+		<div class="stat"><strong id="sLinked">760,197</strong><span>Case-to-case links resolved</span></div>
+		<div class="stat"><strong id="sAuthorities">31,944</strong><span>Unique cited authorities</span></div>
+	</div>
+	<p class="note">Corpus covers Federal Court and Federal Court of Appeal immigration decisions. Statistics reflect the current database state and update as new decisions are ingested.</p>
+
+	<h2>Key Features</h2>
+	<div class="feature-grid">
+		<div class="feature"><h3>Full-Text Search</h3><p>Semantic and keyword search across all decisions. Filter by judge, court, minister, year, government outcome, and cited authority.</p></div>
+		<div class="feature"><h3>Citation Intelligence</h3><p>For any authority, see exactly who cites it, how often, with what outcome, across which courts and judges — with a fully exportable evidence table.</p></div>
+		<div class="feature"><h3>Case Reader</h3><p>Read full decisions with case citations and statute references highlighted inline. Integrated citation metrics and extracted metadata.</p></div>
+		<div class="feature"><h3>Citation Map</h3><p>Visualize citation networks, trace paths between cases, identify hidden bridges, and explore which cases cite a given authority together.</p></div>
+		<div class="feature"><h3>Judge Analytics</h3><p>Outcome patterns by judge across thousands of classified decisions. See government win rates and authority usage by individual judge.</p></div>
+		<div class="feature"><h3>Authority Companions</h3><p>Identify which authorities are most frequently cited alongside a given case — useful for building citation arguments and identifying the key cases in an area of law.</p></div>
+	</div>
+
+	<h2>How It Works</h2>
+	<p>ILIT ingests Federal Court decisions from public sources, stores them in a PostgreSQL database with pgvector for semantic search, and runs a multi-layer citation extraction pipeline that identifies case citations, statute references, and metadata. Citation networks are then computed to rank authorities and support analytics.</p>
+	<ul>
+		<li><strong>Citation extraction</strong> — regex and NLP-based extraction of neutral citations, style-of-cause references, and IRPA/IRPR provision references</li>
+		<li><strong>Embeddings</strong> — 1,536-dimensional OpenAI text-embedding-3-small vectors for semantic similarity search</li>
+		<li><strong>Authority ranking</strong> — PageRank and in-degree metrics computed across the full citation graph</li>
+		<li><strong>Metadata extraction</strong> — judge, decision outcome, government role, and government outcome extracted from decision text</li>
+	</ul>
+
+	<h2>Scope and Limitations</h2>
+	<p>ILIT is a research tool, not a legal database and not legal advice. The corpus focuses on immigration and refugee decisions from the Federal Court and Federal Court of Appeal. Coverage, citation resolution, and metadata extraction are extensive but not exhaustive — always verify against primary sources.</p>
+	<p>Citation resolution links extracted citations back to cases in the database. Citations to cases not in the corpus remain unresolved and are counted separately.</p>
+
+	<h2>Source Code</h2>
+	<p>ILIT is open source. The full codebase including the ingestion pipeline, citation extractor, database schema, and all analytics backends is available on GitHub.</p>
+	<a href="{_GITHUB_URL}" target="_blank" class="gh-link">View on GitHub ↗</a>
+</div>
+<script>
+// Update stats from live API if available
+fetch('/citation-map/summary').then(r => r.json()).then(d => {{
+	if (d.total_cases) document.getElementById('sCases').textContent = Number(d.total_cases).toLocaleString();
+	if (d.resolved_occurrences) document.getElementById('sLinked').textContent = Number(d.resolved_occurrences).toLocaleString();
+}}).catch(() => {{}});
+</script>
+</body>
+</html>"""
+
+
 def _testing_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -2953,7 +3080,7 @@ def _judge_outcomes_page_html() -> str:
 		*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}.shell{max-width:1280px;margin:auto;padding:32px 24px 56px}.masthead{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:20px}.eyebrow{font:700 12px/1.2 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--gov)}h1{font-size:34px;font-weight:normal;margin:7px 0 0;letter-spacing:0}.subhead{max-width:620px;margin:0;color:var(--muted);font-size:16px;line-height:1.45}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line);margin:25px 0 18px}.metric{padding:13px 16px 14px 0}.metric+.metric{border-left:1px solid var(--line);padding-left:16px}.metric small{display:block;font:700 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}.metric strong{font-size:27px;font-weight:normal}.legend{display:flex;gap:16px;align-items:center;font:12px Arial,sans-serif;color:var(--muted);margin:12px 0}.key{display:inline-flex;align-items:center;gap:6px}.dot{width:10px;height:10px;display:inline-block}.table-wrap{overflow:auto;background:var(--panel);border:1px solid var(--line)}table{border-collapse:collapse;width:100%;min-width:820px}th{text-align:left;padding:12px 10px;font:700 11px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);white-space:nowrap}td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:middle}.rank{font:700 13px Arial,sans-serif;color:var(--muted)}.judge{min-width:250px}.count{font-variant-numeric:tabular-nums;text-align:right}.bar{height:13px;display:flex;min-width:180px;background:#eeeae1}.gov{background:var(--gov)}.individual{background:var(--ind)}.unknown{background:var(--unknown)}.rate{font:700 13px Arial,sans-serif}.note{color:var(--muted);font-size:13px;line-height:1.45;margin:16px 0 0}.empty{padding:30px;color:var(--muted)}@media(max-width:680px){.shell{padding:22px 14px}.masthead{display:block}.subhead{margin-top:15px}.summary{grid-template-columns:1fr}.metric+.metric{border-left:0;border-top:1px solid var(--line);padding-left:0}h1{font-size:29px}}
 	</style>
 </head>
-<body>
+<body>"""+_site_header_html("")+"""
 	<main class="shell">
 		<header class="masthead"><div><div class="eyebrow">Decision Analytics</div><h1>How Top Judges Rule</h1></div><p class="subhead">The 50 judges with the most decisions, showing outcomes where the government and individual sides can be determined from the decision record.</p></header>
 		<section class="summary" id="summary"><div class="metric"><small>Loading</small><strong>...</strong></div></section>
@@ -3219,7 +3346,8 @@ def _data_explorer_page_html() -> str:
 		}
 	</style>
 </head>
-<body><main class="shell">
+<body>"""+_site_header_html("Research")+"""
+<main class="shell">
 	<header class="masthead"><div class="eyebrow">AI CaseLibrary</div><h1>Case Research</h1><p class="intro">Search the case library, open decisions with linked authorities, or switch to outcome and dataset analysis.</p></header>
 	<nav class="tabs" aria-label="Research views"><button class="tab active" data-tab="search">Case search</button><button class="tab" data-tab="judge">Judge outcomes</button><button class="tab" data-tab="explorer">Case analytics</button><button class="tab" data-tab="neighborhood">Citation neighborhoods</button><button class="tab" data-tab="prominent">Prominent cases</button><a class="tab" href="/judges">Judge Explorer</a><a class="tab" href="/citation-intelligence">Citation Intelligence</a></nav>
 	<section id="searchPanel"><form class="case-search" id="caseSearch"><div class="search-primary"><div><label for="searchQuery">Search case name, citation, or cited authority</label><input id="searchQuery" placeholder="e.g. Vavilov"></div><div class="search-actions"><button type="submit">Search cases</button><button type="button" id="clearSearch">Clear</button></div></div><div class="search-suggestions" id="searchSuggestions" hidden></div><details class="advanced-search"><summary>Advanced search</summary><div class="search-controls"><div><label for="cites">Cases citing</label><input id="cites" placeholder="e.g. Vavilov"></div><div><label for="governmentOutcome">Government outcome</label><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select></div><div><label for="decisionOutcome">Decision outcome</label><select id="decisionOutcome"><option value="">Any result</option><option value="dismissed">Dismissed</option><option value="allowed">Allowed</option><option value="granted">Granted</option></select></div><div><label for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select></div><div><label for="judgeFilter">Judge contains</label><input id="judgeFilter" placeholder="e.g. Zinn"></div><div><label for="courtFilter">Court contains</label><input id="courtFilter" placeholder="e.g. FC"></div><div><label for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div><div><label for="searchSort">Sort results</label><select id="searchSort"><option value="relevance">Most cited / newest</option><option value="newest">Newest decision</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select></div><div><label for="searchLimit">Results</label><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div></div></details></form><div class="search-meta" id="searchMeta">Enter a case name, citation, or cited authority to search the library.</div><div class="results" id="searchResults"></div></section>
@@ -5735,6 +5863,11 @@ def quick_search_interface() -> HTMLResponse:
 	return HTMLResponse(content=_quick_search_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/about", response_class=HTMLResponse, include_in_schema=False)
+def about_page() -> HTMLResponse:
+	return HTMLResponse(content=_about_page_html(), status_code=status.HTTP_200_OK)
+
+
 @router.get("/testing", response_class=HTMLResponse, include_in_schema=False)
 def testing_interface() -> HTMLResponse:
 	return HTMLResponse(content=_testing_page_html(), status_code=status.HTTP_200_OK)
@@ -6740,14 +6873,8 @@ def _citation_intelligence_page_html() -> str:
 		.loading{padding:20px;color:var(--muted);font:italic 15px Georgia,serif}
 	</style>
 </head>
-<body>
+<body>"""+_site_header_html("Citation Intel")+"""
 <div class="shell">
-	<nav class="site-nav">
-		<a href="/data-explorer">Research</a>
-		<a href="/case-reader">Case Reader</a>
-		<a href="/citation-map">Citation Map</a>
-		<a href="/citation-intelligence">Citation Intelligence</a>
-	</nav>
 	<header class="masthead">
 		<div class="eyebrow">Authority Analytics</div>
 		<h1>Citation Intelligence</h1>

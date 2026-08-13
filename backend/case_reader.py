@@ -26,7 +26,7 @@ def case_reader_html() -> str:
 	</style>
 </head>
 <body>
-	<header class="top"><div class="brand"><h1>Case Info</h1><span>Reader, citations, chunks, and tags in one place</span></div><nav class="nav"><a href="/citation-map"><i data-lucide="network"></i><span>Citation Map</span></a><a class="active" href="/case-reader"><i data-lucide="book-open"></i><span>Case Info</span></a></nav></header>
+	<header class="top"><div class="brand"><h1>ILIT</h1><span>Immigration Litigation Intelligence System</span></div><nav class="nav"><a href="/data-explorer"><span>Research</span></a><a href="/citation-intelligence"><span>Citation Intel</span></a><a href="/citation-map"><i data-lucide="network"></i><span>Citation Map</span></a><a class="active" href="/case-reader"><i data-lucide="book-open"></i><span>Case Reader</span></a><a href="/about"><span>About</span></a></nav></header>
 	<main class="shell">
 		<aside class="left"><div class="head"><h2>Core Review Cases</h2><p class="hint">Priority cohort list for statute and citation QA. Select a case to inspect extraction quality.</p></div><div id="results" class="results"><div class="empty">Loading review cohort...</div></div></aside>
 		<section id="reader" class="center"><div class="placeholder"><div><i data-lucide="book-open"></i><h2>Select a case to inspect</h2><p>The full decision with chunk and citation overlays will appear here.</p></div></div></section>

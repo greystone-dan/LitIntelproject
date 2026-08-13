@@ -12,7 +12,7 @@ from typing import Any
 from sqlalchemy import case as sql_case, false, func, or_, select, union
 from sqlalchemy.orm import Session, aliased
 
-from .database import Case, CaseChunk, CaseTag, Citation, CitationMetrics
+from .database import Case, CaseChunk, CaseTag, Citation, CitationMetrics, StatuteReference
 
 
 _STANDARD_TEST_PHRASES = (
@@ -1787,4 +1787,334 @@ def citation_edge_summary(
 			for normalized_citation, occurrences in variant_rows
 		],
 		"sample_contexts": citation_contexts(session, source_case_id, target_case_id, limit=context_limit),
+	}
+
+
+def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, Any]:
+	"""Core metrics for a single authority: citing case counts, occurrences, date range."""
+	row = session.execute(
+		select(
+			func.count(func.distinct(Citation.source_case_id)).label("unique_citing_cases"),
+			func.count(Citation.id).label("total_occurrences"),
+			func.min(Case.date).label("first_citation_date"),
+			func.max(Case.date).label("most_recent_date"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+	).first()
+	unique_citing = int(row[0] or 0)
+	total_occ = int(row[1] or 0)
+	first_date = row[2]
+	latest_date = row[3]
+
+	# Per-case mention stats require a subquery
+	per_case = session.execute(
+		select(
+			func.avg(func.count(Citation.id)),
+			func.max(func.count(Citation.id)),
+		)
+		.where(Citation.target_case_id == case_id)
+		.group_by(Citation.source_case_id)
+		.correlate(None)
+	)
+	# Use a CTE for per-case aggregation
+	per_case_cte = (
+		select(
+			Citation.source_case_id,
+			func.count(Citation.id).label("mention_count"),
+		)
+		.where(Citation.target_case_id == case_id)
+		.group_by(Citation.source_case_id)
+		.cte("ci_per_case")
+	)
+	stats = session.execute(
+		select(
+			func.avg(per_case_cte.c.mention_count),
+			func.max(per_case_cte.c.mention_count),
+		)
+	).first()
+	avg_mentions = round(float(stats[0] or 0), 2)
+	max_mentions = int(stats[1] or 0)
+
+	# Case with the most mentions
+	top_case_row = session.execute(
+		select(Case, func.count(Citation.id).label("mention_count"))
+		.join(Citation, Citation.source_case_id == Case.id)
+		.where(Citation.target_case_id == case_id)
+		.group_by(Case.id)
+		.order_by(func.count(Citation.id).desc())
+		.limit(1)
+	).first()
+	top_citing_case = None
+	if top_case_row:
+		top_case, top_count = top_case_row
+		top_citing_case = {"case_id": top_case.id, "title": top_case.title, "citation": top_case.citation, "mention_count": int(top_count)}
+
+	# Authority case details
+	authority = session.get(Case, case_id)
+	metrics = session.get(CitationMetrics, case_id)
+
+	return {
+		"case_id": case_id,
+		"title": authority.title if authority else None,
+		"citation": authority.citation if authority else None,
+		"court": authority.court if authority else None,
+		"date": str(authority.date) if authority and authority.date else None,
+		"in_degree": int(metrics.in_degree or 0) if metrics else 0,
+		"pagerank": float(metrics.pagerank) if metrics and metrics.pagerank else None,
+		"unique_citing_cases": unique_citing,
+		"total_occurrences": total_occ,
+		"avg_mentions_per_case": avg_mentions,
+		"max_mentions_in_single_case": max_mentions,
+		"top_citing_case": top_citing_case,
+		"first_citation_date": str(first_date) if first_date else None,
+		"most_recent_citation_date": str(latest_date) if latest_date else None,
+	}
+
+
+def citation_intelligence_timeline(session: Session, case_id: int) -> list[dict[str, Any]]:
+	"""Citing-case counts and total occurrences grouped by year."""
+	rows = session.execute(
+		select(
+			func.extract("year", Case.date).label("year"),
+			func.count(func.distinct(Citation.source_case_id)).label("citing_cases"),
+			func.count(Citation.id).label("occurrences"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+		.group_by(func.extract("year", Case.date))
+		.order_by(func.extract("year", Case.date))
+	)
+	return [
+		{"year": int(year), "citing_cases": int(citing_cases), "occurrences": int(occurrences)}
+		for year, citing_cases, occurrences in rows
+	]
+
+
+def citation_intelligence_outcomes(session: Session, case_id: int) -> dict[str, Any]:
+	"""Government outcome breakdown across all cases citing this authority."""
+	rows = session.execute(
+		select(
+			func.coalesce(
+				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext),
+				"unknown",
+			).label("outcome"),
+			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+		.group_by(
+			func.coalesce(
+				func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext),
+				"unknown",
+			)
+		)
+	).all()
+	totals: dict[str, int] = {}
+	for outcome, count in rows:
+		label = outcome.strip() if outcome else "unknown"
+		if label in {"won", "government won"}:
+			label = "government_win"
+		elif label in {"lost", "government lost"}:
+			label = "government_loss"
+		elif label in {"mixed"}:
+			label = "mixed"
+		else:
+			label = "unknown"
+		totals[label] = totals.get(label, 0) + int(count)
+	total_cases = sum(totals.values())
+	return {
+		"government_win": totals.get("government_win", 0),
+		"government_loss": totals.get("government_loss", 0),
+		"mixed": totals.get("mixed", 0),
+		"unknown": totals.get("unknown", 0),
+		"total_cases": total_cases,
+		"government_win_pct": round(100 * totals.get("government_win", 0) / total_cases, 1) if total_cases else 0.0,
+		"government_loss_pct": round(100 * totals.get("government_loss", 0) / total_cases, 1) if total_cases else 0.0,
+		"mixed_pct": round(100 * totals.get("mixed", 0) / total_cases, 1) if total_cases else 0.0,
+		"unknown_pct": round(100 * totals.get("unknown", 0) / total_cases, 1) if total_cases else 0.0,
+	}
+
+
+def citation_intelligence_courts(session: Session, case_id: int) -> list[dict[str, Any]]:
+	"""Citation counts broken down by citing-case court."""
+	rows = session.execute(
+		select(
+			Case.court.label("court"),
+			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
+			func.count(Citation.id).label("occurrences"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+		.group_by(Case.court)
+		.order_by(func.count(func.distinct(Citation.source_case_id)).desc())
+	).all()
+	total_cases = sum(int(r[1]) for r in rows)
+	return [
+		{
+			"court": court,
+			"case_count": int(case_count),
+			"occurrences": int(occurrences),
+			"pct": round(100 * int(case_count) / total_cases, 1) if total_cases else 0.0,
+		}
+		for court, case_count, occurrences in rows
+	]
+
+
+def citation_intelligence_judges(session: Session, case_id: int, limit: int = 30) -> list[dict[str, Any]]:
+	"""Top judges citing this authority, via raw name in metadata_json."""
+	rows = session.execute(
+		select(
+			func.coalesce(
+				Case.metadata_json["reader_extracted"]["judge"].astext,
+				"Unknown",
+			).label("judge"),
+			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
+			func.count(Citation.id).label("occurrences"),
+			func.min(Case.date).label("first_use"),
+			func.max(Case.date).label("latest_use"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(
+			Citation.target_case_id == case_id,
+			Case.metadata_json["reader_extracted"]["judge"].astext.is_not(None),
+			Case.metadata_json["reader_extracted"]["judge"].astext != "",
+		)
+		.group_by(
+			func.coalesce(
+				Case.metadata_json["reader_extracted"]["judge"].astext,
+				"Unknown",
+			)
+		)
+		.order_by(func.count(func.distinct(Citation.source_case_id)).desc())
+		.limit(limit)
+	).all()
+	return [
+		{
+			"judge": judge,
+			"case_count": int(case_count),
+			"occurrences": int(occurrences),
+			"first_use": str(first_use) if first_use else None,
+			"latest_use": str(latest_use) if latest_use else None,
+		}
+		for judge, case_count, occurrences, first_use, latest_use in rows
+	]
+
+
+def citation_intelligence_statutes(session: Session, case_id: int, limit: int = 20) -> list[dict[str, Any]]:
+	"""Statute provisions most frequently co-cited alongside this authority."""
+	# Source cases that cite this authority
+	citing_sources = (
+		select(Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+		.distinct()
+		.cte("ci_citing_sources")
+	)
+	rows = session.execute(
+		select(
+			StatuteReference.normalized_reference,
+			func.count(func.distinct(StatuteReference.source_case_id)).label("case_count"),
+			func.count(StatuteReference.id).label("occurrences"),
+		)
+		.join(citing_sources, citing_sources.c.source_case_id == StatuteReference.source_case_id)
+		.where(StatuteReference.normalized_reference.is_not(None))
+		.group_by(StatuteReference.normalized_reference)
+		.order_by(func.count(func.distinct(StatuteReference.source_case_id)).desc())
+		.limit(limit)
+	).all()
+	return [
+		{
+			"provision": normalized_reference,
+			"case_count": int(case_count),
+			"occurrences": int(occurrences),
+		}
+		for normalized_reference, case_count, occurrences in rows
+	]
+
+
+def citation_intelligence_table(
+	self_or_session: Session,
+	case_id: int,
+	*,
+	page: int = 1,
+	page_size: int = 50,
+	year: int | None = None,
+	court: str | None = None,
+	judge: str | None = None,
+	gov_outcome: str | None = None,
+	min_mentions: int = 1,
+) -> dict[str, Any]:
+	"""Paginated evidence table: one row per citation where target is this authority."""
+	session = self_or_session
+	per_case_counts = (
+		select(
+			Citation.source_case_id,
+			func.count(Citation.id).label("mention_count"),
+		)
+		.where(Citation.target_case_id == case_id)
+		.group_by(Citation.source_case_id)
+		.having(func.count(Citation.id) >= min_mentions)
+		.cte("ci_per_case_counts")
+	)
+	base = (
+		select(
+			Citation,
+			Case,
+			CaseChunk,
+			per_case_counts.c.mention_count,
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.outerjoin(CaseChunk, CaseChunk.id == Citation.chunk_id)
+		.join(per_case_counts, per_case_counts.c.source_case_id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+	)
+	if year:
+		base = base.where(func.extract("year", Case.date) == year)
+	if court:
+		base = base.where(Case.court.ilike(f"%{court}%"))
+	if judge:
+		base = base.where(
+			Case.metadata_json["reader_extracted"]["judge"].astext.ilike(f"%{judge}%")
+		)
+	if gov_outcome:
+		base = base.where(
+			func.lower(Case.metadata_json["reader_extracted"]["government outcome"].astext) == gov_outcome.lower()
+		)
+
+	total = session.scalar(select(func.count()).select_from(base.subquery())) or 0
+	rows = session.execute(
+		base.order_by(Case.date.desc(), Citation.source_case_id, Citation.id)
+		.offset((page - 1) * page_size)
+		.limit(page_size)
+	).all()
+
+	results = []
+	for citation, source_case, chunk, mention_count in rows:
+		judge_val = None
+		gov_outcome_val = None
+		if source_case.metadata_json and "reader_extracted" in source_case.metadata_json:
+			re_data = source_case.metadata_json["reader_extracted"]
+			judge_val = re_data.get("judge")
+			gov_outcome_val = re_data.get("government outcome")
+		results.append({
+			"citation_id": citation.id,
+			"case_id": source_case.id,
+			"case_title": source_case.title,
+			"case_citation": source_case.citation,
+			"court": source_case.court,
+			"date": str(source_case.date) if source_case.date else None,
+			"judge": judge_val,
+			"gov_outcome": gov_outcome_val,
+			"mention_count": int(mention_count or 0),
+			"chunk_id": chunk.id if chunk else None,
+			"chunk_index": chunk.chunk_index if chunk else None,
+			"citation_text": citation.citation_text,
+			"chunk_text": chunk.text if chunk else None,
+		})
+	return {
+		"total": int(total),
+		"page": page,
+		"page_size": page_size,
+		"total_pages": max(1, -(-int(total) // page_size)),
+		"rows": results,
 	}

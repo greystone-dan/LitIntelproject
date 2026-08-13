@@ -49,6 +49,13 @@ from .citation_map import (
 	search_citation_cases as _search_citation_cases,
 	similar_cases_by_authority as _similar_cases_by_authority,
 	top_authorities as _top_authorities,
+	citation_intelligence_overview as _ci_overview,
+	citation_intelligence_timeline as _ci_timeline,
+	citation_intelligence_outcomes as _ci_outcomes,
+	citation_intelligence_courts as _ci_courts,
+	citation_intelligence_judges as _ci_judges,
+	citation_intelligence_statutes as _ci_statutes,
+	citation_intelligence_table as _ci_table,
 )
 from .citation_map_workbench_v2 import citation_map_html
 from .case_reader import case_reader_html
@@ -3214,7 +3221,7 @@ def _data_explorer_page_html() -> str:
 </head>
 <body><main class="shell">
 	<header class="masthead"><div class="eyebrow">AI CaseLibrary</div><h1>Case Research</h1><p class="intro">Search the case library, open decisions with linked authorities, or switch to outcome and dataset analysis.</p></header>
-	<nav class="tabs" aria-label="Research views"><button class="tab active" data-tab="search">Case search</button><button class="tab" data-tab="judge">Judge outcomes</button><button class="tab" data-tab="explorer">Case analytics</button><button class="tab" data-tab="neighborhood">Citation neighborhoods</button><button class="tab" data-tab="prominent">Prominent cases</button><a class="tab" href="/judges">Judge Explorer</a></nav>
+	<nav class="tabs" aria-label="Research views"><button class="tab active" data-tab="search">Case search</button><button class="tab" data-tab="judge">Judge outcomes</button><button class="tab" data-tab="explorer">Case analytics</button><button class="tab" data-tab="neighborhood">Citation neighborhoods</button><button class="tab" data-tab="prominent">Prominent cases</button><a class="tab" href="/judges">Judge Explorer</a><a class="tab" href="/citation-intelligence">Citation Intelligence</a></nav>
 	<section id="searchPanel"><form class="case-search" id="caseSearch"><div class="search-primary"><div><label for="searchQuery">Search case name, citation, or cited authority</label><input id="searchQuery" placeholder="e.g. Vavilov"></div><div class="search-actions"><button type="submit">Search cases</button><button type="button" id="clearSearch">Clear</button></div></div><div class="search-suggestions" id="searchSuggestions" hidden></div><details class="advanced-search"><summary>Advanced search</summary><div class="search-controls"><div><label for="cites">Cases citing</label><input id="cites" placeholder="e.g. Vavilov"></div><div><label for="governmentOutcome">Government outcome</label><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select></div><div><label for="decisionOutcome">Decision outcome</label><select id="decisionOutcome"><option value="">Any result</option><option value="dismissed">Dismissed</option><option value="allowed">Allowed</option><option value="granted">Granted</option></select></div><div><label for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select></div><div><label for="judgeFilter">Judge contains</label><input id="judgeFilter" placeholder="e.g. Zinn"></div><div><label for="courtFilter">Court contains</label><input id="courtFilter" placeholder="e.g. FC"></div><div><label for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div><div><label for="searchSort">Sort results</label><select id="searchSort"><option value="relevance">Most cited / newest</option><option value="newest">Newest decision</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select></div><div><label for="searchLimit">Results</label><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div></div></details></form><div class="search-meta" id="searchMeta">Enter a case name, citation, or cited authority to search the library.</div><div class="results" id="searchResults"></div></section>
 	<section id="judgePanel" hidden><section class="summary" id="judgeSummary"><span>Loading judge outcomes...</span></section><div class="legend"><span class="key"><i class="dot" style="background:var(--blue)"></i>Government wins</span><span class="key"><i class="dot" style="background:var(--rust)"></i>Individual wins</span><span class="key"><i class="dot" style="background:var(--gray)"></i>Unclassified</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Judge</th><th class="number">Decisions</th><th>Outcome split</th><th class="number">Government wins</th><th class="number">Individual wins</th><th class="number">Unclassified</th><th class="number">Government win rate</th></tr></thead><tbody id="judgeRows"><tr><td colspan="8" class="empty">Loading judge outcomes...</td></tr></tbody></table></div><p class="note">Includes every judge with more than 100 decisions. Win rate uses classified government-versus-individual outcomes only.</p></section>
 	<section id="explorerPanel" hidden><section class="controls"><div><label for="groupBy">Field A: rank by</label><select id="groupBy"></select></div><div><label for="splitBy">Field B: break down by</label><select id="splitBy"></select></div><div><label for="limit">Results to show</label><select id="limit"><option>10</option><option>25</option><option selected>50</option><option>75</option><option>100</option></select></div><button id="apply">Update results</button></section>
@@ -3224,7 +3231,7 @@ def _data_explorer_page_html() -> str:
 </main><script>
 	const palette=['var(--blue)','var(--rust)','var(--gold)','var(--green)','var(--gray)'];const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));const num=value=>new Intl.NumberFormat().format(Number(value||0));let fields=[];
 	function searchValues(){return {query:document.getElementById('searchQuery').value,cites:document.getElementById('cites').value,government_outcome:document.getElementById('governmentOutcome').value,decision_outcome:document.getElementById('decisionOutcome').value,minister:document.getElementById('ministerFilter').value,judge:document.getElementById('judgeFilter').value,court:document.getElementById('courtFilter').value,year:document.getElementById('yearFilter').value,sort_by:document.getElementById('searchSort').value,limit:document.getElementById('searchLimit').value};}
-	function resultCard(item){const tags=[item.citation,item.court,item.date,item.minister,item.judge,item.decision_outcome,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':''].filter(Boolean),citationInfo=`${num(item.citation_mentions)} citation mention${item.citation_mentions===1?'':'s'} · ${num(item.unique_cited_authorities)} unique cited ${item.unique_cited_authorities===1?'authority':'authorities'}${item.resolved_target_cases?` · ${num(item.resolved_target_cases)} linked case${item.resolved_target_cases===1?'':'s'}`:''}`;return `<button class="case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title||'Untitled decision')}</div><div class="result-meta">${tags.map(value=>esc(value)).join(' · ')}${item.matching_citations?` · ${num(item.matching_citations)} matching citation${item.matching_citations===1?'':'s'}`:''}</div><div class="result-meta">${citationInfo}</div><div class="result-tags">${tags.slice(-2).map(value=>`<span class="tag ${value==='Government won'?'win':value==='Individual won'?'loss':''}">${esc(value)}</span>`).join('')}</div></button>`;}
+	function resultCard(item){const tags=[item.citation,item.court,item.date,item.minister,item.judge,item.decision_outcome,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':''].filter(Boolean),citationInfo=`${num(item.citation_mentions)} citation mention${item.citation_mentions===1?'':'s'} · ${num(item.unique_cited_authorities)} unique cited ${item.unique_cited_authorities===1?'authority':'authorities'}${item.resolved_target_cases?` · ${num(item.resolved_target_cases)} linked case${item.resolved_target_cases===1?'':'s'}`:''}`;return `<button class="case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title||'Untitled decision')}</div><div class="result-meta">${tags.map(value=>esc(value)).join(' · ')}${item.matching_citations?` · ${num(item.matching_citations)} matching citation${item.matching_citations===1?'':'s'}`:''}</div><div class="result-meta">${citationInfo}</div><div class="result-tags">${tags.slice(-2).map(value=>`<span class="tag ${value==='Government won'?'win':value==='Individual won'?'loss':''}">${esc(value)}</span>`).join('')}<a class="tag" style="background:#dceef7;color:#1a4f6e;text-decoration:none" href="/citation-intelligence?case_id=${item.case_id}" onclick="event.stopPropagation()">Citation Intel ↗</a></div></button>`;}
 	async function loadSearch(event){if(event)event.preventDefault();const values=searchValues(),params=new URLSearchParams();Object.entries(values).forEach(([key,value])=>{if(value)params.set(key,value)});document.getElementById('searchMeta').textContent='Searching full decisions and stored case citations...';document.getElementById('searchResults').innerHTML='';try{const response=await fetch(`/analytics/search/cases?${params}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();document.getElementById('searchMeta').textContent=`Showing ${num(data.results.length)} matching decision${data.results.length===1?'':'s'}.`;document.getElementById('searchResults').innerHTML=data.results.map(resultCard).join('')||'<div class="empty">No cases matched these filters.</div>';document.querySelectorAll('.case-result').forEach(button=>button.onclick=()=>openDecision(Number(button.dataset.caseId)));}catch(error){document.getElementById('searchMeta').textContent=String(error);}}
 	let suggestionTimer=null;
 	function debouncedSuggestions(){clearTimeout(suggestionTimer);suggestionTimer=setTimeout(loadSuggestions, 200);}
@@ -6628,3 +6635,564 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)
+
+
+# ---------------------------------------------------------------------------
+# Citation Intelligence
+# ---------------------------------------------------------------------------
+
+def _citation_intelligence_page_html() -> str:
+	return r"""<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Citation Intelligence | ILIT</title>
+	<style>
+		:root{--ink:#172630;--muted:#64717b;--paper:#f3f0e9;--panel:#fffdf9;--line:#d6d1c5;--blue:#2d6078;--rust:#b65f3e;--gold:#b68c35;--green:#4d7a63;--gray:#aaa69e}
+		*{box-sizing:border-box}
+		body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+		.shell{max-width:1320px;margin:auto;padding:28px 24px 60px}
+		.masthead{border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:0}
+		.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue)}
+		h1{font-size:34px;font-weight:normal;margin:6px 0 4px}
+		.intro{color:var(--muted);font-size:15px;margin:0}
+		nav.site-nav{display:flex;gap:18px;margin-bottom:16px;font:700 11px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase}
+		nav.site-nav a{color:var(--blue);text-decoration:none}
+		nav.site-nav a:hover{text-decoration:underline}
+		/* Search bar */
+		.search-bar{position:relative;margin:22px 0 20px}
+		.search-bar input{width:100%;height:46px;font:17px Georgia,serif;border:2px solid var(--line);background:var(--panel);color:var(--ink);padding:0 14px;border-radius:3px}
+		.search-bar input:focus{outline:none;border-color:var(--blue)}
+		.autocomplete{position:absolute;top:100%;left:0;right:0;background:var(--panel);border:1px solid var(--line);z-index:100;display:none}
+		.autocomplete.open{display:block}
+		.ac-item{padding:10px 14px;cursor:pointer;font-size:15px;border-bottom:1px solid var(--line)}
+		.ac-item:hover{background:#ecf3f7}
+		.ac-title{font-weight:bold}
+		.ac-cite{font:13px Arial,sans-serif;color:var(--muted)}
+		/* Authority header */
+		.authority-header{background:var(--panel);border:1px solid var(--line);padding:18px 22px;margin-bottom:20px;display:none}
+		.authority-header.visible{display:block}
+		.auth-title{font-size:22px;font-weight:normal;margin:0 0 4px}
+		.auth-meta{font:13px Arial,sans-serif;color:var(--muted)}
+		/* Stat cards */
+		.stat-cards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:24px}
+		@media(max-width:900px){.stat-cards{grid-template-columns:repeat(3,1fr)}}
+		@media(max-width:560px){.stat-cards{grid-template-columns:repeat(2,1fr)}}
+		.stat{background:var(--panel);border:1px solid var(--line);padding:14px 16px}
+		.stat small{display:block;font:700 10px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+		.stat strong{font-size:26px;font-weight:normal;font-family:Georgia,serif}
+		.stat .sub{font:12px Arial,sans-serif;color:var(--muted);margin-top:2px}
+		/* Tabs */
+		.tabs{display:flex;gap:0;border-bottom:2px solid var(--ink);margin-bottom:24px;flex-wrap:wrap}
+		.tab-btn{height:38px;background:transparent;color:var(--muted);padding:0 16px;border:0;border-bottom:3px solid transparent;font:700 11px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;cursor:pointer;margin-bottom:-2px}
+		.tab-btn.active{color:var(--ink);border-bottom-color:var(--blue)}
+		.tab-panel{display:none}
+		.tab-panel.active{display:block}
+		/* Section title */
+		.section-title{font:700 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+		/* Bar chart */
+		.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:14px}
+		.bar-label{width:180px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;color:var(--ink)}
+		.bar-track{flex:1;background:#e8e4db;height:18px;position:relative}
+		.bar-fill{height:100%;background:var(--blue);transition:width .3s ease}
+		.bar-fill.rust{background:var(--rust)}
+		.bar-fill.gold{background:var(--gold)}
+		.bar-fill.green{background:var(--green)}
+		.bar-val{width:80px;flex-shrink:0;font:12px Arial,sans-serif;color:var(--muted)}
+		/* Outcome circles */
+		.outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+		.outcome-cell{background:var(--panel);border:1px solid var(--line);padding:14px;text-align:center}
+		.outcome-pct{font-size:30px;font-weight:normal;font-family:Georgia,serif}
+		.outcome-label{font:700 10px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+		.outcome-count{font:12px Arial,sans-serif;color:var(--muted)}
+		.outcome-cell.win .outcome-pct{color:var(--green)}
+		.outcome-cell.loss .outcome-pct{color:var(--rust)}
+		/* Companions / co-citation */
+		.companion-list{display:grid;gap:8px}
+		.companion{background:var(--panel);border:1px solid var(--line);padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+		.companion-title{font-size:15px}
+		.companion-cite{font:12px Arial,sans-serif;color:var(--muted)}
+		.companion-count{font:700 13px Arial,sans-serif;color:var(--blue);white-space:nowrap}
+		.companion a{color:var(--blue);text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:.4px}
+		.companion a:hover{text-decoration:underline}
+		/* Evidence table */
+		.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:flex-end}
+		.filters label{font:700 10px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+		.filters input,.filters select{height:34px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:0 8px;font:14px Georgia,serif}
+		.filters button{height:34px;border:0;background:var(--ink);color:#fff;padding:0 14px;font:700 11px Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
+		.export-bar{display:flex;gap:8px;margin-bottom:14px}
+		.export-bar button{height:32px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:0 12px;font:700 10px Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
+		.export-bar button:hover{background:#e8f1f5;border-color:var(--blue);color:var(--blue)}
+		.table-wrap{overflow-x:auto;border:1px solid var(--line)}
+		table{border-collapse:collapse;width:100%;min-width:900px;font-size:13px}
+		th{text-align:left;padding:10px 10px;font:700 10px Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);white-space:nowrap;background:var(--paper)}
+		td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+		tr:hover td{background:#f6f9fb}
+		td.chunk-text{max-width:320px;font-size:12px;color:var(--muted)}
+		td.cite-text{font:12px Arial,sans-serif;color:var(--blue)}
+		td.open-link a{color:var(--blue);text-decoration:none;font:700 11px Arial,sans-serif}
+		td.open-link a:hover{text-decoration:underline}
+		.pager{display:flex;gap:8px;align-items:center;margin-top:14px;font:13px Arial,sans-serif}
+		.pager button{height:30px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:0 12px;font:700 11px Arial,sans-serif;cursor:pointer}
+		.pager button:disabled{opacity:.4;cursor:default}
+		.pager .page-info{color:var(--muted)}
+		.empty{padding:30px;color:var(--muted);text-align:center;font-size:15px}
+		.loading{padding:20px;color:var(--muted);font:italic 15px Georgia,serif}
+	</style>
+</head>
+<body>
+<div class="shell">
+	<nav class="site-nav">
+		<a href="/data-explorer">Research</a>
+		<a href="/case-reader">Case Reader</a>
+		<a href="/citation-map">Citation Map</a>
+		<a href="/citation-intelligence">Citation Intelligence</a>
+	</nav>
+	<header class="masthead">
+		<div class="eyebrow">Authority Analytics</div>
+		<h1>Citation Intelligence</h1>
+		<p class="intro">Search any authority to see who cites it, how often, by which judges, in which courts, with what outcomes, and review the full evidence table.</p>
+	</header>
+
+	<div class="search-bar">
+		<input id="authoritySearch" type="search" placeholder="Search by case name or neutral citation — e.g. Vavilov, Mason, 2024 FC 123" autocomplete="off">
+		<div class="autocomplete" id="acDropdown"></div>
+	</div>
+
+	<div class="authority-header" id="authorityHeader">
+		<div class="auth-title" id="authTitle">—</div>
+		<div class="auth-meta" id="authMeta">—</div>
+	</div>
+
+	<div id="statCards" class="stat-cards" style="display:none">
+		<div class="stat"><small>Citing Cases</small><strong id="scCiting">—</strong></div>
+		<div class="stat"><small>Total Occurrences</small><strong id="scOcc">—</strong></div>
+		<div class="stat"><small>Avg per Case</small><strong id="scAvg">—</strong></div>
+		<div class="stat"><small>Max in One Case</small><strong id="scMax">—</strong></div>
+		<div class="stat"><small>First Citation</small><strong id="scFirst" style="font-size:16px">—</strong></div>
+		<div class="stat"><small>Most Recent</small><strong id="scRecent" style="font-size:16px">—</strong></div>
+	</div>
+
+	<div id="mainContent" style="display:none">
+		<div class="tabs">
+			<button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+			<button class="tab-btn" onclick="switchTab('timeline')">Timeline</button>
+			<button class="tab-btn" onclick="switchTab('judges')">Judges</button>
+			<button class="tab-btn" onclick="switchTab('courts')">Courts</button>
+			<button class="tab-btn" onclick="switchTab('outcomes')">Outcomes</button>
+			<button class="tab-btn" onclick="switchTab('companions')">Companions</button>
+			<button class="tab-btn" onclick="switchTab('statutes')">Statutes</button>
+			<button class="tab-btn" onclick="switchTab('table')">Evidence Table</button>
+		</div>
+
+		<!-- Overview -->
+		<div class="tab-panel active" id="tab-overview">
+			<p class="section-title">Top citing case</p>
+			<div id="topCitingCase" class="companion-list"></div>
+		</div>
+
+		<!-- Timeline -->
+		<div class="tab-panel" id="tab-timeline">
+			<p class="section-title">Citations per year</p>
+			<div id="timelineChart"></div>
+		</div>
+
+		<!-- Judges -->
+		<div class="tab-panel" id="tab-judges">
+			<p class="section-title">Top judges citing this authority</p>
+			<div class="table-wrap"><table id="judgesTable">
+				<thead><tr><th>#</th><th>Judge</th><th>Cases</th><th>Occurrences</th><th>First Use</th><th>Latest Use</th></tr></thead>
+				<tbody id="judgesBody"><tr><td colspan="6" class="loading">Loading…</td></tr></tbody>
+			</table></div>
+		</div>
+
+		<!-- Courts -->
+		<div class="tab-panel" id="tab-courts">
+			<p class="section-title">Court breakdown</p>
+			<div id="courtsChart"></div>
+		</div>
+
+		<!-- Outcomes -->
+		<div class="tab-panel" id="tab-outcomes">
+			<p class="section-title">Government outcome across citing cases</p>
+			<div class="outcome-grid" id="outcomesGrid"></div>
+			<p class="section-title">Outcome breakdown by year</p>
+			<div id="outcomesNote" style="color:var(--muted);font-size:13px">Load the Timeline tab first to see yearly data.</div>
+		</div>
+
+		<!-- Companions -->
+		<div class="tab-panel" id="tab-companions">
+			<p class="section-title">Authorities most frequently cited alongside this one</p>
+			<div class="companion-list" id="companionsList"><div class="loading">Loading…</div></div>
+		</div>
+
+		<!-- Statutes -->
+		<div class="tab-panel" id="tab-statutes">
+			<p class="section-title">Statute provisions most commonly co-cited with this authority</p>
+			<div id="statutesChart"></div>
+		</div>
+
+		<!-- Evidence Table -->
+		<div class="tab-panel" id="tab-table">
+			<div class="filters">
+				<div><label>Year</label><input id="fYear" type="number" placeholder="e.g. 2024" style="width:90px"></div>
+				<div><label>Court</label><input id="fCourt" type="text" placeholder="FC, FCA…" style="width:100px"></div>
+				<div><label>Judge</label><input id="fJudge" type="text" placeholder="Name" style="width:140px"></div>
+				<div><label>Gov Outcome</label>
+					<select id="fGovOutcome">
+						<option value="">All</option>
+						<option value="won">Government Win</option>
+						<option value="lost">Government Loss</option>
+					</select>
+				</div>
+				<div><label>Min Mentions</label><input id="fMinMentions" type="number" value="1" min="1" style="width:80px"></div>
+				<div style="align-self:flex-end"><button onclick="loadTable(1)">Apply</button></div>
+			</div>
+			<div class="export-bar">
+				<button onclick="exportCSV()">Export CSV</button>
+				<button onclick="exportJSON()">Export JSON</button>
+				<button onclick="copyTable()">Copy Table</button>
+			</div>
+			<div id="tableStatus" style="font:13px Arial,sans-serif;color:var(--muted);margin-bottom:10px"></div>
+			<div class="table-wrap">
+				<table>
+					<thead><tr>
+						<th>Case</th><th>Citation</th><th>Court</th><th>Date</th>
+						<th>Judge</th><th>Gov Outcome</th><th>Mentions</th>
+						<th>Chunk</th><th>Citation Text</th><th>Chunk Text</th><th>Open</th>
+					</tr></thead>
+					<tbody id="evidenceBody"><tr><td colspan="11" class="empty">Select an authority above to load the evidence table.</td></tr></tbody>
+				</table>
+			</div>
+			<div class="pager">
+				<button id="prevBtn" onclick="loadTable(currentPage-1)" disabled>← Prev</button>
+				<span class="page-info" id="pageInfo"></span>
+				<button id="nextBtn" onclick="loadTable(currentPage+1)" disabled>Next →</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+const esc = s => String(s??'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num = v => new Intl.NumberFormat().format(Number(v||0));
+const pct = v => Number(v||0).toFixed(1) + '%';
+
+let currentCaseId = null;
+let currentPage = 1;
+let totalPages = 1;
+let tableData = [];
+let acTimer = null;
+
+// Tab switching
+function switchTab(name) {
+	document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+		const names = ['overview','timeline','judges','courts','outcomes','companions','statutes','table'];
+		btn.classList.toggle('active', names[i] === name);
+	});
+	document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+	document.getElementById('tab-' + name).classList.add('active');
+	if (currentCaseId && name === 'timeline' && !document.getElementById('timelineChart').dataset.loaded) loadTimeline();
+	if (currentCaseId && name === 'judges' && !document.getElementById('judgesBody').dataset.loaded) loadJudges();
+	if (currentCaseId && name === 'courts' && !document.getElementById('courtsChart').dataset.loaded) loadCourts();
+	if (currentCaseId && name === 'outcomes' && !document.getElementById('outcomesGrid').dataset.loaded) loadOutcomes();
+	if (currentCaseId && name === 'companions' && !document.getElementById('companionsList').dataset.loaded) loadCompanions();
+	if (currentCaseId && name === 'statutes' && !document.getElementById('statutesChart').dataset.loaded) loadStatutes();
+	if (currentCaseId && name === 'table' && !document.getElementById('evidenceBody').dataset.loaded) loadTable(1);
+}
+
+// Authority search autocomplete
+document.getElementById('authoritySearch').addEventListener('input', function() {
+	clearTimeout(acTimer);
+	const q = this.value.trim();
+	if (q.length < 2) { closeAc(); return; }
+	acTimer = setTimeout(() => fetchAc(q), 220);
+});
+document.addEventListener('click', e => { if (!e.target.closest('.search-bar')) closeAc(); });
+
+function closeAc() {
+	document.getElementById('acDropdown').className = 'autocomplete';
+	document.getElementById('acDropdown').innerHTML = '';
+}
+
+async function fetchAc(q) {
+	try {
+		const r = await fetch('/api/citation-intelligence/search?q=' + encodeURIComponent(q));
+		const data = await r.json();
+		const drop = document.getElementById('acDropdown');
+		if (!data.length) { closeAc(); return; }
+		drop.innerHTML = data.map(item => `<div class="ac-item" onclick="selectAuthority(${item.case_id},${JSON.stringify(esc(item.title))},${JSON.stringify(esc(item.citation||''))},${JSON.stringify(esc(item.court||''))},${JSON.stringify(esc(String(item.date||'')))})"><div class="ac-title">${esc(item.title)}</div><div class="ac-cite">${esc(item.citation||'')} · ${esc(item.court||'')} · ${esc(String(item.date||'').substring(0,4))}</div></div>`).join('');
+		drop.className = 'autocomplete open';
+	} catch {}
+}
+
+function selectAuthority(id, title, citation, court, date) {
+	closeAc();
+	currentCaseId = id;
+	document.getElementById('authoritySearch').value = title.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"');
+	// Reset loaded flags
+	['timelineChart','courtsChart','outcomesGrid','companionsList','statutesChart','evidenceBody'].forEach(elId => {
+		const el = document.getElementById(elId);
+		if (el) delete el.dataset.loaded;
+	});
+	document.getElementById('judgesBody').dataset.loaded = '';
+	delete document.getElementById('judgesBody').dataset.loaded;
+	tableData = [];
+	loadOverview();
+}
+
+async function loadOverview() {
+	document.getElementById('authorityHeader').className = 'authority-header visible';
+	document.getElementById('authTitle').textContent = 'Loading…';
+	document.getElementById('statCards').style.display = 'grid';
+	document.getElementById('mainContent').style.display = 'block';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/overview');
+		const d = await r.json();
+		document.getElementById('authTitle').textContent = d.title || '—';
+		document.getElementById('authMeta').textContent = [d.citation, d.court, d.date ? d.date.substring(0,4) : null].filter(Boolean).join(' · ');
+		document.getElementById('scCiting').textContent = num(d.unique_citing_cases);
+		document.getElementById('scOcc').textContent = num(d.total_occurrences);
+		document.getElementById('scAvg').textContent = d.avg_mentions_per_case;
+		document.getElementById('scMax').textContent = num(d.max_mentions_in_single_case);
+		document.getElementById('scFirst').textContent = (d.first_citation_date||'—').substring(0,4);
+		document.getElementById('scRecent').textContent = (d.most_recent_citation_date||'—').substring(0,7);
+		const topEl = document.getElementById('topCitingCase');
+		if (d.top_citing_case) {
+			const tc = d.top_citing_case;
+			topEl.innerHTML = `<div class="companion"><div><div class="companion-title">${esc(tc.title)}</div><div class="companion-cite">${esc(tc.citation||'')}</div></div><div style="display:flex;gap:14px;align-items:center"><span class="companion-count">${num(tc.mention_count)} mentions</span><a href="/case-reader?case_id=${tc.case_id}" target="_blank">Open ↗</a></div></div>`;
+		} else {
+			topEl.innerHTML = '<div class="empty">No citing cases found.</div>';
+		}
+	} catch(e) {
+		document.getElementById('authTitle').textContent = 'Error loading data';
+	}
+}
+
+async function loadTimeline() {
+	const el = document.getElementById('timelineChart');
+	el.innerHTML = '<div class="loading">Loading…</div>';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/timeline');
+		const data = await r.json();
+		el.dataset.loaded = '1';
+		if (!data.length) { el.innerHTML = '<div class="empty">No timeline data.</div>'; return; }
+		const maxCases = Math.max(...data.map(d => d.citing_cases), 1);
+		el.innerHTML = data.map(d => `<div class="bar-row"><div class="bar-label">${d.year}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(d.citing_cases/maxCases*100)}%"></div></div><div class="bar-val">${num(d.citing_cases)} cases · ${num(d.occurrences)} cites</div></div>`).join('');
+	} catch { el.innerHTML = '<div class="empty">Failed to load.</div>'; }
+}
+
+async function loadJudges() {
+	const tbody = document.getElementById('judgesBody');
+	tbody.dataset.loaded = '1';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/judges?limit=40');
+		const data = await r.json();
+		if (!data.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty">No judge data available.</td></tr>'; return; }
+		tbody.innerHTML = data.map((d, i) => `<tr><td>${i+1}</td><td>${esc(d.judge)}</td><td>${num(d.case_count)}</td><td>${num(d.occurrences)}</td><td>${(d.first_use||'').substring(0,7)}</td><td>${(d.latest_use||'').substring(0,7)}</td></tr>`).join('');
+	} catch { tbody.innerHTML = '<tr><td colspan="6" class="empty">Failed to load.</td></tr>'; }
+}
+
+async function loadCourts() {
+	const el = document.getElementById('courtsChart');
+	el.dataset.loaded = '1';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/courts');
+		const data = await r.json();
+		if (!data.length) { el.innerHTML = '<div class="empty">No court data.</div>'; return; }
+		const maxCases = Math.max(...data.map(d => d.case_count), 1);
+		el.innerHTML = data.map(d => `<div class="bar-row"><div class="bar-label" title="${esc(d.court)}">${esc(d.court)}</div><div class="bar-track"><div class="bar-fill rust" style="width:${Math.round(d.case_count/maxCases*100)}%"></div></div><div class="bar-val">${num(d.case_count)} (${d.pct}%)</div></div>`).join('');
+	} catch { el.innerHTML = '<div class="empty">Failed to load.</div>'; }
+}
+
+async function loadOutcomes() {
+	const el = document.getElementById('outcomesGrid');
+	el.dataset.loaded = '1';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/outcomes');
+		const d = await r.json();
+		el.innerHTML = `
+			<div class="outcome-cell win"><div class="outcome-pct">${d.government_win_pct}%</div><div class="outcome-label">Government Win</div><div class="outcome-count">${num(d.government_win)} cases</div></div>
+			<div class="outcome-cell loss"><div class="outcome-pct">${d.government_loss_pct}%</div><div class="outcome-label">Government Loss</div><div class="outcome-count">${num(d.government_loss)} cases</div></div>
+			<div class="outcome-cell"><div class="outcome-pct">${d.mixed_pct}%</div><div class="outcome-label">Mixed</div><div class="outcome-count">${num(d.mixed)} cases</div></div>
+			<div class="outcome-cell"><div class="outcome-pct">${d.unknown_pct}%</div><div class="outcome-label">Unknown</div><div class="outcome-count">${num(d.unknown)} cases</div></div>`;
+	} catch { el.innerHTML = '<div class="empty">Failed to load.</div>'; }
+}
+
+async function loadCompanions() {
+	const el = document.getElementById('companionsList');
+	el.dataset.loaded = '1';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/companions?limit=20');
+		const data = await r.json();
+		if (!data.length) { el.innerHTML = '<div class="empty">No companion data.</div>'; return; }
+		el.innerHTML = data.map(d => `<div class="companion"><div><div class="companion-title">${esc(d.authority.title)}</div><div class="companion-cite">${esc(d.authority.citation||'')} · ${esc(d.authority.court||'')}</div></div><div style="display:flex;gap:14px;align-items:center"><span class="companion-count">${num(d.shared_citing_cases)} shared cases</span><a href="/citation-intelligence?case_id=${d.authority.case_id}">View Intel ↗</a></div></div>`).join('');
+	} catch { el.innerHTML = '<div class="empty">Failed to load.</div>'; }
+}
+
+async function loadStatutes() {
+	const el = document.getElementById('statutesChart');
+	el.dataset.loaded = '1';
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/statutes?limit=25');
+		const data = await r.json();
+		if (!data.length) { el.innerHTML = '<div class="empty">No statute co-citation data.</div>'; return; }
+		const maxCases = Math.max(...data.map(d => d.case_count), 1);
+		el.innerHTML = data.map(d => `<div class="bar-row"><div class="bar-label" title="${esc(d.provision)}">${esc(d.provision)}</div><div class="bar-track"><div class="bar-fill gold" style="width:${Math.round(d.case_count/maxCases*100)}%"></div></div><div class="bar-val">${num(d.case_count)} cases</div></div>`).join('');
+	} catch { el.innerHTML = '<div class="empty">Failed to load.</div>'; }
+}
+
+async function loadTable(page) {
+	if (!currentCaseId) return;
+	currentPage = page;
+	const tbody = document.getElementById('evidenceBody');
+	tbody.innerHTML = '<tr><td colspan="11" class="loading">Loading…</td></tr>';
+	tbody.dataset.loaded = '1';
+	const params = new URLSearchParams({page, page_size: 50});
+	const year = document.getElementById('fYear').value.trim();
+	const court = document.getElementById('fCourt').value.trim();
+	const judge = document.getElementById('fJudge').value.trim();
+	const govOutcome = document.getElementById('fGovOutcome').value;
+	const minMentions = document.getElementById('fMinMentions').value;
+	if (year) params.set('year', year);
+	if (court) params.set('court', court);
+	if (judge) params.set('judge', judge);
+	if (govOutcome) params.set('gov_outcome', govOutcome);
+	if (minMentions && minMentions !== '1') params.set('min_mentions', minMentions);
+	try {
+		const r = await fetch('/api/citation-intelligence/' + currentCaseId + '/table?' + params);
+		const d = await r.json();
+		tableData = d.rows;
+		totalPages = d.total_pages;
+		document.getElementById('tableStatus').textContent = `${num(d.total)} citation rows · page ${d.page} of ${d.total_pages}`;
+		document.getElementById('pageInfo').textContent = `Page ${d.page} of ${d.total_pages}`;
+		document.getElementById('prevBtn').disabled = page <= 1;
+		document.getElementById('nextBtn').disabled = page >= d.total_pages;
+		if (!d.rows.length) { tbody.innerHTML = '<tr><td colspan="11" class="empty">No results for these filters.</td></tr>'; return; }
+		tbody.innerHTML = d.rows.map(row => `<tr>
+			<td>${esc(row.case_title)}</td>
+			<td class="cite-text">${esc(row.case_citation||'')}</td>
+			<td>${esc(row.court||'')}</td>
+			<td>${(row.date||'').substring(0,10)}</td>
+			<td>${esc(row.judge||'')}</td>
+			<td>${esc(row.gov_outcome||'')}</td>
+			<td style="text-align:right">${num(row.mention_count)}</td>
+			<td>${row.chunk_index != null ? num(row.chunk_index) : ''}</td>
+			<td class="cite-text">${esc(row.citation_text||'')}</td>
+			<td class="chunk-text">${esc((row.chunk_text||'').substring(0,200))}</td>
+			<td class="open-link"><a href="/case-reader?case_id=${row.case_id}" target="_blank">Open ↗</a></td>
+		</tr>`).join('');
+	} catch { tbody.innerHTML = '<tr><td colspan="11" class="empty">Failed to load table.</td></tr>'; }
+}
+
+function exportCSV() {
+	if (!tableData.length) return;
+	const headers = ['Case','Citation','Court','Date','Judge','Gov Outcome','Mentions','Chunk','Citation Text','Chunk Text'];
+	const rows = tableData.map(r => [r.case_title, r.case_citation, r.court, r.date, r.judge, r.gov_outcome, r.mention_count, r.chunk_index, r.citation_text, r.chunk_text].map(v => '"' + String(v??'').replace(/"/g,'""') + '"').join(','));
+	const csv = [headers.join(','), ...rows].join('\n');
+	const blob = new Blob([csv], {type: 'text/csv'});
+	const a = Object.assign(document.createElement('a'), {href: URL.createObjectURL(blob), download: 'citation-evidence.csv'});
+	a.click();
+}
+
+function exportJSON() {
+	if (!tableData.length) return;
+	const blob = new Blob([JSON.stringify(tableData, null, 2)], {type: 'application/json'});
+	const a = Object.assign(document.createElement('a'), {href: URL.createObjectURL(blob), download: 'citation-evidence.json'});
+	a.click();
+}
+
+async function copyTable() {
+	if (!tableData.length) return;
+	const headers = ['Case','Citation','Court','Date','Judge','Gov Outcome','Mentions','Chunk','Citation Text','Chunk Text'];
+	const rows = tableData.map(r => [r.case_title, r.case_citation, r.court, r.date, r.judge, r.gov_outcome, r.mention_count, r.chunk_index, r.citation_text, r.chunk_text].map(v => String(v??'')).join('\t'));
+	await navigator.clipboard.writeText([headers.join('\t'), ...rows].join('\n'));
+	alert('Table copied to clipboard (paste into Excel or Word).');
+}
+
+// Auto-load if ?case_id= provided
+const urlParams = new URLSearchParams(location.search);
+const initCaseId = urlParams.get('case_id');
+if (initCaseId) {
+	currentCaseId = parseInt(initCaseId, 10);
+	loadOverview();
+}
+</script>
+</body>
+</html>"""
+
+
+@router.get("/citation-intelligence", response_class=HTMLResponse, include_in_schema=False)
+def citation_intelligence_page() -> HTMLResponse:
+	return HTMLResponse(content=_citation_intelligence_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/api/citation-intelligence/search")
+def citation_intelligence_search(q: str = "", limit: int = 12, db: Session = Depends(get_db)) -> list[dict]:
+	return _search_citation_cases(db, q, min(limit, 20))
+
+
+@router.get("/api/citation-intelligence/{case_id}/overview")
+def citation_intelligence_overview(case_id: int, db: Session = Depends(get_db)) -> dict:
+	_get_case_or_404(case_id, db)
+	return _ci_overview(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/timeline")
+def citation_intelligence_timeline(case_id: int, db: Session = Depends(get_db)) -> list:
+	_get_case_or_404(case_id, db)
+	return _ci_timeline(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/outcomes")
+def citation_intelligence_outcomes(case_id: int, db: Session = Depends(get_db)) -> dict:
+	_get_case_or_404(case_id, db)
+	return _ci_outcomes(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/courts")
+def citation_intelligence_courts(case_id: int, db: Session = Depends(get_db)) -> list:
+	_get_case_or_404(case_id, db)
+	return _ci_courts(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/judges")
+def citation_intelligence_judges(case_id: int, limit: int = 30, db: Session = Depends(get_db)) -> list:
+	_get_case_or_404(case_id, db)
+	return _ci_judges(db, case_id, min(limit, 100))
+
+
+@router.get("/api/citation-intelligence/{case_id}/companions")
+def citation_intelligence_companions(case_id: int, limit: int = 20, db: Session = Depends(get_db)) -> list:
+	_get_case_or_404(case_id, db)
+	return _co_cited_authorities(db, case_id, min(limit, 50))
+
+
+@router.get("/api/citation-intelligence/{case_id}/statutes")
+def citation_intelligence_statutes(case_id: int, limit: int = 25, db: Session = Depends(get_db)) -> list:
+	_get_case_or_404(case_id, db)
+	return _ci_statutes(db, case_id, min(limit, 50))
+
+
+@router.get("/api/citation-intelligence/{case_id}/table")
+def citation_intelligence_table(
+	case_id: int,
+	page: int = 1,
+	page_size: int = 50,
+	year: int | None = None,
+	court: str | None = None,
+	judge: str | None = None,
+	gov_outcome: str | None = None,
+	min_mentions: int = 1,
+	db: Session = Depends(get_db),
+) -> dict:
+	_get_case_or_404(case_id, db)
+	page = max(1, page)
+	page_size = max(1, min(page_size, 200))
+	min_mentions = max(1, min_mentions)
+	return _ci_table(
+		db, case_id,
+		page=page, page_size=page_size,
+		year=year, court=court, judge=judge,
+		gov_outcome=gov_outcome, min_mentions=min_mentions,
+	)
+

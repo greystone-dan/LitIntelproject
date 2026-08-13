@@ -6775,6 +6775,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 # ---------------------------------------------------------------------------
 
 def _citation_intelligence_page_html() -> str:
+	_hdr = _site_header_html("Citation Intel")
 	return r"""<!doctype html>
 <html lang="en">
 <head>
@@ -6873,7 +6874,7 @@ def _citation_intelligence_page_html() -> str:
 		.loading{padding:20px;color:var(--muted);font:italic 15px Georgia,serif}
 	</style>
 </head>
-<body>"""+_site_header_html("Citation Intel")+"""
+<body>""" + _hdr + r"""
 <div class="shell">
 	<header class="masthead">
 		<div class="eyebrow">Authority Analytics</div>

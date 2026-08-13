@@ -1807,17 +1807,7 @@ def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, 
 	first_date = row[2]
 	latest_date = row[3]
 
-	# Per-case mention stats require a subquery
-	per_case = session.execute(
-		select(
-			func.avg(func.count(Citation.id)),
-			func.max(func.count(Citation.id)),
-		)
-		.where(Citation.target_case_id == case_id)
-		.group_by(Citation.source_case_id)
-		.correlate(None)
-	)
-	# Use a CTE for per-case aggregation
+	# Two-level aggregation: count per case first, then avg/max across cases
 	per_case_cte = (
 		select(
 			Citation.source_case_id,

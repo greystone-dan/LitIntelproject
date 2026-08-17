@@ -166,10 +166,6 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 
 ### Browser UI
 
-## Azure Hosting
-
-This project is set up to run as one web app. See [docs/AZURE_DEPLOYMENT.md](docs/AZURE_DEPLOYMENT.md) for the Docker-based Azure path using Azure Container Apps or Azure App Service plus Azure PostgreSQL.
-
 For the proof of concept, keep the site to one UI and continue citation verification on the existing metadata and chunking base. Do not re-ingest the 300-case review list yet.
 
 After server startup, open:
@@ -183,6 +179,24 @@ If port 8000 is already in use, run on another port and open the matching URL.
 ~~~powershell
 python -m scripts.quick_search_engine "non-refoulement risk on return" --limit 10
 ~~~
+
+## Local Domain Hosting (Cloudflare Tunnel)
+
+If you want to expose your local app through your own domain while it runs on your machine:
+
+1. One-time setup:
+
+~~~powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\setup_cloudflare_tunnel.ps1 -Hostname your.domain.com -TunnelName aicaselibrary-local -LocalPort 8070
+~~~
+
+2. Start app + tunnel:
+
+~~~powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run_local_with_tunnel.ps1
+~~~
+
+See [docs/CLOUDFLARE_TUNNEL_SETUP.md](docs/CLOUDFLARE_TUNNEL_SETUP.md) for details.
 
 ## Useful Endpoints
 

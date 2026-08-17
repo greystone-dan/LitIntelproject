@@ -149,6 +149,61 @@ def create_isolated_schema(connection) -> None:
 		)
 	"""))
 	connection.execute(text("CREATE INDEX IF NOT EXISTS ix_lotd_dockets_imm_number ON lotd.dockets (imm_number)"))
+	connection.execute(text("CREATE INDEX IF NOT EXISTS ix_lotd_dockets_doc_dt ON lotd.dockets (doc_dt)"))
+	connection.execute(text("CREATE INDEX IF NOT EXISTS ix_lotd_dockets_re_no ON lotd.dockets (re_no)"))
+	connection.execute(text("""
+		CREATE OR REPLACE VIEW lotd.access_cases AS
+		SELECT
+			imm_number,
+			year,
+			name,
+			date_filed,
+			city_filed,
+			nature,
+			class,
+			track,
+			doc_count,
+			source_url,
+			scraped_timestamp
+		FROM lotd.cases
+		ORDER BY imm_number
+	"""))
+	connection.execute(text("""
+		CREATE OR REPLACE VIEW lotd.access_docket_summary AS
+		SELECT
+			c.imm_number,
+			c.name,
+			c.year,
+			c.date_filed,
+			c.city_filed,
+			c.nature,
+			c.class,
+			c.track,
+			c.doc_count,
+			MIN(NULLIF(d.doc_dt, '')) AS first_doc_dt,
+			MAX(NULLIF(d.doc_dt, '')) AS last_doc_dt,
+			MAX(COALESCE(NULLIF(d.re_no, ''), '0')::numeric) AS max_re_no,
+			COUNT(*) FILTER (WHERE COALESCE(NULLIF(d.docno, ''), '') <> '') AS docket_rows_with_docno
+		FROM lotd.cases c
+		LEFT JOIN lotd.dockets d ON d.imm_number = c.imm_number
+		GROUP BY
+			c.imm_number, c.name, c.year, c.date_filed, c.city_filed,
+			c.nature, c.class, c.track, c.doc_count
+		ORDER BY c.imm_number
+	"""))
+	connection.execute(text("""
+		CREATE OR REPLACE VIEW lotd.access_dockets AS
+		SELECT
+			id,
+			imm_number,
+			re_no,
+			docno,
+			doc_dt,
+			recorded_entry,
+			source_url
+		FROM lotd.dockets
+		ORDER BY imm_number, re_no NULLS LAST, id
+	"""))
 
 
 def import_database(cases: pd.DataFrame, dockets: Iterable[dict[str, Any]], batch_size: int) -> int:

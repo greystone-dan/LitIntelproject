@@ -4,7 +4,7 @@ import hmac
 import os
 
 from fastapi import FastAPI, Request
-from fastapi.responses import Response
+from fastapi.responses import RedirectResponse, Response
 
 from .database import init_db
 from .routes import router
@@ -45,4 +45,9 @@ app.include_router(router)
 
 @app.get("/")
 def root():
+    return RedirectResponse(url="/data-explorer", status_code=307)
+
+
+@app.get("/health")
+def health():
     return {"message": "AI CaseLibrary backend is running"}

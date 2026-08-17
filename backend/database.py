@@ -132,10 +132,50 @@ class Case(Base):
 		back_populates="source_case",
 		cascade="all, delete-orphan",
 	)
+	judge_links = relationship("CaseJudgeProfile", back_populates="case", cascade="all, delete-orphan")
 	tags = relationship("CaseTag", back_populates="case", cascade="all, delete-orphan")
 	tagging_statuses = relationship(
 		"CaseTaggingStatus", back_populates="case", cascade="all, delete-orphan"
 	)
+
+
+class JudgeProfile(Base):
+	__tablename__ = "judge_profiles"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	slug: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
+	display_name: Mapped[str] = mapped_column(String(255), nullable=False)
+	normalized_name: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
+	primary_court: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	aliases: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	case_links = relationship("CaseJudgeProfile", back_populates="judge_profile", cascade="all, delete-orphan")
+
+
+class CaseJudgeProfile(Base):
+	__tablename__ = "case_judge_profiles"
+	__table_args__ = (UniqueConstraint("case_id", "judge_profile_id", name="uq_case_judge_profile"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	judge_profile_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("judge_profiles.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	raw_name: Mapped[str] = mapped_column(String(255), nullable=False)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	case = relationship("Case", back_populates="judge_links")
+	judge_profile = relationship("JudgeProfile", back_populates="case_links")
 
 
 class CaseSource(Base):

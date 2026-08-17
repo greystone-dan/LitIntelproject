@@ -96,6 +96,8 @@ from .models import (
 	CaseSearchResponse,
 	CaseSourceResponse,
 	InventoryResponse,
+	InventorySourceSummary,
+	InventoryCaseResponse,
 	LocalChunkSearchRequest,
 	A2AJCaseMapResponse,
 	A2AJCaseResponse,
@@ -1911,10 +1913,12 @@ def _prototype_topic_scores(text: str) -> dict[str, int]:
 
 def _case_topic_keywords(case: Case) -> list[str]:
 	metadata = case.metadata_json or {}
-	if isinstance(metadata.get("topic_keywords"), list):
-		values = [str(value) for value in metadata["topic_keywords"] if value]
-		if values:
-			return values
+	if isinstance(metadata, dict):
+		topic_keywords = metadata.get("topic_keywords")
+		if isinstance(topic_keywords, list):
+			values = [str(value) for value in topic_keywords if value]
+			if values:
+				return values
 	text = " ".join(
 		[
 			case.title or "",
@@ -1967,10 +1971,12 @@ def _extract_legal_citations(text: str | None) -> list[str]:
 		value: str | None = None
 		if hasattr(citation, "corrected_citation"):
 			maybe_callable = getattr(citation, "corrected_citation")
-			value = maybe_callable() if callable(maybe_callable) else maybe_callable
+			result = maybe_callable() if callable(maybe_callable) else maybe_callable
+			value = str(result) if result is not None else None
 		if not value and hasattr(citation, "matched_text"):
 			maybe_callable = getattr(citation, "matched_text")
-			value = maybe_callable() if callable(maybe_callable) else maybe_callable
+			result = maybe_callable() if callable(maybe_callable) else maybe_callable
+			value = str(result) if result is not None else None
 		if not value:
 			value = str(citation)
 
@@ -2521,8 +2527,8 @@ def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
 	return InventoryResponse(
 		total_cases=int(total_cases),
 		total_sources=int(total_sources),
-		source_breakdown=source_breakdown,
-		cases=cases,
+		source_breakdown=[InventorySourceSummary.model_validate(item) for item in source_breakdown],
+		cases=[InventoryCaseResponse.model_validate(item) for item in cases],
 	)
 
 
@@ -3640,7 +3646,8 @@ def get_analytics_search_ministers(db: Session = Depends(get_db)) -> dict[str, l
 def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	case = _get_case_or_404(case_id, db)
 	full_text = case.full_text or case.summary or ""
-	metadata = dict((case.metadata_json or {}).get("reader_extracted") or {})
+	reader_extracted = (case.metadata_json or {}).get("reader_extracted")
+	metadata: dict[str, Any] = reader_extracted if isinstance(reader_extracted, dict) else {}
 	citation_rows = list(
 		db.scalars(
 			select(Citation)
@@ -3669,6 +3676,8 @@ def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> di
 		search_start = max(search_start, chunk_start + len(chunk_text))
 	highlights = []
 	for citation in citation_rows:
+		if citation.chunk_id is None:
+			continue
 		chunk_start = chunk_starts.get(citation.chunk_id)
 		if chunk_start is None or citation.offset_start is None or citation.offset_end is None:
 			continue
@@ -4164,7 +4173,7 @@ def get_case_citation_pass_detail(
 	elif layer == "law":
 		matches = extract_statute_reference_matches(full_text)
 	else:
-		matches = extract_metadata_matches(full_text)
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Metadata layer not supported in this endpoint")
 	selected = next(
 		(match for match in matches if match.offset_start == offset_start and match.offset_end == offset_end),
 		None,
@@ -4186,9 +4195,9 @@ def get_case_citation_pass_detail(
 		stored_records = _stored_statute_reference_details(db, case_id, selected, chunks)
 	primary_paragraph_chunk = next((chunk for chunk in chunks if chunk.get("is_paragraph_chunk")), None)
 
-	citation_text = selected.text if layer == "metadata" else selected.citation_text
-	normalized = selected.value if layer == "metadata" else selected.normalized_citation
-	kind = selected.field if layer == "metadata" else selected.kind
+	citation_text = selected.citation_text
+	normalized = selected.normalized_citation
+	kind = selected.kind
 	return {
 		"layer": layer,
 		"kind": kind,
@@ -4212,10 +4221,6 @@ def get_case_citation_pass_detail(
 		"chunks": chunks,
 		"primary_paragraph_chunk": primary_paragraph_chunk,
 		"stored_records": stored_records,
-		"metadata": {
-			"confidence": selected.confidence,
-			"source": selected.source,
-		} if layer == "metadata" else None,
 	}
 
 
@@ -5942,7 +5947,7 @@ def prototype_graph(
 
 @router.post("/search", response_model=list[CaseSearchResponse])
 def search_cases(
-	search: CaseSearchRequest, db: Session = Depends(get_db), response: Response = None
+	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
 	_validate_search_ranges(search)
 	effective_mode = _effective_search_mode(search.search_mode)
@@ -5999,10 +6004,10 @@ def search_cases(
 		)
 		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
 		max_lexical = max(max_lexical, lexical_score)
-		prepared_rows.append((case, semantic_similarity, lexical_score, int(graph_in_degree_value or 0)))
+		prepared_rows.append((case, semantic_similarity, lexical_score))
 
 	weighted_rows: list[tuple[Case, float, float]] = []
-	for case, semantic_similarity, lexical_score, graph_in_degree_value in prepared_rows:
+	for case, semantic_similarity, lexical_score in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
 			final_score = semantic_similarity
@@ -6021,12 +6026,6 @@ def search_cases(
 	end = start + search.page_size
 	page_rows = weighted_rows[start:end]
 
-	if response is not None:
-		response.headers["X-Search-Total"] = str(total_matches)
-		response.headers["X-Search-Page"] = str(search.page)
-		response.headers["X-Search-Page-Size"] = str(search.page_size)
-		response.headers["X-Search-Total-Pages"] = str(max(1, -(-total_matches // search.page_size)))
-		response.headers["X-Search-Effective-Mode"] = effective_mode
 	return [
 		CaseSearchResponse(
 			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),

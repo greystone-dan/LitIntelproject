@@ -9,12 +9,13 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is advanced search and decision reading, with Citation Pass retained as the extractor QA surface.
+Current main workflow is the six-tab immigration litigation intelligence interface,
+with Citation Pass retained as the extractor QA surface.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for research-facing search, filtering, judge analytics, and the full-decision reader.
+2. Use `/data-explorer` for About, Case Search, Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer.
 3. Use `/case-reader` for unified case detail and linked citation context.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Re-run focused verification and then update explainer docs and changelog.

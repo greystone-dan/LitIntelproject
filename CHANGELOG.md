@@ -3,6 +3,16 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## 2026-08-17 - Six-tab intelligence interface
+
+- Restored the primary one-page product shell with About, Case Search,
+	Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer tabs.
+- Restored database-backed About statistics and Citation Intelligence API
+	surfaces without changing citation extraction or resolution behavior.
+- Added Judge Profile list/detail APIs using the existing canonical profile
+	schema and preserved compatibility redirects for `/about`,
+	`/citation-intelligence`, and `/judges`.
+
 Note: entries on the same date may be grouped by feature theme rather than
 strict execution order.
 

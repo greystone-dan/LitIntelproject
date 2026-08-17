@@ -156,7 +156,11 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 
 ## Primary Interfaces
 
-- `GET /data-explorer`: advanced search, judge outcomes, and case data explorer tabs
+- `GET /data-explorer`: single-page research interface with About, Case Search,
+  Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer tabs
+- `GET /about`: compatibility redirect to the About tab
+- `GET /citation-intelligence`: compatibility redirect to Citation Intelligence
+- `GET /judges`: compatibility redirect to Judge Profile
 - `GET /case-reader`: unified case detail reader
 - `GET /citation-pass`: extractor QA surface
 - `GET /citation-map`: citation graph workbench
@@ -201,7 +205,12 @@ See [docs/CLOUDFLARE_TUNNEL_SETUP.md](docs/CLOUDFLARE_TUNNEL_SETUP.md) for detai
 ## Useful Endpoints
 
 - GET / : backend health message
-- GET /data-explorer : advanced case search and analytics UI
+- GET /data-explorer : six-tab immigration litigation intelligence UI
+- GET /api/about/stats : live About-page library statistics
+- GET /api/citation-intelligence/{case_id}/overview : citation overview metrics
+- GET /api/citation-intelligence/{case_id}/table : citation evidence table
+- GET /api/judge-profiles : canonical judge profile list
+- GET /api/judge-profiles/{slug} : selected judge profile and linked cases
 - GET /analytics/search/cases : filtered case search API
 - GET /analytics/search/ministers : minister dropdown source API
 - GET /analytics/search/cases/{case_id} : full-decision reader payload with citation highlights and metrics

@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from openai import OpenAI, OpenAIError
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.sql import Select
@@ -41,6 +41,13 @@ from .citation_map import (
 	citation_paths as _citation_paths,
 	citation_map_summary as _citation_map_summary,
 	citation_map_topics as _citation_map_topics,
+	citation_intelligence_overview as _ci_overview,
+	citation_intelligence_timeline as _ci_timeline,
+	citation_intelligence_outcomes as _ci_outcomes,
+	citation_intelligence_courts as _ci_courts,
+	citation_intelligence_judges as _ci_judges,
+	citation_intelligence_statutes as _ci_statutes,
+	citation_intelligence_table as _ci_table,
 	citation_neighborhood as _citation_neighborhood,
 	citation_replacement_trend as _citation_replacement_trend,
 	citation_surprise_feed as _citation_surprise_feed,
@@ -65,6 +72,8 @@ from .database import (
 	CaseChunkEmbedding,
 	CaseSource,
 	CaseTag,
+	JudgeProfile,
+	CaseJudgeProfile,
 	Citation,
 	CitationMetrics,
 	IngestionRun,
@@ -2856,7 +2865,7 @@ def _data_explorer_page_html() -> str:
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iLIT | Litigation Workbench</title>
+<title>Immigration Litigation Intelligence Tool | iLIT</title>
 <style>
 :root {
 --bg: #f5f7fb;
@@ -3000,7 +3009,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 <div class="logo-mark">i</div>
 <div>
 <div class="brand-name">iLIT</div>
-<div class="brand-sub">Case search and analytics</div>
+<div class="brand-sub">Immigration Litigation Intelligence Tool</div>
 </div>
 </div>
 <div class="global-search">
@@ -3049,15 +3058,23 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 </aside>
 <main class="center-pane">
 <div class="page-header">
-<div class="eyebrow">Decision desk</div>
-<h1>Litigation workbench</h1>
-<p>Search decisions, inspect the source record, and compare outcomes across the case library.</p>
-<div class="view-tabs" role="tablist" aria-label="Workbench views">
+<div class="eyebrow">Immigration litigation intelligence</div>
+<h1>Immigration Litigation Intelligence Tool</h1>
+<p>Search decisions, inspect authorities, and compare outcomes across the case library.</p>
+<div class="view-tabs" role="tablist" aria-label="Research views">
+<button class="tab" type="button" data-tab="about">About</button>
 <button class="tab active" type="button" data-tab="search">Case search</button>
+<button class="tab" type="button" data-tab="citation-intelligence">Citation Intelligence</button>
 <button class="tab" type="button" data-tab="judge">Judge outcomes</button>
+<button class="tab" type="button" data-tab="judge-profile">Judge Profile</button>
 <button class="tab" type="button" data-tab="explorer">Data explorer</button>
 </div>
 </div>
+<section id="aboutPanel" class="panel-card search-layout" hidden>
+<div class="page-header"><div class="eyebrow">About the tool</div><h2>Immigration Litigation Intelligence Tool</h2><p>Evidence-focused research across Canadian immigration decisions, authorities, and outcomes.</p></div>
+<div class="summaryRows" id="aboutSummary"><span>Loading library statistics...</span></div>
+<div class="search-meta">This research aid preserves source decisions, searchable text, extracted metadata, and citation relationships for review.</div>
+</section>
 <section id="searchPanel" class="panel-card search-layout">
 <form class="search-form" id="caseSearch">
 <div class="wide"><label for="searchQuery">Search decision text, title, or citation</label><input id="searchQuery" placeholder="e.g. procedural fairness"></div>
@@ -3078,11 +3095,19 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 <div class="search-meta" id="searchMeta">Enter search terms or filters to search the case inventory.</div>
 <div class="results-wrap" id="searchResults"></div>
 </section>
+<section id="citationIntelligencePanel" class="panel-card search-layout" hidden>
+<div class="page-header"><div class="eyebrow">Authority analysis</div><h2>Citation Intelligence</h2><p>Trace how authorities are used, where they travel, and what outcomes follow.</p></div>
+<div id="citationIntelligenceContent" class="search-meta">Select a case from Case Search to inspect its citation intelligence.</div>
+</section>
 <section id="judgePanel" class="panel-card search-layout" hidden>
 <div class="summaryRows" id="judgeSummary"><span>Loading judge outcomes...</span></div>
 <div class="legend"><span class="key"><i class="dot" style="background:var(--blue)"></i>Government wins</span><span class="key"><i class="dot" style="background:var(--red)"></i>Individual wins</span><span class="key"><i class="dot" style="background:#cbd5e1"></i>Unclassified</span></div>
 <div class="table-wrap"><table><thead><tr><th>#</th><th>Judge</th><th class="number">Decisions</th><th>Outcome split</th><th class="number">Government wins</th><th class="number">Individual wins</th><th class="number">Unclassified</th><th class="number">Government win rate</th></tr></thead><tbody id="judgeRows"><tr><td colspan="8" class="empty">Loading judge outcomes...</td></tr></tbody></table></div>
 <p class="search-meta">Includes every judge with more than 100 decisions. Win rate uses classified government-versus-individual outcomes only.</p>
+</section>
+<section id="judgeProfilePanel" class="panel-card search-layout" hidden>
+<div class="page-header"><div class="eyebrow">Judicial profiles</div><h2>Judge Profile</h2><p>Explore normalized judge records and the decisions associated with each profile.</p></div>
+<div id="judgeProfileContent" class="search-meta">Loading judge profiles...</div>
 </section>
 <section id="explorerPanel" class="panel-card search-layout" hidden>
 <div class="search-form" style="grid-template-columns:repeat(3,minmax(180px,1fr));margin-bottom:8px;">
@@ -3154,9 +3179,16 @@ async function loadJudge(){try{const response=await fetch('/analytics/judge-outc
 function options(selected){return fields.map(field=>`<option value="${field.key}" ${field.key===selected?'selected':''}>${esc(field.label)}</option>`).join('')};
 function paintFields(){document.getElementById('groupBy').innerHTML=options('judge');document.getElementById('splitBy').innerHTML=options('government_outcome')}
 async function loadMinisters(){const response=await fetch('/analytics/search/ministers');if(!response.ok)throw new Error('Unable to load minister options');const data=await response.json();document.getElementById('ministerFilter').innerHTML=`<option value="">Any minister or government party</option>${data.ministers.map(value=>`<option value="${esc(value)}">${esc(value)}</option>`).join('')}`;}
+async function loadAbout(){const response=await fetch('/api/about/stats');if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();document.getElementById('aboutSummary').innerHTML=`<span><strong>${num(data.cases)}</strong><br>cases in library</span><span><strong>${num(data.citations)}</strong><br>citation records</span><span><strong>${num(data.linked_citations)}</strong><br>linked citations</span><span><strong>${num(data.judge_profiles)}</strong><br>judge profiles</span>`;}
+async function loadCitationIntelligence(){const box=document.getElementById('citationIntelligenceContent'),caseId=new URLSearchParams(location.search).get('case_id');if(!caseId){box.textContent='Select a case from Case Search to inspect its citation intelligence.';return}box.textContent='Loading citation intelligence...';try{const [overview,outcomes,courts,judges,statutes]=await Promise.all([fetch(`/api/citation-intelligence/${caseId}/overview`).then(response=>response.json()),fetch(`/api/citation-intelligence/${caseId}/outcomes`).then(response=>response.json()),fetch(`/api/citation-intelligence/${caseId}/courts`).then(response=>response.json()),fetch(`/api/citation-intelligence/${caseId}/judges?limit=8`).then(response=>response.json()),fetch(`/api/citation-intelligence/${caseId}/statutes?limit=8`).then(response=>response.json())]);const metrics=overview.metrics||overview;const cards=Object.entries(metrics).filter(([,value])=>typeof value==='number').slice(0,6).map(([key,value])=>`<span><strong>${num(value)}</strong><br>${esc(key.replaceAll('_',' '))}</span>`).join('');const courtRows=(courts||[]).slice(0,8).map(item=>`<div class="note-box"><strong>${esc(item.court||item.label||'Court')}</strong><span>${num(item.count||item.citations||item.decisions||0)} records</span></div>`).join('');const judgeRows=(judges||[]).slice(0,8).map(item=>`<div class="note-box"><strong>${esc(item.judge||item.name||'Judge')}</strong><span>${num(item.count||item.citations||item.decisions||0)} records</span></div>`).join('');const statuteRows=(statutes||[]).slice(0,8).map(item=>`<span class="tag neutral">${esc(item.label||item.value||item.statute||'Statute')}</span>`).join('');box.innerHTML=`<div class="summaryRows">${cards||'<span>No citation metrics available.</span>'}</div><div class="search-meta">Outcome breakdown: ${esc(JSON.stringify(outcomes))}</div><div class="bottom-tray" style="padding:12px 0 0;background:transparent;border:0"><div class="tray-panel"><div class="tray-head">Citing courts</div><div class="tray-body">${courtRows||'<span class="empty">No court data.</span>'}</div></div><div class="tray-panel"><div class="tray-head">Citing judges</div><div class="tray-body">${judgeRows||'<span class="empty">No judge data.</span>'}</div></div></div><div class="search-meta">Statute and regulation references</div><div class="result-tags">${statuteRows||'<span class="tag neutral">No statute references.</span>'}</div>`}catch(error){box.textContent=String(error)}}
+async function loadJudgeProfiles(){const box=document.getElementById('judgeProfileContent');try{const response=await fetch('/api/judge-profiles?limit=100');if(!response.ok)throw new Error(`Request failed (${response.status})`);const profiles=await response.json();if(!profiles.length){box.innerHTML='<span>No canonical judge profiles are available yet. Apply migration 0014 and run the judge profile backfill.</span>';return}box.innerHTML=`<div class="results-wrap">${profiles.map(profile=>`<button class="case-result judge-profile-result" data-slug="${esc(profile.slug)}"><div class="result-title">${esc(profile.display_name)}</div><div class="result-meta">${esc(profile.primary_court||'Court not recorded')} · ${num(profile.decision_count)} decisions</div></button>`).join('')}</div>`;box.querySelectorAll('.judge-profile-result').forEach(button=>button.onclick=()=>loadJudgeProfile(button.dataset.slug))}catch(error){box.textContent=String(error)}}
+async function loadJudgeProfile(slug){const box=document.getElementById('judgeProfileContent');try{const response=await fetch(`/api/judge-profiles/${encodeURIComponent(slug)}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();const profile=data.profile;box.innerHTML=`<div class="page-header"><div class="eyebrow">Judge Profile</div><h2>${esc(profile.display_name)}</h2><p>${esc(profile.primary_court||'Court not recorded')} · ${num(data.decisions.length)} linked decisions</p></div><div class="results-wrap">${data.decisions.slice(0,50).map(item=>`<button class="case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title)}</div><div class="result-meta">${esc(item.citation||'No citation')} · ${esc(item.court)} · ${esc(item.date)}</div></button>`).join('')}</div><button type="button" class="tab" id="backToJudgeProfiles">Back to judge profiles</button>`;document.getElementById('backToJudgeProfiles').onclick=loadJudgeProfiles}catch(error){box.textContent=String(error)}}
 function render(data){const splitLabel=data.split_by.label;const colors=Object.fromEntries(data.split_values.map((value,index)=>[value,palette[index%palette.length]]));document.getElementById('summary').innerHTML=`<span><strong>${num(data.totals.decisions)}</strong><br>decisions counted</span><span><strong>${num(data.groups.length)}</strong><br>${esc(data.group_by.label.toLowerCase())} results shown</span>`;document.getElementById('legend').innerHTML=data.split_values.map(value=>`<span class="key"><i class="dot" style="background:${colors[value]}"></i>${esc(value)}</span>`).join('');document.getElementById('head').innerHTML=`<tr><th>#</th><th>${esc(data.group_by.label)}</th><th>Decisions</th><th>${esc(splitLabel)} split</th>${data.split_values.map(value=>`<th class="number">${esc(value)}</th>`).join('')}</tr>`;document.getElementById('rows').innerHTML=data.groups.map((item,index)=>{const bar=data.split_values.map(value=>{const count=item.breakdown[value]||0;return `<span style="width:${item.decisions?count/item.decisions*100:0}%;background:${colors[value]}" title="${esc(value)}: ${num(count)}"></span>`}).join('');return `<tr><td class="rank">${index+1}</td><td class="group">${esc(item.value)}</td><td class="number">${num(item.decisions)}</td><td><div class="bar">${bar}</div></td>${data.split_values.map(value=>`<td class="number">${num(item.breakdown[value]||0)}</td>`).join('')}</tr>`}).join('')||'<tr><td class="empty">No matching decision data.</td></tr>'};
 async function load(){const groupBy=document.getElementById('groupBy').value,splitBy=document.getElementById('splitBy').value,limit=document.getElementById('limit').value;document.getElementById('rows').innerHTML='<tr><td class="empty">Loading analytics...</td></tr>';try{const response=await fetch(`/analytics/explorer?group_by=${encodeURIComponent(groupBy)}&split_by=${encodeURIComponent(splitBy)}&limit=${encodeURIComponent(limit)}`);if(!response.ok)throw new Error(`Request failed (${response.status})`);render(await response.json())}catch(error){document.getElementById('rows').innerHTML=`<tr><td class="empty">${esc(error.message)}</td></tr>`}}
-(async()=>{const response=await fetch('/analytics/explorer?limit=1');if(!response.ok)throw new Error('Unable to load available fields');const data=await response.json();fields=data.fields;paintFields();await loadMinisters();document.getElementById('apply')?.addEventListener('click', load);document.getElementById('caseSearch').onsubmit=loadSearch;document.getElementById('clearSearch').onclick=()=>{document.getElementById('caseSearch').reset();document.getElementById('searchMeta').textContent='Enter search terms or filters, then search the full case inventory.';document.getElementById('searchResults').innerHTML='';};document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{const active=tab.dataset.tab;document.getElementById('searchPanel').hidden=active!=='search';document.getElementById('judgePanel').hidden=active!=='judge';document.getElementById('explorerPanel').hidden=active!=='explorer';document.querySelectorAll('.tab').forEach(item=>item.classList.toggle('active',item===tab));if(active==='judge')loadJudge();if(active==='explorer')load();});})().catch(error=>document.getElementById('searchMeta').textContent=String(error));
+(async()=>{const response=await fetch('/analytics/explorer?limit=1');if(!response.ok)throw new Error('Unable to load available fields');const data=await response.json();fields=data.fields;paintFields();await loadMinisters();document.getElementById('apply')?.addEventListener('click', load);document.getElementById('caseSearch').onsubmit=loadSearch;document.getElementById('clearSearch').onclick=()=>{document.getElementById('caseSearch').reset();document.getElementById('searchMeta').textContent='Enter search terms or filters, then search the full case inventory.';document.getElementById('searchResults').innerHTML='';};const selectTab=active=>{const panels={about:'aboutPanel',search:'searchPanel','citation-intelligence':'citationIntelligencePanel',judge:'judgeProfilePanel',explorer:'explorerPanel'};const normalized=active==='data-explorer'?'explorer':active==='judge-outcomes'?'judge':active;const selected=panels[normalized]?normalized:'search';Object.entries(panels).forEach(([key,id])=>{const panel=document.getElementById(id);if(panel)panel.hidden=key!==selected});document.getElementById('judgePanel').hidden=selected!=='judge';document.querySelectorAll('.tab').forEach(item=>item.classList.toggle('active',item.dataset.tab===selected));history.replaceState(null,'',`/data-explorer?tab=${encodeURIComponent(selected)}${new URLSearchParams(location.search).get('case_id')?`&case_id=${encodeURIComponent(new URLSearchParams(location.search).get('case_id'))}`:''}`);if(selected==='about')loadAbout();if(selected==='citation-intelligence')loadCitationIntelligence();if(selected==='judge')loadJudge();if(selected==='judge-profile')loadJudgeProfiles();if(selected==='explorer')load();};document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>selectTab(tab.dataset.tab));const initialTab=new URLSearchParams(location.search).get('tab')||'search';selectTab(initialTab);})().catch(error=>document.getElementById('searchMeta').textContent=String(error));
+</script>
+<script>
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{const active=tab.dataset.tab;const panels={about:'aboutPanel',search:'searchPanel','citation-intelligence':'citationIntelligencePanel',judge:'judgePanel','judge-profile':'judgeProfilePanel',explorer:'explorerPanel'};const selected=panels[active]?active:'search';Object.entries(panels).forEach(([key,id])=>{const panel=document.getElementById(id);if(panel)panel.hidden=key!==selected});if(selected==='judge')document.getElementById('judgePanel').hidden=false;if(selected==='judge-profile')loadJudgeProfiles();}));const initialTab=new URLSearchParams(location.search).get('tab');if(initialTab==='judge-profile'){document.getElementById('searchPanel').hidden=true;document.getElementById('judgeProfilePanel').hidden=false;loadJudgeProfiles();}else if(initialTab==='judge-outcomes'){document.getElementById('searchPanel').hidden=true;document.getElementById('judgePanel').hidden=false;loadJudge();}else if(initialTab==='data-explorer'){document.getElementById('searchPanel').hidden=true;document.getElementById('explorerPanel').hidden=false;load();}
 </script>
 <dialog id="decisionDialog">
 <div class="reader-shell">
@@ -3237,6 +3269,157 @@ def get_data_explorer(
 		"groups": result_groups,
 		"totals": {"decisions": sum(group["decisions"] for group in result_groups)},
 	}
+
+
+@router.get("/api/about/stats", response_model=dict[str, int], include_in_schema=False)
+def about_stats(db: Session = Depends(get_db)) -> dict[str, int]:
+	return {
+		"cases": int(db.scalar(select(func.count(Case.id))) or 0),
+		"citations": int(db.scalar(select(func.count(Citation.id))) or 0),
+		"linked_citations": int(
+			db.scalar(select(func.count(Citation.id)).where(Citation.target_case_id.is_not(None))) or 0
+		),
+		"judge_profiles": int(db.scalar(select(func.count(JudgeProfile.id))) or 0),
+	}
+
+
+@router.get("/api/citation-intelligence/search", response_model=list[dict[str, Any]], include_in_schema=False)
+def citation_intelligence_search(
+	q: str = "",
+	limit: int = 12,
+	db: Session = Depends(get_db),
+) -> list[dict[str, Any]]:
+	return _search_citation_cases(db, q, limit=max(1, min(50, limit)))
+
+
+@router.get("/api/citation-intelligence/{case_id}/overview", include_in_schema=False)
+def citation_intelligence_overview(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
+	return _ci_overview(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/timeline", include_in_schema=False)
+def citation_intelligence_timeline(case_id: int, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
+	return _ci_timeline(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/outcomes", include_in_schema=False)
+def citation_intelligence_outcomes(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
+	return _ci_outcomes(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/courts", include_in_schema=False)
+def citation_intelligence_courts(case_id: int, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
+	return _ci_courts(db, case_id)
+
+
+@router.get("/api/citation-intelligence/{case_id}/judges", include_in_schema=False)
+def citation_intelligence_judges(case_id: int, limit: int = 30, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
+	return _ci_judges(db, case_id, max(1, min(100, limit)))
+
+
+@router.get("/api/citation-intelligence/{case_id}/statutes", include_in_schema=False)
+def citation_intelligence_statutes(case_id: int, limit: int = 25, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
+	return _ci_statutes(db, case_id, max(1, min(100, limit)))
+
+
+@router.get("/api/citation-intelligence/{case_id}/companions", include_in_schema=False)
+def citation_intelligence_companions(case_id: int, limit: int = 20, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	_get_case_or_404(case_id, db)
+	return _co_cited_authorities(db, case_id, max(1, min(100, limit)))
+
+
+@router.get("/api/citation-intelligence/{case_id}/table", include_in_schema=False)
+def citation_intelligence_table(
+	case_id: int,
+	page: int = 1,
+	page_size: int = 50,
+	year: int | None = None,
+	court: str | None = None,
+	judge: str | None = None,
+	gov_outcome: str | None = None,
+	min_mentions: int = 1,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	_get_case_or_404(case_id, db)
+	return _ci_table(
+		db,
+		case_id,
+		page=max(1, page),
+		page_size=max(1, min(200, page_size)),
+		year=year,
+		court=court,
+		judge=judge,
+		gov_outcome=gov_outcome,
+		min_mentions=max(1, min_mentions),
+	)
+
+
+@router.get("/api/judge-profiles", response_model=list[dict[str, Any]], include_in_schema=False)
+def judge_profiles(q: str = "", limit: int = 50, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	statement = select(JudgeProfile).order_by(JudgeProfile.display_name).limit(max(1, min(100, limit)))
+	term = q.strip()
+	if term:
+		pattern = f"%{term}%"
+		statement = select(JudgeProfile).where(
+			or_(JudgeProfile.display_name.ilike(pattern), JudgeProfile.normalized_name.ilike(pattern))
+		).order_by(JudgeProfile.display_name).limit(max(1, min(100, limit)))
+	rows = list(db.scalars(statement))
+	return [
+		{
+			"slug": row.slug,
+			"display_name": row.display_name,
+			"primary_court": row.primary_court,
+			"aliases": row.aliases or [],
+			"decision_count": len(row.case_links),
+		}
+		for row in rows
+	]
+
+
+@router.get("/api/judge-profiles/{slug}", response_model=dict[str, Any], include_in_schema=False)
+def judge_profile(slug: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	profile = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == slug))
+	if profile is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Judge profile not found")
+	cases = [link.case for link in profile.case_links]
+	return {
+		"profile": {
+			"slug": profile.slug,
+			"display_name": profile.display_name,
+			"primary_court": profile.primary_court,
+			"aliases": profile.aliases or [],
+		},
+		"decisions": [
+			{"case_id": case.id, "title": case.title, "citation": case.citation, "court": case.court, "date": case.date}
+			for case in sorted(cases, key=lambda item: item.date, reverse=True)
+		],
+	}
+
+
+@router.get("/about", include_in_schema=False)
+def about_page() -> RedirectResponse:
+	return RedirectResponse(url="/data-explorer?tab=about", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/citation-intelligence", include_in_schema=False)
+def citation_intelligence_page() -> RedirectResponse:
+	return RedirectResponse(url="/data-explorer?tab=citation-intelligence", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/judges", include_in_schema=False)
+def judges_page() -> RedirectResponse:
+	return RedirectResponse(url="/data-explorer?tab=judge-profile", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/judges/{slug}", include_in_schema=False)
+def judge_profile_page(slug: str) -> RedirectResponse:
+	return RedirectResponse(url=f"/data-explorer?tab=judge-profile&judge={slug}", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
 def _analytics_case_order_sql(query: str, sort_by: str, *, minister_expression: str = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')") -> tuple[str, dict[str, Any]]:

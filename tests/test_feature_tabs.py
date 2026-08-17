@@ -93,3 +93,6 @@ def test_rendered_shell_exposes_focused_feature_searches():
     assert 'Find a case by title' in html
     assert 'id="judgeProfileQuery"' in html
     assert 'Find a judge by name' in html
+
+    for subtab in ("Overview", "Timeline", "Outcomes", "Courts", "Judges", "Companions", "Statutes", "Evidence"):
+        assert subtab in html

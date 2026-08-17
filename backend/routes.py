@@ -3716,7 +3716,7 @@ def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> di
 
 
 def _citation_pass_page_html() -> str:
-	return """<!doctype html>
+	return r"""<!doctype html>
 <html lang=\"en\">
 <head>
 	<meta charset=\"utf-8\">

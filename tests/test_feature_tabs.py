@@ -58,3 +58,38 @@ def test_rendered_shell_exposes_six_tabs_and_product_title():
     assert "Decision desk" not in html
     assert "Litigation workbench" not in html
     assert "Case search and analytics" not in html
+
+
+def test_citation_intelligence_case_search_is_title_scoped():
+    case = SimpleNamespace(
+        id=12,
+        title="Vavilov v. Canada (Citizenship and Immigration)",
+        citation="2019 SCC 65",
+        court="SCC",
+        date="2019-12-19",
+    )
+
+    class Database:
+        def scalars(self, statement):
+            return iter([case])
+
+    result = routes.citation_intelligence_cases("Vavilov", 12, Database())
+
+    assert result == [
+        {
+            "case_id": 12,
+            "title": case.title,
+            "citation": case.citation,
+            "court": case.court,
+            "date": case.date,
+        }
+    ]
+
+
+def test_rendered_shell_exposes_focused_feature_searches():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="citationCaseQuery"' in html
+    assert 'Find a case by title' in html
+    assert 'id="judgeProfileQuery"' in html
+    assert 'Find a judge by name' in html

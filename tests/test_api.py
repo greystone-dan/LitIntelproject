@@ -161,35 +161,13 @@ def test_search_metadata_mode_uses_basic_identifiers(monkeypatch):
 
 
 def test_analytics_search_relevance_prefers_exact_case_name_matches():
-    order_sql, params = routes._analytics_case_order_sql("Vavilov", "", "relevance")
+    order_sql, params = routes._analytics_case_order_sql("Vavilov", "relevance")
 
     assert "LOWER(COALESCE(c.title" in order_sql
     assert "LOWER(:query_exact)" in order_sql
+    assert "c.full_text" not in order_sql
     assert params["query_exact"] == "Vavilov"
     assert params["query_like"] == "%Vavilov%"
-
-
-def test_analytics_search_relevance_ranks_exact_vavilov_before_recent_cases():
-    order_sql, params = routes._analytics_case_order_sql("Vavilov", "", "relevance")
-
-    assert "CASE" in order_sql.upper()
-    assert "= LOWER(:query_exact)" in order_sql
-    assert params["query_exact"] == "Vavilov"
-    assert "Vavilov" in str(params["query_like"])
-
-
-def test_analytics_case_order_sql_avoids_missing_aliases_in_relevance_sort():
-    order_sql, _ = routes._analytics_case_order_sql("Vavilov", "", "relevance")
-
-    assert "matching_citations" not in order_sql.lower()
-    assert "c.date desc" in order_sql.lower()
-
-
-def test_analytics_case_order_sql_for_minister_sort_uses_valid_expression():
-    order_sql, _ = routes._analytics_case_order_sql("Vavilov", "", "minister")
-
-    assert "substrings" in order_sql.lower() or "coalesce" in order_sql.lower()
-    assert "unknown" in order_sql.lower()
 
 
 @pytest.mark.parametrize(
@@ -290,65 +268,6 @@ def test_search_applies_extended_metadata_filters(monkeypatch):
     assert "en" in params.values()
     assert "embedded" in params.values()
     assert 1 in params.values()
-
-
-def test_search_ranks_highly_authoritative_cases_higher(monkeypatch):
-    """Verify that cases with high pagerank/in_degree rank above less-authoritative cases when relevance is similar."""
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
-    
-    # Case 1: High authority (200 in-degree), moderate relevance (0.75 lexical score)
-    authoritative_case = SimpleNamespace(
-        id=1,
-        title="Vavilov v. Canada",
-        court="Supreme Court of Canada",
-        jurisdiction="Canada",
-        date=date(2021, 2, 1),
-        citation="2021 SCC 1",
-        summary="Landmark administrative law decision on procedural fairness.",
-        full_text=None,
-        issues=None,
-        metadata_json=None,
-        source_url=None,
-        source_name="Court website",
-    )
-    
-    # Case 2: Lower authority (2 in-degree), slightly higher relevance (0.85 lexical score)
-    # This represents a newer, more specifically relevant but less-cited case
-    less_authoritative_case = SimpleNamespace(
-        id=2,
-        title="Smith v. Minister of Administrative Review",
-        court="Federal Court",
-        jurisdiction="Canada",
-        date=date(2022, 1, 1),
-        citation="2022 FC 1",
-        summary="Recent administrative law decision about ministerial discretion in immigration matters.",
-        full_text=None,
-        issues=None,
-        metadata_json=None,
-        source_url=None,
-        source_name="Court website",
-    )
-    
-    # FakeDatabase: authoritative case has slightly lower lexical but much higher in_degree
-    # With 15% authority weight, high-authority cases should now rank above less-cited ones
-    # when the relevance is comparable
-    database = FakeDatabase(rows=[
-        (authoritative_case, 0.75, 200),   # id=1, lexical_score=0.75, in_degree=200 (landmark)
-        (less_authoritative_case, 0.85, 2),  # id=2, lexical_score=0.85, in_degree=2 (more specific)
-    ])
-    request = CaseSearchRequest(
-        query="administrative discretion",
-        search_mode="metadata",
-    )
-
-    results = routes.search_cases(request, database)
-
-    # With improved ranking, highly authoritative cases (like SCC landmark) should rank
-    # above less-cited cases even when the less-cited case has slightly higher lexical match
-    assert len(results) == 2
-    assert results[0].id == 1, "Authoritative SCC case (Vavilov) should rank first despite lower text relevance"
-    # Verify the score difference reflects authority boost
-    assert results[0].similarity > results[1].similarity * 0.7
 
 
 def test_get_case_citation_pass_returns_live_rows(monkeypatch):

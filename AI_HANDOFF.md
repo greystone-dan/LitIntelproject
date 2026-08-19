@@ -1,6 +1,6 @@
 # AI CaseLibrary Handoff
 
-Last updated: 2026-08-12
+Last updated: 2026-08-19
 
 This document is the expanded operating handoff for the current system state. It is meant to give a new agent or developer enough context to understand the platform layers, the data model, the citation-map capabilities, and the current QA posture without reading the entire repo first.
 
@@ -78,7 +78,21 @@ Immediate entry point for the next agent:
 3. Repair or reconcile the unrelated FC document-scraper test syntax error, then
 	run the full suite and record a new baseline.
 
-### 0.1 Pickup Estimate And Statute Scope Guardrail (2026-08-10)
+### 0.1 Docket Number Field Backfill (2026-08-19)
+
+A new `docket_number` column was added to the canonical `cases` table to capture Federal Court docket and file identifiers separately from citation semantics.
+
+Backfill results across the 35,902-case corpus:
+
+1. **Coverage**: 35,451 of 35,902 cases (98.74%)
+2. **IMM pattern** (IMM-XXXX-YY): 22,140 cases
+3. **T pattern** (T-XXXX): 13,308 cases
+4. **Other**: 3 cases
+5. **Not found**: 451 cases (likely non-Federal-Court or missing docket in text)
+
+Extraction method: Scanned title, summary, and first chunk text for `T-\d+` and `IMM-\d{1,6}-\d{2,4}` patterns. This is a read-only backfill; the field is nullable and does not affect existing citation pipelines.
+
+### 0.2 Pickup Estimate And Statute Scope Guardrail (2026-08-10)
 
 Current rough citation pickup estimate for deterministic extraction:
 
@@ -198,6 +212,7 @@ These counts came from the live database at the time of this handoff.
 | Cases | 35,902 |
 | Cases with chunks | 35,902 |
 | Text-bearing cases | 35,856 |
+| Cases with docket_number | 35,451 |
 | Case chunks | 1,390,886 |
 | Citations | 1,492,628 |
 | Linked citations | 760,197 |

@@ -3,6 +3,29 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## 2026-08-19 - Docket Number Field Backfill and FC Activity Cross-Reference
+
+- Added dedicated `docket_number` column to the canonical `cases` table to
+	capture Federal Court docket and file identifiers separately from legal
+	citation semantics.
+- Backfilled docket numbers across 35,902 decisions by scanning title, summary,
+	and first chunk text for T-XXXX and IMM-XXXX-YY patterns: 35,451 cases
+	populated (98.74% coverage), with 22,140 IMM-pattern and 13,308 T-pattern
+	docket numbers recovered.
+- Updated schema in `backend/database.py`, `backend/models.py`,
+	`backend/ingestion.py`, and `backend/routes.py` to persist the field through
+	create and merge workflows.
+- Cross-referenced canonical docket_number values against FC Activity dataset
+	citations: 18,911 exact matches (53.85% of canonical dockets with activity
+	correlation), confirming reliable linkage for immigration cases up to 2022.
+- Documented root causes of 16,204 non-matches: 13,308 T-pattern cases
+	(non-immigration; activity dataset is 100% immigration-focused), 2,838
+	IMM-cases dated >2022 (activity dataset ends 2022), and 55 coverage gaps
+	within date range.
+- Verified backward compatibility: all Federal Court import tests pass (9
+	passed), ingest/metadata tests pass (10 passed).
+- Updated `AI_HANDOFF.md` with docket field documentation and coverage metrics.
+
 ## 2026-08-17 - Six-tab intelligence interface
 
 - Restored the primary one-page product shell with About, Case Search,

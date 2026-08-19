@@ -88,6 +88,7 @@ class Case(Base):
 	jurisdiction: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
 	date: Mapped[date_type] = mapped_column(Date, nullable=False, index=True)
 	citation: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	docket_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
 	secondary_citation: Mapped[str | None] = mapped_column(String(255), nullable=True)
 	summary: Mapped[str | None] = mapped_column(Text, nullable=True)
 	full_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -435,6 +436,60 @@ class FCProceduralHistory(Base):
 	entries_json: Mapped[list | None] = mapped_column(JSON, nullable=True)
 	conflict_flag: Mapped[bool] = mapped_column(default=False)
 	fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class FCActivityCase(Base):
+	__tablename__ = "fc_activity_cases"
+	__table_args__ = (
+		UniqueConstraint("citation", name="uq_fc_activity_case_citation"),
+		UniqueConstraint("source_key", name="uq_fc_activity_case_source_key"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_key: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
+	citation: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	case_name: Mapped[str | None] = mapped_column(Text, nullable=True)
+	date_filed: Mapped[date_type | None] = mapped_column(Date, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	nature: Mapped[str | None] = mapped_column(Text, nullable=True)
+	case_class: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	track: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	source_url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
+	scraped_timestamp: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	raw_payload: Mapped[dict[str, object] | None] = mapped_column(JSON, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	documents = relationship("FCActivityDocument", back_populates="case", cascade="all, delete-orphan")
+
+
+class FCActivityDocument(Base):
+	__tablename__ = "fc_activity_documents"
+	__table_args__ = (
+		UniqueConstraint("case_id", "re_no", "docno", name="uq_fc_activity_document_identity"),
+		UniqueConstraint("case_id", "re_no", "docno", "entry_hash", name="uq_fc_activity_document_fallback"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	re_no: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+	docno: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	doc_dt: Mapped[date_type | None] = mapped_column(Date, nullable=True, index=True)
+	recorded_entry: Mapped[str | None] = mapped_column(Text, nullable=True)
+	entry_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+	raw_document: Mapped[dict[str, object] | None] = mapped_column(JSON, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	case = relationship("FCActivityCase", back_populates="documents")
 
 
 def get_db() -> Generator[Session, None, None]:

@@ -1,7 +1,7 @@
 param(
     [string]$ConfigPath = ".cloudflared/config.yml",
     [string]$LocalHost = "127.0.0.1",
-    [int]$LocalPort = 8070,
+    [int]$LocalPort = 8000,
     [switch]$SkipApiStart
 )
 

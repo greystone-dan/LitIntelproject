@@ -28,12 +28,18 @@ What this does:
 ## Run App + Tunnel
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run_local_with_tunnel.ps1
+.\scripts\refresh_site.ps1
 ```
 
 Then open:
 
 - `https://your.domain.com`
+
+`refresh_site.ps1` stops the current local app on port `8000` and any existing
+Cloudflare Tunnel process, then starts both again. Leave its terminal open while
+the site should be live; press `Ctrl+C` to stop the tunnel and its app process.
+
+For the current deployment, open `https://www.ilit.ca`.
 
 ## If API Is Already Running Elsewhere
 

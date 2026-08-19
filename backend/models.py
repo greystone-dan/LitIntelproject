@@ -10,6 +10,7 @@ class CaseIngestRequest(BaseModel):
 	jurisdiction: str | None = Field(default=None, max_length=100)
 	date: date
 	citation: str | None = Field(default=None, max_length=255)
+	docket_number: str | None = Field(default=None, max_length=255)
 	summary: str | None = Field(default=None, min_length=1)
 	full_text: str | None = None
 	issues: list[str] | None = None
@@ -89,6 +90,7 @@ class CaseResponse(BaseModel):
 	jurisdiction: str | None = None
 	date: date
 	citation: str | None = None
+	docket_number: str | None = None
 	summary: str | None = None
 	full_text: str | None = None
 	issues: list[str] | None = None

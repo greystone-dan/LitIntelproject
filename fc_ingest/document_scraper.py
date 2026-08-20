@@ -140,6 +140,9 @@ def _normalize_docket_value(value: str | None) -> str | None:
     normalized = _normalize_whitespace(value)
     if not normalized:
         return None
+    shaped_dockets = re.findall(r"\b[A-Z]{1,6}-\d{1,6}-\d{1,4}\b", normalized, flags=re.IGNORECASE)
+    if shaped_dockets:
+        return "; ".join(dict.fromkeys(item.upper() for item in shaped_dockets))
     parts = [chunk.strip() for chunk in re.split(r"[;,]", normalized) if chunk.strip()]
     if not parts:
         return normalized
@@ -239,7 +242,7 @@ def _normalize_field_value(field: str, value: str | None) -> str | None:
         if not normalized:
             return None
         normalized = re.sub(r"^(?:En présence de|En presence de|PRESENT:|Present:|Before:|BEFORE:)\s*", "", normalized, flags=re.IGNORECASE)
-        normalized = re.sub(r"^(?:Madame|Monsieur|Mme|M\.|Mme\.|Mr\.?|Mrs\.?|Madam|Mr\.? Justice|Madame Justice|Monsieur le juge|madame la juge en chef par intérim)\s+", "", normalized, flags=re.IGNORECASE)
+        normalized = re.sub(r"^(?:Madame|Mme|M\.|Mme\.|Mr\.?|Mrs\.?|Madam|Mr\.? Justice|Madame Justice|madame la juge en chef par intérim)\s+", "", normalized, flags=re.IGNORECASE)
         return _dedupe_multiline_value(normalized) or _normalize_whitespace(normalized)
     return _dedupe_multiline_value(value) or _normalize_whitespace(value)
 
@@ -288,6 +291,26 @@ def _parse_labeled_sections(full_text: str) -> dict[str, str]:
         if not line:
             continue
 
+        judge_match = re.match(r"^En\s+présence\s+de\s+(.+)$", line, flags=re.IGNORECASE)
+        if judge_match:
+            sections["judge"] = judge_match.group(1).strip()
+            current_key = None
+            continue
+
+        standalone_key = _normalize_metadata_key(line)
+        if standalone_key in {
+            "date",
+            "docket",
+            "neutral citation",
+            "judge",
+            "place of hearing",
+            "date of hearing",
+            "dated",
+        }:
+            sections.setdefault(standalone_key, "")
+            current_key = standalone_key
+            continue
+
         label_match = label_pattern.match(line)
         if label_match:
             key = _normalize_metadata_key(label_match.group(1))
@@ -302,6 +325,8 @@ def _parse_labeled_sections(full_text: str) -> dict[str, str]:
         if current_key and current_key in {
             "between",
             "present",
+            "docket",
+            "neutral citation",
             "judge",
             "place of hearing",
             "date of hearing",
@@ -331,9 +356,15 @@ def _extract_heard_at_fallback(full_text: str) -> dict[str, str]:
         re.IGNORECASE,
     )
     if not match:
+        match = re.search(
+            r"(?m)^\s*(.+?\([^\n]+\)),\s+le\s+\d{1,2}\s+[A-Za-zéû]+\s+\d{4}\s*$",
+            full_text,
+            re.IGNORECASE,
+        )
+    if not match:
         return {}
     place = _normalize_whitespace(match.group(1))
-    hearing_date = _normalize_whitespace(match.group(2))
+    hearing_date = _normalize_whitespace(match.group(2)) if len(match.groups()) > 1 else None
     out: dict[str, str] = {}
     if place:
         out["place of hearing"] = place
@@ -697,13 +728,12 @@ def parse_document_page(document_url: str, html: str) -> DocumentData:
     for key, value in table_metadata.items():
         metadata.setdefault(key, value)
 
-    if not metadata.get("style of cause"):
-        title_style = _style_from_title(title)
-        if title_style:
-            metadata["style of cause"] = title_style
-            metadata.setdefault("_field_sources", {})["style of cause"] = {"title": title_style}
-            metadata.setdefault("_field_confidence", {})["style of cause"] = 0.88 if metadata.get("between") else 0.8
-            metadata.setdefault("_quality_flags", [])
+    title_style = _style_from_title(title)
+    if title_style:
+        metadata["style of cause"] = title_style
+        metadata.setdefault("_field_sources", {})["style of cause"] = {"title": title_style}
+        metadata.setdefault("_field_confidence", {})["style of cause"] = 0.88 if metadata.get("between") else 0.8
+        metadata.setdefault("_quality_flags", [])
     pdf_url = _extract_pdf_url(document_url, soup)
     if pdf_url:
         metadata.setdefault("pdf_url", pdf_url)

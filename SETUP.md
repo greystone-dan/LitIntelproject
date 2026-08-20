@@ -305,6 +305,18 @@ The GitHub Copilot Chat panel inside VS Code has full access to all open workspa
 - Keep your project on GitHub (private repo is fine).
 - Microsoft Copilot can be directed to reference specific files by sharing snippets or file paths in chat.
 
+### Private site access and search-engine blocking
+
+The application sends `X-Robots-Tag: noindex, nofollow, noarchive` on every response and serves a `robots.txt` that disallows all crawlers. To require a browser password, add these values to the local `.env` file (never commit them):
+
+```dotenv
+CASELIBRARY_ACCESS_PASSWORD=choose-a-strong-password
+CASELIBRARY_SESSION_SECRET=use-a-different-long-random-secret
+CASELIBRARY_SESSION_SECONDS=86400
+```
+
+After restarting the site, unauthenticated browser requests go to `/access`. A successful password entry creates an `HttpOnly` cookie valid for 24 hours. API requests without the cookie receive `401`; the health and robots endpoints remain public.
+
 ---
 
 ### 7c. Recommended VS Code Settings for Copilot

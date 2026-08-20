@@ -7,6 +7,20 @@ from backend import citations
 from backend import routes
 
 
+def test_self_case_name_filter_rejects_source_surname_only():
+	match = citations.RawCitationMatch("case_short", "Calixto", "Calixto, 2005 FC 1037", 0, 7)
+
+	assert citations.is_self_case_name_match(
+		"Calixto v. Canada (Minister of Citizenship and Immigration)", match
+	)
+
+
+def test_self_case_name_filter_keeps_other_case_short_form():
+	match = citations.RawCitationMatch("case_short", "Vavilov", "Vavilov, 2019 SCC 65", 0, 7)
+
+	assert not citations.is_self_case_name_match("Calixto v. Canada", match)
+
+
 class FakeDatabase:
 	def __init__(self, rows=(), scalar_value=None):
 		self.rows = list(rows)

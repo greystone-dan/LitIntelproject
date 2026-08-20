@@ -2,9 +2,11 @@ import base64
 import binascii
 import hmac
 import os
+import time
+from hashlib import sha256
 
-from fastapi import FastAPI, Request
-from fastapi.responses import RedirectResponse, Response
+from fastapi import FastAPI, Form, Request
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 
 from .database import init_db
 from .routes import router
@@ -12,27 +14,78 @@ from .routes import router
 app = FastAPI()
 
 
-@app.middleware("http")
-async def optional_private_access(request: Request, call_next):
-    username = os.getenv("CASELIBRARY_PRIVATE_USER")
-    password = os.getenv("CASELIBRARY_PRIVATE_PASSWORD")
-    if not username or not password:
-        return await call_next(request)
+ACCESS_COOKIE = "caselibrary_access"
 
-    authorization = request.headers.get("Authorization", "")
+
+def _private_access_config() -> tuple[str | None, str, int]:
+    password = os.getenv("CASELIBRARY_ACCESS_PASSWORD")
+    secret = os.getenv("CASELIBRARY_SESSION_SECRET") or os.getenv("SECRET_KEY") or password or ""
     try:
-        scheme, encoded = authorization.split(" ", 1)
-        supplied = base64.b64decode(encoded).decode("utf-8")
-        supplied_username, supplied_password = supplied.split(":", 1)
-    except (ValueError, UnicodeDecodeError, binascii.Error):
-        supplied_username = supplied_password = ""
+        lifetime = max(300, int(os.getenv("CASELIBRARY_SESSION_SECONDS", "86400")))
+    except ValueError:
+        lifetime = 86400
+    return password, secret, lifetime
 
-    valid = scheme.lower() == "basic" if "scheme" in locals() else False
-    valid = valid and hmac.compare_digest(supplied_username, username)
-    valid = valid and hmac.compare_digest(supplied_password, password)
-    if not valid:
-        return Response(status_code=401, headers={"WWW-Authenticate": 'Basic realm="AI CaseLibrary"'})
-    return await call_next(request)
+
+def _access_signature(issued_at: str, secret: str) -> str:
+    return hmac.new(secret.encode("utf-8"), issued_at.encode("ascii"), sha256).hexdigest()
+
+
+def _valid_access_cookie(value: str | None, secret: str, lifetime: int) -> bool:
+    if not value or "." not in value:
+        return False
+    issued_at, supplied_signature = value.split(".", 1)
+    if not issued_at.isdigit() or not hmac.compare_digest(
+        supplied_signature, _access_signature(issued_at, secret)
+    ):
+        return False
+    return 0 <= int(time.time()) - int(issued_at) <= lifetime
+
+
+def _login_page(error: str = "") -> HTMLResponse:
+    message = f'<p class="error">{error}</p>' if error else ""
+    return HTMLResponse(
+        content=f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Private site access</title>
+<style>body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#f1efe8;color:#202522;font-family:system-ui,sans-serif}}main{{width:min(360px,calc(100% - 32px));padding:28px;background:#fffef9;border:1px solid #d8d5ca;border-radius:8px}}h1{{margin:0 0 8px;font-size:22px}}p{{color:#69726d;font-size:13px;line-height:1.5}}label{{display:block;margin:18px 0 6px;font-size:12px;font-weight:700}}input,button{{box-sizing:border-box;width:100%;height:42px;padding:0 12px;border:1px solid #d8d5ca;border-radius:5px;font:inherit}}button{{margin-top:12px;background:#202522;color:white;font-weight:700;cursor:pointer}}.error{{color:#a4412b}}</style></head>
+<body><main><h1>Private research site</h1><p>Enter the access password to continue.</p>{message}<form method="post" action="/access/login"><label for="password">Access password</label><input id="password" name="password" type="password" autocomplete="current-password" required autofocus><button type="submit">Continue</button></form></main></body></html>""",
+        status_code=401 if error else 200,
+    )
+
+
+@app.middleware("http")
+async def private_access_and_noindex(request: Request, call_next):
+    path = request.url.path
+    password, secret, lifetime = _private_access_config()
+    public_paths = {"/access", "/access/login", "/health", "/robots.txt"}
+    if password and path not in public_paths and not _valid_access_cookie(request.cookies.get(ACCESS_COOKIE), secret, lifetime):
+        if request.method == "GET" and not path.startswith("/api/"):
+            response = RedirectResponse(url=f"/access?next={request.url.path}", status_code=303)
+        else:
+            response = JSONResponse({"detail": "Authentication required."}, status_code=401)
+        response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
+        return response
+
+    # Preserve the older Basic Auth fallback for deployments using its existing variables.
+    if not password:
+        username = os.getenv("CASELIBRARY_PRIVATE_USER")
+        legacy_password = os.getenv("CASELIBRARY_PRIVATE_PASSWORD")
+        if username and legacy_password:
+            authorization = request.headers.get("Authorization", "")
+            try:
+                scheme, encoded = authorization.split(" ", 1)
+                supplied = base64.b64decode(encoded).decode("utf-8")
+                supplied_username, supplied_password = supplied.split(":", 1)
+            except (ValueError, UnicodeDecodeError, binascii.Error):
+                scheme = supplied_username = supplied_password = ""
+            valid = scheme.lower() == "basic" and hmac.compare_digest(supplied_username, username)
+            valid = valid and hmac.compare_digest(supplied_password, legacy_password)
+            if not valid:
+                return Response(status_code=401, headers={"WWW-Authenticate": 'Basic realm="AI CaseLibrary"', "X-Robots-Tag": "noindex, nofollow, noarchive"})
+
+    response = await call_next(request)
+    response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
+    return response
 
 
 @app.on_event("startup")
@@ -51,3 +104,34 @@ def root():
 @app.get("/health")
 def health():
     return {"message": "AI CaseLibrary backend is running"}
+
+
+@app.get("/robots.txt", response_class=Response, include_in_schema=False)
+def robots() -> Response:
+    return Response(content="User-agent: *\nDisallow: /\n", media_type="text/plain", headers={"X-Robots-Tag": "noindex, nofollow, noarchive"})
+
+
+@app.get("/access", response_class=HTMLResponse, include_in_schema=False)
+def access_page() -> HTMLResponse:
+    password, _, _ = _private_access_config()
+    if not password:
+        return HTMLResponse("Private access is not configured.", status_code=503)
+    return _login_page()
+
+
+@app.post("/access/login", response_class=HTMLResponse, include_in_schema=False)
+def access_login(request: Request, password: str = Form(...)) -> Response:
+    configured_password, secret, lifetime = _private_access_config()
+    if not configured_password or not hmac.compare_digest(password, configured_password):
+        return _login_page("That password was not accepted.")
+    issued_at = str(int(time.time()))
+    response = RedirectResponse(url="/data-explorer", status_code=303)
+    response.set_cookie(
+        ACCESS_COOKIE,
+        f"{issued_at}.{_access_signature(issued_at, secret)}",
+        max_age=lifetime,
+        httponly=True,
+        samesite="lax",
+        secure=request.url.scheme == "https",
+    )
+    return response

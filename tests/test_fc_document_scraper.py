@@ -46,6 +46,31 @@ PLACE OF HEARING: Toronto, Ontario
 DATE OF HEARING: January 15, 2025
 DATED: January 17, 2025
 APPEARANCES:
+John Lawyer
+For the Applicant
+SOLICITORS OF RECORD:
+Law LLP
+For the Applicant
+        </div>
+        <a href="/fc-cf/decisions/en/item/350109/decision.pdf">Download PDF</a>
+      </body>
+    </html>
+    """
+
+    parsed = parse_document_page(document_url, html)
+    metadata = parsed.metadata
+
+    assert metadata["date"] == "2025-01-17"
+    assert metadata["docket"] == "IMM-1234-24"
+    assert metadata["neutral citation"] == "2025 FC 123"
+    assert metadata["judge"] == "ROY J."
+    assert metadata["place of hearing"] == "Toronto, Ontario"
+    assert metadata["place_of_hearing"] == "Toronto, Ontario"
+    assert metadata["date of hearing"] == "January 15, 2025"
+    assert metadata["date_of_hearing"] == "January 15, 2025"
+    assert metadata["style of cause"] == "Jane Doe v. Canada (Citizenship and Immigration)"
+    assert "John Lawyer" in metadata["counsel"]
+    assert "Law LLP" in metadata["counsel"]
 
 
 def test_parse_document_page_supports_french_labels_and_title_fallback():
@@ -89,31 +114,6 @@ JUGEMENT ET MOTIFS
     assert metadata["judge"] == "monsieur le juge McHaffie"
     assert metadata["style of cause"] == "Tayarah v. Canada (Citoyenneté et Immigration)"
     assert metadata["place of hearing"] == "Ottawa (Ontario)"
-John Lawyer
-For the Applicant
-SOLICITORS OF RECORD:
-Law LLP
-For the Applicant
-        </div>
-        <a href="/fc-cf/decisions/en/item/350109/decision.pdf">Download PDF</a>
-      </body>
-    </html>
-    """
-
-    parsed = parse_document_page(document_url, html)
-    metadata = parsed.metadata
-
-    assert metadata["date"] == "2025-01-17"
-    assert metadata["docket"] == "IMM-1234-24"
-    assert metadata["neutral citation"] == "2025 FC 123"
-    assert metadata["judge"] == "ROY J."
-    assert metadata["place of hearing"] == "Toronto, Ontario"
-    assert metadata["place_of_hearing"] == "Toronto, Ontario"
-    assert metadata["date of hearing"] == "January 15, 2025"
-    assert metadata["date_of_hearing"] == "January 15, 2025"
-    assert metadata["style of cause"] == "Jane Doe v. Canada (Citizenship and Immigration)"
-    assert "John Lawyer" in metadata["counsel"]
-    assert "Law LLP" in metadata["counsel"]
 
 
 def test_parse_document_page_uses_reference_as_neutral_citation_fallback():

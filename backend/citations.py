@@ -261,6 +261,27 @@ class RawCitationMatch:
 	offset_end: int
 
 
+def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> bool:
+	"""Identify a bare short-form alias that belongs to the source case title."""
+	if match.kind not in {"case_short", "case_name"}:
+		return False
+	alias = re.split(r"\s*,\s*(?:at\s+)?para", match.citation_text, maxsplit=1, flags=re.IGNORECASE)[0]
+	alias = _normalize_whitespace(alias)
+	if not re.fullmatch(r"[A-Za-z][A-Za-z'’-]{3,}", alias):
+		return False
+	parties = re.split(
+		r"\s+(?:v\.?|c\.?|vs\.?)\s+",
+		_normalize_whitespace(case_title or ""),
+		maxsplit=1,
+		flags=re.IGNORECASE,
+	)[0]
+	party_words = {
+		word.strip("'’-\u2019").casefold()
+		for word in re.findall(r"[A-Za-z][A-Za-z'’-]+", parties)
+	}
+	return alias.casefold() in party_words
+
+
 @dataclass(frozen=True)
 class _CaseAnchor:
 	alias: str
@@ -1690,7 +1711,7 @@ def extract_raw_citation_matches_v2(text: str | None) -> list[RawCitationMatch]:
 	v2_rows.extend(
 		citation
 		for _start, _end, citation in _extract_regex_candidates(content)
-		if citation.kind in {"case", "case_name"}
+		if citation.kind in CASE_CITATION_KINDS | STATUTE_REFERENCE_KINDS
 	)
 	v2_rows.extend(_promote_case_name_neutral_pairs(content, v2_rows))
 	v2_rows = _select_best_non_overlapping(v2_rows)
@@ -1978,6 +1999,8 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 
 	rows: list[Citation] = []
 	for raw_match in extract_case_citation_matches(case_text):
+		if is_self_case_name_match(getattr(case, "title", None), raw_match):
+			continue
 		containing = next(
 			(
 				(chunk, chunk_start)

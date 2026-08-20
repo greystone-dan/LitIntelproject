@@ -12,15 +12,26 @@ class ScalarDatabase:
 
 
 def test_about_stats_returns_library_counts():
-    database = ScalarDatabase([10, 20, 15, 3])
+    database = ScalarDatabase([10, 11, 12, 13, 20, 15, 3, 4, 5, 6, 7, 8, 9, 10, 11])
 
     result = routes.about_stats(database)
 
     assert result == {
         "cases": 10,
+        "case_chunks": 11,
+        "case_sources": 12,
+        "ingestion_runs": 13,
         "citations": 20,
         "linked_citations": 15,
         "judge_profiles": 3,
+        "case_judge_profiles": 4,
+        "citation_metrics": 5,
+        "statute_references": 6,
+        "case_tags": 7,
+        "case_chunk_embeddings": 8,
+        "fc_activity_cases": 9,
+        "fc_activity_documents": 10,
+        "fc_procedural_history": 11,
     }
 
 
@@ -39,9 +50,10 @@ def test_compatibility_routes_select_tabs():
     assert routes.about_page().headers["location"] == "/data-explorer?tab=about"
     assert routes.citation_intelligence_page().headers["location"] == "/data-explorer?tab=citation-intelligence"
     assert routes.judges_page().headers["location"] == "/data-explorer?tab=judge-profile"
+    assert routes.fc_history_page().headers["location"] == "/data-explorer?tab=fc-history"
 
 
-def test_rendered_shell_exposes_six_tabs_and_product_title():
+def test_rendered_shell_exposes_tabs_and_product_title():
     html = routes._data_explorer_page_html()
 
     for label in (
@@ -51,6 +63,7 @@ def test_rendered_shell_exposes_six_tabs_and_product_title():
         "Judge outcomes",
         "Judge Profile",
         "Data explorer",
+        "FC History",
         "Immigration Litigation Intelligence Tool",
     ):
         assert label in html
@@ -93,6 +106,62 @@ def test_rendered_shell_exposes_focused_feature_searches():
     assert 'Find a case by title' in html
     assert 'id="judgeProfileQuery"' in html
     assert 'Find a judge by name' in html
+    assert '<option value="newest" selected>Newest decision</option>' in html
 
     for subtab in ("Overview", "Timeline", "Outcomes", "Courts", "Judges", "Companions", "Statutes", "Evidence"):
         assert subtab in html
+
+
+def test_judge_profiles_default_to_most_linked_profiles():
+    class FakeProfile:
+        def __init__(self, slug, display_name, case_link_count):
+            self.slug = slug
+            self.display_name = display_name
+            self.primary_court = "Federal Court"
+            self.aliases = []
+            self.case_links = list(range(case_link_count))
+
+    class Database:
+        def scalars(self, statement):
+            return iter([
+                FakeProfile("judge-b", "Judge B", 2),
+                FakeProfile("judge-a", "Judge A", 7),
+                FakeProfile("judge-c", "Judge C", 4),
+            ])
+
+    result = routes.judge_profiles("", 10, Database())
+
+    assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
+
+
+def test_rendered_shell_exposes_original_source_link_action():
+    html = routes._data_explorer_page_html()
+
+    assert 'Original source' in html
+
+
+def test_rendered_shell_exposes_docket_to_fc_history_action():
+    html = routes._data_explorer_page_html()
+
+    assert 'Open FC History' in html
+    assert 'data-fc-docket' in html
+    assert 'fcHistoryForm' in html
+
+
+def test_fc_history_tab_uses_full_entry_list_and_distinct_panel_mapping():
+    html = routes._data_explorer_page_html()
+
+    assert "'fc-history':'fcHistoryPanel'" in html
+    assert 'const entries=(data.entries_json||[])' in html
+    assert 'const entries=(data.entries_json||[]).map' in html
+    assert 'slice(0,8)' not in html.split('const entries=', 1)[1].split('results.innerHTML', 1)[0]
+
+
+def test_rendered_shell_exposes_case_reader_tag_tabs():
+    html = routes._data_explorer_page_html()
+
+    assert 'Case information' in html
+    assert 'Header metadata' in html
+    assert 'Extracted metadata' in html
+    assert 'Case information' in html
+    assert 'Tags' in html

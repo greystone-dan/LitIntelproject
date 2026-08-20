@@ -19,7 +19,7 @@ API_URL = os.getenv("CASELIBRARY_INGEST_URL", "http://127.0.0.1:8000/ingest")
 def clamp_text(value, max_length: int) -> str | None:
     if value is None:
         return None
-    normalized = " ".join(str(value).split()).strip()
+    normalized = " ".join(str(value).replace("\x00", "").split()).strip()
     if not normalized:
         return None
     if len(normalized) <= max_length:
@@ -70,6 +70,8 @@ def parse_version(value_to_parse) -> str | None:
 def json_safe(value_to_serialize):
     if isinstance(value_to_serialize, (date, datetime)):
         return value_to_serialize.isoformat()
+    if isinstance(value_to_serialize, str):
+        return value_to_serialize.replace("\x00", "")
     if isinstance(value_to_serialize, dict):
         return {str(key): json_safe(value) for key, value in value_to_serialize.items()}
     if isinstance(value_to_serialize, (list, tuple)):
@@ -96,10 +98,12 @@ def source_metadata(record: dict) -> dict:
 
 
 def build_case(record: dict) -> CaseIngestRequest | None:
-    title = clamp_text(value(record, "name_en", "name_fr"), 255)
     decision_date = parse_date(value(record, "document_date_en", "document_date_fr"))
     full_text = value(record, "unofficial_text_en", "unofficial_text_fr")
+    if full_text is not None:
+        full_text = str(full_text).replace("\x00", "")
     citation = clamp_text(value(record, "citation_en", "citation_fr"), 255)
+    title = clamp_text(value(record, "name_en", "name_fr"), 255) or citation
     if not title or not decision_date or not full_text:
         return None
 

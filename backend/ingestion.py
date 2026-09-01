@@ -6,6 +6,7 @@ from typing import Any, Literal
 
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
+from bs4 import BeautifulSoup
 
 from .database import Case, CaseSource, IngestionRun
 from .models import CaseIngestRequest
@@ -35,6 +36,7 @@ CANONICAL_FIELDS = (
     "secondary_citation",
     "summary",
     "full_text",
+    "source_html",
     "source_url",
     "source_name",
     "source_id",
@@ -43,6 +45,23 @@ CANONICAL_FIELDS = (
     "scraped_at",
     "language",
 )
+
+
+def sanitize_source_html(source_html: str | None) -> str | None:
+    if not source_html:
+        return None
+    soup = BeautifulSoup(source_html, "html.parser")
+    for node in soup.find_all(["script", "style", "iframe", "object", "embed", "form", "svg", "math"]):
+        node.decompose()
+    for node in soup.find_all(True):
+        for attribute in list(node.attrs):
+            if attribute.lower().startswith("on") or attribute.lower() in {"srcdoc", "srcset"}:
+                del node.attrs[attribute]
+        if node.name == "a":
+            href = str(node.get("href", ""))
+            if href and not href.startswith(("http://", "https://", "mailto:", "#")):
+                del node.attrs["href"]
+    return soup.decode_contents()
 
 
 def source_priority(source_type: str | None) -> int:
@@ -126,6 +145,8 @@ def merge_case_fields(existing: Case, incoming: CaseIngestRequest) -> set[str]:
 
     for field in CANONICAL_FIELDS:
         incoming_value = getattr(incoming, field)
+        if field == "source_html":
+            incoming_value = sanitize_source_html(incoming_value)
         existing_value = getattr(existing, field)
         should_fill = existing_value in (None, "") and incoming_value not in (None, "")
         should_replace = incoming_is_preferred and incoming_value not in (None, "")
@@ -216,6 +237,7 @@ def _new_case(incoming: CaseIngestRequest) -> Case:
         secondary_citation=incoming.secondary_citation,
         summary=incoming.summary,
         full_text=incoming.full_text,
+        source_html=sanitize_source_html(incoming.source_html),
         issues=incoming.issues,
         metadata_json=incoming.metadata_json,
         source_url=incoming.source_url,

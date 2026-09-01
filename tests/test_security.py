@@ -26,3 +26,21 @@ def test_robots_disallows_all_crawlers():
 
     assert response.body == b"User-agent: *\nDisallow: /\n"
     assert response.headers["x-robots-tag"] == "noindex, nofollow, noarchive"
+
+
+def test_private_gate_is_not_enforced(monkeypatch):
+    monkeypatch.setenv("CASELIBRARY_ACCESS_PASSWORD", "always-open-password")
+    monkeypatch.setenv("CASELIBRARY_SESSION_SECRET", "secret")
+
+    async def fake_call_next(request):
+        return type("ResponseStub", (), {"headers": {}})()
+
+    request = type(
+        "RequestStub",
+        (),
+        {"url": type("URLStub", (), {"hostname": "example.com", "path": "/data-explorer"})(), "headers": {}, "cookies": {}, "method": "GET"},
+    )()
+
+    response = __import__("asyncio").run(main.private_access_and_noindex(request, fake_call_next))
+
+    assert response.headers["X-Robots-Tag"] == "noindex, nofollow, noarchive"

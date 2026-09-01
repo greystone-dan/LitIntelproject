@@ -4,6 +4,7 @@ import re
 from dataclasses import dataclass
 
 from fc_ingest.document_scraper import _extract_metadata_with_quality
+from backend.legal_tagger import LegalTagger
 
 
 METADATA_FIELDS = (
@@ -22,6 +23,10 @@ METADATA_FIELDS = (
 	"decision outcome",
 	"government role",
 	"government outcome",
+	"case type",
+	"case challenge",
+	"case issue",
+	"case topic",
 )
 
 _GOVERNMENT_PARTY_RE = re.compile(
@@ -33,23 +38,31 @@ _OUTCOME_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
 	(
 		"dismissed",
 		re.compile(
-			r"\b(?:application|appeal|judicial\s+review|motion|proceeding)\b[^\n\.]{0,90}\b(?:is|are|be)?\s*dismissed\b",
+			r"\b(?:application|appeal|judicial\s+review|motion|proceeding|claim|complaint|action)\b[^\n\.]{0,140}\b(?:is|are|be|hereby)?\s*(?:dismissed|denied|refused)\b",
 			re.IGNORECASE,
 		),
 	),
 	(
 		"allowed",
 		re.compile(
-			r"\b(?:application|appeal|judicial\s+review|motion|proceeding)\b[^\n\.]{0,90}\b(?:is|are|be)?\s*allowed\b",
+			r"\b(?:application|appeal|judicial\s+review|motion|proceeding|claim|complaint|action)\b[^\n\.]{0,140}\b(?:is|are|be|hereby)?\s*(?:allowed|granted)\b",
 			re.IGNORECASE,
 		),
 	),
 	(
 		"granted",
 		re.compile(
-			r"\b(?:application|appeal|judicial\s+review|motion|proceeding)\b[^\n\.]{0,90}\b(?:is|are|be)?\s*granted\b",
+			r"\b(?:application|appeal|judicial\s+review|motion|proceeding|claim|complaint|action)\b[^\n\.]{0,140}\b(?:is|are|be|hereby)?\s*granted\b",
 			re.IGNORECASE,
 		),
+	),
+	(
+		"set_aside",
+		re.compile(r"\b(?:is|are|be|hereby)?\s*(?:set aside|quashed|annulled|vacated)\b", re.IGNORECASE),
+	),
+	(
+		"remitted",
+		re.compile(r"\b(?:is|are|be|hereby)?\s*(?:remitted|referred back|sent back)\b", re.IGNORECASE),
 	),
 )
 
@@ -100,10 +113,41 @@ def _field_source_label(field_sources: dict[str, str]) -> str:
 	return "derived"
 
 
+def _operative_blocks(content: str) -> list[str]:
+	if not content:
+		return []
+	tail = content[-12000:]
+	markers = list(re.finditer(r"\b(?:ORDER|JUDGMENT|DISPOSITION|CONCLUSION)\b", tail, re.IGNORECASE))
+	if not markers:
+		return [tail]
+	blocks: list[str] = []
+	for index, marker in enumerate(markers):
+		end = markers[index + 1].start() if index + 1 < len(markers) else len(tail)
+		block = tail[marker.start() : end].strip()
+		if block:
+			blocks.append(block)
+	return blocks
+
+
+def _outcome_window(content: str) -> str:
+	blocks = _operative_blocks(content)
+	if not blocks:
+		return ""
+	best_block = max(
+		blocks,
+		key=lambda block: (
+			sum(bool(pattern.search(block)) for _label, pattern in _OUTCOME_PATTERNS),
+			len(block),
+		),
+	)
+	return best_block
+
+
 def _latest_outcome_label(content: str) -> str | None:
 	latest: tuple[int, str] | None = None
+	search_content = _outcome_window(content)
 	for label, pattern in _OUTCOME_PATTERNS:
-		for match in pattern.finditer(content):
+		for match in pattern.finditer(search_content):
 			if latest is None or match.start() > latest[0]:
 				latest = (match.start(), label)
 	if latest is None:
@@ -166,6 +210,127 @@ def _government_role(style_or_between: str) -> str | None:
 	return None
 
 
+def _first_numbered_paragraphs(content: str, limit: int = 10) -> list[str]:
+	paragraphs: list[str] = []
+	for line in re.split(r"\n+", content):
+		candidate = line.strip()
+		if not candidate:
+			continue
+		if re.match(r"^(?:\d+|[ivxlcdm]+|[A-Z])(?:[\.)]|\s+[\.)])\s+", candidate, flags=re.IGNORECASE):
+			paragraphs.append(candidate)
+		if len(paragraphs) >= limit:
+			break
+	if paragraphs:
+		return paragraphs
+	return [segment.strip() for segment in re.split(r"\n\s*\n+", content) if segment.strip()][:limit]
+
+
+def _derive_case_subject_fields(content: str, metadata: dict[str, object]) -> dict[str, tuple[str | float, float]]:
+	derived: dict[str, tuple[str | float, float]] = {}
+	if not content.strip():
+		return derived
+
+	name_filter = lambda value: " ".join(str(value).split()).strip()
+	candidate_text = "\n".join(
+		[*_first_numbered_paragraphs(content, limit=10), content[:4000]]
+	)
+	tags = LegalTagger().tag(candidate_text)
+	all_tags = [tag for tag in tags if tag.category in {"proceeding", "issue", "legal_area", "statute", "regulation"}]
+	scored: dict[str, int] = {}
+	for tag in all_tags:
+		scored[tag.value] = scored.get(tag.value, 0) + max(1, int(round(tag.score * 10)))
+
+	case_type_rank = {
+		"judicial_review": 90,
+		"appeal": 88,
+		"detention_review": 86,
+		"prra": 82,
+		"admissibility_hearing": 80,
+		"humanitarian_compassionate": 75,
+		"immigration_refugee": 60,
+	}
+	selected_type = "general_immigration_litigation"
+	for tag in tags:
+		if tag.category != "proceeding":
+			continue
+		priority = case_type_rank.get(tag.value, 10)
+		if priority > case_type_rank.get(selected_type, 0):
+			selected_type = tag.value
+	if selected_type == "general_immigration_litigation":
+		for tag in tags:
+			if tag.category == "legal_area" and tag.value in {"immigration_refugee", "constitutional_charter", "criminal"}:
+				selected_type = tag.value
+				break
+	if "judicial review" in content.lower() or "application for judicial review" in content.lower():
+		selected_type = "judicial_review"
+	elif re.search(r"\bappeal\b", content, flags=re.IGNORECASE):
+		selected_type = "appeal"
+	elif re.search(r"\bdetention review\b", content, flags=re.IGNORECASE):
+		selected_type = "detention_review"
+	elif re.search(r"\bPRRA\b|\bpre[- ]removal risk assessment\b", content, flags=re.IGNORECASE):
+		selected_type = "prra"
+	elif re.search(r"\b(admissibility hearing|admissibility)\b", content, flags=re.IGNORECASE):
+		selected_type = "admissibility_hearing"
+
+	case_challenge = selected_type
+	if re.search(r"\b(?:RPD|Refugee Protection Division)\b", content, flags=re.IGNORECASE):
+		case_challenge = "refugee_protection_decision"
+	elif re.search(r"\b(?:removal order|departure order|deportation order|exclusion order)\b", content, flags=re.IGNORECASE):
+		case_challenge = "removal_or_deportation_order"
+	elif re.search(r"\b(?:inadmissib|security grounds|serious criminality)\b", content, flags=re.IGNORECASE):
+		case_challenge = "inadmissibility_decision"
+	elif re.search(r"\b(?:detention|release|bondsperson|community case management)\b", content, flags=re.IGNORECASE):
+		case_challenge = "detention_or_release_decision"
+	elif re.search(r"\b(?:PRRA|pre[- ]removal risk assessment)\b", content, flags=re.IGNORECASE):
+		case_challenge = "prra_decision"
+	elif re.search(r"\b(?:humanitarian and compassionate|HC\b|H&C\b)\b", content, flags=re.IGNORECASE):
+		case_challenge = "humanitarian_compassionate_application"
+	elif re.search(r"\b(?:Convention|refugee convention|Article 1F|Article 1E|state protection)\b", content, flags=re.IGNORECASE):
+		case_challenge = "refugee_protection_basis"
+	if case_challenge == selected_type and selected_type == "general_immigration_litigation":
+		case_challenge = "general_immigration_legal_issue"
+
+	issue_candidates = [tag.value for tag in tags if tag.category == "issue"]
+	issue_value = "general_immigration_issue"
+	priority_issues = {
+		"credibility": 90,
+		"procedural_fairness": 88,
+		"state_protection": 86,
+		"internal_flight_alternative": 84,
+		"nexus": 82,
+		"exclusion_article_1f": 80,
+		"detention": 79,
+		"cessation": 78,
+		"medical_exception": 76,
+		"sur_place_claim": 74,
+		"non_refoulement": 72,
+		"best_interests_child": 70,
+		"sogiesc": 68,
+	}
+	for tag in sorted(tags, key=lambda item: priority_issues.get(item.value, 0), reverse=True):
+		if tag.category == "issue":
+			issue_value = tag.value
+			break
+	if not issue_candidates:
+		issue_value = selected_type if selected_type != "general_immigration_litigation" else "immigration_litigation"
+
+	topic_values = []
+	for tag in tags:
+		if tag.category in {"issue", "proceeding", "legal_area"} and tag.value:
+			topic_values.append(tag.value)
+	for token in ["judicial_review", "immigration_refugee", "credibility", "procedural_fairness", "refugee_protection"]:
+		if token in topic_values and token not in {"judicial_review"}:
+			topic_values.insert(0, token)
+	topic_values = list(dict.fromkeys(topic_values))[:5]
+	case_topic = ", ".join(topic_values) if topic_values else selected_type
+
+	derived["case type"] = (selected_type, 0.82)
+	derived["case challenge"] = (case_challenge, 0.8)
+	derived["case issue"] = (issue_value, 0.75)
+	derived["case topic"] = (case_topic, 0.7)
+	return derived
+
+
 def _derive_outcome_fields(content: str, metadata: dict[str, object]) -> dict[str, tuple[str, float]]:
 	derived: dict[str, tuple[str, float]] = {}
 	outcome = _latest_outcome_label(content)
@@ -182,12 +347,13 @@ def _derive_outcome_fields(content: str, metadata: dict[str, object]) -> dict[st
 	if outcome and gov_role:
 		if outcome == "dismissed":
 			government_outcome = "lost" if gov_role == "applicant" else "won"
-		elif outcome in {"allowed", "granted"}:
+		elif outcome in {"allowed", "granted", "set_aside", "remitted"}:
 			government_outcome = "won" if gov_role == "applicant" else "lost"
 		else:
 			government_outcome = "undetermined"
 		derived["government outcome"] = (government_outcome, 0.76)
 
+	derived.update(_derive_case_subject_fields(content, metadata))
 	return derived
 
 

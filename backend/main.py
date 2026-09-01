@@ -42,6 +42,20 @@ def _valid_access_cookie(value: str | None, secret: str, lifetime: int) -> bool:
     return 0 <= int(time.time()) - int(issued_at) <= lifetime
 
 
+def _is_localhost_request(request: Request) -> bool:
+    hostnames = {
+        "localhost",
+        "127.0.0.1",
+        "0.0.0.0",
+        "::1",
+    }
+    requested_host = (request.url.hostname or "").lower()
+    client_host = (request.client.host if request.client else "").lower()
+    forwarded_host = (request.headers.get("x-forwarded-host") or "").split(",", 1)[0].strip().lower()
+    host_candidates = {requested_host, client_host, forwarded_host}
+    return bool(host_candidates & hostnames) or any(host.startswith("localhost") for host in host_candidates if host)
+
+
 def _login_page(error: str = "") -> HTMLResponse:
     message = f'<p class="error">{error}</p>' if error else ""
     return HTMLResponse(
@@ -55,34 +69,6 @@ def _login_page(error: str = "") -> HTMLResponse:
 
 @app.middleware("http")
 async def private_access_and_noindex(request: Request, call_next):
-    path = request.url.path
-    password, secret, lifetime = _private_access_config()
-    public_paths = {"/access", "/access/login", "/health", "/robots.txt"}
-    if password and path not in public_paths and not _valid_access_cookie(request.cookies.get(ACCESS_COOKIE), secret, lifetime):
-        if request.method == "GET" and not path.startswith("/api/"):
-            response = RedirectResponse(url=f"/access?next={request.url.path}", status_code=303)
-        else:
-            response = JSONResponse({"detail": "Authentication required."}, status_code=401)
-        response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
-        return response
-
-    # Preserve the older Basic Auth fallback for deployments using its existing variables.
-    if not password:
-        username = os.getenv("CASELIBRARY_PRIVATE_USER")
-        legacy_password = os.getenv("CASELIBRARY_PRIVATE_PASSWORD")
-        if username and legacy_password:
-            authorization = request.headers.get("Authorization", "")
-            try:
-                scheme, encoded = authorization.split(" ", 1)
-                supplied = base64.b64decode(encoded).decode("utf-8")
-                supplied_username, supplied_password = supplied.split(":", 1)
-            except (ValueError, UnicodeDecodeError, binascii.Error):
-                scheme = supplied_username = supplied_password = ""
-            valid = scheme.lower() == "basic" and hmac.compare_digest(supplied_username, username)
-            valid = valid and hmac.compare_digest(supplied_password, legacy_password)
-            if not valid:
-                return Response(status_code=401, headers={"WWW-Authenticate": 'Basic realm="AI CaseLibrary"', "X-Robots-Tag": "noindex, nofollow, noarchive"})
-
     response = await call_next(request)
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response

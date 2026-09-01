@@ -7,7 +7,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime
 
-from sqlalchemy import delete, func, select
+from sqlalchemy import delete, func, select, text
 from sqlalchemy.orm import Session
 
 from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge, Case, CaseChunk, Citation, CitationMetrics, StatuteReference
@@ -30,6 +30,11 @@ NEUTRAL_CIT_RE = re.compile(
 CANLII_CIT_RE = re.compile(r"\b((?:19|20)\d{2})\s+CanLII\s+(\d{1,9})\s*\(([A-Za-z. ]{2,20})\)", re.IGNORECASE)
 CASE_CIT_RE = re.compile(
 	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?),?\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b"
+)
+REPORTED_CASE_CIT_RE = re.compile(
+	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?),?\s+"
+	r"(\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+)\b",
+	re.IGNORECASE,
 )
 CASE_REPORTER_NEUTRAL_RE = re.compile(
 	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?),\s+\[(?:19|20)\d{2}\][^,\n]{1,50},\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b",
@@ -1255,6 +1260,27 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			)
 		)
 
+	for match in REPORTED_CASE_CIT_RE.finditer(content):
+		parties_start, selected_parties = _select_case_parties_span(match.group(1))
+		if not _is_plausible_case_parties(selected_parties):
+			continue
+		citation_start = match.start(1) + parties_start
+		reported = _normalize_whitespace(match.group(2)).replace(" .", ".")
+		normalized = f"{_normalize_case_parties(selected_parties)}, {reported}"
+		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+			content,
+			citation_start,
+			match.end(),
+			normalized,
+		)
+		candidates.append(
+			(
+				citation_start,
+				citation_end,
+				_raw_match("case", citation_text, normalized, citation_start, citation_end),
+			)
+		)
+
 	for match in CASE_REPORTER_NEUTRAL_RE.finditer(content):
 		parties_start, selected_parties = _select_case_parties_span(match.group(1))
 		if not _is_plausible_case_parties(selected_parties):
@@ -1902,6 +1928,51 @@ def resolve_neutral_to_case_id(session: Session, neutral_citation: str) -> int |
 	return _resolve_neutral_via_canlii(session, neutral_citation)
 
 
+def _resolve_case_alias_to_case_id(session: Session, raw_match: RawCitationMatch) -> int | None:
+	if raw_match.kind not in {"case_short", "case_name"}:
+		return None
+	terms: list[str] = []
+	for source in (raw_match.citation_text, raw_match.normalized_citation):
+		clean = re.split(r"\s*,\s*(?:at\s+)?para", source or "", maxsplit=1, flags=re.IGNORECASE)[0]
+		clean = _normalize_whitespace(clean)
+		if not clean:
+			continue
+		parts = re.split(r"\s+(?:v\.?|vs\.?|c\.?|versus)\s+", clean, maxsplit=1, flags=re.IGNORECASE)
+		choices = [clean]
+		if len(parts) == 2:
+			choices.extend((_normalize_whitespace(parts[0]), _normalize_whitespace(parts[1])))
+		for choice in choices:
+			term = re.sub(r"[^A-Za-z0-9\s]", " ", choice).strip().lower()
+			term = _normalize_whitespace(term)
+			if len(term) >= 3 and term not in terms:
+				terms.append(term)
+	for term in sorted(terms, key=len, reverse=True):
+		pattern = f"%{term}%"
+		result = session.execute(
+			text(
+				"SELECT id FROM cases WHERE title ILIKE :pattern OR citation ILIKE :pattern "
+				"OR secondary_citation ILIKE :pattern ORDER BY id LIMIT 1"
+			),
+			{"pattern": pattern},
+		)
+		case_id = result.scalar_one_or_none() if result is not None else None
+		if case_id is None and hasattr(session, "scalar"):
+			case = session.scalar(
+				select(Case).prefix_with(f"/* alias lookup: {term.replace('*/', '')} */")
+				.where(
+					Case.title.ilike(pattern)
+					| Case.citation.ilike(pattern)
+					| Case.secondary_citation.ilike(pattern)
+				)
+				.order_by(Case.id)
+				.limit(1)
+			)
+			case_id = getattr(case, "id", case)
+		if case_id is not None:
+			return int(case_id)
+	return None
+
+
 def extract_citations_from_text(
 	session: Session,
 	source_case_id: int,
@@ -1916,8 +1987,10 @@ def extract_citations_from_text(
 		if raw_match.kind == "neutral":
 			target_case_id = resolve_neutral_to_case_id(session, raw_match.normalized_citation)
 		elif raw_match.kind in {"case", "case_short", "case_name"}:
+			if raw_match.kind in {"case_short", "case_name"}:
+				target_case_id = _resolve_case_alias_to_case_id(session, raw_match)
 			embedded = NEUTRAL_CIT_RE.search(raw_match.normalized_citation)
-			if embedded is not None:
+			if target_case_id is None and embedded is not None:
 				target_case_id = resolve_neutral_to_case_id(session, normalize_neutral_citation(embedded))
 		selected.append(
 			Citation(
@@ -2011,17 +2084,18 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 		)
 		chunk_id = containing[0].id if containing is not None else None
 		offset_base = containing[1] if containing is not None else 0
+		target_case_id = _resolve_case_alias_to_case_id(session, raw_match) if not selected_chunks else None
 		rows.append(
 			Citation(
 				source_case_id=case.id,
-				target_case_id=None,
+				target_case_id=target_case_id,
 				citation_kind=raw_match.kind,
 				citation_text=raw_match.citation_text,
 				normalized_citation=raw_match.normalized_citation,
 				chunk_id=chunk_id,
 				offset_start=raw_match.offset_start - offset_base,
 				offset_end=raw_match.offset_end - offset_base,
-				unresolved=True,
+				unresolved=target_case_id is None,
 			)
 		)
 

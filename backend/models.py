@@ -13,6 +13,7 @@ class CaseIngestRequest(BaseModel):
 	docket_number: str | None = Field(default=None, max_length=255)
 	summary: str | None = Field(default=None, min_length=1)
 	full_text: str | None = None
+	source_html: str | None = None
 	issues: list[str] | None = None
 	metadata_json: dict[str, Any] | None = None
 	source_url: str | None = Field(default=None, max_length=2048)
@@ -159,6 +160,8 @@ class CaseReaderCitationResponse(BaseModel):
 	target_case_id: int | None = None
 	target_title: str | None = None
 	target_citation: str | None = None
+	target_paragraph: int | None = None
+	target_chunk_text: str | None = None
 	provenance: str = "local"
 	unresolved: bool = False
 
@@ -191,6 +194,7 @@ class CaseReaderDataResponse(BaseModel):
 	tags: list[CaseReaderTagResponse]
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
+	formatted_html: str | None = None
 
 
 class InventoryCaseResponse(BaseModel):

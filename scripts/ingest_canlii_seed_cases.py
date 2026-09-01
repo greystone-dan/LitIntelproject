@@ -231,6 +231,29 @@ def _extract_best_full_text(soup: BeautifulSoup) -> str:
     return best
 
 
+def _extract_best_full_html(soup: BeautifulSoup) -> str:
+    selectors = ["#originalDocument", "#decision", ".contentBody", ".documentcontent", ".documentContent", "main"]
+    best = None
+    best_length = 0
+    for selector in selectors:
+        for node in soup.select(selector):
+            text_length = len(node.get_text("\n", strip=True))
+            if text_length > best_length:
+                best = node
+                best_length = text_length
+    if best is None:
+        return ""
+    for node in best.find_all(["script", "style", "iframe", "object", "embed", "form"]):
+        node.decompose()
+    for node in best.find_all(True):
+        for attribute in list(node.attrs):
+            if attribute.lower().startswith("on"):
+                del node.attrs[attribute]
+        if node.name == "a":
+            node.attrs = {key: value for key, value in node.attrs.items() if key.lower() in {"href", "title", "class", "id"}}
+    return best.decode_contents()
+
+
 def parse_canlii_html(html: str) -> dict[str, Any]:
     soup = BeautifulSoup(html, "html.parser")
 
@@ -251,6 +274,7 @@ def parse_canlii_html(html: str) -> dict[str, Any]:
         title = heading_text.split(",", 1)[0].strip()
 
     full_text = _extract_best_full_text(soup)
+    source_html = _extract_best_full_html(soup)
     if len(full_text) < 500:
         raise RuntimeError("Could not extract decision text from HTML")
     if decision_date is None:
@@ -263,6 +287,7 @@ def parse_canlii_html(html: str) -> dict[str, Any]:
         "decision_date": decision_date,
         "title": title,
         "full_text": full_text,
+        "source_html": source_html,
     }
 
 

@@ -1790,6 +1790,98 @@ def citation_edge_summary(
 	}
 
 
+def _build_citation_intelligence_insights(
+	unique_citing_cases: int,
+	total_occurrences: int,
+	avg_mentions_per_case: float,
+	max_mentions_in_single_case: int,
+	*,
+	top_citing_case: dict[str, Any] | None = None,
+	top_court: dict[str, Any] | None = None,
+	top_judge: dict[str, Any] | None = None,
+	top_statute: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+	"""Translate raw citation metrics into concise, actionable research prompts."""
+	insights: list[dict[str, Any]] = []
+
+	if total_occurrences and unique_citing_cases:
+		insights.append(
+			{
+				"title": "Citing spread",
+				"detail": (
+					f"This authority is cited {total_occurrences} times across {unique_citing_cases} decisions, "
+					f"or {avg_mentions_per_case:.1f} mentions per decision."
+				),
+				"value": f"{avg_mentions_per_case:.1f}/decision",
+			}
+		)
+
+	if top_citing_case:
+		insights.append(
+			{
+				"title": "Most active citing decision",
+				"detail": (
+					f"{top_citing_case.get('title') or 'Unknown decision'} contains the densest use of this authority "
+					f"with {int(top_citing_case.get('mention_count') or 0)} mentions."
+				),
+				"value": f"{int(top_citing_case.get('mention_count') or 0)} mentions",
+			}
+		)
+
+	if top_court:
+		court_name = str(top_court.get("court") or "Unknown court")
+		court_count = int(top_court.get("case_count") or 0)
+		insights.append(
+			{
+				"title": "Top court",
+				"detail": f"{court_name} contributes {court_count} citing decisions, the strongest court-level concentration for this authority.",
+				"value": court_name,
+			}
+		)
+
+	if top_judge:
+		judge_name = str(top_judge.get("judge") or "Unknown judge")
+		judge_count = int(top_judge.get("case_count") or 0)
+		insights.append(
+			{
+				"title": "Lead judge",
+				"detail": f"{judge_name} appears in {judge_count} citing decisions, suggesting the strongest repeated judicial engagement.",
+				"value": judge_name,
+			}
+		)
+
+	if top_statute:
+		provision = str(top_statute.get("provision") or "Unknown statute")
+		case_count = int(top_statute.get("case_count") or 0)
+		insights.append(
+			{
+				"title": "Most common companion provision",
+				"detail": f"{provision} is the most frequent statutory companion, appearing in {case_count} citing decisions alongside this authority.",
+				"value": provision,
+			}
+		)
+
+	if max_mentions_in_single_case > 0:
+		insights.append(
+			{
+				"title": "Peak concentration",
+				"detail": f"One decision repeats the authority {max_mentions_in_single_case} times, which is a good candidate for a reading-heavy precedent or issue framing.",
+				"value": f"{max_mentions_in_single_case} in one case",
+			}
+		)
+
+	if not insights:
+		insights.append(
+			{
+				"title": "No citation signal yet",
+				"detail": "No citing decisions have yet been linked to this authority, so this is a clean early-stage watchlist item.",
+				"value": "No signal",
+			}
+		)
+
+	return insights
+
+
 def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, Any]:
 	"""Core metrics for a single authority: citing case counts, occurrences, date range."""
 	row = session.execute(
@@ -1807,7 +1899,6 @@ def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, 
 	first_date = row[2]
 	latest_date = row[3]
 
-	# Two-level aggregation: count per case first, then avg/max across cases
 	per_case_cte = (
 		select(
 			Citation.source_case_id,
@@ -1826,7 +1917,6 @@ def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, 
 	avg_mentions = round(float(stats[0] or 0), 2)
 	max_mentions = int(stats[1] or 0)
 
-	# Case with the most mentions
 	top_case_row = session.execute(
 		select(Case, func.count(Citation.id).label("mention_count"))
 		.join(Citation, Citation.source_case_id == Case.id)
@@ -1840,9 +1930,76 @@ def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, 
 		top_case, top_count = top_case_row
 		top_citing_case = {"case_id": top_case.id, "title": top_case.title, "citation": top_case.citation, "mention_count": int(top_count)}
 
-	# Authority case details
+	top_court_row = session.execute(
+		select(
+			Case.court.label("court"),
+			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(Citation.target_case_id == case_id, Case.court.is_not(None), Case.court != "")
+		.group_by(Case.court)
+		.order_by(func.count(func.distinct(Citation.source_case_id)).desc())
+		.limit(1)
+	).first()
+	top_court = None
+	if top_court_row:
+		court_name, court_count = top_court_row
+		top_court = {"court": court_name, "case_count": int(court_count)}
+
+	top_judge_row = session.execute(
+		select(
+			func.coalesce(Case.metadata_json["reader_extracted"]["judge"].as_string(), "Unknown").label("judge"),
+			func.count(func.distinct(Citation.source_case_id)).label("case_count"),
+		)
+		.join(Case, Case.id == Citation.source_case_id)
+		.where(
+			Citation.target_case_id == case_id,
+			Case.metadata_json["reader_extracted"]["judge"].as_string().is_not(None),
+			Case.metadata_json["reader_extracted"]["judge"].as_string() != "",
+		)
+		.group_by(func.coalesce(Case.metadata_json["reader_extracted"]["judge"].as_string(), "Unknown"))
+		.order_by(func.count(func.distinct(Citation.source_case_id)).desc())
+		.limit(1)
+	).first()
+	top_judge = None
+	if top_judge_row:
+		judge_name, judge_count = top_judge_row
+		top_judge = {"judge": judge_name, "case_count": int(judge_count)}
+
+	citing_sources = (
+		select(Citation.source_case_id)
+		.where(Citation.target_case_id == case_id)
+		.distinct()
+		.cte("ci_citing_sources")
+	)
+	top_statute_row = session.execute(
+		select(
+			StatuteReference.normalized_reference,
+			func.count(func.distinct(StatuteReference.source_case_id)).label("case_count"),
+		)
+		.join(citing_sources, citing_sources.c.source_case_id == StatuteReference.source_case_id)
+		.where(StatuteReference.normalized_reference.is_not(None))
+		.group_by(StatuteReference.normalized_reference)
+		.order_by(func.count(func.distinct(StatuteReference.source_case_id)).desc())
+		.limit(1)
+	).first()
+	top_statute = None
+	if top_statute_row:
+		provision, case_count = top_statute_row
+		top_statute = {"provision": provision, "case_count": int(case_count)}
+
 	authority = session.get(Case, case_id)
 	metrics = session.get(CitationMetrics, case_id)
+	insights = _build_citation_intelligence_insights(
+		unique_citing,
+		total_occ,
+		avg_mentions,
+		max_mentions,
+		top_citing_case=top_citing_case,
+		top_court=top_court,
+		top_judge=top_judge,
+		top_statute=top_statute,
+	)
 
 	return {
 		"case_id": case_id,
@@ -1857,8 +2014,12 @@ def citation_intelligence_overview(session: Session, case_id: int) -> dict[str, 
 		"avg_mentions_per_case": avg_mentions,
 		"max_mentions_in_single_case": max_mentions,
 		"top_citing_case": top_citing_case,
+		"top_court": top_court,
+		"top_judge": top_judge,
+		"top_statute": top_statute,
 		"first_citation_date": str(first_date) if first_date else None,
 		"most_recent_citation_date": str(latest_date) if latest_date else None,
+		"insights": insights,
 	}
 
 

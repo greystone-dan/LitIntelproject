@@ -180,6 +180,26 @@ Potential future features include:
 - Treat client or confidential case material as sensitive data and define retention and access policies before accepting it.
 - Design for retryable, idempotent ingestion rather than assuming every external call succeeds.
 
+### 9.1 CanLII citation resolution gap
+
+The local citation resolver can normalize CanLII identifiers such as `1999 CanLII 699`, but many target decisions do not have those identifiers stored in the local `cases.citation` or `cases.secondary_citation` fields. Those citations therefore remain unresolved even when the cited decision may be available from CanLII.
+
+`backend/citations.py` contains an optional CanLII lookup path, but the bulk formal-citation resolver intentionally remains local-only and does not call external services. Before enabling external resolution, validate a small sample of identifiers, record API failures and rate limits, and ensure any retrieved metadata is imported with provenance and idempotent deduplication. Do not launch bulk CanLII lookups until target coverage, credentials, request limits, and the local enrichment workflow are confirmed.
+
+### 9.2 Citation extraction and anchor state
+
+The active citation extractor is the v2 path (`CASELIBRARY_CITATION_PIPELINE=v2` by default). It recognizes full case names, neutral citations, reported citations, and short-form references. A `case_short` occurrence is generated from an internal case-name or fuller-citation anchor, but the current `citations` table does not persist an explicit `anchor_citation_id`; existing relationships must therefore be inferred from normalized text, source position, and decision-local context.
+
+Before the next corpus re-extraction, preserve and test these behaviors:
+
+- Full reported citations such as `R. v. Oakes, [1986] 1 S.C.R. 103` must remain one complete `case` row rather than collapsing into `case_name` plus a separate reporter row.
+- Neutral and regional forms such as `2006 FC 598`, `2009 ONCA 624`, and CanLII citations must retain their full citation span and normalized form.
+- Short-form aliases may refer forward to a fuller citation in a footnote, but forward anchors must be context-aware and not an unconditional first-row fallback.
+- Ambiguous aliases must remain unresolved rather than being assigned by `LIMIT 1` or another arbitrary choice.
+- Future schema work should persist the anchor relationship, ideally with a self-referential `anchor_citation_id` and provenance/confidence for inferred or forward anchors.
+
+The current database has already undergone resolver passes that added 229,570 case-name/short-form links and 10,299 formal-citation links. Do not re-run extraction or bulk resolution until the extraction tests and anchor provenance design are updated; otherwise prior stored improvements may be replaced by rows that do not retain their anchor relationship.
+
 ## 10. Decision points requiring user guidance
 
 The following choices should be made from actual litigation research needs:

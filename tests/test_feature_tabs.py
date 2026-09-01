@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 from backend import routes
+from backend.citation_map import _build_citation_intelligence_insights
 
 
 class ScalarDatabase:
@@ -35,6 +36,24 @@ def test_about_stats_returns_library_counts():
     }
 
 
+def test_build_citation_intelligence_insights_are_actionable():
+    insights = _build_citation_intelligence_insights(
+        unique_citing_cases=12,
+        total_occurrences=47,
+        avg_mentions_per_case=3.9,
+        max_mentions_in_single_case=12,
+        top_citing_case={"title": "A v. Canada", "mention_count": 12},
+        top_court={"court": "Federal Court", "case_count": 9},
+        top_judge={"judge": "Justice Smith", "case_count": 4},
+        top_statute={"provision": "IRPA s. 34(1)(f)", "case_count": 6},
+    )
+
+    assert len(insights) >= 4
+    assert any(item["title"] == "Most active citing decision" for item in insights)
+    assert any(item["title"] == "Top court" for item in insights)
+    assert any("IRPA" in item["detail"] for item in insights)
+
+
 def test_citation_intelligence_routes_delegate_to_existing_helpers(monkeypatch):
     case = SimpleNamespace(id=7)
     database = object()
@@ -59,6 +78,7 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     for label in (
         "About",
         "Case search",
+        "Site Architecture",
         "Citation Intelligence",
         "Judge outcomes",
         "Judge Profile",
@@ -71,6 +91,77 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert "Decision desk" not in html
     assert "Litigation workbench" not in html
     assert "Case search and analytics" not in html
+
+
+def test_site_architecture_panel_lists_data_layers_and_feature_map():
+    html = routes._data_explorer_page_html()
+
+    for label in (
+        "Data inventory",
+        "Case records",
+        "Citation records",
+        "Judge profiles",
+        "Federal Court activity",
+        "Feature-to-data map",
+        "case_chunks",
+        "citation_metrics",
+        "statute_references",
+        "case_judge_profiles",
+        "fc_activity_documents",
+        "Data model map",
+    ):
+        assert label in html
+
+
+def test_site_architecture_panel_includes_live_inventory_ledger():
+    html = routes._data_explorer_page_html()
+
+    for label in (
+        "Live inventory ledger",
+        "Case records",
+        "Search index",
+        "Citation graph",
+        "Judge profile links",
+        "FC docket entries",
+        "siteInventoryCases",
+        "siteInventoryCaseChunks",
+        "siteInventoryCitationMetrics",
+        "siteInventoryStatuteReferences",
+    ):
+        assert label in html
+
+
+def test_site_architecture_panel_includes_coverage_quality_summary():
+    html = routes._data_explorer_page_html()
+
+    for label in (
+        "Coverage quality",
+        "Fully populated",
+        "Partial extraction",
+        "Not yet generated",
+        "siteCoverageFullyPopulated",
+        "siteCoveragePartial",
+        "siteCoverageEmpty",
+    ):
+        assert label in html
+
+
+def test_site_architecture_panel_explains_extracted_vs_inferred_data():
+    html = routes._data_explorer_page_html()
+
+    for label in (
+        "Extracted vs inferred data",
+        "Outcome and win-rate methodology",
+        "Improvement backlog",
+        "Core workflows",
+        "How citations are extracted",
+        "What works well",
+        "Website structure map",
+        "government_outcome",
+        "source-backed metadata",
+        "confidence metadata",
+    ):
+        assert label in html
 
 
 def test_citation_intelligence_case_search_is_title_scoped():
@@ -110,6 +201,10 @@ def test_rendered_shell_exposes_focused_feature_searches():
 
     for subtab in ("Overview", "Timeline", "Outcomes", "Courts", "Judges", "Companions", "Statutes", "Evidence"):
         assert subtab in html
+
+    assert "Research readout" in html
+    assert "Open citation evidence" in html
+    assert "Compare use over time" in html
 
 
 def test_judge_profiles_default_to_most_linked_profiles():

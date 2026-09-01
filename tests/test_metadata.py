@@ -103,5 +103,48 @@ def test_metadata_stage_persists_case_level_extraction_and_preserves_source_meta
 	assert session.added == [case]
 
 
+def test_metadata_outcome_prefers_final_order_over_quoted_prior_decision():
+	text = (
+		'The Court discussed an earlier decision where the application was allowed.\n'
+		'Some reasons and procedural history.\n'
+		'ORDER\nThe application is dismissed.'
+	)
+
+	rows = extract_metadata_observations(text)
+	by_field = {row.field: row for row in rows}
+
+	assert by_field["decision outcome"].value == "dismissed"
+
+
+def test_metadata_outcome_derives_individual_win_from_set_aside_and_remittal():
+	text = (
+		"Between:\n"
+		"Jane Doe Applicant\n"
+		"and\n"
+		"The Minister of Citizenship and Immigration Respondent\n"
+		"JUDGMENT\nThe decision is set aside and the matter is referred back.\n"
+	)
+
+	rows = extract_metadata_observations(text)
+	by_field = {row.field: row for row in rows}
+
+	assert by_field["decision outcome"].value == "remitted"
+	assert by_field["government outcome"].value == "lost"
+
+
+def test_extract_case_metadata_derives_case_type_and_challenge_from_legal_signals():
+	text = (
+		"This application for judicial review challenges a Refugee Protection Division decision. "
+		"The applicant alleges credibility and procedural fairness issues under sections 96 and "
+		"97 of the IRPA and the Refugee Convention."
+	)
+	payload = extract_case_metadata(text)
+
+	assert payload["case type"] == "judicial_review"
+	assert payload["case challenge"] == "refugee_protection_decision"
+	assert payload["case issue"] in {"credibility", "procedural_fairness", "refugee_protection"}
+	assert "judicial_review" in payload["case topic"]
+
+
 def test_extract_case_metadata_returns_empty_payload_for_empty_text():
 	assert extract_case_metadata("  ") == {}

@@ -92,6 +92,7 @@ class Case(Base):
 	secondary_citation: Mapped[str | None] = mapped_column(String(255), nullable=True)
 	summary: Mapped[str | None] = mapped_column(Text, nullable=True)
 	full_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	source_html: Mapped[str | None] = mapped_column(Text, nullable=True)
 	issues: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
 	metadata_json: Mapped[dict[str, object] | None] = mapped_column(JSON, nullable=True)
 	source_url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
@@ -466,6 +467,31 @@ class FCActivityCase(Base):
 	)
 
 	documents = relationship("FCActivityDocument", back_populates="case", cascade="all, delete-orphan")
+	classification = relationship("FCActivityClassification", back_populates="source_case", uselist=False, cascade="all, delete-orphan")
+
+
+class FCActivityClassification(Base):
+	__tablename__ = "fc_activity_classifications"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, unique=True, index=True)
+	source_key: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	case_name: Mapped[str | None] = mapped_column(Text, nullable=True)
+	date_filed: Mapped[date_type | None] = mapped_column(Date, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	nature: Mapped[str | None] = mapped_column(Text, nullable=True)
+	case_class: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	track: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	source_url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
+	scraped_timestamp: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	classification_json: Mapped[dict[str, object]] = mapped_column(JSON, nullable=False)
+	classifier_version: Mapped[str] = mapped_column(String(80), nullable=False)
+	classified_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+	source_case = relationship("FCActivityCase", back_populates="classification")
 
 
 class FCActivityDocument(Base):

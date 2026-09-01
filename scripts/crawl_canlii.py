@@ -145,6 +145,28 @@ def _best_full_text(soup: BeautifulSoup) -> str:
                 return re.sub(r"\n{3,}", "\n\n", text).strip()
     return ""
 
+def _best_full_html(soup: BeautifulSoup) -> str:
+    selectors = ["#originalDocument", "#decision", ".contentBody", ".documentcontent", ".documentContent", "main"]
+    best = None
+    best_length = 0
+    for selector in selectors:
+        for node in soup.select(selector):
+            text_length = len(node.get_text("\n", strip=True))
+            if text_length > best_length:
+                best = node
+                best_length = text_length
+    if best is None:
+        return ""
+    for node in best.find_all(["script", "style", "iframe", "object", "embed", "form"]):
+        node.decompose()
+    for node in best.find_all(True):
+        for attribute in list(node.attrs):
+            if attribute.lower().startswith("on"):
+                del node.attrs[attribute]
+        if node.name == "a":
+            node.attrs = {key: value for key, value in node.attrs.items() if key.lower() in {"href", "title", "class", "id"}}
+    return best.decode_contents()
+
 
 def _parse_date(text: str | None) -> date | None:
     if not text:
@@ -210,6 +232,7 @@ def parse_canlii_html(html: str, source_url: str) -> dict[str, Any]:
     decision_date = _parse_date(date_text)
 
     full_text = _best_full_text(soup)
+    source_html = _best_full_html(soup)
     cited_urls = _extract_cited_urls(soup)
 
     return {
@@ -218,6 +241,7 @@ def parse_canlii_html(html: str, source_url: str) -> dict[str, Any]:
         "court": court_source or "Federal Court",
         "decision_date": decision_date,
         "full_text": full_text,
+        "source_html": source_html,
         "cited_urls": cited_urls,
         "source_url": source_url,
     }
@@ -601,6 +625,7 @@ def _run_loop(
             "date": parsed["decision_date"].isoformat() if parsed["decision_date"] else None,
             "citation": parsed["citation"],
             "full_text": full_text,
+            "source_html": parsed.get("source_html"),
             "full_text_hash": full_text_hash,
             "source_url": url,
             "source_name": "CanLII",

@@ -6,6 +6,7 @@ This intentionally does not extract citations again or call external services.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -19,6 +20,13 @@ from backend.citations import NEUTRAL_CIT_RE, normalize_neutral_citation
 from backend.database import Case, Citation, SessionLocal
 
 
+FORMAL_CIT_RE = re.compile(
+	r"(?<![A-Za-z0-9])(?:\[)?((?:19|20)\d{2})(?:\])?\s+"
+	r"(CanLII|[A-Z]{1,8}(?:\.[A-Z]{1,4})?)\s+(\d{1,7})\b",
+	re.IGNORECASE,
+)
+
+
 def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--batch-size", type=int, default=5_000)
@@ -28,15 +36,18 @@ def parse_args() -> argparse.Namespace:
 
 
 def _citation_variants(value: str) -> list[str]:
-	match = NEUTRAL_CIT_RE.search(value)
+	match = FORMAL_CIT_RE.search(value)
 	if match is None:
 		return []
-	normalized = normalize_neutral_citation(match).upper()
+	year, court, number = match.groups()
+	normalized = f"{year} {court.replace('.', '').upper()} {int(number)}"
 	variants = [normalized]
 	if " FCT " in f" {normalized} ":
 		variants.append(normalized.replace(" FCT ", " FC "))
 	if " FC " in f" {normalized} ":
 		variants.append(normalized.replace(" FC ", " FCT "))
+	if " CANLII " in f" {normalized} ":
+		variants.append(normalized.replace(" CANLII ", " CanLII "))
 	return list(dict.fromkeys(variants))
 
 
@@ -57,7 +68,7 @@ def _local_citation_index(session) -> dict[str, int | None]:
 
 
 def _target_case_id(citation: Citation, index: dict[str, int | None]) -> int | None:
-	match = NEUTRAL_CIT_RE.search(citation.normalized_citation or "")
+	match = FORMAL_CIT_RE.search(citation.normalized_citation or "")
 	if match is None:
 		return None
 	for variant in _citation_variants(match.group(0)):
@@ -96,7 +107,7 @@ def main() -> None:
 			updates = []
 			for citation in rows:
 				inspected += 1
-				if NEUTRAL_CIT_RE.search(citation.normalized_citation or "") is None:
+				if FORMAL_CIT_RE.search(citation.normalized_citation or "") is None:
 					continue
 				candidates += 1
 				target_case_id = _target_case_id(citation, index)

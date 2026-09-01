@@ -77,6 +77,75 @@ def test_extract_citations_from_text_normalizes_and_resolves(monkeypatch):
 	assert len(session.added) == 3
 
 
+def test_extract_citations_from_text_resolves_short_form_alias_to_canonical_case():
+	class AliasCaseSession:
+		def __init__(self):
+			self.added = []
+			self.calls = []
+
+		def execute(self, statement, params=None):
+			self.calls.append((str(statement), params))
+			pattern = (params or {}).get("pattern", "") if isinstance(params, dict) else ""
+			if "oakes" in pattern.lower():
+				return SimpleNamespace(scalar_one_or_none=lambda: 77)
+			return SimpleNamespace(scalar_one_or_none=lambda: None)
+
+		def scalar(self, statement, params=None):
+			self.calls.append((str(statement), params))
+			pattern = (params or {}).get("pattern", "") if isinstance(params, dict) else ""
+			if "oakes" in pattern.lower():
+				return 77
+			return None
+
+		def add_all(self, rows):
+			self.added.extend(rows)
+
+	session = AliasCaseSession()
+	text = "The Court in R v Oakes at para 100 considered the issue. A second Oakes mention appears later."
+
+	rows = citations.extract_citations_from_text(session, source_case_id=11, text=text)
+
+	alias_rows = [row for row in rows if row.citation_text == "R v Oakes at para 100"]
+	assert len(alias_rows) == 1
+	assert alias_rows[0].target_case_id == 77
+	assert alias_rows[0].unresolved is False
+	assert alias_rows[0].offset_start != alias_rows[0].offset_end
+	assert any(row.citation_text == "R v Oakes at para 100" for row in rows)
+
+
+def test_rebuild_citations_for_case_keeps_alias_resolution_when_rerunning():
+	class AliasRebuildSession:
+		def __init__(self):
+			self.added = []
+
+		def execute(self, statement, params=None):
+			return None
+
+		def scalar(self, statement, params=None):
+			pattern = str(statement).lower()
+			if "oakes" in pattern:
+				return SimpleNamespace(id=77)
+			return None
+
+		def add_all(self, rows):
+			self.added.extend(rows)
+
+	case = SimpleNamespace(
+		id=11,
+		title="Calixto v. Canada",
+		full_text="The Court in R v Oakes at para 100 considered the issue.",
+		summary="",
+	)
+	session = AliasRebuildSession()
+
+	rows = citations.rebuild_citations_for_case(session, case)
+
+	assert rows == 1
+	assert session.added[0].target_case_id == 77
+	assert session.added[0].unresolved is False
+	assert session.added[0].citation_text == "R v Oakes at para 100"
+
+
 def test_extract_raw_citation_matches_supports_canlii_and_section_keyword():
 	text = "See 2023 CanLII 12345 (SCC) and IRPA section 34(1)."
 

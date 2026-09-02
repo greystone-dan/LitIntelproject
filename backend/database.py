@@ -362,6 +362,35 @@ class CitationMetrics(Base):
 	case = relationship("Case", back_populates="metrics")
 
 
+class LegislationDocument(Base):
+	__tablename__ = "legislation_documents"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	instrument_key: Mapped[str] = mapped_column(String(100), unique=True, nullable=False, index=True)
+	title: Mapped[str] = mapped_column(Text, nullable=False)
+	citation: Mapped[str | None] = mapped_column(Text, nullable=True)
+	source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	local_path: Mapped[str | None] = mapped_column(Text, nullable=True)
+	source_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)
+
+	sections = relationship("LegislationSection", back_populates="document", cascade="all, delete-orphan")
+
+
+class LegislationSection(Base):
+	__tablename__ = "legislation_sections"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	document_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("legislation_documents.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	section_number: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	label: Mapped[str | None] = mapped_column(Text, nullable=True)
+	text: Mapped[str] = mapped_column(Text, nullable=False)
+	display_order: Mapped[int] = mapped_column(Integer, nullable=False)
+
+	document = relationship("LegislationDocument", back_populates="sections")
+
+
 class StatuteReference(Base):
 	__tablename__ = "statute_references"
 
@@ -376,6 +405,9 @@ class StatuteReference(Base):
 	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	reference_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 	normalized_reference: Mapped[str | None] = mapped_column(Text, nullable=True, index=True)
+	instrument_key: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
+	pinpoint: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	legislation_url: Mapped[str | None] = mapped_column(Text, nullable=True)
 	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 
 	source_case = relationship("Case", back_populates="statute_references")

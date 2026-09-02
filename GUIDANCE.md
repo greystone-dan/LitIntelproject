@@ -2,7 +2,8 @@
 
 Document role: long-term architecture and product north star.
 This is not the live operations snapshot.
-For current state and overnight run posture, see `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
+For the canonical current system description, see `SYSTEM_REFERENCE.md`.
+For current operational procedure, see `OVERNIGHT.md`.
 
 This document is the technical north star for AI CaseLibrary. It describes the intended product direction, architecture, data model, retrieval behavior, and operating principles. It is deliberately separate from `CHANGELOG.md`, which records what has already happened.
 

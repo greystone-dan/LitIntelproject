@@ -44,7 +44,7 @@ STANDALONE_CASE_NAME_RE = re.compile(
 	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?)(?=[,.;)\]]|\s|$)",
 	re.IGNORECASE,
 )
-STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s+(?:s\.|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
+STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
 LONG_STATUTE_CIT_RE = re.compile(
 	r"\b(?:"
 	r"Immigration and Refugee Protection Act(?:,\s*S\.C\.\s*\d{4},\s*c\.\s*[A-Z0-9.-]+(?:\s*\([^)]*\))?)?"
@@ -63,7 +63,14 @@ SECTION_OF_STATUTE_RE = re.compile(
 	re.IGNORECASE,
 )
 STATUTE_MULTI_SECTION_PREFIX_RE = re.compile(
-	r"\b(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\s*,?\s*ss?\.\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
+	r"\b(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\s*,?\s*(?:ss?\.?|sections?)\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
+	re.IGNORECASE,
+)
+IRPA_IRPR_NESTED_PROVISION_LIST_OF_STATUTE_RE = re.compile(
+	r"\b(?:paragraphs?|paras?\.?|subparagraphs?|subparas?\.?|subsections?|subsecs?\.?)\s*"
+	r"((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))+)(?:(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-–]\s*)"
+	r"(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*|\(\s*[A-Za-z0-9]+\s*\)))+)\s+of\s+(?:the\s+)?"
+	r"(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations)\b",
 	re.IGNORECASE,
 )
 GENERIC_SECTION_OF_STATUTE_RE = re.compile(
@@ -264,6 +271,44 @@ class RawCitationMatch:
 	normalized_citation: str
 	offset_start: int
 	offset_end: int
+
+
+@dataclass(frozen=True)
+class LegislationCitation:
+	instrument_key: str
+	pinpoint: str
+	legislation_url: str | None = None
+
+
+LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
+	"canada.irpa": {
+		"aliases": ("IRPA", "Immigration and Refugee Protection Act"),
+		"url": "https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section}.html",
+	},
+	"canada.irpr": {
+		"aliases": ("IRPR", "Immigration and Refugee Protection Regulations"),
+		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-227/section-{section}.html",
+	},
+}
+
+
+def parse_legislation_citation(value: str | None) -> LegislationCitation | None:
+	text = _normalize_whitespace(value or "")
+	for key, definition in LEGISLATION_REGISTRY.items():
+		aliases = definition["aliases"]
+		if not any(re.search(rf"\b{re.escape(alias)}\b", text, re.IGNORECASE) for alias in aliases):
+			continue
+		match = re.search(r"\b(?:s|ss|sections?|paragraphs?|subsections?)\.?\s*(?=\d)([^,;]+?)(?=\s+of\s+|\s*$|[.;])", text, re.IGNORECASE)
+		if match is None:
+			match = re.search(r"\bsections?\s*([^,;]+)", text, re.IGNORECASE)
+		if match is None:
+			return None
+		pinpoint = re.sub(r"\s+", "", match.group(1)).strip(".")
+		section = re.match(r"\d{1,3}(?:\.\d+)?[A-Za-z]?", pinpoint)
+		url_template = definition.get("url")
+		url = url_template.format(section=section.group(0)) if section and isinstance(url_template, str) else None
+		return LegislationCitation(key, pinpoint, url)
+	return None
 
 
 def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> bool:
@@ -1327,7 +1372,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 	for match in STATUTE_CIT_RE.finditer(content):
 		normalized = _normalize_whitespace(match.group(0))
 		normalized = re.sub(r"\bsection\b", "s.", normalized, flags=re.IGNORECASE)
-		normalized = re.sub(r"\b(irpa|irpr)\b", lambda m: _full_statute_citation_name(m.group(0)), normalized, flags=re.IGNORECASE)
+		normalized = re.sub(r"\b(irpa|irpr)\b,?", lambda m: _full_statute_citation_name(m.group(0)), normalized, flags=re.IGNORECASE)
 		candidates.append(
 			(
 				match.start(),
@@ -1410,6 +1455,17 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 	for match in IRPA_IRPR_NESTED_PROVISION_OF_STATUTE_RE.finditer(content):
 		section, statute_name = match.groups()
 		normalized = f"{_full_statute_citation_name(statute_name)} s. {_normalize_nested_provision(section)}"
+		candidates.append(
+			(
+				match.start(),
+				match.end(),
+				_raw_match("statute", match.group(0), normalized, match.start(), match.end()),
+			)
+		)
+
+	for match in IRPA_IRPR_NESTED_PROVISION_LIST_OF_STATUTE_RE.finditer(content):
+		section_list, statute_name = match.groups()
+		normalized = f"{_full_statute_citation_name(statute_name)} ss. {_normalize_section_list(section_list)}"
 		candidates.append(
 			(
 				match.start(),
@@ -1587,6 +1643,10 @@ def _extract_anchored_provision_candidates(
 	anchors: list[RawCitationMatch],
 ) -> list[RawCitationMatch]:
 	rows: list[RawCitationMatch] = []
+	context_anchors = list(anchors)
+	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
+		instrument = _full_statute_citation_name(match.group(1))
+		context_anchors.append(_raw_match("statute", match.group(0), instrument, match.start(), match.end()))
 	for match in STANDALONE_PROVISION_RE.finditer(content):
 		start, end = match.span()
 		if any(not (end <= anchor.offset_start or start >= anchor.offset_end) for anchor in anchors):
@@ -1598,7 +1658,7 @@ def _extract_anchored_provision_candidates(
 		kind = "instrument" if prefix.startswith("art") else "statute"
 		eligible = [
 			anchor
-			for anchor in anchors
+			for anchor in context_anchors
 			if anchor.kind == kind
 			and anchor.offset_end <= start
 			and start - anchor.offset_end <= 1500
@@ -1606,7 +1666,28 @@ def _extract_anchored_provision_candidates(
 		]
 		if not eligible:
 			continue
-		anchor = max(eligible, key=lambda item: item.offset_end)
+		sentence_start = max(content.rfind(".", 0, start), content.rfind("!", 0, start), content.rfind("?", 0, start)) + 1
+		sentence_end_candidates = [position for mark in (".", "!", "?") if (position := content.find(mark, end)) >= 0]
+		sentence_end = min(sentence_end_candidates, default=len(content))
+		following_authority = re.search(r"\bof\s+(?:the\s+)?(IRPA|IRPR|Criminal Code)\b", content[end : min(len(content), end + 180)], re.IGNORECASE)
+		if following_authority:
+			authority_start = end + following_authority.start(1)
+			anchor = _raw_match(
+				"statute",
+				following_authority.group(1),
+				_full_statute_citation_name(following_authority.group(1)),
+				authority_start,
+				authority_start + len(following_authority.group(1)),
+			)
+		else:
+			sentence_anchors = [
+				anchor
+				for anchor in context_anchors
+				if sentence_start <= anchor.offset_start < sentence_end
+				and not (end <= anchor.offset_start or start >= anchor.offset_end)
+				and _anchored_authority_name(anchor)
+			]
+			anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
 		authority = _anchored_authority_name(anchor)
 		if not authority:
 			continue
@@ -2019,6 +2100,7 @@ def extract_statute_references_from_text(
 ) -> list[StatuteReference]:
 	selected: list[StatuteReference] = []
 	for raw_match in extract_statute_reference_matches(text):
+		parsed = parse_legislation_citation(raw_match.normalized_citation or raw_match.citation_text)
 		selected.append(
 			StatuteReference(
 				source_case_id=source_case_id,
@@ -2027,6 +2109,9 @@ def extract_statute_references_from_text(
 				offset_end=raw_match.offset_end,
 				reference_text=raw_match.citation_text,
 				normalized_reference=raw_match.normalized_citation,
+				instrument_key=parsed.instrument_key if parsed else None,
+				pinpoint=parsed.pinpoint if parsed else None,
+				legislation_url=parsed.legislation_url if parsed else None,
 				reference_kind=raw_match.kind,
 			)
 		)

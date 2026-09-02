@@ -7,13 +7,13 @@ import re
 import sys
 from pathlib import Path
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.citations import extract_statute_reference_matches
+from backend.citations import extract_statute_reference_matches, parse_legislation_citation
 from backend.database import Case, CaseChunk, SessionLocal, StatuteReference
 
 IRPA_IRPR_RE = re.compile(
@@ -39,20 +39,29 @@ def extract_case_references(case: Case, chunks: list[CaseChunk]) -> list[Statute
     selected_chunks = preferred if preferred else chunks
     references: list[StatuteReference] = []
     seen: set[tuple[int | None, int, int, str]] = set()
+    context_text = ""
     if selected_chunks:
         for chunk in selected_chunks:
-            for raw in extract_statute_reference_matches(chunk.text):
+            prefix = f"{context_text}\n" if context_text else ""
+            for raw in extract_statute_reference_matches(prefix + chunk.text):
+                if raw.offset_end <= len(prefix):
+                    continue
                 if not is_irpa_irpr(raw.citation_text, raw.normalized_citation):
                     continue
-                key = (chunk.id, raw.offset_start, raw.offset_end, raw.normalized_citation)
+                parsed = parse_legislation_citation(raw.normalized_citation or raw.citation_text)
+                offset_start = raw.offset_start - len(prefix)
+                offset_end = raw.offset_end - len(prefix)
+                key = (chunk.id, offset_start, offset_end, raw.normalized_citation)
                 if key in seen:
                     continue
                 seen.add(key)
-                references.append(StatuteReference(source_case_id=case.id, chunk_id=chunk.id, offset_start=raw.offset_start, offset_end=raw.offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, reference_kind=raw.kind))
+                references.append(StatuteReference(source_case_id=case.id, chunk_id=chunk.id, offset_start=offset_start, offset_end=offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, instrument_key=parsed.instrument_key if parsed else None, pinpoint=parsed.pinpoint if parsed else None, legislation_url=parsed.legislation_url if parsed else None, reference_kind=raw.kind))
+            context_text = (context_text + "\n" + chunk.text)[-3000:]
     else:
         for raw in extract_statute_reference_matches(case.full_text or case.summary):
             if is_irpa_irpr(raw.citation_text, raw.normalized_citation):
-                references.append(StatuteReference(source_case_id=case.id, chunk_id=None, offset_start=raw.offset_start, offset_end=raw.offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, reference_kind=raw.kind))
+                parsed = parse_legislation_citation(raw.normalized_citation or raw.citation_text)
+                references.append(StatuteReference(source_case_id=case.id, chunk_id=None, offset_start=raw.offset_start, offset_end=raw.offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, instrument_key=parsed.instrument_key if parsed else None, pinpoint=parsed.pinpoint if parsed else None, legislation_url=parsed.legislation_url if parsed else None, reference_kind=raw.kind))
     return references
 
 
@@ -92,6 +101,7 @@ def main() -> None:
             total += len(batch_references)
             processed += len(cases)
             if not args.dry_run:
+                session.execute(delete(StatuteReference).where(StatuteReference.source_case_id.in_(case_ids)))
                 session.add_all(batch_references)
                 session.commit()
             last_id = cases[-1].id

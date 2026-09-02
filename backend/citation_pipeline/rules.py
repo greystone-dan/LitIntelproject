@@ -39,7 +39,11 @@ RE_CASE_NAME = re.compile(
     re.IGNORECASE,
 )
 RE_IRPA_SECTION = re.compile(
-    r"\b(IRPA|IRPR)\s*,?\s*ss?\.\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
+    r"\b(IRPA|IRPR)\s*,?\s*ss?\.?\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
+    re.IGNORECASE,
+)
+RE_IRPA_SINGLE_SECTION = re.compile(
+    r"\b(IRPA|IRPR)\s*,?\s*s\.?\s*(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)",
     re.IGNORECASE,
 )
 RE_GENERIC_STATUTE = re.compile(
@@ -100,6 +104,10 @@ def _rule_irpa(text: str) -> list[CitationCandidate]:
         statute, section_list = m.groups()
         base = "Immigration and Refugee Protection Act, S.C. 2001, c. 27" if statute.upper() == "IRPA" else "Immigration and Refugee Protection Regulations, SOR/2002-227"
         out.append(_mk("statute", m.group(0), f"{base} ss. {_norm_sections(section_list)}", m.start(), m.end(), 0.92, "irpa_sections"))
+    for m in RE_IRPA_SINGLE_SECTION.finditer(text):
+        statute, section = m.groups()
+        base = "Immigration and Refugee Protection Act, S.C. 2001, c. 27" if statute.upper() == "IRPA" else "Immigration and Refugee Protection Regulations, SOR/2002-227"
+        out.append(_mk("statute", m.group(0), f"{base} s. {_norm(section)}", m.start(), m.end(), 0.92, "irpa_section"))
     return out
 
 

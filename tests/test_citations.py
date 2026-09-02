@@ -7,6 +7,23 @@ from backend import citations
 from backend import routes
 
 
+def test_parse_legislation_citation_returns_expandable_provision_identity():
+	parsed = citations.parse_legislation_citation("paragraph 34(1)(f) of IRPA")
+
+	assert parsed is not None
+	assert parsed.instrument_key == "canada.irpa"
+	assert parsed.pinpoint == "34(1)(f)"
+	assert parsed.legislation_url.endswith("/section-34.html")
+
+
+def test_parse_legislation_citation_distinguishes_irpr():
+	parsed = citations.parse_legislation_citation("IRPR s. 12(1)")
+
+	assert parsed is not None
+	assert parsed.instrument_key == "canada.irpr"
+	assert parsed.pinpoint == "12(1)"
+
+
 def test_self_case_name_filter_rejects_source_surname_only():
 	match = citations.RawCitationMatch("case_short", "Calixto", "Calixto, 2005 FC 1037", 0, 7)
 
@@ -68,13 +85,15 @@ def test_extract_citations_from_text_normalizes_and_resolves(monkeypatch):
 
 	rows = citations.extract_citations_from_text(session, source_case_id=11, text=text)
 
-	assert len(rows) == 3
+	# Case-law citations are a separate layer from statute references (see
+	# test_extract_statute_reference_matches_returns_only_law_layer), so the
+	# IRPA s. 72(1) reference in this text is intentionally excluded here.
+	assert len(rows) == 2
 	assert rows[0].target_case_id == 42
 	assert rows[0].normalized_citation == "2024 FC 100"
 	assert rows[1].target_case_id is None
 	assert rows[1].normalized_citation == "Smith v. Jones, 2023 FCA 5"
-	assert rows[2].normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 72(1)"
-	assert len(session.added) == 3
+	assert len(session.added) == 2
 
 
 def test_extract_citations_from_text_resolves_short_form_alias_to_canonical_case():
@@ -337,6 +356,49 @@ def test_extract_raw_citation_matches_supports_irpa_plural_section_ranges():
 		item.startswith("Immigration and Refugee Protection Act, S.C. 2001, c. 27 ss. 100 to 102, 101(1)(f), 101(2)(b)")
 		for item in normalized
 	)
+
+
+def test_extract_raw_citation_matches_supports_punctuated_irpa_section_variants():
+	text = "The claim relies on IRPA, s. 34(1)(f), and IRPR s 245(1)(c)."
+
+	matches = citations.extract_raw_citation_matches(text)
+	statutes = [match for match in matches if match.kind == "statute"]
+
+	assert [match.citation_text for match in statutes] == ["IRPA, s. 34(1)(f)", "IRPR s 245(1)(c)"]
+	assert statutes[0].normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+	assert statutes[1].normalized_citation == "Immigration and Refugee Protection Regulations, SOR/2002-227 s. 245(1)(c)"
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in statutes)
+
+
+def test_extract_raw_citation_matches_supports_irpa_irpr_word_and_undotted_lists():
+	text = "IRPA, sections 34 and 37 apply; IRPR, ss 245(1)(c) and 246(1)(a) also apply."
+
+	statutes = [match for match in citations.extract_raw_citation_matches(text) if match.kind == "statute"]
+
+	assert [match.citation_text for match in statutes] == [
+		"IRPA, sections 34 and 37",
+		"IRPR, ss 245(1)(c) and 246(1)(a)",
+	]
+	assert statutes[0].normalized_citation.endswith("ss. 34, 37")
+	assert statutes[1].normalized_citation.endswith("ss. 245(1)(c), 246(1)(a)")
+
+
+def test_extract_statute_reference_matches_supports_shared_parent_nested_range():
+	text = "The Minister relies on subparagraphs 34(1)(a) to (f) of IRPA."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		match.citation_text == "subparagraphs 34(1)(a) to (f) of IRPA"
+		and match.normalized_citation.endswith("ss. 34(1)(a) to (f)")
+		for match in matches
+	)
+
+
+def test_extract_statute_reference_matches_rejects_unanchored_nested_numbers():
+	text = "The reasons discuss subparagraphs 34(1)(a) to (f) without naming a statute."
+
+	assert not citations.extract_statute_reference_matches(text)
 
 
 def test_extract_statute_reference_matches_supports_irpa_paragraph_style_nested_provision():
@@ -944,7 +1006,7 @@ def test_citation_map_case_search_and_authority_map_are_bounded(monkeypatch):
 
 	assert calls["search"] == (database, "Vavilov", 30)
 	assert calls["authority_map"] == (database, 10, 12)
-	assert "Reader, citations, chunks, and tags in one place" in routes.case_reader_page()
+	assert "Legacy standalone case reader" in routes.case_reader_page()
 	assert "item.title" in routes.case_reader_page()
 	assert "item.citation||item.title" not in routes.case_reader_page()
 

@@ -157,13 +157,52 @@ class CaseReaderCitationResponse(BaseModel):
 	offset_end: int | None = None
 	citation_text: str | None = None
 	normalized_citation: str | None = None
+	instrument_key: str | None = None
+	pinpoint: str | None = None
 	target_case_id: int | None = None
 	target_title: str | None = None
 	target_citation: str | None = None
 	target_paragraph: int | None = None
 	target_chunk_text: str | None = None
+	legislation_url: str | None = None
 	provenance: str = "local"
 	unresolved: bool = False
+
+
+class LegislationCaseOccurrenceResponse(BaseModel):
+	case_id: int
+	title: str | None = None
+	citation: str | None = None
+	reference_id: int
+	reference_text: str | None = None
+	instrument_key: str
+	pinpoint: str
+	legislation_url: str | None = None
+	chunk_id: int | None = None
+	offset_start: int | None = None
+	offset_end: int | None = None
+
+
+class LegislationSectionResponse(BaseModel):
+	instrument_key: str
+	title: str
+	citation: str | None = None
+	section_number: str
+	label: str | None = None
+	text: str
+	source_url: str | None = None
+
+
+class LegislationSectionCaseResponse(BaseModel):
+	case_id: int
+	title: str | None = None
+	citation: str | None = None
+	pinpoint: str
+
+
+class LegislationSectionLookupResponse(BaseModel):
+	section: LegislationSectionResponse
+	cases: list[LegislationSectionCaseResponse]
 
 
 class CaseReaderTagResponse(BaseModel):

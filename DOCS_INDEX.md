@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-08-12
+Last updated: 2026-09-01
 
 ## Purpose
 
@@ -20,12 +20,11 @@ Use this sequence:
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Re-run focused verification and then update explainer docs and changelog.
 
-Primary explainer docs that must stay aligned:
+Primary explainer docs:
 
-1. `README.md` (entrypoint and operating workflow)
-2. `AI_HANDOFF.md` (active implementation state and next actions)
-3. `SYSTEM_OVERVIEW.txt` (plain-language status snapshot)
-4. `CHANGELOG.md` (what changed and verification notes)
+1. `SYSTEM_REFERENCE.md` is the canonical current architecture and functionality reference.
+2. `README.md` is the concise entrypoint and operating workflow.
+3. `CHANGELOG.md` records what changed and verification notes.
 
 ## Active Vs Legacy Locations
 
@@ -45,8 +44,8 @@ Legacy/reference-only areas:
 
 Current operational sources of truth:
 
-1. `SYSTEM_OVERVIEW.txt`
-- Plain-language architecture, data layers, collection status, and workflow state.
+1. `SYSTEM_REFERENCE.md`
+- Canonical current system functionality, architecture, data model, API map, operations, limitations, and review posture.
 
 2. `CHANGELOG.md`
 - Implementation milestones, newly added endpoints, and latest test baseline.
@@ -61,7 +60,7 @@ Current operational sources of truth:
 - Forward-looking phased delivery plan for missing features, QA, and release readiness.
 
 6. `AI_HANDOFF.md`
-- Active implementation handoff for advanced search, linked-citation resolution, deployment scaffolding status, and next-agent entry tasks.
+- Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
 
 7. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
@@ -77,7 +76,7 @@ older endpoint lists, or outdated test totals.
 
 ## Cleanup Status (2026-08-07)
 
-1. Active handoff authority now lives in root `AI_HANDOFF.md`; historical handoffs remain under `docs/history/`.
+1. Active architecture authority now lives in root `SYSTEM_REFERENCE.md`; historical handoffs remain under `docs/history/`.
 2. Research-facing work is currently centered on `/data-explorer`, `/case-reader`, and linked citation review; `/citation-pass` remains the extractor QA surface.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
@@ -97,8 +96,8 @@ Before patch:
 - `./venv/Scripts/python.exe -m pytest -q`
 
 2. Confirm documentation alignment:
-- New/changed endpoints listed in `CHANGELOG.md`.
-- If behavior changed, update `SYSTEM_OVERVIEW.txt` summary language.
+- New/changed system behavior is described in `SYSTEM_REFERENCE.md`.
+- New/changed endpoints are listed in `CHANGELOG.md`.
 - If operational flow changed, update `OVERNIGHT.md`.
 
 3. Verify migration and script notes when relevant:

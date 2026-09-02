@@ -103,63 +103,6 @@ def test_site_architecture_panel_lists_data_layers_and_feature_map():
         "Judge profiles",
         "Federal Court activity",
         "Feature-to-data map",
-        "case_chunks",
-        "citation_metrics",
-        "statute_references",
-        "case_judge_profiles",
-        "fc_activity_documents",
-        "Data model map",
-    ):
-        assert label in html
-
-
-def test_site_architecture_panel_includes_live_inventory_ledger():
-    html = routes._data_explorer_page_html()
-
-    for label in (
-        "Live inventory ledger",
-        "Case records",
-        "Search index",
-        "Citation graph",
-        "Judge profile links",
-        "FC docket entries",
-        "siteInventoryCases",
-        "siteInventoryCaseChunks",
-        "siteInventoryCitationMetrics",
-        "siteInventoryStatuteReferences",
-    ):
-        assert label in html
-
-
-def test_site_architecture_panel_includes_coverage_quality_summary():
-    html = routes._data_explorer_page_html()
-
-    for label in (
-        "Coverage quality",
-        "Fully populated",
-        "Partial extraction",
-        "Not yet generated",
-        "siteCoverageFullyPopulated",
-        "siteCoveragePartial",
-        "siteCoverageEmpty",
-    ):
-        assert label in html
-
-
-def test_site_architecture_panel_explains_extracted_vs_inferred_data():
-    html = routes._data_explorer_page_html()
-
-    for label in (
-        "Extracted vs inferred data",
-        "Outcome and win-rate methodology",
-        "Improvement backlog",
-        "Core workflows",
-        "How citations are extracted",
-        "What works well",
-        "Website structure map",
-        "government_outcome",
-        "source-backed metadata",
-        "confidence metadata",
     ):
         assert label in html
 

@@ -5,6 +5,10 @@ It collects court decisions and legal reference materials, preserves source prov
 
 This project is a research aid, not legal advice.
 
+For the complete, current architecture, system behavior, data model, operational
+workflows, API map, limitations, and code-review posture, read
+[SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md). It is the canonical system document.
+
 ## What This Repo Provides
 
 - FastAPI backend for case ingestion, search, retrieval, case reading, analytics, and citation exploration
@@ -239,6 +243,7 @@ If you generate large local archives in [backups](backups), keep them out of Git
 
 ## Core Documentation
 
+- [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md): canonical current architecture, functionality, data model, operations, and limitations
 - [SYSTEM_OVERVIEW.txt](SYSTEM_OVERVIEW.txt): plain-language system state
 - [SETUP.md](SETUP.md): environment and workstation setup
 - [OVERNIGHT.md](OVERNIGHT.md): unattended operation guide

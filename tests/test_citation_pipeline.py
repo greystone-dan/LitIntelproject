@@ -16,6 +16,16 @@ def test_v2_pipeline_extracts_core_statute_and_instrument_patterns():
     assert "art. 33(2) of Refugee Convention" in normalized
 
 
+def test_v2_pipeline_accepts_irpa_section_punctuation_variants():
+    pipeline = build_default_pipeline()
+    text = "IRPA, s. 34(1)(f) and IRPR s 245(1)(c) apply."
+
+    matches = pipeline.extract(text)
+    statutes = [match for match in matches if match.kind == "statute"]
+
+    assert [match.citation_text for match in statutes] == ["IRPA, s. 34(1)(f)", "IRPR s 245(1)(c)"]
+
+
 def test_v2_pipeline_extracts_reporter_and_short_authority_patterns():
     pipeline = build_default_pipeline()
     text = "[2013] 2 S.C.R. 678, at paras. 38 and 101, and Pushpanathan, at para. 57."

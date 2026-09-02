@@ -1,0 +1,65 @@
+{
+	"2026-07-31": [
+		{"title":"Canonical backend foundation","detail":"Created the initial FastAPI, SQLAlchemy, Pydantic, PostgreSQL, and pgvector structure; established raw ingestion, case retrieval, semantic retrieval, metadata filters, and status/hash integrity rules.","artifacts":["backend/main.py","backend/database.py","backend/models.py","backend/routes.py","alembic/versions/0001_case_metadata.py","alembic/versions/0002_raw_ingestion.py"]},
+		{"title":"Initial corpus/retrieval tooling","detail":"Added A2AJ Parquet ingestion, curated immigration selection, chunk storage, grouped passage retrieval, retrieval evaluation fixtures, and staged Federal Court collection/import tooling.","artifacts":["scripts/ingest_a2aj_parquet.py","scripts/curate_a2aj_immigration_cases.py","scripts/chunk_cases.py","scripts/evaluate_retrieval.py","scripts/fc_portal_collector.py","data/eval/research_questions.starter25.json"]},
+		{"title":"Early citation graph","detail":"Added citations, citation metrics, A2AJ provenance/mapping, and the initial interactive prototype/citation-map capability.","artifacts":["backend/citations.py","backend/citation_map.py","alembic/versions/0005_citation_network.py","alembic/versions/0006_a2aj_citation_network.py","scripts/ingest_a2aj_citation_network.py"]}
+	],
+	"2026-08-01": [
+		{"title":"Resumable enrichment operations","detail":"Established lock-protected overnight orchestration with per-job logs, atomic state, preflight, resume behavior, tagging, chunking, citation extraction, local embeddings, and reference-library verification.","artifacts":["scripts/run_overnight.py","OVERNIGHT.md","scripts/tag_cases.py","scripts/embed_local_chunks.py"]},
+		{"title":"Legal taxonomy and reference corpus","detail":"Added evidence-bearing `ca_legal_v2` tagging and a separate checksum-validated reference-library workflow.","artifacts":["backend/legal_tagger.py","LEGAL_TAGGING.md","scripts/download_reference_library.py","data/reference_library/manifest.json"]}
+	],
+	"2026-08-02": [
+		{"title":"Direct Federal Court ingestion","detail":"Added A2AJ-driven Federal Court item retrieval, canonical item URL normalization, and metadata-preserving SQLite PDF staging upgrades.","artifacts":["fc_ingest","tests/test_fc_ingest_db.py"]},
+		{"title":"Roadmap and quality planning","detail":"Captured the staged product roadmap for citation intelligence, research workflows, quality gates, performance baselines, and eventual grounded research answers.","artifacts":["ROADMAP.md","MASTER_IDEAS.md"]}
+	],
+	"2026-08-03": [
+		{"title":"Citation analytics expansion","detail":"Added surprise feeds, doctrine shifts, hidden bridge paths, inheritance chains, missing-authority detection, lifecycle tracking, cross-court flow, position profiles, completion suggestions, issue dashboards, and associated CSV exports.","artifacts":["backend/citation_map.py","backend/routes.py","tests/test_citations.py"]},
+		{"title":"Case reader and issue workbench","detail":"Added the standalone case reader, name-first citation labels, issue/statute/legal-area graph workbench, common-citer comparison, and chunk-backed citation context capability.","artifacts":["backend/case_reader.py","backend/citation_map_workbench_v2.py","backend/routes.py"]},
+		{"title":"Source and provenance hardening","detail":"Established the separate reference-library manifest/checksum workflow and clarified source staging versus canonical case data.","artifacts":["scripts/download_reference_library.py","data/reference_library","docs/history/PROJECT_NOTES.md"]}
+	],
+	"2026-08-05": [
+		{"title":"FC citation rebuild toolkit","detail":"Added seed normalization, seed-to-local mapping, gold templates, evidence extraction, and extractor evaluation for Federal Court citation work.","artifacts":["scripts/build_fc_citation_seed.py","scripts/map_fc_seed_to_local_cases.py","scripts/build_fc_citation_gold_template.py","scripts/extract_fc_citation_evidence.py","scripts/evaluate_fc_citation_extraction.py"]},
+		{"title":"Dual text segmentation","detail":"Added section and paragraph chunk sets with labels and paragraph bounds, allowing reader context and extraction work to use more structured segments than fixed-size chunks.","artifacts":["alembic/versions/0011_case_chunk_sets.py","scripts/chunk_cases.py","backend/database.py"]},
+		{"title":"FC metadata reliability","detail":"Added consensus metadata confidence, source evidence, quality flags, audit, gold-set, backfill, and optional adjudication workflows.","artifacts":["fc_ingest/document_scraper.py","scripts/audit_fc_metadata_extraction.py","scripts/build_fc_metadata_gold_set.py","scripts/backfill_fc_case_metadata.py","scripts/adjudicate_fc_metadata.py"]}
+	],
+	"2026-08-07": [
+		{"title":"Five-layer processing contract","detail":"Made metadata, overall chunks, heading chunks, case citations, and statutes explicit deterministic stages with separately callable behavior.","artifacts":["backend/case_processing.py","SYSTEM_FOCUS_MODE.md"]},
+		{"title":"Citation Pass QA","detail":"Added stored-versus-live case citation, statute, and metadata comparison with source offsets, resolution state, and color-separated evidence layers.","artifacts":["backend/routes.py","backend/citations.py","tests/test_api.py"]},
+		{"title":"Generated-page reliability safeguards","detail":"Repaired Python-to-JavaScript escaping failures and documented raw-string/double-escape requirements for inline regular expressions and strings.","artifacts":["backend/routes.py","AI_HANDOFF.md"]}
+	],
+	"2026-08-10": [
+		{"title":"Nested IRPA/IRPR provision support","detail":"Added deterministic recognition for forms such as `paragraph 34(1)(f) of IRPA`, `IRPA paragraph 34(1)(f)`, and `34(1)(f) of IRPA`.","artifacts":["backend/citations.py","scripts/extract_irpa_irpr_references.py","docs/EXTRACTION_35K_RUNBOOK.md"]},
+		{"title":"Repository/documentation consolidation","detail":"Established explicit active-versus-legacy folders and documentation authority rules for citation stabilization work.","artifacts":["legacy/README.md","DOCS_INDEX.md","README.md","AI_HANDOFF.md"]}
+	],
+	"2026-08-12": [
+		{"title":"Advanced Data Explorer","detail":"Promoted `/data-explorer` into the research-facing UI with advanced filters, minister selection, outcome/judge/court/year controls, sort modes, and stored-citation decision reading.","artifacts":["backend/routes.py","tests/test_feature_tabs.py"]},
+		{"title":"Local target resolution","detail":"Added batch local resolution for full and short citations, then completed a large stored-citation linkage pass.","artifacts":["scripts/resolve_citation_targets.py","scripts/resolve_short_citation_targets.py","backend/citations.py"]},
+		{"title":"Isolated LotD import","detail":"Added the separate Luck of the Draw III import/export workflow in its own PostgreSQL schema, outside canonical case tables.","artifacts":["side_projects/luck_of_the_draw_iii"]}
+	],
+	"2026-08-13": [
+		{"title":"Full-corpus intelligence correction","detail":"Changed citation-map behavior to use the full corpus by default, with master-300 focus mode only when explicitly enabled.","artifacts":["backend/citation_map.py"]},
+		{"title":"Live inventory and active-interface cleanup","detail":"Added database-backed About statistics, full-corpus citation-intelligence/case-reader search behavior, and visible legacy/test labels for non-primary pages.","artifacts":["backend/routes.py","README.md"]}
+	],
+	"2026-08-17": [
+		{"title":"Six-tab interface recovery","detail":"Recovered the active one-page research shell after an interruption and revalidated the primary tabs, route availability, and data-backed page behavior.","artifacts":["backend/routes.py","tests/test_feature_tabs.py","scripts/refresh_site.ps1"]}
+	],
+	"2026-08-18": [
+		{"title":"Unified active research experience","detail":"Aligned Data Explorer and Case Reader with the iLIT research visual language and restored the supporting case-list API.","artifacts":["backend/routes.py","backend/case_reader.py"]},
+		{"title":"Search and refresh reliability","detail":"Changed active Case Search to title/citation-first matching unless full text is explicitly requested, and hardened local Uvicorn/cloudflared restart behavior.","artifacts":["backend/routes.py","scripts/refresh_site.ps1"]}
+	],
+	"2026-08-19": [
+		{"title":"Docket field and linkage","detail":"Added canonical `docket_number`, backfilled it across the corpus, and correlated eligible docket values with Federal Court activity records.","artifacts":["backend/database.py","backend/models.py","backend/ingestion.py","scripts/backfill_case_metadata_outcomes.py","CHANGELOG.md"]},
+		{"title":"FC activity classification","detail":"Added the separate activity case, document, and classification layer with deterministic normalization, classification scripts, sample outputs, and tests.","artifacts":["backend/fc_activity.py","scripts/classify_fc_activity.py","alembic/versions/0015_fc_activity_classifications.py","tests/test_classify_fc_activity.py"]}
+	],
+	"2026-08-20": [
+		{"title":"Activity-derived intelligence","detail":"Expanded rule-based Federal Court activity classification, batch processing, reviewable sample outputs, and gold-template workflows.","artifacts":["scripts/classify_fc_activity.py","scripts/build_fc_activity_gold_template.py","data/eval/fc_activity_classification_sample_500.json"]}
+	],
+	"2026-08-21": [
+		{"title":"Case type/issue/challenge derivation","detail":"Designed and extended derived intelligence using early decision text, citation/statute signals, tags, and activity documents as evidence inputs.","artifacts":["scripts/classify_fc_activity.py","backend/fc_activity.py","tests/test_classify_fc_activity.py"]}
+	],
+	"2026-09-01": [
+		{"title":"Inline decision-reader usability","detail":"Improved scroll containment, quiet idle scrollbars, viewport-safe authority hover previews, source-format rendering, linked-case context, and live About statistics.","artifacts":["backend/routes.py","alembic/versions/0016_case_source_html.py","backend/ingestion.py"]},
+		{"title":"Stability review and repair","detail":"Reviewed active paths, repaired court abbreviation filtering, metadata-pass compatibility, docket extraction, and citation-rebuild alias handling; recorded remaining stale-test expectations.","artifacts":["backend/routes.py","backend/citations.py","tests/test_api.py","tests/test_citations.py"]},
+		{"title":"Documentation system","detail":"Created the canonical system handbook, generated OpenAPI appendix, generated schema/ERD appendix, and this retained-session work ledger.","artifacts":["SYSTEM_REFERENCE.md","WORK_HISTORY.md","docs/API_REFERENCE.generated.md","docs/SCHEMA_REFERENCE.generated.md"]}
+	]
+}

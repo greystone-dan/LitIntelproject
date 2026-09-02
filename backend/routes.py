@@ -3,6 +3,7 @@ import math
 import csv
 import io
 import re
+import httpx
 from functools import lru_cache
 from hashlib import sha256
 from pathlib import Path
@@ -65,6 +66,7 @@ from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
 from .citations import extract_case_citation_matches
 from .citations import extract_statute_reference_matches
+from .citations import parse_legislation_citation
 from .citations import extract_raw_citation_matches
 from .citations import is_self_case_name_match
 from .citations import RawCitationMatch
@@ -84,6 +86,8 @@ from .database import (
 	FCActivityClassification,
 	FCActivityDocument,
 	IngestionRun,
+	LegislationDocument,
+	LegislationSection,
 	StatuteReference,
 	get_db,
 )
@@ -96,6 +100,10 @@ from .models import (
 	CaseMergeResponse,
 	CaseReaderChunkResponse,
 	CaseReaderCitationResponse,
+	LegislationCaseOccurrenceResponse,
+	LegislationSectionCaseResponse,
+	LegislationSectionLookupResponse,
+	LegislationSectionResponse,
 	CaseReaderDataResponse,
 	CaseReaderMetadataFieldResponse,
 	CaseReaderTagResponse,
@@ -192,6 +200,22 @@ def _is_irpa_irpr_reference(value: str | None) -> bool:
 			re.IGNORECASE,
 		)
 	)
+
+
+def _legislation_url_for_reference(value: str | None) -> str | None:
+	"""Return the official Justice Laws section page for an IRPA/IRPR reference."""
+	text = value or ""
+	if not _is_irpa_irpr_reference(text):
+		return None
+	section = re.search(r"\b(?:s|ss)\.?\s*(\d{1,3}(?:\.\d+)?)", text, re.IGNORECASE)
+	if section is None:
+		section = re.search(r"\bsections?\s*(\d{1,3}(?:\.\d+)?)", text, re.IGNORECASE)
+	if section is None:
+		return None
+	section_number = section.group(1)
+	if re.search(r"\b(?:IRPR|Immigration and Refugee Protection Regulations?)\b", text, re.IGNORECASE):
+		return f"https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-227/section-{section_number}.html"
+	return f"https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section_number}.html"
 
 
 @lru_cache(maxsize=4)
@@ -2943,7 +2967,10 @@ def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseRea
 			offset_end=reference.offset_end,
 			citation_text=reference.reference_text,
 			normalized_citation=reference.normalized_reference,
+			instrument_key=reference.instrument_key,
+			pinpoint=reference.pinpoint,
 			provenance="statute_references",
+			legislation_url=reference.legislation_url or _legislation_url_for_reference(reference.normalized_reference or reference.reference_text),
 			unresolved=False,
 		)
 		for reference in statute_rows
@@ -3038,7 +3065,10 @@ def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseRea
 						offset_end=raw.offset_end,
 						citation_text=raw.citation_text,
 						normalized_citation=raw.normalized_citation,
+						instrument_key=(parsed.instrument_key if (parsed := parse_legislation_citation(raw.normalized_citation or raw.citation_text)) else None),
+						pinpoint=(parsed.pinpoint if parsed else None),
 						provenance="reader_live_statute_extract",
+						legislation_url=(parsed.legislation_url if parsed else _legislation_url_for_reference(raw.normalized_citation or raw.citation_text)),
 						unresolved=False,
 					)
 				)
@@ -3070,6 +3100,112 @@ def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseRea
 		extracted_metadata=extracted_metadata,
 		metrics=CitationMetricsResponse.model_validate(metrics, from_attributes=True) if metrics is not None else None,
 		formatted_html=formatted_html,
+	)
+
+
+@router.get("/api/legislation/cases", response_model=list[LegislationCaseOccurrenceResponse])
+def get_legislation_cases(
+	instrument_key: str,
+	pinpoint: str,
+	db: Session = Depends(get_db),
+) -> list[LegislationCaseOccurrenceResponse]:
+	"""Find every case that cites one canonical legislation provision."""
+	requested_key = instrument_key.strip().lower()
+	requested_pinpoint = re.sub(r"\s+", "", pinpoint).strip(".")
+	rows = db.execute(
+		select(StatuteReference, Case.id, Case.title, Case.citation)
+		.join(Case, Case.id == StatuteReference.source_case_id)
+		.where(
+			or_(
+				StatuteReference.instrument_key == requested_key,
+				StatuteReference.normalized_reference.ilike(f"%{requested_pinpoint}%"),
+			)
+		)
+		.order_by(Case.id, StatuteReference.offset_start, StatuteReference.id)
+	)
+	results: list[LegislationCaseOccurrenceResponse] = []
+	for reference, case_id, title, citation in rows:
+		parsed = parse_legislation_citation(reference.normalized_reference or reference.reference_text)
+		if parsed is None or parsed.instrument_key != requested_key:
+			continue
+		pinpoints = {part.strip() for part in parsed.pinpoint.split(",")}
+		if requested_pinpoint not in pinpoints and parsed.pinpoint != requested_pinpoint:
+			continue
+		results.append(
+			LegislationCaseOccurrenceResponse(
+				case_id=case_id,
+				title=title,
+				citation=citation,
+				reference_id=reference.id,
+				reference_text=reference.reference_text,
+				instrument_key=parsed.instrument_key,
+				pinpoint=requested_pinpoint,
+				legislation_url=reference.legislation_url or parsed.legislation_url,
+				chunk_id=reference.chunk_id,
+				offset_start=reference.offset_start,
+				offset_end=reference.offset_end,
+			)
+		)
+	return results
+
+
+@router.get("/api/legislation/section", response_model=LegislationSectionLookupResponse)
+def get_legislation_section(
+	instrument_key: str,
+	pinpoint: str,
+	db: Session = Depends(get_db),
+) -> LegislationSectionLookupResponse:
+	"""Return local authoritative section text and cases citing the pinpoint."""
+	requested_key = instrument_key.strip().lower()
+	requested_pinpoint = re.sub(r"\s+", "", pinpoint).strip(".")
+	section_match = re.match(r"(\d{1,3}(?:\.\d+)?[A-Za-z]?)", requested_pinpoint)
+	if section_match is None:
+		raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid legislation pinpoint")
+	document = db.scalar(select(LegislationDocument).where(LegislationDocument.instrument_key == requested_key))
+	if document is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Legislation document not indexed")
+	section = db.scalar(
+		select(LegislationSection).where(
+			LegislationSection.document_id == document.id,
+			LegislationSection.section_number == section_match.group(1),
+		)
+	)
+	if section is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Legislation section not indexed")
+	case_rows = db.execute(
+		select(StatuteReference, Case.id, Case.title, Case.citation)
+		.join(Case, Case.id == StatuteReference.source_case_id)
+		.where(
+			or_(
+				StatuteReference.instrument_key == requested_key,
+				StatuteReference.normalized_reference.ilike(f"%{requested_pinpoint}%"),
+			)
+		)
+		.order_by(Case.id, StatuteReference.offset_start, StatuteReference.id)
+	)
+	cases: list[LegislationSectionCaseResponse] = []
+	seen_cases: set[int] = set()
+	for reference, case_id, title, citation in case_rows:
+		parsed = parse_legislation_citation(reference.normalized_reference or reference.reference_text)
+		if parsed is None or parsed.instrument_key != requested_key:
+			continue
+		if requested_pinpoint not in {part.strip() for part in parsed.pinpoint.split(",")} and parsed.pinpoint != requested_pinpoint:
+			continue
+		if case_id in seen_cases:
+			continue
+		seen_cases.add(case_id)
+		cases.append(LegislationSectionCaseResponse(case_id=case_id, title=title, citation=citation, pinpoint=requested_pinpoint))
+	return LegislationSectionLookupResponse(
+		section=LegislationSectionResponse(
+			instrument_key=document.instrument_key,
+			title=document.title,
+			citation=document.citation,
+			section_number=section.section_number,
+			label=section.label,
+			text=section.text,
+			source_url=_legislation_url_for_reference(f"{document.title} s. {section.section_number}"),
+		),
+		cases=cases,
 	)
 
 

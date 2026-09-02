@@ -2,7 +2,7 @@
 
 Last updated: 2026-08-19
 
-This document is the expanded operating handoff for the current system state. It is meant to give a new agent or developer enough context to understand the platform layers, the data model, the citation-map capabilities, and the current QA posture without reading the entire repo first.
+This document is a detailed working handoff and may contain time-bound implementation context. For the canonical current architecture, functionality, data model, operations, limitations, and code-review posture, see `SYSTEM_REFERENCE.md`.
 
 ## 0. Active Delivery Focus (2026-08-12)
 

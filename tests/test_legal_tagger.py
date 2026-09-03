@@ -5,6 +5,14 @@ from backend.legal_tagger import LegalTagger
 from scripts.tag_cases import build_case_tags
 
 
+def test_legal_tagger_returns_exact_occurrences_without_generic_word_noise():
+    text = "Vavilov guides reasonableness review. Vavilov is cited again."
+
+    occurrences = LegalTagger().tag_occurrences(text)
+    assert not any(item.value == "vavilov" for item in occurrences)
+    assert all(item.value != "the" for item in occurrences)
+
+
 def test_legal_tagger_extracts_multidimensional_immigration_tags():
     text = """
     This application for judicial review challenges an RPD refugee decision.
@@ -27,7 +35,7 @@ def test_legal_tagger_extracts_multidimensional_immigration_tags():
     assert ("remedy", "redetermination") in values
     assert ("statute", "irpa_s_96") in values
     assert ("statute", "irpa_s_97") in values
-    assert ("authority", "vavilov") in values
+    assert not any(category == "authority" for category, _ in values)
     assert all(tag.score > 0 for tag in result)
     assert all(tag.evidence for tag in result)
 
@@ -49,6 +57,31 @@ def test_tagger_v2_captures_section_97_analysis_and_exceptions():
     assert ("issue", "medical_exception") in values
     assert all(tag.taxonomy_version == "ca_legal_v2" for tag in tags)
 
+
+def test_tagger_captures_high_confidence_immigration_statuses_and_occurrences():
+    text = (
+        "The permanent resident became a refugee claimant after losing status. "
+        "The refugee claimant later appeared as a protected person."
+    )
+
+    tag_values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+    assert ("immigration_status", "permanent_resident") in tag_values
+    assert ("immigration_status", "refugee_claimant") in tag_values
+    assert ("immigration_status", "protected_person") in tag_values
+
+    occurrences = [
+        occurrence
+        for occurrence in LegalTagger().tag_occurrences(text)
+        if occurrence.category == "immigration_status"
+    ]
+    assert len(occurrences) == 4
+    assert all(
+        text[occurrence.offset_start:occurrence.offset_end] == occurrence.evidence
+        for occurrence in occurrences
+    )
+
 def test_tagger_v2_captures_exclusion_and_complicity_framework():
     text = (
         "Under Article 1F(a), there were serious reasons for considering whether "
@@ -64,6 +97,192 @@ def test_tagger_v2_captures_exclusion_and_complicity_framework():
     assert ("issue", "complicity_significant_contribution") in values
     assert ("issue", "duress") in values
     assert ("issue", "superior_orders") in values
+
+
+def test_tagger_captures_procedural_posture_evidence_and_documents():
+    text = (
+        "The application for leave was followed by an application for judicial "
+        "review and an interlocutory motion. The record included a medical report, oral testimony, a passport, "
+        "and a work permit."
+    )
+
+    tags = LegalTagger().tag(text)
+    values = {(tag.category, tag.value) for tag in tags}
+
+    assert ("procedural_posture", "leave_application") in values
+    assert ("procedural_posture", "judicial_review_application") in values
+    assert ("procedural_posture", "interlocutory_motion") in values
+    assert ("evidence", "medical_evidence") in values
+    assert ("evidence", "oral_testimony") in values
+    assert ("document_type", "passport") in values
+    assert ("document_type", "work_permit") in values
+
+    occurrences = LegalTagger().tag_occurrences(text)
+    assert all(
+        text[item.offset_start:item.offset_end] == item.evidence
+        for item in occurrences
+    )
+
+
+def test_tagger_captures_claimant_characteristics_and_vulnerability():
+    text = (
+        "The child claimant was represented by a single parent. The record described "
+        "a psychological condition, economic vulnerability, and a person with a disability."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("claimant_characteristic", "child") in values
+    assert ("claimant_characteristic", "single_parent") in values
+    assert ("claimant_characteristic", "disability") in values
+    assert ("claimant_factor", "psychological_condition") in values
+    assert ("claimant_factor", "economic_vulnerability") in values
+
+
+def test_tagger_captures_explicit_travel_and_case_history_facts():
+    text = (
+        "The decision considered the claimant's travel history and previous refugee "
+        "claim. The visa refusal preceded the claimant's entry to Canada."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("case_history", "travel_history") in values
+    assert ("case_history", "previous_refugee_claim") in values
+    assert ("case_history", "visa_refusal") in values
+    assert ("case_history", "entry_to_canada") in values
+
+
+def test_tagger_captures_outcomes_procedural_defects_and_remedies():
+    text = (
+        "The refugee claim was refused after the officer failed to consider the "
+        "medical evidence and provided inadequate reasons. The decision was remitted "
+        "for redetermination, and the Court ordered mandamus with costs."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("outcome", "refused") in values
+    assert ("outcome", "remitted") in values
+    assert ("procedural_issue", "failure_to_consider") in values
+    assert ("procedural_issue", "inadequate_reasons") in values
+    assert ("remedy", "redetermination") in values
+    assert ("remedy", "mandamus") in values
+    assert ("remedy", "costs") in values
+
+
+def test_tagger_captures_representation_and_procedural_steps():
+    text = (
+        "The self-represented applicant requested an interpreter. Written submissions "
+        "were filed, followed by an oral hearing and cross-examination. The affidavit "
+        "was disclosed to opposing counsel."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("representation", "self_represented") in values
+    assert ("representation", "interpreter") in values
+    assert ("procedural_step", "written_submissions") in values
+    assert ("procedural_step", "oral_hearing") in values
+    assert ("procedural_step", "cross_examination") in values
+    assert ("procedural_step", "disclosure") in values
+    assert ("procedural_step", "affidavit") in values
+
+
+def test_tagger_captures_evidence_quality_issues():
+    text = (
+        "The officer relied on inconsistent testimony and found the account implausible. "
+        "The decision cited a lack of corroboration and late disclosure of documents."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("evidence_issue", "inconsistent_testimony") in values
+    assert ("evidence_issue", "implausibility") in values
+    assert ("evidence_issue", "lack_of_corroboration") in values
+    assert ("evidence_issue", "late_disclosure") in values
+
+
+def test_tagger_captures_immigration_programs_without_authority_tags():
+    text = (
+        "Baker v. Canada and Kanthasamy v Canada were considered in a family reunification "
+        "case. The application concerned spousal sponsorship and the economic class."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert not any(category == "authority" for category, _ in values)
+    assert ("immigration_program", "family_reunification") in values
+    assert ("immigration_program", "spousal_sponsorship") in values
+    assert ("immigration_program", "economic_class") in values
+
+
+def test_tagger_captures_additional_country_and_organization_mentions():
+    text = (
+        "The Ethiopian claimant described Boko Haram activity in Nigeria and referred "
+        "to Al-Shabaab and the Muslim Brotherhood. The record also mentioned Turkey."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("country", "ethiopia") in values
+    assert ("country", "nigeria") in values
+    assert ("country", "turkey") in values
+    assert ("organization", "boko_haram") in values
+    assert ("organization", "al_shabaab") in values
+    assert ("organization", "muslim_brotherhood") in values
+
+
+def test_tagger_captures_basic_statuses_and_immigration_documents():
+    text = (
+        "The Canadian citizen sponsored a Convention refugee. The file included a "
+        "police certificate, birth certificate, medical examination, and permanent "
+        "resident card."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("immigration_status", "canadian_citizen") in values
+    assert ("immigration_status", "refugee") in values
+    assert ("document_type", "police_certificate") in values
+    assert ("document_type", "birth_certificate") in values
+    assert ("document_type", "medical_exam") in values
+    assert ("document_type", "permanent_resident_card") in values
+
+
+def test_tagger_captures_family_relationships_and_decision_maker_actions():
+    text = (
+        "The common-law partner sponsored a dependent child. The case involved family "
+        "separation. The officer ignored the evidence and made an adverse credibility "
+        "finding while fettering discretion."
+    )
+
+    values = {
+        (tag.category, tag.value) for tag in LegalTagger().tag(text)
+    }
+
+    assert ("family_relationship", "common_law_partner") in values
+    assert ("family_relationship", "dependent_child") in values
+    assert ("family_relationship", "family_separation") in values
+    assert ("decision_maker_action", "ignored_evidence") in values
+    assert ("decision_maker_action", "credibility_finding") in values
+    assert ("decision_maker_action", "fettered_discretion") in values
 
 def test_tagger_v2_captures_cbsa_detention_and_removal_operations():
     text = (

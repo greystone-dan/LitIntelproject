@@ -6,7 +6,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from sqlalchemy import delete, select
+from sqlalchemy import delete, select, text
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -14,6 +14,9 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from backend.citations import extract_statute_reference_matches, parse_legislation_citation
 from backend.database import Case, CaseChunk, SessionLocal, StatuteReference
+
+
+STATUTE_EXTRACTION_LOCK_KEY = 287431902
 
 
 def parse_args() -> argparse.Namespace:
@@ -62,6 +65,13 @@ def main() -> None:
     total = 0
     processed = 0
     with SessionLocal() as session:
+        acquired = session.scalar(
+            text("SELECT pg_try_advisory_lock(:lock_key)"),
+            {"lock_key": STATUTE_EXTRACTION_LOCK_KEY},
+        )
+        if not acquired:
+            print("statute_extraction_already_running=true", flush=True)
+            return
         last_id = args.start_after_id
         while True:
             case_query = select(Case)

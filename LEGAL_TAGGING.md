@@ -49,6 +49,46 @@ be queried by decision-maker, enforcement action, impediment, and program effect
 
 ## Commands
 
+### Tagging V2 core layer
+
+Tagging V2 is an independent, high-precision whitelist taxonomy defined in
+`config/tagging_v2_core_whitelist.json`. It uses the separate version
+`ca_legal_v2_core`, so it can be previewed or populated without changing
+existing `ca_legal_v2` tags. The core layer is limited to canonical countries,
+agencies, tribunals, statutes, acronyms, and named external organizations with
+explicit aliases.
+
+The reviewed country and organization inventories are loaded into this layer as
+additional canonical entities. V2 stores every matched occurrence, not only one
+row per canonical value: each row retains the exact evidence and its
+`offset_start`/`offset_end` location in `cases.full_text`. The main research
+reader renders these evidence spans as green highlights. The `--recent` option
+orders cases by decision date descending, then case ID descending, across all
+decision types; use `--court` when a specific court cohort is intended.
+
+Preview without writes:
+
+```powershell
+python scripts/tag_cases_v2.py --dry-run --limit 25
+```
+
+Run resumably in bounded batches:
+
+```powershell
+python scripts/tag_cases_v2.py --batch-size 100 --limit 1000
+```
+
+Rebuild the 100 most recent cases across the full database:
+
+```powershell
+python scripts/tag_cases_v2.py --retag --recent --limit 100
+```
+
+The AI proposal reports are discovery-only. A proposal becomes a V2 core term
+only after review, a canonical value and aliases are chosen, and a focused test
+is added. More contextual phrases and variations belong in a later advanced
+layer, not in the core whitelist.
+
 Apply the schema:
 
 ```powershell

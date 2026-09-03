@@ -1,0 +1,547 @@
+# Tagging V2 Core Candidates
+
+Automated cleanup of the brainstorming draft. This is a review file, not the authoritative whitelist.
+
+## refugee
+
+- **refugee**: refugee
+- **convention_refugee**: convention refugee
+- **asylum_seeker**: asylum seeker
+- **refugee_claim**: refugee claim
+- **persecution**: persecution
+- **psg**: PSG
+- **state_protection**: state protection
+- **ifa**: IFA
+- **discrimination**: discrimination
+- **torture**: torture
+- **transgender**: transgender
+- **lgbt**: LGBT
+- **lgbtq**: LGBTQ
+- **fgm**: FGM
+- **refoulement**: refoulement
+- **cat**: CAT
+- **a96**: A96
+- **a97**: A97
+- **cessation**: cessation
+- **reavailment**: reavailment
+- **vacation**: vacation
+
+## security
+
+- **terrorism**: terrorism
+- **espionage**: espionage
+- **csis**: CSIS
+
+## human_rights
+
+- **genocide**: genocide
+- **complicity**: complicity
+
+## criminality
+
+- **criminality**: criminality
+- **detention**: detention
+- **rehabilitation**: rehabilitation
+- **extortion**: extortion
+
+## misrepresentation_identity
+
+- **misrepresentation**: misrepresentation
+- **pfl**: PFL
+- **citizenship**: citizenship
+- **statelessness**: statelessness
+- **biometrics**: biometrics
+
+## evidence_credibility
+
+- **credibility**: credibility
+- **corroboration**: corroboration
+
+## procedural_fairness
+
+- **procedural_fairness**: procedural fairness
+- **disclosure**: disclosure
+- **interpreter**: interpreter
+- **accommodation**: accommodation
+
+## risk_country_conditions
+
+- **kidnapping**: kidnapping
+
+## detention
+
+
+## removal_enforcement
+
+- **removal**: removal
+- **deportation**: deportation
+- **inadmissibility**: inadmissibility
+
+## humanitarian_family
+
+- **h_c**: H&C
+- **bioc**: BIOC
+- **family_reunification**: family reunification
+- **ptsd**: PTSD
+
+## citizenship
+
+
+## immigration_status
+
+- **overstay**: overstay
+- **permanent_resident**: permanent resident
+- **prtd**: PRTD
+- **copr**: COPR
+- **pnp**: PNP
+- **ita**: ITA
+- **crs**: CRS
+- **fsw**: FSW
+- **fst**: FST
+- **cec**: CEC
+- **lmia**: LMIA
+- **eca**: ECA
+- **trv**: TRV
+- **work_permit**: work permit
+- **pgwp**: PGWP
+- **bowp**: BOWP
+- **trp**: TRP
+- **sponsorship**: sponsorship
+- **aor**: AOR
+- **cpc**: CPC
+
+## constitutional_international
+
+
+## agency_process
+
+- **gcms**: GCMS
+- **caips**: CAIPS
+- **poe**: POE
+- **bso**: BSO
+- **cio**: CIO
+
+## country
+
+- **hong_kong**: Hong Kong
+- **macau**: Macau
+- **western_sahara**: Western Sahara
+- **kosovo**: Kosovo
+- **gaza_strip**: Gaza Strip
+- **west_bank**: West Bank
+- **palestinian_territories**: Palestinian Territories
+- **kurdistan**: Kurdistan
+- **somaliland**: Somaliland
+- **crimea**: Crimea
+- **donetsk**: Donetsk
+- **luhansk**: Luhansk
+- **nagorno_karabakh**: Nagorno-Karabakh
+- **transnistria**: Transnistria
+- **abkhazia**: Abkhazia
+- **south_ossetia**: South Ossetia
+- **northern_cyprus**: Northern Cyprus
+- **tibet**: Tibet
+- **xinjiang**: Xinjiang
+- **afghanistan**: Afghanistan
+- **albania**: Albania
+- **algeria**: Algeria
+- **andorra**: Andorra
+- **angola**: Angola
+- **antigua_and_barbuda**: Antigua and Barbuda
+- **argentina**: Argentina
+- **armenia**: Armenia
+- **australia**: Australia
+- **austria**: Austria
+- **azerbaijan**: Azerbaijan
+- **bahamas**: Bahamas
+- **bahrain**: Bahrain
+- **bangladesh**: Bangladesh
+- **barbados**: Barbados
+- **belarus**: Belarus
+- **belgium**: Belgium
+- **belize**: Belize
+- **benin**: Benin
+- **bhutan**: Bhutan
+- **bolivia**: Bolivia
+- **bosnia_and_herzegovina**: Bosnia and Herzegovina
+- **botswana**: Botswana
+- **brazil**: Brazil
+- **brunei**: Brunei
+- **bulgaria**: Bulgaria
+- **burkina_faso**: Burkina Faso
+- **burundi**: Burundi
+- **cabo_verde**: Cabo Verde
+- **cambodia**: Cambodia
+- **cameroon**: Cameroon
+- **canada**: Canada
+- **central_african_republic**: Central African Republic
+- **chad**: Chad
+- **chile**: Chile
+- **china**: China
+- **colombia**: Colombia
+- **comoros**: Comoros
+- **democratic_republic_of_the_congo**: Democratic Republic of the Congo
+- **republic_of_the_congo**: Republic of the Congo
+- **costa_rica**: Costa Rica
+- **ivory_coast**: Ivory Coast
+- **croatia**: Croatia
+- **cuba**: Cuba
+- **cyprus**: Cyprus
+- **czech_republic**: Czech Republic
+- **czechia**: Czechia
+- **denmark**: Denmark
+- **djibouti**: Djibouti
+- **dominica**: Dominica
+- **dominican_republic**: Dominican Republic
+- **ecuador**: Ecuador
+- **egypt**: Egypt
+- **el_salvador**: El Salvador
+- **equatorial_guinea**: Equatorial Guinea
+- **eritrea**: Eritrea
+- **estonia**: Estonia
+- **eswatini**: Eswatini
+- **swaziland**: Swaziland
+- **ethiopia**: Ethiopia
+- **fiji**: Fiji
+- **finland**: Finland
+- **france**: France
+- **gabon**: Gabon
+- **gambia**: Gambia
+- **georgia**: Georgia
+- **germany**: Germany
+- **ghana**: Ghana
+- **greece**: Greece
+- **grenada**: Grenada
+- **guatemala**: Guatemala
+- **guinea**: Guinea
+- **guinea_bissau**: Guinea-Bissau
+- **guyana**: Guyana
+- **haiti**: Haiti
+- **honduras**: Honduras
+- **hungary**: Hungary
+- **iceland**: Iceland
+- **india**: India
+- **indonesia**: Indonesia
+- **iran**: Iran
+- **iraq**: Iraq
+- **ireland**: Ireland
+- **israel**: Israel
+- **italy**: Italy
+- **jamaica**: Jamaica
+- **japan**: Japan
+- **jordan**: Jordan
+- **kazakhstan**: Kazakhstan
+- **kenya**: Kenya
+- **kiribati**: Kiribati
+- **north_korea**: North Korea
+- **democratic_people_s_republic_of_korea**: Democratic People's Republic of Korea
+- **south_korea**: South Korea
+- **republic_of_korea**: Republic of Korea
+- **kuwait**: Kuwait
+- **kyrgyzstan**: Kyrgyzstan
+- **laos**: Laos
+- **lao_people_s_democratic_republic**: Lao People's Democratic Republic
+- **latvia**: Latvia
+- **lebanon**: Lebanon
+- **lesotho**: Lesotho
+- **liberia**: Liberia
+- **libya**: Libya
+- **liechtenstein**: Liechtenstein
+- **lithuania**: Lithuania
+- **luxembourg**: Luxembourg
+- **madagascar**: Madagascar
+- **malawi**: Malawi
+- **malaysia**: Malaysia
+- **maldives**: Maldives
+- **mali**: Mali
+- **malta**: Malta
+- **marshall_islands**: Marshall Islands
+- **mauritania**: Mauritania
+- **mauritius**: Mauritius
+- **mexico**: Mexico
+- **micronesia**: Micronesia
+- **federated_states_of_micronesia**: Federated States of Micronesia
+- **moldova**: Moldova
+- **republic_of_moldova**: Republic of Moldova
+- **monaco**: Monaco
+- **mongolia**: Mongolia
+- **montenegro**: Montenegro
+- **morocco**: Morocco
+- **mozambique**: Mozambique
+- **myanmar**: Myanmar
+- **burma**: Burma
+- **namibia**: Namibia
+- **nauru**: Nauru
+- **nepal**: Nepal
+- **netherlands**: Netherlands
+- **new_zealand**: New Zealand
+- **nicaragua**: Nicaragua
+- **niger**: Niger
+- **nigeria**: Nigeria
+- **north_macedonia**: North Macedonia
+- **norway**: Norway
+- **oman**: Oman
+- **pakistan**: Pakistan
+- **palau**: Palau
+- **palestine**: Palestine
+- **state_of_palestine**: State of Palestine
+- **panama**: Panama
+- **papua_new_guinea**: Papua New Guinea
+- **paraguay**: Paraguay
+- **peru**: Peru
+- **philippines**: Philippines
+- **poland**: Poland
+- **portugal**: Portugal
+- **qatar**: Qatar
+- **romania**: Romania
+- **russia**: Russia
+- **russian_federation**: Russian Federation
+- **rwanda**: Rwanda
+- **saint_kitts_and_nevis**: Saint Kitts and Nevis
+- **saint_lucia**: Saint Lucia
+- **saint_vincent_and_the_grenadines**: Saint Vincent and the Grenadines
+- **samoa**: Samoa
+- **san_marino**: San Marino
+- **sao_tome_and_principe**: Sao Tome and Principe
+- **saudi_arabia**: Saudi Arabia
+- **senegal**: Senegal
+- **serbia**: Serbia
+- **seychelles**: Seychelles
+- **sierra_leone**: Sierra Leone
+- **singapore**: Singapore
+- **slovakia**: Slovakia
+- **slovak_republic**: Slovak Republic
+- **slovenia**: Slovenia
+- **solomon_islands**: Solomon Islands
+- **somalia**: Somalia
+- **south_africa**: South Africa
+- **south_sudan**: South Sudan
+- **spain**: Spain
+- **sri_lanka**: Sri Lanka
+- **sudan**: Sudan
+- **suriname**: Suriname
+- **sweden**: Sweden
+- **switzerland**: Switzerland
+- **syria**: Syria
+- **syrian_arab_republic**: Syrian Arab Republic
+- **taiwan**: Taiwan
+- **tajikistan**: Tajikistan
+- **tanzania**: Tanzania
+- **united_republic_of_tanzania**: United Republic of Tanzania
+- **thailand**: Thailand
+- **timor_leste**: Timor-Leste
+- **east_timor**: East Timor
+- **togo**: Togo
+- **tonga**: Tonga
+- **trinidad_and_tobago**: Trinidad and Tobago
+- **tunisia**: Tunisia
+- **turkey**: Turkey
+- **turkmenistan**: Turkmenistan
+- **tuvalu**: Tuvalu
+- **uganda**: Uganda
+- **ukraine**: Ukraine
+- **united_arab_emirates**: United Arab Emirates
+- **uae**: UAE
+- **united_kingdom**: United Kingdom
+- **uk**: UK
+- **great_britain**: Great Britain
+- **britain**: Britain
+- **england**: England
+- **united_states**: United States
+- **united_states_of_america**: United States of America
+- **usa**: USA
+- **us**: US
+- **uruguay**: Uruguay
+- **uzbekistan**: Uzbekistan
+- **vanuatu**: Vanuatu
+- **vatican_city**: Vatican City
+- **holy_see**: Holy See
+- **venezuela**: Venezuela
+- **vietnam**: Vietnam
+- **viet_nam**: Viet Nam
+- **yemen**: Yemen
+- **zambia**: Zambia
+- **zimbabwe**: Zimbabwe
+
+## organization
+
+- **ipob**: IPOB, Indigenous People of Biafra
+- **massob**: MASSOB, Movement for the Actualization of the Sovereign State of Biafra
+- **esn**: ESN, Eastern Security Network
+- **boko_haram**: Boko Haram
+- **iswap**: ISWAP
+- **islamic_state_west_africa_province**: Islamic State West Africa Province
+- **taliban**: Taliban, Afghan Taliban
+- **ttp**: TTP
+- **tehrik_i_taliban_pakistan**: Tehrik-i-Taliban Pakistan
+- **islamic_state**: ISIL, Daesh, ISIS, Islamic State
+- **al_qaeda**: Al Qaeda, Al-Qaida
+- **aqap**: AQAP
+- **aqim**: AQIM
+- **al_shabaab**: Al Shabaab, Al-Shabaab
+- **hamas**: Hamas
+- **hezbollah**: Hezbollah, Hizballah
+- **palestinian_islamic_jihad**: Palestinian Islamic Jihad
+- **pij**: PIJ
+- **muslim_brotherhood**: Muslim Brotherhood
+- **islamic_jihad**: Islamic Jihad
+- **ansar_allah**: Ansar Allah
+- **houthis**: Houthis
+- **houthi_movement**: Houthi movement
+- **pkk**: PKK, Kurdistan Workers Party
+- **ypg**: YPG
+- **ypj**: YPJ
+- **sdf**: SDF
+- **syrian_democratic_forces**: Syrian Democratic Forces
+- **ltte**: LTTE, Liberation Tigers of Tamil Eelam, Tamil Tigers
+- **farc**: FARC, Revolutionary Armed Forces of Colombia
+- **eln**: ELN
+- **national_liberation_army**: National Liberation Army
+- **shining_path**: Shining Path
+- **sendero_luminoso**: Sendero Luminoso
+- **mrta**: MRTA
+- **abu_sayyaf**: Abu Sayyaf
+- **jemaah_islamiyah**: Jemaah Islamiyah
+- **jemmah_islamiyah**: Jemmah Islamiyah
+- **lashkar_e_taiba**: Lashkar-e-Taiba
+- **jaish_e_mohammed**: Jaish-e-Mohammed
+- **lashkar_e_jhangvi**: Lashkar-e-Jhangvi
+- **haqqani_network**: Haqqani Network
+- **imu**: IMU
+- **islamic_movement_of_uzbekistan**: Islamic Movement of Uzbekistan
+- **islamic_jihad_union**: Islamic Jihad Union
+- **boko_haram_splinter_groups**: Boko Haram splinter groups
+- **ansaru**: Ansaru
+- **aqis**: AQIS
+- **al_qaeda_in_the_indian_subcontinent**: Al Qaeda in the Indian Subcontinent
+- **isis_k**: ISIS-K
+- **islamic_state_khorasan_province**: Islamic State Khorasan Province
+- **khorasan_province**: Khorasan Province
+- **wagner_group**: Wagner Group
+- **wagner**: Wagner
+- **russian_volunteer_corps**: Russian Volunteer Corps
+- **azov_battalion**: Azov Battalion
+- **azov_movement**: Azov Movement
+- **right_sector**: Right Sector
+- **donetsk_people_s_republic**: Donetsk People's Republic
+- **luhansk_people_s_republic**: Luhansk People's Republic
+- **rsf**: RSF
+- **rapid_support_forces**: Rapid Support Forces
+- **janjaweed**: Janjaweed
+- **sudanese_armed_forces**: Sudanese Armed Forces
+- **spla**: SPLA
+- **sudan_people_s_liberation_army**: Sudan People's Liberation Army
+- **m23**: M23
+- **allied_democratic_forces**: Allied Democratic Forces
+- **adf**: ADF
+- **lord_s_resistance_army**: Lord's Resistance Army
+- **lra**: LRA
+- **mai_mai**: Mai Mai
+- **cndp**: CNDP
+- **fdlr**: FDLR
+- **revolutionary_united_front**: Revolutionary United Front
+- **ruf**: RUF
+- **national_patriotic_front_of_liberia**: National Patriotic Front of Liberia
+- **npfl**: NPFL
+- **ak47_boys**: AK47 Boys
+- **niger_delta_avengers**: Niger Delta Avengers
+- **opc**: OPC
+- **oodua_people_s_congress**: Oodua People's Congress
+- **massob_youth_wing**: MASSOB Youth Wing
+- **ipob_directorate**: IPOB Directorate
+- **indigenous_people_of_biafra_directorate**: Indigenous People of Biafra Directorate
+- **biafra_nations_league**: Biafra Nations League
+- **bnl**: BNL
+- **amotekun**: Amotekun
+- **hisbah**: Hisbah
+- **people_s_democratic_party_militia**: People's Democratic Party militia
+- **apc_youth_wing**: APC youth wing
+- **oromo_liberation_front**: Oromo Liberation Front
+- **olf**: OLF
+- **oromo_liberation_army**: Oromo Liberation Army
+- **ola**: OLA
+- **tigray_people_s_liberation_front**: Tigray People's Liberation Front
+- **tplf**: TPLF
+- **eritrean_people_s_liberation_front**: Eritrean People's Liberation Front
+- **eplf**: EPLF
+- **ogaden_national_liberation_front**: Ogaden National Liberation Front
+- **onlf**: ONLF
+- **amhara_fano**: Amhara Fano
+- **muslim_youth_league**: Muslim Youth League
+- **jamaat_e_islami**: Jamaat-e-Islami
+- **jamaat_ul_mujahideen_bangladesh**: Jamaat ul Mujahideen Bangladesh
+- **rohingya_salvation_army**: Rohingya Salvation Army
+- **arsa**: ARSA
+- **kachin_independence_army**: Kachin Independence Army
+- **kia**: KIA
+- **karen_national_union**: Karen National Union
+- **knu**: KNU
+- **chin_national_front**: Chin National Front
+- **cnf**: CNF
+- **free_syrian_army**: Free Syrian Army
+- **fsa**: FSA
+- **hayat_tahrir_al_sham**: Hayat Tahrir al-Sham
+- **hts**: HTS
+- **jabhat_al_nusra**: Jabhat al-Nusra
+- **nusra_front**: Nusra Front
+- **ahrar_al_sham**: Ahrar al-Sham
+- **popular_mobilization_forces**: Popular Mobilization Forces
+- **pmf**: PMF
+- **hashd_al_shaabi**: Hashd al-Shaabi
+- **badr_organization**: Badr Organization
+- **mahdi_army**: Mahdi Army
+- **kataib_hezbollah**: Kataib Hezbollah
+- **asaib_ahl_al_haq**: Asaib Ahl al-Haq
+- **peshmerga**: Peshmerga
+- **revolutionary_guard_corps**: Revolutionary Guard Corps
+- **irgc**: IRGC
+- **islamic_revolutionary_guard_corps**: Islamic Revolutionary Guard Corps
+- **basij**: Basij
+- **basij_resistance_force**: Basij Resistance Force
+- **people_s_mujahedin_of_iran**: People's Mujahedin of Iran
+- **mek**: MEK
+- **mujahedin_e_khalq**: Mujahedin-e-Khalq
+- **ansar_al_islam**: Ansar al Islam
+- **islamic_salvation_front**: Islamic Salvation Front
+- **armed_islamic_group**: Armed Islamic Group
+- **gia**: GIA
+- **polisario_front**: Polisario Front
+- **frente_polisario**: Frente Polisario
+- **frente_popular**: Frente Popular
+- **national_resistance_front**: National Resistance Front
+- **nrf**: NRF
+- **northern_alliance**: Northern Alliance
+- **communist_party_of_nepal_maoist**: Communist Party of Nepal Maoist
+- **maoists**: Maoists
+- **naxalites**: Naxalites
+- **cpi_maoist**: CPI Maoist
+- **new_people_s_army**: New People's Army
+- **npa**: NPA
+- **moro_islamic_liberation_front**: Moro Islamic Liberation Front
+- **milf**: MILF
+- **moro_national_liberation_front**: Moro National Liberation Front
+- **mnlf**: MNLF
+- **bangsamoro_islamic_freedom_fighters**: Bangsamoro Islamic Freedom Fighters
+- **biff**: BIFF
+- **kosovo_liberation_army**: Kosovo Liberation Army
+- **kla**: KLA
+- **uck**: UCK
+- **serbian_volunteer_guard**: Serbian Volunteer Guard
+- **chetniks**: Chetniks
+- **armenian_secret_army**: Armenian Secret Army
+- **asala**: ASALA
+- **grey_wolves**: Grey Wolves
+- **bozkurtlar**: Bozkurtlar
+- **eta**: ETA
+- **euskadi_ta_askatasuna**: Euskadi Ta Askatasuna
+- **ira**: IRA
+- **irish_republican_army**: Irish Republican Army
+- **real_ira**: Real IRA
+- **continuity_ira**: Continuity IRA
+- **inla**: INLA
+- **basque_separatists**: Basque separatists
+- **sikh_separatists**: Sikh separatists
+- **khalistan_movement**: Khalistan movement
+- **babbar_khalsa**: Babbar Khalsa
+- **international_sikh_youth_federation**: International Sikh Youth Federation
+- **isyf**: ISYF

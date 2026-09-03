@@ -66,8 +66,8 @@ The side panes are resizable on larger screens and can stack on smaller displays
 
 ### Reader Modes
 
-- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation and statute spans.
-- **Full text**: uses sanitized source HTML when available to preserve source formatting; otherwise uses stored normalized decision text with citation highlights.
+- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation, statute, and green Tagging V2 spans.
+- **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
 
 Source formatting supports reading, while stored chunk text and offsets remain the evidence location of record. A visual source paragraph is not a substitute for the persisted chunk/offset reference.
 

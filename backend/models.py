@@ -251,6 +251,8 @@ class CaseReaderTagResponse(BaseModel):
 	value: str
 	score: float
 	evidence: str
+	offset_start: int | None = None
+	offset_end: int | None = None
 	source: str
 	taxonomy_version: str
 	created_at: datetime | None = None

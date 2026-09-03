@@ -265,6 +265,8 @@ class CaseTag(Base):
 			"case_id",
 			"category",
 			"value",
+			"offset_start",
+			"offset_end",
 			"taxonomy_version",
 			name="uq_case_tag_taxonomy",
 		),
@@ -278,6 +280,8 @@ class CaseTag(Base):
 	value: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
 	score: Mapped[float] = mapped_column(Float, nullable=False)
 	evidence: Mapped[str] = mapped_column(Text, nullable=False)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	source: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
 	taxonomy_version: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
 	created_at: Mapped[datetime] = mapped_column(

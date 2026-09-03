@@ -45,6 +45,31 @@ span validity and layer separation; an ingestion split must preserve source
 identity and merge outcomes. Store reports under the existing evaluation/report
 conventions and link them from the relevant Swimm walkthrough.
 
+## Metric Ownership
+
+Each metric has an owner and a scope. Extraction owns occurrence pickup and span
+validity; resolution owns target-link rate and unresolved reasons; graph code
+owns edge and centrality measures; search owns relevance and latency; ingestion
+owns provenance completeness and merge outcomes; tagging owns label quality and
+taxonomy coverage. Do not combine these into one quality score without showing
+the underlying measures.
+
+## Before/After Report Contract
+
+A useful report records corpus/source scope, timestamp, code or taxonomy
+version, input count, output count, missing/unexpected rows, duplicates,
+invalid offsets, unresolved references, and sampled examples. Every percentage
+must include its denominator. Occurrence counts, unique entities, and affected
+cases must remain separate.
+
+## Refactoring Signals
+
+Use metrics to detect semantic drift during modularization: route response
+counts and keys, extraction spans, statute layer counts, tag distributions,
+source provenance completeness, and graph orphan rates. A structurally cleaner
+module that changes these unexpectedly is not complete until the difference is
+explained and accepted.
+
 ## Authority
 
 Use `docs/METRICS_DICTIONARY.md` for definitions, `docs/TESTING_MATRIX.md` for

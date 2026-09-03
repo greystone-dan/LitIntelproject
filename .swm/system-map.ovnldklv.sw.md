@@ -80,6 +80,27 @@ such as `34(1)(f)` are release-sensitive regression cases.
 - `side_projects/` remains outside the canonical case workflow.
 - `legacy/`, `backend/legacy/`, and `docs/history/` are reference-only areas.
 
+## Cross-Cutting Contracts
+
+- Source text and provenance enter through ingestion and remain traceable after
+	processing and API rendering.
+- The database is the persistence boundary; page code must not create or repair
+	canonical data as a side effect of rendering.
+- Case citations, statutes/instruments, metadata, tags, and embeddings are
+	separate derived products even when they use the same text.
+- A chunk ID identifies context, while backend-owned offsets identify evidence.
+- Route responses may contain incomplete enrichment, unresolved targets, or
+	empty results; those states must remain explicit.
+
+## Refactoring Seams
+
+The most useful seams are application startup versus route registration,
+route-family handlers versus query services, API payload mapping versus page
+rendering, source adapters versus canonical merge policy, and extraction versus
+resolution/persistence. Each seam should first gain a focused contract test or
+characterization fixture. Avoid moving ORM declarations or changing response
+models in the same checkpoint as a route split.
+
 ## Validation Checkpoint
 
 For changes to this path, start with the narrowest applicable check:

@@ -52,6 +52,41 @@ flowchart TD
 - Keep side-project datasets outside canonical case tables and routes.
 - Use `SYSTEM_REFERENCE.md` for current architecture and `DOCS_INDEX.md` for document authority.
 
+## Ownership And Dependencies
+
+The application is organized as a pipeline of ownership boundaries rather than
+one undifferentiated backend. Acquisition produces staged source records;
+canonical ingestion decides identity and merge outcomes; processing creates
+derived layers; routes expose those layers; page builders render the active
+research surfaces. A module may call the next layer, but it must not silently
+take ownership of the next layer's policy.
+
+The highest-risk dependency is `backend/routes.py`, because it is both an API
+boundary and a frontend assembly point. The highest-risk data boundary is the
+transition from source/staging records to canonical `cases`. The highest-risk
+semantic boundary is extraction versus resolution: an occurrence can be valid
+even when it cannot be linked to a local target.
+
+## Modularization Map
+
+| Current concentration | Candidate modules | Contract to preserve |
+| --- | --- | --- |
+| `routes.py` handlers and queries | route families, query services, response mappers | HTTP paths, validation, response shapes |
+| `routes.py` page assembly | page builders and browser assets | active `/data-explorer` behavior |
+| `database.py` configuration and models | settings/session module plus model packages | imports, relationships, migration metadata |
+| `ingestion.py` adapters and merge logic | source adapters plus canonical merge service | provenance, identity, conflict policy |
+| `citations.py` extraction and graph work | rules, normalization, resolution, persistence, metrics | exact spans and separate layers |
+
+Splitting is only safe when the old public import path or a compatibility
+wrapper remains until callers, tests, and generated references have moved.
+
+## Definition Of A Mapped Change
+
+Before a refactor begins, the walkthrough for the owning surface should name
+the entry point, inputs, outputs, callers, persistence effects, invariants,
+focused validation, and rollback. A file count reduction is not acceptance
+evidence; preserved behavior and easier ownership are.
+
 ## Next Walkthroughs
 
 1. **System map**: trace `backend/main.py` into `backend/routes.py`.

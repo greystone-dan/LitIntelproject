@@ -54,9 +54,11 @@ be queried by decision-maker, enforcement action, impediment, and program effect
 Tagging V2 is an independent, high-precision whitelist taxonomy defined in
 `config/tagging_v2_core_whitelist.json`. It uses the separate version
 `ca_legal_v2_core`, so it can be previewed or populated without changing
-existing `ca_legal_v2` tags. The core layer is limited to canonical countries,
-agencies, tribunals, statutes, acronyms, and named external organizations with
-explicit aliases.
+existing `ca_legal_v2` tags. The core layer contains canonical countries,
+agencies, tribunals, statutes, acronyms, named external organizations, and
+reviewed general legal/process terms with explicit aliases. The whitelist now
+contains 146 canonical terms; reviewed country and organization inventories
+expand the loaded matcher set without changing the taxonomy version.
 
 The reviewed country and organization inventories are loaded into this layer as
 additional canonical entities. V2 stores every matched occurrence, not only one
@@ -72,11 +74,42 @@ Preview without writes:
 python scripts/tag_cases_v2.py --dry-run --limit 25
 ```
 
-Run resumably in bounded batches:
+Run resumably in bounded batches. The default is 10 cases per batch and each
+batch has a five-minute subprocess watchdog. A timed-out batch is terminated,
+committed with `tags_count=-1`, and counted as skipped so the run advances
+instead of retrying the same cases indefinitely:
 
 ```powershell
-python scripts/tag_cases_v2.py --batch-size 100 --limit 1000
+python scripts/tag_cases_v2.py --batch-size 10 --batch-timeout 300
 ```
+
+The watchdog runs matching in a separate process, which allows it to terminate
+work that is genuinely stuck on Windows. Successful batches commit their tags
+and completion statuses independently. A later invocation resumes only cases
+without a status row for `ca_legal_v2_core`:
+
+```powershell
+python scripts/tag_cases_v2.py --batch-size 10 --batch-timeout 300
+```
+
+For smaller batches or a shorter test timeout:
+
+```powershell
+python scripts/tag_cases_v2.py --batch-size 5 --batch-timeout 60 --limit 25
+```
+
+To inspect skipped batches:
+
+```sql
+SELECT case_id, tags_count, tagged_at
+FROM case_tagging_status
+WHERE taxonomy_version = 'ca_legal_v2_core' AND tags_count = -1
+ORDER BY case_id;
+```
+
+The full-corpus expansion run was paused after 21,710 cases in its resumed
+session, with 2,051,241 occurrences created and no skipped batches reported.
+Completed work remains committed and can be resumed with the command above.
 
 Rebuild the 100 most recent cases across the full database:
 

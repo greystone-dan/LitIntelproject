@@ -9,6 +9,10 @@ For the complete, current architecture, system behavior, data model, operational
 workflows, API map, limitations, and code-review posture, read
 [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md). It is the canonical system document.
 
+For the Swimm documentation sequence, repository map, cleanup queue, and future
+project-manager agent handoff contract, read
+[docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md](docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md).
+
 ## What This Repo Provides
 
 - FastAPI backend for case ingestion, search, retrieval, case reading, analytics, and citation exploration

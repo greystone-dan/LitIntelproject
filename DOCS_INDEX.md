@@ -26,6 +26,10 @@ Primary explainer docs:
 1. `SYSTEM_REFERENCE.md` is the canonical current architecture and functionality reference.
 2. `README.md` is the concise entrypoint and operating workflow.
 3. `CHANGELOG.md` records what changed and verification notes.
+4. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md` is the Swimm walkthrough map,
+   improvement queue, and future project-manager handoff contract.
+5. `.github/copilot-instructions.md` defines repository-level agent guardrails,
+   ownership boundaries, and validation expectations.
 
 ## Active Vs Legacy Locations
 
@@ -62,6 +66,10 @@ Current operational sources of truth:
 
 6. `AI_HANDOFF.md`
 - Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
+
+8. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+- Swimm mapping plan and future manager-agent contract; it does not override
+	the canonical architecture or generated references.
 
 7. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.

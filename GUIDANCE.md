@@ -16,6 +16,13 @@ The system should make case-law work:
 - Faster by reducing manual searching across official court websites and preserved datasets.
 - Smarter through semantic, issue-based, and hybrid retrieval.
 - Repeatable through consistent ingestion, summarization, tagging, and ranking pipelines.
+- Deployable beyond a developer laptop through approved hosting, security,
+	backup, monitoring, and recovery controls.
+- Useful to CBSA litigation analysts through task-tested workflows, evidence
+	packages, training, support, and measurable adoption outcomes.
+- Ready for eventual Government of Canada integration through governed APIs,
+	identity boundaries, data classification, auditability, and approved
+	information-sharing contracts.
 
 The system is a research aid. It must not present generated output as legal advice, and every explanation should remain traceable to source cases.
 
@@ -178,6 +185,13 @@ Potential future features include:
 - Use request IDs and structured logs as the service grows.
 - Mock embedding calls in unit tests and use a dedicated database for integration tests.
 - Add migrations before making schema changes in shared or production environments.
+- Treat laptop hosting as development-only; production must run in an approved,
+	monitored, backed-up, access-controlled environment with a tested rollback
+	and disaster-recovery path.
+- Complete security, privacy, records-management, and data-residency review
+	before connecting Government of Canada or CBSA operational information.
+- Measure analyst adoption by accuracy, verification, trust, time saved, and
+	support burden, not speed alone.
 - Treat client or confidential case material as sensitive data and define retention and access policies before accepting it.
 - Design for retryable, idempotent ingestion rather than assuming every external call succeeds.
 

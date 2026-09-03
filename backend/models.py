@@ -38,6 +38,44 @@ class CaseIngestRequest(BaseModel):
 		return self
 
 
+class LiveAnalysisReferenceResponse(BaseModel):
+	kind: str
+	reference_text: str
+	normalized_reference: str
+	offset_start: int
+	offset_end: int
+	paragraph_index: int | None = None
+	paragraph_text: str | None = None
+	page_number: int | None = None
+	context: str
+	resolved_case_id: int | None = None
+	resolved_case_title: str | None = None
+	resolved_case_citation: str | None = None
+	instrument_key: str | None = None
+	pinpoint: str | None = None
+	legislation_url: str | None = None
+	source_title: str | None = None
+	source_text: str | None = None
+	source_url: str | None = None
+
+
+class LiveAnalysisSummaryResponse(BaseModel):
+	case_citations: int
+	resolved_case_citations: int
+	unresolved_case_citations: int
+	statute_references: int
+
+
+class LiveAnalysisResponse(BaseModel):
+	filename: str = Field(min_length=1)
+	text: str
+	text_length: int
+	paragraph_count: int
+	case_citations: list[LiveAnalysisReferenceResponse]
+	statute_references: list[LiveAnalysisReferenceResponse]
+	summary: LiveAnalysisSummaryResponse
+
+
 class CaseSearchRequest(BaseModel):
 	query: str = Field(min_length=1)
 	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"

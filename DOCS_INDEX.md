@@ -16,9 +16,10 @@ Use this sequence:
 
 1. Run the API.
 2. Use `/data-explorer` for About, Case Search, Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer.
-3. Use `/case-reader` for unified case detail and linked citation context.
+3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
-5. Re-run focused verification and then update explainer docs and changelog.
+5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.
+6. Re-run focused verification and then update explainer docs and changelog.
 
 Primary explainer docs:
 
@@ -77,8 +78,9 @@ older endpoint lists, or outdated test totals.
 ## Cleanup Status (2026-08-07)
 
 1. Active architecture authority now lives in root `SYSTEM_REFERENCE.md`; historical handoffs remain under `docs/history/`.
-2. Research-facing work is currently centered on `/data-explorer`, `/case-reader`, and linked citation review; `/citation-pass` remains the extractor QA surface.
+2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
+4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
 4. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist

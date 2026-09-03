@@ -58,7 +58,8 @@ The case reader embedded in Case Search supports full decision text, source-pres
 | Route | Role | Status |
 | --- | --- | --- |
 | `/data-explorer` | Primary research interface | Active |
-| `/case-reader` | Unified case-detail reader with sources, chunks, citations, tags, and metrics | Active supporting interface |
+| `/case-reader` | Compatibility redirect for legacy bookmarks | Redirects to the active Data Explorer case reader |
+| `/live-analysis` | Ephemeral DOCX/text-PDF reader with citation and statute highlights | Active prototype |
 | `/citation-map` | Citation graph workbench and authority analytics | Active |
 | `/citation-pass` | Deterministic extraction/offset QA surface | QA only |
 | `/quick-search` | Lightweight lexical/semantic search interface | Supporting |
@@ -88,6 +89,23 @@ By default, active Case Search uses title/citation matching. Full decision text 
 `backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
 
 Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision.
+
+### Live Analysis
+
+`/live-analysis` is a separate, ephemeral document-reading workflow. It accepts
+`.docx` and text-based `.pdf` files up to 10 MB, extracts text in memory, and
+returns source text plus deterministic case-citation and statute-reference rows.
+Rows retain character offsets, paragraph locations, and PDF page numbers where
+applicable. The UI presents a temporary Case Reader with in-place highlights and
+an evidence inspector.
+
+`POST /live-analysis/analyze` accepts a multipart `file` and performs extraction
+only. A separate `POST /live-analysis/resolve` request performs a batched,
+read-only lookup of neutral, named, and short-form references against existing
+case title, citation, and secondary-citation fields. Neither request creates
+cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
+Local resolution intentionally does not call external services. Scanned PDFs are
+outside the prototype because they require OCR.
 
 `backend/metadata.py` and Federal Court scrapers derive metadata such as case name, date, docket, court, judge, outcome, parties, and related context. Extraction can carry field confidence, source evidence, quality flags, and a review indicator. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
@@ -180,7 +198,7 @@ flowchart LR
     D --> J[FastAPI APIs]
     H --> J
     I --> J
-    J --> K[Data Explorer / Case Reader / Citation Map / QA]
+    J --> K[Data Explorer inline reader / Citation Map / QA]
 ```
 
 ## Data Model
@@ -274,6 +292,13 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /search/chunks`: chunk-level search.
 - `POST /search/chunks/grouped`: grouped matching passages per case.
 - `POST /search/local-chunks`: local embedding-backed chunk search where populated.
+
+### Ephemeral Document Analysis APIs
+
+- `GET /live-analysis`: standalone temporary reader UI.
+- `POST /live-analysis/analyze`: in-memory DOCX/text-PDF extraction.
+- `POST /live-analysis/resolve`: separate batched local resolution for neutral,
+  named, and short-form case references.
 
 ### Research And Analytics APIs
 
@@ -412,7 +437,7 @@ Focused active-interface and citation rebuild checks passed (`18 passed`). Edito
 3. Citation extraction is deterministic and improving, but it is not a substitute for legal citation validation. Short-form resolution can remain unresolved by design.
 4. Federal Court discovery, activity, and decision capture are separate states. A discovered or activity-linked item is not automatically a captured judgment.
 5. The generated inline frontend in `routes.py` is complex and has duplicate renderer/wrapper declarations. Consolidation requires browser regression coverage before refactoring.
-6. The standalone `/case-reader`, `/testing`, and `/prototype` surfaces are not the primary product flow and may carry legacy assumptions.
+6. The `/case-reader` compatibility redirect, `/testing`, and `/prototype` surfaces are not the primary product flow and may carry legacy assumptions.
 7. The current FastAPI startup hook uses deprecated `@app.on_event("startup")`; migrate to a lifespan handler when doing runtime lifecycle work.
 8. Documentation counts drift quickly. Use `/api/about/stats` and current database queries for live inventory rather than static prose.
 
@@ -724,14 +749,13 @@ are visually quiet when idle but remain usable. Hover previews use fixed
 viewport positioning so a preview is not clipped by the text chunk that owns the
 highlight.
 
-### Case Reader
+### Case Reader Compatibility Route
 
-The standalone Case Reader remains useful for granular inspection but is not the
-main entrypoint. It consumes the unified reader-data payload, lists cases, and
-offers field, citation, evidence, QA, intelligence, activity, tag, and acts/
-regulations panels. It must maintain the same case/statute separation as Data
-Explorer. Do not revive outdated copy or test assumptions merely to make a
-legacy page look current.
+`/case-reader` is retained as a compatibility redirect for legacy bookmarks.
+The active unified case reader is embedded in `/data-explorer` and consumes the
+unified reader-data payload with field, citation, evidence, QA, intelligence,
+activity, tag, and acts/regulations panels. Do not revive outdated copy or test
+assumptions merely to make the legacy route look current.
 
 ### Citation Pass
 
@@ -5317,7 +5341,7 @@ FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxi
 
 | Route | When to use it | Caution |
 | --- | --- | --- |
-| `/case-reader` | Detailed standalone inspection of one canonical case | Supporting/legacy-adjacent interface; active product flow begins in Data Explorer |
+| `/case-reader` | Compatibility redirect for legacy bookmarks | Redirects to the active Data Explorer case reader |
 | `/citation-map` | Explore maps, paths, authority relationships, and CSV exports | Graph relationships are derived from resolved rows and bounded queries |
 | `/citation-pass` | QA extraction spans, normalization, and stored-versus-live results | QA interface, not normal legal research workflow |
 | `/quick-search` | Lightweight search experimentation | Not the full advanced research workspace |

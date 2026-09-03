@@ -91,6 +91,7 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert "Decision desk" not in html
     assert "Litigation workbench" not in html
     assert "Case search and analytics" not in html
+    assert 'id="aboutOutcomeChart"' not in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

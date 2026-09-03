@@ -38,6 +38,13 @@ The system is designed to help a researcher:
 - Keep legislation, policy, tribunal guidance, and other reference documents available beside the case collection without mixing those documents into the case database.
 - Eventually support citation-grounded research answers after retrieval quality has been properly tested.
 
+The standalone `/live-analysis` workflow provides temporary analysis of uploaded
+DOCX and text-based PDF documents. It extracts case and statute references with
+source offsets, paragraph/page locations, and in-document highlights without
+adding the upload to source staging or the canonical PostgreSQL case library.
+Optional local citation matching is read-only and batched; scanned PDFs requiring
+OCR are outside its current scope.
+
 The system is not yet a finished legal research product. It has a working case store, advanced search interface, decision reader, citation graph, metadata extraction layer, and extractor QA surface. The current live database is strong on text, paragraph chunks, stored citations, and linked case-to-case resolution. Local embedding and tag tables exist in the schema but are not populated in the current active database snapshot.
 
 

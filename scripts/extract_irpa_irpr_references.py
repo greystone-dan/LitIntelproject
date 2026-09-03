@@ -1,9 +1,8 @@
-"""Extract IRPA and IRPR references into the separate statute-reference layer."""
+"""Extract recognized statute and legal-instrument references into the statute-reference layer."""
 
 from __future__ import annotations
 
 import argparse
-import re
 import sys
 from pathlib import Path
 
@@ -16,22 +15,14 @@ if str(PROJECT_ROOT) not in sys.path:
 from backend.citations import extract_statute_reference_matches, parse_legislation_citation
 from backend.database import Case, CaseChunk, SessionLocal, StatuteReference
 
-IRPA_IRPR_RE = re.compile(
-    r"\b(?:IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations?)\b",
-    re.IGNORECASE,
-)
-
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--batch-size", type=int, default=250, help="Cases per transaction")
     parser.add_argument("--start-after-id", type=int, default=0, help="Resume after this case ID")
+    parser.add_argument("--recent-limit", type=int, help="Process the most recent cases using inventory search ordering")
     parser.add_argument("--dry-run", action="store_true", help="Count matches without writing")
     return parser.parse_args()
-
-
-def is_irpa_irpr(reference_text: str | None, normalized_reference: str | None) -> bool:
-    return bool(IRPA_IRPR_RE.search(reference_text or "") or IRPA_IRPR_RE.search(normalized_reference or ""))
 
 
 def extract_case_references(case: Case, chunks: list[CaseChunk]) -> list[StatuteReference]:
@@ -46,8 +37,6 @@ def extract_case_references(case: Case, chunks: list[CaseChunk]) -> list[Statute
             for raw in extract_statute_reference_matches(prefix + chunk.text):
                 if raw.offset_end <= len(prefix):
                     continue
-                if not is_irpa_irpr(raw.citation_text, raw.normalized_citation):
-                    continue
                 parsed = parse_legislation_citation(raw.normalized_citation or raw.citation_text)
                 offset_start = raw.offset_start - len(prefix)
                 offset_end = raw.offset_end - len(prefix)
@@ -59,9 +48,8 @@ def extract_case_references(case: Case, chunks: list[CaseChunk]) -> list[Statute
             context_text = (context_text + "\n" + chunk.text)[-3000:]
     else:
         for raw in extract_statute_reference_matches(case.full_text or case.summary):
-            if is_irpa_irpr(raw.citation_text, raw.normalized_citation):
-                parsed = parse_legislation_citation(raw.normalized_citation or raw.citation_text)
-                references.append(StatuteReference(source_case_id=case.id, chunk_id=None, offset_start=raw.offset_start, offset_end=raw.offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, instrument_key=parsed.instrument_key if parsed else None, pinpoint=parsed.pinpoint if parsed else None, legislation_url=parsed.legislation_url if parsed else None, reference_kind=raw.kind))
+            parsed = parse_legislation_citation(raw.normalized_citation or raw.citation_text)
+            references.append(StatuteReference(source_case_id=case.id, chunk_id=None, offset_start=raw.offset_start, offset_end=raw.offset_end, reference_text=raw.citation_text, normalized_reference=raw.normalized_citation, instrument_key=parsed.instrument_key if parsed else None, pinpoint=parsed.pinpoint if parsed else None, legislation_url=parsed.legislation_url if parsed else None, reference_kind=raw.kind))
     return references
 
 
@@ -69,19 +57,19 @@ def main() -> None:
     args = parse_args()
     if args.batch_size < 1:
         raise SystemExit("--batch-size must be at least 1")
+    if args.recent_limit is not None and args.recent_limit < 1:
+        raise SystemExit("--recent-limit must be at least 1")
     total = 0
     processed = 0
     with SessionLocal() as session:
         last_id = args.start_after_id
         while True:
-            cases = list(
-                session.scalars(
-                    select(Case)
-                    .where(Case.id > last_id)
-                    .order_by(Case.id)
-                    .limit(args.batch_size)
-                )
-            )
+            case_query = select(Case)
+            if args.recent_limit is not None:
+                case_query = case_query.order_by(Case.date.desc().nullslast(), Case.id.desc()).limit(args.recent_limit)
+            else:
+                case_query = case_query.where(Case.id > last_id).order_by(Case.id).limit(args.batch_size)
+            cases = list(session.scalars(case_query))
             if not cases:
                 break
             case_ids = [case.id for case in cases]
@@ -106,7 +94,9 @@ def main() -> None:
                 session.commit()
             last_id = cases[-1].id
             print(f"processed_cases={processed} references_found={total} last_case_id={last_id}", flush=True)
-    print(f"done processed_cases={processed} irpa_irpr_references={total} dry_run={args.dry_run}", flush=True)
+            if args.recent_limit is not None:
+                break
+    print(f"done processed_cases={processed} statute_references={total} dry_run={args.dry_run}", flush=True)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # AI CaseLibrary Handoff
 
-Last updated: 2026-08-19
+Last updated: 2026-09-02
 
 This document is a detailed working handoff and may contain time-bound implementation context. For the canonical current architecture, functionality, data model, operations, limitations, and code-review posture, see `SYSTEM_REFERENCE.md`.
 
@@ -8,6 +8,12 @@ This document is a detailed working handoff and may contain time-bound implement
 
 Current delivery focus is user-facing advanced search and linked citation reading,
 with deterministic extractor QA retained as a supporting workflow.
+
+The standalone Live Analysis prototype is available at `/live-analysis` for
+ephemeral document review. It accepts DOCX and text-based PDF uploads, preserves
+source offsets and PDF page locations, and never persists the uploaded document.
+Extraction and citation resolution are separate actions; `/live-analysis/resolve`
+can match neutral, named, and short-form references against local case metadata.
 
 Primary workflow for this phase:
 
@@ -26,6 +32,8 @@ Hard scope constraints currently in force:
 3. Preserve exact backend-owned source spans; the UI must not infer or reparse them.
 4. Keep case-to-case target resolution as a separate local pass after extraction.
 5. Keep side-project datasets isolated from canonical case tables and routes.
+6. Keep Live Analysis uploads in memory; optional local resolution may read case
+	metadata but must not write database records or call external resolution services.
 
 Current live user-facing capabilities in this phase:
 

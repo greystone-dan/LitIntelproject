@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-01T14:18:17.728860+00:00
+Generated: 2026-09-02T17:28:58.228982+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 76 across 76 paths
-Hidden operations: 34 excluded from OpenAPI
+OpenAPI operations: 79 across 79 paths
+Hidden operations: 35 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -156,6 +156,38 @@ Get Analytics Search Ministers
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/legislation/cases`
+
+Get Legislation Cases
+
+Find every case that cites one canonical legislation provision.
+
+**Parameters**
+
+- `instrument_key` (query, required; string)
+- `pinpoint` (query, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/legislation/section`
+
+Get Legislation Section
+
+Return local authoritative section text and cases citing the pinpoint.
+
+**Parameters**
+
+- `instrument_key` (query, required; string)
+- `pinpoint` (query, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
 
@@ -988,6 +1020,23 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `POST /live-analysis/analyze`
+
+Live Analysis Analyze
+
+**Parameters**
+
+- `resolve` (query, optional; boolean, default `false`)
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_analyze_live_analysis_analyze_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -1378,6 +1427,7 @@ Handler: `backend.routes.judge_profile`
 **Handler parameters**
 
 - `slug` (str; required)
+- `minister` (list[str] | None; default `Query(None)`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -1389,6 +1439,10 @@ Handler: `backend.routes.judge_profile`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.case_reader_page`
+
+**Handler parameters**
+
+- `case_id` (int | None; default `None`)
 
 **Responses**
 
@@ -1493,6 +1547,16 @@ Handler: `backend.routes.judge_profile_page`
 **Handler parameters**
 
 - `slug` (str; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /live-analysis`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.live_analysis_page`
 
 **Responses**
 

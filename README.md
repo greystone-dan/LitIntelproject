@@ -22,9 +22,10 @@ workflows, API map, limitations, and code-review posture, read
 
 - Canonical case store is populated and searchable
 - Advanced search UI is live at `/data-explorer` with filters, minister dropdown, result metrics, and a full-decision modal reader
-- Unified case detail is live at `/case-reader`
+- Unified case reading is live inside `/data-explorer`; `/case-reader` is a compatibility redirect for legacy bookmarks
 - Citation graph analytics are live under `/citation-map/*`
 - Citation extraction and local target resolution are both populated in the database
+- Standalone Live Analysis accepts DOCX and text-based PDF files without saving uploads
 - Citation Pass remains available as the deterministic QA surface for extraction debugging
 - The isolated Luck of the Draw III utility lives under `side_projects/luck_of_the_draw_iii` and writes only to schema `lotd`
 
@@ -43,8 +44,9 @@ Current live scale in the main case library database:
 Use the repo in three distinct modes:
 
 1. Research workflow: `/data-explorer` for advanced search, filters, analytics tabs, and full-decision reading.
-2. Case inspection workflow: `/case-reader` for unified case detail, stored citations, chunks, sources, and metrics.
+2. Case reading workflow: open a result in `/data-explorer` for unified case detail, stored citations, chunks, sources, and metrics. `/case-reader` redirects here for legacy bookmarks.
 3. Extractor QA workflow: `/citation-pass` when validating citation extraction offsets or layered extractor behavior.
+4. Ephemeral document workflow: `/live-analysis` to inspect a DOCX or text-based PDF with temporary highlights, followed by explicit local citation resolution when needed.
 
 Core research-facing capabilities now available:
 
@@ -55,6 +57,7 @@ Core research-facing capabilities now available:
 5. Review judge-outcome summaries and flexible two-field analytics in the same `/data-explorer` surface.
 6. Explore citation graph, authority flow, lifecycle, surprises, hidden bridges, and contextual exports under `/citation-map/*`.
 7. Run deterministic extraction QA in `/citation-pass` without mixing statute/instrument and case-citation decisions.
+8. Analyze an unsaved DOCX or text-based PDF in `/live-analysis`, then use the separate Resolve citations action; results remain in memory and local resolution is read-only.
 
 ### Day-To-Day Commands
 
@@ -95,7 +98,7 @@ To keep the project less scattered, legacy materials are explicitly separated:
 - `backend/legacy/` for modules intentionally excluded from active runtime paths
 - `docs/history/` for historical implementation notes
 
-Default active path for research is `/data-explorer` plus `/case-reader`; Citation Pass is the verification path.
+Default active path for research and case reading is `/data-explorer`; `/case-reader` is retained as a compatibility redirect for legacy bookmarks. Citation Pass is the verification path.
 
 ## Tech Stack
 
@@ -165,8 +168,11 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 - `GET /about`: compatibility redirect to the About tab
 - `GET /citation-intelligence`: compatibility redirect to Citation Intelligence
 - `GET /judges`: compatibility redirect to Judge Profile
-- `GET /case-reader`: unified case detail reader
+- `GET /case-reader`: compatibility redirect to the `/data-explorer` case reader
 - `GET /citation-pass`: extractor QA surface
+- `GET /live-analysis`: ephemeral DOCX/text-PDF reader with highlights
+- `POST /live-analysis/analyze`: in-memory document extraction only
+- `POST /live-analysis/resolve`: separate batched local resolution for neutral, named, and short-form case references
 - `GET /citation-map`: citation graph workbench
 - `GET /quick-search`: lightweight lexical/semantic search page
 
@@ -218,7 +224,7 @@ See [docs/CLOUDFLARE_TUNNEL_SETUP.md](docs/CLOUDFLARE_TUNNEL_SETUP.md) for detai
 - GET /analytics/search/cases : filtered case search API
 - GET /analytics/search/ministers : minister dropdown source API
 - GET /analytics/search/cases/{case_id} : full-decision reader payload with citation highlights and metrics
-- GET /case-reader : unified case detail UI
+- GET /case-reader : compatibility redirect to the `/data-explorer` case reader
 - GET /quick-search : lightweight semantic/hybrid search page
 - GET /citation-pass : citation QA UI
 - POST /search : case-level search

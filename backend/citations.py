@@ -22,6 +22,13 @@ _V2_PIPELINE = None
 _CANLII_CLIENT = None
 CASE_CITATION_KINDS = {"neutral", "case", "case_short", "case_name"}
 STATUTE_REFERENCE_KINDS = {"statute", "instrument"}
+GENERIC_STATUTE_NOISE_NAMES = {
+	"An Act",
+	"Contempt Order",
+	"Preliminary Order",
+	"Show Cause Order",
+	"Standing Order",
+}
 
 NEUTRAL_CIT_RE = re.compile(
 	r"\b((?:19|20)\d{2})\s+(FC|FCA|SCC|TCC|IRB|RPD|RAD|IAD|ID)\s+(\d{1,5})\b",
@@ -79,6 +86,14 @@ GENERIC_SECTION_OF_STATUTE_RE = re.compile(
 )
 GENERIC_STATUTE_CIT_RE = re.compile(
 	r"\b((?:(?!The\b|This\b|That\b)(?-i:[A-Z])[A-Za-z'’\-]+(?:\s+(?:(?-i:[A-Z])[A-Za-z'’\-]+|of|and|the|for|de|du|des|la|le|les)){0,12}\s+(?-i:Act|Code|Regulations?|Rules|Order))(?:,\s*(?:(?:S\.?C\.?|R\.?S\.?C\.?)\s*,?\s*\d{4},\s*c\.?\s*[A-Z0-9.-]+(?:\s*\([^)]*\))?|SOR/\d{4}-\d+|S\.?I\.?/\d{2,4}-\d+))?(?:,?\s*(?:s\.|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)?)",
+	re.IGNORECASE,
+)
+FRENCH_PROVISION_OF_STATUTE_RE = re.compile(
+	r"\b(article|articles|art\.|paragraphe|paragraphes|alinéa|alinéas)\s+"
+	r"(\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)\s+"
+	r"(?:de|du|des|de\s+la|de\s+l['’])\s+"
+	r"((?:Loi|Code|Règlement|Règles|Charte|Constitution|Ordonnances)[^,.;\n\[]{1,120}?)"
+	r"(?=,?\s*(?:LC|L[CR]C|DORS|SOR|\[|[.;]))",
 	re.IGNORECASE,
 )
 SECTION_OF_STATUTE_DIRECT_RE = re.compile(
@@ -1372,7 +1387,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 	for match in STATUTE_CIT_RE.finditer(content):
 		normalized = _normalize_whitespace(match.group(0))
 		normalized = re.sub(r"\bsection\b", "s.", normalized, flags=re.IGNORECASE)
-		normalized = re.sub(r"\b(irpa|irpr)\b,?", lambda m: _full_statute_citation_name(m.group(0)), normalized, flags=re.IGNORECASE)
+		normalized = re.sub(r"\b(irpa|irpr)\b,?", lambda m: _full_statute_citation_name(m.group(0).rstrip(",")), normalized, flags=re.IGNORECASE)
 		candidates.append(
 			(
 				match.start(),
@@ -1507,8 +1522,21 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			)
 		)
 
+	for match in FRENCH_PROVISION_OF_STATUTE_RE.finditer(content):
+		prefix, section, statute_name = match.groups()
+		normalized = _normalize_whitespace(f"{statute_name} {prefix} {section}")
+		candidates.append(
+			(
+				match.start(),
+				match.end(),
+				_raw_match("statute", match.group(0), normalized, match.start(), match.end()),
+			)
+		)
+
 	for match in GENERIC_STATUTE_CIT_RE.finditer(content):
 		normalized = _normalize_generic_statute_citation(match.group(0))
+		if normalized in GENERIC_STATUTE_NOISE_NAMES:
+			continue
 		candidates.append(
 			(
 				match.start(),

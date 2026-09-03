@@ -71,6 +71,19 @@ The side panes are resizable on larger screens and can stack on smaller displays
 
 Source formatting supports reading, while stored chunk text and offsets remain the evidence location of record. A visual source paragraph is not a substitute for the persisted chunk/offset reference.
 
+## Live Analysis
+
+Open `/live-analysis` to inspect a document without adding it to the case library.
+The temporary reader displays extracted source text, highlights case citations and
+statute references in place, and provides an evidence inspector with paragraph or
+PDF page, offsets, context, and resolution status.
+
+Accepted formats are `.docx` and text-based `.pdf`, up to 10 MB. Scanned PDFs are
+not OCR'd by this prototype. Enable **Resolve local matches** when neutral
+citations should be checked against existing local case metadata. Resolution is
+batched and read-only; it does not save the upload or create derived database
+records.
+
 ### Highlight Types And Linked Authorities
 
 - Case-citation highlights identify stored case-law references.
@@ -113,7 +126,7 @@ FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxi
 
 | Route | When to use it | Caution |
 | --- | --- | --- |
-| `/case-reader` | Detailed standalone inspection of one canonical case | Supporting/legacy-adjacent interface; active product flow begins in Data Explorer |
+| `/case-reader` | Compatibility redirect for legacy bookmarks | Redirects to the active Data Explorer case reader |
 | `/citation-map` | Explore maps, paths, authority relationships, and CSV exports | Graph relationships are derived from resolved rows and bounded queries |
 | `/citation-pass` | QA extraction spans, normalization, and stored-versus-live results | QA interface, not normal legal research workflow |
 | `/quick-search` | Lightweight search experimentation | Not the full advanced research workspace |

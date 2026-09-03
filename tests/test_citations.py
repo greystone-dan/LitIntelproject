@@ -5,6 +5,7 @@ from fastapi import HTTPException
 
 from backend import citations
 from backend import routes
+from scripts.extract_irpa_irpr_references import extract_case_references
 
 
 def test_parse_legislation_citation_returns_expandable_provision_identity():
@@ -177,6 +178,18 @@ def test_extract_raw_citation_matches_supports_canlii_and_section_keyword():
 	assert matches[1].normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)"
 
 
+def test_extract_raw_citation_matches_canonicalizes_comma_after_irpa():
+	text = "The exclusion ground appears in IRPA, s. 34(1)(f)."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any(
+		match.kind == "statute"
+		and match.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+		for match in matches
+	)
+
+
 def test_extract_raw_citation_matches_supports_long_form_law_citations():
 	text = (
 		"The Immigration and Refugee Protection Act, S.C. 2001, c. 27, section 98 applies, "
@@ -194,6 +207,26 @@ def test_extract_raw_citation_matches_supports_long_form_law_citations():
 	assert any(m.kind == "instrument" and "Can. T.S. 1969 No. 6" in m.normalized_citation for m in matches)
 
 
+def test_extract_statute_reference_matches_supports_french_provision_forms():
+	text = (
+		"L'article 112 de la Loi sur l'immigration et la protection des réfugiés, LC 2001, c 27, "
+		"et le paragraphe 320.13(1) du Code criminel, LRC 1985, c C-46, s'appliquent."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert any("Loi sur l'immigration" in match.normalized_citation for match in matches)
+	assert any("Code criminel" in match.normalized_citation for match in matches)
+
+
+def test_extract_statute_reference_matches_excludes_procedural_order_labels():
+	matches = citations.extract_statute_reference_matches(
+		"The Court issued a Preliminary Order and a Show Cause Order."
+	)
+
+	assert matches == []
+
+
 def test_extract_statute_reference_matches_returns_only_law_layer():
 	text = (
 		"Vavilov v Canada, 2019 SCC 65 considered IRPA s. 72(1), the Canadian Charter "
@@ -208,6 +241,35 @@ def test_extract_statute_reference_matches_returns_only_law_layer():
 	assert any("Canadian Charter of Rights and Freedoms" in match.normalized_citation for match in matches)
 	assert any("Refugee Convention" in match.normalized_citation for match in matches)
 	assert not any("Vavilov" in match.citation_text for match in matches)
+
+
+def test_extract_statute_references_from_text_keeps_non_irpa_instruments():
+	session = FakeCitationSession()
+	rows = citations.extract_statute_references_from_text(
+		session,
+		source_case_id=11,
+		text="Section 18.1 of the Federal Courts Act and Article 1F(b) of the Refugee Convention apply.",
+	)
+
+	assert {row.reference_kind for row in rows} == {"statute", "instrument"}
+	assert any("Federal Courts Act" in (row.normalized_reference or "") for row in rows)
+	assert any("Refugee Convention" in (row.normalized_reference or "") for row in rows)
+
+
+def test_corpus_statute_extraction_keeps_non_irpa_references():
+	case = SimpleNamespace(id=11, full_text="", summary="")
+	chunk = SimpleNamespace(
+		id=21,
+		chunk_set="paragraph",
+		chunk_index=0,
+		text="IRPA section 34(1)(f), section 7 of the Charter, and Article 1F(b) of the Refugee Convention.",
+	)
+
+	rows = extract_case_references(case, [chunk])
+
+	assert any(row.instrument_key == "canada.irpa" for row in rows)
+	assert any("Charter" in (row.normalized_reference or "") for row in rows)
+	assert any("Refugee Convention" in (row.normalized_reference or "") for row in rows)
 
 
 def test_extract_statute_reference_matches_supports_orders_and_si_citations():
@@ -1006,9 +1068,8 @@ def test_citation_map_case_search_and_authority_map_are_bounded(monkeypatch):
 
 	assert calls["search"] == (database, "Vavilov", 30)
 	assert calls["authority_map"] == (database, 10, 12)
-	assert "Legacy standalone case reader" in routes.case_reader_page()
-	assert "item.title" in routes.case_reader_page()
-	assert "item.citation||item.title" not in routes.case_reader_page()
+	assert routes.case_reader_page().headers["location"] == "/data-explorer"
+	assert routes.case_reader_page(6617).headers["location"] == "/data-explorer?case_id=6617"
 
 
 def test_citation_map_issue_and_evidence_endpoints_are_bounded(monkeypatch):

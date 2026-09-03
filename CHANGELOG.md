@@ -3,6 +3,22 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## Unreleased - Standalone Live Analysis prototype
+
+- Added an ephemeral `.docx` analysis surface at `/live-analysis` with in-memory
+	paragraph offsets, deterministic case-citation and statute-reference evidence,
+	and optional read-only local case resolution.
+- Added upload validation, focused API/service tests, and navigation links while
+	keeping analysis results out of the canonical database and ingestion pipeline.
+- Added text-based PDF support with page-aware evidence and `pypdf`; scanned-PDF
+	OCR remains outside the prototype scope.
+- Optimized optional local citation resolution into one batched database read and
+	removed the external CanLII fallback from the Live Analysis path.
+- Split citation resolution into a distinct second request and broadened local
+	matching to named and short-form references using case metadata.
+- Verification: `81 passed` for the focused Live Analysis/citation test slice;
+	touched modules compile cleanly.
+
 ## 2026-08-19 - Docket Number Field Backfill and FC Activity Cross-Reference
 
 - Added dedicated `docket_number` column to the canonical `cases` table to

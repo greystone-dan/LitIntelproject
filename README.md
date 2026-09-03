@@ -9,6 +9,9 @@ For the complete, current architecture, system behavior, data model, operational
 workflows, API map, limitations, and code-review posture, read
 [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md). It is the canonical system document.
 
+For the repository-wide ownership atlas and bounded overnight operations guide,
+read [OVERNIGHT.md](OVERNIGHT.md).
+
 For the Swimm documentation sequence, repository map, cleanup queue, and future
 project-manager agent handoff contract, read
 [docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md](docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md).
@@ -168,7 +171,8 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 ## Primary Interfaces
 
 - `GET /data-explorer`: single-page research interface with About, Case Search,
-  Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer tabs
+  Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data
+  Explorer, and FC History tabs
 - `GET /about`: compatibility redirect to the About tab
 - `GET /citation-intelligence`: compatibility redirect to Citation Intelligence
 - `GET /judges`: compatibility redirect to Judge Profile

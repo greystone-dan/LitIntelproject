@@ -6,7 +6,7 @@ Last updated: 2026-09-01
 
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
 
-Use this document for current architecture, functionality, data flow, repository ownership, operations, validation posture, and known limitations. `CHANGELOG.md` remains the chronological record; `ROADMAP.md` and `MASTER_IDEAS.md` remain forward-looking; `OVERNIGHT.md` and `docs/EXTRACTION_35K_RUNBOOK.md` remain procedural runbooks. Files under `docs/history/` are historical snapshots and must not be used for live counts or API contracts.
+Use this document for current architecture, functionality, data flow, repository ownership, operations, validation posture, and known limitations. `CHANGELOG.md` remains the chronological record; `ROADMAP.md` and `MASTER_IDEAS.md` remain forward-looking; `OVERNIGHT.md` is the repository atlas and bounded overnight operations guide; `docs/EXTRACTION_35K_RUNBOOK.md` remains a focused procedural runbook. Files under `docs/history/` are historical snapshots and must not be used for live counts or API contracts.
 
 For a chronological account of retained project work and a reproducible five-minute-capped estimate of Copilot-assisted effort, see [WORK_HISTORY.md](WORK_HISTORY.md). It is generated from the reviewable local-session export at `docs/work_history_sessions.json`.
 
@@ -354,6 +354,10 @@ The generated per-script command catalog is [docs/SCRIPT_CATALOG.generated.md](d
 
 These are source-specific adapters and staging helpers. They preserve source-native details and should not bypass canonical provenance/validation rules when bridging records into `cases`.
 
+The complete ownership and lifecycle map for these packages, `backend/pages/`,
+`data/`, tests, side projects, legacy areas, generated documents, and all script
+families is maintained in [OVERNIGHT.md](OVERNIGHT.md).
+
 ### `data/`
 
 - `data/raw/`: local raw source material; generally not version-controlled.
@@ -472,7 +476,8 @@ The two currently failing tests should be updated to reflect the separate statut
 1. Update this file whenever active routes, data-layer boundaries, migrations, deployment/security posture, or operating commands change.
 2. Keep `README.md` concise and link here for depth.
 3. Keep `CHANGELOG.md` factual and chronological; include tested commands and known non-green results.
-4. Keep `OVERNIGHT.md` procedural; do not copy architecture explanations into it.
+4. Keep `OVERNIGHT.md` as the repository atlas and operational runbook; update
+  it when ownership, lifecycle, or overnight runner semantics change.
 5. Archive superseded handoffs under `docs/history/` with a clear historical label.
 6. Do not state static corpus totals without a date and source. Prefer `/api/about/stats` for live totals.
 7. Record citation pickup estimates in handoff/change documentation when extractor work changes measured coverage. Current rough indicators remain approximately 98.7% pickup on the 294-case FC-priority cohort and approximately 93.1% case-level cleanliness in the cited 480-case external audit; these are historical audit measurements, not guarantees for the full corpus.

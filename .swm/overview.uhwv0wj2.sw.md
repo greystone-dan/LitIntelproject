@@ -97,6 +97,8 @@ evidence; preserved behavior and easier ownership are.
 6. **Database map**: connect `backend/database.py` to `alembic/` and generated schema docs.
 7. **Operational run**: connect `scripts/run_overnight.py` to `OVERNIGHT.md`.
 8. **Active UI**: connect `/data-explorer` to `docs/RESEARCH_UI_GUIDE.md`.
+9. **Federal Court source pipeline**: read [Federal Court Source Pipeline](fc-ingest-source-pipeline.sw.md) for `fc_ingest/` discovery, capture, staging, and bridge boundaries.
+10. **CanLaw staging**: read [CanLaw Staging And Model Helpers](canlaw-staging-and-models.sw.md) for local source configuration, staging, repair, and embedding boundaries.
 
 ## Refactor Control Point
 

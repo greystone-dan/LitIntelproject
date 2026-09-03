@@ -9,13 +9,13 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is the six-tab immigration litigation intelligence interface,
+Current main workflow is the eight-tab immigration litigation intelligence interface,
 with Citation Pass retained as the extractor QA surface.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Citation Intelligence, Judge Outcomes, Judge Profile, and Data Explorer.
+2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data Explorer, and FC History.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.
@@ -56,7 +56,8 @@ Current operational sources of truth:
 - Implementation milestones, newly added endpoints, and latest test baseline.
 
 3. `OVERNIGHT.md`
-- Operational runbook for preflight, run, resume, logging, and lock handling.
+- Repository atlas plus operational runbook for ownership, preflight, run,
+  resume, logging, and lock handling.
 
 4. `MASTER_IDEAS.md`
 - Long-term feature backlog and prioritization input.
@@ -67,11 +68,11 @@ Current operational sources of truth:
 6. `AI_HANDOFF.md`
 - Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
 
-8. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+7. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
 - Swimm mapping plan and future manager-agent contract; it does not override
 	the canonical architecture or generated references.
 
-7. `side_projects/luck_of_the_draw_iii/README.md`
+8. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
 Historical context (read with caution):
@@ -89,7 +90,7 @@ older endpoint lists, or outdated test totals.
 2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
-4. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+5. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

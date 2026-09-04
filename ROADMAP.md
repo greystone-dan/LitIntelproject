@@ -21,8 +21,12 @@ the duration of the rebuild.
 
 1. Finish statute and legal-instrument extraction, authority coverage, current
 	resolution, and UI-ready evidence fields.
-2. Improve legal tags while preserving tag offsets, taxonomy separation, and
-	evidence for every match.
+2. Replace the legacy tagging target with a narrow, non-contextual `ca_legal_v3_core`
+	whitelist. Preserve V1/V2 rows for comparison and rollback, and require
+	reviewed acronym/full-name, spelling, spacing, hyphenation, and explicitly
+	tested plural aliases with exact-span regression fixtures. Do not activate
+	 contextual tags in the first V3 release; defer actor, proximity, evidence-role,
+	 negation, and procedural-context rules until the core canary passes.
 3. Add a focused outcome/case-result layer. Outcomes are foundational derived
 	intelligence, but remain separate from source metadata and tags.
 

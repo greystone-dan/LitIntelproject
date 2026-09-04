@@ -33,6 +33,7 @@ from .database import (
 	StatuteReference,
 )
 from .metadata import extract_metadata_observations
+from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
 	CaseReaderChunkResponse,
 	CaseReaderCitationResponse,
@@ -487,7 +488,12 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "legacy"]
 	tags = list(
 		db.scalars(
-			select(CaseTag).where(CaseTag.case_id == case_id).order_by(CaseTag.category, CaseTag.value)
+			select(CaseTag)
+			.where(
+				CaseTag.case_id == case_id,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+			)
+			.order_by(CaseTag.category, CaseTag.value)
 		)
 	)
 	inferred_tags = _build_reader_inferred_tags(case, chunks)

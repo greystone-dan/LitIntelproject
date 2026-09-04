@@ -8,7 +8,9 @@ from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from .citations import rebuild_citations_for_case, rebuild_statute_references_for_case
-from .database import Case, CaseChunk
+from .database import Case, CaseChunk, CaseTag, CaseTaggingStatus
+from .legal_tagger_v3 import TAXONOMY_VERSION
+from scripts.tag_cases_v3 import build_case_tag_rows
 from .metadata import extract_case_metadata
 from scripts.chunk_cases import case_text, _build_section_chunks, _build_paragraph_chunks
 
@@ -104,12 +106,39 @@ def _run_statute_layer(session: Session, case: Case) -> int:
     return rebuild_statute_references_for_case(session, case, chunks)
 
 
+def _run_v3_tag_layer(session: Session, case: Case) -> int:
+    """Replace only this case's V3 occurrences while preserving every match."""
+    rows = build_case_tag_rows(case.full_text or case.summary or "")
+    session.execute(
+        delete(CaseTag).where(
+            CaseTag.case_id == case.id,
+            CaseTag.taxonomy_version == TAXONOMY_VERSION,
+        )
+    )
+    session.execute(
+        delete(CaseTaggingStatus).where(
+            CaseTaggingStatus.case_id == case.id,
+            CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION,
+        )
+    )
+    session.add_all(CaseTag(case_id=case.id, **row) for row in rows)
+    session.add(
+        CaseTaggingStatus(
+            case_id=case.id,
+            taxonomy_version=TAXONOMY_VERSION,
+            tags_count=len(rows),
+        )
+    )
+    return len(rows)
+
+
 STAGES: tuple[tuple[str, StageRunner], ...] = (
     ("full_case", _run_full_case_chunk_layer),
     ("heading_chunks", _run_heading_chunk_layer),
     ("metadata", _run_metadata_layer),
     ("case_citations", _run_case_citation_layer),
     ("statutes", _run_statute_layer),
+    ("tags_v3", _run_v3_tag_layer),
 )
 
 

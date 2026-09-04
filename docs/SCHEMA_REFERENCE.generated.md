@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-04T02:06:18.902612+00:00
+Generated: 2026-09-04T18:50:58.718244+00:00
 Tables: 21
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -87,12 +87,16 @@ erDiagram
     case_tags {
         Integer id PK
         Integer case_id  FK
+        Integer chunk_id  FK
         String(100) category
         String(255) value
         FLOAT score
         TEXT evidence
         Integer offset_start
         Integer offset_end
+        String(150) rule_id
+        String(16) language
+        String(30) evidence_role
         String(50) source
         String(100) taxonomy_version
         DATETIME created_at
@@ -272,6 +276,7 @@ erDiagram
     cases ||--o{ case_sources : "case_id"
     cases ||--o{ case_tagging_status : "case_id"
     cases ||--o{ case_tags : "case_id"
+    case_chunks ||--o{ case_tags : "chunk_id"
     cases ||--o{ citation_metrics : "case_id"
     case_chunks ||--o{ citations : "chunk_id"
     cases ||--o{ citations : "source_case_id"
@@ -295,7 +300,7 @@ erDiagram
 | `case_judge_profiles` | 5 | `id` |
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
-| `case_tags` | 11 | `id` |
+| `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 11 | `id` |
@@ -511,12 +516,16 @@ erDiagram
 | --- | --- | --- | --- |
 | `id` | `Integer` | no | PK; NOT NULL |
 | `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `category` | `String(100)` | no | NOT NULL |
 | `value` | `String(255)` | no | NOT NULL |
 | `score` | `FLOAT` | no | NOT NULL |
 | `evidence` | `TEXT` | no | NOT NULL |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
+| `rule_id` | `String(150)` | yes | - |
+| `language` | `String(16)` | no | NOT NULL; default=unknown |
+| `evidence_role` | `String(30)` | no | NOT NULL; default=mention |
 | `source` | `String(50)` | no | NOT NULL |
 | `taxonomy_version` | `String(100)` | no | NOT NULL |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
@@ -525,6 +534,10 @@ erDiagram
 
 - `ix_case_tags_case_id`: index on `case_id`
 - `ix_case_tags_category`: index on `category`
+- `ix_case_tags_chunk_id`: index on `chunk_id`
+- `ix_case_tags_evidence_role`: index on `evidence_role`
+- `ix_case_tags_language`: index on `language`
+- `ix_case_tags_rule_id`: index on `rule_id`
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
@@ -536,6 +549,7 @@ erDiagram
 ### Foreign Keys
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
 ## `cases`
 

@@ -38,10 +38,10 @@ flowchart TD
 | `backend/models.py` | Defines Pydantic request and response contracts | Change external contracts with route tests and generated API documentation |
 | `backend/database.py` | Loads environment configuration, creates SQLAlchemy sessions, and declares ORM models | Preserve database precedence, provenance fields, and vector dimensions |
 | `alembic/` | Holds deployment schema migrations | Migrations are authoritative for schema evolution; regenerate schema reference after model changes |
-| `backend/case_processing.py` | Coordinates the ordered processing stages for a case | Preserve stage separation and ordering |
+| `backend/case_processing.py` | Coordinates the ordered processing stages for a case, including the active V3 tag stage | Preserve stage separation, ordering, and taxonomy boundaries |
 | `backend/citations.py` | Extracts case citations and statutes/instruments, validates spans, resolves targets, and computes citation metrics | Never merge case citations with statute references or replace backend offsets in the UI |
 | `backend/metadata.py` | Extracts structured case metadata and exact evidence spans | Preserve confidence, provenance, and review signals |
-| `backend/legal_tagger.py` | Applies deterministic legal taxonomy rules | Keep taxonomy/version behavior explicit and test-backed |
+| `backend/legal_tagger_v3.py` | Applies the active deterministic V3 core mention taxonomy with exact evidence and offsets | Preserve repeated occurrences, rule IDs, evidence roles, and taxonomy version; V1/V2 remain legacy comparison layers |
 
 ## Request And Data Flow
 
@@ -52,7 +52,7 @@ flowchart TD
 5. SQLAlchemy reads or writes the canonical PostgreSQL database through
 	`backend/database.py`.
 6. Processing writes derived layers in order: metadata, overall chunks, heading
-	chunks, case citations, and statutes.
+	chunks, case citations, statutes, and V3 tag occurrences.
 7. The route returns API data or renders the active research UI.
 8. The UI displays backend-owned text, citations, statutes, tags, provenance,
 	and offsets without calculating substitute evidence locations.
@@ -66,10 +66,13 @@ The canonical processing order is:
 3. `metadata`
 4. `case_citations`
 5. `statutes`
+7. `tags_v3`
 
 Case-to-case target resolution is a separate local pass after citation
 extraction. IRPA/IRPR references remain a separate statute layer; nested forms
-such as `34(1)(f)` are release-sensitive regression cases.
+such as `34(1)(f)` are release-sensitive regression cases. V3 tags preserve
+every occurrence and are mention evidence only; contextual tags and outcome
+signals remain separate follow-up layers.
 
 ## Active And Legacy Boundaries
 

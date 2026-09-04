@@ -1,6 +1,6 @@
 # Repository Atlas And Overnight Operations
 
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose And Authority
 
@@ -15,6 +15,12 @@ This is the repository atlas and the canonical operational guide for bounded ove
 - `docs/SCHEMA_REFERENCE.generated.md` and `docs/API_REFERENCE.generated.md`: generated schema and route appendices. Do not edit them manually.
 
 When this atlas conflicts with a generated reference, regenerate the reference and treat the generated output as authoritative for its subject. When a live count conflicts with prose, query `/api/about/stats` or the database.
+
+Generated documentation is checked automatically by
+`.github/workflows/documentation-sync.yml` using
+`scripts/check_generated_docs.py` on pushes and pull requests. Swimm walkthrough
+updates remain a manual repository checkpoint; the workflow does not publish to
+Swimm.
 
 ## System In One View
 
@@ -54,7 +60,7 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Extraction | `backend/citations.py`; case/statute rules, spans, normalization, metrics helpers | Plain text/chunks -> occurrence rows and metrics inputs | Case citations and statutes remain separate | focused `tests/test_citations.py -q` |
 | Citation analytics | `backend/citation_map.py`; read-only graph and authority calculations | Resolved citation edges + metadata -> bounded analytics/CSV | Reads citations, metrics, tags, outcomes | citation-map API tests |
 | Metadata | `backend/metadata.py`; fields, outcomes, evidence, confidence | Source text/HTML -> structured observations | Case metadata JSON and review flags | metadata tests and gold-set audit |
-| Tagging | `backend/legal_tagger.py`, `legal_tagger_v2.py`; deterministic taxonomy | Case text/metadata -> evidence-backed tags/status | `case_tags`, `case_tagging_status`; v2 whitelist in `config/` | tagging tests and bounded dry run |
+| Tagging | `backend/legal_tagger_v3.py`, `backend/case_processing.py`; active deterministic core, with V1/V2 retained for comparison | Case text -> repeated evidence-backed V3 occurrences/status | `case_tags`, `case_tagging_status`; V3 proposal in `data/eval/reports/` | focused V3 tests and bounded canary |
 | Embeddings | `backend/embedding_providers.py`; provider selection and vector wiring | Cases/chunks -> model-versioned vectors | pgvector case/chunk embedding tables; optional local/hosted providers | provider tests; bounded embedding run |
 | Live analysis | `backend/live_analysis.py`; temporary DOCX/text-PDF extraction and local resolution | Uploaded bytes -> in-memory text, spans, resolution results | No upload/case/chunk/citation persistence | live-analysis tests and API check |
 | Federal Court activity | `backend/fc_activity.py`; activity normalization/classification support | Staged activity records -> normalized activity data | Separate activity/procedural tables; not proof of captured judgment | FC activity tests and bounded import |

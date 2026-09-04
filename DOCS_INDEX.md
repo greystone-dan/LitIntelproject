@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-09-01
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -127,6 +127,14 @@ or reproducibility requires a source-controlled artifact.
 5. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
+
+### Automatic documentation check
+
+`.github/workflows/documentation-sync.yml` runs on every push and pull request.
+It executes `scripts/check_generated_docs.py`, which regenerates the API, schema,
+and script-catalog references into a temporary directory, ignores generator
+timestamps, and fails when the checked-in generated outputs drift. It does not
+publish or update Swimm walkthroughs automatically.
 
 Quick command sequence:
 

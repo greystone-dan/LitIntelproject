@@ -276,12 +276,18 @@ class CaseTag(Base):
 	case_id: Mapped[int] = mapped_column(
 		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
 	)
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
+	)
 	category: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
 	value: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
 	score: Mapped[float] = mapped_column(Float, nullable=False)
 	evidence: Mapped[str] = mapped_column(Text, nullable=False)
 	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	rule_id: Mapped[str | None] = mapped_column(String(150), nullable=True, index=True)
+	language: Mapped[str] = mapped_column(String(16), nullable=False, server_default="unknown", index=True)
+	evidence_role: Mapped[str] = mapped_column(String(30), nullable=False, server_default="mention", index=True)
 	source: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
 	taxonomy_version: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
 	created_at: Mapped[datetime] = mapped_column(

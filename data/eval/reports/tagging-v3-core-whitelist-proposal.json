@@ -1,0 +1,373 @@
+{
+  "taxonomy_version": "ca_legal_v3_core",
+  "review_status": "proposed",
+  "purpose": "Review-only high-precision core terms. This proposal is inactive until regression tests, human review, and a bounded canary pass.",
+  "matching_policy": "Exact alias matching produces mention evidence only. It does not infer an outcome, legal finding, or case topic.",
+  "alias_policy": {
+    "include": [
+      "Acronym and full-name pairs when the acronym is reviewed for this domain.",
+      "Case-insensitive display variants.",
+      "Reviewed punctuation, apostrophe, hyphen, and spacing variants that preserve the same meaning.",
+      "Explicit plural forms only when the plural refers to the same canonical entity or record type."
+    ],
+    "exclude_until_review": [
+      "Automatically generated plurals or adjectival forms.",
+      "Substring fragments and partial words.",
+      "Generic synonyms that broaden a formal term.",
+      "Two- or three-letter acronyms with common non-legal meanings."
+    ],
+    "required_evidence_for_alias": "Each alias requires a canonical-value decision, a negative false-positive example, and an exact-span regression fixture before activation."
+  },
+  "categories": {
+    "agency": {
+      "ircc": [
+        "IRCC",
+        "Immigration, Refugees and Citizenship Canada"
+      ],
+      "cbsa": [
+        "CBSA",
+        "Canada Border Services Agency"
+      ],
+      "csis": [
+        "CSIS",
+        "Canadian Security Intelligence Service"
+      ]
+    },
+    "tribunal": {
+      "rpd": [
+        "RPD",
+        "Refugee Protection Division"
+      ],
+      "rad": [
+        "RAD",
+        "Refugee Appeal Division"
+      ],
+      "immigration_division": [
+        "Immigration Division"
+      ],
+      "iad": [
+        "IAD",
+        "Immigration Appeal Division"
+      ]
+    },
+    "statute_or_instrument": {
+      "irpa": [
+        "IRPA",
+        "Immigration and Refugee Protection Act"
+      ],
+      "irpr": [
+        "IRPR",
+        "Immigration and Refugee Protection Regulations"
+      ],
+      "charter": [
+        "Canadian Charter of Rights and Freedoms"
+      ]
+    },
+    "procedure_or_record": {
+      "prra": [
+        "PRRA",
+        "Pre-Removal Risk Assessment",
+        "Pre Removal Risk Assessment"
+      ],
+      "humanitarian_and_compassionate": [
+        "H&C",
+        "H & C",
+        "H and C",
+        "Humanitarian and Compassionate"
+      ],
+      "internal_flight_alternative": [
+        "IFA",
+        "Internal Flight Alternative"
+      ],
+      "procedural_fairness_letter": [
+        "PFL",
+        "Procedural Fairness Letter"
+      ],
+      "section_44_report": [
+        "section 44 report",
+        "subsection 44(1) report",
+        "section 44 reports"
+      ],
+      "gcms": [
+        "GCMS",
+        "GCMS notes"
+      ],
+      "caips": [
+        "CAIPS",
+        "CAIPS notes"
+      ],
+      "decision_letter": [
+        "decision letter",
+        "refusal letter",
+        "approval letter"
+      ],
+      "security_screening": [
+        "security screening",
+        "security-screening"
+      ]
+    },
+    "cbsa_proceeding": {
+      "admissibility_hearing": [
+        "admissibility hearing"
+      ],
+      "minister_delegate": [
+        "minister's delegate",
+        "minister’s delegate"
+      ],
+      "detention_review": [
+        "detention review"
+      ],
+      "detention_order": [
+        "detention order"
+      ],
+      "bondsperson": [
+        "bondsperson"
+      ],
+      "release_conditions": [
+        "release conditions"
+      ],
+      "voluntary_departure": [
+        "voluntary departure"
+      ],
+      "travel_document": [
+        "travel document"
+      ]
+    },
+    "immigration_program_or_status": {
+      "permanent_resident_travel_document": [
+        "PRTD",
+        "permanent resident travel document"
+      ],
+      "confirmation_of_permanent_residence": [
+        "COPR",
+        "confirmation of permanent residence"
+      ],
+      "labour_market_impact_assessment": [
+        "LMIA",
+        "Labour Market Impact Assessment"
+      ],
+      "post_graduation_work_permit": [
+        "PGWP",
+        "Post-Graduation Work Permit",
+        "Post Graduation Work Permit"
+      ],
+      "temporary_resident_visa": [
+        "TRV",
+        "temporary resident visa"
+      ],
+      "temporary_resident_permit": [
+        "TRP",
+        "temporary resident permit"
+      ],
+      "bridging_open_work_permit": [
+        "BOWP",
+        "bridging open work permit"
+      ],
+      "express_entry": [
+        "Express Entry"
+      ],
+      "provincial_nominee_program": [
+        "Provincial Nominee Program"
+      ]
+    },
+    "organization": {
+      "ipob": [
+        "IPOB",
+        "Indigenous People of Biafra"
+      ],
+      "ltte": [
+        "LTTE",
+        "Liberation Tigers of Tamil Eelam",
+        "Tamil Tigers"
+      ],
+      "pkk": [
+        "PKK",
+        "Kurdistan Workers' Party",
+        "Kurdistan Workers’ Party"
+      ],
+      "farc": [
+        "FARC",
+        "Revolutionary Armed Forces of Colombia"
+      ],
+      "taliban": [
+        "Taliban"
+      ],
+      "hamas": [
+        "Hamas"
+      ],
+      "hezbollah": [
+        "Hezbollah",
+        "Hizballah"
+      ],
+      "isis": [
+        "ISIS",
+        "ISIL",
+        "Daesh",
+        "Islamic State"
+      ]
+    },
+    "country_or_territory": {
+      "afghanistan": ["Afghanistan"],
+      "bangladesh": ["Bangladesh"],
+      "china": ["China"],
+      "colombia": ["Colombia"],
+      "democratic_republic_of_the_congo": [
+        "Democratic Republic of the Congo",
+        "DRC"
+      ],
+      "ethiopia": ["Ethiopia"],
+      "ghana": ["Ghana"],
+      "haiti": ["Haiti"],
+      "india": ["India"],
+      "iran": ["Iran"],
+      "iraq": ["Iraq"],
+      "jamaica": ["Jamaica"],
+      "kenya": ["Kenya"],
+      "mexico": ["Mexico"],
+      "nigeria": ["Nigeria"],
+      "pakistan": ["Pakistan"],
+      "philippines": ["Philippines"],
+      "russia": ["Russia", "Russian Federation"],
+      "somalia": ["Somalia"],
+      "sri_lanka": ["Sri Lanka"],
+      "sudan": ["Sudan"],
+      "syria": ["Syria"],
+      "turkey": ["Turkey", "Türkiye"],
+      "uganda": ["Uganda"],
+      "ukraine": ["Ukraine"],
+      "venezuela": ["Venezuela"]
+    },
+    "explicit_legal_issue": {
+      "cessation": ["cessation"],
+      "reavailment": ["reavailment"],
+      "refoulement": ["refoulement"],
+      "inadmissibility": ["inadmissibility"],
+      "misrepresentation": ["misrepresentation"],
+      "removal_order": ["removal order"],
+      "stay_of_removal": ["stay of removal"],
+      "crimes_against_humanity": ["crimes against humanity"],
+      "war_crimes": ["war crimes"],
+      "ethnic_cleansing": ["ethnic cleansing"],
+      "female_genital_mutilation": [
+        "female genital mutilation",
+        "FGM"
+      ],
+      "forced_marriage": ["forced marriage"]
+    }
+  },
+  "agency_research_facets": {
+    "ircc": {
+      "research_questions": [
+        "Which agency or delegated process produced the decision?",
+        "What record identifies the chronology or officer reasoning?",
+        "Which program, status, or screening pathway is involved?"
+      ],
+      "core_signals": [
+        "IRCC",
+        "GCMS",
+        "CAIPS",
+        "PFL",
+        "decision letter",
+        "refusal letter",
+        "approval letter",
+        "security screening",
+        "PRTD",
+        "COPR",
+        "LMIA",
+        "PGWP",
+        "TRV",
+        "TRP",
+        "BOWP",
+        "Express Entry",
+        "Provincial Nominee Program"
+      ],
+      "contextual_signals": [
+        "application",
+        "officer notes",
+        "file notes",
+        "interview",
+        "processing delay",
+        "background check",
+        "identity verification",
+        "status"
+      ]
+    },
+    "cbsa": {
+      "research_questions": [
+        "Is the case about admissibility, detention, removal, or enforcement?",
+        "What formal proceeding or review controls the next step?",
+        "Is a removal or detention consequence active, stayed, or under review?"
+      ],
+      "core_signals": [
+        "CBSA",
+        "section 44 report",
+        "admissibility hearing",
+        "minister's delegate",
+        "detention review",
+        "detention order",
+        "bondsperson",
+        "release conditions",
+        "removal order",
+        "stay of removal",
+        "voluntary departure",
+        "travel document"
+      ],
+      "contextual_signals": [
+        "removal",
+        "detention",
+        "hearing",
+        "examination",
+        "secondary inspection",
+        "escort",
+        "removal logistics",
+        "alternatives to detention",
+        "community case management"
+      ],
+      "disambiguation_rule": "Do not infer a CBSA actor from a generic term. Use an exact CBSA or formal proceeding occurrence, or retain the generic term as contextual evidence linked to nearby actor and proceeding spans."
+    }
+  },
+  "contextual_only_until_review": [
+    "application",
+    "decision",
+    "officer notes",
+    "file notes",
+    "interview",
+    "processing delay",
+    "background check",
+    "identity verification",
+    "removal",
+    "detention",
+    "hearing",
+    "examination",
+    "secondary inspection",
+    "escort",
+    "alternatives to detention",
+    "community case management"
+  ],
+  "excluded_from_core": [
+    "Canada",
+    "evidence",
+    "testimony",
+    "notice",
+    "application",
+    "claim",
+    "protection",
+    "risk",
+    "decision",
+    "law",
+    "rights",
+    "credibility",
+    "detention",
+    "persecution",
+    "torture",
+    "citizenship",
+    "procedural fairness",
+    "section 7",
+    "section 15",
+    "POE",
+    "ITA",
+    "CRS",
+    "PNP"
+  ],
+  "next_gate": "Add positive, negative, and exact-span regression fixtures, then run a stratified human-reviewed canary before activation."
+}

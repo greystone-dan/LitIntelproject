@@ -67,7 +67,14 @@ def _table_reference(table: Table) -> list[str]:
 		)
 	lines.append("")
 	indexes = sorted(table.indexes, key=lambda index: index.name or "")
-	unique_constraints = [constraint for constraint in table.constraints if constraint.__class__.__name__ == "UniqueConstraint"]
+	unique_constraints = sorted(
+		(
+			constraint
+			for constraint in table.constraints
+			if constraint.__class__.__name__ == "UniqueConstraint"
+		),
+		key=lambda constraint: constraint.name or "",
+	)
 	if indexes:
 		lines.extend(["### Indexes", ""])
 		for index in indexes:

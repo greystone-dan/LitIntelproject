@@ -8,10 +8,30 @@ This document is the bridge between the current hand-maintained documentation
 set, the Swimm workspace, and the workspace-level project-manager agent
 workflow.
 
-Swimm should document and connect the implementation that exists. It should
-not become a second source of truth for live counts, API contracts, database
-schema, or operational commands. Those remain owned by the documents and
-generators listed in `DOCS_INDEX.md`.
+Swimm is the source of truth for connected explanation, architecture rationale,
+ownership boundaries, and workflow context. It should document and connect the
+implementation that exists. Source code, migrations, generated references, and
+executable runbooks remain authoritative for exact implementation, live counts,
+API contracts, database schema, and reproducibility; Swimm links to those
+sources rather than duplicating their changing details.
+
+### Automation boundary
+
+The repository now runs `.github/workflows/documentation-sync.yml` on pushes and
+pull requests. It checks generated API, schema, and script-catalog references
+with `scripts/check_generated_docs.py` and fails on drift. This is a repository
+consistency check only: it does not publish edits to Swimm or rewrite committed
+documentation. Swimm walkthroughs remain manually updated at the same
+checkpoint as behavior or ownership changes.
+
+### Mandatory task checkpoint
+
+Every task executed by the project manager or a delegated subagent must update
+the relevant Swimm walkthrough and canonical repository document before it is
+marked complete. The durable task record must name both updated paths and the
+focused validation evidence. If no walkthrough exists for the owner surface,
+the task is blocked until one is created or the documentation gap is explicitly
+recorded.
 
 ## Recommended Swimm Pass
 

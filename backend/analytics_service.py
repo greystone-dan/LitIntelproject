@@ -32,6 +32,7 @@ from .database import (
 	JudgeProfile,
 	StatuteReference,
 )
+from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
 
@@ -316,7 +317,14 @@ def fetch_about_stats(db: Session) -> dict[str, int]:
 		"case_judge_profiles": int(db.scalar(select(func.count(CaseJudgeProfile.id))) or 0),
 		"citation_metrics": int(db.scalar(select(func.count(CitationMetrics.case_id))) or 0),
 		"statute_references": int(db.scalar(select(func.count(StatuteReference.id))) or 0),
-		"case_tags": int(db.scalar(select(func.count(CaseTag.id))) or 0),
+		"case_tags": int(
+			db.scalar(
+				select(func.count(CaseTag.id)).where(
+					CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+				)
+			)
+			or 0
+		),
 		"case_chunk_embeddings": int(db.scalar(select(func.count(CaseChunkEmbedding.id))) or 0),
 		"fc_activity_cases": int(db.scalar(select(func.count(FCActivityCase.id))) or 0),
 		"fc_activity_documents": int(db.scalar(select(func.count(FCActivityDocument.id))) or 0),

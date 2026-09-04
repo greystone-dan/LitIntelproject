@@ -74,4 +74,9 @@ Never claim the full suite, browser checks, a migration, or a bulk run succeeded
 - Do not run competing bulk PostgreSQL writers.
 - Use bounded limits, dry-run, preflight, checkpoints, state, logs, and resume support where available.
 - Update the relevant canonical documentation and Swimm walkthrough in the same coherent checkpoint.
+- Treat Swimm as the source of truth for connected explanation, architecture
+	rationale, ownership, and workflow context. Every agent or delegated task must
+	update its relevant Swimm walkthrough and canonical repository document before
+	the task is marked complete. Code, migrations, generated references, and
+	executable runbooks remain authoritative for exact implementation details.
 - Prefer small reversible refactors that preserve imports and public contracts until callers and tests have moved.

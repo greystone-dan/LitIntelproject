@@ -25,6 +25,7 @@ except Exception:  # pragma: no cover
 
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics
 from .embedding_providers import SentenceTransformerEmbeddingProvider
+from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
 	CaseResponse,
 	CaseSearchRequest,
@@ -232,6 +233,7 @@ def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
 				CaseTag.case_id == Case.id,
 				CaseTag.category == category.strip(),
 				CaseTag.value == value.strip(),
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
 			)
 			.exists()
 		)

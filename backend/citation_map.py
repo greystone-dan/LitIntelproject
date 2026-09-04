@@ -13,6 +13,7 @@ from sqlalchemy import case as sql_case, false, func, or_, select, union
 from sqlalchemy.orm import Session, aliased
 
 from .database import Case, CaseChunk, CaseTag, Citation, CitationMetrics, StatuteReference
+from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 
 
 _STANDARD_TEST_PHRASES = (
@@ -328,6 +329,7 @@ def case_legal_tags(session: Session, case_id: int, limit: int = 100) -> list[di
 		.where(
 			CaseTag.case_id == case_id,
 			CaseTag.category.in_(priority),
+			CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
 		)
 		.order_by(CaseTag.score.desc(), CaseTag.category, CaseTag.value)
 		.limit(limit)
@@ -358,7 +360,10 @@ def citation_map_topics(
 			CaseTag.value,
 			func.count(func.distinct(CaseTag.case_id)).label("case_count"),
 		)
-		.where(CaseTag.category.in_(("issue", "statute", "legal_area")))
+		.where(
+			CaseTag.category.in_(("issue", "statute", "legal_area")),
+			CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+		)
 		.group_by(CaseTag.category, CaseTag.value)
 	)
 	if _focus_master_300_enabled():
@@ -414,7 +419,11 @@ def citation_issue_map(
 			.join(CaseTag, CaseTag.case_id == Case.id)
 			.outerjoin(influence, influence.c.case_id == Case.id)
 			.outerjoin(outgoing, outgoing.c.case_id == Case.id)
-			.where(CaseTag.category == category, CaseTag.value == value)
+			.where(
+				CaseTag.category == category,
+				CaseTag.value == value,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+			)
 			.order_by(func.coalesce(influence.c.in_degree, 0).desc(), Case.date.desc(), Case.id)
 			.limit(limit)
 		)
@@ -441,6 +450,7 @@ def citation_issue_map(
 	available_statement = select(func.count(func.distinct(CaseTag.case_id))).where(
 		CaseTag.category == category,
 		CaseTag.value == value,
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
 	)
 	if _focus_master_300_enabled():
 		if not focus_ids:
@@ -1026,7 +1036,10 @@ def citation_surprise_feed(
 	if category and value:
 		statement = statement.join(
 			CaseTag,
-			(CaseTag.case_id == source_case.id) & (CaseTag.category == category) & (CaseTag.value == value),
+			(CaseTag.case_id == source_case.id)
+			& (CaseTag.category == category)
+			& (CaseTag.value == value)
+			& (CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION),
 		)
 	if start_year is not None:
 		statement = statement.where(date_year >= start_year)
@@ -1084,7 +1097,13 @@ def citation_doctrine_shifts(
 			func.count(edges.c.source_case_id).label("citing_cases"),
 		)
 		.join(source_case, source_case.id == edges.c.source_case_id)
-		.join(CaseTag, (CaseTag.case_id == source_case.id) & (CaseTag.category == category) & (CaseTag.value == value))
+		.join(
+			CaseTag,
+			(CaseTag.case_id == source_case.id)
+			& (CaseTag.category == category)
+			& (CaseTag.value == value)
+			& (CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION),
+		)
 	)
 	if start_year is not None:
 		statement = statement.where(year_expr >= start_year)
@@ -1448,7 +1467,10 @@ def citation_authority_lifecycle(
 	if category and value:
 		statement = statement.join(
 			CaseTag,
-			(CaseTag.case_id == source_case.id) & (CaseTag.category == category) & (CaseTag.value == value),
+			(CaseTag.case_id == source_case.id)
+			& (CaseTag.category == category)
+			& (CaseTag.value == value)
+			& (CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION),
 		)
 	if start_year is not None:
 		statement = statement.where(year_expr >= start_year)

@@ -110,7 +110,12 @@ outside the prototype because they require OCR.
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
-`backend/legal_tagger.py` applies the deterministic `ca_legal_v2` taxonomy. Coverage includes immigration/refugee law, proceedings, tribunals, agencies, ministers, refugee doctrine, inadmissibility, CBSA enforcement, remedies, outcomes, legal standards, IRPA/IRPR and other instruments, countries, organizations, and evidence-bearing rule matches.
+`backend/legal_tagger_v3.py` applies the active deterministic `ca_legal_v3_core`
+exact-match layer for high-confidence mention evidence. It preserves repeated
+occurrences, exact backend-owned offsets, rule IDs, language, evidence role,
+source, and taxonomy version. Legacy V1 subject derivation and V2 comparison
+rows remain separate; contextual tags and outcome-derived signals are deferred
+to their own layers.
 
 ### Citation Intelligence
 
@@ -151,10 +156,10 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/ingestion.py` | Canonical ingest, deduplication, source precedence, source HTML sanitization, provenance writes |
 | `backend/citations.py` | Case and statute extraction, target resolution, citation rebuilds, metrics, A2AJ graph conversion |
 | `backend/citation_map.py` | Citation graph and authority analytics |
-| `backend/case_processing.py` | Explicit five-stage deterministic processing contract |
+| `backend/case_processing.py` | Explicit ordered deterministic processing contract, including V3 tags |
 | `backend/metadata.py` | Deterministic source-metadata extraction facade and observations (composes the intelligence layer) |
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
-| `backend/legal_tagger.py` | Deterministic legal taxonomy/tag rules |
+| `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
 | `backend/embedding_providers.py` | Embedding provider selection/wiring |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
 | `backend/case_reader.py` | Legacy standalone reader UI; not the primary active workflow |
@@ -188,13 +193,14 @@ The complete environment-variable, precedence, security, local-model, source-int
 
 ### Canonical Processing Pipeline
 
-`backend/case_processing.py` codifies the five deterministic layers:
+`backend/case_processing.py` codifies the ordered deterministic layers:
 
 1. `full_case`: replace the whole-case chunk for the case.
 2. `heading_chunks`: generate section and paragraph chunks.
 3. `metadata`: derive metadata and update the full-text hash.
 4. `case_citations`: rebuild case-law citation rows.
 5. `statutes`: rebuild statute/instrument references.
+6. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
 
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end

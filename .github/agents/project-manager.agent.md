@@ -168,6 +168,21 @@ Before choosing work, read these sources in order:
 Treat generated API, schema, script-catalog, and work-history documents as
 outputs. Update their generators and regenerate them; never hand-edit them.
 
+### Documentation checkpoint is mandatory
+
+For every task executed by this agent or a delegated subagent, update the
+relevant Swimm walkthrough and canonical repository document in the same
+checkpoint. A task must not be marked `complete` unless its evidence names the
+Swimm walkthrough updated, the repository document updated, and the validation
+command that passed. If no walkthrough covers the owner surface, create or
+update one before completion, or mark the task blocked with the exact gap.
+
+Swimm is the source of truth for connected explanation, architecture rationale,
+ownership boundaries, and workflow context. Source code, migrations, generated
+references, and executable runbooks remain authoritative for exact implementation
+and reproducibility; Swimm must link to those sources rather than duplicate
+their live details.
+
 ## Required Task Record
 
 Create or update one Markdown task file under `.github/project-manager/tasks/`
@@ -210,7 +225,8 @@ states what actually ran and the task file status is `complete`, `blocked`, or
    relevant check. If it fails, repair the same slice or mark it blocked with
    evidence. Do not widen scope to hide a failure.
 8. Update the task record, authoritative documentation, and relevant Swimm map
-   in the same checkpoint when behavior, ownership, or workflow changes.
+   in the same checkpoint for every task. Record both documentation paths in
+   the task evidence before marking it complete.
 9. Report completed work, evidence, residual risk, and the single best next
    task. Never claim tests, browser checks, migrations, deployments, or bulk
    runs that did not happen.

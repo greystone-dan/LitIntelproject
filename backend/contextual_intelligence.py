@@ -25,6 +25,7 @@ from .database import (
 	CitationMetrics,
 	StatuteReference,
 )
+from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 
 
 # --- Core Thematic Category Definitions ---
@@ -238,12 +239,13 @@ def fetch_statute_tag_affinity(
 			SELECT category, COUNT(*) as occurrences, COUNT(DISTINCT case_id) as case_count
 			FROM case_tags
 			WHERE case_id IN :case_ids
+			  AND taxonomy_version = :taxonomy_version
 			GROUP BY category
 			ORDER BY case_count DESC, occurrences DESC
 			LIMIT 15
 			"""
 		),
-		{"case_ids": tuple(case_ids)},
+		{"case_ids": tuple(case_ids), "taxonomy_version": ACTIVE_TAG_TAXONOMY_VERSION},
 	).mappings().all()
 
 	tag_categories = [
@@ -263,12 +265,17 @@ def fetch_statute_tag_affinity(
 			SELECT category, value, COUNT(*) as occurrences, COUNT(DISTINCT case_id) as case_count
 			FROM case_tags
 			WHERE case_id IN :case_ids
+			  AND taxonomy_version = :taxonomy_version
 			GROUP BY category, value
 			ORDER BY case_count DESC, occurrences DESC
 			LIMIT :limit_tags
 			"""
 		),
-		{"case_ids": tuple(case_ids), "limit_tags": limit_tags},
+		{
+			"case_ids": tuple(case_ids),
+			"limit_tags": limit_tags,
+			"taxonomy_version": ACTIVE_TAG_TAXONOMY_VERSION,
+		},
 	).mappings().all()
 
 	tag_values = [
@@ -371,6 +378,7 @@ def fetch_case_contextual_anchors(
 			select(CaseTag)
 			.where(
 				CaseTag.case_id == case_id,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
 				CaseTag.offset_start.is_not(None),
 				CaseTag.offset_end.is_not(None),
 			)
@@ -466,7 +474,14 @@ def compute_case_thematic_signature(db: Session, case_id: int) -> CaseThematicSi
 	if case is None:
 		raise ValueError(f"Case {case_id} not found")
 
-	tags = list(db.scalars(select(CaseTag).where(CaseTag.case_id == case_id)))
+	tags = list(
+		db.scalars(
+			select(CaseTag).where(
+				CaseTag.case_id == case_id,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+			)
+		)
+	)
 	statutes = list(
 		db.scalars(select(StatuteReference).where(StatuteReference.source_case_id == case_id))
 	)

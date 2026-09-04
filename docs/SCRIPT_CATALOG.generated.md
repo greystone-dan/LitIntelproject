@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 66
+Active scripts documented: 72
 
 ## Catalog
 
@@ -12,9 +12,11 @@ Active scripts documented: 66
 | --- | --- | --- | --- |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
+| `audit_self_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_self_citations.py --help` |
 | `backfill_case_metadata_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_fc_activity_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_gold_template.py --help` |
 | `build_fc_batch_from_party.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_batch_from_party.py --help` |
@@ -39,6 +41,8 @@ Active scripts documented: 66
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
 | `evaluate_fc_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_citation_extraction.py --help` |
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
+| `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
+| `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
@@ -62,9 +66,12 @@ Active scripts documented: 66
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
+| `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
+| `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
@@ -73,7 +80,6 @@ Active scripts documented: 66
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
-| `test_tag_matrix.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_tag_matrix.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
 
@@ -103,6 +109,20 @@ Active scripts documented: 66
 
 ```powershell
 .\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help
+```
+
+## `scripts/audit_self_citations.py`
+
+**Purpose:** Bounded, read-only audit of existing citation self-links.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_self_citations.py --help
 ```
 
 ## `scripts/backfill_case_metadata_outcomes.py`
@@ -145,6 +165,20 @@ Active scripts documented: 66
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
+```
+
+## `scripts/browser_smoke.py`
+
+**Purpose:** Bounded browser smoke checks for the active Data Explorer workflow.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\browser_smoke.py --help
 ```
 
 ## `scripts/build_core_immigration_set.py`
@@ -483,6 +517,34 @@ Active scripts documented: 66
 .\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help
 ```
 
+## `scripts/evaluate_retrieval_benchmark.py`
+
+**Purpose:** Evaluate the Data Explorer case-search ranking against a fixed benchmark.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help
+```
+
+## `scripts/evaluate_statute_extraction.py`
+
+**Purpose:** Evaluate deterministic statute extraction against exact-span fixtures.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
+```
+
 ## `scripts/extract_a2aj_case_citations_resumable.py`
 
 **Purpose:** Extract case-to-case citations for RPD/SCC A2AJ cases with per-case timeouts.
@@ -805,6 +867,20 @@ Active scripts documented: 66
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
 ```
 
+## `scripts/plan_self_citation_cleanup.py`
+
+**Purpose:** Plan self-citation cleanup candidates without modifying the database.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help
+```
+
 ## `scripts/populate_fc_gold_case_ids.py`
 
 **Purpose:** Populate local_case_id in FC gold template from seed-to-case mapping.
@@ -833,6 +909,20 @@ Active scripts documented: 66
 .\venv\Scripts\python.exe scripts\quick_search_engine.py --help
 ```
 
+## `scripts/reacquire_source_html.py`
+
+**Purpose:** Bounded HTML snapshot reacquisition for the curated core case subset.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help
+```
+
 ## `scripts/remove_self_case_citations.py`
 
 **Purpose:** Remove false-positive self-case short-form citation rows. Dry-run is the default. Use --apply only after reviewing the reported count.
@@ -845,6 +935,20 @@ Active scripts documented: 66
 
 ```powershell
 .\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help
+```
+
+## `scripts/remove_self_citations.py`
+
+**Purpose:** Guarded removal of exact citation self-links.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\remove_self_citations.py --help
 ```
 
 ## `scripts/report_a2aj_immigration_selection.py`
@@ -957,20 +1061,6 @@ Active scripts documented: 66
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
-```
-
-## `scripts/test_tag_matrix.py`
-
-**Purpose:** No module docstring; inspect this script before use.
-
-**Operational class:** Utility
-
-**Write/network risk:** inspect implementation before execution
-
-**Safe first command**
-
-```powershell
-.\venv\Scripts\python.exe scripts\test_tag_matrix.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`

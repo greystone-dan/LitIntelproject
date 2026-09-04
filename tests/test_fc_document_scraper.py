@@ -111,7 +111,7 @@ JUGEMENT ET MOTIFS
 
     assert metadata["neutral citation"] == "2026 CF 148"
     assert metadata["docket"] == "T-1012-24"
-    assert metadata["judge"] == "monsieur le juge McHaffie"
+    assert metadata["judge"] == "McHaffie"
     assert metadata["style of cause"] == "Tayarah v. Canada (Citoyenneté et Immigration)"
     assert metadata["place of hearing"] == "Ottawa (Ontario)"
 

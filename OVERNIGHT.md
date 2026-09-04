@@ -95,6 +95,88 @@ Operational tools are separate bounded programs, not one implicit pipeline.
 
 The generated script catalog is the file-by-file command reference. Before a large writer, inspect `--help`, use a dry-run or bounded limit where available, confirm no competing writer owns PostgreSQL, and record output paths.
 
+### Refresh The Website
+
+Use the repository refresh script for the local API and configured Cloudflare
+tunnel:
+
+```powershell
+.\scripts\refresh_site.ps1
+```
+
+It stops stale local Uvicorn and `cloudflared` processes before starting the
+site on `http://127.0.0.1:8000`. Keep the terminal open because it owns the
+local API and tunnel. The public site is normally available at
+`https://www.ilit.ca`.
+
+After a UI change, run the bounded browser smoke check while the refreshed site
+is running:
+
+```powershell
+.\venv\Scripts\python.exe scripts\browser_smoke.py --base-url http://127.0.0.1:8000 --query Vavilov
+```
+
+This checks Data Explorer search, the inline reader tabs, grouped tag output,
+the Tags/Laws/Citations legend, and mobile Themes loading. It is a smoke check,
+not a substitute for legal-content review or full accessibility testing.
+
+Before any self-citation cleanup, generate a read-only candidate plan:
+
+```powershell
+.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --limit 100
+```
+
+The planner classifies a bounded sample and always reports
+`write_performed=False` and `cleanup_authorized=False`. Do not delete or rewrite
+citation rows from its output without a separate reviewed canary plan.
+
+Run the exact-span statute baseline after citation/statute rule changes:
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py
+```
+
+This fixture check measures extraction precision and recall; it does not measure
+whole-corpus coverage.
+
+For a bounded sample chunk rebuild, use a case-specific command:
+
+```powershell
+.\venv\Scripts\python.exe scripts\chunk_cases.py --case-id 32097 --replace-existing
+```
+
+The canonical output has `full_case`, `section`, and `paragraph` layers. Compare
+generated text to `Case.full_text` before treating HTML-derived boundaries as
+production evidence; preserved HTML and canonical text may not have identical
+metadata representations yet.
+
+The curated core subset is `data/eval/core_immigration_cases.csv` with 300
+canonical case IDs and source URLs. Use `scripts/reacquire_source_html.py
+--limit 5` for a bounded HTML acquisition preflight. The tool rejects Federal
+Court public-site shells that do not contain the expected decision citation. For
+these item pages, the actual decision may be in the same-origin `?iframe=true`
+content URL; preserve the original item URL as source identity and validate the
+iframe response before storing a snapshot.
+
+For source-structure testing, use one representative FC, FCA, and SCC case.
+Compare decision-body containers, heading patterns, metadata blocks, mapping
+confidence, and exact canonical-text containment before expanding the rebuild
+population. Court HTML wrappers are not interchangeable.
+
+For SCC canaries, expect `.documentcontent` and nested `SectionN` containers.
+The decision body begins at numbered paragraph elements; front-matter summaries,
+navigation, and metadata must not be treated as decision paragraphs. Use the SCC
+source-specific confidence gate and verify exact canonical-text containment.
+
+Run the fixed Data Explorer retrieval benchmark after ranking changes:
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --base-url http://127.0.0.1:8000
+```
+
+It reports MRR, precision@k, and recall@k for the bounded benchmark set in
+`data/eval/retrieval_benchmark.json`.
+
 ### `data/`
 
 Runtime and research artifacts, not a second source of truth for code:
@@ -155,7 +237,11 @@ The runner in `scripts/run_overnight.py` executes selected jobs sequentially, ho
 | `safe` | pull jobs followed by the enrich jobs |
 | `verify` | `regression_tests` |
 
-The safe ordering is significant: acquisition precedes canonical enrichment; chunking precedes citation extraction and local chunk embeddings. Citation extraction writes case citations and separate statute references, then metrics. Use the explicit job option only when the dependency order remains valid.
+The safe ordering is significant: acquisition precedes canonical enrichment;
+chunking creates `full_case`, `section`, and `paragraph` layers before citation
+extraction and local chunk embeddings. Citation extraction writes case citations
+and separate statute references, then metrics. Use the explicit job option only
+when the dependency order remains valid.
 
 ### Commands
 

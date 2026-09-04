@@ -1,0 +1,257 @@
+{
+  "sampled_cases": 60,
+  "min_critical_confidence": 0.9,
+  "coverage": {
+    "date": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "docket": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "neutral citation": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "judge": {
+      "count": 59,
+      "percent": 98.33
+    },
+    "style of cause": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "place of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "date of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "dated": {
+      "count": 52,
+      "percent": 86.67
+    },
+    "counsel": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "present": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "between": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "solicitors of record": {
+      "count": 53,
+      "percent": 88.33
+    }
+  },
+  "confidence": {
+    "date": {
+      "avg": 0.956,
+      "observations": 60
+    },
+    "docket": {
+      "avg": 0.949,
+      "observations": 60
+    },
+    "neutral citation": {
+      "avg": 0.956,
+      "observations": 60
+    },
+    "judge": {
+      "avg": 0.97,
+      "observations": 59
+    },
+    "style of cause": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "place of hearing": {
+      "avg": 0.95,
+      "observations": 55
+    },
+    "date of hearing": {
+      "avg": 0.955,
+      "observations": 55
+    },
+    "dated": {
+      "avg": 0.97,
+      "observations": 52
+    },
+    "counsel": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "present": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "between": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "solicitors of record": {
+      "avg": 0.97,
+      "observations": 53
+    }
+  },
+  "issues": {
+    "low_confidence_critical:docket": 9,
+    "critical_below_threshold:docket": 9,
+    "low_confidence_critical:date": 6,
+    "low_confidence_critical:neutral citation": 6,
+    "critical_below_threshold:neutral citation": 6,
+    "critical_below_threshold:date": 6,
+    "missing_critical:judge": 1,
+    "critical_below_threshold:judge": 1
+  },
+  "style_samples": [],
+  "issue_samples": [
+    {
+      "case_id": 35846,
+      "citation": "2026 FC 178",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "HUONG MAI v. THE ATTORNEY GENERAL OF CANADA",
+      "judge": "Justice Gagné"
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "HASSAN TAYARAH v. MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION",
+      "judge": "McHaffie"
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "HASSAN TAYARAH v. MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION",
+      "judge": "McHaffie"
+    },
+    {
+      "case_id": 35845,
+      "citation": "2026 CF 148",
+      "flag": "low_confidence_critical:neutral citation",
+      "style_of_cause": "HASSAN TAYARAH v. MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION",
+      "judge": "McHaffie"
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "DMITRO GRABOVATSKIY v. LE MINISTRE DE L’IMMIGRATION, DES REFUGIÉS ET DE LA CITOYENNETÉ",
+      "judge": "St-Louis"
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "DMITRO GRABOVATSKIY v. LE MINISTRE DE L’IMMIGRATION, DES REFUGIÉS ET DE LA CITOYENNETÉ",
+      "judge": "St-Louis"
+    },
+    {
+      "case_id": 35844,
+      "citation": "2026 CF 164",
+      "flag": "low_confidence_critical:neutral citation",
+      "style_of_cause": "DMITRO GRABOVATSKIY v. LE MINISTRE DE L’IMMIGRATION, DES REFUGIÉS ET DE LA CITOYENNETÉ",
+      "judge": "St-Louis"
+    },
+    {
+      "case_id": 35843,
+      "citation": "2026 FC 158",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "MUHAMMAD FARRUKH AZAD v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "Justice Gagné"
+    },
+    {
+      "case_id": 35837,
+      "citation": "2026 FC 153",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "sahtu divisional education council v. ATTORNEY GENERAL OF CANADA",
+      "judge": "Justice Gagné"
+    },
+    {
+      "case_id": 35833,
+      "citation": "2006 FC 1152",
+      "flag": "missing_critical:judge",
+      "style_of_cause": "ALEX BARTA v.",
+      "judge": null
+    },
+    {
+      "case_id": 35832,
+      "citation": "2026 CF 149",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "CALEB GUE MARIA KETTIA PIERRE PAUL CARLENS GUE PIERRE PAUL v. LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION",
+      "judge": "Sébastien Grammond"
+    },
+    {
+      "case_id": 35832,
+      "citation": "2026 CF 149",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "CALEB GUE MARIA KETTIA PIERRE PAUL CARLENS GUE PIERRE PAUL v. LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION",
+      "judge": "Sébastien Grammond"
+    },
+    {
+      "case_id": 35832,
+      "citation": "2026 CF 149",
+      "flag": "low_confidence_critical:neutral citation",
+      "style_of_cause": "CALEB GUE MARIA KETTIA PIERRE PAUL CARLENS GUE PIERRE PAUL v. LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION",
+      "judge": "Sébastien Grammond"
+    },
+    {
+      "case_id": 35830,
+      "citation": "2026 CF 186",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "RICHARD GRAVEL v. LE PROCUREUR GÉNÉRAL DU CANADA",
+      "judge": "Gagné"
+    },
+    {
+      "case_id": 35830,
+      "citation": "2026 CF 186",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "RICHARD GRAVEL v. LE PROCUREUR GÉNÉRAL DU CANADA",
+      "judge": "Gagné"
+    },
+    {
+      "case_id": 35830,
+      "citation": "2026 CF 186",
+      "flag": "low_confidence_critical:neutral citation",
+      "style_of_cause": "RICHARD GRAVEL v. LE PROCUREUR GÉNÉRAL DU CANADA",
+      "judge": "Gagné"
+    },
+    {
+      "case_id": 35823,
+      "citation": "2026 CF 215",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "MARIA ELENA RUBIO HERNANDEZ LILIA MARIANNE PINZON RUBIO ANA KAREN FLORES RUBIO demanderesses v. LE MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION, A/S MINISTÈRE DE LA JUSTICE",
+      "judge": "Tsimberis"
+    },
+    {
+      "case_id": 35823,
+      "citation": "2026 CF 215",
+      "flag": "low_confidence_critical:docket",
+      "style_of_cause": "MARIA ELENA RUBIO HERNANDEZ LILIA MARIANNE PINZON RUBIO ANA KAREN FLORES RUBIO demanderesses v. LE MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION, A/S MINISTÈRE DE LA JUSTICE",
+      "judge": "Tsimberis"
+    },
+    {
+      "case_id": 35823,
+      "citation": "2026 CF 215",
+      "flag": "low_confidence_critical:neutral citation",
+      "style_of_cause": "MARIA ELENA RUBIO HERNANDEZ LILIA MARIANNE PINZON RUBIO ANA KAREN FLORES RUBIO demanderesses v. LE MINISTRE DE LA CITOYENNETÉ ET DE L’IMMIGRATION, A/S MINISTÈRE DE LA JUSTICE",
+      "judge": "Tsimberis"
+    },
+    {
+      "case_id": 35807,
+      "citation": "2026 CF 198",
+      "flag": "low_confidence_critical:date",
+      "style_of_cause": "ZINA SALEH demanderesse v. PROCUREUR GÉNÉRAL DU CANADA",
+      "judge": "Gagné"
+    }
+  ]
+}

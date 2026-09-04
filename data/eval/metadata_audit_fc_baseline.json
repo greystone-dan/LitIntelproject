@@ -1,0 +1,287 @@
+{
+  "sampled_cases": 60,
+  "min_critical_confidence": 0.9,
+  "coverage": {
+    "date": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "docket": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "neutral citation": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "judge": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "style of cause": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "place of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "date of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "dated": {
+      "count": 52,
+      "percent": 86.67
+    },
+    "counsel": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "present": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "between": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "solicitors of record": {
+      "count": 53,
+      "percent": 88.33
+    }
+  },
+  "confidence": {
+    "date": {
+      "avg": 0.956,
+      "observations": 60
+    },
+    "docket": {
+      "avg": 0.949,
+      "observations": 60
+    },
+    "neutral citation": {
+      "avg": 0.956,
+      "observations": 60
+    },
+    "judge": {
+      "avg": 0.708,
+      "observations": 60
+    },
+    "style of cause": {
+      "avg": 0.948,
+      "observations": 60
+    },
+    "place of hearing": {
+      "avg": 0.95,
+      "observations": 55
+    },
+    "date of hearing": {
+      "avg": 0.955,
+      "observations": 55
+    },
+    "dated": {
+      "avg": 0.97,
+      "observations": 52
+    },
+    "counsel": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "present": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "between": {
+      "avg": 0.956,
+      "observations": 60
+    },
+    "solicitors of record": {
+      "avg": 0.97,
+      "observations": 53
+    }
+  },
+  "issues": {
+    "invalid_shape:judge": 59,
+    "low_confidence_critical:judge": 59,
+    "critical_below_threshold:judge": 59,
+    "low_confidence_critical:docket": 9,
+    "critical_below_threshold:docket": 9,
+    "low_confidence_critical:date": 6,
+    "low_confidence_critical:neutral citation": 6,
+    "low_confidence_critical:style of cause": 8,
+    "critical_below_threshold:style of cause": 8,
+    "critical_below_threshold:neutral citation": 6,
+    "critical_below_threshold:date": 6,
+    "invalid_shape:style of cause": 2
+  },
+  "style_samples": [
+    {
+      "case_id": 43387,
+      "citation": "2026 FC 103",
+      "style_of_cause": "OBINNA NWAOKONKO v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION"
+    },
+    {
+      "case_id": 35859,
+      "citation": "2026 FC 171",
+      "style_of_cause": "ERROL MCHAYLE v. ATTORNEY GENERAL OF CANADA"
+    },
+    {
+      "case_id": 35858,
+      "citation": "2026 FC 159",
+      "style_of_cause": "MINISTER OF CITIZENSHIP AND IMMIGRATION AND MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS Plaintiffs v. JORGE VINICIO SOSA ORANTES"
+    },
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "style_of_cause": "Fadila Kharchi v. M.C.I."
+    },
+    {
+      "case_id": 35856,
+      "citation": "2026 FC 168",
+      "style_of_cause": "THE MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS v. A.B."
+    }
+  ],
+  "issue_samples": [
+    {
+      "case_id": 43387,
+      "citation": "2026 FC 103",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "OBINNA NWAOKONKO v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 43387,
+      "citation": "2026 FC 103",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "OBINNA NWAOKONKO v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35859,
+      "citation": "2026 FC 171",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "ERROL MCHAYLE v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35859,
+      "citation": "2026 FC 171",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "ERROL MCHAYLE v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35858,
+      "citation": "2026 FC 159",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "MINISTER OF CITIZENSHIP AND IMMIGRATION AND MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS Plaintiffs v. JORGE VINICIO SOSA ORANTES",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35858,
+      "citation": "2026 FC 159",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "MINISTER OF CITIZENSHIP AND IMMIGRATION AND MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS Plaintiffs v. JORGE VINICIO SOSA ORANTES",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "Fadila Kharchi v. M.C.I.",
+      "judge": "The Honourable Paul U.C. Rouleau"
+    },
+    {
+      "case_id": 35857,
+      "citation": "2006 FC 1160",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "Fadila Kharchi v. M.C.I.",
+      "judge": "The Honourable Paul U.C. Rouleau"
+    },
+    {
+      "case_id": 35856,
+      "citation": "2026 FC 168",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "THE MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS v. A.B.",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35856,
+      "citation": "2026 FC 168",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "THE MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS v. A.B.",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35855,
+      "citation": "2026 FC 167",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "THE MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS v. MAHIR YAHYA SHARIF",
+      "judge": "Annex “A”"
+    },
+    {
+      "case_id": 35855,
+      "citation": "2026 FC 167",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "THE MINISTER OF PUBLIC SAFETY AND EMERGENCY PREPAREDNESS v. MAHIR YAHYA SHARIF",
+      "judge": "Annex “A”"
+    },
+    {
+      "case_id": 35854,
+      "citation": "2026 FC 173",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "SANDEEP KAUR v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35854,
+      "citation": "2026 FC 173",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "SANDEEP KAUR v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35853,
+      "citation": "2026 FC 177",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "NAHID MUKTA v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35853,
+      "citation": "2026 FC 177",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "NAHID MUKTA v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35852,
+      "citation": "2026 FC 174",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "SAIDUR RAHMAN v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35852,
+      "citation": "2026 FC 174",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "SAIDUR RAHMAN v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35851,
+      "citation": "2026 FC 160",
+      "flag": "invalid_shape:judge",
+      "style_of_cause": "FARAAZ KHAN v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    },
+    {
+      "case_id": 35851,
+      "citation": "2026 FC 160",
+      "flag": "low_confidence_critical:judge",
+      "style_of_cause": "FARAAZ KHAN v. ATTORNEY GENERAL OF CANADA",
+      "judge": "FEDERAL COURT"
+    }
+  ]
+}

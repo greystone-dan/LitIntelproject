@@ -1,5 +1,5 @@
 ---
-title: System Map
+title: Application Architecture and Runtime Map
 ---
 &nbsp;
  
@@ -61,9 +61,9 @@ flowchart TD
 
 The canonical processing order is:
 
-1. `metadata`
-2. `overall_chunks`
-3. `heading_chunks`
+1. `full_case`
+2. `heading_chunks`
+3. `metadata`
 4. `case_citations`
 5. `statutes`
 

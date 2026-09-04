@@ -32,6 +32,19 @@ _CANONICAL_FIELDS = (
 )
 _CRITICAL_FIELDS = {"date", "docket", "neutral citation", "judge", "style of cause"}
 
+_JUDGE_JUNK_RE = re.compile(
+    r"^(?:FEDERAL\s+COURT(?:\s+OF\s+APPEAL)?|COUR\s+F[ÉE]D[ÉE]RALE|ANNEX\b.*|ANNEXE\b.*|"
+    r"SCHEDULE|ANNEXE|T\.?R\.?\s*\b.*|JUDGE|JUSTICE|JUGE)$",
+    re.IGNORECASE,
+)
+
+
+def _is_judge_junk(value: str | None) -> bool:
+    """Return True when a captured judge value is a court name, annex, or bare label."""
+    if not value:
+        return False
+    return bool(_JUDGE_JUNK_RE.fullmatch(value.strip()))
+
 
 def _normalize_whitespace(value: str | None) -> str | None:
     if value is None:
@@ -184,7 +197,15 @@ def _has_docket_shape(value: str | None) -> bool:
 def _has_judge_shape(value: str | None) -> bool:
     if not value:
         return False
-    return bool(re.search(r"\b(?:J\.|C\.J\.|JJ\.|Justice|Judge)\b", value, re.IGNORECASE))
+    # Explicit judicial title markers.
+    if re.search(r"\b(?:J\.|C\.J\.|JJ\.|Justice|Judge|Juge)\b", value, re.IGNORECASE):
+        return True
+    # Name-plausible: at least one capitalized word, no leading lowercase token.
+    if _JUDGE_JUNK_RE.fullmatch(value.strip()):
+        return False
+    words = value.split()
+    has_capitalized = any(re.match(r"^[A-ZÀ-Þ]", word) for word in words)
+    return has_capitalized and bool(re.match(r"^[A-ZÀ-Þ]", words[0]))
 
 
 def _has_style_shape(value: str | None) -> bool:
@@ -209,17 +230,17 @@ def _field_valid(field: str, value: str | None) -> bool:
 
 def _text_label_present(field: str, full_text: str) -> bool:
     patterns = {
-        "date": r"\b(?:Date|Date\s+du\s+jugement):\s*",
-        "docket": r"\b(?:Docket|Court\s+file\s+no\.?|File\s+numbers?|Dossier|Num[eé]ro\s+de\s+dossier):\s*",
-        "neutral citation": r"\b(?:Citation|Reference|Neutral\s+citation|R[eé]f[eé]rence(?:\s+neutre)?):\s*",
-        "judge": r"\b(?:REASONS\s+FOR\s+JUDGMENT(?:\s+AND\s+JUDGMENT)?\s+BY|JUDGMENT\s+DELIVERED\s+BY|PRESENT|CORAM|BEFORE|En\s+pr[eé]sence\s+de|En\s+presence\s+de):\s*",
-        "style of cause": r"\b(?:BETWEEN|ENTRE|STYLE\s+OF\s+CAUSE):\s*",
+        "date": r"\b(?:Date|Date\s+du\s+jugement)\s*:?\s*",
+        "docket": r"\b(?:Docket|Court\s+file\s+no\.?|File\s+numbers?|Dossier|Num[eé]ro\s+de\s+dossier)\s*:?\s*",
+        "neutral citation": r"\b(?:Citation|Reference|Neutral\s+citation|R[eé]f[eé]rence(?:\s+neutre)?)\s*:?\s*",
+        "judge": r"\b(?:(?:REASONS\s+FOR\s+JUDGMENT(?:\s+AND\s+JUDGMENT)?\s+BY|JUDGMENT\s+DELIVERED\s+BY|PRESENT|CORAM|BEFORE)\s*:|En\s+pr[eé]sence\s+de|En\s+presence\s+de)\s*",
+        "style of cause": r"\b(?:(?:BETWEEN|ENTRE|STYLE\s+OF\s+CAUSE)\s*:|ENTRE)\s*",
         "place of hearing": r"\b(?:PLACE\s+OF\s+HEARING|Lieu\s+de\s+l[’']audience):\s*",
         "date of hearing": r"\b(?:DATE\s+OF\s+HEARING|Date\s+de\s+l[’']audience):\s*",
         "dated": r"\b(?:DATED|Date\s+du\s+jugement):\s*",
         "counsel": r"\b(?:APPEARANCES|SOLICITORS\s+OF\s+RECORD|COUNSEL|Avocats|Procureurs):\s*",
-        "present": r"\b(?:PRESENT|CORAM|BEFORE|En\s+pr[eé]sence\s+de|En\s+presence\s+de):\s*",
-        "between": r"\b(?:BETWEEN|ENTRE):\s*",
+        "present": r"\b(?:(?:PRESENT|CORAM|BEFORE)\s*:|En\s+pr[eé]sence\s+de|En\s+presence\s+de)\s*",
+        "between": r"\b(?:(?:BETWEEN|ENTRE)\s*:|ENTRE)\s*",
         "solicitors of record": r"\b(?:SOLICITORS\s+OF\s+RECORD|AVOCATS|PROCUREURS):\s*",
     }
     pattern = patterns.get(field)
@@ -242,6 +263,18 @@ def _normalize_field_value(field: str, value: str | None) -> str | None:
         if not normalized:
             return None
         normalized = re.sub(r"^(?:En présence de|En presence de|PRESENT:|Present:|Before:|BEFORE:)\s*", "", normalized, flags=re.IGNORECASE)
+        normalized = re.sub(
+            r"^(?:The\s+)?(?:(?:Right\s+)?Honourable|Honorable|L['’]honorable)\s+",
+            "",
+            normalized,
+            flags=re.IGNORECASE,
+        )
+        normalized = re.sub(
+            r"^(?:(?:monsieur|madame)\s+)?(?:le|la)\s+juge(?:\s+en\s+chef(?:\s+par\s+int[ée]rim)?)?\s+",
+            "",
+            normalized,
+            flags=re.IGNORECASE,
+        )
         normalized = re.sub(r"^(?:Madame|Mme|M\.|Mme\.|Mr\.?|Mrs\.?|Madam|Mr\.? Justice|Madame Justice|madame la juge en chef par intérim)\s+", "", normalized, flags=re.IGNORECASE)
         return _dedupe_multiline_value(normalized) or _normalize_whitespace(normalized)
     return _dedupe_multiline_value(value) or _normalize_whitespace(value)
@@ -548,6 +581,12 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
             normalized_style = _normalize_whitespace(preferred)
             if normalized_style:
                 metadata["style of cause"] = normalized_style
+        if not re.search(r"\bv\.?\b", str(metadata.get("style of cause") or ""), re.IGNORECASE) and "between" in metadata:
+            # Truncated capture (e.g. end-of-decision STYLE OF CAUSE block lost the versus form):
+            # prefer the BETWEEN-derived style when it reconstructs one.
+            derived_style = _derive_style_from_between(metadata["between"])
+            if derived_style:
+                metadata["style of cause"] = derived_style
 
     if "judge" not in metadata and "present" in metadata:
         first_line = next((line.strip() for line in metadata["present"].splitlines() if line.strip()), "")
@@ -558,6 +597,44 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
         judge_first_line = next((line.strip() for line in str(metadata["judge"]).splitlines() if line.strip()), "")
         if judge_first_line:
             metadata["judge"] = judge_first_line
+
+    present_first_line = next((line.strip() for line in str(metadata.get("present") or "").splitlines() if line.strip()), "")
+    present_candidate = (
+        _normalize_field_value("judge", present_first_line) if present_first_line else None
+    )
+    judge_value = metadata.get("judge")
+    judge_raw = next((line.strip() for line in str(judge_value or "").splitlines() if line.strip()), "")
+    if judge_raw and _is_judge_junk(judge_raw):
+        # Junk capture (court name, annex, or bare role label): prefer the title-page judge.
+        if present_candidate:
+            metadata["judge"] = present_candidate
+        else:
+            metadata.pop("judge", None)
+
+    signature_match = re.search(
+        r'"([^"\n]{3,120})"\s*\n\s*(?:The\s+)?Judge\b',
+        full_text,
+        re.IGNORECASE,
+    )
+    signature_name = (
+        _normalize_whitespace(signature_match.group(1))
+        if signature_match and not _is_judge_junk(signature_match.group(1))
+        else None
+    )
+
+    if "judge" not in metadata:
+        if signature_name:
+            metadata["judge"] = signature_name
+        elif present_candidate and not _is_judge_junk(present_candidate):
+            metadata["judge"] = present_candidate
+    elif signature_name:
+        # Prefer the full signature name when it corroborates the current surname.
+        current_surname = next(
+            (token for token in reversed(str(metadata["judge"]).split()) if re.search(r"[A-Za-zÀ-þ]", token)),
+            "",
+        ).casefold().rstrip(".")
+        if current_surname and current_surname in signature_name.casefold():
+            metadata["judge"] = signature_name
 
     # Preserve snake_case aliases for compatibility with existing downstream usage.
     if "place of hearing" in metadata:

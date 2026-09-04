@@ -9,13 +9,13 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is the eight-tab immigration litigation intelligence interface,
+Current main workflow is the nine-tab immigration litigation intelligence interface,
 with Citation Pass retained as the extractor QA surface.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data Explorer, and FC History.
+2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data Explorer, FC History, and Legal Themes & Statutes.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.
@@ -85,6 +85,38 @@ Historical context (read with caution):
 
 These files are useful for lineage and rationale but may contain stale counts,
 older endpoint lists, or outdated test totals.
+
+## Documentation Ownership Map
+
+Use one owner per kind of knowledge. Swimm is the connected explanation and
+rationale layer; repository files remain authoritative where tooling, deployment,
+or reproducibility requires a source-controlled artifact.
+
+| Knowledge type | Primary owner | Repository role |
+| --- | --- | --- |
+| Current system behavior and boundaries | `SYSTEM_REFERENCE.md` | Concise current-state authority |
+| Product direction and delivery sequence | `ROADMAP.md`, `MASTER_IDEAS.md` | Roadmap and backlog inputs |
+| Architecture rationale and design decisions | Swimm: Architecture Decisions and Design Rationale | Linkable decision context; implementation remains in code/migrations |
+| Technical debt and improvement opportunities | Swimm: Technical Debt Register and Improvement Queue | Connected prioritization register; execution lives in task records |
+| Evaluation definitions and quality metrics | Swimm: Evaluation Framework and Quality Metrics | Metric semantics and gates; reports remain under `data/eval/` |
+| API and schema contracts | Generated references and their source code/migrations | Never hand-edit generated outputs |
+| Operational procedures | `OVERNIGHT.md` and focused `docs/` runbooks | Executable operational guidance |
+| Feature research guidance | `docs/RESEARCH_UI_GUIDE.md` and linked Swimm UI walkthrough | User-facing workflow and implementation map |
+| Multi-step execution evidence | `.github/project-manager/tasks/` | Short-lived or durable task records |
+| Historical lineage | `docs/history/` | Reference only; never current authority |
+
+## Consolidation Rules
+
+1. Before creating a Markdown document, identify its knowledge type and link to
+    the existing owner instead when the content is explanatory or rationale.
+2. Do not duplicate live counts, API contracts, schema details, or operational
+    commands across Swimm and repository docs.
+3. Keep root documents short and role-specific; move historical material to
+    `docs/history/` only after links and current references are checked.
+4. Prefer updating an existing owner document over creating another similarly
+    named file.
+5. Do not delete or rename documents during consolidation until replacement
+    coverage and incoming references have been verified.
 
 ## Cleanup Status (2026-08-07)
 

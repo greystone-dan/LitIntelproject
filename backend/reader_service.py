@@ -22,6 +22,7 @@ from .citations import (
 	is_self_case_name_match,
 	parse_legislation_citation,
 )
+from .document_structure import map_span_to_chunk_layers
 from .database import (
 	Case,
 	CaseChunk,
@@ -84,15 +85,12 @@ def _legislation_url_for_reference(value: str | None) -> str | None:
 
 
 def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
-	text_parts: list[str] = []
-	if case.full_text:
-		text_parts.append(case.full_text)
-	if case.summary:
-		text_parts.append(case.summary)
-	for chunk in chunks:
-		if chunk.text:
-			text_parts.append(chunk.text)
-	content = "\n".join(text_parts)
+	if case.full_text and case.full_text.strip():
+		content = case.full_text
+	else:
+		text_parts: list[str] = [case.summary] if case.summary else []
+		text_parts.extend(chunk.text for chunk in chunks if chunk.text)
+		content = "\n".join(text_parts)
 	if not content.strip():
 		return []
 
@@ -126,26 +124,20 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 	]
 
 	tags: list[CaseReaderTagResponse] = []
-	seen_values: set[str] = set()
+	max_occurrences_per_tag = 50
 	for category, value, pattern in catalog:
-		match = re.search(pattern, content, flags=re.IGNORECASE)
-		if match is None:
-			continue
-		key = f"{category}:{value}"
-		if key in seen_values:
-			continue
-		seen_values.add(key)
-		evidence = content[max(0, match.start() - 80) : min(len(content), match.end() + 80)].strip()
-		tags.append(
-			CaseReaderTagResponse(
-				category=category,
-				value=value,
-				score=0.9,
-				evidence=evidence,
-				source="reader_keyword",
-				taxonomy_version="reader_v1",
+		for match in list(re.finditer(pattern, content, flags=re.IGNORECASE))[:max_occurrences_per_tag]:
+			evidence = content[max(0, match.start() - 80) : min(len(content), match.end() + 80)].strip()
+			tags.append(
+				CaseReaderTagResponse(
+					category=category,
+					value=value,
+					score=0.9,
+					evidence=evidence,
+					source="reader_keyword",
+					taxonomy_version="reader_v1",
+				)
 			)
-		)
 
 	section_hits: dict[str, str] = {}
 
@@ -473,21 +465,24 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 			.order_by(CaseSource.is_primary.desc(), CaseSource.id)
 		)
 	)
-	chunks = list(
+	all_chunks = list(
 		db.scalars(
 			select(CaseChunk)
 			.where(
 				CaseChunk.case_id == case_id,
-				CaseChunk.chunk_set.in_(["paragraph", "section", "legacy"]),
+				CaseChunk.chunk_set.in_(["paragraph", "section", "full_case", "legacy"]),
 			)
 			.order_by(CaseChunk.chunk_index)
 		)
 	)
+	chunks = list(all_chunks)
 	if any((chunk.chunk_set or "") == "paragraph" for chunk in chunks):
 		chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "paragraph"]
 	elif chunks:
 		if any((chunk.chunk_set or "") == "section" for chunk in chunks):
 			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "section"]
+		elif any((chunk.chunk_set or "") == "full_case" for chunk in chunks):
+			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "full_case"]
 		elif any((chunk.chunk_set or "") == "legacy" for chunk in chunks):
 			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "legacy"]
 	tags = list(
@@ -711,6 +706,32 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 				)
 				next_live_id -= 1
 
+	case_text = case.full_text or case.summary or ""
+	chunks_by_id = {chunk.id: chunk for chunk in chunks if chunk.id is not None}
+	for citation in citation_responses:
+		if citation.offset_start is None or citation.offset_end is None:
+			continue
+		absolute_start = citation.offset_start
+		absolute_end = citation.offset_end
+		if citation.chunk_id is not None:
+			chunk = chunks_by_id.get(citation.chunk_id)
+			chunk_start = case_text.find(chunk.text) if chunk is not None else -1
+			if chunk is None or chunk_start < 0:
+				continue
+			absolute_start = chunk_start + citation.offset_start
+			absolute_end = chunk_start + citation.offset_end
+		layer_spans = map_span_to_chunk_layers(case_text, absolute_start, absolute_end, all_chunks)
+		citation.layer_spans = {
+			layer: {
+				"chunk_id": span.chunk_id,
+				"absolute_start": span.absolute_start,
+				"absolute_end": span.absolute_end,
+				"local_start": span.local_start,
+				"local_end": span.local_end,
+			}
+			for layer, span in layer_spans.items()
+		}
+
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
 	formatted_html = _format_reader_html(case.source_html, citation_responses)
 
@@ -775,6 +796,7 @@ def build_case_citation_pass(
 			"context": full_text[
 				max(0, (match.offset_start or 0) - 40) : min(len(full_text), (match.offset_end or 0) + 40)
 			]
+
 			.replace("\n", " ")
 			.strip(),
 		}

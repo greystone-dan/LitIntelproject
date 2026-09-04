@@ -108,7 +108,7 @@ cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
 Local resolution intentionally does not call external services. Scanned PDFs are
 outside the prototype because they require OCR.
 
-`backend/metadata.py` and Federal Court scrapers derive metadata such as case name, date, docket, court, judge, outcome, parties, and related context. Extraction can carry field confidence, source evidence, quality flags, and a review indicator. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
+`backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
 `backend/legal_tagger.py` applies the deterministic `ca_legal_v2` taxonomy. Coverage includes immigration/refugee law, proceedings, tribunals, agencies, ministers, refugee doctrine, inadmissibility, CBSA enforcement, remedies, outcomes, legal standards, IRPA/IRPR and other instruments, countries, organizations, and evidence-bearing rule matches.
 
@@ -152,7 +152,8 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/citations.py` | Case and statute extraction, target resolution, citation rebuilds, metrics, A2AJ graph conversion |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/case_processing.py` | Explicit five-stage deterministic processing contract |
-| `backend/metadata.py` | Metadata/outcome extraction and observations |
+| `backend/metadata.py` | Deterministic source-metadata extraction facade and observations (composes the intelligence layer) |
+| `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
 | `backend/legal_tagger.py` | Deterministic legal taxonomy/tag rules |
 | `backend/embedding_providers.py` | Embedding provider selection/wiring |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
@@ -172,7 +173,16 @@ The application loads `.env` from the repository root and `backend/.env`. Explic
 .\venv\Scripts\python.exe -m alembic upgrade head
 ```
 
-The local application is commonly served at `http://127.0.0.1:8000`. `scripts/refresh_site.ps1` stops existing local Uvicorn/cloudflared processes and starts the configured local server/tunnel workflow. Keep that terminal open; closing it stops the tunnel and app it owns.
+The local application is commonly served at `http://127.0.0.1:8000`. To start
+or refresh the website, run the canonical command from the repository root:
+
+```powershell
+.\scripts\refresh_site.ps1
+```
+
+It stops existing local Uvicorn/cloudflared processes and starts the configured
+local server/tunnel workflow. Keep that terminal open; closing it stops the
+tunnel and app it owns. The public site is normally `https://www.ilit.ca`.
 
 The complete environment-variable, precedence, security, local-model, source-integration, and static-template reference is [docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md). It distinguishes settings actively consumed at runtime from legacy or aspirational values in `config.yaml` and `.env.example`.
 
@@ -180,13 +190,17 @@ The complete environment-variable, precedence, security, local-model, source-int
 
 `backend/case_processing.py` codifies the five deterministic layers:
 
-1. `metadata`: derive metadata and update the full-text hash.
-2. `overall_chunks`: replace legacy fixed-size chunks for the case.
-3. `heading_chunks`: generate section and paragraph chunks.
+1. `full_case`: replace the whole-case chunk for the case.
+2. `heading_chunks`: generate section and paragraph chunks.
+3. `metadata`: derive metadata and update the full-text hash.
 4. `case_citations`: rebuild case-law citation rows.
 5. `statutes`: rebuild statute/instrument references.
 
-Each stage can be selected independently for a case. The ordering prevents the reader and citation extractor from inventing their own inconsistent text segmentation.
+Each stage can be selected independently for a case. Chunk layers run before
+metadata because caption and disposition fields live at the beginning and end
+of the decision, and metadata runs before citations so downstream extraction
+sees the normalized case state. The ordering prevents the reader and citation
+extractor from inventing their own inconsistent text segmentation.
 
 ### Data Flow
 
@@ -560,14 +574,18 @@ searchable through lexical/metadata paths while it remains unembedded.
 
 ### Text, Chunk, And Offset Semantics
 
-The project uses more than one chunk set because research display and processing
-need different segmentations:
+The project uses three canonical chunk sets because research display and
+processing need different segmentations:
 
 | Chunk set | Intended use |
 | --- | --- |
-| `legacy` | Fixed-size overall chunks for broad text processing and compatibility |
+| `full_case` | One complete case-text row for whole-document context, hashing, and fallback |
 | `section` | Heading-aware decision segments, preferred for reader context and many citation workflows |
 | `paragraph` | Fine-grained paragraph segments for passage retrieval and evidence display |
+
+The standalone chunk writer creates all three layers for each processed case.
+The older `legacy` fixed-size set remains recognized for compatibility with
+previous inventory rows but is no longer the canonical overall layer.
 
 Each chunk has an index, text, text hash, estimated token count, creation time,
 and where applicable a readable label and paragraph start/end fields. Chunk
@@ -585,9 +603,47 @@ Offsets have an important scope:
 4. UI code must preserve source strings and not compute replacement offsets from
     formatted HTML, normalized whitespace, or browser text nodes.
 
+Reader citation responses may include derived `layer_spans` for the same
+occurrence: case-wide canonical offsets, containing section-relative offsets,
+and paragraph-relative offsets. The original citation `offset_start` and
+`offset_end` remain the stored source-layer values; `layer_spans` is navigation
+metadata and must not replace them.
+
 The source HTML reader mode and the chunk/citation evidence layer are therefore
 related but not interchangeable. Formatted source rendering supports legal
 reading; chunk-backed plain text supports stable extraction evidence.
+
+`backend/document_structure.py` provides the source-preserving structure layer:
+sanitized display HTML, structural blocks, canonical text, and HTML-to-canonical
+ranges. Mapping confidence must be checked before HTML-derived boundaries are
+used for production chunking or evidence rendering; unmapped or low-confidence
+blocks remain fallback-only.
+
+Chunk generation uses the mapped HTML structure when document confidence is at
+least `0.98` and mapped blocks meet the block confidence threshold. It uses
+top-level HTML headings for larger `section` chunks and mapped leaf blocks for
+`paragraph` chunks, while preserving canonical `full_text` as chunk content.
+Cases without usable HTML continue through the deterministic text-heading and
+numbered-paragraph fallback.
+
+Canonical inventory ingestion and live user-document analysis use separate input
+adapters but must converge on the same structural document contract. Stored HTML
+and live DOCX/text-PDF inputs should both expose headings, paragraphs, sections,
+formatting metadata, canonical text ranges, and downstream evidence mappings.
+Live analysis remains ephemeral by default and must not write to canonical case
+tables as a side effect.
+
+Official FC, FCA, and SCC item pages currently expose decision content through
+the same-origin `?iframe=true` variant. Their wrappers and metadata layouts are
+not identical: FCA mapped cleanly in the initial canary, FC varied by case, and
+SCC included substantial navigation and metadata structure. Source-specific body
+scoping and paragraph rules are required before expanding HTML-informed rebuilds.
+
+SCC decision pages use `.documentcontent` with nested `div.SectionN` containers
+and numbered `p` elements. The SCC parser starts at the first numbered decision
+block, treats Roman-numeral divisions as larger sections, and preserves numbered
+and textual child paragraphs as fine-grained chunks. SCC uses a source-specific
+mapping gate of `0.85`; FC and FCA retain the stricter `0.98` gate.
 
 ### Citation Extraction And Resolution Rules
 

@@ -148,3 +148,195 @@ def test_extract_case_metadata_derives_case_type_and_challenge_from_legal_signal
 
 def test_extract_case_metadata_returns_empty_payload_for_empty_text():
 	assert extract_case_metadata("  ") == {}
+
+
+def test_judge_signature_block_captures_signature_name_not_court_label():
+	text = (
+		"Date: 20260123\n"
+		"Docket: IMM-13884-24\n"
+		"Citation: 2026 FC 103\n"
+		"Ottawa, Ontario, January 23, 2026\n"
+		"PRESENT: The Honourable Mr. Justice Zinn\n"
+		"BETWEEN:\n"
+		"OBINNA NWAOKONKO\n"
+		"Applicant\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+		"Respondent\n"
+		"JUDGMENT AND REASONS\n"
+		"[1] The application is dismissed.\n"
+		'"Russel W. Zinn"\n'
+		"Judge\n"
+		"FEDERAL COURT\n"
+		"SOLICITORS OF RECORD\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["judge"] == "Russel W. Zinn"
+	assert payload["_field_confidence"]["judge"] >= 0.9
+	assert "invalid_shape:judge" not in payload["_quality_flags"]
+
+
+def test_judge_court_name_capture_is_dropped_for_present_fallback():
+	text = (
+		"Date: 20260203\n"
+		"Docket: IMM-999-25\n"
+		"Citation: 2026 FC 200\n"
+		"PRESENT: The Honourable Mr. Justice Brown\n"
+		"BETWEEN:\n"
+		"JANE DOE\n"
+		"Applicant\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+		"Respondent\n"
+		"JUDGMENT AND REASONS\n"
+		"[1] The application is dismissed.\n"
+		"Judge\n"
+		"FEDERAL COURT\n"
+		"SOLICITORS OF RECORD\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["judge"] == "Justice Brown"
+	assert "invalid_shape:judge" not in payload["_quality_flags"]
+
+
+def test_judge_honourable_name_without_title_token_is_normalized_and_valid():
+	text = (
+		"Date: 20060914\n"
+		"Docket: IMM-123-05\n"
+		"Citation: 2006 FC 1160\n"
+		"PRESENT: The Honourable Paul U.C. Rouleau\n"
+		"BETWEEN:\n"
+		"FADILA KHARCHI\n"
+		"Applicant\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+		"Respondent\n"
+		"REASONS FOR JUDGMENT\n"
+		"[1] The application is dismissed.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["judge"] == "Paul U.C. Rouleau"
+	assert payload["_field_confidence"]["judge"] >= 0.9
+	assert "invalid_shape:judge" not in payload["_quality_flags"]
+
+
+def test_style_of_cause_recovers_versus_form_from_between_when_capture_truncated():
+	text = (
+		"Date: 20060928\n"
+		"Docket: IMM-5883-05\n"
+		"Citation: 2006 FC 1154\n"
+		"Ottawa, Ontario, September 28, 2006\n"
+		"PRESENT: The Honourable Mr. Justice Phelan\n"
+		"BETWEEN:\n"
+		"OLGA VAKRUCHEV\n"
+		"VITA VAKRUCHEV\n"
+		"Applicants\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP\n"
+		"AND IMMIGRATION\n"
+		"Respondent\n"
+		"REASONS FOR JUDGMENT AND JUDGMENT\n"
+		"[1] The application is dismissed.\n"
+		"STYLE OF CAUSE:\n"
+		"OLGA VAKRUCHEV\n"
+		"VITA VAKRUCHEV\n"
+		"AND OTHERS\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["style of cause"] == "OLGA VAKRUCHEV VITA VAKRUCHEV v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION"
+	assert "invalid_shape:style of cause" not in payload["_quality_flags"]
+
+
+def test_french_title_page_labels_reach_critical_confidence():
+	text = (
+		"Date\n"
+		"2026-02-02\n"
+		"Référence neutre\n"
+		"2026 CF 148\n"
+		"Numéro de dossier\n"
+		"T-1012-24\n"
+		"Contenu de la décision\n"
+		"Date : 20260202\n"
+		"Dossier : T-1012-24\n"
+		"Référence : 2026 CF 148\n"
+		"Ottawa (Ontario), le 2 février 2026\n"
+		"En présence de monsieur le juge McHaffie\n"
+		"ENTRE :\n"
+		"MARIE DUPONT\n"
+		"Demanderesse\n"
+		"et\n"
+		"LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION\n"
+		"Défendeur\n"
+		"JUGEMENT ET MOTIFS\n"
+		"[1] La demande est rejetée.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["_field_confidence"]["date"] >= 0.9
+	assert payload["_field_confidence"]["docket"] >= 0.9
+	assert payload["_field_confidence"]["neutral citation"] >= 0.9
+
+
+def test_french_dossier_space_colon_label_reaches_critical_confidence():
+	text = (
+		"Date\n"
+		"2026-03-15\n"
+		"Référence neutre\n"
+		"2026 CF 220\n"
+		"Numéro de dossier\n"
+		"IMM-555-25\n"
+		"Contenu de la décision\n"
+		"Date : 20260315\n"
+		"Dossier : IMM-555-25\n"
+		"Référence : 2026 CF 220\n"
+		"En présence de madame la juge Fothergill\n"
+		"ENTRE :\n"
+		"JEAN TREMBLAY\n"
+		"Demandeur\n"
+		"et\n"
+		"LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION\n"
+		"Défendeur\n"
+		"JUGEMENT ET MOTIFS\n"
+		"[1] La demande est accueillie.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["_field_confidence"]["docket"] >= 0.9
+
+
+def test_french_reference_space_colon_label_reaches_critical_confidence():
+	text = (
+		"Date\n"
+		"2026-04-20\n"
+		"Référence neutre\n"
+		"2026 CF 305\n"
+		"Numéro de dossier\n"
+		"T-777-25\n"
+		"Contenu de la décision\n"
+		"Date : 20260420\n"
+		"Dossier : T-777-25\n"
+		"Référence : 2026 CF 305\n"
+		"En présence de monsieur le juge Roy\n"
+		"ENTRE :\n"
+		"FATIMA BENALI\n"
+		"Demanderesse\n"
+		"et\n"
+		"LE MINISTRE DE LA CITOYENNETÉ ET DE L'IMMIGRATION\n"
+		"Défendeur\n"
+		"JUGEMENT ET MOTIFS\n"
+		"[1] La demande est rejetée.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["_field_confidence"]["neutral citation"] >= 0.9

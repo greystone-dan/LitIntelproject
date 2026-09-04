@@ -1,5 +1,5 @@
 ---
-title: Data Quality and Metrics
+title: Data Quality Evaluation and Metrics
 ---
 
 # Data Quality and Metrics

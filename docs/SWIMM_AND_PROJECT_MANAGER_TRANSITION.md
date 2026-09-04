@@ -29,6 +29,9 @@ whole project map.
 | Database map | `backend/database.py` and `alembic/` | ORM entities, migrations, and pgvector responsibilities | Data/platform |
 | Operational run | `scripts/run_overnight.py` and `OVERNIGHT.md` | Locks, bounded jobs, resume behavior, and recovery | Operations |
 | Active UI | `backend/routes.py` and `docs/RESEARCH_UI_GUIDE.md` | Data Explorer, inline reader, Citation Map, and legacy boundaries | Research UI |
+| Technical debt register | Swimm: Technical Debt Register and Improvement Queue | Evidence-backed debt, opportunities, owners, and revisit triggers | Governance |
+| Architecture decisions | Swimm: Architecture Decisions and Design Rationale | Durable rationale, options, consequences, and open decisions | Architecture |
+| Evaluation framework | Swimm: Evaluation Framework and Quality Metrics | Metric definitions, benchmark structure, and release gates | Quality |
 
 For every walkthrough, include: entry point, important files, data passed
 between steps, invariants, failure modes, and the narrowest validation command.
@@ -104,6 +107,18 @@ or domain ownership. It operationalizes them by requiring an owner, a
 falsifiable check, evidence, rollback/recovery, and documentation updates for
 each completed task.
 
+For open-ended or explicitly strategic requests, the manager also translates
+the product goal into bounded requirements, compares viable approaches for
+major changes, and ranks improvement opportunities by value, cost, risk, and
+maintainability. Routine maintenance remains lightweight. Prompt and workflow
+recommendations belong under `.github/project-manager/improvements/` and need
+evidence before adoption.
+
+For eligible multi-step work, the manager coordinates rather than doing all
+grunt work directly: the lowest-cost capable delegate handles bounded inventory,
+search, mechanical analysis, and routine evidence gathering, while the manager
+retains decisions, risk ownership, synthesis, and final validation.
+
 ## Handoff Contract For The Project Manager Agent
 
 The future manager agent should coordinate work, not silently redefine domain
@@ -128,6 +143,12 @@ The manager loop is:
    this document, and the relevant Swimm walkthrough before assigning work.
 2. Choose one owning surface and state one falsifiable behavior expectation.
 3. Assign the smallest implementation slice and its focused validation command.
+   4. The manager also translates strategic goals into bounded product and technical
+      work, evaluates alternatives for major changes, and reviews improvement
+      opportunities when work is open-ended or explicitly strategic. These reviews
+      are proportional: routine maintenance does not trigger broad analysis. Prompt
+      or workflow recommendations belong under
+      `.github/project-manager/improvements/` and require evidence before adoption.
 4. Require evidence before marking the task complete: test output, generated
    documentation, or a bounded browser/API check as appropriate.
 5. Update the relevant canonical document and Swimm walkthrough in the same
@@ -153,7 +174,8 @@ walkthrough becomes stale, label the gap and point to the authoritative source;
 do not preserve a visually complete but inaccurate diagram.
 
 The current Swimm set includes the system, active UI, ingestion, citation,
-database, operations, Federal Court, CanLaw, and future-state walkthroughs.
+database, operations, Federal Court, CanLaw, future-state, technical-debt,
+architecture-decision, and evaluation walkthroughs.
 Use the P0 queue to drive cleanup through the implemented manager framework.
 Add a walkthrough when a new owner surface appears, rather than allowing the
 agent to infer an undocumented boundary.

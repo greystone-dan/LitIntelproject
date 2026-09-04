@@ -39,6 +39,13 @@ def test_self_case_name_filter_keeps_other_case_short_form():
 	assert not citations.is_self_case_name_match("Calixto v. Canada", match)
 
 
+def test_self_case_citation_filter_rejects_source_neutral_citation():
+	case = SimpleNamespace(citation="2005 FC 1037", secondary_citation=None)
+	match = citations.RawCitationMatch("neutral", "2005 FC 1037", "2005 FC 1037", 0, 12)
+
+	assert citations.is_self_case_citation(case, match)
+
+
 class FakeDatabase:
 	def __init__(self, rows=(), scalar_value=None):
 		self.rows = list(rows)

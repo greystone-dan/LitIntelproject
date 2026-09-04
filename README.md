@@ -68,6 +68,16 @@ Core research-facing capabilities now available:
 
 ### Day-To-Day Commands
 
+Refresh the local website and Cloudflare tunnel:
+
+~~~powershell
+.\scripts\refresh_site.ps1
+~~~
+
+This stops stale local Uvicorn/cloudflared processes and starts the configured
+API and tunnel. Keep the terminal open while using the site. The usual URLs are
+`http://127.0.0.1:8000/data-explorer` and `https://www.ilit.ca/data-explorer`.
+
 Start API:
 
 ~~~powershell

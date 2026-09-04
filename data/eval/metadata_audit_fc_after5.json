@@ -1,0 +1,118 @@
+{
+  "sampled_cases": 60,
+  "min_critical_confidence": 0.9,
+  "coverage": {
+    "date": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "docket": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "neutral citation": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "judge": {
+      "count": 59,
+      "percent": 98.33
+    },
+    "style of cause": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "place of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "date of hearing": {
+      "count": 55,
+      "percent": 91.67
+    },
+    "dated": {
+      "count": 52,
+      "percent": 86.67
+    },
+    "counsel": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "present": {
+      "count": 53,
+      "percent": 88.33
+    },
+    "between": {
+      "count": 60,
+      "percent": 100.0
+    },
+    "solicitors of record": {
+      "count": 53,
+      "percent": 88.33
+    }
+  },
+  "confidence": {
+    "date": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "docket": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "neutral citation": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "judge": {
+      "avg": 0.97,
+      "observations": 59
+    },
+    "style of cause": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "place of hearing": {
+      "avg": 0.95,
+      "observations": 55
+    },
+    "date of hearing": {
+      "avg": 0.955,
+      "observations": 55
+    },
+    "dated": {
+      "avg": 0.97,
+      "observations": 52
+    },
+    "counsel": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "present": {
+      "avg": 0.97,
+      "observations": 53
+    },
+    "between": {
+      "avg": 0.97,
+      "observations": 60
+    },
+    "solicitors of record": {
+      "avg": 0.97,
+      "observations": 53
+    }
+  },
+  "issues": {
+    "missing_critical:judge": 1,
+    "critical_below_threshold:judge": 1
+  },
+  "style_samples": [],
+  "issue_samples": [
+    {
+      "case_id": 35833,
+      "citation": "2006 FC 1152",
+      "flag": "missing_critical:judge",
+      "style_of_cause": "ALEX BARTA v.",
+      "judge": null
+    }
+  ]
+}

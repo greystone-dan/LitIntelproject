@@ -18,10 +18,12 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.database import Case, CaseChunk, SessionLocal
+from backend.document_structure import map_to_canonical_text, structure_source_html
 
 CHUNK_CHARS = 6000
 OVERLAP_CHARS = 600
 CHUNK_SET_LEGACY = "legacy"
+CHUNK_SET_FULL_CASE = "full_case"
 CHUNK_SET_SECTION = "section"
 CHUNK_SET_PARAGRAPH = "paragraph"
 SECTION_HEADINGS = ("OVERVIEW", "BACKGROUND", "ANALYSIS", "CONCLUSION")
@@ -278,6 +280,105 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
     return rows
 
 
+def _build_full_case_chunk(case: Case, text: str) -> list[CaseChunk]:
+    if not text.strip():
+        return []
+    return [
+        _chunk_row(
+            case.id,
+            chunk_set=CHUNK_SET_FULL_CASE,
+            chunk_index=0,
+            text=text,
+            chunk_label="Full case",
+        )
+    ]
+
+
+def build_case_chunk_layers(case: Case) -> list[CaseChunk]:
+    """Build the canonical full-case, section, and paragraph chunk layers."""
+    text = case_text(case)
+    if not text.strip():
+        return []
+    source_family = "scc" if (getattr(case, "court", "") or "").upper() == "SCC" else None
+    structured = map_to_canonical_text(structure_source_html(getattr(case, "source_html", None), text, source_family), text)
+    mapping_threshold = 0.85 if source_family == "scc" else 0.98
+    if structured.mapping_confidence is not None and structured.mapping_confidence >= mapping_threshold:
+        html_layers = _build_html_chunk_layers(case, text, structured, source_family=source_family)
+        if html_layers is not None:
+            return _build_full_case_chunk(case, text) + html_layers[0] + html_layers[1]
+    return (
+        _build_full_case_chunk(case, text)
+        + _build_section_chunks(case, text)
+        + _build_paragraph_chunks(case, text)
+    )
+
+
+def _canonical_block_text(block, text: str) -> str | None:
+    if block.canonical_text_start is None or block.canonical_text_end is None:
+        return None
+    value = text[block.canonical_text_start : block.canonical_text_end].strip()
+    return value or None
+
+
+def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: str | None = None) -> tuple[list[CaseChunk], list[CaseChunk]] | None:
+    """Build section and paragraph rows from confidently mapped HTML blocks."""
+    mapped_blocks = [
+        block
+        for block in document.blocks
+        if block.mapping_confidence >= 0.9
+        and block.canonical_text_start is not None
+        and block.canonical_text_end is not None
+        and block.canonical_text_end > block.canonical_text_start
+    ]
+    if not mapped_blocks:
+        return None
+    top_level = min(
+        (block.heading_level for block in mapped_blocks if block.kind == "heading" and block.heading_level is not None),
+        default=None,
+    )
+    headings = [
+        block
+        for block in mapped_blocks
+        if block.kind == "heading" and block.heading_level == top_level
+    ]
+    if not headings:
+        return None
+
+    section_rows: list[CaseChunk] = []
+    section_start = 0
+    for heading_index, heading in enumerate(headings):
+        heading_start = heading.canonical_text_start or 0
+        if heading_start > section_start:
+            prefix = text[section_start:heading_start].strip()
+            if prefix:
+                section_rows.append(_chunk_row(case.id, chunk_set=CHUNK_SET_SECTION, chunk_index=len(section_rows), text=prefix, chunk_label="Intro Metadata"))
+        section_start = heading_start
+        section_end = headings[heading_index + 1].canonical_text_start if heading_index + 1 < len(headings) else len(text)
+        section_text = text[section_start:section_end].strip()
+        label = re.sub(r"^[IVXLC]+\.\s*", "", heading.text).strip().title() or "Section"
+        if section_text:
+            section_rows.append(_chunk_row(case.id, chunk_set=CHUNK_SET_SECTION, chunk_index=len(section_rows), text=section_text, chunk_label=label))
+        section_start = section_end
+
+    paragraph_rows: list[CaseChunk] = []
+    last_end = 0
+    for block in mapped_blocks:
+        if block.kind not in {"paragraph", "list_item", "table_row", "quote", "preformatted"} and not (source_family == "scc" and block.kind == "heading"):
+            continue
+        start = block.canonical_text_start or 0
+        end = block.canonical_text_end or start
+        if start < last_end:
+            continue
+        block_text = text[start:end].strip()
+        if not block_text:
+            continue
+        paragraph_match = re.match(r"\[(\d+)\]", block_text)
+        paragraph_number = int(paragraph_match.group(1)) if paragraph_match else None
+        paragraph_rows.append(_chunk_row(case.id, chunk_set=CHUNK_SET_PARAGRAPH, chunk_index=len(paragraph_rows), text=block_text, chunk_label=str(paragraph_number) if paragraph_number is not None else block.kind, paragraph_start=paragraph_number, paragraph_end=paragraph_number))
+        last_end = end
+    return section_rows, paragraph_rows
+
+
 def build_case_chunks(case: Case) -> list[CaseChunk]:
     text = case_text(case)
     if not text.strip():
@@ -338,7 +439,7 @@ def chunk_pending_cases(
 
         batch_chunks: list[CaseChunk] = []
         for case in cases:
-            batch_chunks.extend(build_case_chunks(case))
+            batch_chunks.extend(build_case_chunk_layers(case))
         db.add_all(batch_chunks)
         db.commit()
 
@@ -367,7 +468,7 @@ def rebuild_case_chunks(
 
     rows: list[CaseChunk] = []
     for case in cases:
-        rows.extend(build_case_chunks(case))
+        rows.extend(build_case_chunk_layers(case))
     if rows:
         db.add_all(rows)
     db.commit()
@@ -411,7 +512,7 @@ def main() -> None:
                     args.limit or 10
                 )
             ).all()
-            estimated_chunks = sum(len(build_case_chunks(case)) for case in pending)
+            estimated_chunks = sum(len(build_case_chunk_layers(case)) for case in pending)
             print(f"pending_sample={len(pending)} estimated_chunks={estimated_chunks}")
             return
 

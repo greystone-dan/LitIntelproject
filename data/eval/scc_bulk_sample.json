@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-09-04T12:23:20.513764+00:00",
+  "core_csv": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\data\\eval\\core_immigration_cases.csv",
+  "requested": 10,
+  "inspected": 10,
+  "counts": {
+    "ready": 0,
+    "applied": 5,
+    "failed": 0,
+    "skipped": 5
+  },
+  "apply_performed": true,
+  "results": [
+    {
+      "case_id": 1540,
+      "citation": "2020 FC 1093",
+      "status": "skipped",
+      "reason": "already-has-html"
+    },
+    {
+      "case_id": 1748,
+      "citation": "2020 FC 799",
+      "status": "skipped",
+      "reason": "already-has-html"
+    },
+    {
+      "case_id": 4649,
+      "citation": "2022 FC 139",
+      "status": "skipped",
+      "reason": "already-has-html"
+    },
+    {
+      "case_id": 10047,
+      "citation": "2016 FC 1282",
+      "status": "applied",
+      "reason": "valid-html",
+      "bytes": 59088,
+      "html_sha256": "435d45224781ad824b303273da09238685dcfcd46e95a24051b5721ecf1fbe69"
+    },
+    {
+      "case_id": 10796,
+      "citation": "2018 FC 924",
+      "status": "applied",
+      "reason": "valid-html",
+      "bytes": 78701,
+      "html_sha256": "e2f9b2fa0e0e02969b9af1093112d1c0b09bc0879f6b69cbedfef6f47792c672"
+    },
+    {
+      "case_id": 11343,
+      "citation": "2017 FC 1102",
+      "status": "applied",
+      "reason": "valid-html",
+      "bytes": 98576,
+      "html_sha256": "652cd9709b5bf751caff74a1d98908621236bb03be7ecccfc1981918e489b3e4"
+    },
+    {
+      "case_id": 13382,
+      "citation": "2016 FC 874",
+      "status": "applied",
+      "reason": "valid-html",
+      "bytes": 40118,
+      "html_sha256": "87d57e5185423c3d1a504f9c88dd6cbd95e60102d13a680505c7d43fb1af4b48"
+    },
+    {
+      "case_id": 16997,
+      "citation": "2019 FC 14",
+      "status": "skipped",
+      "reason": "already-has-html"
+    },
+    {
+      "case_id": 17038,
+      "citation": "2018 FC 1145",
+      "status": "applied",
+      "reason": "valid-html",
+      "bytes": 181596,
+      "html_sha256": "cfb981218fc74b9f28893f75178bb1490f4b48e24bc352af396563b675be009c"
+    },
+    {
+      "case_id": 31126,
+      "citation": "2023 FC 102",
+      "status": "skipped",
+      "reason": "already-has-html"
+    }
+  ]
+}

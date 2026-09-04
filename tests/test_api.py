@@ -6,6 +6,7 @@ from fastapi import HTTPException
 from pydantic import ValidationError
 
 from backend import routes
+from backend.reader_service import _build_reader_inferred_tags
 from backend.models import (
     CaseIngestRequest,
     CaseReaderMetadataFieldResponse,

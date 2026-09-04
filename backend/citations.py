@@ -347,6 +347,18 @@ def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> 
 	return alias.casefold() in party_words
 
 
+def is_self_case_citation(case: Case | None, match: RawCitationMatch) -> bool:
+	"""Identify an exact citation for the decision currently being processed."""
+	if case is None or not match.normalized_citation:
+		return False
+	key = re.sub(r"[^a-z0-9]+", " ", match.normalized_citation.casefold()).strip()
+	return any(
+		key == re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+		for value in (getattr(case, "citation", None), getattr(case, "secondary_citation", None))
+		if value
+	)
+
+
 @dataclass(frozen=True)
 class _CaseAnchor:
 	alias: str
@@ -2087,10 +2099,13 @@ def extract_citations_from_text(
 	source_case_id: int,
 	text: str | None,
 	chunk_id: int | None = None,
+	exclude_citations: set[str] | None = None,
 ) -> list[Citation]:
 	selected = []
 	for raw_match in extract_raw_citation_matches(text):
 		if raw_match.kind not in CASE_CITATION_KINDS:
+			continue
+		if exclude_citations and raw_match.normalized_citation in exclude_citations:
 			continue
 		target_case_id = None
 		if raw_match.kind == "neutral":
@@ -2166,7 +2181,12 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 	selected_chunks = _preferred_case_chunks(chunks or [])
 	case_text = case.full_text or case.summary or ""
 	if not selected_chunks:
-		return len(extract_citations_from_text(session, case.id, case_text, None))
+		excluded = {
+			value
+			for value in (getattr(case, "citation", None), getattr(case, "secondary_citation", None))
+			if value
+		}
+		return len(extract_citations_from_text(session, case.id, case_text, None, excluded))
 
 	chunk_locations: list[tuple[CaseChunk, int, int]] = []
 	search_start = 0
@@ -2185,7 +2205,7 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 
 	rows: list[Citation] = []
 	for raw_match in extract_case_citation_matches(case_text):
-		if is_self_case_name_match(getattr(case, "title", None), raw_match):
+		if is_self_case_name_match(getattr(case, "title", None), raw_match) or is_self_case_citation(case, raw_match):
 			continue
 		containing = next(
 			(

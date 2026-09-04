@@ -98,6 +98,50 @@ No highlight means one of several things: the case may have no stored rows, its 
 
 Reader panels can expose case details, citation rows, evidence/provenance, quality/QA context, citation intelligence, Federal Court activity, legal tags, and Acts/Regulations. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
 
+The reader keeps the evidence layers visually distinct: green highlights are
+legal tags, purple highlights are statutes/regulations, and yellow highlights
+are case-to-case citations. The **Tags** panel includes all stored and inferred
+tags, groups them by unique category/value, and lets the researcher expand each
+group to inspect individual occurrences with evidence excerpt, source, score,
+taxonomy version, and backend offsets when available. This is a display of
+stored or derived research evidence, not a replacement for the source text or
+legal verification.
+
+Pretty source rendering is based on preserved source HTML when available. The
+system's canonical plain text and backend-owned evidence offsets remain the
+authority; display sanitization and formatting must not invent replacement
+locations. Structural HTML mapping is being introduced before it is used to
+change chunk boundaries.
+
+Reader citations can expose `layer_spans` for the same occurrence across the
+full-case, section, and paragraph layers. These derived coordinates support
+navigation and comparison; the original backend-owned offsets remain the
+evidence location of record.
+
+The formatting-aware document model is intended for both stored cases and live
+user-provided DOCX/text-PDF documents. Their input adapters may differ, but
+downstream chunking and evidence extraction should use the same structural and
+offset contracts. Live analysis remains separate and ephemeral by default.
+
+The bounded browser smoke check is available as
+`scripts/browser_smoke.py`. Run it against an already refreshed local site to
+verify the search-to-reader journey, layer tabs, grouped tag rendering, and
+mobile Themes loading.
+
+The panel reports both unique tags and total occurrences. A case showing one
+occurrence for several tags is not collapsed by the reader: the backend returns
+each stored tag row, and the occurrence detail shows its source and offset when
+available. Sparse results should be treated as a data-coverage or tagging
+signal to investigate, not silently padded by the UI.
+
+Reader-inferred tags are generated from one canonical text representation when
+available, rather than concatenating overlapping full-text and chunk copies.
+Repeated matches are retained up to a bounded per-tag limit and grouped only
+for display. For example, the OU v. Canada audit found 18 standalone `ID`
+mentions and 27 `forum: id` matches because the rule also recognizes the full
+phrase `Immigration Division`; the reader exposes those rows instead of
+reporting one unexplained instance.
+
 ## Citation Intelligence
 
 Citation Intelligence starts with a title search or a case selected from Case Search. It provides bounded views over resolved case-citation data:

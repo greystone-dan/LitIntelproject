@@ -204,3 +204,9 @@ def test_rendered_shell_exposes_case_reader_tag_tabs():
     assert 'Extracted metadata' in html
     assert 'Case information' in html
     assert 'Tags' in html
+    assert 'tag-highlight' in html
+    assert 'chunk-statute' in html
+    assert 'chunk-citation' in html
+    assert 'groupedTagHtml' in html
+    assert 'unique tag' in html
+    assert 'reader-tag-occurrence' in html

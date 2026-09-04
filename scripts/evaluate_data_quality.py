@@ -231,12 +231,58 @@ def evaluate_corpus_quality(db: Session, sample_limit: int | None = None) -> dic
     }
 
 
+def evaluate_quality_gates(report: dict[str, Any]) -> dict[str, Any]:
+    """Classify measured corpus metrics without silently inventing baselines."""
+    citation = report["citation_health"]
+    statute = report["statute_health"]
+    checks = [
+        {
+            "name": "orphan_citation_targets",
+            "actual": citation["orphan_citation_targets"],
+            "threshold": 0,
+            "status": "pass" if citation["orphan_citation_targets"] == 0 else "fail",
+            "severity": "critical",
+        },
+        {
+            "name": "self_citations",
+            "actual": citation["self_citations"],
+            "threshold": 0,
+            "status": "pass" if citation["self_citations"] == 0 else "fail",
+            "severity": "critical",
+        },
+        {
+            "name": "invalid_citation_offsets",
+            "actual": citation["invalid_offset_rows"],
+            "threshold": 0,
+            "status": "pass" if citation["invalid_offset_rows"] == 0 else "fail",
+            "severity": "critical",
+        },
+        {
+            "name": "statute_pinpoint_coverage",
+            "actual": statute["pinpoint_coverage_pct"],
+            "threshold": None,
+            "status": "warn",
+            "severity": "advisory",
+            "note": "Baseline not established; monitor before setting a release threshold.",
+        },
+    ]
+    failures = [check["name"] for check in checks if check["status"] == "fail"]
+    warnings = [check["name"] for check in checks if check["status"] == "warn"]
+    return {
+        "status": "fail" if failures else "warn" if warnings else "pass",
+        "checks": checks,
+        "failures": failures,
+        "warnings": warnings,
+    }
+
+
 def print_markdown_report(report: dict[str, Any]) -> None:
     inv = report["inventory"]
     cit = report["citation_health"]
     stat = report["statute_health"]
     meta = report["metadata_completeness"]
     graph = report["graph_health"]
+    gates = report.get("quality_gates", {})
 
     print("\n# AI CaseLibrary Data Quality & Health Audit Report")
     print(f"Generated at: {report['timestamp']}\n")
@@ -267,6 +313,14 @@ def print_markdown_report(report: dict[str, Any]) -> None:
     print(f"- Decision Outcome Coverage: **{meta['decision_outcome_coverage']:,}** ({meta['decision_outcome_pct']}%)")
     print(f"- Government Outcome Coverage: **{meta['gov_outcome_coverage']:,}** ({meta['gov_outcome_pct']}%)")
     print(f"- Citation Metrics Coverage: **{graph['cases_with_citation_metrics']:,}** ({graph['metrics_coverage_pct']}%)\n")
+    print("## 5. Quality Gates")
+    print(f"- Overall gate status: **{gates.get('status', 'not evaluated').upper()}**")
+    for check in gates.get("checks", []):
+        threshold = "baseline pending" if check["threshold"] is None else f"threshold {check['threshold']}"
+        print(f"- {check['name']}: **{check['status'].upper()}** (actual {check['actual']}, {threshold})")
+    if gates.get("failures"):
+        print(f"- Blocking failures: **{', '.join(gates['failures'])}**")
+    print()
 
 
 def main() -> None:
@@ -278,11 +332,17 @@ def main() -> None:
         default=None,
         help="Path to write JSON report file (e.g. data/eval/reports/data_quality.json)",
     )
+    parser.add_argument(
+        "--quality-gate",
+        action="store_true",
+        help="Exit with status 1 when a critical quality gate fails",
+    )
     args = parser.parse_args()
 
     db = SessionLocal()
     try:
         report = evaluate_corpus_quality(db)
+        report["quality_gates"] = evaluate_quality_gates(report)
     finally:
         db.close()
 
@@ -296,6 +356,9 @@ def main() -> None:
         print(json.dumps(report, indent=2))
     else:
         print_markdown_report(report)
+
+    if args.quality_gate and report["quality_gates"]["status"] == "fail":
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

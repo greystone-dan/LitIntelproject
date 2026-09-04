@@ -15,9 +15,9 @@ Do not run broad 300-case rebuild/re-ingest loops until citation-pass QA gates a
 
 Every ingested case is processed in this ordered pipeline:
 
-1. `metadata`
-2. `overall_chunks`
-3. `heading_chunks`
+1. `full_case`
+2. `heading_chunks`
+3. `metadata`
 4. `case_citations`
 5. `statutes`
 

@@ -1,5 +1,5 @@
 ---
-title: Product North Star and Future State
+title: Product Vision and Future Architecture
 ---
 
 # Product North Star and Future State

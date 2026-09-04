@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from scripts.chunk_cases import build_case_chunks, chunk_pending_cases, split_text
+from scripts.chunk_cases import build_case_chunk_layers, build_case_chunks, chunk_pending_cases, split_text
 
 
 class ScalarRows:
@@ -54,6 +54,36 @@ def test_build_case_chunks_falls_back_to_summary_and_hashes_text():
     assert rows[0].text_hash == sha256(b"summary text").hexdigest()
     assert rows[0].token_estimate == 3
     assert rows[0].chunk_label == "document"
+
+
+def test_build_case_chunk_layers_creates_full_section_and_paragraph_rows():
+    case = SimpleNamespace(
+        id=13,
+        full_text="OVERVIEW\n[1] First paragraph.\n[2] Second paragraph.",
+        summary=None,
+    )
+
+    rows = build_case_chunk_layers(case)
+
+    assert [row.chunk_set for row in rows] == ["full_case", "section", "paragraph", "paragraph", "paragraph"]
+    assert rows[0].chunk_label == "Full case"
+    assert rows[0].text == case.full_text
+    assert rows[1].chunk_label == "Overview"
+    assert [row.chunk_label for row in rows[2:]] == ["intro", "1", "2"]
+
+
+def test_build_case_chunk_layers_uses_confident_html_headings():
+    case = SimpleNamespace(
+        id=14,
+        full_text="Title\nI. BACKGROUND\n[1] First paragraph.\nII. ANALYSIS\n[2] Second paragraph.",
+        summary=None,
+        source_html="<article><h1>I. BACKGROUND</h1><p>[1] First paragraph.</p><h1>II. ANALYSIS</h1><p>[2] Second paragraph.</p></article>",
+    )
+
+    rows = build_case_chunk_layers(case)
+
+    assert [row.chunk_label for row in rows if row.chunk_set == "section"] == ["Intro Metadata", "Background", "Analysis"]
+    assert all(row.text in case.full_text for row in rows)
 
 
 def test_build_case_chunks_creates_only_intro_and_paragraph_chunks():
@@ -120,6 +150,6 @@ def test_chunk_pending_cases_commits_each_case_batch():
     cases_chunked, chunks_created = chunk_pending_cases(db, batch_size=2)
 
     assert cases_chunked == 2
-    assert chunks_created == 2
-    assert [row.case_id for row in db.added] == [4, 9]
+    assert chunks_created == 6
+    assert [row.case_id for row in db.added] == [4, 4, 4, 9, 9, 9]
     assert db.commits == 1

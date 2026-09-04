@@ -1,5 +1,5 @@
 ---
-title: CanLaw Staging And Model Helpers
+title: CanLaw Staging and Model Boundaries
 ---
 
 # CanLaw Staging And Model Helpers

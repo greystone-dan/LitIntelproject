@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from .citations import rebuild_citations_for_case, rebuild_statute_references_for_case
 from .database import Case, CaseChunk
 from .metadata import extract_case_metadata
-from scripts.chunk_cases import case_text, split_text, _build_section_chunks, _build_paragraph_chunks
+from scripts.chunk_cases import case_text, _build_section_chunks, _build_paragraph_chunks
 
 
 StageRunner = Callable[[Session, Case], int]
@@ -48,28 +48,24 @@ def _replace_chunk_set(session: Session, case_id: int, chunk_set: str, rows: lis
     return len(rows)
 
 
-def _run_overall_chunk_layer(session: Session, case: Case) -> int:
+def _run_full_case_chunk_layer(session: Session, case: Case) -> int:
     text = case_text(case)
     if not text.strip():
-        _replace_chunk_set(session, case.id, "legacy", [])
+        _replace_chunk_set(session, case.id, "full_case", [])
         return 0
 
-    rows: list[CaseChunk] = []
-    for index, chunk in enumerate(split_text(text)):
-        rows.append(
-            CaseChunk(
-                case_id=case.id,
-                chunk_set="legacy",
-                chunk_index=index,
-                chunk_label=None,
-                paragraph_start=None,
-                paragraph_end=None,
-                text=chunk,
-                text_hash=sha256(chunk.encode("utf-8")).hexdigest(),
-                token_estimate=max(1, len(chunk) // 4),
-            )
-        )
-    return _replace_chunk_set(session, case.id, "legacy", rows)
+    row = CaseChunk(
+        case_id=case.id,
+        chunk_set="full_case",
+        chunk_index=0,
+        chunk_label="Full case",
+        paragraph_start=None,
+        paragraph_end=None,
+        text=text,
+        text_hash=sha256(text.encode("utf-8")).hexdigest(),
+        token_estimate=max(1, len(text) // 4),
+    )
+    return _replace_chunk_set(session, case.id, "full_case", [row])
 
 
 def _run_heading_chunk_layer(session: Session, case: Case) -> int:
@@ -109,9 +105,9 @@ def _run_statute_layer(session: Session, case: Case) -> int:
 
 
 STAGES: tuple[tuple[str, StageRunner], ...] = (
-    ("metadata", _run_metadata_layer),
-    ("overall_chunks", _run_overall_chunk_layer),
+    ("full_case", _run_full_case_chunk_layer),
     ("heading_chunks", _run_heading_chunk_layer),
+    ("metadata", _run_metadata_layer),
     ("case_citations", _run_case_citation_layer),
     ("statutes", _run_statute_layer),
 )

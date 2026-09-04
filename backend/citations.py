@@ -286,6 +286,7 @@ class RawCitationMatch:
 	normalized_citation: str
 	offset_start: int
 	offset_end: int
+	pinpoint: str | None = None
 
 
 @dataclass(frozen=True)
@@ -602,6 +603,7 @@ def _raw_match(kind: str, citation_text: str, normalized_citation: str, start: i
 		normalized_citation=normalized_citation,
 		offset_start=start,
 		offset_end=end,
+		pinpoint=_extract_pinpoint_phrase(citation_text) if kind in CASE_CITATION_KINDS else None,
 	)
 
 
@@ -2070,14 +2072,26 @@ def _resolve_case_alias_to_case_id(session: Session, raw_match: RawCitationMatch
 	for term in sorted(terms, key=len, reverse=True):
 		pattern = f"%{term}%"
 		result = session.execute(
-			text(
-				"SELECT id FROM cases WHERE title ILIKE :pattern OR citation ILIKE :pattern "
-				"OR secondary_citation ILIKE :pattern ORDER BY id LIMIT 1"
+			select(Case.id).where(
+				Case.title.ilike(pattern)
+				| Case.citation.ilike(pattern)
+				| Case.secondary_citation.ilike(pattern)
 			),
 			{"pattern": pattern},
 		)
-		case_id = result.scalar_one_or_none() if result is not None else None
-		if case_id is None and hasattr(session, "scalar"):
+		case_ids: list[int] = []
+		if result is not None:
+			if hasattr(result, "scalars"):
+				case_ids = [int(case_id) for case_id in result.scalars().all()]
+			elif hasattr(result, "scalar_one_or_none"):
+				case_id = result.scalar_one_or_none()
+				if case_id is not None:
+					case_ids = [int(case_id)]
+		if len(set(case_ids)) > 1:
+			return None
+		if len(set(case_ids)) == 1:
+			return case_ids[0]
+		if result is None and hasattr(session, "scalar"):
 			case = session.scalar(
 				select(Case).prefix_with(f"/* alias lookup: {term.replace('*/', '')} */")
 				.where(
@@ -2085,12 +2099,9 @@ def _resolve_case_alias_to_case_id(session: Session, raw_match: RawCitationMatch
 					| Case.citation.ilike(pattern)
 					| Case.secondary_citation.ilike(pattern)
 				)
-				.order_by(Case.id)
-				.limit(1)
 			)
-			case_id = getattr(case, "id", case)
-		if case_id is not None:
-			return int(case_id)
+			if case is not None:
+				return int(getattr(case, "id", case))
 	return None
 
 

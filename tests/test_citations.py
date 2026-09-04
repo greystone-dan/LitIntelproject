@@ -46,6 +46,12 @@ def test_self_case_citation_filter_rejects_source_neutral_citation():
 	assert citations.is_self_case_citation(case, match)
 
 
+def test_raw_citation_match_positional_constructor_keeps_optional_pinpoint_default():
+	match = citations.RawCitationMatch("case", "2005 FC 1037", "2005 FC 1037", 0, 12)
+
+	assert match.pinpoint is None
+
+
 class FakeDatabase:
 	def __init__(self, rows=(), scalar_value=None):
 		self.rows = list(rows)
@@ -138,6 +144,37 @@ def test_extract_citations_from_text_resolves_short_form_alias_to_canonical_case
 	assert alias_rows[0].unresolved is False
 	assert alias_rows[0].offset_start != alias_rows[0].offset_end
 	assert any(row.citation_text == "R v Oakes at para 100" for row in rows)
+
+
+def test_resolve_case_alias_returns_none_for_duplicate_candidates():
+	class DuplicateAliasSession:
+		def __init__(self):
+			self.patterns = []
+
+		def execute(self, statement, params=None):
+			pattern = (params or {}).get("pattern", "")
+			self.patterns.append(pattern)
+			if "oakes" in pattern.lower() and "r v oakes" in pattern.lower():
+				return SimpleNamespace(scalars=lambda: SimpleNamespace(all=lambda: [77, 88, 77]))
+			return SimpleNamespace(scalars=lambda: SimpleNamespace(all=lambda: []))
+
+	raw_match = citations.RawCitationMatch(
+		"case_short", "R v Oakes at para 100", "R v Oakes at para 100", 0, 21
+	)
+	session = DuplicateAliasSession()
+
+	assert citations._resolve_case_alias_to_case_id(session, raw_match) is None
+	assert len(session.patterns) == 1
+
+
+def test_resolve_case_alias_returns_none_when_unresolved():
+	class UnresolvedAliasSession:
+		def execute(self, statement, params=None):
+			return SimpleNamespace(scalars=lambda: SimpleNamespace(all=lambda: []))
+
+	raw_match = citations.RawCitationMatch("case_short", "Unknown at para 10", "Unknown at para 10", 0, 18)
+
+	assert citations._resolve_case_alias_to_case_id(UnresolvedAliasSession(), raw_match) is None
 
 
 def test_rebuild_citations_for_case_keeps_alias_resolution_when_rerunning():
@@ -639,8 +676,10 @@ def test_extract_raw_citation_matches_supports_short_form_followups():
 	assert len(matches) == 2
 	assert matches[0].kind == "case"
 	assert matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1"
+	assert matches[0].pinpoint is None
 	assert matches[1].kind == "case_short"
 	assert matches[1].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
+	assert matches[1].pinpoint == "at para. 10"
 
 
 def test_extract_raw_citation_matches_preserves_full_case_trailing_pinpoint():
@@ -652,6 +691,29 @@ def test_extract_raw_citation_matches_preserves_full_case_trailing_pinpoint():
 	assert len(case_matches) == 1
 	assert case_matches[0].citation_text == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
 	assert case_matches[0].normalized_citation == "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1, at para. 10"
+	assert case_matches[0].pinpoint == "at para. 10"
+
+
+def test_extract_raw_citation_matches_populates_pinpoint_for_full_neutral_citation():
+	text = "The Court applied 2019 SCC 65 at para 100."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	neutral_matches = [match for match in matches if match.kind == "neutral"]
+	assert len(neutral_matches) == 1
+	assert neutral_matches[0].citation_text == "2019 SCC 65 at para 100"
+	assert neutral_matches[0].pinpoint == "at para. 100"
+
+
+def test_extract_raw_citation_matches_populates_pinpoint_for_short_form_range():
+	text = "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65. Vavilov at paras 10-12."
+
+	matches = citations.extract_raw_citation_matches(text)
+
+	short_matches = [match for match in matches if match.kind == "case_short"]
+	assert len(short_matches) == 1
+	assert short_matches[0].citation_text == "Vavilov at paras 10-12"
+	assert short_matches[0].pinpoint == "at paras. 10-12"
 
 
 def test_extract_raw_citation_matches_preserves_case_trailing_reporter_and_pinpoint():

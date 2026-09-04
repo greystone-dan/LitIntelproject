@@ -99,6 +99,7 @@ evidence; preserved behavior and easier ownership are.
 8. **Active UI**: connect `/data-explorer` to `docs/RESEARCH_UI_GUIDE.md`.
 9. **Federal Court source pipeline**: read [Federal Court Source Pipeline](fc-ingest-source-pipeline.sw.md) for `fc_ingest/` discovery, capture, staging, and bridge boundaries.
 10. **CanLaw staging**: read [CanLaw Staging And Model Helpers](canlaw-staging-and-models.sw.md) for local source configuration, staging, repair, and embedding boundaries.
+11. **Component catalog and directory map**: read [Repository Component Catalog and Directory Map](blank.dudtv9pz.sw.md) for a comprehensive directory, subsystem, and script inventory.
 
 ## Refactor Control Point
 

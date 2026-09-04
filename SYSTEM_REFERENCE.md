@@ -140,7 +140,11 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | Component | Responsibility |
 | --- | --- |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
-| `backend/routes.py` | API contract, query orchestration, generated research UIs, reader payloads, analytics, inventory, imports |
+| `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
+| `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
+| `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
+| `backend/analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines |
+| `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
 | `backend/database.py` | Environment loading, SQLAlchemy engine/session, ORM models, database initialization |
 | `backend/models.py` | Pydantic request/response contracts |
 | `backend/ingestion.py` | Canonical ingest, deduplication, source precedence, source HTML sanitization, provenance writes |
@@ -153,7 +157,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
 | `backend/case_reader.py` | Legacy standalone reader UI; not the primary active workflow |
 
-The active frontend is generated inline by `backend/routes.py`. This is functional but intentionally important architecture: CSS, HTML, and JavaScript changes share the API route module and must receive browser-level validation in addition to Python tests.
+The active frontend pages are built by modular templates in `backend/pages/` and served via `backend/routes.py`. This ensures CSS, HTML, and JavaScript changes are cleanly separated from API route definitions while maintaining full contract compatibility.
 
 The researcher-facing guide to tabs, filters, reader controls, highlights, linked authorities, analytics, and interpretation limits is [docs/RESEARCH_UI_GUIDE.md](docs/RESEARCH_UI_GUIDE.md).
 

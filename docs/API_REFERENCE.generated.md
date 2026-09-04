@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-02T17:28:58.228982+00:00
+Generated: 2026-09-04T00:57:32.282168+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 79 across 79 paths
+OpenAPI operations: 80 across 80 paths
 Hidden operations: 35 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1031,6 +1031,19 @@ Live Analysis Analyze
 **Request body (required)**
 
 - `multipart/form-data`: `Body_live_analysis_analyze_live_analysis_analyze_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/resolve`
+
+Live Analysis Resolve
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_resolve_live_analysis_resolve_post`
 
 **Responses**
 

@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-01T14:21:12.648856+00:00
-Tables: 19
+Generated: 2026-09-04T00:57:33.777752+00:00
+Tables: 21
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -91,6 +91,8 @@ erDiagram
         String(255) value
         FLOAT score
         TEXT evidence
+        Integer offset_start
+        Integer offset_end
         String(50) source
         String(100) taxonomy_version
         DATETIME created_at
@@ -231,6 +233,23 @@ erDiagram
         DATETIME created_at
         DATETIME updated_at
     }
+    legislation_documents {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        TEXT citation
+        TEXT source_url
+        TEXT local_path
+        String(64) source_hash
+    }
+    legislation_sections {
+        Integer id PK
+        Integer document_id  FK
+        String(100) section_number
+        TEXT label
+        TEXT text
+        Integer display_order
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -239,6 +258,9 @@ erDiagram
         Integer offset_end
         TEXT reference_text
         TEXT normalized_reference
+        String(100) instrument_key
+        String(255) pinpoint
+        TEXT legislation_url
         String(20) reference_kind
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
@@ -256,6 +278,7 @@ erDiagram
     cases ||--o{ citations : "target_case_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
+    legislation_documents ||--o{ legislation_sections : "document_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -272,7 +295,7 @@ erDiagram
 | `case_judge_profiles` | 5 | `id` |
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
-| `case_tags` | 9 | `id` |
+| `case_tags` | 11 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 11 | `id` |
@@ -282,7 +305,9 @@ erDiagram
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
-| `statute_references` | 8 | `id` |
+| `legislation_documents` | 7 | `id` |
+| `legislation_sections` | 6 | `id` |
+| `statute_references` | 11 | `id` |
 
 ## `a2aj_case_map`
 
@@ -490,6 +515,8 @@ erDiagram
 | `value` | `String(255)` | no | NOT NULL |
 | `score` | `FLOAT` | no | NOT NULL |
 | `evidence` | `TEXT` | no | NOT NULL |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
 | `source` | `String(50)` | no | NOT NULL |
 | `taxonomy_version` | `String(100)` | no | NOT NULL |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
@@ -504,7 +531,7 @@ erDiagram
 
 ### Unique Constraints
 
-- `uq_case_tag_taxonomy`: `case_id`, `category`, `value`, `taxonomy_version`
+- `uq_case_tag_taxonomy`: `case_id`, `category`, `value`, `offset_start`, `offset_end`, `taxonomy_version`
 
 ### Foreign Keys
 
@@ -781,6 +808,46 @@ erDiagram
 - `ix_judge_profiles_primary_court`: index on `primary_court`
 - `ix_judge_profiles_slug`: unique index on `slug`
 
+## `legislation_documents`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `citation` | `TEXT` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `local_path` | `TEXT` | yes | - |
+| `source_hash` | `String(64)` | yes | - |
+
+### Indexes
+
+- `ix_legislation_documents_instrument_key`: unique index on `instrument_key`
+
+## `legislation_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `document_id` | `Integer` | no | FK -> legislation_documents.id; NOT NULL |
+| `section_number` | `String(100)` | no | NOT NULL |
+| `label` | `TEXT` | yes | - |
+| `text` | `TEXT` | no | NOT NULL |
+| `display_order` | `Integer` | no | NOT NULL |
+
+### Indexes
+
+- `ix_legislation_sections_document_id`: index on `document_id`
+- `ix_legislation_sections_section_number`: index on `section_number`
+
+### Foreign Keys
+
+- `document_id` -> `legislation_documents.id`; on delete `CASCADE`
+
 ## `statute_references`
 
 ### Columns
@@ -794,12 +861,17 @@ erDiagram
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
 | `normalized_reference` | `TEXT` | yes | - |
+| `instrument_key` | `String(100)` | yes | - |
+| `pinpoint` | `String(255)` | yes | - |
+| `legislation_url` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
 
 - `ix_statute_references_chunk_id`: index on `chunk_id`
+- `ix_statute_references_instrument_key`: index on `instrument_key`
 - `ix_statute_references_normalized_reference`: index on `normalized_reference`
+- `ix_statute_references_pinpoint`: index on `pinpoint`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
 

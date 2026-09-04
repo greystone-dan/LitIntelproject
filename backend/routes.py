@@ -65,6 +65,8 @@ from .pages.data_explorer import data_explorer_page_html
 from .pages.judge_outcomes import judge_outcomes_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.prototype import prototype_page_html
+from .pages.quick_search import quick_search_page_html
+from .pages.research import research_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
@@ -100,35 +102,65 @@ from .database import (
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge
 from .ingestion import merge_case_record
-
-def _profile_reader_metadata(case: Case) -> dict[str, Any]:
-	raw_metadata = case.metadata_json
-	metadata: dict[str, Any] = raw_metadata if isinstance(raw_metadata, dict) else {}
-	reader_value = metadata.get("reader_extracted")
-	return reader_value if isinstance(reader_value, dict) else {}
-
-
-def _government_party(case: Case) -> str | None:
-	match = re.search(r"\bCanada\s+\(([^)]+)\)", case.title or "", flags=re.IGNORECASE)
-	return " ".join(match.group(1).split()) if match else None
-
-
-def _judge_outcome_counts(cases: list[Case]) -> dict[str, int | float | None]:
-	counts = {"government_wins": 0, "individual_wins": 0, "unclassified": 0}
-	for case in cases:
-		outcome = _profile_reader_metadata(case).get("government outcome")
-		if outcome == "won":
-			counts["government_wins"] += 1
-		elif outcome == "lost":
-			counts["individual_wins"] += 1
-		else:
-			counts["unclassified"] += 1
-	classified = counts["government_wins"] + counts["individual_wins"]
-	counts["classified"] = classified
-	counts["all_linked"] = len(cases)
-	counts["government_win_rate"] = round(counts["government_wins"] / classified * 100, 1) if classified else None
-	return counts
-from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
+from .analytics_service import (
+	FC_ACTIVITY_DISPLAY_START_YEAR,
+	FC_CITY_PROVINCE,
+	_ANALYTICS_FIELDS,
+	_analytics_case_order_sql,
+	_government_party,
+	_judge_outcome_counts,
+	_profile_reader_metadata,
+	fetch_about_stats,
+	fetch_analytics_search_case_detail,
+	fetch_analytics_search_cases,
+	fetch_analytics_search_ministers,
+	fetch_data_explorer_analytics,
+	fetch_fc_activity_analytics,
+	fetch_fc_activity_timeline,
+	fetch_fc_history_imm,
+	fetch_judge_outcomes,
+	fetch_judge_profile_by_slug,
+	fetch_judge_profiles,
+	fetch_outcomes_by_year,
+)
+from .reader_service import (
+	build_case_citation_pass,
+	build_case_citation_pass_detail,
+	build_case_reader_data,
+	get_case_metadata_pass as _get_case_metadata_pass_impl,
+	_build_metadata_pass_normalized_rows,
+	_build_reader_extracted_metadata,
+	_build_reader_inferred_tags,
+	_citation_pass_chunks,
+	_format_reader_html,
+	_is_irpa_irpr_reference,
+	_is_statute_like_label,
+	_legislation_url_for_reference,
+	_stored_case_citation_details,
+	_stored_statute_reference_details,
+)
+from .search_service import (
+	AI_ROLLOUT,
+	EMBEDDING_DIMENSIONS,
+	EMBEDDING_MODEL,
+	execute_grouped_chunk_search,
+	execute_search_cases,
+	execute_search_chunks,
+	execute_search_chunks_local,
+	_apply_case_filters,
+	_case_lexical_rank_expr,
+	_case_match_source,
+	_case_search_document,
+	_chunk_lexical_rank_expr,
+	_chunk_search_document,
+	_effective_search_mode,
+	_embed,
+	_env_bool,
+	_load_ai_rollout_flags,
+	_local_embedding_provider,
+	_party_filter_terms,
+	_validate_search_ranges,
+)
 from .models import (
 	CaseIngestRequest,
 	CaseMergeResponse,
@@ -194,65 +226,11 @@ from .models import (
 _data_explorer_page_html = data_explorer_page_html
 
 router = APIRouter(tags=["cases"])
-EMBEDDING_DIMENSIONS = 1536
-EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 PROTOTYPE_SET_NAME = "immigration_334_v1"
 
-_STATUTE_LIKE_RE = re.compile(r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE)
-
-
-def _is_statute_like_label(value: str | None) -> bool:
-	text = (value or "").strip()
-	return bool(_STATUTE_LIKE_RE.search(text))
 PROTOTYPE_IDS_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "prototype_case_ids_v1.csv"
 PROTOTYPE_EDGES_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "reports" / "prototype_v1_citation_edges.csv"
 FC_PRIORITY_CASE_MAP_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "fc_priority_seed_case_map.csv"
-FC_ACTIVITY_DISPLAY_START_YEAR = 2003
-FC_CITY_PROVINCE = {
-	"Calgary": "Alberta",
-	"Edmonton": "Alberta",
-	"Charlottetown": "Prince Edward Island",
-	"Fredericton": "New Brunswick",
-	"Saint John": "New Brunswick",
-	"Halifax": "Nova Scotia",
-	"Montr?al": "Quebec",
-	"Qu?bec": "Quebec",
-	"Ottawa": "Ontario",
-	"Toronto": "Ontario",
-	"Regina": "Saskatchewan",
-	"Saskatoon": "Saskatchewan",
-	"St. John's": "Newfoundland and Labrador",
-	"Vancouver": "British Columbia",
-	"Whitehorse": "Yukon",
-	"Winnipeg": "Manitoba",
-	"Yellowknife": "Northwest Territories",
-}
-
-
-def _is_irpa_irpr_reference(value: str | None) -> bool:
-	return bool(
-		re.search(
-			r"\b(?:IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations?)\b",
-			value or "",
-			re.IGNORECASE,
-		)
-	)
-
-
-def _legislation_url_for_reference(value: str | None) -> str | None:
-	"""Return the official Justice Laws section page for an IRPA/IRPR reference."""
-	text = value or ""
-	if not _is_irpa_irpr_reference(text):
-		return None
-	section = re.search(r"\b(?:s|ss)\.?\s*(\d{1,3}(?:\.\d+)?)", text, re.IGNORECASE)
-	if section is None:
-		section = re.search(r"\bsections?\s*(\d{1,3}(?:\.\d+)?)", text, re.IGNORECASE)
-	if section is None:
-		return None
-	section_number = section.group(1)
-	if re.search(r"\b(?:IRPR|Immigration and Refugee Protection Regulations?)\b", text, re.IGNORECASE):
-		return f"https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-227/section-{section_number}.html"
-	return f"https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section_number}.html"
 
 
 @lru_cache(maxsize=4)
@@ -304,56 +282,6 @@ def _review_fc_priority_cases(db: Session, limit: int) -> list[dict[str, Any]]:
 		for case in ordered_rows
 	]
 
-
-def _env_bool(name: str) -> bool | None:
-	value = os.getenv(name)
-	if value is None:
-		return None
-	return value.strip().lower() in {"1", "true", "yes", "on"}
-
-
-def _load_ai_rollout_flags() -> dict[str, bool]:
-	flags = {
-		"semantic_enabled": True,
-		"hybrid_enabled": True,
-		"local_semantic_enabled": True,
-		"embed_on_ingest_enabled": True,
-	}
-
-	config_path = Path(__file__).resolve().parent.parent / "config.yaml"
-	if yaml is not None and config_path.exists():
-		try:
-			payload = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
-			rollout = ((payload.get("ai") or {}).get("rollout") or {})
-			for key in flags:
-				if key in rollout:
-					flags[key] = bool(rollout.get(key))
-		except Exception:
-			pass
-
-	overrides = {
-		"semantic_enabled": _env_bool("CASELIBRARY_SEMANTIC_ENABLED"),
-		"hybrid_enabled": _env_bool("CASELIBRARY_HYBRID_ENABLED"),
-		"local_semantic_enabled": _env_bool("CASELIBRARY_LOCAL_SEMANTIC_ENABLED"),
-		"embed_on_ingest_enabled": _env_bool("CASELIBRARY_EMBED_ON_INGEST_ENABLED"),
-	}
-	for key, value in overrides.items():
-		if value is not None:
-			flags[key] = value
-	return flags
-
-
-AI_ROLLOUT = _load_ai_rollout_flags()
-
-
-def _effective_search_mode(requested_mode: str) -> str:
-	if requested_mode == "semantic" and not AI_ROLLOUT["semantic_enabled"]:
-		return "metadata"
-	if requested_mode == "hybrid" and (
-		not AI_ROLLOUT["hybrid_enabled"] or not AI_ROLLOUT["semantic_enabled"]
-	):
-		return "metadata"
-	return requested_mode
 
 PROTOTYPE_TOPIC_PATTERNS: dict[str, tuple[str, ...]] = {
 	"refugee_protection": (
@@ -441,43 +369,7 @@ def _prototype_edges_count() -> int:
 
 @router.get("/analytics/outcomes-by-year", response_model=list[dict[str, Any]])
 def get_outcomes_by_year(db: Session = Depends(get_db)) -> list[dict[str, Any]]:
-	rows = db.execute(
-		sql_text(
-			"""
-			SELECT
-				EXTRACT(YEAR FROM date)::int AS year,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'won') AS government_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('allowed', 'granted', 'set_aside', 'remitted')) AS relief_decisions,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'decision outcome' IN ('dismissed', 'denied', 'refused')) AS dismissed_decisions
-			FROM cases
-			WHERE date IS NOT NULL
-			GROUP BY year
-			HAVING COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' IN ('won', 'lost')) > 0
-			ORDER BY year
-			"""
-		)
-	).mappings().all()
-	result: list[dict[str, Any]] = []
-	for row in rows:
-		government_wins = int(row["government_wins"] or 0)
-		individual_wins = int(row["individual_wins"] or 0)
-		relief_decisions = int(row["relief_decisions"] or 0)
-		dismissed_decisions = int(row["dismissed_decisions"] or 0)
-		classified = government_wins + individual_wins
-		result.append(
-			{
-				"year": int(row["year"]),
-				"government_wins": government_wins,
-				"individual_wins": individual_wins,
-				"classified": classified,
-				"relief_decisions": relief_decisions,
-				"dismissed_decisions": dismissed_decisions,
-				"government_win_rate": round(government_wins / classified * 100, 1),
-				"individual_win_rate": round(individual_wins / classified * 100, 1),
-			}
-		)
-	return result
+	return fetch_outcomes_by_year(db)
 
 def _prototype_edges() -> list[tuple[int, int, str]]:
 	if not PROTOTYPE_EDGES_CSV.exists():
@@ -525,32 +417,6 @@ def _case_topic_keywords(case: Case) -> list[str]:
 	return [topic for topic, score in scores.items() if score > 0]
 
 
-def _embed(text: str) -> list[float]:
-	api_key = os.getenv("OPENAI_API_KEY")
-	if not api_key:
-		raise HTTPException(
-			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="OPENAI_API_KEY is not configured",
-		)
-
-	try:
-		client = OpenAI(api_key=api_key)
-		response = client.embeddings.create(input=text, model=EMBEDDING_MODEL)
-	except OpenAIError as exc:
-		raise HTTPException(
-			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service is unavailable",
-		) from exc
-
-	embedding = response.data[0].embedding
-	if len(embedding) != EMBEDDING_DIMENSIONS:
-		raise HTTPException(
-			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service returned an unexpected vector size",
-		)
-	return embedding
-
-
 def _normalize_whitespace(value: str) -> str:
 	return " ".join((value or "").split()).strip()
 
@@ -579,441 +445,6 @@ def _extract_legal_citations(text: str | None) -> list[str]:
 			seen.add(normalized)
 			results.append(normalized)
 	return results
-
-
-def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
-	text_parts: list[str] = []
-	if case.full_text:
-		text_parts.append(case.full_text)
-	if case.summary:
-		text_parts.append(case.summary)
-	for chunk in chunks:
-		if chunk.text:
-			text_parts.append(chunk.text)
-	content = "\n".join(text_parts)
-	if not content.strip():
-		return []
-
-	catalog: list[tuple[str, str, str]] = [
-		("forum", "federal_court", r"\bFederal Court\b|\bFC\b"),
-		("forum", "rad", r"\bRAD\b|Refugee Appeal Division"),
-		("forum", "rpd", r"\bRPD\b|Refugee Protection Division"),
-		("forum", "iad", r"\bIAD\b|Immigration Appeal Division"),
-		("forum", "id", r"\bID\b|Immigration Division"),
-		("forum", "irb", r"\bIRB\b|Immigration and Refugee Board"),
-		("statute", "irpa", r"\b(?:IRPA|Immigration and Refugee Protection Act)\b"),
-		("statute", "irpr", r"\b(?:IRPR|Immigration and Refugee Protection Regulations?)\b"),
-		("issue", "procedural_fairness", r"procedural fairness|natural justice|right to be heard|fair hearing"),
-		("issue", "reasonableness", r"\breasonableness\b|unreasonable decision|reasonable decision"),
-		("issue", "standard_of_review", r"standard of review|palpable and overriding error|correctness standard"),
-		("issue", "credibility", r"\bcredibility\b|credible evidence|credibility finding"),
-		("issue", "jurisdiction", r"\bjurisdiction\b|jurisdictional error"),
-		("issue", "delay", r"\bdelay\b|unreasonable delay|mandamus"),
-		("issue", "detention", r"\bdetention\b|detained|detention review"),
-		("issue", "removal", r"\bremoval\b|removal order|pre-removal risk assessment|\bPRRA\b"),
-		("issue", "inadmissibility", r"inadmissib|security certificate|organized criminality|misrepresentation"),
-		("issue", "refugee_protection", r"refugee protection|Convention refugee|person in need of protection|\bclaimant\b"),
-		("issue", "humanitarian_compassionate", r"humanitarian and compassionate|\bH&C\b|\bH[.]\s*&\s*C[.]\b"),
-		("issue", "family_reunification", r"family reunification|family class|spousal sponsorship|sponsorship application"),
-		("issue", "temporary_residence", r"temporary resident|study permit|work permit|visitor visa|temporary foreign worker"),
-		("issue", "citizenship", r"\bcitizenship\b|citizenship application|citizenship revocation"),
-		("analysis", "ifa", r"\bIFA\b|internal flight alternative|alternative of internal flight"),
-		("analysis", "charter", r"\bCharter\b|Canadian Charter of Rights and Freedoms|section 7 of the Charter"),
-		("analysis", "statutory_interpretation", r"statutory interpretation|purposive interpretation|modern principle of interpretation"),
-		("analysis", "adr", r"\bADR\b|\bAdministrative\s+Deferral\s+of\s+Removal\b"),
-	]
-
-	tags: list[CaseReaderTagResponse] = []
-	seen_values: set[str] = set()
-	for category, value, pattern in catalog:
-		match = re.search(pattern, content, flags=re.IGNORECASE)
-		if match is None:
-			continue
-		key = f"{category}:{value}"
-		if key in seen_values:
-			continue
-		seen_values.add(key)
-		evidence = content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip()
-		tags.append(
-			CaseReaderTagResponse(
-				category=category,
-				value=value,
-				score=0.9,
-				evidence=evidence,
-				source="reader_keyword",
-				taxonomy_version="reader_v1",
-			)
-		)
-
-	section_hits: dict[str, str] = {}
-
-	def add_section_tag(tag_value: str, evidence: str) -> None:
-		if not tag_value or tag_value in section_hits:
-			return
-		section_hits[tag_value] = evidence
-
-	for match in re.finditer(r"\b(?:IRPA|IRPR)\s+(?:s\.|section)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)", content, flags=re.IGNORECASE):
-		section = _normalize_whitespace(match.group(1))
-		prefix = "irpr" if re.search(r"\bIRPR\b", match.group(0), flags=re.IGNORECASE) else "irpa"
-		add_section_tag(f"{prefix}_s_{section}", content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip())
-		if len(section_hits) >= 20:
-			break
-
-	for match in re.finditer(r"\b(?:ss?\.|sections?|subsections?|paragraphs?)\s*(\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*(?:\s*(?:to|-|and|or)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)*)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b", content, flags=re.IGNORECASE):
-		sections = match.group(1)
-		law = match.group(2)
-		prefix = "irpr" if re.search(r"\bIRPR\b", law, flags=re.IGNORECASE) else "charter" if re.search(r"\bCharter\b", law, flags=re.IGNORECASE) else "criminal_code" if re.search(r"\bCriminal Code\b", law, flags=re.IGNORECASE) else "irpa"
-		for section_match in re.finditer(r"\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", sections):
-			section = _normalize_whitespace(section_match.group(0))
-			add_section_tag(f"{prefix}_s_{section}", content[max(0, match.start() - 80): min(len(content), match.end() + 80)].strip())
-		if len(section_hits) >= 20:
-			break
-
-	for section, evidence in section_hits.items():
-		tags.append(
-			CaseReaderTagResponse(
-				category="statute_section",
-				value=section,
-				score=0.85,
-				evidence=evidence,
-				source="reader_keyword",
-				taxonomy_version="reader_v1",
-			)
-		)
-
-	return tags
-
-
-def _build_reader_extracted_metadata(
-	case: Case,
-	chunks: list[CaseChunk],
-	*,
-	include_canonical_fields: bool = True,
-) -> list[CaseReaderMetadataFieldResponse]:
-	text_parts: list[str] = []
-	if case.full_text:
-		text_parts.append(case.full_text)
-	if case.summary:
-		text_parts.append(case.summary)
-	for chunk in chunks[:2]:
-		if chunk.text:
-			text_parts.append(chunk.text)
-	content = "\n".join(text_parts)
-
-	rows: list[CaseReaderMetadataFieldResponse] = []
-	seen: set[tuple[str, str]] = set()
-
-	def add_row(key: str, value: str | None, evidence: str | None = None, source: str = "reader_extracted") -> None:
-		if value is None:
-			return
-		clean = _normalize_whitespace(value)
-		if not clean:
-			return
-		pair = (key, clean)
-		if pair in seen:
-			return
-		seen.add(pair)
-		rows.append(CaseReaderMetadataFieldResponse(key=key, value=clean, source=source, evidence=evidence))
-
-	if include_canonical_fields:
-		add_row("decision_date", str(case.date), source="canonical_case")
-		if hasattr(case.date, "day") and hasattr(case.date, "strftime"):
-			add_row("decision_date_written", f"{case.date.strftime('%B')} {case.date.day}, {case.date.strftime('%Y')}", source="canonical_case")
-
-	court = str(case.court or "")
-	court_type = "SC" if re.search(r"Supreme Court of Canada|\bSCC\b", court, flags=re.IGNORECASE) else "FCA" if re.search(r"Federal Court of Appeal|\bFCA\b", court, flags=re.IGNORECASE) else "FC" if re.search(r"Federal Court|\bFC\b", court, flags=re.IGNORECASE) else None
-	if court_type:
-		add_row("court_type", court_type, evidence=court, source="reader_derived")
-	case_number_match = re.search(r"\b(?:Docket|Case\s+number|File\s+number)\s*[:#-]?\s*([A-Z][A-Z0-9]{0,5}[- ]?\d{1,6}(?:[-/]\d{1,4})?|\d{1,6})\b", content, flags=re.IGNORECASE)
-	if case_number_match is not None:
-		case_number = _normalize_whitespace(case_number_match.group(1)).replace(" ", "-").upper()
-		add_row("case_number", case_number, evidence=case_number_match.group(0), source="reader_extracted")
-		add_row("docket", case_number, evidence=case_number_match.group(0), source="reader_extracted")
-
-	for match in re.finditer(r"\bIMM[- ]?\d{1,6}-\d{2}\b", content, flags=re.IGNORECASE):
-		add_row("imm_number", match.group(0).upper().replace(" ", "-"), evidence=match.group(0))
-
-	match = re.search(r"\b([A-Z][a-z]+,\s+[A-Z][A-Za-z ]+),\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}\b", content)
-	if match is not None:
-		add_row("location", match.group(1), evidence=match.group(0))
-
-	match = re.search(
-		r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+(?:19|20)\d{2}\b",
-		content,
-		flags=re.IGNORECASE,
-	)
-	if match is not None:
-		add_row("decision_date_written", match.group(0), evidence=match.group(0))
-
-	match = re.search(r"\bDate\s*[:\-]?\s*((?:19|20)\d{2}[-/](?:0[1-9]|1[0-2])[-/](?:0[1-9]|[12]\d|3[01]))", content, flags=re.IGNORECASE)
-	if match is not None:
-		add_row("decision_date_text", match.group(1).replace("/", "-"), evidence=match.group(0))
-
-	match = re.search(r"(The\s+Honourable[^\n\r]{0,100}?Justice\s+[A-Z][A-Za-z'\-]+)", content, flags=re.IGNORECASE)
-	if match is not None:
-		add_row("judge", match.group(1), evidence=match.group(0))
-
-	match = re.search(r"\bApplicants\s+and\s+(.{8,180}?)\s+Respondent\b", content, flags=re.IGNORECASE | re.DOTALL)
-	if match is None:
-		match = re.search(r"\band\s+(.{8,180}?)\s+Respondent\b", content, flags=re.IGNORECASE | re.DOTALL)
-	if match is not None:
-		candidate = _normalize_whitespace(match.group(1))
-		candidate = re.sub(r"^[^A-Za-z]+", "", candidate)
-		candidate = re.sub(r"[^A-Za-z)\]'.\- ]+$", "", candidate)
-		if candidate.isupper():
-			candidate = candidate.title()
-		add_row("respondent", candidate, evidence=_normalize_whitespace(match.group(0)))
-
-	minister_match = re.search(
-		r"\bThe\s+Minister\s+of\s+Citizenship\s+and\s+Immigration\b",
-		content,
-		flags=re.IGNORECASE,
-	)
-	if minister_match is not None:
-		add_row(
-			"respondent",
-			"The Minister of Citizenship and Immigration",
-			evidence=minister_match.group(0),
-		)
-
-	match = re.search(r"\bcitizens\s+of\s+([A-Z][A-Za-z'\- ]{2,60})\b", content, flags=re.IGNORECASE)
-	if match is not None:
-		add_row("country", match.group(1).title(), evidence=match.group(0))
-
-	preferred_order = {"imm_number": 0, "decision_date": 1, "decision_date_written": 2, "decision_date_text": 3, "location": 4, "judge": 5, "respondent": 6, "country": 7}
-	return sorted(rows, key=lambda row: (preferred_order.get(row.key, 99), row.key, row.value))
-
-
-def _build_metadata_pass_normalized_rows(case: Case, extracted: list[CaseReaderMetadataFieldResponse]) -> list[dict[str, str]]:
-	values = {row.key: row.value for row in extracted}
-	style = values.get("style_of_cause_text") or case.title
-	style = str(style or "").title()
-	style = re.sub(r"\s+V\.?\s+", " v. ", style, flags=re.IGNORECASE)
-	style = re.sub(r"\b(Of|And|The)\b", lambda match: match.group(1).lower() if match.group(1) in {"Of", "And"} else "The", style)
-	rows = [
-		{"key": "tribunal", "value": case.court or ""},
-		{"key": "court_type", "value": values.get("court_type", "")},
-		{"key": "case_number", "value": values.get("case_number", case.source_id or "")},
-		{"key": "style_of_cause", "value": style},
-	]
-	if values.get("respondent"):
-		respondent = re.sub(r"\b(Of|And|The)\b", lambda match: match.group(1).lower() if match.group(1) in {"Of", "And"} else "The", str(values["respondent"]).title())
-		rows.append({"key": "respondent", "value": respondent})
-	if getattr(case, "language", None):
-		rows.append({"key": "language", "value": str(case.language).lower()})
-	return [row for row in rows if row["value"]]
-
-
-def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:
-	case = _get_case_or_404(case_id, db)
-	chunks = list(db.scalars(select(CaseChunk).where(CaseChunk.case_id == case.id).order_by(CaseChunk.chunk_index)))
-	extracted = _build_reader_extracted_metadata(case, chunks, include_canonical_fields=False)
-	return {"case_id": case.id, "extracted": [row.model_dump() for row in extracted], "normalized_display": _build_metadata_pass_normalized_rows(case, extracted)}
-
-
-def _party_filter_terms(filters: list[str]) -> list[str]:
-	aliases = {
-		"Minister": [
-			"Minister",
-			"MPSEP",
-			"Minister of Public Safety",
-			"Minister of Public Safety and Emergency Preparedness",
-		],
-		"IRCC": [
-			"IRCC",
-			"Immigration, Refugees and Citizenship Canada",
-			"Citizenship and Immigration Canada",
-		],
-		"CBSA": [
-			"CBSA",
-			"Canada Border Services Agency",
-			"Border Services Agency",
-		],
-	}
-
-	terms: list[str] = []
-	seen: set[str] = set()
-	for filter_name in filters:
-		for term in aliases.get(filter_name, [filter_name]):
-			normalized = term.strip()
-			if normalized and normalized.lower() not in seen:
-				seen.add(normalized.lower())
-				terms.append(normalized)
-	return terms
-
-
-def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
-	if search.title_contains:
-		statement = statement.where(Case.title.ilike(f"%{search.title_contains}%"))
-	if search.court:
-		court_aliases = {
-			"FC": "Federal Court",
-			"FCA": "Federal Court of Appeal",
-			"SCC": "Supreme Court of Canada",
-		}
-		court_name = court_aliases.get(search.court.upper(), search.court)
-		statement = statement.where(Case.court.ilike(f"%{court_name}%"))
-	if search.jurisdiction:
-		statement = statement.where(Case.jurisdiction == search.jurisdiction)
-	if search.source_name_contains:
-		statement = statement.where(Case.source_name.ilike(f"%{search.source_name_contains}%"))
-	if search.source_url_contains:
-		statement = statement.where(Case.source_url.ilike(f"%{search.source_url_contains}%"))
-	if search.source_id_contains:
-		statement = statement.where(Case.source_id.ilike(f"%{search.source_id_contains}%"))
-	if search.dataset_version_contains:
-		statement = statement.where(Case.dataset_version.ilike(f"%{search.dataset_version_contains}%"))
-	if search.upstream_license_contains:
-		statement = statement.where(Case.upstream_license.ilike(f"%{search.upstream_license_contains}%"))
-	if search.secondary_citation_contains:
-		statement = statement.where(Case.secondary_citation.ilike(f"%{search.secondary_citation_contains}%"))
-	if search.party_filters:
-		searchable_document = _case_search_document()
-		party_terms = _party_filter_terms([party for party in search.party_filters if party])
-		party_clauses = [searchable_document.ilike(f"%{party}%") for party in party_terms]
-		if party_clauses:
-			statement = statement.where(or_(*party_clauses))
-	if search.source_type:
-		statement = statement.where(Case.source_type == search.source_type)
-	if search.language:
-		statement = statement.where(Case.language == search.language)
-	if search.processing_status:
-		statement = statement.where(Case.processing_status == search.processing_status)
-	for tag_filter in search.tag_filters or []:
-		category, _, value = tag_filter.partition(":")
-		statement = statement.where(
-			select(CaseTag.id)
-			.where(
-				CaseTag.case_id == Case.id,
-				CaseTag.category == category.strip(),
-				CaseTag.value == value.strip(),
-			)
-			.exists()
-		)
-	if search.date_from:
-		statement = statement.where(Case.date >= search.date_from)
-	if search.date_to:
-		statement = statement.where(Case.date <= search.date_to)
-	if search.scraped_from:
-		statement = statement.where(func.date(Case.scraped_at) >= search.scraped_from)
-	if search.scraped_to:
-		statement = statement.where(func.date(Case.scraped_at) <= search.scraped_to)
-	if search.citing_cases_min is not None:
-		statement = statement.where(func.coalesce(Case.citing_cases_count, 0) >= search.citing_cases_min)
-	if search.citing_cases_max is not None:
-		statement = statement.where(func.coalesce(Case.citing_cases_count, 0) <= search.citing_cases_max)
-	if search.cited_case:
-		cited_case_text = func.coalesce(func.cast(Case.cases_cited, Text), "")
-		statement = statement.where(cited_case_text.ilike(f"%{search.cited_case}%"))
-	if search.citation_contains:
-		needle = f"%{search.citation_contains}%"
-		statement = statement.where(
-			or_(
-				Case.citation.ilike(needle),
-				Case.secondary_citation.ilike(needle),
-			)
-		)
-	if search.cases_cited_contains:
-		cited_text = func.coalesce(func.cast(Case.cases_cited, Text), "")
-		statement = statement.where(cited_text.ilike(f"%{search.cases_cited_contains}%"))
-	if search.cases_citing_contains:
-		citing_text = func.coalesce(func.cast(Case.cases_citing, Text), "")
-		statement = statement.where(citing_text.ilike(f"%{search.cases_citing_contains}%"))
-	return statement
-
-
-def _validate_search_ranges(search: CaseSearchRequest) -> None:
-	if search.date_from and search.date_to and search.date_from > search.date_to:
-		raise HTTPException(status_code=422, detail="date_from must be on or before date_to")
-	if search.scraped_from and search.scraped_to and search.scraped_from > search.scraped_to:
-		raise HTTPException(status_code=422, detail="scraped_from must be on or before scraped_to")
-	if (
-		search.citing_cases_min is not None
-		and search.citing_cases_max is not None
-		and search.citing_cases_min > search.citing_cases_max
-	):
-		raise HTTPException(status_code=422, detail="citing_cases_min must be less than or equal to citing_cases_max")
-
-
-def _case_search_document() -> Any:
-	return func.concat_ws(
-		" ",
-		func.coalesce(Case.title, ""),
-		func.coalesce(Case.citation, ""),
-		func.coalesce(Case.secondary_citation, ""),
-		func.coalesce(Case.source_name, ""),
-		func.coalesce(Case.source_id, ""),
-		func.coalesce(Case.court, ""),
-		func.coalesce(Case.jurisdiction, ""),
-		func.coalesce(Case.summary, ""),
-		func.coalesce(Case.full_text, ""),
-		func.coalesce(func.cast(Case.cases_cited, Text), ""),
-		func.coalesce(func.cast(Case.cases_citing, Text), ""),
-		func.coalesce(func.cast(Case.metadata_json, Text), ""),
-	)
-
-
-def _case_match_source(case: Case, query: str, search_mode: str) -> str:
-	query_text = " ".join(query.lower().split())
-	if not query_text:
-		return "Metadata" if search_mode == "metadata" else "Mixed"
-
-	metadata_parts = [
-		getattr(case, "title", None),
-		getattr(case, "citation", None),
-		getattr(case, "secondary_citation", None),
-		getattr(case, "source_name", None),
-		getattr(case, "source_id", None),
-		getattr(case, "court", None),
-		getattr(case, "jurisdiction", None),
-		str(getattr(case, "metadata_json", None) or ""),
-		str(getattr(case, "cases_cited", None) or ""),
-		str(getattr(case, "cases_citing", None) or ""),
-	]
-	metadata_text = " ".join(part for part in metadata_parts if part).lower()
-	body_text = f"{getattr(case, 'summary', '') or ''} {getattr(case, 'full_text', '') or ''}".lower()
-
-	metadata_hits = sum(1 for token in query_text.split() if token in metadata_text)
-	body_hits = sum(1 for token in query_text.split() if token in body_text)
-	if metadata_hits > body_hits:
-		return "Metadata"
-	if body_hits > metadata_hits:
-		return "Full text"
-	if search_mode == "metadata":
-		return "Metadata"
-	if search_mode == "semantic":
-		return "Full text"
-	return "Mixed"
-
-
-def _chunk_search_document() -> Any:
-	return func.concat_ws(
-		" ",
-		func.coalesce(Case.title, ""),
-		func.coalesce(Case.citation, ""),
-		func.coalesce(Case.secondary_citation, ""),
-		func.coalesce(Case.source_name, ""),
-		func.coalesce(Case.source_id, ""),
-		func.coalesce(Case.court, ""),
-		func.coalesce(Case.jurisdiction, ""),
-		func.coalesce(Case.summary, ""),
-		func.coalesce(Case.full_text, ""),
-		func.coalesce(func.cast(Case.cases_cited, Text), ""),
-		func.coalesce(func.cast(Case.cases_citing, Text), ""),
-		func.coalesce(func.cast(Case.metadata_json, Text), ""),
-		func.coalesce(CaseChunk.text, ""),
-	)
-
-
-def _case_lexical_rank_expr(query: str):
-	# Prefer structured metadata first, then summaries/full text, using the simple parser for identifiers.
-	document = _case_search_document()
-	return func.ts_rank_cd(func.to_tsvector("simple", document), func.plainto_tsquery("simple", query))
-
-
-def _chunk_lexical_rank_expr(query: str):
-	document = _chunk_search_document()
-	return func.ts_rank_cd(func.to_tsvector("simple", document), func.plainto_tsquery("simple", query))
 
 
 def _build_case_source(case_data: CaseIngestRequest, case_id: int, *, is_primary: bool = True) -> CaseSource:
@@ -1277,321 +708,9 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 	}
 
 
-def _format_reader_html(source_html: str | None, citations: list[CaseReaderCitationResponse]) -> str | None:
-	if not source_html:
-		return None
-	soup = BeautifulSoup(source_html, "html.parser")
-	for citation in sorted(citations, key=lambda row: len(row.citation_text or row.normalized_citation or ""), reverse=True):
-		original_label = (citation.citation_text or citation.normalized_citation or "").strip()
-		labels = []
-		for value in (original_label, citation.normalized_citation, citation.target_title):
-			candidate = (value or "").strip()
-			if not candidate:
-				continue
-			candidate = re.sub(r"\]\s*at\s+paras?\b.*$", "", candidate, flags=re.IGNORECASE).strip(" []")
-			candidate = re.sub(r"\s+at\s+paras?\b.*$", "", candidate, flags=re.IGNORECASE).strip()
-			if candidate and candidate not in labels:
-				labels.append(candidate)
-		labels.sort(key=len, reverse=True)
-		if not labels:
-			continue
-		for node in list(soup.find_all(string=lambda value: isinstance(value, NavigableString))):
-			if node.parent.name in {"mark", "button"}:
-				continue
-			label = next((candidate for candidate in labels if candidate in str(node)), "")
-			if not label:
-				continue
-			before, after = str(node).split(label, 1)
-			replacement = []
-			if before:
-				replacement.append(NavigableString(before))
-			if citation.target_case_id:
-				wrapped = soup.new_tag("button", attrs={
-					"class": "citation-link",
-					"type": "button",
-					"data-target-case-id": str(citation.target_case_id),
-					"data-target-title": citation.target_title or "Linked case",
-					"data-authority": citation.target_chunk_text or citation.target_title or label,
-				})
-			else:
-				statute = citation.citation_kind == "statute" or _is_irpa_irpr_reference(original_label)
-				wrapped = soup.new_tag("mark", attrs={
-					"class": "chunk-statute" if statute else "chunk-citation",
-					"data-authority": citation.target_chunk_text or label,
-				})
-			wrapped.string = label
-			replacement.append(wrapped)
-			if after:
-				replacement.append(NavigableString(after))
-			node.replace_with(*replacement)
-			break
-	return soup.decode_contents()
-
-
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
-	case = _get_case_or_404(case_id, db)
-
-	sources = list(
-		db.scalars(
-			select(CaseSource)
-			.where(CaseSource.case_id == case_id)
-			.order_by(CaseSource.is_primary.desc(), CaseSource.id)
-		)
-	)
-	chunks = list(
-		db.scalars(
-			select(CaseChunk)
-			.where(CaseChunk.case_id == case_id, CaseChunk.chunk_set.in_(["paragraph", "section", "legacy"]))
-			.order_by(CaseChunk.chunk_index)
-		)
-	)
-	if any((chunk.chunk_set or "") == "paragraph" for chunk in chunks):
-		chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "paragraph"]
-	elif chunks:
-		if any((chunk.chunk_set or "") == "section" for chunk in chunks):
-			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "section"]
-		elif any((chunk.chunk_set or "") == "legacy" for chunk in chunks):
-			chunks = [chunk for chunk in chunks if (chunk.chunk_set or "") == "legacy"]
-	tags = list(
-		db.scalars(
-			select(CaseTag)
-			.where(CaseTag.case_id == case_id)
-			.order_by(CaseTag.category, CaseTag.value)
-		)
-	)
-	inferred_tags = _build_reader_inferred_tags(case, chunks)
-	extracted_metadata = _build_reader_extracted_metadata(case, chunks)
-
-	target_case = Case.__table__.alias("target_case")
-	citation_rows = db.execute(
-		select(
-			Citation,
-			target_case.c.id,
-			target_case.c.title,
-			target_case.c.citation,
-		)
-		.outerjoin(target_case, target_case.c.id == Citation.target_case_id)
-		.where(Citation.source_case_id == case_id)
-		.order_by(Citation.chunk_id, Citation.offset_start, Citation.id)
-	)
-	stored_citations = list(citation_rows)
-
-	def target_paragraph(citation: Citation) -> int | None:
-		match = re.search(
-			r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
-			citation.citation_text or citation.normalized_citation or "",
-			re.IGNORECASE,
-		)
-		return int(match.group(1)) if match is not None else None
-
-	target_pinpoints = {
-		(target_case_id, paragraph)
-		for citation, target_case_id, _, _ in stored_citations
-		if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
-	}
-	target_chunks: dict[tuple[int, int], str] = {}
-	if target_pinpoints:
-		target_case_ids = {target_case_id for target_case_id, _ in target_pinpoints}
-		for chunk in db.scalars(
-			select(CaseChunk).where(
-				CaseChunk.case_id.in_(target_case_ids),
-				CaseChunk.chunk_set == "paragraph",
-				CaseChunk.paragraph_start.is_not(None),
-				CaseChunk.paragraph_end.is_not(None),
-			)
-		):
-			chunk_start = chunk.paragraph_start
-			chunk_end = chunk.paragraph_end
-			if chunk_start is None or chunk_end is None:
-				continue
-			for target_case_id, paragraph in target_pinpoints:
-				if chunk.case_id == target_case_id and chunk_start <= paragraph <= chunk_end:
-					target_chunks[(target_case_id, paragraph)] = chunk.text
-					break
-
-	citation_responses = [
-		CaseReaderCitationResponse(
-			id=citation.id,
-			citation_kind=citation.citation_kind,
-			chunk_id=citation.chunk_id,
-			offset_start=citation.offset_start,
-			offset_end=citation.offset_end,
-			citation_text=citation.citation_text,
-			normalized_citation=citation.normalized_citation,
-			target_case_id=target_case_id,
-			target_title=target_title,
-			target_citation=target_citation,
-			target_paragraph=target_paragraph(citation),
-			target_chunk_text=target_chunks.get((target_case_id, paragraph))
-			if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
-			else None,
-			provenance=citation.provenance,
-			unresolved=citation.unresolved,
-		)
-		for citation, target_case_id, target_title, target_citation in stored_citations
-	]
-	citation_responses = [
-		row
-		for row in citation_responses
-		if not is_self_case_name_match(
-			case.title,
-			RawCitationMatch(
-				kind=row.citation_kind,
-				citation_text=row.citation_text or "",
-				normalized_citation=row.normalized_citation or "",
-				offset_start=row.offset_start or 0,
-				offset_end=row.offset_end or 0,
-			),
-		)
-	]
-
-	statute_rows = list(
-		db.scalars(
-			select(StatuteReference)
-			.where(StatuteReference.source_case_id == case_id)
-			.order_by(StatuteReference.chunk_id, StatuteReference.offset_start, StatuteReference.id)
-		)
-	)
-	statute_responses = [
-		CaseReaderCitationResponse(
-			id=-1000000 - reference.id,
-			citation_kind=reference.reference_kind,
-			chunk_id=reference.chunk_id,
-			offset_start=reference.offset_start,
-			offset_end=reference.offset_end,
-			citation_text=reference.reference_text,
-			normalized_citation=reference.normalized_reference,
-			instrument_key=reference.instrument_key,
-			pinpoint=reference.pinpoint,
-			provenance="statute_references",
-			legislation_url=reference.legislation_url or _legislation_url_for_reference(reference.normalized_reference or reference.reference_text),
-			unresolved=False,
-		)
-		for reference in statute_rows
-	]
-	citation_responses.extend(statute_responses)
-
-	selected_chunk_ids = {chunk.id for chunk in chunks if chunk.id is not None}
-	if selected_chunk_ids:
-		citation_responses = [
-			row
-			for row in citation_responses
-			if row.chunk_id is None or row.chunk_id in selected_chunk_ids
-		]
-
-	has_statute_like = any(
-		_is_statute_like_label(row.target_citation)
-		or _is_statute_like_label(row.normalized_citation)
-		or _is_statute_like_label(row.citation_text)
-		for row in citation_responses
-	)
-
-	chunk_ids_with_rows = {row.chunk_id for row in citation_responses if row.chunk_id in selected_chunk_ids}
-	if selected_chunk_ids:
-		seen_live: set[tuple[int, int, int, str]] = set()
-		for row in citation_responses:
-			if row.chunk_id is None or row.offset_start is None or row.offset_end is None:
-				continue
-			seen_live.add(
-				(
-					row.chunk_id,
-					int(row.offset_start),
-					int(row.offset_end),
-					str(row.normalized_citation or row.citation_text or "").strip().lower(),
-				)
-			)
-
-		next_live_id = -1
-		process_all_chunks = (not chunk_ids_with_rows) or (not has_statute_like)
-		for chunk in chunks:
-			if chunk.id is None:
-				continue
-			if not process_all_chunks and chunk.id in chunk_ids_with_rows:
-				# Existing rows are present for this chunk, but we still run extraction
-				# and only append rows that are truly missing from payload spans.
-				pass
-			chunk_text = chunk.text or ""
-			if not chunk_text.strip():
-				continue
-			for raw in extract_raw_citation_matches(chunk_text):
-				if raw.kind not in {"case", "case_short", "case_name", "neutral"}:
-					continue
-				if is_self_case_name_match(case.title, raw):
-					continue
-				normalized_key = str(raw.normalized_citation or raw.citation_text or "").strip().lower()
-				key = (chunk.id, raw.offset_start, raw.offset_end, normalized_key)
-				if key in seen_live:
-					continue
-				seen_live.add(key)
-				citation_responses.append(
-					CaseReaderCitationResponse(
-						id=next_live_id,
-						citation_kind=raw.kind,
-						chunk_id=chunk.id,
-						offset_start=raw.offset_start,
-						offset_end=raw.offset_end,
-						citation_text=raw.citation_text,
-						normalized_citation=raw.normalized_citation,
-						target_case_id=None,
-						target_title=None,
-						target_citation=None,
-						provenance="reader_live_extract",
-						unresolved=True,
-					)
-				)
-				next_live_id -= 1
-			for raw in extract_statute_reference_matches(chunk_text):
-				normalized_key = str(raw.normalized_citation or raw.citation_text or "").strip().lower()
-				key = (chunk.id, raw.offset_start, raw.offset_end, normalized_key)
-				if key in seen_live:
-					continue
-				seen_live.add(key)
-				citation_responses.append(
-					CaseReaderCitationResponse(
-						id=next_live_id,
-						citation_kind=raw.kind,
-						chunk_id=chunk.id,
-						offset_start=raw.offset_start,
-						offset_end=raw.offset_end,
-						citation_text=raw.citation_text,
-						normalized_citation=raw.normalized_citation,
-						instrument_key=(parsed.instrument_key if (parsed := parse_legislation_citation(raw.normalized_citation or raw.citation_text)) else None),
-						pinpoint=(parsed.pinpoint if parsed else None),
-						provenance="reader_live_statute_extract",
-						legislation_url=(parsed.legislation_url if parsed else _legislation_url_for_reference(raw.normalized_citation or raw.citation_text)),
-						unresolved=False,
-					)
-				)
-				next_live_id -= 1
-
-	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
-	formatted_html = _format_reader_html(case.source_html, citation_responses)
-
-	return CaseReaderDataResponse(
-		case=CaseResponse.model_validate(case, from_attributes=True),
-		sources=[CaseSourceResponse.model_validate(row, from_attributes=True) for row in sources],
-		chunks=[
-			CaseReaderChunkResponse(
-				id=chunk.id,
-				chunk_set=chunk.chunk_set,
-				chunk_index=chunk.chunk_index,
-				chunk_label=chunk.chunk_label,
-				paragraph_start=chunk.paragraph_start,
-				paragraph_end=chunk.paragraph_end,
-				text=chunk.text or "",
-				text_length=len(chunk.text or ""),
-				token_estimate=int(chunk.token_estimate or 0),
-				created_at=chunk.created_at,
-			)
-			for chunk in chunks
-		],
-		citations=citation_responses,
-		tags=[CaseReaderTagResponse.model_validate(tag, from_attributes=True) for tag in tags] + inferred_tags,
-		extracted_metadata=extracted_metadata,
-		metrics=CitationMetricsResponse.model_validate(metrics, from_attributes=True) if metrics is not None else None,
-		formatted_html=formatted_html,
-	)
+	return build_case_reader_data(case_id, db)
 
 
 @router.get("/api/legislation/cases", response_model=list[LegislationCaseOccurrenceResponse])
@@ -1840,58 +959,7 @@ def get_judge_outcomes(
 	min_decisions: int = 0,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	limit = max(1, min(limit, 100))
-	min_decisions = max(0, min(min_decisions, 10_000))
-	limit_clause = "" if min_decisions else "LIMIT :limit"
-	rows = db.execute(
-		sql_text(
-			f"""
-			SELECT
-				metadata_json->'reader_extracted'->>'judge' AS judge,
-				COUNT(*) AS decisions,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'won') AS government_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins
-			FROM cases
-			WHERE COALESCE(metadata_json->'reader_extracted'->>'judge', '') <> ''
-			GROUP BY judge
-			HAVING COUNT(*) > :min_decisions
-			ORDER BY decisions DESC, judge ASC
-			{limit_clause}
-			"""
-		),
-		{"limit": limit, "min_decisions": min_decisions},
-	).mappings().all()
-	judges = []
-	for row in rows:
-		decisions = int(row["decisions"] or 0)
-		government_wins = int(row["government_wins"] or 0)
-		individual_wins = int(row["individual_wins"] or 0)
-		judges.append(
-			{
-				"judge": str(row["judge"]),
-				"decisions": decisions,
-				"government_wins": government_wins,
-				"individual_wins": individual_wins,
-				"unclassified": decisions - government_wins - individual_wins,
-			}
-		)
-	return {
-		"judges": judges,
-		"totals": {
-			"decisions": sum(row["decisions"] for row in judges),
-			"classified": sum(row["government_wins"] + row["individual_wins"] for row in judges),
-		},
-	}
-
-
-_ANALYTICS_FIELDS = {
-	"judge": ("Judge", "metadata_json->'reader_extracted'->>'judge'"),
-	"court": ("Court", "court"),
-	"decision_year": ("Decision year", "SUBSTRING(COALESCE(metadata_json->'reader_extracted'->>'date', '') FROM 1 FOR 4)"),
-	"decision_outcome": ("Decision outcome", "metadata_json->'reader_extracted'->>'decision outcome'"),
-	"government_role": ("Government role", "metadata_json->'reader_extracted'->>'government role'"),
-	"government_outcome": ("Government outcome", "metadata_json->'reader_extracted'->>'government outcome'"),
-}
+	return fetch_judge_outcomes(db, limit=limit, min_decisions=min_decisions)
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
@@ -1906,143 +974,23 @@ def get_data_explorer(
 	limit: int = 50,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	if group_by not in _ANALYTICS_FIELDS or split_by not in _ANALYTICS_FIELDS:
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Unsupported analytics field")
-	limit = max(1, min(limit, 100))
-	group_label, group_expression = _ANALYTICS_FIELDS[group_by]
-	split_label, split_expression = _ANALYTICS_FIELDS[split_by]
-	query = sql_text(
-		f"""
-		WITH grouped AS (
-			SELECT
-				COALESCE(NULLIF({group_expression}, ''), 'Unknown') AS group_value,
-				COALESCE(NULLIF({split_expression}, ''), 'Unknown') AS split_value,
-				COUNT(*) AS decisions
-			FROM cases
-			GROUP BY group_value, split_value
-		), totals AS (
-			SELECT group_value, SUM(decisions) AS total_decisions
-			FROM grouped
-			GROUP BY group_value
-			ORDER BY total_decisions DESC, group_value ASC
-			LIMIT :limit
-		)
-		SELECT grouped.group_value, grouped.split_value, grouped.decisions, totals.total_decisions
-		FROM grouped JOIN totals USING (group_value)
-		ORDER BY totals.total_decisions DESC, grouped.group_value ASC, grouped.decisions DESC, grouped.split_value ASC
-		"""
-	)
-	rows = db.execute(query, {"limit": limit}).mappings().all()
-	groups: dict[str, dict[str, Any]] = {}
-	split_values: list[str] = []
-	for row in rows:
-		group_value = str(row["group_value"])
-		split_value = str(row["split_value"])
-		if split_value not in split_values:
-			split_values.append(split_value)
-		group = groups.setdefault(
-			group_value,
-			{"value": group_value, "decisions": int(row["total_decisions"]), "breakdown": {}},
-		)
-		group["breakdown"][split_value] = int(row["decisions"])
-	result_groups = list(groups.values())
-	return {
-		"fields": [{"key": key, "label": label} for key, (label, _) in _ANALYTICS_FIELDS.items()],
-		"group_by": {"key": group_by, "label": group_label},
-		"split_by": {"key": split_by, "label": split_label},
-		"split_values": split_values,
-		"groups": result_groups,
-		"totals": {"decisions": sum(group["decisions"] for group in result_groups)},
-	}
+	return fetch_data_explorer_analytics(db, group_by=group_by, split_by=split_by, limit=limit)
 
 
 @router.get("/api/about/stats", response_model=dict[str, int], include_in_schema=False)
 def about_stats(db: Session = Depends(get_db)) -> dict[str, int]:
-	return {
-		"cases": int(db.scalar(select(func.count(Case.id))) or 0),
-		"case_chunks": int(db.scalar(select(func.count(CaseChunk.id))) or 0),
-		"case_sources": int(db.scalar(select(func.count(CaseSource.id))) or 0),
-		"ingestion_runs": int(db.scalar(select(func.count(IngestionRun.id))) or 0),
-		"citations": int(db.scalar(select(func.count(Citation.id))) or 0),
-		"linked_citations": int(
-			db.scalar(select(func.count(Citation.id)).where(Citation.target_case_id.is_not(None))) or 0
-		),
-		"judge_profiles": int(db.scalar(select(func.count(JudgeProfile.id))) or 0),
-		"case_judge_profiles": int(db.scalar(select(func.count(CaseJudgeProfile.id))) or 0),
-		"citation_metrics": int(db.scalar(select(func.count(CitationMetrics.case_id))) or 0),
-		"statute_references": int(db.scalar(select(func.count(StatuteReference.id))) or 0),
-		"case_tags": int(db.scalar(select(func.count(CaseTag.id))) or 0),
-		"case_chunk_embeddings": int(db.scalar(select(func.count(CaseChunkEmbedding.id))) or 0),
-		"fc_activity_cases": int(db.scalar(select(func.count(FCActivityCase.id))) or 0),
-		"fc_activity_documents": int(db.scalar(select(func.count(FCActivityDocument.id))) or 0),
-		"fc_procedural_history": int(db.scalar(select(func.count(FCProceduralHistory.id))) or 0),
-	}
+	return fetch_about_stats(db)
 
 
 @router.get("/api/fc-history", response_model=dict[str, Any], include_in_schema=False)
 def fetch_fc_history(imm: str, db: Session = Depends(get_db)) -> dict[str, Any]:
-	normalized = (imm or "").strip().upper()
-	if not normalized or not re.fullmatch(r"IMM-\d{1,6}-\d{2,4}", normalized, flags=re.IGNORECASE):
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Provide an IMM number like IMM-1234-19.")
-	try:
-		with httpx.Client(headers=HEADERS, follow_redirects=True) as client:
-			result = process_imm(client, normalized)
-		upsert_result(db, result)
-		return result
-	except Exception as exc:  # pragma: no cover - network-limited runtime path
-		raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=f"Could not fetch FC history: {exc}")
+	return fetch_fc_history_imm(db, imm)
 
 
 @router.get("/api/fc-activity/timeline", response_model=dict[str, Any], include_in_schema=False)
 def fc_activity_timeline(city: str = "", db: Session = Depends(get_db)) -> dict[str, Any]:
 	"""Return yearly FC activity counts by province and total, optionally focused on a city."""
-	selected_city = city.strip()
-	rows = db.execute(
-		select(
-		FCActivityCase.year.label("year"),
-		FCActivityCase.city_filed.label("city"),
-		func.count(FCActivityCase.id).label("count"),
-		)
-		.where(
-			FCActivityCase.year.is_not(None),
-			FCActivityCase.year >= FC_ACTIVITY_DISPLAY_START_YEAR,
-		)
-		.group_by(FCActivityCase.year, FCActivityCase.city_filed)
-		.order_by(FCActivityCase.year, FCActivityCase.city_filed)
-	).all()
-	cities = db.scalars(
-		select(FCActivityCase.city_filed)
-		.where(FCActivityCase.city_filed.is_not(None), FCActivityCase.city_filed != "")
-		.distinct()
-		.order_by(FCActivityCase.city_filed)
-	).all()
-	city_counts: dict[str, dict[int, int]] = {}
-	province_counts: dict[str, dict[int, int]] = {}
-	total_counts: dict[int, int] = {}
-	for row in rows:
-		year = int(row.year)
-		location = str(row.city or "Unknown")
-		province = FC_CITY_PROVINCE.get(location, "Unknown")
-		city_counts.setdefault(location, {})[year] = int(row.count)
-		province_counts.setdefault(province, {})[year] = province_counts.setdefault(province, {}).get(year, 0) + int(row.count)
-		total_counts[year] = total_counts.get(year, 0) + int(row.count)
-	years = sorted(total_counts)
-	def timeline(counts: dict[int, int]) -> list[dict[str, int]]:
-		return [{"year": year, "count": counts.get(year, 0)} for year in years]
-	province_rows = [
-		{"province": province, "rows": timeline(province_counts[province])}
-		for province in sorted(province_counts)
-	]
-	selected_rows = timeline(city_counts.get(selected_city, {})) if selected_city else timeline(total_counts)
-	return {
-		"city": selected_city or None,
-		"cities": list(cities),
-		"city_provinces": FC_CITY_PROVINCE,
-		"total": sum(total_counts.values()) if not selected_city else sum(row["count"] for row in selected_rows),
-		"rows": selected_rows,
-		"total_rows": timeline(total_counts),
-		"province_rows": province_rows,
-	}
+	return fetch_fc_activity_timeline(db, city=city)
 
 
 @router.get("/api/fc-activity/analytics", response_model=dict[str, Any], include_in_schema=False)
@@ -2054,42 +1002,14 @@ def fc_activity_analytics(
 	city: str = "",
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	allowed_x = {"year", "city", "case_class", "track"}
-	allowed_groups = {"full_history_resolution", "closing_status", "leave_context", "application_type"}
-	if x not in allowed_x or group_by not in allowed_groups:
-		raise HTTPException(status_code=422, detail="Unsupported FC analytics dimension")
-	group_expression = (FCActivityClassification.classification_json["challenged_decision"]["application_type"] if group_by == "application_type" else FCActivityClassification.classification_json[group_by]["status"]).as_string()
-	statement = select(
-		FCActivityClassification.year,
-		FCActivityClassification.city_filed,
-		FCActivityClassification.case_class,
-		FCActivityClassification.track,
-		group_expression.label("group_value"),
-	).select_from(FCActivityClassification)
-	if year_from is not None:
-		statement = statement.where(FCActivityClassification.year >= year_from)
-	if year_to is not None:
-		statement = statement.where(FCActivityClassification.year <= year_to)
-	if city.strip():
-		statement = statement.where(FCActivityClassification.city_filed == city.strip())
-	rows = db.execute(statement).all()
-	labels: dict[str, str] = {"year": "Year filed", "city": "City filed", "case_class": "Case class", "track": "Track"}
-	counts: dict[tuple[str, str], int] = {}
-	for row in rows:
-		value = getattr(row, x) if x != "year" else row.year
-		x_value = str(value if value is not None and str(value).strip() else "Unknown")
-		group_value = str(row.group_value or "Unknown")
-		counts[(x_value, group_value)] = counts.get((x_value, group_value), 0) + 1
-	x_values = sorted({key[0] for key in counts}, key=lambda value: (int(value) if value.isdigit() else value))[:60]
-	group_values = sorted({key[1] for key in counts})
-	return {
-		"x": x,
-		"x_label": labels[x],
-		"group_by": group_by,
-		"total": sum(counts.values()),
-		"x_values": x_values,
-		"groups": [{"label": group, "values": [counts.get((x_value, group), 0) for x_value in x_values]} for group in group_values],
-	}
+	return fetch_fc_activity_analytics(
+		db,
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+	)
 
 
 @router.get("/api/citation-intelligence/search", response_model=list[dict[str, Any]], include_in_schema=False)
@@ -2198,27 +1118,7 @@ def citation_intelligence_table(
 
 @router.get("/api/judge-profiles", response_model=list[dict[str, Any]], include_in_schema=False)
 def judge_profiles(q: str = "", limit: int = 50, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
-	term = q.strip()
-	if term:
-		pattern = f"%{term}%"
-		statement = select(JudgeProfile).where(
-			or_(JudgeProfile.display_name.ilike(pattern), JudgeProfile.normalized_name.ilike(pattern))
-		).order_by(JudgeProfile.display_name)
-		rows = list(db.scalars(statement))
-		ordered = sorted(rows, key=lambda row: (-len(row.case_links), row.display_name.lower()))[: max(1, min(100, limit))]
-	else:
-		rows = list(db.scalars(select(JudgeProfile)))
-		ordered = sorted(rows, key=lambda row: (-len(row.case_links), row.display_name.lower()))[: max(1, min(100, limit))]
-	return [
-		{
-			"slug": row.slug,
-			"display_name": row.display_name,
-			"primary_court": row.primary_court,
-			"aliases": row.aliases or [],
-			"decision_count": len(row.case_links),
-		}
-		for row in ordered
-	]
+	return fetch_judge_profiles(db, q=q, limit=limit)
 
 
 @router.get("/api/judge-profiles/{slug}", response_model=dict[str, Any], include_in_schema=False)
@@ -2227,54 +1127,7 @@ def judge_profile(
 	minister: list[str] | None = Query(default=None),
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	profile = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == slug))
-	if profile is None:
-		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Judge profile not found")
-	all_cases = list({case.id: case for link in profile.case_links if (case := link.case) is not None}.values())
-	minister_filters = [" ".join(value.split()) for value in (minister or []) if value.strip()]
-	minister_filter_keys = {value.casefold() for value in minister_filters}
-	if minister_filter_keys:
-		filtered_cases = [case for case in all_cases if _government_party(case) and _government_party(case).casefold() in minister_filter_keys]
-	else:
-		filtered_cases = all_cases
-	outcomes = _judge_outcome_counts(filtered_cases)
-	years: dict[str, int] = {}
-	for case in filtered_cases:
-		if case.date:
-			year = str(case.date)[:4]
-			years[year] = years.get(year, 0) + 1
-	return {
-		"profile": {
-			"slug": profile.slug,
-			"display_name": profile.display_name,
-			"primary_court": profile.primary_court,
-			"aliases": profile.aliases or [],
-		},
-		"filter": {
-			"ministers": minister_filters,
-			"available_ministers": sorted({_government_party(case) for case in all_cases if _government_party(case)}, key=str.casefold),
-		},
-		"outcomes": outcomes,
-		"yearly_decisions": [
-			{"year": year, "decisions": decisions}
-			for year, decisions in sorted(years.items())
-		],
-		"decisions": [
-			{
-				"case_id": case.id,
-				"title": case.title,
-				"citation": case.citation,
-				"court": case.court,
-				"date": case.date,
-				"government_party": _government_party(case),
-				"government_role": _profile_reader_metadata(case).get("government role"),
-				"government_outcome": _profile_reader_metadata(case).get("government outcome"),
-				"decision_outcome": _profile_reader_metadata(case).get("decision outcome"),
-				"case_type": _profile_reader_metadata(case).get("case type"),
-			}
-			for case in sorted(filtered_cases, key=lambda item: item.date or "", reverse=True)
-		],
-	}
+	return fetch_judge_profile_by_slug(db, slug, ministers=minister)
 
 
 @router.get("/about", include_in_schema=False)
@@ -2302,47 +1155,6 @@ def judge_profile_page(slug: str) -> RedirectResponse:
 	return RedirectResponse(url=f"/data-explorer?tab=judge-profile&judge={slug}", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
 
 
-def _analytics_case_order_sql(
-	query: str,
-	sort_by: str,
-	*,
-	minister_expression: str = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')",
-	search_full_text: bool = False,
-) -> tuple[str, dict[str, Any]]:
-	query = " ".join(query.split())
-	params: dict[str, Any] = {}
-	if query:
-		params["query_exact"] = query
-		params["query_like"] = f"%{query}%"
-		params["query_exact_like"] = f"%{query}%"
-		ranking = """
-			CASE
-				WHEN LOWER(COALESCE(c.title, '')) LIKE LOWER(:query_exact_like) THEN 1000
-				WHEN LOWER(COALESCE(c.citation, '')) LIKE LOWER(:query_exact_like) THEN 900
-				WHEN LOWER(COALESCE(c.title, '')) = LOWER(:query_exact) THEN 850
-				WHEN LOWER(COALESCE(c.citation, '')) = LOWER(:query_exact) THEN 800
-		"""
-		if search_full_text:
-			ranking += """
-				WHEN LOWER(COALESCE(c.full_text, '')) LIKE LOWER(:query_like) THEN 700
-				WHEN LOWER(COALESCE(c.summary, '')) LIKE LOWER(:query_like) THEN 600
-			"""
-		ranking += """
-				ELSE 0
-			END DESC,
-			c.date DESC NULLS LAST,
-			c.id DESC
-			"""
-		return ranking, params
-	if sort_by == "newest":
-		return ("c.date DESC NULLS LAST, c.id DESC", params)
-	if sort_by == "oldest":
-		return ("c.date ASC NULLS LAST, c.id ASC", params)
-	if sort_by == "minister":
-		return (f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC", params)
-	return ("c.date DESC NULLS LAST, c.id DESC", params)
-
-
 @router.get("/analytics/search/cases", response_model=dict[str, Any])
 def search_analytics_cases(
 	query: str = "",
@@ -2359,221 +1171,41 @@ def search_analytics_cases(
 	offset: int = 0,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	limit = max(1, min(limit, 100))
-	offset = max(0, offset)
-	filters = ["TRUE"]
-	params: dict[str, Any] = {"limit": limit, "offset": offset}
-	query = " ".join(query.split())
-	cites = " ".join(cites.split())
-	minister = " ".join(minister.split())
-	judge = " ".join(judge.split())
-	court = " ".join(court.split())
-	year = "".join(character for character in year if character.isdigit())[:4]
-	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
-	if query:
-		params["query"] = f"%{query}%"
-		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
-		if search_full_text:
-			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
-		filters.append(f"({query_fields})")
-	if cites:
-		params["cites"] = f"%{cites}%"
-		filters.append(
-			"EXISTS (SELECT 1 FROM citations cited WHERE cited.source_case_id = c.id "
-			"AND (cited.citation_text ILIKE :cites OR cited.normalized_citation ILIKE :cites))"
-		)
-	if government_outcome in {"won", "lost"}:
-		params["government_outcome"] = government_outcome
-		filters.append("c.metadata_json->'reader_extracted'->>'government outcome' = :government_outcome")
-	if decision_outcome in {"dismissed", "allowed", "granted"}:
-		params["decision_outcome"] = decision_outcome
-		filters.append("c.metadata_json->'reader_extracted'->>'decision outcome' = :decision_outcome")
-	if minister:
-		params["minister"] = f"%{minister}%"
-		filters.append(f"{minister_expression} ILIKE :minister")
-	if judge:
-		params["judge"] = f"%{judge}%"
-		filters.append("c.metadata_json->'reader_extracted'->>'judge' ILIKE :judge")
-	if court:
-		params["court"] = f"%{court}%"
-		filters.append("c.court ILIKE :court")
-	if year:
-		params["year"] = f"{year}%"
-		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
-	where_clause = " AND ".join(filters)
-	citation_count = (
-		"(SELECT COUNT(*) FROM citations cited WHERE cited.source_case_id = c.id "
-		"AND (cited.citation_text ILIKE :cites OR cited.normalized_citation ILIKE :cites))"
-		if cites else "0"
+	return fetch_analytics_search_cases(
+		db,
+		query=query,
+		cites=cites,
+		government_outcome=government_outcome,
+		decision_outcome=decision_outcome,
+		minister=minister,
+		judge=judge,
+		court=court,
+		year=year,
+		search_full_text=search_full_text,
+		sort_by=sort_by,
+		limit=limit,
+		offset=offset,
 	)
-	citation_mentions = "(SELECT COUNT(*) FROM citations cited WHERE cited.source_case_id = c.id)"
-	unique_cited_authorities = (
-		"(SELECT COUNT(DISTINCT COALESCE(NULLIF(cited.normalized_citation, ''), cited.citation_text)) "
-		"FROM citations cited WHERE cited.source_case_id = c.id)"
-	)
-	resolved_target_cases = (
-		"(SELECT COUNT(DISTINCT cited.target_case_id) FROM citations cited "
-		"WHERE cited.source_case_id = c.id AND cited.target_case_id IS NOT NULL)"
-	)
-	default_sort = (
-		"matching_citations DESC, c.date DESC NULLS LAST, c.id DESC"
-		if cites
-		else "c.date DESC NULLS LAST, c.id DESC"
-	)
-	sort_order = {
-		"newest": "c.date DESC NULLS LAST, c.id DESC",
-		"oldest": "c.date ASC NULLS LAST, c.id ASC",
-		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
-	}.get(sort_by, default_sort)
-	if query and sort_by == "relevance":
-		sort_order_sql, ranking_params = _analytics_case_order_sql(
-			query,
-			sort_by,
-			minister_expression=minister_expression,
-			search_full_text=search_full_text,
-		)
-		params.update(ranking_params)
-		sort_order = sort_order_sql
-	rows = db.execute(
-		sql_text(
-			f"""
-			SELECT
-				c.id, c.title, c.citation, c.court, c.date,
-				c.metadata_json->'reader_extracted'->>'judge' AS judge,
-				c.metadata_json->'reader_extracted'->>'decision outcome' AS decision_outcome,
-				c.metadata_json->'reader_extracted'->>'government outcome' AS government_outcome,
-				{minister_expression} AS minister,
-				{citation_count} AS matching_citations
-				,{citation_mentions} AS citation_mentions
-				,{unique_cited_authorities} AS unique_cited_authorities
-				,{resolved_target_cases} AS resolved_target_cases
-			FROM cases c
-			WHERE {where_clause}
-			ORDER BY {sort_order}
-			LIMIT :limit OFFSET :offset
-			"""
-		),
-		params,
-	).mappings().all()
-	return {
-		"results": [
-			{
-				"case_id": int(row["id"]),
-				"title": row["title"],
-				"citation": row["citation"],
-				"court": row["court"],
-				"date": row["date"],
-				"judge": row["judge"],
-				"minister": row["minister"],
-				"decision_outcome": row["decision_outcome"],
-				"government_outcome": row["government_outcome"],
-				"matching_citations": int(row["matching_citations"] or 0),
-				"citation_mentions": int(row["citation_mentions"] or 0),
-				"unique_cited_authorities": int(row["unique_cited_authorities"] or 0),
-				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
-			}
-			for row in rows
-		],
-		"limit": limit,
-		"offset": offset,
-	}
 
 
 @router.get("/analytics/search/ministers", response_model=dict[str, list[str]])
 def get_analytics_search_ministers(db: Session = Depends(get_db)) -> dict[str, list[str]]:
-	rows = db.execute(
-		sql_text(
-			"""
-			SELECT DISTINCT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister
-			FROM cases
-			WHERE SUBSTRING(title FROM 'Canada [(]([^)]*)[)]') IS NOT NULL
-			ORDER BY minister
-			"""
-		)
-	).scalars().all()
-	return {"ministers": [str(value) for value in rows if value]}
+	return fetch_analytics_search_ministers(db)
 
 
 @router.get("/analytics/search/cases/{case_id}", response_model=dict[str, Any])
 def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
-	case = _get_case_or_404(case_id, db)
-	full_text = case.full_text or case.summary or ""
-	reader_extracted = (case.metadata_json or {}).get("reader_extracted")
-	metadata: dict[str, Any] = reader_extracted if isinstance(reader_extracted, dict) else {}
-	citation_rows = list(
-		db.scalars(
-			select(Citation)
-			.where(Citation.source_case_id == case.id)
-			.order_by(Citation.id)
-		)
+	return fetch_analytics_search_case_detail(db, case_id)
+
+
+def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:
+	return _get_case_metadata_pass_impl(
+		case_id,
+		db,
+		get_case_fn=_get_case_or_404,
+		build_extracted_fn=_build_reader_extracted_metadata,
+		build_normalized_fn=_build_metadata_pass_normalized_rows,
 	)
-	chunk_ids = {citation.chunk_id for citation in citation_rows if citation.chunk_id is not None}
-	chunks = list(
-		db.scalars(
-			select(CaseChunk)
-			.where(CaseChunk.id.in_(chunk_ids))
-			.order_by(CaseChunk.chunk_index, CaseChunk.id)
-		)
-	) if chunk_ids else []
-	chunk_starts: dict[int, int] = {}
-	search_start = 0
-	for chunk in chunks:
-		chunk_text = chunk.text or ""
-		chunk_start = full_text.find(chunk_text, search_start)
-		if chunk_start < 0:
-			chunk_start = full_text.find(chunk_text)
-		if chunk_start < 0:
-			continue
-		chunk_starts[chunk.id] = chunk_start
-		search_start = max(search_start, chunk_start + len(chunk_text))
-	highlights = []
-	for citation in citation_rows:
-		if citation.chunk_id is None:
-			continue
-		chunk_start = chunk_starts.get(citation.chunk_id)
-		if chunk_start is None or citation.offset_start is None or citation.offset_end is None:
-			continue
-		start = chunk_start + citation.offset_start
-		end = chunk_start + citation.offset_end
-		if start < 0 or end <= start or end > len(full_text):
-			continue
-		highlights.append(
-			{
-				"text": citation.citation_text,
-				"normalized": citation.normalized_citation,
-				"offset_start": start,
-				"offset_end": end,
-				"target_case_id": citation.target_case_id,
-				"target_title": citation.target_case.title if citation.target_case else None,
-				"target_citation": citation.target_case.citation if citation.target_case else None,
-			}
-		)
-	unique_cited_authorities = {
-		(citation.normalized_citation or citation.citation_text or "").strip()
-		for citation in citation_rows
-		if (citation.normalized_citation or citation.citation_text or "").strip()
-	}
-	resolved_target_cases = {citation.target_case_id for citation in citation_rows if citation.target_case_id is not None}
-	return {
-		"case": {
-			"id": case.id,
-			"title": case.title,
-			"citation": case.citation,
-			"court": case.court,
-			"date": case.date,
-			"judge": metadata.get("judge"),
-			"decision_outcome": metadata.get("decision outcome"),
-			"government_outcome": metadata.get("government outcome"),
-			"government_role": metadata.get("government role"),
-			"full_text": full_text,
-		},
-		"citation_metrics": {
-			"citation_mentions": len(citation_rows),
-			"unique_cited_authorities": len(unique_cited_authorities),
-			"resolved_target_cases": len(resolved_target_cases),
-		},
-		"citations": highlights,
-	}
 
 
 @router.get("/citation-pass", response_class=HTMLResponse, include_in_schema=False)
@@ -2583,231 +1215,14 @@ def citation_pass_page() -> str:
 
 @router.get("/cases/{case_id}/citation-pass", response_model=dict[str, Any])
 def get_case_citation_pass(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
-	case = _get_case_or_404(case_id, db)
-
-	full_text = case.full_text or case.summary or ""
-	live_rows = extract_case_citation_matches(full_text)
-	statute_rows = extract_statute_reference_matches(full_text)
-	metadata_rows = extract_metadata_observations(full_text)
-	live_payload = [
-		{
-			"kind": match.kind,
-			"citation_text": match.citation_text,
-			"normalized_citation": match.normalized_citation,
-			"offset_start": match.offset_start,
-			"offset_end": match.offset_end,
-			"context": full_text[max(0, (match.offset_start or 0) - 40):min(len(full_text), (match.offset_end or 0) + 40)].replace("\n", " ").strip(),
-		}
-		for match in live_rows
-	]
-	statute_payload = [
-		{
-			"kind": match.kind,
-			"citation_text": match.citation_text,
-			"normalized_citation": match.normalized_citation,
-			"offset_start": match.offset_start,
-			"offset_end": match.offset_end,
-			"context": full_text[max(0, match.offset_start - 40):min(len(full_text), match.offset_end + 40)].replace("\n", " ").strip(),
-		}
-		for match in statute_rows
-	]
-	metadata_payload = [
-		{
-			"field": match.field,
-			"text": match.text,
-			"value": match.value,
-			"offset_start": match.offset_start,
-			"offset_end": match.offset_end,
-			"confidence": match.confidence,
-			"source": match.source,
-			"span_matched": match.span_matched,
-			"context": (
-				full_text[max(0, match.offset_start - 40):min(len(full_text), match.offset_end + 40)].replace("\n", " ").strip()
-				if match.span_matched and match.offset_start is not None and match.offset_end is not None
-				else ""
-			),
-		}
-		for match in metadata_rows
-	]
-
-	return {
-		"case": {
-			"id": case.id,
-			"title": case.title,
-			"citation": case.citation,
-			"court": case.court,
-			"date": case.date,
-			"summary": case.summary,
-			"full_text": case.full_text,
-		},
-		"summary": {
-			"live_total": len(live_payload),
-			"statute_total": len(statute_payload),
-			"metadata_total": len(metadata_payload),
-		},
-		"live_extracted": live_payload,
-		"live_statutes": statute_payload,
-		"live_metadata": metadata_payload,
-	}
-
-
-def _citation_pass_chunks(
-	db: Session,
-	case_id: int,
-	full_text: str,
-	offset_start: int,
-	offset_end: int,
-) -> list[dict[str, Any]]:
-	def _is_paragraph_chunk(chunk_set: str | None) -> bool:
-		value = (chunk_set or "").strip().lower()
-		return value == "paragraph" or value.startswith("paragraph_")
-
-	chunks = list(
-		db.scalars(
-			select(CaseChunk)
-			.where(CaseChunk.case_id == case_id)
-			.order_by(CaseChunk.chunk_set, CaseChunk.chunk_index, CaseChunk.id)
-		)
+	return build_case_citation_pass(
+		case_id,
+		db,
+		get_case_fn=_get_case_or_404,
+		extract_case_fn=extract_case_citation_matches,
+		extract_statute_fn=extract_statute_reference_matches,
+		extract_metadata_fn=extract_metadata_observations,
 	)
-	locations: list[dict[str, Any]] = []
-	for chunk in chunks:
-		chunk_text = chunk.text or ""
-		search_start = 0
-		while chunk_text:
-			chunk_start = full_text.find(chunk_text, search_start)
-			if chunk_start < 0:
-				break
-			chunk_end = chunk_start + len(chunk_text)
-			if chunk_start <= offset_start and offset_end <= chunk_end:
-				relative_start = offset_start - chunk_start
-				relative_end = offset_end - chunk_start
-				locations.append(
-					{
-						"chunk_id": chunk.id,
-						"chunk_set": chunk.chunk_set,
-						"chunk_index": chunk.chunk_index,
-						"chunk_label": chunk.chunk_label,
-						"paragraph_start": chunk.paragraph_start,
-						"paragraph_end": chunk.paragraph_end,
-						"document_start": chunk_start,
-						"document_end": chunk_end,
-						"offset_start": relative_start,
-						"offset_end": relative_end,
-						"citation_text": chunk_text[relative_start:relative_end],
-						"text": chunk_text,
-						"text_length": len(chunk_text),
-						"token_estimate": chunk.token_estimate,
-						"is_paragraph_chunk": _is_paragraph_chunk(chunk.chunk_set),
-					}
-				)
-				break
-			search_start = chunk_start + 1
-	locations.sort(
-		key=lambda row: (
-			0 if row.get("is_paragraph_chunk") else 1,
-			abs((row.get("text_length") or 0) - (offset_end - offset_start)),
-			str(row.get("chunk_set") or ""),
-			int(row.get("chunk_index") or 0),
-		)
-	)
-	return locations
-
-
-def _stored_case_citation_details(
-	db: Session,
-	case_id: int,
-	selected: Any,
-	chunks: list[dict[str, Any]],
-) -> list[dict[str, Any]]:
-	chunk_locations = {int(chunk["chunk_id"]): chunk for chunk in chunks}
-	rows = list(db.scalars(select(Citation).where(Citation.source_case_id == case_id).order_by(Citation.id)))
-	details: list[dict[str, Any]] = []
-	for citation in rows:
-		chunk = chunk_locations.get(citation.chunk_id) if citation.chunk_id is not None else None
-		identity_matches = (
-			citation.normalized_citation == selected.normalized_citation
-			or citation.citation_text == selected.citation_text
-		)
-		if citation.chunk_id is None:
-			location_matches = (
-				citation.offset_start == selected.offset_start
-				and citation.offset_end == selected.offset_end
-			)
-		else:
-			location_matches = chunk is not None and (
-				citation.offset_start is None
-				or (
-					citation.offset_start == chunk["offset_start"]
-					and citation.offset_end == chunk["offset_end"]
-				)
-			)
-		if not identity_matches or not location_matches:
-			continue
-		target = db.get(Case, citation.target_case_id) if citation.target_case_id is not None else None
-		details.append(
-			{
-				"record_id": citation.id,
-				"citation_kind": getattr(citation, "citation_kind", "unknown"),
-				"chunk_id": citation.chunk_id,
-				"offset_start": citation.offset_start,
-				"offset_end": citation.offset_end,
-				"citation_text": citation.citation_text,
-				"normalized_citation": citation.normalized_citation,
-				"provenance": citation.provenance,
-				"unresolved": citation.unresolved,
-				"target": {
-					"case_id": target.id,
-					"title": target.title,
-					"citation": target.citation,
-					"court": target.court,
-					"date": target.date,
-				} if target is not None else None,
-			}
-		)
-	return details
-
-
-def _stored_statute_reference_details(
-	db: Session,
-	case_id: int,
-	selected: Any,
-	chunks: list[dict[str, Any]],
-) -> list[dict[str, Any]]:
-	chunk_locations = {int(chunk["chunk_id"]): chunk for chunk in chunks}
-	rows = list(db.scalars(select(StatuteReference).where(StatuteReference.source_case_id == case_id).order_by(StatuteReference.id)))
-	details: list[dict[str, Any]] = []
-	for reference in rows:
-		chunk = chunk_locations.get(reference.chunk_id) if reference.chunk_id is not None else None
-		identity_matches = (
-			reference.normalized_reference == selected.normalized_citation
-			or reference.reference_text == selected.citation_text
-		)
-		if reference.chunk_id is None:
-			location_matches = (
-				reference.offset_start == selected.offset_start
-				and reference.offset_end == selected.offset_end
-			)
-		else:
-			location_matches = chunk is not None and (
-				reference.offset_start is None
-				or (
-					reference.offset_start == chunk["offset_start"]
-					and reference.offset_end == chunk["offset_end"]
-				)
-			)
-		if identity_matches and location_matches:
-			details.append(
-				{
-					"record_id": reference.id,
-					"chunk_id": reference.chunk_id,
-					"offset_start": reference.offset_start,
-					"offset_end": reference.offset_end,
-					"reference_text": reference.reference_text,
-					"normalized_reference": reference.normalized_reference,
-					"reference_kind": reference.reference_kind,
-				}
-			)
-	return details
 
 
 @router.get("/cases/{case_id}/citation-pass/detail", response_model=dict[str, Any])
@@ -2818,67 +1233,18 @@ def get_case_citation_pass_detail(
 	offset_end: int,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	case = _get_case_or_404(case_id, db)
-	full_text = case.full_text or case.summary or ""
-	if layer not in {"case", "law", "metadata"}:
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Unsupported citation layer")
-	if offset_start < 0 or offset_end <= offset_start or offset_end > len(full_text):
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Invalid citation offsets")
-
-	if layer == "case":
-		matches = extract_case_citation_matches(full_text)
-	elif layer == "law":
-		matches = extract_statute_reference_matches(full_text)
-	else:
-		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Metadata layer not supported in this endpoint")
-	selected = next(
-		(match for match in matches if match.offset_start == offset_start and match.offset_end == offset_end),
-		None,
+	return build_case_citation_pass_detail(
+		case_id,
+		layer,
+		offset_start,
+		offset_end,
+		db,
+		get_case_fn=_get_case_or_404,
+		extract_case_fn=extract_case_citation_matches,
+		extract_statute_fn=extract_statute_reference_matches,
+		stored_case_fn=_stored_case_citation_details,
+		stored_statute_fn=_stored_statute_reference_details,
 	)
-	if selected is None:
-		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Extracted reference not found")
-
-	line_start = full_text.rfind("\n", 0, offset_start) + 1
-	line_end = full_text.find("\n", offset_end)
-	if line_end < 0:
-		line_end = len(full_text)
-	line_text = full_text[line_start:line_end]
-	paragraph_match = re.match(r"\s*\[(\d+)\]", line_text)
-	chunks = _citation_pass_chunks(db, case_id, full_text, offset_start, offset_end)
-	stored_records: list[dict[str, Any]] = []
-	if layer == "case":
-		stored_records = _stored_case_citation_details(db, case_id, selected, chunks)
-	elif layer == "law":
-		stored_records = _stored_statute_reference_details(db, case_id, selected, chunks)
-	primary_paragraph_chunk = next((chunk for chunk in chunks if chunk.get("is_paragraph_chunk")), None)
-
-	citation_text = selected.citation_text
-	normalized = selected.normalized_citation
-	kind = selected.kind
-	return {
-		"layer": layer,
-		"kind": kind,
-		"citation_text": citation_text,
-		"normalized_value": normalized,
-		"offset_start": offset_start,
-		"offset_end": offset_end,
-		"span_length": offset_end - offset_start,
-		"location": {
-			"line_number": full_text.count("\n", 0, offset_start) + 1,
-			"column_number": offset_start - line_start + 1,
-			"paragraph_number": int(paragraph_match.group(1)) if paragraph_match else None,
-			"document_length": len(full_text),
-			"position_percent": round((offset_start / len(full_text)) * 100, 2) if full_text else 0.0,
-		},
-		"passage": {
-			"text": line_text,
-			"offset_start": line_start,
-			"offset_end": line_end,
-		},
-		"chunks": chunks,
-		"primary_paragraph_chunk": primary_paragraph_chunk,
-		"stored_records": stored_records,
-	}
 
 
 @router.get("/citation-map/authorities", response_model=list[CitationMapAuthorityResponse])
@@ -4090,279 +2456,12 @@ def convert_a2aj_edges_endpoint(db: Session = Depends(get_db)) -> dict[str, int]
 
 
 def _quick_search_page_html() -> str:
-	return """<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Quick Semantic Search</title>
-	<style>
-		:root {
-			--bg: #f2f5f7;
-			--card: #ffffff;
-			--ink: #1e2a33;
-			--muted: #5f6f7a;
-			--accent: #0a7a73;
-			--accent-2: #0c5eaf;
-			--border: #d6e0e6;
-		}
-		* { box-sizing: border-box; }
-		body {
-			margin: 0;
-			font-family: "Segoe UI", "Source Sans 3", sans-serif;
-			color: var(--ink);
-			background:
-				radial-gradient(circle at 12% 10%, #e6f4f2 0, transparent 30%),
-				radial-gradient(circle at 82% 88%, #e7eef8 0, transparent 34%),
-				var(--bg);
-			min-height: 100vh;
-		}
-		.wrap {
-			max-width: 1080px;
-			margin: 0 auto;
-			padding: 22px;
-		}
-		h1 {
-			margin: 0 0 8px;
-			font-size: clamp(1.5rem, 2.4vw, 2.2rem);
-		}
-		.sub {
-			margin: 0 0 18px;
-			color: var(--muted);
-		}
-		.grid {
-			display: grid;
-			grid-template-columns: minmax(0, 1fr);
-			gap: 14px;
-		}
-		.card {
-			background: var(--card);
-			border: 1px solid var(--border);
-			border-radius: 14px;
-			padding: 14px;
-			box-shadow: 0 8px 24px rgba(13, 33, 48, 0.08);
-		}
-		.row {
-			display: grid;
-			grid-template-columns: 1fr 180px 170px;
-			gap: 10px;
-		}
-		.filters {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-			gap: 10px;
-			margin-top: 10px;
-		}
-		label {
-			display: block;
-			margin: 4px 0;
-			font-size: 0.85rem;
-			color: var(--muted);
-		}
-		input, select, button {
-			width: 100%;
-			border: 1px solid var(--border);
-			border-radius: 10px;
-			padding: 10px;
-			font: inherit;
-		}
-		button {
-			cursor: pointer;
-			border: none;
-			color: #fff;
-			font-weight: 700;
-			background: linear-gradient(135deg, var(--accent), var(--accent-2));
-		}
-		.status {
-			margin-top: 10px;
-			font-size: 0.88rem;
-			color: var(--muted);
-		}
-		.result {
-			border: 1px solid var(--border);
-			border-radius: 12px;
-			padding: 12px;
-			margin-top: 12px;
-			background: #fcfeff;
-		}
-		.result h3 {
-			margin: 0;
-			font-size: 1rem;
-		}
-		.meta {
-			margin-top: 3px;
-			font-size: 0.82rem;
-			color: var(--muted);
-		}
-		.chunks {
-			margin-top: 8px;
-			display: grid;
-			gap: 8px;
-		}
-		.chunk {
-			padding: 10px;
-			border: 1px solid var(--border);
-			border-radius: 10px;
-			background: #fff;
-			font-size: 0.88rem;
-			line-height: 1.45;
-		}
-		.chunk-head {
-			font-size: 0.78rem;
-			font-weight: 700;
-			color: #2f4b5f;
-			margin-bottom: 4px;
-		}
-		@media (max-width: 860px) {
-			.row,
-			.filters {
-				grid-template-columns: 1fr;
-			}
-		}
-	</style>
-</head>
-<body>
-	<div class="wrap">
-		<h1>Quick Semantic Search</h1>
-		<p class="sub">Chunk-level semantic and hybrid retrieval over the current case library.</p>
-
-		<section class="card">
-			<div class="row">
-				<div>
-					<label for="query">Query</label>
-					<input id="query" type="text" value="non-refoulement risk on return" />
-				</div>
-				<div>
-					<label for="mode">Mode</label>
-					<select id="mode">
-						<option value="semantic" selected>semantic</option>
-						<option value="hybrid">hybrid</option>
-						<option value="lexical">lexical</option>
-						<option value="metadata">metadata</option>
-					</select>
-				</div>
-				<div>
-					<label for="pageSize">Cases</label>
-					<input id="pageSize" type="number" min="1" max="20" value="8" />
-				</div>
-			</div>
-
-			<div class="filters">
-				<div>
-					<label for="court">Court contains</label>
-					<input id="court" type="text" placeholder="Federal Court" />
-				</div>
-				<div>
-					<label for="sourceType">Source type</label>
-					<input id="sourceType" type="text" placeholder="a2aj_curated" />
-				</div>
-				<div>
-					<label for="citationContains">Citation contains</label>
-					<input id="citationContains" type="text" placeholder="FC" />
-				</div>
-			</div>
-
-			<button id="searchBtn">Search</button>
-			<div id="status" class="status">Ready.</div>
-		</section>
-
-		<section id="results"></section>
-	</div>
-
-	<script>
-		function clip(text, maxLen) {
-			const compact = (text || "").replace(/\\s+/g, " ").trim();
-			if (compact.length <= maxLen) return compact;
-			return compact.slice(0, maxLen - 1) + "...";
-		}
-
-		function renderResults(payload) {
-			const results = document.getElementById("results");
-			results.innerHTML = "";
-			const cases = payload.cases || [];
-			if (!cases.length) {
-				results.innerHTML = '<section class="card"><div class="status">No results found.</div></section>';
-				return;
-			}
-
-			for (const item of cases) {
-				const card = document.createElement("section");
-				card.className = "card result";
-				const citation = item.citation ? ` | ${item.citation}` : "";
-				card.innerHTML = `
-					<h3>${item.title}</h3>
-					<div class="meta">score=${item.best_similarity.toFixed(4)} | ${item.court}${citation}</div>
-					<div class="chunks"></div>
-				`;
-				const chunksEl = card.querySelector(".chunks");
-				for (const chunk of item.chunks || []) {
-					const node = document.createElement("div");
-					node.className = "chunk";
-					node.innerHTML = `
-						<div class="chunk-head">chunk ${chunk.chunk_index} | score=${chunk.similarity.toFixed(4)}</div>
-						<div>${clip(chunk.chunk_text, 420)}</div>
-					`;
-					chunksEl.appendChild(node);
-				}
-				results.appendChild(card);
-			}
-		}
-
-		async function runSearch() {
-			const statusEl = document.getElementById("status");
-			const query = document.getElementById("query").value.trim();
-			if (!query) {
-				statusEl.textContent = "Enter a query first.";
-				return;
-			}
-
-			const payload = {
-				query,
-				search_mode: document.getElementById("mode").value,
-				page: 1,
-				page_size: Number(document.getElementById("pageSize").value || 8),
-				max_chunks_per_case: 2,
-				candidate_pool: 150,
-				court: document.getElementById("court").value || null,
-				source_type: document.getElementById("sourceType").value || null,
-				citation_contains: document.getElementById("citationContains").value || null,
-			};
-
-			statusEl.textContent = "Searching...";
-			try {
-				const response = await fetch("/search/chunks/grouped", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(payload),
-				});
-				if (!response.ok) {
-					const body = await response.text();
-					throw new Error(`Search failed (${response.status}): ${body}`);
-				}
-				const result = await response.json();
-				statusEl.textContent = `Found ${result.total_cases} case matches from ${result.total_chunks} candidate chunks.`;
-				renderResults(result);
-			} catch (error) {
-				statusEl.textContent = String(error);
-			}
-		}
-
-		document.getElementById("searchBtn").addEventListener("click", runSearch);
-		document.getElementById("query").addEventListener("keydown", (event) => {
-			if (event.key === "Enter") {
-				event.preventDefault();
-				runSearch();
-			}
-		});
-	</script>
-</body>
-</html>
-"""
+	return quick_search_page_html()
 
 
 @router.get("/quick-search", response_class=HTMLResponse, include_in_schema=False)
 def quick_search_interface() -> HTMLResponse:
-	return HTMLResponse(content=_quick_search_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(content=quick_search_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/testing", response_class=HTMLResponse, include_in_schema=False)
@@ -4606,148 +2705,14 @@ def prototype_graph(
 def search_cases(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
-	_validate_search_ranges(search)
-	effective_mode = _effective_search_mode(search.search_mode)
-
-	query_vector = _embed(search.query) if effective_mode in {"semantic", "hybrid"} else None
-	semantic_distance = (
-		Case.embedding.cosine_distance(query_vector).label("semantic_distance")
-		if query_vector is not None
-		else None
-	)
-	lexical_rank = _case_lexical_rank_expr(search.query).label("lexical_rank")
-	graph_in_degree = func.coalesce(CitationMetrics.in_degree, 0).label("graph_in_degree")
-
-	statement = (
-		select(Case, semantic_distance, lexical_rank, graph_in_degree)
-		if semantic_distance is not None
-		else select(Case, lexical_rank, graph_in_degree)
-	)
-	statement = statement.outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
-	if effective_mode in {"semantic", "hybrid"}:
-		statement = statement.where(Case.embedding.is_not(None))
-	statement = _apply_case_filters(statement, search)
-
-	count_statement = statement.order_by(None).limit(None).offset(None)
-	if effective_mode in {"lexical", "metadata"}:
-		statement = statement.order_by(lexical_rank.desc())
-	else:
-		statement = statement.order_by(semantic_distance)
-
-	total_matches = db.scalar(select(func.count()).select_from(count_statement.subquery())) or 0
-	raw_rows = list(db.execute(statement))
-	prepared_rows: list[tuple[Case, float, float]] = []
-	max_lexical = 0.0
-
-	for row in raw_rows:
-		if effective_mode in {"semantic", "hybrid"}:
-			if len(row) == 4:
-				case, semantic_distance_value, lexical_rank_value, graph_in_degree_value = row
-			else:
-				case, semantic_distance_value, lexical_rank_value = row
-				graph_in_degree_value = 0
-		else:
-			if len(row) == 3:
-				case, lexical_rank_value, graph_in_degree_value = row
-			else:
-				case, lexical_rank_value = row
-				graph_in_degree_value = 0
-			semantic_distance_value = None
-
-		semantic_similarity = (
-			max(0.0, min(1.0, 1.0 - float(semantic_distance_value)))
-			if semantic_distance_value is not None
-			else 0.0
-		)
-		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
-		max_lexical = max(max_lexical, lexical_score)
-		prepared_rows.append((case, semantic_similarity, lexical_score))
-
-	weighted_rows: list[tuple[Case, float, float]] = []
-	for case, semantic_similarity, lexical_score in prepared_rows:
-		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
-		if effective_mode == "semantic":
-			final_score = semantic_similarity
-		elif effective_mode in {"lexical", "metadata"}:
-			final_score = lexical_similarity
-		else:
-			denominator = search.semantic_weight + search.lexical_weight
-			final_score = (
-				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
-			) / denominator
-		graph_boost = min(0.05, math.log1p(max(0, graph_in_degree_value)) / 100.0)
-		weighted_rows.append((case, final_score, final_score + graph_boost))
-
-	weighted_rows.sort(key=lambda item: item[2], reverse=True)
-	start = (search.page - 1) * search.page_size
-	end = start + search.page_size
-	page_rows = weighted_rows[start:end]
-
-	return [
-		CaseSearchResponse(
-			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
-			similarity=score,
-			match_source=_case_match_source(case, search.query, effective_mode),
-		)
-		for case, score, _ in page_rows
-	]
+	return execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
 
 
 @router.post("/search/chunks", response_model=list[ChunkSearchResponse])
 def search_chunks(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	_validate_search_ranges(search)
-	effective_mode = _effective_search_mode(search.search_mode)
-
-	if effective_mode in {"lexical", "metadata"}:
-		lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
-		statement = (
-			select(Case, CaseChunk, lexical_rank)
-			.join(CaseChunk, CaseChunk.case_id == Case.id)
-			.order_by(lexical_rank.desc())
-			.offset((search.page - 1) * search.page_size)
-			.limit(search.page_size)
-		)
-	else:
-		distance = CaseChunk.embedding.cosine_distance(_embed(search.query)).label("distance")
-		statement = (
-			select(Case, CaseChunk, distance)
-			.join(CaseChunk, CaseChunk.case_id == Case.id)
-			.where(CaseChunk.embedding.is_not(None))
-			.order_by(distance)
-			.offset((search.page - 1) * search.page_size)
-			.limit(search.page_size)
-		)
-	statement = _apply_case_filters(statement, search)
-
-	rows = list(db.execute(statement))
-	if effective_mode in {"lexical", "metadata"}:
-		max_lexical = max((float(rank or 0.0) for _, _, rank in rows), default=0.0)
-		return [
-			ChunkSearchResponse(
-				**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
-				chunk_index=chunk.chunk_index,
-				chunk_text=chunk.text,
-				similarity=(max(0.0, float(rank or 0.0)) / max_lexical if max_lexical > 0 else 0.0),
-			)
-			for case, chunk, rank in rows
-		]
-
-	return [
-		ChunkSearchResponse(
-			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
-			chunk_index=chunk.chunk_index,
-			chunk_text=chunk.text,
-			similarity=max(0.0, min(1.0, 1.0 - float(distance_value))),
-		)
-		for case, chunk, distance_value in rows
-	]
-
-
-@lru_cache(maxsize=2)
-def _local_embedding_provider(model_name: str) -> SentenceTransformerEmbeddingProvider:
-	return SentenceTransformerEmbeddingProvider(model_name=model_name)
+	return execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
 
 
 @router.post("/search/chunks/local", response_model=list[ChunkSearchResponse])
@@ -4755,137 +2720,14 @@ def search_chunks_local(
 	search: LocalChunkSearchRequest,
 	db: Session = Depends(get_db),
 ) -> list[ChunkSearchResponse]:
-	if not AI_ROLLOUT["local_semantic_enabled"]:
-		raise HTTPException(
-			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="Local semantic search is disabled by rollout configuration",
-		)
-	_validate_search_ranges(search)
-	query_vector = _local_embedding_provider(search.model_name).embed_query(search.query)
-	distance = CaseChunkEmbedding.embedding.cosine_distance(query_vector).label("distance")
-	statement = (
-		select(Case, CaseChunk, distance)
-		.join(CaseChunk, CaseChunk.case_id == Case.id)
-		.join(CaseChunkEmbedding, CaseChunkEmbedding.chunk_id == CaseChunk.id)
-		.where(CaseChunkEmbedding.model_name == search.model_name)
-		.order_by(distance)
-		.offset((search.page - 1) * search.page_size)
-		.limit(search.page_size)
-	)
-	statement = _apply_case_filters(statement, search)
-	rows = list(db.execute(statement))
-	return [
-		ChunkSearchResponse(
-			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
-			chunk_index=chunk.chunk_index,
-			chunk_text=chunk.text,
-			similarity=max(0.0, min(1.0, 1.0 - float(distance_value))),
-		)
-		for case, chunk, distance_value in rows
-	]
+	return execute_search_chunks_local(search, db, rollout=AI_ROLLOUT)
 
 
 def _grouped_chunk_search(
 	search: ChunkGroupSearchRequest, db: Session
 ) -> GroupedChunkSearchResponse:
 	"""Inner retrieval shared by /search/chunks/grouped and /research."""
-	_validate_search_ranges(search)
-	effective_mode = _effective_search_mode(search.search_mode)
-
-	query_vector = _embed(search.query) if effective_mode in {"semantic", "hybrid"} else None
-	semantic_distance = (
-		CaseChunk.embedding.cosine_distance(query_vector).label("semantic_distance")
-		if query_vector is not None
-		else None
-	)
-	lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
-
-	statement = (
-		select(Case, CaseChunk, semantic_distance, lexical_rank)
-		if semantic_distance is not None
-		else select(Case, CaseChunk, lexical_rank)
-	)
-	statement = statement.join(CaseChunk, CaseChunk.case_id == Case.id)
-	if effective_mode in {"semantic", "hybrid"}:
-		statement = statement.where(CaseChunk.embedding.is_not(None))
-	statement = _apply_case_filters(statement, search)
-
-	chunk_scan_limit = min(
-		500,
-		max(search.candidate_pool, search.page_size * search.max_chunks_per_case * 5),
-	)
-	if effective_mode in {"lexical", "metadata"}:
-		statement = statement.order_by(lexical_rank.desc()).limit(chunk_scan_limit)
-	else:
-		statement = statement.order_by(semantic_distance).limit(chunk_scan_limit)
-
-	raw_rows = list(db.execute(statement))
-	prepared_rows: list[tuple[Case, CaseChunk, float, float]] = []
-	max_lexical = 0.0
-
-	for row in raw_rows:
-		if effective_mode in {"semantic", "hybrid"}:
-			case, chunk, semantic_distance_value, lexical_rank_value = row
-		else:
-			case, chunk, lexical_rank_value = row
-			semantic_distance_value = None
-
-		semantic_similarity = (
-			max(0.0, min(1.0, 1.0 - float(semantic_distance_value)))
-			if semantic_distance_value is not None
-			else 0.0
-		)
-		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
-		max_lexical = max(max_lexical, lexical_score)
-		prepared_rows.append((case, chunk, semantic_similarity, lexical_score))
-
-	grouped: dict[int, GroupedChunkCaseResponse] = {}
-	for case, chunk, semantic_similarity, lexical_score in prepared_rows:
-		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
-		if effective_mode == "semantic":
-			final_similarity = semantic_similarity
-		elif effective_mode in {"lexical", "metadata"}:
-			final_similarity = lexical_similarity
-		else:
-			denominator = search.semantic_weight + search.lexical_weight
-			final_similarity = (
-				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
-			) / denominator
-
-		case_id = case.id
-		entry = grouped.get(case_id)
-		if entry is None:
-			entry = GroupedChunkCaseResponse(
-				**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
-				best_similarity=final_similarity,
-				chunks=[],
-			)
-			grouped[case_id] = entry
-		entry.best_similarity = max(entry.best_similarity, final_similarity)
-		entry.chunks.append(
-			ChunkPassage(
-				chunk_index=chunk.chunk_index,
-				chunk_text=chunk.text,
-				similarity=final_similarity,
-			)
-		)
-
-	grouped_cases = list(grouped.values())
-	for item in grouped_cases:
-		item.chunks.sort(key=lambda c: c.similarity, reverse=True)
-		item.chunks = item.chunks[: search.max_chunks_per_case]
-	grouped_cases.sort(key=lambda c: c.best_similarity, reverse=True)
-
-	start = (search.page - 1) * search.page_size
-	end = start + search.page_size
-	paged_cases = grouped_cases[start:end]
-
-	return GroupedChunkSearchResponse(
-		total_cases=len(grouped_cases),
-		total_chunks=len(raw_rows),
-		max_chunks_per_case=search.max_chunks_per_case,
-		cases=paged_cases,
-	)
+	return execute_grouped_chunk_search(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
 
 
 @router.post("/search/chunks/grouped", response_model=GroupedChunkSearchResponse)
@@ -4903,268 +2745,12 @@ _RESEARCH_DISCLAIMER = (
 
 
 def _research_page_html() -> str:
-	return """<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Legal Research</title>
-	<style>
-		:root {
-			--bg: #f4efe6;
-			--panel: #fffaf0;
-			--ink: #1e1b16;
-			--muted: #5d5547;
-			--accent: #0d6a5f;
-			--accent-2: #b65d2e;
-			--line: #d8cebf;
-		}
-		* { box-sizing: border-box; }
-		body {
-			margin: 0;
-			font-family: "Segoe UI", "Source Sans 3", sans-serif;
-			color: var(--ink);
-			background:
-				radial-gradient(circle at 10% 8%, #f0e5d4 0, transparent 34%),
-				radial-gradient(circle at 90% 88%, #d9ece8 0, transparent 35%),
-				var(--bg);
-		}
-		.wrap { max-width: 980px; margin: 0 auto; padding: 22px; }
-		nav { display: flex; gap: 14px; margin-bottom: 18px; font-size: 0.88rem; }
-		nav a { color: var(--accent); text-decoration: none; }
-		nav a:hover { text-decoration: underline; }
-		h1 { margin: 0 0 6px; font-size: clamp(1.55rem, 2.4vw, 2.1rem); }
-		.lead { margin: 0 0 18px; color: var(--muted); font-size: 0.93rem; }
-		.card {
-			background: var(--panel);
-			border: 1px solid var(--line);
-			border-radius: 12px;
-			padding: 16px;
-			margin-bottom: 14px;
-		}
-		.card h2 { margin: 0 0 10px; font-size: 1rem; }
-		label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 4px; }
-		textarea, input, select {
-			width: 100%; border: 1px solid var(--line); border-radius: 8px;
-			padding: 9px 10px; font-size: 0.92rem; background: #fff; font-family: inherit;
-		}
-		textarea { resize: vertical; min-height: 80px; }
-		button {
-			width: 100%; border: none; border-radius: 8px;
-			padding: 10px; font-size: 0.94rem; font-weight: 600; cursor: pointer;
-			background: linear-gradient(135deg, var(--accent), #14867a); color: #fff;
-		}
-		button:disabled { opacity: 0.55; cursor: not-allowed; }
-		.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
-		.grid3 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 1fr; }
-		.answer-box {
-			white-space: pre-wrap;
-			background: #fff;
-			border: 1px solid var(--line);
-			border-radius: 8px;
-			padding: 14px;
-			font-size: 0.93rem;
-			line-height: 1.65;
-			min-height: 60px;
-		}
-		.source-card {
-			background: #fff;
-			border: 1px solid var(--line);
-			border-radius: 8px;
-			padding: 12px;
-			margin-top: 10px;
-		}
-		.source-title { font-weight: 600; font-size: 0.95rem; }
-		.source-meta { color: var(--muted); font-size: 0.81rem; margin: 3px 0 8px; }
-		.excerpt {
-			background: #f9f0e2;
-			border-left: 3px solid var(--accent);
-			padding: 8px 10px;
-			font-size: 0.86rem;
-			line-height: 1.55;
-			margin-top: 6px;
-			border-radius: 0 6px 6px 0;
-			white-space: pre-wrap;
-		}
-		summary { cursor: pointer; font-size: 0.83rem; color: var(--accent); margin-top: 6px; }
-		.disclaimer {
-			font-size: 0.78rem;
-			color: var(--muted);
-			margin-top: 18px;
-			padding: 10px 12px;
-			border: 1px solid var(--line);
-			border-radius: 8px;
-			background: #f9f2e8;
-		}
-		.token-info { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
-		@media (max-width: 640px) {
-			.grid2, .grid3 { grid-template-columns: 1fr; }
-		}
-	</style>
-</head>
-<body>
-	<div class="wrap">
-		<nav>
-			<a href="/prototype">Prototype Explorer</a>
-			<a href="/testing">API Tester</a>
-		</nav>
-		<h1>Legal Research</h1>
-		<p class="lead">Ask a research question. Answers are grounded in the prototype immigration cohort.</p>
-
-		<div class="card">
-			<h2>Research Question</h2>
-			<div style="margin-bottom:10px;">
-				<label for="question">Question</label>
-				<textarea id="question" placeholder="e.g. What is the legal test for refugee protection under section 96 of the IRPA?"></textarea>
-			</div>
-			<div class="grid3" style="margin-bottom:12px;">
-				<div>
-					<label for="sourceType">Cohort (source_type)</label>
-					<input id="sourceType" type="text" value="a2aj_immigration_core" />
-				</div>
-				<div>
-					<label for="maxCases">Max source cases (1�10)</label>
-					<input id="maxCases" type="number" min="1" max="10" value="5" />
-				</div>
-				<div>
-					<label for="searchMode">Search mode</label>
-					<select id="searchMode">
-						<option value="semantic">Semantic</option>
-						<option value="hybrid" selected>Hybrid</option>
-						<option value="lexical">Lexical</option>
-					</select>
-				</div>
-			</div>
-			<button id="submitBtn" onclick="runResearch()">Run Research</button>
-		</div>
-
-		<div id="resultSection" style="display:none;">
-			<div class="card">
-				<h2>Answer</h2>
-				<div id="answerBox" class="answer-box"></div>
-				<div id="tokenInfo" class="token-info"></div>
-			</div>
-			<div class="card">
-				<h2>Sources</h2>
-				<div id="sourcesBox"></div>
-			</div>
-		</div>
-
-		<div class="disclaimer">
-			Research aid only � not legal advice. Sources are unofficial copies; verify against authoritative records.
-		</div>
-	</div>
-
-	<script>
-		function esc(value) {
-			return String(value ?? "")
-				.replace(/&/g, "&amp;")
-				.replace(/</g, "&lt;")
-				.replace(/>/g, "&gt;")
-				.replace(/\"/g, "&quot;")
-				.replace(/'/g, "&#39;");
-		}
-
-		function renderSources(sources) {
-			if (!Array.isArray(sources) || sources.length === 0) {
-				document.getElementById("sourcesBox").innerHTML = "<p style='color:var(--muted);'>No sources returned.</p>";
-				return;
-			}
-			const cards = sources.map((src, i) => {
-				const excerptHtml = (src.excerpts || []).map((ex, j) => `
-					<div class="excerpt">${esc(ex)}</div>
-				`).join("");
-				const sourceLink = src.source_url
-					? `<a href="${esc(src.source_url)}" target="_blank" rel="noopener noreferrer">${esc(src.source_url)}</a>`
-					: "";
-				return `
-					<div class="source-card">
-						<div class="source-title">${esc(src.title || "Untitled")}</div>
-						<div class="source-meta">
-							${esc(src.citation || "No citation")}
-							${src.court ? ` &middot; ${esc(src.court)}` : ""}
-							${src.date ? ` &middot; ${esc(src.date)}` : ""}
-							${src.source_url ? ` &middot; ${sourceLink}` : ""}
-							&middot; Case ID ${esc(src.case_id)}
-						</div>
-						<details>
-							<summary>${(src.excerpts || []).length} excerpt(s) used in context</summary>
-							${excerptHtml}
-						</details>
-					</div>
-				`;
-			}).join("");
-			document.getElementById("sourcesBox").innerHTML = cards;
-		}
-
-		async function runResearch() {
-			const question = document.getElementById("question").value.trim();
-			if (!question) {
-				alert("Please enter a research question.");
-				return;
-			}
-
-			const btn = document.getElementById("submitBtn");
-			btn.disabled = true;
-			btn.textContent = "Researching�";
-			document.getElementById("resultSection").style.display = "none";
-
-			const payload = {
-				query: question,
-				max_cases: Math.max(1, Math.min(10, Number(document.getElementById("maxCases").value) || 5)),
-				search_mode: document.getElementById("searchMode").value,
-			};
-			const sourceType = document.getElementById("sourceType").value.trim();
-			if (sourceType) {
-				payload.source_type = sourceType;
-			}
-
-			try {
-				const response = await fetch("/research", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(payload),
-				});
-				const body = await response.json().catch(() => ({ detail: "No JSON response body" }));
-
-				if (!response.ok) {
-					document.getElementById("answerBox").textContent =
-						`Error ${response.status}: ${body.detail || response.statusText}`;
-					document.getElementById("sourcesBox").innerHTML = "";
-					document.getElementById("tokenInfo").textContent = "";
-					document.getElementById("resultSection").style.display = "block";
-					return;
-				}
-
-				document.getElementById("answerBox").textContent = body.answer || "(No answer returned)";
-				document.getElementById("tokenInfo").textContent =
-					`Model: ${body.model_used} � Prompt tokens: ${body.prompt_tokens} � Completion tokens: ${body.completion_tokens}`;
-				renderSources(body.sources || []);
-				document.getElementById("resultSection").style.display = "block";
-			} catch (err) {
-				document.getElementById("answerBox").textContent = `Request error: ${err.message}`;
-				document.getElementById("sourcesBox").innerHTML = "";
-				document.getElementById("resultSection").style.display = "block";
-			} finally {
-				btn.disabled = false;
-				btn.textContent = "Run Research";
-			}
-		}
-
-		document.addEventListener("keydown", (e) => {
-			if (e.key === "Enter" && e.ctrlKey) {
-				runResearch();
-			}
-		});
-	</script>
-</body>
-</html>
-"""
+	return research_page_html()
 
 
 @router.get("/research", response_class=HTMLResponse, include_in_schema=False)
 def research_interface() -> HTMLResponse:
-	return HTMLResponse(content=_research_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.post("/research", response_model=ResearchResponse)

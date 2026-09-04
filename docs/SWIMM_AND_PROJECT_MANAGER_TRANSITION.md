@@ -5,7 +5,8 @@ Last reviewed: 2026-09-03
 ## Purpose
 
 This document is the bridge between the current hand-maintained documentation
-set and a future Swimm workspace plus project-manager agent workflow.
+set, the Swimm workspace, and the workspace-level project-manager agent
+workflow.
 
 Swimm should document and connect the implementation that exists. It should
 not become a second source of truth for live counts, API contracts, database
@@ -69,7 +70,7 @@ flowchart TD
 | Active research workflow | `/data-explorer` | `/case-reader` is a compatibility redirect; QA pages are not the primary product |
 | Isolated data | `side_projects/` | Side-project tables and routes do not enter canonical case workflows |
 
-## Improvement Queue Before Agent Handoff
+## Improvement Queue For Managed Delivery
 
 Use this queue as the initial Swimm-linked improvement board. Do not broaden
 scope until each item has an owner, a test, and a documented acceptance check.
@@ -85,7 +86,25 @@ scope until each item has an owner, a test, and a documented acceptance check.
 | P1 | Reduce documentation drift | Generated references are refreshed by a documented checkpoint command |
 | P2 | Build a research workbench | Save/resume, notes, pinned authorities, and evidence exports have route and UI contracts |
 
-## Handoff Contract For A Future Project Manager Agent
+## Project Manager Agent Framework
+
+The workspace-level manager is implemented at
+`.github/agents/project-manager.agent.md`. Select **AI CaseLibrary Project
+Manager** in VS Code chat for a bounded outcome that should be planned,
+implemented, validated, documented, and handed off with minimal chat steering.
+
+Use `.github/prompts/managed-task.prompt.md` to start a structured task from
+the prompt picker. The agent creates durable multi-step task records beneath
+`.github/project-manager/tasks/` using
+`.github/project-manager/TASK_TEMPLATE.md`. Workflow status, escalation, and
+completion standards are in `.github/project-manager/README.md`.
+
+The framework does not replace this transition document, the canonical docs,
+or domain ownership. It operationalizes them by requiring an owner, a
+falsifiable check, evidence, rollback/recovery, and documentation updates for
+each completed task.
+
+## Handoff Contract For The Project Manager Agent
 
 The future manager agent should coordinate work, not silently redefine domain
 truth. Every proposed task should carry this compact record:
@@ -133,7 +152,8 @@ walkthrough and the canonical repository document in the same change set. If a
 walkthrough becomes stale, label the gap and point to the authoritative source;
 do not preserve a visually complete but inaccurate diagram.
 
-The first practical Swimm session should produce the eight walkthroughs above,
-link them to the named source files, and then use the P0 queue to drive the
-project cleanup. Only after that map is reviewed should an operational
-project-manager agent scaffold be introduced.
+The current Swimm set includes the system, active UI, ingestion, citation,
+database, operations, Federal Court, CanLaw, and future-state walkthroughs.
+Use the P0 queue to drive cleanup through the implemented manager framework.
+Add a walkthrough when a new owner surface appears, rather than allowing the
+agent to infer an undocumented boundary.

@@ -43,7 +43,10 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Surface | Owner and purpose | Inputs -> outputs | Persistence and dependencies | Focused validation |
 | --- | --- | --- | --- | --- |
 | Application startup | `backend/main.py`; creates FastAPI app, startup, health, access/no-index helpers, router inclusion | Environment + app modules -> running ASGI app | PostgreSQL initialization; FastAPI | `python -m py_compile backend/main.py`; health request |
-| API and active UI | `backend/routes.py`; HTTP contracts, orchestration, generated HTML/CSS/JS, reader payloads | Requests + DB rows -> JSON/HTML responses | Reads/writes through database and processing helpers; inline frontend is coupled to routes | `pytest tests/test_api.py -q`; feature-tab tests; browser check |
+| API routing | `backend/routes.py`; HTTP contracts, route dispatch, interface registration, facade re-exports | Requests + DB rows -> JSON/HTML responses | Dispatches to dedicated domain services; lightweight routing | `pytest tests/test_api.py -q`; feature-tab tests; browser check |
+| Search & retrieval | `backend/search_service.py`; case/chunk search, lexical tsvector rank, cosine distance semantic scoring, hybrid search, chunk grouping | `CaseSearchRequest` -> Search response models | Executes PostgreSQL ranking and vector similarity | `pytest tests/test_api.py -k search -q` |
+| Reader & metadata pass | `backend/reader_service.py`; reader data assembly (`/cases/{id}/reader-data`), metadata pass formatting, HTML citation wrapping | `case_id` -> Reader & citation pass response models | Formats multi-layer evidence payloads without mutating DB | `pytest tests/test_api.py -k reader -q` |
+| Analytics & reporting | `backend/analytics_service.py`; SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabs, judge profiles, and FC history | Query params -> Aggregated metrics & distributions | Executes complex reporting and outcome ratio queries | `pytest tests/test_api.py -k analytics -q` |
 | Contracts | `backend/models.py`; Pydantic request/response types | HTTP payloads -> validated models/OpenAPI schemas | Used by routes and generated API reference | API contract tests and OpenAPI regeneration |
 | Database | `backend/database.py`; settings precedence, sessions, ORM declarations | Environment + ORM operations -> PostgreSQL/pgvector state | Alembic migrations are deployment authority | migration inspection; affected tests |
 | Canonical ingestion | `backend/ingestion.py`; identity, source merge, sanitization, provenance | Source records -> canonical cases and case sources | Writes `cases`, `case_sources`, `ingestion_runs` | `pytest tests/test_ingestion_merge.py -q` |
@@ -55,7 +58,7 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Embeddings | `backend/embedding_providers.py`; provider selection and vector wiring | Cases/chunks -> model-versioned vectors | pgvector case/chunk embedding tables; optional local/hosted providers | provider tests; bounded embedding run |
 | Live analysis | `backend/live_analysis.py`; temporary DOCX/text-PDF extraction and local resolution | Uploaded bytes -> in-memory text, spans, resolution results | No upload/case/chunk/citation persistence | live-analysis tests and API check |
 | Federal Court activity | `backend/fc_activity.py`; activity normalization/classification support | Staged activity records -> normalized activity data | Separate activity/procedural tables; not proof of captured judgment | FC activity tests and bounded import |
-| Page builders | `backend/pages/`; page-specific HTML builders where separated from routes | Data/config -> rendered page fragments | No canonical writes during rendering | feature-tab tests and browser check |
+| Page builders | `backend/pages/`; page-specific HTML builders (`data_explorer.py`, `quick_search.py`, `research.py`, etc.) | Data/config -> rendered page fragments | No canonical writes during rendering | feature-tab tests and browser check |
 
 ## Repository Families
 

@@ -8,6 +8,11 @@ Read `SYSTEM_REFERENCE.md` for current architecture, `DOCS_INDEX.md` for documen
 
 ## Manager Workflow
 
+For autonomous multi-step work, use `.github/agents/project-manager.agent.md`
+or the `managed-task` prompt. Durable task records use
+`.github/project-manager/TASK_TEMPLATE.md` and live under
+`.github/project-manager/tasks/`.
+
 For every task, record:
 
 ```text

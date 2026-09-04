@@ -30,6 +30,8 @@ Primary explainer docs:
    improvement queue, and future project-manager handoff contract.
 5. `.github/copilot-instructions.md` defines repository-level agent guardrails,
    ownership boundaries, and validation expectations.
+6. `.github/project-manager/README.md` explains the workspace project-manager
+    agent, durable task records, status, and escalation rules.
 
 ## Active Vs Legacy Locations
 

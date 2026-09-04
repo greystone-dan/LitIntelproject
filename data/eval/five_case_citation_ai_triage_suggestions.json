@@ -1,0 +1,49 @@
+{
+  "fixture_name": "five_case_citation_gold_candidate",
+  "report_type": "ai_suggestion_only",
+  "review_status": "ai_suggestions_unconfirmed",
+  "timestamp": "2026-09-04T16:16:42.863378+00:00",
+  "model": "gpt-4.1-nano",
+  "selected_occurrence_count": 20,
+  "suggestions": [
+    {
+      "review_id": "35858:155",
+      "issue_type": "WRONG_SPAN",
+      "confidence": 0.8,
+      "rationale": "The pinpoint 'at para. 99' may not correspond precisely to the cited paragraph in the source; verify paragraph location."
+    },
+    {
+      "review_id": "35858:118",
+      "issue_type": "WRONG_SPAN",
+      "confidence": 0.7,
+      "rationale": "The pinpoint 'at para. 159' may not match the exact paragraph in the source; confirm paragraph accuracy."
+    },
+    {
+      "review_id": "35858:107",
+      "issue_type": "WRONG_SPAN",
+      "confidence": 0.8,
+      "rationale": "The pinpoint 'at para. 9' in the short citation may not align exactly with the cited paragraph; verify paragraph correctness."
+    },
+    {
+      "review_id": "35858:118",
+      "issue_type": "WRONG_SPAN",
+      "confidence": 0.8,
+      "rationale": "The pinpoint 'at para. 159' may not correspond exactly to the cited paragraph; check for paragraph accuracy."
+    },
+    {
+      "review_id": "35858:118",
+      "issue_type": "WRONG_ALIAS",
+      "confidence": 0.6,
+      "rationale": "The source citation '2000 SCC 40' does not include an alias; ensure the alias 'Khelawon' is correctly declared or omitted."
+    }
+  ],
+  "database_writes": false,
+  "gold_fixture_modified": false,
+  "external_api_used": true,
+  "cost_estimate": {
+    "input_chars": 14799,
+    "estimated_input_tokens": 3699,
+    "estimated_output_tokens": 400,
+    "estimated_cost_usd": 0.0005299
+  }
+}

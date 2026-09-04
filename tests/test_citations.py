@@ -53,6 +53,7 @@ def test_raw_citation_match_positional_constructor_keeps_optional_pinpoint_defau
 	assert match.anchor_citation_text is None
 	assert match.anchor_offset_start is None
 	assert match.anchor_offset_end is None
+	assert match.declared_alias is None
 
 
 def test_raw_citation_match_positional_constructor_accepts_existing_sixth_argument():
@@ -60,6 +61,23 @@ def test_raw_citation_match_positional_constructor_accepts_existing_sixth_argume
 
 	assert match.pinpoint == "at para. 4"
 	assert match.anchor_citation_text is None
+
+
+def test_raw_citation_match_positional_constructor_appends_declared_alias():
+	match = citations.RawCitationMatch(
+		"case",
+		"2005 FC 1037 [Example]",
+		"2005 FC 1037, at para. 4",
+		0,
+		23,
+		"at para. 4",
+		None,
+		None,
+		None,
+		"Example",
+	)
+
+	assert match.declared_alias == "Example"
 
 
 class FakeDatabase:
@@ -704,6 +722,116 @@ def test_extract_raw_citation_matches_preserves_full_case_trailing_pinpoint():
 	assert case_matches[0].pinpoint == "at para. 10"
 
 
+def test_extract_case_citations_treats_telfer_alias_and_pinpoint_as_one_occurrence():
+	text = "Canada Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34"
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert len(matches) == 1
+	match = matches[0]
+	assert match.kind == "case"
+	assert match.citation_text == text
+	assert text[match.offset_start:match.offset_end] == match.citation_text
+	assert match.normalized_citation == "Canada Revenue Agency v. Telfer, 2009 FCA 23, at para. 34"
+	assert match.pinpoint == "at para. 34"
+	assert match.declared_alias == "Telfer"
+
+
+def test_extract_case_citations_anchors_later_telfer_short_form_to_composite_span():
+	text = (
+		"Canada Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34. "
+		"Later Telfer at para 6."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_match = next(match for match in matches if match.kind == "case_short")
+
+	assert short_match.citation_text == "Telfer at para 6"
+	assert short_match.pinpoint == "at para. 6"
+	assert short_match.anchor_citation_text == full_match.citation_text
+	assert short_match.anchor_offset_start == full_match.offset_start
+	assert short_match.anchor_offset_end == full_match.offset_end
+
+
+def test_extract_case_citations_anchors_declared_cra_alias_to_composite_span():
+	text = (
+		"Canada Revenue Agency v Telfer, 2009 FCA 23 [CRA] at para 34. "
+		"CRA at para 6."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert full_match.declared_alias == "CRA"
+	assert full_match.citation_text == text[: text.index(".")]
+	assert text[full_match.offset_start:full_match.offset_end] == full_match.citation_text
+	assert len(short_matches) == 1
+	short_match = short_matches[0]
+	assert short_match.citation_text == "CRA at para 6"
+	assert text[short_match.offset_start:short_match.offset_end] == short_match.citation_text
+	assert short_match.anchor_citation_text == full_match.citation_text
+	assert short_match.anchor_offset_start == full_match.offset_start
+	assert short_match.anchor_offset_end == full_match.offset_end
+
+
+def test_extract_case_citations_anchors_stemijon_declared_alias_to_composite_span():
+	text = (
+		"Stemijon Investments Ltd v Canada (Attorney General), 2011 FCA 299 [Stemijon] at para 50. "
+		"Stemijon at para 17."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert full_match.declared_alias == "Stemijon"
+	assert full_match.citation_text == text[: text.index(".")]
+	assert text[full_match.offset_start:full_match.offset_end] == full_match.citation_text
+	assert len(short_matches) == 1
+	short_match = short_matches[0]
+	assert short_match.citation_text == "Stemijon at para 17"
+	assert text[short_match.offset_start:short_match.offset_end] == short_match.citation_text
+	assert short_match.anchor_citation_text == full_match.citation_text
+	assert short_match.anchor_offset_start == full_match.offset_start
+	assert short_match.anchor_offset_end == full_match.offset_end
+
+
+def test_extract_case_citations_treats_vavilov_alias_and_pinpoint_as_one_occurrence():
+	text = "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at paras 16-17"
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert len(matches) == 1
+	match = matches[0]
+	assert match.kind == "case"
+	assert text[match.offset_start:match.offset_end] == match.citation_text
+	assert match.citation_text == text
+	assert match.normalized_citation == (
+		"Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, at paras. 16-17"
+	)
+	assert match.pinpoint == "at paras. 16-17"
+	assert match.declared_alias == "Vavilov"
+
+
+def test_extract_case_citations_preserves_duplicate_short_occurrences_from_composite_anchor():
+	text = (
+		"Canada Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34. "
+		"Telfer at para 6. Telfer at para 6."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert len(short_matches) == 2
+	assert [match.citation_text for match in short_matches] == ["Telfer at para 6", "Telfer at para 6"]
+	assert all(match.anchor_citation_text == full_match.citation_text for match in short_matches)
+	assert all(match.anchor_offset_start == full_match.offset_start for match in short_matches)
+	assert all(match.anchor_offset_end == full_match.offset_end for match in short_matches)
+
+
 def test_extract_raw_citation_matches_populates_pinpoint_for_full_neutral_citation():
 	text = "The Court applied 2019 SCC 65 at para 100."
 
@@ -784,13 +912,13 @@ def test_extract_case_citations_handles_chained_cases_with_bracket_aliases():
 	assert any(
 		m.kind == "case"
 		and m.citation_text
-		== "Jayasekara v Canada (Minister of Citizenship and Immigration), 2008 FCA 404"
+		== "Jayasekara v Canada (Minister of Citizenship and Immigration), 2008 FCA 404 [Jayasekara]"
 		for m in matches
 	)
 	assert any(
 		m.kind == "case"
 		and m.citation_text
-		== "Febles v Canada (Citizenship and Immigration), 2014 SCC 68"
+		== "Febles v Canada (Citizenship and Immigration), 2014 SCC 68 [Febles]"
 		for m in matches
 	)
 	assert any(
@@ -799,6 +927,65 @@ def test_extract_case_citations_handles_chained_cases_with_bracket_aliases():
 		and m.normalized_citation
 		== "Jayasekara v. Canada (Minister of Citizenship and Immigration), 2008 FCA 404, at paras. 37 and 44"
 		for m in matches
+	)
+
+
+@pytest.mark.parametrize(
+	"text, expected_case_text, expected_alias, expected_short_alias, expected_pinpoint",
+	[
+		(
+			"Canada Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34. Telfer at para 6.",
+			"Canada Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34",
+			"Telfer",
+			"Telfer",
+			"at para. 34",
+		),
+		(
+			"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at para 100. Vavilov at para 6.",
+			"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at para 100",
+			"Vavilov",
+			"Vavilov",
+			"at para. 100",
+		),
+		(
+			"Canada Revenue Agency v Telfer, 2009 FCA 23 at para 34. Telfer at para 6.",
+			"Canada Revenue Agency v Telfer, 2009 FCA 23 at para 34",
+			None,
+			"Telfer",
+			"at para. 34",
+		),
+	],
+)
+def test_extract_case_citations_composes_full_case_and_derives_short_anchor(
+	text, expected_case_text, expected_alias, expected_short_alias, expected_pinpoint
+):
+	matches = citations.extract_case_citation_matches(text)
+	full_cases = [match for match in matches if match.kind == "case"]
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert len(full_cases) == 1
+	assert full_cases[0].citation_text == expected_case_text
+	assert full_cases[0].declared_alias == expected_alias
+	assert full_cases[0].pinpoint == expected_pinpoint
+	assert not any(
+		match.citation_text.endswith("[Telfer] at para 34")
+		or match.citation_text.endswith("[Vavilov] at para 100")
+		for match in short_matches
+	)
+
+	assert len(short_matches) == 1
+	short_match = short_matches[0]
+	assert short_match.citation_text == f"{expected_short_alias} at para 6"
+	assert short_match.pinpoint == "at para. 6"
+	assert (short_match.anchor_offset_start, short_match.anchor_offset_end) == (
+		full_cases[0].offset_start,
+		full_cases[0].offset_end,
+	)
+	assert text[full_cases[0].offset_start : full_cases[0].offset_end] == full_cases[0].citation_text
+	assert text[short_match.offset_start : short_match.offset_end] == short_match.citation_text
+	assert all(
+		text[match.offset_start : match.offset_end] == match.citation_text
+		for match in matches
 	)
 
 
@@ -1171,7 +1358,9 @@ def test_extract_raw_citation_matches_prefers_company_name_over_suffix_start():
 	short_matches = [m for m in matches if m.kind == "case_short"]
 
 	assert any(
-		m.normalized_citation == "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141"
+		m.normalized_citation
+		== "Jennings-Clyde, Inc (Vivatas, Inc) v. Canada (Attorney General), 2024 FC 1141, at para. 39"
+		and m.citation_text.endswith("[Jennings-Clyde] at paragraph 39")
 		for m in full_cases
 	)
 	assert any(

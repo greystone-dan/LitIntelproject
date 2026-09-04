@@ -290,6 +290,7 @@ class RawCitationMatch:
 	anchor_citation_text: str | None = None
 	anchor_offset_start: int | None = None
 	anchor_offset_end: int | None = None
+	declared_alias: str | None = None
 
 
 @dataclass(frozen=True)
@@ -456,11 +457,35 @@ def _extend_case_with_trailing_reporter(
 	)
 
 
+def _extend_case_with_declared_alias(
+	content: str,
+	start: int,
+	end: int,
+	normalized_citation: str,
+) -> tuple[int, str, str, str | None]:
+	end, citation_text, normalized_citation = _extend_case_with_trailing_reporter(
+		content, start, end, normalized_citation
+	)
+	window = content[end : min(len(content), end + 96)]
+	match = re.match(r"^\s*\[\s*([A-Za-z][A-Za-z .\-']{1,60})\s*\]", window)
+	if match is None:
+		return end, citation_text, normalized_citation, None
+	declared_alias = _normalize_whitespace(match.group(1))
+	alias_end = end + match.end()
+	new_end, citation_text, normalized_citation = _extend_case_with_trailing_pinpoint(
+		content, start, alias_end, normalized_citation
+	)
+	return new_end, citation_text, _append_pinpoint_to_normalized(
+		normalized_citation, _extract_pinpoint_phrase(citation_text)
+	), declared_alias
+
+
 def _extend_case_layer_row(content: str, row: RawCitationMatch) -> RawCitationMatch:
 	if row.kind not in CASE_CITATION_KINDS:
 		return row
+	declared_alias = None
 	if row.kind in {"case", "case_name"}:
-		new_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		new_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			row.offset_start,
 			row.offset_end,
@@ -475,7 +500,14 @@ def _extend_case_layer_row(content: str, row: RawCitationMatch) -> RawCitationMa
 		)
 	if new_end == row.offset_end and citation_text == row.citation_text and normalized == row.normalized_citation:
 		return row
-	return _raw_match(row.kind, citation_text, normalized, row.offset_start, new_end)
+	return _raw_match(
+		row.kind,
+		citation_text,
+		normalized,
+		row.offset_start,
+		new_end,
+		declared_alias=declared_alias or row.declared_alias,
+	)
 
 
 def _normalize_neutral_parts(year: str, court: str, number: str) -> str:
@@ -613,6 +645,7 @@ def _raw_match(
 	anchor_citation_text: str | None = None,
 	anchor_offset_start: int | None = None,
 	anchor_offset_end: int | None = None,
+	declared_alias: str | None = None,
 ) -> RawCitationMatch:
 	return RawCitationMatch(
 		kind=kind,
@@ -624,6 +657,7 @@ def _raw_match(
 		anchor_citation_text=anchor_citation_text,
 		anchor_offset_start=anchor_offset_start,
 		anchor_offset_end=anchor_offset_end,
+		declared_alias=declared_alias,
 	)
 
 
@@ -838,7 +872,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 		global_parties_start = window_start + fragment_match.start(1) + parties_start
 		global_end = neutral_match.end()
 		normalized = _normalize_case_citation_parts(selected_parties, year, court, number)
-		global_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		global_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			global_parties_start,
 			global_end,
@@ -854,6 +888,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 					normalized,
 					global_parties_start,
 					global_end,
+					declared_alias=declared_alias,
 				),
 			)
 		)
@@ -1041,6 +1076,8 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 				continue
 			normalized_case = normalize_case_citation(embedded)
 			aliases = _extract_short_aliases(embedded.group(1))
+			if match.declared_alias:
+				aliases.append(match.declared_alias)
 			_emit_alias_anchors(
 				aliases=aliases,
 				normalized_case=normalized_case,
@@ -1298,14 +1335,21 @@ def _promote_case_name_neutral_pairs(content: str, rows: list[RawCitationMatch])
 		case_start = match.offset_start + parties_match.start(1)
 		case_end = candidate_neutral.offset_end
 		normalized = f"{parties}, {candidate_neutral.normalized_citation}"
-		case_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		case_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			case_start,
 			case_end,
 			normalized,
 		)
 		promoted.append(
-			_raw_match("case", citation_text, normalized, case_start, case_end)
+			_raw_match(
+				"case",
+				citation_text,
+				normalized,
+				case_start,
+				case_end,
+				declared_alias=declared_alias,
+			)
 		)
 
 	return promoted
@@ -1356,7 +1400,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
-		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		citation_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			citation_start,
 			match.end(),
@@ -1366,7 +1410,14 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			(
 				citation_start,
 				citation_end,
-				_raw_match("case", citation_text, normalized, citation_start, citation_end),
+				_raw_match(
+					"case",
+					citation_text,
+					normalized,
+					citation_start,
+					citation_end,
+					declared_alias=declared_alias,
+				),
 			)
 		)
 
@@ -1377,7 +1428,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 		citation_start = match.start(1) + parties_start
 		reported = _normalize_whitespace(match.group(2)).replace(" .", ".")
 		normalized = f"{_normalize_case_parties(selected_parties)}, {reported}"
-		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		citation_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			citation_start,
 			match.end(),
@@ -1387,7 +1438,14 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			(
 				citation_start,
 				citation_end,
-				_raw_match("case", citation_text, normalized, citation_start, citation_end),
+				_raw_match(
+					"case",
+					citation_text,
+					normalized,
+					citation_start,
+					citation_end,
+					declared_alias=declared_alias,
+				),
 			)
 		)
 
@@ -1400,7 +1458,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_citation_parts(selected_parties, match.group(2), reporter, match.group(4))
-		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		citation_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			citation_start,
 			match.end(),
@@ -1410,7 +1468,14 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			(
 				citation_start,
 				citation_end,
-				_raw_match("case", citation_text, normalized, citation_start, citation_end),
+				_raw_match(
+					"case",
+					citation_text,
+					normalized,
+					citation_start,
+					citation_end,
+					declared_alias=declared_alias,
+				),
 			)
 		)
 
@@ -1420,7 +1485,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			continue
 		citation_start = match.start(1) + parties_start
 		normalized = _normalize_case_parties(selected_parties)
-		citation_end, citation_text, normalized = _extend_case_with_trailing_reporter(
+		citation_end, citation_text, normalized, declared_alias = _extend_case_with_declared_alias(
 			content,
 			citation_start,
 			match.end(1),
@@ -1430,7 +1495,14 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 			(
 				citation_start,
 				citation_end,
-				_raw_match("case_name", citation_text, normalized, citation_start, citation_end),
+				_raw_match(
+					"case_name",
+					citation_text,
+					normalized,
+					citation_start,
+					citation_end,
+					declared_alias=declared_alias,
+				),
 			)
 		)
 

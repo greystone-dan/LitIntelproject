@@ -45,16 +45,20 @@ Docs/generated references: this task record and fixture README/notes only.
 Rollback/recovery: Delete only the candidate fixture/report/script if rejected;
 no database recovery required.
 
-Evidence: Candidate generated and verified by delegated builder. Five cases:
+Evidence: Candidate generated and verified by delegated builder, then
+regenerated after the composite-citation model fix. Five cases:
 FC 2026 FC 171 (case 35859, 58 occurrences), FC 2026 FC 159 (case 35858,
 350), FC 2006 FC 1160 (case 35857, 34), FCA 2013 FCA 142 (case 47497, 18),
-and SCC 2008 SCC 48 (case 61037, 59). Total 519 occurrences; counts by kind:
-case_name 24, neutral 33, case_short 393, case 69. Exact spans 519/519 valid.
-Candidate review status remains `proposed`; no external API used and no database
-writes occurred. Build and `--verify` passed. Focused tests passed (95 in the
-builder-plus-existing citation run); `git diff --check` passed. The fixture
-contains bounded context excerpts, offsets, pinpoints, anchor provenance, and
-per-occurrence review status.
+and SCC 2008 SCC 48 (case 61037, 59). The corrected fixture has 507
+occurrences; all 507 exact spans are valid. Explicit forms such as `Canada
+Revenue Agency v Telfer, 2009 FCA 23 [Telfer] at para 34` are one `case`
+occurrence with `declared_alias=Telfer` and the pinpoint attached; the former
+false second `case_short` record is gone. The same applies to Stemijon and
+Vavilov. Candidate review status remains `proposed`; no external API used and
+no database writes occurred. Build and `--verify` passed. Focused tests passed
+(105); full suite passed (376); `git diff --check` passed. The fixture contains
+bounded context excerpts, offsets, pinpoints, alias declarations, anchor
+provenance, and per-occurrence review status.
 
 ## Hypothesis
 
@@ -66,9 +70,14 @@ API to label full decisions before the extraction errors are understood.
 
 Status: in-progress
 
-Summary: Pending five-case candidate generation and review surface.
+Summary: Five-case candidate review surface is ready. Composite full citations
+carry optional declared aliases and attached pinpoints as single records; later
+short references remain separate anchored occurrences. Labels remain `proposed`
+pending user review.
 
-Validation: Candidate build and verification passed; no corpus mutation.
+Validation: Candidate build and verification passed: 5 cases, 507 occurrences,
+507 exact spans; 105 focused tests and 376 full-suite tests passed; no corpus
+mutation.
 
 Residual risk: Proposed labels remain unconfirmed until user review; five cases
 cannot estimate corpus-wide precision/recall.

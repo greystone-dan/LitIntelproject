@@ -47,6 +47,7 @@ def occurrence_from_match(text: str, match: RawCitationMatch) -> dict[str, Any]:
         "offset_end": match.offset_end,
         "exact_span_valid": validate_match_span(text, match.offset_start, match.offset_end, match.citation_text),
         "pinpoint": match.pinpoint,
+        "declared_alias": match.declared_alias,
         "anchor_citation_text": match.anchor_citation_text,
         "anchor_offset_start": match.anchor_offset_start,
         "anchor_offset_end": match.anchor_offset_end,

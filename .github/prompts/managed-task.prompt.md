@@ -7,7 +7,11 @@ argument-hint: "Outcome, priority, constraints, and whether commit/push is allow
 
 Start a managed AI CaseLibrary task for: ${input:outcome:Describe the desired outcome}
 
-Priority and constraints: ${input:constraints:State priority, scope, approval limits, and whether commit or push is allowed}
+Priority and constraints: ${input:constraints:State priority, scope, and approval limits}
+
+Commit allowed: ${input:commit_allowed:yes}
+
+Push allowed: ${input:push_allowed:yes}
 
 Follow the project-manager workflow. Create a durable task record if the work is
 multi-step or may span sessions. Select one owner surface, state a falsifiable
@@ -15,3 +19,18 @@ hypothesis, implement the smallest safe slice, run its focused validation, and
 record evidence before reporting completion. Do not make production, security,
 Government of Canada, CBSA, destructive, unbounded, or paid-operation decisions
 without explicit user approval.
+
+Delegated returns must use exactly this schema:
+
+```text
+Files inspected:
+Files changed:
+Commands run:
+Results:
+Failures:
+Uncertainty:
+Recommendation:
+```
+
+Task records are manager-owned; delegated agents must not create, update, or
+finalize them.

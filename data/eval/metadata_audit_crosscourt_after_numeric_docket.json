@@ -1,0 +1,501 @@
+{
+  "FCA": {
+    "court": "FCA",
+    "sampled_cases": 40,
+    "min_critical_confidence": 0.9,
+    "coverage": {
+      "date": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "docket": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "neutral citation": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "judge": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "style of cause": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "place of hearing": {
+        "count": 34,
+        "percent": 85.0
+      },
+      "date of hearing": {
+        "count": 34,
+        "percent": 85.0
+      },
+      "dated": {
+        "count": 29,
+        "percent": 72.5
+      },
+      "counsel": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "present": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "between": {
+        "count": 38,
+        "percent": 95.0
+      },
+      "solicitors of record": {
+        "count": 40,
+        "percent": 100.0
+      }
+    },
+    "confidence": {
+      "date": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "docket": {
+        "avg": 0.964,
+        "observations": 40
+      },
+      "neutral citation": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "judge": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "style of cause": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "place of hearing": {
+        "avg": 0.97,
+        "observations": 34
+      },
+      "date of hearing": {
+        "avg": 0.97,
+        "observations": 34
+      },
+      "dated": {
+        "avg": 0.97,
+        "observations": 29
+      },
+      "counsel": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "present": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "between": {
+        "avg": 0.97,
+        "observations": 38
+      },
+      "solicitors of record": {
+        "avg": 0.97,
+        "observations": 40
+      }
+    },
+    "issues": {
+      "invalid_shape:docket": 1,
+      "low_confidence_critical:docket": 1,
+      "critical_below_threshold:docket": 1
+    },
+    "low_confidence_judge": [
+      {
+        "confidence": 0.97,
+        "case_id": 47497,
+        "citation": "2013 FCA 142",
+        "value_repr": "'WEBB J.A.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47495,
+        "citation": "2013 FCA 150",
+        "value_repr": "'GAUTHIER J.A.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47493,
+        "citation": "2013 FCA 151",
+        "value_repr": "'NOËL J.A.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47491,
+        "citation": "2013 FCA 145",
+        "value_repr": "'SHARLOW J.A.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47489,
+        "citation": "2013 FCA 149",
+        "value_repr": "'MAINVILLE J.A.'"
+      }
+    ],
+    "low_confidence_style_of_cause": [
+      {
+        "confidence": 0.97,
+        "case_id": 47497,
+        "citation": "2013 FCA 142",
+        "value_repr": "'GARY JACKSON PROFESSIONAL CORPORATION v. MINISTER OF NATIONAL REVENUE'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47495,
+        "citation": "2013 FCA 150",
+        "value_repr": "'Ozcan Ilaslan v. Hospitality & Service Trades Union, Local 261 and the National Arts Centre Corporation'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47493,
+        "citation": "2013 FCA 151",
+        "value_repr": "'THE ATTORNEY GENERAL OF CANADA v. Mohammed ELYOUMNI'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47491,
+        "citation": "2013 FCA 145",
+        "value_repr": "'Attorney General of Canada v. Gulnaz Shahid'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 47489,
+        "citation": "2013 FCA 149",
+        "value_repr": "'TELE-MOBILE COMPANY PARTNERSHIP v.'"
+      }
+    ]
+  },
+  "SCC": {
+    "court": "SCC",
+    "sampled_cases": 40,
+    "min_critical_confidence": 0.9,
+    "coverage": {
+      "date": {
+        "count": 36,
+        "percent": 90.0
+      },
+      "docket": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "neutral citation": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "judge": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "style of cause": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "place of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "date of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "dated": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "counsel": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "present": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "between": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "solicitors of record": {
+        "count": 0,
+        "percent": 0.0
+      }
+    },
+    "confidence": {
+      "date": {
+        "avg": 0.97,
+        "observations": 36
+      },
+      "docket": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "neutral citation": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "judge": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "style of cause": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "place of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "date of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "dated": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "counsel": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "present": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "between": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "solicitors of record": {
+        "avg": 0.0,
+        "observations": 0
+      }
+    },
+    "issues": {
+      "missing_critical:docket": 40,
+      "missing_critical:neutral citation": 40,
+      "missing_critical:style of cause": 40,
+      "critical_below_threshold:style of cause": 40,
+      "critical_below_threshold:neutral citation": 40,
+      "critical_below_threshold:docket": 40,
+      "missing_critical:date": 4,
+      "critical_below_threshold:date": 4
+    },
+    "low_confidence_judge": [
+      {
+        "confidence": 0.97,
+        "case_id": 61263,
+        "citation": "[1968] SCR 684",
+        "value_repr": "'Cartwright, John Robert; Fauteux, Joseph Honoré Gérald; Martland, Ronald; Judson, Wilfred; Pigeon, Louis-Philippe'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61262,
+        "citation": "[1972] SCR 359",
+        "value_repr": "'Fauteux, Joseph Honoré Gérald; Abbott, Douglas Charles; Martland, Ronald; Judson, Wilfred; Ritchie, Roland Almon; Hall, Emmett Matthew; Spence, Wishart Flett; Pigeon, Louis-Philippe; Laskin, Bora'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61261,
+        "citation": "[1972] SCR 380",
+        "value_repr": "'Martland, Ronald; Ritchie, Roland Almon; Hall, Emmett Matthew; Spence, Wishart Flett; Laskin, Bora'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61260,
+        "citation": "[1989] 1 SCR 1645",
+        "value_repr": "\"McIntyre, William Rogers; Lamer, Antonio; Wilson, Bertha; L'Heureux-Dubé, Claire; Sopinka, John\""
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61259,
+        "citation": "[1972] SCR 387",
+        "value_repr": "'Fauteux, Joseph Honoré Gérald; Abbott, Douglas Charles; Judson, Wilfred; Hall, Emmett Matthew; Pigeon, Louis-Philippe'"
+      }
+    ],
+    "low_confidence_style_of_cause": []
+  },
+  "SCCmodern": {
+    "court": "SCCmodern",
+    "sampled_cases": 40,
+    "min_critical_confidence": 0.9,
+    "coverage": {
+      "date": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "docket": {
+        "count": 39,
+        "percent": 97.5
+      },
+      "neutral citation": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "judge": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "style of cause": {
+        "count": 38,
+        "percent": 95.0
+      },
+      "place of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "date of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "dated": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "counsel": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "present": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "between": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "solicitors of record": {
+        "count": 0,
+        "percent": 0.0
+      }
+    },
+    "confidence": {
+      "date": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "docket": {
+        "avg": 0.97,
+        "observations": 39
+      },
+      "neutral citation": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "judge": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "style of cause": {
+        "avg": 0.95,
+        "observations": 38
+      },
+      "place of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "date of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "dated": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "counsel": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "present": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "between": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "solicitors of record": {
+        "avg": 0.0,
+        "observations": 0
+      }
+    },
+    "issues": {
+      "missing_critical:docket": 1,
+      "critical_below_threshold:docket": 1,
+      "invalid_shape:style of cause": 3,
+      "low_confidence_critical:style of cause": 3,
+      "critical_below_threshold:style of cause": 5,
+      "missing_critical:style of cause": 2
+    },
+    "low_confidence_judge": [
+      {
+        "confidence": 0.97,
+        "case_id": 61037,
+        "citation": "2008 SCC 48",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61034,
+        "citation": "2008 SCC 36",
+        "value_repr": "'Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60990,
+        "citation": "2008 SCC 47",
+        "value_repr": "'McLachlin, Beverley; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60958,
+        "citation": "2006 SCC 16",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60570,
+        "citation": "2008 SCC 20",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Abella, Rosalie Silberman; Rothstein, Marshall'"
+      }
+    ],
+    "low_confidence_style_of_cause": [
+      {
+        "confidence": 0.72,
+        "case_id": 60563,
+        "citation": "2008 SCC 26",
+        "value_repr": "'Her Majesty The Queen'"
+      },
+      {
+        "confidence": 0.72,
+        "case_id": 60562,
+        "citation": "2008 SCC 27",
+        "value_repr": "'Waddah Mustapha (a.k.a. Martin Mustapha)'"
+      },
+      {
+        "confidence": 0.72,
+        "case_id": 60505,
+        "citation": "2008 SCC 39",
+        "value_repr": "'Honda Canada Inc. operating as Honda of Canada Mfg.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61037,
+        "citation": "2008 SCC 48",
+        "value_repr": "'City of Montréal (in right of the Communauté urbaine de Montréal) v. Commission des droits de la personne et des droits de la jeunesse and S. N ‑ and ‑ Attorney General of Quebec, École nationale de police du Québec and Prisoners’ Rights Committee'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61034,
+        "citation": "2008 SCC 36",
+        "value_repr": "'Robert Allen Devine v. Her Majesty The Queen'"
+      }
+    ]
+  }
+}

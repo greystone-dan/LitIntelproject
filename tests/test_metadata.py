@@ -340,3 +340,70 @@ def test_french_reference_space_colon_label_reaches_critical_confidence():
 	payload = extract_case_metadata(text)
 
 	assert payload["_field_confidence"]["neutral citation"] >= 0.9
+
+
+def test_scc_numeric_docket_reaches_critical_confidence():
+	text = (
+		"Citation: 2008 SCC 48\n"
+		"Docket: 31516\n"
+		"Present: McLachlin C.J. and Bastarache, Binnie, LeBel, Deschamps, Fish and Abella JJ.\n"
+		"BETWEEN:\n"
+		"HER MAJESTY THE QUEEN\n"
+		"Appellant\n"
+		"and\n"
+		"C.B.\n"
+		"Respondent\n"
+		"REASONS FOR JUDGMENT\n"
+		"[1] The appeal is dismissed.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["docket"] == "31516"
+	assert payload["_field_confidence"]["docket"] >= 0.9
+	assert "invalid_shape:docket" not in payload["_quality_flags"]
+
+
+def test_fc_docket_shape_still_valid_after_numeric_acceptance():
+	text = (
+		"Date: 20260123\n"
+		"Docket: IMM-13884-24\n"
+		"Citation: 2026 FC 103\n"
+		"PRESENT: The Honourable Mr. Justice Zinn\n"
+		"BETWEEN:\n"
+		"OBINNA NWAOKONKO\n"
+		"Applicant\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+		"Respondent\n"
+		"JUDGMENT AND REASONS\n"
+		"[1] The application is dismissed.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["docket"] == "IMM-13884-24"
+	assert payload["_field_confidence"]["docket"] >= 0.9
+	assert "invalid_shape:docket" not in payload["_quality_flags"]
+
+
+def test_short_numeric_docket_fails_shape_validation():
+	text = (
+		"Date: 20260123\n"
+		"Docket: 42\n"
+		"Citation: 2026 FC 999\n"
+		"PRESENT: The Honourable Mr. Justice Brown\n"
+		"BETWEEN:\n"
+		"JANE DOE\n"
+		"Applicant\n"
+		"and\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+		"Respondent\n"
+		"JUDGMENT AND REASONS\n"
+		"[1] The application is dismissed.\n"
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert "invalid_shape:docket" in payload["_quality_flags"]
+	assert payload["_field_confidence"]["docket"] < 0.9

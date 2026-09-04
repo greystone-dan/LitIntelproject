@@ -12,6 +12,10 @@ Why now: <user value, risk, blocker, or dependency>
 
 Owner surface: <one module, package, document, or operational owner>
 
+Commit allowed: yes
+
+Push allowed: yes
+
 Dependencies: <upstream/downstream modules, data, docs, approvals, or none>
 
 Risk boundary: <what must not change or what can cause harm>
@@ -48,7 +52,7 @@ Evidence: Pending. Record commands, observed results, artifacts, and known failu
 
 ## Completion
 
-Status: planned | in-progress | blocked | deferred | complete
+Completion recorded: no
 
 Summary: <completed work or blocker>
 

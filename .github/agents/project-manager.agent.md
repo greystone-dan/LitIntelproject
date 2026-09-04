@@ -90,6 +90,26 @@ and a required structured return containing findings, files inspected, commands
 run, failures, uncertainty, and recommendation. Keep delegated work bounded by
 time, files, query limits, and database read-only constraints where applicable.
 
+Delegated agents must return exactly:
+
+```text
+Files inspected:
+Files changed:
+Commands run:
+Results:
+Failures:
+Uncertainty:
+Recommendation:
+```
+
+Delegated agents must not create, update, or finalize project-manager task
+records, decide commit or push, or modify files outside their owner surface and
+explicitly allowed tests. If delegation returns no structured output, treat it
+as failed: inspect the worktree, preserve valid changes, retry once with a
+narrower prompt or perform only bounded recovery, and do not claim completion
+without evidence. The manager owns task records, final acceptance, the
+commit/push decision, and final validation.
+
 The coordinator remains accountable for translating the user's goal, selecting
 the owner, comparing options, protecting invariants, resolving conflicting
 reports, deciding what to implement, and performing final acceptance
@@ -102,6 +122,16 @@ reversible edit, when only the current agent can safely access the needed
 context, or when delegation would expose sensitive material. Platform model
 availability and actual billing are external; never claim that a lower-cost
 model was used unless the tool result identifies it.
+
+## Token Efficiency
+
+- Read only authoritative docs plus the local owner and test needed for the
+   current slice.
+- Delegate bounded inventory, test, or mechanical work; do not duplicate the
+   same search or read locally unless verifying evidence.
+- Use one focused validation command before broad validation.
+- Send concise progress updates after meaningful checkpoints, not every tool
+   call.
 
 ## Project Manager Improvement Loop
 
@@ -228,6 +258,12 @@ outcome, acceptance criteria, and validation are clear. Ask the user before:
   or external Government of Canada/CBSA integration;
 - deleting data, rewriting history, or making a non-reversible migration;
 - choosing between materially different product directions.
+
+Every task record must state `Commit allowed: yes/no` and `Push allowed: yes/no`;
+the default is `yes` unless the user or task constraints explicitly say no.
+Commit and push are separate permissions; neither is implied by the other. Run
+fresh validation after the final edit and immediately before commit. Push only
+after commit validation.
 
 When blocked, do not guess. Record the exact blocker, evidence, safe options,
 and the decision required.

@@ -1,0 +1,179 @@
+{
+  "SCCmodern": {
+    "court": "SCCmodern",
+    "sampled_cases": 40,
+    "min_critical_confidence": 0.9,
+    "coverage": {
+      "date": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "docket": {
+        "count": 39,
+        "percent": 97.5
+      },
+      "neutral citation": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "judge": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "style of cause": {
+        "count": 38,
+        "percent": 95.0
+      },
+      "place of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "date of hearing": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "dated": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "counsel": {
+        "count": 0,
+        "percent": 0.0
+      },
+      "present": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "between": {
+        "count": 40,
+        "percent": 100.0
+      },
+      "solicitors of record": {
+        "count": 0,
+        "percent": 0.0
+      }
+    },
+    "confidence": {
+      "date": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "docket": {
+        "avg": 0.97,
+        "observations": 39
+      },
+      "neutral citation": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "judge": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "style of cause": {
+        "avg": 0.95,
+        "observations": 38
+      },
+      "place of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "date of hearing": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "dated": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "counsel": {
+        "avg": 0.0,
+        "observations": 0
+      },
+      "present": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "between": {
+        "avg": 0.97,
+        "observations": 40
+      },
+      "solicitors of record": {
+        "avg": 0.0,
+        "observations": 0
+      }
+    },
+    "issues": {
+      "missing_critical:docket": 1,
+      "critical_below_threshold:docket": 1,
+      "invalid_shape:style of cause": 3,
+      "low_confidence_critical:style of cause": 3,
+      "critical_below_threshold:style of cause": 5,
+      "missing_critical:style of cause": 2
+    },
+    "low_confidence_judge": [
+      {
+        "confidence": 0.97,
+        "case_id": 61037,
+        "citation": "2008 SCC 48",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61034,
+        "citation": "2008 SCC 36",
+        "value_repr": "'Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60990,
+        "citation": "2008 SCC 47",
+        "value_repr": "'McLachlin, Beverley; LeBel, Louis; Deschamps, Marie; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise; Rothstein, Marshall'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60958,
+        "citation": "2006 SCC 16",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Fish, Morris J.; Abella, Rosalie Silberman; Charron, Louise'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 60570,
+        "citation": "2008 SCC 20",
+        "value_repr": "'McLachlin, Beverley; Bastarache, Michel; Binnie, William Ian Corneil; LeBel, Louis; Deschamps, Marie; Abella, Rosalie Silberman; Rothstein, Marshall'"
+      }
+    ],
+    "low_confidence_style_of_cause": [
+      {
+        "confidence": 0.72,
+        "case_id": 60563,
+        "citation": "2008 SCC 26",
+        "value_repr": "'Her Majesty The Queen'"
+      },
+      {
+        "confidence": 0.72,
+        "case_id": 60562,
+        "citation": "2008 SCC 27",
+        "value_repr": "'Waddah Mustapha (a.k.a. Martin Mustapha)'"
+      },
+      {
+        "confidence": 0.72,
+        "case_id": 60505,
+        "citation": "2008 SCC 39",
+        "value_repr": "'Honda Canada Inc. operating as Honda of Canada Mfg.'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61037,
+        "citation": "2008 SCC 48",
+        "value_repr": "'City of Montréal (in right of the Communauté urbaine de Montréal) v. Commission des droits de la personne et des droits de la jeunesse and S. N ‑ and ‑ Attorney General of Quebec, École nationale de police du Québec and Prisoners’ Rights Committee'"
+      },
+      {
+        "confidence": 0.97,
+        "case_id": 61034,
+        "citation": "2008 SCC 36",
+        "value_repr": "'Robert Allen Devine v. Her Majesty The Queen'"
+      }
+    ]
+  }
+}

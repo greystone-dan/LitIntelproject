@@ -191,7 +191,13 @@ def _has_neutral_citation_shape(value: str | None) -> bool:
 def _has_docket_shape(value: str | None) -> bool:
     if not value:
         return False
-    return bool(re.search(r"\b[A-Z]{1,6}-\d{1,6}-\d{2}\b", value))
+    if re.search(r"\b[A-Z]{1,6}-\d{1,6}-\d{2}\b", value):
+        return True
+    # SCC dockets are bare 4-6 digit file numbers (e.g. "31516"). Values reach
+    # this validator only from docket-labeled captures, so a standalone short
+    # number is reliable; 1-3 digit values stay invalid to avoid collisions
+    # with paragraph/statute numbers.
+    return bool(re.fullmatch(r"\d{4,6}(?:\s*[;,]\s*\d{4,6})*", value.strip()))
 
 
 def _has_judge_shape(value: str | None) -> bool:

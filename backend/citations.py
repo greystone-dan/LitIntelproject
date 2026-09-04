@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 
 from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge, Case, CaseChunk, Citation, CitationMetrics, StatuteReference
 from .citation_pipeline import CanLiiApiClient, build_default_pipeline
+from .statutes import LegislationCitation, LEGISLATION_REGISTRY, canonical_citation_name, parse_legislation_citation
 
 try:
 	from eyecite import get_citations as eyecite_get_citations
@@ -36,19 +37,19 @@ NEUTRAL_CIT_RE = re.compile(
 )
 CANLII_CIT_RE = re.compile(r"\b((?:19|20)\d{2})\s+CanLII\s+(\d{1,9})\s*\(([A-Za-z. ]{2,20})\)", re.IGNORECASE)
 CASE_CIT_RE = re.compile(
-	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?),?\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b"
+	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,90}?),?\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b"
 )
 REPORTED_CASE_CIT_RE = re.compile(
-	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?),?\s+"
+	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?),?\s+"
 	r"(\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+)\b",
 	re.IGNORECASE,
 )
 CASE_REPORTER_NEUTRAL_RE = re.compile(
-	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,90}?),\s+\[(?:19|20)\d{2}\][^,\n]{1,50},\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b",
+	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,90}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,90}?),\s+\[(?:19|20)\d{2}\][^,\n]{1,50},\s+((?:19|20)\d{2})\s+([A-Z]{2,})\s+(\d{1,6})\b",
 	re.IGNORECASE,
 )
 STANDALONE_CASE_NAME_RE = re.compile(
-	r"\b([A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,120}?)(?=[,.;)\]]|\s|$)",
+	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?)(?=[,.;)\]]|\s|$)",
 	re.IGNORECASE,
 )
 STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
@@ -183,10 +184,10 @@ REFUGEE_CONVENTION_ARTICLE_33_RE = re.compile(
 	re.IGNORECASE,
 )
 CASE_PARTIES_FRAGMENT_RE = re.compile(
-	r"[A-Z][A-Za-z'’\-&,()\[\]. ]{0,90}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{0,90}?$"
+	r"[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{0,90}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{0,90}?$"
 )
 CASE_CHAIN_FRAGMENT_RE = re.compile(
-	r"([A-Z][A-Za-z'’\-&,()\[\]. ]{1,140}?\s+v\.?\s+[A-Z][A-Za-z'’\-&,()\[\]. ]{1,140}?)\s*,?\s*$",
+	r"([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,140}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,140}?)\s*,?\s*$",
 	re.IGNORECASE,
 )
 _CASE_NOISE_START_TOKENS = {
@@ -195,6 +196,8 @@ _CASE_NOISE_START_TOKENS = {
 	"board",
 	"commissioner",
 	"court",
+	"appeal",
+	"federal",
 	"in",
 	"inc",
 	"ltd",
@@ -291,44 +294,6 @@ class RawCitationMatch:
 	anchor_offset_start: int | None = None
 	anchor_offset_end: int | None = None
 	declared_alias: str | None = None
-
-
-@dataclass(frozen=True)
-class LegislationCitation:
-	instrument_key: str
-	pinpoint: str
-	legislation_url: str | None = None
-
-
-LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
-	"canada.irpa": {
-		"aliases": ("IRPA", "Immigration and Refugee Protection Act"),
-		"url": "https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section}.html",
-	},
-	"canada.irpr": {
-		"aliases": ("IRPR", "Immigration and Refugee Protection Regulations"),
-		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-227/section-{section}.html",
-	},
-}
-
-
-def parse_legislation_citation(value: str | None) -> LegislationCitation | None:
-	text = _normalize_whitespace(value or "")
-	for key, definition in LEGISLATION_REGISTRY.items():
-		aliases = definition["aliases"]
-		if not any(re.search(rf"\b{re.escape(alias)}\b", text, re.IGNORECASE) for alias in aliases):
-			continue
-		match = re.search(r"\b(?:s|ss|sections?|paragraphs?|subsections?)\.?\s*(?=\d)([^,;]+?)(?=\s+of\s+|\s*$|[.;])", text, re.IGNORECASE)
-		if match is None:
-			match = re.search(r"\bsections?\s*([^,;]+)", text, re.IGNORECASE)
-		if match is None:
-			return None
-		pinpoint = re.sub(r"\s+", "", match.group(1)).strip(".")
-		section = re.match(r"\d{1,3}(?:\.\d+)?[A-Za-z]?", pinpoint)
-		url_template = definition.get("url")
-		url = url_template.format(section=section.group(0)) if section and isinstance(url_template, str) else None
-		return LegislationCitation(key, pinpoint, url)
-	return None
 
 
 def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> bool:
@@ -679,16 +644,7 @@ def _canonical_statute_name(name: str) -> str:
 
 
 def _full_statute_citation_name(name: str) -> str:
-	lowered = _normalize_whitespace(name).lower()
-	if lowered in {"irpa", "immigration and refugee protection act"}:
-		return "Immigration and Refugee Protection Act, S.C. 2001, c. 27"
-	if lowered in {"irpr", "immigration and refugee protection regulations"}:
-		return "Immigration and Refugee Protection Regulations, SOR/2002-227"
-	if lowered in {"charter", "canadian charter of rights and freedoms"}:
-		return "Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982"
-	if lowered == "criminal code":
-		return "Criminal Code, R.S.C. 1985, c. C-46"
-	return _normalize_whitespace(name)
+	return canonical_citation_name(_normalize_whitespace(name))
 
 
 def _normalize_long_statute_citation(text: str) -> str:
@@ -1111,6 +1067,15 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 
 		normalized_case = f"{parties}, {candidate_neutral.normalized_citation}" if candidate_neutral else parties
 		case_end = candidate_neutral.offset_end if candidate_neutral else match.offset_end
+		metadata_gap = content[match.offset_end : candidate_neutral.offset_start] if candidate_neutral else ""
+		if re.search(
+			r"\b(?:court\s*\(s\)|court\s+database|federal court decisions|date|neutral citation)\b",
+			metadata_gap,
+			re.IGNORECASE,
+		):
+			# Page headers can place database metadata between the case name and
+			# neutral citation. Do not make that non-prose block part of the anchor.
+			case_end = match.offset_end
 		_emit_alias_anchors(
 			aliases=aliases,
 			normalized_case=normalized_case,
@@ -1168,6 +1133,15 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			return start, end
 		return left, right + 1
 
+	def is_federal_court_metadata_position(position: int) -> bool:
+		prefix = content[:position]
+		last_metadata = max(
+			prefix.lower().rfind("court (s) database"),
+			prefix.lower().rfind("federal court decisions"),
+			prefix.lower().rfind("neutral citation"),
+		)
+		return last_metadata >= 0 and prefix.lower().rfind("decision content") < last_metadata
+
 	existing_spans = [
 		(item.offset_start, item.offset_end, item.kind)
 		for item in base_matches
@@ -1184,6 +1158,8 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		for alias_match in pattern.finditer(content):
 			start = alias_match.start()
 			end = alias_match.end()
+			if is_federal_court_metadata_position(start):
+				continue
 			best_anchor = nearest_anchor(anchor.alias, start)
 			if best_anchor is None or best_anchor.normalized_citation != anchor.normalized_citation:
 				continue
@@ -1221,6 +1197,8 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 	)
 	for generic_match in generic_pattern.finditer(content):
 		alias = _normalize_whitespace(generic_match.group(1))
+		if is_federal_court_metadata_position(generic_match.start(1)):
+			continue
 		best_anchor = nearest_anchor(alias, generic_match.start(1))
 		if best_anchor is None:
 			continue
@@ -1261,6 +1239,8 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		pattern = re.compile(rf"(?<![\w'’-]){re.escape(alias)}(?![\w'’-])", re.IGNORECASE)
 		for alias_match in pattern.finditer(content):
 			start, end = alias_match.span()
+			if is_federal_court_metadata_position(start):
+				continue
 			if any(
 				kind != "secondary" and not (end <= span_start or start >= span_end)
 				for span_start, span_end, kind in existing_spans

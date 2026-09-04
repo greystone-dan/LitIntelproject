@@ -21,6 +21,7 @@ DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "reference_library" / "manifest.json"
 USER_AGENT = "AI-CaseLibrary-ReferenceLibrary/1.0"
 PDF_MIME_TYPES = {"application/pdf", "application/x-pdf"}
 HTML_MIME_TYPES = {"text/html", "application/xhtml+xml"}
+XML_MIME_TYPES = {"application/xml", "text/xml", "application/octet-stream"}
 INVENTORY_FIELDS = (
     "id",
     "publisher",
@@ -73,6 +74,13 @@ def validate_content(content: bytes, content_type: str | None, source_type: str)
             raise ValidationError(f"Expected HTML MIME type, received {mime_type or 'missing'}")
         if not re.search(br"<(?:!doctype\s+html|html|head|body)(?:\s|>)", prefix):
             raise ValidationError("Response does not contain recognizable HTML markup")
+        return mime_type
+
+    if source_type == "xml":
+        if mime_type not in XML_MIME_TYPES:
+            raise ValidationError(f"Expected XML MIME type, received {mime_type or 'missing'}")
+        if not re.search(br"<\?xml\b|<Statute\b", content.lstrip()[:2048], re.IGNORECASE):
+            raise ValidationError("Response does not contain recognizable XML markup")
         return mime_type
 
     raise ValidationError(f"Unsupported source_type: {source_type}")
@@ -131,7 +139,7 @@ def download_entry(
     destination = safe_local_path(library_root, entry["local_path"])
     response = session.get(
         entry["source_url"],
-        headers={"User-Agent": USER_AGENT, "Accept": "application/pdf,text/html;q=0.9"},
+        headers={"User-Agent": USER_AGENT, "Accept": "application/pdf,text/html,application/xml;q=0.9"},
         timeout=timeout,
         allow_redirects=True,
     )

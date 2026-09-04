@@ -6,6 +6,7 @@ database rows, or confirmed gold data. Use --dry-run first.
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import os
 import re
@@ -71,7 +72,9 @@ def build_messages(rows: list[dict[str, Any]]) -> list[dict[str, str]]:
     system = (
         "You are a citation-extraction triage reviewer. Review only case-to-case citations. "
         "Do not review statutes or tagging. Do not declare gold. Flag likely issues only. "
-        "Every occurrence is data, including duplicates. Return JSON with key suggestions, "
+           "Every occurrence is data, including duplicates. Return JSON with key suggestions, "
+           "flag every occurrence that appears likely wrong or unclear and omit occurrences with no likely issue. "
+        "where no issue is visible. Do not impose an arbitrary limit on flagged issues. "
         "an array of objects containing review_id, issue_type (one of WRONG_KIND, WRONG_SPAN, "
         "WRONG_PINPOINT, WRONG_ALIAS, WRONG_ANCHOR, FALSE_POSITIVE, UNCLEAR, NONE), "
         "confidence (0 to 1), and concise rationale. Flag NONE when no likely issue is visible."
@@ -102,12 +105,14 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=20)
     parser.add_argument("--context-chars", type=int, default=1200)
     parser.add_argument("--max-output-tokens", type=int, default=400)
+    parser.add_argument("--batch-size", type=int, default=10)
+    parser.add_argument("--workers", type=int, default=3)
     parser.add_argument("--budget-usd", type=float, default=DEFAULT_BUDGET_USD)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    if args.limit < 1 or args.context_chars < 100 or args.max_output_tokens < 1 or args.budget_usd <= 0:
-        parser.error("limit/context/output/budget values must be positive")
+    if args.limit < 1 or args.context_chars < 100 or args.max_output_tokens < 1 or args.batch_size < 1 or args.workers < 1 or args.budget_usd <= 0:
+        parser.error("limit/context/output/batch/budget values must be positive")
 
     rows = select_occurrences(load_candidates(args.input), args.limit, args.context_chars)
     estimate = estimate_cost(rows, args.max_output_tokens, DEFAULT_INPUT_COST, DEFAULT_OUTPUT_COST)
@@ -121,15 +126,47 @@ def main() -> int:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise SystemExit("OPENAI_API_KEY is required unless --dry-run is used")
-    client = OpenAI(api_key=api_key)
-    response = client.chat.completions.create(
-        model=args.model,
-        messages=build_messages(rows),
-        temperature=0,
-        max_tokens=args.max_output_tokens,
-        response_format={"type": "json_object"},
-    )
-    suggestions = parse_suggestions(response.choices[0].message.content or "{}")
+    client = OpenAI(api_key=api_key, timeout=90.0, max_retries=1)
+    suggestions: list[dict[str, Any]] = []
+    batches = [rows[index : index + args.batch_size] for index in range(0, len(rows), args.batch_size)]
+    partial_path = args.output.with_suffix(args.output.suffix + ".partial.json")
+    completed_batch_indexes: set[int] = set()
+    if partial_path.exists():
+        partial = json.loads(partial_path.read_text(encoding="utf-8"))
+        if partial.get("selected_occurrence_count") == len(rows) and partial.get("batch_size") == args.batch_size:
+            suggestions = list(partial.get("suggestions", []))
+            completed_batch_indexes = set(partial.get("completed_batch_indexes", range(int(partial.get("completed_batches", 0)))))
+
+    def review_batch(batch: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        response = client.chat.completions.create(
+            model=args.model,
+            messages=build_messages(batch),
+            temperature=0,
+            max_tokens=args.max_output_tokens,
+            response_format={"type": "json_object"},
+        )
+        return parse_suggestions(response.choices[0].message.content or "{}")
+
+    pending_batches = [(index, batch) for index, batch in enumerate(batches) if index not in completed_batch_indexes]
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        futures = {executor.submit(review_batch, batch): batch_index for batch_index, batch in pending_batches}
+        for future in as_completed(futures):
+            completed_batch_indexes.add(futures[future])
+            suggestions.extend(future.result())
+            partial_path.parent.mkdir(parents=True, exist_ok=True)
+            partial_path.write_text(
+                json.dumps(
+                    {
+                        "selected_occurrence_count": len(rows),
+                        "batch_size": args.batch_size,
+                        "completed_batches": len(completed_batch_indexes),
+                        "completed_batch_indexes": sorted(completed_batch_indexes),
+                        "suggestions": suggestions,
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
     report = {
         "fixture_name": "five_case_citation_gold_candidate",
         "report_type": "ai_suggestion_only",
@@ -137,6 +174,8 @@ def main() -> int:
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "model": args.model,
         "selected_occurrence_count": len(rows),
+        "batch_size": args.batch_size,
+        "batch_count": len(batches),
         "suggestions": suggestions,
         "database_writes": False,
         "gold_fixture_modified": False,
@@ -145,6 +184,7 @@ def main() -> int:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    partial_path.unlink(missing_ok=True)
     print(json.dumps({"output": str(args.output), "suggestion_count": len(suggestions), "database_writes": False}, indent=2))
     return 0
 

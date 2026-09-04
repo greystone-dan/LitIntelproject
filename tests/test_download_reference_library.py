@@ -37,6 +37,16 @@ def pdf_entry() -> dict:
     }
 
 
+def xml_entry() -> dict:
+    return {
+        "id": "test-xml",
+        "source_url": "https://example.test/act.xml",
+        "source_type": "xml",
+        "local_path": "documents/test.xml",
+        "status": "pending",
+    }
+
+
 def test_download_pdf_records_provenance_and_checksum(tmp_path: Path) -> None:
     content = b"%PDF-1.7\nmock document\n%%EOF"
     session = FakeSession(FakeResponse(content, "application/pdf; charset=binary"))
@@ -50,6 +60,18 @@ def test_download_pdf_records_provenance_and_checksum(tmp_path: Path) -> None:
     assert entry["size_bytes"] == len(content)
     assert entry["final_url"] == "https://example.test/final"
     assert entry["retrieved_at"]
+
+
+def test_download_xml_records_provenance_and_checksum(tmp_path: Path) -> None:
+    content = b"<?xml version=\"1.0\"?><Statute><Section><Label>1</Label></Section></Statute>"
+    session = FakeSession(FakeResponse(content, "text/xml"))
+
+    entry = download_entry(xml_entry(), tmp_path, session, timeout=5)
+
+    assert (tmp_path / "documents" / "test.xml").read_bytes() == content
+    assert entry["status"] == "downloaded"
+    assert entry["mime_type"] == "text/xml"
+    assert entry["sha256"] == hashlib.sha256(content).hexdigest()
 
 
 def test_pdf_entry_rejects_html_without_leaving_file(tmp_path: Path) -> None:

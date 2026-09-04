@@ -3,7 +3,7 @@ from io import BytesIO
 from docx import Document
 from fastapi.testclient import TestClient
 
-from backend.live_analysis import analyze_docx, validate_docx_upload
+from backend.live_analysis import _provision_excerpt, analyze_docx, validate_docx_upload
 from backend.main import app
 
 
@@ -63,6 +63,13 @@ def test_analyze_docx_preserves_source_offsets_and_nested_references() -> None:
 	assert statute["instrument_key"] == "canada.irpa"
 	assert statute["pinpoint"] == "34(1)(f)"
 	assert statute["legislation_url"].endswith("/acts/I-2.5/section-34.html")
+
+
+def test_provision_excerpt_extracts_current_subsection_from_indexed_section():
+	section_text = "361 False pretence 361 (1) First subsection text. (2) Second subsection text."
+
+	assert _provision_excerpt(section_text, "(1)") == "(1) First subsection text."
+	assert _provision_excerpt(section_text, "") is None
 
 
 def test_validate_docx_upload_rejects_unsupported_inputs() -> None:

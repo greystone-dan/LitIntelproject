@@ -57,6 +57,9 @@ class LiveAnalysisReferenceResponse(BaseModel):
 	source_title: str | None = None
 	source_text: str | None = None
 	source_url: str | None = None
+	resolution_status: str | None = None
+	section_number: str | None = None
+	provision_text: str | None = None
 
 
 class LiveAnalysisSummaryResponse(BaseModel):

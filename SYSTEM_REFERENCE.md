@@ -912,6 +912,16 @@ job, confirm the selected model, vector dimension, batch size, storage capacity,
 and whether paid external API calls are enabled. Keep cost-bearing jobs distinct
 from deterministic extraction runs.
 
+The active rebuild plan defers embeddings until case text, chunks, metadata,
+citations, statutes, tags, outcomes, and current authority resolution are
+stable. Embedding coverage should include both paragraph-level chunks for
+precise reasoning retrieval and section-level chunks for broader doctrinal
+context. Text/reasoning vectors, authority-signature features, and
+metadata/outcome signals should remain separable and be evaluated against fixed
+research benchmarks; more input is useful only when it is relevant, clean, and
+traceable. Higher-level intelligence features follow this groundwork and must
+not replace deterministic source evidence.
+
 ## Security, Privacy, And Deployment
 
 ### Current Access Posture

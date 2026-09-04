@@ -20,6 +20,14 @@ from backend.database import LegislationDocument, LegislationSection, SessionLoc
 XML_SOURCES = {
 	"canada.irpa": ("Immigration and Refugee Protection Act", "I-2.5", "IRPA DATA/IRPA.xml"),
 	"canada.irpr": ("Immigration and Refugee Protection Regulations", "SOR/2002-227", "IRPA DATA/IRPA-R.xml"),
+	"canada.criminal_code": ("Criminal Code", "R.S.C. 1985, c. C-46", "legislation_xml/C-46.xml"),
+	"canada.citizenship_act": ("Citizenship Act", "R.S.C. 1985, c. C-29", "legislation_xml/C-29.xml"),
+	"canada.federal_courts_act": ("Federal Courts Act", "R.S.C. 1985, c. F-7", "legislation_xml/F-7.xml"),
+	"canada.federal_courts_rules": ("Federal Courts Rules", "SOR/98-106", "legislation_xml/SOR-98-106.xml"),
+	"canada.income_tax_act": ("Income Tax Act", "R.S.C. 1985, c. 1 (5th Supp.)", "legislation_xml/I-3.3.xml"),
+	"canada.marine_liability_act": ("Marine Liability Act", "S.C. 2001, c. 6", "legislation_xml/M-0.7.xml"),
+	"canada.commercial_arbitration_act": ("Commercial Arbitration Act", "R.S.C. 1985, c. C-34.6", "legislation_xml/C-34.6.xml"),
+	"canada.coastal_fisheries_protection_act": ("Coastal Fisheries Protection Act", "R.S.C. 1985, c. C-33", "legislation_xml/C-33.xml"),
 }
 
 

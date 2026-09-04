@@ -25,6 +25,24 @@ def test_parse_legislation_citation_distinguishes_irpr():
 	assert parsed.pinpoint == "12(1)"
 
 
+def test_parse_legislation_citation_supports_criminal_code():
+	parsed = citations.parse_legislation_citation("Criminal Code, s. 36(1)")
+
+	assert parsed is not None
+	assert parsed.instrument_key == "canada.criminal_code"
+	assert parsed.pinpoint == "36(1)"
+	assert parsed.legislation_url.endswith("/section-36.html")
+
+
+def test_parse_legislation_citation_identifies_instrument_without_section():
+	parsed = citations.parse_legislation_citation("Immigration Act")
+
+	assert parsed is not None
+	assert parsed.instrument_key == "canada.immigration_act"
+	assert parsed.pinpoint == ""
+	assert parsed.legislation_url.endswith("/acts/I-2/")
+
+
 def test_self_case_name_filter_rejects_source_surname_only():
 	match = citations.RawCitationMatch("case_short", "Calixto", "Calixto, 2005 FC 1037", 0, 7)
 
@@ -754,6 +772,24 @@ def test_extract_case_citations_anchors_later_telfer_short_form_to_composite_spa
 	assert short_match.anchor_offset_end == full_match.offset_end
 
 
+def test_extract_case_citations_excludes_federal_court_metadata_from_anchor():
+	text = (
+		"Dongnam Oil & Fats Co. v. Chemex Ltd.\n"
+		"Court (s) Database\nFederal Court Decisions\nDate\n2004-12-10\n"
+		"Neutral citation\n2004 FC 1732\nDecision Content\n"
+		"Chemex at para. 4."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert [match.citation_text for match in short_matches] == ["Chemex at para. 4"]
+	assert short_matches[0].anchor_citation_text == "Dongnam Oil & Fats Co. v. Chemex"
+	assert text[short_matches[0].anchor_offset_start:short_matches[0].anchor_offset_end] == (
+		"Dongnam Oil & Fats Co. v. Chemex"
+	)
+
+
 def test_extract_case_citations_anchors_declared_cra_alias_to_composite_span():
 	text = (
 		"Canada Revenue Agency v Telfer, 2009 FCA 23 [CRA] at para 34. "
@@ -881,6 +917,36 @@ def test_extract_raw_citation_matches_preserves_parenthesized_year_reporter():
 	assert len(case_matches) == 1
 	assert case_matches[0].citation_text == "Baroud v. Canada (1998), 160 F.T.R. 91"
 	assert case_matches[0].normalized_citation == "Baroud v. Canada, (1998), 160 F.T.R. 91"
+
+
+def test_extract_raw_citation_matches_keeps_accented_parenthesized_party_span():
+	text = "Montréal (City) v. Quebec, 2008 SCC 48 applies."
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(
+		match.kind == "case"
+		and match.citation_text == "Montréal (City) v. Quebec, 2008 SCC 48"
+		and match.normalized_citation == "Montréal (City) v. Quebec, 2008 SCC 48"
+		for match in matches
+	)
+	assert not any(match.citation_text == "City) v. Quebec, 2008 SCC 48" for match in matches)
+
+
+def test_extract_raw_citation_matches_strips_federal_court_wrapper_from_span():
+	text = (
+		"The Federal Court of Appeal in Li v. Canada (Minister of Citizenship and Immigration), "
+		"[1997] 1 F.C. 235 stated the rule."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(
+		match.kind == "case"
+		and match.citation_text == "Li v. Canada (Minister of Citizenship and Immigration), [1997] 1 F.C. 235"
+		and match.normalized_citation == match.citation_text
+		for match in matches
+	)
 
 
 def test_extract_raw_citation_matches_supports_case_short_multi_para_lists():

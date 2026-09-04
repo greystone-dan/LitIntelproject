@@ -1,6 +1,6 @@
 # AI CaseLibrary Forward Roadmap
 
-Last updated: 2026-08-07
+Last updated: 2026-09-04
 
 ## Objective
 
@@ -9,6 +9,67 @@ This roadmap converts the long-term backlog in `MASTER_IDEAS.md` into a practica
 1. Research quality and trust.
 2. Product usability for legal workflows.
 3. QA maturity and release safety.
+
+## Active Corpus Rebuild Sequence
+
+The current delivery priority is to establish trustworthy, explainable data
+layers across the full corpus before investing in interface polish or semantic
+features. This sequence supersedes the older feature-first ordering below for
+the duration of the rebuild.
+
+### Stage 1: Deterministic evidence layers
+
+1. Finish statute and legal-instrument extraction, authority coverage, current
+	resolution, and UI-ready evidence fields.
+2. Improve legal tags while preserving tag offsets, taxonomy separation, and
+	evidence for every match.
+3. Add a focused outcome/case-result layer. Outcomes are foundational derived
+	intelligence, but remain separate from source metadata and tags.
+
+### Stage 2: Corpus processing
+
+4. Run the complete deterministic pipeline across the bounded 60K-case corpus:
+	case text, full/section/paragraph chunks, metadata, citations, statutes,
+	tags, and outcomes.
+5. Run statute and authority resolution against the populated current library.
+	Preserve unresolved and ambiguous references for later incremental passes.
+6. Harden and run case-citation resolution and pinpointing across the corpus.
+
+The extraction pass must finish before broad resolution passes. Resolution may
+run against the authorities already available and be repeated incrementally as
+the authority library expands; it must not rewrite raw occurrence text or
+offsets.
+
+### Stage 3: Usable research product
+
+7. Repair the current UI around the stabilized data contracts: search, reader,
+	statute/citation highlights, authority links, tags, outcomes, unresolved
+	states, and evidence inspection.
+8. Add browser/API workflow checks for the primary Data Explorer research path.
+
+### Stage 4: Retrieval and intelligence
+
+9. Add semantic embeddings only after deterministic data and UI evidence are
+	stable, measured, and searchable. Embed both paragraph and section chunks so
+	retrieval can capture precise local reasoning and broader doctrinal context.
+	Keep text/reasoning, authority-signature, and metadata/outcome signals
+	separable rather than forcing all information into one undifferentiated
+	vector.
+10. Continue with semantic retrieval, authority recommendations, clustering,
+	 research-gap features, and other intelligence capabilities. This is the
+	 first stage where the project can safely turn the completed evidence layers
+	 into higher-level research intelligence.
+
+### Rebuild exit criteria
+
+- Every processed case retains source-preserved text and backend-owned offsets.
+- Chunks, metadata, citations, statutes, tags, and outcomes are separate,
+  repeatable layers with bounded rerun commands.
+- Resolved, unresolved, and ambiguous authority states are explicit.
+- Corpus processing is checkpointed, resumable, and free of competing writers.
+- UI workflows consume stored evidence rather than inventing browser offsets.
+- Embeddings and higher-level intelligence do not become substitutes for
+  deterministic legal evidence.
 
 ## Current Baseline
 

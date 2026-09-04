@@ -108,6 +108,18 @@ def _row(
 	paragraph = _paragraph_for_offset(paragraphs, match.offset_start)
 	parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
 	document, section = legislation_source or (None, None)
+	section_number = None
+	provision_text = None
+	resolution_status = "unresolved"
+	if document and section:
+		section_number = section.section_number
+		resolution_status = "resolved_section"
+		pinpoint = parsed.pinpoint if parsed else ""
+		section_match = re.match(r"(\d{1,3}(?:\.\d+)?[A-Za-z]?)(.*)", pinpoint)
+		if section_match and section_match.group(2).strip():
+			provision_text = _provision_excerpt(section.text, section_match.group(2).strip())
+			if provision_text:
+				resolution_status = "resolved_provision"
 	return {
 		"kind": match.kind,
 		"reference_text": match.citation_text,
@@ -123,11 +135,31 @@ def _row(
 		"resolved_case_citation": resolved_case.citation if resolved_case else None,
 		"instrument_key": parsed.instrument_key if parsed else None,
 		"pinpoint": parsed.pinpoint if parsed else None,
-		"legislation_url": (document.source_url if document else None) or (parsed.legislation_url if parsed else None),
+		"legislation_url": (parsed.legislation_url if parsed else None) or (document.source_url if document else None),
 		"source_title": document.title if document else None,
 		"source_text": section.text if section else None,
 		"source_url": document.source_url if document else (parsed.legislation_url if parsed else None),
+		"resolution_status": resolution_status,
+		"section_number": section_number,
+		"provision_text": provision_text,
 	}
+
+
+def _provision_excerpt(section_text: str, suffix: str) -> str | None:
+	"""Return the containing subsection text from a flattened authority section."""
+	labels = re.findall(r"(?<!\w)(\([0-9]+\))", suffix)
+	if not labels:
+		return None
+	label = labels[0]
+	start_match = re.search(rf"(?<!\w){re.escape(label)}\s+", section_text)
+	if not start_match:
+		return None
+	remainder = section_text[start_match.end() :]
+	next_match = re.search(r"\s+\([0-9]+\)\s+", remainder)
+	end = start_match.end() + (next_match.start() if next_match else len(remainder))
+	excerpt = section_text[start_match.start() : end].strip()
+	excerpt = re.sub(r"\.\s+[A-Z][^.!?]{1,80}$", ".", excerpt)
+	return excerpt
 
 
 def _citation_variants(value: str) -> set[str]:

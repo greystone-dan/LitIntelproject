@@ -1214,7 +1214,10 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			)
 		)
 
-	for alias_key, alias_anchors in sorted(alias_to_anchors.items(), key=lambda item: len(item[0]), reverse=True):
+	for alias_key, alias_anchors in sorted(
+		alias_to_anchors.items(),
+		key=lambda item: (-len(item[0]), item[0]),
+	):
 		alias = alias_anchors[0].alias
 		if len(alias) < 4 or alias_key in _BARE_CASE_ALIAS_NOISE:
 			continue
@@ -1252,7 +1255,10 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 				)
 			)
 
-	return short_matches
+	return sorted(
+		short_matches,
+		key=lambda match: (-(match.offset_end - match.offset_start), match.offset_start),
+	)
 
 
 def _promote_case_name_neutral_pairs(content: str, rows: list[RawCitationMatch]) -> list[RawCitationMatch]:

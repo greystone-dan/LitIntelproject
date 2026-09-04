@@ -866,6 +866,80 @@ def test_extract_case_citations_preserves_anchor_provenance_for_duplicate_short_
 	assert all(match.anchor_offset_end == anchor_end for match in short_matches)
 
 
+def test_extract_case_citations_preserves_multiword_alias_and_anchor_provenance():
+	text = (
+		"Yugraneft Corp. v. Rexx Management Corp., 2010 SCC 19. "
+		"Rexx Management at para. 21"
+	)
+	anchor_start = text.index("Yugraneft")
+	anchor_end = text.index("2010 SCC 19") + len("2010 SCC 19")
+	short_matches = [
+		match
+		for match in citations.extract_case_citation_matches(text)
+		if match.kind == "case_short"
+	]
+
+	assert len(short_matches) == 1
+	match = short_matches[0]
+	assert match.citation_text == "Rexx Management at para. 21"
+	assert text[match.offset_start:match.offset_end] == match.citation_text
+	assert match.pinpoint == "at para. 21"
+	assert match.anchor_citation_text == text[anchor_start:anchor_end]
+	assert (match.anchor_offset_start, match.anchor_offset_end) == (anchor_start, anchor_end)
+	assert text[match.anchor_offset_start:match.anchor_offset_end] == match.anchor_citation_text
+
+
+def test_extract_case_citations_preserves_multiword_alias_exact_span_and_anchor():
+	text = (
+		"Galindo Camayo v. Canada (Citizenship and Immigration), 2022 FCA 50. "
+		"Galindo Camayo at paras 35, 40 and 44-45"
+	)
+	anchor_start = text.index("Galindo")
+	anchor_end = text.index(". Galindo", anchor_start)
+	short_matches = [
+		match
+		for match in citations.extract_case_citation_matches(text)
+		if match.kind == "case_short"
+	]
+
+	assert len(short_matches) == 1
+	match = short_matches[0]
+	assert match.citation_text == "Galindo Camayo at paras 35, 40 and 44-45"
+	assert text[match.offset_start:match.offset_end] == match.citation_text
+	assert match.pinpoint == "at paras. 35, 40 and 44-45"
+	assert match.anchor_citation_text == text[anchor_start:anchor_end]
+	assert (match.anchor_offset_start, match.anchor_offset_end) == (anchor_start, anchor_end)
+	assert text[match.anchor_offset_start:match.anchor_offset_end] == match.anchor_citation_text
+
+
+def test_extract_case_citations_keeps_duplicate_multiword_aliases_separate():
+	text = (
+		"Yugraneft Corp. v. Rexx Management Corp., 2010 SCC 19. "
+		"Rexx Management at para. 21. Rexx Management at para. 22."
+	)
+	anchor_start = text.index("Yugraneft")
+	anchor_end = text.index("2010 SCC 19") + len("2010 SCC 19")
+	short_matches = [
+		match
+		for match in citations.extract_case_citation_matches(text)
+		if match.kind == "case_short"
+	]
+
+	assert len(short_matches) == 2
+	assert [match.citation_text for match in short_matches] == [
+		"Rexx Management at para. 21",
+		"Rexx Management at para. 22",
+	]
+	assert [text[match.offset_start:match.offset_end] for match in short_matches] == [
+		match.citation_text for match in short_matches
+	]
+	assert all(
+		(match.anchor_citation_text, match.anchor_offset_start, match.anchor_offset_end)
+		== (text[anchor_start:anchor_end], anchor_start, anchor_end)
+		for match in short_matches
+	)
+
+
 def test_extract_case_citations_leaves_unanchored_short_name_provenance_empty():
 	matches = citations.extract_case_citation_matches("The tribunal discussed Vavilov without a full citation.")
 

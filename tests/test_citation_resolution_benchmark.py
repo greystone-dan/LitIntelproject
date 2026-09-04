@@ -45,6 +45,38 @@ def test_aggregate_counts_explicit_pinpoints_for_every_duplicate_occurrence():
     assert metrics["duplicate_occurrence_count"] == 2
 
 
+def test_aggregate_counts_duplicate_anchored_short_name_occurrences_and_spans():
+    text = "See Oakes at para 10; Oakes at para 10."
+    matches = [
+        RawCitationMatch(
+            "case_short",
+            "Oakes at para 10",
+            "Oakes at para 10",
+            4,
+            21,
+            anchor_citation_text="Oakes",
+            anchor_offset_start=4,
+            anchor_offset_end=9,
+        ),
+        RawCitationMatch(
+            "case_short",
+            "Oakes at para 10",
+            "Oakes at para 10",
+            22,
+            38,
+            anchor_citation_text="Oakes",
+            anchor_offset_start=22,
+            anchor_offset_end=27,
+        ),
+    ]
+    case = SimpleNamespace(id=99, title="Source v Canada", citation="2024 FC 1", secondary_citation=None)
+
+    metrics = aggregate_case(case, text, matches, [target(7, "R v Oakes")])
+
+    assert metrics["anchored_short_name_occurrence_count"] == 2
+    assert metrics["anchor_span_valid_count"] == 2
+
+
 def test_resolve_occurrence_classifies_alias_candidates():
     match = RawCitationMatch("case_short", "Oakes at para 10", "Oakes at para 10", 0, 18)
 

@@ -159,7 +159,7 @@ STANDALONE_PROVISION_RE = re.compile(
 )
 _SHORT_FORM_PARA_RE = re.compile(r"\b(?:at\s+)?para(?:s)?\.?\s+\d", re.IGNORECASE)
 _PINPOINT_FRAGMENT_RE = re.compile(
-	r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+\d+(?:\s*[-–]\s*\d+)?(?:\s*(?:,|;|and|or)\s*\d+(?:\s*[-–]\s*\d+)?)*",
+	r"(?:at\s+)?(?:(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+\d+(?:\s*(?:[-–]|to)\s*\d+)?(?:\s*(?:,|;|and|or)\s*\d+(?:\s*(?:[-–]|to)\s*\d+)?)*|(?:pp?\.)\s*\d+(?:\s*[-–]\s*\d+)?)",
 	re.IGNORECASE,
 )
 _TRAILING_PINPOINT_RE = re.compile(
@@ -287,6 +287,9 @@ class RawCitationMatch:
 	offset_start: int
 	offset_end: int
 	pinpoint: str | None = None
+	anchor_citation_text: str | None = None
+	anchor_offset_start: int | None = None
+	anchor_offset_end: int | None = None
 
 
 @dataclass(frozen=True)
@@ -363,6 +366,7 @@ def is_self_case_citation(case: Case | None, match: RawCitationMatch) -> bool:
 @dataclass(frozen=True)
 class _CaseAnchor:
 	alias: str
+	citation_text: str
 	normalized_citation: str
 	case_start: int
 	case_end: int
@@ -380,13 +384,17 @@ def _normalize_pinpoint_phrase(value: str) -> str:
 	body = re.sub(r"^at\s+", "", text, flags=re.IGNORECASE)
 	body = _normalize_whitespace(body)
 	lower = body.lower()
-	if lower.startswith("paragraphs") or lower.startswith("paras"):
+	if lower.startswith("pp."):
+		label = "pp."
+	elif lower.startswith("p."):
+		label = "p."
+	elif lower.startswith("paragraphs") or lower.startswith("paras"):
 		label = "paras."
 	elif lower.startswith("paragraph") or lower.startswith("para"):
 		label = "para."
 	else:
 		label = "para."
-	numbers = re.sub(r"^(?:paragraphs?|paras?\.?|para\.?)+\s*", "", body, flags=re.IGNORECASE)
+	numbers = re.sub(r"^(?:paragraphs?|paras?\.?|para\.?|pp?\.)+\s*", "", body, flags=re.IGNORECASE)
 	numbers = _normalize_whitespace(numbers)
 	if not numbers:
 		return ""
@@ -596,7 +604,16 @@ def _is_plausible_case_parties(parties: str) -> bool:
 	return True
 
 
-def _raw_match(kind: str, citation_text: str, normalized_citation: str, start: int, end: int) -> RawCitationMatch:
+def _raw_match(
+	kind: str,
+	citation_text: str,
+	normalized_citation: str,
+	start: int,
+	end: int,
+	anchor_citation_text: str | None = None,
+	anchor_offset_start: int | None = None,
+	anchor_offset_end: int | None = None,
+) -> RawCitationMatch:
 	return RawCitationMatch(
 		kind=kind,
 		citation_text=citation_text,
@@ -604,6 +621,9 @@ def _raw_match(kind: str, citation_text: str, normalized_citation: str, start: i
 		offset_start=start,
 		offset_end=end,
 		pinpoint=_extract_pinpoint_phrase(citation_text) if kind in CASE_CITATION_KINDS else None,
+		anchor_citation_text=anchor_citation_text,
+		anchor_offset_start=anchor_offset_start,
+		anchor_offset_end=anchor_offset_end,
 	)
 
 
@@ -1007,6 +1027,7 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 			anchors.append(
 				_CaseAnchor(
 					alias=alias,
+					citation_text=content[case_start:case_end],
 					normalized_citation=normalized_case,
 					case_start=case_start,
 					case_end=case_end,
@@ -1117,10 +1138,10 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 	short_matches: list[RawCitationMatch] = []
 	seen: set[tuple[int, int, str]] = set()
 	for anchor in anchors:
-		para_index = r"\d+(?:\s*[-–]\s*\d+)?"
+		para_index = r"\d+(?:\s*(?:[-–]|to)\s*\d+)?"
 		para_list = rf"{para_index}(?:\s*(?:,|;|and|or)\s*{para_index})*"
 		pattern = re.compile(
-			rf"\b{re.escape(anchor.alias)}\b(?:,?\s+above)?\s*,?\s+(?:at\s+)?para(?:s|graph(?:s)?)?\.?\s+{para_list}\b",
+			rf"\b{re.escape(anchor.alias)}\b(?:,?\s+above)?\s*,?\s+(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|pp?\.)\s+{para_list}\b",
 			re.IGNORECASE,
 		)
 		for alias_match in pattern.finditer(content):
@@ -1149,13 +1170,16 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 					_append_pinpoint_to_normalized(anchor.normalized_citation, _extract_pinpoint_phrase(citation_text)),
 					start,
 					end,
+					anchor_citation_text=best_anchor.citation_text,
+					anchor_offset_start=best_anchor.case_start,
+					anchor_offset_end=best_anchor.case_end,
 				)
 			)
 
-	para_index = r"\d+(?:\s*[-–]\s*\d+)?"
+	para_index = r"\d+(?:\s*(?:[-–]|to)\s*\d+)?"
 	para_list = rf"{para_index}(?:\s*(?:,|;|and|or)\s*{para_index})*"
 	generic_pattern = re.compile(
-		rf"\b(?:(?:In|See|Cf\.?|Contra|Citing|Quoting|According to)\s+)?([A-Z][A-Za-z'\-.]+(?:\s+(?:and\s+)?[A-Z][A-Za-z'\-.]+){{0,3}})\b,?\s+(?:at\s+)?para(?:s|graph(?:s)?)?\.?\s+{para_list}\b",
+		rf"\b(?:(?:In|See|Cf\.?|Contra|Citing|Quoting|According to)\s+)?([A-Z][A-Za-z'\-.]+(?:\s+(?:and\s+)?[A-Z][A-Za-z'\-.]+){{0,3}})\b,?\s+(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|pp?\.)\s+{para_list}\b",
 		re.IGNORECASE,
 	)
 	for generic_match in generic_pattern.finditer(content):
@@ -1184,6 +1208,9 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 				_append_pinpoint_to_normalized(normalized, _extract_pinpoint_phrase(citation_text)),
 				start,
 				end,
+				anchor_citation_text=best_anchor.citation_text,
+				anchor_offset_start=best_anchor.case_start,
+				anchor_offset_end=best_anchor.case_end,
 			)
 		)
 
@@ -1219,6 +1246,9 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 					normalized_with_pinpoint,
 					start,
 					end,
+					anchor_citation_text=best_anchor.citation_text,
+					anchor_offset_start=best_anchor.case_start,
+					anchor_offset_end=best_anchor.case_end,
 				)
 			)
 

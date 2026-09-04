@@ -112,6 +112,13 @@ def is_exact_span_valid(full_text: str, match: Any) -> bool:
     return isinstance(start, int) and isinstance(end, int) and 0 <= start < end <= len(full_text) and isinstance(text, str) and full_text[start:end] == text
 
 
+def is_anchor_span_valid(full_text: str, match: Any) -> bool:
+    start = getattr(match, "anchor_offset_start", None)
+    end = getattr(match, "anchor_offset_end", None)
+    text = getattr(match, "anchor_citation_text", None)
+    return isinstance(start, int) and isinstance(end, int) and 0 <= start < end <= len(full_text) and isinstance(text, str) and bool(text) and full_text[start:end] == text
+
+
 def duplicate_occurrence_count(matches: Iterable[Any]) -> int:
     counts = Counter(getattr(match, "normalized_citation", "") for match in matches)
     return sum(max(0, count - 1) for value, count in counts.items() if value)
@@ -128,6 +135,23 @@ def aggregate_case(case: Any, full_text: str, matches: Iterable[Any], targets: I
         "case_name_count": sum(match.kind == "case_name" for match in rows),
         "short_form_count": sum(match.kind == "case_short" for match in rows),
         "explicit_pinpoint_count": sum(bool(getattr(match, "pinpoint", None)) for match in rows),
+        "anchored_short_name_occurrence_count": sum(
+            match.kind in {"case_short", "case_name"}
+            and bool(getattr(match, "anchor_citation_text", None))
+            and isinstance(getattr(match, "anchor_offset_start", None), int)
+            and isinstance(getattr(match, "anchor_offset_end", None), int)
+            and 0 <= match.anchor_offset_start < match.anchor_offset_end <= len(full_text)
+            for match in rows
+        ),
+        "anchor_span_valid_count": sum(
+            is_anchor_span_valid(full_text, match)
+            for match in rows
+            if match.kind in {"case_short", "case_name"}
+            and bool(getattr(match, "anchor_citation_text", None))
+            and isinstance(getattr(match, "anchor_offset_start", None), int)
+            and isinstance(getattr(match, "anchor_offset_end", None), int)
+            and 0 <= match.anchor_offset_start < match.anchor_offset_end <= len(full_text)
+        ),
         "exact_span_valid_count": sum(is_exact_span_valid(full_text, match) for match in rows),
         "exact_span_invalid_count": sum(not is_exact_span_valid(full_text, match) for match in rows),
         "duplicate_occurrence_count": duplicate_occurrence_count(rows),
@@ -148,6 +172,8 @@ def _empty_metrics() -> dict[str, int | str]:
         "case_name_count": 0,
         "short_form_count": 0,
         "explicit_pinpoint_count": 0,
+        "anchored_short_name_occurrence_count": 0,
+        "anchor_span_valid_count": 0,
         "exact_span_valid_count": 0,
         "exact_span_invalid_count": 0,
         "duplicate_occurrence_count": 0,

@@ -50,6 +50,16 @@ def test_raw_citation_match_positional_constructor_keeps_optional_pinpoint_defau
 	match = citations.RawCitationMatch("case", "2005 FC 1037", "2005 FC 1037", 0, 12)
 
 	assert match.pinpoint is None
+	assert match.anchor_citation_text is None
+	assert match.anchor_offset_start is None
+	assert match.anchor_offset_end is None
+
+
+def test_raw_citation_match_positional_constructor_accepts_existing_sixth_argument():
+	match = citations.RawCitationMatch("case", "2005 FC 1037", "2005 FC 1037", 0, 12, "at para. 4")
+
+	assert match.pinpoint == "at para. 4"
+	assert match.anchor_citation_text is None
 
 
 class FakeDatabase:
@@ -803,6 +813,63 @@ def test_extract_raw_citation_matches_supports_case_short_paragraph_wording():
 
 	assert any(m.citation_text == "Jayasekara at paragraph 24" for m in short_matches)
 	assert any(m.citation_text == "Jayasekara at paragraph 26" for m in short_matches)
+
+
+def test_extract_case_citations_captures_paragraph_ranges_and_page_pinpoints():
+	text = (
+		"Vavilov v Canada, 2019 SCC 65. "
+		"Vavilov at para 100; Vavilov at para. 101; "
+		"Vavilov at paragraph 102; Vavilov at paras 10-12; "
+		"Vavilov at paragraphs 20 to 22; Vavilov at p. 100; "
+		"Vavilov at pp. 100-102."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert [match.pinpoint for match in short_matches] == [
+		"at para. 100",
+		"at para. 101",
+		"at para. 102",
+		"at paras. 10-12",
+		"at paras. 20 to 22",
+		"at p. 100",
+		"at pp. 100-102",
+	]
+	assert [match.citation_text for match in short_matches] == [
+		"Vavilov at para 100",
+		"Vavilov at para. 101",
+		"Vavilov at paragraph 102",
+		"Vavilov at paras 10-12",
+		"Vavilov at paragraphs 20 to 22",
+		"Vavilov at p. 100",
+		"Vavilov at pp. 100-102",
+	]
+
+
+def test_extract_case_citations_preserves_anchor_provenance_for_duplicate_short_names():
+	text = (
+		"Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 "
+		"sets the framework. Vavilov applies. Vavilov applies again."
+	)
+	anchor_start = text.index("Canada")
+	anchor_end = text.index(" sets", anchor_start)
+	anchor_text = text[anchor_start:anchor_end]
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [match for match in matches if match.kind == "case_short" and match.citation_text == "Vavilov"]
+
+	assert len(short_matches) == 2
+	assert [match.offset_start for match in short_matches] == [text.index("Vavilov", anchor_end), text.rindex("Vavilov")]
+	assert all(match.anchor_citation_text == anchor_text for match in short_matches)
+	assert all(match.anchor_offset_start == anchor_start for match in short_matches)
+	assert all(match.anchor_offset_end == anchor_end for match in short_matches)
+
+
+def test_extract_case_citations_leaves_unanchored_short_name_provenance_empty():
+	matches = citations.extract_case_citation_matches("The tribunal discussed Vavilov without a full citation.")
+
+	assert not any(match.kind == "case_short" and match.citation_text == "Vavilov" for match in matches)
 
 
 def test_extract_raw_citation_matches_supports_standalone_case_name_without_neutral():

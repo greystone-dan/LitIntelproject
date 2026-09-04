@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 65
+Active scripts documented: 66
 
 ## Catalog
 
@@ -73,6 +73,7 @@ Active scripts documented: 65
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_tag_matrix.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_tag_matrix.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
 
@@ -956,6 +957,20 @@ Active scripts documented: 65
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/test_tag_matrix.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_tag_matrix.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`

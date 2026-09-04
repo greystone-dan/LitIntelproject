@@ -102,6 +102,14 @@ from .database import (
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge
 from .ingestion import merge_case_record
+from .contextual_intelligence import (
+	compute_case_thematic_signature,
+	fetch_case_contextual_anchors,
+	fetch_statute_tag_affinity,
+	fetch_theme_breakdown,
+	fetch_theme_catalog,
+	find_thematically_similar_cases,
+)
 from .analytics_service import (
 	FC_ACTIVITY_DISPLAY_START_YEAR,
 	FC_CITY_PROVINCE,
@@ -1196,6 +1204,58 @@ def get_analytics_search_ministers(db: Session = Depends(get_db)) -> dict[str, l
 @router.get("/analytics/search/cases/{case_id}", response_model=dict[str, Any])
 def get_analytics_search_case(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
 	return fetch_analytics_search_case_detail(db, case_id)
+
+
+@router.get("/analytics/themes", response_model=dict[str, Any])
+def get_analytics_themes(db: Session = Depends(get_db)) -> dict[str, Any]:
+	return fetch_theme_breakdown(db)
+
+
+@router.get("/analytics/statute-tag-matrix", response_model=dict[str, Any])
+def get_statute_tag_matrix(
+	pinpoint: str,
+	limit_tags: int = 20,
+	limit_citations: int = 15,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_statute_tag_affinity(
+		db,
+		pinpoint,
+		limit_tags=max(1, min(50, limit_tags)),
+		limit_citations=max(1, min(50, limit_citations)),
+	)
+
+
+@router.get("/cases/{case_id}/contextual-anchors", response_model=list[dict[str, Any]])
+def get_case_contextual_anchors(
+	case_id: int,
+	proximity_window: int = 250,
+	db: Session = Depends(get_db),
+) -> list[dict[str, Any]]:
+	return fetch_case_contextual_anchors(
+		db,
+		case_id,
+		proximity_window=max(50, min(1000, proximity_window)),
+	)
+
+
+@router.get("/cases/{case_id}/thematic-signature", response_model=dict[str, Any])
+def get_case_thematic_signature(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	sig = compute_case_thematic_signature(db, case_id)
+	return sig.__dict__
+
+
+@router.get("/analytics/cases/{case_id}/thematic-cluster", response_model=dict[str, Any])
+def get_case_thematic_cluster(
+	case_id: int,
+	limit: int = 10,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return find_thematically_similar_cases(
+		db,
+		case_id,
+		limit=max(1, min(50, limit)),
+	)
 
 
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:

@@ -53,6 +53,7 @@ and generated research interfaces.
 | `search_service.py` | Query validation, filter assembly, tsvector lexical ranking, cosine distance semantic search, and chunk grouping | `CaseSearchRequest` + DB Session -> Search response models | Encapsulates SQL ranking and vector scoring. Supports semantic, lexical, hybrid, and metadata modes. |
 | `reader_service.py` | Case reader payload assembly (`/cases/{id}/reader-data`), metadata pass formatting, HTML citation wrapping, and citation-pass details | `case_id` + DB Session -> `CaseReaderDataResponse` & Pass models | Formats multi-layer evidence payloads without mutating database records. Supports live and stored citation overlays. |
 | `analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines | Query params + DB Session -> Aggregated metrics & distributions | Encapsulates complex reporting queries and outcome ratios. Re-exported through routes for clean API routing. |
+| `contextual_intelligence.py` | Legal theme catalog, statute-tag affinity matrices, character-offset proximity co-occurrence anchors, and thematic case signature clustering | Case IDs / Pinpoints + DB Session -> Theme distributions, proximity anchors, similar case clusters | Synthesizes 2.66M+ tags with statute references and citations to discover jurisprudence streams without external LLM calls. |
 | `citation_pipeline/` | Modular citation parsing rules, models, and external CanLII client | Citation strings -> Structured candidate objects | Separates parsing rules (`rules.py`) from external lookup clients (`canlii.py`). |
 | `pages/` | Modular HTML/CSS/JS page builders for research UIs | Backend data -> Self-contained HTML strings | Cleanly separated from routing logic. Contains builders for Data Explorer, Quick Search, Citation Map, etc. |
 
@@ -199,6 +200,7 @@ to `0016_case_source_html`.
 | `tests/test_fc_portal_collector.py` | `scripts/fc_portal_collector.py` | Portal HTML parsing, prefix rotation, import-ready payload generation. |
 | `tests/test_download_reference_library.py` | `scripts/download_reference_library.py` | PDF MIME validation, SHA-256 checksums, resumable downloads. |
 | `tests/test_evaluate_data_quality.py` | `scripts/evaluate_data_quality.py` | Deterministic data quality metrics structure and calculation verification. |
+| `tests/test_contextual_intelligence.py` | `backend/contextual_intelligence.py` | Tag-statute affinity matrix, offset proximity anchors, thematic signatures, and case similarity clustering. |
 
 ---
 

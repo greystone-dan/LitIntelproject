@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-04T00:57:32.282168+00:00
+Generated: 2026-09-04T02:06:17.699938+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 80 across 80 paths
+OpenAPI operations: 85 across 85 paths
 Hidden operations: 35 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -74,6 +74,20 @@ Convert A2Aj Edges Endpoint
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /analytics/cases/{case_id}/thematic-cluster`
+
+Get Case Thematic Cluster
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /analytics/explorer`
 
@@ -152,6 +166,29 @@ Get Analytics Search Case
 ### `GET /analytics/search/ministers`
 
 Get Analytics Search Ministers
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /analytics/statute-tag-matrix`
+
+Get Statute Tag Matrix
+
+**Parameters**
+
+- `pinpoint` (query, required; string)
+- `limit_tags` (query, optional; integer, default `20`)
+- `limit_citations` (query, optional; integer, default `15`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/themes`
+
+Get Analytics Themes
 
 **Responses**
 
@@ -283,6 +320,20 @@ Get Case Citation Passages
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/contextual-anchors`
+
+Get Case Contextual Anchors
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `proximity_window` (query, optional; integer, default `250`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/reader-data`
 
 Get Case Reader Data
@@ -294,6 +345,19 @@ Get Case Reader Data
 **Responses**
 
 - `200`: Successful Response; `application/json`: `CaseReaderDataResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/thematic-signature`
+
+Get Case Thematic Signature
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /citation-map`

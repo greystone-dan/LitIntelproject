@@ -70,6 +70,19 @@ source provenance completeness, and graph orphan rates. A structurally cleaner
 module that changes these unexpectedly is not complete until the difference is
 explained and accepted.
 
+## Automated Data Quality Evaluation Tool
+
+Corpus health and data quality audits are automated via `scripts/evaluate_data_quality.py`.
+The tool executes deterministic SQL queries across the canonical PostgreSQL tables to
+measure inventory completeness, citation resolution, self-citations, orphan targets,
+invalid character offset spans, and metadata completeness.
+
+Run from repository root:
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --output-file data\eval\reports\data_quality_report.json
+```
+
 ## Authority
 
 Use `docs/METRICS_DICTIONARY.md` for definitions, `docs/TESTING_MATRIX.md` for

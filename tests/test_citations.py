@@ -502,6 +502,42 @@ def test_extract_statute_reference_matches_supports_bare_nested_irpa_provision_o
 	)
 
 
+def test_extract_statute_reference_matches_supports_nested_irpr_provisions_with_exact_spans():
+	text = "The officer considered paragraph 245(1)(c) of the IRPR and IRPR s. 228(1)(a) during assessment."
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	irpr_matches = [m for m in matches if "IRPR" in (m.citation_text or "")]
+	assert len(irpr_matches) >= 2
+	for m in irpr_matches:
+		assert text[m.offset_start:m.offset_end] == m.citation_text
+		assert m.offset_end > m.offset_start
+		assert "245(1)(c)" in m.normalized_citation or "228(1)(a)" in m.normalized_citation
+
+
+def test_extract_statute_reference_matches_nested_irpa_exact_offsets_and_slices():
+	text = "[12] The applicant was found inadmissible pursuant to paragraph 34(1)(f) of IRPA and section 72(1) of the Immigration and Refugee Protection Act."
+
+	matches = citations.extract_statute_reference_matches(text)
+	irpa_matches = [m for m in matches if "34(1)(f)" in (m.normalized_citation or "") or "72(1)" in (m.normalized_citation or "")]
+
+	assert len(irpa_matches) == 2
+	for m in irpa_matches:
+		assert text[m.offset_start:m.offset_end] == m.citation_text
+		assert m.kind == "statute"
+
+
+def test_extract_statute_reference_matches_rejects_non_statute_nested_patterns():
+	negative_samples = [
+		"The witness referenced paragraph 34(1)(f) of the transcript.",
+		"Please refer to Exhibit 34(1)(f) in the affidavit.",
+		"Rule 34(1)(f) of Court was discussed during the hearing.",
+	]
+	for sample in negative_samples:
+		matches = citations.extract_statute_reference_matches(sample)
+		assert not any("IRPA" in (m.normalized_citation or "") or "IRPR" in (m.normalized_citation or "") for m in matches)
+
+
 def test_extract_raw_citation_matches_supports_vienna_convention_article_list():
 	text = "Articles 31 and 32 of the Vienna Convention on the Law of Treaties guide interpretation."
 

@@ -3,6 +3,7 @@ import binascii
 import hmac
 import os
 import time
+from contextlib import asynccontextmanager
 from hashlib import sha256
 
 from fastapi import FastAPI, Form, Request
@@ -11,7 +12,14 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Resp
 from .database import init_db
 from .routes import router
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -72,11 +80,6 @@ async def private_access_and_noindex(request: Request, call_next):
     response = await call_next(request)
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response
-
-
-@app.on_event("startup")
-def startup() -> None:
-    init_db()
 
 
 app.include_router(router)

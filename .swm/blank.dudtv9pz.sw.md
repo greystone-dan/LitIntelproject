@@ -145,6 +145,7 @@ flowchart LR
    - `quick_search_engine.py`: Terminal search client for testing hybrid queries.
 
 5. **QA, Evaluation & Fixture Builders**:
+   - `evaluate_data_quality.py`: Automated corpus health audit tool (orphans, nulls, resolution rates, offsets).
    - `verify_citation_extraction.py`: Samples corpus extractions for precision/recall validation.
    - `evaluate_fc_citation_extraction.py`: Benchmark runner against gold citation fixtures.
    - `build_fc_citation_gold_template.py` / `build_fc_metadata_gold_set.py`: Scaffolds gold datasets.
@@ -197,6 +198,7 @@ to `0016_case_source_html`.
 | `tests/test_fc_ingest_db.py` | `fc_ingest/db.py` | SQLite schema creation, PDF metadata upsert, legacy column migrations. |
 | `tests/test_fc_portal_collector.py` | `scripts/fc_portal_collector.py` | Portal HTML parsing, prefix rotation, import-ready payload generation. |
 | `tests/test_download_reference_library.py` | `scripts/download_reference_library.py` | PDF MIME validation, SHA-256 checksums, resumable downloads. |
+| `tests/test_evaluate_data_quality.py` | `scripts/evaluate_data_quality.py` | Deterministic data quality metrics structure and calculation verification. |
 
 ---
 

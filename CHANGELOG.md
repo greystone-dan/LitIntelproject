@@ -3,6 +3,16 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## 2026-09-03 - Thematic intelligence in Data Explorer
+
+- Added the ninth Data Explorer tab, Legal Themes & Statutes, with live theme
+	definitions and statute-tag affinity exploration for provisions such as
+	`34(1)(f)`.
+- Added inline reader Precedents support backed by composite thematic clustering
+	across stored tags, statute references, and case citations.
+- Verification: contextual intelligence tests passed (7), feature/API tests
+	passed (55), and the full suite passed (311).
+
 ## Unreleased - Standalone Live Analysis prototype
 
 - Added an ephemeral `.docx` analysis surface at `/live-analysis` with in-memory

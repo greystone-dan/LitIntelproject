@@ -217,3 +217,9 @@ def test_api_endpoints_contextual_intelligence():
 	assert "top_tag_categories" in data_matrix
 	assert "top_cited_authorities" in data_matrix
 	assert "outcomes" in data_matrix
+
+	# 3. Data Explorer Themes Tab render
+	resp_ui = client.get("/data-explorer?tab=themes")
+	assert resp_ui.status_code == 200
+	assert 'id="themesPanel"' in resp_ui.text
+	assert "Legal Themes &amp; Statutes" in resp_ui.text or "Legal Themes & Statutes" in resp_ui.text

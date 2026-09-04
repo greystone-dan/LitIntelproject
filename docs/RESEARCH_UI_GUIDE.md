@@ -6,7 +6,7 @@ This guide explains the active iLIT research interfaces, their controls, and how
 
 ## Start Here: Data Explorer
 
-Open `/data-explorer`. This is the active research workspace. It has eight top-level tabs:
+Open `/data-explorer`. This is the active research workspace. It has nine top-level tabs:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
@@ -18,6 +18,7 @@ Open `/data-explorer`. This is the active research workspace. It has eight top-l
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | Data explorer | Inspect source/case inventory views | cases, sources, metadata |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
+| Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
 
@@ -121,6 +122,19 @@ Judge Profile resolves a canonical judge identity, aliases, primary court, linke
 Data Explorer is an inventory-oriented research tool. It supports inspection of case/source records and aggregate group/split views. Use it to understand coverage, source composition, processing state, and structured field availability.
 
 FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxied Federal Court procedural history and available activity context. Treat it as procedural/activity context, not official judgment reasons. A matching IMM number alone does not prove all linked records are the same proceeding.
+
+### Legal Themes & Statutes
+
+The Legal Themes & Statutes tab calls `/analytics/themes` for defined themes
+and live corpus counts. It calls `/analytics/statute-tag-matrix` for provisions
+such as `34(1)(f)`, `25(1)`, `96`, and `40(1)(a)`, showing tag co-occurrence,
+co-cited authorities, and stored outcome summaries where available. These are
+research prioritization signals, not legal relevance or causation findings.
+
+The inline reader's **Precedents** panel calls
+`/analytics/cases/{case_id}/thematic-cluster` and displays composite similarity
+over stored tags, statute references, and case citations. Similarity is a
+navigation aid; inspect the underlying decision, offsets, and source records.
 
 ## Supporting Interfaces
 

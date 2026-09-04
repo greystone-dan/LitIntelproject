@@ -50,6 +50,7 @@ The system intentionally separates three kinds of derived information:
 6. **Judge Profile**: canonical judge profiles and linked cases.
 7. **Data Explorer**: inventory-oriented case and source inspection.
 8. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
+9. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text.
 

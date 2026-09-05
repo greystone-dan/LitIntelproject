@@ -22,6 +22,12 @@ Generated documentation is checked automatically by
 updates remain a manual repository checkpoint; the workflow does not publish to
 Swimm.
 
+The active deterministic enrichment profile is `enrich`. It runs chunking,
+case/statute extraction and metrics, the dedicated `case_outcomes` backfill,
+active `tag_cases_v3`, and local embeddings. The legacy `tag_cases` job is V1
+comparison-only; V2 is also comparison-only and is not part of the active
+profile.
+
 ## System In One View
 
 ```mermaid
@@ -56,7 +62,7 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Contracts | `backend/models.py`; Pydantic request/response types | HTTP payloads -> validated models/OpenAPI schemas | Used by routes and generated API reference | API contract tests and OpenAPI regeneration |
 | Database | `backend/database.py`; settings precedence, sessions, ORM declarations | Environment + ORM operations -> PostgreSQL/pgvector state | Alembic migrations are deployment authority | migration inspection; affected tests |
 | Canonical ingestion | `backend/ingestion.py`; identity, source merge, sanitization, provenance | Source records -> canonical cases and case sources | Writes `cases`, `case_sources`, `ingestion_runs` | `pytest tests/test_ingestion_merge.py -q` |
-| Ordered processing | `backend/case_processing.py`; metadata, chunk, citation, statute stage contract | Canonical case text -> derived layers | Writes selected derived tables; stage order is a contract | processing tests and bounded case run |
+| Ordered processing | `backend/case_processing.py`; metadata, outcome, chunk, citation, statute, and V3 tag stage contract | Canonical case text -> derived layers | Writes selected derived tables; stage order is a contract | processing tests and bounded case run |
 | Extraction | `backend/citations.py`; case/statute rules, spans, normalization, metrics helpers | Plain text/chunks -> occurrence rows and metrics inputs | Case citations and statutes remain separate | focused `tests/test_citations.py -q` |
 | Citation analytics | `backend/citation_map.py`; read-only graph and authority calculations | Resolved citation edges + metadata -> bounded analytics/CSV | Reads citations, metrics, tags, outcomes | citation-map API tests |
 | Metadata | `backend/metadata.py`; fields, outcomes, evidence, confidence | Source text/HTML -> structured observations | Case metadata JSON and review flags | metadata tests and gold-set audit |
@@ -249,6 +255,45 @@ extraction and local chunk embeddings. Citation extraction writes case citations
 and separate statute references, then metrics. Use the explicit job option only
 when the dependency order remains valid.
 
+### V2 Pipeline launch gate
+
+The redesigned V2 Pipeline is not the current `safe` profile. Before a cohort
+run, use a dedicated tracked runner for:
+
+1. validated source-link HTML reacquisition with host/source disposition;
+2. HTML-aware replacement rechunking;
+3. metadata refresh;
+4. case citations, statute references, and metrics;
+5. dedicated outcomes;
+6. V3 tags.
+
+Embeddings are excluded. Launch requires bounded timeouts/retries, per-case
+failure quarantine, checkpoints, before/after snapshots, and a stratified delta
+gate. The current input audit found 61,241 cases and URLs but only 42 stored HTML
+snapshots; 6,729 URLs have no parseable hostname and 25 use an unsupported host.
+Those source dispositions must be resolved before cohort execution.
+
+The prepared runner is `scripts/run_v2_pipeline.py`. It executes the seven
+stages with per-case state and quarantine, and prints `embeddings=False` by
+design. `scripts/acquire_case_html.py` is its bounded source-refresh helper.
+Each local stage runs in an isolated worker with `--stage-timeout` (default 900
+seconds); a timeout terminates that worker, records quarantine, and preserves
+the run for resume.
+The runner is ready for a bounded stratified trial, not an unrestricted cohort
+launch, until malformed/unsupported source links and delta gates are resolved.
+
+The initial six-case trial completed five cases and quarantined one SCC source
+whose fetched page did not contain the expected citation. One completed case
+had a major citation delta (`407->45`), confirming that the gate is necessary;
+no cohort execution should proceed until those cases are adjudicated.
+
+The approved overnight run launched as
+`data/overnight_runs/v2-pipeline-20260904` with batch size 25, source timeout 30
+seconds, 3 retries, 900-second stage watchdogs, quarantine, and embeddings
+excluded. Its state file was `running` with 3 cases checkpointed at the latest
+documentation checkpoint. Resume or inspect the same run directory; do not start
+a competing writer.
+
 ### Commands
 
 Run from the repository root:
@@ -281,6 +326,20 @@ Completed jobs are skipped on resume. Failed and interrupted jobs are retried; c
 ```
 
 Do not claim a bulk run succeeded from a preflight result. A successful preflight only establishes readiness; job logs and `state.json` establish the actual outcome.
+
+Before cohort rollout, create a before snapshot for each bounded test case with
+`scripts/compare_pipeline_case.py --snapshot`, run the V2 Pipeline case, create
+the after snapshot, and compare them with `--compare`. Block rollout when large
+citation/statute deltas, missing evidence offsets, alignment aborts, or outcome
+changes lack adjudication. Very large documents use bounded block lookup rather
+than global alignment; unmapped blocks remain explicit for review.
+
+The deferred V2 Pipeline rollout requires case-level comparison before cohort
+execution. The automated harness now produces before/after reports. A fresh
+178K-character case produced chunks `237->247`, citations `36->40`, statutes
+`115->114`, and V3 tags `0->10`. The bounded large-document path also
+completed a 731K-character case with 709 chunks, 133 citations, 93 statutes,
+and 483 V3 tags. Count deltas still require adjudication before cohort rollout.
 
 ## Documentation And Modularization Rules
 

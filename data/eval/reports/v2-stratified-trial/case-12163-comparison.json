@@ -1,0 +1,651 @@
+{
+  "case_id": 12163,
+  "before_source_html_present": false,
+  "after_source_html_present": true,
+  "text_length_before": 10000,
+  "text_length_after": 10000,
+  "chunks": {
+    "before": 14,
+    "after": 20,
+    "delta": 6,
+    "relative_delta": 0.4286,
+    "major_delta": false,
+    "added": [
+      {
+        "chunk_set": "section",
+        "chunk_index": 0,
+        "label": "Intro Metadata",
+        "text_hash": "8a7eb77a0c47408614546deb6bc5d2a5fc77263d4823038375c1663a579067f4",
+        "text_length": 894,
+        "paragraph_start": 0,
+        "paragraph_end": 0
+      },
+      {
+        "chunk_set": "section",
+        "chunk_index": 4,
+        "label": "Outro Metadata",
+        "text_hash": "c303cc322d92951887aed50df5c40b31b66cd48dc59874d26834c419af26a138",
+        "text_length": 482,
+        "paragraph_start": null,
+        "paragraph_end": null
+      },
+      {
+        "chunk_set": "full_case",
+        "chunk_index": 0,
+        "label": "Full case",
+        "text_hash": "e2e4489add6c1965bcba1bdbfcf7dec46845c66faf4dc05b673f1a719f50ce34",
+        "text_length": 10000,
+        "paragraph_start": null,
+        "paragraph_end": null
+      },
+      {
+        "chunk_set": "section",
+        "chunk_index": 1,
+        "label": "Overview",
+        "text_hash": "4270cf9e9ba17f9a4ea89741c62bcb1a318aafd93af03103e1746208e4bedf5f",
+        "text_length": 6561,
+        "paragraph_start": null,
+        "paragraph_end": null
+      },
+      {
+        "chunk_set": "section",
+        "chunk_index": 3,
+        "label": "Conclusion",
+        "text_hash": "e762c565eed72165d25833b028fa3828c3e20c35e8a35e0f4cdc727cf442f0e3",
+        "text_length": 333,
+        "paragraph_start": null,
+        "paragraph_end": null
+      },
+      {
+        "chunk_set": "section",
+        "chunk_index": 2,
+        "label": "Analysis",
+        "text_hash": "0fd3e100a0a1855b434fe93184e9036d70707a997dab4aa310f2d259842bb76b",
+        "text_length": 844,
+        "paragraph_start": null,
+        "paragraph_end": null
+      }
+    ],
+    "removed": []
+  },
+  "citations": {
+    "before": 12,
+    "after": 11,
+    "delta": -1,
+    "relative_delta": 0.0833,
+    "major_delta": false,
+    "added": [
+      {
+        "kind": "case_name",
+        "text": "Chavez, Rodrigo v MCI",
+        "normalized": "Chavez Rodrigo v. MCI",
+        "offset_start": 1996,
+        "offset_end": 2017,
+        "chunk_id": 3855672,
+        "unresolved": true
+      },
+      {
+        "kind": "case",
+        "text": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "normalized": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "offset_start": 1181,
+        "offset_end": 1248,
+        "chunk_id": null,
+        "unresolved": true
+      },
+      {
+        "kind": "case",
+        "text": "Singh v. The Minister of Citizenship and Immigration, 2006 FC 565 [Singh]",
+        "normalized": "Singh v. The Minister of Citizenship and Immigration, 2006 FC 565",
+        "offset_start": 800,
+        "offset_end": 873,
+        "chunk_id": 3855671,
+        "unresolved": true
+      },
+      {
+        "kind": "case",
+        "text": "Yvon Pinard in Perez Achahue v Canada (Citizenship and Immigration), 2012 FC 1210",
+        "normalized": "Perez Achahue v. Canada (Citizenship and Immigration), 2012 FC 1210",
+        "offset_start": 1692,
+        "offset_end": 1773,
+        "chunk_id": null,
+        "unresolved": true
+      },
+      {
+        "kind": "neutral",
+        "text": "2055 FC 1442",
+        "normalized": "2055 FC 1442",
+        "offset_start": 1164,
+        "offset_end": 1176,
+        "chunk_id": null,
+        "unresolved": true
+      },
+      {
+        "kind": "case_short",
+        "text": "Mohamed",
+        "normalized": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "offset_start": 1265,
+        "offset_end": 1272,
+        "chunk_id": null,
+        "unresolved": true
+      }
+    ],
+    "removed": [
+      {
+        "kind": "case",
+        "text": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "normalized": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "offset_start": 286,
+        "offset_end": 353,
+        "chunk_id": 2315803,
+        "unresolved": false
+      },
+      {
+        "kind": "case_name",
+        "text": "Chavez, Rodrigo v MCI",
+        "normalized": "Chavez Rodrigo v. MCI",
+        "offset_start": 179,
+        "offset_end": 200,
+        "chunk_id": 2315811,
+        "unresolved": true
+      },
+      {
+        "kind": "case_short",
+        "text": "Mohamed",
+        "normalized": "Mohamed v. The Minister of Citizenship and Immigration, 2006 FC 696",
+        "offset_start": 370,
+        "offset_end": 377,
+        "chunk_id": 2315803,
+        "unresolved": false
+      },
+      {
+        "kind": "case",
+        "text": "Singh v. The Minister of Citizenship and Immigration, 2006 FC 565",
+        "normalized": "Singh v. The Minister of Citizenship and Immigration, 2006 FC 565",
+        "offset_start": 800,
+        "offset_end": 865,
+        "chunk_id": 2315802,
+        "unresolved": false
+      },
+      {
+        "kind": "case_short",
+        "text": "Singh",
+        "normalized": "Singh v. The Minister of Citizenship and Immigration, 2006 FC 565",
+        "offset_start": 867,
+        "offset_end": 872,
+        "chunk_id": 2315802,
+        "unresolved": false
+      },
+      {
+        "kind": "case",
+        "text": "Yvon Pinard in Perez Achahue v Canada (Citizenship and Immigration), 2012 FC 1210",
+        "normalized": "Perez Achahue v. Canada (Citizenship and Immigration), 2012 FC 1210",
+        "offset_start": 416,
+        "offset_end": 497,
+        "chunk_id": 2315804,
+        "unresolved": false
+      },
+      {
+        "kind": "neutral",
+        "text": "2055 FC 1442",
+        "normalized": "2055 FC 1442",
+        "offset_start": 269,
+        "offset_end": 281,
+        "chunk_id": 2315803,
+        "unresolved": true
+      }
+    ]
+  },
+  "statutes": {
+    "before": 4,
+    "after": 4,
+    "delta": 0,
+    "relative_delta": 0.0,
+    "major_delta": false,
+    "added": [
+      {
+        "kind": "statute",
+        "text": "subsection 4(1) of the Immigration and Refugee Protection Regulations",
+        "normalized": "Immigration and Refugee Protection Regulations, SOR/2002-227 s. 4(1)",
+        "instrument_key": "canada.irpr",
+        "pinpoint": "4(1)",
+        "offset_start": 1279,
+        "offset_end": 1348,
+        "chunk_id": 3855672
+      },
+      {
+        "kind": "statute",
+        "text": "Immigration and Refugee Protection Act, SC 2001, c 27",
+        "normalized": "Immigration and Refugee Protection Act, SC 2001, c 27",
+        "instrument_key": "canada.irpa",
+        "pinpoint": "",
+        "offset_start": 74,
+        "offset_end": 127,
+        "chunk_id": 3855672
+      },
+      {
+        "kind": "statute",
+        "text": "Subsection 4(1) of the IRPR",
+        "normalized": "Immigration and Refugee Protection Regulations, SOR/2002-227 s. 4(1)",
+        "instrument_key": "canada.irpr",
+        "pinpoint": "4(1)",
+        "offset_start": 5684,
+        "offset_end": 5711,
+        "chunk_id": 3855672
+      },
+      {
+        "kind": "statute",
+        "text": "subsection 4(1)",
+        "normalized": "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 4(1)",
+        "instrument_key": "canada.irpa",
+        "pinpoint": "4(1)",
+        "offset_start": 1781,
+        "offset_end": 1796,
+        "chunk_id": 3855672
+      }
+    ],
+    "removed": [
+      {
+        "kind": "statute",
+        "text": "subsection 4(1) of the Immigration and Refugee Protection Regulations",
+        "normalized": "Immigration and Refugee Protection Regulations, SOR/2002-227 s. 4(1)",
+        "instrument_key": "canada.irpr",
+        "pinpoint": "4(1)",
+        "offset_start": 211,
+        "offset_end": 280,
+        "chunk_id": 2315809
+      },
+      {
+        "kind": "statute",
+        "text": "Immigration and Refugee Protection Act, SC 2001, c 27",
+        "normalized": "Immigration and Refugee Protection Act, SC 2001, c 27",
+        "instrument_key": null,
+        "pinpoint": null,
+        "offset_start": 574,
+        "offset_end": 627,
+        "chunk_id": 2315804
+      },
+      {
+        "kind": "statute",
+        "text": "subsection 4(1)",
+        "normalized": "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 4(1)",
+        "instrument_key": "canada.irpa",
+        "pinpoint": "4(1)",
+        "offset_start": 410,
+        "offset_end": 425,
+        "chunk_id": 2315810
+      },
+      {
+        "kind": "statute",
+        "text": "Subsection 4(1) of the IRPR",
+        "normalized": "Immigration and Refugee Protection Regulations, SOR/2002-227 s. 4(1)",
+        "instrument_key": "canada.irpr",
+        "pinpoint": "4(1)",
+        "offset_start": 295,
+        "offset_end": 322,
+        "chunk_id": 2315812
+      }
+    ]
+  },
+  "tags_v3": {
+    "before": 0,
+    "after": 37,
+    "delta": 37,
+    "relative_delta": 37.0,
+    "major_delta": true,
+    "added": [
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 6079,
+        "offset_end": 6082,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpa",
+        "evidence": "IRPA",
+        "offset_start": 3539,
+        "offset_end": 3543,
+        "rule_id": "statute_or_instrument.irpa",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpr",
+        "evidence": "Immigration and Refugee Protection Regulations",
+        "offset_start": 3078,
+        "offset_end": 3124,
+        "rule_id": "statute_or_instrument.irpr",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3210,
+        "offset_end": 3213,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "Immigration Appeal Division",
+        "offset_start": 1964,
+        "offset_end": 1991,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 4367,
+        "offset_end": 4370,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 4445,
+        "offset_end": 4448,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 6450,
+        "offset_end": 6453,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpr",
+        "evidence": "IRPR",
+        "offset_start": 3140,
+        "offset_end": 3144,
+        "rule_id": "statute_or_instrument.irpr",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 6694,
+        "offset_end": 6697,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 9167,
+        "offset_end": 9170,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 8387,
+        "offset_end": 8390,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 6703,
+        "offset_end": 6706,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3616,
+        "offset_end": 3619,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 7116,
+        "offset_end": 7119,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 9057,
+        "offset_end": 9060,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5797,
+        "offset_end": 5800,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 8725,
+        "offset_end": 8728,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3983,
+        "offset_end": 3986,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 6255,
+        "offset_end": 6258,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpr",
+        "evidence": "IRPR",
+        "offset_start": 7483,
+        "offset_end": 7487,
+        "rule_id": "statute_or_instrument.irpr",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 1993,
+        "offset_end": 1996,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5984,
+        "offset_end": 5987,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 8649,
+        "offset_end": 8652,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3885,
+        "offset_end": 3888,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5062,
+        "offset_end": 5065,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 984,
+        "offset_end": 987,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5142,
+        "offset_end": 5145,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3312,
+        "offset_end": 3315,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5373,
+        "offset_end": 5376,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 7182,
+        "offset_end": 7185,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpa",
+        "evidence": "Immigration and Refugee Protection Act",
+        "offset_start": 1850,
+        "offset_end": 1888,
+        "rule_id": "statute_or_instrument.irpa",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 8272,
+        "offset_end": 8275,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 5696,
+        "offset_end": 5699,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 1524,
+        "offset_end": 1527,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "tribunal",
+        "value": "iad",
+        "evidence": "IAD",
+        "offset_start": 3795,
+        "offset_end": 3798,
+        "rule_id": "tribunal.iad",
+        "evidence_role": "mention"
+      },
+      {
+        "category": "statute_or_instrument",
+        "value": "irpa",
+        "evidence": "IRPA",
+        "offset_start": 1905,
+        "offset_end": 1909,
+        "rule_id": "statute_or_instrument.irpa",
+        "evidence_role": "mention"
+      }
+    ],
+    "removed": []
+  },
+  "outcome_before": null,
+  "outcome_after": {
+    "classifier_version": "deterministic_outcome_v1",
+    "decision_outcome": "dismissed",
+    "outcome_status": "lost",
+    "winner_side": "respondent",
+    "loser_side": "applicant",
+    "government_role": "respondent",
+    "government_outcome": "won",
+    "challenged_issue": "credibility",
+    "challenged_issues": [
+      "credibility"
+    ],
+    "disposition_evidence": "appeal was dismissed",
+    "evidence_offset_start": 3223,
+    "evidence_offset_end": 3243,
+    "confidence": 0.78
+  }
+}

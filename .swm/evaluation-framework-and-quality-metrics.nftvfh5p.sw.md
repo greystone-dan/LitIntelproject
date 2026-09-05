@@ -37,8 +37,9 @@ Next experiment:
 
 1. **Citation and statute extraction:** precision, recall/coverage, exact spans,
 	normalization, and negative cases.
-2. **Metadata and tagging:** field accuracy, taxonomy consistency, evidence
-	quality, and review burden.
+2. **Metadata, outcomes, and tagging:** field accuracy, taxonomy consistency,
+	evidence quality, winner/loser accuracy, mixed/unknown handling, and review
+	burden.
 3. **Search and retrieval:** benchmark hit quality, ranking stability, and
 	latency budgets.
 4. **Corpus integrity:** null metadata, malformed references, orphan links,
@@ -53,6 +54,10 @@ Next experiment:
 - Benchmark and performance changes are recorded with their sample and method.
 - Every surfaced recommendation retains a path to source evidence and
   uncertainty where applicable.
+- Outcome classifications must preserve `mixed` and `undetermined` states and
+	expose the operative disposition evidence used to derive winner/loser sides.
+- The versioned `case_outcomes` table is the outcome source of truth; metadata
+	fields are a compatibility mirror until downstream consumers migrate.
 - A failed or unavailable optional model/integration cannot corrupt deterministic
   processing or canonical source records.
 

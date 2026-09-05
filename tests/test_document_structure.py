@@ -1,4 +1,5 @@
-from backend.document_structure import map_to_canonical_text, structure_source_html
+import backend.document_structure as document_structure
+from backend.document_structure import DocumentBlock, StructuredDocument, map_to_canonical_text, structure_source_html
 
 
 def test_structure_source_html_preserves_blocks_and_offsets():
@@ -43,3 +44,24 @@ def test_map_to_canonical_text_handles_html_metadata_shift():
     assert mapped.blocks[0].canonical_text_end == 24
     assert mapped.blocks[0].mapping_confidence == 1.0
     assert mapped.blocks[1].canonical_text_start == 25
+
+
+def test_large_document_mapping_uses_bounded_block_lookup(monkeypatch):
+    block_text = "[1] A mapped paragraph."
+    document = StructuredDocument(
+        sanitized_html="<p>mapped</p>",
+        plain_text=block_text,
+        blocks=(DocumentBlock(0, "paragraph", block_text, 0, len(block_text), "p", "/p[1]"),),
+    )
+
+    def fail_sequence_matcher(*args, **kwargs):
+        raise AssertionError("global SequenceMatcher must not run for large documents")
+
+    monkeypatch.setattr(document_structure, "SequenceMatcher", fail_sequence_matcher)
+    canonical = "x" * 350_000 + block_text
+
+    mapped = map_to_canonical_text(document, canonical)
+
+    assert mapped.blocks[0].canonical_text_start == 350_000
+    assert mapped.blocks[0].canonical_text_end == 350_000 + len(block_text)
+    assert mapped.blocks[0].mapping_confidence == 1.0

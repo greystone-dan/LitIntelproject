@@ -24,6 +24,11 @@ consistency check only: it does not publish edits to Swimm or rewrite committed
 documentation. Swimm walkthroughs remain manually updated at the same
 checkpoint as behavior or ownership changes.
 
+The active bounded enrichment profile is `scripts/run_overnight.py --profile
+enrich`. It owns chunking, citation/statute/metrics rebuilds, dedicated outcome
+backfill, V3 core tagging, and local embeddings. Legacy V1/V2 tagging jobs stay
+outside that profile for comparison only.
+
 ### Mandatory task checkpoint
 
 Every task executed by the project manager or a delegated subagent must update

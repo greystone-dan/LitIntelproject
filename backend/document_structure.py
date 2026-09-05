@@ -36,6 +36,7 @@ BLOCK_TAGS = {
 }
 REMOVED_TAGS = {"audio", "canvas", "embed", "iframe", "object", "script", "style", "video"}
 _WHITESPACE_RE = re.compile(r"\s+")
+LARGE_MAPPING_THRESHOLD = 150_000
 
 
 @dataclass(frozen=True)
@@ -251,6 +252,9 @@ def map_to_canonical_text(document: StructuredDocument, canonical_text: str) -> 
             canonical_text,
             0.0,
         )
+    if max(len(document.plain_text), len(canonical_text)) > LARGE_MAPPING_THRESHOLD:
+        return _map_large_document_blocks(document, canonical_text)
+
     matcher = SequenceMatcher(None, document.plain_text, canonical_text, autojunk=True)
     opcodes = matcher.get_opcodes()
     block_matches: list[DocumentBlock] = []
@@ -288,6 +292,59 @@ def map_to_canonical_text(document: StructuredDocument, canonical_text: str) -> 
             )
         )
     matched_total = sum(end - start for tag, start, end, _target_start, _target_end in opcodes if tag == "equal")
+    structural_length = sum(len(block.text) for block in document.blocks)
+    return StructuredDocument(
+        document.sanitized_html,
+        document.plain_text,
+        tuple(block_matches),
+        document.parser_version,
+        canonical_text,
+        round(matched_total / max(1, structural_length), 4),
+    )
+
+
+def _map_large_document_blocks(document: StructuredDocument, canonical_text: str) -> StructuredDocument:
+    """Use bounded block lookup for large documents instead of global diffing."""
+    block_matches: list[DocumentBlock] = []
+    search_cursor = 0
+    matched_total = 0
+    for block in document.blocks:
+        start = canonical_text.find(block.text, search_cursor)
+        if start < 0:
+            parts = [part for part in re.split(r"\s+", block.text.strip()) if part]
+            if parts:
+                pattern = r"\s+".join(re.escape(part) for part in parts)
+                match = re.search(pattern, canonical_text[search_cursor:])
+                if match:
+                    start = search_cursor + match.start()
+                    end = search_cursor + match.end()
+                else:
+                    start = -1
+        if start >= 0:
+            end = start + len(block.text)
+            search_cursor = end
+            matched_total += len(block.text)
+            block_matches.append(
+                DocumentBlock(
+                    **{
+                        **block.as_dict(),
+                        "canonical_text_start": start,
+                        "canonical_text_end": end,
+                        "mapping_confidence": 1.0,
+                    }
+                )
+            )
+        else:
+            block_matches.append(
+                DocumentBlock(
+                    **{
+                        **block.as_dict(),
+                        "canonical_text_start": None,
+                        "canonical_text_end": None,
+                        "mapping_confidence": 0.0,
+                    }
+                )
+            )
     structural_length = sum(len(block.text) for block in document.blocks)
     return StructuredDocument(
         document.sanitized_html,

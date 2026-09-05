@@ -159,6 +159,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/case_processing.py` | Explicit ordered deterministic processing contract, including V3 tags |
 | `backend/metadata.py` | Deterministic source-metadata extraction facade and observations (composes the intelligence layer) |
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
+| `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
 | `backend/embedding_providers.py` | Embedding provider selection/wiring |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
@@ -198,9 +199,16 @@ The complete environment-variable, precedence, security, local-model, source-int
 1. `full_case`: replace the whole-case chunk for the case.
 2. `heading_chunks`: generate section and paragraph chunks.
 3. `metadata`: derive metadata and update the full-text hash.
-4. `case_citations`: rebuild case-law citation rows.
-5. `statutes`: rebuild statute/instrument references.
-6. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
+4. `outcome`: replace the versioned dedicated case outcome record.
+5. `case_citations`: rebuild case-law citation rows.
+6. `statutes`: rebuild statute/instrument references.
+7. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
+
+The V2 Pipeline runner is `scripts/run_v2_pipeline.py`. Its overnight execution
+uses source-link HTML refresh, HTML-aware replacement chunks, metadata, outcomes,
+case citations, statutes, and V3 tags. Each stage runs in an isolated worker with
+a hard timeout and per-case quarantine; embeddings are deliberately excluded.
+Run state and quarantine evidence are stored under the selected run directory.
 
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
@@ -721,9 +729,16 @@ The reader presents two distinct concepts:
     related evidence.
 
 Outcome and government-outcome classifications support aggregate research views.
-They are derived research labels, not a substitute for reading the disposition
-and reasons. The UI should show them as classifications, not legal advice or
-final disposition validation.
+The dedicated `case_outcomes` layer is the source of truth. The outcome layer
+preserves legacy fields while also deriving an explicit
+case winner/loser side, outcome status, disposition, structured outcome detail,
+and challenged issue candidates. Partial or conflicting operative language is
+classified as `mixed` or `undetermined` rather than forced into a clean win or
+loss. These are derived research labels, not a substitute for reading the
+disposition and reasons. The UI should show them as classifications with
+confidence and evidence, not legal advice or final disposition validation.
+`metadata_json->'reader_extracted'` retains a compatibility mirror until all
+consumers migrate to `case_outcomes`.
 
 ### Legal Tagging Semantics
 

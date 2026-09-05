@@ -15,7 +15,7 @@ storage path and payload shape are unchanged.
 
 from __future__ import annotations
 
-from .metadata_outcomes import _derive_outcome_fields
+from .metadata_outcomes import _derive_outcome_fields, derive_outcome_detail
 from .metadata_subjects import _derive_case_subject_fields
 
 
@@ -23,9 +23,14 @@ INTELLIGENCE_FIELDS = (
 	"decision outcome",
 	"government role",
 	"government outcome",
+	"case winner",
+	"case loser",
+	"outcome status",
 	"case type",
 	"case challenge",
 	"case issue",
+	"challenged issue",
+	"challenged issues",
 	"case topic",
 )
 
@@ -40,3 +45,7 @@ def derive_intelligence_fields(content: str, metadata: dict) -> dict[str, tuple[
 	derived = _derive_outcome_fields(content, metadata)
 	derived.update(_derive_case_subject_fields(content, metadata))
 	return derived
+
+
+def derive_outcome_payload(content: str, metadata: dict) -> dict[str, object]:
+	return derive_outcome_detail(content, metadata)

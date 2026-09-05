@@ -3,6 +3,7 @@ from types import SimpleNamespace
 
 from backend.case_processing import _run_metadata_layer
 from backend.metadata import extract_case_metadata, extract_metadata_matches, extract_metadata_observations
+from backend.metadata_outcomes import build_case_outcome
 
 
 class FakeSession:
@@ -130,6 +131,67 @@ def test_metadata_outcome_derives_individual_win_from_set_aside_and_remittal():
 
 	assert by_field["decision outcome"].value == "remitted"
 	assert by_field["government outcome"].value == "lost"
+
+
+def test_metadata_outcome_exposes_winner_and_structured_evidence():
+	text = (
+		"Between:\n"
+		"Jane Doe Applicant\n"
+		"and\n"
+		"The Minister of Citizenship and Immigration Respondent\n"
+		"JUDGMENT\nThe application is dismissed."
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["case winner"] == "respondent"
+	assert payload["case loser"] == "applicant"
+	assert payload["outcome status"] == "won"
+	assert payload["outcome detail"]["disposition"] == "dismissed"
+	evidence = payload["outcome detail"]["evidence"]
+	assert text[evidence["offset_start"]:evidence["offset_end"]] == evidence["text"]
+
+
+def test_metadata_outcome_marks_partial_relief_as_mixed():
+	text = (
+		"Between:\n"
+		"Jane Doe Applicant\n"
+		"and\n"
+		"The Minister of Citizenship and Immigration Respondent\n"
+		"ORDER\nThe application is allowed in part and dismissed in part."
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["decision outcome"] == "mixed"
+	assert payload["government outcome"] == "mixed"
+	assert payload["case winner"] == "mixed"
+	assert payload["outcome detail"]["status"] == "mixed"
+
+
+def test_metadata_exposes_multiple_challenged_issues_without_replacing_legacy_issue():
+	text = (
+		"This application for judicial review challenges an RPD decision. "
+		"The applicant alleges credibility and procedural fairness issues."
+	)
+
+	payload = extract_case_metadata(text)
+
+	assert payload["case issue"] in {"credibility", "procedural_fairness"}
+	assert payload["challenged issue"] == payload["case issue"]
+	assert set(payload["challenged issues"].split(", ")) >= {"credibility", "procedural_fairness"}
+
+
+def test_build_case_outcome_returns_dedicated_normalized_record():
+	text = "Between:\nJane Doe Applicant\nand\nThe Minister Respondent\nORDER\nThe application is allowed."
+	record = build_case_outcome(text, {})
+
+	assert record["classifier_version"] == "deterministic_outcome_v1"
+	assert record["decision_outcome"] == "allowed"
+	assert record["outcome_status"] == "won"
+	assert record["winner_side"] == "applicant"
+	assert record["disposition_evidence"] == "application is allowed"
+	assert record["evidence_offset_end"] > record["evidence_offset_start"]
 
 
 def test_extract_case_metadata_derives_case_type_and_challenge_from_legal_signals():

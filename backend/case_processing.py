@@ -8,8 +8,9 @@ from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from .citations import rebuild_citations_for_case, rebuild_statute_references_for_case
-from .database import Case, CaseChunk, CaseTag, CaseTaggingStatus
+from .database import Case, CaseChunk, CaseOutcome, CaseTag, CaseTaggingStatus
 from .legal_tagger_v3 import TAXONOMY_VERSION
+from .metadata_outcomes import OUTCOME_CLASSIFIER_VERSION, build_case_outcome
 from scripts.tag_cases_v3 import build_case_tag_rows
 from .metadata import extract_case_metadata
 from scripts.chunk_cases import case_text, _build_section_chunks, _build_paragraph_chunks
@@ -36,6 +37,20 @@ def _run_metadata_layer(session: Session, case: Case) -> int:
     if changed:
         session.add(case)
     return changed
+
+
+def _run_outcome_layer(session: Session, case: Case) -> int:
+    metadata = dict(case.metadata_json or {})
+    extracted = dict(metadata.get("reader_extracted") or {})
+    record = build_case_outcome(case.full_text or case.summary or "", extracted)
+    session.execute(
+        delete(CaseOutcome).where(
+            CaseOutcome.case_id == case.id,
+            CaseOutcome.classifier_version == OUTCOME_CLASSIFIER_VERSION,
+        )
+    )
+    session.add(CaseOutcome(case_id=case.id, **record))
+    return 1
 
 
 def _replace_chunk_set(session: Session, case_id: int, chunk_set: str, rows: list[CaseChunk]) -> int:
@@ -136,6 +151,7 @@ STAGES: tuple[tuple[str, StageRunner], ...] = (
     ("full_case", _run_full_case_chunk_layer),
     ("heading_chunks", _run_heading_chunk_layer),
     ("metadata", _run_metadata_layer),
+    ("outcome", _run_outcome_layer),
     ("case_citations", _run_case_citation_layer),
     ("statutes", _run_statute_layer),
     ("tags_v3", _run_v3_tag_layer),

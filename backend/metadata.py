@@ -15,7 +15,7 @@ from dataclasses import dataclass
 
 from fc_ingest.document_scraper import _extract_metadata_with_quality
 
-from .intelligence import INTELLIGENCE_FIELDS, derive_intelligence_fields
+from .intelligence import INTELLIGENCE_FIELDS, derive_intelligence_fields, derive_outcome_payload
 
 
 METADATA_FIELDS = (
@@ -34,7 +34,7 @@ METADATA_FIELDS = (
 )
 
 # Combined emission order: the 12 deterministic source fields followed by the
-# 7 derived intelligence fields, so payloads, observations, and matches keep
+# derived intelligence fields, so payloads, observations, and matches keep
 # surfacing outcome/subject values in exactly the same order as before.
 ALL_FIELDS = METADATA_FIELDS + INTELLIGENCE_FIELDS
 
@@ -98,6 +98,7 @@ def extract_case_metadata(text: str | None) -> dict[str, object]:
 		extracted[field] = value
 		confidence[field] = score
 		sources[field] = {"derived": value}
+	outcome_detail = derive_outcome_payload(content, extracted)
 
 	payload = {
 		field: extracted[field]
@@ -108,6 +109,7 @@ def extract_case_metadata(text: str | None) -> dict[str, object]:
 	payload["_field_sources"] = sources
 	payload["_quality_flags"] = list(extracted.get("_quality_flags") or [])
 	payload["_needs_review"] = bool(extracted.get("_needs_review"))
+	payload["outcome detail"] = outcome_detail
 	return payload
 
 

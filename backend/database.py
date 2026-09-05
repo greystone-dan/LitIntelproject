@@ -139,6 +139,7 @@ class Case(Base):
 	tagging_statuses = relationship(
 		"CaseTaggingStatus", back_populates="case", cascade="all, delete-orphan"
 	)
+	outcomes = relationship("CaseOutcome", back_populates="case", cascade="all, delete-orphan")
 
 
 class JudgeProfile(Base):
@@ -314,6 +315,38 @@ class CaseTaggingStatus(Base):
 	)
 
 	case = relationship("Case", back_populates="tagging_statuses")
+
+
+class CaseOutcome(Base):
+	__tablename__ = "case_outcomes"
+	__table_args__ = (
+		UniqueConstraint("case_id", "classifier_version", name="uq_case_outcome_version"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	classifier_version: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	decision_outcome: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+	outcome_status: Mapped[str] = mapped_column(String(30), nullable=False, server_default="undetermined", index=True)
+	winner_side: Mapped[str | None] = mapped_column(String(30), nullable=True, index=True)
+	loser_side: Mapped[str | None] = mapped_column(String(30), nullable=True, index=True)
+	government_role: Mapped[str | None] = mapped_column(String(30), nullable=True, index=True)
+	government_outcome: Mapped[str | None] = mapped_column(String(30), nullable=True, index=True)
+	challenged_issue: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
+	challenged_issues: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	disposition_evidence: Mapped[str | None] = mapped_column(Text, nullable=True)
+	evidence_offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	evidence_offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	confidence: Mapped[float] = mapped_column(Float, nullable=False, server_default="0")
+	source: Mapped[str] = mapped_column(String(50), nullable=False, server_default="deterministic_outcome")
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	case = relationship("Case", back_populates="outcomes")
 
 
 class IngestionRun(Base):

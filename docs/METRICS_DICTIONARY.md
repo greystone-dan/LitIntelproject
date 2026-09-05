@@ -68,6 +68,10 @@ This dictionary defines the research metrics shown or computed by the active sys
 | Metric | Definition | Formula/behavior | Caution |
 | --- | --- | --- | --- |
 | Classified decisions | Decisions with recognized stored outcome classification | count of classified rows | Coverage varies by source/text quality |
+| Outcome status | Explicit `won`, `lost`, `mixed`, or `undetermined` result from operative disposition and party-role evidence | `case_outcomes.outcome_status` | Keep `mixed` and `undetermined` visible; do not collapse them into wins/losses |
+| Case winner/loser side | Applicant/respondent side identified from outcome plus caption role, or `mixed`/unknown | `case_outcomes.winner_side`, `case_outcomes.loser_side` | A derived research signal, not a merits conclusion |
+| Outcome detail | Structured disposition, winner/loser, government role, and exact matched evidence where available | `case_outcomes` | Exact evidence may be absent for incomplete or ambiguous source text |
+| Challenged issues | Ordered issue candidates detected in challenge/reasons language | `case_outcomes.challenged_issue`, `case_outcomes.challenged_issues` | Mentioned issues are not necessarily dispositive |
 | Government wins | Classified rows labelled government won | count | Not a merits or judge-bias finding |
 | Individual wins | Classified rows labelled individual won | count | May not capture mixed/remittal nuances |
 | Unclassified | Decisions lacking usable classification | total minus classified | Inspect before comparing rates |

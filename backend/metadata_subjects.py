@@ -124,5 +124,8 @@ def _derive_case_subject_fields(content: str, metadata: dict[str, object]) -> di
 	derived["case type"] = (selected_type, 0.82)
 	derived["case challenge"] = (case_challenge, 0.8)
 	derived["case issue"] = (issue_value, 0.75)
+	derived["challenged issue"] = (issue_value, 0.75)
+	if issue_candidates:
+		derived["challenged issues"] = (", ".join(list(dict.fromkeys(issue_candidates))[:8]), 0.72)
 	derived["case topic"] = (case_topic, 0.7)
 	return derived

@@ -151,6 +151,10 @@ processing; the bounded writer remains available for resumable corpus work.
 Contextual rules are not part of this first pipeline, and legacy V1 subject
 derivation remains separate until the outcome/derived-intelligence pass.
 
+Outcome intelligence is persisted separately in the versioned `case_outcomes`
+table. The metadata payload retains a compatibility mirror, but outcome
+analytics should use the dedicated table as its source of truth.
+
 For legacy V2 comparison only, rebuild the 100 most recent cases across the full database:
 
 ```powershell

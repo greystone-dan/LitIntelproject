@@ -64,15 +64,46 @@ The canonical processing order is:
 1. `full_case`
 2. `heading_chunks`
 3. `metadata`
-4. `case_citations`
-5. `statutes`
+4. `outcome`
+5. `case_citations`
+6. `statutes`
 7. `tags_v3`
 
 Case-to-case target resolution is a separate local pass after citation
 extraction. IRPA/IRPR references remain a separate statute layer; nested forms
 such as `34(1)(f)` are release-sensitive regression cases. V3 tags preserve
 every occurrence and are mention evidence only; contextual tags and outcome
-signals remain separate follow-up layers.
+signals remain separate follow-up layers. The one-case V2 Pipeline smoke test
+confirmed that source-link HTML reacquisition precedes replacement chunking and
+that the later derived layers overwrite only that case's rows.
+The medium-long validation case also showed that replacement can change citation
+and statute counts, so cohort rollout requires comparison/adjudication gates.
+Very large documents may require a more scalable HTML alignment strategy before
+they are admitted to the same bulk path.
+
+The rollout quality gate now has a deterministic case snapshot/comparator for
+chunks, citations, statutes, V3 tags, outcomes, and source HTML state. Cohort
+execution must preserve before/after reports and stop on unexplained large
+deltas or unmapped evidence. The large-document bounded lookup now completes
+the previously blocked 731K-character case; count deltas remain a review gate.
+
+The full V2 Pipeline launch also requires a separate source-HTML acquisition
+checkpoint before rechunking. Unsupported or malformed source links must be
+quarantined with an explicit disposition, not silently treated as complete.
+The cohort runner must be resumable by stage and case, exclude embeddings, and
+retain before/after evidence for adjudication.
+The prepared implementation is `scripts/run_v2_pipeline.py` plus
+`scripts/acquire_case_html.py`; it is designed for a bounded stratified trial
+before cohort scale.
+The approved overnight run is tracked under
+`data/overnight_runs/v2-pipeline-20260904` with isolated stage workers,
+900-second watchdogs, quarantine, and embeddings excluded. Its durable state is
+the recovery authority while it runs.
+The first six-case stratified trial completed five cases and quarantined one
+SCC source mismatch; one case also produced a major citation delta. These are
+review gates, not failures to hide or bypass.
+Each V2 Pipeline stage now runs in an isolated worker with a hard timeout and
+quarantine path, preventing a pathological case from idling the cohort runner.
 
 ## Active And Legacy Boundaries
 

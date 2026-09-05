@@ -31,7 +31,7 @@ def test_full_case_stage_creates_one_complete_chunk():
 
 def test_stage_order_exposes_chunking_before_metadata_and_citation_layers():
     assert case_processing.STAGE_ORDER[:3] == ("full_case", "heading_chunks", "metadata")
-    assert case_processing.STAGE_ORDER[3:] == ("case_citations", "statutes", "tags_v3")
+    assert case_processing.STAGE_ORDER[3:] == ("outcome", "case_citations", "statutes", "tags_v3")
 
 
 def test_v3_tag_stage_replaces_only_v3_rows_and_records_occurrence_count(monkeypatch):
@@ -84,3 +84,29 @@ def test_v3_tag_stage_replaces_only_v3_rows_and_records_occurrence_count(monkeyp
     assert count == 2
     assert len(session.added) == 2
     assert session.statuses[-1].tags_count == 2
+
+
+def test_outcome_stage_writes_versioned_dedicated_record():
+    class OutcomeSession(FakeSession):
+        def __init__(self):
+            super().__init__()
+            self.added_rows = []
+
+        def add(self, row):
+            self.added_rows.append(row)
+
+    session = OutcomeSession()
+    case = SimpleNamespace(
+        id=8,
+        full_text=(
+            "Between:\nJane Doe Applicant\nand\nThe Minister of Citizenship and Immigration Respondent\n"
+            "ORDER\nThe application is dismissed."
+        ),
+        summary=None,
+        metadata_json={},
+    )
+
+    assert case_processing._run_outcome_layer(session, case) == 1
+    assert session.added_rows[0].classifier_version == "deterministic_outcome_v1"
+    assert session.added_rows[0].winner_side == "respondent"
+    assert session.added_rows[0].disposition_evidence == "application is dismissed"

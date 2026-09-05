@@ -1,0 +1,30 @@
+{
+  "run_id": "v2-pipeline-dry-run-watchdog",
+  "created_at": "2026-09-05T02:04:44.375644+00:00",
+  "updated_at": "2026-09-05T02:04:44.523952+00:00",
+  "status": "dry_run",
+  "selected_stages": [
+    "source_html",
+    "chunks",
+    "metadata",
+    "outcome",
+    "citations",
+    "statutes",
+    "tags_v3"
+  ],
+  "cases": {
+    "22": {
+      "case_id": 22,
+      "stages": {
+        "source_html": "planned",
+        "chunks": "planned",
+        "metadata": "planned",
+        "outcome": "planned",
+        "citations": "planned",
+        "statutes": "planned",
+        "tags_v3": "planned"
+      },
+      "errors": []
+    }
+  }
+}

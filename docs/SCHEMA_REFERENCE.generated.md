@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-04T18:50:58.718244+00:00
-Tables: 21
+Generated: 2026-09-05T02:07:19.218418+00:00
+Tables: 22
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -60,6 +60,26 @@ erDiagram
         Integer judge_profile_id  FK
         String(255) raw_name
         DATETIME created_at
+    }
+    case_outcomes {
+        Integer id PK
+        Integer case_id  FK
+        String(100) classifier_version
+        String(50) decision_outcome
+        String(30) outcome_status
+        String(30) winner_side
+        String(30) loser_side
+        String(30) government_role
+        String(30) government_outcome
+        String(100) challenged_issue
+        JSON challenged_issues
+        TEXT disposition_evidence
+        Integer evidence_offset_start
+        Integer evidence_offset_end
+        FLOAT confidence
+        String(50) source
+        DATETIME created_at
+        DATETIME updated_at
     }
     case_sources {
         Integer id PK
@@ -273,6 +293,7 @@ erDiagram
     cases ||--o{ case_chunks : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
+    cases ||--o{ case_outcomes : "case_id"
     cases ||--o{ case_sources : "case_id"
     cases ||--o{ case_tagging_status : "case_id"
     cases ||--o{ case_tags : "case_id"
@@ -298,6 +319,7 @@ erDiagram
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
 | `case_judge_profiles` | 5 | `id` |
+| `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
 | `case_tags` | 15 | `id` |
@@ -451,6 +473,51 @@ erDiagram
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `judge_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
+
+## `case_outcomes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `classifier_version` | `String(100)` | no | NOT NULL |
+| `decision_outcome` | `String(50)` | yes | - |
+| `outcome_status` | `String(30)` | no | NOT NULL; default=undetermined |
+| `winner_side` | `String(30)` | yes | - |
+| `loser_side` | `String(30)` | yes | - |
+| `government_role` | `String(30)` | yes | - |
+| `government_outcome` | `String(30)` | yes | - |
+| `challenged_issue` | `String(100)` | yes | - |
+| `challenged_issues` | `JSON` | yes | - |
+| `disposition_evidence` | `TEXT` | yes | - |
+| `evidence_offset_start` | `Integer` | yes | - |
+| `evidence_offset_end` | `Integer` | yes | - |
+| `confidence` | `FLOAT` | no | NOT NULL; default=0 |
+| `source` | `String(50)` | no | NOT NULL; default=deterministic_outcome |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_outcomes_case_id`: index on `case_id`
+- `ix_case_outcomes_challenged_issue`: index on `challenged_issue`
+- `ix_case_outcomes_classifier_version`: index on `classifier_version`
+- `ix_case_outcomes_decision_outcome`: index on `decision_outcome`
+- `ix_case_outcomes_government_outcome`: index on `government_outcome`
+- `ix_case_outcomes_government_role`: index on `government_role`
+- `ix_case_outcomes_loser_side`: index on `loser_side`
+- `ix_case_outcomes_outcome_status`: index on `outcome_status`
+- `ix_case_outcomes_winner_side`: index on `winner_side`
+
+### Unique Constraints
+
+- `uq_case_outcome_version`: `case_id`, `classifier_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `case_sources`
 

@@ -1,0 +1,96 @@
+{
+  "run_id": "v2-stratified-trial",
+  "created_at": "2026-09-05T01:57:36.589093+00:00",
+  "updated_at": "2026-09-05T01:58:15.050722+00:00",
+  "status": "completed_with_quarantine",
+  "selected_stages": [
+    "source_html",
+    "chunks",
+    "metadata",
+    "outcome",
+    "citations",
+    "statutes",
+    "tags_v3"
+  ],
+  "cases": {
+    "12163": {
+      "case_id": 12163,
+      "stages": {
+        "source_html": "completed",
+        "chunks": "completed",
+        "metadata": "completed",
+        "outcome": "completed",
+        "citations": "completed",
+        "statutes": "completed",
+        "tags_v3": "completed"
+      },
+      "errors": []
+    },
+    "18594": {
+      "case_id": 18594,
+      "stages": {
+        "source_html": "completed",
+        "chunks": "completed",
+        "metadata": "completed",
+        "outcome": "completed",
+        "citations": "completed",
+        "statutes": "completed",
+        "tags_v3": "completed"
+      },
+      "errors": []
+    },
+    "22303": {
+      "case_id": 22303,
+      "stages": {
+        "source_html": "completed",
+        "chunks": "completed",
+        "metadata": "completed",
+        "outcome": "completed",
+        "citations": "completed",
+        "statutes": "completed",
+        "tags_v3": "completed"
+      },
+      "errors": []
+    },
+    "37264": {
+      "case_id": 37264,
+      "stages": {
+        "source_html": "completed",
+        "chunks": "completed",
+        "metadata": "completed",
+        "outcome": "completed",
+        "citations": "completed",
+        "statutes": "completed",
+        "tags_v3": "completed"
+      },
+      "errors": []
+    },
+    "56742": {
+      "case_id": 56742,
+      "stages": {
+        "source_html": "completed",
+        "chunks": "completed",
+        "metadata": "completed",
+        "outcome": "completed",
+        "citations": "completed",
+        "statutes": "completed",
+        "tags_v3": "completed"
+      },
+      "errors": []
+    },
+    "57422": {
+      "case_id": 57422,
+      "stages": {
+        "source_html": "quarantined"
+      },
+      "errors": [
+        {
+          "case_id": 57422,
+          "stage": "source_html",
+          "error": "RuntimeError: decision-content-not-found",
+          "at": "2026-09-05T01:58:15.050722+00:00"
+        }
+      ]
+    }
+  }
+}

@@ -12,3 +12,9 @@ def test_scc_runner_uses_all_text_enrichment_layers_without_embeddings():
         "tags_v3",
     )
     assert "embedding" not in " ".join(STAGE_ORDER).lower()
+
+
+def test_scc_runner_exposes_exact_case_selection():
+    from scripts.run_scc_text_only import run
+
+    assert "case_ids" in run.__annotations__

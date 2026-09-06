@@ -151,6 +151,12 @@ then runs the seven deterministic enrichment stages without embeddings. Its
 chunker preserves numbered/bracketed paragraphs, Roman sections, and older
 unnumbered body lines; the stored 27-case sample passed exact chunk-text
 containment and the five-case dry run performed no writes.
+
+The 50-case 1980-present SCC canary completed all seven stages in 530.3 seconds
+with zero quarantines. It persisted 2,545 chunks, 16,329 unresolved citation
+occurrences, 8,117 statute references, and 351 V3 tags. Evidence offset auditing
+passed with no malformed spans or missing tag offsets. The remaining cohort can
+use the same bounded runner and checkpoints; resolution remains a later pass.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

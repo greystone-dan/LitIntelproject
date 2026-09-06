@@ -67,6 +67,13 @@ Roman-numeral sections, and unnumbered older body lines. The stored SCC sample
 produced exact canonical-text containment for all generated chunks, while the
 five-case runner dry run performed no writes.
 
+The expanded 1980-present SCC canary completed 50 representative cases in
+530.3 seconds with zero quarantines. It produced 2,545 chunks, 16,329 citation
+occurrences, 8,117 statute references, and 351 V3 tags. Offset auditing found no
+malformed citation/statute spans or missing tag offsets. The result supports
+bounded continuation of the SCC text-only path; citation target resolution and
+reader chunk association remain explicitly deferred.
+
 ### Preserve backend-owned evidence locations
 
 - **Decision:** Source/chunk offsets and provenance are authoritative; browser

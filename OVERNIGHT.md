@@ -316,6 +316,17 @@ preserves one body paragraph per line. A five-case dry run completed with zero
 writes and zero quarantines; the stored 27-case SCC sample had exact
 canonical-text containment for every generated chunk.
 
+The 1980-present SCC canary then ran exactly 50 representative cases through
+all seven stages in `530.3` seconds: `50` completed and `0` quarantined. It
+created `2,545` chunks, `16,329` extraction-only case citations, `8,117`
+statute references, and `351` V3 tag occurrences. The read-only audit found
+zero malformed citation/statute offsets and zero missing tag offsets. All
+citations remain unresolved and unassociated with chunks until the separate
+resolution/layer-association pass. Eight metadata reports were zero-change and
+27 cases had no V3 matches; neither is a processing failure. This canary is the
+readiness gate for the remaining SCC cases, subject to the same batch size,
+checkpoint, and quarantine controls.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

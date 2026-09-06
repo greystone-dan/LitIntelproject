@@ -261,6 +261,13 @@ patterns while preserving exact canonical-text containment. It runs metadata,
 outcomes, citations, statutes, and V3 tags in the same ordered contract without
 requiring source URL validation or embeddings.
 
+The 1980-present SCC canary completed 50 representative cases in 530.3 seconds
+with zero quarantines. It produced 2,545 chunks, 16,329 case-citation
+occurrences, 8,117 statute references, and 351 V3 tag occurrences; offset audit
+found no malformed citation/statute spans or missing tag offsets. This validates
+the SCC text-only path for bounded continuation, while target resolution and
+chunk association remain a separate next pass.
+
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
 of the decision, and metadata runs before citations so downstream extraction

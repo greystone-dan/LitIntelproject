@@ -25,7 +25,7 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, dry_run: bool = False) -> dict[str, object]:
+def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, case_ids: list[int] | None = None, dry_run: bool = False) -> dict[str, object]:
     if limit < 1 or batch_size < 1:
         raise ValueError("limit and batch-size must be positive")
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -34,12 +34,15 @@ def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, 
     processed = 0
     started = time.monotonic()
     with SessionLocal() as db:
-        statement = (
-            select(Case)
-            .where(Case.id > start_after_id, Case.court == "SCC", Case.full_text.is_not(None), Case.full_text != "")
-            .order_by(Case.id)
-            .limit(limit)
-        )
+        if case_ids:
+            statement = select(Case).where(Case.id.in_(sorted(set(case_ids))), Case.court == "SCC").order_by(Case.id)
+        else:
+            statement = (
+                select(Case)
+                .where(Case.id > start_after_id, Case.court == "SCC", Case.full_text.is_not(None), Case.full_text != "")
+                .order_by(Case.id)
+                .limit(limit)
+            )
         for case in db.scalars(statement).yield_per(batch_size):
             if dry_run:
                 state["cases"][str(case.id)] = {"status": "planned"}
@@ -73,10 +76,11 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--batch-size", type=int, default=25)
     parser.add_argument("--start-after-id", type=int, default=0)
+    parser.add_argument("--case-id", type=int, action="append", default=[])
     parser.add_argument("--run-dir", type=Path, default=Path("data/overnight_runs/scc-text-only"))
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    run(limit=args.limit, batch_size=args.batch_size, start_after_id=args.start_after_id, run_dir=args.run_dir, dry_run=args.dry_run)
+    run(limit=args.limit, batch_size=args.batch_size, start_after_id=args.start_after_id, case_ids=args.case_id, run_dir=args.run_dir, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

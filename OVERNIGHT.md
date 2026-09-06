@@ -342,6 +342,12 @@ HTML, no embeddings, and extraction-only citations. Resume with the same run
 directory and `--resume` if interrupted; do not start a competing PostgreSQL
 writer.
 
+Each SCC case now runs in an isolated process/session with a default
+`600`-second watchdog. Exceptions and timeouts are recorded as quarantines, the
+child transaction is discarded on termination, and the parent continues to the
+next case. This protects the resume after case `53722` demonstrated that
+exception-only quarantine could not catch a CPU-bound hang.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

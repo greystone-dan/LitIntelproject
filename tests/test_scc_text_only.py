@@ -20,3 +20,4 @@ def test_scc_runner_exposes_exact_case_selection():
     assert "case_ids" in run.__annotations__
     assert "from_date" in run.__annotations__
     assert "resume" in run.__annotations__
+    assert "case_timeout" in run.__annotations__

@@ -261,6 +261,10 @@ patterns while preserving exact canonical-text containment. It runs metadata,
 outcomes, citations, statutes, and V3 tags in the same ordered contract without
 requiring source URL validation or embeddings.
 
+Each SCC case runs in an isolated process/session with a default 600-second
+watchdog; failed or timed-out cases are quarantined without holding the parent
+transaction open.
+
 The 1980-present SCC canary completed 50 representative cases in 530.3 seconds
 with zero quarantines. It produced 2,545 chunks, 16,329 case-citation
 occurrences, 8,117 statute references, and 351 V3 tag occurrences; offset audit

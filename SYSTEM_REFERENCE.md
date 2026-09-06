@@ -254,6 +254,13 @@ redirected to `login.openathens.net` without decision content. Those records are
 quarantined pending an approved alternate source or URL mapping; access controls
 must not be bypassed.
 
+For SCC cases whose HTML cannot be acquired, `scripts/run_scc_text_only.py`
+provides a separate text-only enrichment runner. Its SCC-specific chunker
+supports numbered, bracketed, Roman-section, and older unnumbered body-line
+patterns while preserving exact canonical-text containment. It runs metadata,
+outcomes, citations, statutes, and V3 tags in the same ordered contract without
+requiring source URL validation or embeddings.
+
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
 of the decision, and metadata runs before citations so downstream extraction

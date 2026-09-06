@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 93
+Active scripts documented: 94
 
 ## Catalog
 
@@ -93,6 +93,7 @@ Active scripts documented: 93
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
 | `review_tag_candidates.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_tag_candidates.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
+| `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
@@ -1264,6 +1265,20 @@ Active scripts documented: 93
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs
+```
+
+## `scripts/run_scc_text_only.py`
+
+**Purpose:** Run the SCC-specific text-only enrichment pipeline.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs
 ```
 
 ## `scripts/run_v2_pipeline.py`

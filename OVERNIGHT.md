@@ -306,6 +306,16 @@ already had HTML; coverage remained `27`. The selector now supports
 an approved alternate source or URL mapping is available. Do not bypass access
 controls or treat the redirect page as a judgment snapshot.
 
+SCC enrichment is prepared as a separate text-only path in
+`scripts/run_scc_text_only.py`. It does not require source HTML or a parseable
+source host, selects only SCC cases with canonical full text, and runs the same
+seven stages as the optimized V2 runner without embeddings. The SCC-specific
+chunk fallback recognizes old `1 The Court` paragraphs, modern `[1]` paragraphs,
+Roman-numeral sections, and unnumbered older decisions whose canonical text
+preserves one body paragraph per line. A five-case dry run completed with zero
+writes and zero quarantines; the stored 27-case SCC sample had exact
+canonical-text containment for every generated chunk.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

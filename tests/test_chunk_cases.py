@@ -86,6 +86,67 @@ def test_build_case_chunk_layers_uses_confident_html_headings():
     assert all(row.text in case.full_text for row in rows)
 
 
+def test_scc_text_fallback_handles_old_numbered_paragraphs_and_roman_sections():
+    case = SimpleNamespace(
+        id=15,
+        court="SCC",
+        full_text=(
+            "Decision title\n2002 SCC 1\n"
+            "I. Background\n1 The Court considered the appeal.\n"
+            "II. Analysis\n2 The application was dismissed.\n"
+            "APPEARANCES:\nCounsel"
+        ),
+        summary=None,
+        source_html=None,
+    )
+
+    rows = build_case_chunk_layers(case)
+
+    sections = [row for row in rows if row.chunk_set == "section"]
+    paragraphs = [row for row in rows if row.chunk_set == "paragraph"]
+    assert [row.chunk_label for row in sections] == ["Intro Metadata", "Background", "Analysis"]
+    assert [row.chunk_label for row in paragraphs] == ["intro", "1", "2", "tail"]
+    assert all(row.text in case.full_text for row in rows)
+    assert all(row.chunk_label != "2002" for row in paragraphs)
+
+
+def test_scc_text_fallback_handles_bracketed_modern_paragraphs():
+    case = SimpleNamespace(
+        id=16,
+        court="SCC",
+        full_text="Metadata\nII. Reasons\n[1] First reason.\n[2] Second reason.",
+        summary=None,
+        source_html=None,
+    )
+
+    paragraphs = [row for row in build_case_chunk_layers(case) if row.chunk_set == "paragraph"]
+
+    assert [row.chunk_label for row in paragraphs] == ["intro", "1", "2"]
+    assert [row.paragraph_start for row in paragraphs] == [0, 1, 2]
+
+
+def test_scc_text_fallback_uses_body_lines_for_older_unnumbered_decisions():
+    case = SimpleNamespace(
+        id=17,
+        court="SCC",
+        full_text=(
+            "Metadata\nCases Cited\nR v Example\n"
+            "//The Court//\nThe following is the judgment delivered by\n"
+            "The appeal is allowed.\nThe matter is remitted.\n"
+            "Solicitor for the respondent: Justice Canada."
+        ),
+        summary=None,
+        source_html=None,
+    )
+
+    paragraphs = [row for row in build_case_chunk_layers(case) if row.chunk_set == "paragraph"]
+
+    assert [row.chunk_label for row in paragraphs] == ["body-1", "body-2", "body-3", "body-4", "tail"]
+    assert paragraphs[0].text == "//The Court//"
+    assert paragraphs[-2].text == "The matter is remitted."
+    assert paragraphs[-1].text.startswith("Solicitor for")
+
+
 def test_build_case_chunks_creates_only_intro_and_paragraph_chunks():
     case = SimpleNamespace(
         id=20,

@@ -144,6 +144,13 @@ follow-up five-case missing-HTML probe found one valid response and four
 `login.openathens.net` redirects without decision content. Bulk SCC acquisition
 is therefore blocked until an approved alternate source or URL mapping is
 available.
+
+The SCC path is now isolated in `scripts/run_scc_text_only.py`. It selects SCC
+cases with canonical full text without requiring source HTML or a parseable host,
+then runs the seven deterministic enrichment stages without embeddings. Its
+chunker preserves numbered/bracketed paragraphs, Roman sections, and older
+unnumbered body lines; the stored 27-case sample passed exact chunk-text
+containment and the five-case dry run performed no writes.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

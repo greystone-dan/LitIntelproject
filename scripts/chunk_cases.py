@@ -29,6 +29,14 @@ CHUNK_SET_PARAGRAPH = "paragraph"
 SECTION_HEADINGS = ("OVERVIEW", "BACKGROUND", "ANALYSIS", "CONCLUSION")
 PARAGRAPH_MARKER_RE = re.compile(r"(?m)^[ \t]*\[(\d+)\]")
 SCC_PARAGRAPH_MARKER_RE = re.compile(r"(?m)^[ \t]*(\d+)(?:[.)])?[ \t]+")
+SCC_TEXT_PARAGRAPH_RE = re.compile(
+    r"(?m)^[ \t]*(?:\[(\d{1,4})\]|(\d{1,4})(?:[.)])?)[ \t]+(?=[A-Z\[])"
+)
+SCC_TEXT_SECTION_RE = re.compile(r"(?mi)^\s*([IVXLC]{1,8})\.\s+([^\n]{3,160})\s*$")
+SCC_BODY_START_RE = re.compile(
+    r"(?mi)^\s*(?://The Court//|The judgment of the Court was delivered by|The following is the judgment delivered by)\s*$"
+)
+SCC_OUTRO_HEADING_RE = re.compile(r"(?mi)^\s*SOLICITORS?\s+FOR\b.*$")
 SECTION_HEADING_RE = re.compile(
     r"(?mi)^\s*(?:[IVXLC]+\.\s+)?(OVERVIEW|BACKGROUND(?:\s+FACTS)?|ANALYSIS|CONCLUSION|INTRODUCTION|STANDARD OF REVIEW|ORDER|REASONS? AND ORDER)\b.*$"
 )
@@ -282,6 +290,144 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
     return rows
 
 
+def _scc_text_paragraph_matches(text: str) -> list[re.Match[str]]:
+    matches: list[re.Match[str]] = []
+    for match in SCC_TEXT_PARAGRAPH_RE.finditer(text):
+        number = int(match.group(1) or match.group(2))
+        line_end = text.find("\n", match.start())
+        line = text[match.start() : line_end if line_end >= 0 else len(text)]
+        if number >= 1900 or re.match(r"\d{4}\s+(?:SCC|SCR)\b", line, re.IGNORECASE):
+            continue
+        matches.append(match)
+    return matches
+
+
+def _build_scc_line_paragraph_chunks(case: Case, text: str, first_outro_start: int) -> list[CaseChunk]:
+    body_match = SCC_BODY_START_RE.search(text)
+    body_start = body_match.start() if body_match else 0
+    body_text = text[body_start:first_outro_start]
+    rows: list[CaseChunk] = []
+    for line in body_text.splitlines():
+        value = line.strip()
+        if not value:
+            continue
+        rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_PARAGRAPH,
+                chunk_index=len(rows),
+                text=value,
+                chunk_label=f"body-{len(rows) + 1}",
+            )
+        )
+    return rows
+
+
+def _build_scc_text_chunk_layers(case: Case, text: str) -> tuple[list[CaseChunk], list[CaseChunk]]:
+    """Build SCC sections and paragraphs from canonical text when HTML is unavailable."""
+    paragraph_matches = _scc_text_paragraph_matches(text)
+    section_matches = list(SCC_TEXT_SECTION_RE.finditer(text))
+    outro_matches = list(OUTRO_HEADING_RE.finditer(text)) + list(SCC_OUTRO_HEADING_RE.finditer(text))
+    outro_matches.sort(key=lambda match: match.start())
+    first_paragraph_start = paragraph_matches[0].start() if paragraph_matches else len(text)
+    first_outro_start = outro_matches[0].start() if outro_matches else len(text)
+    first_content_start = min(
+        [len(text), first_paragraph_start, first_outro_start]
+        + [match.start() for match in section_matches]
+    )
+
+    section_rows: list[CaseChunk] = []
+    intro = text[:first_content_start].strip()
+    if intro:
+        section_rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_SECTION,
+                chunk_index=0,
+                text=intro,
+                chunk_label="Intro Metadata",
+                paragraph_start=0,
+                paragraph_end=0,
+            )
+        )
+    usable_sections = [match for match in section_matches if match.start() < first_outro_start]
+    for index, match in enumerate(usable_sections):
+        start = match.start()
+        end = usable_sections[index + 1].start() if index + 1 < len(usable_sections) else first_outro_start
+        value = text[start:end].strip()
+        if value:
+            section_rows.append(
+                _chunk_row(
+                    case.id,
+                    chunk_set=CHUNK_SET_SECTION,
+                    chunk_index=len(section_rows),
+                    text=value,
+                    chunk_label=match.group(2).strip().title(),
+                )
+            )
+    if not usable_sections:
+        body = text[first_content_start:first_outro_start].strip()
+        if body:
+            section_rows.append(
+                _chunk_row(
+                    case.id,
+                    chunk_set=CHUNK_SET_SECTION,
+                    chunk_index=len(section_rows),
+                    text=body,
+                    chunk_label="Body",
+                )
+            )
+
+    if not paragraph_matches:
+        paragraph_rows = _build_scc_line_paragraph_chunks(case, text, first_outro_start)
+    else:
+        paragraph_rows = []
+        intro = text[: paragraph_matches[0].start()].strip()
+        if intro:
+            paragraph_rows.append(
+                _chunk_row(
+                    case.id,
+                    chunk_set=CHUNK_SET_PARAGRAPH,
+                    chunk_index=0,
+                    text=intro,
+                    chunk_label="intro",
+                    paragraph_start=0,
+                    paragraph_end=0,
+                )
+            )
+        for index, match in enumerate(paragraph_matches):
+            number = int(match.group(1) or match.group(2))
+            end = paragraph_matches[index + 1].start() if index + 1 < len(paragraph_matches) else first_outro_start
+            value = text[match.start() : end].strip()
+            if value:
+                paragraph_rows.append(
+                    _chunk_row(
+                        case.id,
+                        chunk_set=CHUNK_SET_PARAGRAPH,
+                        chunk_index=len(paragraph_rows),
+                        text=value,
+                        chunk_label=str(number),
+                        paragraph_start=number,
+                        paragraph_end=number,
+                    )
+                )
+    tail = text[first_outro_start:].strip() if first_outro_start < len(text) else ""
+    if tail:
+        last_number = int(paragraph_matches[-1].group(1) or paragraph_matches[-1].group(2)) if paragraph_matches else 0
+        paragraph_rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_PARAGRAPH,
+                chunk_index=len(paragraph_rows),
+                text=tail,
+                chunk_label="tail",
+                paragraph_start=last_number + 1,
+                paragraph_end=last_number + 1,
+            )
+        )
+    return section_rows, paragraph_rows
+
+
 def _build_full_case_chunk(case: Case, text: str) -> list[CaseChunk]:
     if not text.strip():
         return []
@@ -308,6 +454,9 @@ def build_case_chunk_layers(case: Case) -> list[CaseChunk]:
         html_layers = _build_html_chunk_layers(case, text, structured, source_family=source_family)
         if html_layers is not None:
             return _build_full_case_chunk(case, text) + html_layers[0] + html_layers[1]
+    if source_family == "scc":
+        text_layers = _build_scc_text_chunk_layers(case, text)
+        return _build_full_case_chunk(case, text) + text_layers[0] + text_layers[1]
     return (
         _build_full_case_chunk(case, text)
         + _build_section_chunks(case, text)

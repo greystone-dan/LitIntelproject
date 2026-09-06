@@ -60,6 +60,13 @@ valid response and four old URLs redirecting to `login.openathens.net` without
 decision content. The acquisition path is blocked for those records pending an
 approved alternate source or URL mapping; access controls are not bypassed.
 
+SCC enrichment therefore has a separate text-only runner,
+`scripts/run_scc_text_only.py`, rather than weakening the non-SCC runner's
+source gate. Its chunk fallback handles numbered and bracketed paragraphs,
+Roman-numeral sections, and unnumbered older body lines. The stored SCC sample
+produced exact canonical-text containment for all generated chunks, while the
+five-case runner dry run performed no writes.
+
 ### Preserve backend-owned evidence locations
 
 - **Decision:** Source/chunk offsets and provenance are authoritative; browser

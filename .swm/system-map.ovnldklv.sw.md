@@ -131,6 +131,19 @@ malformed citation/statute spans or missing tag offsets. All extracted citations
 remain unresolved and lack chunk association by design until the separate local
 resolution/layer-association pass, and only 17 completed-cohort records have
 stored HTML in this text-only run.
+
+The SCC HTML follow-up is isolated from enrichment writes. The current inventory
+has 10,889 SCC source URLs and 27 stored HTML snapshots; the first five-case
+dry-run probe returned five ready responses with zero quarantines and zero
+applied rows. The next batch should remain bounded and resumable under the
+existing host limiter and source-content validator.
+
+The source-refresh boundary now includes a missing-HTML selector. The initial
+25-case batch refreshed existing snapshots and did not increase coverage. A
+follow-up five-case missing-HTML probe found one valid response and four
+`login.openathens.net` redirects without decision content. Bulk SCC acquisition
+is therefore blocked until an approved alternate source or URL mapping is
+available.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

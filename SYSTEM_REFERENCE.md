@@ -241,6 +241,19 @@ not resolution-complete: citations remain explicitly unresolved and require the
 separate target-resolution/layer-association pass. Source HTML coverage also
 remains sparse because this run intentionally used canonical text only.
 
+SCC source refresh is a separate bounded operation. The current inventory has
+10,889 SCC cases with source URLs and 27 stored HTML snapshots. A five-case
+dry-run probe returned five validated responses with no quarantine and no
+database writes; larger SCC acquisition remains gated by the same host limiter,
+content validation, provenance, and quarantine controls.
+
+The SCC refresh selector supports `--missing-html-only` after an initial batch
+was found to refresh existing snapshots without increasing coverage. A bounded
+missing-HTML probe found one valid decision response and four old SCC URLs that
+redirected to `login.openathens.net` without decision content. Those records are
+quarantined pending an approved alternate source or URL mapping; access controls
+must not be bypassed.
+
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
 of the decision, and metadata runs before citations so downstream extraction

@@ -111,7 +111,7 @@ def apply_result(db, case: Case, result: dict[str, object]) -> None:
     db.add(case)
 
 
-def run(*, limit: int | None, batch_size: int, timeout: float, retries: int, workers: int, per_host_delay: float, dry_run: bool, quarantine_path: Path, court: str | None = None) -> dict[str, int]:
+def run(*, limit: int | None, batch_size: int, timeout: float, retries: int, workers: int, per_host_delay: float, dry_run: bool, quarantine_path: Path, court: str | None = None, missing_html_only: bool = False) -> dict[str, int]:
     if batch_size < 1 or retries < 1 or workers < 1 or timeout <= 0:
         raise ValueError("batch-size/retries/workers must be positive and timeout must be greater than zero")
     limiter = HostLimiter(per_host_delay)
@@ -123,6 +123,8 @@ def run(*, limit: int | None, batch_size: int, timeout: float, retries: int, wor
             statement = select(Case).where(Case.source_url.is_not(None), Case.source_url != "").order_by(Case.id)
             if court:
                 statement = statement.where(Case.court == court)
+            if missing_html_only:
+                statement = statement.where((Case.source_html.is_(None)) | (Case.source_html == ""))
             cases = db.scalars(statement.limit(limit or 1000000)).yield_per(batch_size)
             batch = []
             for case in cases:
@@ -171,10 +173,11 @@ def main() -> None:
     parser.add_argument("--workers", type=int, default=2, help="Bounded concurrent requests")
     parser.add_argument("--per-host-delay", type=float, default=2.0, help="Minimum seconds between requests to one host")
     parser.add_argument("--court", help="Restrict acquisition to a court code such as SCC")
+    parser.add_argument("--missing-html-only", action="store_true", help="Skip cases that already have stored source HTML")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--quarantine", type=Path, default=Path("data/overnight_runs/v2-pipeline/source-quarantine.jsonl"))
     args = parser.parse_args()
-    print(run(limit=args.limit, batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, workers=args.workers, per_host_delay=args.per_host_delay, dry_run=args.dry_run, quarantine_path=args.quarantine, court=args.court))
+    print(run(limit=args.limit, batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, workers=args.workers, per_host_delay=args.per_host_delay, dry_run=args.dry_run, quarantine_path=args.quarantine, court=args.court, missing_html_only=args.missing_html_only))
 
 
 if __name__ == "__main__":

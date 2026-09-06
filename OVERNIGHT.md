@@ -289,6 +289,23 @@ HTML-provenance-complete. Stage zero-yield rates were metadata `7.61%`, case
 citations `0.69%`, statutes `14.10%`, and tags `37.51%`; these represent cases
 with no newly emitted rows for that layer, not quarantined failures.
 
+The next source-refresh workstream is SCC HTML. The current inventory has
+`10,889` SCC cases with full text and source URLs but only `27` stored HTML
+snapshots. A bounded five-case dry-run probe on 2026-09-06 returned `5 ready`,
+`0 quarantined`, and `0 applied`, confirming the SCC URL/content validator path
+without writing to PostgreSQL. Use the existing host limiter and quarantine
+output for the next bounded write batch; do not combine source acquisition with
+another enrichment writer.
+
+The first 25-case SCC write batch refreshed existing snapshots rather than
+expanding coverage because the original selector did not exclude cases that
+already had HTML; coverage remained `27`. The selector now supports
+`--missing-html-only`. A five-case missing-HTML probe returned `1 ready` and
+`4 quarantined`; raw inspection showed the four failures redirected to
+`login.openathens.net` without decision content. Stop bulk SCC acquisition until
+an approved alternate source or URL mapping is available. Do not bypass access
+controls or treat the redirect page as a judgment snapshot.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

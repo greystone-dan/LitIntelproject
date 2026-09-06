@@ -48,6 +48,18 @@ remain unresolved and unassociated with chunks, this evidence supports the
 extraction contract but does not yet certify graph metrics or chunked reader
 highlights; that requires the separate resolution/layer-association pass.
 
+SCC HTML remains a separate source-refresh workstream. The inventory contains
+10,889 SCC cases with source URLs and 27 stored HTML snapshots. A bounded
+five-case dry run returned five validated responses, zero quarantines, and zero
+database writes. Larger acquisition must retain the host limiter, citation
+validation, hashes, retrieval metadata, and quarantine output.
+
+The first SCC write batch also exposed a selector risk: existing HTML must be
+excluded before measuring new coverage. The missing-HTML probe then found one
+valid response and four old URLs redirecting to `login.openathens.net` without
+decision content. The acquisition path is blocked for those records pending an
+approved alternate source or URL mapping; access controls are not bypassed.
+
 ### Preserve backend-owned evidence locations
 
 - **Decision:** Source/chunk offsets and provenance are authoritative; browser

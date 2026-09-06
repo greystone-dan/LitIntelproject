@@ -192,6 +192,18 @@ tunnel and app it owns. The public site is normally `https://www.ilit.ca`.
 
 The complete environment-variable, precedence, security, local-model, source-integration, and static-template reference is [docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md). It distinguishes settings actively consumed at runtime from legacy or aspirational values in `config.yaml` and `.env.example`.
 
+Managed agent execution uses the repo-local control plane in
+`scripts/agent_harness.py` and `scripts/agent_policy.py`. Runs persist atomic
+`state.json`, append-only `events.jsonl`, command logs, evidence hashes, phase,
+heartbeat, repair budget, and resume metadata under
+`.github/project-manager/runs/`. This is task orchestration evidence, not a
+replacement for source-data provenance or application audit logging.
+
+Bounded delegated work uses `.github/agents/managed-worker.agent.md`, which has
+no task-record or Git authority. Completion evidence can be checked with
+`scripts/evidence_gate.py`; it requires a terminal complete phase, command
+evidence, evidence records, and named canonical/Swimm documentation paths.
+
 ### Canonical Processing Pipeline
 
 `backend/case_processing.py` codifies the ordered deterministic layers:
@@ -209,6 +221,11 @@ uses source-link HTML refresh, HTML-aware replacement chunks, metadata, outcomes
 case citations, statutes, and V3 tags. Each stage runs in an isolated worker with
 a hard timeout and per-case quarantine; embeddings are deliberately excluded.
 Run state and quarantine evidence are stored under the selected run directory.
+
+The optimized current run uses `scripts/run_v2_text_only_fast.py` for non-SCC
+cases with extraction-only citations, batch size 50, no HTML acquisition, and
+no embeddings. SCC HTML acquisition is a separate later source-refresh task and
+must not run concurrently with PostgreSQL enrichment writes.
 
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end

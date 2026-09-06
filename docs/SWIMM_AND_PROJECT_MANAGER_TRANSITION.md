@@ -38,6 +38,26 @@ focused validation evidence. If no walkthrough exists for the owner surface,
 the task is blocked until one is created or the documentation gap is explicitly
 recorded.
 
+Managed tasks are execution handoffs, not plan-only requests. The manager should
+carry them through authority reads, delegation, implementation, focused repair,
+validation, documentation, recovery evidence, and completion without routine
+confirmation requests. Long operations must leave checkpoints, logs, watchdog
+behavior, and a resume command; destructive, paid, production, security, and
+unbounded operations remain explicit approval boundaries.
+
+The first repo-local control-plane slice is `scripts/agent_harness.py`: it owns
+atomic task-run state, append-only events, heartbeats, phase transitions,
+command output hashes/logs, and terminal-state protection. `scripts/agent_policy.py`
+provides a fail-closed policy decision surface for worker manager-state edits and
+privileged Git commands. Native VS Code/AHP integration remains a later adapter;
+the repository state is authoritative meanwhile.
+
+The managed-worker agent is intentionally restricted to an assigned owner slice;
+it cannot edit manager task state or commit/push. `scripts/evidence_gate.py`
+provides a deterministic completion check over run state and required
+documentation paths. This is the current repository harness; native hook/AHP
+integration remains optional future work.
+
 ## Recommended Swimm Pass
 
 Create or import the following walkthroughs in this order. Keep each walkthrough

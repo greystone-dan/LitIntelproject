@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import os
 import re
+from bisect import bisect_right
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime
@@ -991,6 +992,7 @@ def _extract_short_aliases(parties: str) -> list[str]:
 def _extract_short_form_case_candidates(content: str, base_matches: list[RawCitationMatch]) -> list[RawCitationMatch]:
 	anchors: list[_CaseAnchor] = []
 	ordered = sorted(base_matches, key=lambda item: (item.offset_start, item.offset_end))
+	content_lower = content.lower()
 
 	def _emit_alias_anchors(
 		aliases: list[str],
@@ -1092,14 +1094,18 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		alias_to_anchors[anchor.alias.lower()].append(anchor)
 	for alias_key in alias_to_anchors:
 		alias_to_anchors[alias_key].sort(key=lambda item: item.case_end)
+	anchor_end_positions = {
+		alias_key: [item.case_end for item in rows]
+		for alias_key, rows in alias_to_anchors.items()
+	}
 
 	def nearest_anchor(alias: str, at_position: int) -> _CaseAnchor | None:
 		rows = alias_to_anchors.get(alias.lower()) or []
 		if not rows:
 			return None
-		prior = [row for row in rows if row.case_end <= at_position]
-		if prior:
-			return prior[-1]
+		position = bisect_right(anchor_end_positions[alias.lower()], at_position)
+		if position:
+			return rows[position - 1]
 		return rows[0]
 
 	def expand_parenthetical(start: int, end: int) -> tuple[int, int]:
@@ -1134,13 +1140,12 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		return left, right + 1
 
 	def is_federal_court_metadata_position(position: int) -> bool:
-		prefix = content[:position]
 		last_metadata = max(
-			prefix.lower().rfind("court (s) database"),
-			prefix.lower().rfind("federal court decisions"),
-			prefix.lower().rfind("neutral citation"),
+			content_lower.rfind("court (s) database", 0, position),
+			content_lower.rfind("federal court decisions", 0, position),
+			content_lower.rfind("neutral citation", 0, position),
 		)
-		return last_metadata >= 0 and prefix.lower().rfind("decision content") < last_metadata
+		return last_metadata >= 0 and content_lower.rfind("decision content", 0, position) < last_metadata
 
 	existing_spans = [
 		(item.offset_start, item.offset_end, item.kind)

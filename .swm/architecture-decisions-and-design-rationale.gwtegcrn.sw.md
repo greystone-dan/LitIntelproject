@@ -74,6 +74,12 @@ malformed citation/statute spans or missing tag offsets. The result supports
 bounded continuation of the SCC text-only path; citation target resolution and
 reader chunk association remain explicitly deferred.
 
+SCC profiling identified short-form citation candidate generation as the
+dominant cost on very large decisions. The accepted optimization replaces linear
+nearest-anchor scans with indexed lookup and avoids repeated full-prefix copies.
+It preserves the 680k-character benchmark output count; a more aggressive
+combined-regex experiment changed counts and was rejected as an accuracy risk.
+
 ### Preserve backend-owned evidence locations
 
 - **Decision:** Source/chunk offsets and provenance are authoritative; browser

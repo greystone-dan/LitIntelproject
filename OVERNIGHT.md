@@ -327,6 +327,14 @@ resolution/layer-association pass. Eight metadata reports were zero-change and
 readiness gate for the remaining SCC cases, subject to the same batch size,
 checkpoint, and quarantine controls.
 
+SCC performance profiling found short-form citation candidate generation, not
+target resolution, to be the dominant cost on very large decisions. The safe
+optimization now indexes prior anchors for nearest lookup and avoids copying the
+full text prefix during metadata checks. It preserves the 680k-character
+benchmark output count (`3,684` citations) and passed the full citation suite
+(`109 passed`). A more aggressive combined-regex experiment changed output
+counts and was rejected; no accuracy-risking optimization is retained.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

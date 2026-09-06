@@ -268,6 +268,13 @@ found no malformed citation/statute spans or missing tag offsets. This validates
 the SCC text-only path for bounded continuation, while target resolution and
 chunk association remain a separate next pass.
 
+The SCC citation hot path is short-form candidate generation over large texts,
+not target resolution. The retained optimization uses indexed anchor lookup and
+bounded prefix searches without changing extraction rules or output spans. It
+preserved the 680k-character benchmark count of `3,684` citations and passed
+the full citation suite; an output-changing combined-regex experiment was
+rejected.
+
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
 of the decision, and metadata runs before citations so downstream extraction

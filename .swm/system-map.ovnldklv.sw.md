@@ -157,6 +157,10 @@ with zero quarantines. It persisted 2,545 chunks, 16,329 unresolved citation
 occurrences, 8,117 statute references, and 351 V3 tags. Evidence offset auditing
 passed with no malformed spans or missing tag offsets. The remaining cohort can
 use the same bounded runner and checkpoints; resolution remains a later pass.
+The SCC citation path now uses indexed short-form anchors and bounded metadata
+prefix searches. This targets the measured large-document bottleneck without
+reintroducing target resolution or changing non-SCC extraction behavior. The
+combined-regex alternative was not accepted because its output count changed.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

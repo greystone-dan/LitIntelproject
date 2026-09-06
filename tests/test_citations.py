@@ -240,6 +240,14 @@ def test_resolve_case_alias_returns_none_when_unresolved():
 	assert citations._resolve_case_alias_to_case_id(UnresolvedAliasSession(), raw_match) is None
 
 
+def test_short_form_metadata_filter_preserves_behavior_after_index_optimization():
+	text = "Neutral citation\nDecision content\nVavilov v. Canada, 2019 SCC 65. Vavilov at para. 10."
+
+	rows = citations.extract_case_citation_matches(text)
+
+	assert any(row.kind == "case_short" and row.offset_start > text.index("Decision content") for row in rows)
+
+
 def test_rebuild_citations_for_case_leaves_alias_resolution_for_later_pass():
 	class AliasRebuildSession:
 		def __init__(self):

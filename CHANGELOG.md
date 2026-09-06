@@ -3,6 +3,23 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## Unreleased - Optimized V2 text-only enrichment review
+
+- Completed the optimized non-SCC V2 run: 50,327 records processed, 43,598
+	completed, 6,729 excluded for missing parseable allowed hosts, and 0
+	quarantined.
+- Compared the completed cohort with the compact baseline: chunks increased
+	12%, case citations 30%, statute references 65%, and V3 tag occurrences
+	23.1x.
+- Read-only evidence auditing found no malformed citation/statute offsets and
+	no V3 tag rows missing offsets.
+- Recorded the remaining boundary: citation rows are extraction-only and remain
+	explicitly unresolved without chunk association until the separate local
+	target-resolution pass; HTML coverage was intentionally not expanded by this
+	run.
+- Verification: focused V2/citation suite passed 116 tests; generated API,
+	schema, and script references are current.
+
 ## 2026-09-03 - Thematic intelligence in Data Explorer
 
 - Added the ninth Data Explorer tab, Legal Themes & Statutes, with live theme

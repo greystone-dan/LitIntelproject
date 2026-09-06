@@ -46,6 +46,17 @@ Priority is not proof of legal accuracy. Conflicting source values are recorded 
 
 Never call a discovered Federal Court item a captured judgment merely because an identifier exists in staging. Preserve the error/discovery state and resume the supported collector rather than fabricating text or URLs.
 
+Bulk HTML refresh uses `scripts/acquire_case_html.py` with bounded concurrency,
+per-host spacing, request timeouts, retries/backoff, citation validation, and
+quarantine. It is intentionally polite; reuse stored `source_html` before
+making a network request and do not tune it into an aggressive scraper.
+
+HTML is also used as a calibration reference for text-only chunking. The active
+corpus should not require HTML acquisition for every case when canonical text
+preserves sufficient headings, paragraph markers, evidence substrings, and
+offset-safe boundaries. The parity harness records where HTML exposes structure
+that canonical text cannot recover; those differences remain review signals.
+
 ### Federal Court Procedural History
 
 | Attribute | Details |

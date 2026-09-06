@@ -28,6 +28,7 @@ CHUNK_SET_SECTION = "section"
 CHUNK_SET_PARAGRAPH = "paragraph"
 SECTION_HEADINGS = ("OVERVIEW", "BACKGROUND", "ANALYSIS", "CONCLUSION")
 PARAGRAPH_MARKER_RE = re.compile(r"(?m)^[ \t]*\[(\d+)\]")
+SCC_PARAGRAPH_MARKER_RE = re.compile(r"(?m)^[ \t]*(\d+)(?:[.)])?[ \t]+")
 SECTION_HEADING_RE = re.compile(
     r"(?mi)^\s*(?:[IVXLC]+\.\s+)?(OVERVIEW|BACKGROUND(?:\s+FACTS)?|ANALYSIS|CONCLUSION|INTRODUCTION|STANDARD OF REVIEW|ORDER|REASONS? AND ORDER)\b.*$"
 )
@@ -206,7 +207,8 @@ def load_case_ids_from_csv(path: str | Path) -> list[int]:
 
 
 def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
-    matches = list(PARAGRAPH_MARKER_RE.finditer(text))
+    marker_re = SCC_PARAGRAPH_MARKER_RE if (getattr(case, "court", "") or "").upper() == "SCC" else PARAGRAPH_MARKER_RE
+    matches = list(marker_re.finditer(text))
     rows: list[CaseChunk] = []
     if not matches:
         if text.strip():

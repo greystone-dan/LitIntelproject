@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "project": "ProjectManagerGAME",
+  "task_id": "harness-validation",
+  "run_id": "harness-validation-20260906-055602-da332de2",
+  "owner_surface": "tools",
+  "phase": "complete",
+  "repair_budget": 2,
+  "repair_attempt": 0,
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "tools"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-1.log",
+      "output_sha256": "4ef5e01ad605a1e2e92136e1ad23a1fb5c5cad3868eae435f4b4bade54a3e431",
+      "ran_at": "2026-09-06T09:56:03.077663+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-2.log",
+      "output_sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c",
+      "ran_at": "2026-09-06T09:56:12.710524+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-3.log",
+      "output_sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c",
+      "ran_at": "2026-09-06T09:56:24.421078+00:00"
+    }
+  ],
+  "evidence": [
+    {
+      "type": "command",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "tools"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-1.log",
+      "output_sha256": "4ef5e01ad605a1e2e92136e1ad23a1fb5c5cad3868eae435f4b4bade54a3e431",
+      "ran_at": "2026-09-06T09:56:03.077663+00:00"
+    },
+    {
+      "type": "command",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-2.log",
+      "output_sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c",
+      "ran_at": "2026-09-06T09:56:12.710524+00:00"
+    },
+    {
+      "type": "command",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\harness-validation-20260906-055602-da332de2\\commands\\command-3.log",
+      "output_sha256": "baf49b59538192f3e136ca0404cac516ecb8dd2fe5ba1416604056f3080fa49c",
+      "ran_at": "2026-09-06T09:56:24.421078+00:00"
+    }
+  ],
+  "created_at": "2026-09-06T09:56:02.492627+00:00",
+  "updated_at": "2026-09-06T09:56:24.638168+00:00"
+}

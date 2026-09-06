@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task_id": "harness-validation",
+  "run_id": "harness-validation-20260905-204120-2031e4ea",
+  "owner_surface": "tests/test_agent_harness.py",
+  "phase": "complete",
+  "status": "complete",
+  "lease_seconds": 1200,
+  "lease_deadline": null,
+  "heartbeat_at": "2026-09-06T00:41:23.420181+00:00",
+  "repair_budget": 3,
+  "repair_attempt": 0,
+  "criteria": [],
+  "evidence": [
+    {
+      "type": "command",
+      "command": [
+        ".\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_agent_harness.py",
+        "tests/test_evidence_gate.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\.github\\project-manager\\runs\\harness-validation-20260905-204120-2031e4ea\\commands\\command-1.log",
+      "output_sha256": "0834674c4b256ace81a8ae319d32c06a79a7caca9fef6a46a455231c28571d02",
+      "ran_at": "2026-09-06T00:41:22.892165+00:00"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        ".\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_agent_harness.py",
+        "tests/test_evidence_gate.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\.github\\project-manager\\runs\\harness-validation-20260905-204120-2031e4ea\\commands\\command-1.log",
+      "output_sha256": "0834674c4b256ace81a8ae319d32c06a79a7caca9fef6a46a455231c28571d02",
+      "ran_at": "2026-09-06T00:41:22.892165+00:00"
+    }
+  ],
+  "created_at": "2026-09-06T00:41:20.503715+00:00",
+  "updated_at": "2026-09-06T00:41:23.420181+00:00"
+}

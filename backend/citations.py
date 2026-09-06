@@ -2199,7 +2199,9 @@ def extract_citations_from_text(
 	text: str | None,
 	chunk_id: int | None = None,
 	exclude_citations: set[str] | None = None,
+	resolve_targets: bool = True,
 ) -> list[Citation]:
+	"""Extract citation occurrences; resolve targets only when explicitly requested."""
 	selected = []
 	for raw_match in extract_raw_citation_matches(text):
 		if raw_match.kind not in CASE_CITATION_KINDS:
@@ -2207,9 +2209,9 @@ def extract_citations_from_text(
 		if exclude_citations and raw_match.normalized_citation in exclude_citations:
 			continue
 		target_case_id = None
-		if raw_match.kind == "neutral":
+		if resolve_targets and raw_match.kind == "neutral":
 			target_case_id = resolve_neutral_to_case_id(session, raw_match.normalized_citation)
-		elif raw_match.kind in {"case", "case_short", "case_name"}:
+		elif resolve_targets and raw_match.kind in {"case", "case_short", "case_name"}:
 			if raw_match.kind in {"case_short", "case_name"}:
 				target_case_id = _resolve_case_alias_to_case_id(session, raw_match)
 			embedded = NEUTRAL_CIT_RE.search(raw_match.normalized_citation)
@@ -2222,6 +2224,10 @@ def extract_citations_from_text(
 				citation_kind=raw_match.kind,
 				citation_text=raw_match.citation_text,
 				normalized_citation=raw_match.normalized_citation,
+				anchor_citation_text=raw_match.anchor_citation_text,
+				anchor_offset_start=raw_match.anchor_offset_start,
+				anchor_offset_end=raw_match.anchor_offset_end,
+				declared_alias=raw_match.declared_alias,
 				chunk_id=chunk_id,
 				offset_start=raw_match.offset_start,
 				offset_end=raw_match.offset_end,
@@ -2285,7 +2291,7 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 			for value in (getattr(case, "citation", None), getattr(case, "secondary_citation", None))
 			if value
 		}
-		return len(extract_citations_from_text(session, case.id, case_text, None, excluded))
+		return len(extract_citations_from_text(session, case.id, case_text, None, excluded, resolve_targets=False))
 
 	chunk_locations: list[tuple[CaseChunk, int, int]] = []
 	search_start = 0
@@ -2316,7 +2322,7 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 		)
 		chunk_id = containing[0].id if containing is not None else None
 		offset_base = containing[1] if containing is not None else 0
-		target_case_id = _resolve_case_alias_to_case_id(session, raw_match) if not selected_chunks else None
+		target_case_id = None
 		rows.append(
 			Citation(
 				source_case_id=case.id,
@@ -2324,6 +2330,10 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 				citation_kind=raw_match.kind,
 				citation_text=raw_match.citation_text,
 				normalized_citation=raw_match.normalized_citation,
+				anchor_citation_text=raw_match.anchor_citation_text,
+				anchor_offset_start=raw_match.anchor_offset_start,
+				anchor_offset_end=raw_match.anchor_offset_end,
+				declared_alias=raw_match.declared_alias,
 				chunk_id=chunk_id,
 				offset_start=raw_match.offset_start - offset_base,
 				offset_end=raw_match.offset_end - offset_base,

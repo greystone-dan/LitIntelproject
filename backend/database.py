@@ -379,6 +379,10 @@ class Citation(Base):
 	citation_kind: Mapped[str] = mapped_column(String(20), nullable=False, server_default="unknown", index=True)
 	citation_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 	normalized_citation: Mapped[str | None] = mapped_column(Text, nullable=True, index=True)
+	anchor_citation_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	anchor_offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	anchor_offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	declared_alias: Mapped[str | None] = mapped_column(String(255), nullable=True)
 	provenance: Mapped[str] = mapped_column(String(20), nullable=False, server_default="local", index=True)
 	chunk_id: Mapped[int | None] = mapped_column(
 		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True

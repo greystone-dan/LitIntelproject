@@ -169,6 +169,11 @@ The active frontend pages are built by modular templates in `backend/pages/` and
 
 The researcher-facing guide to tabs, filters, reader controls, highlights, linked authorities, analytics, and interpretation limits is [docs/RESEARCH_UI_GUIDE.md](docs/RESEARCH_UI_GUIDE.md).
 
+The active Data Explorer reader provides a persistent evidence-layer legend for
+Tags, Laws, and Citations plus an optional evidence-details inspector. The
+inspector uses existing backend-owned highlight attributes and never invents
+offsets or mutates canonical data.
+
 ### Startup And Configuration
 
 The application loads `.env` from the repository root and `backend/.env`. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`, avoiding accidental connection to a stale shell database. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
@@ -226,6 +231,15 @@ The optimized current run uses `scripts/run_v2_text_only_fast.py` for non-SCC
 cases with extraction-only citations, batch size 50, no HTML acquisition, and
 no embeddings. SCC HTML acquisition is a separate later source-refresh task and
 must not run concurrently with PostgreSQL enrichment writes.
+
+The 2026-09-06 completed run processed `50,327` records: `43,598` completed
+all seven stages, `6,729` were excluded for missing parseable allowed hosts,
+and none were quarantined. In the completed cohort, chunks increased 12%, case
+citations 30%, statute references 65%, and V3 tag occurrences 23.1x versus the
+compact baseline. The result is extraction-complete for the selected cohort but
+not resolution-complete: citations remain explicitly unresolved and require the
+separate target-resolution/layer-association pass. Source HTML coverage also
+remains sparse because this run intentionally used canonical text only.
 
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end

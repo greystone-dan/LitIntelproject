@@ -38,6 +38,10 @@ Evidence:
 	no longer reproduces.
 - Comparator deltas now include configurable `relative_delta` and
 	`major_delta` flags, with regression coverage for the rollout threshold.
+- Confirmed and documented that V2 Pipeline citation extraction is resolution-
+	free; target resolution is a later local pass after corpus loading.
+- Persisted same-document short-form anchor citation text and offsets through
+	migration `0023_citation_anchor_provenance`; extraction-only anchor tests pass.
 - Final quality-gate suite passes: `32 passed`; generated documentation is
 	current and `git diff --check` passes.
 Status: complete

@@ -32,7 +32,7 @@ Docs/generated references: <canonical docs, Swimm walkthrough, generators, or no
 
 Rollback/recovery: <reversal or recovery action; include data/run recovery where relevant>
 
-Evidence: Pending. Record commands, observed results, artifacts, and known failures.
+Evidence: Pending. Record delegated work, commands, observed results, artifacts, known failures, canonical documentation path, and Swimm walkthrough path.
 
 ## Hypothesis
 
@@ -43,6 +43,13 @@ Evidence: Pending. Record commands, observed results, artifacts, and known failu
 1. <small local step>
 2. <focused implementation step>
 3. <validation step>
+
+## Execution Checkpoints
+
+- Delegation: <agent, bounded question, and structured result path>
+- Implementation: <files changed and focused check>
+- Documentation: <canonical document path and Swimm walkthrough path>
+- Recovery: <run/state/log path if a long operation is involved>
 
 ## Decision Log
 

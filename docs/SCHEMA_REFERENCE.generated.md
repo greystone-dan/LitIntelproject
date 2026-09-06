@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-05T02:07:19.218418+00:00
+Generated: 2026-09-06T10:06:03.042724+00:00
 Tables: 22
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -164,6 +164,10 @@ erDiagram
         String(20) citation_kind
         TEXT citation_text
         TEXT normalized_citation
+        TEXT anchor_citation_text
+        Integer anchor_offset_start
+        Integer anchor_offset_end
+        String(255) declared_alias
         String(20) provenance
         Integer chunk_id  FK
         Integer offset_start
@@ -325,7 +329,7 @@ erDiagram
 | `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
-| `citations` | 11 | `id` |
+| `citations` | 15 | `id` |
 | `fc_activity_cases` | 15 | `id` |
 | `fc_activity_classifications` | 17 | `id` |
 | `fc_activity_documents` | 9 | `id` |
@@ -692,6 +696,10 @@ erDiagram
 | `citation_kind` | `String(20)` | no | NOT NULL; default=unknown |
 | `citation_text` | `TEXT` | yes | - |
 | `normalized_citation` | `TEXT` | yes | - |
+| `anchor_citation_text` | `TEXT` | yes | - |
+| `anchor_offset_start` | `Integer` | yes | - |
+| `anchor_offset_end` | `Integer` | yes | - |
+| `declared_alias` | `String(255)` | yes | - |
 | `provenance` | `String(20)` | no | NOT NULL; default=local |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `offset_start` | `Integer` | yes | - |

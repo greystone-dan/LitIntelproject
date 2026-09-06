@@ -210,3 +210,12 @@ def test_rendered_shell_exposes_case_reader_tag_tabs():
     assert 'groupedTagHtml' in html
     assert 'unique tag' in html
     assert 'reader-tag-occurrence' in html
+
+
+def test_rendered_shell_exposes_evidence_details_control():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerEvidenceToggle"' in html
+    assert 'Show evidence details' in html
+    assert 'readerEvidenceDetail' in html
+    assert 'Hide evidence details' in html

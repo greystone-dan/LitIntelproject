@@ -4,6 +4,14 @@ Use the workspace-level **AI CaseLibrary Project Manager** agent for a bounded
 outcome that should be planned, implemented, validated, documented, and handed
 off with less conversational steering.
 
+For autonomous execution, invoke the `managed-task` prompt and provide the
+outcome, constraints, commit permission, and push permission. The prompt is an
+execution handoff: the agent should carry the task through planning,
+delegation, implementation, focused repair, validation, canonical-document and
+Swimm updates, and completion evidence without routine confirmation requests.
+It should stop only at a real approval boundary, concrete blocker, or completed
+acceptance criteria.
+
 ## Start A Task
 
 1. Select the project-manager agent in VS Code chat, or invoke the

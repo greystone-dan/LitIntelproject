@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import argparse
+import threading
 import hashlib
 import json
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -32,7 +34,26 @@ ALLOWED_HOSTS = {
 }
 
 
-def acquire_case(case: Case, client: requests.Session, timeout: float, retries: int) -> dict[str, object]:
+class HostLimiter:
+    """Enforce a minimum interval between requests to each host."""
+
+    def __init__(self, interval_seconds: float) -> None:
+        if interval_seconds < 0:
+            raise ValueError("per-host-delay must not be negative")
+        self.interval_seconds = interval_seconds
+        self._lock = threading.Lock()
+        self._last_request: dict[str, float] = {}
+
+    def wait(self, host: str | None) -> None:
+        key = host or "unknown"
+        with self._lock:
+            delay = self.interval_seconds - (time.monotonic() - self._last_request.get(key, 0.0))
+            if delay > 0:
+                time.sleep(delay)
+            self._last_request[key] = time.monotonic()
+
+
+def acquire_case(case: Case, client: requests.Session, timeout: float, retries: int, host_limiter: HostLimiter) -> dict[str, object]:
     source_url = (case.source_url or "").strip()
     parsed = urlparse(source_url)
     if not source_url:
@@ -44,6 +65,7 @@ def acquire_case(case: Case, client: requests.Session, timeout: float, retries: 
     last_error = "unknown"
     for attempt in range(1, retries + 1):
         try:
+            host_limiter.wait(parsed.hostname)
             response = client.get(decision_content_url(source_url), timeout=timeout, allow_redirects=True)
             valid, reason = validate_snapshot(response, case.citation)
             if not valid:
@@ -89,35 +111,44 @@ def apply_result(db, case: Case, result: dict[str, object]) -> None:
     db.add(case)
 
 
-def run(*, limit: int | None, batch_size: int, timeout: float, retries: int, dry_run: bool, quarantine_path: Path) -> dict[str, int]:
-    if batch_size < 1 or retries < 1 or timeout <= 0:
-        raise ValueError("batch-size/retries must be positive and timeout must be greater than zero")
-    client = requests.Session()
-    client.headers.update({"User-Agent": "AI-CaseLibrary/2.0 (bounded source refresh)", "Accept": "text/html,application/xhtml+xml;q=0.9"})
+def run(*, limit: int | None, batch_size: int, timeout: float, retries: int, workers: int, per_host_delay: float, dry_run: bool, quarantine_path: Path, court: str | None = None) -> dict[str, int]:
+    if batch_size < 1 or retries < 1 or workers < 1 or timeout <= 0:
+        raise ValueError("batch-size/retries/workers must be positive and timeout must be greater than zero")
+    limiter = HostLimiter(per_host_delay)
     counts = {"scanned": 0, "ready": 0, "applied": 0, "quarantined": 0}
     quarantine_path.parent.mkdir(parents=True, exist_ok=True)
     quarantine = quarantine_path.open("a", encoding="utf-8")
     try:
         with SessionLocal() as db:
-            cases = db.scalars(select(Case).where(Case.source_url.is_not(None), Case.source_url != "").order_by(Case.id).limit(limit or 1000000)).yield_per(batch_size)
+            statement = select(Case).where(Case.source_url.is_not(None), Case.source_url != "").order_by(Case.id)
+            if court:
+                statement = statement.where(Case.court == court)
+            cases = db.scalars(statement.limit(limit or 1000000)).yield_per(batch_size)
             batch = []
             for case in cases:
                 batch.append(case)
                 if len(batch) < batch_size:
                     continue
-                _process_batch(db, batch, client, timeout, retries, dry_run, counts, quarantine)
+                _process_batch(db, batch, timeout, retries, workers, limiter, dry_run, counts, quarantine)
                 batch = []
             if batch:
-                _process_batch(db, batch, client, timeout, retries, dry_run, counts, quarantine)
+                _process_batch(db, batch, timeout, retries, workers, limiter, dry_run, counts, quarantine)
     finally:
         quarantine.close()
     return counts
 
 
-def _process_batch(db, cases, client, timeout, retries, dry_run, counts, quarantine) -> None:
-    for case in cases:
+def _fetch_one(case, timeout, retries, limiter):
+    client = requests.Session()
+    client.headers.update({"User-Agent": "AI-CaseLibrary/2.0 (bounded source refresh)", "Accept": "text/html,application/xhtml+xml;q=0.9"})
+    return acquire_case(case, client, timeout, retries, limiter)
+
+
+def _process_batch(db, cases, timeout, retries, workers, limiter, dry_run, counts, quarantine) -> None:
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="source-html") as pool:
+        results = list(pool.map(lambda case: _fetch_one(case, timeout, retries, limiter), cases))
+    for case, result in zip(cases, results, strict=True):
         counts["scanned"] += 1
-        result = acquire_case(case, client, timeout, retries)
         status = str(result["status"])
         if status == "ready":
             counts["ready"] += 1
@@ -137,10 +168,13 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=25)
     parser.add_argument("--timeout", type=float, default=30)
     parser.add_argument("--retries", type=int, default=3)
+    parser.add_argument("--workers", type=int, default=2, help="Bounded concurrent requests")
+    parser.add_argument("--per-host-delay", type=float, default=2.0, help="Minimum seconds between requests to one host")
+    parser.add_argument("--court", help="Restrict acquisition to a court code such as SCC")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--quarantine", type=Path, default=Path("data/overnight_runs/v2-pipeline/source-quarantine.jsonl"))
     args = parser.parse_args()
-    print(run(limit=args.limit, batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, dry_run=args.dry_run, quarantine_path=args.quarantine))
+    print(run(limit=args.limit, batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, workers=args.workers, per_host_delay=args.per_host_delay, dry_run=args.dry_run, quarantine_path=args.quarantine, court=args.court))
 
 
 if __name__ == "__main__":

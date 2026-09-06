@@ -155,6 +155,14 @@ Outcome intelligence is persisted separately in the versioned `case_outcomes`
 table. The metadata payload retains a compatibility mirror, but outcome
 analytics should use the dedicated table as its source of truth.
 
+Citation extraction is resolution-free in the V2 Pipeline. It stores every raw
+case-law occurrence, normalized form, span, and unresolved state without
+looking up target cases. Target resolution runs later as a separate local pass,
+after the canonical case corpus is populated, so extraction coverage and
+resolution coverage remain independently measurable.
+Short-form occurrences may retain a same-document anchor citation and its exact
+anchor offsets; this is local extraction provenance, not target-case resolution.
+
 For legacy V2 comparison only, rebuild the 100 most recent cases across the full database:
 
 ```powershell

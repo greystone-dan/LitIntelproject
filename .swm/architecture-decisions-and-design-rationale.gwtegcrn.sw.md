@@ -34,6 +34,20 @@ Revisit trigger:
 - **Revisit trigger:** A replacement resolution architecture demonstrates higher
 	accuracy without changing stored occurrence evidence.
 
+The V2 Pipeline benchmark confirmed the operational value of this boundary: the
+pre-fix N+1 target lookups caused the slow run, while extraction-only citation
+rebuild completed 50 cases in 23 seconds. Same-document short-form anchors are
+stored as occurrence provenance; target resolution remains a later corpus pass.
+
+The completed optimized text-only run processed 50,327 records, completed
+43,598, excluded 6,729 malformed or hostless source links, and quarantined none.
+Against the matching baseline cohort, chunks rose 12%, case citations 30%,
+statutes 65%, and V3 tag occurrences 23.1x. Offset auditing found no malformed
+citation/statute spans or missing V3 tag offsets. Because extraction-only rows
+remain unresolved and unassociated with chunks, this evidence supports the
+extraction contract but does not yet certify graph metrics or chunked reader
+highlights; that requires the separate resolution/layer-association pass.
+
 ### Preserve backend-owned evidence locations
 
 - **Decision:** Source/chunk offsets and provenance are authoritative; browser

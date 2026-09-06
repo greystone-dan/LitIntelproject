@@ -156,6 +156,23 @@ def test_extract_citations_from_text_normalizes_and_resolves(monkeypatch):
 	assert len(session.added) == 2
 
 
+def test_extract_citations_from_text_can_disable_resolution(monkeypatch):
+	def fail_if_resolved(*args, **kwargs):
+		raise AssertionError("extraction-only mode must not resolve targets")
+
+	monkeypatch.setattr(citations, "resolve_neutral_to_case_id", fail_if_resolved)
+	rows = citations.extract_citations_from_text(
+		FakeCitationSession(),
+		source_case_id=11,
+		text="See 2024 FC 100 and Smith v. Jones, 2023 FCA 5.",
+		resolve_targets=False,
+	)
+
+	assert len(rows) == 2
+	assert all(row.target_case_id is None for row in rows)
+	assert all(row.unresolved is True for row in rows)
+
+
 def test_extract_citations_from_text_resolves_short_form_alias_to_canonical_case():
 	class AliasCaseSession:
 		def __init__(self):
@@ -223,7 +240,7 @@ def test_resolve_case_alias_returns_none_when_unresolved():
 	assert citations._resolve_case_alias_to_case_id(UnresolvedAliasSession(), raw_match) is None
 
 
-def test_rebuild_citations_for_case_keeps_alias_resolution_when_rerunning():
+def test_rebuild_citations_for_case_leaves_alias_resolution_for_later_pass():
 	class AliasRebuildSession:
 		def __init__(self):
 			self.added = []
@@ -251,8 +268,8 @@ def test_rebuild_citations_for_case_keeps_alias_resolution_when_rerunning():
 	rows = citations.rebuild_citations_for_case(session, case)
 
 	assert rows == 1
-	assert session.added[0].target_case_id == 77
-	assert session.added[0].unresolved is False
+	assert session.added[0].target_case_id is None
+	assert session.added[0].unresolved is True
 	assert session.added[0].citation_text == "R v Oakes at para 100"
 
 
@@ -1472,6 +1489,9 @@ def test_rebuild_stores_each_inline_case_name_with_chunk_location(monkeypatch):
 	assert all(row.target_case_id is None for row in inline_rows)
 	assert all(row.unresolved for row in inline_rows)
 	assert all(row.chunk_id == 102 for row in inline_rows)
+	assert all(row.anchor_citation_text and row.anchor_citation_text in section_1 for row in inline_rows)
+	assert all(row.anchor_offset_start is not None for row in inline_rows)
+	assert all(row.anchor_offset_end > row.anchor_offset_start for row in inline_rows)
 	assert [section_2[row.offset_start:row.offset_end] for row in inline_rows] == ["Vavilov", "Vavilov"]
 	assert inline_rows[0].offset_start != inline_rows[1].offset_start
 

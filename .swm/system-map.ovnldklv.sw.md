@@ -76,6 +76,9 @@ every occurrence and are mention evidence only; contextual tags and outcome
 signals remain separate follow-up layers. The one-case V2 Pipeline smoke test
 confirmed that source-link HTML reacquisition precedes replacement chunking and
 that the later derived layers overwrite only that case's rows.
+Citation extraction stores same-document short-form anchor provenance when
+available, but leaves target-case resolution to the later local pass after case
+loading.
 The medium-long validation case also showed that replacement can change citation
 and statute counts, so cohort rollout requires comparison/adjudication gates.
 Very large documents may require a more scalable HTML alignment strategy before
@@ -99,6 +102,37 @@ The approved overnight run is tracked under
 `data/overnight_runs/v2-pipeline-20260904` with isolated stage workers,
 900-second watchdogs, quarantine, and embeddings excluded. Its durable state is
 the recovery authority while it runs.
+
+That run was paused for efficiency redesign after 1,786 cases. The next
+execution architecture must separate concurrent bounded source acquisition from
+local enrichment, reuse persistent workers, batch commits, sample detailed
+before/after reports, and isolate very-large cases so ordinary cases are not
+held behind pathological alignment work.
+Citation-heavy cases also require resolver optimization: current extraction
+performs a database lookup for each neutral citation occurrence. A per-case
+cache or batch resolution pass is required before cohort execution.
+The compact baseline for all 61,241 cases is stored separately at
+`data/eval/reports/v2-pipeline-before-all.jsonl`; it is the comparison anchor
+for the optimized runner, while detailed row snapshots remain sampled.
+HTML is being used as a calibration reference rather than assumed to be
+required for every case. The parity harness measures whether text-only section
+and paragraph rules preserve structure and content; current FC/SCC outliers
+remain open until their family-specific signals are improved or accepted.
+The main V2 run excludes SCC and forces text-only section/paragraph chunking for
+non-SCC cases, even where HTML exists. SCC HTML retrieval is a separate slow
+calibration path for later use.
+
+The completed `v2-text-only-full-20260905` run processed 50,327 records and
+completed 43,598 cases with zero quarantines; 6,729 records were excluded for
+missing parseable allowed hosts. The completed cohort gained 12% more chunks,
+30% more case citations, 65% more statute references, and 23.1x more V3 tag
+occurrences versus its compact baseline. Read-only offset auditing found no
+malformed citation/statute spans or missing tag offsets. All extracted citations
+remain unresolved and lack chunk association by design until the separate local
+resolution/layer-association pass, and only 17 completed-cohort records have
+stored HTML in this text-only run.
+The final policy dry run examined 50,327 non-SCC full-text cases without writes;
+SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one
 SCC source mismatch; one case also produced a major citation delta. These are
 review gates, not failures to hide or bypass.

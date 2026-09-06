@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "project": "ProjectManagerGAME",
+  "task_id": "final-policy-validation",
+  "run_id": "final-policy-validation-20260906-055642-4fa0eee8",
+  "owner_surface": "tools",
+  "phase": "complete",
+  "repair_budget": 2,
+  "repair_attempt": 0,
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "tools",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\final-policy-validation-20260906-055642-4fa0eee8\\commands\\command-1.log",
+      "output_sha256": "6a26fa865ab11e66c406f28dfadd0ef9b6bd0e8b422aca0d61bedb964d57be4e",
+      "ran_at": "2026-09-06T09:56:43.365589+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\final-policy-validation-20260906-055642-4fa0eee8\\commands\\command-2.log",
+      "output_sha256": "0f7e4b97443e54aca647179972594d13bb587afcbf151fab8228148587ea844a",
+      "ran_at": "2026-09-06T09:56:43.844781+00:00"
+    }
+  ],
+  "evidence": [
+    {
+      "type": "command",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "tools",
+        "tests"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\final-policy-validation-20260906-055642-4fa0eee8\\commands\\command-1.log",
+      "output_sha256": "6a26fa865ab11e66c406f28dfadd0ef9b6bd0e8b422aca0d61bedb964d57be4e",
+      "ran_at": "2026-09-06T09:56:43.365589+00:00"
+    },
+    {
+      "type": "command",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_game_harness.py"
+      ],
+      "cwd": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game",
+      "exit_code": 0,
+      "output_log": "C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\side_projects\\browser_game\\.game-manager\\runs\\final-policy-validation-20260906-055642-4fa0eee8\\commands\\command-2.log",
+      "output_sha256": "0f7e4b97443e54aca647179972594d13bb587afcbf151fab8228148587ea844a",
+      "ran_at": "2026-09-06T09:56:43.844781+00:00"
+    }
+  ],
+  "created_at": "2026-09-06T09:56:42.706924+00:00",
+  "updated_at": "2026-09-06T09:56:44.084852+00:00"
+}

@@ -240,6 +240,66 @@ Generated API, schema, script, and work-history documents are outputs of their g
 
 The runner in `scripts/run_overnight.py` executes selected jobs sequentially, holds an exclusive lock, writes one combined log per job, and atomically writes `state.json` after transitions. It deliberately excludes CanLII and hosted-AI embedding jobs from the safe profile. Never run another PostgreSQL writer beside an active run.
 
+The compact pre-run baseline for all 61,241 cases is
+`data/eval/reports/v2-pipeline-before-all.jsonl`. It records source HTML state,
+text/metadata hashes, chunk counts, citation/statute counts, V3 tag count, and
+outcome summary without serializing every row. Optimized runs should compare
+this baseline and retain detailed snapshots only for the QA sample and flagged
+cases.
+
+After removing per-occurrence target resolution from extraction, a fresh 50-case
+benchmark completed in 27.3 seconds, approximately 659 cases/hour, with
+five-case checkpoints, zero quarantines, and embeddings excluded. Resolution
+remains a separate later pass.
+
+The corrected extraction-only rerun is the authoritative speed baseline: 50
+cases completed in 23.0 seconds, with zero target resolutions, 1,139 local
+short-form anchors, zero quarantines, and embeddings excluded. The prior slow
+behavior was the N+1 target-resolution lookup and must not return to extraction.
+
+The full optimized non-SCC text-only run launched under
+`data/overnight_runs/v2-text-only-full-20260905` with batch size 50 and no HTML
+acquisition, embeddings, or detailed snapshots. SCC remains excluded. Start the
+separate slow SCC HTML acquisition only after this PostgreSQL writer completes;
+do not run both writers concurrently.
+
+### Completed V2 run review (2026-09-06)
+
+The optimized run completed with `50,327` processed records: `43,598` cases
+completed all seven stages, `6,729` were excluded because their source URL had
+no parseable allowed host, and `0` were quarantined. The completed cohort was
+`86.63%` of processed records. The run state is authoritative at
+`data/overnight_runs/v2-text-only-full-20260905/state.json`.
+
+Against the matching completed-cohort rows in
+`data/eval/reports/v2-pipeline-before-all.jsonl`, derived rows changed by:
+
+- chunks: `1,634,480 -> 1,822,752` (`+12%`);
+- case citations: `1,183,971 -> 1,544,076` (`+30%`);
+- statute references: `278,998 -> 459,441` (`+65%`);
+- V3 tag occurrences: `38,137 -> 880,795` (`23.1x`).
+
+The read-only integrity audit found no malformed citation/statute offsets and no
+V3 tag rows missing offsets. This is an extraction-quality result, not a
+reader-complete or graph-complete result: all `1,544,076` new citation rows
+remain explicitly unresolved and have no `chunk_id` until the separate local
+target-resolution and layer-association pass. Only `17` completed-cohort cases
+currently have stored source HTML, so text-only output must not be presented as
+HTML-provenance-complete. Stage zero-yield rates were metadata `7.61%`, case
+citations `0.69%`, statutes `14.10%`, and tags `37.51%`; these represent cases
+with no newly emitted rows for that layer, not quarantined failures.
+
+The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
+citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
+statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the
+current extraction contract.
+
+HTML-free chunk parity is under active evaluation. The current text-only rules
+pass the sample for several FC/FCA/SCC cases, including token/content parity,
+but two cases still show paragraph-count divergence. Do not replace the
+HTML-enabled reference as the quality gate until the parity report passes or
+the remaining family-specific differences are explicitly accepted.
+
 ### Profiles And Order
 
 | Profile | Jobs |
@@ -282,6 +342,13 @@ the run for resume.
 The runner is ready for a bounded stratified trial, not an unrestricted cohort
 launch, until malformed/unsupported source links and delta gates are resolved.
 
+Source acquisition is configured separately through `scripts/acquire_case_html.py`.
+Its default policy is only 2 concurrent workers and a 2-second minimum delay
+between requests to the same host, with retries/backoff, request timeouts, host
+validation, response/citation validation, and quarantine. Reuse stored
+`source_html` before making a network request; do not increase these limits
+without reviewing source terms and host response.
+
 The initial six-case trial completed five cases and quarantined one SCC source
 whose fetched page did not contain the expected citation. One completed case
 had a major citation delta (`407->45`), confirming that the gate is necessary;
@@ -293,6 +360,31 @@ seconds, 3 retries, 900-second stage watchdogs, quarantine, and embeddings
 excluded. Its state file was `running` with 3 cases checkpointed at the latest
 documentation checkpoint. Resume or inspect the same run directory; do not start
 a competing writer.
+
+That run was paused for an efficiency redesign after checkpointing 1,786 cases
+in roughly 12 hours. The bottleneck is architectural: seven worker-process
+launches per case, serial source acquisition, per-case stage commits, and full
+comparison-file serialization. The next runner must benchmark a persistent or
+batched worker design, concurrent bounded source acquisition, batched commits,
+sampled detailed snapshots, and a separate slow queue for very-large cases.
+
+The primary measured bottleneck is now citation resolution: extraction performs
+a database lookup for each neutral citation occurrence. This N+1 resolver must
+be replaced with a per-case or batch cache before another cohort run; otherwise
+citation-heavy decisions can appear idle while queries accumulate.
+
+The main V2 Pipeline policy now excludes SCC by default and forces canonical-
+text section and paragraph chunking for non-SCC cases, even when HTML exists.
+SCC HTML acquisition is a separate slow calibration path. Bulk mode disables
+detailed per-case snapshots; use the compact baseline and sampled/flagged-case
+reports after the run.
+
+The V2 Pipeline citation stage is extraction-only. It does not resolve targets
+against the database while extracting; all extracted occurrences remain
+explicitly unresolved until the separately scheduled local resolution pass runs
+after the canonical case corpus is loaded.
+Short forms may point to their extracted anchor citation within the same case;
+no database lookup is used to create that relationship.
 
 ### Commands
 

@@ -42,6 +42,10 @@ Evidence:
 - No embeddings were run.
 - Watchdog-protected real-case validation completed for case `23`: 7 stages,
   1 case complete, 0 quarantined, `embeddings=False`.
+- Final text-only policy dry run examined 50,327 eligible non-SCC full-text
+	cases without writes; SCC and malformed/unsupported source-link cases were
+	excluded. The previous full-run checkpoint remains interrupted and is not
+	being resumed.
 - Full V2 Pipeline launched on `data/overnight_runs/v2-pipeline-20260904` with
 	batch size 25, 30-second source timeout, 3 retries, 900-second per-stage
 	watchdog, quarantine, durable state, and embeddings excluded. Parent and

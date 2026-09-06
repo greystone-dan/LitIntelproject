@@ -335,6 +335,13 @@ benchmark output count (`3,684` citations) and passed the full citation suite
 (`109 passed`). A more aggressive combined-regex experiment changed output
 counts and was rejected; no accuracy-risking optimization is retained.
 
+The requested SCC production-boundary run launched on 2026-09-06 for the
+`4,928` full-text cases dated `1970-01-01` or later. It uses
+`data/overnight_runs/scc-text-only-1970-present-20260906`, batch size `25`, no
+HTML, no embeddings, and extraction-only citations. Resume with the same run
+directory and `--resume` if interrupted; do not start a competing PostgreSQL
+writer.
+
 The corrected extraction-only rerun completed 50 cases in 23.0 seconds: 1,688
 citation occurrences, zero resolved targets, 1,139 same-document anchors, 452
 statutes, 1,569 V3 tags, and 50 outcomes. This is the valid benchmark for the

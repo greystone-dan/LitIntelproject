@@ -161,6 +161,11 @@ The SCC citation path now uses indexed short-form anchors and bounded metadata
 prefix searches. This targets the measured large-document bottleneck without
 reintroducing target resolution or changing non-SCC extraction behavior. The
 combined-regex alternative was not accepted because its output count changed.
+
+The active SCC run is bounded to full-text cases dated 1970-01-01 onward, an
+exact cohort of 4,928 cases. It uses batch checkpoints and resumable state under
+`data/overnight_runs/scc-text-only-1970-present-20260906`, without HTML or
+embeddings and with citation resolution deferred.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

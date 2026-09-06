@@ -275,6 +275,10 @@ preserved the 680k-character benchmark count of `3,684` citations and passed
 the full citation suite; an output-changing combined-regex experiment was
 rejected.
 
+The active SCC corpus run is date-bounded to `1970-01-01` onward: 4,928
+full-text cases. It uses the dedicated resumable SCC runner with batch size 25,
+no HTML acquisition, no embeddings, and extraction-only citations.
+
 Each stage can be selected independently for a case. Chunk layers run before
 metadata because caption and disposition fields live at the beginning and end
 of the decision, and metadata runs before citations so downstream extraction

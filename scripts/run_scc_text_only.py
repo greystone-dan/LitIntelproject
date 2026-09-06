@@ -6,7 +6,7 @@ import argparse
 import json
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from sqlalchemy import select
@@ -25,12 +25,16 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, case_ids: list[int] | None = None, dry_run: bool = False) -> dict[str, object]:
+def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, case_ids: list[int] | None = None, from_date: date | None = None, resume: bool = False, dry_run: bool = False) -> dict[str, object]:
     if limit < 1 or batch_size < 1:
         raise ValueError("limit and batch-size must be positive")
     run_dir.mkdir(parents=True, exist_ok=True)
     state_path = run_dir / "state.json"
-    state = {"status": "running", "created_at": now(), "updated_at": now(), "court": "SCC", "stages": list(STAGE_ORDER), "cases": {}}
+    if resume and state_path.exists():
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        state["status"] = "running"
+    else:
+        state = {"status": "running", "created_at": now(), "updated_at": now(), "court": "SCC", "from_date": from_date.isoformat() if from_date else None, "stages": list(STAGE_ORDER), "cases": {}}
     processed = 0
     started = time.monotonic()
     with SessionLocal() as db:
@@ -43,7 +47,12 @@ def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, 
                 .order_by(Case.id)
                 .limit(limit)
             )
+        if from_date:
+            statement = statement.where(Case.date >= from_date)
         for case in db.scalars(statement).yield_per(batch_size):
+            prior = state["cases"].get(str(case.id))
+            if resume and prior and prior.get("status") == "completed":
+                continue
             if dry_run:
                 state["cases"][str(case.id)] = {"status": "planned"}
             else:
@@ -77,10 +86,12 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=25)
     parser.add_argument("--start-after-id", type=int, default=0)
     parser.add_argument("--case-id", type=int, action="append", default=[])
+    parser.add_argument("--from-date", type=date.fromisoformat, help="Include cases on or after YYYY-MM-DD")
     parser.add_argument("--run-dir", type=Path, default=Path("data/overnight_runs/scc-text-only"))
+    parser.add_argument("--resume", action="store_true", help="Resume from an existing state file and skip completed cases")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    run(limit=args.limit, batch_size=args.batch_size, start_after_id=args.start_after_id, case_ids=args.case_id, run_dir=args.run_dir, dry_run=args.dry_run)
+    run(limit=args.limit, batch_size=args.batch_size, start_after_id=args.start_after_id, case_ids=args.case_id, from_date=args.from_date, resume=args.resume, run_dir=args.run_dir, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

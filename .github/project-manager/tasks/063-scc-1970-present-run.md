@@ -12,6 +12,6 @@ Smallest falsifiable check: The runner reports the exact date-filtered cohort an
 Acceptance criteria: Start the bounded 1970-present SCC run with durable state and resume support; do not claim completion until state is terminal and outputs are audited.
 Docs/generated references: `OVERNIGHT.md`, `SYSTEM_REFERENCE.md`, `.swm/architecture-decisions-and-design-rationale.gwtegcrn.sw.md`, `.swm/system-map.ovnldklv.sw.md`.
 Rollback/recovery: Stop and resume from the same state directory; no destructive rollback or source deletion.
-Evidence: Prior 50-case 1980-present canary passed with 0 quarantines and safe citation optimization committed in `bea7bea`. Exact cohort confirmed at 4,928 full-text SCC cases dated 1970-01-01 or later. Five-case dry run passed. Live run launched under `data/overnight_runs/scc-text-only-1970-present-20260906` with batch size 25; worker is active and no checkpoint has been written yet because the first batch is still processing.
+Evidence: Prior 50-case 1980-present canary passed with 0 quarantines and safe citation optimization committed in `bea7bea`. Exact cohort confirmed at 4,928 full-text SCC cases dated 1970-01-01 or later. Five-case dry run passed. Initial launch used the runner's old default limit and completed the first 100 cases with 0 quarantines; the corrected resume uses an explicit high limit and `--resume` to process the remaining 4,828 cases without duplication.
 Commit allowed: yes
 Push allowed: yes

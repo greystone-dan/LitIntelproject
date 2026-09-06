@@ -82,7 +82,7 @@ def run(*, limit: int, batch_size: int, run_dir: Path, start_after_id: int = 0, 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--limit", type=int, default=100)
+    parser.add_argument("--limit", type=int, default=1000000, help="Maximum selected cases; date/case filters still apply")
     parser.add_argument("--batch-size", type=int, default=25)
     parser.add_argument("--start-after-id", type=int, default=0)
     parser.add_argument("--case-id", type=int, action="append", default=[])

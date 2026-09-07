@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 94
+Active scripts documented: 97
 
 ## Catalog
 
@@ -86,9 +86,12 @@ Active scripts documented: 94
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
+| `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
+| `report_incomplete_short_form_anchors.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help` |
+| `report_unresolved_citation_shapes.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
 | `review_tag_candidates.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_tag_candidates.py --help` |
@@ -1169,6 +1172,20 @@ Active scripts documented: 94
 .\venv\Scripts\python.exe scripts\reacquire_source_html.py --help
 ```
 
+## `scripts/rebuild_citations_controlled.py`
+
+**Purpose:** Run a bounded, citation-only rebuild with baseline and recovery evidence.
+
+**Operational class:** Citation-only rebuild
+
+**Write/network risk:** database writer; dry-run is default and --apply requires explicit confirmation
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
+```
+
 ## `scripts/remove_self_case_citations.py`
 
 **Purpose:** Remove false-positive self-case short-form citation rows. Dry-run is the default. Use --apply only after reviewing the reported count.
@@ -1209,6 +1226,34 @@ Active scripts documented: 94
 
 ```powershell
 .\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help
+```
+
+## `scripts/report_incomplete_short_form_anchors.py`
+
+**Purpose:** Report stored short-form anchors that can be lengthened from source text.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help
+```
+
+## `scripts/report_unresolved_citation_shapes.py`
+
+**Purpose:** Report unresolved citation shapes and exact local recovery signals. The database query is read-only. The report distinguishes exact citation, canonical-title, alias, self-case, and ambiguous signals so a later writer can be limited to a measured, precision-safe family.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help
 ```
 
 ## `scripts/resolve_citation_targets.py`

@@ -20,6 +20,7 @@ def classify(name: str, text: str) -> tuple[str, str, str]:
 		"curate_a2aj_cases.py": ("A2AJ curation and canonical import", "database writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"curate_a2aj_immigration_cases.py": ("A2AJ curation and canonical import", "database writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"extract_a2aj_case_citations_resumable.py": ("Citation extraction maintenance", "database writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
+		"rebuild_citations_controlled.py": ("Citation-only rebuild", "database writer; dry-run is default and --apply requires explicit confirmation", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"populate_fc_gold_case_ids.py": ("Evaluation artifact maintenance", "filesystem writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"verify_fc_case_existence.py": ("Source verification", "network and filesystem output", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 	}

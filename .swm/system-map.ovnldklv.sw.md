@@ -78,7 +78,42 @@ confirmed that source-link HTML reacquisition precedes replacement chunking and
 that the later derived layers overwrite only that case's rows.
 Citation extraction stores same-document short-form anchor provenance when
 available, but leaves target-case resolution to the later local pass after case
-loading.
+loading. The local resolution pass first applies exact citation variants, then
+uses unique canonical-title recovery. If duplicate titles remain, an exact
+cited decision year may select one unique canonical target; ambiguous year
+sets remain unresolved. Short/name recovery is limited to preserved composite
+anchors and repeated globally resolved aliases with self-case, collision, and
+leading-party gates; ambiguous or anonymized forms remain unresolved.
+Recognized identifier-bearing full citations, including full `case` rows and
+reported `case_name` spans such as `[2004] 3 F.C.R. 323`, are eligible
+same-document anchors for later short forms. Each short row keeps its own text,
+pinpoint, and exact offsets while directly retaining the full authority text and
+span; bare names and short rows cannot seed anchors. Extraction-only rebuilds
+must call `extract_citations_from_text(..., resolve_targets=False)` so target
+resolution remains a later local pass. Pinpoints persist in `citation_text` and
+`normalized_citation`; `Citation` has no separate pinpoint column. A chunk-linked
+occurrence uses offsets relative to that chunk, whereas its short-form anchor
+offsets remain document-relative and must be verified against source case text.
+Existing rows created before this rule require a separately bounded rebuild or
+provenance repair.
+
+The existing bulk writers are not sufficient for a clean citation-layer rebuild:
+they either combine derived stages or lack an explicit bounded cohort, dry run,
+baseline export, durable checkpoint, exclusive-writer lock, and comparator. The
+next required operational slice is the citation-only rebuild runner recorded in
+`.github/project-manager/improvements/2026-09-07-citation-only-rebuild-runner.md`.
+The 2026-09-07 inventory found `78,372` `case_short` rows missing anchor text or
+offsets out of `1,408,402`; under the V2 invariant these are provenance defects,
+not valid unanchored citations. `60,399` of them are unresolved, while the
+overall unresolved citation population is `744,708`. A separate read-only
+inventory inspected the `383,608` unresolved rows that already have anchor text
+and offsets: `9,130` are pure right-edge extension candidates, `14,235` need
+start-correction review, and `360,243` have no local extension evidence. That
+last category is not proof of semantic completeness. The planned backfill must
+repair anchor fields only and leave target resolution separate; no writer has
+run. This is a second, distinct anchor backfill from task 068: task 069 covers
+the full `383,608` unresolved rows with existing anchor fields, and the `9,130`
+pure right-edge rows are only one directly recoverable class within it.
 The medium-long validation case also showed that replacement can change citation
 and statute counts, so cohort rollout requires comparison/adjudication gates.
 Very large documents may require a more scalable HTML alignment strategy before
@@ -111,6 +146,17 @@ held behind pathological alignment work.
 Citation-heavy cases also require resolver optimization: current extraction
 performs a database lookup for each neutral citation occurrence. A per-case
 cache or batch resolution pass is required before cohort execution.
+
+For a clean citation-layer replacement, use the dedicated
+`scripts/rebuild_citations_controlled.py` rather than the regular enrichment
+profile. It accepts explicit IDs or a bounded `--all --limit` selection, freezes
+the selected IDs into state, defaults to dry run, writes a per-case citation
+baseline plus durable state, and holds an exclusive lock. Apply mode requires
+explicit confirmation and invokes only the `case_citations` stage; it flushes
+pending rows before its before/after comparison and rejects invalid short-form
+anchors or a nonempty-to-empty result before commit. Target resolution and metrics
+remain separate follow-up phases. A corrected one-case canary and five-case cohort
+completed on 2026-09-07; the all-case extraction command is prepared but has not run.
 The compact baseline for all 61,241 cases is stored separately at
 `data/eval/reports/v2-pipeline-before-all.jsonl`; it is the comparison anchor
 for the optimized runner, while detailed row snapshots remain sampled.
@@ -165,7 +211,10 @@ combined-regex alternative was not accepted because its output count changed.
 The active SCC run is bounded to full-text cases dated 1970-01-01 onward, an
 exact cohort of 4,928 cases. It uses batch checkpoints and resumable state under
 `data/overnight_runs/scc-text-only-1970-present-20260906`, without HTML or
-embeddings and with citation resolution deferred.
+embeddings and with citation resolution deferred. The final verified run reached
+terminal completion with `status=completed`, `completed=4920`, and
+`quarantined=8`; the per-case watchdog prevented the stalled case from blocking
+that whole batch.
 The final policy dry run examined 50,327 non-SCC full-text cases without writes;
 SCC and malformed/unsupported source-link cases were excluded before execution.
 The first six-case stratified trial completed five cases and quarantined one

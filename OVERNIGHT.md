@@ -1,6 +1,40 @@
 # Repository Atlas And Overnight Operations
 
-Last updated: 2026-09-04
+Last updated: 2026-09-07
+
+## SCC 1970-present run status
+
+Status: complete
+
+The SCC text-only enrichment run for cases dated 1970-01-01 through the present reached a terminal completion checkpoint. Verified terminal output from the resumed runner was:
+
+- `status=completed`
+- `processed=3703`
+- `completed=4920`
+- `quarantined=8`
+- `elapsed_seconds=26363.0`
+
+This was the bounded 1970-present cohort under `data/overnight_runs/scc-text-only-1970-present-20260906`, with no HTML acquisition, no embeddings, and target resolution deferred by design.
+
+## Case Citation Rebuild Gate
+
+The case-citation extractor is ready for an extraction-only rebuild: `case_short` rows preserve their own source offsets and pinpoints, and each may point only to a direct, identifier-bearing full citation span from the same decision. Bare case names and earlier short forms cannot become anchors. Full citations retain a trailing reporter, bracket alias, and pinpoint in order, including a pinpoint immediately after an alias. Pinpoints persist in citation text and normalized citation; a chunk-linked occurrence uses chunk-relative offsets while its anchor span remains document-relative. The focused in-memory rebuild-style check invokes `extract_citations_from_text(..., resolve_targets=False)` and confirms that two Zazai short forms persist with a shared direct full anchor while no target resolution occurs.
+
+The existing bulk writers are not approved for the rebuild: they either combine citation work with other layers or lack the required explicit cohort, dry run, baseline export, durable checkpoint, exclusive-writer lock, and post-run comparator. The prepared replacement is `scripts/rebuild_citations_controlled.py`, which is intentionally excluded from the standard overnight profile. First create and inspect a bounded baseline without mutation:
+
+```powershell
+.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --case-id <id> --limit 1 --run-dir data/overnight_runs/citation-rebuild-<run-id>
+```
+
+Only after reviewing its baseline/state files and receiving explicit approval may an operator add `--apply --confirm-citation-rebuild` to the same explicit cohort. The runner replaces only `case_citations`, flushes before recording a pre-commit comparison, and rolls back a nonempty-to-empty result or invalid short-form anchor before commit. It defers generic resolution, short-form resolution, and citation metrics to separate later commands.
+
+The `2026-09-07` corrected one-case canary and five-case cohort completed cleanly. The current database has `61,216` text-bearing cases. The prepared all-case extraction-only command is:
+
+```powershell
+.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --all --limit 61216 --run-dir data/overnight_runs/citation-extraction-all-20260907 --apply --confirm-citation-rebuild
+```
+
+Do not run it until the run window is reserved and no other PostgreSQL writer is active. This command does not resolve targets or compute metrics; those remain separate post-extraction phases.
 
 ## Purpose And Authority
 
@@ -106,6 +140,42 @@ Operational tools are separate bounded programs, not one implicit pipeline.
 | Operations | `run_overnight.py`, local server/tunnel refresh and setup scripts |
 
 The generated script catalog is the file-by-file command reference. Before a large writer, inspect `--help`, use a dry-run or bounded limit where available, confirm no competing writer owns PostgreSQL, and record output paths.
+
+Citation target resolution is intentionally split into exact and conservative
+short/name passes. `scripts/resolve_citation_targets.py` handles local citation
+variants, unique canonical-title recovery, and duplicate-title disambiguation
+when the cited decision year identifies one canonical case. The rule covers
+parenthesized reporter years and CanLII/reporter/neutral forms without changing
+stored offsets. `scripts/resolve_short_citation_targets.py` uses same-source
+composite anchors and repeated globally resolved aliases, with collision and
+self-case gates. These scripts must run alone as PostgreSQL writers with
+bounded commits and progress logs. The 2026-09-07 checkpoint linked
+`1,407,624` of `2,152,332` rows; `744,708` remain unresolved and must not be
+resolved by broad fuzzy matching.
+
+The extraction layer treats recognized full reported citations, including
+`[2004] 3 F.C.R. 323`, as eligible same-document anchors for later short-form
+mentions. Historical rows created before this rule may require a separate
+bounded extraction backfill; target resolution remains a later pass.
+
+The current anchor-provenance inventory contains `1,408,402` `case_short` rows:
+`1,330,030` have anchor fields and `78,372` are missing anchor text or offsets.
+Under V2, the latter are backfill defects, not legitimate unanchored rows. The
+anchor gap includes `60,399` unresolved rows, compared with `744,708` unresolved
+citation rows overall; repair provenance without changing target resolution.
+
+The bounded 2026-09-07 read-only inventory separately inspected the `383,608`
+unresolved rows that already have anchor text and offsets. All stored spans
+matched their source text. It found `9,130` pure right-edge extension
+candidates, `14,235` start-correction candidates requiring review, and
+`360,243` rows with no local extension evidence. The last category is not proof
+of semantic completeness. The inventory excluded the `78,372` no-anchor rows,
+did not run full-document extraction, and made no database writes. A later
+anchor-only writer must update only anchor text and anchor offsets; target
+resolution remains a separate pass. This is a second, distinct anchor backfill
+from task 068: task 069 covers all `383,608` unresolved rows with existing
+anchor fields, while its `9,130` pure right-edge rows are only one direct
+recovery class inside that backfill.
 
 ### Refresh The Website
 

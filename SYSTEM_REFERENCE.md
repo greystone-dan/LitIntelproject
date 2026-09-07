@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-01
+Last updated: 2026-09-07
 
 ## Purpose And Authority
 
@@ -87,7 +87,44 @@ By default, active Case Search uses title/citation matching. Full decision text 
 
 ### Citation, Statute, And Metadata Processing
 
-`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
+`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order, including a pinpoint that follows the alias. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
+
+`scripts/rebuild_citations_controlled.py` is the only prepared path for a future clean citation-layer replacement. It accepts either explicit case IDs or a bounded `--all --limit` selection that freezes the selected text-bearing IDs into durable state before replacement. It defaults to a non-mutating dry run, writes per-case citation baseline JSONL and durable state under its run directory, and uses an exclusive file lock. Apply mode additionally requires `--apply --confirm-citation-rebuild`; it invokes only the `case_citations` stage, flushes pending rows before comparison, and rejects short forms with invalid direct anchor provenance or a nonempty-to-empty citation result. It intentionally does not resolve targets or recompute metrics. It is not part of the standard overnight enrichment profile. The 2026-09-07 one-case recheck and five-case cohort completed with all run states recording resolution and metrics as deferred; the full all-case extraction command is prepared but has not run.
+
+Target resolution is a separate local write phase. Exact citation variants are
+checked first; formal and neutral rows may then use a unique canonical-title
+fallback. When duplicate canonical titles remain, the resolver may use an exact
+cited decision year to select one unique case. Short/name rows may use
+preserved composite anchor text or a repeated full-name alias that maps to one
+target and agrees with that target's leading party token. Self matches,
+collisions, anonymized/truncated names, and single-name guesses remain
+unresolved. On the 2026-09-07 corpus checkpoint, `1,407,624` of `2,152,332`
+citation rows were linked and `744,708` remained unresolved; query the database
+for current counts because this is live state.
+
+The same checkpoint found `1,408,402` `case_short` rows, of which `1,330,030`
+had anchor fields and `78,372` were missing anchor text or offsets. Under the
+V2 invariant, those `78,372` rows are provenance defects requiring a separate
+bounded anchor-only backfill; they are not valid unanchored short citations.
+`60,399` of the anchor-gap rows are unresolved, so this gap is material but is
+not the majority of the unresolved citation population.
+
+A read-only inventory of the `383,608` unresolved `case_short` rows that already
+have anchor text and offsets validated every stored span against its source
+decision. Local suffix inspection identified `9,130` pure right-edge extension
+candidates and `14,235` start-correction candidates; the latter remain review
+only because their stored start is contaminated by narrative or header text.
+The remaining `360,243` rows had no local extension evidence, which does not
+prove that their anchors are semantically complete. The inventory excluded all
+`78,372` no-anchor rows and made no database writes. Any later writer must update
+only anchor text and anchor offsets, leaving citation identity and target
+resolution unchanged.
+
+There are two separate anchor-provenance backfills. Task 068 covers the
+`78,372` rows with no anchor fields. Task 069 covers the distinct `383,608`
+unresolved rows that already have anchor fields but need completion or
+classification; its `9,130` pure right-edge rows are only one directly
+recoverable class within that second backfill.
 
 Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision.
 
@@ -442,7 +479,7 @@ Scripts are operational tools, not a single pipeline. Major families are:
 
 - **Ingestion/source staging**: `ingest_a2aj_parquet.py`, `ingest_a2aj_api.py`, `ingest_canlii_seed_cases.py`, `import_fc_decisions.py`, `crawl_canlii.py`, `import_canlaw_staging.py`.
 - **Federal Court collection/activity**: `fc_portal_collector.py`, `fetch_fc_procedural_history.py`, `ingest_hf_fc_activity.py`, `classify_fc_activity.py`, `backfill_case_metadata_outcomes.py`.
-- **Enrichment**: `chunk_cases.py`, `tag_cases.py`, `extract_citation_network.py`, `extract_irpa_irpr_references.py`, `resolve_citation_targets.py`, `resolve_short_citation_targets.py`, `backfill_judge_profiles.py`.
+- **Enrichment**: `chunk_cases.py`, `tag_cases.py`, `extract_citation_network.py`, `extract_irpa_irpr_references.py`, `resolve_citation_targets.py`, `resolve_short_citation_targets.py`, `backfill_judge_profiles.py`. The case-citation resolution scripts use a reusable local case index and support `--resume-from-id` for bounded, resumable inventory runs; statute references remain a separate layer.
 - **Embedding/retrieval**: `embed_local_chunks.py`, `embed_openai_chunks.py`, `embed_a2aj_cases.py`, `quick_search_engine.py`, `evaluate_retrieval.py`.
 - **Citation and metadata QA**: `verify_citation_extraction.py`, `evaluate_fc_citation_extraction.py`, `extract_fc_citation_evidence.py`, `audit_fc_metadata_extraction.py`, `adjudicate_fc_metadata.py`.
 - **Cohort/evaluation builders**: `build_core_immigration_set.py`, `curate_a2aj_immigration_cases.py`, `build_fc_citation_seed.py`, `build_fc_activity_gold_template.py`.

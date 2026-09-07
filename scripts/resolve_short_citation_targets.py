@@ -7,6 +7,7 @@ import re
 import sys
 import time
 from collections import defaultdict
+from functools import lru_cache
 from pathlib import Path
 
 from sqlalchemy import select
@@ -38,6 +39,7 @@ def parse_args() -> argparse.Namespace:
 	return parser.parse_args()
 
 
+@lru_cache(maxsize=250_000)
 def _base_authority(value: str | None) -> str:
 	normalized = " ".join((value or "").split()).lower()
 	match = PINPOINT_RE.search(normalized)
@@ -47,7 +49,8 @@ def _base_authority(value: str | None) -> str:
 	return normalized
 
 
-def _alias_terms(value: str | None) -> list[str]:
+@lru_cache(maxsize=250_000)
+def _alias_terms(value: str | None) -> tuple[str, ...]:
 	base = _base_authority(value)
 	if not base:
 		return []
@@ -55,12 +58,12 @@ def _alias_terms(value: str | None) -> list[str]:
 	choices = [base]
 	if len(parts) == 2:
 		choices.extend(parts)
-	terms = []
+	terms: list[str] = []
 	for choice in choices:
 		term = _normalize_alias_lookup(choice)
 		if term and len(term) >= 3 and term not in terms:
 			terms.append(term)
-	return sorted(terms, key=len, reverse=True)
+	return tuple(sorted(terms, key=len, reverse=True))
 
 
 def _case_alias_index(session) -> tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]]:
@@ -110,8 +113,63 @@ def _direct_case_target(
 	return None, False
 
 
+def _anchor_title_target(
+	citation: Citation,
+	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
+) -> int | None:
+	anchor_text = getattr(citation, "anchor_citation_text", None)
+	if not anchor_text:
+		return None
+	key = _normalize_alias_lookup(_base_authority(anchor_text))
+	matches = set(case_index[0].get(key, set()))
+	matches.discard(citation.source_case_id)
+	return next(iter(matches)) if len(matches) == 1 else None
+
+
+def _alias_matches_case_title(alias: str, case_values: tuple[str, ...]) -> bool:
+	parts = re.split(r"\s+v\s+", alias, maxsplit=1)
+	if len(parts) != 2 or not parts[0].split():
+		return False
+	title = next((value for value in case_values if " v " in f" {value} "), "")
+	title_parts = re.split(r"\s+v\s+", title, maxsplit=1)
+	if len(title_parts) != 2 or not title_parts[0].split():
+		return False
+	return parts[0].split()[0] == title_parts[0].split()[0]
+
+
+def _stable_resolved_alias_index(
+	session,
+	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
+) -> dict[str, int]:
+	alias_targets: dict[str, set[int]] = defaultdict(set)
+	alias_sources: dict[tuple[str, int], set[int]] = defaultdict(set)
+	for source_case_id, normalized_citation, target_case_id in session.execute(
+		select(Citation.source_case_id, Citation.normalized_citation, Citation.target_case_id).where(
+			Citation.target_case_id.is_not(None)
+		)
+	):
+		key = _normalize_alias_lookup(_base_authority(normalized_citation))
+		if not key or " v " not in f" {key} ":
+			continue
+		alias_targets[key].add(target_case_id)
+		alias_sources[(key, target_case_id)].add(source_case_id)
+
+	stable: dict[str, int] = {}
+	for key, targets in alias_targets.items():
+		if len(targets) != 1:
+			continue
+		target_id = next(iter(targets))
+		if len(alias_sources[(key, target_id)]) < 2:
+			continue
+		if _alias_matches_case_title(key, case_index[2].get(target_id, ())):
+			stable[key] = target_id
+	return stable
+
+
 def _updates_for_case(
-	rows: list[Citation], case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]]
+	rows: list[Citation],
+	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
+	stable_alias_index: dict[str, int],
 ) -> tuple[list[dict[str, object]], int]:
 	anchors: dict[str, set[int]] = defaultdict(set)
 	fuller_targets: dict[str, set[int]] = defaultdict(set)
@@ -131,6 +189,16 @@ def _updates_for_case(
 	ambiguous = 0
 	for citation in rows:
 		if citation.target_case_id is not None or citation.citation_kind not in {"case_name", "case_short"}:
+			continue
+		anchor_target = _anchor_title_target(citation, case_index)
+		if anchor_target is not None:
+			updates.append({"id": citation.id, "target_case_id": anchor_target, "unresolved": False})
+			continue
+		global_target = stable_alias_index.get(
+			_normalize_alias_lookup(_base_authority(citation.normalized_citation or citation.citation_text))
+		)
+		if global_target is not None and global_target != citation.source_case_id:
+			updates.append({"id": citation.id, "target_case_id": global_target, "unresolved": False})
 			continue
 		target_id, direct_ambiguous = _direct_case_target(citation, case_index)
 		if target_id is not None and target_id != citation.source_case_id:
@@ -169,7 +237,9 @@ def main() -> None:
 
 	with SessionLocal() as session:
 		case_index = _case_alias_index(session)
+		stable_alias_index = _stable_resolved_alias_index(session, case_index)
 		print(f"case_alias_records={len(case_index[2])}", flush=True)
+		print(f"stable_resolved_aliases={len(stable_alias_index)}", flush=True)
 		rows = session.scalars(
 			select(Citation)
 			.where(Citation.citation_kind.in_(("case", "case_short", "case_name", "neutral")))
@@ -185,7 +255,7 @@ def main() -> None:
 			nonlocal processed_cases, linked, ambiguous
 			if not case_rows:
 				return
-			updates, case_ambiguous = _updates_for_case(case_rows, case_index)
+			updates, case_ambiguous = _updates_for_case(case_rows, case_index, stable_alias_index)
 			processed_cases += 1
 			linked += len(updates)
 			ambiguous += case_ambiguous

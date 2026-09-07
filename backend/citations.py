@@ -24,6 +24,16 @@ _V2_PIPELINE = None
 _CANLII_CLIENT = None
 CASE_CITATION_KINDS = {"neutral", "case", "case_short", "case_name"}
 STATUTE_REFERENCE_KINDS = {"statute", "instrument"}
+FORMAL_CIT_RE = re.compile(
+	r"(?<![A-Za-z0-9])(?:\[)?((?:19|20)\d{2})(?:\])?\s+"
+	r"(CanLII|[A-Z]{1,8}(?:\.[A-Z]{1,4})?)\s+(\d{1,7})\b",
+	re.IGNORECASE,
+)
+REPORTED_CIT_RE = re.compile(
+	r"(?<![A-Za-z0-9])(?:\[((?:19|20)\d{2})\]|\(((?:19|20)\d{2})\)\s*|((?:19|20)\d{2}))\s+"
+	r"(\d{1,3})\s+([A-Z](?:[A-Z.]|\s){1,14}?)\s+(\d{1,7})\b",
+	re.IGNORECASE,
+)
 GENERIC_STATUTE_NOISE_NAMES = {
 	"An Act",
 	"Contempt Order",
@@ -33,7 +43,7 @@ GENERIC_STATUTE_NOISE_NAMES = {
 }
 
 NEUTRAL_CIT_RE = re.compile(
-	r"\b((?:19|20)\d{2})\s+(FC|FCA|SCC|TCC|IRB|RPD|RAD|IAD|ID)\s+(\d{1,5})\b",
+	r"\b((?:19|20)\d{2})\s+(F\.?C\.?A?\.?|S\.?C\.?C\.?|T\.?C\.?C\.?|IRB|RPD|RAD|IAD|ID)\s+(\d{1,5})\b",
 	re.IGNORECASE,
 )
 CANLII_CIT_RE = re.compile(r"\b((?:19|20)\d{2})\s+CanLII\s+(\d{1,9})\s*\(([A-Za-z. ]{2,20})\)", re.IGNORECASE)
@@ -42,7 +52,10 @@ CASE_CIT_RE = re.compile(
 )
 REPORTED_CASE_CIT_RE = re.compile(
 	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,120}?),?\s+"
-	r"(\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+)\b",
+	r"((?:\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+"
+	r"|\((?:19|20)\d{2}\)\s*,?\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+"
+	r"(?:\s*\([A-Z][A-Z. ]{1,12}\))?))"
+	r"(?=\s|[.,;:]|$)",
 	re.IGNORECASE,
 )
 CASE_REPORTER_NEUTRAL_RE = re.compile(
@@ -172,6 +185,20 @@ _TRAILING_REPORTER_RE = re.compile(
 	r"^\s*,?\s*(\[(?:19|20)\d{2}\]\s*\d+\s*[A-Z][A-Z. ]{0,14}\s*\d+|\((?:19|20)\d{2}\)\s*,?\s*\d+\s*[A-Z][A-Z. ]{0,14}\s*\d+)\b",
 	re.IGNORECASE,
 )
+_COMPOSITE_ANCHOR_SUFFIX_RE = re.compile(
+	r"^\s*(?:(?:\([^\)\r\n]{1,120}\)\s*)+)?(?:,?\s*(?:"
+	r"\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+"
+	r"|\((?:19|20)\d{2}\)\s*,?\s*\d+\s+[A-Z][A-Z. ]{1,20}\s+\d+"
+	r"(?:\s*\([A-Z][A-Z. ]{1,12}\))?"
+	r"|(?:19|20)\d{2}\s+[A-Z](?:\.?[A-Z]){1,5}\.?\s+\d+))",
+	re.IGNORECASE,
+)
+_CASE_ANCHOR_NARRATIVE_RE = re.compile(
+	r"\b(?:in|see|cf\.?|according to|citing|quoting)\s+"
+	r"([A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,180}?\s+v\.?\s+"
+	r"[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’\-&,()\[\]. ]{1,180})$",
+	re.IGNORECASE,
+)
 SULLIVAN_TREATISE_RE = re.compile(
 	r"\b(?:cf\s+)?Ruth\s+Sullivan,\s+Sullivan on the Construction of Statutes,\s+\d+(?:st|nd|rd|th)\s+ed\s*\([^)]*\d{4}\)",
 	re.IGNORECASE,
@@ -211,6 +238,7 @@ _CASE_NOISE_START_TOKENS = {
 	"citing",
 	"justice",
 	"judge",
+	"likewise",
 	"minister",
 	"quoting",
 	"see",
@@ -343,6 +371,12 @@ def _normalize_whitespace(value: str) -> str:
 	return " ".join(value.split()).strip()
 
 
+def _normalize_alias_lookup(value: str) -> str:
+	value = value.casefold().replace("’", "'").replace("–", "-")
+	value = re.sub(r"[^\w\s]", " ", value, flags=re.UNICODE)
+	return _normalize_whitespace(value)
+
+
 def _normalize_pinpoint_phrase(value: str) -> str:
 	text = _normalize_whitespace(value).replace("–", "-")
 	text = re.sub(r"^[,.;:\s]+", "", text)
@@ -423,6 +457,27 @@ def _extend_case_with_trailing_reporter(
 	)
 
 
+def _extend_case_anchor_span(content: str, start: int, end: int) -> tuple[int, int, str]:
+	"""Extend an existing case-name anchor over an adjacent citation suffix."""
+	anchor_text = content[start:end]
+	narrative = None
+	for candidate in _CASE_ANCHOR_NARRATIVE_RE.finditer(anchor_text):
+		narrative = candidate
+	if narrative is not None:
+		start += narrative.start(1)
+		anchor_text = content[start:end]
+
+	window = content[end : min(len(content), end + 240)]
+	match = _COMPOSITE_ANCHOR_SUFFIX_RE.match(window)
+	if match is None:
+		return start, end, anchor_text
+	new_end = end + match.end()
+	pinpoint = _TRAILING_PINPOINT_RE.match(content[new_end : min(len(content), new_end + 120)])
+	if pinpoint is not None:
+		new_end += pinpoint.end()
+	return start, new_end, content[start:new_end]
+
+
 def _extend_case_with_declared_alias(
 	content: str,
 	start: int,
@@ -477,7 +532,7 @@ def _extend_case_layer_row(content: str, row: RawCitationMatch) -> RawCitationMa
 
 
 def _normalize_neutral_parts(year: str, court: str, number: str) -> str:
-	return f"{year} {court.upper()} {int(number)}"
+	return f"{year} {court.upper().replace('.', '')} {int(number)}"
 
 
 def _normalize_case_parties(parties: str) -> str:
@@ -840,7 +895,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 				global_parties_start,
 				global_end,
 				_raw_match(
-					"case",
+						"case_name" if reported.startswith("(") else "case",
 					citation_text,
 					normalized,
 					global_parties_start,
@@ -1030,10 +1085,17 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 	for idx, match in enumerate(ordered):
 		if match.kind == "case":
 			embedded = CASE_CIT_RE.search(match.normalized_citation)
-			if embedded is None:
-				continue
-			normalized_case = normalize_case_citation(embedded)
-			aliases = _extract_short_aliases(embedded.group(1))
+			if embedded is not None:
+				normalized_case = normalize_case_citation(embedded)
+				aliases = _extract_short_aliases(embedded.group(1))
+			else:
+				reported = REPORTED_CASE_CIT_RE.search(match.normalized_citation)
+				if reported is None:
+					reported = REPORTED_CASE_CIT_RE.search(match.citation_text)
+				if reported is None:
+					continue
+				normalized_case = f"{_normalize_case_parties(reported.group(1))}, {_normalize_whitespace(reported.group(2)).replace(' .', '.')}"
+				aliases = _extract_short_aliases(reported.group(1))
 			if match.declared_alias:
 				aliases.append(match.declared_alias)
 			_emit_alias_anchors(
@@ -1048,43 +1110,24 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		if match.kind != "case_name":
 			continue
 
-		parties = re.sub(
-			r"^(?:and|or)\s+",
-			"",
-			_normalize_whitespace(match.normalized_citation),
-			flags=re.IGNORECASE,
-		)
-		if not _is_plausible_case_parties(parties):
-			continue
-		aliases = _extract_short_aliases(parties)
-
-		candidate_neutral: RawCitationMatch | None = None
-		for next_row in ordered[idx + 1 : idx + 4]:
-			if next_row.kind != "neutral":
+		# A reported case-name span is a full authority even when compatibility
+		# classification retains kind="case_name". Bare names cannot seed anchors.
+		reported = REPORTED_CASE_CIT_RE.search(match.citation_text)
+		if reported is not None:
+			parties = _normalize_case_parties(reported.group(1))
+			if not _is_plausible_case_parties(parties):
 				continue
-			gap = next_row.offset_start - match.offset_end
-			if 0 <= gap <= _CASE_NAME_NEUTRAL_MAX_GAP:
-				candidate_neutral = next_row
-				break
+			_emit_alias_anchors(
+				aliases=_extract_short_aliases(parties),
+				normalized_case=f"{parties}, {_normalize_whitespace(reported.group(2)).replace(' .', '.')}",
+				case_start=match.offset_start,
+				case_end=match.offset_end,
+				trailing_anchor_end=match.offset_end,
+			)
+			continue
 
-		normalized_case = f"{parties}, {candidate_neutral.normalized_citation}" if candidate_neutral else parties
-		case_end = candidate_neutral.offset_end if candidate_neutral else match.offset_end
-		metadata_gap = content[match.offset_end : candidate_neutral.offset_start] if candidate_neutral else ""
-		if re.search(
-			r"\b(?:court\s*\(s\)|court\s+database|federal court decisions|date|neutral citation)\b",
-			metadata_gap,
-			re.IGNORECASE,
-		):
-			# Page headers can place database metadata between the case name and
-			# neutral citation. Do not make that non-prose block part of the anchor.
-			case_end = match.offset_end
-		_emit_alias_anchors(
-			aliases=aliases,
-			normalized_case=normalized_case,
-			case_start=match.offset_start,
-			case_end=case_end,
-			trailing_anchor_end=case_end,
-		)
+		# Bare case names are not legal identifiers and cannot seed an anchor.
+		continue
 
 	if not anchors:
 		return []
@@ -1424,7 +1467,7 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 				citation_start,
 				citation_end,
 				_raw_match(
-					"case",
+					"case_name" if reported.startswith("(") else "case",
 					citation_text,
 					normalized,
 					citation_start,
@@ -2135,6 +2178,40 @@ def _resolve_neutral_to_case_id_local(session: Session, neutral_citation: str) -
 		)
 	)
 	return case.id if case is not None else None
+
+
+def _citation_variants(value: str) -> list[str]:
+	variants: list[str] = []
+	for match in FORMAL_CIT_RE.finditer(value or ""):
+		year, court, number = match.groups()
+		normalized = f"{year} {court.replace('.', '').upper()} {int(number)}"
+		variants.append(normalized)
+		if " FCT " in f" {normalized} ":
+			variants.append(normalized.replace(" FCT ", " FC "))
+		if " FC " in f" {normalized} ":
+			variants.append(normalized.replace(" FC ", " FCT "))
+	for match in REPORTED_CIT_RE.finditer(value or ""):
+		year = match.group(1) or match.group(2) or match.group(3)
+		volume, reporter, page = match.group(4), match.group(5), match.group(6)
+		reporter_key = re.sub(r"[^A-Z0-9]", "", reporter.upper())
+		variants.append(f"{year} {int(volume)} {reporter_key} {int(page)}")
+	return list(dict.fromkeys(variants))
+
+
+def build_local_case_resolution_index(session: Session) -> dict[str, int | None]:
+	index: dict[str, int | None] = {}
+	for case_id, citation, secondary_citation in session.execute(
+		select(Case.id, Case.citation, Case.secondary_citation)
+	):
+		for raw_value in (citation, secondary_citation):
+			if not raw_value:
+				continue
+			for variant in _citation_variants(raw_value):
+				if variant not in index:
+					index[variant] = case_id
+				elif index[variant] != case_id:
+					index[variant] = None
+	return index
 
 
 def resolve_neutral_to_case_id(session: Session, neutral_citation: str) -> int | None:

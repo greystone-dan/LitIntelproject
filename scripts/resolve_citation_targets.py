@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 from sqlalchemy import select
@@ -16,7 +17,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.citations import NEUTRAL_CIT_RE, normalize_neutral_citation
+from backend.citations import _citation_variants, _normalize_alias_lookup, build_local_case_resolution_index
 from backend.database import Case, Citation, SessionLocal
 
 
@@ -25,53 +26,96 @@ FORMAL_CIT_RE = re.compile(
 	r"(CanLII|[A-Z]{1,8}(?:\.[A-Z]{1,4})?)\s+(\d{1,7})\b",
 	re.IGNORECASE,
 )
+PINPOINT_RE = re.compile(
+	r"(?:,?\s+)?(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+"
+	r"\d+(?:\s*[-–]\s*\d+)?(?:\s*(?:,|;|and|or)\s*\d+(?:\s*[-–]\s*\d+)?)*",
+	re.IGNORECASE,
+)
+REPORTER_SUFFIX_RE = re.compile(
+	r"\s*,?\s*(?:\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z.]{2,}\s+\d+|"
+	r"\((?:19|20)\d{2}\)\s*,?\s*\d+\s+[A-Z.]{2,}\s+\d+|"
+	r"(?:19|20)\d{2}\s+[A-Z]{2,}\s+\d+)\b.*$",
+	re.IGNORECASE,
+)
+
+
+def _citation_title_key(value: str | None) -> str:
+	normalized = " ".join((value or "").split()).lower()
+	match = PINPOINT_RE.search(normalized)
+	if match is not None:
+		normalized = normalized[: match.start()].rstrip(" ,;:-")
+	normalized = REPORTER_SUFFIX_RE.sub("", normalized).rstrip(" ,;:-")
+	return _normalize_alias_lookup(normalized)
+
+
+def _build_title_resolution_index(session) -> dict[str, set[int]]:
+	index: dict[str, set[int]] = defaultdict(set)
+	for case_id, title in session.execute(select(Case.id, Case.title)):
+		key = _normalize_alias_lookup(title)
+		if key:
+			index[key].add(case_id)
+	return index
+
+
+def _build_title_year_resolution_index(session) -> dict[tuple[str, int], set[int]]:
+	index: dict[tuple[str, int], set[int]] = defaultdict(set)
+	for case_id, title, decision_date in session.execute(select(Case.id, Case.title, Case.date)):
+		key = _normalize_alias_lookup(title)
+		if key and decision_date is not None:
+			index[(key, decision_date.year)].add(case_id)
+	return index
+
+
+def _citation_years(value: str) -> set[int]:
+	years = set()
+	for variant in _citation_variants(value):
+		try:
+			years.add(int(variant.split(maxsplit=1)[0]))
+		except (IndexError, ValueError):
+			continue
+	return years
+
+
+def _title_year_target_id(
+	citation: Citation,
+	title_index: dict[str, set[int]],
+	title_year_index: dict[tuple[str, int], set[int]],
+) -> int | None:
+	value = citation.normalized_citation or citation.citation_text or ""
+	title_key = _citation_title_key(value)
+	title_matches = set(title_index.get(title_key, set()))
+	if len(title_matches) < 2:
+		return None
+	year_matches: set[int] = set()
+	for year in _citation_years(value):
+		year_matches.update(title_year_index.get((title_key, year), set()))
+	year_matches.difference_update({citation.source_case_id})
+	return next(iter(year_matches)) if len(year_matches) == 1 else None
+
+
+def _title_target_id(
+	citation: Citation,
+	title_index: dict[str, set[int]],
+	title_year_index: dict[tuple[str, int], set[int]],
+) -> int | None:
+	matches = set(title_index.get(_citation_title_key(citation.normalized_citation or citation.citation_text), set()))
+	matches.discard(citation.source_case_id)
+	if len(matches) == 1:
+		return next(iter(matches))
+	return _title_year_target_id(citation, title_index, title_year_index)
 
 
 def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--batch-size", type=int, default=5_000)
 	parser.add_argument("--limit", type=int, default=None, help="Maximum unresolved rows to inspect.")
+	parser.add_argument("--resume-from-id", type=int, default=0, help="Start after this citation row id.")
 	parser.add_argument("--dry-run", action="store_true")
 	return parser.parse_args()
 
 
-def _citation_variants(value: str) -> list[str]:
-	match = FORMAL_CIT_RE.search(value)
-	if match is None:
-		return []
-	year, court, number = match.groups()
-	normalized = f"{year} {court.replace('.', '').upper()} {int(number)}"
-	variants = [normalized]
-	if " FCT " in f" {normalized} ":
-		variants.append(normalized.replace(" FCT ", " FC "))
-	if " FC " in f" {normalized} ":
-		variants.append(normalized.replace(" FC ", " FCT "))
-	if " CANLII " in f" {normalized} ":
-		variants.append(normalized.replace(" CANLII ", " CanLII "))
-	return list(dict.fromkeys(variants))
-
-
-def _local_citation_index(session) -> dict[str, int | None]:
-	index: dict[str, int | None] = {}
-	for case_id, citation, secondary_citation in session.execute(
-		select(Case.id, Case.citation, Case.secondary_citation)
-	):
-		for raw_value in (citation, secondary_citation):
-			if not raw_value:
-				continue
-			for variant in _citation_variants(raw_value):
-				if variant in index and index[variant] != case_id:
-					index[variant] = None
-				else:
-					index[variant] = case_id
-	return index
-
-
 def _target_case_id(citation: Citation, index: dict[str, int | None]) -> int | None:
-	match = FORMAL_CIT_RE.search(citation.normalized_citation or "")
-	if match is None:
-		return None
-	for variant in _citation_variants(match.group(0)):
+	for variant in _citation_variants(citation.normalized_citation or citation.citation_text or ""):
 		target_case_id = index.get(variant)
 		if target_case_id is not None:
 			return target_case_id
@@ -84,12 +128,17 @@ def main() -> None:
 		raise SystemExit("--batch-size must be at least 1")
 	if args.limit is not None and args.limit < 1:
 		raise SystemExit("--limit must be at least 1")
+	if args.resume_from_id < 0:
+		raise SystemExit("--resume-from-id must be >= 0")
 
 	with SessionLocal() as session:
-		index = _local_citation_index(session)
+		index = build_local_case_resolution_index(session)
+		title_index = _build_title_resolution_index(session)
+		title_year_index = _build_title_year_resolution_index(session)
 		print(f"local_citation_keys={len(index)}")
-		last_id = 0
-		inspected = candidates = resolved = 0
+		print(f"local_title_keys={len(title_index)}")
+		last_id = args.resume_from_id
+		inspected = candidates = resolved = title_resolved = 0
 		while args.limit is None or inspected < args.limit:
 			remaining = args.limit - inspected if args.limit is not None else args.batch_size
 			batch_limit = min(args.batch_size, remaining)
@@ -107,19 +156,29 @@ def main() -> None:
 			updates = []
 			for citation in rows:
 				inspected += 1
-				if FORMAL_CIT_RE.search(citation.normalized_citation or "") is None:
+				if not _citation_variants(citation.normalized_citation or citation.citation_text or ""):
 					continue
 				candidates += 1
 				target_case_id = _target_case_id(citation, index)
+				if target_case_id is None and citation.citation_kind in {"case", "case_name", "case_short", "neutral"}:
+					target_case_id = _title_target_id(citation, title_index, title_year_index)
+					if target_case_id is not None:
+						title_resolved += 1
 				if target_case_id is not None:
 					resolved += 1
 					updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
 			if updates and not args.dry_run:
 				session.bulk_update_mappings(Citation, updates)
 				session.commit()
-			print(f"inspected={inspected} candidates={candidates} resolved={resolved}")
+			print(
+				f"inspected={inspected} candidates={candidates} resolved={resolved} "
+				f"title_resolved={title_resolved} last_id={last_id}"
+			)
 
-	print(f"finished inspected={inspected} neutral_candidates={candidates} resolved={resolved}")
+	print(
+		f"finished inspected={inspected} neutral_candidates={candidates} resolved={resolved} "
+		f"title_resolved={title_resolved} last_id={last_id}"
+	)
 
 
 if __name__ == "__main__":

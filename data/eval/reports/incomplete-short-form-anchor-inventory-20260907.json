@@ -1,0 +1,343 @@
+{
+  "counts": {
+    "all_case_short_rows": 1408402,
+    "rows_with_existing_anchor_fields": 1330030,
+    "unresolved_rows_with_existing_anchor_fields": 383608,
+    "complete_anchor_rows": 383608,
+    "complete_anchor_unresolved_rows": 383608,
+    "validated_stored_anchor_rows": 383608,
+    "validated_stored_anchors_without_year": 338815,
+    "no_local_extension_evidence": 360243,
+    "candidate_anchor_repairs": 23365,
+    "start_correction_candidates": 14235,
+    "start_correction_unresolved_rows": 14235,
+    "safe_right_edge_extensions": 9130,
+    "safe_right_edge_unresolved_rows": 9130,
+    "validated_stored_anchors_with_year": 44793,
+    "processed_source_cases": 33963,
+    "no_anchor_rows_excluded": 78372,
+    "resolved_rows_with_existing_anchor_fields": 946422
+  },
+  "examples": [
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4408588,
+      "source_case_id": 23,
+      "citation_text": "Mugesera",
+      "old_anchor": "Canada in Canada (MCI) v. Mugesera",
+      "new_anchor": "Canada (MCI) v. Mugesera 2005 S.C.C. 39",
+      "old_span": [
+        1917,
+        1951
+      ],
+      "new_span": [
+        1927,
+        1966
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4408589,
+      "source_case_id": 23,
+      "citation_text": "Mugesera",
+      "old_anchor": "Canada in Canada (MCI) v. Mugesera",
+      "new_anchor": "Canada (MCI) v. Mugesera 2005 S.C.C. 39",
+      "old_span": [
+        1917,
+        1951
+      ],
+      "new_span": [
+        1927,
+        1966
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4408593,
+      "source_case_id": 23,
+      "citation_text": "Zazai",
+      "old_anchor": "Zazai v. Canada",
+      "new_anchor": "Zazai v. Canada (MCI) 2004 F.C. 1356 at paragraph 27",
+      "old_span": [
+        5576,
+        5591
+      ],
+      "new_span": [
+        5576,
+        5628
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4408601,
+      "source_case_id": 25,
+      "citation_text": "Siloch",
+      "old_anchor": "Siloch v. Canada",
+      "new_anchor": "Siloch v. Canada (Minister of Employment and Immigration) (1993), 151 N.R. 76 (F.C.A.)",
+      "old_span": [
+        5105,
+        5121
+      ],
+      "new_span": [
+        5105,
+        5191
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4408696,
+      "source_case_id": 31,
+      "citation_text": "Nanisivik",
+      "old_anchor": "Rena K in Nanisivik Mines Ltd. v. F.C",
+      "new_anchor": "Nanisivik Mines Ltd. v. F.C",
+      "old_span": [
+        29604,
+        29641
+      ],
+      "new_span": [
+        29614,
+        29641
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4408699,
+      "source_case_id": 31,
+      "citation_text": "Nanisivik Mines",
+      "old_anchor": "Rena K in Nanisivik Mines Ltd. v. F.C",
+      "new_anchor": "Nanisivik Mines Ltd. v. F.C",
+      "old_span": [
+        29604,
+        29641
+      ],
+      "new_span": [
+        29614,
+        29641
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4408716,
+      "source_case_id": 31,
+      "citation_text": "Nanisivik",
+      "old_anchor": "Rena K in Nanisivik Mines Ltd. v. F.C",
+      "new_anchor": "Nanisivik Mines Ltd. v. F.C",
+      "old_span": [
+        29604,
+        29641
+      ],
+      "new_span": [
+        29614,
+        29641
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4408890,
+      "source_case_id": 46,
+      "citation_text": "Miller",
+      "old_anchor": "Miller v. Canada",
+      "new_anchor": "Miller v. Canada (Canadian Human Rights Commission) (1996), 112 F.T.R. 195",
+      "old_span": [
+        50417,
+        50433
+      ],
+      "new_span": [
+        50417,
+        50491
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409676,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409808,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409812,
+      "source_case_id": 53,
+      "citation_text": "Farzam",
+      "old_anchor": "Farzam v. Canada",
+      "new_anchor": "Farzam v. Canada (Minister of Citizenship and Immigration) (2005), 284 F.T.R. 158 (F.C.)",
+      "old_span": [
+        110730,
+        110746
+      ],
+      "new_span": [
+        110730,
+        110818
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409829,
+      "source_case_id": 53,
+      "citation_text": "Farzam",
+      "old_anchor": "Farzam v. Canada",
+      "new_anchor": "Farzam v. Canada (Minister of Citizenship and Immigration) (2005), 284 F.T.R. 158 (F.C.)",
+      "old_span": [
+        110730,
+        110746
+      ],
+      "new_span": [
+        110730,
+        110818
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409833,
+      "source_case_id": 53,
+      "citation_text": "Farzam",
+      "old_anchor": "Farzam v. Canada",
+      "new_anchor": "Farzam v. Canada (Minister of Citizenship and Immigration) (2005), 284 F.T.R. 158 (F.C.)",
+      "old_span": [
+        110730,
+        110746
+      ],
+      "new_span": [
+        110730,
+        110818
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409847,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409858,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409895,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409928,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "safe_right_edge_extension",
+      "citation_id": 4409946,
+      "source_case_id": 53,
+      "citation_text": "long",
+      "old_anchor": "R. v. Long",
+      "new_anchor": "R. v. Long, 2007 ONCJ 340",
+      "old_span": [
+        225298,
+        225308
+      ],
+      "new_span": [
+        225298,
+        225323
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4409952,
+      "source_case_id": 53,
+      "citation_text": "Yamani",
+      "old_anchor": "Snider, in Al Yamani v. Canada",
+      "new_anchor": "Al Yamani v. Canada",
+      "old_span": [
+        211075,
+        211105
+      ],
+      "new_span": [
+        211086,
+        211105
+      ]
+    },
+    {
+      "repair_type": "start_correction_candidate",
+      "citation_id": 4409953,
+      "source_case_id": 53,
+      "citation_text": "Yamani",
+      "old_anchor": "Snider, in Al Yamani v. Canada",
+      "new_anchor": "Al Yamani v. Canada",
+      "old_span": [
+        211075,
+        211105
+      ],
+      "new_span": [
+        211086,
+        211105
+      ]
+    }
+  ]
+}

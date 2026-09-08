@@ -18,7 +18,7 @@ This was the bounded 1970-present cohort under `data/overnight_runs/scc-text-onl
 
 ## Case Citation Rebuild Gate
 
-The case-citation extractor is ready for an extraction-only rebuild: `case_short` rows preserve their own source offsets and pinpoints, and each may point only to a direct, identifier-bearing full citation span from the same decision. Bare case names and earlier short forms cannot become anchors. Full citations retain a trailing reporter, bracket alias, and pinpoint in order, including a pinpoint immediately after an alias. Pinpoints persist in citation text and normalized citation; a chunk-linked occurrence uses chunk-relative offsets while its anchor span remains document-relative. The focused in-memory rebuild-style check invokes `extract_citations_from_text(..., resolve_targets=False)` and confirms that two Zazai short forms persist with a shared direct full anchor while no target resolution occurs.
+The case-citation extractor is ready for an extraction-only rebuild: `case_short` rows preserve their own source offsets and pinpoints, and each may point only to a direct, identifier-bearing full citation span from the same decision. Full CanLII and complete FTR/DLR reporter-only case citations are eligible anchors; bare case names and earlier short forms cannot become anchors. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. The reporter-only branch retains an adjacent court, declared alias, and pinpoint in its full anchor; other full citation forms retain trailing reporters, bracket aliases, and pinpoints in order. Pinpoints persist in citation text and normalized citation; a chunk-linked occurrence uses chunk-relative offsets while its anchor span remains document-relative. The focused in-memory rebuild-style check invokes `extract_citations_from_text(..., resolve_targets=False)` and confirms that two Zazai short forms persist with a shared direct full anchor while no target resolution occurs.
 
 The existing bulk writers are not approved for the rebuild: they either combine citation work with other layers or lack the required explicit cohort, dry run, baseline export, durable checkpoint, exclusive-writer lock, and post-run comparator. The prepared replacement is `scripts/rebuild_citations_controlled.py`, which is intentionally excluded from the standard overnight profile. First create and inspect a bounded baseline without mutation:
 
@@ -26,15 +26,24 @@ The existing bulk writers are not approved for the rebuild: they either combine 
 .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --case-id <id> --limit 1 --run-dir data/overnight_runs/citation-rebuild-<run-id>
 ```
 
-Only after reviewing its baseline/state files and receiving explicit approval may an operator add `--apply --confirm-citation-rebuild` to the same explicit cohort. The runner replaces only `case_citations`, flushes before recording a pre-commit comparison, and rolls back a nonempty-to-empty result or invalid short-form anchor before commit. It defers generic resolution, short-form resolution, and citation metrics to separate later commands.
+Only after reviewing its baseline/state files and receiving explicit approval may an operator add `--apply --confirm-citation-rebuild` to the same explicit cohort. A run directory with an existing `state.json` must not be silently overwritten; either resume the matching run with `--resume` or choose a fresh run directory. The runner replaces only `case_citations`, flushes before recording a pre-commit comparison, and rolls back a nonempty-to-empty result or invalid short-form anchor before commit. It defers generic resolution, short-form resolution, and citation metrics to separate later commands.
 
-The `2026-09-07` corrected one-case canary and five-case cohort completed cleanly. The current database has `61,216` text-bearing cases. The prepared all-case extraction-only command is:
+The `2026-09-07` corrected one-case canary and five-case cohort completed cleanly. The current database has `61,216` text-bearing cases. A fresh 500-case live-progress gate then completed through `scripts/run_citation_rebuild_progress.py` with fifty ten-case batches: `500` cases processed, `7,700` citations extracted, and zero failed batches under `data/overnight_runs/citation-progress-500-case-retry-20260907`. No citation runner is currently active.
+
+The earlier partial run under `data/overnight_runs/citation-extraction-all-20260907` completed `1,295` cases before its checkpoint write failure. Its state is explicitly `stopped`, with `59,921` cases pending; baseline, comparison, and state artifacts are preserved for recovery and must not be resumed blindly. Target resolution and metrics remain deferred.
+
+The single-directory all-case run resumed past its first pause and later stalled again at case `53722`, whose process burned roughly two hours of continuous CPU with no new checkpoint row; a soft interrupt did not reach the child process, so the worker was force-terminated. Case `53722`'s citations exactly matched its pre-run baseline afterward, confirming a clean rollback, and it is recorded as explicitly `skipped` with its stall evidence. A second recovery defect was found and fixed: the resume walk previously stopped at the first case with no comparison/checkpoint row, even when that case had an operator-recorded terminal status (such as `skipped`) and later cases already had journal evidence; it now treats a recorded terminal status as a pass-through and keeps recovering later cases. The verified cursor after both fixes is case `53757` committed, with case `53758` next; two cases (`24480`, `53722`) are recorded `skipped` with reasons, and no writer outside the current resumed run is active. The runner rewrites the larger `state.json` snapshot every ten cases, retries transient Windows replacements for up to 30 seconds, and records an operator interrupt as stopped. The resume command, after explicit approval, is:
 
 ```powershell
-.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --all --limit 61216 --run-dir data/overnight_runs/citation-extraction-all-20260907 --apply --confirm-citation-rebuild
+.\venv\Scripts\python.exe -u scripts\rebuild_citations_controlled.py --all --limit 61216 --run-dir data/overnight_runs/citation-extraction-all-live-20260907 --apply --confirm-citation-rebuild --progress-every 10 --resume
 ```
 
-Do not run it until the run window is reserved and no other PostgreSQL writer is active. This command does not resolve targets or compute metrics; those remain separate post-extraction phases.
+Do not run it until the output terminal is visibly confirmed and no other PostgreSQL writer is active. This command creates no per-batch directories, does not resolve targets or compute metrics, and keeps those as separate post-extraction phases.
+
+The command above has since completed: `61,212` cases committed and four were
+explicitly skipped (`24480`, `53722`, `56686`, and `56973`). Do not rerun that
+completed directory. Future runs require a fresh directory and newly counted
+frozen cohort, and must retain separate target-resolution and metrics phases.
 
 ## Purpose And Authority
 
@@ -141,6 +150,14 @@ Operational tools are separate bounded programs, not one implicit pipeline.
 
 The generated script catalog is the file-by-file command reference. Before a large writer, inspect `--help`, use a dry-run or bounded limit where available, confirm no competing writer owns PostgreSQL, and record output paths.
 
+The automatic `safe` and `enrich` profiles intentionally exclude the legacy
+combined `citations` job. Any full pipeline or citation backfill must use
+`scripts/rebuild_citations_controlled.py`, as validated by the 2026-09-07
+all-case replacement. The operator must supply a frozen text-bearing case
+count, a fresh run directory, `--apply`, and `--confirm-citation-rebuild`.
+Target resolution, statute extraction, and metric recomputation remain separate
+post-extraction checkpoints; do not substitute the legacy combined command.
+
 Citation target resolution is intentionally split into exact and conservative
 short/name passes. `scripts/resolve_citation_targets.py` handles local citation
 variants, unique canonical-title recovery, and duplicate-title disambiguation
@@ -148,10 +165,31 @@ when the cited decision year identifies one canonical case. The rule covers
 parenthesized reporter years and CanLII/reporter/neutral forms without changing
 stored offsets. `scripts/resolve_short_citation_targets.py` uses same-source
 composite anchors and repeated globally resolved aliases, with collision and
-self-case gates. These scripts must run alone as PostgreSQL writers with
-bounded commits and progress logs. The 2026-09-07 checkpoint linked
-`1,407,624` of `2,152,332` rows; `744,708` remain unresolved and must not be
-resolved by broad fuzzy matching.
+self-case gates. For `case_short`, formal identifiers preserved in
+`normalized_citation` constrain candidate cases; a short name may select one
+authority inside a compound anchor, but it must never trigger a corpus-wide
+short-name lookup. These scripts must run alone as PostgreSQL writers with
+bounded commits and progress logs. After the full replacement and formal/neutral
+pass, the live database contained `1,444,546` rows: `919,781` linked and
+`524,765` unresolved. The read-only
+[post-resolution shape report](data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json)
+attributes `477,627` unresolved rows (`91.02%`) to no exact local signal;
+`16,656` have a unique alias signal and `1,258` have an ambiguous title/year
+signal. Broad fuzzy matching is not approved.
+
+A cancelled short/name pass committed `3,019` bounded updates before
+termination. The accepted remaining short-form inventory gap contains `117,074`
+anchored unresolved occurrences across `10,889` source cases and `16,495`
+distinct exact anchors; their stored identifiers have no candidate in the local
+case inventory. A separate `330` unresolved short rows lack anchors and remain
+provenance defects.
+
+The exact case-name pass subsequently linked `14,051` rows using one unique
+non-self canonical-title match. The current unresolved total is `507,695`.
+Excluding all short forms leaves `390,291`: `333,550 case_name`, `53,078 case`,
+and `3,663 neutral`. See
+[the non-short unresolved report](data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json)
+for exact shapes and candidate signals.
 
 The extraction layer treats recognized full reported citations, including
 `[2004] 3 F.C.R. 323`, as eligible same-document anchors for later short-form

@@ -68,12 +68,13 @@ def test_dry_run_writes_baseline_and_never_rebuilds(tmp_path, monkeypatch):
 	assert state["metrics"] == "deferred"
 	assert state["cases"]["41"]["status"] == "planned"
 	assert session.commits == 0
+	assert (tmp_path / "case-checkpoints.jsonl").exists()
 	baseline = [json.loads(line) for line in (tmp_path / "citation-baseline.jsonl").read_text(encoding="utf-8").splitlines()]
 	assert baseline[0]["case_id"] == 41
 	assert baseline[0]["citations"][0]["citation_text"] == "Albert at para. 40"
 
 
-def test_apply_requires_confirmation_and_runs_only_citation_stage(tmp_path, monkeypatch):
+def test_apply_requires_confirmation_and_runs_only_citation_stage(tmp_path, monkeypatch, capsys):
 	with pytest.raises(ValueError, match="confirm-citation-rebuild"):
 		rebuild_citations_controlled.run(case_ids=[41], limit=1, run_dir=tmp_path, apply=True)
 
@@ -92,6 +93,7 @@ def test_apply_requires_confirmation_and_runs_only_citation_stage(tmp_path, monk
 		run_dir=tmp_path / "apply",
 		apply=True,
 		confirm_citation_rebuild=True,
+		progress_every=1,
 	)
 
 	assert state["status"] == "completed"
@@ -99,8 +101,12 @@ def test_apply_requires_confirmation_and_runs_only_citation_stage(tmp_path, monk
 	assert session.commits == 1
 	assert session.flushes == 1
 	assert (tmp_path / "apply" / "citation-baseline.jsonl").exists()
+	checkpoint = json.loads((tmp_path / "apply" / "case-checkpoints.jsonl").read_text(encoding="utf-8"))
+	assert checkpoint["status"] == "completed"
+	assert checkpoint["citation_count"] == 1
 	comparison = json.loads((tmp_path / "apply" / "citation-comparison.jsonl").read_text(encoding="utf-8"))
 	assert comparison["after"]["invalid_short_anchor_count"] == 0
+	assert "Cases Processed [1] - Citations Extracted [1]" in capsys.readouterr().out
 
 
 def test_apply_rolls_back_when_rebuild_removes_every_existing_citation(tmp_path, monkeypatch):
@@ -156,3 +162,87 @@ def test_all_selection_is_bounded_and_cannot_mix_explicit_case_ids(monkeypatch):
 	assert rebuild_citations_controlled.select_case_ids(case_ids=[], include_all=True, limit=2) == [41, 42]
 	with pytest.raises(ValueError, match="cannot be combined"):
 		rebuild_citations_controlled.select_case_ids(case_ids=[41], include_all=True, limit=2)
+
+
+def test_resume_bootstraps_progress_from_comparison_log(tmp_path):
+	state = rebuild_citations_controlled._new_state([41, 42], 2, True)
+	comparison_path = tmp_path / "citation-comparison.jsonl"
+	comparison_path.write_text(
+		json.dumps({"case_id": 41, "after": {"citation_count": 7}}) + "\n",
+		encoding="utf-8",
+	)
+
+	processed, citations = rebuild_citations_controlled._restore_progress_from_evidence(
+		state,
+		tmp_path / "case-checkpoints.jsonl",
+		comparison_path,
+	)
+
+	assert processed == 1
+	assert citations == 7
+	assert state["cases"]["41"] == {"status": "completed", "baseline_written": True}
+	assert state["cases"]["42"]["status"] == "pending"
+
+
+def test_resume_combines_legacy_comparison_prefix_with_checkpoint_journal(tmp_path):
+	state = rebuild_citations_controlled._new_state([41, 42, 43], 3, True)
+	comparison_path = tmp_path / "citation-comparison.jsonl"
+	comparison_path.write_text(
+		"\n".join(
+			[
+				json.dumps({"case_id": 41, "after": {"citation_count": 7}}),
+				json.dumps({"case_id": 42, "after": {"citation_count": 8}}),
+			]
+		)
+		+ "\n",
+		encoding="utf-8",
+	)
+	checkpoint_path = tmp_path / "case-checkpoints.jsonl"
+	checkpoint_path.write_text(
+		json.dumps({"case_id": 42, "status": "completed", "citation_count": 8}) + "\n",
+		encoding="utf-8",
+	)
+
+	processed, citations = rebuild_citations_controlled._restore_progress_from_evidence(
+		state,
+		checkpoint_path,
+		comparison_path,
+	)
+
+	assert processed == 2
+	assert citations == 15
+	assert state["cases"]["41"]["status"] == "completed"
+	assert state["cases"]["42"]["status"] == "completed"
+	assert state["cases"]["43"]["status"] == "pending"
+
+
+def test_resume_recovers_across_an_operator_skipped_case(tmp_path):
+	state = rebuild_citations_controlled._new_state([41, 42, 43, 44], 4, True)
+	state["cases"]["42"]["status"] = "skipped"
+	state["cases"]["42"]["skip_reason"] = "operator_requested"
+	checkpoint_path = tmp_path / "case-checkpoints.jsonl"
+	checkpoint_path.write_text(
+		"\n".join(
+			[
+				json.dumps({"case_id": 41, "status": "completed", "citation_count": 3}),
+				json.dumps({"case_id": 43, "status": "completed", "citation_count": 5}),
+				json.dumps({"case_id": 44, "status": "completed", "citation_count": 9}),
+			]
+		)
+		+ "\n",
+		encoding="utf-8",
+	)
+	comparison_path = tmp_path / "citation-comparison.jsonl"
+
+	processed, citations = rebuild_citations_controlled._restore_progress_from_evidence(
+		state,
+		checkpoint_path,
+		comparison_path,
+	)
+
+	assert processed == 3
+	assert citations == 17
+	assert state["cases"]["41"]["status"] == "completed"
+	assert state["cases"]["42"]["status"] == "skipped"
+	assert state["cases"]["43"]["status"] == "completed"
+	assert state["cases"]["44"]["status"] == "completed"

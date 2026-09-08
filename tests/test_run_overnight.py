@@ -10,11 +10,15 @@ def test_safe_profile_uses_resumable_fc_pullers_and_no_canlii_or_paid_jobs():
     selected = run_overnight.selected_job_names("safe", None)
 
     assert selected[:3] == ["fc_decisions", "fc_portal", "fc_history"]
-    assert selected.index("chunk_cases") < selected.index("citations")
     assert selected.index("chunk_cases") < selected.index("local_embeddings")
+    assert "citations" not in selected
     assert "local_embeddings" in selected
     assert all("canlii" not in name for name in selected)
     assert all("openai" not in name for name in selected)
+
+
+def test_enrich_profile_requires_controlled_citation_rebuild_separately():
+    assert "citations" not in run_overnight.selected_job_names("enrich", None)
 
 
 def test_backend_jobs_use_module_mode_for_import_safety():
@@ -47,6 +51,30 @@ def test_run_lock_replaces_stale_owner_and_cleans_up(tmp_path, monkeypatch):
         assert lock_path.exists()
 
     assert not lock_path.exists()
+
+
+def test_atomic_write_json_retries_transient_windows_replace_failure(tmp_path, monkeypatch):
+    path = tmp_path / "state.json"
+    original_replace = Path.replace
+    attempts = 0
+
+    def flaky_replace(source, destination):
+        nonlocal attempts
+        attempts += 1
+        if attempts <= 12:
+            raise PermissionError("state file temporarily locked")
+        return original_replace(source, destination)
+
+    monkeypatch.setattr(Path, "replace", flaky_replace)
+    clock = iter(range(100))
+    monkeypatch.setattr(run_overnight.time, "monotonic", lambda: float(next(clock)))
+    monkeypatch.setattr(run_overnight.time, "sleep", lambda _: None)
+    monkeypatch.setattr(run_overnight, "ATOMIC_REPLACE_TIMEOUT_SECONDS", 30.0)
+    run_overnight.atomic_write_json(path, {"status": "completed"})
+
+    assert attempts == 13
+    assert json.loads(path.read_text(encoding="utf-8")) == {"status": "completed"}
+    assert not path.with_suffix(".json.tmp").exists()
 
 
 def test_execute_jobs_skips_completed_and_records_failure(tmp_path):

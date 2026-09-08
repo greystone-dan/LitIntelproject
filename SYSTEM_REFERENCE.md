@@ -87,20 +87,53 @@ By default, active Case Search uses title/citation matching. Full decision text 
 
 ### Citation, Statute, And Metadata Processing
 
-`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order, including a pinpoint that follows the alias. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
+`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
 
-`scripts/rebuild_citations_controlled.py` is the only prepared path for a future clean citation-layer replacement. It accepts either explicit case IDs or a bounded `--all --limit` selection that freezes the selected text-bearing IDs into durable state before replacement. It defaults to a non-mutating dry run, writes per-case citation baseline JSONL and durable state under its run directory, and uses an exclusive file lock. Apply mode additionally requires `--apply --confirm-citation-rebuild`; it invokes only the `case_citations` stage, flushes pending rows before comparison, and rejects short forms with invalid direct anchor provenance or a nonempty-to-empty citation result. It intentionally does not resolve targets or recompute metrics. It is not part of the standard overnight enrichment profile. The 2026-09-07 one-case recheck and five-case cohort completed with all run states recording resolution and metrics as deferred; the full all-case extraction command is prepared but has not run.
+`scripts/rebuild_citations_controlled.py` is the only prepared path for a clean citation-layer replacement. It accepts either explicit case IDs or a bounded `--all --limit` selection that freezes the selected text-bearing IDs into durable state before replacement. It defaults to a non-mutating dry run, writes baseline and comparison JSONL plus a small append-only per-case checkpoint journal under one run directory, and uses an exclusive file lock. Resume recovery merges comparison evidence with the checkpoint journal, lets the newer journal entry override comparison evidence for the same case, and treats an operator-recorded terminal status (such as an explicit skip) as a pass-through rather than a recovery boundary so later journal-backed cases are still recovered. The larger `state.json` snapshot is rewritten every ten cases rather than every case; transient Windows replacements retry for up to 30 seconds, and an operator interrupt records a stopped state. Apply mode additionally requires `--apply --confirm-citation-rebuild`; it invokes only the `case_citations` stage, flushes pending rows before comparison, and rejects short forms with invalid direct anchor provenance or a nonempty-to-empty citation result. It prints cumulative `Cases Processed [...] - Citations Extracted [...]` progress every ten cases from the same terminal process and creates no per-batch directories. It intentionally does not resolve targets or recompute metrics. Two cases (`24480`, `53722`) were explicitly skipped after review; `53722` was a genuine multi-hour stall requiring a forced process termination, confirmed rolled back to its exact baseline. The verified cursor after the recovery-walk fix is `53,757` committed, with case `53,758` next; target resolution and metrics remain deferred.
+
+The later `citation-extraction-all-live-20260907` run completed the frozen
+61,216-case cohort with `61,212` cases committed and four explicitly skipped
+(`24480`, `53722`, `56686`, and `56973`). This terminal checkpoint supersedes
+the earlier cursor described above. Future full-pipeline and backfill runs must
+use the same controlled runner; automatic overnight profiles do not invoke the
+legacy combined citation rebuild.
 
 Target resolution is a separate local write phase. Exact citation variants are
 checked first; formal and neutral rows may then use a unique canonical-title
 fallback. When duplicate canonical titles remain, the resolver may use an exact
-cited decision year to select one unique case. Short/name rows may use
-preserved composite anchor text or a repeated full-name alias that maps to one
-target and agrees with that target's leading party token. Self matches,
-collisions, anonymized/truncated names, and single-name guesses remain
-unresolved. On the 2026-09-07 corpus checkpoint, `1,407,624` of `2,152,332`
-citation rows were linked and `744,708` remained unresolved; query the database
-for current counts because this is live state.
+cited decision year to select one unique case. Short/name rows use preserved
+anchor provenance. For `case_short`, formal identifiers preserved in
+`normalized_citation` constrain candidate cases; the short name may disambiguate
+among those candidates when one stored anchor contains multiple authorities. It
+must never trigger a corpus-wide short-name lookup. Self matches, collisions,
+anonymized/truncated names, and unresolved compound anchors remain unresolved.
+After the 2026-09-07 full replacement and formal/neutral resolution
+pass, the live database contained `1,444,546` citation rows: `919,781` were
+linked and `524,765` remained unresolved. The read-only report
+[unresolved_citation_shapes_post_resolution_20260907.json](data/eval/reports/unresolved_citation_shapes_post_resolution_20260907.json)
+shows that `477,627` unresolved rows (`91.02%`) have no exact local signal;
+`16,656` have a unique case-alias signal, `16,592` have an ambiguous alias
+signal, `10,855` are self-alias cases, `1,777` combine self and alias matches,
+and `1,258` have an ambiguous title/year signal. This report is post-formal
+resolution but pre-`resolve_short_citation_targets.py`, so it is not the final
+unresolved baseline.
+
+A later cancelled short/name pass had already committed `3,019` bounded
+updates. The accepted remaining short-form inventory gap is `117,074` anchored
+unresolved occurrences across `10,889` source cases and `16,495` distinct exact
+anchor strings. Their stored citation identifiers produce no candidate in the
+local inventory, so they remain unresolved instead of falling back to a global
+name match. Another `330` unresolved short rows have no anchor and remain
+provenance defects.
+
+The exact case-name pass then linked `14,051` rows whose complete normalized
+name matched exactly one non-self canonical case title. It rejects self-only,
+self-plus-other, and multi-target matches. The live checkpoint is `507,695`
+unresolved rows overall. Excluding every `case_short` leaves `390,291`:
+`333,550 case_name`, `53,078 case`, and `3,663 neutral`. The refreshed
+[non-short unresolved report](data/eval/reports/unresolved_citation_shapes_excluding_short_20260907.json)
+classifies `365,617` as having no exact local signal; only `11` unique-alias
+signals remain, all outside `case_name`.
 
 The same checkpoint found `1,408,402` `case_short` rows, of which `1,330,030`
 had anchor fields and `78,372` were missing anchor text or offsets. Under the

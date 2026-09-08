@@ -8,6 +8,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +18,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RUNS_DIR = PROJECT_ROOT / "data" / "overnight_runs"
 STATE_FILENAME = "state.json"
 LOCK_FILENAME = "overnight.lock"
+ATOMIC_REPLACE_TIMEOUT_SECONDS = 30.0
+ATOMIC_REPLACE_MAX_DELAY_SECONDS = 1.0
 
 
 def utc_now_iso() -> str:
@@ -102,7 +105,7 @@ JOBS: dict[str, Job] = {
     ),
     "citations": Job(
         "citations",
-        "Rebuild case citations, statute references, and citation metrics",
+        "Legacy combined citation/statute rebuild; use the controlled citation runner for full-corpus extraction",
         (
             "-m",
             "scripts.extract_citation_network",
@@ -134,7 +137,6 @@ PROFILES: dict[str, tuple[str, ...]] = {
         "reference_verify",
         "tag_cases",
         "chunk_cases",
-        "citations",
         "local_embeddings",
     ),
     "safe": (
@@ -144,7 +146,6 @@ PROFILES: dict[str, tuple[str, ...]] = {
         "reference_verify",
         "tag_cases",
         "chunk_cases",
-        "citations",
         "local_embeddings",
     ),
     "verify": ("regression_tests",),
@@ -162,8 +163,23 @@ def python_executable() -> Path:
 def atomic_write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    try:
+        temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        deadline = time.monotonic() + ATOMIC_REPLACE_TIMEOUT_SECONDS
+        delay = 0.05
+        while True:
+            try:
+                temporary.replace(path)
+                return
+            except PermissionError:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise
+                time.sleep(min(delay, remaining))
+                delay = min(delay * 2, ATOMIC_REPLACE_MAX_DELAY_SECONDS)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
 
 
 def process_is_running(pid: int) -> bool:

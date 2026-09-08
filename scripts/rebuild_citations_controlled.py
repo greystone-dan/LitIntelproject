@@ -24,6 +24,7 @@ DEFAULT_RUN_DIR = PROJECT_ROOT / "data" / "overnight_runs" / "citation-only-rebu
 STATE_FILENAME = "state.json"
 BASELINE_FILENAME = "citation-baseline.jsonl"
 COMPARISON_FILENAME = "citation-comparison.jsonl"
+CHECKPOINT_FILENAME = "case-checkpoints.jsonl"
 LOCK_FILENAME = "citation-rebuild.lock"
 
 
@@ -102,6 +103,66 @@ def _append_comparison(path: Path, case_id: int, before: list[Citation], after: 
 	return comparison
 
 
+def _append_case_checkpoint(path: Path, case_id: int, status: str, citation_count: int) -> None:
+	with path.open("a", encoding="utf-8") as handle:
+		handle.write(
+			json.dumps(
+				{
+					"case_id": case_id,
+					"status": status,
+					"citation_count": citation_count,
+					"recorded_at": now(),
+				},
+				ensure_ascii=True,
+			)
+			+ "\n"
+		)
+
+
+def _jsonl_rows(path: Path) -> list[dict[str, Any]]:
+	if not path.exists():
+		return []
+	return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def _restore_progress_from_evidence(
+	state: dict[str, Any],
+	checkpoint_path: Path,
+	comparison_path: Path,
+) -> tuple[int, int]:
+	progress_rows = [
+			{
+				"case_id": row["case_id"],
+				"status": "completed",
+				"citation_count": row["after"]["citation_count"],
+			}
+			for row in _jsonl_rows(comparison_path)
+	]
+	progress_rows.extend(_jsonl_rows(checkpoint_path))
+
+	latest_by_case = {int(row["case_id"]): row for row in progress_rows}
+	processed_count = 0
+	citation_total = 0
+	for case_id in state["case_ids"]:
+		row = latest_by_case.get(case_id)
+		if row is not None:
+			status = str(row["status"])
+			if status not in {"completed", "planned", "missing"}:
+				break
+			case_state = state["cases"][str(case_id)]
+			case_state.clear()
+			case_state.update({"status": status, "baseline_written": True})
+			processed_count += 1
+			citation_total += int(row.get("citation_count") or 0)
+			continue
+		# No evidence row for this case; an operator-recorded terminal status
+		# (e.g. an explicit skip) does not break recovery of later cases.
+		if state["cases"][str(case_id)].get("status") in {"skipped", "missing"}:
+			continue
+		break
+	return processed_count, citation_total
+
+
 def _new_state(case_ids: list[int], limit: int, apply: bool) -> dict[str, Any]:
 	return {
 		"run_id": "",
@@ -149,6 +210,7 @@ def run(
 	apply: bool = False,
 	confirm_citation_rebuild: bool = False,
 	resume: bool = False,
+	progress_every: int = 10,
 ) -> dict[str, Any]:
 	"""Create evidence in dry-run mode or replace only selected citation rows."""
 	selected_ids = sorted(set(case_ids))
@@ -160,33 +222,53 @@ def run(
 		raise ValueError("The explicit case cohort exceeds --limit")
 	if apply and not confirm_citation_rebuild:
 		raise ValueError("Apply mode requires --confirm-citation-rebuild")
+	if progress_every < 1:
+		raise ValueError("--progress-every must be positive")
 
 	run_dir.mkdir(parents=True, exist_ok=True)
 	state_path = run_dir / STATE_FILENAME
 	baseline_path = run_dir / BASELINE_FILENAME
 	comparison_path = run_dir / COMPARISON_FILENAME
+	checkpoint_path = run_dir / CHECKPOINT_FILENAME
 	if state_path.exists():
 		if not resume:
 			raise ValueError(f"Run state already exists: {state_path}; use --resume")
 		state = json.loads(state_path.read_text(encoding="utf-8"))
 		if state.get("case_ids") != selected_ids or state.get("mode") != ("apply" if apply else "dry_run"):
 			raise ValueError("Resume arguments do not match the existing run state")
+		processed_count, citation_total = _restore_progress_from_evidence(
+			state,
+			checkpoint_path,
+			comparison_path,
+		)
+		state["status"] = "running"
+		state.pop("stop_reason", None)
+		_write_state(state_path, state)
 	else:
 		state = _new_state(selected_ids, limit, apply)
 		state["run_id"] = run_dir.name
 		_write_state(state_path, state)
+		processed_count = 0
+		citation_total = 0
 
 	with RunLock(run_dir / LOCK_FILENAME):
 		with SessionLocal() as session:
 			for case_id in selected_ids:
 				case_state = state["cases"][str(case_id)]
-				if resume and case_state["status"] in {"completed", "planned", "missing"}:
+				if resume and case_state["status"] in {"completed", "planned", "missing", "skipped"}:
 					continue
 				try:
 					case = session.scalar(select(Case).where(Case.id == case_id))
 					if case is None:
 						case_state["status"] = "missing"
-						_write_state(state_path, state)
+						_append_case_checkpoint(checkpoint_path, case_id, "missing", 0)
+						processed_count += 1
+						if processed_count % progress_every == 0:
+							_write_state(state_path, state)
+							print(
+								f"Cases Processed [{processed_count}] - Citations Extracted [{citation_total}]",
+								flush=True,
+							)
 						continue
 					existing = list(
 							session.scalars(
@@ -199,7 +281,7 @@ def run(
 						_append_baseline(baseline_path, case_id, existing)
 						case_state["baseline_written"] = True
 					if apply:
-						case_state["report"] = process_case_in_five_layers(
+						process_case_in_five_layers(
 							session,
 							case_id,
 							stage_order=("case_citations",),
@@ -223,18 +305,38 @@ def run(
 							raise ValueError("Rebuilt short form has invalid direct anchor provenance")
 						if comparison["before"]["citation_count"] and not comparison["after"]["citation_count"]:
 							raise ValueError("Citation rebuild removed every existing citation; review baseline before retrying")
-						case_state["comparison"] = comparison
+						citation_total += comparison["after"]["citation_count"]
 						session.commit()
 						case_state["status"] = "completed"
+						_append_case_checkpoint(
+							checkpoint_path,
+							case_id,
+							"completed",
+							comparison["after"]["citation_count"],
+						)
 					else:
 						case_state["status"] = "planned"
+						citation_total += len(existing)
+						_append_case_checkpoint(checkpoint_path, case_id, "planned", len(existing))
 				except Exception as error:
 					session.rollback()
 					case_state["status"] = "failed"
 					case_state["error"] = f"{type(error).__name__}: {error}"
 					_write_state(state_path, state)
 					raise
+				processed_count += 1
+				if processed_count % progress_every == 0:
+					_write_state(state_path, state)
+					print(
+						f"Cases Processed [{processed_count}] - Citations Extracted [{citation_total}]",
+						flush=True,
+					)
+			if processed_count % progress_every:
 				_write_state(state_path, state)
+				print(
+					f"Cases Processed [{processed_count}] - Citations Extracted [{citation_total}]",
+					flush=True,
+				)
 
 	state["status"] = "completed" if apply else "dry_run"
 	_write_state(state_path, state)
@@ -251,20 +353,34 @@ def main() -> None:
 	parser.add_argument("--apply", action="store_true", help="Replace citations only after reviewing a dry-run baseline.")
 	parser.add_argument("--confirm-citation-rebuild", action="store_true", help="Required with --apply.")
 	parser.add_argument("--resume", action="store_true", help="Resume matching state and skip completed/planned cases.")
+	parser.add_argument("--progress-every", type=int, default=10, help="Print cumulative progress every N processed cases.")
 	args = parser.parse_args()
 	if args.dry_run and args.apply:
 		raise SystemExit("--dry-run and --apply cannot be combined")
 	if args.limit < 1:
 		raise SystemExit("--limit must be positive")
+	if args.progress_every < 1:
+		raise SystemExit("--progress-every must be positive")
 	case_ids = select_case_ids(case_ids=args.case_id, include_all=args.all, limit=args.limit)
-	state = run(
-		case_ids=case_ids,
-		limit=args.limit,
-		run_dir=args.run_dir,
-		apply=args.apply,
-		confirm_citation_rebuild=args.confirm_citation_rebuild,
-		resume=args.resume,
-	)
+	try:
+		state = run(
+			case_ids=case_ids,
+			limit=args.limit,
+			run_dir=args.run_dir,
+			apply=args.apply,
+			confirm_citation_rebuild=args.confirm_citation_rebuild,
+			resume=args.resume,
+			progress_every=args.progress_every,
+		)
+	except KeyboardInterrupt:
+		state_path = args.run_dir / STATE_FILENAME
+		if state_path.exists():
+			state = json.loads(state_path.read_text(encoding="utf-8"))
+			state["status"] = "stopped"
+			state["stop_reason"] = "operator_interrupt"
+			_write_state(state_path, state)
+		print("status=stopped reason=operator_interrupt", flush=True)
+		raise SystemExit(130) from None
 	print(f"status={state['status']} cases={len(state['cases'])} stage=case_citations resolution=deferred metrics=deferred")
 
 

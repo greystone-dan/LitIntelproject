@@ -89,6 +89,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--top", type=int, default=100, help="Number of top normalized groups to report.")
     parser.add_argument("--batch-size", type=int, default=10_000)
+    parser.add_argument(
+        "--exclude-kind",
+        action="append",
+        default=[],
+        choices=sorted({"case", "case_name", "case_short", "neutral"}),
+        help="Citation kind to omit; may be repeated.",
+    )
     parser.add_argument("--output", type=Path, default=None, help="Optional JSON report path.")
     return parser.parse_args()
 
@@ -156,7 +163,12 @@ def _candidate_signal(
     return "no_exact_local_signal"
 
 
-def build_report(session, top: int, batch_size: int) -> dict[str, object]:
+def build_report(
+    session,
+    top: int,
+    batch_size: int,
+    excluded_kinds: set[str] | None = None,
+) -> dict[str, object]:
     if top < 1:
         raise ValueError("top must be at least 1")
     if batch_size < 1:
@@ -173,11 +185,11 @@ def build_report(session, top: int, batch_size: int) -> dict[str, object]:
     groups: dict[tuple[str, str, str], dict[str, object]] = {}
     unresolved = 0
 
-    rows = session.scalars(
-        select(Citation)
-        .where(Citation.target_case_id.is_(None))
-        .order_by(Citation.id)
-    ).yield_per(batch_size)
+    excluded_kinds = excluded_kinds or set()
+    query = select(Citation).where(Citation.target_case_id.is_(None))
+    if excluded_kinds:
+        query = query.where(Citation.citation_kind.not_in(excluded_kinds))
+    rows = session.scalars(query.order_by(Citation.id)).yield_per(batch_size)
     for citation in rows:
         unresolved += 1
         raw = citation.normalized_citation or citation.citation_text or ""
@@ -247,6 +259,7 @@ def build_report(session, top: int, batch_size: int) -> dict[str, object]:
 
     return {
         "unresolved_rows": unresolved,
+        "excluded_citation_kinds": sorted(excluded_kinds),
         "citation_kinds": dict(kind_counts),
         "shapes": dict(shape_counts),
         "candidate_signals": dict(signal_counts),
@@ -259,7 +272,7 @@ def build_report(session, top: int, batch_size: int) -> dict[str, object]:
 def main() -> None:
     args = parse_args()
     with SessionLocal() as session:
-        report = build_report(session, args.top, args.batch_size)
+        report = build_report(session, args.top, args.batch_size, set(args.exclude_kind))
     serialized = json.dumps(report, indent=2, ensure_ascii=True)
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)

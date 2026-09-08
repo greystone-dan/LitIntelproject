@@ -105,11 +105,25 @@ def _title_target_id(
 	return _title_year_target_id(citation, title_index, title_year_index)
 
 
+def _case_name_target_id(citation: Citation, title_index: dict[str, set[int]]) -> int | None:
+	matches = set(title_index.get(_citation_title_key(citation.normalized_citation or citation.citation_text), set()))
+	if len(matches) != 1:
+		return None
+	target_case_id = next(iter(matches))
+	return target_case_id if target_case_id != citation.source_case_id else None
+
+
 def parse_args() -> argparse.Namespace:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--batch-size", type=int, default=5_000)
 	parser.add_argument("--limit", type=int, default=None, help="Maximum unresolved rows to inspect.")
 	parser.add_argument("--resume-from-id", type=int, default=0, help="Start after this citation row id.")
+	parser.add_argument(
+		"--citation-kind",
+		choices=("case", "case_name", "case_short", "neutral"),
+		default=None,
+		help="Inspect only one unresolved citation kind.",
+	)
 	parser.add_argument("--dry-run", action="store_true")
 	return parser.parse_args()
 
@@ -142,11 +156,12 @@ def main() -> None:
 		while args.limit is None or inspected < args.limit:
 			remaining = args.limit - inspected if args.limit is not None else args.batch_size
 			batch_limit = min(args.batch_size, remaining)
+			query = select(Citation).where(Citation.id > last_id, Citation.target_case_id.is_(None))
+			if args.citation_kind is not None:
+				query = query.where(Citation.citation_kind == args.citation_kind)
 			rows = list(
 				session.scalars(
-					select(Citation)
-					.where(Citation.id > last_id, Citation.target_case_id.is_(None))
-					.order_by(Citation.id)
+					query.order_by(Citation.id)
 					.limit(batch_limit)
 				)
 			)
@@ -156,7 +171,15 @@ def main() -> None:
 			updates = []
 			for citation in rows:
 				inspected += 1
-				if not _citation_variants(citation.normalized_citation or citation.citation_text or ""):
+				variants = _citation_variants(citation.normalized_citation or citation.citation_text or "")
+				if not variants and citation.citation_kind == "case_name":
+					target_case_id = _case_name_target_id(citation, title_index)
+					if target_case_id is not None:
+						resolved += 1
+						title_resolved += 1
+						updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
+					continue
+				if not variants:
 					continue
 				candidates += 1
 				target_case_id = _target_case_id(citation, index)

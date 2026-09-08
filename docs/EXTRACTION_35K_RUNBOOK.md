@@ -1,33 +1,36 @@
-# 35k Citation Extraction Runbook
+# Full-Corpus Citation Extraction Runbook
 
-Last updated: 2026-08-10
+Last updated: 2026-09-07
 
-Purpose: run a full deterministic citation/statute extraction refresh across the full 35,902-case corpus with safe preflight, resumability, and post-run verification.
+Purpose: run a full deterministic case-citation replacement across the current corpus with the controlled extraction method, durable recovery evidence, and post-run verification.
 
 ## Scope
 
-This runbook targets:
+This runbook targets an ordered pipeline with separate write boundaries:
 
-1. Case-citation rebuild
-2. Statute/instrument extraction rebuild (including IRPA/IRPR section forms)
-3. Citation metrics recompute
+1. Controlled case-citation replacement
+2. Case-to-case target resolution
+3. Separately approved statute/instrument extraction and citation metrics recomputation
 
 It does not require hosted AI calls.
 
+Do not use the legacy combined `extract_citation_network --cases --chunks --statutes --metrics` command for a full citation replacement. The automatic `safe` and `enrich` overnight profiles intentionally omit that legacy job. Full-pipeline work must use `scripts/rebuild_citations_controlled.py`, the method validated by the 2026-09-07 all-case run.
+
 ## Pre-Run Checks
 
-Run from repo root:
+Run from the repository root:
 
 ```powershell
-.\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --jobs citations --preflight
+& .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
+& .\venv\Scripts\python.exe -m pytest tests\test_rebuild_citations_controlled.py tests\test_citations.py -q
 ```
 
 Expected:
 
-1. `preflight=ok`
-2. Database reachable
-3. Script and interpreter present
-4. Disk check passes
+1. The controlled runner help exits successfully.
+2. Focused runner and extraction tests pass.
+3. PostgreSQL is reachable and no competing bulk writer is active.
+4. The run directory has enough free disk for baseline, comparison, checkpoint, and state artifacts.
 
 Optional focused extractor sanity (already green at time of update):
 
@@ -43,53 +46,48 @@ Optional focused extractor sanity (already green at time of update):
 
 ## Optional Canary
 
-Small tail-range canary before full launch:
+Use a fresh run directory for a one-case dry run before full launch:
 
 ```powershell
-.\venv\Scripts\python.exe -m scripts.extract_citation_network --cases --statutes --batch-size 50 --cases-start-after-id 35850
+& .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --case-id 615 --limit 1 --run-dir data\overnight_runs\citation-rebuild-canary-<RUN_ID> --dry-run
 ```
 
-## Full 35k Launch
+## Full-Corpus Launch
 
-Preferred launch path (tracked, lock-protected, resumable):
+Count and freeze the current text-bearing cohort, choose a fresh run directory, and launch the explicit apply pass:
 
 ```powershell
-.\venv\Scripts\python.exe scripts\run_overnight.py --profile safe --jobs citations --continue-on-error
+$caseCount = & .\venv\Scripts\python.exe -c "from sqlalchemy import func, select; from backend.database import Case, SessionLocal; s=SessionLocal(); print(s.scalar(select(func.count(Case.id)).where(Case.full_text.is_not(None), Case.full_text != ''))); s.close()"
+$runId = Get-Date -Format "yyyyMMdd-HHmmss"
+$runDir = "data\overnight_runs\citation-extraction-all-$runId"
+& .\venv\Scripts\python.exe -u scripts\rebuild_citations_controlled.py --all --limit $caseCount --run-dir $runDir --apply --confirm-citation-rebuild --progress-every 10
 ```
-
-What this invokes for citations job:
-
-- `python -m scripts.extract_citation_network --cases --chunks --statutes --metrics --batch-size 500`
 
 Notes:
 
-1. `--cases` rebuilds `citations` from case text (deletes and re-inserts per case).
-2. `--chunks` rebuilds chunk-scoped citations.
-3. `--statutes` with chunks enabled rebuilds `statute_references` from chunks.
-4. `--metrics` recomputes citation metrics for all cases.
+1. The selected case IDs are frozen in `state.json` before replacement begins.
+2. The runner invokes only the `case_citations` processing stage and validates direct short-form anchors before each commit.
+3. Baseline, comparison, and checkpoint JSONL files provide recovery evidence.
+4. Target resolution, statute extraction, and citation metrics remain deferred and must run as separately validated stages after extraction completes.
 
 ## Resume After Interruption
 
-Resume latest run:
+Resume the same frozen cohort and explicit run directory:
 
 ```powershell
-.\venv\Scripts\python.exe scripts\run_overnight.py --resume --continue-on-error
+& .\venv\Scripts\python.exe -u scripts\rebuild_citations_controlled.py --all --limit $caseCount --run-dir $runDir --apply --confirm-citation-rebuild --resume --progress-every 10
 ```
 
-Resume by explicit run id:
-
-```powershell
-.\venv\Scripts\python.exe scripts\run_overnight.py --resume <RUN_ID> --continue-on-error
-```
-
-Run artifacts are under `data/overnight_runs/<run-id>/`.
+Do not resume with a different case count or reuse a stale run directory for a new cohort.
 
 ## Post-Run Verification
 
-1. Check job state in `data/overnight_runs/<run-id>/state.json`.
-2. Confirm no failed status for `citations`.
+1. Check `state.json` in the selected run directory.
+2. Confirm `status=completed`, `stage=case_citations`, `target_resolution=deferred`, and `metrics=deferred`.
 3. Re-run baseline snapshot command and compare deltas.
-4. Spot-check citation pass for a known IRPA case in UI/API:
+4. Run target resolution as a separate checkpoint and regenerate the unresolved-shape report.
+5. Recompute metrics only after resolution succeeds.
+6. Spot-check citation pass for a known IRPA case in UI/API:
    - `/citation-pass`
    - `/cases/{case_id}/citation-pass`
 
@@ -97,4 +95,4 @@ Run artifacts are under `data/overnight_runs/<run-id>/`.
 
 1. Do not run other PostgreSQL-writing bulk jobs concurrently.
 2. If lock conflicts occur, verify active jobs before using `--force-unlock`.
-3. If a process stalls, terminate that process first, then resume via run_overnight.
+3. If a process stalls, terminate that process first, inspect its checkpoint evidence, and resume the controlled runner with the same cohort and run directory.

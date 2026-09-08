@@ -16,7 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.citations import _normalize_alias_lookup
+from backend.citations import _citation_variants, _normalize_alias_lookup
 from backend.database import Case, Citation, SessionLocal
 
 
@@ -28,6 +28,7 @@ REPORTER_SUFFIX_RE = re.compile(
 	r"\s*,?\s*(?:\[(?:19|20)\d{2}\]\s+\d+\s+[A-Z.]{2,}\s+\d+|\((?:19|20)\d{2}\)\s*,?\s*\d+\s+[A-Z.]{2,}\s+\d+|(?:19|20)\d{2}\s+[A-Z]{2,}\s+\d+)\b.*$",
 	re.IGNORECASE,
 )
+SHORT_FORM_TRAILER_RE = re.compile(r"\s*,?\s*(?:supra|above|ibid\.?|id\.?)\b.*$", re.IGNORECASE)
 
 
 def parse_args() -> argparse.Namespace:
@@ -113,13 +114,71 @@ def _direct_case_target(
 	return None, False
 
 
+def _short_form_aliases(value: str | None) -> tuple[str, ...]:
+	base = SHORT_FORM_TRAILER_RE.sub("", value or "")
+	base = PINPOINT_RE.sub("", base).strip(" ,;:-")
+	if not base:
+		return ()
+	parts = re.split(r"\s+(?:v\.?|vs\.?|c\.?|versus)\s+", base, maxsplit=1, flags=re.IGNORECASE)
+	choices = [base]
+	if len(parts) == 2:
+		choices.extend(parts)
+	terms: list[str] = []
+	for choice in choices:
+		term = _normalize_alias_lookup(choice)
+		if term and term not in terms:
+			terms.append(term)
+	return tuple(terms)
+
+
+def _case_has_short_alias(alias: str, case_values: tuple[str, ...]) -> bool:
+	for value in case_values:
+		base = _normalize_alias_lookup(_base_authority(value))
+		parts = re.split(r"\s+v\s+", base, maxsplit=1)
+		if len(parts) != 2:
+			continue
+		if alias in parts[0].split() or alias in parts[1].split():
+			return True
+		if alias == parts[0] or alias == parts[1]:
+			return True
+	return False
+
+
+def _build_case_citation_index(
+	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
+) -> dict[str, set[int]]:
+	citation_index: dict[str, set[int]] = defaultdict(set)
+	for case_id, values in case_index[2].items():
+		for value in values:
+			for variant in _citation_variants(value):
+				citation_index[variant].add(case_id)
+	return citation_index
+
+
 def _anchor_title_target(
 	citation: Citation,
 	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
+	citation_index: dict[str, set[int]] | None = None,
 ) -> int | None:
 	anchor_text = getattr(citation, "anchor_citation_text", None)
 	if not anchor_text:
 		return None
+	if citation_index is not None:
+		identifier_targets: set[int] = set()
+		for variant in _citation_variants(citation.normalized_citation or ""):
+			identifier_targets.update(citation_index.get(variant, set()))
+		identifier_targets.discard(citation.source_case_id)
+		if len(identifier_targets) == 1:
+			return next(iter(identifier_targets))
+		if len(identifier_targets) > 1:
+			aliases = _short_form_aliases(citation.citation_text or "")
+			alias_targets = {
+				case_id
+				for case_id in identifier_targets
+				if any(_case_has_short_alias(alias, case_index[2].get(case_id, ())) for alias in aliases)
+			}
+			if len(alias_targets) == 1:
+				return next(iter(alias_targets))
 	key = _normalize_alias_lookup(_base_authority(anchor_text))
 	matches = set(case_index[0].get(key, set()))
 	matches.discard(citation.source_case_id)
@@ -170,6 +229,7 @@ def _updates_for_case(
 	rows: list[Citation],
 	case_index: tuple[dict[str, set[int]], dict[str, set[int]], dict[int, tuple[str, ...]]],
 	stable_alias_index: dict[str, int],
+	citation_index: dict[str, set[int]] | None = None,
 ) -> tuple[list[dict[str, object]], int]:
 	anchors: dict[str, set[int]] = defaultdict(set)
 	fuller_targets: dict[str, set[int]] = defaultdict(set)
@@ -190,9 +250,11 @@ def _updates_for_case(
 	for citation in rows:
 		if citation.target_case_id is not None or citation.citation_kind not in {"case_name", "case_short"}:
 			continue
-		anchor_target = _anchor_title_target(citation, case_index)
+		anchor_target = _anchor_title_target(citation, case_index, citation_index)
 		if anchor_target is not None:
 			updates.append({"id": citation.id, "target_case_id": anchor_target, "unresolved": False})
+			continue
+		if citation.citation_kind == "case_short":
 			continue
 		global_target = stable_alias_index.get(
 			_normalize_alias_lookup(_base_authority(citation.normalized_citation or citation.citation_text))
@@ -237,6 +299,7 @@ def main() -> None:
 
 	with SessionLocal() as session:
 		case_index = _case_alias_index(session)
+		citation_index = _build_case_citation_index(case_index)
 		stable_alias_index = _stable_resolved_alias_index(session, case_index)
 		print(f"case_alias_records={len(case_index[2])}", flush=True)
 		print(f"stable_resolved_aliases={len(stable_alias_index)}", flush=True)
@@ -255,7 +318,7 @@ def main() -> None:
 			nonlocal processed_cases, linked, ambiguous
 			if not case_rows:
 				return
-			updates, case_ambiguous = _updates_for_case(case_rows, case_index, stable_alias_index)
+			updates, case_ambiguous = _updates_for_case(case_rows, case_index, stable_alias_index, citation_index)
 			processed_cases += 1
 			linked += len(updates)
 			ambiguous += case_ambiguous

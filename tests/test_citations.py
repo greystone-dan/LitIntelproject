@@ -6,11 +6,13 @@ from fastapi import HTTPException
 from backend import citations
 from backend import routes
 from scripts.extract_irpa_irpr_references import extract_case_references
-from scripts.resolve_citation_targets import _citation_title_key, _title_target_id
+from scripts.resolve_citation_targets import _case_name_target_id, _citation_title_key, _title_target_id
 from scripts.resolve_short_citation_targets import (
 	_alias_matches_case_title,
 	_anchor_title_target,
+	_build_case_citation_index,
 	_stable_resolved_alias_index,
+	_updates_for_case,
 )
 
 
@@ -342,6 +344,20 @@ def test_title_target_id_rejects_self_and_ambiguous_matches():
 	assert _title_target_id(citation, {"example v canada": {22, 33}}, {}) is None
 
 
+def test_case_name_target_id_requires_one_non_self_canonical_title():
+	citation = SimpleNamespace(
+		source_case_id=11,
+		normalized_citation="Example v Canada",
+		citation_text="Example v Canada",
+	)
+
+	assert _case_name_target_id(citation, {"example v canada": {22}}) == 22
+	assert _case_name_target_id(citation, {"example v canada": {11}}) is None
+	assert _case_name_target_id(citation, {"example v canada": {11, 22}}) is None
+	assert _case_name_target_id(citation, {"example v canada": {22, 33}}) is None
+	assert _case_name_target_id(citation, {}) is None
+
+
 def test_title_year_target_id_disambiguates_duplicate_case_titles():
 	citation = SimpleNamespace(
 		source_case_id=11,
@@ -381,6 +397,50 @@ def test_anchor_title_target_uses_only_unique_preserved_full_authority():
 	assert _anchor_title_target(
 		citation, ({"toth v canada": {22, 33}}, {}, {22: (), 33: ()})
 	) is None
+
+
+def test_case_short_requires_preserved_anchor_before_global_alias_resolution():
+	citation = SimpleNamespace(
+		id=101,
+		source_case_id=11,
+		target_case_id=None,
+		citation_kind="case_short",
+		normalized_citation="Oakes",
+		citation_text="Oakes",
+		anchor_citation_text=None,
+	)
+	case_index = ({"oakes": {22}}, {}, {22: ("oakes v canada",)})
+
+	updates, ambiguous = _updates_for_case([citation], case_index, {"oakes": 22})
+
+	assert updates == []
+	assert ambiguous == 0
+
+
+def test_compound_anchor_uses_short_name_to_select_identifier_candidate():
+	citation = SimpleNamespace(
+		source_case_id=11,
+		citation_kind="case_short",
+		citation_text="Jamil, supra",
+		normalized_citation=(
+			"Pushpanathan v Canada, [1998] 1 SCR 982, "
+			"Jamil v Canada, 2005 FC 758"
+		),
+		anchor_citation_text=(
+			"Pushpanathan v Canada, [1998] 1 SCR 982, "
+			"Jamil v Canada, 2005 FC 758"
+		),
+	)
+	case_index = (
+		{},
+		{},
+		{
+			22: ("pushpanathan v canada", "1998 1 scr 982"),
+			33: ("jamil v canada", "2005 fc 758"),
+		},
+	)
+
+	assert _anchor_title_target(citation, case_index, _build_case_citation_index(case_index)) == 33
 
 
 def test_stable_alias_title_gate_rejects_context_prefixes():
@@ -905,6 +965,129 @@ def test_extract_raw_citation_matches_preserves_reported_case_anchor_for_short_f
 
 	assert full_match.citation_text == "Singh v. Canada (Minister of Citizenship and Immigration), [2004] 3 F.C.R. 323"
 	assert short_match.citation_text == "Singh at para. 22"
+	assert short_match.anchor_citation_text == full_match.citation_text
+	assert (short_match.anchor_offset_start, short_match.anchor_offset_end) == (
+		full_match.offset_start,
+		full_match.offset_end,
+	)
+
+
+def test_extract_case_citations_uses_full_canlii_case_as_short_form_anchor():
+	text = (
+		"Miele v Humber River Regional Hospital, 2007 CanLII 27757 (ONSC) applies. "
+		"Miele at para. 18 confirms the point. The hospital made its submission."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_match = next(match for match in matches if match.kind == "case_short")
+
+	assert full_match.citation_text == "Miele v Humber River Regional Hospital, 2007 CanLII 27757 (ONSC)"
+	assert short_match.citation_text == "Miele at para. 18"
+	assert text[short_match.offset_start:short_match.offset_end] == short_match.citation_text
+	assert (short_match.anchor_citation_text, short_match.anchor_offset_start, short_match.anchor_offset_end) == (
+		full_match.citation_text,
+		full_match.offset_start,
+		full_match.offset_end,
+	)
+	assert not any(match.kind == "case_short" and match.citation_text == "hospital" for match in matches)
+
+
+@pytest.mark.parametrize(
+	("citation_text", "short_form"),
+	[
+		("Markevich v Canada, 163 FTR 209, 172 DLR (4th) 164 (FCTD)", "Markevich at paras 9-13"),
+		("Morneault v Canada (Attorney General), 189 DLR (4th) 96", "Morneault, supra"),
+	],
+)
+def test_extract_case_citations_uses_reporter_only_case_as_short_form_anchor(citation_text, short_form):
+	text = f"The court applied {citation_text}. Later, {short_form}."
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_match = next(match for match in matches if match.kind == "case_short")
+
+	assert full_match.citation_text == citation_text
+	assert text[full_match.offset_start:full_match.offset_end] == citation_text
+	assert short_match.citation_text == short_form
+	assert text[short_match.offset_start:short_match.offset_end] == short_form
+	assert (short_match.anchor_citation_text, short_match.anchor_offset_start, short_match.anchor_offset_end) == (
+		full_match.citation_text,
+		full_match.offset_start,
+		full_match.offset_end,
+	)
+
+
+def test_extract_case_citations_does_not_anchor_generic_revenue_alias():
+	text = (
+		"Rothmans, Benson & Hedges Inc. v. Minister of National Revenue, [1998] 2 C.T.C. 176. "
+		"The Revenue Canada officer reviewed the file."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+
+	assert any(match.kind == "case" for match in matches)
+	assert not any(match.kind == "case_short" and match.citation_text == "Revenue" for match in matches)
+
+
+@pytest.mark.parametrize(
+	"citation_text",
+	[
+		"David Bull Laboratories (Can.) Inc. v. Pharmacia Inc., [1995] 1 F.C. 588",
+		"R. v. Turpin, [1989] 1 S.C.R. 1296",
+		"Suresh v. Canada (Minister of Citizenship and Immigration), [2002] 1 S.C.R. 3",
+		"Kaberuka v. Canada (Minister of Citizenship and Immigration), [1995] 3 F.C. 252",
+	],
+)
+def test_extract_case_citations_keeps_complete_reported_citation_inside_parentheses(citation_text):
+	text = f"The court considered ({citation_text}) before deciding the application."
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+
+	assert full_match.citation_text == citation_text
+	assert text[full_match.offset_start:full_match.offset_end] == citation_text
+
+
+def test_parenthetical_reported_citation_anchors_distinct_later_short_occurrences():
+	text = (
+		"The court considered (Suresh v. Canada (Minister of Citizenship and Immigration), [2002] 1 S.C.R. 3). "
+		"Suresh at para. 10 applies. Later, Suresh at para. 24 applies."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert len(short_matches) == 2
+	assert [match.citation_text for match in short_matches] == ["Suresh at para. 10", "Suresh at para. 24"]
+	assert [match.offset_start for match in short_matches] == [
+		text.index("Suresh at para. 10"),
+		text.index("Suresh at para. 24"),
+	]
+	assert all(match.anchor_citation_text == full_match.citation_text for match in short_matches)
+	assert all(match.anchor_offset_start == full_match.offset_start for match in short_matches)
+	assert all(match.anchor_offset_end == full_match.offset_end for match in short_matches)
+
+
+@pytest.mark.parametrize(
+	("citation_text", "short_form"),
+	[
+		("Toronto (City) v CUPE, Local 79, 2003 SCC 63", "Toronto"),
+		("Ramnarine v Canada (2001), [2002] 1 CTC 2213, 2001 CanLII 795 (TCC)", "Ramnarine"),
+	],
+)
+def test_identifier_bearing_party_names_with_digits_anchor_later_short_form(citation_text, short_form):
+	text = f"The court applied {citation_text}. Later, {short_form} at para. 12 governs."
+
+	matches = citations.extract_case_citation_matches(text)
+	full_match = next(match for match in matches if match.kind == "case")
+	short_match = next(match for match in matches if match.kind == "case_short")
+
+	assert full_match.citation_text == citation_text
+	if short_form == "Ramnarine":
+		assert full_match.citation_text.endswith("2001 CanLII 795 (TCC)")
+	assert short_match.citation_text == f"{short_form} at para. 12"
 	assert short_match.anchor_citation_text == full_match.citation_text
 	assert (short_match.anchor_offset_start, short_match.anchor_offset_end) == (
 		full_match.offset_start,

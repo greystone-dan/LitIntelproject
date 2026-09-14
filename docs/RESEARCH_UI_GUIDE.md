@@ -98,14 +98,19 @@ No highlight means one of several things: the case may have no stored rows, its 
 
 Reader panels can expose case details, citation rows, evidence/provenance, quality/QA context, citation intelligence, Federal Court activity, legal tags, and Acts/Regulations. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
 
-The reader keeps the evidence layers visually distinct: green highlights are
-legal tags, purple highlights are statutes/regulations, and yellow highlights
-are case-to-case citations. The **Tags** panel includes all stored and inferred
+The reader keeps the evidence layers visually distinct: purple highlights are
+statutes/regulations and yellow highlights are case-to-case citations. The
+**Tags** panel includes all stored and inferred
 tags, groups them by unique category/value, and lets the researcher expand each
 group to inspect individual occurrences with evidence excerpt, source, score,
 taxonomy version, and backend offsets when available. This is a display of
 stored or derived research evidence, not a replacement for the source text or
 legal verification.
+
+Chunk mode intentionally does not overlay text-searched tag marks on citation
+or statute spans, preventing nested and repeated-text highlights. Tag evidence
+remains available in the Tags panel, while Full text uses backend-owned tag
+offsets where available.
 
 The active reader initially displays persisted canonical text/chunks and stored
 case-citation evidence. Statute references are fetched when the Acts / Regs tab

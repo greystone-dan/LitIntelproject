@@ -29,8 +29,11 @@ routine confirmation or status approval:
 1. Read the required authority docs and local owner/test surface.
 2. Write the hypothesis, acceptance criteria, rollback, and focused check into
 	the task record.
-3. Delegate bounded read-only inventory, comparison, or test work when it
-	reduces execution time. Require the exact structured delegated return below.
+3. For every multi-step, strategic, open-ended, or cross-surface task, enter a
+	delegated phase before manager implementation. Assign the smallest bounded
+	worker slice and require the exact structured delegated return below. Skip
+	delegation only for a genuinely tiny one-step operation and record that
+	exception in the task evidence.
 4. Implement the smallest safe slice and immediately run the focused check.
 5. Repair local failures and rerun the same check before widening scope.
 6. Update the canonical repository document and relevant Swimm walkthrough in

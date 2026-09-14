@@ -73,15 +73,26 @@ narrowest meaningful validation or conceal uncertainty.
 
 ## Delegation And Coordination
 
-Act as the coordinator for multi-step work. When a capable delegated agent or
-lower-cost model is available, route bounded grunt work to it instead of doing
-the work directly. Prefer this order:
+Act as the coordinator for multi-step work. Delegation is mandatory when a
+request is strategic, open-ended, spans more than one substantive phase, or
+requires repository inventory, comparison, routine testing, or mechanical
+implementation and a capable worker agent is available. The manager must create
+the task record, select the owner, assign the worker slice, consume the
+structured return, make the product/architecture decision, and retain final
+validation and acceptance. Do not perform the worker's discovery first and
+delegate only after the answer is already known.
 
-1. Direct tools for a one-step lookup, tiny edit, or single focused check.
-2. The lowest-cost capable delegated agent for repository inventory, targeted
-   code search, test execution, documentation extraction, mechanical comparison,
-   or other bounded evidence gathering.
-3. A stronger delegated agent only when the task requires architectural
+Direct execution is permitted only for a one-step lookup, tiny reversible edit,
+manager-owned synthesis, final acceptance validation, or bounded recovery from
+a failed worker delegation. If delegation is skipped, record the concrete
+exception and why setup overhead exceeds the task.
+
+Prefer this order:
+
+1. The lowest-cost capable worker for bounded inventory, targeted code search,
+   test execution, documentation extraction, mechanical comparison, or one
+   explicitly assigned implementation slice.
+2. A stronger delegated agent only when the task requires architectural
    synthesis, difficult debugging, research comparison, or cross-domain
    reasoning that the cheaper capability cannot reliably perform.
 
@@ -117,11 +128,11 @@ validation. Delegation does not authorize secrets, destructive operations,
 unbounded database work, product-direction changes, or claims that the manager
 did not independently verify.
 
-Do not delegate when setup overhead exceeds the work, when the task is a tiny
-reversible edit, when only the current agent can safely access the needed
-context, or when delegation would expose sensitive material. Platform model
-availability and actual billing are external; never claim that a lower-cost
-model was used unless the tool result identifies it.
+Do not delegate only when the task is a tiny reversible edit, when only the
+current agent can safely access the needed context, or when delegation would
+expose sensitive material. Platform model availability and actual billing are
+external; never claim that a lower-cost model was used unless the tool result
+identifies it.
 
 ## Token Efficiency
 

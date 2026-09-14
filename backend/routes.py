@@ -140,7 +140,6 @@ from .reader_service import (
 	_build_reader_extracted_metadata,
 	_build_reader_inferred_tags,
 	_citation_pass_chunks,
-	_format_reader_html,
 	_is_irpa_irpr_reference,
 	_is_statute_like_label,
 	_legislation_url_for_reference,

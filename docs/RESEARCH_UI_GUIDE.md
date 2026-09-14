@@ -107,11 +107,12 @@ taxonomy version, and backend offsets when available. This is a display of
 stored or derived research evidence, not a replacement for the source text or
 legal verification.
 
-Pretty source rendering is based on preserved source HTML when available. The
-system's canonical plain text and backend-owned evidence offsets remain the
-authority; display sanitization and formatting must not invent replacement
-locations. Structural HTML mapping is being introduced before it is used to
-change chunk boundaries.
+The active reader initially displays persisted canonical text/chunks and stored
+citation/statute evidence. It does not run citation or statute extraction and
+does not rescan stored source HTML during a reader request. Preserved
+`source_html` remains available as provenance, but any future pretty-rendering
+path must be precomputed or explicitly lazy-loaded; it must not block case
+opening. Backend-owned evidence offsets remain authoritative.
 
 Reader citations can expose `layer_spans` for the same occurrence across the
 full-case, section, and paragraph layers. These derived coordinates support

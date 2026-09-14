@@ -462,7 +462,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 
 - `POST /ingest`: validates and creates/merges canonical cases with provenance.
 - `GET /cases/{case_id}`: canonical case retrieval.
-- `GET /cases/{case_id}/reader-data`: unified reader payload containing case, sources, preferred chunks, citations, tags, metadata, metrics, and optional formatted HTML.
+- `GET /cases/{case_id}/reader-data`: unified persisted-evidence reader payload containing case, sources, preferred chunks, citations, tags, metadata, and metrics. It must not run extraction or perform request-time HTML citation rewriting.
 - `GET /cases/{case_id}/citation-pass`: stored and live extraction evidence for QA.
 - `POST /search`: case-level semantic, lexical, hybrid, or metadata search.
 - `POST /search/chunks`: chunk-level search.
@@ -969,8 +969,10 @@ The reader's display modes are:
 
 - **Chunk breakdown**: grouped text segments with exact citation/statute markers
   and linked authority controls.
-- **Full text**: sanitized source HTML where present, otherwise highlighted
-  normalized full text.
+- **Full text**: stored normalized full text with citation highlights. The
+  reader does not execute extraction or rescan sanitized source HTML on open;
+  preserved source HTML remains provenance for a future explicitly lazy-loaded
+  presentation path.
 
 Linked citations can populate a separate linked-authority context pane. The
 reader uses bounded pane height and independently scrollable panes so a long

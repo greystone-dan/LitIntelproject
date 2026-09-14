@@ -30,6 +30,14 @@ Evidence:
 
 Choose one owning surface and one focused validation command. Keep unrelated worktree changes intact. Do not expand scope without a new acceptance check.
 
+For strategic, open-ended, multi-step, or cross-surface work, delegation is
+mandatory when the managed worker is available. The manager must create the
+task record, assign a bounded worker slice before doing equivalent discovery,
+consume the structured worker report, and retain product decisions, final
+validation, documentation acceptance, and commit/push authority. Direct work is
+reserved for tiny one-step operations, manager synthesis, final checks, or
+bounded recovery from a failed delegation; record any exception.
+
 ## Ownership Boundaries
 
 - `backend/main.py`: FastAPI application lifecycle, startup, health, access helpers, and router inclusion.

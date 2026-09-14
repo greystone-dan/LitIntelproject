@@ -9,7 +9,6 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from bs4 import BeautifulSoup, NavigableString
 from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -391,69 +390,6 @@ def get_case_metadata_pass(
 	}
 
 
-def _format_reader_html(
-	source_html: str | None, citations: list[CaseReaderCitationResponse]
-) -> str | None:
-	if not source_html:
-		return None
-	soup = BeautifulSoup(source_html, "html.parser")
-	for citation in sorted(
-		citations,
-		key=lambda row: len(row.citation_text or row.normalized_citation or ""),
-		reverse=True,
-	):
-		original_label = (citation.citation_text or citation.normalized_citation or "").strip()
-		labels = []
-		for value in (original_label, citation.normalized_citation, citation.target_title):
-			candidate = (value or "").strip()
-			if not candidate:
-				continue
-			candidate = re.sub(r"\]\s*at\s+paras?\b.*$", "", candidate, flags=re.IGNORECASE).strip(" []")
-			candidate = re.sub(r"\s+at\s+paras?\b.*$", "", candidate, flags=re.IGNORECASE).strip()
-			if candidate and candidate not in labels:
-				labels.append(candidate)
-		labels.sort(key=len, reverse=True)
-		if not labels:
-			continue
-		for node in list(soup.find_all(string=lambda value: isinstance(value, NavigableString))):
-			if node.parent.name in {"mark", "button"}:
-				continue
-			label = next((candidate for candidate in labels if candidate in str(node)), "")
-			if not label:
-				continue
-			before, after = str(node).split(label, 1)
-			replacement = []
-			if before:
-				replacement.append(NavigableString(before))
-			if citation.target_case_id:
-				wrapped = soup.new_tag(
-					"button",
-					attrs={
-						"class": "citation-link",
-						"type": "button",
-						"data-target-case-id": str(citation.target_case_id),
-						"data-target-title": citation.target_title or "Linked case",
-						"data-authority": citation.target_chunk_text or citation.target_title or label,
-					},
-				)
-			else:
-				statute = citation.citation_kind == "statute" or _is_irpa_irpr_reference(original_label)
-				wrapped = soup.new_tag(
-					"mark",
-					attrs={
-						"class": "chunk-statute" if statute else "chunk-citation",
-						"data-authority": citation.target_chunk_text or label,
-					},
-				)
-			wrapped.string = label
-			replacement.append(wrapped)
-			if after:
-				replacement.append(NavigableString(after))
-			node.replace_with(*replacement)
-			break
-	return soup.decode_contents()
-
-
 def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	case = db.scalar(select(Case).where(Case.id == case_id))
 	if case is None:
@@ -527,24 +463,6 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
 	}
 	target_chunks: dict[tuple[int, int], str] = {}
-	if target_pinpoints:
-		target_case_ids = {target_case_id for target_case_id, _ in target_pinpoints}
-		for chunk in db.scalars(
-			select(CaseChunk).where(
-				CaseChunk.case_id.in_(target_case_ids),
-				CaseChunk.chunk_set == "paragraph",
-				CaseChunk.paragraph_start.is_not(None),
-				CaseChunk.paragraph_end.is_not(None),
-			)
-		):
-			chunk_start = chunk.paragraph_start
-			chunk_end = chunk.paragraph_end
-			if chunk_start is None or chunk_end is None:
-				continue
-			for target_case_id, paragraph in target_pinpoints:
-				if chunk.case_id == target_case_id and chunk_start <= paragraph <= chunk_end:
-					target_chunks[(target_case_id, paragraph)] = chunk.text
-					break
 
 	citation_responses = [
 		CaseReaderCitationResponse(
@@ -619,99 +537,6 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 			if row.chunk_id is None or row.chunk_id in selected_chunk_ids
 		]
 
-	has_statute_like = any(
-		_is_statute_like_label(row.target_citation)
-		or _is_statute_like_label(row.normalized_citation)
-		or _is_statute_like_label(row.citation_text)
-		for row in citation_responses
-	)
-
-	chunk_ids_with_rows = {
-		row.chunk_id for row in citation_responses if row.chunk_id in selected_chunk_ids
-	}
-	if selected_chunk_ids:
-		seen_live: set[tuple[int, int, int, str]] = set()
-		for row in citation_responses:
-			if row.chunk_id is None or row.offset_start is None or row.offset_end is None:
-				continue
-			seen_live.add(
-				(
-					row.chunk_id,
-					int(row.offset_start),
-					int(row.offset_end),
-					str(row.normalized_citation or row.citation_text or "").strip().lower(),
-				)
-			)
-
-		next_live_id = -1
-		process_all_chunks = (not chunk_ids_with_rows) or (not has_statute_like)
-		for chunk in chunks:
-			if chunk.id is None:
-				continue
-			if not process_all_chunks and chunk.id in chunk_ids_with_rows:
-				pass
-			chunk_text = chunk.text or ""
-			if not chunk_text.strip():
-				continue
-			for raw in extract_raw_citation_matches(chunk_text):
-				if raw.kind not in {"case", "case_short", "case_name", "neutral"}:
-					continue
-				if is_self_case_name_match(case.title, raw):
-					continue
-				normalized_key = str(raw.normalized_citation or raw.citation_text or "").strip().lower()
-				key = (chunk.id, raw.offset_start, raw.offset_end, normalized_key)
-				if key in seen_live:
-					continue
-				seen_live.add(key)
-				citation_responses.append(
-					CaseReaderCitationResponse(
-						id=next_live_id,
-						citation_kind=raw.kind,
-						chunk_id=chunk.id,
-						offset_start=raw.offset_start,
-						offset_end=raw.offset_end,
-						citation_text=raw.citation_text,
-						normalized_citation=raw.normalized_citation,
-						target_case_id=None,
-						target_title=None,
-						target_citation=None,
-						provenance="reader_live_extract",
-						unresolved=True,
-					)
-				)
-				next_live_id -= 1
-			for raw in extract_statute_reference_matches(chunk_text):
-				normalized_key = str(raw.normalized_citation or raw.citation_text or "").strip().lower()
-				key = (chunk.id, raw.offset_start, raw.offset_end, normalized_key)
-				if key in seen_live:
-					continue
-				seen_live.add(key)
-				citation_responses.append(
-					CaseReaderCitationResponse(
-						id=next_live_id,
-						citation_kind=raw.kind,
-						chunk_id=chunk.id,
-						offset_start=raw.offset_start,
-						offset_end=raw.offset_end,
-						citation_text=raw.citation_text,
-						normalized_citation=raw.normalized_citation,
-						instrument_key=(
-							parsed.instrument_key
-							if (parsed := parse_legislation_citation(raw.normalized_citation or raw.citation_text))
-							else None
-						),
-						pinpoint=(parsed.pinpoint if parsed else None),
-						provenance="reader_live_statute_extract",
-						legislation_url=(
-							parsed.legislation_url
-							if parsed
-							else _legislation_url_for_reference(raw.normalized_citation or raw.citation_text)
-						),
-						unresolved=False,
-					)
-				)
-				next_live_id -= 1
-
 	case_text = case.full_text or case.summary or ""
 	chunks_by_id = {chunk.id: chunk for chunk in chunks if chunk.id is not None}
 	for citation in citation_responses:
@@ -739,7 +564,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		}
 
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
-	formatted_html = _format_reader_html(case.source_html, citation_responses)
+	formatted_html = None
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),

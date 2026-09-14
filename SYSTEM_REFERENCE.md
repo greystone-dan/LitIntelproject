@@ -462,7 +462,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 
 - `POST /ingest`: validates and creates/merges canonical cases with provenance.
 - `GET /cases/{case_id}`: canonical case retrieval.
-- `GET /cases/{case_id}/reader-data`: unified persisted-evidence reader payload containing case, sources, preferred chunks, citations, tags, metadata, and metrics. It must not run extraction or perform request-time HTML citation rewriting.
+- `GET /cases/{case_id}/reader-data`: unified persisted-evidence reader payload containing case, sources, preferred chunks, case citations, tags, metadata, and metrics. Statute references are loaded separately by `GET /cases/{case_id}/statute-references` when Acts / Regs is opened. It must not run extraction or perform request-time HTML citation rewriting.
 - `GET /cases/{case_id}/citation-pass`: stored and live extraction evidence for QA.
 - `POST /search`: case-level semantic, lexical, hybrid, or metadata search.
 - `POST /search/chunks`: chunk-level search.

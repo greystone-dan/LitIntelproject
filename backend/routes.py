@@ -135,6 +135,7 @@ from .reader_service import (
 	build_case_citation_pass,
 	build_case_citation_pass_detail,
 	build_case_reader_data,
+	get_case_statute_references as _get_case_statute_references,
 	get_case_metadata_pass as _get_case_metadata_pass_impl,
 	_build_metadata_pass_normalized_rows,
 	_build_reader_extracted_metadata,
@@ -718,6 +719,11 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.get("/cases/{case_id}/statute-references", response_model=list[CaseReaderCitationResponse])
+def get_case_statute_references(case_id: int, db: Session = Depends(get_db)) -> list[CaseReaderCitationResponse]:
+	return _get_case_statute_references(case_id, db)
 
 
 @router.get("/api/legislation/cases", response_model=list[LegislationCaseOccurrenceResponse])

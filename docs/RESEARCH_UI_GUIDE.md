@@ -108,7 +108,8 @@ stored or derived research evidence, not a replacement for the source text or
 legal verification.
 
 The active reader initially displays persisted canonical text/chunks and stored
-citation/statute evidence. It does not run citation or statute extraction and
+case-citation evidence. Statute references are fetched when the Acts / Regs tab
+is opened. It does not run citation or statute extraction and
 does not rescan stored source HTML during a reader request. Preserved
 `source_html` remains available as provenance, but any future pretty-rendering
 path must be precomputed or explicitly lazy-loaded; it must not block case

@@ -390,6 +390,36 @@ def get_case_metadata_pass(
 	}
 
 
+def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCitationResponse]:
+	if db.scalar(select(Case.id).where(Case.id == case_id)) is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
+	rows = db.scalars(
+		select(StatuteReference)
+		.where(StatuteReference.source_case_id == case_id)
+		.order_by(StatuteReference.chunk_id, StatuteReference.offset_start, StatuteReference.id)
+	)
+	return [
+		CaseReaderCitationResponse(
+			id=-1000000 - reference.id,
+			citation_kind=reference.reference_kind,
+			chunk_id=reference.chunk_id,
+			offset_start=reference.offset_start,
+			offset_end=reference.offset_end,
+			citation_text=reference.reference_text,
+			normalized_citation=reference.normalized_reference,
+			instrument_key=reference.instrument_key,
+			pinpoint=reference.pinpoint,
+			provenance="statute_references",
+			legislation_url=reference.legislation_url
+			or _legislation_url_for_reference(
+				reference.normalized_reference or reference.reference_text
+			),
+			unresolved=False,
+		)
+		for reference in rows
+	]
+
+
 def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	case = db.scalar(select(Case).where(Case.id == case_id))
 	if case is None:
@@ -499,35 +529,6 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 			),
 		)
 	]
-
-	statute_rows = list(
-		db.scalars(
-			select(StatuteReference)
-			.where(StatuteReference.source_case_id == case_id)
-			.order_by(StatuteReference.chunk_id, StatuteReference.offset_start, StatuteReference.id)
-		)
-	)
-	statute_responses = [
-		CaseReaderCitationResponse(
-			id=-1000000 - reference.id,
-			citation_kind=reference.reference_kind,
-			chunk_id=reference.chunk_id,
-			offset_start=reference.offset_start,
-			offset_end=reference.offset_end,
-			citation_text=reference.reference_text,
-			normalized_citation=reference.normalized_reference,
-			instrument_key=reference.instrument_key,
-			pinpoint=reference.pinpoint,
-			provenance="statute_references",
-			legislation_url=reference.legislation_url
-			or _legislation_url_for_reference(
-				reference.normalized_reference or reference.reference_text
-			),
-			unresolved=False,
-		)
-		for reference in statute_rows
-	]
-	citation_responses.extend(statute_responses)
 
 	selected_chunk_ids = {chunk.id for chunk in chunks if chunk.id is not None}
 	if selected_chunk_ids:

@@ -155,6 +155,10 @@ signal to investigate, not silently padded by the UI.
 Reader tab actions use one explicit dispatcher boundary; legacy render helpers
 remain compatibility internals pending visual regression coverage.
 
+Highlight styling uses restrained fills and underlines rather than stacked
+borders/shadows. Citation/statute/tag precedence remains backend-offset-driven;
+overlapping ranges are a tracked follow-up requiring visual regression coverage.
+
 Reader-inferred tags are generated from one canonical text representation when
 available, rather than concatenating overlapping full-text and chunk copies.
 Repeated matches are retained up to a bounded per-tag limit and grouped only

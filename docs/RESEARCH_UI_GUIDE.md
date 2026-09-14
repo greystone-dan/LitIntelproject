@@ -22,6 +22,17 @@ Open `/data-explorer`. This is the active research workspace. It has nine top-le
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
 
+## Current UI Review Backlog
+
+The active workflow is functionally smoke-tested, but the next UI quality pass
+should address accessibility and responsive behavior before broader visual work:
+
+- Add `aria-selected` and keyboard semantics to the top-level and reader tabsets.
+- Give reader pane separators visible focus treatment and keyboard resizing.
+- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
+- Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
+
 ## About
 
 About shows live counts rather than hard-coded documentation figures. It describes cases, chunks, citation rows, resolved case links, judge profiles, Federal Court activity records/documents, and coverage-style status labels.

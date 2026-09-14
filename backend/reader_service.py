@@ -531,15 +531,9 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	]
 
 	selected_chunk_ids = {chunk.id for chunk in chunks if chunk.id is not None}
-	if selected_chunk_ids:
-		citation_responses = [
-			row
-			for row in citation_responses
-			if row.chunk_id is None or row.chunk_id in selected_chunk_ids
-		]
 
 	case_text = case.full_text or case.summary or ""
-	chunks_by_id = {chunk.id: chunk for chunk in chunks if chunk.id is not None}
+	chunks_by_id = {chunk.id: chunk for chunk in all_chunks if chunk.id is not None}
 	for citation in citation_responses:
 		if citation.offset_start is None or citation.offset_end is None:
 			continue
@@ -563,6 +557,11 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 			}
 			for layer, span in layer_spans.items()
 		}
+		paragraph_span = layer_spans.get("paragraph")
+		if citation.chunk_id not in selected_chunk_ids and paragraph_span is not None:
+			citation.chunk_id = paragraph_span.chunk_id
+			citation.offset_start = paragraph_span.local_start
+			citation.offset_end = paragraph_span.local_end
 
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
 	formatted_html = None

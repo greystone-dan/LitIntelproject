@@ -123,6 +123,11 @@ or statute spans, preventing nested and repeated-text highlights. Tag evidence
 remains available in the Tags panel, while Full text uses backend-owned tag
 offsets where available.
 
+The Citations tab and Full text law highlights consume the merged persisted
+reader evidence, including lazily loaded statute-reference rows. Chunk-mode
+paragraph projection remains a separate compatibility follow-up where stored
+section-layer rows need visible paragraph-layer rendering.
+
 The active reader initially displays persisted canonical text/chunks and stored
 case-citation evidence. Statute references are fetched when the Acts / Regs tab
 is opened. It does not run citation or statute extraction and

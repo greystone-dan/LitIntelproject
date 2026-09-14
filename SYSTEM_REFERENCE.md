@@ -974,6 +974,10 @@ The reader's display modes are:
   preserved source HTML remains provenance for a future explicitly lazy-loaded
   presentation path.
 
+Reader tab clicks pass through one explicit dispatcher boundary in the active
+Data Explorer page. Historical render wrappers remain behind that boundary until
+visual regression coverage supports their incremental removal.
+
 Linked citations can populate a separate linked-authority context pane. The
 reader uses bounded pane height and independently scrollable panes so a long
 authority does not force the main decision body to the same location. Scrollbars

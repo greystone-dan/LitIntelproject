@@ -141,6 +141,9 @@ each stored tag row, and the occurrence detail shows its source and offset when
 available. Sparse results should be treated as a data-coverage or tagging
 signal to investigate, not silently padded by the UI.
 
+Reader tab actions use one explicit dispatcher boundary; legacy render helpers
+remain compatibility internals pending visual regression coverage.
+
 Reader-inferred tags are generated from one canonical text representation when
 available, rather than concatenating overlapping full-text and chunk copies.
 Repeated matches are retained up to a bounded per-tag limit and grouped only

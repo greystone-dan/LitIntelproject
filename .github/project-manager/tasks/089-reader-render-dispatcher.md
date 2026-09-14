@@ -33,7 +33,7 @@ Docs/generated references: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `
 
 Rollback/recovery: Revert only the reader JavaScript refactor if any tab or browser check fails.
 
-Evidence: Delegated read-only audit mapped the active five-layer `renderCaseReaderPane` wrapper chain, duplicate render definitions, tab selectors, and endpoint calls. The smallest safe cleanup removed the stale `[data-reader-info-tab]` listener, which targeted an attribute not used by the active reader. Existing active wrappers, tab labels, endpoint calls, and browser selectors were preserved. Focused API/UI tests passed (`56 passed`), and browser smoke passed with all reader tabs, tags, layer legend, and mobile Themes.
+Evidence: Delegated read-only audit mapped the active five-layer `renderCaseReaderPane` wrapper chain, duplicate render definitions, tab selectors, and endpoint calls. The manager added a capture-phase reader tab dispatcher so each `[data-reader-tab]` click has one explicit owner while preserving existing endpoint behavior and selectors. Existing wrappers remain behind that boundary for later incremental removal. Focused API/UI tests passed (`56 passed`), and browser smoke passed with all reader tabs, tags, layer legend, and mobile Themes.
 
 ## Hypothesis
 
@@ -56,10 +56,10 @@ If the reader's tab-specific render logic is routed through one dispatcher, the 
 
 Completion recorded: yes
 
-Summary: Removed one dead reader event path without changing active tab behavior. Deferred the larger wrapper consolidation to a separately tested refactor.
+Summary: Added one explicit reader tab dispatcher boundary without changing active tab behavior. Deferred deletion of the historical wrapper chain to a separately tested refactor.
 
 Validation: `pytest tests/test_feature_tabs.py tests/test_api.py -q` -> `56 passed`; browser smoke passed.
 
-Residual risk: The generated page still contains historical renderer wrappers and duplicate definitions. A larger dispatcher refactor remains higher risk and should receive dedicated visual regression coverage.
+Residual risk: The generated page still contains historical renderer wrappers and duplicate definitions behind the dispatcher. Full removal remains higher risk and should receive dedicated visual regression coverage.
 
 Next recommended task: Build visual regression coverage, then consolidate the reader wrapper chain into one dispatcher.

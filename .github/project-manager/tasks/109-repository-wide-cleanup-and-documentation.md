@@ -34,7 +34,7 @@ Docs/generated references: SYSTEM_REFERENCE.md; DOCS_INDEX.md; OVERNIGHT.md; doc
 
 Rollback/recovery: Revert only this task's commit if necessary; do not use destructive Git operations. Preserve run state/logs and avoid database rollback because no bulk writer is authorized by this task. Push recovery requires a follow-up corrective commit.
 
-Evidence: Delegated read-only inventory classified active owner surfaces, legacy/comparison boundaries, generated references, historical docs, and isolated side projects. Fixed the confirmed full-suite collection defect in the browser-game harness import path, regenerated schema/script references, and aligned the canonical V2 pipeline documentation with the explicit overnight `pipeline` profile. Focused and full validation passed: generated-doc checker passed 3 references; full pytest passed 507 tests with 0 failures and 0 skips; browser-game harness passed 5 tests; diff checks passed. Commit/push evidence is recorded separately after fresh final Git review.
+Evidence: Delegated read-only inventory classified active owner surfaces, legacy/comparison boundaries, generated references, historical docs, and isolated side projects. Fixed the confirmed full-suite collection defect in the browser-game harness import path, regenerated schema/script references, and aligned the canonical V2 pipeline documentation with the explicit overnight `pipeline` profile. Focused and full validation passed: generated-doc checker passed 3 references; full pytest passed 507 tests with 0 failures and 0 skips; browser-game harness passed 5 tests; diff checks passed. Commit `a48ee7b4441ea645b171aa6ba9e5894ff2002afe` was pushed successfully to `origin/main`.
 
 ## Hypothesis
 
@@ -55,7 +55,7 @@ If the repository is classified by active ownership and each confirmed cleanup i
 - Implementation: side_projects/browser_game/tests/test_game_harness.py import portability fix; generated schema/script references regenerated.
 - Documentation: SYSTEM_REFERENCE.md, OVERNIGHT.md, and .swm/8.upryk5h6.sw.md updated; generated references current.
 - Validation: full pytest and generated-document checker passed.
-- Commit/push: pending final staged-file review and Git remote check.
+- Commit/push: completed with the bounded cleanup commit `a48ee7b4441ea645b171aa6ba9e5894ff2002afe` pushed to `origin/main`; unrelated worktree changes remain unstaged.
 
 ## Decision Log
 

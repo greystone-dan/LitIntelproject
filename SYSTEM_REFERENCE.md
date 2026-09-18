@@ -180,7 +180,7 @@ Statute and instrument extraction is independent. It supports IRPA and IRPR name
 A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
 
 The 2026-09-17 read-only coverage inventory found `751,944` statute-reference
-rows, `13` indexed legislation documents, and `4,522` indexed sections.
+rows, `14` indexed legislation documents, and `4,522` indexed sections.
 `canada.immigration_act` is the largest high-volume uncovered instrument with
 `10,107` references across `2,648` cases and no indexed document. The largest
 covered non-IRPA instrument is `canada.criminal_code` with `50,020` references
@@ -190,11 +190,22 @@ and explicit range/missing-section statuses; its focused slice passed three
 tests. This is test-only evidence and does not authorize a corpus writer or
 new source acquisition.
 
+A follow-up read-only inventory on 2026-09-18 confirmed that all 14 approved
+local authority sources are already indexed, so no authority indexing or
+statute extraction rerun was required. In a bounded sample of 1,000 stored
+references with a non-null instrument key, 561 resolved to a stored base
+section, 389 had no matching section, 24 referenced an unindexed section, 22
+referenced an unindexed document, and 4 were ranges/lists intentionally left
+unresolved. The missing-document sample was concentrated in
+`canada.immigration_act`, which remains a separate source-approval decision.
+Resolution is computed at read time and is not persisted on
+`statute_references`.
+
 Authority indexing is source-format neutral at the parsing boundary. The legislation section contract can be populated from XML, authoritative HTML, or verified extracted text while preserving the source URL, local path, and hash. The official Justice Laws Constitution HTML exposes stable section anchors and provision lists; it can therefore support Charter/Constitution section records without an XML endpoint. The Refugee Convention and 1967 Protocol remain a separate international-instrument source task because the automated UNHCR page probe returned 403 and no source has yet been acquired or indexed.
 
 The priority XML dry run accepted official Justice Laws snapshots for Indian Act, Privacy Act, and Canadian Human Rights Act, producing 134, 96, and 95 non-empty, duplicate-free units respectively. The nominal `P-4.6.xml` endpoint was rejected after source-title inspection because it returns the Payments for Community Development Act rather than the Patent Act; it was not retained or indexed. No priority source has been written to the authority tables.
 
-A bounded non-XML dry run now has reviewed source snapshots for the official Justice Laws Charter page and the UN Treaty Series versions of the 1951 Refugee Convention and 1967 Protocol. It produced 35 Charter units, 44 Convention articles, and 11 Protocol articles, with zero duplicate identifiers, empty texts, or parse errors. The snapshots and hashes are recorded in `data/eval/non_xml_authority_dry_run.json`; live authority-table indexing remains gated on review.
+A bounded non-XML dry run now has reviewed source snapshots for the official Justice Laws Charter page and the UN Treaty Series versions of the 1951 Refugee Convention and 1967 Protocol. It produced 35 Charter units, 44 Convention articles, and 11 Protocol articles, with zero duplicate identifiers, empty texts, or parse errors. The snapshots and hashes are recorded in `data/eval/non_xml_authority_dry_run.json`; these reviewed sources are now represented in the indexed authority tables.
 
 ### Live Analysis
 

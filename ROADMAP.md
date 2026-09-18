@@ -332,10 +332,10 @@ By end of Phase 4, target:
 
 ## Immediate Next Actions (This Week)
 
-1. Use the completed live statute/source coverage audit to select a bounded
-	Criminal Code fixture comparison against the indexed Justice Laws sections;
-	keep the 10,107-reference Immigration Act gap as a separate source-approval
-	decision.
+1. Use the completed live statute/source coverage audit and resolution sample
+	to classify missing-section, unindexed-section, range/list, and unidentified
+	references before changing resolver behavior; keep the 10,107-reference
+	Immigration Act gap as a separate source-approval decision.
 2. Expand law regressions for French forms, Parts/Schedules, additional treaties,
 	and safe short-form anchor boundaries.
 3. Repair the unrelated FC document-scraper test collection error and establish

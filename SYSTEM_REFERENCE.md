@@ -328,6 +328,198 @@ evidence, evidence records, and named canonical/Swimm documentation paths.
 
 ### Canonical Processing Pipeline
 
+### Additive Contextual Authority Layer
+
+`backend/contextual_authority/` is an additive, read-only consumer of canonical
+case chunks and citation occurrences. Phase 0 generates competing sentence,
+paragraph, fixed-window, and citation-burst context units in memory or in a
+staged snapshot; it does not edit `cases`, `case_chunks`, `citations`, statute
+references, tags, metadata, or outcomes. Each unit stores method/version and
+configuration identity, chunk-local offsets, source hashes, and citation
+membership so the source text can be reconstructed and independently checked.
+
+The `0026_contextual_authority_phase0` migration adds versioned snapshot,
+context-unit, segment, citation-membership, observation/evidence placeholder,
+and review tables. A snapshot is staged until validation succeeds; publication
+is controlled separately through the active-snapshot singleton. The bounded
+`scripts/inspect_context_variants.py` command is a dry-run inspector and has no
+database write path. Treatment, actor/intent, weak supervision, statistical
+models, authority profiles, temporal claims, and UI integration remain later
+phases.
+
+### Discussion Unit Detection V1
+
+Discussion Units are the next additive analytical layer. V1 is deliberately
+narrow: for one decision, derive stable paragraph features from existing source
+text and canonical occurrence memberships, calculate adjacent continuity
+components, and emit reviewer-inspectable boundaries. Components remain
+separate: authority overlap, legislation overlap, tag overlap, heading-boundary
+penalty, and any optional semantic signal. A final continuity score is never
+the only stored evidence.
+
+The method order is conservative: structural segmentation first, deterministic
+signal overlap and density second, statistical similarity and topic
+segmentation experiments third, and AI interpretation last. Structural
+boundaries include headings and other document transitions. Explainable
+density signals may include authority density, statute density, tag density,
+authority diversity, and authority reuse. Later corpus discovery may explore
+co-occurrence, frequent-pattern mining, graph communities, and hierarchical
+clustering, but none of those methods is required for V1 or may silently
+create theme labels.
+
+Discussion Unit outputs must preserve paragraph identity, chunk identity,
+source offsets, hashes, memberships, generation method/version, and
+configuration identity. They are immutable staged outputs and do not modify
+cases, chunks, citations, legislation references, tags, or embeddings. V1 does
+not perform clustering, theme labeling, treatment inference, or external-AI
+calls. The first falsifiable check is a deterministic single-decision JSON and
+Markdown inspector whose boundaries can be judged by a legal reviewer and whose
+source text can be reconstructed exactly.
+
+The bounded inspector is `scripts/inspect_discussion_units.py`. It reads one
+case and one existing `CaseChunk.chunk_set`, validates each paragraph hash
+against the canonical chunk, and writes only optional JSON/Markdown evaluation
+artifacts. The current corpus uses `paragraph`, `section`, and `full_case`
+chunk sets; `heading_chunks` is not assumed to exist. A successful dry run
+reports the input count, adjacent continuity count, unit ranges, source hashes,
+and `canonical_writes: 0` plus `contextual_writes: 0`. For example, case `1093`
+with `chunk_set=paragraph` produced a 40-paragraph, 39-continuity-pair,
+four-unit artifact at `data/eval/discussion_units_case_1093.md` and its JSON
+counterpart. The four ranges are driven by the embedded `II. Background`,
+`III. Issues`, and `JUDGMENT` cues; lexical content-word overlap is retained
+as a separate continuity component and weak overlap is neutral rather than an
+automatic boundary. That artifact is ready for human boundary review; no
+migration, theme inference, or treatment activation follows from it.
+Discussion Unit generation version 1.2 also detects sustained low-overlap runs
+with no citation, statute, or tag signals for inputs of at least 50 paragraphs,
+using eight consecutive vacuum pairs before splitting at the start of the
+vacuum and closing it when signals resume. This addresses medium and large
+heterogeneous sections such as cases `53518` and `18674` without changing
+paragraph identity or source hashes. Small cases remain outside this gate so
+isolated heading and order spans do not become over-segmented.
+The expanded read-only cohort covers cases `53515`, `53516`, `53517`, `53518`,
+`62`, `853`, `1046`, `3267`, `7341`, `10047`, `12718`, and `13610` in addition
+to the original `677`, `1093`, `1171`, and `18674` fixtures. The V1.2 packets
+preserve all paragraph source hashes and report zero canonical/contextual writes.
+The observed unit counts are `1, 2, 13, 3, 3, 2, 4, 4, 2, 3, 5, 3, 3, 4,
+6, 72` in that order. Case `53518` improved from one collapsed unit to three;
+case `18674` remains bounded at 72 units with no one-unit collapse. Remaining
+one- or two-paragraph units are concentrated at explicit heading/order spans in
+shorter cases and remain a human-review limitation rather than a write or hash
+integrity failure.
+The expanded V1.2 cohort received a bounded external review across all 16 cases.
+The reviewer confirmed improved large-case boundaries, preservation of smaller
+case counts and source identity, and trustworthy provenance. The next bounded
+quality concern is not segmentation: some sub-themes, especially `677:3`,
+`1093:1`, `1171:2`, and `18674:72`, need clearer role cues or governing-rule
+context. These remain low-trust review findings; no runtime activation follows.
+
+When a heading is embedded in the same canonical chunk as preceding prose, the
+inspector derives two immutable source spans rather than labeling the whole
+chunk as a heading. Both spans retain the original `chunk_id` and canonical
+chunk hash; their local offsets identify the exact heading start. In the case
+`1093` artifact, the three heading spans begin at derived indexes `4`, `13`,
+and `41`, and the four unit ranges begin immediately at those spans.
+
+### Sub-themes and Argument Evidence V1.4
+
+Discussion Units now support a second, still offline and additive layer for
+review. `backend/contextual_authority/subthemes.py` extracts explicit argument
+role cues such as issue/question, party position, evidence/fact,
+governing-rule, reasoning/application, counterargument/limitation, and
+disposition. V1.1 suppresses metadata-only headings, captions, certification,
+record, and solicitor text; requires actor context for party positions;
+restricts disposition to operative outcome verbs; and requires local contrast
+context for limitation cues. Each observation retains the cue span, full
+sentence context, canonical chunk identity, local offsets, source hash, role
+rationale, and method/version. These are evidence observations, not asserted
+legal findings.
+
+V1.3 keeps the same seven-role vocabulary and extends the precision gates:
+procedural claim nouns such as `refugee claims`, `on this claim`, and `claim
+for refugee protection` are not party-position observations, while explicit
+advocacy forms such as `claims that`, `argues`, and `submits` remain eligible
+when actor context is present. Non-doctrinal `under` phrases such as `under
+the laws of Yukon` and `under their own agenda` are excluded from governing
+rule observations, while statutory and test references remain eligible. Soft
+contrast cues use a bounded local anchor window, and procedural `although the
+parties' arguments` language is excluded. These are offline, deterministic
+changes covered by adversarial tests; they do not delete raw source text or
+alter canonical rows.
+
+The same layer groups contiguous paragraphs into deterministic sub-themes using
+content-term signatures, role continuity, and explicit issue cues. A sub-theme
+retains its parent Discussion Unit, paragraph range, raw key terms, filtered
+display terms, roles, full argument evidence, text hash, and configuration
+identity. It does not claim a semantic theme label, use embeddings, call
+external AI, or write database rows. The read-only inspector exposes both raw
+and display terms in JSON and Markdown. V1.1 explanations include deterministic
+position, rule/authority, application, and operative-outcome context when
+observed rather than only listing role names. V1.4 explicitly marks spans with
+no argument evidence as metadata or cue-free text, distinguishing an expected
+heading/appearance span from an unexplained missing role. The refreshed bounded review set
+contains cases `677`, `1093`, `1171`, and the larger heterogeneity check
+`18674`. The external review prompt records their OneDrive paths and requires
+the complete response to be pasted back into chat. These remain staged
+evidence packets for human review, not runtime legal intelligence activation.
+
+### Offline Treatment Training Set
+
+Treatment discovery uses OpenAI only as an optional development-time teacher.
+`scripts/build_treatment_teacher_fixture.py` creates citation-centered JSONL
+examples, prioritizing citations in the latter half of each case by chunk
+order; `--whole-decision` is available for comparison. The citation and nearby
+context remain source-hashed and offset-validated. The default fixture window
+keeps 1,000 characters before a citation and 2,000 characters after it, where
+the additional post-citation context covers the common argument-to-judicial-
+treatment sequence; both sides are bounded and configurable. Candidate rows
+also record rule, comparison, authority-strength, agreement, application,
+limitation, explanation, and party-position signals for sampling only. These
+signals never assign a treatment label: every row remains `review_required`.
+The fixture is converted to
+a no-network request by `scripts/prepare_treatment_teacher_batch.py`, which
+enforces a maximum `$10` batch budget and reports estimated cost before any
+external call. The explicitly approved development runner,
+`scripts/run_treatment_teacher_batch.py`, sends only prepared dry-run payloads,
+enforces the current session budget, checkpoints raw responses, and accepts a
+treatment phrase only when its span reconstructs from the supplied excerpt;
+unique phrase occurrences may repair model-provided offsets, but remain marked
+as repaired. Runtime treatment highlighting must consume reviewed local rules
+or models and must not depend on OpenAI. The read-only
+`scripts/build_treatment_distillation.py` report revalidates returned labels
+against the fixture, groups repeated phrases, and emits only
+`proposed_review_required` rules. It cannot publish runtime behavior. The first
+report produced 19 repeated phrase candidates from 106 confidence-qualified
+labels, but remains dominated by supportive labels and requires human review.
+`scripts/build_treatment_review_packet.py` presents that report as a separate
+JSON and Markdown review packet. It places sparse non-supportive labels and
+all repaired-span labels in a priority queue before the repeated-rule queue;
+the generated packet contains 19 repeated rules and 90 priority labels. A
+reviewer must record decisions in the packet before any held-out evaluation or
+runtime publication is considered. The Markdown view starts with ten items and
+defines each treatment in plain language; a reviewer can return item IDs with
+`approve`, `reject`, or `unclear` and a short reason without editing JSON.
+Each item also includes a fixture-backed decision-context window with the
+citation and proposed treatment offsets, so treatment is judged from the
+actual passage rather than an isolated phrase.
+
+The first deterministic observation slice is pure and evidence-linked. It
+records only disposition cues, issue-type cues, and explicit government-party
+mentions, each with a chunk-local span, source hash, rule identity, confidence,
+and observation method version. It deliberately does not infer authority
+treatment, applicant success, or merits from citation proximity; those require
+a separate citation-direction experiment and reviewable validation.
+
+### Rule Voting And Weak-Supervision Preparation
+
+`backend/contextual_authority/voting.py` provides an in-memory agreement
+substrate for later weak supervision. `RuleVote` preserves rule identity,
+threshold, confidence, rationale, exact evidence text/hash, and configuration
+identity. `RuleAgreementReport` makes unanimous agreement, conflict, and full
+abstention explicit while retaining every normalized vote. Its agreement ratio
+is a calibration metric only; this phase does not emit pseudo-labels, write
+corpus annotations, train models, or alter canonical evidence.
+
 `backend/case_processing.py` codifies the ordered deterministic layers:
 
 1. `full_case`: replace the whole-case chunk for the case.

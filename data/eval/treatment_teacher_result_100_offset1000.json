@@ -1,0 +1,707 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-18T14:10:41.992533+00:00",
+  "model": "gpt-4.1-nano",
+  "budget_usd": 2.6,
+  "spent_usd": 0.009511499999999999,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 9108,
+        "completion_tokens": 1369,
+        "estimated_cost_usd": 0.0019068000000000002,
+        "cost_usd": 0.0014583999999999999
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 9,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1002",
+          "citation_ordinal": 0,
+          "citation_text": "Jean at paras 15\u201332",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation is provided but no specific treatment language is supported by the phrase; it merely references the case."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1001\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports a supportive treatment indicating that the court accepted the reasonableness of the risk analysis in certain decisions.\"\n    },\n    {\n      \"example_id\": \"citation-context-1002\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation is provided but no specific treatment language is supported by the phrase; it merely references the case.\"\n    },\n    {\n      \"example_id\": \"citation-context-1003\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly indicates that the court accepted the reasonableness of the risk analysis in some decisions, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1004\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports a supportive treatment indicating acceptance of the reasonableness of the risk analysis in certain decisions.\"\n    },\n    {\n      \"example_id\": \"citation-context-1005\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly indicates that the court accepted the reasonableness of the risk analysis in some decisions, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1006\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports a supportive treatment indicating acceptance of the reasonableness of the risk analysis in certain decisions.\"\n    },\n    {\n      \"example_id\": \"citation-context-1007\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly indicates that the court accepted the reasonableness of the risk analysis in some decisions, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1008\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports a supportive treatment indicating that the court accepted the reasonableness of the risk analysis in certain decisions.\"\n    },\n    {\n      \"example_id\": \"citation-context-1009\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly indicates that the court accepted the reasonableness of the risk analysis in some decisions, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1010\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that this issue has never been resolved has resulted in disparate judgments in the Federal Court. In some decisions, this Court accepted the reasonableness of the risk analysis after answering yes to the first question of the Zeng test\",\n      \"phrase_start\": 137,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports a supportive treatment indicating that the court accepted the reasonableness of the risk analysis in certain decisions.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 2,
+      "example_start": 10,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 7245,
+        "completion_tokens": 1396,
+        "estimated_cost_usd": 0.0017376000000000002,
+        "cost_usd": 0.0012829
+      },
+      "validation": {
+        "valid_label_count": 7,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1011",
+          "citation_ordinal": 0,
+          "citation_text": "Zeng",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The excerpt mentions the Zeng test but does not include any language supporting a specific treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1012",
+          "citation_ordinal": 0,
+          "citation_text": "MARIE LUNA CELESTIN v THE",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The excerpt lists the case but does not contain language indicating support, distinction, or negative treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1013",
+          "citation_ordinal": 0,
+          "citation_text": "United States",
+          "treatment": "supportive",
+          "phrase": "contrary to the 1951 Convention Relating to the Status of Refugees, 28 July 1951, 189 UNTS at 137 (Refugee Convention or RT) and contrary to the United Nations Convention Against Torture and Other Cruel, Inhumane or Degrading Treatment or Punishment (CAT, collectively referred to as the Conventions).",
+          "phrase_start": 572,
+          "phrase_end": 873,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the application of the conventions, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1014",
+          "citation_ordinal": 0,
+          "citation_text": "United States",
+          "treatment": "supportive",
+          "phrase": "contrary to the 1951 Convention Relating to the Status of Refugees, 28 July 1951, 189 UNTS at 137 (Refugee Convention or RT) and contrary to the United Nations Convention Against Torture and Other Cruel, Inhumane or Degrading Treatment or Punishment (CAT, collectively referred to as the Conventions).",
+          "phrase_start": 572,
+          "phrase_end": 873,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the application of the conventions, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1018",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees",
+          "treatment": "supportive",
+          "phrase": "because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;",
+          "phrase_start": 2102,
+          "phrase_end": 2319,
+          "offsets_repaired": true,
+          "confidence": 0.92,
+          "rationale": "The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1019",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees et al. v Canada (Immigration, Refugees and Citizenship) 2017 FC 1131 at para 74",
+          "treatment": "supportive",
+          "phrase": "because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;",
+          "phrase_start": 1866,
+          "phrase_end": 2083,
+          "offsets_repaired": true,
+          "confidence": 0.92,
+          "rationale": "The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1020",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees et al. v Canada (Immigration, Refugees and Citizenship), 2018 FC 396 at para 39",
+          "treatment": "supportive",
+          "phrase": "because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;",
+          "phrase_start": 1622,
+          "phrase_end": 1839,
+          "offsets_repaired": true,
+          "confidence": 0.92,
+          "rationale": "The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1011\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.99,\n      \"rationale\": \"The excerpt mentions the Zeng test but does not include any language supporting a specific treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1012\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.99,\n      \"rationale\": \"The excerpt lists the case but does not contain language indicating support, distinction, or negative treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1013\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"contrary to the 1951 Convention Relating to the Status of Refugees, 28 July 1951, 189 UNTS at 137 (Refugee Convention or RT) and contrary to the United Nations Convention Against Torture and Other Cruel, Inhumane or Degrading Treatment or Punishment (CAT, collectively referred to as the Conventions).\",\n      \"phrase_start\": 447,\n      \"phrase_end\": 530,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the application of the conventions, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1014\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"contrary to the 1951 Convention Relating to the Status of Refugees, 28 July 1951, 189 UNTS at 137 (Refugee Convention or RT) and contrary to the United Nations Convention Against Torture and Other Cruel, Inhumane or Degrading Treatment or Punishment (CAT, collectively referred to as the Conventions).\",\n      \"phrase_start\": 447,\n      \"phrase_end\": 530,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the application of the conventions, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1015\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1016\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1017\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1018\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1019\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1020\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"because the designation of the United States of America is not and/or was not at the time of the decision under review in conformity with ss. 102(1)(a), 102(2) and 102(3) of the Immigration and Refugee Protection Act;\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase supports the unconstitutionality of the designation, indicating a supportive treatment of the citation.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 3,
+      "example_start": 20,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8242,
+        "completion_tokens": 1045,
+        "estimated_cost_usd": 0.0018525,
+        "cost_usd": 0.0012422
+      },
+      "validation": {
+        "valid_label_count": 8,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1021",
+          "citation_ordinal": 0,
+          "citation_text": "United States",
+          "treatment": "supportive",
+          "phrase": "raises a serious justiciable issue in which the Organizations have a genuine interest",
+          "phrase_start": 15,
+          "phrase_end": 100,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly indicates judicial review raises a serious issue, supporting a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1022",
+          "citation_ordinal": 0,
+          "citation_text": "or section 15(1) of the Charter of Rights and Freedoms.\nV. NOTICE",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation appears in a list of declarations and notices, with no specific treatment language supporting or opposing the citation."
+        },
+        {
+          "example_id": "citation-context-1024",
+          "citation_ordinal": 0,
+          "citation_text": "United States",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation appears in a list of affidavits and evidence, with no specific treatment language supporting or opposing the citation."
+        },
+        {
+          "example_id": "citation-context-1026",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees et al v Canada (Citizenship and Immigration), 2019 FC 285 at para 36",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation appears in a procedural context without specific treatment language."
+        },
+        {
+          "example_id": "citation-context-1027",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "supportive",
+          "phrase": "the role of an expert is to assist the Court, not to advocate",
+          "phrase_start": 1714,
+          "phrase_end": 1775,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states the role of an expert as assisting the court, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1028",
+          "citation_ordinal": 0,
+          "citation_text": "White Burgess Langille Inman v Abbott and Haliburton Co, 2015 SCC 23 [White Burgess]",
+          "treatment": "supportive",
+          "phrase": "the role of an expert is to assist the Court, not to advocate",
+          "phrase_start": 1124,
+          "phrase_end": 1185,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase clearly supports the role of an expert as assisting the court, indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1029",
+          "citation_ordinal": 0,
+          "citation_text": "(White Burgess at para 2)",
+          "treatment": "supportive",
+          "phrase": "the role of an expert is to assist the Court, not to advocate",
+          "phrase_start": 810,
+          "phrase_end": 871,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states the role of an expert as assisting the court, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1030",
+          "citation_ordinal": 0,
+          "citation_text": "White Burgess",
+          "treatment": "supportive",
+          "phrase": "the role of an expert is to assist the Court, not to advocate",
+          "phrase_start": 164,
+          "phrase_end": 225,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase clearly supports the role of an expert as assisting the court, indicating supportive treatment."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1021\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"raises a serious justiciable issue in which the Organizations have a genuine interest\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 124,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly indicates judicial review raises a serious issue, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1022\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation appears in a list of declarations and notices, with no specific treatment language supporting or opposing the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1023\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the constitutional validity of the combined effect of s. 101(1)(e) of the Immigration and Refugee Protection Act (the IRPA) and s. 159.3 of the Immigration and Refugee Protection Regulations\",\n      \"phrase_start\": 36,\n      \"phrase_end\": 157,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase explicitly states the constitutional validity is being questioned, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1024\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation appears in a list of affidavits and evidence, with no specific treatment language supporting or opposing the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1025\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the role of an expert is to assist the Court, not to advocate\",\n      \"phrase_start\": 1025,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase clearly supports the role of an expert as assisting the court, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1026\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation appears in a procedural context without specific treatment language.\"\n    },\n    {\n      \"example_id\": \"citation-context-1027\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the role of an expert is to assist the Court, not to advocate\",\n      \"phrase_start\": 1025,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states the role of an expert as assisting the court, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1028\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the role of an expert is to assist the Court, not to advocate\",\n      \"phrase_start\": 1025,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase clearly supports the role of an expert as assisting the court, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1029\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the role of an expert is to assist the Court, not to advocate\",\n      \"phrase_start\": 1025,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states the role of an expert as assisting the court, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1030\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the role of an expert is to assist the Court, not to advocate\",\n      \"phrase_start\": 1025,\n      \"phrase_end\": 1074,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase clearly supports the role of an expert as assisting the court, indicating supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 4,
+      "example_start": 30,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 5759,
+        "completion_tokens": 1499,
+        "estimated_cost_usd": 0.0016346,
+        "cost_usd": 0.0011755000000000001
+      },
+      "validation": {
+        "valid_label_count": 10,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 10: duplicate label for example citation"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1031",
+          "citation_ordinal": 0,
+          "citation_text": "Supreme Court released its decision in Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov]",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the idea that Vavilov emphasizes reasonableness review as a constraint on administrative powers."
+        },
+        {
+          "example_id": "citation-context-1032",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase directly supports the treatment that Vavilov limits administrative discretion through reasonableness review."
+        },
+        {
+          "example_id": "citation-context-1033",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly affirms that Vavilov constrains administrative interpretation, supporting a supportive label."
+        },
+        {
+          "example_id": "citation-context-1034",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov at para 90)",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase supports the idea that Vavilov emphasizes reasonableness as a limiting standard for administrative powers."
+        },
+        {
+          "example_id": "citation-context-1035",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov at paras 114 and 120)",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the view that Vavilov limits administrative discretion through reasonableness review."
+        },
+        {
+          "example_id": "citation-context-1036",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1470,
+          "phrase_end": 1717,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase supports the interpretation that Vavilov emphasizes reasonableness as a standard that constrains administrative interpretation."
+        },
+        {
+          "example_id": "citation-context-1037",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1092,
+          "phrase_end": 1339,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the idea that Vavilov constrains administrative powers via reasonableness review."
+        },
+        {
+          "example_id": "citation-context-1038",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov at para 68",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 1000,
+          "phrase_end": 1247,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase supports the view that Vavilov emphasizes reasonableness as a limit on administrative interpretation."
+        },
+        {
+          "example_id": "citation-context-1039",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 981,
+          "phrase_end": 1228,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the idea that Vavilov limits administrative discretion through reasonableness review."
+        },
+        {
+          "example_id": "citation-context-1040",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov at para 57)",
+          "treatment": "supportive",
+          "phrase": "Vavilov at para 68 states:\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.",
+          "phrase_start": 167,
+          "phrase_end": 414,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase supports the interpretation that Vavilov emphasizes reasonableness as a standard that constrains administrative powers."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1031\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the idea that Vavilov emphasizes reasonableness review as a constraint on administrative powers.\"\n    },\n    {\n      \"example_id\": \"citation-context-1032\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase directly supports the treatment that Vavilov limits administrative discretion through reasonableness review.\"\n    },\n    {\n      \"example_id\": \"citation-context-1033\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly affirms that Vavilov constrains administrative interpretation, supporting a supportive label.\"\n    },\n    {\n      \"example_id\": \"citation-context-1034\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase supports the idea that Vavilov emphasizes reasonableness as a limiting standard for administrative powers.\"\n    },\n    {\n      \"example_id\": \"citation-context-1035\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the view that Vavilov limits administrative discretion through reasonableness review.\"\n    },\n    {\n      \"example_id\": \"citation-context-1036\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase supports the interpretation that Vavilov emphasizes reasonableness as a standard that constrains administrative interpretation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1037\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the idea that Vavilov constrains administrative powers via reasonableness review.\"\n    },\n    {\n      \"example_id\": \"citation-context-1038\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase supports the view that Vavilov emphasizes reasonableness as a limit on administrative interpretation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1039\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the idea that Vavilov limits administrative discretion through reasonableness review.\"\n    },\n    {\n      \"example_id\": \"citation-context-1040\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase supports the interpretation that Vavilov emphasizes reasonableness as a standard that constrains administrative powers.\"\n    },\n    {\n      \"example_id\": \"citation-context-1034\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov at para 68 states:\\nReasonableness review does not give administrative decision makers free rein in interpreting their enabling statutes, and therefore does not give them licence to enlarge their powers beyond what the legislature intended.\",\n      \"phrase_start\": 582,\n      \"phrase_end\": 662,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the view that Vavilov emphasizes reasonableness as a standard that limits administrative interpretation.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 5,
+      "example_start": 40,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 9574,
+        "completion_tokens": 1069,
+        "estimated_cost_usd": 0.001922,
+        "cost_usd": 0.001385
+      },
+      "validation": {
+        "valid_label_count": 7,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1041",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "supportive",
+          "phrase": "states",
+          "phrase_start": 1000,
+          "phrase_end": 1006,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation 'United States v. Burns, 2001 SCC 7' is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1042",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The citation 'United States v. Burns, 2001 SCC 7' appears in a list of factors considered but does not itself contain language supporting, opposing, or distinguishing the treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1044",
+          "citation_ordinal": 0,
+          "citation_text": "United States",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The citation 'United States v. Burns, 2001 SCC 7' is referenced in a list of considerations but does not itself contain language that supports or opposes the treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1046",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The citation 'United States v. Burns, 2001 SCC 7' appears in a list of considerations but does not contain language supporting, opposing, or distinguishing the treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1047",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees v Canada, 2007 FC 1262",
+          "treatment": "supportive",
+          "phrase": "states",
+          "phrase_start": 452,
+          "phrase_end": 458,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The citation is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1048",
+          "citation_ordinal": 0,
+          "citation_text": "Canada v Canadian Council for Refugees, 2008 FCA 229",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The citation 'United States v. Burns, 2001 SCC 7' is referenced in a list of considerations but does not contain language supporting, opposing, or distinguishing the treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1050",
+          "citation_ordinal": 0,
+          "citation_text": "Catalyst Paper Corp v North Cowichan (District), 2012 SCC 2",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The citation 'Canada v Canadian Council for Refugees, 2008 FCA 229' appears in a list of references but does not contain language supporting, opposing, or distinguishing the treatment of the citation."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1041\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"states\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1006,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation 'United States v. Burns, 2001 SCC 7' is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1042\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation 'United States v. Burns, 2001 SCC 7' appears in a list of factors considered but does not itself contain language supporting, opposing, or distinguishing the treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1043\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"states\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1006,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1044\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation 'United States v. Burns, 2001 SCC 7' is referenced in a list of considerations but does not itself contain language that supports or opposes the treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1045\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"states\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1006,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1046\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation 'United States v. Burns, 2001 SCC 7' appears in a list of considerations but does not contain language supporting, opposing, or distinguishing the treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1047\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"states\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1006,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1048\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation 'United States v. Burns, 2001 SCC 7' is referenced in a list of considerations but does not contain language supporting, opposing, or distinguishing the treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1049\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"states\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1006,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used in a context that supports the discussion of the US's compliance with international treaties, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1050\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation 'Canada v Canadian Council for Refugees, 2008 FCA 229' appears in a list of references but does not contain language supporting, opposing, or distinguishing the treatment of the citation.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 6,
+      "example_start": 50,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8934,
+        "completion_tokens": 1465,
+        "estimated_cost_usd": 0.0019065000000000002,
+        "cost_usd": 0.0014794
+      },
+      "validation": {
+        "valid_label_count": 5,
+        "invalid_label_count": 5,
+        "invalid_labels": [
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1051",
+          "citation_ordinal": 0,
+          "citation_text": "(West Fraser Mills at para 12)",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation '(West Fraser Mills at para 12)' is mentioned as part of the legal reasoning, but no specific treatment language supporting or opposing the regulation is present in the surrounding text."
+        },
+        {
+          "example_id": "citation-context-1053",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Council for Refugees",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text."
+        },
+        {
+          "example_id": "citation-context-1055",
+          "citation_ordinal": 0,
+          "citation_text": "Katz Group Canada Inc v Ontario (Health and Long-Term Care), 2013 SCC 64 [Katz]",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is mentioned as part of the legal background, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text."
+        },
+        {
+          "example_id": "citation-context-1057",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text."
+        },
+        {
+          "example_id": "citation-context-1059",
+          "citation_ordinal": 0,
+          "citation_text": "Brant Dairy Co v Milk Commission of Ontario, [1973] SCR 131; Morton v Canada (Fisheries and Oceans), 2015 FC 575 at paras 82-83",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is mentioned as part of the legal reasoning, but no specific treatment language supporting or opposing the regulation is present in the surrounding text."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1051\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation '(West Fraser Mills at para 12)' is mentioned as part of the legal reasoning, but no specific treatment language supporting or opposing the regulation is present in the surrounding text.\"\n    },\n    {\n      \"example_id\": \"citation-context-1052\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"they rely upon West Fraser Mills Ltd v British Columbia (Workers\u2019 Compensation Appeal Tribunal), 2018 SCC 22 (at paras 10 and 12) and Catalyst Paper Corp v North Cowichan (District), 2012 SCC 2 (at para 12) to argue that a regulation is ultra vires when it is \\\"inconsistent with the objective of the enabling statute or the scope of the statutory mandate\\\" (West Fraser Mills at para 12).\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1079,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the applicants rely on the cited cases to support the argument that regulations inconsistent with statutory objectives are ultra vires, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1053\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text.\"\n    },\n    {\n      \"example_id\": \"citation-context-1054\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"they rely upon the decisions in Katz Group Canada Inc v Ontario (Health and Long-Term Care), 2013 SCC 64 (at paras 10 and 12) and Catalyst Paper Corp v North Cowichan (District), 2012 SCC 2 (at para 12) to argue that a regulation is ultra vires when it is \\\"inconsistent with the objective of the enabling statute or the scope of the statutory mandate\\\" (West Fraser Mills at para 12).\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1079,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states reliance on the cited cases to support the argument that regulations inconsistent with statutory objectives are ultra vires, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1055\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is mentioned as part of the legal background, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text.\"\n    },\n    {\n      \"example_id\": \"citation-context-1056\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"they rely upon the decisions in Katz Group Canada Inc v Ontario (Health and Long-Term Care), 2013 SCC 64 (at paras 10 and 12) and Thorne\u2019s Hardware Ltd v The Queen, [1983] 1 SCR 106 (at paras 82-83) to argue that the regulation, as subordinate legislation, is invalid as it fails to satisfy the applicable statutory conditions.\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1051,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states reliance on the cited cases to support the argument that the regulation is invalid, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1057\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly associated with this citation in the surrounding text.\"\n    },\n    {\n      \"example_id\": \"citation-context-1058\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"they rely upon the decisions in Katz Group Canada Inc v Ontario (Health and Long-Term Care), 2013 SCC 64 (at paras 10 and 12) and Thorne\u2019s Hardware Ltd v The Queen, [1983] 1 SCR 106 (at paras 82-83) to argue that the regulation, as subordinate legislation, is invalid as it fails to satisfy the applicable statutory conditions.\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1051,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states reliance on the cited cases to support the argument that the regulation is invalid, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1059\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is mentioned as part of the legal reasoning, but no specific treatment language supporting or opposing the regulation is present in the surrounding text.\"\n    },\n    {\n      \"example_id\": \"citation-context-1060\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"they rely upon the decisions in Katz Group Canada Inc v Ontario (Health and Long-Term Care), 2013 SCC 64 (at paras 10 and 12) and Thorne\u2019s Hardware Ltd v The Queen, [1983] 1 SCR 106 (at paras 82-83) to argue that the regulation, as subordinate legislation, is invalid as it fails to satisfy the applicable statutory conditions.\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1051,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states reliance on the cited cases to support the argument that the regulation is invalid, indicating a supportive treatment of the citation.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 7,
+      "example_start": 60,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8741,
+        "completion_tokens": 1535,
+        "estimated_cost_usd": 0.0018949000000000001,
+        "cost_usd": 0.0014881
+      },
+      "validation": {
+        "valid_label_count": 6,
+        "invalid_label_count": 6,
+        "invalid_labels": [
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 10: unknown example_id",
+          "label 11: unknown example_id"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1061",
+          "citation_ordinal": 0,
+          "citation_text": "Katz, Thorne\u2019s, Wildlands League v Ontario (Natural Resources and Forestry), 2016 ONCA 741",
+          "treatment": "supportive",
+          "phrase": "the vires of the Regulations could not be assessed on the basis of facts, events or developments that are subsequent to the date of the promulgation",
+          "phrase_start": 105,
+          "phrase_end": 253,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase indicates support for the idea that post-promulgation facts are not relevant for assessing vires, supporting a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1062",
+          "citation_ordinal": 0,
+          "citation_text": "(Katz at para 27)",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The excerpt discusses judicial review restrictions but does not specify any treatment language related to the citation."
+        },
+        {
+          "example_id": "citation-context-1063",
+          "citation_ordinal": 0,
+          "citation_text": "states",
+          "treatment": "supportive",
+          "phrase": "the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms",
+          "phrase_start": 372,
+          "phrase_end": 510,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1068",
+          "citation_ordinal": 0,
+          "citation_text": "Singh v Minister of Employment and Immigration, [1985] 1 SCR 177, para 35",
+          "treatment": "supportive",
+          "phrase": "the process that unfolds under the STCA when a claimant arrives at a Canada land POE and claims refugee status",
+          "phrase_start": 1358,
+          "phrase_end": 1468,
+          "offsets_repaired": true,
+          "confidence": 0.8,
+          "rationale": "The phrase describes the process in a neutral manner, supporting a neutral treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1069",
+          "citation_ordinal": 0,
+          "citation_text": "Kreishan v Canada (Citizenship and Immigration), 2019 FCA 223 para 78 [Kreishan]",
+          "treatment": "supportive",
+          "phrase": "the process that unfolds under the STCA when a claimant arrives at a Canada land POE and claims refugee status",
+          "phrase_start": 1166,
+          "phrase_end": 1276,
+          "offsets_repaired": true,
+          "confidence": 0.8,
+          "rationale": "The phrase describes the process in a neutral manner, supporting a neutral treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1070",
+          "citation_ordinal": 0,
+          "citation_text": "(Bedford at para 58 and 75)",
+          "treatment": "distinguishing",
+          "phrase": "is not eligible, the MD issues an exclusion order, which has immediate effect and removal takes place as soon as possible. If the CBSA EO determines that a claimant does not fall within one of the exceptions, and is therefore ineligible because of the operation of the STCA, the Officer has no discretion to exercise.",
+          "phrase_start": 0,
+          "phrase_end": 317,
+          "offsets_repaired": true,
+          "confidence": 0.85,
+          "rationale": "The phrase emphasizes the mandatory nature of the exclusion order and the lack of discretion, distinguishing the process under the STCA from other legal processes."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1061\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the vires of the Regulations could not be assessed on the basis of facts, events or developments that are subsequent to the date of the promulgation\",\n      \"phrase_start\": 66,\n      \"phrase_end\": 157,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates support for the idea that post-promulgation facts are not relevant for assessing vires, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1062\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The excerpt discusses judicial review restrictions but does not specify any treatment language related to the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1063\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1064\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1065\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1066\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1067\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the FCA notes in paragraphs 74, 75, 76 and 78 that s. 101 of the IRPA does not require \u201cactual compliance\u201d or compliance in absolute terms\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the interpretation that s. 101 does not require strict actual compliance, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1068\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the process that unfolds under the STCA when a claimant arrives at a Canada land POE and claims refugee status\",\n      \"phrase_start\": 100,\n      \"phrase_end\": 174,\n      \"confidence\": 0.8,\n      \"rationale\": \"The phrase describes the process in a neutral manner, supporting a neutral treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1069\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the process that unfolds under the STCA when a claimant arrives at a Canada land POE and claims refugee status\",\n      \"phrase_start\": 100,\n      \"phrase_end\": 174,\n      \"confidence\": 0.8,\n      \"rationale\": \"The phrase describes the process in a neutral manner, supporting a neutral treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1070\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"distinguishing\",\n      \"phrase\": \"is not eligible, the MD issues an exclusion order, which has immediate effect and removal takes place as soon as possible. If the CBSA EO determines that a claimant does not fall within one of the exceptions, and is therefore ineligible because of the operation of the STCA, the Officer has no discretion to exercise.\",\n      \"phrase_start\": 100,\n      \"phrase_end\": 232,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase emphasizes the mandatory nature of the exclusion order and the lack of discretion, distinguishing the process under the STCA from other legal processes.\"\n    },\n    {\n      \"example_id\": \"citation-context-1071\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Here, each of the individual Applicants were found to be ineligible because of the STCA. CBSA returned Ms. Mustefa to the US where she was immediately imprisoned.\",\n      \"phrase_start\": 100,\n      \"phrase_end\": 174,\n      \"confidence\": 0.8,\n      \"rationale\": \"The phrase supports the factual statement that the applicants were found ineligible and returned, without implying legal critique, thus supportive.\"\n    },\n    {\n      \"example_id\": \"citation-context-1072\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the evidence is clear that the most significant harm suffered is imprisonment. Additionally, there are the related harms regarding the conditions of detention and the heightened risk of refoulement.\",\n      \"phrase_start\": 94,\n      \"phrase_end\": 174,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase supports the conclusion that imprisonment and related harms are significant, factual observations, supporting a supportive treatment.\"\n    }\n  ]\n}"
+    }
+  ]
+}

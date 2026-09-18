@@ -3,6 +3,26 @@
 Document role: milestone and implementation delta log.
 For current operating picture, pair this with `SYSTEM_OVERVIEW.txt` and `OVERNIGHT.md`.
 
+## 2026-09-18 - Discussion Unit V1.4 evidence review checkpoint
+
+- Completed the bounded 16-case Discussion Unit cohort expansion and the
+	four-case external review packet refresh for cases `677`, `1093`, `1171`,
+	and `18674`.
+- Added the deterministic V1.4 explanation diagnostic that identifies spans
+	with no explicit argument evidence as metadata or cue-free text without
+	inventing a role or changing source spans, offsets, hashes, or runtime
+	behavior.
+- Preserved the V1.3 procedural-claim filtering, explicit advocacy recall,
+	governing-rule precision gates, and local contrast gating. All packet
+	regeneration runs were dry runs with zero canonical or contextual
+	writes.
+- Updated the system reference, Swimm walkthrough, and project-manager task
+	record with the external findings, residual uncertainty, and rollback
+	boundary.
+- Verification: focused Discussion Unit, sub-theme, and inspector tests passed
+	(24); bounded assertions passed for all 16 cohort cases; and
+	`git diff --check` passed.
+
 ## Unreleased - Optimized V2 text-only enrichment review
 
 - Completed the optimized non-SCC V2 run: 50,327 records processed, 43,598

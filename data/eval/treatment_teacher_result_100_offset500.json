@@ -1,0 +1,860 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-18T14:07:26.690632+00:00",
+  "model": "gpt-4.1-nano",
+  "budget_usd": 2.7,
+  "spent_usd": 0.008673799999999999,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 3945,
+        "completion_tokens": 1027,
+        "estimated_cost_usd": 0.0013712,
+        "cost_usd": 0.0008053
+      },
+      "validation": {
+        "valid_label_count": 4,
+        "invalid_label_count": 6,
+        "invalid_labels": [
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0501",
+          "citation_ordinal": 0,
+          "citation_text": "grant",
+          "treatment": "supportive",
+          "phrase": "grant",
+          "phrase_start": 126,
+          "phrase_end": 131,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The phrase 'grant' is used in the context of discussing the implied powers of trial courts, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0502",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Cunningham, 2010 SCC 10, [2010] 1 S.C.R. 331, at paras. 18-19",
+          "treatment": "supportive",
+          "phrase": "R. v. Cunningham, 2010 SCC 10, [2010] 1 S.C.R. 331, at paras. 18-19",
+          "phrase_start": 237,
+          "phrase_end": 304,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is referenced to support the discussion of implied powers of trial courts, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0503",
+          "citation_ordinal": 0,
+          "citation_text": "Spindloe",
+          "treatment": "absent",
+          "phrase": "Spindloe",
+          "phrase_start": 247,
+          "phrase_end": 255,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation 'Spindloe' is mentioned to provide context but no specific treatment language is associated with it."
+        },
+        {
+          "example_id": "citation-context-0505",
+          "citation_ordinal": 0,
+          "citation_text": "Gendron v. Supply",
+          "treatment": "supportive",
+          "phrase": "Gendron v. Supply",
+          "phrase_start": 227,
+          "phrase_end": 244,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is used to support the analysis of jurisdiction and statutory interpretation, indicating supportive treatment."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0501\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"grant\",\n      \"phrase_start\": 126,\n      \"phrase_end\": 131,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase 'grant' is used in the context of discussing the implied powers of trial courts, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0502\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Cunningham, 2010 SCC 10, [2010] 1 S.C.R. 331, at paras. 18-19\",\n      \"phrase_start\": 237,\n      \"phrase_end\": 304,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is referenced to support the discussion of implied powers of trial courts, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0503\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"Spindloe\",\n      \"phrase_start\": 247,\n      \"phrase_end\": 255,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation 'Spindloe' is mentioned to provide context but no specific treatment language is associated with it.\"\n    },\n    {\n      \"example_id\": \"citation-context-0504\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Taylor, 2011 NLCA 72\",\n      \"phrase_start\": 9,\n      \"phrase_end\": 15,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the discussion of jurisdiction and property disposition, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0505\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Gendron v. Supply\",\n      \"phrase_start\": 227,\n      \"phrase_end\": 244,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is used to support the analysis of jurisdiction and statutory interpretation, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0506\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Echostar Corporation v. Service\",\n      \"phrase_start\": 278,\n      \"phrase_end\": 285,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the discussion of jurisdictional interpretation, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0507\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Fleming (Gombosh Estate) v. The\",\n      \"phrase_start\": 376,\n      \"phrase_end\": 383,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the discussion of standard of proof and presumptions in property possession, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0508\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Mac, (1995), 80 O.A.C. 26, at para. 17\",\n      \"phrase_start\": 409,\n      \"phrase_end\": 425,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the explanation of the burden of proof regarding possession, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0509\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Fleming (Gombosh Estate) v. The\",\n      \"phrase_start\": 533,\n      \"phrase_end\": 540,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the discussion of proof standards and presumptions, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0510\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Wilson, 2025 SCC 32\",\n      \"phrase_start\": 554,\n      \"phrase_end\": 560,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation supports the discussion of burden of proof and standard of proof, indicating supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 2,
+      "example_start": 10,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 3953,
+        "completion_tokens": 1192,
+        "estimated_cost_usd": 0.0013393,
+        "cost_usd": 0.0008721
+      },
+      "validation": {
+        "valid_label_count": 7,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0512",
+          "citation_ordinal": 0,
+          "citation_text": "(Mac, at para. 16)",
+          "treatment": "supportive",
+          "phrase": "see Fleming, at p. 446",
+          "phrase_start": 93,
+          "phrase_end": 115,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase directly cites Fleming to support the statement about the Crown's burden of proof beyond a reasonable doubt."
+        },
+        {
+          "example_id": "citation-context-0513",
+          "citation_ordinal": 0,
+          "citation_text": "British Columbia (Attorney General) v. Forseth",
+          "treatment": "supportive",
+          "phrase": "see British Columbia (Attorney General) v. Forseth (1995), 99 C.C.C. (3d) 296 (B.C.C.A.), at paras. 27 and 30",
+          "phrase_start": 135,
+          "phrase_end": 244,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Forseth to support the Crown's ability to call evidence of unlawful acts in a forfeiture hearing."
+        },
+        {
+          "example_id": "citation-context-0514",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. West",
+          "treatment": "supportive",
+          "phrase": "see R. v. West (2005), 199 C.C.C. (3d) 449 (Ont. C.A.), at paras. 27-28",
+          "phrase_start": 479,
+          "phrase_end": 550,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references R. v. West to support the application of the rules of criminal evidence when the Crown adduces evidence."
+        },
+        {
+          "example_id": "citation-context-0516",
+          "citation_ordinal": 0,
+          "citation_text": "West, at paras. 27-31 and 35",
+          "treatment": "supportive",
+          "phrase": "see R. v. West (2005), 199 C.C.C. (3d) 449 (Ont. C.A.), at paras. 27-28",
+          "phrase_start": 479,
+          "phrase_end": 550,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references R. v. West to support the application of the rules of criminal evidence when the Crown adduces evidence."
+        },
+        {
+          "example_id": "citation-context-0518",
+          "citation_ordinal": 0,
+          "citation_text": "Vellone, at paras. 41 and 53",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 41 and 53; Breton, at para. 76",
+          "phrase_start": 128,
+          "phrase_end": 181,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Vellone and Breton to support the statement about the distinct evidentiary record in forfeiture proceedings."
+        },
+        {
+          "example_id": "citation-context-0519",
+          "citation_ordinal": 0,
+          "citation_text": "Breton, at para. 76",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 41 and 53; Breton, at para. 76",
+          "phrase_start": 128,
+          "phrase_end": 181,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Vellone and Breton to support the statement about the evidentiary record in forfeiture proceedings."
+        },
+        {
+          "example_id": "citation-context-0520",
+          "citation_ordinal": 0,
+          "citation_text": "Vellone, at paras. 48-49",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 41 and 53; Breton, at para. 76",
+          "phrase_start": 128,
+          "phrase_end": 181,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Vellone and Breton to support the statement about the evidentiary record in forfeiture proceedings."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0511\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Fleming, at pp. 444\u2013145; see also Mac, at para. 17\",\n      \"phrase_start\": 445,\n      \"phrase_end\": 491,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Fleming and Mac to support the presumption of lawful possession and the Crown's burden of proof beyond a reasonable doubt.\"\n    },\n    {\n      \"example_id\": \"citation-context-0512\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Fleming, at p. 446\",\n      \"phrase_start\": 445,\n      \"phrase_end\": 464,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase directly cites Fleming to support the statement about the Crown's burden of proof beyond a reasonable doubt.\"\n    },\n    {\n      \"example_id\": \"citation-context-0513\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see British Columbia (Attorney General) v. Forseth (1995), 99 C.C.C. (3d) 296 (B.C.C.A.), at paras. 27 and 30\",\n      \"phrase_start\": 147,\n      \"phrase_end\": 211,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Forseth to support the Crown's ability to call evidence of unlawful acts in a forfeiture hearing.\"\n    },\n    {\n      \"example_id\": \"citation-context-0514\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see R. v. West (2005), 199 C.C.C. (3d) 449 (Ont. C.A.), at paras. 27-28\",\n      \"phrase_start\": 27,\n      \"phrase_end\": 78,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references R. v. West to support the application of the rules of criminal evidence when the Crown adduces evidence.\"\n    },\n    {\n      \"example_id\": \"citation-context-0515\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Fleming, at pp. 445\u2013146\",\n      \"phrase_start\": 445,\n      \"phrase_end\": 464,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Fleming to support the statement about the Crown's ability to rely on previous convictions or evidence of unlawful possession.\"\n    },\n    {\n      \"example_id\": \"citation-context-0516\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see R. v. West (2005), 199 C.C.C. (3d) 449 (Ont. C.A.), at paras. 27-28\",\n      \"phrase_start\": 27,\n      \"phrase_end\": 78,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references R. v. West to support the application of the rules of criminal evidence when the Crown adduces evidence.\"\n    },\n    {\n      \"example_id\": \"citation-context-0517\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Canada (Attorney General) v. Acero, 2006 BCSC 1015\",\n      \"phrase_start\": 761,\n      \"phrase_end\": 792,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Acero to support the application of the rules of criminal evidence in criminal applications.\"\n    },\n    {\n      \"example_id\": \"citation-context-0518\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 41 and 53; Breton, at para. 76\",\n      \"phrase_start\": 132,\n      \"phrase_end\": 181,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Vellone and Breton to support the statement about the distinct evidentiary record in forfeiture proceedings.\"\n    },\n    {\n      \"example_id\": \"citation-context-0519\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 41 and 53; Breton, at para. 76\",\n      \"phrase_start\": 162,\n      \"phrase_end\": 181,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Vellone and Breton to support the statement about the evidentiary record in forfeiture proceedings.\"\n    },\n    {\n      \"example_id\": \"citation-context-0520\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 41 and 53; Breton, at para. 76\",\n      \"phrase_start\": 367,\n      \"phrase_end\": 391,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Vellone and Breton to support the statement about the evidentiary record in forfeiture proceedings.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 3,
+      "example_start": 20,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 4632,
+        "completion_tokens": 1114,
+        "estimated_cost_usd": 0.0013997,
+        "cost_usd": 0.0009088
+      },
+      "validation": {
+        "valid_label_count": 10,
+        "invalid_label_count": 0,
+        "invalid_labels": []
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0521",
+          "citation_ordinal": 0,
+          "citation_text": "Breton, at paras. 77-82",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 41 and 53; Breton, at para. 76",
+          "phrase_start": 128,
+          "phrase_end": 181,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references legal authorities to support the statement about the distinction between forfeiture and criminal proceedings."
+        },
+        {
+          "example_id": "citation-context-0522",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Grant, 2009 SCC 32, [2009] 2 S.C.R. 353",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 48-49; Breton, at paras. 77-82",
+          "phrase_start": 363,
+          "phrase_end": 416,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase cites specific authorities to support the statement regarding the contextual nature of the analysis prescribed in R. v. Grant."
+        },
+        {
+          "example_id": "citation-context-0523",
+          "citation_ordinal": 0,
+          "citation_text": "Breton, at para. 77",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 48-49; Breton, at paras. 77-82",
+          "phrase_start": 363,
+          "phrase_end": 416,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references legal authorities to support the discussion about the contextual analysis in R. v. Grant."
+        },
+        {
+          "example_id": "citation-context-0524",
+          "citation_ordinal": 0,
+          "citation_text": "Vellone, at para. 55",
+          "treatment": "supportive",
+          "phrase": "see Vellone, at paras. 48-49; Breton, at paras. 77-82",
+          "phrase_start": 363,
+          "phrase_end": 416,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly cites authorities to support the statement about the analysis in R. v. Grant."
+        },
+        {
+          "example_id": "citation-context-0525",
+          "citation_ordinal": 0,
+          "citation_text": "Service",
+          "treatment": "absent",
+          "phrase": "Service",
+          "phrase_start": 779,
+          "phrase_end": 786,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation 'Service' appears in the context of a case name but no treatment language is present in the phrase."
+        },
+        {
+          "example_id": "citation-context-0526",
+          "citation_ordinal": 0,
+          "citation_text": "Piekut v. Canada (National Revenue), 2025 SCC 13, at para. 45",
+          "treatment": "supportive",
+          "phrase": "Piekut v. Canada (National Revenue), 2025 SCC 13, at para. 45",
+          "phrase_start": 155,
+          "phrase_end": 216,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The phrase directly cites a legal authority to support the statement about legislative intent and textual interpretation."
+        },
+        {
+          "example_id": "citation-context-0527",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Alex, 2017 SCC 37, [2017] 1 S.C.R. 967, at para. 31",
+          "treatment": "supportive",
+          "phrase": "R. v. Alex, 2017 SCC 37, [2017] 1 S.C.R. 967, at para. 31",
+          "phrase_start": 225,
+          "phrase_end": 282,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references a legal authority to support the discussion on the importance of context in statutory interpretation."
+        },
+        {
+          "example_id": "citation-context-0528",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Wilson, 2025 SCC 32, at para. 34",
+          "treatment": "supportive",
+          "phrase": "R. v. Wilson, 2025 SCC 32, at para. 34",
+          "phrase_start": 284,
+          "phrase_end": 322,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly cites a legal authority to support the statement about the interpretative approach to statutory text."
+        },
+        {
+          "example_id": "citation-context-0529",
+          "citation_ordinal": 0,
+          "citation_text": "2005 SCC 62",
+          "treatment": "supportive",
+          "phrase": "2005 SCC 62",
+          "phrase_start": 541,
+          "phrase_end": 552,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is used to support the statement about the modern approach to statutory interpretation."
+        },
+        {
+          "example_id": "citation-context-0530",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Rafilovich, 2019 SCC 51, [2019] 3 S.C.R. 838, at para. 30",
+          "treatment": "supportive",
+          "phrase": "R. v. Rafilovich, 2019 SCC 51, [2019] 3 S.C.R. 838, at para. 30",
+          "phrase_start": 420,
+          "phrase_end": 483,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references a legal authority to support the discussion of legislative scheme and purpose."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0521\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 41 and 53; Breton, at para. 76\",\n      \"phrase_start\": 415,\n      \"phrase_end\": 464,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references legal authorities to support the statement about the distinction between forfeiture and criminal proceedings.\"\n    },\n    {\n      \"example_id\": \"citation-context-0522\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 48-49; Breton, at paras. 77-82\",\n      \"phrase_start\": 494,\n      \"phrase_end\": 540,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase cites specific authorities to support the statement regarding the contextual nature of the analysis prescribed in R. v. Grant.\"\n    },\n    {\n      \"example_id\": \"citation-context-0523\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 48-49; Breton, at paras. 77-82\",\n      \"phrase_start\": 494,\n      \"phrase_end\": 540,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references legal authorities to support the discussion about the contextual analysis in R. v. Grant.\"\n    },\n    {\n      \"example_id\": \"citation-context-0524\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see Vellone, at paras. 48-49; Breton, at paras. 77-82\",\n      \"phrase_start\": 494,\n      \"phrase_end\": 540,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites authorities to support the statement about the analysis in R. v. Grant.\"\n    },\n    {\n      \"example_id\": \"citation-context-0525\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"Service\",\n      \"phrase_start\": 779,\n      \"phrase_end\": 786,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation 'Service' appears in the context of a case name but no treatment language is present in the phrase.\"\n    },\n    {\n      \"example_id\": \"citation-context-0526\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Piekut v. Canada (National Revenue), 2025 SCC 13, at para. 45\",\n      \"phrase_start\": 155,\n      \"phrase_end\": 216,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase directly cites a legal authority to support the statement about legislative intent and textual interpretation.\"\n    },\n    {\n      \"example_id\": \"citation-context-0527\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Alex, 2017 SCC 37, [2017] 1 S.C.R. 967, at para. 31\",\n      \"phrase_start\": 225,\n      \"phrase_end\": 282,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references a legal authority to support the discussion on the importance of context in statutory interpretation.\"\n    },\n    {\n      \"example_id\": \"citation-context-0528\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Wilson, 2025 SCC 32, at para. 34\",\n      \"phrase_start\": 284,\n      \"phrase_end\": 322,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites a legal authority to support the statement about the interpretative approach to statutory text.\"\n    },\n    {\n      \"example_id\": \"citation-context-0529\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"2005 SCC 62\",\n      \"phrase_start\": 541,\n      \"phrase_end\": 552,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the statement about the modern approach to statutory interpretation.\"\n    },\n    {\n      \"example_id\": \"citation-context-0530\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"R. v. Rafilovich, 2019 SCC 51, [2019] 3 S.C.R. 838, at para. 30\",\n      \"phrase_start\": 420,\n      \"phrase_end\": 483,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references a legal authority to support the discussion of legislative scheme and purpose.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 4,
+      "example_start": 30,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 6544,
+        "completion_tokens": 1212,
+        "estimated_cost_usd": 0.0015308000000000001,
+        "cost_usd": 0.0011392000000000002
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 7,
+        "invalid_labels": [
+          "label 2: phrase offsets out of bounds",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0531",
+          "citation_ordinal": 0,
+          "citation_text": "Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174",
+          "treatment": "supportive",
+          "phrase": "citing Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174",
+          "phrase_start": 485,
+          "phrase_end": 586,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly cites the case to support the statement about legislative scheme analysis, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0532",
+          "citation_ordinal": 0,
+          "citation_text": "Telus, at para. 32",
+          "treatment": "supportive",
+          "phrase": "citing Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174",
+          "phrase_start": 485,
+          "phrase_end": 586,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase directly cites the case to support the statement about legislative intent and analysis, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0536",
+          "citation_ordinal": 0,
+          "citation_text": "tribunal",
+          "treatment": "absent",
+          "phrase": "tribunal",
+          "phrase_start": 929,
+          "phrase_end": 937,
+          "offsets_repaired": false,
+          "confidence": 0.6,
+          "rationale": "The word 'tribunal' appears in the context but is not directly linked to a legal treatment statement; it is part of the case citation context."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0531\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174\",\n      \"phrase_start\": 583,\n      \"phrase_end\": 586,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about legislative scheme analysis, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0532\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174\",\n      \"phrase_start\": 823,\n      \"phrase_end\": 828,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase directly cites the case to support the statement about legislative intent and analysis, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0533\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Sun Indalex Finance, LLC v. United Steelworkers, 2013 SCC 6, [2013] 1 S.C.R. 271, at para. 174\",\n      \"phrase_start\": 959,\n      \"phrase_end\": 964,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the discussion on extrinsic aids and legislative intent, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0534\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Wilson, at para. 44\",\n      \"phrase_start\": 286,\n      \"phrase_end\": 293,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase directly cites Wilson to support the statement about extrinsic aids and legislative intent, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0535\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing R. v. Safarzadeh-Markhali, 2016 SCC 14, [2016] 1 S.C.R. 180, at para. 36\",\n      \"phrase_start\": 365,\n      \"phrase_end\": 367,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about extrinsic aids and legislative intent, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0536\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"tribunal\",\n      \"phrase_start\": 929,\n      \"phrase_end\": 937,\n      \"confidence\": 0.6,\n      \"rationale\": \"The word 'tribunal' appears in the context but is not directly linked to a legal treatment statement; it is part of the case citation context.\"\n    },\n    {\n      \"example_id\": \"citation-context-0537\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing British Columbia Human Rights Tribunal v. Schrenk, 2017 SCC 62\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1008,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about property not needing to be connected to the offence, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0538\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing British Columbia Human Rights Tribunal v. Schrenk, 2017 SCC 62\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1008,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about property not needing to be connected to the offence, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0539\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing British Columbia Human Rights Tribunal v. Schrenk, 2017 SCC 62\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1008,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about property not needing to be connected to the offence, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0540\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing British Columbia Human Rights Tribunal v. Schrenk, 2017 SCC 62\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1008,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly cites the case to support the statement about property not needing to be connected to the offence, indicating a supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 5,
+      "example_start": 40,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 5050,
+        "completion_tokens": 1073,
+        "estimated_cost_usd": 0.0014064,
+        "cost_usd": 0.0009342
+      },
+      "validation": {
+        "valid_label_count": 6,
+        "invalid_label_count": 4,
+        "invalid_labels": [
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0541",
+          "citation_ordinal": 0,
+          "citation_text": "Craig, at para. 42",
+          "treatment": "supportive",
+          "phrase": "see generally Craig, at para. 42",
+          "phrase_start": 487,
+          "phrase_end": 519,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Craig to support the statement about forfeiture being available if the Crown can satisfy the court beyond a reasonable doubt."
+        },
+        {
+          "example_id": "citation-context-0542",
+          "citation_ordinal": 0,
+          "citation_text": "Lavigne, at para. 17",
+          "treatment": "supportive",
+          "phrase": "see generally Craig, at para. 42",
+          "phrase_start": 487,
+          "phrase_end": 519,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly references Craig to support the statement about forfeiture being available if the Crown can satisfy the court beyond a reasonable doubt."
+        },
+        {
+          "example_id": "citation-context-0543",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Lanteigne",
+          "treatment": "absent",
+          "phrase": "R. v. Lanteigne",
+          "phrase_start": 543,
+          "phrase_end": 558,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The citation appears in the context of broadening the basis for forfeiture, but no specific treatment language is supported by the phrase itself."
+        },
+        {
+          "example_id": "citation-context-0544",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Shearer, 2015 ONCA 355",
+          "treatment": "absent",
+          "phrase": "R. v. Shearer, 2015 ONCA 355",
+          "phrase_start": 607,
+          "phrase_end": 635,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The citation is listed among others supporting the broadening of forfeiture, but no explicit treatment language is present in the phrase."
+        },
+        {
+          "example_id": "citation-context-0545",
+          "citation_ordinal": 0,
+          "citation_text": "Croussette v. R., 2017 QCCA 1040, at para. 10",
+          "treatment": "absent",
+          "phrase": "Croussette v. R., 2017 QCCA 1040, at para. 10",
+          "phrase_start": 669,
+          "phrase_end": 714,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The citation is part of a list supporting the broadening of forfeiture, but the phrase itself does not contain treatment language."
+        },
+        {
+          "example_id": "citation-context-0546",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Witvoet, 2015 ABCA 152",
+          "treatment": "absent",
+          "phrase": "R. v. Witvoet, 2015 ABCA 152",
+          "phrase_start": 825,
+          "phrase_end": 853,
+          "offsets_repaired": false,
+          "confidence": 0.99,
+          "rationale": "The citation is included among others supporting the broadening of forfeiture, but no specific treatment language is supported by the phrase."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0541\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see generally Craig, at para. 42\",\n      \"phrase_start\": 377,\n      \"phrase_end\": 410,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Craig to support the statement about forfeiture being available if the Crown can satisfy the court beyond a reasonable doubt.\"\n    },\n    {\n      \"example_id\": \"citation-context-0542\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see generally Craig, at para. 42\",\n      \"phrase_start\": 377,\n      \"phrase_end\": 410,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly references Craig to support the statement about forfeiture being available if the Crown can satisfy the court beyond a reasonable doubt.\"\n    },\n    {\n      \"example_id\": \"citation-context-0543\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"R. v. Lanteigne\",\n      \"phrase_start\": 543,\n      \"phrase_end\": 558,\n      \"confidence\": 0.99,\n      \"rationale\": \"The citation appears in the context of broadening the basis for forfeiture, but no specific treatment language is supported by the phrase itself.\"\n    },\n    {\n      \"example_id\": \"citation-context-0544\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"R. v. Shearer, 2015 ONCA 355\",\n      \"phrase_start\": 607,\n      \"phrase_end\": 635,\n      \"confidence\": 0.99,\n      \"rationale\": \"The citation is listed among others supporting the broadening of forfeiture, but no explicit treatment language is present in the phrase.\"\n    },\n    {\n      \"example_id\": \"citation-context-0545\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"Croussette v. R., 2017 QCCA 1040, at para. 10\",\n      \"phrase_start\": 669,\n      \"phrase_end\": 714,\n      \"confidence\": 0.99,\n      \"rationale\": \"The citation is part of a list supporting the broadening of forfeiture, but the phrase itself does not contain treatment language.\"\n    },\n    {\n      \"example_id\": \"citation-context-0546\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"R. v. Witvoet, 2015 ABCA 152\",\n      \"phrase_start\": 825,\n      \"phrase_end\": 853,\n      \"confidence\": 0.99,\n      \"rationale\": \"The citation is included among others supporting the broadening of forfeiture, but no specific treatment language is supported by the phrase.\"\n    },\n    {\n      \"example_id\": \"citation-context-0547\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"Trecartin v. R., 2019 NBCA 84, at para. 31\",\n      \"phrase_start\": 882,\n      \"phrase_end\": 904,\n      \"confidence\": 0.99,\n      \"rationale\": \"The citation is part of a list supporting the broadening of forfeiture, but the phrase itself does not contain treatment language.\"\n    },\n    {\n      \"example_id\": \"citation-context-0548\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see also Craig\",\n      \"phrase_start\": 269,\n      \"phrase_end\": 274,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase explicitly references Craig to support the statement about the scope of property that forfeiture can apply to.\"\n    },\n    {\n      \"example_id\": \"citation-context-0549\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see also Craig\",\n      \"phrase_start\": 408,\n      \"phrase_end\": 413,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase explicitly references Craig to support the statement about the scope of property that forfeiture can apply to.\"\n    },\n    {\n      \"example_id\": \"citation-context-0550\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see also Hape, at para. 41\",\n      \"phrase_start\": 843,\n      \"phrase_end\": 860,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase explicitly references Hape to support the statement about the connection required between proceedings and property for forfeiture.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 6,
+      "example_start": 50,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 5520,
+        "completion_tokens": 1095,
+        "estimated_cost_usd": 0.0014883000000000001,
+        "cost_usd": 0.00099
+      },
+      "validation": {
+        "valid_label_count": 4,
+        "invalid_label_count": 6,
+        "invalid_labels": [
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0551",
+          "citation_ordinal": 0,
+          "citation_text": "Hape",
+          "treatment": "supportive",
+          "phrase": "some nexus to criminal liability proceedings is required",
+          "phrase_start": 73,
+          "phrase_end": 129,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the legal principle that a nexus to criminal proceedings is necessary for forfeiture, aligning with the cited case's treatment."
+        },
+        {
+          "example_id": "citation-context-0552",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Dolbec, 2011 QCCA 1610, at para. 27",
+          "treatment": "supportive",
+          "phrase": "some nexus to criminal liability proceedings is required",
+          "phrase_start": 73,
+          "phrase_end": 129,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the legal principle that a nexus to criminal proceedings is necessary for forfeiture, aligning with the cited case's treatment."
+        },
+        {
+          "example_id": "citation-context-0553",
+          "citation_ordinal": 0,
+          "citation_text": "tribunal",
+          "treatment": "absent",
+          "phrase": "tribunal",
+          "phrase_start": 169,
+          "phrase_end": 177,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The excerpt discusses the court's authority but does not specify treatment of the tribunal as supportive, distinguishing, or negative; it merely states the tribunal's power."
+        },
+        {
+          "example_id": "citation-context-0554",
+          "citation_ordinal": 0,
+          "citation_text": "tribunal",
+          "treatment": "absent",
+          "phrase": "tribunal",
+          "phrase_start": 1000,
+          "phrase_end": 1008,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The text describes the tribunal's authority but does not indicate a supportive, distinguishing, or negative treatment; it states the power within the statutory scheme."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0551\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"some nexus to criminal liability proceedings is required\",\n      \"phrase_start\": 95,\n      \"phrase_end\": 133,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the legal principle that a nexus to criminal proceedings is necessary for forfeiture, aligning with the cited case's treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0552\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"some nexus to criminal liability proceedings is required\",\n      \"phrase_start\": 95,\n      \"phrase_end\": 133,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the legal principle that a nexus to criminal proceedings is necessary for forfeiture, aligning with the cited case's treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0553\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"tribunal\",\n      \"phrase_start\": 169,\n      \"phrase_end\": 177,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses the court's authority but does not specify treatment of the tribunal as supportive, distinguishing, or negative; it merely states the tribunal's power.\"\n    },\n    {\n      \"example_id\": \"citation-context-0554\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"tribunal\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1008,\n      \"confidence\": 0.9,\n      \"rationale\": \"The text describes the tribunal's authority but does not indicate a supportive, distinguishing, or negative treatment; it states the power within the statutory scheme.\"\n    },\n    {\n      \"example_id\": \"citation-context-0555\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    },\n    {\n      \"example_id\": \"citation-context-0556\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    },\n    {\n      \"example_id\": \"citation-context-0557\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    },\n    {\n      \"example_id\": \"citation-context-0558\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    },\n    {\n      \"example_id\": \"citation-context-0559\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    },\n    {\n      \"example_id\": \"citation-context-0560\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"a court that heard Manh Hung Nguyen\u2019s guilty plea could have considered forfeiture\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 191,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the treatment that courts may consider forfeiture in connection with criminal allegations, consistent with the legal authority discussed.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 7,
+      "example_start": 60,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 5061,
+        "completion_tokens": 1579,
+        "estimated_cost_usd": 0.0014233,
+        "cost_usd": 0.0011377000000000002
+      },
+      "validation": {
+        "valid_label_count": 4,
+        "invalid_label_count": 6,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0563",
+          "citation_ordinal": 0,
+          "citation_text": "2022 SCC 48",
+          "treatment": "supportive",
+          "phrase": "it is specifically \u201cle tribunal qui condamne une personne pour une infraction d\u00e9sign\u00e9e ou l\u2019en absout\u201d (the court that convicts a person of a designated offence or discharges them of it) that is so empowered",
+          "phrase_start": 390,
+          "phrase_end": 597,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states that the tribunal that convicts or discharges a person is the one empowered, supporting the citation's treatment that the court with jurisdiction is the one that orders forfeiture."
+        },
+        {
+          "example_id": "citation-context-0567",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Piccirilli",
+          "treatment": "supportive",
+          "phrase": "the language in these provisions, which refer not to the generic \u201ccourt\u201d in the sense of the Court of Qu\u00e9bec, but to the \u201ccourt imposing sentence on or discharging the offender\u201d",
+          "phrase_start": 393,
+          "phrase_end": 570,
+          "offsets_repaired": true,
+          "confidence": 0.85,
+          "rationale": "The phrase clarifies that the provisions refer specifically to the court that imposes sentence or discharges the offender, supporting the treatment that the sentencing court is the proper authority for forfeiture orders."
+        },
+        {
+          "example_id": "citation-context-0568",
+          "citation_ordinal": 0,
+          "citation_text": "Canadian Broadcasting Corp. v. Manitoba, 2021 SCC 33, [2021] 2 S.C.R. 785, at para. 33",
+          "treatment": "supportive",
+          "phrase": "The Crown can no longer rely on Manh Hung Nguyen\u2019s conviction to ground the forfeiture of the subject property \u2014 his sentencing proceedings ended in 2016",
+          "phrase_start": 6,
+          "phrase_end": 159,
+          "offsets_repaired": true,
+          "confidence": 0.85,
+          "rationale": "The phrase indicates that forfeiture is tied to the sentencing proceedings that have concluded, supporting the treatment that the sentencing court's decision is the basis for forfeiture."
+        },
+        {
+          "example_id": "citation-context-0570",
+          "citation_ordinal": 0,
+          "citation_text": "Hollaman, at paras. 97-98",
+          "treatment": "supportive",
+          "phrase": "Section 490 sets out default rules for the detention and disposition of seized property, which apply unless Parliament has provided more specific, conflicting rules",
+          "phrase_start": 6,
+          "phrase_end": 170,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase states that section 490 provides default rules unless overridden by specific legislation, supporting the treatment that the section establishes the general authority for detention and disposition of seized property."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0561\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the order of forfeiture must be rendered when the court sentences an accused guilty of a designated offence\",\n      \"phrase_start\": 104,\n      \"phrase_end\": 161,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly states that the forfeiture order 'must be rendered when the court sentences an accused guilty,' indicating a supportive treatment of the citation regarding the timing of forfeiture orders.\"\n    },\n    {\n      \"example_id\": \"citation-context-0562\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the order of forfeiture must be rendered when the court sentences an accused guilty of a designated offence\",\n      \"phrase_start\": 104,\n      \"phrase_end\": 161,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase repeats the same language as in the previous excerpt, supporting the treatment that the citation supports the requirement that forfeiture be ordered at sentencing.\"\n    },\n    {\n      \"example_id\": \"citation-context-0563\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"it is specifically \u201cle tribunal qui condamne une personne pour une infraction d\u00e9sign\u00e9e ou l\u2019en absout\u201d (the court that convicts a person of a designated offence or discharges them of it) that is so empowered\",\n      \"phrase_start\": 72,\n      \"phrase_end\": 174,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase explicitly states that the tribunal that convicts or discharges a person is the one empowered, supporting the citation's treatment that the court with jurisdiction is the one that orders forfeiture.\"\n    },\n    {\n      \"example_id\": \"citation-context-0564\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"le tribunal qui condamne une personne pour une infraction d\u00e9sign\u00e9e ou l\u2019en absout en vertu de l\u2019article 730 du Code criminel et qui est convaincu, selon la pr\u00e9pond\u00e9rance des probabilit\u00e9s, que des biens infractionnels non-chimiques sont li\u00e9s \u00e0 la perp\u00e9tration de cette infraction ordonne qu\u2019ils soient confiscqu\u00e9s au profit\",\n      \"phrase_start\": 72,\n      \"phrase_end\": 290,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase indicates that the tribunal that convicts or discharges a person and is convinced of certain facts is the one that orders confiscation, supporting the citation's treatment that the sentencing court is the appropriate authority.\"\n    },\n    {\n      \"example_id\": \"citation-context-0565\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"le tribunal qui condamne une personne pour une infraction d\u00e9sign\u00e9e ou l\u2019en absout en vertu de l\u2019article 730 du Code criminel et qui est convaincu, selon la pr\u00e9pond\u00e9rance des probabilit\u00e9s, que des biens infractionnels non-chimiques sont li\u00e9s \u00e0 la perp\u00e9tration de cette infraction ordonne qu\u2019ils soient confiscqu\u00e9s au profit\",\n      \"phrase_start\": 72,\n      \"phrase_end\": 290,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase indicates that the tribunal that convicts or discharges a person and is convinced of certain facts is the one that orders confiscation, supporting the citation's treatment that the sentencing court is the appropriate authority.\"\n    },\n    {\n      \"example_id\": \"citation-context-0566\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"s. 16(2) Subject to sections 18 to 19.1, if the evidence does not establish to the satisfaction of the court that property in respect of which an order of forfeiture would otherwise be made under subsection (1) is related to the commission of the designated substance offence of which a person is convicted or discharged, but the court is satisfied, beyond a reasonable doubt, that the property is non-chemical offence-related property, the court may make an order of forfeiture under subsection (1) in relation to that property\",\n      \"phrase_start\": 28,\n      \"phrase_end\": 290,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase states that the court 'may make an order of forfeiture' under specified conditions, indicating support for the treatment that the court has the authority to order forfeiture in this context.\"\n    },\n    {\n      \"example_id\": \"citation-context-0567\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the language in these provisions, which refer not to the generic \u201ccourt\u201d in the sense of the Court of Qu\u00e9bec, but to the \u201ccourt imposing sentence on or discharging the offender\u201d\",\n      \"phrase_start\": 25,\n      \"phrase_end\": 124,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase clarifies that the provisions refer specifically to the court that imposes sentence or discharges the offender, supporting the treatment that the sentencing court is the proper authority for forfeiture orders.\"\n    },\n    {\n      \"example_id\": \"citation-context-0568\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Crown can no longer rely on Manh Hung Nguyen\u2019s conviction to ground the forfeiture of the subject property \u2014 his sentencing proceedings ended in 2016\",\n      \"phrase_start\": 33,\n      \"phrase_end\": 94,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase indicates that forfeiture is tied to the sentencing proceedings that have concluded, supporting the treatment that the sentencing court's decision is the basis for forfeiture.\"\n    },\n    {\n      \"example_id\": \"citation-context-0569\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"it is true that the intervener the Director of Public Prosecutions also invoked s. 490(9) before our Court, but it did not do so at the expense of the parties\u2019 representations, nor did it unduly widen or add to the points in issue\",\n      \"phrase_start\": 53,\n      \"phrase_end\": 174,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase supports the view that section 490(9) provides a residual basis for forfeiture, aligning with the treatment that the court recognizes this statutory provision as relevant to forfeiture authority.\"\n    },\n    {\n      \"example_id\": \"citation-context-0570\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Section 490 sets out default rules for the detention and disposition of seized property, which apply unless Parliament has provided more specific, conflicting rules\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 124,\n      \"confidence\": 0.90,\n      \"rationale\": \"The phrase states that section 490 provides default rules unless overridden by specific legislation, supporting the treatment that the section establishes the general authority for detention and disposition of seized property.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 8,
+      "example_start": 70,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 6673,
+        "completion_tokens": 1019,
+        "estimated_cost_usd": 0.0015599,
+        "cost_usd": 0.0010749
+      },
+      "validation": {
+        "valid_label_count": 7,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0571",
+          "citation_ordinal": 0,
+          "citation_text": "Breton, at para. 62",
+          "treatment": "supportive",
+          "phrase": "The purpose of s. 490 is to ensure that courts supervising seized property can carefully balance the private interests in that property against the public need for that property to be detained in pursuit of investigating and prosecuting crime",
+          "phrase_start": 669,
+          "phrase_end": 911,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly states the purpose of section 490, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-0572",
+          "citation_ordinal": 0,
+          "citation_text": "Ayotte, at para. 51",
+          "treatment": "supportive",
+          "phrase": "The purpose of s. 490 is to ensure that courts supervising seized property can carefully balance the private interests in that property against the public need for that property to be detained in pursuit of investigating and prosecuting crime",
+          "phrase_start": 575,
+          "phrase_end": 817,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly states the purpose of section 490, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-0573",
+          "citation_ordinal": 0,
+          "citation_text": "Raponi, at para. 28",
+          "treatment": "supportive",
+          "phrase": "It purports to provide a \u201ccomplete scheme\u201d for this purpose",
+          "phrase_start": 939,
+          "phrase_end": 998,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase indicates that the section aims to provide a comprehensive scheme, supporting the citation's treatment."
+        },
+        {
+          "example_id": "citation-context-0574",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Backhouse (2005), 195 O.A.C. 80, at para. 111",
+          "treatment": "supportive",
+          "phrase": "It purports to provide a \u201ccomplete scheme\u201d for this purpose",
+          "phrase_start": 889,
+          "phrase_end": 948,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase indicates that the section aims to provide a comprehensive scheme, supporting the citation's treatment."
+        },
+        {
+          "example_id": "citation-context-0575",
+          "citation_ordinal": 0,
+          "citation_text": "Breton, at paras. 68-69",
+          "treatment": "supportive",
+          "phrase": "When it is validly engaged, s. 490(9) empowers the court to order the return of property to a lawful owner or possessor or, if there is no known lawful owner or possessor, order it forfeited to the Crown",
+          "phrase_start": 6,
+          "phrase_end": 209,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase describes the section's authority to order return or forfeiture, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0576",
+          "citation_ordinal": 0,
+          "citation_text": "Gagnon, at para. 105",
+          "treatment": "supportive",
+          "phrase": "When it is validly engaged, s. 490(9) empowers the court to order the return of property to a lawful owner or possessor or, if there is no known lawful owner or possessor, order it forfeited to the Crown",
+          "phrase_start": 6,
+          "phrase_end": 209,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase describes the section's authority to order return or forfeiture, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0580",
+          "citation_ordinal": 0,
+          "citation_text": "Backhouse, at para. 107",
+          "treatment": "supportive",
+          "phrase": "The circumstances in which forfeiture was expressly provided for were significantly broadened in the 1953-54 Criminal Code, which introduced a provision that looks much like the current s. 490(9).",
+          "phrase_start": 6,
+          "phrase_end": 202,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase discusses legislative history and broadening of forfeiture provisions, supporting a supportive treatment."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0571\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The purpose of s. 490 is to ensure that courts supervising seized property can carefully balance the private interests in that property against the public need for that property to be detained in pursuit of investigating and prosecuting crime\",\n      \"phrase_start\": 278,\n      \"phrase_end\": 370,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly states the purpose of section 490, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-0572\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The purpose of s. 490 is to ensure that courts supervising seized property can carefully balance the private interests in that property against the public need for that property to be detained in pursuit of investigating and prosecuting crime\",\n      \"phrase_start\": 278,\n      \"phrase_end\": 370,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly states the purpose of section 490, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-0573\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"It purports to provide a \u201ccomplete scheme\u201d for this purpose\",\n      \"phrase_start\": 370,\n      \"phrase_end\": 414,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the section aims to provide a comprehensive scheme, supporting the citation's treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0574\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"It purports to provide a \u201ccomplete scheme\u201d for this purpose\",\n      \"phrase_start\": 370,\n      \"phrase_end\": 414,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the section aims to provide a comprehensive scheme, supporting the citation's treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0575\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"When it is validly engaged, s. 490(9) empowers the court to order the return of property to a lawful owner or possessor or, if there is no known lawful owner or possessor, order it forfeited to the Crown\",\n      \"phrase_start\": 278,\n      \"phrase_end\": 370,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase describes the section's authority to order return or forfeiture, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0576\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"When it is validly engaged, s. 490(9) empowers the court to order the return of property to a lawful owner or possessor or, if there is no known lawful owner or possessor, order it forfeited to the Crown\",\n      \"phrase_start\": 278,\n      \"phrase_end\": 370,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase describes the section's authority to order return or forfeiture, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0577\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The circumstances in which forfeiture was expressly provided for were significantly broadened in the 1953-54 Criminal Code, which introduced a provision that looks much like the current s. 490(9).\",\n      \"phrase_start\": 271,\n      \"phrase_end\": 347,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase discusses legislative history and broadening of forfeiture provisions, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0580\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The circumstances in which forfeiture was expressly provided for were significantly broadened in the 1953-54 Criminal Code, which introduced a provision that looks much like the current s. 490(9).\",\n      \"phrase_start\": 271,\n      \"phrase_end\": 347,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase discusses legislative history and broadening of forfeiture provisions, supporting a supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 9,
+      "example_start": 80,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 3692,
+        "completion_tokens": 1106,
+        "estimated_cost_usd": 0.0013152,
+        "cost_usd": 0.0008116
+      },
+      "validation": {
+        "valid_label_count": 8,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-0581",
+          "citation_ordinal": 0,
+          "citation_text": "Lavigne, at para. 16",
+          "treatment": "supportive",
+          "phrase": "citing Lavigne, at para. 16",
+          "phrase_start": 993,
+          "phrase_end": 1020,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The excerpt explicitly cites 'Lavigne, at para. 16' in support of the statement about forfeiture purposes, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0582",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. James",
+          "treatment": "absent",
+          "phrase": "R. v. James",
+          "phrase_start": 1000,
+          "phrase_end": 1011,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation 'R. v. James' is mentioned in the context of legal authority but no specific language indicating support, support, or other treatment is provided."
+        },
+        {
+          "example_id": "citation-context-0584",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. Spindloe, 2001 SKCA 58",
+          "treatment": "absent",
+          "phrase": "R. v. Spindloe, 2001 SKCA 58",
+          "phrase_start": 307,
+          "phrase_end": 335,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation appears in a list of cases cited for context but no explicit support or treatment language is associated with it."
+        },
+        {
+          "example_id": "citation-context-0586",
+          "citation_ordinal": 0,
+          "citation_text": "(see, e.g., Spindloe, at para. 119)",
+          "treatment": "supportive",
+          "phrase": "see, e.g., Spindloe, at para. 119",
+          "phrase_start": 793,
+          "phrase_end": 826,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The citation is used as an example to support the argument about the application of s. 491.1 after proceedings end, indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0587",
+          "citation_ordinal": 0,
+          "citation_text": "Backhouse, at para. 111",
+          "treatment": "supportive",
+          "phrase": "Backhouse, at para. 111",
+          "phrase_start": 275,
+          "phrase_end": 298,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is used to support the view that s. 490(9) provides a residual scheme, indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0588",
+          "citation_ordinal": 0,
+          "citation_text": "Taylor, at para. 49",
+          "treatment": "supportive",
+          "phrase": "Taylor, at para. 49",
+          "phrase_start": 228,
+          "phrase_end": 247,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is used to support the interpretation of the language 'proceedings have not been instituted,' indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0589",
+          "citation_ordinal": 0,
+          "citation_text": "Spindloe, at para. 111",
+          "treatment": "supportive",
+          "phrase": "Spindloe, at para. 111",
+          "phrase_start": 249,
+          "phrase_end": 271,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is used to support the discussion on narrow interpretation of s. 490(9), indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-0590",
+          "citation_ordinal": 0,
+          "citation_text": "Echostar, at paras. 26-27",
+          "treatment": "supportive",
+          "phrase": "Echostar, at paras. 26-27",
+          "phrase_start": 273,
+          "phrase_end": 298,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is used to support the interpretation of the words 'proceedings have not been instituted,' indicating supportive treatment."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-0581\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Lavigne, at para. 16\",\n      \"phrase_start\": 1014,\n      \"phrase_end\": 1020,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt explicitly cites 'Lavigne, at para. 16' in support of the statement about forfeiture purposes, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0582\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"R. v. James\",\n      \"phrase_start\": 1000,\n      \"phrase_end\": 1011,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation 'R. v. James' is mentioned in the context of legal authority but no specific language indicating support, support, or other treatment is provided.\"\n    },\n    {\n      \"example_id\": \"citation-context-0583\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing R. v. Taylor, 2011 NLCA 72\",\n      \"phrase_start\": 258,\n      \"phrase_end\": 284,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the conclusion that s. 490(9) could not apply due to procedural language, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0584\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"R. v. Spindloe, 2001 SKCA 58\",\n      \"phrase_start\": 307,\n      \"phrase_end\": 335,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation appears in a list of cases cited for context but no explicit support or treatment language is associated with it.\"\n    },\n    {\n      \"example_id\": \"citation-context-0585\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"citing Echostar Corporation v. Service de poursuites p\u00e9nales du Canada, 2009 QCCQ 4827\",\n      \"phrase_start\": 373,\n      \"phrase_end\": 404,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the discussion about procedural language and application of s. 490(9), indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0586\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see, e.g., Spindloe, at para. 119\",\n      \"phrase_start\": 792,\n      \"phrase_end\": 827,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used as an example to support the argument about the application of s. 491.1 after proceedings end, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0587\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Backhouse, at para. 111\",\n      \"phrase_start\": 275,\n      \"phrase_end\": 298,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the view that s. 490(9) provides a residual scheme, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0588\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Taylor, at para. 49\",\n      \"phrase_start\": 228,\n      \"phrase_end\": 247,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the interpretation of the language 'proceedings have not been instituted,' indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0589\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Spindloe, at para. 111\",\n      \"phrase_start\": 249,\n      \"phrase_end\": 271,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the discussion on narrow interpretation of s. 490(9), indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-0590\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Echostar, at paras. 26-27\",\n      \"phrase_start\": 273,\n      \"phrase_end\": 298,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the interpretation of the words 'proceedings have not been instituted,' indicating supportive treatment.\"\n    }\n  ]\n}"
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-18T14:13:56.455235+00:00",
+  "model": "gpt-4.1-nano",
+  "budget_usd": 2.5,
+  "spent_usd": 0.0093843,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8712,
+        "completion_tokens": 1410,
+        "estimated_cost_usd": 0.0019103000000000002,
+        "cost_usd": 0.0014352
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 7,
+        "invalid_labels": [
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1501",
+          "citation_ordinal": 0,
+          "citation_text": "Rrukaj v Canada (Minister of Citizenship and Immigration), 2004 FC 605 at para 10 [Rrukaj]",
+          "treatment": "supportive",
+          "phrase": "The examination of inconsistencies through a comparison of the POE notes, PIFs, and oral testimony is an established method of testing credibility in the refugee process and it is open to the RPD to make adverse credibility findings based on inconsistencies in the evidence.",
+          "phrase_start": 632,
+          "phrase_end": 906,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states that the method of examining inconsistencies is established and supports the RPD's authority to make adverse credibility findings based on such inconsistencies."
+        },
+        {
+          "example_id": "citation-context-1502",
+          "citation_ordinal": 0,
+          "citation_text": "Fang v Canada (Citizenship and Immigration), 2013 FC 241 at paras 17-18",
+          "treatment": "supportive",
+          "phrase": "The examination of inconsistencies through a comparison of the POE notes, PIFs, and oral testimony is an established method of testing credibility in the refugee process and it is open to the RPD to make adverse credibility findings based on inconsistencies in the evidence.",
+          "phrase_start": 540,
+          "phrase_end": 814,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase supports the authority of the RPD to rely on inconsistency analysis as a credible method, indicating a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1503",
+          "citation_ordinal": 0,
+          "citation_text": "Abid v Canada (Citizenship and Immigration), 2012 FC 483",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.8,
+          "rationale": "The excerpt does not contain language explicitly supporting, distinguishing, or negatively treating the citation; it merely references the same method of credibility assessment without evaluative language."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1501\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The examination of inconsistencies through a comparison of the POE notes, PIFs, and oral testimony is an established method of testing credibility in the refugee process and it is open to the RPD to make adverse credibility findings based on inconsistencies in the evidence.\",\n      \"phrase_start\": 114,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the method of examining inconsistencies is established and supports the RPD's authority to make adverse credibility findings based on such inconsistencies.\"\n    },\n    {\n      \"example_id\": \"citation-context-1502\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The examination of inconsistencies through a comparison of the POE notes, PIFs, and oral testimony is an established method of testing credibility in the refugee process and it is open to the RPD to make adverse credibility findings based on inconsistencies in the evidence.\",\n      \"phrase_start\": 114,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the authority of the RPD to rely on inconsistency analysis as a credible method, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1503\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.8,\n      \"rationale\": \"The excerpt does not contain language explicitly supporting, distinguishing, or negatively treating the citation; it merely references the same method of credibility assessment without evaluative language.\"\n    },\n    {\n      \"example_id\": \"citation-context-1504\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Respondent says that the noted inconsistencies in this case include omission of several incidents in both the POE notes and the original PIF, discrepancies over what caused the Applicants to leave Mexico, A.P.P.\\u0019s failure to identify the Gang as the agent of persecution at the POE stage, initial failure to connect the Gang to the police, no mention of the murdered neighbour\\u0019s family taking revenge on the Gang, and discrepancies in the length of time C.A.A.P. was kidnapped.\",\n      \"phrase_start\": 115,\n      \"phrase_end\": 319,\n      \"confidence\": 0.85,\n      \"rationale\": \"The phrase lists specific inconsistencies acknowledged by the Respondent, supporting the authority to consider such discrepancies in credibility assessments.\"\n    },\n    {\n      \"example_id\": \"citation-context-1505\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The matter was investigated by the Law Society of Upper Canada and the Complaints Resolution Commissioner and both found that \\u0019no further action\\u0019 against the lawyer was necessary.\",\n      \"phrase_start\": 115,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports reliance on regulatory conclusions, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1506\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Decision does consider the circumstances in which the POE notes were taken and acknowledges that \\u0019one can be tired from travelling, especially with family\\u0019 and that one may not have 100% recollection in a spontaneous interview.\",\n      \"phrase_start\": 116,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the decision considers circumstances affecting credibility, supporting the authority of the decision-making process.\"\n    },\n    {\n      \"example_id\": \"citation-context-1507\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Member did not improperly dismiss the psychological evidence as an explanation for the credibility concerns identified in the evidence.\",\n      \"phrase_start\": 117,\n      \"phrase_end\": 188,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the dismissal of psychological evidence was not improper, supporting the authority of the decision.\"\n    },\n    {\n      \"example_id\": \"citation-context-1508\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Member found that D.P.P. would have been aware of the assault because of threats that she had allegedly received. Therefore, the Member never \\u0019substituted his judgement for L.M.P.A.\\u0019s own experience.\",\n      \"phrase_start\": 118,\n      \"phrase_end\": 251,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the authority of the Member to make credibility judgments based on evidence and circumstances.\"\n    },\n    {\n      \"example_id\": \"citation-context-1509\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"It was open to the Member to make a negative credibility finding with respect to C.A.A.P. based on inconsistencies in the evidence about how long C.A.A.P. was allegedly kidnapped. It was also reasonable for the Member to reject C.A.A.P\\u0019s explanation for this discrepancy.\",\n      \"phrase_start\": 119,\n      \"phrase_end\": 278,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the Member's credibility assessment based on inconsistencies was within authority and reasonable.\"\n    },\n    {\n      \"example_id\": \"citation-context-1510\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Member\\u0019s IFA finding is grounded in the documentary evidence in the record about the Federal District, including the legality of same-sex marriage in Mexico and the existence of openly gay bars and gay politicians.\",\n      \"phrase_start\": 124,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the use of documentary evidence in the IFA analysis, indicating a supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 2,
+      "example_start": 10,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 6149,
+        "completion_tokens": 1116,
+        "estimated_cost_usd": 0.0015788,
+        "cost_usd": 0.0010613
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 7,
+        "invalid_labels": [
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1511",
+          "citation_ordinal": 0,
+          "citation_text": "IFA. See Thirunavukkarasu v Canada (Minister of Employment & Immigration) (1993), [1994] 1 FCR 589 at paras 5-6",
+          "treatment": "supportive",
+          "phrase": "the Member\u2019s application of the test for an IFA and his findings were reasonable",
+          "phrase_start": 680,
+          "phrase_end": 760,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase indicates that the court finds the Member's application of the test and findings to be reasonable, supporting a supportive treatment of the citation."
+        },
+        {
+          "example_id": "citation-context-1512",
+          "citation_ordinal": 0,
+          "citation_text": "Doucet, above, at paras 55-58",
+          "treatment": "supportive",
+          "phrase": "the Member did consider them when he observes that C.A.A.P. would be travelling directly to the Federal District and moving closer to the centre of a city he has lived in previously",
+          "phrase_start": 340,
+          "phrase_end": 521,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The statement supports that the Member considered the particular circumstances, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1513",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Minister of Human Resources Development) v Rafuse, 2002 FCA 31 at para 14",
+          "treatment": "supportive",
+          "phrase": "the evidence does not show that there is only one possible conclusion and the issue to be decided is not a question of law",
+          "phrase_start": 1134,
+          "phrase_end": 1256,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase supports the view that the evidence does not support a conclusion that would justify a directed verdict, indicating a supportive stance."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1511\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member\u2019s application of the test for an IFA and his findings were reasonable\",\n      \"phrase_start\": 122,\n      \"phrase_end\": 163,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the court finds the Member's application of the test and findings to be reasonable, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1512\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member did consider them when he observes that C.A.A.P. would be travelling directly to the Federal District and moving closer to the centre of a city he has lived in previously\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 232,\n      \"confidence\": 0.9,\n      \"rationale\": \"The statement supports that the Member considered the particular circumstances, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1513\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the evidence does not show that there is only one possible conclusion and the issue to be decided is not a question of law\",\n      \"phrase_start\": 107,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the view that the evidence does not support a conclusion that would justify a directed verdict, indicating a supportive stance.\"\n    },\n    {\n      \"example_id\": \"citation-context-1514\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1515\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1516\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1517\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1518\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1519\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1520\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the volume of evidence requires careful review and the RPD\u2019s expertise in considering such information\",\n      \"phrase_start\": 157,\n      \"phrase_end\": 209,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the importance of careful review and RPD\u2019s expertise, indicating a supportive treatment.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 3,
+      "example_start": 20,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8019,
+        "completion_tokens": 1156,
+        "estimated_cost_usd": 0.0018455000000000001,
+        "cost_usd": 0.0012642999999999999
+      },
+      "validation": {
+        "valid_label_count": 5,
+        "invalid_label_count": 5,
+        "invalid_labels": [
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1521",
+          "citation_ordinal": 0,
+          "citation_text": "Collin v Lussier (1984), [1985] 1 FCR 124 at para 2",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is included in the context but no specific treatment language supporting support, distinguishing, negative, or neutral treatment is present in the excerpt."
+        },
+        {
+          "example_id": "citation-context-1522",
+          "citation_ordinal": 0,
+          "citation_text": "Wu v Canada (Citizenship and Immigration), 2010 FC 1102 at para 16",
+          "treatment": "supportive",
+          "phrase": "care must be taken when using this approach and, in particular, not too much reliance should be placed upon POE notes because of the condition under which they are taken.",
+          "phrase_start": 825,
+          "phrase_end": 995,
+          "offsets_repaired": true,
+          "confidence": 0.92,
+          "rationale": "The phrase explicitly supports cautious use of POE notes, indicating a supportive treatment of the legal approach."
+        },
+        {
+          "example_id": "citation-context-1526",
+          "citation_ordinal": 0,
+          "citation_text": "Society",
+          "treatment": "negative",
+          "phrase": "I find that these discrepancies, particularly with respect to the description of the event to further undermine the credibility of the claimants.",
+          "phrase_start": 1343,
+          "phrase_end": 1488,
+          "offsets_repaired": true,
+          "confidence": 0.91,
+          "rationale": "The phrase explicitly undermines credibility, indicating negative treatment."
+        },
+        {
+          "example_id": "citation-context-1528",
+          "citation_ordinal": 0,
+          "citation_text": "Zhu v Canada (Public Safety and Emergency Preparedness), 2017 FC 626 at paras 39-43",
+          "treatment": "supportive",
+          "phrase": "The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850:",
+          "phrase_start": 746,
+          "phrase_end": 862,
+          "offsets_repaired": true,
+          "confidence": 0.94,
+          "rationale": "The phrase supports the application of established legal standards as summarized by Justice Strickland, indicating supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1529",
+          "citation_ordinal": 0,
+          "citation_text": "R v GDB",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is included but no specific treatment language is supported in the excerpt."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1521\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is included in the context but no specific treatment language supporting support, distinguishing, negative, or neutral treatment is present in the excerpt.\"\n    },\n    {\n      \"example_id\": \"citation-context-1522\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"care must be taken when using this approach and, in particular, not too much reliance should be placed upon POE notes because of the condition under which they are taken.\",\n      \"phrase_start\": 134,\n      \"phrase_end\": 209,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase explicitly supports cautious use of POE notes, indicating a supportive treatment of the legal approach.\"\n    },\n    {\n      \"example_id\": \"citation-context-1523\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the fact that there are differences may mean a variety of things. The important thing is the explanation for the difference and it is the explanation for the difference that can lead to a credibility finding, negative or positive.\",\n      \"phrase_start\": 135,\n      \"phrase_end\": 278,\n      \"confidence\": 0.93,\n      \"rationale\": \"The phrase supports the approach that differences in evidence are explained and can influence credibility assessments, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1524\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the methods of testing credibility have been upheld in numerous cases in Federal Court stretching back years.\",\n      \"phrase_start\": 140,\n      \"phrase_end\": 209,\n      \"confidence\": 0.89,\n      \"rationale\": \"The phrase supports the legitimacy and longstanding acceptance of credibility testing methods, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1525\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"negative\",\n      \"phrase\": \"I do not find these explanations satisfactory.\",\n      \"phrase_start\": 152,\n      \"phrase_end\": 188,\n      \"confidence\": 0.88,\n      \"rationale\": \"The phrase explicitly states dissatisfaction with explanations, indicating a negative treatment of the credibility assessment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1526\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"negative\",\n      \"phrase\": \"I find that these discrepancies, particularly with respect to the description of the event to further undermine the credibility of the claimants.\",\n      \"phrase_start\": 152,\n      \"phrase_end\": 245,\n      \"confidence\": 0.91,\n      \"rationale\": \"The phrase explicitly undermines credibility, indicating negative treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1527\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"distinguishing\",\n      \"phrase\": \"the whole thrust of their evidence with respect to former counsel was that he and his staff did not listen to their story and that they had refused to read this document.\",\n      \"phrase_start\": 150,\n      \"phrase_end\": 278,\n      \"confidence\": 0.87,\n      \"rationale\": \"The phrase distinguishes the claimants' allegations about counsel's conduct from the decision's findings, indicating a distinguishing treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1528\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850:\",\n      \"phrase_start\": 17,\n      \"phrase_end\": 78,\n      \"confidence\": 0.94,\n      \"rationale\": \"The phrase supports the application of established legal standards as summarized by Justice Strickland, indicating supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1529\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is included but no specific treatment language is supported in the excerpt.\"\n    },\n    {\n      \"example_id\": \"citation-context-1530\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Member\\u001a point is that any mistake or wrongdoing by previous counsel has never been established. No presumption of credibility is given to previous counsel. The onus is upon the Applicants to prove any impropriety by previous counsel. The Applicants did not discharge this onus.\",\n      \"phrase_start\": 154,\n      \"phrase_end\": 278,\n      \"confidence\": 0.92,\n      \"rationale\": \"The phrase explicitly states that wrongdoing by counsel has not been established and places the burden on the applicants, supporting the legal standard applied.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 4,
+      "example_start": 30,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 9147,
+        "completion_tokens": 1550,
+        "estimated_cost_usd": 0.0019126,
+        "cost_usd": 0.0015347
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 7,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1532",
+          "citation_ordinal": 0,
+          "citation_text": "Shirwa v Canada (Minister of Employment and Immigration), [1994] 2 FC 51 at para 12",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt."
+        },
+        {
+          "example_id": "citation-context-1536",
+          "citation_ordinal": 0,
+          "citation_text": "Shirwa at para 13",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt."
+        },
+        {
+          "example_id": "citation-context-1540",
+          "citation_ordinal": 0,
+          "citation_text": "Akter v Canada",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.0,
+          "rationale": "The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1531\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1532\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt.\"\n    },\n    {\n      \"example_id\": \"citation-context-1533\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1534\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1535\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1536\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt.\"\n    },\n    {\n      \"example_id\": \"citation-context-1537\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1538\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1539\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The law on point was summarized by Justice Strickland in Gombos v Canada (Citizenship and Immigration), 2017 FC 850: ... The burden is on the applicant to establish both the performance and the prejudice components of the test to demonstrate a breach of procedural fairness (Guadron v Canada (Citizenship and Immigration), 2014 FC 1092 at para 17).\",\n      \"phrase_start\": 1072,\n      \"phrase_end\": 1134,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses legal standards and burdens of proof related to counsel's incompetence, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1540\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"The citation is referenced in the context of legal standards, but no specific treatment language or reasoning clause is directly supported by the excerpt.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 5,
+      "example_start": 40,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8446,
+        "completion_tokens": 1268,
+        "estimated_cost_usd": 0.0018867,
+        "cost_usd": 0.0013518000000000002
+      },
+      "validation": {
+        "valid_label_count": 4,
+        "invalid_label_count": 6,
+        "invalid_labels": [
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: unknown example_id"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1541",
+          "citation_ordinal": 0,
+          "citation_text": "Lubana v Canda [sic]",
+          "treatment": "supportive",
+          "phrase": "he violated the established principle from Akter v Canada that the RPD must consider the past trauma of a claimant if they are going to use their demeanor during testimony to make negative credibility findings",
+          "phrase_start": 471,
+          "phrase_end": 680,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly supports the treatment as supportive by referencing the violation of a principle related to credibility assessment."
+        },
+        {
+          "example_id": "citation-context-1543",
+          "citation_ordinal": 0,
+          "citation_text": "emphasis in original",
+          "treatment": "supportive",
+          "phrase": "the situation for gay men is generally positive. As noted at the hearing, there is a gay district in the Federal District, there are openly gay bars and there are openly gay politicians. I find there is no serious possibility of [C.A.A.P.] being persecuted in the Federal District",
+          "phrase_start": 2689,
+          "phrase_end": 2969,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The statement supports the conclusion that persecution is unlikely, thus supporting a positive or supportive treatment of the evidence."
+        },
+        {
+          "example_id": "citation-context-1544",
+          "citation_ordinal": 0,
+          "citation_text": "Rasaratnam",
+          "treatment": "supportive",
+          "phrase": "the situation with respect to sexual orientation does not change that often and while there can be discrimination and isolated acts of violence, the situation for gay men is generally positive",
+          "phrase_start": 2179,
+          "phrase_end": 2371,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase supports the conclusion that the evidence indicates a generally positive situation, supporting a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1545",
+          "citation_ordinal": 0,
+          "citation_text": "Dunsmuir, above, at para 47",
+          "treatment": "supportive",
+          "phrase": "the Member applied the correct test and considered the particular circumstances of C.A.A.P.. The onus was upon C.A.A.P. to establish that the identified IFA was not safe or reasonable and he failed to do this for reasons provided by the Member",
+          "phrase_start": 39,
+          "phrase_end": 282,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase indicates that the Member correctly applied the test and the applicant failed to meet the burden, supporting a supportive treatment of the citation."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1541\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"he violated the established principle from Akter v Canada that the RPD must consider the past trauma of a claimant if they are going to use their demeanor during testimony to make negative credibility findings\",\n      \"phrase_start\": 74,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly supports the treatment as supportive by referencing the violation of a principle related to credibility assessment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1542\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the discrepancy is not treated as decisive; it simply further calls into question the authenticity of the documents, [and] also further undermines the credibility of the claimants\",\n      \"phrase_start\": 172,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the discrepancy undermines credibility, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1543\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the situation for gay men is generally positive. As noted at the hearing, there is a gay district in the Federal District, there are openly gay bars and there are openly gay politicians. I find there is no serious possibility of [C.A.A.P.] being persecuted in the Federal District\",\n      \"phrase_start\": 50,\n      \"phrase_end\": 102,\n      \"confidence\": 0.9,\n      \"rationale\": \"The statement supports the conclusion that persecution is unlikely, thus supporting a positive or supportive treatment of the evidence.\"\n    },\n    {\n      \"example_id\": \"citation-context-1544\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the situation with respect to sexual orientation does not change that often and while there can be discrimination and isolated acts of violence, the situation for gay men is generally positive\",\n      \"phrase_start\": 50,\n      \"phrase_end\": 174,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the conclusion that the evidence indicates a generally positive situation, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1545\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member applied the correct test and considered the particular circumstances of C.A.A.P.. The onus was upon C.A.A.P. to establish that the identified IFA was not safe or reasonable and he failed to do this for reasons provided by the Member\",\n      \"phrase_start\": 175,\n      \"phrase_end\": 233,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase indicates that the Member correctly applied the test and the applicant failed to meet the burden, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"citation-context-1546\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the reasons and findings on credibility and IFA are justifiable, transparent and intelligible. The credibility findings are based upon major and cumulative discrepancies in the Applicants\u2019 evidence for which the Applicants were unable to provide reasonable explanations\",\n      \"phrase_start\": 175,\n      \"phrase_end\": 278,\n      \"confidence\": 0.9,\n      \"rationale\": \"The statement supports the reasonableness and justification of the findings, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1547\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the reasons and findings on credibility and IFA are justifiable, transparent and intelligible. The credibility findings are based upon major and cumulative discrepancies in the Applicants\u2019 evidence for which the Applicants were unable to provide reasonable explanations\",\n      \"phrase_start\": 175,\n      \"phrase_end\": 278,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase supports the conclusion that the reasons are justifiable and the findings support the applicant's credibility, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1548\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for reasonable apprehension of bias is as follows: the apprehension of bias must be a reasonable one held by reasonable and right minded persons, applying themselves to the question and obtaining thereon the required information\",\n      \"phrase_start\": 16,\n      \"phrase_end\": 94,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase describes the proper test for bias, supporting a supportive or clarifying treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1549\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the case law is clear that the grounds for the apprehension must be substantial\",\n      \"phrase_start\": 18,\n      \"phrase_end\": 66,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase emphasizes the requirement for substantial grounds, supporting a supportive or clarifying treatment.\"\n    },\n    {\n      \"example_id\": \"request_id\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.0,\n      \"rationale\": \"No specific citation or treatment phrase provided in the request; thus, treatment is absent.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 6,
+      "example_start": 50,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 8924,
+        "completion_tokens": 1120,
+        "estimated_cost_usd": 0.0018991000000000001,
+        "cost_usd": 0.0013404
+      },
+      "validation": {
+        "valid_label_count": 6,
+        "invalid_label_count": 4,
+        "invalid_labels": [
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: unknown example_id"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1551",
+          "citation_ordinal": 0,
+          "citation_text": "Geza",
+          "treatment": "supportive",
+          "phrase": "In Geza, above, Justice Campbell of this Court had the following to say on this issue:",
+          "phrase_start": 997,
+          "phrase_end": 1083,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states that the case 'Geza' is used to support the legal point discussed, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1552",
+          "citation_ordinal": 0,
+          "citation_text": "Committee",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1.0,
+          "rationale": "The citation 'Pearlman v. Manitoba Law Society Judicial Committee' appears in the context of discussing the legal standard for impartiality, but no specific treatment language is provided or supported."
+        },
+        {
+          "example_id": "citation-context-1553",
+          "citation_ordinal": 0,
+          "citation_text": "Liberty v. Canada (National Energy Board), [1978] 1 S.C.R. 369",
+          "treatment": "supportive",
+          "phrase": "the test for reasonable apprehension of bias as follows:",
+          "phrase_start": 1102,
+          "phrase_end": 1158,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase introduces the case as a supporting authority for the test for reasonable apprehension of bias, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1554",
+          "citation_ordinal": 0,
+          "citation_text": "Le Dain J. in Valente v. The Queen, [1985] 2 S.C.R. 673, at p. 685",
+          "treatment": "supportive",
+          "phrase": "the test for reasonable apprehension of bias as follows:",
+          "phrase_start": 169,
+          "phrase_end": 225,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states that the case 'Valente v. The Queen' is used to support the test for reasonable apprehension of bias, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1555",
+          "citation_ordinal": 0,
+          "citation_text": "Bell Canada v. Canadian Telephone Employees Assn., [2003] 1 S.C.R. 884 at para. 18",
+          "treatment": "supportive",
+          "phrase": "the test for a reasonable apprehension of bias; however, they contest the level of proof required to reach a finding that the test has been met.",
+          "phrase_start": 1346,
+          "phrase_end": 1490,
+          "offsets_repaired": true,
+          "confidence": 0.8,
+          "rationale": "The citation supports the discussion of the legal standard for bias, indicating a supportive treatment of the case law."
+        },
+        {
+          "example_id": "citation-context-1559",
+          "citation_ordinal": 0,
+          "citation_text": "R. v. R.D.S., [1997] 3 S.C.R. 484 at paras. 31 and 112",
+          "treatment": "supportive",
+          "phrase": "the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient",
+          "phrase_start": 1098,
+          "phrase_end": 1251,
+          "offsets_repaired": true,
+          "confidence": 0.8,
+          "rationale": "The phrase supports the legal standard from case law, indicating a supportive treatment."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1551\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"In Geza, above, Justice Campbell of this Court had the following to say on this issue:\",\n      \"phrase_start\": 183,\n      \"phrase_end\": 219,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the case 'Geza' is used to support the legal point discussed, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1552\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 1.0,\n      \"rationale\": \"The citation 'Pearlman v. Manitoba Law Society Judicial Committee' appears in the context of discussing the legal standard for impartiality, but no specific treatment language is provided or supported.\"\n    },\n    {\n      \"example_id\": \"citation-context-1553\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for reasonable apprehension of bias as follows:\",\n      \"phrase_start\": 394,\n      \"phrase_end\": 429,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase introduces the case as a supporting authority for the test for reasonable apprehension of bias, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1554\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for reasonable apprehension of bias as follows:\",\n      \"phrase_start\": 394,\n      \"phrase_end\": 429,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the case 'Valente v. The Queen' is used to support the test for reasonable apprehension of bias, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1555\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for a reasonable apprehension of bias; however, they contest the level of proof required to reach a finding that the test has been met.\",\n      \"phrase_start\": 17,\n      \"phrase_end\": 94,\n      \"confidence\": 0.8,\n      \"rationale\": \"The citation supports the discussion of the legal standard for bias, indicating a supportive treatment of the case law.\"\n    },\n    {\n      \"example_id\": \"citation-context-1556\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for a reasonable apprehension of bias as follows:\",\n      \"phrase_start\": 394,\n      \"phrase_end\": 429,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the case 'Valente v. The Queen' is used to support the test for reasonable apprehension of bias, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1557\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for a reasonable apprehension of bias as follows:\",\n      \"phrase_start\": 394,\n      \"phrase_end\": 429,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the case 'Pearlman v. Manitoba Law Society Judicial Committee' is used to support the test for reasonable apprehension of bias, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1558\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the test for a reasonable apprehension of bias as follows:\",\n      \"phrase_start\": 394,\n      \"phrase_end\": 429,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states that the case 'Liberty v. Canada (National Energy Board)' is used to support the test for reasonable apprehension of bias, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1559\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient\",\n      \"phrase_start\": 1124,\n      \"phrase_end\": 1184,\n      \"confidence\": 0.8,\n      \"rationale\": \"The phrase supports the legal standard from case law, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"request_id\",\n      \"citation_ordinal\": null,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 1.0,\n      \"rationale\": \"No specific treatment language is provided for the request ID; it is a metadata field.\"\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 7,
+      "example_start": 60,
+      "example_count": 10,
+      "usage": {
+        "prompt_tokens": 9110,
+        "completion_tokens": 1214,
+        "estimated_cost_usd": 0.0019093,
+        "cost_usd": 0.0013966
+      },
+      "validation": {
+        "valid_label_count": 7,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "citation-context-1561",
+          "citation_ordinal": 0,
+          "citation_text": "Geza",
+          "treatment": "supportive",
+          "phrase": "the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient",
+          "phrase_start": 653,
+          "phrase_end": 806,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the treatment of the citation as supporting the legal standard that a real likelihood or probability of bias must be demonstrated, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1562",
+          "citation_ordinal": 0,
+          "citation_text": "Kozak v Canada (Minister of Citizenship and Immigration), 2006 FCA 124",
+          "treatment": "supportive",
+          "phrase": "the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient",
+          "phrase_start": 500,
+          "phrase_end": 653,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The phrase explicitly supports the treatment of the citation as supporting the legal standard that a real likelihood or probability of bias must be demonstrated, indicating a supportive treatment."
+        },
+        {
+          "example_id": "citation-context-1563",
+          "citation_ordinal": 0,
+          "citation_text": "Ontario",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The excerpt discusses the credibility of the Member's findings and the weight of evidence but does not explicitly treat the citation as supporting, distinguishing, or negating any legal authority."
+        },
+        {
+          "example_id": "citation-context-1564",
+          "citation_ordinal": 0,
+          "citation_text": "Association",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The excerpt discusses the qualifications of a medical professional and the weight of reports but does not explicitly support, distinguish, or negate the legal authority cited."
+        },
+        {
+          "example_id": "citation-context-1565",
+          "citation_ordinal": 0,
+          "citation_text": "Ontario",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The excerpt discusses the qualifications of a therapist and the weight of reports but does not explicitly treat the citation as supporting, distinguishing, or negating the legal authority."
+        },
+        {
+          "example_id": "citation-context-1568",
+          "citation_ordinal": 0,
+          "citation_text": "Society",
+          "treatment": "supportive",
+          "phrase": "the Member\u2019s interest is in resolving the conflict between the Applicants\u2019 allegations that former counsel did not represent them appropriately and former counsel\u2019s denial of this accusation",
+          "phrase_start": 1475,
+          "phrase_end": 1665,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states the Member\u2019s focus, supporting the treatment of the citation as relevant to procedural or evidentiary considerations rather than legal merits."
+        },
+        {
+          "example_id": "citation-context-1569",
+          "citation_ordinal": 0,
+          "citation_text": "Society",
+          "treatment": "supportive",
+          "phrase": "the Member\u2019s interest is in resolving the conflict between the Applicants\u2019 allegations that former counsel did not represent them appropriately and former counsel\u2019s denial of this accusation",
+          "phrase_start": 330,
+          "phrase_end": 520,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The phrase explicitly states the Member\u2019s focus, supporting the treatment of the citation as relevant to procedural or evidentiary considerations rather than legal merits."
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"citation-context-1561\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient\",\n      \"phrase_start\": 184,\n      \"phrase_end\": 245,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the treatment of the citation as supporting the legal standard that a real likelihood or probability of bias must be demonstrated, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1562\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the jurisprudence supports the contention that a real likelihood or probability of bias must be demonstrated, and that a mere suspicion is not sufficient\",\n      \"phrase_start\": 184,\n      \"phrase_end\": 245,\n      \"confidence\": 0.95,\n      \"rationale\": \"The phrase explicitly supports the treatment of the citation as supporting the legal standard that a real likelihood or probability of bias must be demonstrated, indicating a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"citation-context-1563\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses the credibility of the Member's findings and the weight of evidence but does not explicitly treat the citation as supporting, distinguishing, or negating any legal authority.\"\n    },\n    {\n      \"example_id\": \"citation-context-1564\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses the qualifications of a medical professional and the weight of reports but does not explicitly support, distinguish, or negate the legal authority cited.\"\n    },\n    {\n      \"example_id\": \"citation-context-1565\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt discusses the qualifications of a therapist and the weight of reports but does not explicitly treat the citation as supporting, distinguishing, or negating the legal authority.\"\n    },\n    {\n      \"example_id\": \"citation-context-1566\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the concern is obviously not whether a provincial offence has been committed but whether [the family therapist] is qualified to offer a diagnosis as evidence\",\n      \"phrase_start\": 206,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly clarifies the legal issue at hand, supporting the treatment of the citation as relevant to the question of qualification rather than the legal merits.\"\n    },\n    {\n      \"example_id\": \"citation-context-1567\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the concern is obviously not whether a provincial offence has been committed but whether [the family therapist] is qualified to offer a diagnosis as evidence\",\n      \"phrase_start\": 206,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly clarifies the legal issue, supporting the treatment of the citation as relevant to the issue of qualification rather than the legal merits.\"\n    },\n    {\n      \"example_id\": \"citation-context-1568\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member\u2019s interest is in resolving the conflict between the Applicants\u2019 allegations that former counsel did not represent them appropriately and former counsel\u2019s denial of this accusation\",\n      \"phrase_start\": 210,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states the Member\u2019s focus, supporting the treatment of the citation as relevant to procedural or evidentiary considerations rather than legal merits.\"\n    },\n    {\n      \"example_id\": \"citation-context-1569\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member\u2019s interest is in resolving the conflict between the Applicants\u2019 allegations that former counsel did not represent them appropriately and former counsel\u2019s denial of this accusation\",\n      \"phrase_start\": 210,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states the Member\u2019s focus, supporting the treatment of the citation as relevant to procedural or evidentiary considerations rather than legal merits.\"\n    },\n    {\n      \"example_id\": \"citation-context-1570\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the Member\u2019s interest is in resolving the conflict between the Applicants\u2019 allegations that former counsel did not represent them appropriately and former counsel\u2019s denial of this accusation\",\n      \"phrase_start\": 210,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The phrase explicitly states the Member\u2019s focus, supporting the treatment of the citation as relevant to procedural or evidentiary considerations rather than legal merits.\"\n    }\n  ]\n}"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+You are reviewing a deterministic, evidence-preserving legal-text analysis prototype for a Canadian immigration case-law research system.
+
+## Review objective
+
+Review the V1.4 Discussion Unit and V1.3 sub-theme outputs across all four cases. Assess whether the outputs are faithful to the source text, useful as a low-trust human review aid, and safe to continue improving. Treat every label and explanation as a hypothesis. Treat the source section text, evidence context, offsets, and hashes as the ground truth.
+
+## Files on OneDrive
+
+The shared OneDrive workspace is:
+`C:\Users\danny\OneDrive\Desktop\AI CaseLibrary`
+
+Read these complete Markdown packets and their JSON companions:
+
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_677_v4.md`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_677_v4.json`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_1093_v4.md`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_1093_v4.json`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_1171_v4.md`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_1171_v4.json`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_18674_v4.md`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\data\eval\discussion_units_case_18674_v4.json`
+
+The packets are read-only. The Markdown is bounded for readability; use JSON when the Markdown says text is truncated. The four cases contain 42, 43, 44, and 1,461 paragraph-like inputs respectively. Do not infer missing content.
+
+For implementation context only, you may read:
+
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\backend\contextual_authority\subthemes.py`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\scripts\inspect_discussion_units.py`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\tests\test_subthemes_v1.py`
+- `C:\Users\danny\OneDrive\Desktop\AI CaseLibrary\SYSTEM_REFERENCE.md`
+
+## Constraints
+
+- Do not edit source packets, code, database rows, or canonical data.
+- Do not invent legal conclusions or silently correct the judgment.
+- Do not recommend embeddings, clustering, opaque labels, or runtime activation when a deterministic change could address the issue.
+- Preserve the distinction between false positive, false negative, granularity, explanation, and data-integrity findings.
+- Quote or identify the exact sub-theme ID, cue, and evidence context for every concrete finding.
+- Compare precision and recall: identify both cues that should be removed and explicit advocacy/disposition cues that must remain.
+
+## Review questions
+
+1. Which sub-themes are coherent argument units, and which are merely contiguous?
+2. Did V1.3 reduce procedural `claim` false positives without losing explicit forms such as `claims that`, `argues`, and `submits`?
+3. Did local contrast gating reduce weak `but`, `cannot`, `fails`, or procedural `although` observations without losing meaningful limitations?
+4. Are issue, party position, evidence/fact, governing rule, reasoning/application, counterargument/limitation, and disposition roles precise?
+5. Are metadata, headings, judgment, certification, record, and solicitor spans handled correctly?
+6. Are raw and display key terms useful without deleting source evidence?
+7. Do explanations describe the actor, proposition, evidence, rule, application, or outcome rather than merely listing labels?
+8. Are paragraph ranges, chunk IDs, offsets, source hashes, text hashes, and configuration/version fields internally trustworthy?
+9. Did V1.4 improve the large-case boundary structure without changing the smaller-case unit counts or source identity?
+10. What are the three highest-value deterministic improvements for the next bounded iteration?
+
+## Required response
+
+Return one complete review in this chat, not a file. Use exactly these top-level headings:
+
+1. Executive verdict
+2. Cross-case findings
+3. Case-by-case review
+4. Role taxonomy review
+5. Sub-theme and boundary review
+6. Explanation quality
+7. Provenance and integrity
+8. Prioritized deterministic improvements
+9. Residual uncertainty
+
+For the case-by-case section, cover cases 677, 1093, 1171, and 18674. Name the strongest and weakest sub-theme for each case, one correct observation, one questionable observation, explanation faithfulness, and one concrete improvement. End with a concise recommendation on whether this is ready for another bounded engineering iteration or remains only a low-trust review aid.
+
+Paste the complete response back into the original chat. Do not create or overwrite `RESPONSE.md` unless explicitly asked; the chat response is the required output.

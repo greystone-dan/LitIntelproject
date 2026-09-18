@@ -1,0 +1,24 @@
+{
+  "model": "gpt-4.1-mini",
+  "usage": {
+    "prompt_tokens": 1714,
+    "completion_tokens": 1930,
+    "total_tokens": 3644
+  },
+  "actual_cost_usd": 0.0037736000000000007,
+  "estimated_cost_usd": 0.013476400000000001,
+  "packet_ids": [
+    "discussion_units_case_1093_v3.json",
+    "discussion_units_case_1171_v3.json",
+    "discussion_units_case_18674_v3.json",
+    "discussion_units_case_677_v3.json"
+  ],
+  "digest_bounds": {
+    "context_text_max_chars": 320,
+    "case_18674_per_subtheme_head": 80,
+    "case_18674_per_subtheme_tail": 80,
+    "case_18674_omission_counts_explicit": true
+  },
+  "database_writes": false,
+  "external_api_used": true
+}

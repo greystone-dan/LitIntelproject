@@ -1,6 +1,6 @@
 # AI CaseLibrary Forward Roadmap
 
-Last updated: 2026-09-04
+Last updated: 2026-09-17
 
 ## Objective
 
@@ -43,6 +43,77 @@ The extraction pass must finish before broad resolution passes. Resolution may
 run against the authorities already available and be repeated incrementally as
 the authority library expands; it must not rewrite raw occurrence text or
 offsets.
+
+### Deferred quality backlog
+
+- **Paragraph-chunk corpus rebuild:** After the paragraph-marker construction
+	repair in task 096, run a bounded dry-run rebuild for affected cases. Compare
+	paragraph coverage, duplicate ranges, inflated numeric markers, and newly
+	linkable citation pinpoints before authorizing any stored-chunk rewrite.
+
+- **Legal authority evidence layer:** Build from the existing deterministic
+	statute extraction and IRPA/IRPR nested-provision coverage toward a populated
+	authority bank. Keep extraction, structured provision identity, authoritative
+	source text/provenance, and reader evidence links as separate contracts. The
+	first implementation slice should add structured provision identity and a
+	read-only resolution report before any broad source acquisition or corpus
+	writer. See task 097 for the evidence-backed review and phased plan.
+
+#### Legal authority evidence plan
+
+The current extraction layer is not the authority bank. It identifies statute
+references and preserves occurrence spans, while `statute_references.pinpoint`
+stores the provision as an opaque string. `LegislationDocument` and
+`LegislationSection` provide a schema direction but are not yet populated by a
+versioned, provenance-aware source pipeline.
+
+Architecture options considered:
+
+1. **Keep live parsing only:** lowest immediate cost, but repeated parsing,
+	weak cross-case queries, and no durable authoritative section evidence.
+2. **Structured provision identity only:** add parsed instrument/provision
+	components and queryable ranges while keeping source text separate. This is
+	a useful low-risk first slice, but cannot by itself prove the linked text is
+	authoritative or current.
+3. **Structured identity plus a provenance-aware authority bank:** version
+	source documents and sections, retain terms/licence/hash/effective dates,
+	resolve references deterministically, and expose section evidence. This has
+	the highest setup cost but best accuracy, explainability, maintenance, and
+	reader trust. It is the recommended direction, delivered incrementally.
+
+Phased delivery and gates:
+
+1. **Provision identity and measurement:** owner `backend/citations.py`,
+	`backend/database.py`, and focused statute tests. Add structured fields or a
+	child provision table for instrument, section/subsection/paragraph,
+	nesting, lists, and ranges without removing raw text. Gate: IRPA/IRPR gold
+	fixtures including `34(1)(f)`, positive/negative/exact-span tests, and a
+	read-only corpus report of parseability and ambiguity.
+2. **Authority source contract:** owner legislation ingestion/source register.
+	Define source authority, version, effective dates, licence/terms, retrieval
+	hash, and update cadence before importing a broad bank. Gate: a small
+	approved IRPA/IRPR source set with reproducible section extraction and
+	provenance checks. External acquisition and licensing decisions require
+	explicit approval.
+3. **Reference resolution:** owner legislation resolution service. Resolve a
+	structured statute reference to one or more versioned authority sections,
+	preserving unresolved/ambiguous states and match evidence. Gate: bounded
+	precision/recall and no silent resolution when versions or provisions are
+	ambiguous.
+4. **Reader evidence:** owner `backend/reader_service.py`, routes, and active
+	Data Explorer UI. Link the occurrence to the exact authority section text,
+	show source/version/provenance, and retain the case-text occurrence link.
+	Gate: API contract and browser checks for nested, range, and unresolved
+	references.
+5. **Coverage expansion:** owner source adapters and evaluation. Add other
+	Canadian instruments and international materials only after the IRPA/IRPR
+	gate is green; track extraction pickup separately from cleanliness.
+
+The smallest experiment that could disconfirm the recommended direction is a
+bounded IRPA/IRPR slice: parse ten representative cases, resolve structured
+provisions against an approved section fixture, and verify that each reader
+link opens the exact section text with source version and provenance. Failure to
+maintain exact-span precision or source traceability blocks expansion.
 
 ### Stage 3: Usable research product
 
@@ -261,8 +332,10 @@ By end of Phase 4, target:
 
 ## Immediate Next Actions (This Week)
 
-1. Run a deterministic statute/instrument coverage audit over the priority
-	review cohort and group remaining misses by format before reprocessing.
+1. Use the completed live statute/source coverage audit to select a bounded
+	Criminal Code fixture comparison against the indexed Justice Laws sections;
+	keep the 10,107-reference Immigration Act gap as a separate source-approval
+	decision.
 2. Expand law regressions for French forms, Parts/Schedules, additional treaties,
 	and safe short-form anchor boundaries.
 3. Repair the unrelated FC document-scraper test collection error and establish

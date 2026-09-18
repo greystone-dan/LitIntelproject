@@ -22,6 +22,10 @@ from backend.legal_tagger_v3 import CoreLegalTaggerV3, TAXONOMY_VERSION
 logger = logging.getLogger(__name__)
 
 
+def case_text(case: Case) -> str:
+    return case.full_text or case.summary or ""
+
+
 def build_case_tag_rows(text: str | None) -> list[dict[str, object]]:
     """Build one persistence row for every matched occurrence, without deduplication."""
     tagger = CoreLegalTaggerV3()
@@ -52,11 +56,35 @@ def _tag_batch_worker(case_payloads, result_pipe) -> None:
     result_pipe.close()
 
 
+def _load_tagging_status(db: Session, case_id: int) -> CaseTaggingStatus | None:
+    return db.scalar(
+        select(CaseTaggingStatus).where(
+            CaseTaggingStatus.case_id == case_id,
+            CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION,
+        )
+    )
+
+
+def _store_tagging_status(db: Session, case_id: int, tags_count: int) -> None:
+    status = _load_tagging_status(db, case_id)
+    if status is None:
+        db.add(
+            CaseTaggingStatus(
+                case_id=case_id,
+                taxonomy_version=TAXONOMY_VERSION,
+                tags_count=tags_count,
+            )
+        )
+        return
+    status.tags_count = tags_count
+
+
 def pending_case_query(*, last_case_id: int = 0, recent: bool = False, court: str | None = None):
     already_tagged = exists(
         select(CaseTaggingStatus.id).where(
             CaseTaggingStatus.case_id == Case.id,
             CaseTaggingStatus.taxonomy_version == TAXONOMY_VERSION,
+            CaseTaggingStatus.tags_count >= 0,
         )
     )
     statement = select(Case).where(~already_tagged)
@@ -96,7 +124,7 @@ def tag_pending_cases(
         parent_pipe, child_pipe = context.Pipe(duplex=False)
         process = context.Process(
             target=_tag_batch_worker,
-            args=([(case.id, case.full_text or "") for case in cases], child_pipe),
+            args=([(case.id, case_text(case)) for case in cases], child_pipe),
         )
         started = time.monotonic()
         process.start()
@@ -113,10 +141,8 @@ def tag_pending_cases(
             process.terminate()
             process.join(5)
             db.rollback()
-            db.add_all(
-                CaseTaggingStatus(case_id=case.id, taxonomy_version=TAXONOMY_VERSION, tags_count=-1)
-                for case in cases
-            )
+            for case in cases:
+                _store_tagging_status(db, case.id, -1)
             db.commit()
             skipped_cases += len(cases)
             logger.warning(
@@ -128,13 +154,7 @@ def tag_pending_cases(
             process.join(5)
             for case_id, occurrence_rows in results:
                 db.add_all(CaseTag(case_id=case_id, **row) for row in occurrence_rows)
-                db.add(
-                    CaseTaggingStatus(
-                        case_id=case_id,
-                        taxonomy_version=TAXONOMY_VERSION,
-                        tags_count=len(occurrence_rows),
-                    )
-                )
+                _store_tagging_status(db, case_id, len(occurrence_rows))
                 tags_created += len(occurrence_rows)
             db.commit()
 
@@ -170,7 +190,7 @@ def main() -> None:
             db.commit()
         if args.dry_run:
             cases = db.scalars(pending_case_query(court=args.court).limit(args.limit or 10)).all()
-            count = sum(len(build_case_tag_rows(case.full_text)) for case in cases)
+            count = sum(len(build_case_tag_rows(case_text(case))) for case in cases)
             print(f"pending_sample={len(cases)} preview_occurrences={count} taxonomy={TAXONOMY_VERSION}")
             return
         cases_tagged, tags_created, skipped_cases = tag_pending_cases(

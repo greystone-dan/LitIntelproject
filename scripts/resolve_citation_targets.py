@@ -119,6 +119,11 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument("--limit", type=int, default=None, help="Maximum unresolved rows to inspect.")
 	parser.add_argument("--resume-from-id", type=int, default=0, help="Start after this citation row id.")
 	parser.add_argument(
+		"--pinpoint-only",
+		action="store_true",
+		help="Inspect only unresolved case citations containing an explicit paragraph pinpoint.",
+	)
+	parser.add_argument(
 		"--citation-kind",
 		choices=("case", "case_name", "case_short", "neutral"),
 		default=None,
@@ -157,6 +162,11 @@ def main() -> None:
 			remaining = args.limit - inspected if args.limit is not None else args.batch_size
 			batch_limit = min(args.batch_size, remaining)
 			query = select(Citation).where(Citation.id > last_id, Citation.target_case_id.is_(None))
+			if args.pinpoint_only:
+				query = query.where(
+					Citation.citation_text.is_not(None),
+					Citation.citation_text.op("~*")(PINPOINT_RE.pattern),
+				)
 			if args.citation_kind is not None:
 				query = query.where(Citation.citation_kind == args.citation_kind)
 			rows = list(

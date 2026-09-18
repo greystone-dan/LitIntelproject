@@ -57,7 +57,7 @@ The overnight runner tests locks, job selection, state transitions, and command 
 
 | Change | Minimum test/check |
 | --- | --- |
-| Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms when touched |
+| Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms, mixed-case provision identity, and negative shorthand cases when touched |
 | Reader/UI markup or behavior | `test_feature_tabs.py`, route/compile check, and manual browser interaction |
 | Search/ranking/filter | Relevant `test_api.py` slice; inspect query semantics and result ordering |
 | Metadata/outcome/docket logic | `test_metadata.py` plus relevant `test_api.py` cases |

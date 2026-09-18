@@ -11,6 +11,42 @@ class LegislationCitation:
     instrument_key: str
     pinpoint: str
     legislation_url: str | None = None
+    section: str | None = None
+    subsection: str | None = None
+    paragraph: str | None = None
+    nested_depth: int | None = None
+    is_range_or_list: bool = False
+
+
+def normalize_provision_pinpoint(pinpoint: str | None) -> str:
+    value = re.sub(r"\s+", "", pinpoint or "").strip(".")
+    if not value:
+        return ""
+    value = re.sub(r"\(([A-Za-z0-9]+)\)", lambda match: f"({match.group(1).lower()})", value)
+    value = re.sub(r"(?<=\d)([A-Z])(?=(?:\(|$))", lambda match: match.group(1).lower(), value)
+    return value
+
+
+def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | None, str | None, int | None, bool]:
+    raw_value = re.sub(r"\s+", " ", pinpoint or "").strip(".")
+    value = re.sub(r"\s+", "", pinpoint or "").strip(".")
+    if not value:
+        return None, None, None, None, False
+    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?[A-Za-z]?)(?P<tail>(?:\([^()]+\))*)", value)
+    if match is None:
+        return None, None, None, None, True
+    groups = re.findall(r"\(([^()]+)\)", match.group("tail"))
+    is_range_or_list = bool(re.search(r"(?:,|\band\b|\bto\b|[-–])", raw_value, re.IGNORECASE))
+    section = match.group("section")
+    if section and section[-1].isalpha():
+        section = section[:-1] + section[-1].lower()
+    return (
+        section,
+        groups[0].lower() if groups else None,
+        groups[1].lower() if len(groups) > 1 else None,
+        len(groups) if groups else 0,
+        is_range_or_list,
+    )
 
 
 LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
@@ -123,9 +159,19 @@ def parse_legislation_citation(value: str | None) -> LegislationCitation | None:
         if match is None:
             source_url = definition.get("source_url")
             return LegislationCitation(key, "", source_url if isinstance(source_url, str) else None)
-        pinpoint = re.sub(r"\s+", "", match.group(1)).strip(".")
-        section = re.match(r"\d{1,3}(?:\.\d+)?[A-Za-z]?", pinpoint)
+        pinpoint = normalize_provision_pinpoint(match.group(1))
+        provision_section, subsection, paragraph, nested_depth, is_range_or_list = parse_provision_identity(match.group(1))
+        section_match = re.match(r"\d{1,3}(?:\.\d+)?[A-Za-z]?", pinpoint)
         url_template = definition.get("url")
-        url = url_template.format(section=section.group(0)) if section and isinstance(url_template, str) else None
-        return LegislationCitation(key, pinpoint, url)
+        url = url_template.format(section=section_match.group(0)) if section_match and isinstance(url_template, str) else None
+        return LegislationCitation(
+            key,
+            pinpoint,
+            url,
+            section=provision_section,
+            subsection=subsection,
+            paragraph=paragraph,
+            nested_depth=nested_depth,
+            is_range_or_list=is_range_or_list,
+        )
     return None

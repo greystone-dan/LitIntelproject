@@ -21,6 +21,25 @@ def test_enrich_profile_requires_controlled_citation_rebuild_separately():
     assert "citations" not in run_overnight.selected_job_names("enrich", None)
 
 
+def test_pipeline_profile_selects_v2_pipeline_without_changing_safe_or_enrich():
+    assert run_overnight.selected_job_names("pipeline", None) == ["v2_pipeline"]
+    assert run_overnight.selected_job_names("safe", None) == [
+        "fc_decisions",
+        "fc_portal",
+        "fc_history",
+        "reference_verify",
+        "tag_cases",
+        "chunk_cases",
+        "local_embeddings",
+    ]
+    assert run_overnight.selected_job_names("enrich", None) == [
+        "reference_verify",
+        "tag_cases",
+        "chunk_cases",
+        "local_embeddings",
+    ]
+
+
 def test_backend_jobs_use_module_mode_for_import_safety():
     assert run_overnight.JOBS["citations"].arguments[:2] == (
         "-m",
@@ -30,6 +49,16 @@ def test_backend_jobs_use_module_mode_for_import_safety():
         "-m",
         "scripts.embed_local_chunks",
     )
+
+
+def test_v2_pipeline_job_points_to_the_complete_runner_without_apply_flag():
+    assert run_overnight.JOBS["v2_pipeline"].arguments == ("scripts/run_v2_pipeline.py",)
+    assert "--apply" not in run_overnight.JOBS["v2_pipeline"].arguments
+
+
+def test_overnight_tag_cases_uses_v3_entry_point_not_legacy_wrapper():
+    assert run_overnight.JOBS["tag_cases"].arguments[0] == "scripts/tag_cases_v3.py"
+    assert run_overnight.JOBS["tag_cases"].arguments[0] != "scripts/tag_cases.py"
 
 
 def test_run_lock_rejects_active_owner(tmp_path, monkeypatch):

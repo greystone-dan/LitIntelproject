@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-06T10:06:03.042724+00:00
+Generated: 2026-09-18T02:22:41.199201+00:00
 Tables: 22
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -168,6 +168,8 @@ erDiagram
         Integer anchor_offset_start
         Integer anchor_offset_end
         String(255) declared_alias
+        Integer target_paragraph
+        Integer target_chunk_id  FK
         String(20) provenance
         Integer chunk_id  FK
         Integer offset_start
@@ -288,6 +290,11 @@ erDiagram
         TEXT normalized_reference
         String(100) instrument_key
         String(255) pinpoint
+        String(50) provision_section
+        String(50) provision_subsection
+        String(50) provision_paragraph
+        Integer provision_nested_depth
+        BOOLEAN provision_is_range_or_list
         TEXT legislation_url
         String(20) reference_kind
     }
@@ -306,6 +313,7 @@ erDiagram
     case_chunks ||--o{ citations : "chunk_id"
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
+    case_chunks ||--o{ citations : "target_chunk_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
@@ -329,7 +337,7 @@ erDiagram
 | `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
-| `citations` | 15 | `id` |
+| `citations` | 17 | `id` |
 | `fc_activity_cases` | 15 | `id` |
 | `fc_activity_classifications` | 17 | `id` |
 | `fc_activity_documents` | 9 | `id` |
@@ -338,7 +346,7 @@ erDiagram
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
-| `statute_references` | 11 | `id` |
+| `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
 
@@ -700,6 +708,8 @@ erDiagram
 | `anchor_offset_start` | `Integer` | yes | - |
 | `anchor_offset_end` | `Integer` | yes | - |
 | `declared_alias` | `String(255)` | yes | - |
+| `target_paragraph` | `Integer` | yes | - |
+| `target_chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `provenance` | `String(20)` | no | NOT NULL; default=local |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `offset_start` | `Integer` | yes | - |
@@ -714,12 +724,15 @@ erDiagram
 - `ix_citations_provenance`: index on `provenance`
 - `ix_citations_source_case_id`: index on `source_case_id`
 - `ix_citations_target_case_id`: index on `target_case_id`
+- `ix_citations_target_chunk_id`: index on `target_chunk_id`
+- `ix_citations_target_paragraph`: index on `target_paragraph`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
 ## `fc_activity_cases`
 
@@ -952,6 +965,11 @@ erDiagram
 | `normalized_reference` | `TEXT` | yes | - |
 | `instrument_key` | `String(100)` | yes | - |
 | `pinpoint` | `String(255)` | yes | - |
+| `provision_section` | `String(50)` | yes | - |
+| `provision_subsection` | `String(50)` | yes | - |
+| `provision_paragraph` | `String(50)` | yes | - |
+| `provision_nested_depth` | `Integer` | yes | - |
+| `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
@@ -961,6 +979,10 @@ erDiagram
 - `ix_statute_references_instrument_key`: index on `instrument_key`
 - `ix_statute_references_normalized_reference`: index on `normalized_reference`
 - `ix_statute_references_pinpoint`: index on `pinpoint`
+- `ix_statute_references_provision_is_range_or_list`: index on `provision_is_range_or_list`
+- `ix_statute_references_provision_paragraph`: index on `provision_paragraph`
+- `ix_statute_references_provision_section`: index on `provision_section`
+- `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
 

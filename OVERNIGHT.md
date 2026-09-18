@@ -67,9 +67,13 @@ Swimm.
 
 The active deterministic enrichment profile is `enrich`. It runs chunking,
 case/statute extraction and metrics, the dedicated `case_outcomes` backfill,
-active `tag_cases_v3`, and local embeddings. The legacy `tag_cases` job is V1
-comparison-only; V2 is also comparison-only and is not part of the active
-profile.
+the overnight `tag_cases` job through `scripts/tag_cases_v3.py`, and local
+embeddings. The explicit `pipeline` profile runs the complete resumable V2
+sequence through `scripts/run_v2_pipeline.py`: source HTML, chunks, metadata,
+outcome, case citations, statutes, and V3 tags. It is separate from `enrich`
+because the V2 runner has its own per-case quarantine and durable state. The
+legacy `scripts/tag_cases.py`, `scripts/tag_cases_v2.py`, and combined citation
+job remain outside the active V2 path.
 
 ## System In One View
 
@@ -474,6 +478,7 @@ the remaining family-specific differences are explicitly accepted.
 | `pull` | `fc_decisions`, `fc_portal`, `fc_history` |
 | `enrich` | `reference_verify`, `tag_cases`, `chunk_cases`, `citations`, `local_embeddings` |
 | `safe` | pull jobs followed by the enrich jobs |
+| `pipeline` | `v2_pipeline` |
 | `verify` | `regression_tests` |
 
 The safe ordering is significant: acquisition precedes canonical enrichment;
@@ -502,7 +507,9 @@ Those source dispositions must be resolved before cohort execution.
 
 The prepared runner is `scripts/run_v2_pipeline.py`. It executes the seven
 stages with per-case state and quarantine, and prints `embeddings=False` by
-design. `scripts/acquire_case_html.py` is its bounded source-refresh helper.
+design. The overnight coordinator exposes it as the dedicated `v2_pipeline`
+job inside the `pipeline` profile, and the job calls the runner without adding
+an `--apply` mode. `scripts/acquire_case_html.py` is its bounded source-refresh helper.
 Each local stage runs in an isolated worker with `--stage-timeout` (default 900
 seconds); a timeout terminates that worker, records quarantine, and preserves
 the run for resume.

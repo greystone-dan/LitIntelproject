@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 98
+Active scripts documented: 99
 
 ## Catalog
 
@@ -80,6 +80,7 @@ Active scripts documented: 98
 | `ingest_canlii_seed_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_canlii_seed_cases.py --help` |
 | `ingest_hf_fc_activity.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_hf_fc_activity.py --help` |
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
+| `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
@@ -993,7 +994,7 @@ Active scripts documented: 98
 
 ## `scripts/index_legislation.py`
 
-**Purpose:** Index authoritative Justice Laws XML into section-addressable references.
+**Purpose:** Index authoritative legal sources into section-addressable references.
 
 **Operational class:** Utility
 
@@ -1087,6 +1088,20 @@ Active scripts documented: 98
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help
+```
+
+## `scripts/link_citation_pinpoints.py`
+
+**Purpose:** Persist resolved case-citation paragraph links from stored paragraph chunks.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help
 ```
 
 ## `scripts/llm_tag_candidate_review.py`

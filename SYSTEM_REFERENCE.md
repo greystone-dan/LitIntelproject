@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-07
+Last updated: 2026-09-17
 
 ## Purpose And Authority
 
@@ -107,6 +107,22 @@ anchor provenance. For `case_short`, formal identifiers preserved in
 among those candidates when one stored anchor contains multiple authorities. It
 must never trigger a corpus-wide short-name lookup. Self matches, collisions,
 anonymized/truncated names, and unresolved compound anchors remain unresolved.
+After target resolution, `scripts/link_citation_pinpoints.py` performs a
+separate set-based backfill for resolved citations containing an explicit
+paragraph pinpoint. It stores the first pinpoint as `citations.target_paragraph`
+and the uniquely matching `paragraph` chunk as `citations.target_chunk_id`; it
+does not reopen extraction or target resolution. The active reader projects the
+stored target chunk text as `target_chunk_text`. The backfill does not infer
+paragraph numbers, alter offsets, or resolve missing target cases. The completed
+run linked `183,010` rows; `93,854` eligible rows lacked a unique chunk match.
+Multi-paragraph lists and ranges remain limited to their first extracted
+paragraph until the durable schema supports multiple target chunks.
+Paragraph chunk construction preserves exact numbered paragraph identity. The
+HTML, ordinary text, and SCC builders ignore citation-like numeric markers and
+repeated mapped markers unless they form a strictly increasing sequence
+beginning at paragraph 1; ignored markers remain available as text but are not
+assigned paragraph ranges. Existing stored chunks are not rewritten
+automatically and require a bounded rebuild measurement before application.
 After the 2026-09-07 full replacement and formal/neutral resolution
 pass, the live database contained `1,444,546` citation rows: `919,781` were
 linked and `524,765` remained unresolved. The read-only report
@@ -159,7 +175,15 @@ unresolved rows that already have anchor fields but need completion or
 classification; its `9,130` pure right-edge rows are only one directly
 recoverable class within that second backfill.
 
-Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision.
+Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. Nested provision identity is canonicalized case-insensitively for section-letter variants, so `34(1)(A)` and a later `section 34(1)(a)` retain their original spans while sharing normalized identity when the existing bounded anchor rules permit it. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision. The raw `statute_references.pinpoint` remains a lossless opaque string, while additive structured fields expose section, subsection, paragraph, nesting depth, and range/list status. Read-only legislation resolution now returns explicit status and stored document/section metadata in live analysis and the stored reader when an indexed instrument and base section match; lists/ranges and missing sources remain explicitly unresolved. Further recall work should target additional shorthand and list/range forms across sentence boundaries with positive and negative precision fixtures.
+
+A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
+
+Authority indexing is source-format neutral at the parsing boundary. The legislation section contract can be populated from XML, authoritative HTML, or verified extracted text while preserving the source URL, local path, and hash. The official Justice Laws Constitution HTML exposes stable section anchors and provision lists; it can therefore support Charter/Constitution section records without an XML endpoint. The Refugee Convention and 1967 Protocol remain a separate international-instrument source task because the automated UNHCR page probe returned 403 and no source has yet been acquired or indexed.
+
+The priority XML dry run accepted official Justice Laws snapshots for Indian Act, Privacy Act, and Canadian Human Rights Act, producing 134, 96, and 95 non-empty, duplicate-free units respectively. The nominal `P-4.6.xml` endpoint was rejected after source-title inspection because it returns the Payments for Community Development Act rather than the Patent Act; it was not retained or indexed. No priority source has been written to the authority tables.
+
+A bounded non-XML dry run now has reviewed source snapshots for the official Justice Laws Charter page and the UN Treaty Series versions of the 1951 Refugee Convention and 1967 Protocol. It produced 35 Charter units, 44 Convention articles, and 11 Protocol articles, with zero duplicate identifiers, empty texts, or parse errors. The snapshots and hashes are recorded in `data/eval/non_xml_authority_dry_run.json`; live authority-table indexing remains gated on review.
 
 ### Live Analysis
 
@@ -167,8 +191,9 @@ Statute and instrument extraction is independent. It supports IRPA and IRPR name
 `.docx` and text-based `.pdf` files up to 10 MB, extracts text in memory, and
 returns source text plus deterministic case-citation and statute-reference rows.
 Rows retain character offsets, paragraph locations, and PDF page numbers where
-applicable. The UI presents a temporary Case Reader with in-place highlights and
-an evidence inspector.
+applicable, and resolved statute rows now include authority document and section
+details when the local match exists. The UI presents a temporary Case Reader
+with in-place highlights and an evidence inspector.
 
 `POST /live-analysis/analyze` accepts a multipart `file` and performs extraction
 only. A separate `POST /live-analysis/resolve` request performs a batched,
@@ -291,11 +316,15 @@ evidence, evidence records, and named canonical/Swimm documentation paths.
 6. `statutes`: rebuild statute/instrument references.
 7. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
 
-The V2 Pipeline runner is `scripts/run_v2_pipeline.py`. Its overnight execution
-uses source-link HTML refresh, HTML-aware replacement chunks, metadata, outcomes,
-case citations, statutes, and V3 tags. Each stage runs in an isolated worker with
-a hard timeout and per-case quarantine; embeddings are deliberately excluded.
-Run state and quarantine evidence are stored under the selected run directory.
+The V2 Pipeline runner is `scripts/run_v2_pipeline.py`, exposed through the
+explicit `pipeline` profile in `scripts/run_overnight.py`. Its execution uses
+source-link HTML refresh, HTML-aware replacement chunks, metadata, outcomes,
+case citations, statutes, and V3 tags. Each stage runs in an isolated worker
+with a hard timeout and per-case quarantine; embeddings are deliberately
+excluded. Run state and quarantine evidence are stored under the selected run
+directory. The existing `safe` and `enrich` profiles remain separate bounded
+operations; legacy taggers and the combined citation job are not part of the
+active V2 pipeline.
 
 The optimized current run uses `scripts/run_v2_text_only_fast.py` for non-SCC
 cases with extraction-only citations, batch size 50, no HTML acquisition, and

@@ -153,6 +153,22 @@ The archive is intended for resilient acquisition and source preservation. It is
 
 The manifest records publisher, title, source type, document date, jurisdiction, topics, original/final URL, local path, MIME type, size, checksum, status, retrieval timestamp, and failure reason. HTML remains HTML; it is never relabeled as a PDF.
 
+The current authority dry-run checkpoint also preserves official Justice Laws
+XML snapshots under `data/reference_library/legislation_xml/` and report
+evidence under `data/eval/priority_authority_dry_run.json`. Indian Act, Privacy
+Act, and Canadian Human Rights Act passed non-empty, duplicate-free parsing.
+The nominal `P-4.6.xml` endpoint was rejected after identity validation because
+it returns the Payments for Community Development Act, not the Patent Act; it
+must not be indexed under a Patent Act key.
+
+The reviewed non-XML authority snapshots under
+`data/reference_library/non_xml_authorities/` are indexed by
+`scripts/index_legislation.py` using declared source formats: the Charter
+snapshot routes through HTML parsing, while the 1951 Refugee Convention and
+1967 Protocol route through extracted text parsing. The indexed records keep
+their source URL, local path, checksum, title, citation, and duplicate-free
+section rows.
+
 ### Synthetic And Fixture Data
 
 | Attribute | Details |

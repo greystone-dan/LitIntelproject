@@ -6,6 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
+	Boolean,
 	Date,
 	DateTime,
 	Float,
@@ -230,7 +231,11 @@ class CaseChunk(Base):
 	)
 
 	case = relationship("Case", back_populates="chunks")
-	citations = relationship("Citation", back_populates="chunk")
+	citations = relationship(
+		"Citation",
+		back_populates="chunk",
+		foreign_keys="Citation.chunk_id",
+	)
 	statute_references = relationship("StatuteReference", back_populates="chunk")
 	local_embeddings = relationship(
 		"CaseChunkEmbedding",
@@ -383,6 +388,10 @@ class Citation(Base):
 	anchor_offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	anchor_offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	declared_alias: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	target_paragraph: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	target_chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
+	)
 	provenance: Mapped[str] = mapped_column(String(20), nullable=False, server_default="local", index=True)
 	chunk_id: Mapped[int | None] = mapped_column(
 		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
@@ -393,7 +402,11 @@ class Citation(Base):
 
 	source_case = relationship("Case", foreign_keys=[source_case_id], back_populates="outgoing_citations")
 	target_case = relationship("Case", foreign_keys=[target_case_id], back_populates="incoming_citations")
-	chunk = relationship("CaseChunk", back_populates="citations")
+	chunk = relationship(
+		"CaseChunk",
+		back_populates="citations",
+		foreign_keys=[chunk_id],
+	)
 
 
 class CitationMetrics(Base):
@@ -454,6 +467,11 @@ class StatuteReference(Base):
 	normalized_reference: Mapped[str | None] = mapped_column(Text, nullable=True, index=True)
 	instrument_key: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
 	pinpoint: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	provision_section: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+	provision_subsection: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+	provision_paragraph: Mapped[str | None] = mapped_column(String(50), nullable=True, index=True)
+	provision_nested_depth: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	provision_is_range_or_list: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, index=True)
 	legislation_url: Mapped[str | None] = mapped_column(Text, nullable=True)
 	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 

@@ -22,7 +22,33 @@ def test_parse_legislation_citation_returns_expandable_provision_identity():
 	assert parsed is not None
 	assert parsed.instrument_key == "canada.irpa"
 	assert parsed.pinpoint == "34(1)(f)"
+	assert parsed.section == "34"
+	assert parsed.subsection == "1"
+	assert parsed.paragraph == "f"
+	assert parsed.nested_depth == 2
+	assert not parsed.is_range_or_list
 	assert parsed.legislation_url.endswith("/section-34.html")
+
+
+def test_parse_legislation_citation_normalizes_nested_provision_case():
+	parsed = citations.parse_legislation_citation("section 34(1)(A) of IRPA")
+
+	assert parsed is not None
+	assert parsed.pinpoint == "34(1)(a)"
+	assert parsed.section == "34"
+	assert parsed.subsection == "1"
+	assert parsed.paragraph == "a"
+
+
+def test_parse_legislation_citation_marks_provision_lists_without_collapsing_identity():
+	parsed = citations.parse_legislation_citation("IRPR sections 34(1)(f) and 35(2)(a)")
+
+	assert parsed is not None
+	assert parsed.pinpoint == "34(1)(f)and35(2)(a)"
+	assert parsed.section == "34"
+	assert parsed.subsection == "1"
+	assert parsed.paragraph == "f"
+	assert parsed.is_range_or_list
 
 
 def test_parse_legislation_citation_distinguishes_irpr():
@@ -49,6 +75,127 @@ def test_parse_legislation_citation_identifies_instrument_without_section():
 	assert parsed.instrument_key == "canada.immigration_act"
 	assert parsed.pinpoint == ""
 	assert parsed.legislation_url.endswith("/acts/I-2/")
+
+
+class FakeLegislationResolutionSession:
+	def __init__(self, scalar_values=()):
+		self.scalar_values = list(scalar_values)
+		self.scalar_calls = []
+
+	def scalar(self, statement):
+		self.scalar_calls.append(str(statement))
+		if self.scalar_values:
+			return self.scalar_values.pop(0)
+		return None
+
+
+def test_resolve_legislation_reference_resolves_nested_provision_to_stored_section():
+	match = citations.RawCitationMatch(
+		"statute",
+		"paragraph 34(1)(f) of IRPA",
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)",
+		12,
+		39,
+	)
+	document = SimpleNamespace(id=101, instrument_key="canada.irpa", title="IRPA")
+	section = SimpleNamespace(id=202, document_id=101, section_number="34", text="section text")
+	resolution = citations.resolve_legislation_reference(
+		FakeLegislationResolutionSession([document, section]), match
+	)
+
+	assert resolution.resolution_status == "resolved_section"
+	assert resolution.document is document
+	assert resolution.section is section
+	assert resolution.instrument_key == "canada.irpa"
+	assert resolution.pinpoint == "34(1)(f)"
+	assert resolution.provision_section == "34"
+	assert resolution.provision_subsection == "1"
+	assert resolution.provision_paragraph == "f"
+	assert resolution.provision_nested_depth == 2
+	assert resolution.offset_start == 12
+	assert resolution.offset_end == 39
+	assert "paragraph 34(1)(f) of IRPA" == resolution.citation_text
+
+
+@pytest.mark.parametrize(
+	"match, scalar_values, expected_status, expected_document, expected_section",
+	[
+		(
+			citations.RawCitationMatch("statute", "XYZ Act s. 1", "XYZ Act s. 1", 0, 12),
+			[],
+			"instrument_unidentified",
+			False,
+			False,
+		),
+		(
+			citations.RawCitationMatch("statute", "Immigration Act", "Immigration Act", 0, 15),
+			[],
+			"missing_section",
+			False,
+			False,
+		),
+		(
+			citations.RawCitationMatch(
+				"statute",
+				"IRPA s. 34",
+				"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34",
+				0,
+				10,
+			),
+			[None],
+			"document_not_indexed",
+			False,
+			False,
+		),
+		(
+			citations.RawCitationMatch(
+				"statute",
+				"IRPA s. 34",
+				"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34",
+				0,
+				10,
+			),
+			[SimpleNamespace(id=101, instrument_key="canada.irpa", title="IRPA"), None],
+			"section_not_indexed",
+			True,
+			False,
+		),
+	],
+)
+def test_resolve_legislation_reference_distinguishes_unresolved_cases(
+	match, scalar_values, expected_status, expected_document, expected_section
+):
+	resolution = citations.resolve_legislation_reference(FakeLegislationResolutionSession(scalar_values), match)
+
+	assert resolution.resolution_status == expected_status
+	assert (resolution.document is not None) == expected_document
+	assert (resolution.section is not None) == expected_section
+	assert resolution.citation_text == match.citation_text
+	assert resolution.offset_start == match.offset_start
+	assert resolution.offset_end == match.offset_end
+
+
+def test_resolve_legislation_reference_preserves_exact_span_for_nested_pinpoint():
+	text = "The officer considered paragraph 34(1)(f) of IRPA and nothing else."
+	match_text = "paragraph 34(1)(f) of IRPA"
+	offset_start = text.index(match_text)
+	match = citations.RawCitationMatch(
+		"statute",
+		match_text,
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)",
+		offset_start,
+		offset_start + len(match_text),
+	)
+	document = SimpleNamespace(id=101, instrument_key="canada.irpa", title="IRPA")
+	section = SimpleNamespace(id=202, document_id=101, section_number="34", text="section text")
+	resolution = citations.resolve_legislation_reference(
+		FakeLegislationResolutionSession([document, section]), match
+	)
+
+	assert text[resolution.offset_start:resolution.offset_end] == resolution.citation_text
+	assert resolution.pinpoint == "34(1)(f)"
+	assert resolution.provision_section == "34"
+	assert resolution.section.section_number == "34"
 
 
 def test_self_case_name_filter_rejects_source_surname_only():
@@ -600,6 +747,23 @@ def test_extract_statute_reference_matches_supports_orders_and_si_citations():
 	)
 
 
+def test_extract_statute_reference_matches_carries_forward_statute_across_sentence_boundary():
+	text = "IRPA s. 34(1)(a). Later, section 34(1)(a) applies."
+
+	matches = citations.extract_statute_reference_matches(text)
+	statutes = [match for match in matches if match.kind == "statute"]
+
+	assert [match.citation_text for match in statutes] == ["IRPA s. 34(1)(a)", "section 34(1)(a)"]
+	assert [match.normalized_citation for match in statutes] == [
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(a)",
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(a)",
+	]
+	assert [text[match.offset_start:match.offset_end] for match in statutes] == [
+		"IRPA s. 34(1)(a)",
+		"section 34(1)(a)",
+	]
+
+
 def test_extract_statute_reference_matches_propagates_anchored_article_subheadings():
 	text = (
 		"Articles 31 and 32 of the Vienna Convention on the Law of Treaties guide interpretation.\n"
@@ -815,6 +979,26 @@ def test_extract_statute_reference_matches_supports_bare_nested_irpa_provision_o
 		and m.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
 		for m in matches
 	)
+
+
+def test_extract_statute_reference_matches_carries_forward_abbreviated_nested_reference():
+	text = "34(1)(A) of IRPA followed later by section 34(1)(a)."
+
+	matches = citations.extract_statute_reference_matches(text)
+	irpa_matches = [match for match in matches if match.kind == "statute"]
+
+	assert [match.citation_text for match in irpa_matches] == [
+		"34(1)(A) of IRPA",
+		"section 34(1)(a)",
+	]
+	assert [match.normalized_citation for match in irpa_matches] == [
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(a)",
+		"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(a)",
+	]
+	assert [text[match.offset_start:match.offset_end] for match in irpa_matches] == [
+		"34(1)(A) of IRPA",
+		"section 34(1)(a)",
+	]
 
 
 def test_extract_statute_reference_matches_supports_nested_irpr_provisions_with_exact_spans():

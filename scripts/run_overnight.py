@@ -93,8 +93,8 @@ JOBS: dict[str, Job] = {
     ),
     "tag_cases": Job(
         "tag_cases",
-        "Tag unprocessed cases with the current legal taxonomy",
-        ("scripts/tag_cases.py", "--batch-size", "250"),
+        "Tag unprocessed cases with the active V3 legal taxonomy",
+        ("scripts/tag_cases_v3.py", "--batch-size", "250"),
         needs_database=True,
     ),
     "chunk_cases": Job(
@@ -124,6 +124,13 @@ JOBS: dict[str, Job] = {
         ("-m", "scripts.embed_local_chunks", "--batch-size", "32"),
         needs_database=True,
     ),
+    "v2_pipeline": Job(
+        "v2_pipeline",
+        "Run the bounded complete V2 Pipeline coordinator",
+        ("scripts/run_v2_pipeline.py",),
+        needs_database=True,
+        network=True,
+    ),
     "regression_tests": Job(
         "regression_tests",
         "Run the full regression suite",
@@ -148,6 +155,7 @@ PROFILES: dict[str, tuple[str, ...]] = {
         "chunk_cases",
         "local_embeddings",
     ),
+    "pipeline": ("v2_pipeline",),
     "verify": ("regression_tests",),
 }
 

@@ -253,13 +253,14 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
             outro_start = outro_match.start()
             break
 
+    last_paragraph_number: int | None = None
     for match_index, match in enumerate(matches):
-        paragraph_number = int(match.group(1))
         start = match.start()
         end = matches[match_index + 1].start() if match_index + 1 < len(matches) else outro_start
         paragraph_text = text[start:end].strip()
         if not paragraph_text:
             continue
+        paragraph_number = _mapped_paragraph_number(paragraph_text, last_paragraph_number)
         rows.append(
             _chunk_row(
                 case.id,
@@ -271,10 +272,12 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
                 paragraph_end=paragraph_number,
             )
         )
+        if paragraph_number is not None:
+            last_paragraph_number = paragraph_number
 
     tail = text[outro_start:].strip() if outro_start < len(text) else ""
     if tail:
-        last_number = int(matches[-1].group(1))
+        last_number = last_paragraph_number or 0
         rows.append(
             _chunk_row(
                 case.id,
@@ -378,6 +381,7 @@ def _build_scc_text_chunk_layers(case: Case, text: str) -> tuple[list[CaseChunk]
                 )
             )
 
+    last_paragraph_number: int | None = None
     if not paragraph_matches:
         paragraph_rows = _build_scc_line_paragraph_chunks(case, text, first_outro_start)
     else:
@@ -396,10 +400,10 @@ def _build_scc_text_chunk_layers(case: Case, text: str) -> tuple[list[CaseChunk]
                 )
             )
         for index, match in enumerate(paragraph_matches):
-            number = int(match.group(1) or match.group(2))
             end = paragraph_matches[index + 1].start() if index + 1 < len(paragraph_matches) else first_outro_start
             value = text[match.start() : end].strip()
             if value:
+                number = _mapped_paragraph_number(value, last_paragraph_number)
                 paragraph_rows.append(
                     _chunk_row(
                         case.id,
@@ -411,9 +415,11 @@ def _build_scc_text_chunk_layers(case: Case, text: str) -> tuple[list[CaseChunk]
                         paragraph_end=number,
                     )
                 )
+                if number is not None:
+                    last_paragraph_number = number
     tail = text[first_outro_start:].strip() if first_outro_start < len(text) else ""
     if tail:
-        last_number = int(paragraph_matches[-1].group(1) or paragraph_matches[-1].group(2)) if paragraph_matches else 0
+        last_number = last_paragraph_number or 0
         paragraph_rows.append(
             _chunk_row(
                 case.id,
@@ -471,6 +477,16 @@ def _canonical_block_text(block, text: str) -> str | None:
     return value or None
 
 
+def _mapped_paragraph_number(block_text: str, last_number: int | None) -> int | None:
+    match = re.match(r"(?:\[(\d+)\]|(\d+)(?:[.)])?)[ \t]+", block_text)
+    if match is None:
+        return None
+    number = int(match.group(1) or match.group(2))
+    if last_number is None:
+        return number if number == 1 else None
+    return number if number > last_number else None
+
+
 def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: str | None = None) -> tuple[list[CaseChunk], list[CaseChunk]] | None:
     """Build section and paragraph rows from confidently mapped HTML blocks."""
     mapped_blocks = [
@@ -513,6 +529,7 @@ def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: 
 
     paragraph_rows: list[CaseChunk] = []
     last_end = 0
+    last_paragraph_number: int | None = None
     for block in mapped_blocks:
         if block.kind not in {"paragraph", "list_item", "table_row", "quote", "preformatted"} and not (source_family == "scc" and block.kind == "heading"):
             continue
@@ -523,9 +540,10 @@ def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: 
         block_text = text[start:end].strip()
         if not block_text:
             continue
-        paragraph_match = re.match(r"\[(\d+)\]", block_text)
-        paragraph_number = int(paragraph_match.group(1)) if paragraph_match else None
+        paragraph_number = _mapped_paragraph_number(block_text, last_paragraph_number)
         paragraph_rows.append(_chunk_row(case.id, chunk_set=CHUNK_SET_PARAGRAPH, chunk_index=len(paragraph_rows), text=block_text, chunk_label=str(paragraph_number) if paragraph_number is not None else block.kind, paragraph_start=paragraph_number, paragraph_end=paragraph_number))
+        if paragraph_number is not None:
+            last_paragraph_number = paragraph_number
         last_end = end
     return section_rows, paragraph_rows
 

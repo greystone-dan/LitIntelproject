@@ -148,6 +148,8 @@ evidence, backend-owned offsets, rule ID, language, evidence role, optional
 chunk ID, source, and taxonomy version. The writer does not convert matches to
 a set or deduplicate repeated spans. The V3 stage is now part of ordered case
 processing; the bounded writer remains available for resumable corpus work.
+Failed or timed-out V3 batches record `tags_count=-1` and stay pending for a
+later retry; only nonnegative tagging-status rows mark a case complete.
 Contextual rules are not part of this first pipeline, and legacy V1 subject
 derivation remains separate until the outcome/derived-intelligence pass.
 

@@ -57,6 +57,20 @@ class FakeDatabase:
         return iter(self.scalars_values)
 
 
+class QueuedReaderSession:
+    def __init__(self, *, scalar_values=(), rows=()):
+        self.scalar_values = list(scalar_values)
+        self.rows = list(rows)
+
+    def scalar(self, statement):
+        if self.scalar_values:
+            return self.scalar_values.pop(0)
+        return None
+
+    def scalars(self, statement):
+        return iter(self.rows)
+
+
 def test_ingest_stores_metadata_and_embedding(monkeypatch):
     monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
     database = FakeDatabase()
@@ -169,6 +183,85 @@ def test_analytics_search_relevance_prefers_exact_case_name_matches():
     assert "c.full_text" not in order_sql
     assert params["query_exact"] == "Vavilov"
     assert params["query_like"] == "%Vavilov%"
+
+
+def test_stored_reader_statute_references_resolve_nested_authority_metadata():
+    reference = SimpleNamespace(
+        id=7,
+        chunk_id=12,
+        offset_start=5,
+        offset_end=30,
+        reference_text="paragraph 34(1)(f) of IRPA",
+        normalized_reference="Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)",
+        instrument_key=None,
+        pinpoint=None,
+        provision_section=None,
+        provision_subsection=None,
+        provision_paragraph=None,
+        provision_nested_depth=None,
+        provision_is_range_or_list=False,
+        legislation_url=None,
+        reference_kind="statute",
+    )
+    document = SimpleNamespace(id=101, title="IRPA", source_url="https://laws-lois.justice.gc.ca/eng/acts/I-2.5/")
+    section = SimpleNamespace(id=202, document_id=101, section_number="34", text="Section text with nested subsection (1)(f).")
+    session = QueuedReaderSession(scalar_values=[1, document, section], rows=[reference])
+
+    results = routes.get_case_statute_references(case_id=1, db=session)
+
+    assert len(results) == 1
+    result = results[0]
+    assert result.citation_text == "paragraph 34(1)(f) of IRPA"
+    assert result.normalized_citation == "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 34(1)(f)"
+    assert result.offset_start == 5
+    assert result.offset_end == 30
+    assert result.instrument_key == "canada.irpa"
+    assert result.pinpoint == "34(1)(f)"
+    assert result.resolution_status == "resolved_section"
+    assert result.authority_document_title == "IRPA"
+    assert result.authority_section_number == "34"
+    assert result.provision_section == "34"
+    assert result.provision_subsection == "1"
+    assert result.provision_paragraph == "f"
+    assert result.provision_nested_depth == 2
+    assert result.provision_is_range_or_list is False
+    assert result.source_url == document.source_url
+    assert result.legislation_url == document.source_url
+    assert result.unresolved is False
+
+
+def test_stored_reader_statute_references_keep_unresolved_rows_without_fabricated_urls():
+    reference = SimpleNamespace(
+        id=8,
+        chunk_id=None,
+        offset_start=0,
+        offset_end=10,
+        reference_text="IRPA s. 999",
+        normalized_reference="IRPA s. 999",
+        instrument_key=None,
+        pinpoint=None,
+        provision_section=None,
+        provision_subsection=None,
+        provision_paragraph=None,
+        provision_nested_depth=None,
+        provision_is_range_or_list=False,
+        legislation_url=None,
+        reference_kind="statute",
+    )
+    session = QueuedReaderSession(scalar_values=[1, None], rows=[reference])
+
+    results = routes.get_case_statute_references(case_id=1, db=session)
+
+    assert len(results) == 1
+    result = results[0]
+    assert result.resolution_status == "document_not_indexed"
+    assert result.unresolved is True
+    assert result.authority_document_title is None
+    assert result.authority_document_url is None
+    assert result.authority_section_number is None
+    assert result.authority_section_text is None
+    assert result.source_url is None
+    assert result.legislation_url is None
 
 
 @pytest.mark.parametrize(

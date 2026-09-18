@@ -14,8 +14,9 @@ from .citations import (
 	extract_case_citation_matches,
 	extract_statute_reference_matches,
 	parse_legislation_citation,
+	resolve_legislation_reference,
 )
-from .database import Case, LegislationDocument, LegislationSection
+from .database import Case
 
 MAX_DOCX_BYTES = 10 * 1024 * 1024
 LIVE_ANALYSIS_CONTENT_TYPES = {
@@ -103,18 +104,18 @@ def _row(
 	match: Any,
 	*,
 	resolved_case: Case | None = None,
-	legislation_source: tuple[LegislationDocument, LegislationSection] | None = None,
+	legislation_resolution: Any | None = None,
 ) -> dict[str, Any]:
 	paragraph = _paragraph_for_offset(paragraphs, match.offset_start)
 	parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
-	document, section = legislation_source or (None, None)
+	document = legislation_resolution.document if legislation_resolution is not None else None
+	section = legislation_resolution.section if legislation_resolution is not None else None
 	section_number = None
 	provision_text = None
-	resolution_status = "unresolved"
-	if document and section:
+	resolution_status = legislation_resolution.resolution_status if legislation_resolution is not None else "unresolved"
+	if section is not None:
 		section_number = section.section_number
-		resolution_status = "resolved_section"
-		pinpoint = parsed.pinpoint if parsed else ""
+		pinpoint = legislation_resolution.pinpoint if legislation_resolution is not None else (parsed.pinpoint if parsed else "")
 		section_match = re.match(r"(\d{1,3}(?:\.\d+)?[A-Za-z]?)(.*)", pinpoint)
 		if section_match and section_match.group(2).strip():
 			provision_text = _provision_excerpt(section.text, section_match.group(2).strip())
@@ -133,9 +134,13 @@ def _row(
 		"resolved_case_id": resolved_case.id if resolved_case else None,
 		"resolved_case_title": resolved_case.title if resolved_case else None,
 		"resolved_case_citation": resolved_case.citation if resolved_case else None,
-		"instrument_key": parsed.instrument_key if parsed else None,
-		"pinpoint": parsed.pinpoint if parsed else None,
+		"instrument_key": legislation_resolution.instrument_key if legislation_resolution is not None else (parsed.instrument_key if parsed else None),
+		"pinpoint": legislation_resolution.pinpoint if legislation_resolution is not None else (parsed.pinpoint if parsed else None),
 		"legislation_url": (parsed.legislation_url if parsed else None) or (document.source_url if document else None),
+		"authority_document_title": document.title if document else None,
+		"authority_document_url": document.source_url if document else None,
+		"authority_section_number": section.section_number if section else None,
+		"authority_section_text": section.text if section else None,
 		"source_title": document.title if document else None,
 		"source_text": section.text if section else None,
 		"source_url": document.source_url if document else (parsed.legislation_url if parsed else None),
@@ -215,49 +220,10 @@ def _resolve_local_cases(session: Session, matches: list[Any]) -> dict[str, Case
 	return resolved
 
 
-def _resolve_local_statutes(
-	session: Session,
-	matches: list[Any],
-) -> dict[tuple[str, str], tuple[LegislationDocument, LegislationSection]]:
-	requested: set[tuple[str, str]] = set()
-	for match in matches:
-		parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
-		if not parsed:
-			continue
-		section_match = re.match(r"(\d{1,3}(?:\.\d+)?[A-Za-z]?)", parsed.pinpoint)
-		if section_match:
-			requested.add((parsed.instrument_key, section_match.group(1)))
-	if not requested:
-		return {}
-	rows = session.execute(
-		select(LegislationDocument, LegislationSection)
-		.join(LegislationSection, LegislationSection.document_id == LegislationDocument.id)
-		.where(tuple_(LegislationDocument.instrument_key, LegislationSection.section_number).in_(requested))
-	).all()
-	return {
-		(document.instrument_key, section.section_number): (document, section)
-		for document, section in rows
-	}
-
-
-def _statute_source_for_match(
-	match: Any,
-	sources: dict[tuple[str, str], tuple[LegislationDocument, LegislationSection]],
-) -> tuple[LegislationDocument, LegislationSection] | None:
-	parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
-	if not parsed:
-		return None
-	section_match = re.match(r"(\d{1,3}(?:\.\d+)?[A-Za-z]?)", parsed.pinpoint)
-	if not section_match:
-		return None
-	return sources.get((parsed.instrument_key, section_match.group(1)))
-
-
 def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
 	case_matches = extract_case_citation_matches(text)
 	statute_matches = extract_statute_reference_matches(text)
 	resolved_cases = _resolve_local_cases(session, case_matches) if session is not None else {}
-	statute_sources = _resolve_local_statutes(session, statute_matches) if session is not None else {}
 	case_rows: list[dict[str, Any]] = []
 	for match in case_matches:
 		resolved_case = next(
@@ -275,7 +241,14 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 		"paragraph_count": len(paragraphs),
 		"case_citations": case_rows,
 		"statute_references": [
-			_row(text, paragraphs, match, legislation_source=_statute_source_for_match(match, statute_sources))
+			_row(
+				text,
+				paragraphs,
+				match,
+				legislation_resolution=resolve_legislation_reference(session, match)
+				if session is not None
+				else None,
+			)
 			for match in statute_matches
 		],
 		"summary": {

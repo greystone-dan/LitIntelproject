@@ -222,6 +222,9 @@ SCC source mismatch; one case also produced a major citation delta. These are
 review gates, not failures to hide or bypass.
 Each V2 Pipeline stage now runs in an isolated worker with a hard timeout and
 quarantine path, preventing a pathological case from idling the cohort runner.
+The main overnight coordinator exposes this complete sequence through its
+dedicated `pipeline` profile; `safe` and `enrich` remain separate bounded
+profiles, and legacy combined tag/citation jobs stay outside the active V2 path.
 
 ## Active And Legacy Boundaries
 
@@ -230,7 +233,9 @@ quarantine path, preventing a pathological case from idling the cohort runner.
 - `/citation-pass` is an extraction QA surface, not the normal research workflow.
 - `/live-analysis` reads DOCX and text-based PDF uploads in memory and does not persist them.
 - `side_projects/` remains outside the canonical case workflow.
-- `legacy/`, `backend/legacy/`, and `docs/history/` are reference-only areas.
+- `legacy/` and `docs/history/` are reference-only areas; `backend/legacy/` is
+	documented as a compatibility boundary when present but is absent in this
+	checkout. Legacy comparison modules remain excluded from active ownership.
 
 ## Cross-Cutting Contracts
 

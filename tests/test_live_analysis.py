@@ -1,10 +1,23 @@
 from io import BytesIO
+from types import SimpleNamespace
 
 from docx import Document
 from fastapi.testclient import TestClient
 
 from backend.live_analysis import _provision_excerpt, analyze_docx, validate_docx_upload
 from backend.main import app
+
+
+class FakeLegislationResolutionSession:
+	def __init__(self, scalar_values=()):
+		self.scalar_values = list(scalar_values)
+		self.scalar_calls = []
+
+	def scalar(self, statement):
+		self.scalar_calls.append(str(statement))
+		if self.scalar_values:
+			return self.scalar_values.pop(0)
+		return None
 
 
 def make_docx(*paragraphs: str) -> bytes:
@@ -47,22 +60,42 @@ def make_text_pdf(*page_texts: str) -> bytes:
 
 def test_analyze_docx_preserves_source_offsets_and_nested_references() -> None:
 	content = make_docx(
-		"Opening café paragraph.",
-		"The decision is 2024 FC 100. The provision is IRPA s. 34(1)(f).",
+		"The provision is IRPA s. 34(1)(f) and IRPA s. 999.",
 	)
+	document = SimpleNamespace(id=101, instrument_key="canada.irpa", title="IRPA", source_url="https://example.test/irpa")
+	section = SimpleNamespace(id=202, document_id=101, section_number="34", text="34 (1) This section text. (1)(f) Nested subsection text.")
+	resolution_session = FakeLegislationResolutionSession([document, section, document, None])
 
-	result = analyze_docx(content, "sample.docx")
+	result = analyze_docx(content, "sample.docx", session=resolution_session)
 
 	assert result["filename"] == "sample.docx"
-	assert result["paragraph_count"] == 2
-	assert result["text"] == "Opening café paragraph.\n\nThe decision is 2024 FC 100. The provision is IRPA s. 34(1)(f)."
+	assert result["paragraph_count"] == 1
+	assert result["text"] == "The provision is IRPA s. 34(1)(f) and IRPA s. 999."
 	assert result["text_length"] == len(result["text"])
-	assert result["case_citations"][0]["reference_text"] == "2024 FC 100"
-	assert result["case_citations"][0]["paragraph_index"] == 1
-	statute = next(row for row in result["statute_references"] if row["reference_text"] == "IRPA s. 34(1)(f)")
+	assert result["case_citations"] == []
+	statute = result["statute_references"][0]
 	assert statute["instrument_key"] == "canada.irpa"
 	assert statute["pinpoint"] == "34(1)(f)"
+	assert statute["resolution_status"] == "resolved_provision"
+	assert statute["source_title"] == "IRPA"
+	assert statute["source_text"] == "34 (1) This section text. (1)(f) Nested subsection text."
+	assert statute["source_url"] == "https://example.test/irpa"
+	assert statute["authority_document_title"] == "IRPA"
+	assert statute["authority_document_url"] == "https://example.test/irpa"
+	assert statute["authority_section_number"] == "34"
+	assert statute["authority_section_text"] == "34 (1) This section text. (1)(f) Nested subsection text."
+	assert statute["section_number"] == "34"
 	assert statute["legislation_url"].endswith("/acts/I-2.5/section-34.html")
+
+	unresolved = result["statute_references"][1]
+	assert unresolved["reference_text"] == "IRPA s. 999"
+	assert unresolved["resolution_status"] == "section_not_indexed"
+	assert unresolved["source_title"] == "IRPA"
+	assert unresolved["source_text"] is None
+	assert unresolved["authority_section_number"] is None
+	assert unresolved["authority_section_text"] is None
+	assert unresolved["section_number"] is None
+	assert unresolved["offset_start"] < unresolved["offset_end"]
 
 
 def test_provision_excerpt_extracts_current_subsection_from_indexed_section():

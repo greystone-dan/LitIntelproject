@@ -20,6 +20,7 @@ from .citations import (
 	extract_statute_reference_matches,
 	is_self_case_name_match,
 	parse_legislation_citation,
+	resolve_legislation_reference,
 )
 from .document_structure import map_span_to_chunk_layers
 from .database import (
@@ -398,8 +399,28 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 		.where(StatuteReference.source_case_id == case_id)
 		.order_by(StatuteReference.chunk_id, StatuteReference.offset_start, StatuteReference.id)
 	)
-	return [
-		CaseReaderCitationResponse(
+
+	def build_raw_match(reference: StatuteReference) -> RawCitationMatch:
+		citation_text = reference.reference_text or reference.normalized_reference or ""
+		normalized_citation = reference.normalized_reference or citation_text
+		offset_start = reference.offset_start if reference.offset_start is not None else 0
+		offset_end = reference.offset_end if reference.offset_end is not None else offset_start
+		return RawCitationMatch(
+			reference.reference_kind,
+			citation_text,
+			normalized_citation,
+			offset_start,
+			offset_end,
+		)
+
+	def build_response(reference: StatuteReference) -> CaseReaderCitationResponse:
+		resolution = resolve_legislation_reference(db, build_raw_match(reference))
+		authority_document = resolution.document
+		authority_section = resolution.section
+		legislation_url = reference.legislation_url or (
+			authority_document.source_url if authority_document is not None else None
+		)
+		return CaseReaderCitationResponse(
 			id=-1000000 - reference.id,
 			citation_kind=reference.reference_kind,
 			chunk_id=reference.chunk_id,
@@ -407,15 +428,32 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 			offset_end=reference.offset_end,
 			citation_text=reference.reference_text,
 			normalized_citation=reference.normalized_reference,
-			instrument_key=reference.instrument_key,
-			pinpoint=reference.pinpoint,
+			instrument_key=resolution.instrument_key or reference.instrument_key,
+			pinpoint=resolution.pinpoint or reference.pinpoint,
+			target_case_id=None,
+			target_title=None,
+			target_citation=None,
 			provenance="statute_references",
-			legislation_url=reference.legislation_url
-			or _legislation_url_for_reference(
-				reference.normalized_reference or reference.reference_text
-			),
-			unresolved=False,
+			legislation_url=legislation_url,
+			authority_document_title=authority_document.title if authority_document is not None else None,
+			authority_document_url=authority_document.source_url if authority_document is not None else None,
+			authority_section_number=authority_section.section_number if authority_section is not None else None,
+			authority_section_text=authority_section.text if authority_section is not None else None,
+			source_title=authority_document.title if authority_document is not None else None,
+			source_text=authority_section.text if authority_section is not None else None,
+			source_url=legislation_url,
+			resolution_status=resolution.resolution_status,
+			section_number=resolution.provision_section or reference.provision_section,
+			provision_text=authority_section.text if authority_section is not None else None,
+			provision_section=resolution.provision_section or reference.provision_section,
+			provision_subsection=resolution.provision_subsection or reference.provision_subsection,
+			provision_paragraph=resolution.provision_paragraph or reference.provision_paragraph,
+			provision_nested_depth=resolution.provision_nested_depth,
+			provision_is_range_or_list=resolution.is_range_or_list or reference.provision_is_range_or_list,
+			unresolved=resolution.resolution_status != "resolved_section",
 		)
+	return [
+		build_response(reference)
 		for reference in rows
 	]
 
@@ -493,6 +531,24 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
 	}
 	target_chunks: dict[tuple[int, int], str] = {}
+	if target_pinpoints:
+		target_case_ids = {case_id for case_id, _ in target_pinpoints}
+		target_paragraph_chunks = db.scalars(
+			select(CaseChunk)
+			.where(
+				CaseChunk.case_id.in_(target_case_ids),
+				CaseChunk.chunk_set == "paragraph",
+				CaseChunk.paragraph_start.is_not(None),
+				CaseChunk.paragraph_end.is_not(None),
+			)
+		)
+		for chunk in target_paragraph_chunks:
+			for target_case_id, paragraph in target_pinpoints:
+				if (
+					chunk.case_id == target_case_id
+					and chunk.paragraph_start <= paragraph <= chunk.paragraph_end
+				):
+					target_chunks[(target_case_id, paragraph)] = chunk.text
 
 	citation_responses = [
 		CaseReaderCitationResponse(

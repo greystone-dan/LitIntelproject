@@ -1,7 +1,10 @@
 import unittest
 from pathlib import Path
 
-from tools.game_policy import GAME_ROOT, validate_command, validate_write
+try:
+    from tools.game_policy import GAME_ROOT, validate_command, validate_write
+except ModuleNotFoundError:
+    from side_projects.browser_game.tools.game_policy import GAME_ROOT, validate_command, validate_write
 
 
 class GamePolicyTests(unittest.TestCase):

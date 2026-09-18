@@ -11,7 +11,18 @@ from datetime import date, datetime
 from sqlalchemy import delete, func, select, text
 from sqlalchemy.orm import Session
 
-from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge, Case, CaseChunk, Citation, CitationMetrics, StatuteReference
+from .database import (
+	A2AJCase,
+	A2AJCaseMap,
+	A2AJCitationEdge,
+	Case,
+	CaseChunk,
+	Citation,
+	CitationMetrics,
+	LegislationDocument,
+	LegislationSection,
+	StatuteReference,
+)
 from .citation_pipeline import CanLiiApiClient, build_default_pipeline
 from .statutes import LegislationCitation, LEGISLATION_REGISTRY, canonical_citation_name, parse_legislation_citation
 
@@ -336,6 +347,24 @@ class RawCitationMatch:
 	anchor_offset_start: int | None = None
 	anchor_offset_end: int | None = None
 	declared_alias: str | None = None
+
+
+@dataclass(frozen=True)
+class ResolvedLegislationReference:
+	citation_text: str
+	normalized_citation: str
+	offset_start: int
+	offset_end: int
+	instrument_key: str | None
+	pinpoint: str | None
+	provision_section: str | None
+	provision_subsection: str | None
+	provision_paragraph: str | None
+	provision_nested_depth: int | None
+	is_range_or_list: bool
+	resolution_status: str
+	document: LegislationDocument | None = None
+	section: LegislationSection | None = None
 
 
 def is_self_case_name_match(case_title: str | None, match: RawCitationMatch) -> bool:
@@ -770,6 +799,8 @@ def _normalize_nested_provision(value: str) -> str:
 	normalized = _normalize_whitespace(value)
 	normalized = re.sub(r"\s*\(\s*", "(", normalized)
 	normalized = re.sub(r"\s*\)\s*", ")", normalized)
+	normalized = re.sub(r"\(([A-Za-z0-9]+)\)", lambda match: f"({match.group(1).lower()})", normalized)
+	normalized = re.sub(r"(?<=\d)([A-Z])(?=(?:\(|$))", lambda match: match.group(1).lower(), normalized)
 	return normalized
 
 
@@ -1927,6 +1958,17 @@ def _extract_anchored_provision_candidates(
 		if any(not (end <= anchor.offset_start or start >= anchor.offset_end) for anchor in anchors):
 			continue
 
+		def sentence_break_starts(index: int) -> list[int]:
+			breaks: list[int] = []
+			for position, character in enumerate(content[:index]):
+				if character not in ".!?":
+					continue
+				trailing_word = re.search(r"([A-Za-z]+)$", content[:position])
+				if trailing_word and len(trailing_word.group(1)) == 1 and content[position - 1].isalpha():
+					continue
+				breaks.append(position + 1)
+			return breaks
+
 		prefix = match.group(1).lower()
 		if "para" in prefix and "(" not in match.group(2):
 			continue
@@ -1941,9 +1983,17 @@ def _extract_anchored_provision_candidates(
 		]
 		if not eligible:
 			continue
-		sentence_start = max(content.rfind(".", 0, start), content.rfind("!", 0, start), content.rfind("?", 0, start)) + 1
-		sentence_end_candidates = [position for mark in (".", "!", "?") if (position := content.find(mark, end)) >= 0]
-		sentence_end = min(sentence_end_candidates, default=len(content))
+		sentence_breaks = sentence_break_starts(start)
+		sentence_start = sentence_breaks[-1] if sentence_breaks else 0
+		previous_sentence_start = sentence_breaks[-2] if len(sentence_breaks) > 1 else 0
+		sentence_anchors = [
+			anchor
+			for anchor in context_anchors
+			if anchor.kind == kind
+			and previous_sentence_start <= anchor.offset_start < start
+			and anchor.offset_end <= start
+			and _anchored_authority_name(anchor)
+		]
 		following_authority = re.search(r"\bof\s+(?:the\s+)?(IRPA|IRPR|Criminal Code)\b", content[end : min(len(content), end + 180)], re.IGNORECASE)
 		if following_authority:
 			authority_start = end + following_authority.start(1)
@@ -1955,13 +2005,6 @@ def _extract_anchored_provision_candidates(
 				authority_start + len(following_authority.group(1)),
 			)
 		else:
-			sentence_anchors = [
-				anchor
-				for anchor in context_anchors
-				if sentence_start <= anchor.offset_start < sentence_end
-				and not (end <= anchor.offset_start or start >= anchor.offset_end)
-				and _anchored_authority_name(anchor)
-			]
 			anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
 		authority = _anchored_authority_name(anchor)
 		if not authority:
@@ -2197,6 +2240,117 @@ def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch
 	]
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
 	return _select_best_non_overlapping(candidates)
+
+
+def resolve_legislation_reference(session: Session, raw_match: RawCitationMatch) -> ResolvedLegislationReference:
+	"""Resolve a statute/instrument match to a stored document/section without writing."""
+	parsed = parse_legislation_citation(raw_match.normalized_citation or raw_match.citation_text)
+	if parsed is None:
+		return ResolvedLegislationReference(
+			citation_text=raw_match.citation_text,
+			normalized_citation=raw_match.normalized_citation,
+			offset_start=raw_match.offset_start,
+			offset_end=raw_match.offset_end,
+			instrument_key=None,
+			pinpoint=None,
+			provision_section=None,
+			provision_subsection=None,
+			provision_paragraph=None,
+			provision_nested_depth=None,
+			is_range_or_list=False,
+			resolution_status="instrument_unidentified",
+		)
+
+	if not parsed.section:
+		return ResolvedLegislationReference(
+			citation_text=raw_match.citation_text,
+			normalized_citation=raw_match.normalized_citation,
+			offset_start=raw_match.offset_start,
+			offset_end=raw_match.offset_end,
+			instrument_key=parsed.instrument_key,
+			pinpoint=parsed.pinpoint,
+			provision_section=parsed.section,
+			provision_subsection=parsed.subsection,
+			provision_paragraph=parsed.paragraph,
+			provision_nested_depth=parsed.nested_depth,
+			is_range_or_list=parsed.is_range_or_list,
+			resolution_status="missing_section",
+		)
+
+	if parsed.is_range_or_list:
+		return ResolvedLegislationReference(
+			citation_text=raw_match.citation_text,
+			normalized_citation=raw_match.normalized_citation,
+			offset_start=raw_match.offset_start,
+			offset_end=raw_match.offset_end,
+			instrument_key=parsed.instrument_key,
+			pinpoint=parsed.pinpoint,
+			provision_section=parsed.section,
+			provision_subsection=parsed.subsection,
+			provision_paragraph=parsed.paragraph,
+			provision_nested_depth=parsed.nested_depth,
+			is_range_or_list=parsed.is_range_or_list,
+			resolution_status="range_or_list_not_resolved",
+		)
+
+	document = session.scalar(
+		select(LegislationDocument).where(LegislationDocument.instrument_key == parsed.instrument_key)
+	)
+	if document is None:
+		return ResolvedLegislationReference(
+			citation_text=raw_match.citation_text,
+			normalized_citation=raw_match.normalized_citation,
+			offset_start=raw_match.offset_start,
+			offset_end=raw_match.offset_end,
+			instrument_key=parsed.instrument_key,
+			pinpoint=parsed.pinpoint,
+			provision_section=parsed.section,
+			provision_subsection=parsed.subsection,
+			provision_paragraph=parsed.paragraph,
+			provision_nested_depth=parsed.nested_depth,
+			is_range_or_list=parsed.is_range_or_list,
+			resolution_status="document_not_indexed",
+		)
+
+	section = session.scalar(
+		select(LegislationSection).where(
+			LegislationSection.document_id == document.id,
+			LegislationSection.section_number == parsed.section,
+		)
+	)
+	if section is None:
+		return ResolvedLegislationReference(
+			citation_text=raw_match.citation_text,
+			normalized_citation=raw_match.normalized_citation,
+			offset_start=raw_match.offset_start,
+			offset_end=raw_match.offset_end,
+			instrument_key=parsed.instrument_key,
+			pinpoint=parsed.pinpoint,
+			provision_section=parsed.section,
+			provision_subsection=parsed.subsection,
+			provision_paragraph=parsed.paragraph,
+			provision_nested_depth=parsed.nested_depth,
+			is_range_or_list=parsed.is_range_or_list,
+			resolution_status="section_not_indexed",
+			document=document,
+		)
+
+	return ResolvedLegislationReference(
+		citation_text=raw_match.citation_text,
+		normalized_citation=raw_match.normalized_citation,
+		offset_start=raw_match.offset_start,
+		offset_end=raw_match.offset_end,
+		instrument_key=parsed.instrument_key,
+		pinpoint=parsed.pinpoint,
+		provision_section=parsed.section,
+		provision_subsection=parsed.subsection,
+		provision_paragraph=parsed.paragraph,
+		provision_nested_depth=parsed.nested_depth,
+		is_range_or_list=parsed.is_range_or_list,
+		resolution_status="resolved_section",
+		document=document,
+		section=section,
+	)
 
 
 def _canlii_client() -> CanLiiApiClient | None:
@@ -2438,6 +2592,11 @@ def extract_statute_references_from_text(
 				normalized_reference=raw_match.normalized_citation,
 				instrument_key=parsed.instrument_key if parsed else None,
 				pinpoint=parsed.pinpoint if parsed else None,
+				provision_section=parsed.section if parsed else None,
+				provision_subsection=parsed.subsection if parsed else None,
+				provision_paragraph=parsed.paragraph if parsed else None,
+				provision_nested_depth=parsed.nested_depth if parsed else None,
+				provision_is_range_or_list=parsed.is_range_or_list if parsed else False,
 				legislation_url=parsed.legislation_url if parsed else None,
 				reference_kind=raw_match.kind,
 			)

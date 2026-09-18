@@ -3,7 +3,13 @@ from types import SimpleNamespace
 
 import pytest
 
-from scripts.chunk_cases import build_case_chunk_layers, build_case_chunks, chunk_pending_cases, split_text
+from scripts.chunk_cases import (
+    _mapped_paragraph_number,
+    build_case_chunk_layers,
+    build_case_chunks,
+    chunk_pending_cases,
+    split_text,
+)
 
 
 class ScalarRows:
@@ -84,6 +90,18 @@ def test_build_case_chunk_layers_uses_confident_html_headings():
 
     assert [row.chunk_label for row in rows if row.chunk_set == "section"] == ["Intro Metadata", "Background", "Analysis"]
     assert all(row.text in case.full_text for row in rows)
+
+
+def test_mapped_paragraph_numbers_ignore_false_and_repeated_markers():
+    numbers = [
+        _mapped_paragraph_number("[2019] Reporter citation", None),
+        _mapped_paragraph_number("[1] First paragraph", None),
+        _mapped_paragraph_number("[2] Second paragraph", 1),
+        _mapped_paragraph_number("[2] Repeated mapped block", 2),
+        _mapped_paragraph_number("[5] Fifth paragraph", 2),
+    ]
+
+    assert numbers == [None, 1, 2, None, 5]
 
 
 def test_scc_text_fallback_handles_old_numbered_paragraphs_and_roman_sections():

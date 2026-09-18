@@ -270,6 +270,7 @@ class CaseReaderTagResponse(BaseModel):
 	model_config = ConfigDict(from_attributes=True)
 
 	id: int | None = None
+	chunk_id: int | None = None
 	category: str
 	value: str
 	score: float

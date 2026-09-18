@@ -135,6 +135,8 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 					value=value,
 					score=0.9,
 					evidence=evidence,
+						offset_start=match.start(),
+						offset_end=match.end(),
 					source="reader_keyword",
 					taxonomy_version="reader_v1",
 				)
@@ -193,6 +195,8 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 				value=section,
 				score=0.85,
 				evidence=evidence,
+					offset_start=None,
+					offset_end=None,
 				source="reader_keyword",
 				taxonomy_version="reader_v1",
 			)

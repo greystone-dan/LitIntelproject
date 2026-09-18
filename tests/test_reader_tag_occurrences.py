@@ -14,3 +14,5 @@ def test_reader_inferred_tags_preserve_repeated_matches():
 
     assert len(id_tags) == 2
     assert len({tag.evidence for tag in id_tags}) == 2
+    expected_offsets = [(index, index + 2) for index in range(len(case.full_text)) if case.full_text.startswith("ID", index)]
+    assert [(tag.offset_start, tag.offset_end) for tag in id_tags] == expected_offsets

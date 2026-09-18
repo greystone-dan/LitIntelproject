@@ -30,11 +30,43 @@ def run_smoke(base_url: str, query: str) -> dict[str, object]:
                 raise AssertionError(f"Missing reader tabs: {missing_tabs}")
             desktop.locator('#decisionTarget [data-reader-tab="tags"]').evaluate("button => button.click()")
             desktop.locator(".reader-tag-summary").wait_for(timeout=10_000)
+            desktop.locator("#decisionBody [data-authority]").first.wait_for(timeout=10_000)
+            evidence = desktop.locator("#decisionBody [data-authority]").first
+            evidence.hover()
+            tooltip = desktop.locator(".reader-hover-tooltip.is-visible")
+            tooltip.wait_for(timeout=5_000)
+            tooltip_text = tooltip.inner_text()
+            if not tooltip_text.strip():
+                raise AssertionError("Evidence hover tooltip was empty")
+            desktop.locator("#readerViewToggle").click()
+            desktop.locator("#decisionBody .tag-highlight").first.wait_for(timeout=10_000)
+            chunk_tag_highlight_count = desktop.locator("#decisionBody .tag-highlight").count()
+            desktop.locator("#readerViewToggle").click()
+            desktop.locator("#decisionBody .tag-highlight").first.wait_for(timeout=10_000)
+            full_text_tag_highlight_count = desktop.locator("#decisionBody .tag-highlight").count()
+            if full_text_tag_highlight_count != chunk_tag_highlight_count:
+                raise AssertionError(
+                    f"Tag highlight mismatch between chunk ({chunk_tag_highlight_count}) "
+                    f"and full text ({full_text_tag_highlight_count}) modes"
+                )
+            citation_color = desktop.locator("#decisionBody .chunk-citation").first.evaluate("element => getComputedStyle(element).backgroundColor")
+            statute_color = desktop.locator("#decisionBody .chunk-statute").first.evaluate("element => getComputedStyle(element).backgroundColor")
+            if citation_color == statute_color:
+                raise AssertionError("Citation and statute highlights use the same color")
+            highlight_counts = {
+                "tags": full_text_tag_highlight_count,
+                "chunk_tags": chunk_tag_highlight_count,
+                "citations": desktop.locator("#decisionBody .chunk-citation, #decisionBody .citation-link").count(),
+                "statutes": desktop.locator("#decisionBody .chunk-statute").count(),
+            }
             result["case_title"] = desktop.locator("#decisionTitle").inner_text()
             result["reader_tabs"] = tabs
             result["tag_groups"] = desktop.locator(".reader-tag-group").count()
             result["tag_occurrences"] = desktop.locator(".reader-tag-occurrence").count()
             result["layer_legend"] = desktop.locator(".reader-layer-legend").inner_text()
+            result["highlight_counts"] = highlight_counts
+            result["highlight_colors"] = {"citation": citation_color, "statute": statute_color}
+            result["hover_tooltip"] = tooltip_text[:240]
 
             mobile = browser.new_page(viewport={"width": 390, "height": 844})
             mobile.goto(f"{base_url}/data-explorer?tab=themes", wait_until="networkidle", timeout=30_000)

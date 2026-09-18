@@ -52,7 +52,7 @@ The system intentionally separates three kinds of derived information:
 8. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 9. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
-The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text.
+The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 
 ### Supporting Interfaces
 
@@ -1025,9 +1025,30 @@ The reader's display modes are:
   preserved source HTML remains provenance for a future explicitly lazy-loaded
   presentation path.
 
+Tags use persisted backend offsets in full-text mode and word-bounded tag
+values in the chunk presentation. Case citations and statutes/regulations use
+their stored spans; statutes with absolute offsets are mapped to the owning
+chunk without changing the backend offsets. Hovering any rendered evidence span
+shows its authority text, including a stored target pinpoint preview when one
+exists. Case citations use yellow highlights and statutes/regulations use
+purple highlights.
+
+The active page keeps one chunk renderer and one offset-based chunk tag helper.
+Legacy text-search tag overlays and duplicate chunk-renderer aliases are not
+part of the active path.
+
 Reader tab clicks pass through one explicit dispatcher boundary in the active
 Data Explorer page. Historical render wrappers remain behind that boundary until
 visual regression coverage supports their incremental removal.
+
+The Citations and Tags tabs group repeated evidence by unique entry and expose
+their stored occurrences. Acts / Regs uses nested groups: source, section, then
+every persisted occurrence, including its text, chunk, and offsets.
+
+Acts / Regs disclosures and occurrence rows reuse the Citations tab's compact
+summary, spacing, typography, and border treatment while retaining a three-level
+source-to-section hierarchy.
+
 
 Linked citations can populate a separate linked-authority context pane. The
 reader uses bounded pane height and independently scrollable panes so a long

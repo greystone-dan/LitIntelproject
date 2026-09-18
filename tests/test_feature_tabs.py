@@ -204,12 +204,23 @@ def test_rendered_shell_exposes_case_reader_tag_tabs():
     assert 'Extracted metadata' in html
     assert 'Case information' in html
     assert 'Tags' in html
+    assert "['info','Info']" in html
+    assert "['advanced','Advanced']" in html
+    assert "row('Case name'" in html
+    assert "row('Minister / government party'" in html
     assert 'tag-highlight' in html
     assert 'chunk-statute' in html
     assert 'chunk-citation' in html
     assert 'groupedTagHtml' in html
     assert 'unique tag' in html
     assert 'reader-tag-occurrence' in html
+    assert 'groupedStatuteHtml' in html
+    assert 'reader-statute-source' in html
+    assert 'reader-statute-section' in html
+    assert 'reader-statute-occurrence' in html
+    assert 'fullTextTags' in html
+    assert '.reader-statute-source,.reader-statute-section' in html
+    assert '.reader-statute-occurrence{padding:8px 0;border-top:1px solid var(--border)' in html
 
 
 def test_rendered_shell_exposes_evidence_details_control():

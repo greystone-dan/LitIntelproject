@@ -81,6 +81,31 @@ The side panes are resizable on larger screens and can stack on smaller displays
 - **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation, statute, and green Tagging V2 spans.
 - **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
 
+Tags are rendered as single-word, word-bounded occurrences in the decision
+text. Case citations and laws/regulations are span highlights with hover
+previews; a linked case preview includes stored pinpoint text when available.
+Yellow marks identify case citations and purple marks identify statutes or
+regulations. The active browser smoke check uses an evidence-rich `B010` case
+to verify search-to-reader navigation, 95 tag highlights, 110 case citations,
+153 statute highlights, distinct computed colors, hover text, and the mobile
+Data Explorer shell.
+
+The active reader uses one chunk renderer and one offset-based chunk tag
+projection. It does not run a second text-search overlay over already-rendered
+citations or statutes; stored evidence rows remain the source of displayed
+highlight spans.
+
+The evidence tabs are grouped for review. Tags group by unique category and
+value, with each stored or inferred occurrence beneath the entry. Acts / Regs
+drills down from unique source to section to every persisted occurrence, while
+Citations retains its unique authority grouping.
+
+Acts / Regs uses the same disclosure styling as Citations for scanability: compact
+group summaries, consistent occurrence-row metadata, and the same spacing and
+border rhythm. Its additional source and section levels remain nested so the
+reader can expand only the legal provision needed.
+
+
 Source formatting supports reading, while stored chunk text and offsets remain the evidence location of record. A visual source paragraph is not a substitute for the persisted chunk/offset reference.
 
 ## Live Analysis
@@ -107,7 +132,7 @@ No highlight means one of several things: the case may have no stored rows, its 
 
 ### Case Information Panels
 
-Reader panels can expose case details, citation rows, evidence/provenance, quality/QA context, citation intelligence, Federal Court activity, legal tags, and Acts/Regulations. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
+Reader panels are split into a concise **Info** tab and an **Advanced** tab. Info presents normalized user-facing fields such as case name, neutral citation, court, decision date, outcome, judge, minister/government party, jurisdiction, language, source, tag count, and citation count. Advanced contains record identifiers, processing state, source URL/identity, chunk and metadata counts, extracted metadata values, and provenance details. Citation rows, Tags, Acts / Regs, and Precedents remain separate evidence tabs. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
 
 The reader keeps the evidence layers visually distinct: purple highlights are
 statutes/regulations and yellow highlights are case-to-case citations. The

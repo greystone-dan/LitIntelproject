@@ -179,6 +179,17 @@ Statute and instrument extraction is independent. It supports IRPA and IRPR name
 
 A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
 
+The 2026-09-17 read-only coverage inventory found `751,944` statute-reference
+rows, `13` indexed legislation documents, and `4,522` indexed sections.
+`canada.immigration_act` is the largest high-volume uncovered instrument with
+`10,107` references across `2,648` cases and no indexed document. The largest
+covered non-IRPA instrument is `canada.criminal_code` with `50,020` references
+across `3,708` cases and `1,716` indexed sections. A bounded Criminal Code
+fixture comparison now verifies exact-span extraction, base-section resolution,
+and explicit range/missing-section statuses; its focused slice passed three
+tests. This is test-only evidence and does not authorize a corpus writer or
+new source acquisition.
+
 Authority indexing is source-format neutral at the parsing boundary. The legislation section contract can be populated from XML, authoritative HTML, or verified extracted text while preserving the source URL, local path, and hash. The official Justice Laws Constitution HTML exposes stable section anchors and provision lists; it can therefore support Charter/Constitution section records without an XML endpoint. The Refugee Convention and 1967 Protocol remain a separate international-instrument source task because the automated UNHCR page probe returned 403 and no source has yet been acquired or indexed.
 
 The priority XML dry run accepted official Justice Laws snapshots for Indian Act, Privacy Act, and Canadian Human Rights Act, producing 134, 96, and 95 non-empty, duplicate-free units respectively. The nominal `P-4.6.xml` endpoint was rejected after source-title inspection because it returns the Payments for Community Development Act rather than the Patent Act; it was not retained or indexed. No priority source has been written to the authority tables.

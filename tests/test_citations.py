@@ -68,6 +68,75 @@ def test_parse_legislation_citation_supports_criminal_code():
 	assert parsed.legislation_url.endswith("/section-36.html")
 
 
+def test_criminal_code_fixture_preserves_exact_span_and_resolves_stored_section():
+	text = "The accused was convicted under section 320(1)(a) of the Criminal Code."
+	match_text = "section 320(1)(a) of the Criminal Code"
+	offset_start = text.index(match_text)
+	matches = citations.extract_statute_reference_matches(text)
+	match = next(item for item in matches if item.citation_text == match_text)
+	assert text[match.offset_start:match.offset_end] == match_text
+
+	document = SimpleNamespace(id=301, instrument_key="canada.criminal_code", title="Criminal Code")
+	section = SimpleNamespace(id=302, document_id=301, section_number="320", text="stored section text")
+	resolution = citations.resolve_legislation_reference(
+		FakeLegislationResolutionSession([document, section]),
+		citations.RawCitationMatch(
+			match.kind,
+			match.citation_text,
+			match.normalized_citation,
+			offset_start,
+			offset_start + len(match_text),
+		),
+	)
+
+	assert text[resolution.offset_start:resolution.offset_end] == resolution.citation_text
+	assert resolution.resolution_status == "resolved_section"
+	assert resolution.instrument_key == "canada.criminal_code"
+	assert resolution.pinpoint == "320(1)(a)"
+	assert resolution.provision_section == "320"
+	assert resolution.provision_subsection == "1"
+	assert resolution.provision_paragraph == "a"
+	assert resolution.section is section
+
+
+def test_criminal_code_fixture_keeps_range_unresolved_and_missing_section_explicit():
+	range_match = citations.parse_legislation_citation(
+		"Criminal Code sections 320(1) and 320(2)"
+	)
+	assert range_match is not None
+	assert range_match.instrument_key == "canada.criminal_code"
+	assert range_match.is_range_or_list
+
+	range_resolution = citations.resolve_legislation_reference(
+		FakeLegislationResolutionSession(),
+		citations.RawCitationMatch(
+			"statute",
+			"Criminal Code sections 320(1) and 320(2)",
+			"Criminal Code sections 320(1) and 320(2)",
+			0,
+			46,
+		),
+	)
+	assert range_resolution.resolution_status == "range_or_list_not_resolved"
+
+	missing_resolution = citations.resolve_legislation_reference(
+		FakeLegislationResolutionSession(
+			[
+				SimpleNamespace(id=301, instrument_key="canada.criminal_code", title="Criminal Code"),
+				None,
+			]
+		),
+		citations.RawCitationMatch(
+			"statute",
+			"Criminal Code, s. 9999",
+			"Criminal Code, R.S.C. 1985, c. C-46 s. 9999",
+			0,
+			21,
+		),
+	)
+	assert missing_resolution.resolution_status == "section_not_indexed"
+
+
 def test_parse_legislation_citation_identifies_instrument_without_section():
 	parsed = citations.parse_legislation_citation("Immigration Act")
 

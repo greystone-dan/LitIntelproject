@@ -290,6 +290,11 @@ The active Data Explorer reader provides a persistent evidence-layer legend for
 Tags, Laws, and Citations plus an optional evidence-details inspector. The
 inspector uses existing backend-owned highlight attributes and never invents
 offsets or mutates canonical data.
+It also exposes an optional `Show case structure` layer when paragraph chunks
+are available. This projects the read-only Discussion Unit and sub-theme
+analysis into collapsible units, roles, deterministic explanations, and source
+evidence spans. It is disabled by default and is a low-trust research aid,
+not a legal conclusion or AI-generated summary.
 
 ### Startup And Configuration
 

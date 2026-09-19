@@ -1,3 +1,9 @@
+# Unreleased
+
+- Added an optional deterministic `Show case structure` layer to the active
+	Data Explorer reader, projecting source-linked Discussion Units and
+	sub-theme evidence without canonical writes or AI-generated conclusions.
+
 # Change History
 
 Document role: milestone and implementation delta log.

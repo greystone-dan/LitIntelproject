@@ -153,6 +153,14 @@ reader evidence, including lazily loaded statute-reference rows. Chunk-mode
 paragraph projection remains a separate compatibility follow-up where stored
 section-layer rows need visible paragraph-layer rendering.
 
+The source reader also has a separate `Show case structure` toggle. When
+paragraph chunks are available, it reveals a deterministic projection of
+Discussion Units and sub-themes: paragraph ranges, display terms, argument
+roles, explanations, and source evidence spans with canonical chunk IDs and
+offsets. This is coded review assistance, not an AI summary or legal
+conclusion. It is closed by default and uses collapsible groups so large
+decisions do not expand every unit at once.
+
 The active reader initially displays persisted canonical text/chunks and stored
 case-citation evidence. Statute references are fetched when the Acts / Regs tab
 is opened. It does not run citation or statute extraction and

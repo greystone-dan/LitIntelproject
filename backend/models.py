@@ -289,6 +289,45 @@ class CaseReaderMetadataFieldResponse(BaseModel):
 	evidence: str | None = None
 
 
+class CaseEvidenceSpanResponse(BaseModel):
+	role: str
+	text: str
+	chunk_id: int
+	start_offset: int
+	end_offset: int
+	paragraph_index: int
+	context_text: str
+	source_text_hash: str
+
+
+class CaseSubThemeSummaryResponse(BaseModel):
+	subtheme_id: str
+	paragraph_indices: list[int]
+	key_terms: list[str]
+	display_key_terms: list[str]
+	argument_roles: list[str]
+	explanation: str
+	evidence: list[CaseEvidenceSpanResponse] = Field(default_factory=list)
+
+
+class CaseDiscussionUnitSummaryResponse(BaseModel):
+	discussion_unit_id: str
+	unit_index: int
+	start_paragraph: int
+	end_paragraph: int
+	paragraph_count: int
+	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
+
+
+class CaseEvidenceSummaryResponse(BaseModel):
+	method: str
+	version: str
+	total_units: int
+	total_subthemes: int
+	note: str
+	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+
+
 class CaseReaderDataResponse(BaseModel):
 	case: CaseResponse
 	sources: list[CaseSourceResponse]
@@ -298,6 +337,7 @@ class CaseReaderDataResponse(BaseModel):
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
+	evidence_summary: CaseEvidenceSummaryResponse | None = None
 
 
 class InventoryCaseResponse(BaseModel):

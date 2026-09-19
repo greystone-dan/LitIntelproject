@@ -35,15 +35,20 @@ from .database import (
 from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
+	CaseDiscussionUnitSummaryResponse,
+	CaseEvidenceSpanResponse,
+	CaseEvidenceSummaryResponse,
 	CaseReaderChunkResponse,
 	CaseReaderCitationResponse,
 	CaseReaderDataResponse,
 	CaseReaderMetadataFieldResponse,
 	CaseReaderTagResponse,
+	CaseSubThemeSummaryResponse,
 	CaseResponse,
 	CaseSourceResponse,
 	CitationMetricsResponse,
 )
+from scripts.inspect_discussion_units import inspect_case
 
 _STATUTE_LIKE_RE = re.compile(
 	r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE
@@ -66,6 +71,58 @@ def _is_irpa_irpr_reference(value: str | None) -> bool:
 			value or "",
 			re.IGNORECASE,
 		)
+	)
+
+
+def _build_evidence_summary(case_id: int, db: Session, *, has_paragraph_chunks: bool) -> CaseEvidenceSummaryResponse | None:
+	if not has_paragraph_chunks:
+		return None
+	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
+	units = []
+	for unit in report["discussion_units"]:
+		subthemes = []
+		for subtheme in unit.get("subthemes", []):
+			evidence = [
+				CaseEvidenceSpanResponse(
+					role=item["role"],
+					text=item["text"],
+					chunk_id=item["chunk_id"],
+					start_offset=item["start_offset"],
+					end_offset=item["end_offset"],
+					paragraph_index=item["paragraph_index"],
+					context_text=item["context_text"],
+					source_text_hash=item["source_text_hash"],
+				)
+				for item in subtheme.get("argument_evidence", [])
+			]
+			subthemes.append(
+				CaseSubThemeSummaryResponse(
+					subtheme_id=subtheme["subtheme_id"],
+					paragraph_indices=subtheme["paragraph_indices"],
+					key_terms=subtheme["key_terms"],
+					display_key_terms=subtheme.get("display_key_terms", subtheme["key_terms"]),
+					argument_roles=subtheme["argument_roles"],
+					explanation=subtheme["explanation"],
+					evidence=evidence,
+				)
+			)
+		units.append(
+			CaseDiscussionUnitSummaryResponse(
+				discussion_unit_id=unit["discussion_unit_id"],
+				unit_index=int(unit["discussion_unit_id"].rsplit(":", 1)[-1]),
+				start_paragraph=unit["start_paragraph"],
+				end_paragraph=unit["end_paragraph"],
+				paragraph_count=unit["paragraph_count"],
+				subthemes=subthemes,
+			)
+		)
+	return CaseEvidenceSummaryResponse(
+		method="discussion_unit_v1",
+		version="1.4",
+		total_units=len(units),
+		total_subthemes=sum(len(unit.subthemes) for unit in units),
+		note="Evidence-based structural summary; not a legal conclusion. Each evidence span maps to canonical source text and a source hash.",
+		units=units,
 	)
 
 
@@ -625,6 +682,11 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
 	formatted_html = None
+	evidence_summary = _build_evidence_summary(
+		case_id,
+		db,
+		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+	)
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
@@ -652,6 +714,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		if metrics is not None
 		else None,
 		formatted_html=formatted_html,
+		evidence_summary=evidence_summary,
 	)
 
 

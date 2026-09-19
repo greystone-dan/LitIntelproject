@@ -295,6 +295,12 @@ are available. This projects the read-only Discussion Unit and sub-theme
 analysis into collapsible units, roles, deterministic explanations, and source
 evidence spans. It is disabled by default and is a low-trust research aid,
 not a legal conclusion or AI-generated summary.
+The separate `Show case summary` layer aggregates the same seven deterministic
+roles into a stable brief order: issue, party positions, facts and evidence,
+governing law, court reasoning, limitations/counterarguments, and disposition.
+It uses controlled evidence text and paragraph ranges, reports `Not detected in
+available evidence` when a role is absent, and is not a generated legal
+opinion.
 
 ### Startup And Configuration
 

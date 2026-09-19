@@ -43,6 +43,9 @@ from .models import (
 	CaseReaderDataResponse,
 	CaseReaderMetadataFieldResponse,
 	CaseReaderTagResponse,
+	CaseSummaryResponse,
+	CaseSummarySectionItemResponse,
+	CaseSummarySectionResponse,
 	CaseSubThemeSummaryResponse,
 	CaseResponse,
 	CaseSourceResponse,
@@ -123,6 +126,53 @@ def _build_evidence_summary(case_id: int, db: Session, *, has_paragraph_chunks: 
 		total_subthemes=sum(len(unit.subthemes) for unit in units),
 		note="Evidence-based structural summary; not a legal conclusion. Each evidence span maps to canonical source text and a source hash.",
 		units=units,
+	)
+
+
+def _build_case_summary(evidence_summary: CaseEvidenceSummaryResponse | None) -> CaseSummaryResponse | None:
+	if evidence_summary is None:
+		return None
+	section_definitions = (
+		("issue", "Issue", "issue"),
+		("party_positions", "Party positions", "party_position"),
+		("facts", "Facts and evidence", "evidence_fact"),
+		("governing_law", "Governing law", "governing_rule"),
+		("reasoning", "Court reasoning", "reasoning_application"),
+		("limitations", "Limitations and counterarguments", "counterargument_limitation"),
+		("disposition", "Disposition", "disposition"),
+	)
+	sections = []
+	for section_id, title, role in section_definitions:
+		items = []
+		for unit in evidence_summary.units:
+			for subtheme in unit.subthemes:
+				if role not in subtheme.argument_roles:
+					continue
+				items.append(
+					CaseSummarySectionItemResponse(
+						section_role=role,
+						subtheme_id=subtheme.subtheme_id,
+						text=subtheme.explanation,
+						paragraph_indices=list(subtheme.paragraph_indices),
+						evidence=subtheme.evidence,
+					)
+				)
+		sections.append(
+			CaseSummarySectionResponse(
+				section_id=section_id,
+				title=title,
+				available=bool(items),
+				unavailable_reason=None if items else "Not detected in available evidence.",
+				items=items,
+			)
+		)
+	return CaseSummaryResponse(
+		method="discussion_unit_brief_v1",
+		version="1.0",
+		disclaimer="Deterministic case brief from structured evidence; not a legal conclusion.",
+		sections=sections,
+		total_available_sections=sum(section.available for section in sections),
+		total_unavailable_sections=sum(not section.available for section in sections),
 	)
 
 
@@ -687,6 +737,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		db,
 		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
 	)
+	case_summary = _build_case_summary(evidence_summary)
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
@@ -715,6 +766,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		else None,
 		formatted_html=formatted_html,
 		evidence_summary=evidence_summary,
+		case_summary=case_summary,
 	)
 
 

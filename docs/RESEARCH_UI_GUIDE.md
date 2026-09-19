@@ -161,6 +161,15 @@ offsets. This is coded review assistance, not an AI summary or legal
 conclusion. It is closed by default and uses collapsible groups so large
 decisions do not expand every unit at once.
 
+The separate `Show case summary` toggle is the researcher-facing brief. It
+aggregates detected roles into seven stable sections: issue, party positions,
+facts and evidence, governing law, court reasoning, limitations and
+counterarguments, and disposition. Section text comes from deterministic
+sub-theme explanations; each item retains its source paragraph range and any
+available exact evidence spans. Missing roles are labeled `Not detected in
+available evidence` rather than inferred. Use the source decision to verify
+the brief.
+
 The active reader initially displays persisted canonical text/chunks and stored
 case-citation evidence. Statute references are fetched when the Acts / Regs tab
 is opened. It does not run citation or statute extraction and

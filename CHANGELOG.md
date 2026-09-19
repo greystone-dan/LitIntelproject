@@ -3,6 +3,9 @@
 - Added an optional deterministic `Show case structure` layer to the active
 	Data Explorer reader, projecting source-linked Discussion Units and
 	sub-theme evidence without canonical writes or AI-generated conclusions.
+- Added a separate deterministic `Show case summary` projection with stable
+	issue, positions, facts, law, reasoning, limitations, and disposition
+	sections plus explicit unavailable states.
 
 # Change History
 

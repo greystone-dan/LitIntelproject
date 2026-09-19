@@ -328,6 +328,31 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
 
 
+class CaseSummarySectionItemResponse(BaseModel):
+	section_role: str
+	subtheme_id: str
+	text: str
+	paragraph_indices: list[int] = Field(default_factory=list)
+	evidence: list[CaseEvidenceSpanResponse] = Field(default_factory=list)
+
+
+class CaseSummarySectionResponse(BaseModel):
+	section_id: str
+	title: str
+	available: bool
+	unavailable_reason: str | None = None
+	items: list[CaseSummarySectionItemResponse] = Field(default_factory=list)
+
+
+class CaseSummaryResponse(BaseModel):
+	method: str
+	version: str
+	disclaimer: str
+	sections: list[CaseSummarySectionResponse] = Field(default_factory=list)
+	total_available_sections: int
+	total_unavailable_sections: int
+
+
 class CaseReaderDataResponse(BaseModel):
 	case: CaseResponse
 	sources: list[CaseSourceResponse]
@@ -338,6 +363,7 @@ class CaseReaderDataResponse(BaseModel):
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
+	case_summary: CaseSummaryResponse | None = None
 
 
 class InventoryCaseResponse(BaseModel):

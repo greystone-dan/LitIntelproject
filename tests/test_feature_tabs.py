@@ -230,3 +230,14 @@ def test_rendered_shell_exposes_evidence_details_control():
     assert 'Show evidence details' in html
     assert 'readerEvidenceDetail' in html
     assert 'Hide evidence details' in html
+
+
+def test_rendered_shell_exposes_independent_case_summary_control():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerSummaryToggle"' in html
+    assert 'Show case structure' in html
+    assert 'id="readerCaseSummaryToggle"' in html
+    assert 'Show case summary' in html
+    assert 'id="readerCaseSummaryDetail"' in html
+    assert 'renderCaseSummary' in html

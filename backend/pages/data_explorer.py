@@ -237,7 +237,6 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <button class="tab active" type="button" data-tab="search">Case search</button>
 <button class="tab" type="button" data-tab="site-architecture">Site Architecture</button>
 <button class="tab" type="button" data-tab="citation-intelligence">Citation Intelligence</button>
-<button class="tab" type="button" data-tab="judge">Judge outcomes</button>
 <button class="tab" type="button" data-tab="judge-profile">Judge Profile</button>
 <button class="tab" type="button" data-tab="explorer">Data explorer</button>
 <button class="tab" type="button" data-tab="fc-history">FC History</button>
@@ -359,12 +358,6 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <div class="results-wrap" id="citationSearchResults"></div>
 <div class="view-tabs citation-subtabs" role="tablist" aria-label="Citation Intelligence views"><button class="tab active" type="button" data-ci-tab="overview">Overview</button><button class="tab" type="button" data-ci-tab="timeline">Timeline</button><button class="tab" type="button" data-ci-tab="outcomes">Outcomes</button><button class="tab" type="button" data-ci-tab="courts">Courts</button><button class="tab" type="button" data-ci-tab="judges">Judges</button><button class="tab" type="button" data-ci-tab="companions">Companions</button><button class="tab" type="button" data-ci-tab="statutes">Statutes</button><button class="tab" type="button" data-ci-tab="table">Evidence</button></div>
 <div id="citationIntelligenceContent" class="search-meta">Select a case from Case Search to inspect its citation intelligence.</div>
-</section>
-<section id="judgePanel" class="panel-card search-layout" hidden>
-<div class="summaryRows" id="judgeSummary"><span>Loading judge outcomes...</span></div>
-<div class="legend"><span class="key"><i class="dot" style="background:var(--blue)"></i>Government wins</span><span class="key"><i class="dot" style="background:var(--red)"></i>Individual wins</span><span class="key"><i class="dot" style="background:#cbd5e1"></i>Unclassified</span></div>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>Judge</th><th class="number">Decisions</th><th>Outcome split</th><th class="number">Government wins</th><th class="number">Individual wins</th><th class="number">Unclassified</th><th class="number">Government win rate</th></tr></thead><tbody id="judgeRows"><tr><td colspan="8" class="empty">Loading judge outcomes...</td></tr></tbody></table></div>
-<p class="search-meta">Includes every judge with more than 100 decisions. Win rate uses classified government-versus-individual outcomes only.</p>
 </section>
 <section id="judgeProfilePanel" class="panel-card search-layout" hidden>
 <div class="page-header"><div class="eyebrow">Judicial profiles</div><h2>Judge Profile</h2><p>Explore normalized judge records and the decisions associated with each profile.</p></div>

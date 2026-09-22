@@ -80,7 +80,6 @@ def test_rendered_shell_exposes_tabs_and_product_title():
         "Case search",
         "Site Architecture",
         "Citation Intelligence",
-        "Judge outcomes",
         "Judge Profile",
         "Data explorer",
         "FC History",
@@ -92,6 +91,8 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert "Litigation workbench" not in html
     assert "Case search and analytics" not in html
     assert 'id="aboutOutcomeChart"' not in html
+    assert 'data-tab="judge">Judge outcomes</button>' not in html
+    assert 'id="judgePanel"' not in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

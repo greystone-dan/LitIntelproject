@@ -15,7 +15,7 @@ with Citation Pass retained as the extractor QA surface.
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data Explorer, FC History, and Legal Themes & Statutes.
+2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Profile, Data Explorer, FC History, and Legal Themes & Statutes. Judge Profile is the sole active judge workflow.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.

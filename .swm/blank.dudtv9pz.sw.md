@@ -66,12 +66,11 @@ out of `routes.py` into dedicated modules.
 
 | Page Module | URL Route | Features & User Experience |
 | --- | --- | --- |
-| `data_explorer.py` | `/data-explorer` | The primary 8-tab research interface: About, Case Search (with inline reader & highlight inspector), Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data Explorer, and FC History. |
+| `data_explorer.py` | `/data-explorer` | The primary research interface: About, Case Search (with inline reader & highlight inspector), Site Architecture, Citation Intelligence, Judge Profile, Data Explorer, and FC History. |
 | `quick_search.py` | `/quick-search` | Lightweight single-card semantic and hybrid chunk retrieval page with instant snippet previews. |
 | `citation_map.py` | `/citation-map` | Radial multi-authority citation graph workbench and network visualization. |
 | `citation_pass.py` | `/citation-pass` | Side-by-side QA surface comparing stored database citation rows against live regex extraction spans. |
 | `live_analysis.py` | `/live-analysis` | Temporary document inspector for uploaded briefs and judgments with ephemeral citation resolution. |
-| `judge_outcomes.py` | `/judge-outcomes` | Analytical visualizer for judge ruling distributions and government win/loss rates. |
 | `testing.py` | `/testing` | API test bench for manual query evaluation and retrieval inspection. |
 | `prototype.py` | `/prototype` | Legacy prototype cohort explorer. |
 

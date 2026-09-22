@@ -62,7 +62,6 @@ from .citation_map import (
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
-from .pages.judge_outcomes import judge_outcomes_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -126,7 +125,6 @@ from .analytics_service import (
 	fetch_fc_activity_analytics,
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
-	fetch_judge_outcomes,
 	fetch_judge_profile_by_slug,
 	fetch_judge_profiles,
 	fetch_outcomes_by_year,
@@ -959,20 +957,6 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 		}
 		for case in rows
 	]
-
-
-@router.get("/judge-outcomes", response_class=HTMLResponse, include_in_schema=False)
-def judge_outcomes_page() -> HTMLResponse:
-	return HTMLResponse(content=judge_outcomes_page_html(), status_code=status.HTTP_200_OK)
-
-
-@router.get("/analytics/judge-outcomes", response_model=dict[str, Any])
-def get_judge_outcomes(
-	limit: int = 50,
-	min_decisions: int = 0,
-	db: Session = Depends(get_db),
-) -> dict[str, Any]:
-	return fetch_judge_outcomes(db, limit=limit, min_decisions=min_decisions)
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)

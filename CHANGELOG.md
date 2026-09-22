@@ -1,3 +1,8 @@
+- Reframed the forward roadmap around a demo-first product milestone: issue and
+	case-type discovery, a coherent search-to-reader-to-authority journey,
+	usability polish, and curated browser-validated demo scenarios. Corpus-wide
+	quality and advanced intelligence work is now explicitly deferred except for
+	demo-safety fixes.
 # Unreleased
 
 - Added an optional deterministic `Show case structure` layer to the active

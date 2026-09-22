@@ -14,6 +14,7 @@ from fastapi import HTTPException, status
 from sqlalchemy import func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 
+from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
 from .database import (
 	Case,
@@ -212,13 +213,14 @@ def fetch_judge_outcomes(
 				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins
 			FROM cases
 			WHERE COALESCE(metadata_json->'reader_extracted'->>'judge', '') <> ''
+			  AND metadata_json->'reader_extracted'->>'judge' !~* :judge_junk_pattern
 			GROUP BY judge
 			HAVING COUNT(*) > :min_decisions
 			ORDER BY decisions DESC, judge ASC
 			{limit_clause}
 			"""
 		),
-		{"limit": limit, "min_decisions": min_decisions},
+		{"limit": limit, "min_decisions": min_decisions, "judge_junk_pattern": _JUDGE_JUNK_PATTERN},
 	).mappings().all()
 	judges = []
 	for row in rows:

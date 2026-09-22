@@ -24,14 +24,25 @@ The tab labels are navigation, not proof that every data layer is complete for e
 
 ## Current UI Review Backlog
 
-The active workflow is functionally smoke-tested, but the next UI quality pass
-should address accessibility and responsive behavior before broader visual work:
+The near-term product pass is demo-first. The highest-value UI work is issue/type
+discovery and a coherent path from search to reader to linked authority. After
+that path is in place, address accessibility and responsive behavior:
+
+- Add curated issue and case-type entry points using the existing themes,
+	statutes, tags, outcomes, and case cohorts.
+- Improve result cards with issue/type, reason for inclusion, outcome, source
+	status, and a direct path into the reader.
+- Preserve search state and return navigation across the reader workflow.
 
 - Add `aria-selected` and keyboard semantics to the top-level and reader tabsets.
 - Give reader pane separators visible focus treatment and keyboard resizing.
 - Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
 - Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
+
+Broad corpus quality, authority expansion, and advanced recommendation features
+remain deferred roadmap work except where a demo-safety fix is needed to prevent
+misleading or untraceable output.
 
 ## About
 

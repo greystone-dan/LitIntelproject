@@ -152,6 +152,18 @@ def test_rendered_shell_exposes_focused_feature_searches():
     assert "Compare use over time" in html
 
 
+def test_case_search_has_clear_primary_query_and_filter_state():
+    html = routes._data_explorer_page_html()
+
+    assert 'class="search-intro"' in html
+    assert 'class="search-query-row"' in html
+    assert 'id="searchFilterSummary"' in html
+    assert 'legend>Authority and outcome</legend>' in html
+    assert 'legend>People, court, and time</legend>' in html
+    assert 'legend>Result display</legend>' in html
+    assert 'function updateSearchFilterSummary()' in html
+
+
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):

@@ -90,6 +90,8 @@ The API supports case-level, chunk-level, and grouped-chunk retrieval.
 
 Case Search supports query, title, court, jurisdiction, dates, source details, citation variants, party/minister presets, cited authority, legal tags, language, processing status, cited/citing data, decision outcome, government outcome, judge, and full-text opt-in matching. Court abbreviations `FC`, `FCA`, and `SCC` expand to canonical court names for filtering.
 
+The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
+
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
 
 ### Citation, Statute, And Metadata Processing

@@ -52,7 +52,17 @@ Use it to understand available inventory, not legal relevance. A populated layer
 
 ### Basic Search
 
-Enter a case name or citation, for example `Vavilov` or `2019 SCC 65`. The default path favors title/citation matching. This is intentional: it keeps the common authority-lookup workflow fast and avoids broad full-text matches unless requested.
+Enter a case name or citation, for example `Vavilov` or `2019 SCC 65`. The
+primary query row is the fastest path and keeps the submit and clear actions
+close to the query. The default path favors title/citation matching. This is
+intentional: it keeps the common authority-lookup workflow fast and avoids
+broad full-text matches unless requested.
+
+Open **Advanced options** when the question needs more precision. Filters are
+grouped into authority/outcome, people/court/time, and result display. The
+button reports how many optional filters are active, so a refined search stays
+visible as a state rather than hidden configuration. On narrow screens the
+query actions and filter groups stack vertically.
 
 Choose a result count and sort order:
 

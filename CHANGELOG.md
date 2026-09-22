@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Improved the active Case Search interface with a clearer primary query row,
+  grouped collapsed advanced filters, active-filter feedback, reliable Clear
+  behavior, and responsive desktop/mobile layout without changing search
+  parameters or result semantics.
 - Retired the standalone Judge Outcomes tab and dedicated routes while keeping
 	Judge Profile as the active judge workflow; updated the current UI contract
 	and focused feature-tab coverage.

@@ -110,14 +110,20 @@ The side panes are resizable on larger screens and can stack on smaller displays
 
 ### Reader Modes
 
-- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation, statute, and green Tagging V2 spans.
+- **Chunk breakdown**: displays stored decision chunks as a continuous reading
+	surface with subtle separators. Chunk IDs, ordinal labels, and character
+	counts are intentionally hidden; the underlying chunk boundaries remain in
+	the DOM and evidence payload. This is the evidence-oriented mode for
+	inspecting citation, statute, and green Tagging V2 spans.
 - **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
 
 Tags are rendered as single-word, word-bounded occurrences in the decision
 text. Case citations and laws/regulations are span highlights with hover
 previews; a linked case preview includes stored pinpoint text when available.
 Yellow marks identify case citations and purple marks identify statutes or
-regulations. The active browser smoke check uses a bounded evidence-rich case
+regulations. Inline citation and statute highlights inherit the surrounding
+judgment font size and line height, so evidence styling does not shrink or
+reflow the legal text. The active browser smoke check uses a bounded evidence-rich case
 workflow to verify search-to-reader navigation, visible evidence in both
 reader modes, distinct computed colors, hover text, and the mobile research
 shell. Exact DOM counts remain dataset- and overlap-dependent.

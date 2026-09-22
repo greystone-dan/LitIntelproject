@@ -171,6 +171,17 @@ def test_case_search_has_clear_primary_query_and_filter_state():
     assert 'function professionalResultCard(item)' in html
 
 
+def test_chunk_reader_uses_compact_sections_and_inherited_reference_type():
+    html = routes._data_explorer_page_html()
+
+    assert '.chunk-header{display:none}' in html
+    assert '.chunk-panel{margin:0;border:0;border-top:1px solid' in html
+    assert '.chunk-body{padding:7px 3px' in html
+    assert '.chunk-citation{display:inline' in html
+    assert '.chunk-statute{display:inline' in html
+    assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
+
+
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):

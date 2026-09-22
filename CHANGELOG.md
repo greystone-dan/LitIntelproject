@@ -5,6 +5,9 @@
 	demo-safety fixes.
 # Unreleased
 
+- Simplified chunk-mode reading with continuous compact sections, hidden chunk
+	numbering and character metadata, and citation/statute highlights that retain
+	the surrounding judgment typography.
 - Upgraded Case Search with bounded title/citation suggestions, keyboard
 	navigation, explicit loading/empty/error feedback, a clearer legal-result
 	hierarchy, and browser-validated desktop/mobile behavior.

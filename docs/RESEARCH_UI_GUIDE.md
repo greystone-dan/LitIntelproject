@@ -1,12 +1,12 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-22
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
 ## Start Here: Data Explorer
 
-Open `/data-explorer`. This is the active research workspace. It has nine top-level tabs:
+Open `/data-explorer`. This is the active research workspace. It has seven visible top-level tabs:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
@@ -14,9 +14,7 @@ Open `/data-explorer`. This is the active research workspace. It has nine top-le
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
 | Site Architecture | Explain live tables and derived views | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
-| Judge outcomes | Compare recorded outcome classifications by judge | cases, judge profiles, metadata |
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
-| Data explorer | Inspect source/case inventory views | cases, sources, metadata |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
 | Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
@@ -96,15 +94,19 @@ Tags are rendered as single-word, word-bounded occurrences in the decision
 text. Case citations and laws/regulations are span highlights with hover
 previews; a linked case preview includes stored pinpoint text when available.
 Yellow marks identify case citations and purple marks identify statutes or
-regulations. The active browser smoke check uses an evidence-rich `B010` case
-to verify search-to-reader navigation, 95 tag highlights, 110 case citations,
-153 statute highlights, distinct computed colors, hover text, and the mobile
-Data Explorer shell.
+regulations. The active browser smoke check uses a bounded evidence-rich case
+workflow to verify search-to-reader navigation, visible evidence in both
+reader modes, distinct computed colors, hover text, and the mobile research
+shell. Exact DOM counts remain dataset- and overlap-dependent.
 
 The active reader uses one chunk renderer and one offset-based chunk tag
 projection. It does not run a second text-search overlay over already-rendered
 citations or statutes; stored evidence rows remain the source of displayed
-highlight spans.
+highlight spans. Because chunk mode gives already-rendered citation spans
+precedence while full-text mode resolves citation and tag ranges together,
+overlapping evidence can produce different DOM mark counts between modes; the
+browser smoke check therefore requires visible tag evidence in both modes
+without treating equal counts as a contract.
 
 The evidence tabs are grouped for review. Tags group by unique category and
 value, with each stored or inferred occurrence beneath the entry. Acts / Regs

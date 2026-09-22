@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 99
+Active scripts documented: 108
 
 ## Catalog
 
@@ -36,6 +36,9 @@ Active scripts documented: 99
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
+| `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
+| `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
+| `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
@@ -46,6 +49,7 @@ Active scripts documented: 99
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
 | `embed_a2aj_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_a2aj_cases.py --help` |
 | `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
@@ -80,11 +84,15 @@ Active scripts documented: 99
 | `ingest_canlii_seed_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_canlii_seed_cases.py --help` |
 | `ingest_hf_fc_activity.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_hf_fc_activity.py --help` |
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
+| `inspect_context_variants.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help` |
+| `inspect_discussion_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help` |
+| `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
+| `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
@@ -99,6 +107,7 @@ Active scripts documented: 99
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
+| `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
@@ -474,6 +483,48 @@ Active scripts documented: 99
 .\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help
 ```
 
+## `scripts/build_treatment_distillation.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help
+```
+
+## `scripts/build_treatment_review_packet.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help
+```
+
+## `scripts/build_treatment_teacher_fixture.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
+```
+
 ## `scripts/check_generated_docs.py`
 
 **Purpose:** Check that checked-in generated documentation matches its generators.
@@ -612,6 +663,20 @@ Active scripts documented: 99
 
 ```powershell
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
+```
+
+## `scripts/discover_recent_case_themes.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help
 ```
 
 ## `scripts/download_reference_library.py`
@@ -1090,6 +1155,48 @@ Active scripts documented: 99
 .\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help
 ```
 
+## `scripts/inspect_context_variants.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help
+```
+
+## `scripts/inspect_discussion_units.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help
+```
+
+## `scripts/judge_reconciliation_report.py`
+
+**Purpose:** Report stored judge metadata and canonical profile-link mismatches without writes.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help
+```
+
 ## `scripts/link_citation_pinpoints.py`
 
 **Purpose:** Persist resolved case-citation paragraph links from stored paragraph chunks.
@@ -1158,6 +1265,20 @@ Active scripts documented: 99
 
 ```powershell
 .\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help
+```
+
+## `scripts/prepare_treatment_teacher_batch.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help
 ```
 
 ## `scripts/quick_search_engine.py`
@@ -1354,6 +1475,20 @@ Active scripts documented: 99
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs
+```
+
+## `scripts/run_treatment_teacher_batch.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help
 ```
 
 ## `scripts/run_v2_pipeline.py`

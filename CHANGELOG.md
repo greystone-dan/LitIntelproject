@@ -5,6 +5,15 @@
 	demo-safety fixes.
 # Unreleased
 
+- Retired the standalone Judge Outcomes tab and dedicated routes while keeping
+	Judge Profile as the active judge workflow; updated the current UI contract
+	and focused feature-tab coverage.
+- Added a read-only judge identity reconciliation report covering stored judge
+	values, profile links, invalid candidates, and provenance mismatches without
+	changing canonical rows.
+- Added the deterministic `Show case summary` reader projection with stable
+	issue, positions, facts, law, reasoning, limitations, and disposition
+	sections backed by existing evidence.
 - Added an optional deterministic `Show case structure` layer to the active
 	Data Explorer reader, projecting source-linked Discussion Units and
 	sub-theme evidence without canonical writes or AI-generated conclusions.

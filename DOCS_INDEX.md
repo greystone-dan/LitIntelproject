@@ -9,13 +9,13 @@ which are historical, and what to update during a nighttime patch.
 
 ## Canonical Workflow Pointer
 
-Current main workflow is the nine-tab immigration litigation intelligence interface,
+Current main workflow is the seven-tab immigration litigation intelligence interface,
 with Citation Pass retained as the extractor QA surface.
 
 Use this sequence:
 
 1. Run the API.
-2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Profile, Data Explorer, FC History, and Legal Themes & Statutes. Judge Profile is the sole active judge workflow.
+2. Use `/data-explorer` for About, Case Search, Site Architecture, Citation Intelligence, Judge Profile, FC History, and Legal Themes & Statutes. Judge Profile is the sole active judge workflow; the former visible Data Explorer and Judge Outcomes tabs are retired.
 3. Open a result in `/data-explorer` for unified case detail and linked citation context; `/case-reader` is a compatibility redirect for legacy bookmarks.
 4. Use `/citation-pass` only when validating extraction behavior or offsets.
 5. Use `/live-analysis` for ephemeral DOCX/text-PDF review without database writes.

@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-17
+Last updated: 2026-09-22
 
 ## Purpose And Authority
 
@@ -46,16 +46,18 @@ The system intentionally separates three kinds of derived information:
 
 ### Primary Research Workflows
 
-`/data-explorer` is the main research surface. It contains these tabs:
+`/data-explorer` is the main research surface. It contains these seven visible tabs:
 
 1. **About**: live inventory and coverage information from `/api/about/stats`.
 2. **Case Search**: filtered research search with an inline decision reader.
 3. **Site Architecture**: live data-layer and feature-to-table explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
-6. **Data Explorer**: inventory-oriented case and source inspection.
-7. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
-8. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
+7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The former visible Data Explorer inventory tab and standalone Judge Outcomes
+surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 
@@ -234,8 +236,9 @@ outside the prototype because they require OCR.
 
 #### Judge identity audit (2026-09-22)
 
-Judge Outcomes and Judge Profile currently do not use the same population. The
-Judge Outcomes aggregation in `backend/analytics_service.py` groups every
+The former Judge Outcomes and current Judge Profile workflows did not use the
+same population. The historical Judge Outcomes aggregation in
+`backend/analytics_service.py` grouped every
 non-empty `metadata_json->'reader_extracted'->>'judge'` value. Judge Profile
 reads `judge_profiles` and `case_judge_profiles`, which are populated by the
 separate `scripts/backfill_judge_profiles.py` path and therefore apply a
@@ -2102,10 +2105,10 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-01T14:18:17.728860+00:00
+Generated: 2026-09-22T16:59:40.996193+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 76 across 76 paths
+OpenAPI operations: 85 across 85 paths
 Hidden operations: 34 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -2175,6 +2178,20 @@ Convert A2Aj Edges Endpoint
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /analytics/cases/{case_id}/thematic-cluster`
+
+Get Case Thematic Cluster
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /analytics/explorer`
 
 Get Data Explorer
@@ -2242,6 +2259,61 @@ Get Analytics Search Ministers
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /analytics/statute-tag-matrix`
+
+Get Statute Tag Matrix
+
+**Parameters**
+
+- `pinpoint` (query, required; string)
+- `limit_tags` (query, optional; integer, default `20`)
+- `limit_citations` (query, optional; integer, default `15`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/themes`
+
+Get Analytics Themes
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/legislation/cases`
+
+Get Legislation Cases
+
+Find every case that cites one canonical legislation provision.
+
+**Parameters**
+
+- `instrument_key` (query, required; string)
+- `pinpoint` (query, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/legislation/section`
+
+Get Legislation Section
+
+Return local authoritative section text and cases citing the pinpoint.
+
+**Parameters**
+
+- `instrument_key` (query, required; string)
+- `pinpoint` (query, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
 
@@ -2337,6 +2409,20 @@ Get Case Citation Passages
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/contextual-anchors`
+
+Get Case Contextual Anchors
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `proximity_window` (query, optional; integer, default `250`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/reader-data`
 
 Get Case Reader Data
@@ -2348,6 +2434,32 @@ Get Case Reader Data
 **Responses**
 
 - `200`: Successful Response; `application/json`: `CaseReaderDataResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/statute-references`
+
+Get Case Statute References
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/thematic-signature`
+
+Get Case Thematic Signature
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /citation-map`
@@ -3074,6 +3186,36 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `POST /live-analysis/analyze`
+
+Live Analysis Analyze
+
+**Parameters**
+
+- `resolve` (query, optional; boolean, default `false`)
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_analyze_live_analysis_analyze_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/resolve`
+
+Live Analysis Resolve
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_resolve_live_analysis_resolve_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -3464,6 +3606,7 @@ Handler: `backend.routes.judge_profile`
 **Handler parameters**
 
 - `slug` (str; required)
+- `minister` (list[str] | None; default `Query(None)`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -3475,6 +3618,10 @@ Handler: `backend.routes.judge_profile`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.case_reader_page`
+
+**Handler parameters**
+
+- `case_id` (int | None; default `None`)
 
 **Responses**
 
@@ -3574,6 +3721,16 @@ Handler: `backend.routes.judge_profile_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /live-analysis`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.live_analysis_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /prototype`
 
 **Hidden from OpenAPI.**
@@ -3632,8 +3789,8 @@ Handler: `backend.routes.testing_interface`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-01T14:21:12.648856+00:00
-Tables: 19
+Generated: 2026-09-18T02:22:41.199201+00:00
+Tables: 22
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -3691,6 +3848,26 @@ erDiagram
         String(255) raw_name
         DATETIME created_at
     }
+    case_outcomes {
+        Integer id PK
+        Integer case_id  FK
+        String(100) classifier_version
+        String(50) decision_outcome
+        String(30) outcome_status
+        String(30) winner_side
+        String(30) loser_side
+        String(30) government_role
+        String(30) government_outcome
+        String(100) challenged_issue
+        JSON challenged_issues
+        TEXT disposition_evidence
+        Integer evidence_offset_start
+        Integer evidence_offset_end
+        FLOAT confidence
+        String(50) source
+        DATETIME created_at
+        DATETIME updated_at
+    }
     case_sources {
         Integer id PK
         Integer case_id  FK
@@ -3717,10 +3894,16 @@ erDiagram
     case_tags {
         Integer id PK
         Integer case_id  FK
+        Integer chunk_id  FK
         String(100) category
         String(255) value
         FLOAT score
         TEXT evidence
+        Integer offset_start
+        Integer offset_end
+        String(150) rule_id
+        String(16) language
+        String(30) evidence_role
         String(50) source
         String(100) taxonomy_version
         DATETIME created_at
@@ -3768,6 +3951,12 @@ erDiagram
         String(20) citation_kind
         TEXT citation_text
         TEXT normalized_citation
+        TEXT anchor_citation_text
+        Integer anchor_offset_start
+        Integer anchor_offset_end
+        String(255) declared_alias
+        Integer target_paragraph
+        Integer target_chunk_id  FK
         String(20) provenance
         Integer chunk_id  FK
         Integer offset_start
@@ -3861,6 +4050,23 @@ erDiagram
         DATETIME created_at
         DATETIME updated_at
     }
+    legislation_documents {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        TEXT citation
+        TEXT source_url
+        TEXT local_path
+        String(64) source_hash
+    }
+    legislation_sections {
+        Integer id PK
+        Integer document_id  FK
+        String(100) section_number
+        TEXT label
+        TEXT text
+        Integer display_order
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -3869,6 +4075,14 @@ erDiagram
         Integer offset_end
         TEXT reference_text
         TEXT normalized_reference
+        String(100) instrument_key
+        String(255) pinpoint
+        String(50) provision_section
+        String(50) provision_subsection
+        String(50) provision_paragraph
+        Integer provision_nested_depth
+        BOOLEAN provision_is_range_or_list
+        TEXT legislation_url
         String(20) reference_kind
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
@@ -3877,15 +4091,19 @@ erDiagram
     cases ||--o{ case_chunks : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
+    cases ||--o{ case_outcomes : "case_id"
     cases ||--o{ case_sources : "case_id"
     cases ||--o{ case_tagging_status : "case_id"
     cases ||--o{ case_tags : "case_id"
+    case_chunks ||--o{ case_tags : "chunk_id"
     cases ||--o{ citation_metrics : "case_id"
     case_chunks ||--o{ citations : "chunk_id"
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
+    case_chunks ||--o{ citations : "target_chunk_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
+    legislation_documents ||--o{ legislation_sections : "document_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -3900,19 +4118,22 @@ erDiagram
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
 | `case_judge_profiles` | 5 | `id` |
+| `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
-| `case_tags` | 9 | `id` |
+| `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
-| `citations` | 11 | `id` |
+| `citations` | 17 | `id` |
 | `fc_activity_cases` | 15 | `id` |
 | `fc_activity_classifications` | 17 | `id` |
 | `fc_activity_documents` | 9 | `id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
-| `statute_references` | 8 | `id` |
+| `legislation_documents` | 7 | `id` |
+| `legislation_sections` | 6 | `id` |
+| `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
 
@@ -4052,6 +4273,51 @@ erDiagram
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `judge_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
 
+## `case_outcomes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `classifier_version` | `String(100)` | no | NOT NULL |
+| `decision_outcome` | `String(50)` | yes | - |
+| `outcome_status` | `String(30)` | no | NOT NULL; default=undetermined |
+| `winner_side` | `String(30)` | yes | - |
+| `loser_side` | `String(30)` | yes | - |
+| `government_role` | `String(30)` | yes | - |
+| `government_outcome` | `String(30)` | yes | - |
+| `challenged_issue` | `String(100)` | yes | - |
+| `challenged_issues` | `JSON` | yes | - |
+| `disposition_evidence` | `TEXT` | yes | - |
+| `evidence_offset_start` | `Integer` | yes | - |
+| `evidence_offset_end` | `Integer` | yes | - |
+| `confidence` | `FLOAT` | no | NOT NULL; default=0 |
+| `source` | `String(50)` | no | NOT NULL; default=deterministic_outcome |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_outcomes_case_id`: index on `case_id`
+- `ix_case_outcomes_challenged_issue`: index on `challenged_issue`
+- `ix_case_outcomes_classifier_version`: index on `classifier_version`
+- `ix_case_outcomes_decision_outcome`: index on `decision_outcome`
+- `ix_case_outcomes_government_outcome`: index on `government_outcome`
+- `ix_case_outcomes_government_role`: index on `government_role`
+- `ix_case_outcomes_loser_side`: index on `loser_side`
+- `ix_case_outcomes_outcome_status`: index on `outcome_status`
+- `ix_case_outcomes_winner_side`: index on `winner_side`
+
+### Unique Constraints
+
+- `uq_case_outcome_version`: `case_id`, `classifier_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
 ## `case_sources`
 
 ### Columns
@@ -4116,10 +4382,16 @@ erDiagram
 | --- | --- | --- | --- |
 | `id` | `Integer` | no | PK; NOT NULL |
 | `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `category` | `String(100)` | no | NOT NULL |
 | `value` | `String(255)` | no | NOT NULL |
 | `score` | `FLOAT` | no | NOT NULL |
 | `evidence` | `TEXT` | no | NOT NULL |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `rule_id` | `String(150)` | yes | - |
+| `language` | `String(16)` | no | NOT NULL; default=unknown |
+| `evidence_role` | `String(30)` | no | NOT NULL; default=mention |
 | `source` | `String(50)` | no | NOT NULL |
 | `taxonomy_version` | `String(100)` | no | NOT NULL |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
@@ -4128,17 +4400,22 @@ erDiagram
 
 - `ix_case_tags_case_id`: index on `case_id`
 - `ix_case_tags_category`: index on `category`
+- `ix_case_tags_chunk_id`: index on `chunk_id`
+- `ix_case_tags_evidence_role`: index on `evidence_role`
+- `ix_case_tags_language`: index on `language`
+- `ix_case_tags_rule_id`: index on `rule_id`
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
 
 ### Unique Constraints
 
-- `uq_case_tag_taxonomy`: `case_id`, `category`, `value`, `taxonomy_version`
+- `uq_case_tag_taxonomy`: `case_id`, `category`, `value`, `offset_start`, `offset_end`, `taxonomy_version`
 
 ### Foreign Keys
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
 ## `cases`
 
@@ -4214,6 +4491,12 @@ erDiagram
 | `citation_kind` | `String(20)` | no | NOT NULL; default=unknown |
 | `citation_text` | `TEXT` | yes | - |
 | `normalized_citation` | `TEXT` | yes | - |
+| `anchor_citation_text` | `TEXT` | yes | - |
+| `anchor_offset_start` | `Integer` | yes | - |
+| `anchor_offset_end` | `Integer` | yes | - |
+| `declared_alias` | `String(255)` | yes | - |
+| `target_paragraph` | `Integer` | yes | - |
+| `target_chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `provenance` | `String(20)` | no | NOT NULL; default=local |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
 | `offset_start` | `Integer` | yes | - |
@@ -4228,12 +4511,15 @@ erDiagram
 - `ix_citations_provenance`: index on `provenance`
 - `ix_citations_source_case_id`: index on `source_case_id`
 - `ix_citations_target_case_id`: index on `target_case_id`
+- `ix_citations_target_chunk_id`: index on `target_chunk_id`
+- `ix_citations_target_paragraph`: index on `target_paragraph`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
 ## `fc_activity_cases`
 
@@ -4331,8 +4617,8 @@ erDiagram
 
 ### Unique Constraints
 
-- `uq_fc_activity_document_identity`: `case_id`, `re_no`, `docno`
 - `uq_fc_activity_document_fallback`: `case_id`, `re_no`, `docno`, `entry_hash`
+- `uq_fc_activity_document_identity`: `case_id`, `re_no`, `docno`
 
 ### Foreign Keys
 
@@ -4411,6 +4697,46 @@ erDiagram
 - `ix_judge_profiles_primary_court`: index on `primary_court`
 - `ix_judge_profiles_slug`: unique index on `slug`
 
+## `legislation_documents`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `citation` | `TEXT` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `local_path` | `TEXT` | yes | - |
+| `source_hash` | `String(64)` | yes | - |
+
+### Indexes
+
+- `ix_legislation_documents_instrument_key`: unique index on `instrument_key`
+
+## `legislation_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `document_id` | `Integer` | no | FK -> legislation_documents.id; NOT NULL |
+| `section_number` | `String(100)` | no | NOT NULL |
+| `label` | `TEXT` | yes | - |
+| `text` | `TEXT` | no | NOT NULL |
+| `display_order` | `Integer` | no | NOT NULL |
+
+### Indexes
+
+- `ix_legislation_sections_document_id`: index on `document_id`
+- `ix_legislation_sections_section_number`: index on `section_number`
+
+### Foreign Keys
+
+- `document_id` -> `legislation_documents.id`; on delete `CASCADE`
+
 ## `statute_references`
 
 ### Columns
@@ -4424,12 +4750,26 @@ erDiagram
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
 | `normalized_reference` | `TEXT` | yes | - |
+| `instrument_key` | `String(100)` | yes | - |
+| `pinpoint` | `String(255)` | yes | - |
+| `provision_section` | `String(50)` | yes | - |
+| `provision_subsection` | `String(50)` | yes | - |
+| `provision_paragraph` | `String(50)` | yes | - |
+| `provision_nested_depth` | `Integer` | yes | - |
+| `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
+| `legislation_url` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
 
 - `ix_statute_references_chunk_id`: index on `chunk_id`
+- `ix_statute_references_instrument_key`: index on `instrument_key`
 - `ix_statute_references_normalized_reference`: index on `normalized_reference`
+- `ix_statute_references_pinpoint`: index on `pinpoint`
+- `ix_statute_references_provision_is_range_or_list`: index on `provision_is_range_or_list`
+- `ix_statute_references_provision_paragraph`: index on `provision_paragraph`
+- `ix_statute_references_provision_section`: index on `provision_section`
+- `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
 
@@ -4637,6 +4977,17 @@ Priority is not proof of legal accuracy. Conflicting source values are recorded 
 
 Never call a discovered Federal Court item a captured judgment merely because an identifier exists in staging. Preserve the error/discovery state and resume the supported collector rather than fabricating text or URLs.
 
+Bulk HTML refresh uses `scripts/acquire_case_html.py` with bounded concurrency,
+per-host spacing, request timeouts, retries/backoff, citation validation, and
+quarantine. It is intentionally polite; reuse stored `source_html` before
+making a network request and do not tune it into an aggressive scraper.
+
+HTML is also used as a calibration reference for text-only chunking. The active
+corpus should not require HTML acquisition for every case when canonical text
+preserves sufficient headings, paragraph markers, evidence substrings, and
+offset-safe boundaries. The parity harness records where HTML exposes structure
+that canonical text cannot recover; those differences remain review signals.
+
 ### Federal Court Procedural History
 
 | Attribute | Details |
@@ -4733,6 +5084,22 @@ The archive is intended for resilient acquisition and source preservation. It is
 
 The manifest records publisher, title, source type, document date, jurisdiction, topics, original/final URL, local path, MIME type, size, checksum, status, retrieval timestamp, and failure reason. HTML remains HTML; it is never relabeled as a PDF.
 
+The current authority dry-run checkpoint also preserves official Justice Laws
+XML snapshots under `data/reference_library/legislation_xml/` and report
+evidence under `data/eval/priority_authority_dry_run.json`. Indian Act, Privacy
+Act, and Canadian Human Rights Act passed non-empty, duplicate-free parsing.
+The nominal `P-4.6.xml` endpoint was rejected after identity validation because
+it returns the Payments for Community Development Act, not the Patent Act; it
+must not be indexed under a Patent Act key.
+
+The reviewed non-XML authority snapshots under
+`data/reference_library/non_xml_authorities/` are indexed by
+`scripts/index_legislation.py` using declared source formats: the Charter
+snapshot routes through HTML parsing, while the 1951 Refugee Convention and
+1967 Protocol route through extracted text parsing. The indexed records keep
+their source URL, local path, checksum, title, citation, and duplicate-free
+section rows.
+
 ### Synthetic And Fixture Data
 
 | Attribute | Details |
@@ -4799,36 +5166,65 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 56
+Active scripts documented: 108
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
+| `_tmp_crosscourt_audit.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help` |
+| `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
+| `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
+| `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
+| `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
+| `audit_self_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_self_citations.py --help` |
 | `backfill_case_metadata_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help` |
+| `backfill_case_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
+| `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
+| `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
+| `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_fc_activity_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_gold_template.py --help` |
 | `build_fc_batch_from_party.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_batch_from_party.py --help` |
 | `build_fc_citation_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_gold_template.py --help` |
 | `build_fc_citation_seed.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_seed.py --help` |
 | `build_fc_metadata_gold_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help` |
+| `build_five_case_citation_gold_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
+| `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
+| `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
+| `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
+| `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
+| `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
+| `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
+| `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
+| `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
+| `compare_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_pipeline_case.py --help` |
 | `crawl_canlii.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\crawl_canlii.py --help` |
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
 | `embed_a2aj_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_a2aj_cases.py --help` |
+| `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
+| `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
+| `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
 | `evaluate_fc_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_citation_extraction.py --help` |
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
+| `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
+| `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
+| `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
+| `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
@@ -4843,24 +5239,75 @@ Active scripts documented: 56
 | `import_canlaw_staging.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_canlaw_staging.py --help` |
 | `import_fc_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_fc_decisions.py --help` |
 | `import_seed_cases_from_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help` |
+| `index_legislation.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\index_legislation.py --help` |
 | `ingest_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_api.py --help` |
 | `ingest_a2aj_citation_network.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_citation_network.py --help` |
 | `ingest_a2aj_parquet.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_parquet.py --help` |
 | `ingest_canlii_seed_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_canlii_seed_cases.py --help` |
 | `ingest_hf_fc_activity.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_hf_fc_activity.py --help` |
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
+| `inspect_context_variants.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help` |
+| `inspect_discussion_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help` |
+| `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
+| `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
+| `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
+| `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
+| `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
+| `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
+| `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
+| `report_incomplete_short_form_anchors.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help` |
+| `report_unresolved_citation_shapes.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
+| `review_tag_candidates.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_tag_candidates.py --help` |
+| `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
+| `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
+| `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
+| `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
+| `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
+| `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
+| `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
+| `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
+| `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
+
+## `scripts/_tmp_crosscourt_audit.py`
+
+**Purpose:** THROWAWAY cross-court metadata-extraction audit (read-only). Patterns on scripts/audit_fc_metadata_extraction.py but audits a court selected via --court (FCA | SCC | both). Reuses fc_ingest.document_scraper._extract_metadata_with_quality and backend.database. Purpose: measure whether the recent FC metadata-extraction fixes generalize to FCA and SCC without court-specific handling. Usage: & ".\venv\Scripts\python.exe" scripts\_tmp_crosscourt_audit.py --court both
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help
+```
+
+## `scripts/acquire_case_html.py`
+
+**Purpose:** Bounded, resumable source-HTML acquisition for canonical cases.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs
+```
 
 ## `scripts/adjudicate_fc_metadata.py`
 
@@ -4874,6 +5321,48 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help
+```
+
+## `scripts/agent_harness.py`
+
+**Purpose:** Small repo-local control plane for managed agent task runs.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\agent_harness.py --help
+```
+
+## `scripts/agent_policy.py`
+
+**Purpose:** Fail-closed policy checks for managed-task command requests.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\agent_policy.py --help
+```
+
+## `scripts/ai_triage_citation_candidate.py`
+
+**Purpose:** Bounded AI triage for proposed case-citation review candidates. This script produces suggestions only. It never modifies the candidate fixture, database rows, or confirmed gold data. Use --dry-run first.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
 ```
 
 ## `scripts/audit_fc_metadata_extraction.py`
@@ -4890,6 +5379,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help
 ```
 
+## `scripts/audit_self_citations.py`
+
+**Purpose:** Bounded, read-only audit of existing citation self-links.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_self_citations.py --help
+```
+
 ## `scripts/backfill_case_metadata_outcomes.py`
 
 **Purpose:** Apply the current metadata and outcome extractor to every case with full text.
@@ -4902,6 +5405,20 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help
+```
+
+## `scripts/backfill_case_outcomes.py`
+
+**Purpose:** Backfill the dedicated deterministic outcome table in bounded batches.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help
 ```
 
 ## `scripts/backfill_fc_case_metadata.py`
@@ -4930,6 +5447,62 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
+```
+
+## `scripts/benchmark_case_citations.py`
+
+**Purpose:** Bounded, read-only baseline for case-to-case citation extraction.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help
+```
+
+## `scripts/benchmark_citation_resolution.py`
+
+**Purpose:** Bounded, read-only benchmark for citation occurrence resolution.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help
+```
+
+## `scripts/browser_smoke.py`
+
+**Purpose:** Bounded browser smoke checks for the active Data Explorer workflow.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\browser_smoke.py --help
+```
+
+## `scripts/build_citation_sample_candidate.py`
+
+**Purpose:** Build a deterministic, read-only citation extraction candidate report.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help
 ```
 
 ## `scripts/build_core_immigration_set.py`
@@ -5016,6 +5589,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help
 ```
 
+## `scripts/build_five_case_citation_gold_candidate.py`
+
+**Purpose:** Build a deterministic, proposed five-case citation review fixture.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -5028,6 +5615,90 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help
+```
+
+## `scripts/build_statute_demand_report.py`
+
+**Purpose:** Build a read-only statute and legal-instrument demand catalogue.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help
+```
+
+## `scripts/build_tagging_v2_core_candidates.py`
+
+**Purpose:** Build a conservative Tagging V2 core candidate file from the brainstorming draft.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help
+```
+
+## `scripts/build_treatment_distillation.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help
+```
+
+## `scripts/build_treatment_review_packet.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help
+```
+
+## `scripts/build_treatment_teacher_fixture.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
+```
+
+## `scripts/check_generated_docs.py`
+
+**Purpose:** Check that checked-in generated documentation matches its generators.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_generated_docs.py --help
 ```
 
 ## `scripts/chunk_cases.py`
@@ -5056,6 +5727,48 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\classify_fc_activity.py --help
+```
+
+## `scripts/clean_llm_tag_report.py`
+
+**Purpose:** Create a conservative review shortlist from an LLM tag report.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help
+```
+
+## `scripts/clean_tag_candidate_report.py`
+
+**Purpose:** Create a conservative, review-ready list from a tag candidate report.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help
+```
+
+## `scripts/compare_pipeline_case.py`
+
+**Purpose:** Snapshot and compare one case across V2 Pipeline derived layers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\compare_pipeline_case.py --help
 ```
 
 ## `scripts/crawl_canlii.py`
@@ -5114,6 +5827,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
 ```
 
+## `scripts/discover_recent_case_themes.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help
+```
+
 ## `scripts/download_reference_library.py`
 
 **Purpose:** Download a provenance-preserving reference corpus kept separate from cases.
@@ -5140,6 +5867,20 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\embed_a2aj_cases.py --help
+```
+
+## `scripts/embed_documentation_appendices.py`
+
+**Purpose:** Embed linked documentation appendices into the canonical system reference.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help
 ```
 
 ## `scripts/embed_local_chunks.py`
@@ -5170,6 +5911,34 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help
 ```
 
+## `scripts/evaluate_chunk_parity.py`
+
+**Purpose:** Compare HTML-enabled and text-only chunking on a bounded sample.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help
+```
+
+## `scripts/evaluate_data_quality.py`
+
+**Purpose:** Automated data quality and corpus integrity evaluation script. Audits canonical cases, chunk distributions, citation resolution, statute references, metadata completeness, and graph consistency. Emits structured JSON reports and console markdown summaries.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help
+```
+
 ## `scripts/evaluate_fc_citation_extraction.py`
 
 **Purpose:** Evaluate citation extraction output against gold annotations. The gold file can be partially complete. Only rows with sufficient annotation fields are scored.
@@ -5196,6 +5965,62 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help
+```
+
+## `scripts/evaluate_retrieval_benchmark.py`
+
+**Purpose:** Evaluate the Data Explorer case-search ranking against a fixed benchmark.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help
+```
+
+## `scripts/evaluate_statute_extraction.py`
+
+**Purpose:** Evaluate deterministic statute extraction against exact-span fixtures.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
+```
+
+## `scripts/evidence_gate.py`
+
+**Purpose:** Validate manager-owned completion evidence for a task run.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evidence_gate.py --help
+```
+
+## `scripts/export_tagging_v3_canary_review.py`
+
+**Purpose:** Export the current bounded V3 canary rows as a human-review snapshot.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help
 ```
 
 ## `scripts/extract_a2aj_case_citations_resumable.py`
@@ -5242,7 +6067,7 @@ Active scripts documented: 56
 
 ## `scripts/extract_irpa_irpr_references.py`
 
-**Purpose:** Extract IRPA and IRPR references into the separate statute-reference layer.
+**Purpose:** Extract recognized statute and legal-instrument references into the statute-reference layer.
 
 **Operational class:** Canonical enrichment or maintenance
 
@@ -5394,6 +6219,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help
 ```
 
+## `scripts/index_legislation.py`
+
+**Purpose:** Index authoritative legal sources into section-addressable references.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\index_legislation.py --help
+```
+
 ## `scripts/ingest_a2aj_api.py`
 
 **Purpose:** Ingest A2AJ records from a paginated API into local /ingest. This complements parquet ingestion by allowing direct sync from a live A2AJ API.
@@ -5478,6 +6317,76 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help
 ```
 
+## `scripts/inspect_context_variants.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help
+```
+
+## `scripts/inspect_discussion_units.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help
+```
+
+## `scripts/judge_reconciliation_report.py`
+
+**Purpose:** Report stored judge metadata and canonical profile-link mismatches without writes.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help
+```
+
+## `scripts/link_citation_pinpoints.py`
+
+**Purpose:** Persist resolved case-citation paragraph links from stored paragraph chunks.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help
+```
+
+## `scripts/llm_tag_candidate_review.py`
+
+**Purpose:** Propose immigration research tags with an external OpenAI pass. This script is read-only: it reads stored decision text and writes only a review report.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help
+```
+
 ## `scripts/map_fc_seed_to_local_cases.py`
 
 **Purpose:** Map normalized FC/CanLII seed links to local case IDs. This creates a deterministic bridge from seed links to local DB cases so citation evidence extraction can run on a concrete case set.
@@ -5490,6 +6399,20 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
+```
+
+## `scripts/plan_self_citation_cleanup.py`
+
+**Purpose:** Plan self-citation cleanup candidates without modifying the database.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help
 ```
 
 ## `scripts/populate_fc_gold_case_ids.py`
@@ -5506,6 +6429,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help
 ```
 
+## `scripts/prepare_treatment_teacher_batch.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help
+```
+
 ## `scripts/quick_search_engine.py`
 
 **Purpose:** Quick semantic search tester over chunk embeddings. Usage: python -m scripts.quick_search_engine "non-refoulement risk evidence"
@@ -5518,6 +6455,34 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\quick_search_engine.py --help
+```
+
+## `scripts/reacquire_source_html.py`
+
+**Purpose:** Bounded HTML snapshot reacquisition for the curated core case subset.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help
+```
+
+## `scripts/rebuild_citations_controlled.py`
+
+**Purpose:** Run a bounded, citation-only rebuild with baseline and recovery evidence.
+
+**Operational class:** Citation-only rebuild
+
+**Write/network risk:** database writer; dry-run is default and --apply requires explicit confirmation
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
 ```
 
 ## `scripts/remove_self_case_citations.py`
@@ -5534,6 +6499,20 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help
 ```
 
+## `scripts/remove_self_citations.py`
+
+**Purpose:** Guarded removal of exact citation self-links.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\remove_self_citations.py --help
+```
+
 ## `scripts/report_a2aj_immigration_selection.py`
 
 **Purpose:** Create a QA report for the immigration-core A2AJ selector output.
@@ -5546,6 +6525,34 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help
+```
+
+## `scripts/report_incomplete_short_form_anchors.py`
+
+**Purpose:** Report stored short-form anchors that can be lengthened from source text.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help
+```
+
+## `scripts/report_unresolved_citation_shapes.py`
+
+**Purpose:** Report unresolved citation shapes and exact local recovery signals. The database query is read-only. The report distinguishes exact citation, canonical-title, alias, self-case, and ambiguous signals so a later writer can be limited to a measured, precision-safe family.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help
 ```
 
 ## `scripts/resolve_citation_targets.py`
@@ -5576,6 +6583,34 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help
 ```
 
+## `scripts/review_tag_candidates.py`
+
+**Purpose:** Review candidate tags mined from stored decision text without writing to the database.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\review_tag_candidates.py --help
+```
+
+## `scripts/run_citation_rebuild_progress.py`
+
+**Purpose:** Run a bounded citation rebuild in 10-case progress batches and print compact extraction counts.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs
+```
+
 ## `scripts/run_overnight.py`
 
 **Purpose:** Run resumable case acquisition and corpus maintenance jobs overnight.
@@ -5590,6 +6625,90 @@ Active scripts documented: 56
 .\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs
 ```
 
+## `scripts/run_scc_text_only.py`
+
+**Purpose:** Run the SCC-specific text-only enrichment pipeline.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs
+```
+
+## `scripts/run_treatment_teacher_batch.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help
+```
+
+## `scripts/run_v2_pipeline.py`
+
+**Purpose:** Run the complete V2 Pipeline with durable state and per-case quarantine.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs
+```
+
+## `scripts/run_v2_pipeline_case.py`
+
+**Purpose:** Run and compare the complete V2 Pipeline for one canonical case.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help
+```
+
+## `scripts/run_v2_text_only_fast.py`
+
+**Purpose:** Fast text-only V2 Pipeline runner for non-SCC cases.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help
+```
+
+## `scripts/snapshot_v2_pipeline_baseline.py`
+
+**Purpose:** Create a compact before-snapshot for every canonical case.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help
+```
+
 ## `scripts/tag_cases.py`
 
 **Purpose:** Build deterministic text and metadata tags for canonical cases.
@@ -5602,6 +6721,34 @@ Active scripts documented: 56
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_cases.py --help
+```
+
+## `scripts/tag_cases_v2.py`
+
+**Purpose:** Apply the independent Tagging V2 core whitelist to canonical cases.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help
+```
+
+## `scripts/tag_cases_v3.py`
+
+**Purpose:** Apply the inactive Tagging V3 core whitelist to canonical cases.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help
 ```
 
 ## `scripts/tag_prototype_topics.py`
@@ -5814,13 +6961,13 @@ This record is sufficient for a later developer or agent to continue without rep
 
 ### Appendix: Research UI Guide
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-22
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
 ## Start Here: Data Explorer
 
-Open `/data-explorer`. This is the active research workspace. It has eight top-level tabs:
+Open `/data-explorer`. This is the active research workspace. It has seven visible top-level tabs:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
@@ -5828,11 +6975,33 @@ Open `/data-explorer`. This is the active research workspace. It has eight top-l
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
 | Site Architecture | Explain live tables and derived views | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
-| Judge Profile | Inspect canonical judge identity, linked decisions, and profile-level outcomes | judge profiles/links, cases, metadata |
-| Data explorer | Inspect source/case inventory views | cases, sources, metadata |
+| Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
+| Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
+
+## Current UI Review Backlog
+
+The near-term product pass is demo-first. The highest-value UI work is issue/type
+discovery and a coherent path from search to reader to linked authority. After
+that path is in place, address accessibility and responsive behavior:
+
+- Add curated issue and case-type entry points using the existing themes,
+	statutes, tags, outcomes, and case cohorts.
+- Improve result cards with issue/type, reason for inclusion, outcome, source
+	status, and a direct path into the reader.
+- Preserve search state and return navigation across the reader workflow.
+
+- Add `aria-selected` and keyboard semantics to the top-level and reader tabsets.
+- Give reader pane separators visible focus treatment and keyboard resizing.
+- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
+- Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
+
+Broad corpus quality, authority expansion, and advanced recommendation features
+remain deferred roadmap work except where a demo-safety fix is needed to prevent
+misleading or untraceable output.
 
 ## About
 
@@ -5879,10 +7048,52 @@ The side panes are resizable on larger screens and can stack on smaller displays
 
 ### Reader Modes
 
-- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation and statute spans.
-- **Full text**: uses sanitized source HTML when available to preserve source formatting; otherwise uses stored normalized decision text with citation highlights.
+- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation, statute, and green Tagging V2 spans.
+- **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
+
+Tags are rendered as single-word, word-bounded occurrences in the decision
+text. Case citations and laws/regulations are span highlights with hover
+previews; a linked case preview includes stored pinpoint text when available.
+Yellow marks identify case citations and purple marks identify statutes or
+regulations. The active browser smoke check uses a bounded evidence-rich case
+workflow to verify search-to-reader navigation, visible evidence in both
+reader modes, distinct computed colors, hover text, and the mobile research
+shell. Exact DOM counts remain dataset- and overlap-dependent.
+
+The active reader uses one chunk renderer and one offset-based chunk tag
+projection. It does not run a second text-search overlay over already-rendered
+citations or statutes; stored evidence rows remain the source of displayed
+highlight spans. Because chunk mode gives already-rendered citation spans
+precedence while full-text mode resolves citation and tag ranges together,
+overlapping evidence can produce different DOM mark counts between modes; the
+browser smoke check therefore requires visible tag evidence in both modes
+without treating equal counts as a contract.
+
+The evidence tabs are grouped for review. Tags group by unique category and
+value, with each stored or inferred occurrence beneath the entry. Acts / Regs
+drills down from unique source to section to every persisted occurrence, while
+Citations retains its unique authority grouping.
+
+Acts / Regs uses the same disclosure styling as Citations for scanability: compact
+group summaries, consistent occurrence-row metadata, and the same spacing and
+border rhythm. Its additional source and section levels remain nested so the
+reader can expand only the legal provision needed.
+
 
 Source formatting supports reading, while stored chunk text and offsets remain the evidence location of record. A visual source paragraph is not a substitute for the persisted chunk/offset reference.
+
+## Live Analysis
+
+Open `/live-analysis` to inspect a document without adding it to the case library.
+The temporary reader displays extracted source text, highlights case citations and
+statute references in place, and provides an evidence inspector with paragraph or
+PDF page, offsets, context, and resolution status.
+
+Accepted formats are `.docx` and text-based `.pdf`, up to 10 MB. Scanned PDFs are
+not OCR'd by this prototype. Enable **Resolve local matches** when neutral
+citations should be checked against existing local case metadata. Resolution is
+batched and read-only; it does not save the upload or create derived database
+records.
 
 ### Highlight Types And Linked Authorities
 
@@ -5895,7 +7106,89 @@ No highlight means one of several things: the case may have no stored rows, its 
 
 ### Case Information Panels
 
-Reader panels can expose case details, citation rows, evidence/provenance, quality/QA context, citation intelligence, Federal Court activity, legal tags, and Acts/Regulations. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
+Reader panels are split into a concise **Info** tab and an **Advanced** tab. Info presents normalized user-facing fields such as case name, neutral citation, court, decision date, outcome, judge, minister/government party, jurisdiction, language, source, tag count, and citation count. Advanced contains record identifiers, processing state, source URL/identity, chunk and metadata counts, extracted metadata values, and provenance details. Citation rows, Tags, Acts / Regs, and Precedents remain separate evidence tabs. The Acts/Regulations panel is backed by the separate statute-reference layer; it is not a case-citation graph view.
+
+The reader keeps the evidence layers visually distinct: purple highlights are
+statutes/regulations and yellow highlights are case-to-case citations. The
+**Tags** panel includes all stored and inferred
+tags, groups them by unique category/value, and lets the researcher expand each
+group to inspect individual occurrences with evidence excerpt, source, score,
+taxonomy version, and backend offsets when available. This is a display of
+stored or derived research evidence, not a replacement for the source text or
+legal verification.
+
+Chunk mode intentionally does not overlay text-searched tag marks on citation
+or statute spans, preventing nested and repeated-text highlights. Tag evidence
+remains available in the Tags panel, while Full text uses backend-owned tag
+offsets where available.
+
+The Citations tab and Full text law highlights consume the merged persisted
+reader evidence, including lazily loaded statute-reference rows. Chunk-mode
+paragraph projection remains a separate compatibility follow-up where stored
+section-layer rows need visible paragraph-layer rendering.
+
+The source reader also has a separate `Show case structure` toggle. When
+paragraph chunks are available, it reveals a deterministic projection of
+Discussion Units and sub-themes: paragraph ranges, display terms, argument
+roles, explanations, and source evidence spans with canonical chunk IDs and
+offsets. This is coded review assistance, not an AI summary or legal
+conclusion. It is closed by default and uses collapsible groups so large
+decisions do not expand every unit at once.
+
+The separate `Show case summary` toggle is the researcher-facing brief. It
+aggregates detected roles into seven stable sections: issue, party positions,
+facts and evidence, governing law, court reasoning, limitations and
+counterarguments, and disposition. Section text comes from deterministic
+sub-theme explanations; each item retains its source paragraph range and any
+available exact evidence spans. Missing roles are labeled `Not detected in
+available evidence` rather than inferred. Use the source decision to verify
+the brief.
+
+The active reader initially displays persisted canonical text/chunks and stored
+case-citation evidence. Statute references are fetched when the Acts / Regs tab
+is opened. It does not run citation or statute extraction and
+does not rescan stored source HTML during a reader request. Preserved
+`source_html` remains available as provenance, but any future pretty-rendering
+path must be precomputed or explicitly lazy-loaded; it must not block case
+opening. Backend-owned evidence offsets remain authoritative.
+
+Reader citations can expose `layer_spans` for the same occurrence across the
+full-case, section, and paragraph layers. These derived coordinates support
+navigation and comparison; the original backend-owned offsets remain the
+evidence location of record.
+
+The formatting-aware document model is intended for both stored cases and live
+user-provided DOCX/text-PDF documents. Their input adapters may differ, but
+downstream chunking and evidence extraction should use the same structural and
+offset contracts. Live analysis remains separate and ephemeral by default.
+
+The bounded browser smoke check is available as
+`scripts/browser_smoke.py`. Run it against an already refreshed local site to
+verify the search-to-reader journey, layer tabs, grouped tag rendering, and
+mobile Themes loading.
+
+The panel reports both unique tags and total occurrences. A case showing one
+occurrence for several tags is not collapsed by the reader: the backend returns
+each stored tag row, and the occurrence detail shows its source and offset when
+available. Sparse results should be treated as a data-coverage or tagging
+signal to investigate, not silently padded by the UI.
+
+Reader tab actions use one explicit dispatcher boundary; legacy render helpers
+remain compatibility internals pending visual regression coverage.
+
+Highlight styling uses restrained fills and underlines rather than stacked
+borders/shadows. Citation/statute/tag precedence remains backend-offset-driven;
+the legend states that overlaps use evidence priority. Per-range overlap markers
+remain a tracked follow-up requiring renderer refactoring and visual regression
+coverage.
+
+Reader-inferred tags are generated from one canonical text representation when
+available, rather than concatenating overlapping full-text and chunk copies.
+Repeated matches are retained up to a bounded per-tag limit and grouped only
+for display. For example, the OU v. Canada audit found 18 standalone `ID`
+mentions and 27 `forum: id` matches because the rule also recognizes the full
+phrase `Immigration Division`; the reader exposes those rows instead of
+reporting one unexplained instance.
 
 ## Citation Intelligence
 
@@ -5910,17 +7203,30 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Profiles
+## Judge Outcomes And Profiles
 
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. Profile-level summaries are the active judge workflow; the former standalone Judge Outcomes surface is retired after the judge-population audit.
+Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
 
-It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
 
 ## Data Explorer And FC History
 
 Data Explorer is an inventory-oriented research tool. It supports inspection of case/source records and aggregate group/split views. Use it to understand coverage, source composition, processing state, and structured field availability.
 
 FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxied Federal Court procedural history and available activity context. Treat it as procedural/activity context, not official judgment reasons. A matching IMM number alone does not prove all linked records are the same proceeding.
+
+### Legal Themes & Statutes
+
+The Legal Themes & Statutes tab calls `/analytics/themes` for defined themes
+and live corpus counts. It calls `/analytics/statute-tag-matrix` for provisions
+such as `34(1)(f)`, `25(1)`, `96`, and `40(1)(a)`, showing tag co-occurrence,
+co-cited authorities, and stored outcome summaries where available. These are
+research prioritization signals, not legal relevance or causation findings.
+
+The inline reader's **Precedents** panel calls
+`/analytics/cases/{case_id}/thematic-cluster` and displays composite similarity
+over stored tags, statute references, and case citations. Similarity is a
+navigation aid; inspect the underlying decision, offsets, and source records.
 
 ## Supporting Interfaces
 
@@ -6026,6 +7332,10 @@ This dictionary defines the research metrics shown or computed by the active sys
 | Metric | Definition | Formula/behavior | Caution |
 | --- | --- | --- | --- |
 | Classified decisions | Decisions with recognized stored outcome classification | count of classified rows | Coverage varies by source/text quality |
+| Outcome status | Explicit `won`, `lost`, `mixed`, or `undetermined` result from operative disposition and party-role evidence | `case_outcomes.outcome_status` | Keep `mixed` and `undetermined` visible; do not collapse them into wins/losses |
+| Case winner/loser side | Applicant/respondent side identified from outcome plus caption role, or `mixed`/unknown | `case_outcomes.winner_side`, `case_outcomes.loser_side` | A derived research signal, not a merits conclusion |
+| Outcome detail | Structured disposition, winner/loser, government role, and exact matched evidence where available | `case_outcomes` | Exact evidence may be absent for incomplete or ambiguous source text |
+| Challenged issues | Ordered issue candidates detected in challenge/reasons language | `case_outcomes.challenged_issue`, `case_outcomes.challenged_issues` | Mentioned issues are not necessarily dispositive |
 | Government wins | Classified rows labelled government won | count | Not a merits or judge-bias finding |
 | Individual wins | Classified rows labelled individual won | count | May not capture mixed/remittal nuances |
 | Unclassified | Decisions lacking usable classification | total minus classified | Inspect before comparing rates |
@@ -6117,7 +7427,7 @@ The overnight runner tests locks, job selection, state transitions, and command 
 
 | Change | Minimum test/check |
 | --- | --- |
-| Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms when touched |
+| Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms, mixed-case provision identity, and negative shorthand cases when touched |
 | Reader/UI markup or behavior | `test_feature_tabs.py`, route/compile check, and manual browser interaction |
 | Search/ranking/filter | Relevant `test_api.py` slice; inspect query semantics and result ordering |
 | Metadata/outcome/docket logic | `test_metadata.py` plus relevant `test_api.py` cases |

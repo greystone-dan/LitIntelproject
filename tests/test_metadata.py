@@ -288,6 +288,44 @@ def test_judge_honourable_name_without_title_token_is_normalized_and_valid():
 	assert "invalid_shape:judge" not in payload["_quality_flags"]
 
 
+def test_judge_document_labels_and_locations_are_rejected():
+	for label in ("Certified true translation", "Ottawa, Ontario"):
+		text = (
+			"Date: 20260203\n"
+			"Docket: IMM-999-25\n"
+			"Citation: 2026 FC 200\n"
+			f"PRESENT: {label}\n"
+			"BETWEEN:\n"
+			"JANE DOE\n"
+			"Applicant\n"
+			"and\n"
+			"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+			"Respondent\n"
+			"JUDGMENT AND REASONS\n"
+			"[1] The application is dismissed.\n"
+		)
+
+		payload = extract_case_metadata(text)
+
+		assert payload.get("judge") is None
+
+
+def test_judge_inline_coram_header_is_extracted():
+	metadata = extract_case_metadata(
+		"DATE OF DECISION January 3, 2006\nCORAM CORAM James V. Railton\nFOR THE CLAIMANT(S) Mary C. Tatham"
+	)
+
+	assert metadata["judge"] == "James V. Railton"
+
+
+def test_judge_reasons_heading_is_extracted():
+	metadata = extract_case_metadata(
+		"REASONS FOR ORDER BLANCHARD J.\n[1] This is the order."
+	)
+
+	assert metadata["judge"] == "BLANCHARD J."
+
+
 def test_style_of_cause_recovers_versus_form_from_between_when_capture_truncated():
 	text = (
 		"Date: 20060928\n"

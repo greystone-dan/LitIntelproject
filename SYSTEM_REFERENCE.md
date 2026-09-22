@@ -10,6 +10,12 @@ Use this document for current architecture, functionality, data flow, repository
 
 For a chronological account of retained project work and a reproducible five-minute-capped estimate of Copilot-assisted effort, see [WORK_HISTORY.md](WORK_HISTORY.md). It is generated from the reviewable local-session export at `docs/work_history_sessions.json`.
 
+The maintained long-term direction for citation-treatment intelligence,
+Decision Units, Argument Packets, and cross-case argument comparison is
+documented in [docs/LONG_TERM_INTELLIGENCE_VISION.md](docs/LONG_TERM_INTELLIGENCE_VISION.md).
+That document is strategic and must not be read as evidence that deferred
+intelligence layers are already implemented.
+
 ## Project Effort And Delivery History
 
 The retained local VS Code history covers 22 project sessions and 18 active calendar days from 2026-07-31 through 2026-09-01. Using a fixed five-minute cap for each observed gap between consecutive turns, it estimates 3,463.7 minutes, or approximately 57.7 hours, of Copilot-assisted active work. This is a reproducible planning proxy rather than a complete timesheet: it excludes unrecorded reading, browser inspection, terminal-only work, work outside retained history, and the first observed turn of every session.
@@ -46,11 +52,10 @@ The system intentionally separates three kinds of derived information:
 2. **Case Search**: filtered research search with an inline decision reader.
 3. **Site Architecture**: live data-layer and feature-to-table explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
-5. **Judge Outcomes**: aggregate outcome reporting by judge.
-6. **Judge Profile**: canonical judge profiles and linked cases.
-7. **Data Explorer**: inventory-oriented case and source inspection.
-8. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
-9. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
+6. **Data Explorer**: inventory-oriented case and source inspection.
+7. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
+8. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 
@@ -226,6 +231,68 @@ Local resolution intentionally does not call external services. Scanned PDFs are
 outside the prototype because they require OCR.
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
+
+#### Judge identity audit (2026-09-22)
+
+Judge Outcomes and Judge Profile currently do not use the same population. The
+Judge Outcomes aggregation in `backend/analytics_service.py` groups every
+non-empty `metadata_json->'reader_extracted'->>'judge'` value. Judge Profile
+reads `judge_profiles` and `case_judge_profiles`, which are populated by the
+separate `scripts/backfill_judge_profiles.py` path and therefore apply a
+profileability filter and depend on the completeness of that backfill.
+
+Read-only audit of 61,261 cases found 52,484 cases with a non-empty raw judge
+value and 8,777 cases with no judge value. The missing population is dominated
+by older records: the largest court/year groups were RPD 2012 (805), RPD 2011
+(766), RPD 2013 (654), RPD 2010 (624), and FC 2001 (443). By source, 8,732
+missing-judge cases came from A2AJ Canadian Legal Data, 25 from the Federal
+Court portal collector, and 20 from SyntheticSource.
+
+The same audit found 31,324 `case_judge_profiles` links across 406 profiles,
+leaving 21,160 cases with a raw judge value but no profile link. This is a
+coverage/alignment gap, not evidence that those raw values are valid. False
+judge values are present in the raw population: the normalized exact value
+`Certified true translation` occurs in 2,993 cases; values containing
+`Ontario` occur in 2,013 cases and values containing `Ottawa` occur in 1,848
+cases. The most frequent stored examples include `Certified true translation`,
+`Ottawa, Ontario`, and `FEDERAL COURT OF CANADA`.
+
+The extraction path in `fc_ingest/document_scraper.py` accepts the first line of
+`PRESENT`/`CORAM`/`BEFORE` or a judge-labeled section, then applies only a
+capitalization/title-shape check and a narrow junk regex. It does not reject
+location, translation, certification, or other document-label values. The
+reported values therefore require a separate bounded cleanup/backfill task.
+No judge values were changed by this audit.
+
+The judge identity contract has since been tightened in code: extraction and
+`scripts/backfill_judge_profiles.py` share the expanded junk rejection for
+court labels, Canadian locations/provinces, translation/certification labels,
+and copies; `backend/analytics_service.py` applies the same pattern when
+building Judge Outcomes. Invalid judge candidates are omitted from the
+canonical extracted field rather than retained with only a quality flag.
+Existing stored rows are intentionally unchanged and require a separately
+approved dry-run remediation.
+
+The read-only reconciliation report at
+`data/eval/reports/judge_reconciliation_2026-09-22.json` measured 5,652 invalid
+stored judge values, 46,832 profileable raw judges, 19,095 valid raw judges
+without profile links, 3,587 invalid values with existing links, and 28,583
+raw-name/link provenance mismatches. It uses the shared profileability
+predicate and includes bounded case samples for source review; it performs no
+database writes. These counts establish the next remediation boundary: review
+samples and reconcile link provenance before any metadata or profile backfill.
+
+The follow-up parser work adds inline `CORAM` and `REASONS FOR ORDER` /
+`ASSESSMENT` fallbacks. Focused judge tests pass (`31 passed`) and the touched
+Python modules compile successfully. A read-only stored post-2005 baseline
+contains 41,123 cases: 34,471 have non-empty judge values, 31,582 are
+profileable, 2,889 are invalid, 31,334 have profileability confidence from
+0.92 through 0.98, and 7,199 valid values have no profile link. A bounded
+fresh sample reached 93/100 profileable cases with zero invalid values. The
+full fresh evaluation timed out at 120 seconds and remains pending, so the 95%
+goal is not yet established. No database writes, backfill, or live-pipeline
+rollout has occurred. The next step is a batched read-only fresh evaluation;
+any dry-run or write requires separate approval.
 
 `backend/legal_tagger_v3.py` applies the active deterministic `ca_legal_v3_core`
 exact-match layer for high-confidence mention evidence. It preserves repeated
@@ -473,6 +540,29 @@ contains cases `677`, `1093`, `1171`, and the larger heterogeneity check
 `18674`. The external review prompt records their OneDrive paths and requires
 the complete response to be pasted back into chat. These remain staged
 evidence packets for human review, not runtime legal intelligence activation.
+
+### Recent-Case Theme Discovery (Report Only)
+
+The additive `scripts/discover_recent_case_themes.py` layer derives controlled
+issue-theme candidates for decisions dated from `2020-09-22` through
+`2026-09-22`, inclusive. It combines existing case text, metadata subjects,
+legal tags, statute provisions, and read-only Discussion Unit/sub-theme role
+evidence. The default Discussion Unit input is the existing `paragraph`
+`CaseChunk` set with threshold `0.35` and two consecutive low-continuity
+scores. Citation counts are retained in each record's evidence summary as
+context, but do not independently assign an issue theme.
+
+Each candidate preserves case identity, evidence kinds and payloads, status
+(`central_issue`, `material_issue`, or `mentioned`), deterministic score, and
+Discussion Unit paragraph references where available. It also records
+`classification_factors`: the weighted role score, independent evidence kinds,
+and the exact threshold branch that produced the status. The report is JSON only
+and performs no canonical, contextual, tag, statute, metadata, migration,
+embedding, external-AI, or UI writes. Ten initial definitions are controlled in
+the script; this is an evidence-discovery checkpoint, not semantic clustering
+or a legal conclusion. A bounded smoke report over 25 recent cases found themes
+in 21 cases and Discussion Units in all 25, with 84 units total. Those counts
+are evaluation evidence, not corpus-wide coverage claims.
 
 ### Offline Treatment Training Set
 
@@ -735,7 +825,6 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /analytics/search/cases`: filtered active Case Search API.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
-- `GET /analytics/judge-outcomes`: judge aggregate statistics.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
@@ -2101,20 +2190,6 @@ Get Data Explorer
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
-### `GET /analytics/judge-outcomes`
-
-Get Judge Outcomes
-
-**Parameters**
-
-- `limit` (query, optional; integer, default `50`)
-- `min_decisions` (query, optional; integer, default `0`)
-
-**Responses**
-
-- `200`: Successful Response; `application/json`: `object`
-- `422`: Validation Error; `application/json`: `HTTPValidationError`
-
 ### `GET /analytics/outcomes-by-year`
 
 Get Outcomes By Year
@@ -3470,16 +3545,6 @@ Handler: `backend.routes.data_explorer_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.fc_history_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /judge-outcomes`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.judge_outcomes_page`
 
 **Responses**
 
@@ -5763,8 +5828,7 @@ Open `/data-explorer`. This is the active research workspace. It has eight top-l
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
 | Site Architecture | Explain live tables and derived views | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
-| Judge outcomes | Compare recorded outcome classifications by judge | cases, judge profiles, metadata |
-| Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
+| Judge Profile | Inspect canonical judge identity, linked decisions, and profile-level outcomes | judge profiles/links, cases, metadata |
 | Data explorer | Inspect source/case inventory views | cases, sources, metadata |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
 
@@ -5846,11 +5910,11 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Outcomes And Profiles
+## Judge Profiles
 
-Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
+Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. Profile-level summaries are the active judge workflow; the former standalone Judge Outcomes surface is retired after the judge-population audit.
 
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
 
 ## Data Explorer And FC History
 

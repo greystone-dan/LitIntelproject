@@ -16,6 +16,7 @@ if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.database import Case, CaseJudgeProfile, JudgeProfile, SessionLocal
+from fc_ingest.document_scraper import _is_judge_junk
 
 
 def normalize_judge_name(value: str) -> str:
@@ -36,6 +37,8 @@ def extracted_judge(case: Case) -> str:
 
 
 def is_profileable_judge(raw_name: str) -> bool:
+	if not raw_name or _is_judge_junk(raw_name):
+		return False
 	normalized_name = normalize_judge_name(raw_name)
 	return bool(normalized_name) and len(raw_name) <= 255 and len(normalized_name) <= 230
 

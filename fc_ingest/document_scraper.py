@@ -32,9 +32,21 @@ _CANONICAL_FIELDS = (
 )
 _CRITICAL_FIELDS = {"date", "docket", "neutral citation", "judge", "style of cause"}
 
+_JUDGE_JUNK_PATTERN = (
+    r"^(?:FEDERAL\s+COURT(?:\s+OF\s+CANADA|\s+OF\s+APPEAL)?|COUR\s+F[ÉE]D[ÉE]RALE|"
+    r"ANNEX\b.*|ANNEXE\b.*|SCHEDULE|T\.?R\.?\s*\b.*|JUDGE|JUSTICE|JUGE|"
+    r"CERTIFIED\s+TRUE\s+(?:TRANSLATION|COPY)|TRANSLATION|COPY|"
+    r"(?:OTTAWA|TORONTO|MONTR[ÉE]AL|VANCOUVER|CALGARY|EDMONTON|WINNIPEG|"
+    r"HALIFAX|REGINA|QUEBEC|QUÉBEC|ST\.?\s+JOHN'S)\s*,?\s*"
+    r"(?:ONTARIO|QUEBEC|QUÉBEC|BRITISH\s+COLUMBIA|ALBERTA|MANITOBA|"
+    r"SASKATCHEWAN|NOVA\s+SCOTIA|NEW\s+BRUNSWICK|NEWFOUNDLAND(?:\s+AND\s+LABRADOR)?|"
+    r"PRINCE\s+EDWARD\s+ISLAND|YUKON|NORTHWEST\s+TERRITORIES|NUNAVUT)|"
+    r"ONTARIO|QUEBEC|QUÉBEC|BRITISH\s+COLUMBIA|ALBERTA|MANITOBA|SASKATCHEWAN|"
+    r"NOVA\s+SCOTIA|NEW\s+BRUNSWICK|NEWFOUNDLAND|LABRADOR|PRINCE\s+EDWARD\s+ISLAND|"
+    r"YUKON|NORTHWEST\s+TERRITORIES|NUNAVUT)$"
+)
 _JUDGE_JUNK_RE = re.compile(
-    r"^(?:FEDERAL\s+COURT(?:\s+OF\s+APPEAL)?|COUR\s+F[ÉE]D[ÉE]RALE|ANNEX\b.*|ANNEXE\b.*|"
-    r"SCHEDULE|ANNEXE|T\.?R\.?\s*\b.*|JUDGE|JUSTICE|JUGE)$",
+    _JUDGE_JUNK_PATTERN,
     re.IGNORECASE,
 )
 
@@ -43,7 +55,15 @@ def _is_judge_junk(value: str | None) -> bool:
     """Return True when a captured judge value is a court name, annex, or bare label."""
     if not value:
         return False
-    return bool(_JUDGE_JUNK_RE.fullmatch(value.strip()))
+    normalized = " ".join(value.split())
+    if _JUDGE_JUNK_RE.fullmatch(normalized):
+        return True
+    compacted = re.sub(
+        r"(?<![A-Za-z])((?:[A-Za-z]\s+){2,}[A-Za-z])(?![A-Za-z])",
+        lambda match: match.group(1).replace(" ", ""),
+        normalized,
+    )
+    return bool(_JUDGE_JUNK_RE.fullmatch(compacted))
 
 
 def _normalize_whitespace(value: str | None) -> str | None:
@@ -518,6 +538,20 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
     for key, value in sections.items():
         metadata[key] = value
 
+    # Some tribunal headers repeat CORAM inline, while cost/order reasons put
+    # the decision-maker directly in the heading instead of a labeled field.
+    if "judge" not in metadata and "present" not in metadata:
+        coram_match = re.search(r"(?mi)^\s*CORAM\s+(?:CORAM\s+)?([^\n]+)$", full_text)
+        if coram_match:
+            metadata["judge"] = coram_match.group(1).strip()
+    if "judge" not in metadata:
+        reasons_match = re.search(
+            r"(?mi)^\s*REASONS\s+FOR\s+(?:ORDER|ASSESSMENT\s+OF\s+COSTS?)\s*:?[ \t]+([^\n]+)$",
+            full_text,
+        )
+        if reasons_match:
+            metadata["judge"] = reasons_match.group(1).strip()
+
     # Fallbacks for decisions where labels are not in fully uppercase sections.
     date_match = re.search(r"\bDate:\s*(\d{4}[-/]?\d{2}[-/]?\d{2}|\d{8})\b", full_text, re.IGNORECASE)
     if date_match:
@@ -703,6 +737,18 @@ def _extract_metadata_with_quality(full_text: str, table_metadata: dict[str, Any
             continue
 
         chosen = source_values.get("table") or source_values.get("text")
+        if field == "judge":
+            chosen = next(
+                (
+                    source_values[source]
+                    for source in ("table", "text")
+                    if source in source_values and _field_valid(field, source_values[source])
+                ),
+                None,
+            )
+            if chosen is None:
+                quality_flags.append("invalid_shape:judge")
+                continue
         confidence = 0.72
 
         if "table" in source_values:
@@ -731,7 +777,7 @@ def _extract_metadata_with_quality(full_text: str, table_metadata: dict[str, Any
 
     # Preserve useful non-canonical text fields for debugging and downstream display.
     for key, value in text_metadata.items():
-        if key in metadata:
+        if key in metadata or key == "judge":
             continue
         metadata[key] = value
 

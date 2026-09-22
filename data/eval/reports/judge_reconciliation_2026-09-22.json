@@ -1,0 +1,319 @@
+{
+  "read_only": true,
+  "sample_limit": 5,
+  "counts": {
+    "total_cases": 61261,
+    "cases_with_nonempty_raw_judge": 52484,
+    "cases_with_profileable_raw_judge": 46832,
+    "cases_with_invalid_raw_judge": 5652,
+    "cases_with_valid_raw_judge_without_profile_link": 19095,
+    "cases_with_invalid_raw_judge_with_profile_link": 3587,
+    "linked_cases_without_valid_raw_judge": 0,
+    "case_judge_profile_links": 31324,
+    "judge_profiles": 406,
+    "duplicate_normalized_profiles": 0,
+    "profile_link_raw_name_mismatches": 28583
+  },
+  "invalid_raw_judge_kinds": {
+    "junk_pattern": 5627,
+    "malformed_profile_name": 25
+  },
+  "top_raw_judge_values": [
+    {
+      "value": "Certified true translation",
+      "case_count": 2985
+    },
+    {
+      "value": "Ottawa, Ontario",
+      "case_count": 893
+    },
+    {
+      "value": "OTTAWA, ONTARIO",
+      "case_count": 606
+    },
+    {
+      "value": "Justice Russell",
+      "case_count": 600
+    },
+    {
+      "value": "Russel W. Zinn",
+      "case_count": 571
+    },
+    {
+      "value": "Justice Mosley",
+      "case_count": 528
+    },
+    {
+      "value": "Justice Ahmed",
+      "case_count": 521
+    },
+    {
+      "value": "Justice Heneghan",
+      "case_count": 514
+    },
+    {
+      "value": "NOËL J.A.",
+      "case_count": 469
+    },
+    {
+      "value": "FEDERAL COURT OF CANADA",
+      "case_count": 460
+    },
+    {
+      "value": "Michael D. Manson",
+      "case_count": 458
+    },
+    {
+      "value": "STRATAS J.A.",
+      "case_count": 448
+    },
+    {
+      "value": "Justice O'Reilly",
+      "case_count": 438
+    },
+    {
+      "value": "Justice O'Keefe",
+      "case_count": 433
+    },
+    {
+      "value": "NADON J.A.",
+      "case_count": 412
+    },
+    {
+      "value": "Justice Campbell",
+      "case_count": 410
+    },
+    {
+      "value": "Justice Shore",
+      "case_count": 407
+    },
+    {
+      "value": "LÉTOURNEAU J.A.",
+      "case_count": 387
+    },
+    {
+      "value": "Justice Phelan",
+      "case_count": 377
+    },
+    {
+      "value": "SHARLOW J.A.",
+      "case_count": 369
+    },
+    {
+      "value": "Justice Harrington",
+      "case_count": 341
+    },
+    {
+      "value": "DÉCARY J.A.",
+      "case_count": 333
+    },
+    {
+      "value": "Justice Mactavish",
+      "case_count": 325
+    },
+    {
+      "value": "PELLETIER J.A.",
+      "case_count": 325
+    },
+    {
+      "value": "Justice Norris",
+      "case_count": 324
+    }
+  ],
+  "samples": {
+    "valid_raw_without_profile_link": [
+      {
+        "case_id": 23,
+        "title": "Bedoya v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2005 FC 1092",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Roger T. Hughes",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 40,
+        "title": "Singh v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2005 FC 145",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Yves de Montigny",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 97,
+        "title": "Ali v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2005 FC 62",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Yvon Pinard",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 98,
+        "title": "Zakar v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2005 FC 1016",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Michael L. Phelan",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 173,
+        "title": "Hussain v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 719",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Francois Lemieux",
+        "status": "valid_unlinked"
+      }
+    ],
+    "invalid_raw_with_profile_link": [
+      {
+        "case_id": 27,
+        "title": "Nizeyimana c. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2001 FCT 259",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 34,
+        "title": "Al-Bachir v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2004 FC 1440",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 43,
+        "title": "Nsilu v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2004 FC 1200",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 106,
+        "title": "Solano v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2003 FC 968",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "FEDERAL COURT OF CANADA",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 109,
+        "title": "D'Auteuil v. Canada (Attorney General)",
+        "citation": "2004 FC 1762",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "junk_pattern"
+      }
+    ],
+    "invalid_raw_without_profile_link": [
+      {
+        "case_id": 28,
+        "title": "Fieldturf Inc. v. Winnipeg Enterprises Corporation",
+        "citation": "2006 FC 598",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 29,
+        "title": "Ehmann v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2002 FCT 108",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "OTTAWA, Ontario",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 30,
+        "title": "Elaweremi v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2001 FCT 1236",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "TORONTO, ONTARIO",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 33,
+        "title": "Canada (Customs and Revenue Agency) v. Johnson",
+        "citation": "2003 FCT 568",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Calgary, Alberta",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 104,
+        "title": "Canada (Minister of Citizenship and Immigration) v. Draper",
+        "citation": "2002 FCT 32",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "status": "junk_pattern"
+      }
+    ],
+    "profile_link_raw_name_mismatch": [
+      {
+        "case_id": 22,
+        "title": "Calixto v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2005 FC 1037",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Douglas R. Campbell",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "THE HONOURABLE MR. JUSTICE CAMPBELL"
+      },
+      {
+        "case_id": 26,
+        "title": "Ali v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2002 FCT 1034",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Justice Danièle Tremblay-Lamer",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Madam Justice Danièle Tremblay-Lamer"
+      },
+      {
+        "case_id": 27,
+        "title": "Nizeyimana c. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2001 FCT 259",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "Pinard J."
+      },
+      {
+        "case_id": 34,
+        "title": "Al-Bachir v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2004 FC 1440",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "THE HONOURABLE MR. JUSTICE BEAUDRY"
+      },
+      {
+        "case_id": 38,
+        "title": "Tchaouch v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2001 FCT 441",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Justice Dawson",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Madam Justice Dawson"
+      }
+    ]
+  },
+  "normalization_note": "Profileability reuses scripts.backfill_judge_profiles.is_profileable_judge; this report performs no writes."
+}

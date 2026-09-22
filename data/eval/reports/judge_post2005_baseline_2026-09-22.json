@@ -1,0 +1,996 @@
+{
+  "read_only": true,
+  "sample_limit": 15,
+  "min_date": "2006-01-01",
+  "counts": {
+    "total_cases": 41123,
+    "cases_with_nonempty_raw_judge": 34471,
+    "cases_with_profileable_raw_judge": 31582,
+    "cases_with_invalid_raw_judge": 2889,
+    "cases_with_valid_raw_judge_without_profile_link": 7199,
+    "cases_with_invalid_raw_judge_with_profile_link": 2416,
+    "linked_cases_without_valid_raw_judge": 0,
+    "case_judge_profile_links": 31324,
+    "judge_profiles": 406,
+    "duplicate_normalized_profiles": 0,
+    "profile_link_raw_name_mismatches": 24394
+  },
+  "invalid_raw_judge_kinds": {
+    "junk_pattern": 2870,
+    "malformed_profile_name": 19
+  },
+  "confidence_bins_for_profileable_judges": {
+    "0.92-0.98": 31334,
+    "0.78-0.91": 86,
+    "<0.78": 162
+  },
+  "top_raw_judge_values": [
+    {
+      "value": "Certified true translation",
+      "case_count": 2379
+    },
+    {
+      "value": "Justice Russell",
+      "case_count": 583
+    },
+    {
+      "value": "Russel W. Zinn",
+      "case_count": 571
+    },
+    {
+      "value": "Justice Ahmed",
+      "case_count": 521
+    },
+    {
+      "value": "Michael D. Manson",
+      "case_count": 458
+    },
+    {
+      "value": "STRATAS J.A.",
+      "case_count": 448
+    },
+    {
+      "value": "Justice O'Reilly",
+      "case_count": 419
+    },
+    {
+      "value": "Justice Mosley",
+      "case_count": 413
+    },
+    {
+      "value": "Ottawa, Ontario",
+      "case_count": 406
+    },
+    {
+      "value": "Justice O'Keefe",
+      "case_count": 406
+    },
+    {
+      "value": "Justice Shore",
+      "case_count": 404
+    },
+    {
+      "value": "Justice Heneghan",
+      "case_count": 386
+    },
+    {
+      "value": "Justice Phelan",
+      "case_count": 368
+    },
+    {
+      "value": "NOËL J.A.",
+      "case_count": 364
+    },
+    {
+      "value": "NADON J.A.",
+      "case_count": 361
+    },
+    {
+      "value": "Justice Harrington",
+      "case_count": 336
+    },
+    {
+      "value": "Justice Norris",
+      "case_count": 324
+    },
+    {
+      "value": "Alan S. Diner",
+      "case_count": 321
+    },
+    {
+      "value": "Avvy Yao-Yao Go",
+      "case_count": 296
+    },
+    {
+      "value": "Justice Campbell",
+      "case_count": 287
+    },
+    {
+      "value": "Ann Marie McDonald",
+      "case_count": 284
+    },
+    {
+      "value": "Cecily Y. Strickland",
+      "case_count": 281
+    },
+    {
+      "value": "Catherine M. Kane",
+      "case_count": 281
+    },
+    {
+      "value": "Richard F. Southcott",
+      "case_count": 276
+    },
+    {
+      "value": "Justice Mactavish",
+      "case_count": 274
+    }
+  ],
+  "samples": {
+    "invalid_raw_without_profile_link": [
+      {
+        "case_id": 28,
+        "title": "Fieldturf Inc. v. Winnipeg Enterprises Corporation",
+        "citation": "2006 FC 598",
+        "date": "2006-05-12",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Fieldturf Inc. v. Winnipeg Enterprises Corporation\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-05-12\nNeutral citation\n2006 FC 598\nFile numbers\nT-283-03\nDecision Content\nDate: 20060512\nDocket:",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 156,
+        "title": "Samseen v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 542",
+        "date": "2006-05-11",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Samseen v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-05-11\nNeutral citation\n2006 FC 542\nFile numbers\nIMM-5759-05\nDecision Content\nDate: 2006",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 253,
+        "title": "Canada (Minister of Citizenship and Immigration)v. Jan",
+        "citation": "2006 FC 40",
+        "date": "2006-01-25",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "OTTAWA, ONTARIO",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Canada (Minister of Citizenship and Immigration)v. Jan\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-25\nNeutral citation\n2006 FC 40\nFile numbers\nIMM-2515-05\nDecision Content\nDate: 20060125\nD",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 347,
+        "title": "Sivarajathurai v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 905",
+        "date": "2006-07-20",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Sivarajathurai v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-07-20\nNeutral citation\n2006 FC 905\nFile numbers\nIMM-7238-05\nDecision Content\nDat",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 362,
+        "title": "Gutierrez Trujillo v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 414",
+        "date": "2006-04-10",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Gutierrez Trujillo v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-04-10\nNeutral citation\n2006 FC 414\nFile numbers\nIMM-2709-05\nDecision Content",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 383,
+        "title": "Thuraisingam v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 72",
+        "date": "2006-01-25",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "OTTAWA, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Thuraisingam v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-25\nNeutral citation\n2006 FC 72\nFile numbers\nIMM-19-06\nDecision Content\nDate: 20",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 670,
+        "title": "Zarghami v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 151",
+        "date": "2006-02-13",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "OTTAWA, ONTARIO",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Zarghami v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-13\nNeutral citation\n2006 FC 151\nFile numbers\nIMM-4258-05\nDecision Content\nDate: 200",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 874,
+        "title": "Sida v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 545",
+        "date": "2006-05-11",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Sida v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-05-11\nNeutral citation\n2006 FC 545\nFile numbers\nIMM-4728-05\nDecision Content\nDate: 2006051",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 950,
+        "title": "Wenham v. Canada (Attorney General)",
+        "citation": "2020 FC 588",
+        "date": "2020-05-08",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Wenham v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-05-08\nNeutral citation\n2020 FC 588\nFile numbers\nT-1499-16\nDecision Content\nDate: 20200508\nDocket: T-1499-16\nCit",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 951,
+        "title": "Wenham v. Canada (Attorney General)",
+        "citation": "2020 FC 590",
+        "date": "2020-05-08",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Wenham v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-05-08\nNeutral citation\n2020 FC 590\nFile numbers\nT-1499-16\nDecision Content\nDate: 20200508\nDocket: T-1499-16\nCit",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 953,
+        "title": "Wenham v. Canada (Attorney General)",
+        "citation": "2020 FC 592",
+        "date": "2020-05-08",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Wenham v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-05-08\nNeutral citation\n2020 FC 592\nFile numbers\nT-1499-16\nDecision Content\nDate: 20200508\nDocket: T-1499-16\nCit",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 1136,
+        "title": "Walters v. Canada",
+        "citation": "2020 FC 1012",
+        "date": "2020-10-29",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Walters v. Canada\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-10-29\nNeutral citation\n2020 FC 1012\nFile numbers\nT-620-20\nDecision Content\nDate: 20201029\nDocket: T-620-20\nCitation: 2020 FC 1012",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 1166,
+        "title": "Paredes Alonso v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 575",
+        "date": "2006-05-11",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Paredes Alonso v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-05-11\nNeutral citation\n2006 FC 575\nFile numbers\nIMM-6672-05\nDecision Content\nDat",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 1203,
+        "title": "Krishnasamy v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 451",
+        "date": "2006-04-07",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Krishnasamy v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-04-07\nNeutral citation\n2006 FC 451\nFile numbers\nIMM-1841-05\nDecision Content\nDate: ",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 1299,
+        "title": "Canada (Information Commissioner) v. Canada (Minister of Industry)",
+        "citation": "2006 FC 132",
+        "date": "2006-02-13",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Canada (Information Commissioner) v. Canada (Minister of Industry)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-13\nNeutral citation\n2006 FC 132\nFile numbers\nT-421-04\nNotes\nReported Decision",
+        "status": "junk_pattern"
+      }
+    ],
+    "valid_raw_without_profile_link": [
+      {
+        "case_id": 173,
+        "title": "Hussain v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 719",
+        "date": "2006-06-08",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Francois Lemieux",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Hussain v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-06-08\nNeutral citation\n2006 FC 719\nFile numbers\nIMM-6636-05\nDecision Content\nDate: 2006",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 235,
+        "title": "Guirguis v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 141",
+        "date": "2006-02-07",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "James W. O'Reilly",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Guirguis v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-07\nNeutral citation\n2006 FC 141\nFile numbers\nIMM-714-05\nDecision Content\nDate: 2006",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 326,
+        "title": "Astrazeneca AB v. Apotex Inc.",
+        "citation": "2006 FC 7",
+        "date": "2006-01-18",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Carolyn Layden-Stevenson",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Astrazeneca AB v. Apotex Inc.\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-18\nNeutral citation\n2006 FC 7\nFile numbers\nT-766-03\nDecision Content\nDate: 20060118\nDocket: T-766-03\nCitation: 200",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 345,
+        "title": "Litmar Ltd. v. Canada (Minister of National Revenue)",
+        "citation": "2006 FC 635",
+        "date": "2006-05-24",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Johanne Gauthier",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Litmar Ltd. v. Canada (Minister of National Revenue)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-05-24\nNeutral citation\n2006 FC 635\nFile numbers\nT-1795-05\nDecision Content\nDate: 20060524\nDock",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1087,
+        "title": "Novartis Consumer Health Canada Inc. v. Canada (Health)",
+        "citation": "2013 FC 508",
+        "date": "2013-05-31",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Novartis Consumer Health Canada Inc. v. Canada (Health)\nCourt (s) Database\nFederal Court Decisions\nDate\n2013-05-31\nNeutral citation\n2013 FC 508\nFile numbers\nT-1769-11, T-1934-11, T-80-12\nDecision Cont",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1184,
+        "title": "Sandy Bay Ojibway First Nation v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 903",
+        "date": "2006-07-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Sean Harrington",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Sandy Bay Ojibway First Nation v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-07-19\nNeutral citation\n2006 FC 903\nFile numbers\nT-1156-06\nDecisi",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1521,
+        "title": "Chopra v. Canada (Attorney General)",
+        "citation": "2006 FC 9",
+        "date": "2006-01-04",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Michael L. Phelan",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Chopra v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-04\nNeutral citation\n2006 FC 9\nFile numbers\nT-1683-04\nNotes\nDigest\nDecision Content\nDate: 20060104\nDocket: T-",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1528,
+        "title": "Barnard v. Canada (Minister of Fisheries and Oceans)",
+        "citation": "2006 FC 203",
+        "date": "2006-02-15",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Michael L. Phelan",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Barnard v. Canada (Minister of Fisheries and Oceans)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-15\nNeutral citation\n2006 FC 203\nFile numbers\nT-1999-05\nDecision Content\nDate: 20060215\nDock",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1596,
+        "title": "Boutique Jacob Inc. v. Pantainer Ltd.",
+        "citation": "2006 FC 217",
+        "date": "2006-02-20",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Yves de Montigny",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Boutique Jacob Inc. v. Pantainer Ltd.\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-20\nNeutral citation\n2006 FC 217\nFile numbers\nT-39-04\nDecision Content\nDate: 20060220\nDocket: T-39-04\nCitat",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1846,
+        "title": "Sing v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 473",
+        "date": "2006-04-11",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Eleanor R. Dawson",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Sing v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-04-11\nNeutral citation\n2006 FC 473\nFile numbers\nIMM-6457-05, IMM-6460-05\nDecision Content\n",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 1945,
+        "title": "Casanova v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 232",
+        "date": "2006-02-21",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Yves de Montigny",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Casanova v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-21\nNeutral citation\n2006 FC 232\nFile numbers\nIMM-379-06, IMM-833-06\nDecision Conten",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 2221,
+        "title": "Iftikhar v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 49",
+        "date": "2006-01-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Michael L. Phelan",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Iftikhar v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-19\nNeutral citation\n2006 FC 49\nFile numbers\nIMM-3229-05\nDecision Content\nDate: 2006",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 3235,
+        "title": "Matheen v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 395",
+        "date": "2006-04-10",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Ottawa, Ontario.",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Matheen v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-04-10\nNeutral citation\n2006 FC 395\nFile numbers\nIMM-2150-05\nDecision Content\nDate: 2006",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 3334,
+        "title": "Tihomirovs v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 197",
+        "date": "2006-02-14",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Anne Mactavish",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Tihomirovs v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-02-14\nNeutral citation\n2006 FC 197\nFile numbers\nIMM-8863-04\nNotes\nReported Decision\n",
+        "status": "valid_unlinked"
+      },
+      {
+        "case_id": 3524,
+        "title": "Hossain v. Canada (Citizenship and Immigration)",
+        "citation": "2006 FC 59",
+        "date": "2006-01-20",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Michael L. Phelan",
+        "confidence": 0.83,
+        "quality_flags": [
+          "low_confidence_critical:judge"
+        ],
+        "source_excerpt": "Hossain v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-01-20\nNeutral citation\n2006 FC 59\nFile numbers\nIMM-3541-05\nDecision Content\nDate: 20060120\nDocket: ",
+        "status": "valid_unlinked"
+      }
+    ],
+    "invalid_raw_with_profile_link": [
+      {
+        "case_id": 364,
+        "title": "Patel v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 672",
+        "date": "2020-06-05",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Patel v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-06-05\nNeutral citation\n2020 FC 672\nFile numbers\nIMM-6441-19\nDecision Content\nDate: 20200605\nDocket: I",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 376,
+        "title": "Girouard v. Canada (Attorney General)",
+        "citation": "2020 FC 557",
+        "date": "2020-04-27",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [
+          "invalid_shape:docket",
+          "low_confidence_critical:docket"
+        ],
+        "source_excerpt": "Girouard v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-04-27\nNeutral citation\n2020 FC 557\nFile numbers\n20-T-2\nDecision Content\nDate: 20200427\nDocket: 20-T-2\nCitatio",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 380,
+        "title": "Mohamed v. Canada (Immigration, Refugees and Citizenship)",
+        "citation": "2020 FC 657",
+        "date": "2020-06-09",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Mohamed v. Canada (Immigration, Refugees and Citizenship)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-06-09\nNeutral citation\n2020 FC 657\nFile numbers\nIMM-5385-19\nDecision Content\nDate: 202006",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 491,
+        "title": "St-Sulne v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 620",
+        "date": "2020-05-14",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [
+          "missing_critical:style of cause"
+        ],
+        "source_excerpt": "St-Sulne v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-05-14\nNeutral citation\n2020 FC 620\nFile numbers\nIMM-2711-19\nDecision Content\nDate: 20200514\nDocket",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 585,
+        "title": "El Haddad v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 487",
+        "date": "2020-04-03",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "El Haddad v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-04-03\nNeutral citation\n2020 FC 487\nFile numbers\nIMM-6190-18\nDecision Content\nDate: 20200403\nDocke",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 588,
+        "title": "Saint Paul v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 493",
+        "date": "2020-04-07",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Saint Paul v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-04-07\nNeutral citation\n2020 FC 493\nFile numbers\nIMM-2379-19\nDecision Content\nDate: 20200407\nDock",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 642,
+        "title": "Lill v. Canada (Attorney General)",
+        "citation": "2020 FC 551",
+        "date": "2020-04-24",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Lill v. Canada (Attorney General)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-04-24\nNeutral citation\n2020 FC 551\nFile numbers\nT-204-15, T-2563-14\nDecision Content\nDate: 20200424\nDocket: T-256",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 672,
+        "title": "Bellevue v. Canada (Public Safety and Emergency Preparedness)",
+        "citation": "2020 FC 560",
+        "date": "2020-04-28",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Bellevue v. Canada (Public Safety and Emergency Preparedness)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-04-28\nNeutral citation\n2020 FC 560\nFile numbers\nIMM-2336-19\nDecision Content\nDate: 20",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 677,
+        "title": "Leon v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 428",
+        "date": "2020-03-26",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_immigration_core",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Leon v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-26\nNeutral citation\n2020 FC 428\nFile numbers\nIMM-2218-19\nDecision Content\nDate: 20200326\nDocket: IM",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 678,
+        "title": "Elverna v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 410",
+        "date": "2020-03-24",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Elverna v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-24\nNeutral citation\n2020 FC 410\nFile numbers\nIMM-3073-19\nDecision Content\nDate: 20200324\nDocket:",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 681,
+        "title": "Morissaint v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 413",
+        "date": "2020-03-24",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Morissaint v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-24\nNeutral citation\n2020 FC 413\nFile numbers\nIMM-4583-19\nDecision Content\nDate: 20200324\nDock",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 691,
+        "title": "Qasim v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 465",
+        "date": "2020-03-31",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Qasim v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-31\nNeutral citation\n2020 FC 465\nFile numbers\nIMM-2201-19\nDecision Content\nDate: 20200331\nDocket: I",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 718,
+        "title": "Auguste v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 392",
+        "date": "2020-03-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Auguste v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-19\nNeutral citation\n2020 FC 392\nFile numbers\nIMM-3348-19\nDecision Content\nDate: 20200319\nDocket:",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 719,
+        "title": "Innocent v. Canada (Immigration, Refugees and Citizenship)",
+        "citation": "2020 FC 390",
+        "date": "2020-03-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Innocent v. Canada (Immigration, Refugees and Citizenship)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-19\nNeutral citation\n2020 FC 390\nFile numbers\nIMM-2362-19\nDecision Content\nDate: 20200",
+        "status": "junk_pattern"
+      },
+      {
+        "case_id": 737,
+        "title": "Fatoye v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 456",
+        "date": "2020-03-31",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_parquet",
+        "raw_judge": "Certified true translation",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Fatoye v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-03-31\nNeutral citation\n2020 FC 456\nFile numbers\nIMM-3984-19\nDecision Content\nDate: 20200331\nDocket: ",
+        "status": "junk_pattern"
+      }
+    ],
+    "profile_link_raw_name_mismatch": [
+      {
+        "case_id": 47,
+        "title": "Sittampalam v. Canada (Citizenship and Immigration)",
+        "citation": "2009 FC 65",
+        "date": "2009-01-22",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Mandamin",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Sittampalam v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2009-01-22\nNeutral citation\n2009 FC 65\nFile numbers\nIMM-248-08\nNotes\nDigest\nDecision Content\nDate: 2",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Mandamin"
+      },
+      {
+        "case_id": 48,
+        "title": "Kreishan v. Canada (Citizenship and Immigration)",
+        "citation": "2018 FC 481",
+        "date": "2018-05-04",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "E. Heneghan",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Kreishan v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2018-05-04\nNeutral citation\n2018 FC 481\nFile numbers\nIMM-1354-16, IMM-1604-16, IMM-248-16, IMM-3193-15,",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Madam Justice Heneghan"
+      },
+      {
+        "case_id": 49,
+        "title": "Melo v. Canada (Citizenship and Immigration)",
+        "citation": "2014 FC 1094",
+        "date": "2014-11-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Alan Diner",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Melo v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2014-11-19\nNeutral citation\n2014 FC 1094\nFile numbers\nIMM-5640-13\nDecision Content\nDate: 20141119\nDocket: I",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Diner"
+      },
+      {
+        "case_id": 50,
+        "title": "Feher v. Canada (Public Safety and Emergency Preparedness)",
+        "citation": "2019 FC 335",
+        "date": "2019-03-20",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Keith M. Boswell",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Feher v. Canada (Public Safety and Emergency Preparedness)\nCourt (s) Database\nFederal Court Decisions\nDate\n2019-03-20\nNeutral citation\n2019 FC 335\nFile numbers\nIMM-1552-17, IMM-3515-16, IMM-3838-15, I",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Boswell"
+      },
+      {
+        "case_id": 51,
+        "title": "Celestin v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 97",
+        "date": "2020-01-22",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Pamel",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Celestin v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-01-22\nNeutral citation\n2020 FC 97\nFile numbers\nIMM-977-19\nNotes\nA correction was made on January 2",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Pamel"
+      },
+      {
+        "case_id": 52,
+        "title": "Canadian Council for Refugees v. Canada (Immigration, Refugees and Citizenship)",
+        "citation": "2020 FC 770",
+        "date": "2020-07-22",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Ann Marie McDonald",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Canadian Council for Refugees v. Canada (Immigration, Refugees and Citizenship)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-07-22\nNeutral citation\n2020 FC 770\nFile numbers\nIMM-2229-17, IMM-29",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "Justice McDonald"
+      },
+      {
+        "case_id": 53,
+        "title": "Haj Khalil v. Canada",
+        "citation": "2007 FC 923",
+        "date": "2007-09-18",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "SCHEDULE “A”",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Haj Khalil v. Canada\nCourt (s) Database\nFederal Court Decisions\nDate\n2007-09-18\nNeutral citation\n2007 FC 923\nFile numbers\nT-2066-03\nNotes\nReported Decision\nDecision Content\nDate: 20070918\nDocket: T-20",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Madam Justice Layden-Stevenson"
+      },
+      {
+        "case_id": 54,
+        "title": "Jama v. Canada (Citizenship and Immigration)",
+        "citation": "2009 FC 781",
+        "date": "2009-07-29",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Russell",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Jama v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2009-07-29\nNeutral citation\n2009 FC 781\nFile numbers\nIMM-5691-08\nDecision Content\nFederal Court\nCour fédéra",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Russell"
+      },
+      {
+        "case_id": 55,
+        "title": "Galvez Padilla v. Canada (Citizenship and Immigration)",
+        "citation": "2013 FC 247",
+        "date": "2013-03-07",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Yves de Montigny",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Galvez Padilla v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2013-03-07\nNeutral citation\n2013 FC 247\nFile numbers\nIMM-1545-12\nNotes\nReported Decision\nDecision",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice de Montigny"
+      },
+      {
+        "case_id": 56,
+        "title": "Y.Z. v. Canada (Citizenship and Immigration)",
+        "citation": "2015 FC 892",
+        "date": "2015-07-23",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Keith M. Boswell",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Y.Z. v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2015-07-23\nNeutral citation\n2015 FC 892\nFile numbers\nIMM-3700-13, IMM-5940-14\nNotes\nA correction was made o",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Boswell"
+      },
+      {
+        "case_id": 57,
+        "title": "I.P.P. v. Canada (Citizenship and Immigration)",
+        "citation": "2018 FC 123",
+        "date": "2018-04-03",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Russell",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "I.P.P. v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2018-04-03\nNeutral citation\n2018 FC 123\nFile numbers\nIMM-5135-15\nDecision Content\nDate: 20180403\nDocket: ",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Russell"
+      },
+      {
+        "case_id": 58,
+        "title": "A.B. v. Canada (Citizenship and Immigration)",
+        "citation": "2020 FC 203",
+        "date": "2020-02-05",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Mosley",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "A.B. v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2020-02-05\nNeutral citation\n2020 FC 203\nFile numbers\nIMM-2507-19\nDecision Content\nDate: 20200205\nDocket: IM",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Mosley"
+      },
+      {
+        "case_id": 59,
+        "title": "Shahid v. Canada (Citizenship and Immigration)",
+        "citation": "2021 FC 1335",
+        "date": "2021-12-01",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Cecily Y. Strickland",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Shahid v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2021-12-01\nNeutral citation\n2021 FC 1335\nFile numbers\nIMM-1685-20, IMM-7417-19\nDecision Content\nDate: 202",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Madam Justice Strickland"
+      },
+      {
+        "case_id": 60,
+        "title": "Slepcsik v. Canada (Citizenship and Immigration)",
+        "citation": "2025 FC 1840",
+        "date": "2025-11-19",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice Gleeson",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Slepcsik v. Canada (Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2025-11-19\nNeutral citation\n2025 FC 1840\nFile numbers\nIMM-5466-23, IMM-5481-23\nDecision Content\nDate: 2",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice Gleeson"
+      },
+      {
+        "case_id": 64,
+        "title": "Mwakotbe v. Canada (Minister of Citizenship and Immigration)",
+        "citation": "2006 FC 1227",
+        "date": "2006-10-16",
+        "source_name": "A2AJ Canadian Legal Data",
+        "source_type": "a2aj_curated",
+        "raw_judge": "Justice O'Keefe",
+        "confidence": 0.97,
+        "quality_flags": [],
+        "source_excerpt": "Mwakotbe v. Canada (Minister of Citizenship and Immigration)\nCourt (s) Database\nFederal Court Decisions\nDate\n2006-10-16\nNeutral citation\n2006 FC 1227\nFile numbers\nIMM-6809-05\nDecision Content\nDate: 20",
+        "status": "link_raw_name_mismatch",
+        "linked_raw_name": "The Honourable Mr. Justice O'Keefe"
+      }
+    ]
+  },
+  "normalization_note": "Profileability reuses scripts.backfill_judge_profiles.is_profileable_judge; this report performs no writes."
+}

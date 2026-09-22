@@ -58,6 +58,13 @@ close to the query. The default path favors title/citation matching. This is
 intentional: it keeps the common authority-lookup workflow fast and avoids
 broad full-text matches unless requested.
 
+After two characters, the case finder offers up to five title/citation
+suggestions. Suggestions are debounced, cancel stale requests, and never turn
+on full-text matching. Use the arrow keys and Enter to select a suggestion,
+Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
+to the query. Selecting a suggestion runs the normal case search; it does not
+bypass filters or open an unverified external source.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
@@ -79,7 +86,13 @@ Enable **Search full decision text** only when the research question requires te
 
 ### Reading Result Metadata
 
-Search result cards can show case identity, court/date, source context, outcome labels, and citation counts. A citation count is an occurrence count, not a count of legally controlling authorities. A resolved link means the system matched the citation to a case in the local library; it does not verify the proposition for which it was cited.
+Search results lead with the case title and citation, followed by court, date,
+judge or party context where recorded. Outcome labels remain visually separate
+from citation metrics. The metrics report stored citation mentions, unique
+cited authorities, and locally resolved case links. A citation count is an
+occurrence count, not a count of legally controlling authorities. A resolved
+link means the system matched the citation to a case in the local library; it
+does not verify the proposition for which it was cited.
 
 ## Inline Decision Reader
 

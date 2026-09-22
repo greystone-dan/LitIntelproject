@@ -157,11 +157,18 @@ def test_case_search_has_clear_primary_query_and_filter_state():
 
     assert 'class="search-intro"' in html
     assert 'class="search-query-row"' in html
+    assert 'role="combobox"' in html
+    assert 'id="searchSuggestions"' in html
+    assert 'aria-live="polite"' in html
     assert 'id="searchFilterSummary"' in html
     assert 'legend>Authority and outcome</legend>' in html
     assert 'legend>People, court, and time</legend>' in html
     assert 'legend>Result display</legend>' in html
     assert 'function updateSearchFilterSummary()' in html
+    assert 'function requestSearchSuggestions(query)' in html
+    assert "limit:'5'" in html
+    assert "sort_by:'relevance'" in html
+    assert 'function professionalResultCard(item)' in html
 
 
 def test_judge_profiles_default_to_most_linked_profiles():

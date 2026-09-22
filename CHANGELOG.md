@@ -5,6 +5,9 @@
 	demo-safety fixes.
 # Unreleased
 
+- Upgraded Case Search with bounded title/citation suggestions, keyboard
+	navigation, explicit loading/empty/error feedback, a clearer legal-result
+	hierarchy, and browser-validated desktop/mobile behavior.
 - Improved the active Case Search interface with a clearer primary query row,
   grouped collapsed advanced filters, active-filter feedback, reliable Clear
   behavior, and responsive desktop/mobile layout without changing search

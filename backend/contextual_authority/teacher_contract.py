@@ -9,6 +9,14 @@ from .models import text_hash
 
 TEACHER_CONTRACT_VERSION = "treatment_teacher_v1"
 DEFAULT_MODEL = "gpt-4.1-nano"
+TREATMENT_CONTEXT_FIELDS = (
+    "actor",
+    "reason_raised",
+    "argument_supported",
+    "argument_addressed",
+    "court_response",
+    "argument_conclusion",
+)
 
 
 @dataclass(frozen=True)
@@ -32,6 +40,7 @@ class TeacherExample:
     text: str
     citations: tuple[TeacherCitation, ...]
     source_text_sha256: str
+    metadata: dict[str, Any] | None = None
 
     def __post_init__(self) -> None:
         if not self.text.strip():
@@ -74,7 +83,28 @@ def build_teacher_messages(batch: TeacherBatch) -> list[dict[str, str]]:
         "phrase offsets are not citation offsets. Return exactly one label for each listed "
         "citation, never duplicate an example_id/citation_ordinal pair. For absent, use an "
         "empty phrase with phrase_start 0 and phrase_end 0. For non-absent labels, phrase "
-        "must be the treatment or reasoning clause, not the citation text or a generic noun."
+        "must be the treatment or reasoning clause, not the citation text or a generic noun. "
+        "Return a treatment_context object with actor, reason_raised, "
+        "argument_supported, argument_addressed, court_response, and argument_conclusion. "
+        "Each field must contain status (stated, not_stated, not_applicable, or ambiguous), "
+        "text, start, and end. Stated or ambiguous fields require exact offsets in the supplied "
+        "text; not_stated and not_applicable fields require empty text and zero offsets. "
+        "actor identifies who raised or used the authority; reason_raised explains why; "
+        "argument_supported is the proposition advanced by that actor; argument_addressed is "
+        "the proposition the Court addresses; court_response describes the Court's treatment; "
+            "and argument_conclusion is the result for that argument only, not the overall case "
+            "disposition. Never infer a field unsupported by the supplied text. The supplied "
+            "metadata may describe the paragraph and Discussion Unit for orientation, but all "
+            "treatment and argument evidence must be taken from the supplied text. If the text "
+            "does not explain treatment, use absent or neutral rather than supportive. Never use "
+            "the citation text itself as the treatment phrase. The treatment_context object is "
+            "required even when every field is unknown. For each unknown field return exactly "
+            "{status: not_stated, text: '', start: 0, end: 0}. For a supported field, quote a "
+            "short contiguous phrase from the supplied text and use its exact character offsets. "
+            "Do not summarize or paraphrase inside a source span. The shape is: "
+            "{treatment: supportive, phrase: 'the exact treatment phrase', phrase_start: 10, "
+            "phrase_end: 35, treatment_context: {...}}. The treatment field is only the enum "
+            "value; put explanations in rationale, never in treatment."
     )
     payload = {
         "request_id": batch.request_id,
@@ -84,6 +114,7 @@ def build_teacher_messages(batch: TeacherBatch) -> list[dict[str, str]]:
                 "example_id": example.example_id,
                 "text": example.text,
                 "source_text_sha256": example.source_text_sha256,
+                "metadata": example.metadata or {},
                 "citations": [
                     {
                         "ordinal": citation.ordinal,
@@ -135,6 +166,7 @@ def load_teacher_examples(path: str) -> tuple[TeacherExample, ...]:
                     text=str(payload["text"]),
                     citations=citations,
                     source_text_sha256=str(payload["source_text_sha256"]),
+                    metadata=dict(payload["metadata"]) if "metadata" in payload else None,
                 )
             )
     if not examples:

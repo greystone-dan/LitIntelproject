@@ -1,0 +1,3230 @@
+{
+  "artifact": "treatment_distillation_candidate",
+  "status": "proposed_review_required",
+  "runtime_publishable": false,
+  "fixture": "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_compact_fixture.jsonl",
+  "teacher_result_files": [
+    "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_single_result.json"
+  ],
+  "policy": {
+    "min_confidence": 0.0,
+    "min_support_count": 1,
+    "source_spans_revalidated": true,
+    "canonical_database_writes": false,
+    "external_ai_required_at_runtime": false
+  },
+  "summary": {
+    "raw_labels": 31,
+    "valid_labels": 31,
+    "eligible_labels": 31,
+    "proposed_rule_count": 24,
+    "treatment_counts": {
+      "supportive": 17,
+      "neutral": 10,
+      "absent": 4
+    },
+    "rejected_counts": {}
+  },
+  "rules": [
+    {
+      "rule_id": "teacher-phrase-neutral-0001",
+      "treatment": "neutral",
+      "phrase": "a. immigration division decision (mr. mason), 2018 canlii 57522",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-009",
+          "citation_ordinal": 0,
+          "citation_text": "2018 CanLII 57522",
+          "treatment": "neutral",
+          "phrase": "A. Immigration Division Decision (Mr. Mason), 2018 CanLII 57522",
+          "phrase_start": 1325,
+          "phrase_end": 1388,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "5a56af3efd045986ecf0d358a8cebdd49f1636e4b1b2fd7724b57365d5fd6286",
+          "evidence_text": "A. Immigration Division Decision (Mr. Mason), 2018 CanLII 57522",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0002",
+      "treatment": "neutral",
+      "phrase": "in kanthasamy, the majority of this court arguably did the same.",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-080",
+          "citation_ordinal": 0,
+          "citation_text": "Kanthasamy v. Canada (Citizenship and Immigration), 2014 FCA 113, [2015] 1 F.C.R. 335, at para. 33",
+          "treatment": "neutral",
+          "phrase": "In Kanthasamy, the majority of this Court arguably did the same.",
+          "phrase_start": 967,
+          "phrase_end": 1031,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "34ef2710502ba1bbd00d386a7b9fe2fb746a747f75a0deadbbb4dcab76a49717",
+          "evidence_text": "In Kanthasamy, the majority of this Court arguably did the same.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0003",
+      "treatment": "neutral",
+      "phrase": "may operate as legal constraints on an administrative decision maker",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-045",
+          "citation_ordinal": 0,
+          "citation_text": "authority",
+          "treatment": "neutral",
+          "phrase": "may operate as legal constraints on an administrative decision maker",
+          "phrase_start": 2397,
+          "phrase_end": 2465,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "04c5bd74789a21a9c8885d492a330bacc791b6fbe843b33bd5f00865b1ccf188",
+          "evidence_text": "may operate as legal constraints on an administrative decision maker",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0004",
+      "treatment": "neutral",
+      "phrase": "outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-013",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute",
+          "phrase_start": 1300,
+          "phrase_end": 1431,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+          "evidence_text": "outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0005",
+      "treatment": "neutral",
+      "phrase": "see also al yamani v. canada (solicitor general), [1996] 1 f.c. 174 (t.d.)",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-097",
+          "citation_ordinal": 0,
+          "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+          "treatment": "neutral",
+          "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "phrase_start": 1407,
+          "phrase_end": 1481,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+          "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0006",
+      "treatment": "neutral",
+      "phrase": "the court also applied a standard of review of reasonableness in agraira v. canada (public safety and emergency preparedness), 2013 scc 36, [2013] 2 s.c.r. 559, on the basis that the minister\u2019s decision under the former s. 34(2) of the irpa was discretionary (para. 50)",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-071",
+          "citation_ordinal": 0,
+          "citation_text": "Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559",
+          "treatment": "neutral",
+          "phrase": "The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50)",
+          "phrase_start": 2373,
+          "phrase_end": 2642,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "e461e3ff604328770db929db5c7a109f8361b794d10873d8efa0504e7d375458",
+          "evidence_text": "The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0007",
+      "treatment": "neutral",
+      "phrase": "the court gave definitive answers to certified questions of interpretation either without addressing the standard of review",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-075",
+          "citation_ordinal": 0,
+          "citation_text": "Ezokola v. Canada (Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678, at paras. 6",
+          "treatment": "neutral",
+          "phrase": "the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review",
+          "phrase_start": 2797,
+          "phrase_end": 2920,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+          "evidence_text": "the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0008",
+      "treatment": "neutral",
+      "phrase": "the iad concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of canada.",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-010",
+          "citation_ordinal": 0,
+          "citation_text": "2019 CanLII 55171",
+          "treatment": "neutral",
+          "phrase": "The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.",
+          "phrase_start": 2125,
+          "phrase_end": 2253,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "504fb7c73df4cc70c6a14846e4c94ece608d29d3e373edd13ed62b078879cb50",
+          "evidence_text": "The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0009",
+      "treatment": "neutral",
+      "phrase": "vavilov tells us much but it leaves some things unclear",
+      "support_count": 2,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-016",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "Vavilov tells us much but it leaves some things unclear",
+          "phrase_start": 1300,
+          "phrase_end": 1355,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "e2d854ae68cb221e855db59ef17795f5a3abef57b2622e9d897a15ea7317a818",
+          "evidence_text": "Vavilov tells us much but it leaves some things unclear",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-017",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "Vavilov tells us much but it leaves some things unclear",
+          "phrase_start": 931,
+          "phrase_end": 986,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "6bd97b7867d0da49dca1d4ac000f263c0946e3b88833ad93423a6598e9412f30",
+          "evidence_text": "Vavilov tells us much but it leaves some things unclear",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0010",
+      "treatment": "supportive",
+      "phrase": "(see also canada (immigration and citizenship) v. laing, 2021 fca 194, at para. 11 (canlii); canada (public safety and emergency preparedness) v. xy, 2022 fca 113, 89 imm. l.r. (4th) 173, at para. 7)",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-087",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113",
+          "treatment": "supportive",
+          "phrase": "(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7)",
+          "phrase_start": 1081,
+          "phrase_end": 1280,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "7a93668bdfec93ad8e5c03e9e2079541ade99ccbf616c38248feaa5aa0214885",
+          "evidence_text": "(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0011",
+      "treatment": "supportive",
+      "phrase": "a question whose answer turns on the unique facts of the case will not be certified (lunyamila, at para. 46, citing mudrak v. canada (minister of citizenship and immigration), 2016 fca 178, 43 imm. l.r. (4th) 199).",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-088",
+          "citation_ordinal": 0,
+          "citation_text": "Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178",
+          "treatment": "supportive",
+          "phrase": "A question whose answer turns on the unique facts of the case will not be certified (Lunyamila, at para. 46, citing Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178, 43 Imm. L.R. (4th) 199).",
+          "phrase_start": 1054,
+          "phrase_end": 1268,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "7b25e76a0bb231abb4012b419956e31b0f008f30965907d78a549e74f6149a66",
+          "evidence_text": "A question whose answer turns on the unique facts of the case will not be certified (Lunyamila, at para. 46, citing Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178, 43 Imm. L.R. (4th) 199).",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0012",
+      "treatment": "supportive",
+      "phrase": "apply the framework for judicial review developed in canada (minister of citizenship and immigration) v. vavilov, 2019 scc 65, [2019] 4 s.c.r. 653",
+      "support_count": 1,
+      "mean_confidence": 0.99,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-001",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "treatment": "supportive",
+          "phrase": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "phrase_start": 39,
+          "phrase_end": 185,
+          "confidence": 0.99,
+          "offsets_repaired": true,
+          "source_text_sha256": "cd68903baf5313e2e9db03e1c709cdd1ec6a7cf79073d281de91fab59ae2c9ee",
+          "evidence_text": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "treatment_context": {
+            "actor": {
+              "status": "stated",
+              "text": "the Court",
+              "start": 26,
+              "end": 35
+            },
+            "reason_raised": {
+              "status": "stated",
+              "text": "to apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+              "start": 36,
+              "end": 185
+            },
+            "argument_supported": {
+              "status": "stated",
+              "text": "the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+              "start": 45,
+              "end": 185
+            },
+            "argument_addressed": {
+              "status": "stated",
+              "text": "to two administrative decisions involving a question of statutory interpretation in the immigration context",
+              "start": 187,
+              "end": 294
+            },
+            "court_response": {
+              "status": "stated",
+              "text": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+              "start": 39,
+              "end": 185
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0013",
+      "treatment": "supportive",
+      "phrase": "by being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+      "support_count": 2,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-037",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+          "phrase_start": 2496,
+          "phrase_end": 2669,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "539897eed2517b049231165f054bd3b5616fea6327b2117811f12211b52029a3",
+          "evidence_text": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-038",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov, at para. 108)",
+          "treatment": "supportive",
+          "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+          "phrase_start": 2496,
+          "phrase_end": 2669,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "539897eed2517b049231165f054bd3b5616fea6327b2117811f12211b52029a3",
+          "evidence_text": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0014",
+      "treatment": "supportive",
+      "phrase": "by definition, these are questions that transcend the interests of the parties and raise issues of broad significance within canada\u2019s immigration and refugee protection scheme",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-068",
+          "citation_ordinal": 0,
+          "citation_text": "Lunyamila v. Canada (Public Safety and Emergency Preparedness), 2018 FCA 22, [2018] 3 F.C.R. 674, at para. 46",
+          "treatment": "supportive",
+          "phrase": "By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\u2019s immigration and refugee protection scheme",
+          "phrase_start": 1067,
+          "phrase_end": 1242,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "73165598fefe84909d903292aa6623307fceb120a9392df67e850d6f3b1db272",
+          "evidence_text": "By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\u2019s immigration and refugee protection scheme",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0015",
+      "treatment": "supportive",
+      "phrase": "canada has ratified both the 1951 refugee convention and the 1967 refugee protocol (n\u00e9meth v. canada (justice), 2010 scc 56, [2010] 3 s.c.r. 281, at para. 17).",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-058",
+          "citation_ordinal": 0,
+          "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+          "treatment": "supportive",
+          "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17).",
+          "phrase_start": 1478,
+          "phrase_end": 1637,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+          "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17).",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0016",
+      "treatment": "supportive",
+      "phrase": "reiterated the criteria for certification under s. 74(d): the question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-086",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11",
+          "treatment": "supportive",
+          "phrase": "reiterated the criteria for certification under s. 74(d):\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance",
+          "phrase_start": 815,
+          "phrase_end": 1051,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "7a93668bdfec93ad8e5c03e9e2079541ade99ccbf616c38248feaa5aa0214885",
+          "evidence_text": "reiterated the criteria for certification under s. 74(d):\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0017",
+      "treatment": "supportive",
+      "phrase": "the principle of non-refoulement is generally recognized as a norm of customary international law",
+      "support_count": 1,
+      "mean_confidence": 1.0,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-064",
+          "citation_ordinal": 0,
+          "citation_text": "in E. Feller, V. T\u00fcrk",
+          "treatment": "supportive",
+          "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+          "phrase_start": 3814,
+          "phrase_end": 3911,
+          "confidence": 1.0,
+          "offsets_repaired": true,
+          "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+          "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "stated",
+              "text": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+              "start": 3814,
+              "end": 3911
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0018",
+      "treatment": "supportive",
+      "phrase": "the principle of non-refoulement is generally recognized as a norm of customary international law (see prosecutor v. germain katanga, icc-01/04-01/07, decision on the application for the interim release of detained witnesses, 1 october 2013 (trial chamber ii), at para. 30",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-062",
+          "citation_ordinal": 0,
+          "citation_text": "Prosecutor v. Germain",
+          "treatment": "supportive",
+          "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30",
+          "phrase_start": 3814,
+          "phrase_end": 4086,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+          "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0019",
+      "treatment": "supportive",
+      "phrase": "the principle of non-refoulement is generally recognized as a norm of customary international law (see prosecutor v. germain katanga, icc-01/04-01/07, decision on the application for the interim release of detained witnesses, 1 october 2013 (trial chamber ii), at para. 30; zaoui v. attorney-general (no. 2), [2005] 1 n.z.l.r. 690 (c.a.), at paras. 34-35;",
+      "support_count": 1,
+      "mean_confidence": 1.0,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-063",
+          "citation_ordinal": 0,
+          "citation_text": "Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690",
+          "treatment": "supportive",
+          "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35;",
+          "phrase_start": 3814,
+          "phrase_end": 4169,
+          "confidence": 1.0,
+          "offsets_repaired": true,
+          "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+          "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35;",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0020",
+      "treatment": "supportive",
+      "phrase": "the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in domtar inc. v. quebec",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-092",
+          "citation_ordinal": 0,
+          "citation_text": "Domtar Inc. v. Quebec",
+          "treatment": "supportive",
+          "phrase": "the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in Domtar Inc. v. Quebec",
+          "phrase_start": 1630,
+          "phrase_end": 1819,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "df195e32720e519271a63e39333dac0935c68a3d1103dbfe7b5beac8aa60a399",
+          "evidence_text": "the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in Domtar Inc. v. Quebec",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0021",
+      "treatment": "supportive",
+      "phrase": "the statutory certification process has been widely used under the irpa to settle divergent interpretations or disagreements on legal issues of general importance",
+      "support_count": 1,
+      "mean_confidence": 1.0,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-083",
+          "citation_ordinal": 0,
+          "citation_text": "Huruglica v. Canada (Citizenship and Immigration), 2016 FCA 93, [2016] 4 F.C.R. 157, at para. 28",
+          "treatment": "supportive",
+          "phrase": "the statutory certification process has been widely used under the IRPA to settle divergent interpretations or disagreements on legal issues of general importance",
+          "phrase_start": 1906,
+          "phrase_end": 2068,
+          "confidence": 1.0,
+          "offsets_repaired": true,
+          "source_text_sha256": "64ca9d11053a8db6b17960941d30753b6369ef2cb6bfa718ff0946890ce02272",
+          "evidence_text": "the statutory certification process has been widely used under the IRPA to settle divergent interpretations or disagreements on legal issues of general importance",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0022",
+      "treatment": "supportive",
+      "phrase": "this conclusion is consistent with the only prior interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the immigration act. in x (re), 2017 canlii 146735 (i.r.b. (imm. div.)), member king held that a series of common assaults could not ground inadmissibility under s. 34(1)(e):",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-095",
+          "citation_ordinal": 0,
+          "citation_text": "2017 CanLII 146735",
+          "treatment": "supportive",
+          "phrase": "This conclusion is consistent with the only prior interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the Immigration Act. In X (Re), 2017 CanLII 146735 (I.R.B. (Imm. Div.)), Member King held that a series of common assaults could not ground inadmissibility under s. 34(1)(e):",
+          "phrase_start": 1111,
+          "phrase_end": 1402,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "93279cd64a91dd6bf579d96832613d8e997c9339f592441e149ce353d80287b2",
+          "evidence_text": "This conclusion is consistent with the only prior interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the Immigration Act. In X (Re), 2017 CanLII 146735 (I.R.B. (Imm. Div.)), Member King held that a series of common assaults could not ground inadmissibility under s. 34(1)(e):",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0023",
+      "treatment": "supportive",
+      "phrase": "this court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law (para. 10)",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-067",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "treatment": "supportive",
+          "phrase": "this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law (para. 10)",
+          "phrase_start": 685,
+          "phrase_end": 881,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "73165598fefe84909d903292aa6623307fceb120a9392df67e850d6f3b1db272",
+          "evidence_text": "this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law (para. 10)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0024",
+      "treatment": "supportive",
+      "phrase": "vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "support_count": 2,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-051",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-052",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    }
+  ],
+  "eligible_labels": [
+    {
+      "example_id": "mason-argument-citation-001",
+      "citation_ordinal": 0,
+      "citation_text": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+      "treatment": "supportive",
+      "phrase": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+      "phrase_start": 39,
+      "phrase_end": 185,
+      "confidence": 0.99,
+      "offsets_repaired": true,
+      "source_text_sha256": "cd68903baf5313e2e9db03e1c709cdd1ec6a7cf79073d281de91fab59ae2c9ee",
+      "evidence_text": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+      "treatment_context": {
+        "actor": {
+          "status": "stated",
+          "text": "the Court",
+          "start": 26,
+          "end": 35
+        },
+        "reason_raised": {
+          "status": "stated",
+          "text": "to apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "start": 36,
+          "end": 185
+        },
+        "argument_supported": {
+          "status": "stated",
+          "text": "the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "start": 45,
+          "end": 185
+        },
+        "argument_addressed": {
+          "status": "stated",
+          "text": "to two administrative decisions involving a question of statutory interpretation in the immigration context",
+          "start": 187,
+          "end": 294
+        },
+        "court_response": {
+          "status": "stated",
+          "text": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "start": 39,
+          "end": 185
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-009",
+      "citation_ordinal": 0,
+      "citation_text": "2018 CanLII 57522",
+      "treatment": "neutral",
+      "phrase": "A. Immigration Division Decision (Mr. Mason), 2018 CanLII 57522",
+      "phrase_start": 1325,
+      "phrase_end": 1388,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "5a56af3efd045986ecf0d358a8cebdd49f1636e4b1b2fd7724b57365d5fd6286",
+      "evidence_text": "A. Immigration Division Decision (Mr. Mason), 2018 CanLII 57522",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-010",
+      "citation_ordinal": 0,
+      "citation_text": "2019 CanLII 55171",
+      "treatment": "neutral",
+      "phrase": "The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.",
+      "phrase_start": 2125,
+      "phrase_end": 2253,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "504fb7c73df4cc70c6a14846e4c94ece608d29d3e373edd13ed62b078879cb50",
+      "evidence_text": "The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-013",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "neutral",
+      "phrase": "outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute",
+      "phrase_start": 1300,
+      "phrase_end": 1431,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+      "evidence_text": "outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-016",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "neutral",
+      "phrase": "Vavilov tells us much but it leaves some things unclear",
+      "phrase_start": 1300,
+      "phrase_end": 1355,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "e2d854ae68cb221e855db59ef17795f5a3abef57b2622e9d897a15ea7317a818",
+      "evidence_text": "Vavilov tells us much but it leaves some things unclear",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-017",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "neutral",
+      "phrase": "Vavilov tells us much but it leaves some things unclear",
+      "phrase_start": 931,
+      "phrase_end": 986,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "6bd97b7867d0da49dca1d4ac000f263c0946e3b88833ad93423a6598e9412f30",
+      "evidence_text": "Vavilov tells us much but it leaves some things unclear",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-037",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+      "phrase_start": 2496,
+      "phrase_end": 2669,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "539897eed2517b049231165f054bd3b5616fea6327b2117811f12211b52029a3",
+      "evidence_text": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-038",
+      "citation_ordinal": 0,
+      "citation_text": "(Vavilov, at para. 108)",
+      "treatment": "supportive",
+      "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+      "phrase_start": 2496,
+      "phrase_end": 2669,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "539897eed2517b049231165f054bd3b5616fea6327b2117811f12211b52029a3",
+      "evidence_text": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-045",
+      "citation_ordinal": 0,
+      "citation_text": "authority",
+      "treatment": "neutral",
+      "phrase": "may operate as legal constraints on an administrative decision maker",
+      "phrase_start": 2397,
+      "phrase_end": 2465,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "04c5bd74789a21a9c8885d492a330bacc791b6fbe843b33bd5f00865b1ccf188",
+      "evidence_text": "may operate as legal constraints on an administrative decision maker",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-046",
+      "citation_ordinal": 0,
+      "citation_text": "authority",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "bbe54eff1c90460e6911c92df413724d660859d37e30b22e21fef28c83a83093",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-051",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-052",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-058",
+      "citation_ordinal": 0,
+      "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+      "treatment": "supportive",
+      "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17).",
+      "phrase_start": 1478,
+      "phrase_end": 1637,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+      "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17).",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-062",
+      "citation_ordinal": 0,
+      "citation_text": "Prosecutor v. Germain",
+      "treatment": "supportive",
+      "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30",
+      "phrase_start": 3814,
+      "phrase_end": 4086,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+      "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-063",
+      "citation_ordinal": 0,
+      "citation_text": "Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690",
+      "treatment": "supportive",
+      "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35;",
+      "phrase_start": 3814,
+      "phrase_end": 4169,
+      "confidence": 1.0,
+      "offsets_repaired": true,
+      "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+      "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35;",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-064",
+      "citation_ordinal": 0,
+      "citation_text": "in E. Feller, V. T\u00fcrk",
+      "treatment": "supportive",
+      "phrase": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+      "phrase_start": 3814,
+      "phrase_end": 3911,
+      "confidence": 1.0,
+      "offsets_repaired": true,
+      "source_text_sha256": "58ef2abc2379e7d495cd4317ac56fbc14fce4460c7c72ebf8ab9341d5a7594c9",
+      "evidence_text": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "stated",
+          "text": "The principle of non-refoulement is generally recognized as a norm of customary international law",
+          "start": 3814,
+          "end": 3911
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-067",
+      "citation_ordinal": 0,
+      "citation_text": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+      "treatment": "supportive",
+      "phrase": "this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law (para. 10)",
+      "phrase_start": 685,
+      "phrase_end": 881,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "73165598fefe84909d903292aa6623307fceb120a9392df67e850d6f3b1db272",
+      "evidence_text": "this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law (para. 10)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-068",
+      "citation_ordinal": 0,
+      "citation_text": "Lunyamila v. Canada (Public Safety and Emergency Preparedness), 2018 FCA 22, [2018] 3 F.C.R. 674, at para. 46",
+      "treatment": "supportive",
+      "phrase": "By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\u2019s immigration and refugee protection scheme",
+      "phrase_start": 1067,
+      "phrase_end": 1242,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "73165598fefe84909d903292aa6623307fceb120a9392df67e850d6f3b1db272",
+      "evidence_text": "By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\u2019s immigration and refugee protection scheme",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-071",
+      "citation_ordinal": 0,
+      "citation_text": "Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559",
+      "treatment": "neutral",
+      "phrase": "The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50)",
+      "phrase_start": 2373,
+      "phrase_end": 2642,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "e461e3ff604328770db929db5c7a109f8361b794d10873d8efa0504e7d375458",
+      "evidence_text": "The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-075",
+      "citation_ordinal": 0,
+      "citation_text": "Ezokola v. Canada (Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678, at paras. 6",
+      "treatment": "neutral",
+      "phrase": "the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review",
+      "phrase_start": 2797,
+      "phrase_end": 2920,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-076",
+      "citation_ordinal": 0,
+      "citation_text": "Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-077",
+      "citation_ordinal": 0,
+      "citation_text": "B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-078",
+      "citation_ordinal": 0,
+      "citation_text": "Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-080",
+      "citation_ordinal": 0,
+      "citation_text": "Kanthasamy v. Canada (Citizenship and Immigration), 2014 FCA 113, [2015] 1 F.C.R. 335, at para. 33",
+      "treatment": "neutral",
+      "phrase": "In Kanthasamy, the majority of this Court arguably did the same.",
+      "phrase_start": 967,
+      "phrase_end": 1031,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "34ef2710502ba1bbd00d386a7b9fe2fb746a747f75a0deadbbb4dcab76a49717",
+      "evidence_text": "In Kanthasamy, the majority of this Court arguably did the same.",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-083",
+      "citation_ordinal": 0,
+      "citation_text": "Huruglica v. Canada (Citizenship and Immigration), 2016 FCA 93, [2016] 4 F.C.R. 157, at para. 28",
+      "treatment": "supportive",
+      "phrase": "the statutory certification process has been widely used under the IRPA to settle divergent interpretations or disagreements on legal issues of general importance",
+      "phrase_start": 1906,
+      "phrase_end": 2068,
+      "confidence": 1.0,
+      "offsets_repaired": true,
+      "source_text_sha256": "64ca9d11053a8db6b17960941d30753b6369ef2cb6bfa718ff0946890ce02272",
+      "evidence_text": "the statutory certification process has been widely used under the IRPA to settle divergent interpretations or disagreements on legal issues of general importance",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-086",
+      "citation_ordinal": 0,
+      "citation_text": "Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11",
+      "treatment": "supportive",
+      "phrase": "reiterated the criteria for certification under s. 74(d):\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance",
+      "phrase_start": 815,
+      "phrase_end": 1051,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "7a93668bdfec93ad8e5c03e9e2079541ade99ccbf616c38248feaa5aa0214885",
+      "evidence_text": "reiterated the criteria for certification under s. 74(d):\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-087",
+      "citation_ordinal": 0,
+      "citation_text": "Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113",
+      "treatment": "supportive",
+      "phrase": "(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7)",
+      "phrase_start": 1081,
+      "phrase_end": 1280,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "7a93668bdfec93ad8e5c03e9e2079541ade99ccbf616c38248feaa5aa0214885",
+      "evidence_text": "(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-088",
+      "citation_ordinal": 0,
+      "citation_text": "Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178",
+      "treatment": "supportive",
+      "phrase": "A question whose answer turns on the unique facts of the case will not be certified (Lunyamila, at para. 46, citing Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178, 43 Imm. L.R. (4th) 199).",
+      "phrase_start": 1054,
+      "phrase_end": 1268,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "7b25e76a0bb231abb4012b419956e31b0f008f30965907d78a549e74f6149a66",
+      "evidence_text": "A question whose answer turns on the unique facts of the case will not be certified (Lunyamila, at para. 46, citing Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178, 43 Imm. L.R. (4th) 199).",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-092",
+      "citation_ordinal": 0,
+      "citation_text": "Domtar Inc. v. Quebec",
+      "treatment": "supportive",
+      "phrase": "the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in Domtar Inc. v. Quebec",
+      "phrase_start": 1630,
+      "phrase_end": 1819,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "df195e32720e519271a63e39333dac0935c68a3d1103dbfe7b5beac8aa60a399",
+      "evidence_text": "the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in Domtar Inc. v. Quebec",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-095",
+      "citation_ordinal": 0,
+      "citation_text": "2017 CanLII 146735",
+      "treatment": "supportive",
+      "phrase": "This conclusion is consistent with the only prior interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the Immigration Act. In X (Re), 2017 CanLII 146735 (I.R.B. (Imm. Div.)), Member King held that a series of common assaults could not ground inadmissibility under s. 34(1)(e):",
+      "phrase_start": 1111,
+      "phrase_end": 1402,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "93279cd64a91dd6bf579d96832613d8e997c9339f592441e149ce353d80287b2",
+      "evidence_text": "This conclusion is consistent with the only prior interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the Immigration Act. In X (Re), 2017 CanLII 146735 (I.R.B. (Imm. Div.)), Member King held that a series of common assaults could not ground inadmissibility under s. 34(1)(e):",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-097",
+      "citation_ordinal": 0,
+      "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+      "treatment": "neutral",
+      "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "phrase_start": 1407,
+      "phrase_end": 1481,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+      "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-23T15:56:42.424813+00:00",
+  "model": "gpt-4.1-mini",
+  "budget_usd": 1.0,
+  "spent_usd": 0.005730600000000001,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 30,
+      "usage": {
+        "prompt_tokens": 40474,
+        "completion_tokens": 4208,
+        "estimated_cost_usd": 0.006461000000000001,
+        "cost_usd": 0.005730600000000001
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 27,
+        "invalid_labels": [
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 3: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 4: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 10: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 11: phrase offsets out of bounds",
+          "label 12: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 13: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 14: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 15: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 16: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 17: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 18: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 19: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 22: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 23: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 24: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 25: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 26: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 27: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 28: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 29: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-001",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions",
+          "phrase_start": 476,
+          "phrase_end": 575,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The text explicitly states that Vavilov provided extensive guidance on reasonableness review, indicating a supportive treatment as a key authority on the standard.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-021",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov, at para. 108)",
+          "treatment": "supportive",
+          "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer (Vavilov, at para. 108)",
+          "phrase_start": 3120,
+          "phrase_end": 3317,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The text cites Vavilov at para. 108 to support the recognition of administrative expertise, indicating supportive treatment.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-022",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer (Vavilov, at para. 108)",
+          "phrase_start": 3120,
+          "phrase_end": 3317,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The text repeats the citation to Vavilov at para. 108, showing consistent supportive treatment.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-001\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions\",\"phrase_start\":476,\"phrase_end\":527,\"confidence\":0.95,\"rationale\":\"The text explicitly states that Vavilov provided extensive guidance on reasonableness review, indicating a supportive treatment as a key authority on the standard.\"},{\"example_id\":\"mason-argument-citation-002\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov explained that the purpose of reasonableness review is \\\"to give effect to the legislature's intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law\\\"\",\"phrase_start\":815,\"phrase_end\":963,\"confidence\":0.95,\"rationale\":\"The text quotes Vavilov explaining the purpose of reasonableness review, showing supportive treatment as foundational authority on the standard's purpose.\"},{\"example_id\":\"mason-argument-citation-003\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Thus, the purpose of reasonableness review is to uphold \\\"the rule of law, while according deference to the statutory delegate's decision\\\" (Canada Post, at para. 29)\",\"phrase_start\":1740,\"phrase_end\":1803,\"confidence\":0.95,\"rationale\":\"The text uses Canada Post at para. 29 to support the purpose of reasonableness review, indicating supportive treatment as an authoritative precedent.\"},{\"example_id\":\"mason-argument-citation-004\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \\\"methodologically distinct\\\" from correctness review\",\"phrase_start\":1818,\"phrase_end\":1876,\"confidence\":0.95,\"rationale\":\"The text cites Vavilov to explain the methodological distinction between reasonableness and correctness review, showing supportive treatment as a key doctrinal source.\"},{\"example_id\":\"mason-argument-citation-005\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Reasonableness review is thus concerned with both the administrator's decision-making process and the outcome (paras. 83 and 87; see also Canada Post, at para. 29)\",\"phrase_start\":2514,\"phrase_end\":2579,\"confidence\":0.95,\"rationale\":\"The text cites Canada Post at para. 29 to support the scope of reasonableness review, indicating supportive treatment as an important precedent.\"},{\"example_id\":\"mason-argument-citation-006\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the reasons \\\"are the primary mechanism by which administrative decision makers show that their decisions are reasonable\\\" (Vavilov, at para. 81)\",\"phrase_start\":2808,\"phrase_end\":2853,\"confidence\":0.95,\"rationale\":\"The text quotes Vavilov emphasizing the centrality of reasons in demonstrating reasonableness, showing supportive treatment as authoritative guidance.\"},{\"example_id\":\"mason-argument-citation-007\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A reviewing court should also avoid engaging in \\\"disguised correctness review\\\", or correctness in the guise of reasonableness (para. 294, per Abella and Karakatsanis JJ., concurring in the result; see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, [2016] 1 S.C.R. 770, at para. 27, citing D. Mullan, \\\"Unresolved Issues on Standard of Review in Canadian Judicial Review of Administrative Action \u2014 The Top Fifteen!\\\")\",\"phrase_start\":1392,\"phrase_end\":1477,\"confidence\":0.9,\"rationale\":\"The text cites Wilson v. Atomic Energy of Canada Ltd. to support the principle that courts should avoid disguised correctness review, indicating supportive treatment as a precedent on review standards.\"},{\"example_id\":\"mason-argument-citation-008\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Because \\\"[t]he role of courts in these circumstances is to review\\\", they should, as a general rule, \\\"refrain from deciding the issue themselves\\\" (Vavilov, at para. 83 (emphasis in original))\",\"phrase_start\":1793,\"phrase_end\":1837,\"confidence\":0.95,\"rationale\":\"The text quotes Vavilov to emphasize judicial restraint and deference in reasonableness review, showing supportive treatment as authoritative.\"},{\"example_id\":\"mason-argument-citation-009\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A reviewing court should not create its \\\"own yardstick and then use [it] to measure what the administrator did\\\" (para. 83, and Canada Post, at para. 40)\",\"phrase_start\":1974,\"phrase_end\":1991,\"confidence\":0.95,\"rationale\":\"The text cites Canada Post at para. 40 to support the principle that courts should not impose their own standards, indicating supportive treatment as precedent.\"},{\"example_id\":\"mason-argument-citation-010\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Nor should a reviewing court ask \\\"what decision it would have made in place of that of the administrative decision maker, attempt to ascertain the 'range' of possible conclusions that would have been open to the decision maker, conduct a de novo analysis or seek to determine the 'correct' solution to the problem\\\" (Vavilov, at para. 83; see also Canada Post, at para. 40)\",\"phrase_start\":2005,\"phrase_end\":2054,\"confidence\":0.95,\"rationale\":\"The text cites Vavilov and Canada Post to caution against de novo review or substituting court's decision, showing supportive treatment as key authority.\"},{\"example_id\":\"mason-argument-citation-011\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Rather, a \\\"reviewing court must consider only whether the decision made by the administrative decision maker \u2014 including both the rationale for the decision and the outcome to which it led \u2014 was unreasonable\\\" (Vavilov, at para. 83)\",\"phrase_start\":2413,\"phrase_end\":2433,\"confidence\":0.95,\"rationale\":\"The text quotes Vavilov to define the scope of reasonableness review, indicating supportive treatment as foundational authority.\"},{\"example_id\":\"mason-argument-citation-012\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Rather, a \\\"reviewing court must consider only whether the decision made by the administrative decision maker \u2014 including both the rationale for the decision and the outcome to which it led \u2014 was unreasonable\\\" (Vavilov, at para. 83)\",\"phrase_start\":22451,\"phrase_end\":2468,\"confidence\":0.95,\"rationale\":\"The text cites Canada Post at para. 40 to reinforce the principle of deference and limited scope of review, showing supportive treatment as precedent.\"},{\"example_id\":\"mason-argument-citation-013\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Rather, a \\\"reviewing court must consider only whether the decision made by the administrative decision maker \u2014 including both the rationale for the decision and the outcome to which it led \u2014 was unreasonable\\\" (Vavilov, at para. 83)\",\"phrase_start\":2680,\"phrase_end\":2702,\"confidence\":0.95,\"rationale\":\"The text repeats the Vavilov principle on the scope of reasonableness review, indicating consistent supportive treatment.\"},{\"example_id\":\"mason-argument-citation-014\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov cautioned that the \\\"reasons first\\\" approach is \\\"not a 'rubber-stamping' process or a means of sheltering administrative decision makers from accountability\\\"\",\"phrase_start\":14,\"phrase_end\":74,\"confidence\":0.9,\"rationale\":\"The text highlights Vavilov's caution that reasonableness review is robust and not mere rubber-stamping, showing supportive treatment emphasizing accountability.\"},{\"example_id\":\"mason-argument-citation-015\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov identified two types of \\\"fundamental flaws\\\" indicating that an administrative decision is unreasonable: (1) a failure of rationality internal to the reasoning process; or (2) a failure of justification given the legal and factual constraints bearing on the decision\",\"phrase_start\":445,\"phrase_end\":452,\"confidence\":0.9,\"rationale\":\"The text cites Vavilov to identify key indicators of unreasonableness, showing supportive treatment as authoritative on review criteria.\"},{\"example_id\":\"mason-argument-citation-016\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A failure of justification in light of the legal and factual constraints bearing on the decision arises if the decision is not \\\"justified in relation to the constellation of law and facts that are relevant to the decision\\\"\",\"phrase_start\":1443,\"phrase_end\":1680,\"confidence\":0.95,\"rationale\":\"The text quotes Vavilov describing justification failures as a ground for unreasonableness, indicating supportive treatment as doctrinal guidance.\"},{\"example_id\":\"mason-argument-citation-017\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A failure of justification in light of the legal and factual constraints bearing on the decision arises if the decision is not \\\"justified in relation to the constellation of law and facts that are relevant to the decision\\\"\",\"phrase_start\":1673,\"phrase_end\":1695,\"confidence\":0.95,\"rationale\":\"The text repeats Vavilov's explanation of justification failures, showing consistent supportive treatment.\"},{\"example_id\":\"mason-argument-citation-018\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Whether an interpretation of the governing statutory scheme is justified will \\\"depend on the context, including the language chosen by the legislature in describing the limits and contours of the decision maker's authority\\\"\",\"phrase_start\":1592,\"phrase_end\":1685,\"confidence\":0.9,\"rationale\":\"The text cites Northern Regional Health Authority v. Horrocks to explain that statutory interpretation depends on context and language, showing supportive treatment as relevant authority.\"},{\"example_id\":\"mason-argument-citation-019\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In interpreting a statute, an administrative decision maker may draw on its institutional expertise and experience and rely on considerations that a court would not have thought to employ, but which \\\"enrich and elevate the interpretive exercise\\\" (paras. 93 and 119; Canada Post, at para. 43)\",\"phrase_start\":2690,\"phrase_end\":2707,\"confidence\":0.9,\"rationale\":\"The text cites Canada Post at para. 43 to support the role of administrative expertise in statutory interpretation, indicating supportive treatment.\"},{\"example_id\":\"mason-argument-citation-020\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In interpreting a statute, an administrative decision maker may draw on its institutional expertise and experience and rely on considerations that a court would not have thought to employ, but which \\\"enrich and elevate the interpretive exercise\\\" (paras. 93 and 119; Canada Post, at para. 43)\",\"phrase_start\":3067,\"phrase_end\":3074,\"confidence\":0.9,\"rationale\":\"The text repeats the citation to Vavilov on administrative expertise enriching interpretation, showing supportive treatment.\"},{\"example_id\":\"mason-argument-citation-021\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer (Vavilov, at para. 108)\",\"phrase_start\":3294,\"phrase_end\":3317,\"confidence\":0.9,\"rationale\":\"The text cites Vavilov at para. 108 to support the recognition of administrative expertise, indicating supportive treatment.\"},{\"example_id\":\"mason-argument-citation-022\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer (Vavilov, at para. 108)\",\"phrase_start\":3564,\"phrase_end\":3571,\"confidence\":0.9,\"rationale\":\"The text repeats the citation to Vavilov at para. 108, showing consistent supportive treatment.\"},{\"example_id\":\"mason-argument-citation-023\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Finally, a court may conclude during a reasonableness review that \\\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\\" (Vavilov, at para. 124)\",\"phrase_start\":233,\"phrase_end\":254,\"confidence\":0.85,\"rationale\":\"The text cites Vavilov at para. 124 to explain when a single reasonable interpretation may be found, showing supportive treatment as doctrinal guidance.\"},{\"example_id\":\"mason-argument-citation-024\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Finally, a court may conclude during a reasonableness review that \\\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\\" (Vavilov, at para. 124, citing Dunsmuir, at paras. 72\\u00016)\",\"phrase_start\":263,\"phrase_end\":285,\"confidence\":0.85,\"rationale\":\"The text cites Dunsmuir and Vavilov to support the principle of a single reasonable interpretation, indicating supportive treatment.\"},{\"example_id\":\"mason-argument-citation-025\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Finally, a court may conclude during a reasonableness review that \\\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\\" (Vavilov, at para. 124, citing Dunsmuir, at paras. 72\\u00016, and Nova Tube Inc./Nova Steel Inc. v. Conares Metal Supply Ltd., 2019 FCA 52)\",\"phrase_start\":294,\"phrase_end\":298,\"confidence\":0.85,\"rationale\":\"The text cites Nova Steel along with Vavilov and Dunsmuir to support the principle of a single reasonable interpretation, showing supportive treatment.\"},{\"example_id\":\"mason-argument-citation-026\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Finally, a court may conclude during a reasonableness review that \\\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\\" (Vavilov, at para. 124, citing Dunsmuir, at paras. 72\\u00016, and Nova Tube Inc./Nova Steel Inc. v. Conares Metal Supply Ltd., 2019 FCA 52)\",\"phrase_start\":309,\"phrase_end\":366,\"confidence\":0.85,\"rationale\":\"The text repeats the citation to Nova Steel with Vavilov and Dunsmuir, showing supportive treatment as part of the legal framework.\"},{\"example_id\":\"mason-argument-citation-027\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Finally, a court may conclude during a reasonableness review that \\\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\\" (Vavilov, at para. 124, citing Dunsmuir, at paras. 72\\u00016, and Nova Tube Inc./Nova Steel Inc. v. Conares Metal Supply Ltd., 2019 FCA 52)\",\"phrase_start\":625,\"phrase_end\":648,\"confidence\":0.85,\"rationale\":\"The text again cites Vavilov at para. 124 with Dunsmuir and Nova Steel, indicating supportive treatment on the issue of single reasonable interpretation.\"},{\"example_id\":\"mason-argument-citation-028\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Statutory law, common law, and international law may operate as legal constraints on an administrative decision maker (paras. 111 and 114). An administrative decision will be unreasonable if it fails to justify a departure from binding precedents (para. 112). International law can also operate as an important constraint, arising from the presumption that legislation is presumed to operate in conformity with Canada\\u0019s international obligations and the values and principles of customary and conventional international law, or by informing whether a decision was a reasonable exercise of administrative authority (para. 114).\",\"phrase_start\":1676,\"phrase_end\":1685,\"confidence\":0.9,\"rationale\":\"The text cites Northern Regional Health Authority v. Horrocks to explain legal constraints including international law, showing supportive treatment as relevant authority.\"},{\"example_id\":\"mason-argument-citation-029\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A decision will be unreasonable if the reasons fail to meet the \\\"justificatory burden\\\" for departing from \\\"longstanding practices or established internal authority\\\" (para. 131).\",\"phrase_start\":1592,\"phrase_end\":1601,\"confidence\":0.9,\"rationale\":\"The text cites Northern Regional Health Authority v. Horrocks to support the principle that reasons must justify departures from established authority, indicating supportive treatment.\"},{\"example_id\":\"mason-argument-citation-030\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov also explained that \\\"[w]here the impact of a decision on an individual's rights and interests is severe, the reasons provided to that individual must reflect the stakes\\\" (para. 133). The principle of \\\"responsive justification\\\" means that if a decision has \\\"particularly harsh consequences for the affected individual\\\", then \\\"the decision maker must explain why its decision best reflects the legislature's intention\\\" (para. 133). An administrative decision may be unreasonable if it fails to grapple with particularly severe or harsh consequences for the affected individual (para. 134). An administrative decision maker's reasons must \\\"demonstrate that they have considered the consequences of a decision and that those consequences are justified in light of the facts and law\\\" (para. 135).\",\"phrase_start\":1688,\"phrase_end\":1695,\"confidence\":0.9,\"rationale\":\"The text quotes Vavilov on the principle of responsive justification for decisions with severe impact, showing supportive treatment as authoritative on reasonableness criteria.\"}],\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Court\",\"start\":55,\"end\":60},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to provide extensive guidance on conducting reasonableness review of administrative decisions\",\"start\":476,\"end\":527},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the main elements of reasonableness review can be summarized as follows, including the purpose, methodology, and indicators of unreasonableness\",\"start\":476,\"end\":963},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"whether the administrative decisions under review were reasonable\",\"start\":55,\"end\":100},\"court_response\":{\"status\":\"stated\",\"text\":\"The Court recaps and applies Vavilov's guidance extensively, emphasizing the purpose of reasonableness review, the reasons-first approach, the distinction from correctness review, and the indicators of unreasonableness\",\"start\":55,\"end\":1695},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}"
+    }
+  ]
+}

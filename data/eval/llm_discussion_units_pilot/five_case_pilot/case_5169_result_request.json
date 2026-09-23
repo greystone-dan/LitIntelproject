@@ -1,0 +1,60 @@
+{
+  "request": {
+    "model": "gpt-4.1-nano",
+    "budget_usd": 1.0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "You identify plain-language Discussion Units in a legal decision. Use only the supplied numbered paragraphs. Group contiguous paragraphs that perform one coherent task, such as procedural history, facts, party submissions, legal test, analysis/application, or disposition. Do not invent facts or citations. Return JSON with a units array. Each unit must contain start_paragraph, end_paragraph, label, explanation, transition_from_previous, and confidence. Use paragraph indices exactly as supplied; never output an index not present in the supplied list, and cover the supplied window from its first index through its last index exactly once. Keep explanations short and readable for a legal researcher."
+      },
+      {
+        "role": "user",
+        "content": "{\"case_id\": 5169, \"contract_version\": \"discussion_units_llm_v1\", \"deterministic_baseline\": {\"discussion_unit_count\": 3, \"units\": [{\"end_paragraph\": 3, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 0}, {\"end_paragraph\": 11, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 4}, {\"end_paragraph\": 12, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 12}]}, \"paragraph_window\": {\"first_allowed\": 1, \"last_allowed\": 9}, \"paragraphs\": [{\"citation_ids\": [], \"container_paragraph_index\": 1, \"is_heading\": false, \"paragraph_index\": 1, \"source_paragraph_index\": 1, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[1] The applicants seek judicial review of the refusal of Jeffrey Watzke\\u2019s application for a permanent resident visa as a member of the family class, sponsored by Genoveva Watzke. An officer with Immigration, Refugees and Citizenship Canada refused the application after raising concerns about whether Ms. Watzke was Mr. Watzke\\u2019s biological mother, and requesting a DNA test to confirm their biological relationship.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 2, \"is_heading\": false, \"paragraph_index\": 2, \"source_paragraph_index\": 2, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[2] I conclude this application must be dismissed because it has been brought before the applicants have exhausted the rights of appeal they have under the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]. In particular, the applicants are currently pursuing an appeal of the refusal decision before the Immigration Appeal Board [IAD] of the Immigration and Refugee Board of Canada. While that appeal remains outstanding, the applicants have not exhausted their rights of appeal under the IRPA. This application is therefore precluded. Should the IAD dismiss the applicants\\u2019 appeal, the applicants will then be in a position to seek leave to commence an application for judicial review of that decision with this Court.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 3, \"is_heading\": false, \"paragraph_index\": 3, \"source_paragraph_index\": 3, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[3] This application for judicial review is therefore dismissed.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 4, \"is_heading\": false, \"paragraph_index\": 4, \"source_paragraph_index\": 4, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[4] Applications for judicial review of any decision made under the IRPA are subject to specific provisions governing when and how they may be brought: IRPA, ss 72\\u201375. Importantly for this application, paragraph 72(2)(a) of the IRPA provides that an application for leave and judicial review \\u201cmay not be made until any right of appeal that may be provided by this Act is exhausted.\\u201d\"}, {\"citation_ids\": [], \"container_paragraph_index\": 5, \"is_heading\": false, \"paragraph_index\": 5, \"source_paragraph_index\": 5, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[5] In the case of an application to sponsor a foreign national as a member of the family class, subsection 63(1) of the IRPA provides for an appeal to the IAD from a refusal to issue a permanent resident visa. The applicants have appropriately taken advantage of this right of appeal by filing an appeal with the IAD of the refusal of their application. The Minister does not contest the IAD\\u2019s jurisdiction to hear that appeal. As the Minister noted at the hearing of this matter\\u2014which was conducted on the issue of the application of paragraph 72(2)(a) alone as a preliminary matter\\u2014the IAD will hear the applicants\\u2019 appeal as a de novo hearing, at which there will be an opportunity to present evidence and argument: Gazi v Canada (Citizenship and Immigration), 2017 FC 993 at paras 21\\u201323; IRPA, s 67(2); Immigration Appeal Division Rules, SOR/2002-230.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 6, \"is_heading\": false, \"paragraph_index\": 6, \"source_paragraph_index\": 6, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[6] The jurisprudence of this Court and the Federal Court of Appeal has confirmed that the availability of an appeal to the IAD under subsection 63(1) of the refusal of a family class sponsorship precludes judicial review to this Court until that appeal has been determined. I agree with the Minister that the statement of Justice Boivin, then of this Court, in Landaeta v Canada (Citizenship and Immigration), 2012 FC 219 applies equally to this case:\\nThe Court would add that the jurisprudence cited by the applicant does not cast doubt on the principles enunciated in Somodi [v Canada (Minister of Citizenship and Immigration), 2009 FCA 288]: paragraph 72(2)(a) precludes an application for judicial review in the family class context until the foreign national\\u2019s sponsor has exhausted his or her right of appeal to the IAD under section 63 of the Act. It is worthy of note that the record before the Court demonstrates that Mr. Landaeta has indeed filed an appeal to the IAD. Paragraph 72(2)(a) therefore precludes an application before this Court until the right of appeal has been exhausted.\\n[Emphasis added; Landaeta at para 28.]\"}, {\"citation_ids\": [], \"container_paragraph_index\": 7, \"is_heading\": false, \"paragraph_index\": 7, \"source_paragraph_index\": 7, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[7] In submissions made on the applicants\\u2019 behalf, Ms. Watzke noted that the applicants could not determine whether the Federal Court or the IAD was in a better position to provide them the remedy they sought, and that they were concerned that abandoning this application for judicial review might prejudice their interests. While I can understand the applicants\\u2019 wish to ensure that every possible avenue is followed to pursue their sponsorship application, Parliament has established a clear path for the determination of such issues. An appeal to the IAD must be pursued and determined where it is available before leave is sought to judicially review the IAD\\u2019s decision in this Court. The applicants\\u2019 concerns about prejudice are answered by the availability of an application to this Court if their appeal to the IAD is unsuccessful.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 8, \"is_heading\": false, \"paragraph_index\": 8, \"source_paragraph_index\": 8, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[8] I also understand the applicants\\u2019 impression that they had the right to pursue an application in this Court since leave was granted to commence their application for judicial review. However, in my view the granting of leave pursuant to paragraph 72(2)(d) cannot override the prohibition on bringing an application set out in paragraph 72(2)(a) or grant the Federal Court a jurisdiction that is foreclosed by that paragraph. Were it otherwise, applicants might be inclined to file an application for leave before exhausting their appeal remedies in hopes that leave might be granted. This would be contrary to the scheme established by Parliament and the efficient administration of the IRPA. I note that in Landaeta, leave had also been granted, but this did not affect Justice Boivin\\u2019s conclusion that the matter had to be dismissed as a result of the application of paragraph 72(2)(a).\\nIII. Conclusion\"}, {\"citation_ids\": [], \"container_paragraph_index\": 9, \"is_heading\": false, \"paragraph_index\": 9, \"source_paragraph_index\": 9, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[9] The application for judicial review is therefore dismissed as being prematurely brought in light of the applicants\\u2019 right of appeal to the IAD and by operation of subsection 63(1) and paragraph 72(2)(a) of the IRPA. There is no question for certification.\\nJUDGMENT IN IMM-1770-21\\nTHIS COURT\\u2019S JUDGMENT is that\\nThe application for judicial review is dismissed.\\n\\u201cNicholas McHaffie\\u201d\\nJudge\\nFEDERAL COURT\"}], \"request_id\": \"discussion-units-case-5169\"}"
+      }
+    ]
+  },
+  "response": {
+    "status": "complete",
+    "network_called": true,
+    "created_at": "2026-09-23T14:45:00.488117+00:00",
+    "model": "gpt-4.1-nano",
+    "case_id": 5169,
+    "source_report": "data\\eval\\llm_discussion_units_pilot\\five_case_pilot\\case_5169_deterministic.json",
+    "usage": {
+      "prompt_tokens": 2025,
+      "completion_tokens": 292,
+      "estimated_cost_usd": 0.0003193
+    },
+    "result": {
+      "units": [
+        {
+          "unit_number": 1,
+          "start_paragraph": 1,
+          "end_paragraph": 3,
+          "label": "Procedural History",
+          "explanation": "Describes the background of the case, including the application for a visa, the refusal, and the judicial review process.",
+          "transition_from_previous": "start",
+          "confidence": 0.95
+        },
+        {
+          "unit_number": 2,
+          "start_paragraph": 4,
+          "end_paragraph": 6,
+          "label": "Legal Framework and Jurisdiction",
+          "explanation": "Explains the statutory provisions governing judicial review and the requirement to exhaust appeal rights under IRPA, and discusses the jurisdiction of the IAD.",
+          "transition_from_previous": "Following the procedural overview, the court discusses the applicable legal rules and jurisdictional considerations.",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 3,
+          "start_paragraph": 7,
+          "end_paragraph": 9,
+          "label": "Analysis and Disposition",
+          "explanation": "Analyzes the applicants' arguments, applies the legal principles, and concludes that the application is premature due to pending appeal rights, leading to dismissal.",
+          "transition_from_previous": "Building on the legal framework, the court applies it to the facts and arguments, resulting in the final decision.",
+          "confidence": 0.9
+        }
+      ]
+    }
+  }
+}

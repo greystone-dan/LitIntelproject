@@ -1,0 +1,188 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-23T15:53:45.159670+00:00",
+  "model": "gpt-4.1-nano",
+  "budget_usd": 1.0,
+  "spent_usd": 0.0026121,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 12,
+      "usage": {
+        "prompt_tokens": 19521,
+        "completion_tokens": 1650,
+        "estimated_cost_usd": 0.0035307000000000003,
+        "cost_usd": 0.0026121
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 8,
+        "invalid_labels": [
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 5: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 6: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 7: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 8: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 9: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 10: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-001",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions (paras. 73-142).",
+          "phrase_start": 476,
+          "phrase_end": 592,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The excerpt explicitly states that Vavilov provided extensive guidance on reasonableness review, indicating a supportive treatment of the citation.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-004",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \u201cmethodologically distinct\u201d from correctness review (para. 12).",
+          "phrase_start": 1818,
+          "phrase_end": 1982,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The excerpt states that Vavilov distinguished reasonableness review from correctness review, indicating a supportive treatment of the citation.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-005",
+          "citation_ordinal": 0,
+          "citation_text": "Post, at para. 29",
+          "treatment": "supportive",
+          "phrase": "Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \u201cmethodologically distinct\u201d from correctness review (para. 12).",
+          "phrase_start": 1818,
+          "phrase_end": 1982,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The excerpt explicitly states that Vavilov distinguished reasonableness review from correctness review, supporting a supportive treatment.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-001\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions (paras. 73-142).\",\n      \"phrase_start\": 56,\n      \"phrase_end\": 102,\n      \"confidence\": 0.95,\n      \"rationale\": \"The excerpt explicitly states that Vavilov provided extensive guidance on reasonableness review, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-002\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov explained that the purpose of reasonableness review is to give effect to the legislature\u2019s intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law (para. 82).\",\n      \"phrase_start\": 57,\n      \"phrase_end\": 157,\n      \"confidence\": 0.95,\n      \"rationale\": \"The excerpt discusses Vavilov's explanation of the purpose of reasonableness review, supporting the citation's treatment as authoritative guidance.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-003\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov explained that the purpose of reasonableness review is to give effect to the legislature\u2019s intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law (para. 82).\",\n      \"phrase_start\": 57,\n      \"phrase_end\": 157,\n      \"confidence\": 0.95,\n      \"rationale\": \"The excerpt emphasizes Vavilov's articulation of the purpose of reasonableness review, supporting its treatment as authoritative guidance.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-004\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \u201cmethodologically distinct\u201d from correctness review (para. 12).\",\n      \"phrase_start\": 58,\n      \"phrase_end\": 124,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt states that Vavilov distinguished reasonableness review from correctness review, indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-005\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \u201cmethodologically distinct\u201d from correctness review (para. 12).\",\n      \"phrase_start\": 58,\n      \"phrase_end\": 124,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt explicitly states that Vavilov distinguished reasonableness review from correctness review, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-006\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov emphasized that, when reasons are required, they are the primary mechanism by which administrative decision makers show that their decisions are reasonable (para. 81).\",\n      \"phrase_start\": 59,\n      \"phrase_end\": 124,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt states that Vavilov emphasized the importance of reasons as the primary mechanism for demonstrating reasonableness, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-007\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The Court explained that \u201cwhat distinguishes reasonableness review from correctness review is that the court conducting a reasonableness review must focus on the decision the administrative decision maker actually made, including the justification offered for it, and not on the conclusion the court itself would have reached in the administrative decision maker\u2019s place\u201d (para. 15).\",\n      \"phrase_start\": 62,\n      \"phrase_end\": 211,\n      \"confidence\": 0.95,\n      \"rationale\": \"The excerpt explicitly states the Court's explanation of the distinction, supporting a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-008\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"A reviewing court should also avoid engaging in \u201cdisguised correctness review\u201d, or correctness in the guise of reasonableness (para. 294, per Abella and Karakatsanis JJ., concurring in the result; see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, at para. 27).\",\n      \"phrase_start\": 62,\n      \"phrase_end\": 211,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt states that the court should avoid disguised correctness review, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-009\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"A reviewing court should also avoid engaging in \u201cdisguised correctness review\u201d, or correctness in the guise of reasonableness (para. 294, per Abella and Karakatsanis JJ., concurring in the result; see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, at para. 27).\",\n      \"phrase_start\": 62,\n      \"phrase_end\": 211,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt explicitly states the court should avoid disguised correctness review, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-010\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"A reviewing court should also avoid engaging in \u201cdisguised correctness review\u201d, or correctness in the guise of reasonableness (para. 294, per Abella and Karakatsanis JJ., concurring in the result; see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, at para. 27).\",\n      \"phrase_start\": 62,\n      \"phrase_end\": 211,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt states that courts should avoid disguised correctness review, supporting a supportive treatment.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-011\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"A reviewing court should also avoid engaging in \u201cdisguised correctness review\u201d, or correctness in the guise of reasonableness (para. 294, per Abella and Karakatsanis JJ., concurring in the result; see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, at para. 27).\",\n      \"phrase_start\": 62,\n      \"phrase_end\": 211,\n      \"confidence\": 0.9,\n      \"rationale\": \"The excerpt explicitly states the court should avoid disguised correctness review, supporting a supportive treatment.\"\n    }\n  ]\n}"
+    }
+  ]
+}

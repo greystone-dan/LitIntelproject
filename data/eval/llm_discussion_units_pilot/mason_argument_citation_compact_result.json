@@ -1,0 +1,1296 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-23T16:21:35.278554+00:00",
+  "model": "gpt-4.1-mini",
+  "budget_usd": 3.0,
+  "spent_usd": 0.0315425,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4028,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0008837999999999999,
+        "cost_usd": 0.0008828
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Invalid \\uXXXX escape: line 1 column 3297 (char 3296)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-001\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653\",\"phrase_start\":10,\"phrase_end\":78,\"confidence\":0.9,\"rationale\":\"The text states that the Court is applying the framework developed in Vavilov, indicating use of the case as a legal framework without explicit evaluative language supporting or criticizing it.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the Court\",\"start\":10,\"end\":15},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653\",\"start\":10,\"end\":78},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-002\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1.0,\"rationale\":\"The citation is mentioned as a temporal marker for when the Federal Court released its reasons, but no treatment language about the authority is present in the text.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-003\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In Vavilov, this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law (paras. 10 and 17). The revised framework seeks to maintain the rule of law, while respecting a legislature\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a\\u000a"
+    },
+    {
+      "batch_number": 2,
+      "example_start": 3,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4456,
+        "completion_tokens": 1154,
+        "estimated_cost_usd": 0.0009522999999999999,
+        "cost_usd": 0.0009072
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 0: actor span mismatch",
+          "label 1: actor span mismatch"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-006",
+          "citation_ordinal": 0,
+          "citation_text": "(Vavilov, at paras. 7 and 10)",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.95,
+          "rationale": "The citation is part of the parenthetical citation referencing Vavilov at paras. 7 and 10 but no treatment language is present in the text for this specific citation.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-004\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law\",\n      \"phrase_start\": 37,\n      \"phrase_end\": 178,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explains that the Court in Vavilov revised the standard of review framework and established a presumption of reasonableness review, indicating a supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 42,\n          \"end\": 51\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"revised the framework for determining the standard of review\",\n          \"start\": 52,\n          \"end\": 98\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness\",\n          \"start\": 99,\n          \"end\": 178\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-005\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"neutral\",\n      \"phrase\": \"following Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S.C.R. 190\",\n      \"phrase_start\": 1407,\n      \"phrase_end\": 1462,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to identify the prior jurisprudence that Vavilov revised, without explicit positive or negative commentary on Dunsmuir itself, indicating a neutral treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 1400,\n          \"end\": 1409\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"had been required by this Court's jurisprudence following Dunsmuir v. New Brunswick\",\n          \"start\": 1380,\n          \"end\": 1462\n        },\n        \"argument_supported\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-006\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.95,\n      \"rationale\": \"The citation is part of the parenthetical citation referencing Vavilov at paras. 7 and 10 but no treatment language is present in the text for this specific citation.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"reason_raised\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_supported\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    }\n  ]\n}"
+    },
+    {
+      "batch_number": 3,
+      "example_start": 6,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4763,
+        "completion_tokens": 830,
+        "estimated_cost_usd": 0.00098,
+        "cost_usd": 0.0008083000000000001
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 0: actor span mismatch",
+          "label 1: actor span mismatch"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-009",
+          "citation_ordinal": 0,
+          "citation_text": "2018 CanLII 57522",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is present only as a case name reference in a heading without any treatment language in the text.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-007\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In Vavilov, this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law\",\"phrase_start\":20,\"phrase_end\":196,\"confidence\":0.95,\"rationale\":\"The text explains how the Court in Vavilov revised the standard of review framework and established a presumption of reasonableness review, indicating a supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"this Court\",\"start\":24,\"end\":33},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to determine the standard of review\",\"start\":44,\"end\":75},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the standard of review of the merits of an administrative decision is reasonableness\",\"start\":123,\"end\":188},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the standard of review of the administrative decisions at issue is reasonableness\",\"start\":1023,\"end\":1073},\"court_response\":{\"status\":\"stated\",\"text\":\"I conclude that the standard of review of the administrative decisions at issue is reasonableness\",\"start\":1015,\"end\":1073},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the standard of review of the administrative decisions at issue is reasonableness\",\"start\":1023,\"end\":1073}}} ,{\"example_id\":\"mason-argument-citation-008\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Applying the Vavilov framework to these appeals, I conclude that the standard of review of the administrative decisions at issue is reasonableness\",\"phrase_start\":2113,\"phrase_end\":2183,\"confidence\":0.95,\"rationale\":\"The Court explicitly applies the Vavilov framework and concludes the standard of review is reasonableness, showing supportive treatment.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"I\",\"start\":2113,\"end\":2114},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to apply the Vavilov framework to these appeals\",\"start\":2113,\"end\":2148},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the standard of review of the administrative decisions at issue is reasonableness\",\"start\":2149,\"end\":2183},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the standard of review of the administrative decisions at issue is reasonableness\",\"start\":2149,\"end\":2183},\"court_response\":{\"status\":\"stated\",\"text\":\"I conclude that the standard of review of the administrative decisions at issue is reasonableness\",\"start\":2113,\"end\":2183},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the standard of review of the administrative decisions at issue is reasonableness\",\"start\":2149,\"end\":2183}}} ,{\"example_id\":\"mason-argument-citation-009\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":0.9,\"rationale\":\"The citation is present only as a case name reference in a heading without any treatment language in the text.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 4,
+      "example_start": 9,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4828,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009414,
+        "cost_usd": 0.0009628
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 117 column 19 (char 4474)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-010\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"neutral\",\n      \"phrase\": \"The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.\",\n      \"phrase_start\": 1903,\n      \"phrase_end\": 1973,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text states the IAD's conclusion about the interpretation of s. 34(1)(e) without explicitly endorsing or rejecting it, indicating a neutral description of the authority's position.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"The IAD\",\n          \"start\": 1897,\n          \"end\": 1900\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"appealed the ID's decision in Mr. Mason's case to the IAD, which allowed the Minister's appeal, set aside the ID's decision, and referred the matter back for a full hearing on the merits\",\n          \"start\": 1847,\n          \"end\": 1897\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada\",\n          \"start\": 1903,\n          \"end\": 1973\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"whether Mr. Mason's alleged conduct, if proven, could be a ground of inadmissibility under s. 34(1)(e)\",\n          \"start\": 1787,\n          \"end\": 1837\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-011\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the ID saw no basis to depart from the IAD's interpretation of s. 34(1)(e) in Mr. Mason's case, and therefore affirmed that s. 34(1)(e) does not require a link to national security or the security of Canada\",\n      \"phrase_start\": 2179,\n      \"phrase_end\": 2253,\n      \"confidence\": 0.98,\n      \"rationale\": \"The text explicitly states that the ID affirmed the IAD's interpretation, indicating supportive treatment of the cited authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"the ID\",\n          \"start\": 2184,\n          \"end\": 2187\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"In Mr. Dleiow's case\",\n          \"start\": 2179,\n          \"end\": 2195\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"s. 34(1)(e) does not require a link to national security or the security of Canada\",\n          \"start\": 2227,\n          \"end\": 2253\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"the IAD's interpretation of s. 34(1)(e) in Mr. Mason's case\",\n          \"start\": 2203,\n          \"end\": 2243\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"affirmed that s. 34(1)(e) does not require a link to national security or the security of Canada\",\n          \"start\": 2227,\n          \"end\": 2253\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"the ID ruled that Mr. Dleiow was inadmissible and issued a deportation order\",\n          \"start\": 2290,\n          \"end\": 2343\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-012\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"negative\",\n      \"phrase\": \"The court held that the IAD's interpretation of s. 34(1) (e) of the IRPA was unreasonable because it disregarded the structure of the Act and rendered meaningless statutory provisions for inadmissibility based on criminality.\",\n      \"phrase_start\": 2120,\n      \"phrase_end\": 2190,\n      \"confidence\": 0.99,\n      \"rationale\": \"The Federal Court explicitly rejected the IAD's interpretation as unreasonable, indicating negative treatment of the cited authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"The Federal Court\",\n          \"start\": 2115,\n          \"end\": 2127\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"granted Mr. Mason's application for judicial review of the IAD's"
+    },
+    {
+      "batch_number": 5,
+      "example_start": 12,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4553,
+        "completion_tokens": 696,
+        "estimated_cost_usd": 0.0009464,
+        "cost_usd": 0.0007337
+      },
+      "validation": {
+        "valid_label_count": 2,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-013",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "whose reasons were released before this Court released Vavilov",
+          "phrase_start": 1235,
+          "phrase_end": 1297,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The text references the timing of the Federal Court's reasons relative to Vavilov but does not explicitly treat or evaluate Vavilov's authority or reasoning.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-014",
+          "citation_ordinal": 0,
+          "citation_text": "2020 FC 59",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1.0,
+          "rationale": "The citation 2020 FC 59 is present as a case name but the text does not contain any treatment language regarding this authority.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-013\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"whose reasons were released before this Court released Vavilov\",\"phrase_start\":1290,\"phrase_end\":1333,\"confidence\":0.9,\"rationale\":\"The text references the timing of the Federal Court's reasons relative to Vavilov but does not explicitly treat or evaluate Vavilov's authority or reasoning.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-014\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1.0,\"rationale\":\"The citation 2020 FC 59 is present as a case name but the text does not contain any treatment language regarding this authority.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-015\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"The court applied the Federal Court\\u00039s reasoning in Mr. Mason\\u00039s case for reasons of comity\",\"phrase_start\":1032,\"phrase_end\":1090,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the Federal Court applied the reasoning from the earlier Federal Court decision (Mr. Mason's case) for reasons of comity, indicating supportive treatment of that authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Federal Court\",\"start\":1032,\"end\":1044},\"reason_raised\":{\"status\":\"stated\",\"text\":\"for reasons of comity\",\"start\":1073,\"end\":1090},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the Federal Court\\u00039s reasoning in Mr. Mason\\u00039s case\",\"start\":1044,\"end\":1073},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"set aside the ID\\u00039s decision and ordered the matter be reconsidered on the merits by a different decision maker\",\"start\":1091,\"end\":1173},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 6,
+      "example_start": 15,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4237,
+        "completion_tokens": 866,
+        "estimated_cost_usd": 0.0009117999999999999,
+        "cost_usd": 0.0007701000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: reason_raised span mismatch",
+          "label 1: actor span mismatch",
+          "label 2: reason_raised span mismatch"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-016\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"The court held that the administrative decisions reasonably interpreted s. 34(1)(e) as not requiring a nexus with national security or the security of Canada.\",\"phrase_start\":1024,\"phrase_end\":1119,\"confidence\":0.95,\"rationale\":\"The phrase explicitly states that the court found the administrative decisions reasonable in light of the interpretation, indicating supportive treatment of Vavilov as guiding reasonableness review.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Federal Court of Appeal\",\"start\":1000,\"end\":1025},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to decide the appeals after this Court had released Vavilov\",\"start\":1010,\"end\":1050},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the administrative decisions reasonably interpreted s. 34(1)(e) as not requiring a nexus with national security or the security of Canada\",\"start\":1024,\"end\":1119},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"whether s. 34(1)(e) requires a nexus with national security or the security of Canada\",\"start\":18749,\"end\":18795},\"court_response\":{\"status\":\"stated\",\"text\":\"The court held that the administrative decisions reasonably interpreted s. 34(1)(e) as not requiring a nexus with national security or the security of Canada.\",\"start\":1024,\"end\":1119},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the administrative decisions were reasonable in their interpretation\",\"start\":1024,\"end\":1119}}},{\"example_id\":\"mason-argument-citation-017\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"\u201cVavilov tells us much but it leaves some things unclear\u201d\",\"phrase_start\":931,\"phrase_end\":967,\"confidence\":0.9,\"rationale\":\"The phrase acknowledges Vavilov's guidance but notes some ambiguity, indicating a neutral treatment rather than fully supportive or negative.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Court of Appeal\",\"start\":900,\"end\":930},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to discuss how a court should conduct reasonableness review\",\"start\":930,\"end\":980},\"argument_supported\":{\"status\":\"stated\",\"text\":\"Vavilov provides guidance on reasonableness review but leaves some things unclear\",\"start\":931,\"end\":967},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"The court said that \u201cVavilov tells us much but it leaves some things unclear\u201d\",\"start\":931,\"end\":967},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-018\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions\",\"phrase_start\":731,\"phrase_end\":797,\"confidence\":0.95,\"rationale\":\"The phrase explicitly states that Vavilov offers extensive guidance on reasonableness review, indicating supportive treatment as a key authority on the standard of review.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Court\",\"start\":700,\"end\":730},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to recap Vavilov's guidance on conducting reasonableness review and comment on methodology\",\"start\":730,\"end\":800},\"argument_supported\":{\"status\":\"stated\",\"text\":\"Vavilov provides extensive guidance on conducting reasonableness review of administrative decisions\",\"start\":731,\"end\":797},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"Vavilov provided extensive guidance on conducting reasonableness review of administrative decisions\",\"start\":731,\"end\":797},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 7,
+      "example_start": 18,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4762,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009862999999999999,
+        "cost_usd": 0.0009561999999999999
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Invalid \\uXXXX escape: line 61 column 398 (char 4877)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-019\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov explained that the purpose of reasonableness review is \\u001cto give effect to the legislature\\u0019s intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law\\u001d (para. 82). Reasonableness review starts from a posture of judicial restraint and \\u001ca respect for the distinct role of administrative decision makers\\u001d (para. 13), arising from the legislature\\u0019s institutional design choice to give administrative decision makers rather than courts the jurisdiction to decide certain issues (para. 24). Reasonableness review also serves to \\u001cmaintain the rule of law\\u001d (para. 2) and \\u001cto safeguard the legality, rationality and fairness of the administrative process\\u001d (para. 13). Thus, the purpose of reasonableness review is to uphold \\u001cthe rule of law, while according deference to the statutory delegate\\u0019s decision\\u001d (Canada Post, at para. 29).\",\n      \"phrase_start\": 1027,\n      \"phrase_end\": 1179,\n      \"confidence\": 1.0,\n      \"rationale\": \"The text explicitly explains the purpose of reasonableness review as described in Vavilov, emphasizing judicial restraint, deference, and upholding the rule of law, which supports the legal authority.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-020\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Thus, the purpose of reasonableness review is to uphold \\u001cthe rule of law, while according deference to the statutory delegate\\u0019s decision\\u001d (Canada Post, at para. 29).\",\n      \"phrase_start\": 1762,\n      \"phrase_end\": 1780,\n      \"confidence\": 1.0,\n      \"rationale\": \"The phrase explicitly states the purpose of reasonableness review as upholding the rule of law while according deference, directly supporting the citation's authority.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-021\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov noted that, given the deference owed to an administrative decision, reasonableness review is \\u001cmethodologically distinct\\u001d from correctness review (para. 12). The Court explained that \\u001c[w]hat distinguishes reasonableness review from correctness review is that the court conducting a reasonableness review must focus on the decision the administrative decision maker actually made, including the justification offered for it, and not on the conclusion the court itself would have reached in the administrative decision maker\\u0019s place\\u001d (para. 15). Reasonableness review is thus concerned with both the administrator\\u0019s decision-making process and the outcome (paras. 83 and 87; see also Canada Post, at para. 29).\",\n      \"phrase_start\": 1347,\n      \"phrase_end\": 1447,\n      \"confidence\": 1.0,\n      \"rationale\": \"The text explains the methodological distinction of reasonableness review as described in Vavilov, focusing on the actual decision and justification, supporting the citation.\"\n    }\n  ],\n  \"treatment_context\": {\n    \"actor\": {\n      \"status\": \"stated\",\n      \"text\": \"Vavilov explained\",\n      \"start\": 1027,\n      \"end\": 1042\n    },\n    \"reason_raised\": {\n      \"status\": \"stated\",\n      \"text\": \"the purpose of reasonableness review is \\u001cto give effect to the legislature\\u0019s intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law\\u001d\",\n      \"start\": 1043,\n      \"end\": 1133\n    },\n    \"argument_supported\": {\n      \"status\": \"stated\",\n      \"text\": \"to uphold \\u001cthe rule of law, while according deference to the statutory delegate\\u0019s decision\\u001d\",\n      \"start\": 1150,\n      \"end\": 1179\n    },\n    \"argument_addressed\": {\n      \"status\": \"stated\",\n      \"text\": \"the purpose of reasonableness review is \\u001cto give effect to the legislature\\u0019s intent to leave certain decisions with an administrative body while fulfilling the constitutional role of judicial review to ensure that exercises of state power are subject to the rule of law\\u001d\",\n      \"start\": 1043,\n      \"end\": 1133\n    },\n    \"court_response\": {\n      \"status\": \"stated\",\n      \"text\": \"Reasonableness review starts from a posture of judicial restraint and \\u001ca respect for the distinct role of administrative decision makers\\u001d, arising from the legislature\\u0019s institutional design choice to give administrative decision makers rather than courts the jurisdiction to decide certain issues. Reasonableness review also serves to \\u001cmaintain the rule of law\\u00"
+    },
+    {
+      "batch_number": 8,
+      "example_start": 21,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5967,
+        "completion_tokens": 1069,
+        "estimated_cost_usd": 0.0010854,
+        "cost_usd": 0.0010243000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-022\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the purpose of reasonableness review is to uphold \\u001cthe rule of law, while according deference to the statutory delegate\\u001d (Canada Post, at para. 29)\",\"phrase_start\":437,\"phrase_end\":527,\"confidence\":0.95,\"rationale\":\"The text explicitly states the purpose of reasonableness review and cites Canada Post at para. 29 as supporting authority for that proposition, indicating a supportive treatment of the citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Vavilov\",\"start\":5,\"end\":12},\"reason_raised\":{\"status\":\"stated\",\"text\":\"the purpose of reasonableness review is to uphold the rule of law, while according deference to the statutory delegate\",\"start\":437,\"end\":527},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the purpose of reasonableness review\",\"start\":437,\"end\":527},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"the purpose of reasonableness review is to uphold the rule of law, while according deference to the statutory delegate\",\"start\":437,\"end\":527},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-023\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the reasons \\u001care the primary mechanism by which administrative decision makers show that their decisions are reasonable\\u001d (Vavilov, at para. 81)\",\"phrase_start\":1917,\"phrase_end\":1986,\"confidence\":0.95,\"rationale\":\"The text explicitly states that reasons are the primary mechanism to show decisions are reasonable and cites Vavilov at para. 81, indicating a supportive treatment of the citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"When an administrative decision maker is required by the legislative scheme or the duty of procedural fairness to provide reasons for its decision\",\"start\":1880,\"end\":1963},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to show that their decisions are reasonable\",\"start\":1923,\"end\":1986},\"argument_supported\":{\"status\":\"stated\",\"text\":\"reasons are the primary mechanism by which administrative decision makers show that their decisions are reasonable\",\"start\":1917,\"end\":1986},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"the reasons are the primary mechanism by which administrative decision makers show that their decisions are reasonable\",\"start\":1917,\"end\":1986},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-024\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, [2016] 1 S.C.R. 770, at para. 27, citing D. Mullan, \\u001cUnresolved Issues on Standard of Review in Canadian Judicial Review of Administrative Action \\u001d\\u001d (2013), 42 Adv. Q. 1, at pp. 76\\u001a81\",\"phrase_start\":2567,\"phrase_end\":2632,\"confidence\":0.9,\"rationale\":\"The text cites Wilson v. Atomic Energy of Canada Ltd. at para. 27 as authority supporting the proposition that courts should avoid disguised correctness review and refrain from deciding the issue themselves, indicating a supportive treatment.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":2450,\"end\":2465},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid engaging in \\u001cdisguised correctness review\\u001d, or correctness in the guise of reasonableness\",\"start\":2470,\"end\":2523},\"argument_supported\":{\"status\":\"stated\",\"text\":\"courts should refrain from deciding the issue themselves and avoid disguised correctness review\",\"start\":2470,\"end\":2632},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"see also Wilson v. Atomic Energy of Canada Ltd., 2016 SCC 29, [2016] 1 S.C.R. 770, at para. 27, citing D. Mullan, \\u001cUnresolved Issues on Standard of Review in Canadian Judicial Review of Administrative Action \\u001d\\u001d (2013), 42 Adv. Q. 1, at pp. 76\\u001a81\",\"start\":2567,\"end\":2632},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 9,
+      "example_start": 24,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 6909,
+        "completion_tokens": 1083,
+        "estimated_cost_usd": 0.0011515,
+        "cost_usd": 0.0011241
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: actor span mismatch"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-025\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"they should, as a general rule, \\u00147refrain from deciding the issue themselves\\u00187 (Vavilov, at para. 83 (emphasis in original))\",\"phrase_start\":2973,\"phrase_end\":3031,\"confidence\":1,\"rationale\":\"The text explicitly states the court's role as a reviewing court is to refrain from deciding the issue themselves, citing Vavilov at para. 83 with emphasis in original, indicating supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":2697,\"end\":2709},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to review\",\"start\":2733,\"end\":2739},\"argument_supported\":{\"status\":\"stated\",\"text\":\"they should, as a general rule, refrain from deciding the issue themselves\",\"start\":2973,\"end\":3031},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the role of courts in these circumstances is to review\",\"start\":2730,\"end\":2733},\"court_response\":{\"status\":\"stated\",\"text\":\"they should, as a general rule, refrain from deciding the issue themselves\",\"start\":2973,\"end\":3031},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"a reviewing court must consider only whether the decision made by the administrative decision maker \\u00151 including both the rationale for the decision and the outcome to which it led \\u00151 was unreasonable\",\"start\":3120,\"end\":3186}}} ,{\"example_id\":\"mason-argument-citation-026\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A reviewing court should not create its \\u00147own yardstick and then use [it] to measure what the administrator did\\u00187 (para. 83, and Canada Post, at para. 40\",\"phrase_start\":3050,\"phrase_end\":3110,\"confidence\":1,\"rationale\":\"The text explicitly states that a reviewing court should not create its own yardstick to measure the administrator's actions, citing Canada Post at para. 40, indicating supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":3040,\"end\":3055},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid disguised correctness review\",\"start\":2920,\"end\":2945},\"argument_supported\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its own yardstick and then use it to measure what the administrator did\",\"start\":3050,\"end\":3110},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"A reviewing court should also avoid engaging in disguised correctness review\",\"start\":2910,\"end\":2945},\"court_response\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its own yardstick and then use it to measure what the administrator did\",\"start\":3050,\"end\":3110},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"a reviewing court must consider only whether the decision made by the administrative decision maker \\u00151 including both the rationale for the decision and the outcome to which it led \\u00151 was unreasonable\",\"start\":3120,\"end\":3186}}} ,{\"example_id\":\"mason-argument-citation-027\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"both citing Delios v. Canada (Attorney General), 2015 FCA 117, 100 Admin. L.R. (5th) 301, at para. 28\",\"phrase_start\":3150,\"phrase_end\":3198,\"confidence\":1,\"rationale\":\"The text cites Delios v. Canada (Attorney General) as authority supporting the proposition that a reviewing court should not create its own yardstick to measure what the administrator did, indicating supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":3040,\"end\":3055},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid disguised correctness review\",\"start\":2920,\"end\":2945},\"argument_supported\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its own yardstick and then use it to measure what the administrator did\",\"start\":3050,\"end\":3110},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"A reviewing court should also avoid engaging in disguised correctness review\",\"start\":2910,\"end\":2945},\"court_response\":{\"status\":\"stated\",\"text\":\"both citing Delios v. Canada (Attorney General), 2015 FCA 117, 100 Admin. L.R. (5th) 301, at para. 28\",\"start\":3150,\"end\":3198},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"a reviewing court must consider only whether the decision made by the administrative decision maker \\u00151 including both the rationale for the decision and the outcome to which it led \\u00151 was unreasonable\",\"start\":3120,\"end\":3186}}}]}"
+    },
+    {
+      "batch_number": 10,
+      "example_start": 27,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 6920,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0011521,
+        "cost_usd": 0.0011719999999999999
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Expecting ',' delimiter: line 1 column 4477 (char 4476)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-028\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Because \\u001cthe role of courts in these circumstances is to review\\u001d, they should, as a general rule, \\u001crefrain from deciding the issue themselves\\u001d (Vavilov, at para. 83 (emphasis in original))\",\"phrase_start\":3463,\"phrase_end\":3533,\"confidence\":1,\"rationale\":\"The text explicitly states the court's role as described in Vavilov para. 83, emphasizing deference and refraining from deciding the issue themselves, which is supportive treatment of the citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":3455,\"end\":3472},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid engaging in \\u001cdisguised correctness review\\u001d, or correctness in the guise of reasonableness\",\"start\":3383,\"end\":3433},\"argument_supported\":{\"status\":\"stated\",\"text\":\"they should, as a general rule, \\u001crefrain from deciding the issue themselves\\u001d\",\"start\":3493,\"end\":3533},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the role of courts in these circumstances is to review\",\"start\":3463,\"end\":3489},\"court_response\":{\"status\":\"stated\",\"text\":\"Because \\u001cthe role of courts in these circumstances is to review\\u001d, they should, as a general rule, \\u001crefrain from deciding the issue themselves\\u001d (Vavilov, at para. 83 (emphasis in original))\",\"start\":3463,\"end\":3533},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its \\u001cown yardstick and then use [it] to measure what the administrator did\\u001d\",\"start\":3535,\"end\":3583}}},{\"example_id\":\"mason-argument-citation-029\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"A reviewing court should not create its \\u001cown yardstick and then use [it] to measure what the administrator did\\u001d (para. 83, and Canada Post, at para. 40, both citing Delios v. Canada (Attorney General), 2015 FCA 117, 100 Admin. L.R. (5th) 301, at para. 28)\",\"phrase_start\":3535,\"phrase_end\":3606,\"confidence\":1,\"rationale\":\"The text explicitly states that a reviewing court should not create its own yardstick to measure the administrator's actions, citing Canada Post at para. 40, which is supportive treatment of that citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":3455,\"end\":3472},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid engaging in \\u001cdisguised correctness review\\u001d, or correctness in the guise of reasonableness\",\"start\":3383,\"end\":3433},\"argument_supported\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its \\u001cown yardstick and then use [it] to measure what the administrator did\\u001d\",\"start\":3535,\"end\":3606},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the role of courts in these circumstances is to review\",\"start\":3463,\"end\":3489},\"court_response\":{\"status\":\"stated\",\"text\":\"A reviewing court should not create its \\u001cown yardstick and then use [it] to measure what the administrator did\\u001d (para. 83, and Canada Post, at para. 40, both citing Delios v. Canada (Attorney General), 2015 FCA 117, 100 Admin. L.R. (5th) 301, at para. 28)\",\"start\":3535,\"end\":3606},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"Nor should a reviewing court ask \\u001cwhat decision it would have made in place of that of the administrative decision maker, attempt to ascertain the \\u001frange\\u001f of possible conclusions that would have been open to the decision maker, conduct a de novo analysis or seek to determine the \\u001ccorrect\\u001f solution to the problem\\u001d\",\"start\":3607,\"end\":3677}}},{\"example_id\":\"mason-argument-citation-030\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Because \\u001cthe role of courts in these circumstances is to review\\u001d, they should, as a general rule, \\u001crefrain from deciding the issue themselves\\u001d (Vavilov, at para. 83 (emphasis in original))\",\"phrase_start\":3463,\"phrase_end\":3533,\"confidence\":1,\"rationale\":\"The text repeats the same supportive language from Vavilov para. 83 emphasizing the court's role to review and refrain from deciding the issue themselves, which is supportive treatment of the citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"A reviewing court\",\"start\":3455,\"end\":3472},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to avoid engaging in \\u001cdisguised correctness review\\u001d, or correctness in the guise of reasonableness\",\"start\":338"
+    },
+    {
+      "batch_number": 11,
+      "example_start": 30,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5521,
+        "completion_tokens": 493,
+        "estimated_cost_usd": 0.0010298,
+        "cost_usd": 0.0007493
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-031\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"it is \\u001ca robust form of review\\u001d (para. 13; see also paras. 12, 67 and 138), one that highlights \\u001cthe need to develop and strengthen a culture of justification in administrative decision making\\u001d (para. 2)\",\"phrase_start\":2763,\"phrase_end\":2846,\"confidence\":1,\"rationale\":\"The text explicitly describes Vavilov's approach as a robust form of review that fosters a culture of justification, indicating supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Vavilov\",\"start\":2718,\"end\":2724},\"reason_raised\":{\"status\":\"stated\",\"text\":\"cautioned that the \\u001creasons first\\u001d approach is \\u001cnot a \\u0018rubber-stamping\\u001d process or a means of sheltering administrative decision makers from accountability\\u001d\",\"start\":2730,\"end\":2771},\"argument_supported\":{\"status\":\"stated\",\"text\":\"it is \\u001ca robust form of review\\u001d ... one that highlights \\u001cthe need to develop and strengthen a culture of justification in administrative decision making\\u001d\",\"start\":2763,\"end\":2846},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}],\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}"
+    },
+    {
+      "batch_number": 12,
+      "example_start": 33,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5458,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0010606,
+        "cost_usd": 0.0010257999999999999
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Expecting property name enclosed in double quotes: line 118 column 24 (char 5292)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-034\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Vavilov identified two types of \\u00147fundamental flaws\\u00187 indicating that an administrative decision is unreasonable\",\n      \"phrase_start\": 6,\n      \"phrase_end\": 74,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly describes Vavilov as identifying two fundamental flaws indicating unreasonableness, showing supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"Vavilov identified two types\",\n          \"start\": 6,\n          \"end\": 29\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"indicating that an administrative decision is unreasonable\",\n          \"start\": 54,\n          \"end\": 101\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"an administrative decision is unreasonable\",\n          \"start\": 80,\n          \"end\": 111\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"failure of justification in light of the legal and factual constraints bearing on the decision\",\n          \"start\": 111,\n          \"end\": 185\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"A failure of justification in light of the legal and factual constraints bearing on the decision arises if the decision is not \\u00147justified in relation to the constellation of law and facts that are relevant to the decision\\u00187\",\n          \"start\": 185,\n          \"end\": 313\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"The greater the interpretive constraints in a given case, the greater the burden of justification on the decision maker in deviating from those constraints\",\n          \"start\": 460,\n          \"end\": 570\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-035\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Whether an interpretation of the governing statutory scheme is justified will \\u00147depend on the context, including the language chosen by the legislature in describing the limits and contours of the decision maker\\u0019s authority\\u00187\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 163,\n      \"confidence\": 0.9,\n      \"rationale\": \"The text treats the authority as supporting the proposition that statutory interpretation depends on context and language, showing supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"Whether an interpretation of the governing statutory scheme is justified\",\n          \"start\": 0,\n          \"end\": 56\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"depend on the context, including the language chosen by the legislature in describing the limits and contours of the decision maker\\u0019s authority\",\n          \"start\": 57,\n          \"end\": 163\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"an interpretation of the governing statutory scheme is justified\",\n          \"start\": 0,\n          \"end\": 56\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"the burden of justification varies with the circumstances, including the wording of the relevant statutory provisions\",\n          \"start\": 370,\n          \"end\": 460\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"Narrower and more precise language imposes a greater constraint on the decision maker, while \\u00147broad, open-ended or highly qualitative language\\u00187 affords greater flexibility\",\n          \"start\": 163,\n          \"end\": 263\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"What matters is whether the decision maker has \\u00147properly justified its interpretation of the statute in light of the surrounding context\\u00187\",\n          \"start\": 263,\n          \"end\": 370\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-036\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"In interpreting a statute, an administrative decision maker may draw on its institutional expertise and experience and rely on considerations that a court would not have thought to employ, but which \\u00147enrich and elevate the interpretive exercise\\u00187\",\n      \"phrase_start\": 523,\n      \"phrase_end\": 664,\n      \"confidence\": 0.9,\n      \"rationale\": \"The text explicitly supports the authority by describing how administrative decision makers may rely on expertise and considerations enriching the interpretive exercise.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"an administrative decision maker\",\n          \"start\": 523,\n          \"end\": 552\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"may draw on its institutional expertise and experience and rely on considerations that a court would not have thought to employ\",\n          \"start\": 552,\n         "
+    },
+    {
+      "batch_number": 13,
+      "example_start": 36,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5822,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0011115,
+        "cost_usd": 0.0010622000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 135 column 19 (char 4903)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-037\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n      \"phrase_start\": 2660,\n      \"phrase_end\": 2743,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that courts acknowledge the role of administrative decision makers in elaborating statutory schemes by being receptive to factors identified in Vavilov, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"courts\",\n          \"start\": 2663,\n          \"end\": 2669\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"By being receptive to such factors\",\n          \"start\": 2653,\n          \"end\": 2677\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n          \"start\": 2690,\n          \"end\": 2743\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n          \"start\": 2663,\n          \"end\": 2743\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-038\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n      \"phrase_start\": 2660,\n      \"phrase_end\": 2743,\n      \"confidence\": 0.95,\n      \"rationale\": \"The passage repeats the same supportive language about courts acknowledging the role of administrative decision makers as per Vavilov, showing supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"courts\",\n          \"start\": 2663,\n          \"end\": 2669\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"By being receptive to such factors\",\n          \"start\": 2653,\n          \"end\": 2677\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n          \"start\": 2690,\n          \"end\": 2743\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n          \"start\": 2663,\n          \"end\": 2743\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-039\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n      \"phrase_start\": 2660,\n      \"phrase_end\": 2743,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text again supports the role of administrative decision makers as recognized by courts, citing Vavilov, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"courts\",\n          \"start\": 2663,\n          \"end\": 2669\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"By being receptive to such factors\",\n          \"start\": 2653,\n          \"end\": 2677\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"administrative decision makers have a role to play in elaborating the content of the schemes that they administer\",\n          \"start\": 2690,\n          \"end\": 2743\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that"
+    },
+    {
+      "batch_number": 14,
+      "example_start": 39,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5645,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0010904,
+        "cost_usd": 0.0010444999999999999
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 1 column 5270 (char 5269)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-040\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"a court may conclude during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\u001d\",\"phrase_start\":2773,\"phrase_end\":2861,\"confidence\":1,\"rationale\":\"The text explains that a court may conclude during reasonableness review that the interplay of text, context, and purpose leaves room for a single reasonable interpretation, citing Vavilov at para. 124, indicating supportive treatment of that authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"a court\",\"start\":2773,\"end\":2779},\"reason_raised\":{\"status\":\"stated\",\"text\":\"during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation\",\"start\":2779,\"end\":2861},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\",\"start\":2787,\"end\":2861},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the possibility of a single reasonable interpretation is not a starting point of reasonableness review\",\"start\":2933,\"end\":2993},\"court_response\":{\"status\":\"stated\",\"text\":\"the court may conclude that remitting the question to the administrative decision maker may serve no useful purpose\",\"start\":2899,\"end\":2955},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"it is a conclusion that a reviewing court may draw as a result of a proper reasonableness review, as part of the court\\u0019s consideration of the appropriate remedy\",\"start\":3000,\"end\":3093}}},{\"example_id\":\"mason-argument-citation-041\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"a court may conclude during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\u001d\",\"phrase_start\":2773,\"phrase_end\":2861,\"confidence\":1,\"rationale\":\"The text cites Dunsmuir at paras. 72-76 as part of the same supportive explanation that a court may conclude during reasonableness review that the interplay of text, context, and purpose leaves room for a single reasonable interpretation, indicating supportive treatment of Dunsmuir.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"a court\",\"start\":2773,\"end\":2779},\"reason_raised\":{\"status\":\"stated\",\"text\":\"during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation\",\"start\":2779,\"end\":2861},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\",\"start\":2787,\"end\":2861},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the possibility of a single reasonable interpretation is not a starting point of reasonableness review\",\"start\":2933,\"end\":2993},\"court_response\":{\"status\":\"stated\",\"text\":\"the court may conclude that remitting the question to the administrative decision maker may serve no useful purpose\",\"start\":2899,\"end\":2955},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"it is a conclusion that a reviewing court may draw as a result of a proper reasonableness review, as part of the court\\u0019s consideration of the appropriate remedy\",\"start\":3000,\"end\":3093}}},{\"example_id\":\"mason-argument-citation-042\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"a court may conclude during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\u001d\",\"phrase_start\":2773,\"phrase_end\":2861,\"confidence\":1,\"rationale\":\"The text cites Nova Tube Inc./Nova Steel Inc. v. Conares Metal Supply Ltd. as part of the same supportive explanation that a court may conclude during reasonableness review that the interplay of text, context, and purpose leaves room for a single reasonable interpretation, indicating supportive treatment of that authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"a court\",\"start\":2773,\"end\":2779},\"reason_raised\":{\"status\":\"stated\",\"text\":\"during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation\",\"start\":2779,\"end\":2861},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\",\"start\":2787,\"end\":2861},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the possibility of a single reasonable interpretation is not a starting point of reasonableness review\",\"start\":2933,\"end\":2993},\"court_response\":{\"status\":\"stated\",\"text\":\"the court may conclude that remitting the question to the administrative decision maker may serve no useful purpose\",\"start\":2899,\"end\":2955},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"it is a conclusion that a reviewing court may draw as a result of a proper reasonableness review, as part"
+    },
+    {
+      "batch_number": 15,
+      "example_start": 42,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5423,
+        "completion_tokens": 917,
+        "estimated_cost_usd": 0.0010682,
+        "cost_usd": 0.0009091
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-045",
+          "citation_ordinal": 0,
+          "citation_text": "authority",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1,
+          "rationale": "The citation is present only as a generic reference to 'authority' without any treatment language or reasoning about Northern Regional Health Authority v. Horrocks, 2021 SCC 42.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-043\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"a court may conclude during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\u001d\",\"phrase_start\":2969,\"phrase_end\":3053,\"confidence\":1,\"rationale\":\"The text explicitly states that the court may conclude during reasonableness review that the interplay of text, context, and purpose leaves room for a single reasonable interpretation, citing Nova Steel Inc. v. Conares Metal Supply Ltd., 2019 FCA 52 as authority for this proposition.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"stated\",\"text\":\"a court may conclude during a reasonableness review that the interplay of text, context and purpose leaves room for a single reasonable interpretation\",\"start\":2969,\"end\":3053},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"a court may conclude that remitting the question to the administrative decision maker may serve no useful purpose\",\"start\":3073,\"end\":3133},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the possibility of a single reasonable interpretation is not a starting point of reasonableness review, as this would be contrary to a \\u001creasons first\\u001d approach\",\"start\":3138,\"end\":3207}}} ,{\"example_id\":\"mason-argument-citation-044\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"a court may conclude during a reasonableness review that \\u001cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\\u001d\",\"phrase_start\":2969,\"phrase_end\":3053,\"confidence\":1,\"rationale\":\"The text explicitly states that the court may conclude during reasonableness review that the interplay of text, context, and purpose leaves room for a single reasonable interpretation, citing Vavilov, at para. 124, as authority for this proposition.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"stated\",\"text\":\"a court may conclude during a reasonableness review that the interplay of text, context and purpose leaves room for a single reasonable interpretation\",\"start\":2969,\"end\":3053},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"a court may conclude that remitting the question to the administrative decision maker may serve no useful purpose\",\"start\":3073,\"end\":3133},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the possibility of a single reasonable interpretation is not a starting point of reasonableness review, as this would be contrary to a \\u001creasons first\\u001d approach\",\"start\":3138,\"end\":3207}}} ,{\"example_id\":\"mason-argument-citation-045\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1,\"rationale\":\"The citation is present only as a generic reference to 'authority' without any treatment language or reasoning about Northern Regional Health Authority v. Horrocks, 2021 SCC 42.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 16,
+      "example_start": 45,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4181,
+        "completion_tokens": 883,
+        "estimated_cost_usd": 0.0009243,
+        "cost_usd": 0.0007713
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-046\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"A decision will be unreasonable if the reasons fail to meet the \\u001cjustificatory burden\\u001d for departing from \\u001clongstanding practices or established internal authority\\u001d (para. 131).\",\"phrase_start\":1537,\"phrase_end\":1601,\"confidence\":0.9,\"rationale\":\"The text explains a standard for unreasonableness related to departing from longstanding practices or authority, referencing the citation in context but not explicitly supporting or criticizing it.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-047\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov also explained that \\u001c[w]here the impact of a decision on an individual\\u0019s rights and interests is severe, the reasons provided to that individual must reflect the stakes\\u001d (para. 133). The principle of \\u001cresponsive justification\\u001d means that if a decision has \\u001cparticularly harsh consequences for the affected individual\\u001d, then \\u001cthe decision maker must explain why its decision best reflects the legislature\\u0019s intention\\u001d (para. 133). An administrative decision may be unreasonable if it fails to grapple with particularly severe or harsh consequences for the affected individual (para. 134). An administrative decision maker\\u0019s reasons must \\u001cdemonstrate that they have considered the consequences of a decision and that those consequences are justified in light of the facts and law\\u001d (para. 135).\",\"phrase_start\":1273,\"phrase_end\":1280,\"confidence\":0.95,\"rationale\":\"The text explicitly cites Vavilov to explain principles about the severity of impact on individuals and the necessity of responsive justification, supporting the citation as authoritative guidance.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-048\",\"citation_ordinal\":0,\"treatment\":\"negative\",\"phrase\":\"This approach was eschewed in this Court\\u0019s decision in Vavilov.\",\"phrase_start\":1097,\"phrase_end\":1104,\"confidence\":0.9,\"rationale\":\"The text states that the Federal Court's approach was rejected in Vavilov, indicating a negative treatment of the Federal Court's method in light of Vavilov's decision.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 17,
+      "example_start": 48,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4711,
+        "completion_tokens": 589,
+        "estimated_cost_usd": 0.000969,
+        "cost_usd": 0.0007067
+      },
+      "validation": {
+        "valid_label_count": 2,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-050",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The text supports Vavilov's methodology by emphasizing that reasonableness review must start with the decision-maker's reasons, aligning with Vavilov's guidance.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-051",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The text reiterates and supports Vavilov's methodology for reasonableness review, emphasizing the primacy of the decision-maker's reasons.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-049\",\"citation_ordinal\":0,\"treatment\":\"negative\",\"phrase\":\"This approach was eschewed in this Court\\u0002s decision in Vavilov\",\"phrase_start\":1143,\"phrase_end\":1179,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the Federal Court's approach was eschewed in Vavilov, indicating a negative treatment of the Federal Court's method in light of Vavilov.\"},{\"example_id\":\"mason-argument-citation-050\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review\",\"phrase_start\":1013,\"phrase_end\":1110,\"confidence\":0.95,\"rationale\":\"The text supports Vavilov's methodology by emphasizing that reasonableness review must start with the decision-maker's reasons, aligning with Vavilov's guidance.\"},{\"example_id\":\"mason-argument-citation-051\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review\",\"phrase_start\":1013,\"phrase_end\":1110,\"confidence\":0.95,\"rationale\":\"The text reiterates and supports Vavilov's methodology for reasonableness review, emphasizing the primacy of the decision-maker's reasons.\"}],\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Federal Court\",\"start\":1023,\"end\":1036},\"reason_raised\":{\"status\":\"stated\",\"text\":\"did not apply Vavilov\\u0002s \\u0002reasons first\\u0002 approach in judicially reviewing the administrative decisions\",\"start\":1037,\"end\":1096},\"argument_supported\":{\"status\":\"stated\",\"text\":\"reasonableness review must start with the reasons of the decision-maker\",\"start\":1100,\"end\":1143},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the Federal Court essentially conducted its own freestanding interpretation of s. 34(1)(e) based on the provision\\u0002s text, context, and purpose\",\"start\":1097,\"end\":1140},\"court_response\":{\"status\":\"stated\",\"text\":\"This approach was eschewed in this Court\\u0002s decision in Vavilov\",\"start\":1143,\"end\":1179},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"starting with its own perception of the merits may lead a court to slip into correctness review\",\"start\":1109,\"end\":1159}}}"
+    },
+    {
+      "batch_number": 18,
+      "example_start": 51,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 7093,
+        "completion_tokens": 932,
+        "estimated_cost_usd": 0.001173,
+        "cost_usd": 0.0010821000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: argument_supported span mismatch",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: non-absent treatment requires a phrase"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-052\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review\",\"phrase_start\":1783,\"phrase_end\":1879,\"confidence\":1,\"rationale\":\"The text explicitly agrees with Vavilov's methodology and emphasizes that reasonableness review must start with the decision-maker's reasons, not the court's own merits analysis, showing supportive treatment.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The respondent Minister of Citizenship and Immigration\",\"start\":1633,\"end\":1673},\"reason_raised\":{\"status\":\"stated\",\"text\":\"The parties before this Court contended that this preliminary step is inconsistent with Vavilov\",\"start\":1693,\"end\":1743},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the focus in the reasonableness analysis needs to remain, as this Court has instructed, on the reasons of the decision-maker, and not on a range of potential conclusions to be determined by a reviewing court in the abstract\",\"start\":1744,\"end\":1783},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review\",\"start\":1783,\"end\":1879},\"court_response\":{\"status\":\"stated\",\"text\":\"I agree. Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review\",\"start\":1783,\"end\":1879},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"I agree\",\"start\":1783,\"end\":1789}}},{\"example_id\":\"mason-argument-citation-053\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"I recall this Court\\u00039s instruction in Vavilov that a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual\",\"phrase_start\":1452,\"phrase_end\":1523,\"confidence\":1,\"rationale\":\"The text recalls Vavilov's instruction on conducting reasonableness review with attention to the impact on affected individuals, showing supportive treatment of the authority.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"I\",\"start\":1452,\"end\":1453},\"reason_raised\":{\"status\":\"stated\",\"text\":\"In reviewing the IAD\\u00039s reasons\",\"start\":1453,\"end\":1477},\"argument_supported\":{\"status\":\"stated\",\"text\":\"a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual\",\"start\":1477,\"end\":1523},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the interpretation of s. 34(1)(e) will affect whether two individuals \\u00039 could be deported from Canada\",\"start\":1524,\"end\":1603},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-054\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":0.8,\"rationale\":\"The citation is used to illustrate the serious consequences of deportation but does not contain explicit treatment of the authority beyond citation; thus, neutral treatment is appropriate.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"This Court\",\"start\":1452,\"end\":1456},\"reason_raised\":{\"status\":\"stated\",\"text\":\"As this Court has noted, individuals facing deportation may experience \\u00039any number of serious life-changing consequences\\u00039\",\"start\":1603,\"end\":1673},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 19,
+      "example_start": 54,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 11516,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0015680000000000002,
+        "cost_usd": 0.0016316
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Expecting property name enclosed in double quotes: line 50 column 21 (char 4260)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-055\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"In at least one prior decision, X (Re), 2017 CanLII 146735 (I.R.B. (Imm. Div.)), in which a foreign national allegedly assaulted his former girlfriends in Canada but was not convicted of any offence in Canada, the ID interpreted the terms \\u001csecurity\\u001d and \\u001csecurity grounds\\u001d in s. 34(1)(e) as meaning \\u001cthe security of Canada\\u001d or \\u001cnational security\\u001d. But this interpretation is \\u001cnot consistent with the presumption of consistent expression\\u001d (IAD reasons, at para. 23). The terms \\u001csecurity\\u001d and \\u001csecurity grounds\\u001d in s. 34 must have different meanings from the terms \\u001cthe security of Canada\\u001d or \\u001cnational security\\u001d used elsewhere in the IRPA , including in the phrase \\u001cbeing a danger to the security of Canada\\u001d in s. 34(1)(d), which would otherwise be redundant.\",\n      \"phrase_start\": 1027,\n      \"phrase_end\": 1213,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly describes how the prior decision 2017 CanLII 146735 was interpreted by the IAD and distinguished from the current interpretation, showing a supportive treatment of the citation as precedent or authority for the IAD's reasoning.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-056\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Obiter comments in prior cases tend to support the Minister of Public Safety and Emergency Preparedness\\u0019 position on the interpretation of s. 34(1)(e) (para. 27 (emphasis added), citing El Werfalli v. Canada (Public Safety and Emergency Preparedness), 2013 FC 612, [2014] 4 F.C.R. 673, at para. 75, which stated that \\u001c[t]he provision of reasonable grounds to believe an organization may engage in terrorism in the future serves to maintain national security and public safety being the object of the subsection 34(1)\\u001d\",\n      \"phrase_start\": 1147,\n      \"phrase_end\": 1283,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that obiter comments from El Werfalli support the Minister's position on the interpretation of s. 34(1)(e), indicating a supportive treatment of the citation.\"\n    },\n    {\n      \"example_id\": \"mason-argument-citation-057\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Obiter comments in prior cases tend to support the Minister of Public Safety and Emergency Preparedness\\u0019 position on the interpretation of s. 34(1)(e) (para. 27 (emphasis added), citing El Werfalli v. Canada (Public Safety and Emergency Preparedness), 2013 FC 612, [2014] 4 F.C.R. 673, at para. 75, which stated that \\u001c[t]he provision of reasonable grounds to believe an organization may engage in terrorism in the future serves to maintain national security and public safety being the object of the subsection 34(1)\\u001d; para. 28 (emphasis added), citing Fuentes v. Canada (Minister of Citizenship and Immigration), 2003 FCT 379, [2003] 4 F.C. 249, at para. 62, which interpreted a predecessor provision, s. 19 of the Immigration Act, R.S.C. 1985, c. I-2, as directed at the \\u001ckey concepts\\u001d of \\u001csubversion, terrorism, crimes against humanity, war crimes and ordinary crimes\\u001d).\",\n      \"phrase_start\": 1147,\n      \"phrase_end\": 1317,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that obiter comments from Fuentes support the Minister's position on the interpretation of s. 34(1)(e), indicating a supportive treatment of the citation.\"\n    }\n  ],\n  \"treatment_context\": {\n    \"actor\": {\n      \"status\": \"stated\",\n      \"text\": \"The IAD\",\n      \"start\": 102,\n      \"end\": 105\n    },\n    \"reason_raised\": {\n      \"status\": \"stated\",\n      \"text\": \"to interpret s. 34(1)(e) of the IRPA\",\n      \"start\": 110,\n      \"end\": 139\n    },\n    \"argument_supported\": {\n      \"status\": \"stated\",\n      \"text\": \"the terms \\u001csecurity\\u001d and \\u001csecurity grounds\\u001d in s. 34 must have different meanings from the terms \\u001cthe security of Canada\\u001d or \\u001cnational security\\u001d used elsewhere in the IRPA\",\n      \"start\": 1167,\n     "
+    },
+    {
+      "batch_number": 20,
+      "example_start": 57,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 7311,
+        "completion_tokens": 862,
+        "estimated_cost_usd": 0.0011912,
+        "cost_usd": 0.0010759
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 2,
+        "invalid_labels": [
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-058",
+          "citation_ordinal": 0,
+          "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+          "treatment": "supportive",
+          "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+          "phrase_start": 1478,
+          "phrase_end": 1783,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The text explicitly states that Canada has ratified the Refugee Convention and Protocol, citing N\u00e9meth, and that these instruments trigger the interpretive presumption of conformity with international law, showing supportive treatment.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-058\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law\",\"phrase_start\":1403,\"phrase_end\":1503,\"confidence\":0.95,\"rationale\":\"The text explicitly states that Canada has ratified the Refugee Convention and Protocol, citing N\u00e9meth, and that these instruments trigger the interpretive presumption of conformity with international law, showing supportive treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-059\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Parliament has made its \\u001cpresumed intent to conform to Canada\\u0019s international obligations explicit\\u001d through two provisions of the IRPA (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at para. 49)\",\"phrase_start\":1637,\"phrase_end\":1716,\"confidence\":0.95,\"rationale\":\"The text states that Parliament has made its presumed intent to conform to international obligations explicit through provisions of the IRPA, citing B010, indicating supportive treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-060\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"As a result, the Refugee Convention is \\u001cdeterminative of how the IRPA must be interpreted and applied, in the absence of a contrary legislative intention\\u001d (de Guzman v. Canada (Minister of Citizenship and Immigration), 2005 FCA 436, [2006] 3 F.C.R. 655, at para. 87; B010, at para. 49)\",\"phrase_start\":2980,\"phrase_end\":3063,\"confidence\":0.95,\"rationale\":\"The text states that the Refugee Convention is determinative of how the IRPA must be interpreted and applied, citing Guzman, indicating supportive treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 21,
+      "example_start": 60,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 9328,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0013868,
+        "cost_usd": 0.0014128
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Expecting value: line 1 column 4378 (char 4377)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-061\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Article 33(2), which operates as a limited exception to the principle of non-refoulement in Article 33(1), allows a person to be removed in exceptional circumstances: when there are reasonable grounds for regarding the person as a danger to the security of the country in which they are, or when the person is convicted of a serious crime and is a danger to the community of that country (see Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at para. 25)\",\"phrase_start\":3507,\"phrase_end\":3635,\"confidence\":1,\"rationale\":\"The text explicitly states that Febles is cited to support the description of Article 33(2) as a limited exception allowing removal in exceptional circumstances, thus a supportive treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-062\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35; S. E. Lauterpacht and D. Bethlehem, \\u001cThe scope and content of the principle of non-refoulement: Opinion\\u001d, in E. Feller, V. T\\u001crk and F. Nicholson, eds., Refugee Protection in International Law: UNHCR\\u001cs Global Consultations on International Protection (2003), 87, at paras. 193-253; H. Lambert, \\u001cCustomary Refugee Law\\u001d, in C. Costello, M. Foster and J. McAdam, eds., The Oxford Handbook of International Refugee Law (2021), 240, at pp. 242-49; and United Nations High Commissioner for Refugees, Advisory Opinion on the Extraterritorial Application of Non-Refoulement Obligations under the 1951 Convention relating to the Status of Refugees and its 1967 Protocol (2007), at paras. 14-16)\",\"phrase_start\":3917,\"phrase_end\":3997,\"confidence\":1,\"rationale\":\"The citation is included in a list supporting the statement that the principle of non-refoulement is a norm of customary international law, indicating supportive treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-063\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"The principle of non-refoulement is generally recognized as a norm of customary international law (see Prosecutor v. Germain Katanga, ICC-01/04-01/07, Decision on the application for the interim release of detained Witnesses, 1 October 2013 (Trial Chamber II), at para. 30; Zaoui v. Attorney-General (No. 2), [2005] 1 N.Z.L.R. 690 (C.A.), at paras. 34-35; S. E. Lauterpacht and D. Bethlehem, \\u001cThe scope and content of the principle of non-refoulement: Opinion\\u001d, in E. Feller, V. T\\u001crk and F. Nicholson, eds., Refugee Protection in International Law: UNHCR\\u001cs Global Consultations on International Protection (2003), 87, at paras. 193-253; H. Lambert, \\u001cCustomary Refugee Law\\u001d, in C. Costello, M. Foster and J. McAdam, eds., The Oxford Handbook of International Refugee Law (2021), 240, at pp. 242-49; and United Nations High Commissioner for Refugees, Advisory Opinion on the Extraterritorial Application of Non-Refoulement Obligations under the 1951 Convention relating to the Status of Refugees and its 1967 Protocol (2007), at paras. 14-16)\",\"phrase_start\":3917,\"phrase_end\":3997,\"confidence\":"
+    },
+    {
+      "batch_number": 22,
+      "example_start": 63,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 7738,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0012575,
+        "cost_usd": 0.0012538
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 123 column 19 (char 4798)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-064\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The principle of non-refoulement is generally recognized as a norm of customary international law\",\n      \"phrase_start\": 4223,\n      \"phrase_end\": 4275,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that the principle of non-refoulement, discussed in the cited work including E. Feller and V. T\u00fcrk, is generally recognized as a norm of customary international law, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"This Court\",\n          \"start\": 10,\n          \"end\": 20\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to explain the international legal context and obligations regarding non-refoulement\",\n          \"start\": 0,\n          \"end\": 108\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the principle of non-refoulement is a cornerstone of international refugee protection and a norm of customary international law\",\n          \"start\": 4200,\n          \"end\": 4275\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"recognizes and affirms the principle of non-refoulement as a norm of customary international law\",\n          \"start\": 4223,\n          \"end\": 4275\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-065\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"neutral\",\n      \"phrase\": \"none of these discretionary exemptions detract from the concern that the IAD\\u0019s interpretation of s. 34(1)(e) would, as a general rule, allow for a removal order without protection from refoulement, contrary to Article 33(1) of the Refugee Convention\",\n      \"phrase_start\": 4483,\n      \"phrase_end\": 4563,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to note that discretionary exemptions exist but do not alleviate the concern about the IAD's interpretation risking refoulement contrary to Article 33(1). This is a neutral mention of the authority as part of the reasoning.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"the Court\",\n          \"start\": 0,\n          \"end\": 9\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to address the limits of protections under IRPA and the risk of refoulement\",\n          \"start\": 4400,\n          \"end\": 4563\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the IAD's interpretation risks allowing removal orders without protection from refoulement\",\n          \"start\": 4483,\n          \"end\": 4563\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"notes that discretionary exemptions do not detract from the concern about refoulement risk\",\n          \"start\": 4483,\n          \"end\": 4563\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-066\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"The obligation not to refoule an individual arises by virtue of the fact that their circumstances meet the definition of \\u0002refugee\\u0003, not by reason of the recognition by a contracting state that the definition is met.\",\n      \"phrase_start\": 4747,\n      \"phrase_end\": 4823,\n      \"confidence\": 0.95,\n      \"rationale\": \"The Court cites G. v. G. to support the proposition that protection from refoulement arises from the refugee's circumstances, not from formal recognition, supporting the argument that s. 115(1) affords narrower protection than the Refugee Convention.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"the Court\",\n          \"start\": 0,\n          \"end\": 9\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to explain the scope of protection under s. 115(1) versus the Refugee Convention\",\n          \"start\": 4700,\n          \"end\": 4850\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"s. 115(1) protects fewer persons than the Refuge"
+    },
+    {
+      "batch_number": 23,
+      "example_start": 66,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4476,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009181999999999999,
+        "cost_usd": 0.0009276
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Expecting property name enclosed in double quotes: line 120 column 11 (char 5070)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-067\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law\",\n      \"phrase_start\": 595,\n      \"phrase_end\": 683,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that the Court held a principle regarding the standard of review, indicating a supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 595,\n          \"end\": 604\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law\",\n          \"start\": 605,\n          \"end\": 683\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law\",\n          \"start\": 615,\n          \"end\": 683\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court held that reviewing courts should derogate from the presumption of reasonableness review where required by (1) a clear indication of legislative intent or (2) the rule of law\",\n          \"start\": 595,\n          \"end\": 683\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-068\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\\u0019s immigration and refugee protection scheme\",\n      \"phrase_start\": 703,\n      \"phrase_end\": 804,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support the proposition that certified questions raise issues of broad significance, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"In my view, the rule of law requires \\u0019 and Parliament intended for appellate courts to provide \\u0019 definitive, correct answers to legal questions certified under s. 74 (d) of the IRPA\",\n          \"start\": 683,\n          \"end\": 752\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\\u0019s immigration and refugee protection scheme\",\n          \"start\": 753,\n          \"end\": 804\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"questions that transcend the interests of the parties and raise issues of broad significance within Canada\\u0019s immigration and refugee protection scheme\",\n          \"start\": 763,\n          \"end\": 804\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"By definition, these are questions that transcend the interests of the parties and raise issues of broad significance within Canada\\u0019s immigration and refugee protection scheme\",\n          \"start\": 753,\n          \"end\": 804\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-069\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"this Court noted that the certified question regime would be \\u0019incoherent\\u0019 if the standard of review were anything other than correctness\",\n      \"phrase_start\": 1373,\n      \"phrase_end\": 1434,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly notes the Court's observation about the certified question regime and the standard of review, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 1373,\n          \"end\": 1381\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"that the certified question regime would be \\u0019incoherent\\u0019 if the standard of review were anything other than correctness\",\n          \"start\": 1382,\n          \"end\": 1434\n        },\n"
+    },
+    {
+      "batch_number": 24,
+      "example_start": 69,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5928,
+        "completion_tokens": 871,
+        "estimated_cost_usd": 0.0010585,
+        "cost_usd": 0.0009412000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: actor span mismatch",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: actor span mismatch"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-070\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the Court answered the certified question before it definitively\",\"phrase_start\":1143,\"phrase_end\":1185,\"confidence\":0.95,\"rationale\":\"The text states that the Court definitively answered the certified question in Baker, indicating a supportive treatment of the authority as providing a definitive answer rather than deferring to administrative interpretations.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"this Court\",\"start\":1140,\"end\":1149},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to answer the certified question before it definitively\",\"start\":1143,\"end\":1185},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the Court answered the certified question before it definitively\",\"start\":1143,\"end\":1185},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the certified question before it\",\"start\":1147,\"end\":1169},\"court_response\":{\"status\":\"stated\",\"text\":\"the Court answered the certified question before it definitively\",\"start\":1143,\"end\":1185},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the Court answered the certified question before it definitively\",\"start\":1143,\"end\":1185}}},{\"example_id\":\"mason-argument-citation-071\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"the Court also applied a standard of review of reasonableness\",\"phrase_start\":2438,\"phrase_end\":2483,\"confidence\":0.9,\"rationale\":\"The text notes that the Court applied a standard of review of reasonableness in Agraira, describing the basis for that standard, but does not explicitly endorse or criticize the authority, thus neutral treatment is appropriate.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Court\",\"start\":2438,\"end\":2447},\"reason_raised\":{\"status\":\"stated\",\"text\":\"on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary\",\"start\":2484,\"end\":2555},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"The Court also applied a standard of review of reasonableness\",\"start\":2438,\"end\":2483},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-072\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"the majority of this Court held that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review\",\"phrase_start\":2647,\"phrase_end\":2731,\"confidence\":0.95,\"rationale\":\"The text quotes the majority holding that the importance of the question was relevant but not determinative of the standard of review, indicating a neutral treatment of the authority without explicit endorsement or rejection.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the majority of this Court\",\"start\":2647,\"end\":2675},\"reason_raised\":{\"status\":\"stated\",\"text\":\"that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review\",\"start\":2676,\"end\":2731},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"stated\",\"text\":\"the majority of this Court held that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review\",\"start\":2647,\"end\":2731},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 25,
+      "example_start": 72,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5872,
+        "completion_tokens": 439,
+        "estimated_cost_usd": 0.0010240000000000002,
+        "cost_usd": 0.0007628
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 0: reason_raised span mismatch"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-073\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"The Court applied a standard of correctness in Chieu v. Canada (Minister of Citizenship and Immigration), 2002 SCC 3, [2002] 1 S.C.R. 84, at para. 26\",\"phrase_start\":2687,\"phrase_end\":2759,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the Court applied a standard of correctness in Chieu at para. 26, indicating a supportive treatment of the citation.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the Canadian Association of Refugee Lawyers\",\"start\":2603,\"end\":2643},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to note that Agraira and Kanthasamy are outliers\",\"start\":2644,\"end\":2680},\"argument_supported\":{\"status\":\"stated\",\"text\":\"The Court applied a standard of correctness in Chieu\",\"start\":2687,\"end\":2730},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the standard of review for certified questions\",\"start\":2564,\"end\":2595},\"court_response\":{\"status\":\"stated\",\"text\":\"The Court applied a standard of correctness in Chieu\",\"start\":2687,\"end\":2730},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"The Court applied a standard of correctness in Chieu\",\"start\":2687,\"end\":2730}}}],\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}"
+    },
+    {
+      "batch_number": 26,
+      "example_start": 75,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5902,
+        "completion_tokens": 662,
+        "estimated_cost_usd": 0.0010249,
+        "cost_usd": 0.0008550000000000001
+      },
+      "validation": {
+        "valid_label_count": 3,
+        "invalid_label_count": 0,
+        "invalid_labels": []
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-076",
+          "citation_ordinal": 0,
+          "citation_text": "Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1.0,
+          "rationale": "The citation is mentioned as part of a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about Febles v. Canada itself.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-077",
+          "citation_ordinal": 0,
+          "citation_text": "B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1.0,
+          "rationale": "The citation is included in a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about B010 v. Canada itself.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-078",
+          "citation_ordinal": 0,
+          "citation_text": "Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 1.0,
+          "rationale": "The citation is mentioned as part of a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about Tran v. Canada itself.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-076\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1.0,\"rationale\":\"The citation is mentioned as part of a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about Febles v. Canada itself.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-077\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1.0,\"rationale\":\"The citation is included in a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about B010 v. Canada itself.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-078\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":1.0,\"rationale\":\"The citation is mentioned as part of a list of cases where the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review or after finding it unnecessary to resolve the issue, but no explicit treatment language is provided about Tran v. Canada itself.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 27,
+      "example_start": 78,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5607,
+        "completion_tokens": 796,
+        "estimated_cost_usd": 0.0010186000000000001,
+        "cost_usd": 0.0008791000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: argument_addressed span mismatch",
+          "label 1: argument_addressed span mismatch",
+          "label 2: non-absent treatment requires a phrase"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-079\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"phrase_start\":792,\"phrase_end\":849,\"confidence\":0.95,\"rationale\":\"The text states that prior to Vavilov, the Court consistently provided definitive answers to certified questions, citing Vavilov at para. 37 as part of that authority, indicating supportive treatment of the citation as an example of definitive answers to certified questions.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"stated\",\"text\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"start\":792,\"end\":849},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"whether the standard of review for certified questions is reasonableness\",\"start\":770,\"end\":805},\"court_response\":{\"status\":\"stated\",\"text\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"start\":792,\"end\":849},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"disagree that reasonableness review applies as a matter of precedent\",\"start\":1003,\"end\":1073}}},{\"example_id\":\"mason-argument-citation-080\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"phrase_start\":792,\"phrase_end\":849,\"confidence\":0.95,\"rationale\":\"The text includes Kanthasamy as part of the authorities showing the Court consistently provided definitive answers to certified questions, indicating supportive treatment of the citation as an example of such definitive answers.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"stated\",\"text\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"start\":792,\"end\":849},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"whether the standard of review for certified questions is reasonableness\",\"start\":770,\"end\":805},\"court_response\":{\"status\":\"stated\",\"text\":\"this Court consistently provided definitive answers to certified questions of statutory interpretation\",\"start\":792,\"end\":849},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"disagree that reasonableness review applies as a matter of precedent\",\"start\":1003,\"end\":1073}}},{\"example_id\":\"mason-argument-citation-081\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":0.7,\"rationale\":\"The citation is mentioned as a reference to the fact that Vavilov overtook prior jurisprudence, but no explicit treatment or reasoning about the citation is provided in the text, so neutral treatment is appropriate.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to show that Vavilov overtook prior jurisprudence\",\"start\":1390,\"end\":1460},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the jurisprudence discussed above must be analyzed in light of the principles and framework set out in Vavilov\",\"start\":1461,\"end\":1514},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 28,
+      "example_start": 81,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4760,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009739,
+        "cost_usd": 0.000956
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 110 column 11 (char 5106)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-082\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"the court noted that correctness review of certified questions would \\u00147seem to gain greater credence now that the Supreme Court has held that statutory standards can have a bearing on the standard of review\\u00187\",\n      \"phrase_start\": 846,\n      \"phrase_end\": 939,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly states that the court in Galindo Camayo noted correctness review of certified questions gains greater credence post-Vavilov, indicating a supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"the court\",\n          \"start\": 840,\n          \"end\": 849\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"correctness review of certified questions would \\u00147seem to gain greater credence now that the Supreme Court has held that statutory standards can have a bearing on the standard of review\\u00187\",\n          \"start\": 846,\n          \"end\": 939\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"correctness review of certified questions would \\u00147seem to gain greater credence now that the Supreme Court has held that statutory standards can have a bearing on the standard of review\\u00187\",\n          \"start\": 846,\n          \"end\": 939\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review for certified questions\",\n          \"start\": 792,\n          \"end\": 825\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"the court noted that correctness review of certified questions would \\u00147seem to gain greater credence now that the Supreme Court has held that statutory standards can have a bearing on the standard of review\\u00187\",\n          \"start\": 846,\n          \"end\": 939\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"correctness review of certified questions would \\u00147seem to gain greater credence now that the Supreme Court has held that statutory standards can have a bearing on the standard of review\\u00187\",\n          \"start\": 846,\n          \"end\": 939\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-083\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"neutral\",\n      \"phrase\": \"While it is beyond the scope of these appeals to exhaustively canvass the scheme of the Citizenship Act , the statutory certification process has been widely used under the IRPA to settle divergent interpretations or disagreements on legal issues of general importance\",\n      \"phrase_start\": 2074,\n      \"phrase_end\": 2169,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to support a factual statement about the use of the statutory certification process under IRPA, without explicit evaluative language about the authority itself.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"the Court\",\n          \"start\": 142,\n          \"end\": 147\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to settle divergent interpretations or disagreements on legal issues of general importance\",\n          \"start\": 2109,\n          \"end\": 2169\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the statutory certification process has been widely used under the IRPA\",\n          \"start\": 2090,\n          \"end\": 2139\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review for certified questions\",\n          \"start\": 792,\n          \"end\": 825\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-084\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Parliament does not \\u00147exclude the courts but rather makes them part of the enforcement machinery\\u00187 in certain circumstances (Vavilov, at para. 36, citing Seneca College of Applied Arts and Technology v. Bhadauria, [1981] 2 S.C.R. 181, at p. 195). In my view, this strongly rebuts the presumption of reasonableness review for this particular type of legal question, in a manner analogous to the existing categories of correctness review\",\n      \"phrase_start\": 2247,\n      \"phrase_end\": 2327,\n      \"confidence\": 0.9,\n      \"rationale\": \"The text explicitly uses the Bhadauria citation to support the argument that Parliament includes courts in enforcement, rebutting reasonableness review presumption, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status"
+    },
+    {
+      "batch_number": 29,
+      "example_start": 84,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4771,
+        "completion_tokens": 1180,
+        "estimated_cost_usd": 0.0009578,
+        "cost_usd": 0.0009491
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: reason_raised span mismatch",
+          "label 2: actor span mismatch"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-085\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"This is also what the Federal Court did in Mr. Mason\\u000b\\u000bs case, in an attempt to incorporate reasonableness as the applicable standard of review\",\"phrase_start\":1767,\"phrase_end\":1833,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the Federal Court attempted to incorporate reasonableness as the applicable standard of review, referencing 2019 FC 1251 as the source of this approach.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Federal Court\",\"start\":1767,\"end\":1783},\"reason_raised\":{\"status\":\"stated\",\"text\":\"in an attempt to incorporate reasonableness as the applicable standard of review\",\"start\":1787,\"end\":1833},\"argument_supported\":{\"status\":\"stated\",\"text\":\"incorporate reasonableness as the applicable standard of review\",\"start\":1797,\"end\":1833},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the proper standard of review for certified questions\",\"start\":153,\"end\":193},\"court_response\":{\"status\":\"stated\",\"text\":\"This is also what the Federal Court did in Mr. Mason\\u000b\\u000bs case, in an attempt to incorporate reasonableness as the applicable standard of review\",\"start\":1767,\"end\":1833},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the Federal Court reformulated the question to incorporate reasonableness review\",\"start\":1767,\"end\":1833}}},{\"example_id\":\"mason-argument-citation-086\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In Lunyamila, the Federal Court of Appeal reiterated the criteria for certification under s. 74(d):\\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance. [Emphasis added; para. 46.]\",\"phrase_start\":1113,\"phrase_end\":1163,\"confidence\":0.95,\"rationale\":\"The text cites Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11, as authority for the criteria for certification under s. 74(d), supporting the proposition that certified questions must be serious and of broad significance.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the Federal Court of Appeal\",\"start\":1113,\"end\":1139},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to reiterate the criteria for certification under s. 74(d)\",\"start\":1139,\"end\":1163},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the question must be serious, dispositive, and of broad significance\",\"start\":1139,\"end\":1163},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"criteria for certification of questions under s. 74(d)\",\"start\":1091,\"end\":1163},\"court_response\":{\"status\":\"stated\",\"text\":\"In Lunyamila, the Federal Court of Appeal reiterated the criteria for certification under s. 74(d):\\nThe question must be a serious question that is dispositive of the appeal, transcends the interests of the parties and raises an issue of broad significance or general importance.\",\"start\":1113,\"end\":1163},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the criteria for certification require serious questions of broad importance\",\"start\":1113,\"end\":1163}}},{\"example_id\":\"mason-argument-citation-087\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7).\",\"phrase_start\":1174,\"phrase_end\":1243,\"confidence\":0.9,\"rationale\":\"The text cites Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113 as additional authority supporting the importance of consistent and definitive answers to certified questions, reinforcing the rule of law argument.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the Court\",\"start\":1174,\"end\":1177},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to support the importance of consistent and definitive answers to certified questions\",\"start\":1177,\"end\":1243},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the rule of law demands consistent and definitive answers to certified questions\",\"start\":1177,\"end\":1243},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the importance of consistent, definitive answers to certified questions and the rule of law\",\"start\":1091,\"end\":1243},\"court_response\":{\"status\":\"stated\",\"text\":\"(See also Canada (Immigration and Citizenship) v. Laing, 2021 FCA 194, at para. 11 (CanLII); Canada (Public Safety and Emergency Preparedness) v. XY, 2022 FCA 113, 89 Imm. L.R. (4th) 173, at para. 7).\",\"start\":1174,\"end\":1243},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"the cited cases support the rule of law principle requiring definitive answers\",\"start\":1174,\"end\":1243}}}]}"
+    },
+    {
+      "batch_number": 30,
+      "example_start": 87,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5730,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0010618,
+        "cost_usd": 0.0010530000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 107 column 20 (char 4809)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-088\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"A question whose answer turns on the unique facts of the case will not be certified (Lunyamila, at para. 46, citing Mudrak v. Canada (Minister of Citizenship and Immigration), 2016 FCA 178, 43 Imm. L.R. (4th) 199).\",\n      \"phrase_start\": 2217,\n      \"phrase_end\": 2303,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly cites Mudrak v. Canada as authority for the proposition that questions turning on unique facts will not be certified, indicating a supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"In my view\",\n          \"start\": 2305,\n          \"end\": 2312\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"A question whose answer turns on the unique facts of the case will not be certified\",\n          \"start\": 2217,\n          \"end\": 2277\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"questions turning on unique facts will not be certified\",\n          \"start\": 2217,\n          \"end\": 2277\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"certified questions concern issues of broad significance or general importance within Canada\u2019s immigration and refugee protection regime\",\n          \"start\": 2304,\n          \"end\": 2373\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"By definition, then, certified questions concern issues of broad significance or general importance within Canada\u2019s immigration and refugee protection regime.\",\n          \"start\": 2304,\n          \"end\": 2373\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"these are exactly the types of questions for which the rule of law demands consistent and definitive answers \u2014 and for which the risk of arbitrariness is unacceptable.\",\n          \"start\": 2374,\n          \"end\": 2463\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-089\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"In Domtar Inc. v. Quebec (Commission d\u2019appel en mati\u00e8re de l\u00e9sions professionnelles), [1993] 2 S.C.R. 756, this Court held that \u201ca lack of unanimity [within a tribunal] is the price to pay for the decision-making freedom and independence given to the members of these tribunals\u201d: p. 800;\",\n      \"phrase_start\": 1780,\n      \"phrase_end\": 1863,\n      \"confidence\": 0.95,\n      \"rationale\": \"The Court cites Domtar Inc. v. Quebec to support the proposition that lack of unanimity within tribunals is an accepted consequence of their decision-making freedom, indicating supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"our Court\",\n          \"start\": 1605,\n          \"end\": 1613\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"legal incoherence is antithetical to the rule of law\",\n          \"start\": 1609,\n          \"end\": 1643\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"lack of unanimity [within a tribunal] is the price to pay for the decision-making freedom and independence given to the members of these tribunals\",\n          \"start\": 1780,\n          \"end\": 1863\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"persistent discord within an administrative body as a standalone category of correctness review\",\n          \"start\": 1614,\n          \"end\": 1660\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"the more robust form of reasonableness review set out below, which accounts for the value of consistency and the threat of arbitrariness, is capable, in tandem with internal administrative processes to promote consistency and with legislative oversight (see Domtar, at p. 801), of guarding against threats to the rule of law.\",\n          \"start\": 1864,\n          \"end\": 1967\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"the more robust form of reasonableness review ... is capable ... of guarding against threats to the rule of law\",\n          \"start\": 1864,\n          \"end\": 1967\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-090\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"see also Ellis\u2013Don Ltd. v. Ontario (Labour Relations Board), 2001 SCC 4, [2001] 1 S.C.R. 221, at para. 28.\",\n      \"phrase_start\": 2160,\n      \"phrase_end\": 2210,\n      \"confidence\": 0.9,\n      \"rationale\": \"The Court cites Ellis\u2013Don Ltd"
+    },
+    {
+      "batch_number": 31,
+      "example_start": 90,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 5420,
+        "completion_tokens": 897,
+        "estimated_cost_usd": 0.0010439,
+        "cost_usd": 0.0009008000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-091\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the unique features of [Canada\\u0019s] immigration regime could allow for correctness review where questions have been certified without having unfortunate consequences in other areas of law\",\"phrase_start\":2950,\"phrase_end\":3030,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the unique features of Canada's immigration regime allow for correctness review on certified questions, indicating a supportive treatment of the cited case in the context of correctness review.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Paul Daly\",\"start\":2923,\"end\":2932},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to achieve correctness review on questions of law\",\"start\":3031,\"end\":3065},\"argument_supported\":{\"status\":\"stated\",\"text\":\"correctness review where questions have been certified without having unfortunate consequences in other areas of law\",\"start\":2950,\"end\":3030},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the certified question process is the very way in which internal disputes are resolved within this administrative scheme\",\"start\":2880,\"end\":2920},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-092\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"Second, the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure (as in Domtar Inc. v. Quebec (Commission d\\u0019appel en mati\\u0019re de l\\u0019sions professionnelles), [1993] 2 S.C.R. 756)\",\"phrase_start\":3130,\"phrase_end\":3233,\"confidence\":0.9,\"rationale\":\"The text uses Domtar Inc. v. Quebec as an example where the risk of arbitrariness may be acceptable, without further evaluative language, indicating a neutral treatment.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the risk of arbitrariness may be acceptable in the context of decisions regarding the extent of an income replacement indemnity during a temporary plant closure\",\"start\":3125,\"end\":3233},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}} ,{\"example_id\":\"mason-argument-citation-093\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"or alleged violations of a provincial collective agreement (as in Ellis\\u0019Don Ltd. v. Ontario (Labour Relations Board), 2001 SCC 4, [2001] 1 S.C.R. 221) to use the two examples referred to in Vavilov (para. 72)\",\"phrase_start\":3234,\"phrase_end\":3329,\"confidence\":0.9,\"rationale\":\"The text references Ellis-Don Ltd. v. Ontario as an example of where the risk of arbitrariness may be acceptable, without further evaluative language, indicating a neutral treatment.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the risk of arbitrariness may be acceptable in the context of alleged violations of a provincial collective agreement\",\"start\":3234,\"end\":3329},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 32,
+      "example_start": 93,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4385,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009227999999999999,
+        "cost_usd": 0.0009185
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 1 column 4969 (char 4968)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-094\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"collateral consequences that affect the accused person\\u0019s fundamental interests could have a more significant impact on the accused than the criminal sanction itself\",\"phrase_start\":2222,\"phrase_end\":2303,\"confidence\":1,\"rationale\":\"The text explicitly states that collateral consequences can have a more significant impact than the criminal sanction itself, showing a supportive treatment of the cited case.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Wagner J. (as he then was)\",\"start\":2189,\"end\":2214},\"reason_raised\":{\"status\":\"stated\",\"text\":\"lack of clarity on the scope of inadmissibility under s. 34 may prevent accused persons from making informed decisions about whether to enter into a plea agreement\",\"start\":2137,\"end\":2186},\"argument_supported\":{\"status\":\"stated\",\"text\":\"collateral consequences that affect the accused person\\u0019s fundamental interests could have a more significant impact on the accused than the criminal sanction itself\",\"start\":2222,\"end\":2303},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"a lack of clarity on the scope of inadmissibility under s. 34 may prevent accused persons from making informed decisions about whether to enter into a plea agreement\",\"start\":2137,\"end\":2186},\"court_response\":{\"status\":\"stated\",\"text\":\"As Wagner J. (as he then was) noted in R. v. Wong, 2018 SCC 25, [2018] 1 S.C.R. 696 (dissenting, but not on this point)\",\"start\":2187,\"end\":2221},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"it may be essential for an accused to be aware of such consequences in order to enter an informed guilty plea\",\"start\":2304,\"end\":2359}}},{\"example_id\":\"mason-argument-citation-095\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"I conclude that paragraph 34(1)(e) cannot be interpreted to include the type of one\\u0019on\\u0019one violent acts that exist in this case. While assaults against individuals are undesirable, they cannot be considered to be a threat to the safety of persons in Canada and the security of Canadian society, as contemplated by this section of the IRPA\",\"phrase_start\":1279,\"phrase_end\":1377,\"confidence\":1,\"rationale\":\"The text quotes Member King holding that common assaults do not ground inadmissibility under s. 34(1)(e), supporting the interpretation that inadmissibility requires a nexus to national security.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Member King\",\"start\":1260,\"end\":1269},\"reason_raised\":{\"status\":\"stated\",\"text\":\"interpretations of s. 34(1)(e) and its predecessor, s. 19(1)(g) of the Immigration Act\",\"start\":1210,\"end\":1260},\"argument_supported\":{\"status\":\"stated\",\"text\":\"paragraph 34(1)(e) cannot be interpreted to include the type of one\\u0019on\\u0019one violent acts that exist in this case\",\"start\":1279,\"end\":1339},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"inadmissibility under s. 34(1)(e) should require a nexus to national security\",\"start\":1180,\"end\":1210},\"court_response\":{\"status\":\"stated\",\"text\":\"Member King held that a series of common assaults could not ground inadmissibility under s. 34(1)(e)\",\"start\":1269,\"end\":1309},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"assaults against individuals are undesirable, they cannot be considered to be a threat to the safety of persons in Canada and the security of Canadian society\",\"start\":1339,\"end\":1377}}},{\"example_id\":\"mason-argument-citation-096\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"Member King also distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian v. Canada (Security Intelligence Review Committee), [1999] 4 F.C. 624 (C.A.), which were \\u0019more obviously related to the security of Canada\\u0019 and dealt with a conspiracy to assassinate a Turkish diplomat in Canada\",\"phrase_start\":1170,\"phrase_end\":1249,\"confidence\":1,\"rationale\":\"The text states that Member King distinguished Moumdjian as more obviously related to security of Canada, supporting the interpretation of inadmissibility requiring nexus to national security.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"Member King\",\"start\":1160,\"end\":1169},\"reason_raised\":{\"status\":\"stated\",\"text\":\"distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian\",\"start\":1170,\"end\":1249},\"argument_supported\":{\"status\":\"stated\",\"text\":\"inadmissibility under s. 34(1)(e) requires a nexus between the relevant act of violence and with national security or the security of Canada\",\"start\":1180,\"end\":1249},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"inadmissibility under s. 34(1)(e) should require a nexus to national security\",\"start\":1180,\"end\":1210},\"court_response\":{\"status\":\"stated\",\"text\":\"Member King also distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian\",\"start\":1170,\"end\":1215},\"argument_conclusion\":{\"status\":\""
+    },
+    {
+      "batch_number": 33,
+      "example_start": 96,
+      "example_count": 1,
+      "usage": {
+        "prompt_tokens": 1564,
+        "completion_tokens": 441,
+        "estimated_cost_usd": 0.0006405,
+        "cost_usd": 0.0003328
+      },
+      "validation": {
+        "valid_label_count": 1,
+        "invalid_label_count": 0,
+        "invalid_labels": []
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-097",
+          "citation_ordinal": 0,
+          "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+          "treatment": "neutral",
+          "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "phrase_start": 1407,
+          "phrase_end": 1481,
+          "offsets_repaired": true,
+          "confidence": 0.9,
+          "rationale": "The citation is mentioned as a related case in the context of distinguishing circumstances, without explicit positive or negative treatment language.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-097\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)\",\"phrase_start\":1447,\"phrase_end\":1503,\"confidence\":0.9,\"rationale\":\"The citation is mentioned as a related case in the context of distinguishing circumstances, without explicit positive or negative treatment language.\"}],\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian v. Canada (Security Intelligence Review Committee), [1999] 4 F.C. 624 (C.A.), which were \u201cmore obviously related to the security of Canada\u201d and dealt with a conspiracy to assassinate a Turkish diplomat in Canada (paras. 77\u201378; see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.))\",\"start\":1383,\"end\":1507},\"court_response\":{\"status\":\"stated\",\"text\":\"Member King also distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian v. Canada (Security Intelligence Review Committee), [1999] 4 F.C. 624 (C.A.), which were \u201cmore obviously related to the security of Canada\u201d and dealt with a conspiracy to assassinate a Turkish diplomat in Canada (paras. 77\u201378; see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.))\",\"start\":1383,\"end\":1507},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}"
+    }
+  ]
+}

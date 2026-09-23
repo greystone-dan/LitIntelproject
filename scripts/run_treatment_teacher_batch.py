@@ -13,12 +13,56 @@ from backend.contextual_authority.teacher_contract import estimate_tokens
 
 
 ALLOWED_TREATMENTS = {"supportive", "distinguishing", "negative", "neutral", "absent", "ambiguous"}
+ALLOWED_CONTEXT_STATUSES = {"stated", "not_stated", "not_applicable", "ambiguous"}
+CONTEXT_FIELDS = (
+    "actor",
+    "reason_raised",
+    "argument_supported",
+    "argument_addressed",
+    "court_response",
+    "argument_conclusion",
+)
 HARD_CAP_USD = 3.0
 
 
 def estimate_batch_cost(messages: list[dict[str, str]], output_tokens: int, input_rate: float, output_rate: float) -> float:
     input_tokens = estimate_tokens(messages)
     return (input_tokens / 1_000_000 * input_rate) + (output_tokens / 1_000_000 * output_rate)
+
+
+def _parse_context_field(value: Any, text: str, field_name: str) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError(f"{field_name} must be an object")
+    status = str(value.get("status") or "")
+    if status not in ALLOWED_CONTEXT_STATUSES:
+        raise ValueError(f"{field_name} has unsupported status")
+    phrase = str(value.get("text") or "")
+    start = int(value.get("start", 0))
+    end = int(value.get("end", 0))
+    if start < 0 or end < start or end > len(text):
+        raise ValueError(f"{field_name} offsets out of bounds")
+    if status in {"not_stated", "not_applicable"}:
+        if phrase or start != 0 or end != 0:
+            raise ValueError(f"{field_name} unknown status must use empty text and zero offsets")
+    elif not phrase.strip():
+        raise ValueError(f"{field_name} requires source-backed text")
+    elif text[start:end] != phrase:
+        occurrences: list[int] = []
+        search_start = 0
+        while phrase:
+            match_start = text.find(phrase, search_start)
+            if match_start < 0:
+                break
+            occurrences.append(match_start)
+            search_start = match_start + 1
+        if len(occurrences) != 1:
+            raise ValueError(f"{field_name} span mismatch")
+        start = occurrences[0]
+        end = start + len(phrase)
+    result = {"status": status, "text": phrase, "start": start, "end": end}
+    if value.get("label") is not None:
+        result["label"] = str(value["label"])
+    return result
 
 
 def parse_teacher_response(content: str, examples: list[dict[str, Any]]) -> dict[str, Any]:
@@ -59,6 +103,8 @@ def parse_teacher_response(content: str, examples: list[dict[str, Any]]) -> dict
             end = int(label["phrase_end"])
             if treatment not in ALLOWED_TREATMENTS:
                 raise ValueError("unsupported treatment")
+            if treatment != "absent" and phrase == citation["citation_text"]:
+                raise ValueError("treatment phrase must not equal citation text")
             if start < 0 or end < start or end > len(example["text"]):
                 raise ValueError("phrase offsets out of bounds")
             offsets_repaired = False
@@ -92,6 +138,17 @@ def parse_teacher_response(content: str, examples: list[dict[str, Any]]) -> dict
                     "offsets_repaired": offsets_repaired,
                     "confidence": label.get("confidence"),
                     "rationale": label.get("rationale"),
+                    "treatment_context": {
+                        field_name: _parse_context_field(
+                            label.get("treatment_context", {}).get(
+                                field_name,
+                                {"status": "not_stated", "text": "", "start": 0, "end": 0},
+                            ),
+                            example["text"],
+                            field_name,
+                        )
+                        for field_name in CONTEXT_FIELDS
+                    },
                 }
             )
         except (KeyError, IndexError, TypeError, ValueError) as exc:
@@ -191,7 +248,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Run bounded treatment teacher batches with exact-span validation.")
     parser.add_argument("--request", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--batch-size", type=int, default=100)
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=1,
+        help="Examples per external call; default 1 isolates response failures to one event.",
+    )
     parser.add_argument("--budget-usd", type=float, default=3.0)
     parser.add_argument("--max-output-tokens", type=int, default=1_200)
     parser.add_argument("--input-cost-per-1m", type=float, default=0.10)

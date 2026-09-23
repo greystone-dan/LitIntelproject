@@ -1,0 +1,939 @@
+{
+  "artifact": "treatment_distillation_candidate",
+  "status": "proposed_review_required",
+  "runtime_publishable": false,
+  "fixture": "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_compact_fixture.jsonl",
+  "teacher_result_files": [
+    "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_compact_result.json"
+  ],
+  "policy": {
+    "min_confidence": 0.0,
+    "min_support_count": 1,
+    "source_spans_revalidated": true,
+    "canonical_database_writes": false,
+    "external_ai_required_at_runtime": false
+  },
+  "summary": {
+    "raw_labels": 12,
+    "valid_labels": 12,
+    "eligible_labels": 12,
+    "proposed_rule_count": 4,
+    "treatment_counts": {
+      "absent": 7,
+      "neutral": 2,
+      "supportive": 3
+    },
+    "rejected_counts": {}
+  },
+  "rules": [
+    {
+      "rule_id": "teacher-phrase-neutral-0001",
+      "treatment": "neutral",
+      "phrase": "see also al yamani v. canada (solicitor general), [1996] 1 f.c. 174 (t.d.)",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-097",
+          "citation_ordinal": 0,
+          "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+          "treatment": "neutral",
+          "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "phrase_start": 1407,
+          "phrase_end": 1481,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+          "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0002",
+      "treatment": "neutral",
+      "phrase": "whose reasons were released before this court released vavilov",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-013",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "whose reasons were released before this Court released Vavilov",
+          "phrase_start": 1235,
+          "phrase_end": 1297,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+          "evidence_text": "whose reasons were released before this Court released Vavilov",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0003",
+      "treatment": "supportive",
+      "phrase": "canada has ratified both the 1951 refugee convention and the 1967 refugee protocol (n\u00e9meth v. canada (justice), 2010 scc 56, [2010] 3 s.c.r. 281, at para. 17). these international human rights instruments to which canada is a party trigger the interpretive presumption of conformity with international law",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-058",
+          "citation_ordinal": 0,
+          "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+          "treatment": "supportive",
+          "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+          "phrase_start": 1478,
+          "phrase_end": 1783,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+          "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0004",
+      "treatment": "supportive",
+      "phrase": "vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "support_count": 2,
+      "mean_confidence": 0.95,
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-050",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-051",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "status": "proposed_review_required"
+    }
+  ],
+  "eligible_labels": [
+    {
+      "example_id": "mason-argument-citation-006",
+      "citation_ordinal": 0,
+      "citation_text": "(Vavilov, at paras. 7 and 10)",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 0.95,
+      "offsets_repaired": false,
+      "source_text_sha256": "677771c34fd27dd4a007da3f71ed0213f7ef81b2b0c4acfc218b51bc78edfefb",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-009",
+      "citation_ordinal": 0,
+      "citation_text": "2018 CanLII 57522",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 0.9,
+      "offsets_repaired": false,
+      "source_text_sha256": "5a56af3efd045986ecf0d358a8cebdd49f1636e4b1b2fd7724b57365d5fd6286",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-013",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "neutral",
+      "phrase": "whose reasons were released before this Court released Vavilov",
+      "phrase_start": 1235,
+      "phrase_end": 1297,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+      "evidence_text": "whose reasons were released before this Court released Vavilov",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-014",
+      "citation_ordinal": 0,
+      "citation_text": "2020 FC 59",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "3b0a16d902bff82ae347d731942276480b695bbf30ecd1c800b7582766290bf7",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-045",
+      "citation_ordinal": 0,
+      "citation_text": "authority",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "04c5bd74789a21a9c8885d492a330bacc791b6fbe843b33bd5f00865b1ccf188",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-050",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-051",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-058",
+      "citation_ordinal": 0,
+      "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+      "treatment": "supportive",
+      "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+      "phrase_start": 1478,
+      "phrase_end": 1783,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+      "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-076",
+      "citation_ordinal": 0,
+      "citation_text": "Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-077",
+      "citation_ordinal": 0,
+      "citation_text": "B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-078",
+      "citation_ordinal": 0,
+      "citation_text": "Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    },
+    {
+      "example_id": "mason-argument-citation-097",
+      "citation_ordinal": 0,
+      "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+      "treatment": "neutral",
+      "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "phrase_start": 1407,
+      "phrase_end": 1481,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+      "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      }
+    }
+  ]
+}

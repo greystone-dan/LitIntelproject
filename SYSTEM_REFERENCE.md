@@ -421,6 +421,15 @@ references, tags, metadata, or outcomes. Each unit stores method/version and
 configuration identity, chunk-local offsets, source hashes, and citation
 membership so the source text can be reconstructed and independently checked.
 
+The current treatment-teacher experiment is report-only. Its citation event
+contract preserves the treatment label plus optional source-backed fields for
+who raised or used the authority, why it was raised, the argument supported,
+the argument addressed by the Court, the Court's response, and the conclusion
+for that argument. Each field is either an exact span in the supplied context
+or an explicit unknown state; the argument conclusion is not the overall case
+disposition. Teacher responses are validated and retained as provisional
+evidence only; they do not create canonical treatment rows or runtime labels.
+
 The `0026_contextual_authority_phase0` migration adds versioned snapshot,
 context-unit, segment, citation-membership, observation/evidence placeholder,
 and review tables. A snapshot is staged until validation succeeds; publication
@@ -608,6 +617,54 @@ defines each treatment in plain language; a reviewer can return item IDs with
 Each item also includes a fixture-backed decision-context window with the
 citation and proposed treatment offsets, so treatment is judged from the
 actual passage rather than an isolated phrase.
+
+The Mason proving-ground workflow uses
+`scripts/build_mason_argument_citation_fixture.py` to preserve the owning
+`CaseChunk`, citation record, source offsets, paragraph, and Discussion Unit
+metadata while limiting the model text to the citation paragraph plus a
+bounded neighboring-paragraph window (`--paragraph-context`). The compact
+Mason request retains raw response checkpoints in
+`data/eval/llm_discussion_units_pilot/`. The runner defaults to one event per
+external call, isolating malformed output to one citation; callers may choose
+a larger batch explicitly for experiments. The original three-event run
+completed all 97 events for `$0.0315425` with 12 accepted labels and 42
+batch-malformed rows. The one-event rerun completed all 97 events for
+`$0.0366286` with 31 accepted labels, 65 rejected labels, and one malformed
+response. Two accepted labels contained populated argument-context fields.
+These are cost and execution measurements, not evidence of production-quality
+semantic coverage. The full artifacts are
+`mason_argument_citation_compact_fixture.jsonl`,
+`mason_argument_citation_compact_request.json`, and
+`mason_argument_citation_compact_result.json`.
+The isolated result and review artifacts are
+`mason_argument_citation_single_result.json`,
+`mason_argument_citation_single_ledger.md`, and
+`mason_argument_citation_single_review.md`.
+For case-level reasoning, `scripts/build_mason_case_intelligence_request.py`
+creates a no-network dossier containing the deterministic Mason record, source
+paragraphs, identified citation windows, statutes, tags, outcomes, and prior
+Discussion Unit hypotheses. `scripts/run_case_intelligence_request.py` performs
+one bounded report-only call without publishing model conclusions. The first
+stronger-model run used `gpt-4.1`, completed with 187,011 prompt tokens and
+4,938 completion tokens for `$0.413526`, and returned valid structured JSON:
+`mason_case_intelligence_result_2usd.json`. It produced four argument records,
+but selected only three representative citation-treatment records. The corrected
+compact contract completed with 187,066 prompt tokens and 7,262 completion
+tokens for `$0.432228`, returning valid JSON with treatment coverage for all
+97/97 identified citation IDs: 85 `supportive` and 12 `neutral`. The complete
+artifact is `mason_case_intelligence_result_exhaustive_compact.json`. This is a
+richer analysis experiment, not a replacement for deterministic provenance or
+human review. Post-run review found a strong supportive-label skew (85/97), no
+contradictory or ambiguous treatment labels, repetitive rationales, and one
+cross-reference defect: argument `A2` names citation ID `7658423`, which is
+absent from `citation_treatment`. The result is therefore a review artifact,
+not a source for canonical treatment rows.
+For complete event coverage, use
+`scripts/build_mason_citation_review_ledger.py`. It joins every fixture event
+back to its source citation and passage, then records one review row per event
+with status `ai_label_accepted`, `ai_label_rejected`, `malformed_response`, or
+`ai_label_omitted`. The ledger, rather than the distillation packet, is the
+primary completeness review surface.
 
 The first deterministic observation slice is pure and evidence-linked. It
 records only disposition cues, issue-type cues, and explicit government-party

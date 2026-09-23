@@ -1,0 +1,14 @@
+{
+  "model": "gpt-4.1-nano",
+  "budget_usd": 1.0,
+  "messages": [
+    {
+      "role": "system",
+      "content": "You identify plain-language Discussion Units in a legal decision. Use only the supplied numbered paragraphs. Group contiguous paragraphs that perform one coherent task, such as procedural history, facts, party submissions, legal test, analysis/application, or disposition. Do not invent facts or citations. Return JSON with a units array. Each unit must contain start_paragraph, end_paragraph, label, explanation, transition_from_previous, and confidence. Use paragraph indices exactly as supplied; never output an index not present in the supplied list, and cover the supplied window from its first index through its last index exactly once. Keep explanations short and readable for a legal researcher."
+    },
+    {
+      "role": "user",
+      "content": "{\"case_id\": 15108, \"contract_version\": \"discussion_units_llm_v1\", \"deterministic_baseline\": {\"discussion_unit_count\": 1, \"units\": [{\"end_paragraph\": 0, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 0}]}, \"paragraph_window\": {\"first_allowed\": 0, \"last_allowed\": 0}, \"paragraphs\": [{\"citation_ids\": [], \"container_paragraph_index\": 0, \"is_heading\": false, \"paragraph_index\": 0, \"source_paragraph_index\": 0, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"Munar v. Canada (Minister of Citizenship and Immigration)\\nCourt (s) Database\\nFederal Court Decisions\\nDate\\n2005-11-09\\nNeutral citation\\n2005 FC 1180\\nFile numbers\\nIMM-3395-05\\nNotes\\nReported Decision\\nDecision Content\"}], \"request_id\": \"discussion-units-case-15108\"}"
+    }
+  ]
+}

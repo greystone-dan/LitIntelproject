@@ -133,6 +133,7 @@ def inspect_case(session, case_id: int, chunk_set: str, threshold: float, consec
                 "source_paragraph_index": paragraph.source_paragraph_index,
                 "start_offset": paragraph.start_offset,
                 "end_offset": paragraph.end_offset,
+                "text": paragraph.text,
                 "text_sha256": paragraph.text_sha256,
                 "source_text_sha256": paragraph.source_sha256,
                 "citation_ids": paragraph.citation_ids,
@@ -211,6 +212,11 @@ def _render_markdown(report: dict[str, Any], *, max_unit_text_chars: int = 20000
         "",
         f"> Read-only inspection. Units are derived from existing `{paragraph_source}`; no canonical rows were written.",
         "",
+        "## Deterministic reading",
+        "",
+        "This is a rule-based reading, not an LLM summary. Paragraphs are grouped using continuity signals such as text overlap, shared authority, changes in signal density, heading boundaries, citation/statute/tag overlap, and detected argument-role cues.",
+        "The deterministic layer identifies evidence-bearing spans and roles; it does not generate the fluent explanations or semantic labels produced by the hybrid LLM review.",
+        "",
         f"- Paragraph-like inputs: **{report['paragraph_count']}**",
         f"- Continuity pairs: **{report['continuity_count']}**",
         f"- Discussion Units: **{report['discussion_unit_count']}**",
@@ -231,7 +237,12 @@ def _render_markdown(report: dict[str, Any], *, max_unit_text_chars: int = 20000
             ]
         )
         if unit.get("subthemes"):
-            lines.extend(["### Sub-themes", ""])
+            lines.extend([
+                "### Deterministic evidence spans",
+                "",
+                "These are finer rule-based clusters inside the broader deterministic unit. Their explanations describe detected cues and roles; they are not model-generated conclusions.",
+                "",
+            ])
             for subtheme in unit["subthemes"]:
                 lines.extend(
                     [

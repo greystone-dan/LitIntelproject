@@ -1,0 +1,1189 @@
+{
+  "status": "case_intelligence_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-23T17:22:49.787553+00:00",
+  "request_id": "mason-case-intelligence-53164",
+  "model": "gpt-4.1",
+  "budget_usd": 2.0,
+  "estimated_cost_usd": 0.400494,
+  "spent_usd": 0.432228,
+  "usage": {
+    "prompt_tokens": 187066,
+    "completion_tokens": 7262
+  },
+  "raw_response": "{\n  \"case_orientation\": \"Central legal questions: (1) What is the standard of review for administrative decisions interpreting s. 34(1)(e) IRPA in immigration inadmissibility? (2) Was the administrative interpretation of s. 34(1)(e) reasonable? Posture: SCC reviews Federal Court of Appeal's application of reasonableness to IAD/ID decisions. Decision-makers: IAD/ID (tribunal), Federal Court (review), Federal Court of Appeal (appeal), SCC (final). Outcome: Appeals allowed, IAD/ID decisions quashed. [paras 1-12, 123, 189]\",\n  \"discussion_unit_intelligence\": [\n    {\n      \"discussion_unit_id\": \"53164:1\",\n      \"function\": \"procedural_history\",\n      \"core_propositions\": [\n        \"The case concerns judicial review of administrative decisions interpreting s. 34(1)(e) IRPA.\",\n        \"The SCC applies the Vavilov framework to determine the standard of review.\",\n        \"The IAD/ID interpreted s. 34(1)(e) as not requiring a nexus to national security.\",\n        \"The Federal Court found this unreasonable; the Federal Court of Appeal disagreed.\",\n        \"The SCC finds the administrative decisions unreasonable and allows the appeals.\"\n      ],\n      \"argument_roles\": [\n        \"reviewing_court\",\n        \"tribunal\",\n        \"party\"\n      ],\n      \"citation_treatment_patterns\": [\n        \"Heavy reliance on Vavilov and related SCC/FCA authorities for standard of review.\",\n        \"References to international law and prior IRPA/Immigration Act cases for statutory interpretation.\"\n      ],\n      \"confidence\": 0.98,\n      \"evidence\": [\n        {\n          \"paragraph_indices\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],\n          \"citation_ids\": [7658399, 7658400, 7658401, 7658402, 7658403, 7658404, 7658405, 7658406]\n        }\n      ]\n    }\n  ],\n  \"argument_map\": [\n    {\n      \"argument_id\": \"A1\",\n      \"actor\": \"reviewing_court\",\n      \"legal_issue\": \"Standard of review for administrative interpretation of s. 34(1)(e) IRPA\",\n      \"proposition\": \"The standard of review is presumptively reasonableness under Vavilov, not correctness, even for certified questions under s. 74(d) IRPA.\",\n      \"authorities_used\": [\n        {\"citation_id\": 7658399, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658403, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658404, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658405, \"role\": \"support\", \"treatment\": \"supportive\"}\n      ],\n      \"evidence\": [\n        {\"paragraph_indices\": [7, 9, 39, 51], \"citation_ids\": [7658399, 7658403, 7658404, 7658405]}\n      ],\n      \"response\": \"Party and intervener submissions argued for correctness, but the SCC rejected this.\",\n      \"result_for_argument\": \"accepted\",\n      \"confidence\": 0.99\n    },\n    {\n      \"argument_id\": \"A2\",\n      \"actor\": \"party\",\n      \"legal_issue\": \"Certified questions and correctness review\",\n      \"proposition\": \"Certified questions under s. 74(d) IRPA require correctness review due to their general importance.\",\n      \"authorities_used\": [\n        {\"citation_id\": 7658511, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658423, \"role\": \"support\", \"treatment\": \"supportive\"}\n      ],\n      \"evidence\": [\n        {\"paragraph_indices\": [37, 126], \"citation_ids\": [7658511, 7658423]}\n      ],\n      \"response\": \"SCC rejected this, holding reasonableness applies unless a Vavilov exception is met.\",\n      \"result_for_argument\": \"rejected\",\n      \"confidence\": 0.95\n    },\n    {\n      \"argument_id\": \"A3\",\n      \"actor\": \"reviewing_court\",\n      \"legal_issue\": \"Reasonableness of IAD/ID interpretation of s. 34(1)(e)\",\n      \"proposition\": \"The IAD/ID's interpretation was unreasonable for failing to address key statutory context, consequences, and international law constraints.\",\n      \"authorities_used\": [\n        {\"citation_id\": 7658399, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658403, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658503, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658507, \"role\": \"support\", \"treatment\": \"supportive\"}\n      ],\n      \"evidence\": [\n        {\"paragraph_indices\": [84, 85, 86, 104, 117, 121], \"citation_ids\": [7658399, 7658403, 7658503, 7658507]}\n      ],\n      \"response\": \"The SCC found the IAD/ID failed to consider critical legal constraints, rendering their decisions unreasonable.\",\n      \"result_for_argument\": \"accepted\",\n      \"confidence\": 0.98\n    },\n    {\n      \"argument_id\": \"A4\",\n      \"actor\": \"reviewing_court\",\n      \"legal_issue\": \"Interpretation of s. 34(1)(e) IRPA\",\n      \"proposition\": \"Only one reasonable interpretation: s. 34(1)(e) requires a nexus to national security or the security of Canada.\",\n      \"authorities_used\": [\n        {\"citation_id\": 7658399, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658503, \"role\": \"support\", \"treatment\": \"supportive\"},\n        {\"citation_id\": 7658507, \"role\": \"support\", \"treatment\": \"supportive\"}\n      ],\n      \"evidence\": [\n        {\"paragraph_indices\": [121, 122], \"citation_ids\": [7658399, 7658503, 7658507]}\n      ],\n      \"response\": \"SCC quashed the IAD/ID decisions and clarified the correct interpretation.\",\n      \"result_for_argument\": \"accepted\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"citation_treatment\": {\n    \"7658399\": {\"citation_id\": 7658399, \"treatment\": \"supportive\", \"confidence\": 1.0, \"rationale\": \"Vavilov is applied as the controlling authority for standard of review.\", \"paragraph_indices\": [1, 7, 9, 39, 51, 121]},\n    \"7658400\": {\"citation_id\": 7658400, \"treatment\": \"supportive\", \"confidence\": 0.9, \"rationale\": \"Short-form reference to Vavilov, supporting the main standard of review analysis.\", \"paragraph_indices\": [4]},\n    \"7658401\": {\"citation_id\": 7658401, \"treatment\": \"supportive\", \"confidence\": 0.9, \"rationale\": \"Short-form reference to Vavilov, reinforcing the reasonableness standard.\", \"paragraph_indices\": [5]},\n    \"7658402\": {\"citation_id\": 7658402, \"treatment\": \"supportive\", \"confidence\": 0.9, \"rationale\": \"Short-form reference to Vavilov, supporting the issues on standard of review.\", \"paragraph_indices\": [7]},\n    \"7658403\": {\"citation_id\": 7658403, \"treatment\": \"supportive\", \"confidence\": 1.0, \"rationale\": \"Dunsmuir cited as background for pre-Vavilov standard of review context.\", \"paragraph_indices\": [7, 39]},\n    \"7658404\": {\"citation_id\": 7658404, \"treatment\": \"supportive\", \"confidence\": 1.0, \"rationale\": \"Vavilov paras. 7 and 10 cited for the presumption of reasonableness.\", \"paragraph_indices\": [7]},\n    \"7658405\": {\"citation_id\": 7658405, \"treatment\": \"supportive\", \"confidence\": 1.0, \"rationale\": \"Short-form Vavilov reference, supporting the reasonableness presumption.\", \"paragraph_indices\": [8]},\n    \"7658406\": {\"citation_id\": 7658406, \"treatment\": \"supportive\", \"confidence\": 0.9, \"rationale\": \"Short-form Vavilov reference, supporting reasonableness review methodology.\", \"paragraph_indices\": [9]},\n    \"7658407\": {\"citation_id\": 7658407, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [18]},\n    \"7658408\": {\"citation_id\": 7658408, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [19]},\n    \"7658409\": {\"citation_id\": 7658409, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [20]},\n    \"7658410\": {\"citation_id\": 7658410, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [21]},\n    \"7658411\": {\"citation_id\": 7658411, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting appellate review methodology.\", \"paragraph_indices\": [23]},\n    \"7658412\": {\"citation_id\": 7658412, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [26]},\n    \"7658413\": {\"citation_id\": 7658413, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [27]},\n    \"7658414\": {\"citation_id\": 7658414, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting appellate review methodology.\", \"paragraph_indices\": [28]},\n    \"7658415\": {\"citation_id\": 7658415, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting appellate review methodology.\", \"paragraph_indices\": [29]},\n    \"7658460\": {\"citation_id\": 7658460, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting reasonableness review application.\", \"paragraph_indices\": [56]},\n    \"7658461\": {\"citation_id\": 7658461, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting reasonableness review application.\", \"paragraph_indices\": [57]},\n    \"7658462\": {\"citation_id\": 7658462, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Canada Post cited for reasonableness review principles.\", \"paragraph_indices\": [57]},\n    \"7658463\": {\"citation_id\": 7658463, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting reasonableness review application.\", \"paragraph_indices\": [58]},\n    \"7658464\": {\"citation_id\": 7658464, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Canada Post cited for reasonableness review principles.\", \"paragraph_indices\": [58]},\n    \"7658465\": {\"citation_id\": 7658465, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Vavilov para. 81 cited for responsive justification.\", \"paragraph_indices\": [59]},\n    \"7658466\": {\"citation_id\": 7658466, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Wilson cited for distinction between reasonableness and correctness review.\", \"paragraph_indices\": [62]},\n    \"7658467\": {\"citation_id\": 7658467, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Vavilov para. 83 cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658468\": {\"citation_id\": 7658468, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Canada Post cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658469\": {\"citation_id\": 7658469, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Delios cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658470\": {\"citation_id\": 7658470, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Vavilov para. 83 cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658471\": {\"citation_id\": 7658471, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Canada Post cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658472\": {\"citation_id\": 7658472, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Vavilov para. 83 cited for reasons-first approach.\", \"paragraph_indices\": [62]},\n    \"7658473\": {\"citation_id\": 7658473, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting robust review.\", \"paragraph_indices\": [63]},\n    \"7658474\": {\"citation_id\": 7658474, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting robust review.\", \"paragraph_indices\": [64]},\n    \"7658475\": {\"citation_id\": 7658475, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting indicators of unreasonableness.\", \"paragraph_indices\": [66]},\n    \"7658476\": {\"citation_id\": 7658476, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Short-form Vavilov reference, supporting indicators of unreasonableness.\", \"paragraph_indices\": [66]},\n    \"7658477\": {\"citation_id\": 7658477, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Horrocks cited for appellate review of standard of review selection.\", \"paragraph_indices\": [67]},\n    \"7658478\": {\"citation_id\": 7658478, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Canada Post cited for reasonableness review principles.\", \"paragraph_indices\": [70]},\n    \"7658479\": {\"citation_id\": 7658479, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting legal constraints discussion.\", \"paragraph_indices\": [70]},\n    \"7658480\": {\"citation_id\": 7658480, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Vavilov para. 108 cited for legal constraints.\", \"paragraph_indices\": [70]},\n    \"7658481\": {\"citation_id\": 7658481, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting legal constraints discussion.\", \"paragraph_indices\": [70]},\n    \"7658482\": {\"citation_id\": 7658482, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Vavilov para. 124 cited for single reasonable interpretation.\", \"paragraph_indices\": [71]},\n    \"7658483\": {\"citation_id\": 7658483, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Dunsmuir cited for single reasonable interpretation.\", \"paragraph_indices\": [71]},\n    \"7658484\": {\"citation_id\": 7658484, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Nova Steel cited for single reasonable interpretation.\", \"paragraph_indices\": [71]},\n    \"7658485\": {\"citation_id\": 7658485, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Nova Steel cited for single reasonable interpretation.\", \"paragraph_indices\": [71]},\n    \"7658486\": {\"citation_id\": 7658486, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Vavilov para. 124 cited for single reasonable interpretation.\", \"paragraph_indices\": [71]},\n    \"7658487\": {\"citation_id\": 7658487, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Horrocks cited for legal constraints.\", \"paragraph_indices\": [72]},\n    \"7658488\": {\"citation_id\": 7658488, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Horrocks cited for legal constraints.\", \"paragraph_indices\": [75]},\n    \"7658489\": {\"citation_id\": 7658489, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting legal constraints.\", \"paragraph_indices\": [76]},\n    \"7658490\": {\"citation_id\": 7658490, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting methodology discussion.\", \"paragraph_indices\": [78]},\n    \"7658491\": {\"citation_id\": 7658491, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting methodology discussion.\", \"paragraph_indices\": [78]},\n    \"7658492\": {\"citation_id\": 7658492, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting methodology discussion.\", \"paragraph_indices\": [79]},\n    \"7658493\": {\"citation_id\": 7658493, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting methodology discussion.\", \"paragraph_indices\": [79]},\n    \"7658494\": {\"citation_id\": 7658494, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting methodology discussion.\", \"paragraph_indices\": [79]},\n    \"7658495\": {\"citation_id\": 7658495, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Short-form Vavilov reference, supporting reasonableness review.\", \"paragraph_indices\": [81]},\n    \"7658496\": {\"citation_id\": 7658496, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Wong cited for impact of deportation on individuals.\", \"paragraph_indices\": [81]},\n    \"7658497\": {\"citation_id\": 7658497, \"treatment\": \"neutral\", \"confidence\": 0.7, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [83]},\n    \"7658498\": {\"citation_id\": 7658498, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"El Werfalli cited for IAD's interpretive approach.\", \"paragraph_indices\": [83]},\n    \"7658499\": {\"citation_id\": 7658499, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Fuentes cited for IAD's interpretive approach.\", \"paragraph_indices\": [83]},\n    \"7658500\": {\"citation_id\": 7658500, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"N\u00e9meth cited for international law constraints.\", \"paragraph_indices\": [105]},\n    \"7658501\": {\"citation_id\": 7658501, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"B010 cited for international law constraints.\", \"paragraph_indices\": [106]},\n    \"7658502\": {\"citation_id\": 7658502, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Guzman cited for international law constraints.\", \"paragraph_indices\": [106]},\n    \"7658503\": {\"citation_id\": 7658503, \"treatment\": \"supportive\", \"confidence\": 0.9, \"rationale\": \"Febles cited for Article 33(2) exception to non-refoulement.\", \"paragraph_indices\": [108]},\n    \"7658504\": {\"citation_id\": 7658504, \"treatment\": \"neutral\", \"confidence\": 0.6, \"rationale\": \"Cited as background on non-refoulement; not substantively treated.\", \"paragraph_indices\": [108]},\n    \"7658505\": {\"citation_id\": 7658505, \"treatment\": \"neutral\", \"confidence\": 0.6, \"rationale\": \"Cited as background on non-refoulement; not substantively treated.\", \"paragraph_indices\": [108]},\n    \"7658506\": {\"citation_id\": 7658506, \"treatment\": \"neutral\", \"confidence\": 0.6, \"rationale\": \"Cited as background on non-refoulement; not substantively treated.\", \"paragraph_indices\": [108]},\n    \"7658507\": {\"citation_id\": 7658507, \"treatment\": \"supportive\", \"confidence\": 0.8, \"rationale\": \"Canadian Council for Refugees cited for IRPA safety valves.\", \"paragraph_indices\": [110]},\n    \"7658508\": {\"citation_id\": 7658508, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"G. v. G. cited for definition of refugee under Article 33.\", \"paragraph_indices\": [114]},\n    \"7658509\": {\"citation_id\": 7658509, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Vavilov cited for standard of review in certified questions.\", \"paragraph_indices\": [125]},\n    \"7658510\": {\"citation_id\": 7658510, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Lunyamila cited for criteria for certification.\", \"paragraph_indices\": [125]},\n    \"7658511\": {\"citation_id\": 7658511, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Pushpanathan cited for correctness in certified questions.\", \"paragraph_indices\": [126]},\n    \"7658512\": {\"citation_id\": 7658512, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Baker cited for standard of review in certified questions.\", \"paragraph_indices\": [129]},\n    \"7658513\": {\"citation_id\": 7658513, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Agraira cited for reasonableness in discretionary decisions.\", \"paragraph_indices\": [130]},\n    \"7658514\": {\"citation_id\": 7658514, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Kanthasamy cited for reasonableness in certified questions.\", \"paragraph_indices\": [130]},\n    \"7658515\": {\"citation_id\": 7658515, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Chieu cited for correctness in certified questions.\", \"paragraph_indices\": [131]},\n    \"7658516\": {\"citation_id\": 7658516, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Hilewitz cited for correctness in certified questions.\", \"paragraph_indices\": [131]},\n    \"7658517\": {\"citation_id\": 7658517, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Ezokola cited for definitive answers in certified questions.\", \"paragraph_indices\": [131]},\n    \"7658518\": {\"citation_id\": 7658518, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Febles cited for definitive answers in certified questions.\", \"paragraph_indices\": [131]},\n    \"7658519\": {\"citation_id\": 7658519, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"B010 cited for definitive answers in certified questions.\", \"paragraph_indices\": [131]},\n    \"7658520\": {\"citation_id\": 7658520, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Tran cited for definitive answers in certified questions.\", \"paragraph_indices\": [135]},\n    \"7658521\": {\"citation_id\": 7658521, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Vavilov FCA cited for definitive answers in certified questions.\", \"paragraph_indices\": [134]},\n    \"7658522\": {\"citation_id\": 7658522, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Kanthasamy FCA cited for definitive answers in certified questions.\", \"paragraph_indices\": [134]},\n    \"7658523\": {\"citation_id\": 7658523, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Society of Composers cited for new correctness category.\", \"paragraph_indices\": [138]},\n    \"7658524\": {\"citation_id\": 7658524, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Galindo Camayo cited for FCA's approach to certified questions.\", \"paragraph_indices\": [143]},\n    \"7658525\": {\"citation_id\": 7658525, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Huruglica cited for use of certification to resolve legal disagreements.\", \"paragraph_indices\": [144]},\n    \"7658526\": {\"citation_id\": 7658526, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Bhadauria cited for legislative intent for judicial involvement.\", \"paragraph_indices\": [148]},\n    \"7658527\": {\"citation_id\": 7658527, \"treatment\": \"neutral\", \"confidence\": 0.6, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [154]},\n    \"7658528\": {\"citation_id\": 7658528, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Laing cited for criteria for certification.\", \"paragraph_indices\": [159]},\n    \"7658529\": {\"citation_id\": 7658529, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"XY cited for criteria for certification.\", \"paragraph_indices\": [159]},\n    \"7658530\": {\"citation_id\": 7658530, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Mudrak cited for certification not applying to fact-specific questions.\", \"paragraph_indices\": [160]},\n    \"7658531\": {\"citation_id\": 7658531, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Domtar cited for legal incoherence and rule of law.\", \"paragraph_indices\": [161]},\n    \"7658532\": {\"citation_id\": 7658532, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Ellis-Don cited for legal incoherence and rule of law.\", \"paragraph_indices\": [161]},\n    \"7658533\": {\"citation_id\": 7658533, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Galindo Camayo cited for certification resolving legal disagreements.\", \"paragraph_indices\": [163]},\n    \"7658534\": {\"citation_id\": 7658534, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Domtar cited for internal administrative processes.\", \"paragraph_indices\": [163]},\n    \"7658535\": {\"citation_id\": 7658535, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Don Ltd. cited for legal incoherence and rule of law.\", \"paragraph_indices\": [174]},\n    \"7658536\": {\"citation_id\": 7658536, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Wong cited for collateral consequences of deportation.\", \"paragraph_indices\": [173]},\n    \"7658537\": {\"citation_id\": 7658537, \"treatment\": \"neutral\", \"confidence\": 0.6, \"rationale\": \"Cited as procedural history; no substantive treatment.\", \"paragraph_indices\": [184]},\n    \"7658538\": {\"citation_id\": 7658538, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Moumdjian cited for security-related inadmissibility.\", \"paragraph_indices\": [185]},\n    \"7658539\": {\"citation_id\": 7658539, \"treatment\": \"supportive\", \"confidence\": 0.7, \"rationale\": \"Al Yamani cited for security-related inadmissibility.\", \"paragraph_indices\": [185]}\n  },\n  \"statute_and_issue_intelligence\": [\n    {\n      \"reference_id\": 1022370,\n      \"provision\": \"Immigration and Refugee Protection Act, S.C. 2001, c. 27, s. 34(1)(e)\",\n      \"issue_or_argument\": \"Whether s. 34(1)(e) requires a nexus to national security for inadmissibility.\",\n      \"role_in_reasoning\": \"central legal issue; interpreted by all decision-makers\",\n      \"confidence\": 1.0,\n      \"evidence\": [{\"paragraph_indices\": [2, 3, 11, 121]}]\n    },\n    {\n      \"reference_id\": 1022377,\n      \"provision\": \"Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 74(d)\",\n      \"issue_or_argument\": \"Whether certification of a serious question of general importance changes the standard of review.\",\n      \"role_in_reasoning\": \"statutory mechanism for appeal; does not alter standard of review\",\n      \"confidence\": 1.0,\n      \"evidence\": [{\"paragraph_indices\": [9, 26, 49, 51, 125, 146]}]\n    },\n    {\n      \"reference_id\": 1022391,\n      \"provision\": \"art. 33(1) of Refugee Convention\",\n      \"issue_or_argument\": \"Whether the IAD's interpretation of s. 34(1)(e) is consistent with non-refoulement obligations.\",\n      \"role_in_reasoning\": \"international law constraint on statutory interpretation\",\n      \"confidence\": 1.0,\n      \"evidence\": [{\"paragraph_indices\": [104, 108, 110, 117]}]\n    }\n  ],\n  \"unresolved_questions\": [\n    \"Whether the SCC's approach to certified questions under s. 74(d) IRPA will be extended to other statutory schemes remains unresolved.\",\n    \"The precise boundaries of what constitutes a 'nexus to national security' under s. 34(1)(e) are not fully defined in this decision.\"\n  ],\n  \"quality_control\": {\n    \"citation_records_not_semantically_used\": [],\n    \"deterministic_conflicts\": [],\n    \"unsupported_or_ambiguous_findings\": []\n  }\n}",
+  "parsed_response": {
+    "case_orientation": "Central legal questions: (1) What is the standard of review for administrative decisions interpreting s. 34(1)(e) IRPA in immigration inadmissibility? (2) Was the administrative interpretation of s. 34(1)(e) reasonable? Posture: SCC reviews Federal Court of Appeal's application of reasonableness to IAD/ID decisions. Decision-makers: IAD/ID (tribunal), Federal Court (review), Federal Court of Appeal (appeal), SCC (final). Outcome: Appeals allowed, IAD/ID decisions quashed. [paras 1-12, 123, 189]",
+    "discussion_unit_intelligence": [
+      {
+        "discussion_unit_id": "53164:1",
+        "function": "procedural_history",
+        "core_propositions": [
+          "The case concerns judicial review of administrative decisions interpreting s. 34(1)(e) IRPA.",
+          "The SCC applies the Vavilov framework to determine the standard of review.",
+          "The IAD/ID interpreted s. 34(1)(e) as not requiring a nexus to national security.",
+          "The Federal Court found this unreasonable; the Federal Court of Appeal disagreed.",
+          "The SCC finds the administrative decisions unreasonable and allows the appeals."
+        ],
+        "argument_roles": [
+          "reviewing_court",
+          "tribunal",
+          "party"
+        ],
+        "citation_treatment_patterns": [
+          "Heavy reliance on Vavilov and related SCC/FCA authorities for standard of review.",
+          "References to international law and prior IRPA/Immigration Act cases for statutory interpretation."
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "paragraph_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "citation_ids": [
+              7658399,
+              7658400,
+              7658401,
+              7658402,
+              7658403,
+              7658404,
+              7658405,
+              7658406
+            ]
+          }
+        ]
+      }
+    ],
+    "argument_map": [
+      {
+        "argument_id": "A1",
+        "actor": "reviewing_court",
+        "legal_issue": "Standard of review for administrative interpretation of s. 34(1)(e) IRPA",
+        "proposition": "The standard of review is presumptively reasonableness under Vavilov, not correctness, even for certified questions under s. 74(d) IRPA.",
+        "authorities_used": [
+          {
+            "citation_id": 7658399,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658403,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658404,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658405,
+            "role": "support",
+            "treatment": "supportive"
+          }
+        ],
+        "evidence": [
+          {
+            "paragraph_indices": [
+              7,
+              9,
+              39,
+              51
+            ],
+            "citation_ids": [
+              7658399,
+              7658403,
+              7658404,
+              7658405
+            ]
+          }
+        ],
+        "response": "Party and intervener submissions argued for correctness, but the SCC rejected this.",
+        "result_for_argument": "accepted",
+        "confidence": 0.99
+      },
+      {
+        "argument_id": "A2",
+        "actor": "party",
+        "legal_issue": "Certified questions and correctness review",
+        "proposition": "Certified questions under s. 74(d) IRPA require correctness review due to their general importance.",
+        "authorities_used": [
+          {
+            "citation_id": 7658511,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658423,
+            "role": "support",
+            "treatment": "supportive"
+          }
+        ],
+        "evidence": [
+          {
+            "paragraph_indices": [
+              37,
+              126
+            ],
+            "citation_ids": [
+              7658511,
+              7658423
+            ]
+          }
+        ],
+        "response": "SCC rejected this, holding reasonableness applies unless a Vavilov exception is met.",
+        "result_for_argument": "rejected",
+        "confidence": 0.95
+      },
+      {
+        "argument_id": "A3",
+        "actor": "reviewing_court",
+        "legal_issue": "Reasonableness of IAD/ID interpretation of s. 34(1)(e)",
+        "proposition": "The IAD/ID's interpretation was unreasonable for failing to address key statutory context, consequences, and international law constraints.",
+        "authorities_used": [
+          {
+            "citation_id": 7658399,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658403,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658503,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658507,
+            "role": "support",
+            "treatment": "supportive"
+          }
+        ],
+        "evidence": [
+          {
+            "paragraph_indices": [
+              84,
+              85,
+              86,
+              104,
+              117,
+              121
+            ],
+            "citation_ids": [
+              7658399,
+              7658403,
+              7658503,
+              7658507
+            ]
+          }
+        ],
+        "response": "The SCC found the IAD/ID failed to consider critical legal constraints, rendering their decisions unreasonable.",
+        "result_for_argument": "accepted",
+        "confidence": 0.98
+      },
+      {
+        "argument_id": "A4",
+        "actor": "reviewing_court",
+        "legal_issue": "Interpretation of s. 34(1)(e) IRPA",
+        "proposition": "Only one reasonable interpretation: s. 34(1)(e) requires a nexus to national security or the security of Canada.",
+        "authorities_used": [
+          {
+            "citation_id": 7658399,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658503,
+            "role": "support",
+            "treatment": "supportive"
+          },
+          {
+            "citation_id": 7658507,
+            "role": "support",
+            "treatment": "supportive"
+          }
+        ],
+        "evidence": [
+          {
+            "paragraph_indices": [
+              121,
+              122
+            ],
+            "citation_ids": [
+              7658399,
+              7658503,
+              7658507
+            ]
+          }
+        ],
+        "response": "SCC quashed the IAD/ID decisions and clarified the correct interpretation.",
+        "result_for_argument": "accepted",
+        "confidence": 0.99
+      }
+    ],
+    "citation_treatment": {
+      "7658399": {
+        "citation_id": 7658399,
+        "treatment": "supportive",
+        "confidence": 1.0,
+        "rationale": "Vavilov is applied as the controlling authority for standard of review.",
+        "paragraph_indices": [
+          1,
+          7,
+          9,
+          39,
+          51,
+          121
+        ]
+      },
+      "7658400": {
+        "citation_id": 7658400,
+        "treatment": "supportive",
+        "confidence": 0.9,
+        "rationale": "Short-form reference to Vavilov, supporting the main standard of review analysis.",
+        "paragraph_indices": [
+          4
+        ]
+      },
+      "7658401": {
+        "citation_id": 7658401,
+        "treatment": "supportive",
+        "confidence": 0.9,
+        "rationale": "Short-form reference to Vavilov, reinforcing the reasonableness standard.",
+        "paragraph_indices": [
+          5
+        ]
+      },
+      "7658402": {
+        "citation_id": 7658402,
+        "treatment": "supportive",
+        "confidence": 0.9,
+        "rationale": "Short-form reference to Vavilov, supporting the issues on standard of review.",
+        "paragraph_indices": [
+          7
+        ]
+      },
+      "7658403": {
+        "citation_id": 7658403,
+        "treatment": "supportive",
+        "confidence": 1.0,
+        "rationale": "Dunsmuir cited as background for pre-Vavilov standard of review context.",
+        "paragraph_indices": [
+          7,
+          39
+        ]
+      },
+      "7658404": {
+        "citation_id": 7658404,
+        "treatment": "supportive",
+        "confidence": 1.0,
+        "rationale": "Vavilov paras. 7 and 10 cited for the presumption of reasonableness.",
+        "paragraph_indices": [
+          7
+        ]
+      },
+      "7658405": {
+        "citation_id": 7658405,
+        "treatment": "supportive",
+        "confidence": 1.0,
+        "rationale": "Short-form Vavilov reference, supporting the reasonableness presumption.",
+        "paragraph_indices": [
+          8
+        ]
+      },
+      "7658406": {
+        "citation_id": 7658406,
+        "treatment": "supportive",
+        "confidence": 0.9,
+        "rationale": "Short-form Vavilov reference, supporting reasonableness review methodology.",
+        "paragraph_indices": [
+          9
+        ]
+      },
+      "7658407": {
+        "citation_id": 7658407,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          18
+        ]
+      },
+      "7658408": {
+        "citation_id": 7658408,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          19
+        ]
+      },
+      "7658409": {
+        "citation_id": 7658409,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          20
+        ]
+      },
+      "7658410": {
+        "citation_id": 7658410,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          21
+        ]
+      },
+      "7658411": {
+        "citation_id": 7658411,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting appellate review methodology.",
+        "paragraph_indices": [
+          23
+        ]
+      },
+      "7658412": {
+        "citation_id": 7658412,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          26
+        ]
+      },
+      "7658413": {
+        "citation_id": 7658413,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          27
+        ]
+      },
+      "7658414": {
+        "citation_id": 7658414,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting appellate review methodology.",
+        "paragraph_indices": [
+          28
+        ]
+      },
+      "7658415": {
+        "citation_id": 7658415,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting appellate review methodology.",
+        "paragraph_indices": [
+          29
+        ]
+      },
+      "7658460": {
+        "citation_id": 7658460,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting reasonableness review application.",
+        "paragraph_indices": [
+          56
+        ]
+      },
+      "7658461": {
+        "citation_id": 7658461,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting reasonableness review application.",
+        "paragraph_indices": [
+          57
+        ]
+      },
+      "7658462": {
+        "citation_id": 7658462,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Canada Post cited for reasonableness review principles.",
+        "paragraph_indices": [
+          57
+        ]
+      },
+      "7658463": {
+        "citation_id": 7658463,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting reasonableness review application.",
+        "paragraph_indices": [
+          58
+        ]
+      },
+      "7658464": {
+        "citation_id": 7658464,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Canada Post cited for reasonableness review principles.",
+        "paragraph_indices": [
+          58
+        ]
+      },
+      "7658465": {
+        "citation_id": 7658465,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Vavilov para. 81 cited for responsive justification.",
+        "paragraph_indices": [
+          59
+        ]
+      },
+      "7658466": {
+        "citation_id": 7658466,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Wilson cited for distinction between reasonableness and correctness review.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658467": {
+        "citation_id": 7658467,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Vavilov para. 83 cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658468": {
+        "citation_id": 7658468,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Canada Post cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658469": {
+        "citation_id": 7658469,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Delios cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658470": {
+        "citation_id": 7658470,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Vavilov para. 83 cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658471": {
+        "citation_id": 7658471,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Canada Post cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658472": {
+        "citation_id": 7658472,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Vavilov para. 83 cited for reasons-first approach.",
+        "paragraph_indices": [
+          62
+        ]
+      },
+      "7658473": {
+        "citation_id": 7658473,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting robust review.",
+        "paragraph_indices": [
+          63
+        ]
+      },
+      "7658474": {
+        "citation_id": 7658474,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting robust review.",
+        "paragraph_indices": [
+          64
+        ]
+      },
+      "7658475": {
+        "citation_id": 7658475,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting indicators of unreasonableness.",
+        "paragraph_indices": [
+          66
+        ]
+      },
+      "7658476": {
+        "citation_id": 7658476,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Short-form Vavilov reference, supporting indicators of unreasonableness.",
+        "paragraph_indices": [
+          66
+        ]
+      },
+      "7658477": {
+        "citation_id": 7658477,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Horrocks cited for appellate review of standard of review selection.",
+        "paragraph_indices": [
+          67
+        ]
+      },
+      "7658478": {
+        "citation_id": 7658478,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Canada Post cited for reasonableness review principles.",
+        "paragraph_indices": [
+          70
+        ]
+      },
+      "7658479": {
+        "citation_id": 7658479,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting legal constraints discussion.",
+        "paragraph_indices": [
+          70
+        ]
+      },
+      "7658480": {
+        "citation_id": 7658480,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Vavilov para. 108 cited for legal constraints.",
+        "paragraph_indices": [
+          70
+        ]
+      },
+      "7658481": {
+        "citation_id": 7658481,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting legal constraints discussion.",
+        "paragraph_indices": [
+          70
+        ]
+      },
+      "7658482": {
+        "citation_id": 7658482,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Vavilov para. 124 cited for single reasonable interpretation.",
+        "paragraph_indices": [
+          71
+        ]
+      },
+      "7658483": {
+        "citation_id": 7658483,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Dunsmuir cited for single reasonable interpretation.",
+        "paragraph_indices": [
+          71
+        ]
+      },
+      "7658484": {
+        "citation_id": 7658484,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Nova Steel cited for single reasonable interpretation.",
+        "paragraph_indices": [
+          71
+        ]
+      },
+      "7658485": {
+        "citation_id": 7658485,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Nova Steel cited for single reasonable interpretation.",
+        "paragraph_indices": [
+          71
+        ]
+      },
+      "7658486": {
+        "citation_id": 7658486,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Vavilov para. 124 cited for single reasonable interpretation.",
+        "paragraph_indices": [
+          71
+        ]
+      },
+      "7658487": {
+        "citation_id": 7658487,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Horrocks cited for legal constraints.",
+        "paragraph_indices": [
+          72
+        ]
+      },
+      "7658488": {
+        "citation_id": 7658488,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Horrocks cited for legal constraints.",
+        "paragraph_indices": [
+          75
+        ]
+      },
+      "7658489": {
+        "citation_id": 7658489,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting legal constraints.",
+        "paragraph_indices": [
+          76
+        ]
+      },
+      "7658490": {
+        "citation_id": 7658490,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting methodology discussion.",
+        "paragraph_indices": [
+          78
+        ]
+      },
+      "7658491": {
+        "citation_id": 7658491,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting methodology discussion.",
+        "paragraph_indices": [
+          78
+        ]
+      },
+      "7658492": {
+        "citation_id": 7658492,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting methodology discussion.",
+        "paragraph_indices": [
+          79
+        ]
+      },
+      "7658493": {
+        "citation_id": 7658493,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting methodology discussion.",
+        "paragraph_indices": [
+          79
+        ]
+      },
+      "7658494": {
+        "citation_id": 7658494,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting methodology discussion.",
+        "paragraph_indices": [
+          79
+        ]
+      },
+      "7658495": {
+        "citation_id": 7658495,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Short-form Vavilov reference, supporting reasonableness review.",
+        "paragraph_indices": [
+          81
+        ]
+      },
+      "7658496": {
+        "citation_id": 7658496,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Wong cited for impact of deportation on individuals.",
+        "paragraph_indices": [
+          81
+        ]
+      },
+      "7658497": {
+        "citation_id": 7658497,
+        "treatment": "neutral",
+        "confidence": 0.7,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          83
+        ]
+      },
+      "7658498": {
+        "citation_id": 7658498,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "El Werfalli cited for IAD's interpretive approach.",
+        "paragraph_indices": [
+          83
+        ]
+      },
+      "7658499": {
+        "citation_id": 7658499,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Fuentes cited for IAD's interpretive approach.",
+        "paragraph_indices": [
+          83
+        ]
+      },
+      "7658500": {
+        "citation_id": 7658500,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "N\u00e9meth cited for international law constraints.",
+        "paragraph_indices": [
+          105
+        ]
+      },
+      "7658501": {
+        "citation_id": 7658501,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "B010 cited for international law constraints.",
+        "paragraph_indices": [
+          106
+        ]
+      },
+      "7658502": {
+        "citation_id": 7658502,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Guzman cited for international law constraints.",
+        "paragraph_indices": [
+          106
+        ]
+      },
+      "7658503": {
+        "citation_id": 7658503,
+        "treatment": "supportive",
+        "confidence": 0.9,
+        "rationale": "Febles cited for Article 33(2) exception to non-refoulement.",
+        "paragraph_indices": [
+          108
+        ]
+      },
+      "7658504": {
+        "citation_id": 7658504,
+        "treatment": "neutral",
+        "confidence": 0.6,
+        "rationale": "Cited as background on non-refoulement; not substantively treated.",
+        "paragraph_indices": [
+          108
+        ]
+      },
+      "7658505": {
+        "citation_id": 7658505,
+        "treatment": "neutral",
+        "confidence": 0.6,
+        "rationale": "Cited as background on non-refoulement; not substantively treated.",
+        "paragraph_indices": [
+          108
+        ]
+      },
+      "7658506": {
+        "citation_id": 7658506,
+        "treatment": "neutral",
+        "confidence": 0.6,
+        "rationale": "Cited as background on non-refoulement; not substantively treated.",
+        "paragraph_indices": [
+          108
+        ]
+      },
+      "7658507": {
+        "citation_id": 7658507,
+        "treatment": "supportive",
+        "confidence": 0.8,
+        "rationale": "Canadian Council for Refugees cited for IRPA safety valves.",
+        "paragraph_indices": [
+          110
+        ]
+      },
+      "7658508": {
+        "citation_id": 7658508,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "G. v. G. cited for definition of refugee under Article 33.",
+        "paragraph_indices": [
+          114
+        ]
+      },
+      "7658509": {
+        "citation_id": 7658509,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Vavilov cited for standard of review in certified questions.",
+        "paragraph_indices": [
+          125
+        ]
+      },
+      "7658510": {
+        "citation_id": 7658510,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Lunyamila cited for criteria for certification.",
+        "paragraph_indices": [
+          125
+        ]
+      },
+      "7658511": {
+        "citation_id": 7658511,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Pushpanathan cited for correctness in certified questions.",
+        "paragraph_indices": [
+          126
+        ]
+      },
+      "7658512": {
+        "citation_id": 7658512,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Baker cited for standard of review in certified questions.",
+        "paragraph_indices": [
+          129
+        ]
+      },
+      "7658513": {
+        "citation_id": 7658513,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Agraira cited for reasonableness in discretionary decisions.",
+        "paragraph_indices": [
+          130
+        ]
+      },
+      "7658514": {
+        "citation_id": 7658514,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Kanthasamy cited for reasonableness in certified questions.",
+        "paragraph_indices": [
+          130
+        ]
+      },
+      "7658515": {
+        "citation_id": 7658515,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Chieu cited for correctness in certified questions.",
+        "paragraph_indices": [
+          131
+        ]
+      },
+      "7658516": {
+        "citation_id": 7658516,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Hilewitz cited for correctness in certified questions.",
+        "paragraph_indices": [
+          131
+        ]
+      },
+      "7658517": {
+        "citation_id": 7658517,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Ezokola cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          131
+        ]
+      },
+      "7658518": {
+        "citation_id": 7658518,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Febles cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          131
+        ]
+      },
+      "7658519": {
+        "citation_id": 7658519,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "B010 cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          131
+        ]
+      },
+      "7658520": {
+        "citation_id": 7658520,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Tran cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          135
+        ]
+      },
+      "7658521": {
+        "citation_id": 7658521,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Vavilov FCA cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          134
+        ]
+      },
+      "7658522": {
+        "citation_id": 7658522,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Kanthasamy FCA cited for definitive answers in certified questions.",
+        "paragraph_indices": [
+          134
+        ]
+      },
+      "7658523": {
+        "citation_id": 7658523,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Society of Composers cited for new correctness category.",
+        "paragraph_indices": [
+          138
+        ]
+      },
+      "7658524": {
+        "citation_id": 7658524,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Galindo Camayo cited for FCA's approach to certified questions.",
+        "paragraph_indices": [
+          143
+        ]
+      },
+      "7658525": {
+        "citation_id": 7658525,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Huruglica cited for use of certification to resolve legal disagreements.",
+        "paragraph_indices": [
+          144
+        ]
+      },
+      "7658526": {
+        "citation_id": 7658526,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Bhadauria cited for legislative intent for judicial involvement.",
+        "paragraph_indices": [
+          148
+        ]
+      },
+      "7658527": {
+        "citation_id": 7658527,
+        "treatment": "neutral",
+        "confidence": 0.6,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          154
+        ]
+      },
+      "7658528": {
+        "citation_id": 7658528,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Laing cited for criteria for certification.",
+        "paragraph_indices": [
+          159
+        ]
+      },
+      "7658529": {
+        "citation_id": 7658529,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "XY cited for criteria for certification.",
+        "paragraph_indices": [
+          159
+        ]
+      },
+      "7658530": {
+        "citation_id": 7658530,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Mudrak cited for certification not applying to fact-specific questions.",
+        "paragraph_indices": [
+          160
+        ]
+      },
+      "7658531": {
+        "citation_id": 7658531,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Domtar cited for legal incoherence and rule of law.",
+        "paragraph_indices": [
+          161
+        ]
+      },
+      "7658532": {
+        "citation_id": 7658532,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Ellis-Don cited for legal incoherence and rule of law.",
+        "paragraph_indices": [
+          161
+        ]
+      },
+      "7658533": {
+        "citation_id": 7658533,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Galindo Camayo cited for certification resolving legal disagreements.",
+        "paragraph_indices": [
+          163
+        ]
+      },
+      "7658534": {
+        "citation_id": 7658534,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Domtar cited for internal administrative processes.",
+        "paragraph_indices": [
+          163
+        ]
+      },
+      "7658535": {
+        "citation_id": 7658535,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Don Ltd. cited for legal incoherence and rule of law.",
+        "paragraph_indices": [
+          174
+        ]
+      },
+      "7658536": {
+        "citation_id": 7658536,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Wong cited for collateral consequences of deportation.",
+        "paragraph_indices": [
+          173
+        ]
+      },
+      "7658537": {
+        "citation_id": 7658537,
+        "treatment": "neutral",
+        "confidence": 0.6,
+        "rationale": "Cited as procedural history; no substantive treatment.",
+        "paragraph_indices": [
+          184
+        ]
+      },
+      "7658538": {
+        "citation_id": 7658538,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Moumdjian cited for security-related inadmissibility.",
+        "paragraph_indices": [
+          185
+        ]
+      },
+      "7658539": {
+        "citation_id": 7658539,
+        "treatment": "supportive",
+        "confidence": 0.7,
+        "rationale": "Al Yamani cited for security-related inadmissibility.",
+        "paragraph_indices": [
+          185
+        ]
+      }
+    },
+    "statute_and_issue_intelligence": [
+      {
+        "reference_id": 1022370,
+        "provision": "Immigration and Refugee Protection Act, S.C. 2001, c. 27, s. 34(1)(e)",
+        "issue_or_argument": "Whether s. 34(1)(e) requires a nexus to national security for inadmissibility.",
+        "role_in_reasoning": "central legal issue; interpreted by all decision-makers",
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "paragraph_indices": [
+              2,
+              3,
+              11,
+              121
+            ]
+          }
+        ]
+      },
+      {
+        "reference_id": 1022377,
+        "provision": "Immigration and Refugee Protection Act, S.C. 2001, c. 27 s. 74(d)",
+        "issue_or_argument": "Whether certification of a serious question of general importance changes the standard of review.",
+        "role_in_reasoning": "statutory mechanism for appeal; does not alter standard of review",
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "paragraph_indices": [
+              9,
+              26,
+              49,
+              51,
+              125,
+              146
+            ]
+          }
+        ]
+      },
+      {
+        "reference_id": 1022391,
+        "provision": "art. 33(1) of Refugee Convention",
+        "issue_or_argument": "Whether the IAD's interpretation of s. 34(1)(e) is consistent with non-refoulement obligations.",
+        "role_in_reasoning": "international law constraint on statutory interpretation",
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "paragraph_indices": [
+              104,
+              108,
+              110,
+              117
+            ]
+          }
+        ]
+      }
+    ],
+    "unresolved_questions": [
+      "Whether the SCC's approach to certified questions under s. 74(d) IRPA will be extended to other statutory schemes remains unresolved.",
+      "The precise boundaries of what constitutes a 'nexus to national security' under s. 34(1)(e) are not fully defined in this decision."
+    ],
+    "quality_control": {
+      "citation_records_not_semantically_used": [],
+      "deterministic_conflicts": [],
+      "unsupported_or_ambiguous_findings": []
+    }
+  }
+}

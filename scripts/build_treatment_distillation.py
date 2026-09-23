@@ -8,6 +8,7 @@ import re
 from typing import Any
 
 from backend.contextual_authority.teacher_contract import load_teacher_examples
+from scripts.run_treatment_teacher_batch import CONTEXT_FIELDS, _parse_context_field
 
 
 ALLOWED_TREATMENTS = {"supportive", "distinguishing", "negative", "neutral", "absent", "ambiguous"}
@@ -61,6 +62,17 @@ def build_distillation(
                 raise ValueError("absent_span_not_empty")
             if treatment != "absent" and not phrase.strip():
                 raise ValueError("empty_treatment_phrase")
+            treatment_context = {
+                field_name: _parse_context_field(
+                    label.get("treatment_context", {}).get(
+                        field_name,
+                        {"status": "not_stated", "text": "", "start": 0, "end": 0},
+                    ),
+                    example.text,
+                    field_name,
+                )
+                for field_name in CONTEXT_FIELDS
+            }
             key = (example_id, ordinal)
             if key in seen_labels:
                 rejected["duplicate_label"] += 1
@@ -79,6 +91,7 @@ def build_distillation(
                     "offsets_repaired": bool(label.get("offsets_repaired")),
                     "source_text_sha256": example.source_text_sha256,
                     "evidence_text": example.text[start:end],
+                    "treatment_context": treatment_context,
                 }
             )
         except (KeyError, IndexError, TypeError, ValueError) as exc:

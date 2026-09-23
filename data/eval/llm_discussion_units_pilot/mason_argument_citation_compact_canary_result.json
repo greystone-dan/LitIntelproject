@@ -1,0 +1,193 @@
+{
+  "status": "teacher_run_complete",
+  "network_called": true,
+  "started_at": "2026-09-23T16:15:15.346025+00:00",
+  "model": "gpt-4.1-mini",
+  "budget_usd": 3.0,
+  "spent_usd": 0.0034515,
+  "results": [
+    {
+      "batch_number": 1,
+      "example_start": 0,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4030,
+        "completion_tokens": 744,
+        "estimated_cost_usd": 0.000884,
+        "cost_usd": 0.0007006
+      },
+      "validation": {
+        "valid_label_count": 2,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "label 2: actor span mismatch"
+        ]
+      },
+      "labels": [
+        {
+          "example_id": "mason-argument-citation-001",
+          "citation_ordinal": 0,
+          "citation_text": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "treatment": "supportive",
+          "phrase": "apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+          "phrase_start": 39,
+          "phrase_end": 185,
+          "offsets_repaired": true,
+          "confidence": 0.95,
+          "rationale": "The text states the Court is applying the judicial review framework developed in Vavilov, indicating supportive treatment as the case provides the applicable legal framework.",
+          "treatment_context": {
+            "actor": {
+              "status": "stated",
+              "text": "the Court",
+              "start": 26,
+              "end": 35
+            },
+            "reason_raised": {
+              "status": "stated",
+              "text": "to apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653",
+              "start": 36,
+              "end": 185
+            },
+            "argument_supported": {
+              "status": "stated",
+              "text": "the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov",
+              "start": 45,
+              "end": 151
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        {
+          "example_id": "mason-argument-citation-002",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "absent",
+          "phrase": "",
+          "phrase_start": 0,
+          "phrase_end": 0,
+          "offsets_repaired": false,
+          "confidence": 0.9,
+          "rationale": "The citation is mentioned as a temporal marker for when the Federal Court released its reasons, but no treatment or reasoning about Vavilov is provided in this excerpt.",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          }
+        }
+      ],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-001\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653\",\"phrase_start\":10,\"phrase_end\":92,\"confidence\":0.95,\"rationale\":\"The text states the Court is applying the judicial review framework developed in Vavilov, indicating supportive treatment as the case provides the applicable legal framework.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the Court\",\"start\":10,\"end\":15},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to apply the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653\",\"start\":10,\"end\":92},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the framework for judicial review developed in Canada (Minister of Citizenship and Immigration) v. Vavilov\",\"start\":24,\"end\":92},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-002\",\"citation_ordinal\":0,\"treatment\":\"absent\",\"phrase\":\"\",\"phrase_start\":0,\"phrase_end\":0,\"confidence\":0.9,\"rationale\":\"The citation is mentioned as a temporal marker for when the Federal Court released its reasons, but no treatment or reasoning about Vavilov is provided in this excerpt.\",\"treatment_context\":{\"actor\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"reason_raised\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_supported\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-003\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"In Vavilov, this Court revised the framework for determining the standard of review.\",\"phrase_start\":1904,\"phrase_end\":1953,\"confidence\":0.95,\"rationale\":\"The text explicitly states that the Court revised the framework for standard of review in Vavilov, indicating supportive treatment as the case is foundational to the legal framework applied.\",\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"this Court\",\"start\":1907,\"end\":1916},\"reason_raised\":{\"status\":\"stated\",\"text\":\"to determine the standard of review\",\"start\":1933,\"end\":1953},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the framework for determining the standard of review\",\"start\":1919,\"end\":1953},\"argument_addressed\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}}]}"
+    },
+    {
+      "batch_number": 2,
+      "example_start": 3,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4458,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009525,
+        "cost_usd": 0.0009258000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 123 column 19 (char 4754)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-004\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law\",\n      \"phrase_start\": 38,\n      \"phrase_end\": 178,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explains that the Court in Vavilov revised the standard of review framework and established a presumption of reasonableness review, indicating a supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 13,\n          \"end\": 22\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"revised the framework for determining the standard of review\",\n          \"start\": 23,\n          \"end\": 69\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law\",\n          \"start\": 89,\n          \"end\": 178\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-005\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"neutral\",\n      \"phrase\": \"The revised framework seeks to maintain the rule of law, while respecting a legislature\\u00019 intent to entrust certain decisions to administrative decision makers rather than courts\",\n      \"phrase_start\": 179,\n      \"phrase_end\": 273,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is used to describe the aims of the revised framework in Vavilov without explicit endorsement or criticism, indicating a neutral treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"The Court\",\n          \"start\": 179,\n          \"end\": 188\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"seeks to maintain the rule of law, while respecting a legislature\\u00019 intent to entrust certain decisions to administrative decision makers rather than courts\",\n          \"start\": 188,\n          \"end\": 273\n        },\n        \"argument_supported\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-006\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"It also aims to bring simplicity, coherence, and predictability to the law on the standard of review and to eliminate the unwieldy exercise of determining the standard of review based on contextual factors, as had been required by this Court\\u00019 jurisprudence following Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S.C.R. 190\",\n      \"phrase_start\": 274,\n      \"phrase_end\": 399,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text supports the authority by explaining that Vavilov aims to simplify and improve the standard of review law, replacing the prior approach including Dunsmuir.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"It\",\n          \"start\": 274,\n          \"end\": 276\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"aims to bring simplicity, coherence, and predictability to the law on the standard of review and to eliminate the unwieldy exercise of determining the standard of review based on contextual factors\",\n          \"start\": 276,\n          \"end\": 374\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"eliminate the unwieldy exercise of determining the standard of review based on contextual factors, as had been required by this Court\\u00019 jurisprudence following Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S"
+    },
+    {
+      "batch_number": 3,
+      "example_start": 6,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4765,
+        "completion_tokens": 1200,
+        "estimated_cost_usd": 0.0009802,
+        "cost_usd": 0.0009565
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 1,
+        "invalid_labels": [
+          "response: Unterminated string starting at: line 140 column 11 (char 4936)"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\n  \"labels\": [\n    {\n      \"example_id\": \"mason-argument-citation-007\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"In Vavilov, this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law\",\n      \"phrase_start\": 20,\n      \"phrase_end\": 196,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explains how Vavilov revised the standard of review framework and established a presumption of reasonableness review, indicating supportive treatment of the authority.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"this Court\",\n          \"start\": 3,\n          \"end\": 12\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to determine the standard of review\",\n          \"start\": 38,\n          \"end\": 69\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review of the merits of an administrative decision is reasonableness\",\n          \"start\": 111,\n          \"end\": 176\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"what standard of review should the reviewing courts have applied when reviewing the decisions\",\n          \"start\": 4,\n          \"end\": 69\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"The Court established a presumption that the standard of review ... is reasonableness\",\n          \"start\": 20,\n          \"end\": 196\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review of the administrative decisions at issue is reasonableness\",\n          \"start\": 1217,\n          \"end\": 1267\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-008\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"supportive\",\n      \"phrase\": \"Applying the Vavilov framework to these appeals, I conclude that the standard of review of the administrative decisions at issue is reasonableness\",\n      \"phrase_start\": 2113,\n      \"phrase_end\": 2183,\n      \"confidence\": 0.95,\n      \"rationale\": \"The text explicitly applies the Vavilov framework and concludes the standard of review is reasonableness, showing supportive treatment.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"stated\",\n          \"text\": \"I\",\n          \"start\": 2113,\n          \"end\": 2114\n        },\n        \"reason_raised\": {\n          \"status\": \"stated\",\n          \"text\": \"to determine the standard of review of the administrative decisions at issue\",\n          \"start\": 2114,\n          \"end\": 2183\n        },\n        \"argument_supported\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review of the administrative decisions at issue is reasonableness\",\n          \"start\": 2113,\n          \"end\": 2183\n        },\n        \"argument_addressed\": {\n          \"status\": \"stated\",\n          \"text\": \"what standard of review should the reviewing courts have applied when reviewing the decisions\",\n          \"start\": 0,\n          \"end\": 69\n        },\n        \"court_response\": {\n          \"status\": \"stated\",\n          \"text\": \"Applying the Vavilov framework to these appeals, I conclude that the standard of review ... is reasonableness\",\n          \"start\": 2113,\n          \"end\": 2183\n        },\n        \"argument_conclusion\": {\n          \"status\": \"stated\",\n          \"text\": \"the standard of review of the administrative decisions at issue is reasonableness\",\n          \"start\": 2113,\n          \"end\": 2183\n        }\n      }\n    },\n    {\n      \"example_id\": \"mason-argument-citation-009\",\n      \"citation_ordinal\": 0,\n      \"treatment\": \"absent\",\n      \"phrase\": \"\",\n      \"phrase_start\": 0,\n      \"phrase_end\": 0,\n      \"confidence\": 0.9,\n      \"rationale\": \"The citation is present as a case name for a decision below but no treatment language or reasoning about the authority is provided in the text.\",\n      \"treatment_context\": {\n        \"actor\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"reason_raised\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_supported\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_addressed\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"court_response\": {\n          \"status\": \"not_stated\",\n          \"text\": \"\",\n          \"start\": 0,\n          \"end\": 0\n        },\n        \"argument_conclusion\": {\n          \"status"
+    },
+    {
+      "batch_number": 4,
+      "example_start": 9,
+      "example_count": 3,
+      "usage": {
+        "prompt_tokens": 4830,
+        "completion_tokens": 964,
+        "estimated_cost_usd": 0.0009416,
+        "cost_usd": 0.0008686000000000001
+      },
+      "validation": {
+        "valid_label_count": 0,
+        "invalid_label_count": 3,
+        "invalid_labels": [
+          "label 0: reason_raised span mismatch",
+          "label 1: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable",
+          "label 2: phrase offsets do not reconstruct phrase and phrase is not uniquely locatable"
+        ]
+      },
+      "labels": [],
+      "raw_response": "{\"labels\":[{\"example_id\":\"mason-argument-citation-010\",\"citation_ordinal\":0,\"treatment\":\"neutral\",\"phrase\":\"The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada.\",\"phrase_start\":1233,\"phrase_end\":1306,\"confidence\":0.95,\"rationale\":\"The text states the IAD's conclusion about the interpretation of s. 34(1)(e) without explicitly endorsing or rejecting it, indicating a neutral treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The IAD\",\"start\":1223,\"end\":1226},\"reason_raised\":{\"status\":\"stated\",\"text\":\"appealed the ID's decision in Mr. Mason's case\",\"start\":1200,\"end\":1230},\"argument_supported\":{\"status\":\"stated\",\"text\":\"inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada\",\"start\":1233,\"end\":1306},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"whether Mr. Mason's alleged conduct, if proven, could be a ground of inadmissibility under s. 34(1)(e)\",\"start\":1110,\"end\":1175},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-011\",\"citation_ordinal\":0,\"treatment\":\"supportive\",\"phrase\":\"the ID saw no basis to depart from the IAD's interpretation of s. 34(1)(e) in Mr. Mason's case, and therefore affirmed that s. 34(1)(e) does not require a link to national security or the security of Canada\",\"phrase_start\":1317,\"phrase_end\":1416,\"confidence\":0.98,\"rationale\":\"The text explicitly states that the ID affirmed the IAD's interpretation, indicating support for that interpretation.\" ,\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"the ID\",\"start\":1317,\"end\":1320},\"reason_raised\":{\"status\":\"stated\",\"text\":\"In Mr. Dleiow's case\",\"start\":1300,\"end\":1317},\"argument_supported\":{\"status\":\"stated\",\"text\":\"s. 34(1)(e) does not require a link to national security or the security of Canada\",\"start\":1370,\"end\":1416},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the IAD's interpretation of s. 34(1)(e) in Mr. Mason's case\",\"start\":1340,\"end\":1370},\"court_response\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0},\"argument_conclusion\":{\"status\":\"not_stated\",\"text\":\"\",\"start\":0,\"end\":0}}},{\"example_id\":\"mason-argument-citation-012\",\"citation_ordinal\":0,\"treatment\":\"negative\",\"phrase\":\"The court held that the IAD's interpretation of s. 34(1) (e) of the IRPA was unreasonable because it disregarded the structure of the Act and rendered meaningless statutory provisions for inadmissibility based on criminality.\",\"phrase_start\":1427,\"phrase_end\":1536,\"confidence\":0.99,\"rationale\":\"The Federal Court explicitly rejected the IAD's interpretation as unreasonable, indicating a negative treatment.\" ,\"treatment_context\":{\"actor\":{\"status\":\"stated\",\"text\":\"The Federal Court\",\"start\":1420,\"end\":1434},\"reason_raised\":{\"status\":\"stated\",\"text\":\"granted Mr. Mason's application for judicial review of the IAD's decision\",\"start\":1410,\"end\":1460},\"argument_supported\":{\"status\":\"stated\",\"text\":\"the IAD's interpretation of s. 34(1)(e) of the IRPA was unreasonable\",\"start\":1435,\"end\":1475},\"argument_addressed\":{\"status\":\"stated\",\"text\":\"the IAD's interpretation of s. 34(1)(e)\",\"start\":1435,\"end\":1465},\"court_response\":{\"status\":\"stated\",\"text\":\"held that the IAD's interpretation was unreasonable because it disregarded the structure of the Act and rendered meaningless statutory provisions\",\"start\":1445,\"end\":1536},\"argument_conclusion\":{\"status\":\"stated\",\"text\":\"s. 34(1)(e) requires a link to national security\",\"start\":1537,\"end\":1575}}}]}"
+    }
+  ]
+}

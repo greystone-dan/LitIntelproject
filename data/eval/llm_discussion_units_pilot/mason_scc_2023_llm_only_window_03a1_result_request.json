@@ -1,0 +1,51 @@
+{
+  "request": {
+    "model": "gpt-4.1-nano",
+    "budget_usd": 1.0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "You identify plain-language Discussion Units in a legal decision. Use only the supplied numbered paragraphs. Group contiguous paragraphs that perform one coherent task, such as procedural history, facts, party submissions, legal test, analysis/application, or disposition. Do not invent facts or citations. Return JSON with a units array. Each unit must contain start_paragraph, end_paragraph, label, explanation, transition_from_previous, and confidence. Use paragraph indices exactly as supplied; never output an index not present in the supplied list, and cover the supplied window from its first index through its last index exactly once. Keep explanations short and readable for a legal researcher. Do not rely on metadata or deterministic segmentation; infer the units from the paragraph text alone."
+      },
+      {
+        "role": "user",
+        "content": "{\"case_id\": 53164, \"contract_version\": \"discussion_units_llm_v1\", \"paragraph_window\": {\"first_allowed\": 121, \"last_allowed\": 122}, \"paragraphs\": [{\"paragraph_index\": 121, \"text\": \"[121] That is also the case here. The relevant legal constraints cumulatively point overwhelmingly to only one reasonable interpretation of s. 34(1)(e) \\u2014 the provision requires a nexus to national security or the security of Canada. This interpretation is supported by the placement of s. 34(1)(e) amid other \\u201csecurity grounds\\u201d in s. 34, all of which have a link to national security or the security of Canada. And although the IAD noted that some interpretive constraints point in the other direction, the two critical points of statutory context that the IAD failed to consider, and especially, the legal constraints imposed by international law, overwhelmingly support the opposite conclusion: s. 34(1)(e) can be invoked to render a person inadmissible only when their \\u201cacts of violence that would or might endanger the lives or safety of persons in Canada\\u201d have a nexus with national security or the security of Canada.\"}, {\"paragraph_index\": 122, \"text\": \"[122] As a result, the decision of the IAD in Mr. Mason\\u2019s case and of the ID in Mr. Dleiow\\u2019s case were unreasonable and should be quashed. Because the Minister has not alleged that Mr. Mason or Mr. Dleiow engaged in acts of violence with a link to national security or the security of Canada, s. 34(1)(e) of the IRPA does not provide a legal basis for the inadmissibility of either person. And because the Minister has not alleged any other basis for their inadmissibility, there is no need to remit either decision to the ID or IAD for redetermination.\\nVI. Disposition\"}], \"request_id\": \"discussion-units-case-53164\"}"
+      }
+    ]
+  },
+  "response": {
+    "status": "complete",
+    "network_called": true,
+    "created_at": "2026-09-23T15:27:20.723983+00:00",
+    "model": "gpt-4.1-nano",
+    "case_id": 53164,
+    "source_report": "data\\eval\\llm_discussion_units_pilot\\mason_scc_2023_deterministic.json",
+    "usage": {
+      "prompt_tokens": 587,
+      "completion_tokens": 192,
+      "estimated_cost_usd": 0.00013550000000000001
+    },
+    "result": {
+      "units": [
+        {
+          "unit_number": 1,
+          "start_paragraph": 121,
+          "end_paragraph": 121,
+          "label": "Legal interpretation of s. 34(1)(e)",
+          "explanation": "Analyzes the statutory language and context to determine the meaning of s. 34(1)(e), emphasizing its link to national security.",
+          "transition_from_previous": "start",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 2,
+          "start_paragraph": 122,
+          "end_paragraph": 122,
+          "label": "Conclusion and disposition",
+          "explanation": "Concludes the decisions were unreasonable due to lack of evidence linking acts of violence to national security, and states the decisions should be quashed.",
+          "transition_from_previous": "Legal interpretation of s. 34(1)(e)",
+          "confidence": 0.9
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1193 @@
+{
+  "artifact": "treatment_distillation_review_packet",
+  "packet_id": "mason-compact-review-20260923",
+  "status": "human_review_required",
+  "runtime_publishable": false,
+  "artifact_source": "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_compact_distillation.json",
+  "fixture_source": "data\\eval\\llm_discussion_units_pilot\\mason_argument_citation_compact_fixture.jsonl",
+  "review_instructions": [
+    "Review the treatment against the full evidence text, not the citation alone.",
+    "Use the decision context to check what the judge says before and after the citation.",
+    "Confirm the phrase expresses treatment or judicial reasoning about the cited authority.",
+    "Reject generic nouns, citation text, party-only assertions, or unsupported conclusions.",
+    "Record approve, reject, or needs_context in review_decision and explain uncertainty in review_notes."
+  ],
+  "review_summary": {
+    "total_rules": 4,
+    "pending_review": 4,
+    "approved": 0,
+    "rejected": 0,
+    "needs_context": 0,
+    "treatment_distribution": {
+      "neutral": 2,
+      "supportive": 2
+    },
+    "rules_with_repaired_spans": 4,
+    "rules_with_single_evidence": 3,
+    "rules_with_multiple_evidence": 1,
+    "priority_label_count": 12,
+    "priority_treatment_distribution": {
+      "absent": 7,
+      "neutral": 2,
+      "supportive": 3
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "teacher-phrase-neutral-0001",
+      "treatment": "neutral",
+      "phrase": "see also al yamani v. canada (solicitor general), [1996] 1 f.c. 174 (t.d.)",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "span_quality": "repaired",
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-097",
+          "citation_ordinal": 0,
+          "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+          "treatment": "neutral",
+          "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "phrase_start": 1407,
+          "phrase_end": 1481,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+          "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          },
+          "citation_context_start": 807,
+          "citation_context_end": 2007,
+          "decision_context": "olent acts that exist in this case. While assaults against individuals are undesirable, they cannot be considered to be a threat to the safety of persons in Canada and the security of Canadian society, as contemplated by this section of the IRPA . [para. 42]\n[185] Member King also distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian v. Canada (Security Intelligence Review Committee), [1999] 4 F.C. 624 (C.A.), which were \u201cmore obviously related to the security of Canada\u201d and dealt with a conspiracy to assassinate a Turkish diplomat in Canada (paras. 77\u201178; see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)).\n[186] For these reasons, in addition to those identified by my colleague and by Grammond J. in the Federal Court, I would conclude that inadmissibility under s. 34(1)(e) requires a nexus between the relevant act of violence and with national security or the security of Canada. However, it remains the task of administrative decision makers under the IRPA to apply this interpretation going forward, including determining which acts of violence may indeed qualify as a threat to national security or the security of Canada.",
+          "citation_offset_in_context": [
+            609,
+            667
+          ],
+          "treatment_offset_in_context": [
+            600,
+            674
+          ]
+        }
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "rule_id": "teacher-phrase-neutral-0002",
+      "treatment": "neutral",
+      "phrase": "whose reasons were released before this court released vavilov",
+      "support_count": 1,
+      "mean_confidence": 0.9,
+      "span_quality": "repaired",
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-013",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "neutral",
+          "phrase": "whose reasons were released before this Court released Vavilov",
+          "phrase_start": 1235,
+          "phrase_end": 1297,
+          "confidence": 0.9,
+          "offsets_repaired": true,
+          "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+          "evidence_text": "whose reasons were released before this Court released Vavilov",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          },
+          "citation_context_start": 635,
+          "citation_context_end": 2497,
+          "decision_context": " result, the ID ruled that Mr. Dleiow was inadmissible and issued a deportation order.\nD. Federal Court Decision (Mr. Mason), 2019 FC 1251, [2020] 2 F.C.R. 3 (Grammond J.)\n[22] The Federal Court granted Mr. Mason\u2019s application for judicial review of the IAD\u2019s decision. The court held that the IAD\u2019s interpretation of s. 34(1) (e) of the IRPA was unreasonable because it disregarded the structure of the Act and rendered meaningless statutory provisions for inadmissibility based on criminality. In the Federal Court\u2019s view, s. 34(1)(e) requires a link to national security.\n[23] The Federal Court \u2014 whose reasons were released before this Court released Vavilov \u2014 outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute. In the Federal Court\u2019s view, a reviewing court must ensure that an administrative decision maker did not overlook a very strong argument \u2014 a \u201cknock-out punch\u201d, that is, an interpretation that is internally consistent, withstands scrutiny, and is not met by a countervailing interpretation of similar force \u2014 or choose an interpretation when the interpretive \u201cclues\u201d point overwhelmingly in the other direction.\n[24] The Federal Court ruled that the IAD\u2019s interpretation of s. 34(1)(e) was unreasonable because it conflicted with the broader structure of the IRPA , thus undermining Parliament\u2019s intent. In the court\u2019s view, this structural argument was a \u201cknock-out punch\u201d. The IAD\u2019s decision upset the carefully crafted structure of the IRPA by including under s. 34(1)(e) a vast range of conduct that \u201cwould or might endanger the lives or safety of persons in Canada\u201d. This would thwart Parliament\u2019s intent by bringing under the most serious category of inadmissibility conduct falling below the thresholds for less serious categories of inadmissibility, and it ",
+          "citation_offset_in_context": [
+            655,
+            662
+          ],
+          "treatment_offset_in_context": [
+            600,
+            662
+          ]
+        }
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0003",
+      "treatment": "supportive",
+      "phrase": "canada has ratified both the 1951 refugee convention and the 1967 refugee protocol (n\u00e9meth v. canada (justice), 2010 scc 56, [2010] 3 s.c.r. 281, at para. 17). these international human rights instruments to which canada is a party trigger the interpretive presumption of conformity with international law",
+      "support_count": 1,
+      "mean_confidence": 0.95,
+      "span_quality": "repaired",
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-058",
+          "citation_ordinal": 0,
+          "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+          "treatment": "supportive",
+          "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+          "phrase_start": 1478,
+          "phrase_end": 1783,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+          "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          },
+          "citation_context_start": 878,
+          "citation_context_end": 2983,
+          "decision_context": "h Article 33. Although this argument was not presented to the IAD, the IAD was required by its home statute to interpret and apply the IRPA in a manner that complies with Canada\u2019s international human rights obligations, including Canada\u2019s non-refoulement obligation under Article 33 of the Refugee Convention.\n[105] Vavilov highlighted that international law may be an \u201cimportant constraint on an administrative decision maker\u201d, including through the presumption of statutory interpretation that \u201clegislation is presumed to operate in conformity with Canada\u2019s international obligations\u201d (para. 114). Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law.\n[106] The presumption of conformity with international law assumes added force when interpreting the IRPA , because Parliament has made its \u201cpresumed intent to conform to Canada\u2019s international obligations explicit\u201d through two provisions of the IRPA (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at para. 49). First, s. 3(2)(b) of the IRPA expressly identifies one of the IRPA \u2019s objectives as being \u201cto fulfil Canada\u2019s international legal obligations with respect to refugees and affirm Canada\u2019s commitment to international efforts to provide assistance to those in need of resettlement\u201d. Indeed, this Court has described the IRPA as the \u201cmain legislative vehicle for implementing Canada\u2019s international refugee obligations\u201d (N\u00e9meth, at para. 21). Second, s. 3(3) (f) of the IRPA instructs courts and administrative decision makers to construe and apply the IRPA in a manner that \u201ccomplies with international human rights instruments to which Canada is signatory\u201d (B010, at para. 49). This Court has stated that \u201c[t]here can be no doubt that the Refugee Convention is such an instrument, building as it does on the right of persons to seek and to enjoy asylum f",
+          "citation_offset_in_context": [
+            684,
+            757
+          ],
+          "treatment_offset_in_context": [
+            600,
+            905
+          ]
+        }
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "rule_id": "teacher-phrase-supportive-0004",
+      "treatment": "supportive",
+      "phrase": "vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "support_count": 2,
+      "mean_confidence": 0.95,
+      "span_quality": "repaired",
+      "evidence": [
+        {
+          "example_id": "mason-argument-citation-050",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          },
+          "citation_context_start": 466,
+          "citation_context_end": 3238,
+          "decision_context": "freestanding interpretation of s. 34(1)(e) based on the provision\u2019s text, context, and purpose (paras. 38\u201151), and then evaluated the administrative decisions against that interpretation (paras. 52\u201162). As the Court of Appeal noted, this involved the Federal Court \u201cfashioning its own yardstick to measure the administrator\u2019s interpretation and interfering if the difference is too much\u201d (para. 24). This approach was eschewed in this Court\u2019s decision in Vavilov.\n[79] But the Federal Court of Appeal also strayed from Vavilov\u2019s methodology of reasonableness review. The Court of Appeal grafted onto Vavilov an extra step of \u201cconducting a preliminary analysis of the text, context and purpose of the legislation just to understand the lay of the land before . . . examin[ing] the administrators\u2019 reasons\u201d (para. 17). The parties before this Court contended that this preliminary step is inconsistent with Vavilov. The respondent Minister of Citizenship and Immigration \u2014 who otherwise agreed with the Court of Appeal\u2019s conclusion \u2014 submitted that the Court of Appeal\u2019s approach \u201cshould not be adopted\u201d, and urged that \u201c[t]he focus in the reasonableness analysis needs to remain, as this Court has instructed, on the reasons of the decision-maker, and not on a range of potential conclusions to be determined by a reviewing court in the abstract\u201d (R.F., at para. 54). I agree. Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review.\nC. Were the Administrative Decisions Reasonable?\n[80] I now turn to consider whether the administrative decisions under review reasonably interpreted s. 34(1) (e) of the IRPA as not requiring a nexus with national security or the security of Canada.\n[81] In reviewing the IAD\u2019s reasons, I recall this Court\u2019s instruction in Vavilov that a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual. The principle of \u201cresponsive justification\u201d means that \u201c[w]here the impact of a decision on an individual\u2019s rights and interests is severe, the reasons provided to that individual must reflect the stakes\u201d (para. 133). Here, the interpretation of s. 34(1)(e) will affect whether two individuals \u2014 one of whom has not been convicted of a criminal offence \u2014 could be deported from Canada. As this Court has noted, individuals facing deportation may experience \u201cany number of serious life-changing consequences\u201d, including dislocation or permanent separation from their family (R. v. Wong, 2018 SCC 25, [2018] 1 S.C.R. 696, at para. 72, per Wagner J. (as he then was), dissenting). The IAD\u2019s reasons must reflect these stakes.",
+          "citation_offset_in_context": [
+            600,
+            607
+          ],
+          "treatment_offset_in_context": [
+            1376,
+            1590
+          ]
+        },
+        {
+          "example_id": "mason-argument-citation-051",
+          "citation_ordinal": 0,
+          "citation_text": "Vavilov",
+          "treatment": "supportive",
+          "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "phrase_start": 1842,
+          "phrase_end": 2056,
+          "confidence": 0.95,
+          "offsets_repaired": true,
+          "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+          "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+          "treatment_context": {
+            "actor": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "reason_raised": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_supported": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_addressed": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "court_response": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            },
+            "argument_conclusion": {
+              "status": "not_stated",
+              "text": "",
+              "start": 0,
+              "end": 0
+            }
+          },
+          "citation_context_start": 771,
+          "citation_context_end": 3238,
+          "decision_context": " the administrator\u2019s interpretation and interfering if the difference is too much\u201d (para. 24). This approach was eschewed in this Court\u2019s decision in Vavilov.\n[79] But the Federal Court of Appeal also strayed from Vavilov\u2019s methodology of reasonableness review. The Court of Appeal grafted onto Vavilov an extra step of \u201cconducting a preliminary analysis of the text, context and purpose of the legislation just to understand the lay of the land before . . . examin[ing] the administrators\u2019 reasons\u201d (para. 17). The parties before this Court contended that this preliminary step is inconsistent with Vavilov. The respondent Minister of Citizenship and Immigration \u2014 who otherwise agreed with the Court of Appeal\u2019s conclusion \u2014 submitted that the Court of Appeal\u2019s approach \u201cshould not be adopted\u201d, and urged that \u201c[t]he focus in the reasonableness analysis needs to remain, as this Court has instructed, on the reasons of the decision-maker, and not on a range of potential conclusions to be determined by a reviewing court in the abstract\u201d (R.F., at para. 54). I agree. Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review.\nC. Were the Administrative Decisions Reasonable?\n[80] I now turn to consider whether the administrative decisions under review reasonably interpreted s. 34(1) (e) of the IRPA as not requiring a nexus with national security or the security of Canada.\n[81] In reviewing the IAD\u2019s reasons, I recall this Court\u2019s instruction in Vavilov that a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual. The principle of \u201cresponsive justification\u201d means that \u201c[w]here the impact of a decision on an individual\u2019s rights and interests is severe, the reasons provided to that individual must reflect the stakes\u201d (para. 133). Here, the interpretation of s. 34(1)(e) will affect whether two individuals \u2014 one of whom has not been convicted of a criminal offence \u2014 could be deported from Canada. As this Court has noted, individuals facing deportation may experience \u201cany number of serious life-changing consequences\u201d, including dislocation or permanent separation from their family (R. v. Wong, 2018 SCC 25, [2018] 1 S.C.R. 696, at para. 72, per Wagner J. (as he then was), dissenting). The IAD\u2019s reasons must reflect these stakes.",
+          "citation_offset_in_context": [
+            600,
+            607
+          ],
+          "treatment_offset_in_context": [
+            1071,
+            1285
+          ]
+        }
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    }
+  ],
+  "priority_labels": [
+    {
+      "example_id": "mason-argument-citation-006",
+      "citation_ordinal": 0,
+      "citation_text": "(Vavilov, at paras. 7 and 10)",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 0.95,
+      "offsets_repaired": false,
+      "source_text_sha256": "677771c34fd27dd4a007da3f71ed0213f7ef81b2b0c4acfc218b51bc78edfefb",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 2710,
+      "decision_context": "[5] The Federal Court of Appeal allowed both appeals. In reasons addressing both cases \u2014 released after this Court released Vavilov \u2014 the Court of Appeal ruled that the IAD and ID had reasonably interpreted s. 34(1) (e) of the IRPA as not requiring a nexus to national security or the security of Canada.\n[6] Mr. Mason and Mr. Dleiow now appeal to this Court. Two issues arise. First, what standard of review should the reviewing courts have applied when reviewing the decisions of the IAD in Mr. Mason\u2019s case and the ID in Mr. Dleiow\u2019s case? Second, how should that standard of review have been applied in the circumstances?\n[7] In Vavilov, this Court revised the framework for determining the standard of review. The Court established a presumption that the standard of review of the merits of an administrative decision is reasonableness, subject to limited exceptions based on legislative intent or when required by the rule of law (paras. 10 and 17). The revised framework seeks to maintain the rule of law, while respecting a legislature\u2019s intent to entrust certain decisions to administrative decision makers rather than courts (paras. 2 and 14). It also aims to bring simplicity, coherence, and predictability to the law on the standard of review and to eliminate the unwieldy exercise of determining the standard of review based on contextual factors, as had been required by this Court\u2019s jurisprudence following Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S.C.R. 190 (Vavilov, at paras. 7 and 10).\n[8] Vavilov also explained how a court should conduct reasonableness review. This Court stressed that reasonableness review and correctness review are methodologically distinct (para. 12). Reasonableness review starts from a posture of judicial restraint and focusses on \u201cthe decision the administrative decision maker actually made, including the justification offered for it, and not on the conclusion the court itself would have reached in the administrative decision maker\u2019s place\u201d (paras. 15 and 24). When an administrative decision maker is required to provide reasons for its decision, reasonableness review requires a \u201csensitive and respectful, but robust\u201d evaluation of the reasons provided (para. 12). A reviewing court must take a \u201creasons first\u201d approach that evaluates the administrative decision maker\u2019s justification for its decision (para. 84). An administrative decision will be reasonable if it \u201cis based on an internally coherent and rational chain of analysis and . . . is justified in relation to the facts and law that constrain the decision maker\u201d (para. 85). This Court also affirmed \u201cthe need to develop and strengthen a culture of justification in administrative decision ",
+      "citation_offset_in_context": [
+        1481,
+        1510
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-009",
+      "citation_ordinal": 0,
+      "citation_text": "2018 CanLII 57522",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 0.9,
+      "offsets_repaired": false,
+      "source_text_sha256": "5a56af3efd045986ecf0d358a8cebdd49f1636e4b1b2fd7724b57365d5fd6286",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 2588,
+      "decision_context": "[16] In May 2016, a delegate of the Minister of Public Safety and Emergency Preparedness referred the CBSA\u2019s inadmissibility report to the ID for an admissibility hearing.\nB. Mr. Seifeslam Dleiow\n[17] Mr. Seifeslam Dleiow is a citizen of Libya and a foreign national in Canada. He entered Canada in June 2012 on a study permit, which expired in 2014. In 2015, he made a claim for refugee protection. In October 2017, the Refugee Protection Division of the IRB refused his claim, and in October 2018, the Refugee Appeal Division dismissed his appeal.\n[18] In September 2018, a CBSA officer prepared a report alleging that Mr. Dleiow was inadmissible on security grounds under s. 34(1)(e). The report alleged that since arriving in Canada, Mr. Dleiow had engaged in acts of violence against intimate partners and other persons. Criminal charges flowing from these incidents were stayed, except for 3 charges: being unlawfully in a dwelling house with intent to commit an indictable offence, mischief under $5,000, and uttering threats to cause death or bodily harm. Mr. Dleiow pleaded guilty to these charges and received a conditional discharge. A delegate of the Minister of Public Safety and Emergency Preparedness then referred the CBSA\u2019s inadmissibility report to the ID for an admissibility hearing.\nIII. Decisions Below\nA. Immigration Division Decision (Mr. Mason), 2018 CanLII 57522\n[19] The ID addressed a preliminary question of law as to whether Mr. Mason\u2019s alleged conduct, if proven, could be a ground of inadmissibility under s. 34(1)(e). The ID ruled that a \u201csecurity groun[d]\u201d under s. 34(1) means a threat to the security of Canada or another country, and that the act of violence in question must have some connection to a threat to the security of Canada. In the ID\u2019s view, Mr. Mason\u2019s alleged conduct involved \u201cmere criminal offences\u201d, which \u201calthough very serious\u201d, lacked \u201cany element that would elevate them to security grounds\u201d, and thus s. 34(1)(e) could not apply (para. 24).\nB. Immigration Appeal Division Decision (Mr. Mason), 2019 CanLII 55171\n[20] The Minister of Public Safety and Emergency Preparedness appealed the ID\u2019s decision in Mr. Mason\u2019s case to the IAD, which allowed the Minister\u2019s appeal, set aside the ID\u2019s decision, and referred the matter back for a full hearing on the merits. The IAD concluded that inadmissibility under s. 34(1)(e) does not require a link to national security or the security of Canada. In the IAD\u2019s view, \u201csecurity\u201d under s. 34(1)(e) relates to \u201csecurity in a broader sense\u201d, namely, to ensure \u201cthat individual Canadians are",
+      "citation_offset_in_context": [
+        1371,
+        1388
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-013",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "neutral",
+      "phrase": "whose reasons were released before this Court released Vavilov",
+      "phrase_start": 1235,
+      "phrase_end": 1297,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "d1575850909b309588a707c64d4925531ab92990ce6a04d0e30a328ab4a11fac",
+      "evidence_text": "whose reasons were released before this Court released Vavilov",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 635,
+      "citation_context_end": 2497,
+      "decision_context": " result, the ID ruled that Mr. Dleiow was inadmissible and issued a deportation order.\nD. Federal Court Decision (Mr. Mason), 2019 FC 1251, [2020] 2 F.C.R. 3 (Grammond J.)\n[22] The Federal Court granted Mr. Mason\u2019s application for judicial review of the IAD\u2019s decision. The court held that the IAD\u2019s interpretation of s. 34(1) (e) of the IRPA was unreasonable because it disregarded the structure of the Act and rendered meaningless statutory provisions for inadmissibility based on criminality. In the Federal Court\u2019s view, s. 34(1)(e) requires a link to national security.\n[23] The Federal Court \u2014 whose reasons were released before this Court released Vavilov \u2014 outlined how a reviewing court should evaluate the reasonableness of an administrative decision maker\u2019s interpretation of a statute. In the Federal Court\u2019s view, a reviewing court must ensure that an administrative decision maker did not overlook a very strong argument \u2014 a \u201cknock-out punch\u201d, that is, an interpretation that is internally consistent, withstands scrutiny, and is not met by a countervailing interpretation of similar force \u2014 or choose an interpretation when the interpretive \u201cclues\u201d point overwhelmingly in the other direction.\n[24] The Federal Court ruled that the IAD\u2019s interpretation of s. 34(1)(e) was unreasonable because it conflicted with the broader structure of the IRPA , thus undermining Parliament\u2019s intent. In the court\u2019s view, this structural argument was a \u201cknock-out punch\u201d. The IAD\u2019s decision upset the carefully crafted structure of the IRPA by including under s. 34(1)(e) a vast range of conduct that \u201cwould or might endanger the lives or safety of persons in Canada\u201d. This would thwart Parliament\u2019s intent by bringing under the most serious category of inadmissibility conduct falling below the thresholds for less serious categories of inadmissibility, and it ",
+      "citation_offset_in_context": [
+        655,
+        662
+      ],
+      "treatment_offset_in_context": [
+        600,
+        662
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-014",
+      "citation_ordinal": 0,
+      "citation_text": "2020 FC 59",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "3b0a16d902bff82ae347d731942276480b695bbf30ecd1c800b7582766290bf7",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 4035,
+      "decision_context": "[24] The Federal Court ruled that the IAD\u2019s interpretation of s. 34(1)(e) was unreasonable because it conflicted with the broader structure of the IRPA , thus undermining Parliament\u2019s intent. In the court\u2019s view, this structural argument was a \u201cknock-out punch\u201d. The IAD\u2019s decision upset the carefully crafted structure of the IRPA by including under s. 34(1)(e) a vast range of conduct that \u201cwould or might endanger the lives or safety of persons in Canada\u201d. This would thwart Parliament\u2019s intent by bringing under the most serious category of inadmissibility conduct falling below the thresholds for less serious categories of inadmissibility, and it would discard Parliament\u2019s choice under s. 36 of the IRPA to require a conviction when criminal conduct was committed in Canada. Section 36(1) and (2) of the IRPA provide for inadmissibility based on \u201cserious criminality\u201d and \u201ccriminality\u201d as follows:\nSerious criminality\n36 (1) A permanent resident or a foreign national is inadmissible on grounds of serious criminality for\n(a) having been convicted in Canada of an offence under an Act of Parliament punishable by a maximum term of imprisonment of at least 10 years, or of an offence under an Act of Parliament for which a term of imprisonment of more than six months has been imposed;\n(b) having been convicted of an offence outside Canada that, if committed in Canada, would constitute an offence under an Act of Parliament punishable by a maximum term of imprisonment of at least 10 years; or\n(c) committing an act outside Canada that is an offence in the place where it was committed and that, if committed in Canada, would constitute an offence under an Act of Parliament punishable by a maximum term of imprisonment of at least 10 years.\nCriminality\n(2) A foreign national is inadmissible on grounds of criminality for\n(a) having been convicted in Canada of an offence under an Act of Parliament punishable by way of indictment, or of two offences under any Act of Parliament not arising out of a single occurrence;\n(b) having been convicted outside Canada of an offence that, if committed in Canada, would constitute an indictable offence under an Act of Parliament, or of two offences not arising out of a single occurrence that, if committed in Canada, would constitute offences under an Act of Parliament;\n(c) committing an act outside Canada that is an offence in the place where it was committed and that, if committed in Canada, would constitute an indictable offence under an Act of Parliament; or\n(d) committing, on entering Canada, an offence under an Act of Parliament prescribed by regulations.\n[25] The Federal Court found all the countervailing points of interpretive context unpersuasive and ruled that only one reasonable interpretation was available. It therefore quashed the IAD\u2019s decision and restored the ID\u2019s decision.\n[26] The Federal Court certified the following serious question of general importance for appeal to the Federal Court of Appeal: Is it reasonable to interpret s. 34(1) (e) of the IRPA in a manner that does not require proof of conduct that has a nexus with \u201cnational security\u201d or \u201cthe security of Canada\u201d?\nE. Federal Court Decision (Mr. Dleiow), 2020 FC 59 (Barnes J.)\n[27] The Federal Court allowed Mr. Dleiow\u2019s application for judicial review of the ID\u2019s decision. The court applied the Federal Court\u2019s reasoning in Mr. Mason\u2019s case for reasons of comity, set aside the ID\u2019s decision and ordered the matter be reconsidered on the merits by a different decision maker. The court also certified the same serious question of general importance.\nF. Federal Court of Appeal (Mr. Mason and Mr. Dleiow), 2021 FCA 156, [2022] 1 F.C.R. 3 (Stratas J.A., Rennie and Mactavish JJ.A. concurring)\n[28] The Federal Court of Appeal decided the appeals in Mr. Mason\u2019s and Mr. Dleiow\u2019s cases together, after this Court had released Vavilov. The court held that the administrative decisions reasonably interpreted s. 34(1)(e) as not requiring a nexus with national security or the security of Canada.",
+      "citation_offset_in_context": [
+        3198,
+        3208
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-045",
+      "citation_ordinal": 0,
+      "citation_text": "authority",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "04c5bd74789a21a9c8885d492a330bacc791b6fbe843b33bd5f00865b1ccf188",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 4161,
+      "decision_context": "[70] In interpreting a statute, an administrative decision maker may draw on its institutional expertise and experience and rely on considerations that a court would not have thought to employ, but which \u201cenrich and elevate the interpretive exercise\u201d (paras. 93 and 119; Canada Post, at para. 43). As Professor Audrey Macklin explains, courts should be \u201cgenuinely receptive to input beyond the usual techniques that courts use to discern text, context and purpose. These may include operational implications, alignment with broader statutory mandate, and so on\u201d (\u201cSeven Out of Nine Legal Experts Agree: Expertise No Longer Matters (in the Same Way) After Vavilov!\u201d (2021), 100 S.C.L.R. (2d) 249, at p. 261). By being receptive to such factors, courts acknowledge that administrative decision makers have a role to play in elaborating the content of the schemes that they administer (Vavilov, at para. 108). Reasonableness review demands both that administrative decision makers demonstrate their expertise through their reasons and that judges pay \u201c[r]espectful attention\u201d to the ways in which their reasons reflect that expertise (para. 93; P. Daly, \u201cVavilov and the Culture of Justification in Contemporary Administrative Law\u201d (2021), 100 S.C.L.R. (2d) 279, at pp. 285\u201186).\n[71] Finally, a court may conclude during a reasonableness review that \u201cthe interplay of text, context and purpose leaves room for a single reasonable interpretation of the statutory provision, or aspect of the statutory provision\u201d (Vavilov, at para. 124, citing Dunsmuir, at paras. 72\u201176, and Nova Tube Inc./Nova Steel Inc. v. Conares Metal Supply Ltd., 2019 FCA 52). In such a case, although a court should \u201cgenerally pause before definitively pronouncing upon the interpretation\u201d of a statutory provision, the court may conclude that remitting the question to the administrative decision maker may serve no useful purpose (Vavilov, at para. 124). It must be stressed that the possibility of a single reasonable interpretation is not a starting point of reasonableness review, as this would be contrary to a \u201creasons first\u201d approach. Rather, it is a conclusion that a reviewing court may draw as a result of a proper reasonableness review, as part of the court\u2019s consideration of the appropriate remedy.\n3. Relevant Statutory Law, Common Law, and International Law\n[72] Statutory law, common law, and international law may operate as legal constraints on an administrative decision maker (paras. 111 and 114). An administrative decision will be unreasonable if it fails to justify a departure from binding precedents (para. 112). International law can also operate as an important constraint, arising from the presumption that legislation is presumed to operate in conformity with Canada\u2019s international obligations and the values and principles of customary and conventional international law, or by informing whether a decision was a reasonable exercise of administrative authority (para. 114).\n4. The Evidence and Facts Before the Decision Maker\n[73] Absent exceptional circumstances, a reviewing court will defer to an administrative decision maker\u2019s factual findings (para. 125). A reviewing court may intervene, however, if the decision is unreasonable: if it is not \u201cjustified in light of the facts\u201d or when \u201cthe decision maker has fundamentally misapprehended or failed to account for the evidence before it\u201d (para. 126).\n5. The Submissions of the Parties\n[74] An administrative decision maker\u2019s reasons must \u201cmeaningfully account for the central issues and concerns raised by the parties\u201d (para. 127). Reasons must be \u201cresponsive\u201d to the parties\u2019 submissions, because reasons are the \u201cprimary mechanism by which decision makers demonstrate that they have actually listened to the parties\u201d (para. 127 (emphasis in original)). Although an administrative decision does not have to \u201crespond to every argument or line of possible analysis\u201d raised by the parties, \u201ca decision maker\u2019s failure to meaningfully grapple with key issues or central arguments raised by the parties may call into question whether the decision maker was actually alert and sensitive to the matter before i",
+      "citation_offset_in_context": [
+        2952,
+        2961
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-050",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 466,
+      "citation_context_end": 3238,
+      "decision_context": "freestanding interpretation of s. 34(1)(e) based on the provision\u2019s text, context, and purpose (paras. 38\u201151), and then evaluated the administrative decisions against that interpretation (paras. 52\u201162). As the Court of Appeal noted, this involved the Federal Court \u201cfashioning its own yardstick to measure the administrator\u2019s interpretation and interfering if the difference is too much\u201d (para. 24). This approach was eschewed in this Court\u2019s decision in Vavilov.\n[79] But the Federal Court of Appeal also strayed from Vavilov\u2019s methodology of reasonableness review. The Court of Appeal grafted onto Vavilov an extra step of \u201cconducting a preliminary analysis of the text, context and purpose of the legislation just to understand the lay of the land before . . . examin[ing] the administrators\u2019 reasons\u201d (para. 17). The parties before this Court contended that this preliminary step is inconsistent with Vavilov. The respondent Minister of Citizenship and Immigration \u2014 who otherwise agreed with the Court of Appeal\u2019s conclusion \u2014 submitted that the Court of Appeal\u2019s approach \u201cshould not be adopted\u201d, and urged that \u201c[t]he focus in the reasonableness analysis needs to remain, as this Court has instructed, on the reasons of the decision-maker, and not on a range of potential conclusions to be determined by a reviewing court in the abstract\u201d (R.F., at para. 54). I agree. Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review.\nC. Were the Administrative Decisions Reasonable?\n[80] I now turn to consider whether the administrative decisions under review reasonably interpreted s. 34(1) (e) of the IRPA as not requiring a nexus with national security or the security of Canada.\n[81] In reviewing the IAD\u2019s reasons, I recall this Court\u2019s instruction in Vavilov that a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual. The principle of \u201cresponsive justification\u201d means that \u201c[w]here the impact of a decision on an individual\u2019s rights and interests is severe, the reasons provided to that individual must reflect the stakes\u201d (para. 133). Here, the interpretation of s. 34(1)(e) will affect whether two individuals \u2014 one of whom has not been convicted of a criminal offence \u2014 could be deported from Canada. As this Court has noted, individuals facing deportation may experience \u201cany number of serious life-changing consequences\u201d, including dislocation or permanent separation from their family (R. v. Wong, 2018 SCC 25, [2018] 1 S.C.R. 696, at para. 72, per Wagner J. (as he then was), dissenting). The IAD\u2019s reasons must reflect these stakes.",
+      "citation_offset_in_context": [
+        600,
+        607
+      ],
+      "treatment_offset_in_context": [
+        1376,
+        1590
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-051",
+      "citation_ordinal": 0,
+      "citation_text": "Vavilov",
+      "treatment": "supportive",
+      "phrase": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "phrase_start": 1842,
+      "phrase_end": 2056,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "d562cde8ec947f0a7053212cb238ae88dc8a3745f8021125f41887f22768b8c8",
+      "evidence_text": "Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 771,
+      "citation_context_end": 3238,
+      "decision_context": " the administrator\u2019s interpretation and interfering if the difference is too much\u201d (para. 24). This approach was eschewed in this Court\u2019s decision in Vavilov.\n[79] But the Federal Court of Appeal also strayed from Vavilov\u2019s methodology of reasonableness review. The Court of Appeal grafted onto Vavilov an extra step of \u201cconducting a preliminary analysis of the text, context and purpose of the legislation just to understand the lay of the land before . . . examin[ing] the administrators\u2019 reasons\u201d (para. 17). The parties before this Court contended that this preliminary step is inconsistent with Vavilov. The respondent Minister of Citizenship and Immigration \u2014 who otherwise agreed with the Court of Appeal\u2019s conclusion \u2014 submitted that the Court of Appeal\u2019s approach \u201cshould not be adopted\u201d, and urged that \u201c[t]he focus in the reasonableness analysis needs to remain, as this Court has instructed, on the reasons of the decision-maker, and not on a range of potential conclusions to be determined by a reviewing court in the abstract\u201d (R.F., at para. 54). I agree. Vavilov is clear that a reviewing court must start its analysis with the reasons of the administrative decision maker; starting with its own perception of the merits may lead a court to slip into correctness review.\nC. Were the Administrative Decisions Reasonable?\n[80] I now turn to consider whether the administrative decisions under review reasonably interpreted s. 34(1) (e) of the IRPA as not requiring a nexus with national security or the security of Canada.\n[81] In reviewing the IAD\u2019s reasons, I recall this Court\u2019s instruction in Vavilov that a reviewing court should conduct reasonableness review mindful of the impact of the decision on the affected individual. The principle of \u201cresponsive justification\u201d means that \u201c[w]here the impact of a decision on an individual\u2019s rights and interests is severe, the reasons provided to that individual must reflect the stakes\u201d (para. 133). Here, the interpretation of s. 34(1)(e) will affect whether two individuals \u2014 one of whom has not been convicted of a criminal offence \u2014 could be deported from Canada. As this Court has noted, individuals facing deportation may experience \u201cany number of serious life-changing consequences\u201d, including dislocation or permanent separation from their family (R. v. Wong, 2018 SCC 25, [2018] 1 S.C.R. 696, at para. 72, per Wagner J. (as he then was), dissenting). The IAD\u2019s reasons must reflect these stakes.",
+      "citation_offset_in_context": [
+        600,
+        607
+      ],
+      "treatment_offset_in_context": [
+        1071,
+        1285
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-058",
+      "citation_ordinal": 0,
+      "citation_text": "N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17",
+      "treatment": "supportive",
+      "phrase": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+      "phrase_start": 1478,
+      "phrase_end": 1783,
+      "confidence": 0.95,
+      "offsets_repaired": true,
+      "source_text_sha256": "003a2f2d54de269268a301549eb5b80d72e71bd7a8b2decb8a706c39a12127f3",
+      "evidence_text": "Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 878,
+      "citation_context_end": 2983,
+      "decision_context": "h Article 33. Although this argument was not presented to the IAD, the IAD was required by its home statute to interpret and apply the IRPA in a manner that complies with Canada\u2019s international human rights obligations, including Canada\u2019s non-refoulement obligation under Article 33 of the Refugee Convention.\n[105] Vavilov highlighted that international law may be an \u201cimportant constraint on an administrative decision maker\u201d, including through the presumption of statutory interpretation that \u201clegislation is presumed to operate in conformity with Canada\u2019s international obligations\u201d (para. 114). Canada has ratified both the 1951 Refugee Convention and the 1967 Refugee Protocol (N\u00e9meth v. Canada (Justice), 2010 SCC 56, [2010] 3 S.C.R. 281, at para. 17). These international human rights instruments to which Canada is a party trigger the interpretive presumption of conformity with international law.\n[106] The presumption of conformity with international law assumes added force when interpreting the IRPA , because Parliament has made its \u201cpresumed intent to conform to Canada\u2019s international obligations explicit\u201d through two provisions of the IRPA (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at para. 49). First, s. 3(2)(b) of the IRPA expressly identifies one of the IRPA \u2019s objectives as being \u201cto fulfil Canada\u2019s international legal obligations with respect to refugees and affirm Canada\u2019s commitment to international efforts to provide assistance to those in need of resettlement\u201d. Indeed, this Court has described the IRPA as the \u201cmain legislative vehicle for implementing Canada\u2019s international refugee obligations\u201d (N\u00e9meth, at para. 21). Second, s. 3(3) (f) of the IRPA instructs courts and administrative decision makers to construe and apply the IRPA in a manner that \u201ccomplies with international human rights instruments to which Canada is signatory\u201d (B010, at para. 49). This Court has stated that \u201c[t]here can be no doubt that the Refugee Convention is such an instrument, building as it does on the right of persons to seek and to enjoy asylum f",
+      "citation_offset_in_context": [
+        684,
+        757
+      ],
+      "treatment_offset_in_context": [
+        600,
+        905
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-076",
+      "citation_ordinal": 0,
+      "citation_text": "Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 3845,
+      "decision_context": "[129] Under the pre\u2011Vavilov contextual approach, this Court departed from the approach taken in Pushpanathan in some subsequent cases, though not in most. In Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817, the majority of this Court applied the intermediate standard of review of reasonableness simpliciter, distinguishing Pushpanathan based on the \u201chighly discretionary and fact\u2011based nature\u201d of the Minister\u2019s decision to refuse to exempt the appellant in that case from deportation on humanitarian and compassionate grounds (Baker, at paras. 61\u201162). Importantly, however, the Court answered the certified question before it definitively:\nSimpson J. certified the following as a \u201cserious question of general importance\u201d under s. 83(1) of the Immigration Act: \u201cGiven that the Immigration Act does not expressly incorporate the language of Canada\u2019s international obligations with respect to the International Convention on the Rights of the Child, must federal immigration authorities treat the best interests of the Canadian child as a primary consideration in assessing an applicant under s. 114(2) of the Immigration Act?\u201d\n. . .\nThe certified question asks whether the best interests of children must be a primary consideration when assessing an applicant under s. 114(2) and the Regulations. The principles discussed above indicate that, for the exercise of the discretion to fall within the standard of reasonableness, the decision\u2011maker should consider children\u2019s best interests as an important factor, give them substantial weight, and be alert, alive and sensitive to them. [Emphasis added; emphasis in original deleted; paras. 9 and 75.]\n[130] The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50). In Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61, [2015] 3 S.C.R. 909, the majority of this Court held that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review (para. 44). \u201cDespite the presence of a certified question, the appropriate standard of review\u201d in that case was reasonableness (ibid., citing Baker, at para. 62).\n[131] However, as the Canadian Association of Refugee Lawyers notes in its factum, Agraira and Kanthasamy are outliers. The Court applied a standard of correctness in Chieu v. Canada (Minister of Citizenship and Immigration), 2002 SCC 3, [2002] 1 S.C.R. 84, at para. 26, and Hilewitz v. Canada (Minister of Citizenship and Immigration), 2005 SCC 57, [2005] 2 S.C.R. 706, at para. 71. In other cases, the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review (see Ezokola v. Canada (Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678, at paras. 6\u20119; Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60) or after finding that it was unnecessary to resolve the issue (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76; Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56).\n[132] Relying on pre\u2011Vavilov authorities, my colleague says that this Court has \u201cconcluded in the immigration context\u201d that the standard of review for certified questions is reasonableness (para. 51, citing Kanthasamy and Baker). With respect, I disagree.\n[133] First, this Court did not endorse or even cite Kanthasamy in Vavilov. It relied on Baker in Vavilov, but for reasons unrelated to the determination of the standard of review.",
+      "citation_offset_in_context": [
+        3024,
+        3124
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-077",
+      "citation_ordinal": 0,
+      "citation_text": "B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 3845,
+      "decision_context": "[129] Under the pre\u2011Vavilov contextual approach, this Court departed from the approach taken in Pushpanathan in some subsequent cases, though not in most. In Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817, the majority of this Court applied the intermediate standard of review of reasonableness simpliciter, distinguishing Pushpanathan based on the \u201chighly discretionary and fact\u2011based nature\u201d of the Minister\u2019s decision to refuse to exempt the appellant in that case from deportation on humanitarian and compassionate grounds (Baker, at paras. 61\u201162). Importantly, however, the Court answered the certified question before it definitively:\nSimpson J. certified the following as a \u201cserious question of general importance\u201d under s. 83(1) of the Immigration Act: \u201cGiven that the Immigration Act does not expressly incorporate the language of Canada\u2019s international obligations with respect to the International Convention on the Rights of the Child, must federal immigration authorities treat the best interests of the Canadian child as a primary consideration in assessing an applicant under s. 114(2) of the Immigration Act?\u201d\n. . .\nThe certified question asks whether the best interests of children must be a primary consideration when assessing an applicant under s. 114(2) and the Regulations. The principles discussed above indicate that, for the exercise of the discretion to fall within the standard of reasonableness, the decision\u2011maker should consider children\u2019s best interests as an important factor, give them substantial weight, and be alert, alive and sensitive to them. [Emphasis added; emphasis in original deleted; paras. 9 and 75.]\n[130] The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50). In Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61, [2015] 3 S.C.R. 909, the majority of this Court held that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review (para. 44). \u201cDespite the presence of a certified question, the appropriate standard of review\u201d in that case was reasonableness (ibid., citing Baker, at para. 62).\n[131] However, as the Canadian Association of Refugee Lawyers notes in its factum, Agraira and Kanthasamy are outliers. The Court applied a standard of correctness in Chieu v. Canada (Minister of Citizenship and Immigration), 2002 SCC 3, [2002] 1 S.C.R. 84, at para. 26, and Hilewitz v. Canada (Minister of Citizenship and Immigration), 2005 SCC 57, [2005] 2 S.C.R. 706, at para. 71. In other cases, the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review (see Ezokola v. Canada (Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678, at paras. 6\u20119; Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60) or after finding that it was unnecessary to resolve the issue (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76; Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56).\n[132] Relying on pre\u2011Vavilov authorities, my colleague says that this Court has \u201cconcluded in the immigration context\u201d that the standard of review for certified questions is reasonableness (para. 51, citing Kanthasamy and Baker). With respect, I disagree.\n[133] First, this Court did not endorse or even cite Kanthasamy in Vavilov. It relied on Baker in Vavilov, but for reasons unrelated to the determination of the standard of review.",
+      "citation_offset_in_context": [
+        3189,
+        3288
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-078",
+      "citation_ordinal": 0,
+      "citation_text": "Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56",
+      "treatment": "absent",
+      "phrase": "",
+      "phrase_start": 0,
+      "phrase_end": 0,
+      "confidence": 1.0,
+      "offsets_repaired": false,
+      "source_text_sha256": "7dd83e29fe4fb470b5f105897d85e6a53ec8dace61b715321f30d1ba4bfad63f",
+      "evidence_text": "",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 0,
+      "citation_context_end": 3845,
+      "decision_context": "[129] Under the pre\u2011Vavilov contextual approach, this Court departed from the approach taken in Pushpanathan in some subsequent cases, though not in most. In Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817, the majority of this Court applied the intermediate standard of review of reasonableness simpliciter, distinguishing Pushpanathan based on the \u201chighly discretionary and fact\u2011based nature\u201d of the Minister\u2019s decision to refuse to exempt the appellant in that case from deportation on humanitarian and compassionate grounds (Baker, at paras. 61\u201162). Importantly, however, the Court answered the certified question before it definitively:\nSimpson J. certified the following as a \u201cserious question of general importance\u201d under s. 83(1) of the Immigration Act: \u201cGiven that the Immigration Act does not expressly incorporate the language of Canada\u2019s international obligations with respect to the International Convention on the Rights of the Child, must federal immigration authorities treat the best interests of the Canadian child as a primary consideration in assessing an applicant under s. 114(2) of the Immigration Act?\u201d\n. . .\nThe certified question asks whether the best interests of children must be a primary consideration when assessing an applicant under s. 114(2) and the Regulations. The principles discussed above indicate that, for the exercise of the discretion to fall within the standard of reasonableness, the decision\u2011maker should consider children\u2019s best interests as an important factor, give them substantial weight, and be alert, alive and sensitive to them. [Emphasis added; emphasis in original deleted; paras. 9 and 75.]\n[130] The Court also applied a standard of review of reasonableness in Agraira v. Canada (Public Safety and Emergency Preparedness), 2013 SCC 36, [2013] 2 S.C.R. 559, on the basis that the Minister\u2019s decision under the former s. 34(2) of the IRPA was discretionary (para. 50). In Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61, [2015] 3 S.C.R. 909, the majority of this Court held that the fact that the reviewing judge \u201cconsidered the question to be of general importance\u201d was \u201crelevant, but not determinative\u201d of the standard of review (para. 44). \u201cDespite the presence of a certified question, the appropriate standard of review\u201d in that case was reasonableness (ibid., citing Baker, at para. 62).\n[131] However, as the Canadian Association of Refugee Lawyers notes in its factum, Agraira and Kanthasamy are outliers. The Court applied a standard of correctness in Chieu v. Canada (Minister of Citizenship and Immigration), 2002 SCC 3, [2002] 1 S.C.R. 84, at para. 26, and Hilewitz v. Canada (Minister of Citizenship and Immigration), 2005 SCC 57, [2005] 2 S.C.R. 706, at para. 71. In other cases, the Court gave definitive answers to certified questions of interpretation either without addressing the standard of review (see Ezokola v. Canada (Citizenship and Immigration), 2013 SCC 40, [2013] 2 S.C.R. 678, at paras. 6\u20119; Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at paras. 6 and 60) or after finding that it was unnecessary to resolve the issue (B010 v. Canada (Citizenship and Immigration), 2015 SCC 58, [2015] 3 S.C.R. 704, at paras. 26 and 76; Tran v. Canada (Public Safety and Emergency Preparedness), 2017 SCC 50, [2017] 2 S.C.R. 289, at paras. 23, 53 and 56).\n[132] Relying on pre\u2011Vavilov authorities, my colleague says that this Court has \u201cconcluded in the immigration context\u201d that the standard of review for certified questions is reasonableness (para. 51, citing Kanthasamy and Baker). With respect, I disagree.\n[133] First, this Court did not endorse or even cite Kanthasamy in Vavilov. It relied on Baker in Vavilov, but for reasons unrelated to the determination of the standard of review.",
+      "citation_offset_in_context": [
+        3290,
+        3406
+      ],
+      "treatment_offset_in_context": [
+        0,
+        0
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    },
+    {
+      "example_id": "mason-argument-citation-097",
+      "citation_ordinal": 0,
+      "citation_text": "Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174",
+      "treatment": "neutral",
+      "phrase": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "phrase_start": 1407,
+      "phrase_end": 1481,
+      "confidence": 0.9,
+      "offsets_repaired": true,
+      "source_text_sha256": "5a8d1e2a41cdf55774cce77077725ae09a538ce98e11a7b5c160941880bec3bf",
+      "evidence_text": "see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)",
+      "treatment_context": {
+        "actor": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "reason_raised": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_supported": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_addressed": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "court_response": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        },
+        "argument_conclusion": {
+          "status": "not_stated",
+          "text": "",
+          "start": 0,
+          "end": 0
+        }
+      },
+      "citation_context_start": 807,
+      "citation_context_end": 2007,
+      "decision_context": "olent acts that exist in this case. While assaults against individuals are undesirable, they cannot be considered to be a threat to the safety of persons in Canada and the security of Canadian society, as contemplated by this section of the IRPA . [para. 42]\n[185] Member King also distinguished the circumstances in X (Re) from those before the Federal Court in Moumdjian v. Canada (Security Intelligence Review Committee), [1999] 4 F.C. 624 (C.A.), which were \u201cmore obviously related to the security of Canada\u201d and dealt with a conspiracy to assassinate a Turkish diplomat in Canada (paras. 77\u201178; see also Al Yamani v. Canada (Solicitor General), [1996] 1 F.C. 174 (T.D.)).\n[186] For these reasons, in addition to those identified by my colleague and by Grammond J. in the Federal Court, I would conclude that inadmissibility under s. 34(1)(e) requires a nexus between the relevant act of violence and with national security or the security of Canada. However, it remains the task of administrative decision makers under the IRPA to apply this interpretation going forward, including determining which acts of violence may indeed qualify as a threat to national security or the security of Canada.",
+      "citation_offset_in_context": [
+        609,
+        667
+      ],
+      "treatment_offset_in_context": [
+        600,
+        674
+      ],
+      "review_status": "pending_review",
+      "review_decision": null,
+      "review_notes": ""
+    }
+  ],
+  "source_summary": {
+    "raw_labels": 12,
+    "valid_labels": 12,
+    "eligible_labels": 12,
+    "proposed_rule_count": 4,
+    "treatment_counts": {
+      "absent": 7,
+      "neutral": 2,
+      "supportive": 3
+    },
+    "rejected_counts": {}
+  }
+}

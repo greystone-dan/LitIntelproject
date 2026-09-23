@@ -1,0 +1,105 @@
+{
+  "request": {
+    "model": "gpt-4.1-nano",
+    "budget_usd": 1.0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "You identify plain-language Discussion Units in a legal decision. Use only the supplied numbered paragraphs. Group contiguous paragraphs that perform one coherent task, such as procedural history, facts, party submissions, legal test, analysis/application, or disposition. Do not invent facts or citations. Return JSON with a units array. Each unit must contain start_paragraph, end_paragraph, label, explanation, transition_from_previous, and confidence. Use paragraph indices exactly as supplied; never output an index not present in the supplied list, and cover the supplied window from its first index through its last index exactly once. Keep explanations short and readable for a legal researcher."
+      },
+      {
+        "role": "user",
+        "content": "{\"case_id\": 27697, \"contract_version\": \"discussion_units_llm_v1\", \"deterministic_baseline\": {\"discussion_unit_count\": 3, \"units\": [{\"end_paragraph\": 8, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 0}, {\"end_paragraph\": 10, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 9}, {\"end_paragraph\": 11, \"generation_method\": \"discussion_unit_v1\", \"start_paragraph\": 11}]}, \"paragraph_window\": {\"first_allowed\": 1, \"last_allowed\": 8}, \"paragraphs\": [{\"citation_ids\": [], \"container_paragraph_index\": 1, \"is_heading\": false, \"paragraph_index\": 1, \"source_paragraph_index\": 1, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[1] At the conclusion of the Applicant\\u2019s oral submissions, I indicated that this application would be dismissed, with short reasons to follow.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 2, \"is_heading\": false, \"paragraph_index\": 2, \"source_paragraph_index\": 2, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[2] The Applicant seeks to set aside a decision by a member of the Immigration Division of the Immigration and Refugee Board of Canada who issued a deportation order against the Applicant on grounds of serious criminality under paragraph 36(1)(b) of the Immigration and Refugee Protection Act, SC 2001, c 27 [the Act].\"}, {\"citation_ids\": [], \"container_paragraph_index\": 3, \"is_heading\": false, \"paragraph_index\": 3, \"source_paragraph_index\": 3, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[3] On November 22, 2017, the Applicant was convicted in Mohali, district of Punjab, India, of murder and attempt to murder. The Applicant concedes the conviction, but disputes its validity. According to court records from India, the Applicant\\u2019s testimony that he was not at the crime scene was rejected and he was found guilty of firing a firearm at the victim.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 4, \"is_heading\": false, \"paragraph_index\": 4, \"source_paragraph_index\": 4, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[4] Besides arguing before the Member that the Applicant was not present at the scene and had been falsely implicated, Applicant\\u2019s counsel invoked the Canadian defence of defence of person. The Member acknowledged these arguments but emphasized that her role was not to go behind the Indian judgment and retry the case.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 5, \"is_heading\": false, \"paragraph_index\": 5, \"source_paragraph_index\": 5, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[5] After reviewing the records from the Indian court, the Member was satisfied that the proceedings in India had proven that the Applicant fired shots at the victim and the vehicle behind which the victim hid. The Member found that these actions met the elements of an equivalent Canadian offence, and thus, the conviction by the court in India satisfied the criteria for serious criminality under paragraph 36(1)(b) of the Act.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 6, \"is_heading\": false, \"paragraph_index\": 6, \"source_paragraph_index\": 6, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[6] The Applicant submits that the Member unreasonably refused to consider the availability of the defence of person under Canadian law. The Applicant further submits that the Member\\u2019s equivalency analysis was unreasonable because she failed to consider the Applicant\\u2019s lack of criminal intent. The Applicant relies on a bail decision from the High Court of Punjab and Haryana, which granted him bail and noted that he caused no injury, to support his argument that he lacked intent when firing the firearm. The Applicant finds that this omission from the Member\\u2019s analysis is unreasonable, given that intent is a necessary element under the equivalent Canadian offence.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 7, \"is_heading\": false, \"paragraph_index\": 7, \"source_paragraph_index\": 7, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[7] I agree with the Respondent\\u2019s submission that the Applicant\\u2019s arguments regarding the Member\\u2019s failure to consider defences are without support. The Applicant testified during the inadmissibility hearing that he was not at the crime scene, a defence raised and rejected during the proceedings in India. Moreover, this testimony is inconsistent with and undermines the defence of person which counsel raised during the hearing and on judicial review. I agree with the Respondent that the Member was under no obligation to consider these self-contradictory defences beyond the evidence that was available to her: Gurbuz v Canada (Citizenship and Immigration), 2018 FC 684 at paras 28-30.\"}, {\"citation_ids\": [], \"container_paragraph_index\": 8, \"is_heading\": false, \"paragraph_index\": 8, \"source_paragraph_index\": 8, \"statute_ids\": [], \"tag_ids\": [], \"text\": \"[8] No question was proposed for certification, and there is none on these facts.\"}], \"request_id\": \"discussion-units-case-27697\"}"
+      }
+    ]
+  },
+  "response": {
+    "status": "complete",
+    "network_called": true,
+    "created_at": "2026-09-23T14:44:55.691603+00:00",
+    "model": "gpt-4.1-nano",
+    "case_id": 27697,
+    "source_report": "data\\eval\\llm_discussion_units_pilot\\five_case_pilot\\case_27697_deterministic.json",
+    "usage": {
+      "prompt_tokens": 1325,
+      "completion_tokens": 685,
+      "estimated_cost_usd": 0.00040649999999999996
+    },
+    "result": {
+      "units": [
+        {
+          "unit_number": 1,
+          "start_paragraph": 1,
+          "end_paragraph": 1,
+          "label": "Procedural History",
+          "explanation": "The court states the conclusion of the hearing and indicates that the application will be dismissed.",
+          "transition_from_previous": "start",
+          "confidence": 0.95
+        },
+        {
+          "unit_number": 2,
+          "start_paragraph": 2,
+          "end_paragraph": 2,
+          "label": "Case Background and Grounds",
+          "explanation": "The applicant seeks to overturn a deportation order based on criminality under the Immigration and Refugee Protection Act.",
+          "transition_from_previous": "Procedural History",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 3,
+          "start_paragraph": 3,
+          "end_paragraph": 3,
+          "label": "Facts of the Conviction",
+          "explanation": "Details of the applicant's 2017 murder and attempted murder convictions in India, which the applicant disputes but concedes.",
+          "transition_from_previous": "Case Background and Grounds",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 4,
+          "start_paragraph": 4,
+          "end_paragraph": 4,
+          "label": "Applicant's Defence Arguments",
+          "explanation": "The applicant argues he was not present at the scene and invokes the Canadian defence of defense of person, but the Member notes her role is not to retry the Indian case.",
+          "transition_from_previous": "Facts of the Conviction",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 5,
+          "start_paragraph": 5,
+          "end_paragraph": 5,
+          "label": "Member's Findings on the Conviction",
+          "explanation": "The Member finds the Indian proceedings proved the applicant fired shots, satisfying the Canadian criminality criteria.",
+          "transition_from_previous": "Applicant's Defence Arguments",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 6,
+          "start_paragraph": 6,
+          "end_paragraph": 6,
+          "label": "Applicant's Submissions on Legal Analysis",
+          "explanation": "The applicant claims the Member unreasonably refused to consider the defence of person and the lack of intent, relying on a bail decision from India.",
+          "transition_from_previous": "Member's Findings on the Conviction",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 7,
+          "start_paragraph": 7,
+          "end_paragraph": 7,
+          "label": "Court's Rejection of Applicant's Arguments",
+          "explanation": "The court agrees the Member was not obliged to consider contradictory defences and notes the applicant's own testimony undermined the defence of person.",
+          "transition_from_previous": "Applicant's Submissions on Legal Analysis",
+          "confidence": 0.9
+        },
+        {
+          "unit_number": 8,
+          "start_paragraph": 8,
+          "end_paragraph": 8,
+          "label": "Conclusion on Certification",
+          "explanation": "The court states no question was proposed for certification and none exists based on the facts.",
+          "transition_from_previous": "Court's Rejection of Applicant's Arguments",
+          "confidence": 0.95
+        }
+      ]
+    }
+  }
+}

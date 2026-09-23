@@ -280,6 +280,75 @@ def test_teacher_response_parser_requires_empty_phrase_for_absent():
     assert "absent treatment" in parsed["invalid_labels"][0]
 
 
+def test_teacher_response_parser_validates_argument_level_treatment_context():
+    text = "The applicant relies on Smith v. Canada to support the argument. The Court rejects that argument."
+    example = {
+        "example_id": "example-1",
+        "text": text,
+        "citations": [{"citation_text": "Smith v. Canada"}],
+    }
+
+    def field(status, phrase="", label=None):
+        start = text.index(phrase) if phrase else 0
+        value = {"status": status, "text": phrase, "start": start, "end": start + len(phrase)}
+        if label is not None:
+            value["label"] = label
+        return value
+
+    context = {
+        "actor": field("stated", "applicant", "party"),
+        "reason_raised": field("stated", "to support the argument"),
+        "argument_supported": field("stated", "the argument"),
+        "argument_addressed": field("stated", "that argument"),
+        "court_response": field("stated", "rejects that argument", "negative"),
+        "argument_conclusion": field("stated", "that argument", "rejected"),
+    }
+    response = {
+        "labels": [{
+            "example_id": "example-1",
+            "citation_ordinal": 0,
+            "treatment": "negative",
+            "phrase": "rejects that argument",
+            "phrase_start": text.index("rejects that argument"),
+            "phrase_end": text.index("rejects that argument") + len("rejects that argument"),
+            "treatment_context": context,
+        }]
+    }
+
+    parsed = parse_teacher_response(json.dumps(response), [example])
+
+    assert not parsed["invalid_labels"]
+    assert parsed["labels"][0]["treatment_context"]["actor"]["text"] == "applicant"
+    assert parsed["labels"][0]["treatment_context"]["court_response"]["label"] == "negative"
+
+
+def test_teacher_response_parser_rejects_inferred_argument_context():
+    example = {
+        "example_id": "example-1",
+        "text": "Smith v. Canada is mentioned.",
+        "citations": [{"citation_text": "Smith v. Canada"}],
+    }
+    phrase_start = example["text"].index("mentioned")
+    response = {
+        "labels": [{
+            "example_id": "example-1",
+            "citation_ordinal": 0,
+            "treatment": "neutral",
+            "phrase": "mentioned",
+            "phrase_start": phrase_start,
+            "phrase_end": phrase_start + len("mentioned"),
+            "treatment_context": {
+                "actor": {"status": "stated", "text": "the applicant", "start": 0, "end": 13},
+            },
+        }]
+    }
+
+    parsed = parse_teacher_response(json.dumps(response), [example])
+
+    assert not parsed["labels"]
+    assert "actor span mismatch" in parsed["invalid_labels"][0]
+
+
 def test_distillation_revalidates_labels_and_requires_repeated_phrases(tmp_path):
     fixture = tmp_path / "fixture.jsonl"
     example = make_example()

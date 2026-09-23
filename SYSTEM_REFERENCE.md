@@ -351,6 +351,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
 | `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
 | `backend/case_reader.py` | Legacy standalone reader UI; not the primary active workflow |
 

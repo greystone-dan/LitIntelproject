@@ -102,6 +102,22 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 - **Revisit trigger:** A benchmarked alternative improves accuracy and
 	explainability at an acceptable operational cost.
 
+### Keep local generation optional and OpenAI-compatible
+
+- **Decision:** Support bounded local case-intelligence generation through
+	Ollama's OpenAI-compatible endpoint while retaining hosted generation as the
+	default.
+- **Why:** The existing runner already defines the request and JSON artifact
+	contract, so provider selection can remain narrow and reversible. Local
+	execution improves privacy and avoids per-request API cost without making a
+	generative model authoritative for citations, statutes, offsets, or source
+	provenance.
+- **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
+	path; users must install Ollama and pull an instruct model separately.
+- **Revisit trigger:** A local model passes bounded accuracy, latency,
+	reproducibility, and evidence-grounding evaluation gates for a specific
+	production workflow.
+
 ### Use `/data-explorer` as the active research workflow
 
 - **Decision:** Keep the inline reader and research navigation in Data Explorer.

@@ -11,6 +11,14 @@ from openai import OpenAI
 
 
 HARD_CAP_USD = 3.0
+DEFAULT_OLLAMA_BASE_URL = "http://127.0.0.1:11434/v1"
+DEFAULT_OLLAMA_MODEL = "qwen2.5:7b"
+
+
+def build_client(provider: str, *, ollama_base_url: str, ollama_model: str) -> Any:
+    if provider == "local":
+        return OpenAI(base_url=ollama_base_url, api_key="ollama-local")
+    return OpenAI()
 
 
 def estimate_tokens(messages: list[dict[str, str]]) -> int:
@@ -82,6 +90,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Run one bounded case-level intelligence request.")
     parser.add_argument("--request", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--provider", choices=("hosted", "local"), default="hosted")
+    parser.add_argument(
+        "--ollama-base-url",
+        default=os.getenv("OLLAMA_BASE_URL", DEFAULT_OLLAMA_BASE_URL),
+    )
+    parser.add_argument(
+        "--ollama-model",
+        default=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL),
+    )
     parser.add_argument("--max-output-tokens", type=int, default=8_000)
     parser.add_argument("--input-cost-per-1m", type=float, default=2.0)
     parser.add_argument("--output-cost-per-1m", type=float, default=8.0)
@@ -93,11 +110,17 @@ def main() -> int:
         raise SystemExit("request must be a dry_run_ready, network-free payload")
     if float(request.get("budget_usd", 0)) <= 0 or float(request["budget_usd"]) > HARD_CAP_USD:
         raise SystemExit(f"request budget must be between 0 and {HARD_CAP_USD}")
-    if not os.getenv("OPENAI_API_KEY"):
+    if args.provider == "hosted" and not os.getenv("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY is required for the paid case-intelligence run")
+    if args.provider == "local":
+        request["model"] = args.ollama_model
     print(json.dumps(run_request(
         request,
-        client=OpenAI(),
+        client=build_client(
+            args.provider,
+            ollama_base_url=args.ollama_base_url,
+            ollama_model=args.ollama_model,
+        ),
         output_path=args.output,
         max_output_tokens=args.max_output_tokens,
         input_rate=args.input_cost_per_1m,

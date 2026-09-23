@@ -62,6 +62,13 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `scripts/run_case_intelligence_request.py` | OpenAI-compatible local Ollama endpoint used when `--provider local` is selected. |
+| `OLLAMA_MODEL` | `qwen2.5:7b` | `scripts/run_case_intelligence_request.py` | Local instruct model used when `--provider local` is selected. |
+
+The case-intelligence runner defaults to the hosted OpenAI provider. Use
+`--provider local` to keep prompts and JSON result artifacts on the local
+machine through Ollama. Local generation is optional enrichment; deterministic
+citations, statutes, offsets, and source provenance remain authoritative.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
@@ -118,6 +125,8 @@ POSTGRES_USER=your_local_user
 POSTGRES_PASSWORD=your_local_password
 OPENAI_API_KEY=your_key_only_if_openai_workflows_are_required
 LOCAL_EMBEDDING_DEVICE=cpu
+OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
+OLLAMA_MODEL=qwen2.5:7b
 CASELIBRARY_FOCUS_MASTER_300=false
 ```
 

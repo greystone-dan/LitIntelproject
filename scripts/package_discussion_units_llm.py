@@ -1,7 +1,6 @@
 """Prepare and optionally run a bounded LLM Discussion Unit review."""
 
 from __future__ import annotations
-
 import argparse
 from datetime import datetime, timezone
 import json
@@ -11,6 +10,11 @@ import re
 from typing import Any
 
 from openai import OpenAI
+
+try:
+    from scripts.discussion_units_ledger import record_case, should_skip
+except ModuleNotFoundError:
+    from discussion_units_ledger import record_case, should_skip
 
 
 MODEL = "gpt-4.1-nano"
@@ -221,6 +225,8 @@ def main() -> int:
     parser.add_argument("--budget-usd", type=float, default=1.0)
     parser.add_argument("--send", action="store_true", help="Call the model; otherwise prepare only")
     parser.add_argument("--response-file", type=Path, help="Replay a saved model JSON response without network access")
+    parser.add_argument("--ledger-path", type=Path, help="Durable per-case run ledger")
+    parser.add_argument("--retry-failed", action="store_true", help="Retry a previously failed ledger row")
     parser.add_argument("--text-only", action="store_true", help="Send only paragraph indices and source text")
     parser.add_argument("--start-paragraph", type=int)
     parser.add_argument("--end-paragraph", type=int)
@@ -228,6 +234,19 @@ def main() -> int:
     if args.budget_usd <= 0 or args.budget_usd > MAX_BUDGET_USD:
         parser.error(f"--budget-usd must be between 0 and {MAX_BUDGET_USD}")
     report = json.loads(args.input_json.read_text(encoding="utf-8"))
+    if args.ledger_path and should_skip(args.ledger_path, int(report["case_id"]), retry_failed=args.retry_failed):
+        print(json.dumps({"status": "skipped", "case_id": report["case_id"]}))
+        return 0
+    if args.ledger_path:
+        record_case(
+            args.ledger_path,
+            int(report["case_id"]),
+            "started",
+            input_json=str(args.input_json),
+            output_request=str(args.output_request),
+            output_markdown=str(args.output_markdown),
+            network_requested=bool(args.send),
+        )
     model_paragraphs = select_paragraph_window(
         _legal_paragraphs(report.get("paragraphs", [])),
         args.start_paragraph,
@@ -243,27 +262,41 @@ def main() -> int:
     args.output_request.parent.mkdir(parents=True, exist_ok=True)
     args.output_request.write_text(json.dumps(request, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     if args.response_file:
-        result = _parse_response(args.response_file.read_text(encoding="utf-8"), model_paragraphs)
+        try:
+            result = _parse_response(args.response_file.read_text(encoding="utf-8"), model_paragraphs)
+        except (IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
+            if args.ledger_path:
+                record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc), response_file=str(args.response_file))
+            raise
         args.output_markdown.write_text(render_markdown(report, result, model=args.model), encoding="utf-8")
+        if args.ledger_path:
+            record_case(args.ledger_path, int(report["case_id"]), "complete", mode="replayed", unit_count=len(result["units"]))
         print(json.dumps({"status": "replayed", "case_id": report["case_id"], "unit_count": len(result["units"])}))
         return 0
     if not args.send:
         print(json.dumps({"status": "prepared", "case_id": report["case_id"], "paragraph_count": len(report["paragraphs"])}))
         return 0
     client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-    response = client.chat.completions.create(
-        model=args.model,
-        temperature=0,
-        max_tokens=6000,
-        response_format={"type": "json_object"},
-        messages=request["messages"],
-    )
+    try:
+        response = client.chat.completions.create(
+            model=args.model,
+            temperature=0,
+            max_tokens=6000,
+            response_format={"type": "json_object"},
+            messages=request["messages"],
+        )
+    except Exception as exc:
+        if args.ledger_path:
+            record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc))
+        raise
     content = response.choices[0].message.content or "{}"
     try:
         result = _parse_response(content, model_paragraphs)
     except (IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
         raw_path = args.output_markdown.with_suffix(".raw_response.txt")
         raw_path.write_text(content, encoding="utf-8")
+        if args.ledger_path:
+            record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc), raw_response=str(raw_path))
         raise ValueError(f"model response rejected: {exc}; raw response saved to {raw_path}") from exc
     output = {
         "status": "complete",
@@ -284,6 +317,15 @@ def main() -> int:
     }
     args.output_markdown.write_text(render_markdown(report, result, model=args.model), encoding="utf-8")
     args.output_request.write_text(json.dumps({"request": request, "response": output}, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+    if args.ledger_path:
+        record_case(
+            args.ledger_path,
+            int(report["case_id"]),
+            "complete",
+            mode="network",
+            unit_count=len(result["units"]),
+            spent_usd=output["usage"]["estimated_cost_usd"],
+        )
     print(json.dumps({"status": "complete", "case_id": report["case_id"], "unit_count": len(result["units"])}))
     return 0
 

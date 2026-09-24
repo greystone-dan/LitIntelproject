@@ -10,7 +10,7 @@ Open `/data-explorer`. This is the active research workspace. It has seven visib
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Reserved placeholder with live inventory shell | `/api/about/stats` |
+| About | Interactive system map and live inventory | `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
 | Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
@@ -56,10 +56,14 @@ misleading or untraceable output.
 
 ## About
 
-About currently retains its live inventory shell and is intentionally blank of
-prose content, reserved for a future feature. The former overview of cases,
-chunks, citations, judge profiles, Federal Court activity, and coverage status
-now appears in Site Architecture alongside the rest of the data model.
+About contains a six-stage interactive system map and live inventory shell. The
+map follows source material through staging, canonical case records, structured
+enrichment, API services, research views, and evidence boundaries. Each stage
+has a concise expandable explanation; the first stage is open by default and
+the controls use native disclosure semantics for keyboard access and no-script
+fallback. The former detailed overview of cases, chunks, citations, judge
+profiles, Federal Court activity, and coverage status remains in Site
+Architecture alongside the full data model.
 
 ## Site Architecture
 

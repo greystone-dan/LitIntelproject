@@ -109,7 +109,7 @@ def test_site_architecture_panel_lists_data_layers_and_feature_map():
         assert label in html
 
 
-def test_about_tab_is_reserved_and_architecture_owns_overview():
+def test_about_tab_contains_interactive_system_map_and_architecture_owns_overview():
     html = routes._data_explorer_page_html()
     about_start = html.index('<section id="aboutPanel"')
     about_end = html.index('<section id="searchPanel"', about_start)
@@ -118,7 +118,11 @@ def test_about_tab_is_reserved_and_architecture_owns_overview():
     architecture_end = html.index('<section id="citationIntelligencePanel"', architecture_start)
     architecture_panel = html[architecture_start:architecture_end]
 
-    assert 'id="aboutPlaceholder"' in about_panel
+    assert 'id="aboutSystemMap"' in about_panel
+    assert '<details class="system-map-detail"' in about_panel
+    assert about_panel.count('class="system-map-detail"') == 6
+    assert "Sources and staging" in about_panel
+    assert "Evidence boundaries" in about_panel
     assert 'class="about-story"' not in about_panel
     assert 'id="movedAboutOverview"' in architecture_panel
     assert 'Citation records' in architecture_panel

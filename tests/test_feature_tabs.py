@@ -124,9 +124,11 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     assert about_panel.count('data-graph-node=') == 11
     assert 'data-route="pipeline citations resolution library"' in about_panel
     assert 'data-route="pipeline statutes evidence"' in about_panel
-    assert 'system-map-expanded-panels' in about_panel
+    assert 'id="graphExpansion"' in about_panel
+    assert 'class="graph-expansion-children"' in about_panel
     assert 'id="systemMapDetail"' in about_panel
     assert 'selectArchitectureNode' in html
+    assert 'openArchitectureNode' in html
     assert "Official sources" in about_panel
     assert "V2 pipeline" in about_panel
     assert "Live analysis" in about_panel

@@ -46,9 +46,9 @@ flowchart TD
 	About visualizes this flow as a connected architecture graph. It intentionally
 	keeps citation extraction separate from target resolution and keeps citations,
 	statutes, metadata, tags, chunks, and embeddings as distinct layers. Node
-	selection reveals the relevant pipeline detail, service routes, research
-	surface, or evidence control instead of hiding the explanation behind a static
-	six-step label set.
+	selection expands the relevant box inside the diagram and reveals connected
+	child boxes for pipeline detail, service routes, research surfaces, or evidence
+	controls instead of placing a separate explanation below the graphic.
 
 ## Refactoring Boundaries
 

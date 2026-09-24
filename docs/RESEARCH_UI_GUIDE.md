@@ -64,12 +64,13 @@ active Data Explorer workflow, Live Analysis, and evidence rules. Branches make
 the citation-resolution loop and separate statute/evidence layers visible
 instead of presenting the site as a linear six-category checklist.
 
-Selecting a node highlights its connected neighbors and expands a plain-language
-detail panel with inputs, outputs, live signals, and three contextual panels.
-The route animation is disabled for reduced-motion preferences. The former
-detailed overview of cases, chunks, citations, judge profiles, Federal Court
-activity, and coverage status remains in Site Architecture alongside the full
-data model.
+Selecting a node expands that box inside the diagram itself. The expanded box
+shows what the node does and the layers it connects; adjacent child boxes appear
+in the same canvas and can be opened in turn. There is no separate explanatory
+strip below the graphic. The route animation is disabled for reduced-motion
+preferences. The former detailed overview of cases, chunks, citations, judge
+profiles, Federal Court activity, and coverage status remains in Site
+Architecture alongside the full data model.
 
 ## Site Architecture
 

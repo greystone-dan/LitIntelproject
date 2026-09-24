@@ -35,7 +35,8 @@ canonical ingestion -> PostgreSQL/pgvector -> ordered processing -> FastAPI
 services -> `/data-explorer`. Branches expose citation extraction, the separate
 target-resolution pass, Live Analysis, and the evidence rules that keep source
 identity, offsets, and uncertainty reviewable. Selecting a graph node expands
-its inputs, outputs, live signal, and connected context panels.
+the box in place and reveals its inputs, outputs, live signal, and connected
+child boxes inside the same canvas.
 
 ## Component Roles
 

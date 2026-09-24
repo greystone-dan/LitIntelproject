@@ -45,4 +45,8 @@ Validation: `venv\\Scripts\\python.exe -m pytest tests/test_feature_tabs.py -q` 
 
 Residual risk: The graph is intentionally explanatory and uses live inventory counters already owned by the About shell; it does not make the underlying backend pipeline itself interactive. The canonical Site Architecture tab remains the deeper reference.
 
+Correction checkpoint: The first graph still behaved like a picture with a lower explanation strip. The lower detail section and connected panels are now hidden from the visual layout; the selected graph node expands in place and renders its explanation, connected layers, and child-node buttons inside the same canvas.
+
+Correction validation: `venv\\Scripts\\python.exe -m pytest tests/test_feature_tabs.py -q` passed with 19 tests. Playwright passed at 1280x900 and 390x844 for in-canvas expansion, Pipeline title update, connected child boxes, hidden legacy lower panels, no horizontal overflow, and reduced-motion route duration `0s`. Local API was reloaded on port 8001 for the browser check.
+
 Status: complete

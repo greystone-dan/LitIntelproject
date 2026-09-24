@@ -10,9 +10,9 @@ Open `/data-explorer`. This is the active research workspace. It has seven visib
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Live system inventory and coverage | `/api/about/stats`, outcome series |
+| About | Reserved placeholder with live inventory shell | `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
-| Site Architecture | Explain live tables and derived views | Documentation/UI explanation |
+| Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
@@ -56,7 +56,17 @@ misleading or untraceable output.
 
 ## About
 
-About shows live counts rather than hard-coded documentation figures. It describes cases, chunks, citation rows, resolved case links, judge profiles, Federal Court activity records/documents, and coverage-style status labels.
+About currently retains its live inventory shell and is intentionally blank of
+prose content, reserved for a future feature. The former overview of cases,
+chunks, citations, judge profiles, Federal Court activity, and coverage status
+now appears in Site Architecture alongside the rest of the data model.
+
+## Site Architecture
+
+Site Architecture is the consolidated explanation of the live tables, derived
+views, provenance layers, and the overview formerly shown in About. Its live
+inventory still reads from the current database; it does not imply that every
+layer is complete or that derived fields are legal conclusions.
 
 Use it to understand available inventory, not legal relevance. A populated layer means records exist; it does not establish extraction precision, source authority, or complete corpus coverage. The outcome chart uses classified decisions only. Hover a point to see the classified count behind a rate before comparing years.
 

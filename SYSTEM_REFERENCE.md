@@ -48,9 +48,9 @@ The system intentionally separates three kinds of derived information:
 
 `/data-explorer` is the main research surface. It contains these seven visible tabs:
 
-1. **About**: live inventory and coverage information from `/api/about/stats`.
+1. **About**: reserved placeholder with a live inventory shell from `/api/about/stats`.
 2. **Case Search**: filtered research search with an inline decision reader.
-3. **Site Architecture**: live data-layer and feature-to-table explanation.
+3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.

@@ -61,11 +61,12 @@ def build_request(
     model: str = MODEL,
     budget_usd: float = 1.0,
     text_only: bool = False,
+    normalize_legal_paragraphs: bool = True,
 ) -> dict[str, Any]:
     paragraphs = report.get("paragraphs", [])
     if not paragraphs:
         raise ValueError("inspection report contains no paragraphs")
-    expanded_paragraphs = _legal_paragraphs(paragraphs)
+    expanded_paragraphs = _legal_paragraphs(paragraphs) if normalize_legal_paragraphs else paragraphs
     if text_only:
         compact_paragraphs = [
             {"paragraph_index": item["paragraph_index"], "text": item["text"]}
@@ -131,6 +132,157 @@ def build_request(
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
         ],
     }
+
+
+def build_paragraph_assessment_request(
+    report: dict[str, Any],
+    paragraphs: list[dict[str, Any]],
+    *,
+    model: str = MODEL,
+    budget_usd: float = 1.0,
+) -> dict[str, Any]:
+    system = (
+        "Assess each supplied legal paragraph independently. Return JSON with an assessments "
+        "array containing exactly one entry for every supplied paragraph, in the same order. "
+        "Each entry must contain paragraph_index, topic, role, explanation, and confidence. "
+        "Use the same topic for adjacent paragraphs when appropriate; do not merge entries "
+        "or omit a paragraph. Use only the supplied paragraph text and do not invent facts, "
+        "citations, or paragraph indices. Keep explanations short and readable for a legal "
+        "researcher."
+    )
+    payload = {
+        "request_id": f"discussion-paragraph-assessment-case-{report['case_id']}",
+        "contract_version": "discussion_paragraph_assessment_v1",
+        "case_id": report["case_id"],
+        "paragraphs": [
+            {"paragraph_index": item["paragraph_index"], "text": item["text"]}
+            for item in paragraphs
+        ],
+    }
+    return {
+        "model": model,
+        "budget_usd": budget_usd,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
+        ],
+    }
+
+
+def _recover_assessments(content: str) -> tuple[list[Any], bool]:
+    try:
+        payload = json.loads(content)
+    except json.JSONDecodeError:
+        marker = content.find('"assessments"')
+        array_start = content.find("[", marker)
+        if marker < 0 or array_start < 0:
+            raise
+        decoder = json.JSONDecoder()
+        position = array_start + 1
+        assessments: list[Any] = []
+        while position < len(content):
+            while position < len(content) and content[position] in " \t\r\n,":
+                position += 1
+            if position >= len(content) or content[position] == "]":
+                break
+            try:
+                assessment, position = decoder.raw_decode(content, position)
+            except json.JSONDecodeError:
+                break
+            assessments.append(assessment)
+        if not assessments:
+            raise
+        return assessments, False
+    assessments = payload.get("assessments") if isinstance(payload, dict) else None
+    if not isinstance(assessments, list):
+        raise ValueError("response must contain an assessments array")
+    return assessments, True
+
+
+def _parse_paragraph_assessment(content: str, paragraphs: list[dict[str, Any]]) -> dict[str, Any]:
+    assessments, complete_response = _recover_assessments(content)
+    valid_indices = [item["paragraph_index"] for item in paragraphs]
+    valid_index_set = set(valid_indices)
+    by_index: dict[int, dict[str, Any]] = {}
+    unmatched_count = 0
+    for assessment in assessments:
+        if not isinstance(assessment, dict):
+            unmatched_count += 1
+            continue
+        try:
+            paragraph_index = int(assessment.get("paragraph_index", -1))
+        except (TypeError, ValueError):
+            unmatched_count += 1
+            continue
+        if paragraph_index not in valid_index_set or paragraph_index in by_index:
+            unmatched_count += 1
+            continue
+        by_index[paragraph_index] = {
+                "paragraph_index": paragraph_index,
+                "topic": str(assessment.get("topic") or "Unlabelled topic"),
+                "role": str(assessment.get("role") or "Unspecified role"),
+                "explanation": str(assessment.get("explanation") or "No explanation supplied."),
+                "confidence": assessment.get("confidence"),
+                "missing": False,
+            }
+    normalized = []
+    missing_indices = []
+    for paragraph_index in valid_indices:
+        if paragraph_index in by_index:
+            normalized.append(by_index[paragraph_index])
+        else:
+            missing_indices.append(paragraph_index)
+            normalized.append(
+                {
+                    "paragraph_index": paragraph_index,
+                    "topic": "Not found",
+                    "role": "Not found",
+                    "explanation": "No assessment was returned for this paragraph.",
+                    "confidence": None,
+                    "missing": True,
+                }
+            )
+    return {
+        "assessments": normalized,
+        "returned_assessment_count": len(by_index),
+        "missing_paragraph_indices": missing_indices,
+        "unmatched_assessment_count": unmatched_count,
+        "response_complete": complete_response,
+    }
+
+
+def render_paragraph_assessment_markdown(
+    report: dict[str, Any],
+    result: dict[str, Any],
+    *,
+    model: str,
+    usage: dict[str, Any] | None = None,
+) -> str:
+    usage = usage or {}
+    lines = [
+        f"# Paragraph-level Discussion Assessment: case {report['case_id']}",
+        "",
+        f"Model: `{model}`",
+        f"Prompt tokens: `{usage.get('prompt_tokens', 'not available')}`",
+        f"Completion tokens: `{usage.get('completion_tokens', 'not available')}`",
+        f"Total tokens: `{usage.get('total_tokens', 'not available')}`",
+        f"Estimated billing (USD): `${usage.get('estimated_cost_usd', 'not available')}`",
+        "",
+        f"Returned assessments: `{result.get('returned_assessment_count', len(result['assessments']))}`",
+        f"Missing paragraphs: `{len(result.get('missing_paragraph_indices', []))}`",
+        f"Response complete: `{result.get('response_complete', True)}`",
+        "",
+        "Each row represents one source paragraph; repeated topics are intentional.",
+        "",
+        "| Paragraph | Topic | Role | Confidence | Explanation |",
+        "| ---: | --- | --- | ---: | --- |",
+    ]
+    for assessment in result["assessments"]:
+        explanation = assessment["explanation"].replace("|", "\\|").replace("\n", " ")
+        lines.append(
+            f"| {assessment['paragraph_index']} | {assessment['topic']} | {assessment['role']} | {assessment.get('confidence', 'not supplied')} | {explanation} |"
+        )
+    return "\n".join(lines) + "\n"
 
 
 def select_paragraph_window(
@@ -248,6 +400,7 @@ def main() -> int:
     parser.add_argument("--ledger-path", type=Path, help="Durable per-case run ledger")
     parser.add_argument("--retry-failed", action="store_true", help="Retry a previously failed ledger row")
     parser.add_argument("--text-only", action="store_true", help="Send only paragraph indices and source text")
+    parser.add_argument("--paragraph-level", action="store_true", help="Assess every paragraph separately instead of grouping spans")
     parser.add_argument("--start-paragraph", type=int)
     parser.add_argument("--end-paragraph", type=int)
     args = parser.parse_args()
@@ -272,33 +425,58 @@ def main() -> int:
         args.start_paragraph,
         args.end_paragraph,
     )
+    result_key = "assessments" if args.paragraph_level else "units"
     report_for_request = {**report, "paragraphs": model_paragraphs}
-    request = build_request(
-        report_for_request,
-        model=args.model,
-        budget_usd=args.budget_usd,
-        text_only=args.text_only,
+    request = (
+        build_paragraph_assessment_request(
+            report_for_request,
+            model_paragraphs,
+            model=args.model,
+            budget_usd=args.budget_usd,
+        )
+        if args.paragraph_level
+        else build_request(
+            report_for_request,
+            model=args.model,
+            budget_usd=args.budget_usd,
+            text_only=args.text_only,
+        )
     )
     args.output_request.parent.mkdir(parents=True, exist_ok=True)
     args.output_request.write_text(json.dumps(request, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     if args.response_file:
         try:
-            result = _parse_response(args.response_file.read_text(encoding="utf-8"), model_paragraphs)
+            result = (
+                _parse_paragraph_assessment(args.response_file.read_text(encoding="utf-8"), model_paragraphs)
+                if args.paragraph_level
+                else _parse_response(args.response_file.read_text(encoding="utf-8"), model_paragraphs)
+            )
         except (IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
             if args.ledger_path:
                 record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc), response_file=str(args.response_file))
             raise
         args.output_markdown.parent.mkdir(parents=True, exist_ok=True)
-        args.output_markdown.write_text(render_markdown(report, result, model=args.model), encoding="utf-8")
+        args.output_markdown.write_text(
+            render_paragraph_assessment_markdown(report, result, model=args.model)
+            if args.paragraph_level
+            else render_markdown(report, result, model=args.model),
+            encoding="utf-8",
+        )
         if args.ledger_path:
-            record_case(args.ledger_path, int(report["case_id"]), "complete", mode="replayed", unit_count=len(result["units"]))
-        print(json.dumps({"status": "replayed", "case_id": report["case_id"], "unit_count": len(result["units"])}))
+            record_case(args.ledger_path, int(report["case_id"]), "complete", mode="replayed", unit_count=len(result[result_key]))
+        print(json.dumps({"status": "replayed", "case_id": report["case_id"], "unit_count": len(result[result_key])}))
         return 0
     if not args.send:
         print(json.dumps({"status": "prepared", "case_id": report["case_id"], "paragraph_count": len(report["paragraphs"])}))
         return 0
     try:
-        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+        os.environ.pop("OPENAI_ORG_ID", None)
+        os.environ.pop("OPENAI_ORGANIZATION", None)
+        client = OpenAI(
+            api_key=os.environ.get("OPENAI_API_KEY"),
+            timeout=180.0,
+            max_retries=0,
+        )
         response = client.chat.completions.create(
             model=args.model,
             temperature=0,
@@ -312,7 +490,7 @@ def main() -> int:
         raise
     content = response.choices[0].message.content or "{}"
     try:
-        result = _parse_response(content, model_paragraphs)
+        result = _parse_paragraph_assessment(content, model_paragraphs) if args.paragraph_level else _parse_response(content, model_paragraphs)
     except (IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
         raw_path = args.output_markdown.with_suffix(".raw_response.txt")
         raw_path.parent.mkdir(parents=True, exist_ok=True)
@@ -326,7 +504,11 @@ def main() -> int:
             ),
         }
         raw_path.write_text(
-            render_markdown(report, {"units": []}, model=args.model, usage=usage)
+            (
+                render_paragraph_assessment_markdown(report, {"assessments": []}, model=args.model, usage=usage)
+                if args.paragraph_level
+                else render_markdown(report, {"units": []}, model=args.model, usage=usage)
+            )
             + "\n--- Raw model response ---\n"
             + content,
             encoding="utf-8",
@@ -361,7 +543,12 @@ def main() -> int:
         "result": result,
     }
     args.output_markdown.parent.mkdir(parents=True, exist_ok=True)
-    args.output_markdown.write_text(render_markdown(report, result, model=args.model, usage=output["usage"]), encoding="utf-8")
+    args.output_markdown.write_text(
+        render_paragraph_assessment_markdown(report, result, model=args.model, usage=output["usage"])
+        if args.paragraph_level
+        else render_markdown(report, result, model=args.model, usage=output["usage"]),
+        encoding="utf-8",
+    )
     args.output_request.write_text(json.dumps({"request": request, "response": output}, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     if args.ledger_path:
         record_case(
@@ -369,11 +556,11 @@ def main() -> int:
             int(report["case_id"]),
             "complete",
             mode="network",
-            unit_count=len(result["units"]),
+            unit_count=len(result[result_key]),
             spent_usd=output["usage"]["estimated_cost_usd"],
             usage=output["usage"],
         )
-    print(json.dumps({"status": "complete", "case_id": report["case_id"], "unit_count": len(result["units"])}))
+    print(json.dumps({"status": "complete", "case_id": report["case_id"], "unit_count": len(result[result_key])}))
     return 0
 
 

@@ -2,7 +2,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$localPort = 8000
+$localPort = 8001
 
 Get-CimInstance Win32_Process -Filter "Name = 'python.exe'" |
     Where-Object {

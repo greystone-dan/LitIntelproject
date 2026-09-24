@@ -145,6 +145,13 @@ from .reader_service import (
 	_stored_case_citation_details,
 	_stored_statute_reference_details,
 )
+from .discussion_units_sandbox import (
+	discussion_units_sandbox_page_html,
+	load_discussion_unit_cohort,
+	load_paragraph_assessments,
+	require_discussion_unit_case,
+	search_discussion_unit_cases,
+)
 from .search_service import (
 	AI_ROLLOUT,
 	EMBEDDING_DIMENSIONS,
@@ -964,6 +971,96 @@ def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
+def discussion_units_sandbox_page() -> HTMLResponse:
+	return HTMLResponse(content=discussion_units_sandbox_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/discussion-units-sandbox/search", response_model=dict[str, Any], include_in_schema=False)
+def discussion_units_sandbox_search(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	limit: int = 50,
+	offset: int = 0,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return search_discussion_unit_cases(
+		db,
+		query=query,
+		cites=cites,
+		government_outcome=government_outcome,
+		decision_outcome=decision_outcome,
+		minister=minister,
+		judge=judge,
+		court=court,
+		year=year,
+		search_full_text=search_full_text,
+		sort_by=sort_by,
+		limit=limit,
+		offset=offset,
+	)
+
+
+@router.get("/discussion-units-sandbox/cases/{case_id}", response_model=dict[str, Any], include_in_schema=False)
+def discussion_units_sandbox_case(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	require_discussion_unit_case(case_id)
+	payload = fetch_analytics_search_case_detail(db, case_id)
+	cohort = load_discussion_unit_cohort()
+	for citation in payload.get("citations", []):
+		if citation.get("target_case_id") not in cohort:
+			citation.update({"target_case_id": None, "target_title": None, "target_citation": None})
+	return payload
+
+
+@router.get(
+	"/discussion-units-sandbox/cases/{case_id}/reader-data",
+	response_model=CaseReaderDataResponse,
+	include_in_schema=False,
+)
+def discussion_units_sandbox_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
+	require_discussion_unit_case(case_id)
+	payload = build_case_reader_data(case_id, db)
+	cohort = load_discussion_unit_cohort()
+	payload.citations = [
+		citation.model_copy(
+			update={
+				"target_case_id": citation.target_case_id if citation.target_case_id in cohort else None,
+				"target_title": citation.target_title if citation.target_case_id in cohort else None,
+				"target_citation": citation.target_citation if citation.target_case_id in cohort else None,
+				"target_paragraph": citation.target_paragraph if citation.target_case_id in cohort else None,
+				"target_chunk_text": citation.target_chunk_text if citation.target_case_id in cohort else None,
+			}
+		)
+		for citation in payload.citations
+	]
+	return payload
+
+
+@router.get("/discussion-units-sandbox/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any], include_in_schema=False)
+def discussion_units_sandbox_paragraph_assessments(case_id: int) -> dict[str, Any]:
+	return load_paragraph_assessments(case_id)
+
+
+@router.get("/discussion-units-sandbox/cases/{case_id}/statute-references", response_model=list[CaseReaderCitationResponse], include_in_schema=False)
+def discussion_units_sandbox_statute_references(case_id: int, db: Session = Depends(get_db)) -> list[CaseReaderCitationResponse]:
+	require_discussion_unit_case(case_id)
+	return _get_case_statute_references(case_id, db)
+
+
+@router.get("/discussion-units-sandbox/cases/{case_id}/activity", response_model=dict[str, Any], include_in_schema=False)
+def discussion_units_sandbox_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	require_discussion_unit_case(case_id)
+	return get_case_activity(case_id, db)
+
+
 @router.get("/analytics/explorer", response_model=dict[str, Any])
 def get_data_explorer(
 	group_by: str = "judge",
@@ -1166,8 +1263,14 @@ def search_analytics_cases(
 	sort_by: str = "relevance",
 	limit: int = 50,
 	offset: int = 0,
+	cohort_id: str = "",
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	cohort_ids = None
+	if cohort_id:
+		if cohort_id != "discussion_units_core_300":
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+		cohort_ids = list(load_discussion_unit_cohort())
 	return fetch_analytics_search_cases(
 		db,
 		query=query,
@@ -1182,7 +1285,13 @@ def search_analytics_cases(
 		sort_by=sort_by,
 		limit=limit,
 		offset=offset,
+		cohort_ids=cohort_ids,
 	)
+
+
+@router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])
+def get_case_paragraph_assessments(case_id: int) -> dict[str, Any]:
+	return load_paragraph_assessments(case_id, enforce_cohort=False)
 
 
 @router.get("/analytics/search/ministers", response_model=dict[str, list[str]])

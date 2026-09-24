@@ -178,6 +178,18 @@ def test_chunk_reader_uses_compact_sections_and_inherited_reference_type():
     assert '.chunk-panel{margin:0;border:0;border-top:1px solid' in html
     assert '.chunk-body{padding:7px 3px' in html
     assert '.chunk-citation{display:inline' in html
+
+
+def test_main_search_and_reader_expose_core_case_and_assessment_controls():
+    html = routes._data_explorer_page_html()
+
+    assert "Display core cases" in html
+    assert "readerAssessmentToggle" in html
+    assert "discussion_units_core_300" in html
+    assert "/cases/${readerState.caseId}/paragraph-assessments" in html
+    assert ".paragraph-assessment{display:grid" in html
+    assert ".paragraph-assessment p{grid-column:2" in html
+    assert ".paragraph-assessment{grid-template-columns:1fr" in html
     assert '.chunk-statute{display:inline' in html
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 

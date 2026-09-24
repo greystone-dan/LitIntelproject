@@ -24,6 +24,25 @@ def _enable_ai_rollout_defaults(monkeypatch):
     monkeypatch.setitem(routes.AI_ROLLOUT, "embed_on_ingest_enabled", True)
 
 
+def test_main_paragraph_assessments_are_read_only_and_optional(monkeypatch):
+    monkeypatch.setattr(routes, "load_paragraph_assessments", lambda case_id, enforce_cohort: {"case_id": case_id, "available": False, "assessments": {}, "source": "paragraph_level_300_run"})
+
+    assert routes.get_case_paragraph_assessments(42)["available"] is False
+
+
+def test_main_search_accepts_only_named_core_cohort(monkeypatch):
+    calls = {}
+    monkeypatch.setattr(routes, "load_discussion_unit_cohort", lambda: {1: {}, 2: {}})
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", lambda db, **kwargs: calls.update(kwargs) or {"results": []})
+
+    result = routes.search_analytics_cases(cohort_id="discussion_units_core_300", db=object())
+
+    assert result == {"results": []}
+    assert calls["cohort_ids"] == [1, 2]
+    with pytest.raises(HTTPException):
+        routes.search_analytics_cases(cohort_id="arbitrary", db=object())
+
+
 class FakeDatabase:
     def __init__(self, rows=(), scalar_value=None):
         self.rows = list(rows)

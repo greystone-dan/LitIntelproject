@@ -60,13 +60,33 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The Case Search controls also include `Display core cases`, which runs the
+ordinary result renderer against the allowlisted `discussion_units_core_300`
+cohort. The inline reader separately offers an off-by-default `Show paragraph
+assessments` control. When activated, it reads report-only assessment artifacts
+through `/cases/{case_id}/paragraph-assessments` and matches rows using the
+backend-owned `paragraph_start`; cases or paragraphs without artifacts remain
+usable without an overlay.
 
 ### Supporting Interfaces
+
+The Discussion Units sandbox is an isolated, read-only experimental surface
+for the 300-case core cohort. `/discussion-units-sandbox` reuses the full Case
+Search and inline reader renderer, including advanced search, suggestions,
+highlighting, reader modes, evidence controls, subtabs, and linked context;
+only its endpoint configuration and server-side cohort scope differ. It uses
+the committed cohort manifest as an allowlist and does not change
+`/case-reader`, production search behavior, the database schema, or experiment
+run artifacts. Its optional “Show paragraph assessments” control reads the
+report-only assessment artifacts through a sandbox-only endpoint and places
+the matching topic, role, confidence, and explanation beside source
+paragraphs. The control is off by default and has no effect on `/data-explorer`.
 
 | Route | Role | Status |
 | --- | --- | --- |
 | `/data-explorer` | Primary research interface | Active |
 | `/case-reader` | Compatibility redirect for legacy bookmarks | Redirects to the active Data Explorer case reader |
+| `/discussion-units-sandbox` | 300-case Discussion Units search and reader experiment | Experimental; read-only |
 | `/live-analysis` | Ephemeral DOCX/text-PDF reader with citation and statute highlights | Active prototype |
 | `/citation-map` | Citation graph workbench and authority analytics | Active |
 | `/citation-pass` | Deterministic extraction/offset QA surface | QA only |
@@ -540,9 +560,27 @@ records `started`, `complete`, or `failed` state in the ledger. Completed and
 failed rows are not resent by default; failed rows require `--retry-failed`.
 Network exceptions, malformed responses, and replay parse failures retain an
 error row, and malformed network responses also retain `.raw_response.txt`.
+For paragraph-level assessments, a response may contain a partial or truncated
+set of source-owned paragraph indices. The parser salvages complete assessment
+objects, preserves valid rows in source order, and emits explicit `Not found`
+rows for missing paragraphs. Duplicate or unknown rows are counted as
+unmatched, while content with no recoverable assessment objects remains
+rejected. This permits auditable recovery from output truncation without
+fabricating assessments.
 The request/result JSON and rendered Markdown remain report-only visual review
 artifacts. The operational sequence and next bounded step are recorded in
 `docs/NEXT_STEPS.md`.
+The batch runner also supports an explicit case allowlist and bounded parallel
+workers. Concurrent children do not write the shared ledger; the parent records
+each result after completion so recovery runs remain resumable and auditable.
+
+The retained paragraph-assessment artifacts are now limited to the active
+`paragraph_level_300_run` and the prepared `core_300_run` under
+`data/eval/llm_discussion_units_pilot`. Earlier five-case, 20-case, single-case,
+and request-only paragraph pilots were retired on 2026-09-24 after the
+300-case run became the active review boundary. The historical run design is
+represented by the current scripts and task records; no live reader route
+depends on the removed pilot directories.
 
 The 2026-09-24 core-300 preflight completed deterministic preparation for all
 300 cases. Its explicitly approved first-10 API validation completed 9 cases
@@ -550,6 +588,22 @@ and retained one raw response for failed case `677`; no cases after the first
 10 were attempted. The remaining 290 calls are approval-gated. Database-owned
 Discussion Unit persistence is intentionally a separate future layer and is
 not part of this report-only run.
+
+The read-only `scripts/dry_run_paragraph_evidence_bridge.py` scan on
+2026-09-24 measured the first possible linkage boundary across all 300 core
+cases. It emitted
+`data/eval/llm_discussion_units_pilot/paragraph_evidence_bridge_dry_run.json`
+without database writes: 11,657 assessment-to-paragraph matches were exact,
+798 were ambiguous because multiple canonical paragraph chunks shared a
+`paragraph_start`, and 969 canonical paragraph chunks had no assessment row.
+The report preserves `chunk_id`, `paragraph_start`, `paragraph_end`,
+`text_hash`, and backend-owned evidence offsets. It keeps case citations and
+statute references as separate layers. In this scan, no statute references
+were attached to the 300 cases and no citation rows pointed to the selected
+`chunk_set="paragraph"` rows, although 7,439 cohort citation rows had some
+chunk ID. This is a measured chunk-set reconciliation gap, not permission to
+guess mappings or rewrite existing offsets; additive persistence remains
+approval-gated.
 
 When a heading is embedded in the same canonical chunk as preceding prose, the
 inspector derives two immutable source spans rather than labeling the whole

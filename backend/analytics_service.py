@@ -11,7 +11,7 @@ from typing import Any
 
 import httpx
 from fastapi import HTTPException, status
-from sqlalchemy import func, or_, select, text as sql_text
+from sqlalchemy import bindparam, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
@@ -200,7 +200,7 @@ def fetch_judge_outcomes(
 	limit: int = 50,
 	min_decisions: int = 0,
 ) -> dict[str, Any]:
-	limit = max(1, min(limit, 100))
+	limit = max(1, min(limit, 300))
 	min_decisions = max(0, min(min_decisions, 10_000))
 	limit_clause = "" if min_decisions else "LIMIT :limit"
 	rows = db.execute(
@@ -603,11 +603,15 @@ def fetch_analytics_search_cases(
 	sort_by: str = "relevance",
 	limit: int = 50,
 	offset: int = 0,
+	cohort_ids: list[int] | None = None,
 ) -> dict[str, Any]:
 	limit = max(1, min(limit, 100))
 	offset = max(0, offset)
 	filters = ["TRUE"]
 	params: dict[str, Any] = {"limit": limit, "offset": offset}
+	if cohort_ids is not None:
+		filters.append("c.id IN :cohort_ids")
+		params["cohort_ids"] = cohort_ids
 	query = " ".join(query.split())
 	cites = " ".join(cites.split())
 	minister = " ".join(minister.split())
@@ -680,8 +684,7 @@ def fetch_analytics_search_cases(
 		)
 		params.update(ranking_params)
 		sort_order = sort_order_sql
-	rows = db.execute(
-		sql_text(
+	statement = sql_text(
 			f"""
 			SELECT
 				c.id, c.title, c.citation, c.court, c.date,
@@ -698,9 +701,10 @@ def fetch_analytics_search_cases(
 			ORDER BY {sort_order}
 			LIMIT :limit OFFSET :offset
 			"""
-		),
-		params,
-	).mappings().all()
+		)
+	if cohort_ids is not None:
+		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
+	rows = db.execute(statement, params).mappings().all()
 	return {
 		"results": [
 			{

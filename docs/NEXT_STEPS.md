@@ -28,6 +28,21 @@ tags, outcomes, and source offsets. Do not launch the remaining 290 cases or
 the 2,500-case layer until the first-10 result is accepted and explicitly
 approved.
 
+The active paragraph-assessment artifacts are retained only under
+`data/eval/llm_discussion_units_pilot/paragraph_level_300_run`; the prepared
+Discussion Unit artifacts remain under `core_300_run`. Earlier five-case,
+20-case, single-case, and request-only paragraph pilots were removed on
+2026-09-24 as obsolete. No route or runner should depend on those retired
+directories.
+
+Future improvement: evaluate a separate model-led paragraph discovery pass on
+the approved sample. The model would receive source text without deterministic
+paragraph metadata, return intro/body/outro and paragraph boundaries as
+zero-based character offsets, and then feed those validated spans into the
+Discussion Unit labeler. Keep this deferred until the current deterministic
+path is accepted; preserve exact source-text reconstruction, offset checks,
+and a side-by-side boundary comparison before considering it for production.
+
 ## Recommended sequence
 
 1. Produce deterministic input reports and a manifest for the 300 core cases.

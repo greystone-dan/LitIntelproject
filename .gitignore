@@ -41,6 +41,9 @@ backups/
 data/overnight_runs/
 data/eval/reports/tag-candidate-review.json
 
+# Local Discussion Unit evaluation outputs; retain summaries separately if needed
+data/eval/llm_discussion_units_pilot/*_run/
+
 # Side-project generated artifacts
 side_projects/**/cache/
 side_projects/**/output/

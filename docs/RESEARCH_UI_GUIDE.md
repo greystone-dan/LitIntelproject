@@ -20,6 +20,18 @@ Open `/data-explorer`. This is the active research workspace. It has seven visib
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
 
+## Discussion Units Sandbox
+
+Open `/discussion-units-sandbox` to inspect the experimental Discussion Units
+cohort without changing the active Data Explorer workflow. The Sandbox uses
+the same Case Search and inline reader renderer as the normal workflow,
+including advanced filters, suggestions, highlighting, reader modes, evidence
+controls, and reader subtabs. It is limited to the 300 IDs in
+`data/eval/llm_discussion_units_pilot/discussion_unit_core_300.csv`. Its search
+and reader endpoints are separately scoped; requests for cases outside the
+manifest return `404`, and linked authorities outside the cohort are not
+exposed as navigable sandbox targets.
+
 ## Current UI Review Backlog
 
 The near-term product pass is demo-first. The highest-value UI work is issue/type
@@ -127,6 +139,12 @@ reflow the legal text. The active browser smoke check uses a bounded evidence-ri
 workflow to verify search-to-reader navigation, visible evidence in both
 reader modes, distinct computed colors, hover text, and the mobile research
 shell. Exact DOM counts remain dataset- and overlap-dependent.
+
+When paragraph assessments are enabled, each matching assessment appears as a
+compact indented rail beneath its source chunk. The topic, role/confidence
+metadata, and explanation use a restrained hierarchy and amber analysis accent;
+the source paragraph remains the primary reading surface. On narrow screens the
+rail returns to the full content width so the explanation stays legible.
 
 The active reader uses one chunk renderer and one offset-based chunk tag
 projection. It does not run a second text-search overlay over already-rendered

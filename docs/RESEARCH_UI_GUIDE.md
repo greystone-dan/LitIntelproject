@@ -56,14 +56,14 @@ misleading or untraceable output.
 
 ## About
 
-About contains a six-stage interactive system map and live inventory shell. The
-map follows source material through staging, canonical case records, structured
-enrichment, API services, research views, and evidence boundaries. Each stage
-has a concise expandable explanation; the first stage is open by default and
-the controls use native disclosure semantics for keyboard access and no-script
-fallback. The former detailed overview of cases, chunks, citations, judge
-profiles, Federal Court activity, and coverage status remains in Site
-Architecture alongside the full data model.
+About contains a six-stage visual system map and live inventory shell. Connected
+stations follow source material through staging, canonical case records,
+structured enrichment, API services, research views, and evidence boundaries.
+Selecting a station highlights it and updates a shared plain-language detail
+panel; the route animation is disabled for reduced-motion preferences. The
+former detailed overview of cases, chunks, citations, judge profiles, Federal
+Court activity, and coverage status remains in Site Architecture alongside the
+full data model.
 
 ## Site Architecture
 

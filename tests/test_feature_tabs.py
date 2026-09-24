@@ -119,10 +119,13 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     architecture_panel = html[architecture_start:architecture_end]
 
     assert 'id="aboutSystemMap"' in about_panel
-    assert '<details class="system-map-detail"' in about_panel
-    assert about_panel.count('class="system-map-detail"') == 6
+    assert 'class="system-map-canvas"' in about_panel
+    assert 'class="system-map-connections"' in about_panel
+    assert about_panel.count('data-system-stage=') == 6
+    assert 'id="systemMapDetail"' in about_panel
+    assert 'selectSystemMapStage' in html
     assert "Sources and staging" in about_panel
-    assert "Evidence boundaries" in about_panel
+    assert "Evidence" in about_panel
     assert 'class="about-story"' not in about_panel
     assert 'id="movedAboutOverview"' in architecture_panel
     assert 'Citation records' in architecture_panel

@@ -119,13 +119,17 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     architecture_panel = html[architecture_start:architecture_end]
 
     assert 'id="aboutSystemMap"' in about_panel
-    assert 'class="system-map-canvas"' in about_panel
-    assert 'class="system-map-connections"' in about_panel
-    assert about_panel.count('data-system-stage=') == 6
+    assert 'class="system-map-canvas graph-canvas"' in about_panel
+    assert 'class="system-map-connections graph-connections"' in about_panel
+    assert about_panel.count('data-graph-node=') == 11
+    assert 'data-route="pipeline citations resolution library"' in about_panel
+    assert 'data-route="pipeline statutes evidence"' in about_panel
+    assert 'system-map-expanded-panels' in about_panel
     assert 'id="systemMapDetail"' in about_panel
-    assert 'selectSystemMapStage' in html
-    assert "Sources and staging" in about_panel
-    assert "Evidence" in about_panel
+    assert 'selectArchitectureNode' in html
+    assert "Official sources" in about_panel
+    assert "V2 pipeline" in about_panel
+    assert "Live analysis" in about_panel
     assert 'class="about-story"' not in about_panel
     assert 'id="movedAboutOverview"' in architecture_panel
     assert 'Citation records' in architecture_panel

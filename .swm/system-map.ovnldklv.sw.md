@@ -29,6 +29,14 @@ flowchart TD
 	 Alembic[alembic/] --> PostgreSQL
 ```
 
+The active About surface presents this runtime as an interactive graph rather
+than a six-category sequence. Its central path is sources and staging ->
+canonical ingestion -> PostgreSQL/pgvector -> ordered processing -> FastAPI
+services -> `/data-explorer`. Branches expose citation extraction, the separate
+target-resolution pass, Live Analysis, and the evidence rules that keep source
+identity, offsets, and uncertainty reviewable. Selecting a graph node expands
+its inputs, outputs, live signal, and connected context panels.
+
 ## Component Roles
 
 | Component | Role | Refactoring constraint |

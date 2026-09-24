@@ -43,6 +43,13 @@ flowchart TD
 	API --> QA[/citation-pass: extraction QA/]
 ```
 
+	About visualizes this flow as a connected architecture graph. It intentionally
+	keeps citation extraction separate from target resolution and keeps citations,
+	statutes, metadata, tags, chunks, and embeddings as distinct layers. Node
+	selection reveals the relevant pipeline detail, service routes, research
+	surface, or evidence control instead of hiding the explanation behind a static
+	six-step label set.
+
 ## Refactoring Boundaries
 
 - Keep case citations, statute references, and metadata as separate layers.

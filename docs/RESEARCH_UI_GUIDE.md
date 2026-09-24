@@ -10,7 +10,7 @@ Open `/data-explorer`. This is the active research workspace. It has seven visib
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Interactive system map and live inventory | `/api/about/stats` |
+| About | Interactive architecture graph and live inventory | `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
 | Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
@@ -56,14 +56,20 @@ misleading or untraceable output.
 
 ## About
 
-About contains a six-stage visual system map and live inventory shell. Connected
-stations follow source material through staging, canonical case records,
-structured enrichment, API services, research views, and evidence boundaries.
-Selecting a station highlights it and updates a shared plain-language detail
-panel; the route animation is disabled for reduced-motion preferences. The
-former detailed overview of cases, chunks, citations, judge profiles, Federal
-Court activity, and coverage status remains in Site Architecture alongside the
-full data model.
+About contains an interactive architecture graph and live inventory shell. The
+graph is organized around the actual system: official sources, staging,
+canonical ingestion, the case library, the seven ordered processing stages,
+citation extraction, separate target resolution, live FastAPI services, the
+active Data Explorer workflow, Live Analysis, and evidence rules. Branches make
+the citation-resolution loop and separate statute/evidence layers visible
+instead of presenting the site as a linear six-category checklist.
+
+Selecting a node highlights its connected neighbors and expands a plain-language
+detail panel with inputs, outputs, live signals, and three contextual panels.
+The route animation is disabled for reduced-motion preferences. The former
+detailed overview of cases, chunks, citations, judge profiles, Federal Court
+activity, and coverage status remains in Site Architecture alongside the full
+data model.
 
 ## Site Architecture
 

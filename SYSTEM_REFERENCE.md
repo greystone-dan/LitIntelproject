@@ -48,7 +48,7 @@ The system intentionally separates three kinds of derived information:
 
 `/data-explorer` is the main research surface. It contains these seven visible tabs:
 
-1. **About**: visual six-stage system map with connected, selectable stations and live inventory from `/api/about/stats`.
+1. **About**: interactive architecture graph connecting source/staging, canonical ingestion, the seven-stage processing pipeline, citation extraction and separate target resolution, live services, research surfaces, and evidence rules, with live inventory from `/api/about/stats`.
 2. **Case Search**: filtered research search with an inline decision reader.
 3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.

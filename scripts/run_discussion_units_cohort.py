@@ -10,9 +10,9 @@ import subprocess
 import sys
 
 try:
-	from scripts.discussion_units_ledger import should_skip
+	from scripts.discussion_units_ledger import record_case, should_skip
 except ModuleNotFoundError:
-	from discussion_units_ledger import should_skip
+	from discussion_units_ledger import record_case, should_skip
 
 
 def load_manifest(path: Path) -> list[dict[str, str]]:
@@ -62,6 +62,14 @@ def main() -> int:
 		if result.returncode == 0:
 			summary["completed"] += 1
 		else:
+			record_case(
+				args.ledger_path,
+				case_id,
+				"failed",
+				error=f"package runner exited {result.returncode}",
+				stdout=result.stdout[-4000:],
+				stderr=result.stderr[-4000:],
+			)
 			summary["failed"] += 1
 	print(json.dumps(summary, sort_keys=True))
 	return 1 if summary["failed"] else 0

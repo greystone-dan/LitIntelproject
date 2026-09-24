@@ -1,0 +1,166 @@
+{
+  "ledger_version": 1,
+  "cases": {
+    "62": {
+      "case_id": 62,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:08:10.937671+00:00",
+      "mode": "network",
+      "unit_count": 14,
+      "spent_usd": 0.0026235
+    },
+    "126": {
+      "case_id": 126,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:08:20.464093+00:00",
+      "mode": "network",
+      "unit_count": 7,
+      "spent_usd": 0.0005754
+    },
+    "356": {
+      "case_id": 356,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:08:39.745271+00:00",
+      "mode": "network",
+      "unit_count": 13,
+      "spent_usd": 0.0013158
+    },
+    "677": {
+      "case_id": 677,
+      "status": "failed",
+      "updated_at": "2026-09-24T09:08:53.954912+00:00",
+      "error": "package runner exited 1",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 295, in main\n    result = _parse_response(content, model_paragraphs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 193, in _parse_response\n    raise ValueError(\"response does not cover every paragraph exactly once\")\nValueError: response does not cover every paragraph exactly once\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 337, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 302, in main\n    raise ValueError(f\"model response rejected: {exc}; raw response saved to {raw_path}\") from exc\nValueError: model response rejected: response does not cover every paragraph exactly once; raw response saved to data\\eval\\llm_discussion_units_pilot\\core_300_run\\reviews\\case_677_hybrid.raw_response.txt\n"
+    },
+    "853": {
+      "case_id": 853,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:09:09.013074+00:00",
+      "mode": "network",
+      "unit_count": 10,
+      "spent_usd": 0.000943
+    },
+    "1046": {
+      "case_id": 1046,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:09:23.556650+00:00",
+      "mode": "network",
+      "unit_count": 9,
+      "spent_usd": 0.0007548
+    },
+    "1147": {
+      "case_id": 1147,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:09:41.194542+00:00",
+      "mode": "network",
+      "unit_count": 10,
+      "spent_usd": 0.0012843
+    },
+    "1292": {
+      "case_id": 1292,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:09:57.894544+00:00",
+      "mode": "network",
+      "unit_count": 10,
+      "spent_usd": 0.001281
+    },
+    "1439": {
+      "case_id": 1439,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:10:32.598222+00:00",
+      "mode": "network",
+      "unit_count": 16,
+      "spent_usd": 0.001589
+    },
+    "1540": {
+      "case_id": 1540,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:10:50.790540+00:00",
+      "mode": "network",
+      "unit_count": 9,
+      "spent_usd": 0.0012226
+    },
+    "1748": {
+      "case_id": 1748,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:21:45.424660+00:00",
+      "mode": "network",
+      "unit_count": 6,
+      "spent_usd": 0.0010924
+    },
+    "1866": {
+      "case_id": 1866,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:21:54.767485+00:00",
+      "mode": "network",
+      "unit_count": 9,
+      "spent_usd": 0.0007019999999999999
+    },
+    "1901": {
+      "case_id": 1901,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:22:07.670283+00:00",
+      "mode": "network",
+      "unit_count": 13,
+      "spent_usd": 0.0017291000000000001
+    },
+    "1978": {
+      "case_id": 1978,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:22:16.278098+00:00",
+      "mode": "network",
+      "unit_count": 8,
+      "spent_usd": 0.0008051
+    },
+    "2044": {
+      "case_id": 2044,
+      "status": "failed",
+      "updated_at": "2026-09-24T09:22:50.651696+00:00",
+      "error": "package runner exited 1",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 312, in main\n    result = _parse_response(content, model_paragraphs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 193, in _parse_response\n    raise ValueError(\"response does not cover every paragraph exactly once\")\nValueError: response does not cover every paragraph exactly once\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 377, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 341, in main\n    raise ValueError(f\"model response rejected: {exc}; raw response saved to {raw_path}\") from exc\nValueError: model response rejected: response does not cover every paragraph exactly once; raw response saved to data\\eval\\llm_discussion_units_pilot\\core_300_run\\reviews\\case_2044_hybrid.raw_response.txt\n"
+    },
+    "2220": {
+      "case_id": 2220,
+      "status": "failed",
+      "updated_at": "2026-09-24T09:22:57.793513+00:00",
+      "error": "package runner exited 1",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 312, in main\n    result = _parse_response(content, model_paragraphs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 193, in _parse_response\n    raise ValueError(\"response does not cover every paragraph exactly once\")\nValueError: response does not cover every paragraph exactly once\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 377, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\danny\\OneDrive\\Desktop\\AI CaseLibrary\\scripts\\package_discussion_units_llm.py\", line 341, in main\n    raise ValueError(f\"model response rejected: {exc}; raw response saved to {raw_path}\") from exc\nValueError: model response rejected: response does not cover every paragraph exactly once; raw response saved to data\\eval\\llm_discussion_units_pilot\\core_300_run\\reviews\\case_2220_hybrid.raw_response.txt\n"
+    },
+    "2517": {
+      "case_id": 2517,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:23:08.835753+00:00",
+      "mode": "network",
+      "unit_count": 11,
+      "spent_usd": 0.0008007
+    },
+    "2660": {
+      "case_id": 2660,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:23:15.200839+00:00",
+      "mode": "network",
+      "unit_count": 5,
+      "spent_usd": 0.0010262000000000001
+    },
+    "2788": {
+      "case_id": 2788,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:23:23.051770+00:00",
+      "mode": "network",
+      "unit_count": 8,
+      "spent_usd": 0.0006734
+    },
+    "2828": {
+      "case_id": 2828,
+      "status": "complete",
+      "updated_at": "2026-09-24T09:23:28.487174+00:00",
+      "mode": "network",
+      "unit_count": 4,
+      "spent_usd": 0.0003704
+    }
+  },
+  "updated_at": "2026-09-24T09:23:28.489182+00:00"
+}

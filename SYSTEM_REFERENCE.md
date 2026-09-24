@@ -544,6 +544,13 @@ The request/result JSON and rendered Markdown remain report-only visual review
 artifacts. The operational sequence and next bounded step are recorded in
 `docs/NEXT_STEPS.md`.
 
+The 2026-09-24 core-300 preflight completed deterministic preparation for all
+300 cases. Its explicitly approved first-10 API validation completed 9 cases
+and retained one raw response for failed case `677`; no cases after the first
+10 were attempted. The remaining 290 calls are approval-gated. Database-owned
+Discussion Unit persistence is intentionally a separate future layer and is
+not part of this report-only run.
+
 When a heading is embedded in the same canonical chunk as preceding prose, the
 inspector derives two immutable source spans rather than labeling the whole
 chunk as a heading. Both spans retain the original `chunk_id` and canonical

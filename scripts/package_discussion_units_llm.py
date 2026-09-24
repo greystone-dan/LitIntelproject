@@ -94,6 +94,9 @@ def build_request(
         "label, explanation, transition_from_previous, and confidence. Use paragraph indices "
         "exactly as supplied; never output an index not present in the supplied list, and "
         "cover the supplied window from its first index through its last index exactly once. "
+        "Before responding, verify that the first unit starts at the first_allowed index, "
+        "the final unit ends at the last_allowed index, and there are no gaps or overlaps. "
+        "Do not stop after summarizing only the most important paragraphs. "
         "Keep explanations short and readable for a legal researcher."
     )
     if text_only:
@@ -194,11 +197,28 @@ def _parse_response(content: str, paragraphs: list[dict[str, Any]]) -> dict[str,
     return {"units": normalized}
 
 
-def render_markdown(report: dict[str, Any], result: dict[str, Any], *, model: str) -> str:
+def render_markdown(
+    report: dict[str, Any],
+    result: dict[str, Any],
+    *,
+    model: str,
+    usage: dict[str, Any] | None = None,
+) -> str:
+    usage = usage or {}
+    prompt_tokens = usage.get("prompt_tokens", "not available")
+    completion_tokens = usage.get("completion_tokens", "not available")
+    total_tokens = usage.get("total_tokens", "not available")
+    estimated_cost = usage.get("estimated_cost_usd", "not available")
     lines = [
         f"# Plain-language Discussion Units: case {report['case_id']}",
         "",
-        f"Model: `{model}`. This is a provisional, read-only interpretation; source paragraphs remain authoritative.",
+        f"Model: `{model}`",
+        f"Prompt tokens: `{prompt_tokens}`",
+        f"Completion tokens: `{completion_tokens}`",
+        f"Total tokens: `{total_tokens}`",
+        f"Estimated billing (USD): `${estimated_cost}`",
+        "",
+        "This is a provisional, read-only interpretation; source paragraphs remain authoritative.",
         "",
     ]
     for unit in result["units"]:
@@ -268,6 +288,7 @@ def main() -> int:
             if args.ledger_path:
                 record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc), response_file=str(args.response_file))
             raise
+        args.output_markdown.parent.mkdir(parents=True, exist_ok=True)
         args.output_markdown.write_text(render_markdown(report, result, model=args.model), encoding="utf-8")
         if args.ledger_path:
             record_case(args.ledger_path, int(report["case_id"]), "complete", mode="replayed", unit_count=len(result["units"]))
@@ -276,8 +297,8 @@ def main() -> int:
     if not args.send:
         print(json.dumps({"status": "prepared", "case_id": report["case_id"], "paragraph_count": len(report["paragraphs"])}))
         return 0
-    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     try:
+        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
         response = client.chat.completions.create(
             model=args.model,
             temperature=0,
@@ -294,9 +315,32 @@ def main() -> int:
         result = _parse_response(content, model_paragraphs)
     except (IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
         raw_path = args.output_markdown.with_suffix(".raw_response.txt")
-        raw_path.write_text(content, encoding="utf-8")
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
+        usage = {
+            "prompt_tokens": int(getattr(response.usage, "prompt_tokens", 0) or 0),
+            "completion_tokens": int(getattr(response.usage, "completion_tokens", 0) or 0),
+            "total_tokens": int(getattr(response.usage, "total_tokens", 0) or 0),
+            "estimated_cost_usd": (
+                (int(getattr(response.usage, "prompt_tokens", 0) or 0) * 0.10 / 1_000_000)
+                + (int(getattr(response.usage, "completion_tokens", 0) or 0) * 0.40 / 1_000_000)
+            ),
+        }
+        raw_path.write_text(
+            render_markdown(report, {"units": []}, model=args.model, usage=usage)
+            + "\n--- Raw model response ---\n"
+            + content,
+            encoding="utf-8",
+        )
         if args.ledger_path:
-            record_case(args.ledger_path, int(report["case_id"]), "failed", error=str(exc), raw_response=str(raw_path))
+            record_case(
+                args.ledger_path,
+                int(report["case_id"]),
+                "failed",
+                error=str(exc),
+                raw_response=str(raw_path),
+                usage=usage,
+                spent_usd=usage["estimated_cost_usd"],
+            )
         raise ValueError(f"model response rejected: {exc}; raw response saved to {raw_path}") from exc
     output = {
         "status": "complete",
@@ -308,6 +352,7 @@ def main() -> int:
         "usage": {
             "prompt_tokens": int(getattr(response.usage, "prompt_tokens", 0) or 0),
             "completion_tokens": int(getattr(response.usage, "completion_tokens", 0) or 0),
+            "total_tokens": int(getattr(response.usage, "total_tokens", 0) or 0),
             "estimated_cost_usd": (
                 (int(getattr(response.usage, "prompt_tokens", 0) or 0) * 0.10 / 1_000_000)
                 + (int(getattr(response.usage, "completion_tokens", 0) or 0) * 0.40 / 1_000_000)
@@ -315,7 +360,8 @@ def main() -> int:
         },
         "result": result,
     }
-    args.output_markdown.write_text(render_markdown(report, result, model=args.model), encoding="utf-8")
+    args.output_markdown.parent.mkdir(parents=True, exist_ok=True)
+    args.output_markdown.write_text(render_markdown(report, result, model=args.model, usage=output["usage"]), encoding="utf-8")
     args.output_request.write_text(json.dumps({"request": request, "response": output}, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     if args.ledger_path:
         record_case(
@@ -325,6 +371,7 @@ def main() -> int:
             mode="network",
             unit_count=len(result["units"]),
             spent_usd=output["usage"]["estimated_cost_usd"],
+            usage=output["usage"],
         )
     print(json.dumps({"status": "complete", "case_id": report["case_id"], "unit_count": len(result["units"])}))
     return 0

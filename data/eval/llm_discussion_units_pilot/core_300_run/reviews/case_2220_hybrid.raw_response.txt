@@ -1,0 +1,63 @@
+# Plain-language Discussion Units: case 2220
+
+Model: `gpt-4.1-nano`
+Prompt tokens: `2474`
+Completion tokens: `525`
+Total tokens: `2999`
+Estimated billing (USD): `$0.0004574`
+
+This is a provisional, read-only interpretation; source paragraphs remain authoritative.
+
+--- Raw model response ---
+{
+  "discussion_units": [
+    {
+      "start_paragraph": 1,
+      "end_paragraph": 2,
+      "label": "Procedural History",
+      "explanation": "Describes the applicant's refugee claim, the Board's denial, and the judicial review sought.",
+      "transition_from_previous": null,
+      "confidence": 0.95
+    },
+    {
+      "start_paragraph": 3,
+      "end_paragraph": 4,
+      "label": "Summary of Board's Findings and Issue",
+      "explanation": "Summarizes the Board's conclusions on credibility and state protection, and introduces the legal issue on legal error.",
+      "transition_from_previous": "Procedural History",
+      "confidence": 0.9
+    },
+    {
+      "start_paragraph": 5,
+      "end_paragraph": 6,
+      "label": "Applicant's Submissions on State Protection",
+      "explanation": "Details the applicant's argument that she was not required to seek police protection due to her belief and evidence issues.",
+      "transition_from_previous": "Summary of Board's Findings and Issue",
+      "confidence": 0.9
+    },
+    {
+      "start_paragraph": 7,
+      "end_paragraph": 8,
+      "label": "Legal Standards for Assessing State Protection",
+      "explanation": "Explains the standard of review and the legal principles regarding the availability of state protection and the applicant's burden.",
+      "transition_from_previous": "Applicant's Submissions on State Protection",
+      "confidence": 0.9
+    },
+    {
+      "start_paragraph": 9,
+      "end_paragraph": 10,
+      "label": "Reasonableness of Expecting to Seek Protection",
+      "explanation": "Discusses the legal test for whether it was reasonable for the applicant to have sought protection, based on the Board's understanding of her belief.",
+      "transition_from_previous": "Legal Standards for Assessing State Protection",
+      "confidence": 0.9
+    },
+    {
+      "start_paragraph": 11,
+      "end_paragraph": 12,
+      "label": "Board's Conclusion on State Protection and Final Decision",
+      "explanation": "Analyzes the Board's findings on evidence and concludes that the decision was reasonable; dismisses the application.",
+      "transition_from_previous": "Reasonableness of Expecting to Seek Protection",
+      "confidence": 0.9
+    }
+  ]
+}

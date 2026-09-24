@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 
@@ -27,6 +28,7 @@ def test_request_contains_numbered_paragraphs_and_baseline():
     payload = __import__("json").loads(request["messages"][1]["content"])
     assert [item["paragraph_index"] for item in payload["paragraphs"]] == [0, 1, 2]
     assert payload["deterministic_baseline"]["discussion_unit_count"] == 2
+    assert "final unit ends at the last_allowed index" in request["messages"][0]["content"]
 
 
 def test_text_only_request_excludes_deterministic_signals():
@@ -70,11 +72,39 @@ def test_response_accepts_discussion_units_alias():
 
 def test_markdown_uses_plain_language_span_headings():
     result = {"units": [{"start_paragraph": 0, "end_paragraph": 1, "label": "Procedural history", "explanation": "This explains how the application reached the Court.", "transition_from_previous": "start", "confidence": 0.9}]}
-    markdown = render_markdown(_report(), result, model="test-model")
+    markdown = render_markdown(
+        _report(),
+        result,
+        model="test-model",
+        usage={"prompt_tokens": 100, "completion_tokens": 25, "total_tokens": 125, "estimated_cost_usd": 0.00002},
+    )
     assert "Paragraphs 0-1: Procedural history" in markdown
     assert "This explains how the application reached the Court." in markdown
+    assert "Prompt tokens: `100`" in markdown
+    assert "Total tokens: `125`" in markdown
+    assert "Estimated billing (USD): `$2e-05`" in markdown
 
 
 def test_response_rejects_gaps():
     with pytest.raises(ValueError, match="contiguous"):
         _parse_response('{"units": [{"start_paragraph": 0, "end_paragraph": 0}, {"start_paragraph": 2, "end_paragraph": 2}]}', _report()["paragraphs"])
+
+
+def test_package_cli_creates_nested_output_directories_for_replay(tmp_path: Path):
+    input_path = tmp_path / "input.json"
+    response_path = tmp_path / "response.json"
+    request_path = tmp_path / "nested" / "request.json"
+    markdown_path = tmp_path / "nested" / "reviews" / "case.md"
+    input_path.write_text(json.dumps(_report()), encoding="utf-8")
+    response_path.write_text(json.dumps({"units": [{"start_paragraph": 0, "end_paragraph": 2, "label": "Analysis"}]}), encoding="utf-8")
+
+    from scripts.package_discussion_units_llm import main
+    import sys
+    original = sys.argv
+    sys.argv = ["package", "--input-json", str(input_path), "--output-request", str(request_path), "--output-markdown", str(markdown_path), "--response-file", str(response_path)]
+    try:
+        assert main() == 0
+    finally:
+        sys.argv = original
+
+    assert markdown_path.exists()

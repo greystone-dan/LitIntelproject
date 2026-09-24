@@ -1,0 +1,204 @@
+# Discussion Units: case 22517
+
+> Read-only inspection. Units are derived from existing `CaseChunk rows (chunk_set=paragraph)`; no canonical rows were written.
+
+## Deterministic reading
+
+This is a rule-based reading, not an LLM summary. Paragraphs are grouped using continuity signals such as text overlap, shared authority, changes in signal density, heading boundaries, citation/statute/tag overlap, and detected argument-role cues.
+The deterministic layer identifies evidence-bearing spans and roles; it does not generate the fluent explanations or semantic labels produced by the hybrid LLM review.
+
+- Paragraph-like inputs: **21**
+- Continuity pairs: **20**
+- Discussion Units: **2**
+- Paragraph source hashes: **21**
+- Sub-themes: **5**
+
+## 22517:1 · paragraphs 0-18
+
+- Citations: `{}`
+- Statutes: `{}`
+- Tags: `{}`
+- Source hash: `597c89a1406c6ed71cdf5d9702236fac5d9f7a18c784141dcaedaa3e764b4c00`
+
+### Deterministic evidence spans
+
+These are finer rule-based clusters inside the broader deterministic unit. Their explanations describe detected cues and roles; they are not model-generated conclusions.
+
+#### 22517:1:subtheme:1 · paragraphs 0-8
+
+- Raw key terms: `applicant, honduras, gang, canada, decision, acosta, another, board`
+- Display key terms: `honduras, gang, acosta, another`
+- Argument roles: `counterargument_limitation, governing_rule, party_position`
+- Explanation: Observed roles: counterargument_limitation, governing_rule, party_position Display terms: honduras, gang, acosta, another Position/evidence statements: Mainly, he argues that the Board erred in: i) failing to appreciate the link between the country documents on the general situation in Honduras and the applicant’s specific circumstances. Rule/authority context: Acosta seeks judicial review of the decision of the Refugee Protection Division of the Immigration and Refugee Board (the Board), rejecting his claim under section 97 of the Immigration and Refugee Protection Act, S. Evidence spans paragraphs 0-8. This is a deterministic evidence summary, not a legal conclusion.
+- Evidence: `governing_rule` cue `under` at chunk `5056633` offsets `158-163`; context: Acosta seeks judicial review of the decision of the Refugee Protection Division of the Immigration and Refugee Board (the Board), rejecting his claim under section 97 of the Immigration and Refugee Protection Act, S.
+- Evidence: `counterargument_limitation` cue `but` at chunk `5056633` offsets `342-345`; context: The applicant alleges that the Board erred in finding that he did not face a personal risk, but rather generalised violence, if he returned to Honduras.
+- Evidence: `party_position` cue `argues` at chunk `5056640` offsets `74-80`; context: Mainly, he argues that the Board erred in: i) failing to appreciate the link between the country documents on the general situation in Honduras and the applicant’s specific circumstances.
+
+#### 22517:1:subtheme:2 · paragraphs 9-10
+
+- Raw key terms: `question, standard, apply, brunswick, canada, certified, citizenship, correctness`
+- Display key terms: `question, standard, apply, brunswick, certified, correctness`
+- Argument roles: `issue, reasoning_application`
+- Explanation: Observed roles: issue, reasoning_application Display terms: question, standard, apply, brunswick, certified, correctness Application context: In that respect, it should also be noted that she certified the following question: Where the population of a country faces a generalized risk of crime, does the limitation of section 97 (1)(b)(ii) of the IRPA apply to a Evidence spans paragraphs 9-10. This is a deterministic evidence summary, not a legal conclusion.
+- Evidence: `issue` cue `question` at chunk `5056641` offsets `8-16`; context: [9] The question before the Court today is one of mixed fact and law which is to be reviewed on the standard of reasonableness (Dunsmuir v.
+- Evidence: `issue` cue `question` at chunk `5056642` offsets `225-233`; context: 97 of the Act is a pure question of law, reviewable on the standard of correctness.
+- Evidence: `reasoning_application` cue `apply` at chunk `5056642` offsets `495-500`; context: In that respect, it should also be noted that she certified the following question:
+Where the population of a country faces a generalized risk of crime, does the limitation of section 97 (1)(b)(ii) of the IRPA apply to a subgroup of individuals who face a significantly heightened risk of such crime?
+
+#### 22517:1:subtheme:3 · paragraphs 11-17
+
+- Raw key terms: `applicant, court, para, risk, board, canada, clearly, decision`
+- Display key terms: `para, risk, clearly`
+- Argument roles: `counterargument_limitation, disposition, evidence_fact, governing_rule, issue, party_position, reasoning_application`
+- Explanation: Observed roles: counterargument_limitation, disposition, evidence_fact, governing_rule, issue, party_position, reasoning_application Display terms: para, risk, clearly Position/evidence statements: [11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitate | [17] The applicant argues that his risk was not random and relies on Justice Yves De Montigny’s decision in Pineda v. Rule/authority context: [11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitate Application context: Acosta is not, potentially, a victim of generalised violence, because the gang was looking for him. | While a specific number of individuals may be targeted more frequently because of their wealth, all Haitians are at risk of becoming the victims of violence. Operative outcome context: (3d) 275 (Pineda) where the learned judge granted the application in circumstances that were, in the applicant’s view, analogous to his situation because Mr. Evidence spans paragraphs 11-17. This is a deterministic evidence summary, not a legal conclusion.
+- Evidence: `issue` cue `question` at chunk `5056643` offsets `77-85`; context: [11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitates an individualized inquiry” (Prophète v.
+- Evidence: `party_position` cue `claim` at chunk `5056643` offsets `169-174`; context: [11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitates an individualized inquiry” (Prophète v.
+- Evidence: `governing_rule` cue `under` at chunk `5056643` offsets `175-180`; context: [11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitates an individualized inquiry” (Prophète v.
+- Evidence: `counterargument_limitation` cue `but` at chunk `5056643` offsets `401-404`; context: This clearly indicates that the issue is not one of pure law but turns rather on the application of the section to the particular facts of a case that cannot be considered in a general way.
+- Evidence: `issue` cue `whether` at chunk `5056644` offsets `288-295`; context: But it is also concerned with whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.
+- Evidence: `counterargument_limitation` cue `But` at chunk `5056644` offsets `258-261`; context: But it is also concerned with whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.
+- Evidence: `evidence_fact` cue `evidence` at chunk `5056645` offsets `179-187`; context: Acosta as well as the evidence that this risk was ongoing, given that the Gang was still actively looking for him.
+- Evidence: `evidence_fact` cue `evidence` at chunk `5056646` offsets `66-74`; context: 14 of its decision, the Board clearly considers the evidence put forward by Mr.
+- Evidence: `reasoning_application` cue `because` at chunk `5056646` offsets `568-575`; context: Acosta is not, potentially, a victim of generalised violence, because the gang was looking for him.
+- Evidence: `reasoning_application` cue `because` at chunk `5056647` offsets `461-468`; context: While a specific number of individuals may be targeted more frequently because of their wealth, all Haitians are at risk of becoming the victims of violence.
+- Evidence: `evidence_fact` cue `evidence` at chunk `5056648` offsets `60-68`; context: [16] The applicant referred to a passage of the documentary evidence which confirms that bus fare collectors are frequently subject to extortion by the Gang.
+- Evidence: `counterargument_limitation` cue `However` at chunk `5056648` offsets `158-165`; context: However, the Board examined this country documentation and found it to clearly indicate the prevalence of gang related violence in a variety of sectors.
+- Evidence: `party_position` cue `argues` at chunk `5056649` offsets `19-25`; context: [17] The applicant argues that his risk was not random and relies on Justice Yves De Montigny’s decision in Pineda v.
+- Evidence: `reasoning_application` cue `because` at chunk `5056649` offsets `348-355`; context: (3d) 275 (Pineda) where the learned judge granted the application in circumstances that were, in the applicant’s view, analogous to his situation because Mr.
+- Evidence: `counterargument_limitation` cue `nevertheless` at chunk `5056649` offsets `960-972`; context: O’Keefe in Carias, where the Carias family had repeatedly been the victims of violence, ranging from harassment to abduction of one of their sons and nevertheless was found to face a risk generally faced by others in Honduras.
+- Evidence: `disposition` cue `granted` at chunk `5056649` offsets `244-251`; context: (3d) 275 (Pineda) where the learned judge granted the application in circumstances that were, in the applicant’s view, analogous to his situation because Mr.
+
+#### 22517:1:subtheme:4 · paragraphs 18-18
+
+- Raw key terms: `case, certification, certified, court, facts, parties, question, satisfied`
+- Display key terms: `case, certification, certified, facts, question, satisfied`
+- Argument roles: `issue, party_position`
+- Explanation: Observed roles: issue, party_position Display terms: case, certification, certified, facts, question, satisfied Position/evidence statements: [18] The parties have not submitted a question for certification and the Court is satisfied that this case turns on its own unique facts. Evidence spans paragraphs 18-18. This is a deterministic evidence summary, not a legal conclusion.
+- Evidence: `issue` cue `question` at chunk `5056650` offsets `38-46`; context: [18] The parties have not submitted a question for certification and the Court is satisfied that this case turns on its own unique facts.
+- Evidence: `party_position` cue `submitted` at chunk `5056650` offsets `26-35`; context: [18] The parties have not submitted a question for certification and the Court is satisfied that this case turns on its own unique facts.
+
+#### Section text
+
+Acosta v. Canada (Citizenship and Immigration)
+Court (s) Database
+Federal Court Decisions
+Date
+2009-03-02
+Neutral citation
+2009 FC 213
+File numbers
+IMM-3731-08
+Decision Content
+Date: 20090302
+Docket: IMM-3731-08
+Citation: 2009 FC 213
+Vancouver, British Columbia, March 2, 2009
+PRESENT: The Honourable Justice Johanne Gauthier
+BETWEEN:
+DUNIS JOEL ACOSTA ACOSTA
+Applicant
+and
+THE MINISTER OF CITIZENSHIP AND IMMIGRATION
+Respondent
+REASONS FOR JUDGMENT AND JUDGMENT
+
+[1] Mr. Acosta seeks judicial review of the decision of the Refugee Protection Division of the Immigration and Refugee Board (the Board), rejecting his claim under section 97 of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (the Act). The applicant alleges that the Board erred in finding that he did not face a personal risk, but rather generalised violence, if he returned to Honduras.
+Background
+
+[2] Dunis Joel Acosta Acosta is a 21 year-old citizen of Honduras. Prior to coming to Canada, he worked as a fare collector on a bus, beginning in August of 2006. At the end of every day, Mr. Acosta and the driver of the bus would count the money collected that day, setting aside a portion for the owner of the bus, another for the fuel, the remaining proceeds being split between him and the driver in an approximate proportion of 40% for him and 60% for the driver.
+
+[3] On Fridays, this daily routine changed, as a member of the Mara Salvatrucha gang (the Gang) would require the payment of 200 Honduran Lempiras, representing roughly 13 Canadian Dollars. On one of these Fridays, February 2, 2007, the bus on which the applicant collected fares had mechanical problems at the very beginning of the day and thus the driver and the applicant had to take it to the garage to be fixed. As such, the applicant did not work that day and no fares were collected. The Gang did not get their 200 Lempiras from the applicant and the bus driver.
+
+[4] Shortly after, another bus fare collector, Oscar Alexis Flores Sanchez, came to tell him that seven members of the Gang got on the bus at the bus station and shot the driver with whom the applicant worked. Referring to the applicant as “El Negro”, the men inquired to the other fare collectors present at the station as to his whereabouts. The fare collectors are said to have simply replied that he had not come to work on that day.
+
+[5] The applicant, fearing he too would be killed by the Gang, and following his brother-in-law’s recommendation, fled Honduras destined for Canada. He travelled through Guatemala, Mexico and the United States before crossing the Canadian border on foot, without reporting to Customs/Immigration, in the early morning hours of April 3, 2007. That month, the applicant filed his claim for Refugee Protection.
+
+[6] In the course of his journey to Canada, the applicant phoned his mother in Honduras on two occasions, once on February 4, 2007 from Guatemala and then slightly more than a week later from Mexico. On both occasions, his mother informed him that a member of the Gang, “Escorpion” had come to their house, accompanied on one occasion by another member, “Huicho”, looking for the applicant and vowing that “your son is going to show up sooner or later and we will kill him”. The applicant’s mother has since moved to another neighbourhood of Tegucigalpa but members of the Gang again visited her, reiterating their threats.
+
+[7] The applicant’s hearing before the Board was held on May 29, 2008. In its decision of July 25, 2008, the Board rejected the applicant’s claim on the grounds that gang activity was prevalent throughout Honduras and that despite the events referred to above, the prospective risk the applicant faced was not different than the generalised risk of violence faced by all Hondurans.
+
+[8] The applicant challenges the decision on numerous grounds. Mainly, he argues that the Board erred in: i) failing to appreciate the link between the country documents on the general situation in Honduras and the applicant’s specific circumstances. Had it done so, it would have concluded that the applicant’s risk was dissimilar to that of the larger population in Honduras; and, ii) not appreciating that the risk faced by the applicant was sufficiently particularized such as he is not excluded from the definition of “person in need of protection”.
+Analysis
+
+[9] The question before the Court today is one of mixed fact and law which is to be reviewed on the standard of reasonableness (Dunsmuir v. New Brunswick, 2008 SCC 9, (2008), 329 N.B.R. (2d) 1 at paragraph 53 (Dunsmuir).
+
+[10] In Prophète v. Canada (Minister of Citizenship and Immigration), 2008 FC 331, (2008), 70 Imm. L.R. (3d) 128 (Prophète), Justice Danièle Tremblay-Lamer, at para. 11, held that interpretation of s. 97 of the Act is a pure question of law, reviewable on the standard of correctness. In that respect, it should also be noted that she certified the following question:
+Where the population of a country faces a generalized risk of crime, does the limitation of section 97 (1)(b)(ii) of the IRPA apply to a subgroup of individuals who face a significantly heightened risk of such crime?
+
+[11] On February 4, 2009, the Federal Court of Appeal refused to answer this question as it deemed it to be too broad, in light of the fact that “[t]he examination of a claim under subsection 97(1) of the Act necessitates an individualized inquiry” (Prophète v. Canada (Minister of Citizenship and Immigration), 2009 FCA 31 at para. 7)[1]. This clearly indicates that the issue is not one of pure law but turns rather on the application of the section to the particular facts of a case that cannot be considered in a general way.
+
+[12] In Dunsmuir, the Supreme Court of Canada defined the standard of reasonableness, explaining, at para. 47, that:
+reasonableness is concerned mostly with the existence of justification, transparency and intelligibility within the decision-making process. But it is also concerned with whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law.
+
+[13] The fundamental underpinning of the applicant’s argument before this Court is that the Board ignored the particularized nature of the risk faced by Mr. Acosta as well as the evidence that this risk was ongoing, given that the Gang was still actively looking for him. An examination of the reasons provided by the Board in support of its decision makes it plain that this is simply not so.
+
+[14] At para. 14 of its decision, the Board clearly considers the evidence put forward by Mr. Acosta to the effect that the Gang is still looking for him, specifically referencing the statement of his friend, Mr. Sanchez, as well as that of the applicant’s mother. As for the argument that the applicant’s risk is different than that which is faced by the Honduran population generally, it is also specifically canvassed by the Board at para. 19 of its reasons:
+It is not a proper response to say that Mr. Acosta is not, potentially, a victim of generalised violence, because the gang was looking for him. Victims of generalised violence are often known to the perpetrators, by name, by position, or for any number of different reasons. The fact that the victims of generalised violence have an identity, as all people do, and that that identity is or becomes known to the perpetrator, does not mean that they are not a victim of generalised violence.
+[emphasis added]
+
+[15] In Prophète, a case where the applicant was arguing that, in light of his economic situation, he faced a significantly heightened risk of violence, Justice Tremblay-Lamer held, at para. 23, that:
+the applicant does not face a personalized risk that is not faced generally by other individuals in or from Haiti. The risk of all forms of criminality is general and felt by all Haitians. While a specific number of individuals may be targeted more frequently because of their wealth, all Haitians are at risk of becoming the victims of violence.
+Similar conclusions were reached by the Court in Carias v. Canada (Minister of Citizenship and Immigration), 2007 FC 602, [2007] F.C.J. No. 817 (QL) (Carias), Marshall v. Canada (Minister of Citizenship and Immigration), 2008 FC 946, [2008] F.C.J. No. 1179 (QL) and Cius v. Canada (Minister of Citizenship and Immigration), 2008 FC 1, (2008), 164 A.C.W.S. (3d) 142.
+
+[16] The applicant referred to a passage of the documentary evidence which confirms that bus fare collectors are frequently subject to extortion by the Gang. However, the Board examined this country documentation and found it to clearly indicate the prevalence of gang related violence in a variety of sectors. It is no more unreasonable to find that a particular group that is targeted, be it bus fare collectors or other victims of extortion and who do not pay, faces generalised violence than to reach the same conclusion in respect of well known wealthy business men in Haiti who were clearly found to be at a heightened risk of facing the violence prevalent in that country.
+
+[17] The applicant argues that his risk was not random and relies on Justice Yves De Montigny’s decision in Pineda v. Canada (Minister of Citizenship and Immigration), 2007 FC 365, (2007), 65 Imm. L.R. (3d) 275 (Pineda) where the learned judge granted the application in circumstances that were, in the applicant’s view, analogous to his situation because Mr. Pineda had been a specific target of attacks by the Maras Salvatruchas gang in the past. First, the Court notes that the basis of the decision in Pineda was that the decision maker had not considered in his analysis the personal situation of the applicant. Here, as mentioned, the Board has clearly done so. Second, in fact, a more appropriate analogy can be drawn between the present circumstances and those found in the decision of Justice John A. O’Keefe in Carias, where the Carias family had repeatedly been the victims of violence, ranging from harassment to abduction of one of their sons and nevertheless was found to face a risk generally faced by others in Honduras. Finally, here, the Board found the risk faced by Mr. Acosta was “a result of where he happened to be, or not to be, on the day the Mara wanted their money” (para. 18) whereas Mr. Pineda had been targeted not as a victim of the Gang but rather for recruitment into the Gang.
+
+[18] The parties have not submitted a question for certification and the Court is satisfied that this case turns on its own unique facts. No question will be certified.
+
+
+## 22517:2 · paragraphs 19-20
+
+- Citations: `{}`
+- Statutes: `{}`
+- Tags: `{}`
+- Source hash: `4169bbf2b51bdc8b9698d933fce1ad35a8e5b7155dcca374cc383faa856da327`
+
+### Deterministic evidence spans
+
+These are finer rule-based clusters inside the broader deterministic unit. Their explanations describe detected cues and roles; they are not model-generated conclusions.
+
+#### 22517:2:subtheme:1 · paragraphs 19-20
+
+- Raw key terms: `hearing, acosta, adjudges, aharon, appearances, applicant, application, barrister`
+- Display key terms: `hearing, acosta, adjudges, aharon, barrister`
+- Argument roles: `none`
+- Explanation: Observed roles: no explicit argument role cue Display terms: hearing, acosta, adjudges, aharon, barrister No explicit argument evidence was detected in this span; review it as metadata or cue-free text Evidence spans paragraphs 19-20. This is a deterministic evidence summary, not a legal conclusion.
+
+#### Section text
+
+JUDGMENT
+THIS COURT ORDERS AND ADJUDGES that the application is dismissed.
+“Johanne Gauthier”
+Judge
+FEDERAL COURT
+NAME OF COUNSEL AND SOLICITORS OF RECORD
+DOCKET: IMM-3731-08
+STYLE OF CAUSE: DUNIS JOEL ACOSTA ACOSTA v. THE MINISTER OF CITIZENSHIP AND IMMIGRATION
+PLACE OF HEARING: Vancouver, British Columbia
+DATE OF HEARING: January 15, 2009
+REASONS FOR JUDGMENT
+AND JUDGMENT: GAUTHIER J.
+DATED: March 2, 2009
+APPEARANCES:
+Mr. Dean D. Pietrantonio
+FOR THE APPLICANT
+Barrister and Solicitor
+Ms. Hilla Aharon
+FOR THE RESPONDENT
+Department of Justice
+SOLICITORS OF RECORD:
+Mr. Dean D. Pietrantonio
+550 – 1130 West Pender St.
+Vancouver, BC V6E 4A4
+Fax: (604) 331-8573
+FOR THE APPLICANT
+Barrister and Solicitor
+Department of Justice
+900-840 Howe Street
+Vancouver, BC V6Z 2S9
+Fax: (604) 666-2639
+FOR THE RESPONDENT
+Department of Justice
+
+[1] The parties were given an opportunity to comment on this recent decision after the hearing.

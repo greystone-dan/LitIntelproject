@@ -1,6 +1,6 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-22
+Last reviewed: 2026-09-25
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
@@ -31,6 +31,23 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
+
+The active Data Explorer also provides a Core Cases proof of concept. `Display
+core cases` loads the first 100 ordinary case results while retaining the full
+300-case scope. A second bar then searches paragraph assessments across the
+same cohort using transparent topic, role, explanation, and paragraph-text
+matching. Results show the matched paragraph and linked citation count/IDs when
+the report-only bridge has them. This is an experimental lexical matcher, not
+vector semantic retrieval or citation-treatment classification.
+Selecting `Compare topic/role` on a result groups matching assessment
+paragraphs across the Core 300 cohort. The comparison keeps citations attached
+to the paragraph that produced them and opens the originating case for source
+review. It does not claim that a citation applies to the assessment merely
+because it appears elsewhere in the same case.
+Where the generated bridge has a resolved `target_case_id`, the citation chip
+opens the cited authority directly. The chip retains stored paragraph-local
+offsets and link status; unresolved citations remain source-bound rather than
+being guessed.
 
 ## Current UI Review Backlog
 
@@ -307,7 +324,7 @@ reporting one unexplained instance.
 
 ## Citation Intelligence
 
-Citation Intelligence starts with a title search or a case selected from Case Search. It provides bounded views over resolved case-citation data:
+Citation Intelligence starts with a title search or a case selected from Case Search. Once a case is selected, the Overview keeps that authority's identity and footprint visible before the user drills into a subview. It provides bounded views over resolved case-citation data:
 
 - **Overview**: citing decisions, total mentions, average/max mentions, and related high-level authority signals.
 - **Timeline**: year-based use over time.
@@ -315,6 +332,28 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 - **Courts/Judges**: attributed citation use by court or canonical judge data where available.
 - **Statutes**: statute references appearing alongside authority use.
 - **Evidence/table views**: stored citation rows, offsets, and target context.
+
+The Overview also includes a compact case fingerprint: incoming/outgoing network metrics, stored citing decisions with bounded mention bars, and a shared-authority cluster when resolved citation data supports it. Citing rows open the active inline reader. The cluster is a derived navigation aid based on shared authorities, not a finding that decisions are legally similar or that an authority received a particular treatment.
+
+Timeline years are actionable. Selecting a year opens the existing evidence view filtered to stored citation rows from that year; the filter can be cleared without leaving Citation Intelligence. This is a traceability path into stored evidence, not a claim about how an authority was treated in that year.
+
+The Overview presents explicit research paths to Timeline, Neighborhood, and
+stored Evidence, so the existing citation-intelligence work is visible as one
+workflow rather than a collection of disconnected cards. Loading, empty, and
+request-failure states are shown in the content area; a partial enrichment
+failure does not erase the authority summary or the evidence paths. The page
+also prevents duplicate neighborhood loading during tab activation.
+
+The Overview shows up to four distinctive cited authorities using the
+existing authority-signals route. Occurrence, section spread, and signal score
+are derived navigation aids; they are not legal-importance or treatment scores.
+Each row links to the active inline reader.
+
+The Neighborhood subview shows up to 20 direct citation relationships around
+the selected case, including whether each related decision cites the focus
+case or is cited by it and the stored occurrence count. Related rows open the
+active reader. This is a bounded relationship view, not a legal-similarity or
+citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 

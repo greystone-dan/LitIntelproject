@@ -180,12 +180,67 @@ def test_rendered_shell_exposes_focused_feature_searches():
     assert 'Find a judge by name' in html
     assert '<option value="newest" selected>Newest decision</option>' in html
 
-    for subtab in ("Overview", "Timeline", "Outcomes", "Courts", "Judges", "Companions", "Statutes", "Evidence"):
+    for subtab in ("Overview", "Timeline", "Neighborhood", "Outcomes", "Courts", "Judges", "Companions", "Statutes", "Evidence"):
         assert subtab in html
 
     assert "Research readout" in html
     assert "Open citation evidence" in html
     assert "Compare use over time" in html
+
+
+def test_citation_intelligence_overview_exposes_case_fingerprint_pattern():
+    html = routes._data_explorer_page_html()
+
+    assert "Case fingerprint" in html
+    assert "Where this authority is cited" in html
+    assert "Shared-authority cluster" in html
+    assert "ci-fingerprint-row" in html
+    assert "ci-cluster-row" in html
+    assert "/api/citation-intelligence/${ciState.caseId}/table?page=1&page_size=8" in html
+    assert "/citation-map/cases/${ciState.caseId}/similar?limit=6&min_shared=2" in html
+
+
+def test_citation_timeline_drills_into_year_filtered_evidence():
+    html = routes._data_explorer_page_html()
+
+    assert 'class="ci-timeline-year"' in html
+    assert "loadCitationEvidenceForYear" in html
+    assert "/api/citation-intelligence/${ciState.caseId}/table?page=${page}&page_size=25&year=" in html
+    assert "Clear year filter" in html
+
+
+def test_citation_overview_exposes_authority_signals():
+    html = routes._data_explorer_page_html()
+
+    assert "Distinctive cited authorities" in html
+    assert "ci-authority-signals" in html
+    assert "ci-signal-row" in html
+    assert "/citation-map/cases/${ciState.caseId}/authority-signals?limit=4&context_limit=1" in html
+
+
+def test_citation_neighborhood_exposes_direct_relationships():
+    html = routes._data_explorer_page_html()
+
+    assert "Direct citation neighborhood" in html
+    assert "ci-neighborhood-row" in html
+    assert "loadCitationNeighborhood" in html
+    assert "/citation-map/cases/${ciState.caseId}/neighborhood?limit=20" in html
+
+
+def test_citation_intelligence_overview_has_stable_context_and_result_states():
+    html = routes._data_explorer_page_html()
+
+    assert "Selected authority" in html
+    assert "Research paths" in html
+    assert "Stored citation evidence is shown separately from derived research signals." in html
+    assert 'data-ci-action="timeline"' in html
+    assert 'data-ci-action="neighborhood"' in html
+    assert 'data-ci-action="table"' in html
+    assert "data-ci-state=\"${state}\"" in html
+    assert "Promise.allSettled" in html
+    assert "Citation Intelligence unavailable:" in html
+    assert "data-ci-retry" in html
+    assert "originalLoadCitationIntelligence" in html
 
 
 def test_case_search_has_clear_primary_query_and_filter_state():

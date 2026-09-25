@@ -72,6 +72,14 @@ preferences. The former detailed overview of cases, chunks, citations, judge
 profiles, Federal Court activity, and coverage status remains in Site
 Architecture alongside the full data model.
 
+Immediately below the architecture graph, the case pipeline graphic follows one
+decision through `full_case`, `heading_chunks`, `metadata`, `outcome`,
+`case_citations`, `statutes`, and `tags_v3`. Its side branches keep derived
+layers distinct and show target resolution as a separate local pass. Deferred
+anchor review, incomplete statute source indexing, and experimental Discussion
+Units are deliberately marked as unfinished; selecting any stage expands its
+detail inside the same canvas.
+
 ## Site Architecture
 
 Site Architecture is the consolidated explanation of the live tables, derived

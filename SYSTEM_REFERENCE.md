@@ -792,6 +792,14 @@ corpus annotations, train models, or alter canonical evidence.
 6. `statutes`: rebuild statute/instrument references.
 7. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
 
+The active About surface also includes a case-level pipeline graphic beneath the
+architecture graph. It visualizes this order for one decision, keeps chunks,
+metadata, outcomes, citations, statutes, tags, and embeddings as distinct
+branches, and labels target resolution as a separate local pass. It also marks
+short-form anchor review, incomplete statute source indexing, and experimental
+Discussion Units as unfinished rather than presenting them as completed
+processing stages.
+
 The V2 Pipeline runner is `scripts/run_v2_pipeline.py`, exposed through the
 explicit `pipeline` profile in `scripts/run_overnight.py`. Its execution uses
 source-link HTML refresh, HTML-aware replacement chunks, metadata, outcomes,

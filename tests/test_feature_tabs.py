@@ -132,6 +132,14 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     assert "Official sources" in about_panel
     assert "V2 pipeline" in about_panel
     assert "Live analysis" in about_panel
+    assert 'id="casePipelineGraphic"' in about_panel
+    assert 'class="pipeline-canvas"' in about_panel
+    assert about_panel.count('<button class="pipeline-node') == 12
+    assert 'pipeline-route-main' in about_panel
+    assert 'Target resolution' in about_panel
+    assert 'Anchor backfill' in about_panel
+    assert 'Discussion units' in about_panel
+    assert 'selectPipelineStage' in html
     assert 'class="about-story"' not in about_panel
     assert 'id="movedAboutOverview"' in architecture_panel
     assert 'Citation records' in architecture_panel

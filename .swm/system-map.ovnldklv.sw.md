@@ -38,6 +38,16 @@ identity, offsets, and uncertainty reviewable. Selecting a graph node expands
 the box in place and reveals its inputs, outputs, live signal, and connected
 child boxes inside the same canvas.
 
+## Case-Level Pipeline Graphic
+
+The About surface places a second interactive canvas below the system map. This
+canvas follows one case through the canonical `full_case` -> `heading_chunks` ->
+`metadata` -> `outcome` -> `case_citations` -> `statutes` -> `tags_v3` order.
+Separate branches expose derived layers and the later citation target-resolution
+pass. Deferred short-form anchor review, partial statute source indexing, and
+experimental Discussion Units are shown as unfinished states so the UI does not
+overstate pipeline completeness.
+
 ## Component Roles
 
 | Component | Role | Refactoring constraint |

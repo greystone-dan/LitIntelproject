@@ -50,6 +50,12 @@ flowchart TD
 	child boxes for pipeline detail, service routes, research surfaces, or evidence
 	controls instead of placing a separate explanation below the graphic.
 
+	The case-level pipeline graphic beneath that map narrows the view to one
+	decision: it shows the seven ordered processing stages, branches for distinct
+	derived layers, the separate target-resolution pass, and visible unfinished
+	work such as short-form anchor review, statute source indexing, and experimental
+	Discussion Units.
+
 ## Refactoring Boundaries
 
 - Keep case citations, statute references, and metadata as separate layers.

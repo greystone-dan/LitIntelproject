@@ -590,20 +590,20 @@ Discussion Unit persistence is intentionally a separate future layer and is
 not part of this report-only run.
 
 The read-only `scripts/dry_run_paragraph_evidence_bridge.py` scan on
-2026-09-24 measured the first possible linkage boundary across all 300 core
-cases. It emitted
-`data/eval/llm_discussion_units_pilot/paragraph_evidence_bridge_dry_run.json`
-without database writes: 11,657 assessment-to-paragraph matches were exact,
-798 were ambiguous because multiple canonical paragraph chunks shared a
-`paragraph_start`, and 969 canonical paragraph chunks had no assessment row.
-The report preserves `chunk_id`, `paragraph_start`, `paragraph_end`,
-`text_hash`, and backend-owned evidence offsets. It keeps case citations and
-statute references as separate layers. In this scan, no statute references
-were attached to the 300 cases and no citation rows pointed to the selected
-`chunk_set="paragraph"` rows, although 7,439 cohort citation rows had some
-chunk ID. This is a measured chunk-set reconciliation gap, not permission to
-guess mappings or rewrite existing offsets; additive persistence remains
-approval-gated.
+2026-09-25 produced
+`data/eval/llm_discussion_units_pilot/paragraph_level_300_run/citation_evidence_bridge.json`
+without database writes. It retained 11,657 exact assessment-to-paragraph
+matches, 798 ambiguous matches because multiple canonical paragraph chunks
+shared a `paragraph_start`, and 969 canonical paragraph chunks had no
+assessment row. Citation rows are stored on `section` chunks rather than
+paragraph chunks, so the bridge translates a citation's section-local offsets
+into a paragraph chunk only when the citation span is fully contained by an
+exact paragraph-text span. The artifact contains 6,260 translated citation
+links across 3,241 paragraph records; translated offsets are validated and
+retain the original citation ID and source chunk ID. Unmapped citations remain
+unlinked rather than receiving guessed paragraph ownership. Statute references
+remain a separate layer. This is a report-only evidence bridge, not citation
+treatment inference or additive persistence.
 
 When a heading is embedded in the same canonical chunk as preceding prose, the
 inspector derives two immutable source spans rather than labeling the whole

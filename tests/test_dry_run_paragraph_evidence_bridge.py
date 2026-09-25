@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 
-from scripts.dry_run_paragraph_evidence_bridge import build_report, map_case
+from scripts.dry_run_paragraph_evidence_bridge import _section_citation_links, build_report, map_case
 
 
 def test_map_case_preserves_evidence_layers_and_missing_assessments(monkeypatch):
@@ -59,3 +59,25 @@ def test_build_report_counts_statuses(monkeypatch):
 	assert result["mode"] == "read_only"
 	assert result["case_count"] == 1
 	assert result["record_count"] == 0
+
+
+def test_section_citation_is_translated_to_paragraph_offsets():
+	section = SimpleNamespace(id=100, text="Intro. Citation appears here.")
+	paragraph = SimpleNamespace(id=101, text="Citation appears here.")
+	citation = {
+		"id": 202,
+		"chunk_id": 100,
+		"offset_start": 7,
+		"offset_end": 28,
+		"citation_text": "Citation appears here.",
+	}
+
+	links = _section_citation_links(citation, [
+		{"chunk": paragraph, "start": 7, "end": 28},
+	])
+
+	assert links[0]["chunk_id"] == 100
+	assert links[0]["paragraph_chunk_id"] == 101
+	assert links[0]["paragraph_offset_start"] == 0
+	assert links[0]["paragraph_offset_end"] == 21
+	assert links[0]["link_status"] == "translated"

@@ -12,7 +12,9 @@ from backend.database import CaseChunk, Citation, SessionLocal, StatuteReference
 from backend.discussion_units_sandbox import load_discussion_unit_cohort, load_paragraph_assessments
 
 
-DEFAULT_OUTPUT = Path("data/eval/llm_discussion_units_pilot/paragraph_evidence_bridge_dry_run.json")
+DEFAULT_OUTPUT = Path(
+	"data/eval/llm_discussion_units_pilot/paragraph_level_300_run/citation_evidence_bridge.json"
+)
 
 
 def _chunk_integrity(chunk: CaseChunk) -> str:
@@ -36,6 +38,7 @@ def _evidence_rows(session: Any, case_id: int, chunk_ids: list[int]) -> tuple[li
 		{
 			"id": item.id,
 			"chunk_id": item.chunk_id,
+			"citation_text": getattr(item, "citation_text", None),
 			"offset_start": item.offset_start,
 			"offset_end": item.offset_end,
 			"citation_kind": item.citation_kind,
@@ -60,6 +63,51 @@ def _evidence_rows(session: Any, case_id: int, chunk_ids: list[int]) -> tuple[li
 	]
 	return citation_rows, statute_rows
 
+def _paragraph_spans(section: CaseChunk, paragraphs: list[CaseChunk]) -> list[dict[str, Any]]:
+	"""Find paragraph text spans inside a section chunk without changing source offsets."""
+	if section.paragraph_start is not None and section.paragraph_end is not None:
+		paragraphs = [
+			paragraph
+			for paragraph in paragraphs
+			if paragraph.paragraph_start is not None
+			and section.paragraph_start <= paragraph.paragraph_start <= section.paragraph_end
+		]
+	spans: list[dict[str, Any]] = []
+	cursor = 0
+	for paragraph in paragraphs:
+		text = paragraph.text or ""
+		if not text:
+			continue
+		start = (section.text or "").find(text, cursor)
+		if start < 0:
+			continue
+		spans.append({"chunk": paragraph, "start": start, "end": start + len(text)})
+		cursor = start + len(text)
+	return spans
+
+
+def _section_citation_links(
+	citation: dict[str, Any], spans: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+	start = citation["offset_start"]
+	end = citation["offset_end"]
+	if start is None or end is None:
+		return []
+	matches = [span for span in spans if start >= span["start"] and end <= span["end"]]
+	if len(matches) != 1:
+		return []
+	span = matches[0]
+	return [
+		{
+			**citation,
+			"paragraph_chunk_id": span["chunk"].id,
+			"paragraph_offset_start": start - span["start"],
+			"paragraph_offset_end": end - span["start"],
+			"link_method": "section_offset_within_paragraph_text",
+			"link_status": "translated",
+		}
+	]
+
 
 def map_case(session: Any, case_id: int) -> list[dict[str, Any]]:
 	assessment_payload = load_paragraph_assessments(case_id, enforce_cohort=False)
@@ -74,7 +122,10 @@ def map_case(session: Any, case_id: int) -> list[dict[str, Any]]:
 		if chunk.paragraph_start is not None:
 			chunks_by_paragraph.setdefault(str(chunk.paragraph_start), []).append(chunk)
 
-	all_chunk_ids = [chunk.id for chunk in chunks]
+	all_chunks = session.scalars(
+		select(CaseChunk).where(CaseChunk.case_id == case_id)
+	).all()
+	all_chunk_ids = [chunk.id for chunk in all_chunks]
 	citations, statutes = _evidence_rows(session, case_id, all_chunk_ids)
 	citations_by_chunk: dict[int, list[dict[str, Any]]] = {}
 	statutes_by_chunk: dict[int, list[dict[str, Any]]] = {}
@@ -82,6 +133,12 @@ def map_case(session: Any, case_id: int) -> list[dict[str, Any]]:
 		citations_by_chunk.setdefault(citation["chunk_id"], []).append(citation)
 	for statute in statutes:
 		statutes_by_chunk.setdefault(statute["chunk_id"], []).append(statute)
+	citation_links_by_paragraph: dict[int, list[dict[str, Any]]] = {}
+	for section in [chunk for chunk in all_chunks if getattr(chunk, "chunk_set", None) == "section"]:
+		spans = _paragraph_spans(section, chunks)
+		for citation in citations_by_chunk.get(section.id, []):
+			for link in _section_citation_links(citation, spans):
+				citation_links_by_paragraph.setdefault(link["paragraph_chunk_id"], []).append(link)
 
 	records: list[dict[str, Any]] = []
 	for paragraph, assessment in sorted(assessments.items(), key=lambda item: int(item[0])):
@@ -110,7 +167,7 @@ def map_case(session: Any, case_id: int) -> list[dict[str, Any]]:
 				"text_hash": chunk.text_hash,
 				"hash_check": _chunk_integrity(chunk),
 				"assessment": assessment,
-				"citations": citations_by_chunk.get(chunk.id, []),
+				"citations": citations_by_chunk.get(chunk.id, []) + citation_links_by_paragraph.get(chunk.id, []),
 				"statute_references": statutes_by_chunk.get(chunk.id, []),
 			}
 		)
@@ -129,7 +186,7 @@ def map_case(session: Any, case_id: int) -> list[dict[str, Any]]:
 					"paragraph_end": chunk.paragraph_end,
 					"text_hash": chunk.text_hash,
 					"hash_check": _chunk_integrity(chunk),
-					"citations": citations_by_chunk.get(chunk.id, []),
+					"citations": citations_by_chunk.get(chunk.id, []) + citation_links_by_paragraph.get(chunk.id, []),
 					"statute_references": statutes_by_chunk.get(chunk.id, []),
 				}
 			)

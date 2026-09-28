@@ -186,7 +186,8 @@ A bounded read-only review sampled the 185 pending application-perfection cases
 and 220 pending hearing cases. No deterministic inference was promoted.
 Leave refusal is now a separate perfection N/A reason: without explicit
 perfection evidence, a refused-leave case is no longer pending perfection;
-explicit perfection evidence remains known. Pending perfection was concentrated
+the human-readable explanation is `Not applicable: leave refused.` Explicit
+perfection evidence remains known. Pending perfection was concentrated
 in unresolved or unknown leave and leave-pending paths. Pending hearing was
 concentrated in unresolved or unknown leave (89), leave-pending (79), and
 corresponding perfected-application subsets (28 and 24). These are evidence

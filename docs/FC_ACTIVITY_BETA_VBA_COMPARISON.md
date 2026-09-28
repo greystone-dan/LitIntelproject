@@ -277,8 +277,9 @@ would conflate missing docket evidence with a procedural fact.
 
 Leave refusal is now handled separately: when no explicit perfection evidence
 exists, perfection is `not_applicable` with reason `leave_refused`, because the
-case can no longer be pending perfection. Explicit perfection evidence remains
-`known` even when leave was refused.
+case can no longer be pending perfection. Its human-readable explanation is
+`Not applicable: leave refused.` Explicit perfection evidence remains `known`
+even when leave was refused.
 
 Pending hearing cases were concentrated in unresolved or unknown leave paths:
 89 had no resolved leave status, 79 remained leave-pending, 28 had no leave

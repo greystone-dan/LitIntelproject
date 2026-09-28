@@ -982,7 +982,11 @@ def _field_applicability(
     elif leave_context.get("status") == "not_applicable_direct_judicial_review":
         application_perfected_status = {"status": "not_applicable", "reason": "direct_judicial_review"}
     elif effective_leave_result == "refused":
-        application_perfected_status = {"status": "not_applicable", "reason": "leave_refused"}
+        application_perfected_status = {
+            "status": "not_applicable",
+            "reason": "leave_refused",
+            "explanation": "Not applicable: leave refused.",
+        }
     elif application_filed.status != "yes":
         application_perfected_status = {"status": "not_applicable", "reason": "no_originating_application"}
     elif terminal_kind and not perfection_status.get("date"):

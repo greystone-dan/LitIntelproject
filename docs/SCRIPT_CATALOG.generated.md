@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 132
+Active scripts documented: 133
 
 ## Catalog
 
@@ -15,6 +15,7 @@ Active scripts documented: 132
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
+| `aggregate_recorded_costs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --help` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -211,6 +212,20 @@ Active scripts documented: 132
 
 ```powershell
 .\venv\Scripts\python.exe scripts\agent_policy.py --help
+```
+
+## `scripts/aggregate_recorded_costs.py`
+
+**Purpose:** Aggregate report-level estimated costs from evaluation artifacts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --help
 ```
 
 ## `scripts/ai_triage_citation_candidate.py`

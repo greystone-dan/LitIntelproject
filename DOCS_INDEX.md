@@ -1,6 +1,6 @@
 # Documentation Index And Nighttime Patch Checklist
 
-Last updated: 2026-09-04
+Last updated: 2026-09-28
 
 ## Purpose
 
@@ -76,11 +76,17 @@ Current operational sources of truth:
 8. `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`
 - Read-only comparison of the current JRU Beta VBA extraction/validation logic with the active Python FC Activity pipeline.
 
-9. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+9. `WORK_HISTORY.md`
+- Generated time-spent ledger from the reviewable Chronicle session and day exports.
+
+10. `docs/EVALUATION_COSTS.md`
+- Generated report-level estimated-cost ledger for persisted evaluation artifacts; it is not provider billing.
+
+11. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
 - Swimm mapping plan and future manager-agent contract; it does not override
 	the canonical architecture or generated references.
 
-9. `side_projects/luck_of_the_draw_iii/README.md`
+12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
 Historical context (read with caution):

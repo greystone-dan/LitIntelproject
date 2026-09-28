@@ -1,6 +1,6 @@
 # AI CaseLibrary Work History
 
-Last generated: 2026-09-01T14:30:33.997660+00:00
+Last generated: 2026-09-28T16:25:12.952941+00:00
 
 This is the project work ledger derived from retained local VS Code session history. It complements `CHANGELOG.md`: the changelog records repository changes, while this document records the larger work narrative and an estimated Copilot-assisted effort timeline.
 
@@ -14,26 +14,26 @@ This is the project work ledger derived from retained local VS Code session hist
 
 ## Coverage
 
-- Retained period: 2026-07-31 through 2026-09-01
-- Retained sessions: 22
-- Retained active dates: 18
-- Recorded turns: 1528
-- Five-minute-capped active time: 57.7 h (3463.7 minutes)
-- Session-level cross-check: 57.7 h (3460.8 minutes across 1527 turns)
+- Retained period: 2026-07-31 through 2026-09-28
+- Retained sessions: 34
+- Retained active dates: 36
+- Recorded turns: 2982
+- Five-minute-capped active time: 123.1 h (7387.9 minutes)
+- Session-level cross-check: 123.1 h (7388.0 minutes across 2982 turns)
 - The small difference between daily and session totals comes from sessions that crossed midnight; the daily total is the primary calendar-day estimate.
 
 ## Workstream Breakdown
 
 | Workstream | Sessions | Turns | Estimated active time |
 | --- | ---: | ---: | ---: |
-| Citation extraction and research intelligence | 3 | 489 | 19.9 h |
-| Federal Court activity intelligence | 4 | 486 | 16.8 h |
-| Documentation and architecture | 2 | 258 | 9.8 h |
-| Research UI and search | 2 | 72 | 3.2 h |
+| Citation extraction and research intelligence | 7 | 930 | 37.7 h |
+| Federal Court activity intelligence | 7 | 910 | 36.4 h |
+| Documentation and architecture | 3 | 465 | 18.9 h |
+| Research UI and search | 3 | 225 | 12.3 h |
+| Research UI and documentation | 1 | 295 | 12.2 h |
 | Foundation | 2 | 76 | 2.7 h |
-| Research UI and documentation | 1 | 73 | 2.5 h |
-| Reliability and deployment | 2 | 36 | 1.6 h |
-| Project operations | 5 | 35 | 1.2 h |
+| Reliability and deployment | 3 | 40 | 1.7 h |
+| Project operations | 7 | 39 | 1.2 h |
 | Citation intelligence | 1 | 2 | 0.0 h |
 
 ## Day-By-Day Delivery Ledger
@@ -401,19 +401,16 @@ This is the project work ledger derived from retained local VS Code session hist
 
 ### 2026-09-01
 
-- Recorded activity: 74 turns; estimated active time: 2.6 h
+- Recorded activity: 87 turns; estimated active time: 3.1 h
 - Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`
 
 **Major milestones**
 
-- Inline reader UX, code review, system documentation, and reproducible reference generation completed.
+- Inline reader UX, code review, system documentation, and reproducible reference generation continued.
 
 **Feature and system work**
 
-- Improved reader scrolling, idle scrollbar behavior, viewport-safe hover previews, source formatting, linked-case context, and live About data.
-- Ran a broad code review and repaired high-confidence court-filter, reader-metadata, and citation-rebuild defects.
-- Created the canonical `SYSTEM_REFERENCE.md`, generated API reference, generated schema/ERD reference, and this work-history ledger.
-- Captured the local repository checkpoint/LFS synchronization status and documented the pending remote transfer.
+- Continued reader, repository review, system-reference, and documentation work.
 
 **Verified deliverables and artifacts**
 
@@ -423,6 +420,240 @@ This is the project work ledger derived from retained local VS Code session hist
   Artifacts: `backend/routes.py`, `backend/citations.py`, `tests/test_api.py`, `tests/test_citations.py`.
 - **Documentation system**: Created the canonical system handbook, generated OpenAPI appendix, generated schema/ERD appendix, and this retained-session work ledger.
   Artifacts: `SYSTEM_REFERENCE.md`, `WORK_HISTORY.md`, `docs/API_REFERENCE.generated.md`, `docs/SCHEMA_REFERENCE.generated.md`.
+
+### 2026-09-02
+
+- Recorded activity: 93 turns; estimated active time: 4.4 h
+- Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`
+
+**Major milestones**
+
+- Repository documentation and implementation review continued.
+
+**Feature and system work**
+
+- Continued the September project checkpoint and related validation work.
+
+### 2026-09-03
+
+- Recorded activity: 165 turns; estimated active time: 6.0 h
+- Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`, `18494b2e-af5d-4ccd-9d0d-1be9042e6fca`
+
+**Major milestones**
+
+- Project-manager workflow and model/documentation direction were reviewed.
+
+**Feature and system work**
+
+- Completed the prior repository checkpoint and began the project-manager/model review.
+
+### 2026-09-04
+
+- Recorded activity: 205 turns; estimated active time: 9.4 h
+- Supporting sessions: `5e86480e-8358-4b5c-832b-bad9923e1403`, `18494b2e-af5d-4ccd-9d0d-1be9042e6fca`, `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Batch-output and local/AI-assisted citation workflow behavior were investigated.
+
+**Feature and system work**
+
+- Reviewed generated result availability and batch folder/output organization.
+
+### 2026-09-05
+
+- Recorded activity: 45 turns; estimated active time: 2.1 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Bounded citation processing investigation continued.
+
+**Feature and system work**
+
+- Reviewed batch processing behavior and output organization.
+
+### 2026-09-06
+
+- Recorded activity: 52 turns; estimated active time: 2.4 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Local processing workflow review continued.
+
+**Feature and system work**
+
+- Continued bounded investigation of citation extraction execution.
+
+### 2026-09-07
+
+- Recorded activity: 175 turns; estimated active time: 5.9 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`, `8c763647-06c3-4d6a-a5ec-1d8638503cf9`, `d0081c4e-0537-4eef-a21d-7aefc0578277`, `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`
+
+**Major milestones**
+
+- Citation-run recovery, resource investigation, and pinpoint resolution were addressed.
+
+**Feature and system work**
+
+- Reviewed safe restart paths, local processing load, and exact citation pinpoint behavior.
+
+### 2026-09-08
+
+- Recorded activity: 29 turns; estimated active time: 1.2 h
+- Supporting sessions: `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`
+
+**Major milestones**
+
+- Citation pinpoint resolution continued.
+
+**Feature and system work**
+
+- Continued deterministic citation and pinpoint QA.
+
+### 2026-09-14
+
+- Recorded activity: 75 turns; estimated active time: 3.2 h
+- Supporting sessions: `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`, `11a1adf3-fb58-4edf-b101-854935eebf95`
+
+**Major milestones**
+
+- Citation-intelligence source coverage expanded.
+
+**Feature and system work**
+
+- Added coverage for additional high-frequency sources.
+
+### 2026-09-15
+
+- Recorded activity: 24 turns; estimated active time: 1.5 h
+- Supporting sessions: `11a1adf3-fb58-4edf-b101-854935eebf95`
+
+**Major milestones**
+
+- Citation-intelligence source coverage work continued.
+
+**Feature and system work**
+
+- Continued source prioritization and citation coverage.
+
+### 2026-09-18
+
+- Recorded activity: 93 turns; estimated active time: 5.5 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI chunk presentation and statute-reference styling were refined.
+
+**Feature and system work**
+
+- Reduced chunk density and corrected statute-reference typography.
+
+### 2026-09-19
+
+- Recorded activity: 11 turns; estimated active time: 0.6 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI refinement continued.
+
+**Feature and system work**
+
+- Continued chunk and reference presentation work.
+
+### 2026-09-22
+
+- Recorded activity: 49 turns; estimated active time: 3.0 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI refinement checkpoint completed.
+
+**Feature and system work**
+
+- Completed the bounded chunk-view and statute-reference styling pass.
+
+### 2026-09-23
+
+- Recorded activity: 81 turns; estimated active time: 3.5 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `2699332c-60e1-41cb-b9d7-7d979a9f4d9f`
+
+**Major milestones**
+
+- Federal Court activity acquisition/evaluation work resumed and local LLM options were reviewed.
+
+**Feature and system work**
+
+- Reviewed current activity coverage and bounded local-model possibilities.
+
+### 2026-09-24
+
+- Recorded activity: 92 turns; estimated active time: 4.1 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity evaluation continued.
+
+**Feature and system work**
+
+- Continued deterministic activity analysis and acquisition planning.
+
+### 2026-09-25
+
+- Recorded activity: 129 turns; estimated active time: 5.0 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `61fe0538-b7ff-499e-8a20-fb30e6028384`
+
+**Major milestones**
+
+- Small-model output limits and case-processing behavior were reviewed.
+
+**Feature and system work**
+
+- Investigated case naming and paragraph/chunk limits.
+
+### 2026-09-26
+
+- Recorded activity: 21 turns; estimated active time: 1.2 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity work continued.
+
+**Feature and system work**
+
+- Continued bounded evaluation and pipeline review.
+
+### 2026-09-27
+
+- Recorded activity: 36 turns; estimated active time: 2.2 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity pipeline work continued.
+
+**Feature and system work**
+
+- Continued deterministic classifier and evaluation preparation.
+
+### 2026-09-28
+
+- Recorded activity: 66 turns; estimated active time: 3.7 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `1a71fa20-ca3b-49aa-a25c-7ace9d3e6ab7`
+
+**Major milestones**
+
+- FC Activity persistence verification was documented, committed, and pushed.
+
+**Feature and system work**
+
+- Completed the case-level write verification checkpoint and Git publication.
 
 ## Refresh Procedure
 

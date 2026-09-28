@@ -22,6 +22,7 @@ SUBTYPES = (
     "anonymity", "amendment_aljr", "extension_of_time", "consent_judgment",
     "confidentiality", "production", "intervention", "stay", "unknown",
 )
+USAGE_KEYS = ("prompt_tokens", "completion_tokens", "total_tokens")
 
 
 def extract_unknown_motions(report: dict[str, Any]) -> list[dict[str, Any]]:
@@ -54,6 +55,15 @@ def estimate_batch_cost(items: list[dict[str, Any]]) -> float:
     prompt_tokens = estimate_prompt_tokens(items)
     completion_tokens = max(200, len(items) * 120)
     return (prompt_tokens * INPUT_COST_PER_MILLION + completion_tokens * OUTPUT_COST_PER_MILLION) / 1_000_000
+
+
+def empty_usage() -> dict[str, int]:
+    return {key: 0 for key in USAGE_KEYS}
+
+
+def merge_usage(total: dict[str, int], increment: dict[str, int]) -> None:
+    for key in USAGE_KEYS:
+        total[key] = total.get(key, 0) + int(increment.get(key, 0) or 0)
 
 
 def build_messages(items: list[dict[str, Any]]) -> list[dict[str, str]]:
@@ -141,8 +151,20 @@ def main() -> int:
         os.environ.pop("OPENAI_PROJECT_ID", None)
         client = OpenAI(api_key=api_key, timeout=120.0, max_retries=0)
         spent = float(checkpoint.get("spent_usd", 0.0))
+        starting_spent = spent
         suggestions = list(checkpoint.get("suggestions", []))
-        usage_total = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        usage_total = {**empty_usage(), **checkpoint.get("usage_total", {})}
+        run_history = list(checkpoint.get("run_history", []))
+        pass_usage = empty_usage()
+        pass_record = {
+            "pass_index": len(run_history) + 1,
+            "pending_motion_count": len(pending),
+            "batch_count": len(batches),
+            "status": "running",
+            "spent_usd": 0.0,
+            "usage": pass_usage,
+        }
+        run_history.append(pass_record)
         for batch in batches:
             response = client.chat.completions.create(
                 model=MODEL, temperature=0, max_tokens=4000,
@@ -160,27 +182,52 @@ def main() -> int:
             suggestion_by_key.update({_key(item): item for item in batch_suggestions})
             suggestions = list(suggestion_by_key.values())
             spent += cost
-            usage_total["prompt_tokens"] += prompt_tokens
-            usage_total["completion_tokens"] += completion_tokens
-            usage_total["total_tokens"] += total_tokens
+            increment = {"prompt_tokens": prompt_tokens, "completion_tokens": completion_tokens, "total_tokens": total_tokens}
+            merge_usage(usage_total, increment)
+            merge_usage(pass_usage, increment)
             completed.update(_key(item) for item in batch_suggestions)
-            checkpoint = {"completed_keys": sorted(completed), "suggestions": suggestions, "spent_usd": spent}
+            unresolved_keys = sorted({_key(item) for item in motions} - completed)
+            pass_record.update({"spent_usd": spent - starting_spent, "usage": pass_usage, "completed_motion_count": len(completed), "unresolved_keys": unresolved_keys})
+            pass_record["completed_motion_count"] = len(completed)
+            checkpoint = {
+                "completed_keys": sorted(completed),
+                "unresolved_keys": unresolved_keys,
+                "suggestions": suggestions,
+                "spent_usd": spent,
+                "usage_total": usage_total,
+                "run_history": run_history,
+            }
             args.checkpoint.parent.mkdir(parents=True, exist_ok=True)
             args.checkpoint.write_text(json.dumps(checkpoint, indent=2) + "\n", encoding="utf-8")
+        pass_record["status"] = "complete"
+        checkpoint["run_history"] = run_history
+        args.checkpoint.write_text(json.dumps(checkpoint, indent=2) + "\n", encoding="utf-8")
         result.update({
             "status": "complete",
             "network_called": True,
             "completed_motion_count": len(completed),
             "unresolved_motion_count": len(motions) - len(completed),
+            "unresolved_keys": sorted({_key(item) for item in motions} - completed),
             "suggestion_count": len(suggestions),
             "pending_motion_count": len(motions) - len(completed),
             "spent_usd": spent,
             "usage": usage_total,
+            "run_history": run_history,
             "suggestions": suggestions,
             "created_at": datetime.now(timezone.utc).isoformat(),
         })
     elif args.send:
-        result.update({"status": "complete", "completed_motion_count": len(completed), "spent_usd": float(checkpoint.get("spent_usd", 0.0)), "suggestions": checkpoint.get("suggestions", [])})
+        result.update({
+            "status": "complete",
+            "completed_motion_count": len(completed),
+            "unresolved_motion_count": len(motions) - len(completed),
+            "unresolved_keys": sorted({_key(item) for item in motions} - completed),
+            "suggestion_count": len(checkpoint.get("suggestions", [])),
+            "spent_usd": float(checkpoint.get("spent_usd", 0.0)),
+            "usage": {**empty_usage(), **checkpoint.get("usage_total", {})},
+            "run_history": checkpoint.get("run_history", []),
+            "suggestions": checkpoint.get("suggestions", []),
+        })
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     print(json.dumps({key: result.get(key) for key in ("status", "source_motion_count", "pending_motion_count", "batch_count", "projected_cost_usd", "network_called", "database_written")}, sort_keys=True))

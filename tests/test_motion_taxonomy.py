@@ -8,8 +8,8 @@ from scripts.classify_fc_activity import (
 )
 
 
-def event(doc_id: int, text: str) -> ActivityEvent:
-    return ActivityEvent(1, "IMM-1-24", "Example v. Canada", doc_id, date(2024, 1, doc_id), text)
+def event(doc_id: int, text: str, re_no: str | None = None) -> ActivityEvent:
+    return ActivityEvent(1, "IMM-1-24", "Example v. Canada", doc_id, date(2024, 1, doc_id), text, re_no=re_no)
 
 
 def test_beta_motion_subtypes_and_results_preserve_source_evidence():
@@ -38,6 +38,43 @@ def test_motion_subtype_preserves_unknown_category():
 
     assert extracted[0]["subtype"] == "unknown"
     assert extracted[0]["outcome"] == "granted"
+
+
+def test_motion_subtype_covers_explicit_french_and_gerund_variants():
+    extracted = extract_procedural_events(
+        [
+            event(1, "Order staying their removal to Canada."),
+            event(2, "Ordonnance accordant la requête pour jugement par consentement."),
+            event(3, "Demande de sursis à l'exécution du renvoi."),
+        ]
+    )
+
+    motions = [item for item in extracted if item["event_type"].startswith("motion")]
+    assert [item["subtype"] for item in motions] == [
+        "stay_removal",
+        "consent_judgment",
+        "stay_removal",
+    ]
+
+
+def test_motion_context_propagates_only_one_specific_subtype_within_record():
+    extracted = extract_procedural_events(
+        [
+            event(1, "Notice of Motion to extend time to file the record.", re_no="R-1"),
+            event(2, "Motion Record filed on behalf of the applicant.", re_no="R-1"),
+            event(3, "Unrelated Motion Record filed.", re_no="R-2"),
+            event(4, "Notice of Motion for a stay.", re_no="R-3"),
+            event(5, "Another Motion Record filed.", re_no="R-3"),
+        ]
+    )
+
+    motions = [item for item in extracted if item["event_type"].startswith("motion")]
+    assert motions[0]["subtype"] == "extension_of_time"
+    assert motions[1]["subtype"] == "extension_of_time"
+    assert motions[1]["subtype_source_doc_id"] == 1
+    assert motions[2]["subtype"] == "unknown"
+    assert motions[3]["subtype"] == "stay"
+    assert motions[4]["subtype"] == "unknown"
 
 
 def test_validation_reports_beta_cross_field_contradictions_without_mutation():

@@ -2,6 +2,7 @@ from scripts.audit_fc_activity_motion_unknowns_openai import (
     build_messages,
     estimate_batch_cost,
     extract_unknown_motions,
+    merge_usage,
     parse_suggestions,
 )
 
@@ -24,3 +25,9 @@ def test_parse_suggestions_keeps_only_expected_allowed_review_values():
         expected,
     )
     assert parsed == [{"activity_case_id": 1, "doc_id": 2, "event_type": "motion_filed", "suggested_subtype": "stay_removal", "confidence": "high", "reasoning": "explicit removal"}]
+
+
+def test_merge_usage_accumulates_retry_totals():
+    totals = {"prompt_tokens": 10, "completion_tokens": 20, "total_tokens": 30}
+    merge_usage(totals, {"prompt_tokens": 3, "completion_tokens": 4, "total_tokens": 7})
+    assert totals == {"prompt_tokens": 13, "completion_tokens": 24, "total_tokens": 37}

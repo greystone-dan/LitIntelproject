@@ -21,7 +21,7 @@ from sqlalchemy import select
 
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal, init_db
 
-CLASSIFIER_VERSION = "fc_activity_v4"
+CLASSIFIER_VERSION = "fc_activity_v5"
 
 
 @dataclass(frozen=True)
@@ -282,8 +282,8 @@ def _removal_schedule(text: str) -> tuple[str | None, str | None]:
 def _normalize_motion_subtype(text: str) -> str:
     lowered = text.casefold()
     subtype_rules = (
-        ("stay_removal", (r"stay of execution of (?:the )?removal", r"stay(?: of| the execution of)? removal", r"removal order.*\bstay\b")),
-        ("stay_deportation", (r"stay of deportation",)),
+        ("stay_removal", (r"stay of execution of (?:the )?removal", r"stay(?: of| the execution of)? removal", r"(?:staying|stay(?:ing)?) (?:their|the|a) removal", r"removal order.*\bstay\b", r"sursis (?:à|a) l['’]exécution du renvoi", r"demande de sursis(?: au| du)? renvoi")),
+        ("stay_deportation", (r"stay of deportation", r"(?:staying|stay(?:ing)?) (?:their|the|a) deportation", r"sursis .*déportation", r"sursis .*deportation")),
         ("stay_release", (r"stay of release",)),
         ("stay_admissibility_hearing", (r"stay of admissibility hearing",)),
         ("stay_proceedings", (r"stay of proceedings",)),
@@ -293,8 +293,8 @@ def _normalize_motion_subtype(text: str) -> str:
         ("s_87_irpa", (r"s\.?\s*87\s+irpa",)),
         ("anonymity", (r"anonym",)),
         ("amendment_aljr", (r"amend",)),
-        ("extension_of_time", (r"extension of time", r"prorogation de délai", r"prorogation de delai")),
-        ("consent_judgment", (r"judgment on consent", r"request for judgment on consent", r"notice of settlement")),
+        ("extension_of_time", (r"extension of time", r"extend(?:ing)? time", r"prorogation de délai", r"prorogation de delai")),
+        ("consent_judgment", (r"judgment on consent", r"request for judgment on consent", r"notice of settlement", r"jugement .*par consentement", r"requête .*consentement", r"requete .*consentement", r"par consentement")),
         ("confidentiality", (r"confidential",)),
         ("production", (r"production",)),
         ("intervention", (r"intervene", r"intervention")),
@@ -304,6 +304,29 @@ def _normalize_motion_subtype(text: str) -> str:
         if any(re.search(pattern, lowered) for pattern in patterns):
             return subtype
     return "unknown"
+
+
+def _propagate_motion_subtypes(extracted: list[dict[str, Any]]) -> None:
+    """Propagate one explicit specific subtype within a shared motion record only."""
+    groups: dict[tuple[int, str], list[dict[str, Any]]] = {}
+    for item in extracted:
+        if not item["event_type"].startswith("motion") or not item.get("re_no"):
+            continue
+        groups.setdefault((item["activity_case_id"], str(item["re_no"])), []).append(item)
+
+    for items in groups.values():
+        explicit = [item for item in items if item.get("subtype") not in {None, "unknown", "stay"}]
+        subtypes = {item["subtype"] for item in explicit}
+        if len(subtypes) != 1:
+            continue
+        source = explicit[0]
+        for item in items:
+            if item.get("subtype") != "unknown":
+                continue
+            item["subtype"] = source["subtype"]
+            item["subtype_source_doc_id"] = source["doc_id"]
+            item["subtype_source_text"] = source["text"]
+            item["rule"] = f"motion_context:{source['doc_id']}"
 
 
 def _normalize_motion_result(text: str) -> str | None:
@@ -362,7 +385,7 @@ def extract_procedural_events(events: Iterable[ActivityEvent]) -> list[dict[str,
             elif re.search(r"dismissing|dismissed|rejetant|rejetée|rejetee", lowered, re.IGNORECASE):
                 add("leave_decision", outcome="refused", rule="leave_refused")
 
-        if re.search(r"\bmotion\b|\bnotice of motion\b|\brequête\b|\brequete\b", text, re.IGNORECASE):
+        if re.search(r"\bmotion\b|\bnotice of motion\b|\brequête\b|\brequete\b|demande de sursis|\bstaying\b", text, re.IGNORECASE):
             motion_outcome = _normalize_motion_result(text)
             event_type = "motion_decision" if motion_outcome else "motion_filed"
             add(
@@ -417,6 +440,7 @@ def extract_procedural_events(events: Iterable[ActivityEvent]) -> list[dict[str,
         if judge_name:
             add("judge_identified", subtype="presiding_or_assigned", rule=f"judge_name:{judge_name}")
 
+    _propagate_motion_subtypes(extracted)
     return extracted
 
 

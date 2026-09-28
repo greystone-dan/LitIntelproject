@@ -122,6 +122,23 @@ not classifier truth. A stale organization/project setting in `.env` caused the
 first authentication attempt to fail; the adapter now removes those optional
 variables before creating the client.
 
+## Advisory-Derived Classifier Improvements
+
+The 700-event advisory review produced a bounded deterministic improvement
+slice rather than automatic rule promotion. Classifier `fc_activity_v5` now
+covers explicit removal-stay gerunds, French sursis and consent-judgment
+phrases, and `extend time` wording. Related motion documents inherit a specific
+subtype only within the same case and `re_no`, with the anchor document and
+source text retained; generic `stay`, conflicting anchors, and unrelated
+documents remain conservative.
+
+The same seeded 1,000-case read-only evaluation moved subtype coverage from
+250/950 (26.32%) to 264/952 (27.73%), while all 952 motion events retained
+complete evidence. Result extraction remains separate at 13.45%. The rerun
+made no network call and no database write. The advisory adapter also now keeps
+cumulative retry/pass history, usage, spend, and unresolved event keys for
+reproducible review without another API call.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

@@ -201,3 +201,23 @@ not a gold set, classifier truth, or automatic rule input. The initial API
 failure was traced to stale organization/project environment variables loaded
 from `.env`; the adapter now removes those optional variables before client
 construction.
+
+## Advisory-Derived Deterministic Improvements
+
+The advisory output was used as a bounded rule-discovery signal, not as a gold
+set or automatic promotion source. The deterministic classifier now recognizes
+explicit removal-stay gerunds, French sursis and consent-judgment wording, and
+`extend time` variants. It also propagates one explicit specific subtype to
+related motion documents only when they share the same case and `re_no`; bare
+`stay` is excluded from propagation, conflicting subtype anchors remain
+unknown, and propagated events retain `subtype_source_doc_id` and source text.
+
+The classifier version is now `fc_activity_v5`. On the same seeded 1,000-case
+read-only evaluation, subtype coverage increased from 250/950 (26.32%) to
+264/952 (27.73%), with evidence complete on all 952 motion events. Result
+coverage remains a separate metric at 13.45%; the rerun recorded
+`network_called=false` and `database_written=false`.
+
+The OpenAI adapter now preserves cumulative usage, spend, pass history, and
+explicit unresolved event keys across retries. No advisory suggestion was
+promoted automatically.

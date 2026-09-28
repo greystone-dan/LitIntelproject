@@ -21,6 +21,12 @@ counterpart exists. The result is a lower bound on estimated spend recorded by
 project scripts, not a provider invoice. Runtime embedding calls and overnight
 runs without cost artifacts remain unmeasured.
 
+The generated work-history report also includes a separate user-provided
+project-cost context. For the current two-month period it records $300 for
+Claude Code subscriptions, $50 overage, $25 OpenAI credit, and $12 hosting,
+for an estimated total of $387. This is a planning/accounting figure supplied
+by the user, not a provider-reconciled invoice.
+
 Run the cost refresh with:
 
 ```powershell

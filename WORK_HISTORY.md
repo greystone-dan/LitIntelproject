@@ -1,6 +1,6 @@
 # AI CaseLibrary Work History
 
-Last generated: 2026-09-28T16:25:12.952941+00:00
+Last generated: 2026-09-28T16:38:40.422022+00:00
 
 This is the project work ledger derived from retained local VS Code session history. It complements `CHANGELOG.md`: the changelog records repository changes, while this document records the larger work narrative and an estimated Copilot-assisted effort timeline.
 
@@ -21,6 +21,16 @@ This is the project work ledger derived from retained local VS Code session hist
 - Five-minute-capped active time: 123.1 h (7387.9 minutes)
 - Session-level cross-check: 123.1 h (7388.0 minutes across 2982 turns)
 - The small difference between daily and session totals comes from sessions that crossed midnight; the daily total is the primary calendar-day estimate.
+
+## Project Cost Context
+
+- Period represented: 2 months
+- Claude Code subscription: $300.00 (150.00/month)
+- Claude Code overage: $50.00
+- OpenAI credit: $25.00
+- Website hosting: $12.00
+- Estimated project cost for this period: $387.00
+- These user-provided figures are separate from the incomplete artifact-based API ledger in `docs/EVALUATION_COSTS.md`.
 
 ## Workstream Breakdown
 

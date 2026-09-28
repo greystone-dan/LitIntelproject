@@ -258,7 +258,8 @@ def test_leave_is_not_applicable_when_case_discontinued_before_perfection():
     assert result["application_perfected"]["status"] == "unknown"
     assert result["field_applicability"]["leave_decision"] == {
         "status": "not_applicable",
-        "reason": "discontinued_before_leave",
+        "reason": "not_perfected_before_discontinued",
+        "explanation": "The case reached discontinued before an applicant record was perfected, so leave could not proceed.",
         "evidence_status": "unknown",
     }
 
@@ -726,5 +727,6 @@ def test_direct_judicial_review_does_not_use_leave_stage():
     )
 
     assert result["challenged_decision"]["application_type"] == "direct_judicial_review"
-    assert result["leave_context"]["status"] == "not_relevant_discontinued"
+    assert result["leave_context"]["status"] == "not_applicable_direct_judicial_review"
+    assert result["field_applicability"]["leave_decision"]["explanation"] == "This application proceeded as direct judicial review and did not require leave."
     assert result["closing_status"]["status"] == "discontinued"

@@ -79,7 +79,7 @@ def test_applicability_coverage_separates_not_applicable_from_pending():
                 "final_decision": {"status": "known"},
             }},
             {"field_applicability": {
-                "leave_decision": {"status": "pending"},
+                "leave_decision": {"status": "pending", "reason": "leave_decision_not_observed"},
                 "judicial_review_result": {"status": "pending"},
                 "judicial_review_final_decision": {"status": "pending"},
                 "final_decision": {"status": "not_observed"},
@@ -89,6 +89,7 @@ def test_applicability_coverage_separates_not_applicable_from_pending():
 
     assert metrics["fields"]["judicial_review_result"]["counts"] == {"not_applicable": 1, "pending": 1}
     assert metrics["fields"]["leave_decision"]["rates"] == {"known": 0.5, "pending": 0.5}
+    assert metrics["fields"]["leave_decision"]["reason_counts"] == {"leave_decision_not_observed": 1, "unavailable": 1}
 
 
 def test_motion_coverage_reports_cases_subtypes_results_and_unknowns():

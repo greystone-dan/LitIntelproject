@@ -155,15 +155,21 @@ decision, and the generic final-decision marker. Each status is `known`,
 The state rules treat discontinuance or withdrawal before leave as no applicable
 leave decision; leave refusal as making substantive judicial-review fields not
 applicable; and withdrawal or discontinuance after leave grant as making the
-substantive final decision not applicable. A generic final-decision marker is
-kept separate because it may be the leave dismissal. A substantive judicial
-review result supports inferred leave grant, and a granted production order is
-retained as a lower-confidence supporting signal.
+substantive final decision not applicable. Leave N/A records include a reason
+and explanation: direct judicial review does not require leave, an unperfected
+application cannot reach leave, and terminal closure after perfection but
+before a leave decision is recorded is reported separately. A generic
+final-decision marker is kept separate because it may be the leave dismissal.
+A substantive judicial review result supports inferred leave grant, and a
+granted production order is retained as a lower-confidence supporting signal.
 
-The bounded 1,000-case report counted 278 cases with leave not applicable and
-673 with judicial-review result and final decision not applicable. It counted
-19 pending judicial-review results and 21 pending judicial-review final
-decisions. These are applicability-aware denominators, not accuracy estimates.
+The bounded 1,000-case report counted 278 cases with leave not applicable:
+152 were not perfected before discontinuance, 121 were discontinued after
+perfection but before leave, 4 were administratively terminated before
+perfection, and 1 was direct judicial review. It counted 672 cases with
+judicial-review result and final decision not applicable, 20 pending
+judicial-review results, and 22 pending judicial-review final decisions.
+These are applicability-aware denominators, not accuracy estimates.
 
 ## Motion Coverage Denominators
 

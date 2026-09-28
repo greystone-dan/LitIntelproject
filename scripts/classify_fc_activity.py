@@ -972,11 +972,25 @@ def _field_applicability(
     terminated_after_leave = bool(terminal_kind and effective_leave_result == "granted" and leave_date and terminal_date and terminal_date > leave_date)
 
     if leave_context.get("status") == "not_applicable_direct_judicial_review":
-        leave_status = {"status": "not_applicable", "reason": "direct_judicial_review"}
+        leave_status = {
+            "status": "not_applicable",
+            "reason": "direct_judicial_review",
+            "explanation": "This application proceeded as direct judicial review and did not require leave.",
+        }
     elif effective_leave_result in {"granted", "refused"}:
         leave_status = {"status": "known", "reason": leave_context.get("status") if leave_context.get("status", "").startswith("inferred_") else effective_leave_result}
-    elif terminated_before_leave and (application_perfected.status != "yes" or terminal_kind):
-        leave_status = {"status": "not_applicable", "reason": f"{terminal_kind}_before_leave"}
+    elif terminated_before_leave and application_perfected.status != "yes":
+        leave_status = {
+            "status": "not_applicable",
+            "reason": f"not_perfected_before_{terminal_kind}",
+            "explanation": f"The case reached {terminal_kind} before an applicant record was perfected, so leave could not proceed.",
+        }
+    elif terminated_before_leave:
+        leave_status = {
+            "status": "not_applicable",
+            "reason": f"{terminal_kind}_before_leave",
+            "explanation": f"The case reached {terminal_kind} before a leave decision was recorded.",
+        }
     elif application_filed.status == "yes":
         leave_status = {"status": "pending", "reason": "leave_decision_not_observed"}
     else:
@@ -1036,6 +1050,9 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         production_event = next(event for event in procedural_events if event.get("subtype") == "production")
         leave_context = {"status": "inferred_granted_production_order", "evidence": production_event, "rule": "production_order_supports_leave_grant"}
         effective_leave_result = "granted"
+    elif leave_result == "unknown" and challenged_decision.get("application_type") == "direct_judicial_review":
+        leave_context = {"status": "not_applicable_direct_judicial_review", "evidence": challenged_decision, "rule": "direct_judicial_review_does_not_require_leave"}
+        effective_leave_result = "unknown"
     elif leave_result == "unknown" and preliminary_resolution["status"] == "discontinued":
         leave_context = {"status": "not_relevant_discontinued", "evidence": preliminary_resolution, "rule": "discontinuance_before_confirmed_leave"}
         effective_leave_result = "unknown"
@@ -1044,9 +1061,6 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         effective_leave_result = "unknown"
     elif leave_result == "unknown" and preliminary_resolution["status"] == "administratively_terminated":
         leave_context = {"status": "not_relevant_terminated", "evidence": preliminary_resolution, "rule": "administrative_termination_before_confirmed_leave"}
-        effective_leave_result = "unknown"
-    elif leave_result == "unknown" and challenged_decision.get("application_type") == "direct_judicial_review":
-        leave_context = {"status": "not_applicable_direct_judicial_review", "evidence": challenged_decision, "rule": "direct_judicial_review_does_not_require_leave"}
         effective_leave_result = "unknown"
     elif leave_result == "unknown" and challenged_decision.get("status") == "yes" and application_filed.status == "yes":
         leave_context = {"status": "pending", "evidence": asdict(application_filed), "rule": "leave_decision_not_yet_observed"}

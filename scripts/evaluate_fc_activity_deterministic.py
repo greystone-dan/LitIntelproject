@@ -239,10 +239,14 @@ def _intelligence_coverage(classifications: list[dict[str, Any]]) -> dict[str, A
 def _applicability_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
     fields = ("leave_decision", "judicial_review_result", "judicial_review_final_decision", "final_decision")
     counts: dict[str, Counter[str]] = {field: Counter() for field in fields}
+    reasons: dict[str, Counter[str]] = {field: Counter() for field in fields}
     for classification in classifications:
         for field in fields:
-            status = (classification.get("field_applicability") or {}).get(field, {}).get("status") or "unavailable"
+            applicability = (classification.get("field_applicability") or {}).get(field, {})
+            status = applicability.get("status") or "unavailable"
+            reason = applicability.get("reason") or "unavailable"
             counts[field][status] += 1
+            reasons[field][reason] += 1
     total = len(classifications)
     return {
         "case_count": total,
@@ -250,6 +254,7 @@ def _applicability_coverage(classifications: list[dict[str, Any]]) -> dict[str, 
             field: {
                 "counts": dict(sorted(field_counts.items())),
                 "rates": {status: round(count / total, 4) if total else 0.0 for status, count in sorted(field_counts.items())},
+                "reason_counts": dict(sorted(reasons[field].items())),
             }
             for field, field_counts in counts.items()
         },

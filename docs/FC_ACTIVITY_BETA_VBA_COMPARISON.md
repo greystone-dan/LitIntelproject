@@ -237,17 +237,24 @@ The progression rules are directional: a case discontinued or withdrawn before
 leave has no applicable leave decision; leave refusal makes the substantive
 judicial-review result and final decision not applicable; and withdrawal or
 discontinuance after leave grant makes the substantive final decision not
-applicable. A generic final-decision marker may still be the leave dismissal
-and is kept separate from `judicial_review_final_decision`. Substantive
-judicial-review results infer that leave was granted. A granted production
-order is retained as a lower-confidence supporting signal for inferred leave
-grant, with its source event preserved.
+applicable. Leave non-applicability now includes an explicit reason and
+explanation: direct judicial review does not require leave, an application
+that was never perfected cannot reach leave, and terminal closure after
+perfection but before a leave decision is recorded is reported separately.
+A generic final-decision marker may still be the leave dismissal and is kept
+separate from `judicial_review_final_decision`. Substantive judicial-review
+results infer that leave was granted. A granted production order is retained
+as a lower-confidence supporting signal for inferred leave grant, with its
+source event preserved.
 
 In the bounded 1,000-case evaluation, leave was known in 466 cases, pending in
-252, and not applicable in 278. Judicial-review result was known in 52 cases,
-pending in 19, and not applicable in 673; judicial-review final decision was
-known in 50, pending in 21, and not applicable in 673. These denominators are
-more meaningful than treating all 1,000 cases as eligible for every field.
+252, and not applicable in 278. The leave N/A reasons were 152 cases not
+perfected before discontinuance, 121 discontinued after perfection but before
+leave, 4 administratively terminated before perfection, and 1 direct judicial
+review. Judicial-review result was known in 52 cases, pending in 20, and not
+applicable in 672; judicial-review final decision was known in 50, pending in
+22, and not applicable in 672. These denominators are more meaningful than
+treating all 1,000 cases as eligible for every field.
 
 ## Document Versus Unique-Motion Coverage
 

@@ -306,13 +306,48 @@ def _normalize_motion_subtype(text: str) -> str:
     return "unknown"
 
 
+def _motion_document_reference(text: str) -> str | None:
+    patterns = (
+        r"(?:motion\s+)?doc(?:ument)?\.?\s*(?:n[°oº]?|no\.?)?\s*#?\s*(\d+)",
+        r"(?:motion|requ[eê]te)\s*(?:n[°oº]?|no\.?)\s*#?\s*(\d+)",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text or "", re.IGNORECASE)
+        if match:
+            return match.group(1)
+    return None
+
+
+def _motion_docno_reference(docno: str | None) -> str | None:
+    match = re.fullmatch(r"\s*(\d+)(?:\.0+)?\s*", str(docno or ""))
+    return match.group(1) if match else None
+
+
+def _motion_reference(text: str, docno: str | None) -> tuple[str | None, str | None]:
+    text_reference = _motion_document_reference(text)
+    if text_reference:
+        return text_reference, "text"
+    if re.search(r"\bnotice of motion\b", text, re.IGNORECASE):
+        docno_reference = _motion_docno_reference(docno)
+        if docno_reference:
+            return docno_reference, "docno"
+    return None, None
+
+
 def _propagate_motion_subtypes(extracted: list[dict[str, Any]]) -> None:
-    """Propagate one explicit specific subtype within a shared motion record only."""
-    groups: dict[tuple[int, str], list[dict[str, Any]]] = {}
+    """Propagate subtype from a filing to entries for the same motion reference."""
+    groups: dict[tuple[int, str, str], list[dict[str, Any]]] = {}
     for item in extracted:
-        if not item["event_type"].startswith("motion") or not item.get("re_no"):
+        if not item["event_type"].startswith("motion"):
             continue
-        groups.setdefault((item["activity_case_id"], str(item["re_no"])), []).append(item)
+        reference = item.get("motion_reference")
+        if reference:
+            key = (item["activity_case_id"], "motion_reference", str(reference))
+        elif item.get("re_no"):
+            key = (item["activity_case_id"], "re_no", str(item["re_no"]))
+        else:
+            continue
+        groups.setdefault(key, []).append(item)
 
     for items in groups.values():
         explicit = [item for item in items if item.get("subtype") not in {None, "unknown", "stay"}]
@@ -366,6 +401,9 @@ def extract_procedural_events(events: Iterable[ActivityEvent]) -> list[dict[str,
             "text": text,
             "confidence": "exact",
         }
+        motion_reference, motion_reference_source = _motion_reference(text, event.docno)
+        base["motion_reference"] = motion_reference
+        base["motion_reference_source"] = motion_reference_source
 
         def add(event_type: str, *, subtype: str | None = None, outcome: str | None = None, rule: str) -> None:
             event_date, date_kind = _semantic_date(text, event_type)

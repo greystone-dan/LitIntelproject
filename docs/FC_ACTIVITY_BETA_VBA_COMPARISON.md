@@ -207,8 +207,11 @@ construction.
 The advisory output was used as a bounded rule-discovery signal, not as a gold
 set or automatic promotion source. The deterministic classifier now recognizes
 explicit removal-stay gerunds, French sursis and consent-judgment wording, and
-`extend time` variants. It also propagates one explicit specific subtype to
-related motion documents only when they share the same case and `re_no`; bare
+`extend time` variants. It also links a motion filing description to later
+entries through explicit `Doc. N`, `Motion Doc. N`, or `Requête Doc. N` text
+references. A primary `Notice of Motion` may use its source `docno` as the
+filing reference when the text has no reference; `re_no` is only a fallback.
+The activity row/document identity is not treated as a logical motion. Bare
 `stay` is excluded from propagation, conflicting subtype anchors remain
 unknown, and propagated events retain `subtype_source_doc_id` and source text.
 
@@ -226,14 +229,17 @@ promoted automatically.
 
 The evaluation now reports two denominators. Document-level metrics retain one
 row per extracted motion event for regression continuity. A separate grouped
-metric connects documents using an explicit `Motion Doc`/`Requête Doc` number
-within a case, then falls back to case-scoped `re_no` and finally a singleton
-document when no stable link exists. Conflicting subtype or outcome evidence is
-reported as `conflict`, not resolved by majority vote.
+metric connects activity entries using the motion-document number in filing,
+support, opposition, hearing, or decision text. It uses the primary filing's
+`docno` only when that entry is a `Notice of Motion`, then falls back to
+case-scoped `re_no` and finally a singleton document when no stable link exists.
+The FC Activity row/document identity is only an entry identifier, not a
+logical motion identity. Conflicting subtype or outcome evidence is reported as
+`conflict`, not resolved by majority vote.
 
-On the seeded 1,000-case evaluation, 952 document events produced 917 grouped
-motion candidates. 44 groups used explicit motion-document references and 873
-used the conservative `re_no` fallback. Grouped subtype coverage was 264/917
-(28.68%), versus 264/952 (27.73%) at document level. Grouped outcome coverage
-was 127/917 (13.85%). These are coverage-of-extracted-signals measures, not
-accuracy estimates; unresolved groups remain visible.
+On the seeded 1,000-case evaluation, 952 document events produced 568 grouped
+motion candidates. 202 groups used explicit motion-document references and 366
+used the conservative `re_no` fallback. Filing-context propagation raised event
+subtype coverage to 521/952 (54.83%). Grouped subtype coverage was 218/568
+(38.38%), with 10 subtype conflicts. These are coverage-of-extracted-signals
+measures, not accuracy estimates; unresolved groups remain visible.

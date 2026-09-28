@@ -150,8 +150,8 @@ def _motion_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
 
 def _motion_document_reference(text: str) -> str | None:
     patterns = (
-        r"(?:motion|requ[eê]te)\s*(?:doc(?:ument)?\.?|n[°oº]?|no\.?)\s*#?\s*(\d+)",
-        r"(?:doc(?:ument)?\.?|n[°oº]?|no\.?)\s*#?\s*(\d+)\s*(?:motion|requ[eê]te)",
+        r"(?:motion\s+)?doc(?:ument)?\.?\s*(?:n[°oº]?|no\.?)?\s*#?\s*(\d+)",
+        r"(?:motion|requ[eê]te)\s*(?:n[°oº]?|no\.?)\s*#?\s*(\d+)",
     )
     for pattern in patterns:
         match = re.search(pattern, text or "", re.IGNORECASE)
@@ -166,7 +166,7 @@ def _grouped_motion_coverage(motion_events: list[dict[str, Any]]) -> dict[str, A
     fallback_count = 0
     for index, event in enumerate(motion_events):
         case_id = event.get("activity_case_id")
-        motion_reference = _motion_document_reference(str(event.get("text") or ""))
+        motion_reference = event.get("motion_reference") or _motion_document_reference(str(event.get("text") or ""))
         re_no = event.get("re_no")
         if motion_reference:
             key = (case_id, "motion_doc_reference", motion_reference)

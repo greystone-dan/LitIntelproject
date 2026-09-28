@@ -127,15 +127,20 @@ variables before creating the client.
 The 700-event advisory review produced a bounded deterministic improvement
 slice rather than automatic rule promotion. Classifier `fc_activity_v5` now
 covers explicit removal-stay gerunds, French sursis and consent-judgment
-phrases, and `extend time` wording. Related motion documents inherit a specific
-subtype only within the same case and `re_no`, with the anchor document and
-source text retained; generic `stay`, conflicting anchors, and unrelated
-documents remain conservative.
+phrases, and `extend time` wording. A motion filing description now links to
+later entries through explicit `Doc. N`, `Motion Doc. N`, or `Requête Doc. N`
+references. A primary `Notice of Motion` may use its source `docno` as the
+filing reference; `re_no` is only a fallback. The FC Activity row/document
+identity remains an entry identifier, not a logical motion. The anchor entry
+and source text are retained; generic `stay`, conflicting anchors, and
+unrelated documents remain conservative.
 
-The same seeded 1,000-case read-only evaluation moved subtype coverage from
-250/950 (26.32%) to 264/952 (27.73%), while all 952 motion events retained
-complete evidence. Result extraction remains separate at 13.45%. The rerun
-made no network call and no database write. The advisory adapter also now keeps
+The same seeded 1,000-case read-only evaluation now links filing context across
+the 952 motion events, raising event subtype coverage to 521/952 (54.83%). The
+grouped report contains 568 candidates: 202 explicit motion-document groups
+and 366 `re_no` fallbacks, with 218/568 (38.38%) grouped subtype coverage and
+10 conflicts. The rerun made no network call and no database write. The
+advisory adapter also now keeps
 cumulative retry/pass history, usage, spend, and unresolved event keys for
 reproducible review without another API call.
 
@@ -147,12 +152,13 @@ now also reports grouped motion candidates. Grouping first uses explicit
 to case-scoped `re_no`; records without a usable link remain singleton groups.
 Subtype and outcome conflicts are exposed rather than silently merged.
 
-The seeded 1,000-case run contained 952 document events and 917 grouped motion
-candidates. 44 groups used explicit motion-document references and 873 used
-`re_no`. Grouped subtype coverage was 28.68% (264/917), compared with 27.73%
-(264/952) document-level coverage. Grouped outcome coverage was 13.85%
-(127/917). The grouped number is more useful for motion-level review, but it
-still excludes relationships that are not explicit in the source text or
+The seeded 1,000-case run contains 952 document events and 568 grouped motion
+candidates. The explicit groups come from motion-document references in the
+entry text, with the primary filing `docno` used only for a `Notice of Motion`;
+the remaining groups use `re_no`. Grouped subtype coverage is 38.38%
+(218/568), compared with 54.83% (521/952) document-level coverage after filing
+context is propagated. The grouped number is useful for motion-level review,
+but it still excludes relationships that are not explicit in source text or
 identifiers.
 
 ## Independent Activity Worker

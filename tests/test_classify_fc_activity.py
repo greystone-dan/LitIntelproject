@@ -3,8 +3,8 @@ from datetime import date
 from scripts.classify_fc_activity import ActivityEvent, classify_events, extract_procedural_events
 
 
-def event(doc_id, doc_date, text):
-    return ActivityEvent(1, "IMM-1-24", "Example v. Canada", doc_id, date.fromisoformat(doc_date), text)
+def event(doc_id, doc_date, text, *, docno=None, re_no=None):
+    return ActivityEvent(1, "IMM-1-24", "Example v. Canada", doc_id, date.fromisoformat(doc_date), text, re_no=re_no, docno=docno)
 
 
 def test_extracts_repeatable_procedural_events_with_source_evidence():
@@ -27,6 +27,28 @@ def test_extracts_repeatable_procedural_events_with_source_evidence():
     assert judge["rule"] == "judge_name:Marie Tremblay"
     assert judge["judge_name"] == "Marie Tremblay"
     assert next(item for item in events if item["event_type"] == "application_filed")["date_kind"] == "filing_date"
+
+
+def test_links_motion_filing_description_to_referenced_decision():
+    events = extract_procedural_events(
+        [
+            event(1, "2024-02-01", "Notice of Motion for an extension of time to perfect the application record filed.", docno="5.0"),
+            event(2, "2024-02-05", "Written representations contained within a Motion Record in support of Doc. 5 filed."),
+            event(3, "2024-02-10", "Motion Doc. No. 5 on behalf of Applicant Result of Hearing: Matter granted."),
+            event(4, "2024-02-11", "Motion Doc. No. 6 on behalf of Applicant Result of Hearing: Matter granted."),
+        ]
+    )
+
+    motions = [item for item in events if item["event_type"].startswith("motion")]
+    assert [(item["motion_reference"], item["subtype"]) for item in motions] == [
+        ("5", "extension_of_time"),
+        ("5", "extension_of_time"),
+        ("5", "extension_of_time"),
+        ("6", "unknown"),
+    ]
+    assert motions[1]["subtype_source_doc_id"] == 1
+    assert motions[0]["motion_reference_source"] == "docno"
+    assert motions[1]["motion_reference_source"] == "text"
 
 
 def test_extracts_served_notice_of_appearance_without_matching_personal_appearance():

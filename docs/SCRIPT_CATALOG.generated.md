@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 130
+Active scripts documented: 132
 
 ## Catalog
 
@@ -101,6 +101,7 @@ Active scripts documented: 130
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
@@ -123,6 +124,7 @@ Active scripts documented: 130
 | `run_case_intelligence_request.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_case_intelligence_request.py --help` |
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
+| `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
@@ -1415,6 +1417,20 @@ Active scripts documented: 130
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
 ```
 
+## `scripts/normalize_fc_activity_openai_outputs.py`
+
+**Purpose:** Normalize open-ended FC Activity model outputs for evaluation only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help
+```
+
 ## `scripts/package_discussion_units_llm.py`
 
 **Purpose:** Prepare and optionally run a bounded LLM Discussion Unit review.
@@ -1721,6 +1737,20 @@ Active scripts documented: 130
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help
+```
+
+## `scripts/run_fc_activity_openai_structured_pilot.py`
+
+**Purpose:** Run a bounded, review-only structured FC Activity extraction pilot.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help
 ```
 
 ## `scripts/run_local_paragraph_summary_baseline.py`

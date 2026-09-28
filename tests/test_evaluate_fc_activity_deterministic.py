@@ -2,6 +2,7 @@ from scripts.evaluate_fc_activity_deterministic import (
     _aggregate_delay_metrics,
     _applicability_coverage,
     _build_delay_metrics,
+    _challenged_decision_coverage,
     _intelligence_coverage,
     _motion_coverage,
     _queryable_analytics,
@@ -90,6 +91,21 @@ def test_applicability_coverage_separates_not_applicable_from_pending():
     assert metrics["fields"]["judicial_review_result"]["counts"] == {"not_applicable": 1, "pending": 1}
     assert metrics["fields"]["leave_decision"]["rates"] == {"known": 0.5, "pending": 0.5}
     assert metrics["fields"]["leave_decision"]["reason_counts"] == {"leave_decision_not_observed": 1, "unavailable": 1}
+
+
+def test_challenged_decision_coverage_counts_usable_originating_information():
+    metrics = _challenged_decision_coverage(
+        [
+            {"challenged_decision": {"status": "yes", "originating_decision_maker_type": "cbsa_enforcement", "decision_type": "unknown", "decision_date": None, "filing_date": "2015-01-01"}},
+            {"challenged_decision": {"status": "yes", "originating_decision_maker_type": "unknown", "decision_type": "temporary_residence", "decision_date": None, "filing_date": "2015-01-02"}},
+            {"challenged_decision": {"status": "yes", "originating_decision_maker_type": "unknown", "decision_type": "unknown", "decision_date": "2015-01-03", "filing_date": "2015-01-04"}},
+            {"challenged_decision": {"status": "unknown"}},
+        ]
+    )
+
+    assert metrics["originating_row_count"] == 3
+    assert metrics["decision_information_count"] == 3
+    assert metrics["decision_information_rate"] == 0.75
 
 
 def test_motion_coverage_reports_cases_subtypes_results_and_unknowns():

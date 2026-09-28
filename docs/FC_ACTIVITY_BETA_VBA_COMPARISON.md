@@ -319,10 +319,15 @@ The IMM-15 sample now anchors challenged-decision analysis to the first
 originating ALJR entry while retaining later-history enrichment in the existing
 fields. Of 1,000 cases, 999 had an originating ALJR row and 999 had a parsed
 filing date. The first-row originating decision-maker type was identified in
-901 cases (90.1%), and the first-row decision type was identified in 423 cases
-(42.3%). First-row decision dates were identified in 507 cases (50.7%),
-including abbreviated forms such as `Dec.17,2014`, `Jun 12/15`, and `made on
-26-Oct-2015`.
+937 cases (93.7%), and the first-row decision type was identified in 423 cases
+(42.3%). After adding explicit support for semicolon-separated tribunal dates,
+space-separated dates such as `17 Feb 2015`, and French `rendue le 11 mars
+2015` phrasing, first-row decision dates increased from 507 to 695 cases
+(69.5%). A conservative combined decision-information metric counts a case
+when the originating row has a maker type, explicit decision type, or decision
+date: 973/1,000 cases (97.3%). The date-only change left leave, hearing, and
+judicial-review applicability counts unchanged; the latest artifact is
+`data/eval/fc_activity_imm_suffix_15_after_date_patterns_20260928.json`.
 
 The new fields are `filing_date`, `originating_decision_maker_type`, and
 `decision_type`. Existing `decision_maker`, `decision_subject`, and their
@@ -332,7 +337,122 @@ cases and later-history subject analysis found 580 explicit subjects. Anchor
 and enrichment values remain separate so later mentions cannot silently rewrite
 what the originating ALJR challenged.
 
+### Simple Motion and Party Signals
+
+The classifier now emits a binary `motion_presence` signal based only on
+evidence-linked `motion_filed` or `motion_decision` events. In the fixed
+1,000-case IMM-15 evaluation, motions were present in 267 cases and every
+positive signal retained motion event IDs and the source rule. This is
+intentionally a motion inventory signal, not a subtype or outcome claim.
+
+It also emits conservative party fields from the case name: `aljr_filer_type`
+(`individual`, `government`, `organization`, or `unknown`) and
+`respondent_minister` (`MCI/IRCC`, `MPSEP/CBSA`, or `unknown`). The evaluation
+classified 969 filers as individual, 1 as government, 18 as organizations, and
+12 as unknown; respondent ministry was MCI/IRCC in 867 cases, MPSEP/CBSA in 74,
+and unknown in 59. These fields are separate from underlying tribunal
+decision-maker fields and retain the original case name as evidence. The
+artifact is `data/eval/fc_activity_imm_suffix_15_party_motion_20260928.json`.
+
+### Pre-Scale Readiness Review
+
+Before widening the sample, the evaluator was tightened in three places. The
+database candidate query now orders by case ID before seeded sampling, making
+the same seed reproducible across runs. The evaluator now runs the existing
+cross-field validator and records `validation_coverage` in each report. The
+classifier also recognizes unparenthesized French `Décision finale` markers
+and prevents a rejected underlying tribunal decision in an originating ALJR
+description from being misclassified as a Federal Court judicial-review
+result.
+
+The fixed 1,000-case rerun selected the same case IDs on a repeat run,
+validated 1,000/1,000 classifications, and recorded
+`network_called=false` and `database_written=false`. The readiness artifact is
+`data/eval/fc_activity_imm_suffix_15_readiness_20260928.json`.
+
+### Wider Sample And Case-Level Write Verification
+
+The wider seeded evaluation used 5,000 cases with the same deterministic
+classifier and produced 5,000 valid classifications with zero validation
+issues. It made no network calls and did not write to the database. The output
+artifact is `data/eval/fc_activity_wider_5000_20260928.json`.
+
+The wider sample contained 1,335 cases with motion evidence and 12,645
+evidence-complete motion events. Motion subtype coverage was 53.16% and motion
+result coverage was 12.35%. Challenged-decision information was present for
+4,822/5,000 cases; the challenged decision date was present for 3,616/5,000.
+
+A separate bounded `--limit 5 --write` test wrote 5 case-level classification
+rows. Post-write verification found exactly one row for each source case,
+zero `imm_number` versus `FCActivityCase.citation` mismatches, and stored
+`motion_presence`, `aljr_filer_type`, and `respondent_minister` fields. The
+write path now fails loudly on duplicate report case IDs or missing source
+cases. Derived rows remain tied to `source_case_id`; source documents are not
+classification targets. No wider persistence write was performed.
+
 ## Document Versus Unique-Motion Coverage
+
+## OpenAI Structured Extraction Pilot
+
+A bounded review-only pilot sent one request per case for 100 cases selected
+from the fixed 1,000-case IMM-15 report. The initial compact format completed
+at `$0.0393408` but allowed structural omissions. A repaired strict
+`json_schema` rerun used the same `gpt-4.1-nano` model, read-only IMM lookup,
+and no database writes. It completed 100/100 cases after retrying one response
+truncated at the output ceiling, for `$0.0355742`; the artifact is
+`data/eval/fc_activity_openai_structured_pilot_100_schema_20260928.json`.
+
+The strict model output populated filing dates in 83 cases, decision types in
+85, decision dates in 86, judges in 76, and motion-bearing cases in 32. The
+deterministic results on the same sample were 100, 37, 46, 72, and 33. Every
+successful model record contained all required top-level objects and fields;
+the smoke response also had an empty missing-field list. This is now a
+format-controlled coverage comparison, not an accuracy benchmark: judge and
+motion values still require stratified evidence review, and the model emitted
+76 motion rows versus 332 deterministic motion events.
+
+### Permissive JSON Follow-up
+
+To test whether the strict required-property schema was constraining semantic
+discovery, the same 100 cases were rerun with `json_object` response mode. The
+prompt retained the requested field vocabulary and source text, but allowed
+the model to omit empty stages or choose a more informative nested structure.
+The run completed 100/100 cases after bounded truncation retries for
+`$0.0381952` in
+`data/eval/fc_activity_openai_loose_pilot_100_20260928.json`.
+
+The permissive run identified judges in 82 cases and motion-bearing cases in
+82, compared with 76 and 32 under the strict schema. It produced 118 motion
+rows versus 76 strict and 332 deterministic motion events. It did not improve
+deterministic fields: filing dates appeared in only 2 cases, decision types in
+38, and decision dates in 73. The result supports using the model as a
+semantic review/enrichment layer while retaining deterministic extraction for
+dates, identifiers, and exhaustive event capture.
+
+### Higher-Capability Model Follow-up
+
+The same permissive experiment was run with `gpt-4.1-mini` on the identical
+100 cases. It completed 100/100 after one malformed-JSON retry, with recorded
+spend of `$0.17365` in
+`data/eval/fc_activity_openai_mini_loose_pilot_100_20260928.json`.
+
+The current normalized comparator reported mini coverage of filing dates 3,
+decision types 2, decision dates 52, judges 73, and motion-bearing cases 47.
+Those counts are not a fair quality ranking: a representative mini response
+used alternate but information-rich structures such as `application.filed_date`,
+nested challenged-decision details, hearings, case-management events, five
+judges, and four motions. It did not consistently use the normalized field
+vocabulary expected by the comparator. The next step is normalization plus
+manual precision review, not selecting nano or mini based on these raw counts.
+
+An evaluation-only normalizer was then applied to both artifacts. It recovered
+alternate filing and judge structures and reported nano coverage of filing date
+95/100, decision date 100/100, decision type 38/100, judges 85/100, and 119
+motion rows across 82 cases. Mini coverage was filing date 100/100, decision
+date 98/100, decision type 3/100, judges 92/100, and 61 motion rows across 46
+cases. This makes the mini output's decision-type weakness more credible while
+showing that its raw filing-date count was only a field-name mismatch. The
+normalized artifact remains evaluation-only and does not promote model facts.
 
 The evaluation now reports two denominators. Document-level metrics retain one
 row per extracted motion event for regression continuity. A separate grouped
@@ -350,3 +470,39 @@ used the conservative `re_no` fallback. Filing-context propagation raised event
 subtype coverage to 521/952 (54.83%). Grouped subtype coverage was 218/568
 (38.38%), with 10 subtype conflicts. These are coverage-of-extracted-signals
 measures, not accuracy estimates; unresolved groups remain visible.
+
+## Deterministic Judge Recognition Update
+
+The deterministic judge-name extractor now recognizes `Chief Justice` and
+`Associate Justice` title forms in addition to the existing justice and
+prothonotary aliases. The focused classifier suite passed 63 tests. On the
+same seeded 1,000-case IMM-15 evaluation, any-judge coverage increased from
+751/1,000 (75.1%) to 811/1,000 (81.1%), a gain of 60 cases. The added matches
+are evidence-linked observations from source text such as `Order rendered by
+Chief Justice Crampton`; no model or canonical facts were promoted.
+
+### VBA High-Recall Pattern Port
+
+A read-only inspection of Beta's `ExtractJudge` confirmed its high recall came
+from searching for the first literal `Justice ` anywhere in the activity text.
+The Python classifier now safely ports the additional explicit forms that this
+revealed: French judge titles, `Acting Chief Justice`, `juge en chef`, names
+before `Prothonotary`/`Protonotaire`, and oral-directions records. The focused
+suite passed 64 tests. Coverage on the same 1,000-case sample is now 844/1,000
+(84.4%), up 93 cases from the original 751/1,000 (75.1%). Five residual cases
+contain only unnamed `presiding judge` language or a non-Federal-Court
+citizenship judge, so they remain unresolved rather than receiving guessed
+names.
+
+### Judge Coverage Denominator Audit
+
+The raw any-judge count is not a sufficient miss metric because many Activity
+cases have no named Federal Court judge to extract. In the post-fallback
+1,000-case sample, 844 cases have any judge observation. Restricting the
+denominator to cases with a decision, hearing, or motion stage yields 839/853
+(98.36%) coverage. Final-decision cases are 743/743 and hearing cases are
+207/207. The 156 cases without any observation include 92 cases with unknown
+perfection status, but the more important distinction is applicability: only
+five contain judge-related language, and those contain either unnamed
+`presiding judge` references or a citizenship judge outside the Federal Court
+target. These should not be counted as named-judge extraction misses.

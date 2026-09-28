@@ -1,10 +1,12 @@
 from datetime import date
 
+import pytest
+
 from scripts.classify_fc_activity import ActivityEvent, classify_events, extract_procedural_events
 
 
-def event(doc_id, doc_date, text, *, docno=None, re_no=None):
-    return ActivityEvent(1, "IMM-1-24", "Example v. Canada", doc_id, date.fromisoformat(doc_date), text, re_no=re_no, docno=docno)
+def event(doc_id, doc_date, text, *, docno=None, re_no=None, case_name="Example v. Canada"):
+    return ActivityEvent(1, "IMM-1-24", case_name, doc_id, date.fromisoformat(doc_date), text, re_no=re_no, docno=docno)
 
 
 def test_extracts_repeatable_procedural_events_with_source_evidence():
@@ -27,6 +29,49 @@ def test_extracts_repeatable_procedural_events_with_source_evidence():
     assert judge["rule"] == "judge_name:Marie Tremblay"
     assert judge["judge_name"] == "Marie Tremblay"
     assert next(item for item in events if item["event_type"] == "application_filed")["date_kind"] == "filing_date"
+
+
+def test_reports_binary_motion_presence_with_event_evidence():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Notice of Motion for an extension of time filed."),
+        ]
+    )
+
+    assert result["motion_presence"]["status"] == "yes"
+    assert result["motion_presence"]["event_count"] == 1
+    assert result["motion_presence"]["doc_ids"] == [2]
+
+
+def test_reports_no_motion_when_no_motion_event_is_detected():
+    result = classify_events([event(1, "2024-01-02", "Application for leave and judicial review filed.")])
+
+    assert result["motion_presence"] == {
+        "status": "no",
+        "event_count": 0,
+        "doc_ids": [],
+        "rule": "no_procedural_motion_event",
+    }
+
+
+def test_extracts_conservative_aljr_filer_and_respondent_minister_from_case_name():
+    individual = classify_events(
+        [event(1, "2024-01-02", "Application for leave and judicial review filed.", case_name="Maria Silva v. MCI")]
+    )
+    government = classify_events(
+        [event(1, "2024-01-02", "Application for leave and judicial review filed.", case_name="Minister of Public Safety v. MCI")]
+    )
+    organization = classify_events(
+        [event(1, "2024-01-02", "Application for leave and judicial review filed.", case_name="Example Union v. MPSEP")]
+    )
+
+    assert individual["aljr_filer_type"] == "individual"
+    assert individual["respondent_minister"] == "MCI/IRCC"
+    assert government["aljr_filer_type"] == "government"
+    assert government["respondent_minister"] == "MCI/IRCC"
+    assert organization["aljr_filer_type"] == "organization"
+    assert organization["respondent_minister"] == "MPSEP/CBSA"
 
 
 def test_links_motion_filing_description_to_referenced_decision():
@@ -91,6 +136,49 @@ def test_final_decision_judge_takes_precedence_over_leave_wording():
     assert "leave" not in result["judges"]["by_stage"]
 
 
+def test_recognizes_unparenthesized_french_final_decision_marker():
+    result = classify_events(
+        [
+            event(
+                1,
+                "2016-05-06",
+                "Jugement en date du 06-MAI-2016 rendu par Madame le juge St-Louis La décision de la Cour concerne le contrôle judiciaire Résultat : affaire accordée Décision finale",
+            )
+        ]
+    )
+
+    assert result["final_decision"]["status"] == "yes"
+    assert result["final_decision"]["date"] == "2016-05-06"
+
+
+def test_does_not_treat_rejected_underlying_decision_as_judicial_review_result():
+    result = classify_events(
+        [
+            event(
+                1,
+                "2015-04-10",
+                "Demande d'autorisation et de contrôle judiciaire contre la décision de CIC rejetant la demande de résidence permanente, rendue le 20-MAR-2015 dans le dossier 2178-6472 déposée le 10-AVR-2015.",
+            )
+        ]
+    )
+
+    assert result["judicial_review_result"]["result"] == "unknown"
+
+
+def test_does_not_treat_motion_order_language_as_judicial_review_result():
+    result = classify_events(
+        [
+            event(
+                1,
+                "2016-02-01",
+                "Order dated 01-FEB-2016 rendered by Justice Heneghan The Court's decision is with regard to Motion in writing. Result: granted the motion be granted and further that the applicant be removed as an Applicant in this application for leave and judicial review. Interlocutory Decision",
+            )
+        ]
+    )
+
+    assert result["judicial_review_result"]["result"] == "unknown"
+
+
 def test_extracts_rendered_decision_date_and_judge_name():
     events = extract_procedural_events(
         [event(1, "2025-01-23", "(Final decision) Order rendered by The Honourable Madam Justice Strickland at Ottawa on 23-JAN-2025 dismissing the application for leave.")]
@@ -100,6 +188,35 @@ def test_extracts_rendered_decision_date_and_judge_name():
     assert decision["event_date"] == "2025-01-23"
     assert decision["date_kind"] == "event_date"
     assert decision["judge_name"] == "Strickland"
+
+
+def test_extracts_chief_and_associate_justice_titles():
+    events = extract_procedural_events(
+        [
+            event(1, "2024-01-02", "Order rendered by Chief Justice Crampton at Ottawa on 01-FEB-2024."),
+            event(2, "2024-01-03", "Order rendered by Associate Justice Smith at Vancouver on 02-FEB-2024."),
+        ]
+    )
+
+    assert events[0]["judge_name"] == "Crampton"
+    assert events[1]["judge_name"] == "Smith"
+
+
+def test_extracts_vba_high_recall_judge_title_variants():
+    events = extract_procedural_events(
+        [
+            event(1, "2024-01-02", "Ordonnance rendue par Madame la juge Bédard à Ottawa le 21-AVR-2024."),
+            event(2, "2024-01-03", "Order rendered by Acting Chief Justice Noël at Ottawa on 29-JUN-2024."),
+            event(3, "2024-01-04", "Order rendered by Roger Lafrenière, Esq., Prothonotary at Vancouver on 03-JUN-2024."),
+            event(4, "2024-01-05", "Written directions received from The Honourable Madam Justice Gagné dated 05-OCT-2024."),
+            event(5, "2024-01-06", "Ordonnance rendu(e) par Richard Morneau, protonotaire à Montréal le 10-NOV-2024."),
+            event(6, "2024-01-07", "Oral directions of the Court: Kevin Aalto, Prothonotary dated 09-SEP-2024."),
+        ]
+    )
+
+    assert [item["judge_name"] for item in events] == [
+        "Bédard", "Noël", "Roger Lafrenière", "Gagné", "Richard Morneau", "Kevin Aalto"
+    ]
 
 
 def test_leave_decision_prefers_rendered_order_date_over_later_registry_filing_date():
@@ -481,6 +598,44 @@ def test_derives_challenged_decision_from_originating_application():
     assert challenged["decision_subject"] == "refugee_protection"
 
 
+def test_extracts_spaced_and_semicolon_challenged_decision_dates():
+    results = [
+        classify_events(
+            [
+                event(
+                    1,
+                    "2015-03-30",
+                    "Application for leave and judicial review against a decision Embassy of Canada, Bogota; dated 17 Feb 2015; File#V305316520 filed on 30-MAR-2015.",
+                )
+            ]
+        ),
+        classify_events(
+            [
+                event(
+                    1,
+                    "2015-03-30",
+                    "Application for leave and judicial review against a decision IRB-RPD TORONTO; 2-MAR-2015; TB1-12048 filed on 30-MAR-2015.",
+                )
+            ]
+        ),
+        classify_events(
+            [
+                event(
+                    1,
+                    "2015-09-17",
+                    "Demande d'autorisation et de contrôle judiciaire contre la décision de CIC, rendue le 11 mars 2015 dans le dossier no. 6579-1888; déposée le 17-SEP-2015.",
+                )
+            ]
+        ),
+    ]
+
+    assert [result["challenged_decision"]["decision_date"] for result in results] == [
+        "17 Feb 2015",
+        "2-MAR-2015",
+        "11 mars 2015",
+    ]
+
+
 def test_extracts_explicit_refugee_subject_and_decision_maker_variants():
     result = classify_events(
         [
@@ -604,6 +759,23 @@ def test_extracts_full_immigration_division_name_as_irb_decision_maker():
     )
 
     assert result["challenged_decision"]["decision_maker_type"] == "irb_refugee_or_appeal"
+
+
+@pytest.mark.parametrize(
+    ("text", "maker_type", "subject"),
+    [
+        ("Application for leave and judicial review against a decision PRRA Toronto dated 30-NOV-2009.", "irb_refugee_or_appeal", "refugee_protection"),
+        ("Application for leave and judicial review against a decision Enforcement Section dated 06-NOV-2015.", "cbsa_enforcement", "unknown"),
+        ("Application for leave and judicial review against a decision Service Canada dated 19-JAN-2015.", "cic_ircc_processing", "unknown"),
+        ("Application for leave and judicial review against a decision High Commission of Canada dated 19-JAN-2015.", "visa_office_or_consulate", "unknown"),
+    ],
+)
+def test_originating_maker_aliases_preserve_subject_uncertainty(text, maker_type, subject):
+    result = classify_events([event(1, "2015-02-09", text)])
+
+    challenged = result["challenged_decision"]
+    assert challenged["originating_decision_maker_type"] == maker_type
+    assert challenged["decision_subject"] == subject
 
 
 def test_subject_uses_explicit_later_history_evidence_when_originating_entry_is_generic():

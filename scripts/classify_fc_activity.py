@@ -110,6 +110,8 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
             r"\(decision finale\)",
             r"reasons for judgment and judgment",
             r"reasons for judgment .* judgment",
+            r"\bdécision finale\b",
+            r"\bdecision finale\b",
         ),
     ),
     "leave_final_decision": (
@@ -176,9 +178,11 @@ def _event_date(event: ActivityEvent) -> str | None:
 
 
 def _judge_name(text: str) -> str | None:
+    name = r"[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?){0,2}?"
     match = re.search(
         r"\b(?:before|coram|devant|\(?presiding\s+judge\)?|rendered\s+by|rendu(?:e|es)?\s+par|rendu\(e\)\s+par)[,:]?\s*"
-        r"(?:(?:the|la)\s+)?(?:honou?rable\s+)?(?:madam\s+justice\s+|mr\.\s+justice\s+|"
+        r"(?:(?:the|la)\s+)?(?:honou?rable\s+)?(?:acting\s+chief\s+justice\s+|chief\s+justice\s+|associate\s+justice\s+|"
+        r"madam\s+justice\s+|mr\.\s+justice\s+|"
         r"ms\.\s+justice\s+|(?:monsieur|madame)\s+le\s+juge\s+|justice\s+|j\.\s+|"
         r"juge\s+|prothonotary\s+|protonotaire\s+)([A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?"
         r"(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?){0,2}?)"
@@ -186,7 +190,20 @@ def _judge_name(text: str) -> str | None:
         text,
         re.IGNORECASE,
     )
-    return re.sub(r"\s+", " ", match.group(1)).strip(" .,;") if match else None
+    if match:
+        return re.sub(r"\s+", " ", match.group(1)).strip(" .,;")
+
+    fallback_patterns = (
+        rf"\b(?:the\s+)?honou?rable\s+(?:acting\s+)?(?:chief\s+justice|associate\s+justice|madam\s+justice|mr\.\s+justice|ms\.\s+justice)\s+({name})(?=\s+(?:at|on|dated|le|a|à|in)\b|[.,;]|$)",
+        rf"\b(?:monsieur|madame)\s+(?:le|la)\s+juge\s+({name})(?=\s+(?:à|a|le|en|dated|en date)\b|[.,;]|$)",
+        rf"\bjuge\s+en\s+chef\s+({name})(?=\s+(?:à|a|le|en|dated|en date)\b|[.,;]|$)",
+        rf"\b(?:rendered\s+by|rendu(?:e|es)?(?:\(e\))?\s+par|oral\s+directions\s+of\s+the\s+court:|directives\s+verbales\s+de\s+la\s+cour:)\s+({name}),\s*(?:esq\.,?\s*)?(?:prothonotary|protonotaire)\b",
+    )
+    for pattern in fallback_patterns:
+        fallback = re.search(pattern, text, re.IGNORECASE)
+        if fallback:
+            return re.sub(r"\s+", " ", fallback.group(1)).strip(" .,;")
+    return None
 
 
 _MONTHS = {
@@ -486,6 +503,30 @@ def _match_events(events: Iterable[ActivityEvent], rule_key: str) -> list[tuple[
     _, patterns = COMPILED_RULES[rule_key]
     matches: list[tuple[ActivityEvent, re.Match[str]]] = []
     for event in events:
+        if rule_key in {"judicial_review_granted", "judicial_review_dismissed"}:
+            is_originating_application = re.search(
+                r"(?:application for leave|demande d['’]autorisation).*?(?:judicial review|contrôle judiciaire)",
+                event.text,
+                re.IGNORECASE,
+            )
+            has_final_result_signal = re.search(
+                r"(?:final decision|décision finale|decision finale|reasons for judgment|judgment|jugement|result(?:\s*[:\-]|at)|résultat\s*[:\-])",
+                event.text,
+                re.IGNORECASE,
+            )
+            is_non_substantive_record = re.search(
+                r"(?:motion record|notice of motion|\bmotion\b|requête|interlocutory|interlocutoire|letter from|lettre de)",
+                event.text,
+                re.IGNORECASE,
+            )
+            if is_originating_application and not has_final_result_signal:
+                continue
+            if is_non_substantive_record and not re.search(
+                r"(?:final decision|décision finale|decision finale|reasons for judgment|judgment\s+(?:rendered|dated)|jugement\s+(?:en date|rendu|rendue))",
+                event.text,
+                re.IGNORECASE,
+            ):
+                continue
         if rule_key == "hearing_held" and re.search(r"without personal appearance|sans comparution en personne|no personal appearance", event.text, re.IGNORECASE):
             continue
         for pattern in patterns:
@@ -720,10 +761,10 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
     text = event.text
     lowered = text.casefold()
     category_rules = (
-        ("irb_refugee_or_appeal", r"\b(?:irb|rpd|rad|crdd|cisr|iad|id)\b|immigration and refugee board|immigration division|refugee division|refugee protection division|immigration appeal division|section de la protection des réfugiés|section d['’]appel(?: des réfugiés| d'immigration)"),
-        ("cbsa_enforcement", r"\b(?:cbsa|asfc)\b|canada border services|agence des services frontaliers|border services agency|services frontaliers"),
-        ("cic_ircc_processing", r"\b(?:cic|ircc)\b|citizenship and immigration|immigration,? refugees?,? and citizenship canada|immigration canada|case processing centre"),
-        ("visa_office_or_consulate", r"consulate|consulat|embassy|ambassade|high commission|visa office|agent(?:e)? de visa(?:s)?|bureau de visa"),
+        ("irb_refugee_or_appeal", r"\b(?:irb|rpd|rad|crdd|cisr|iad|id|spr|sar|prra)\b|immigration(?: and)? refugee board|immigration division|refugee division|refugee protection division|immigration appeal division|section de la protection des réfugiés|section d['’]appel(?: des réfugiés| d'immigration)"),
+        ("cbsa_enforcement", r"\b(?:cbsa|asfc)\b|canada bord(?:er|er) services|agence des services frontaliers|border services agency|services frontaliers|inland enforcement|enforcement section"),
+        ("cic_ircc_processing", r"\b(?:cic|ircc)\b|citizenship and immigration|immigration,? refugees?,? and citizenship canada|immigration canada|case processing centre|backlog reduction office|service canada|immigration officer|agent(?: principal)? d['’]immigration|immigration section|program support officer|temporary foreign worker rules"),
+        ("visa_office_or_consulate", r"consulate|consulat|embassy|embbassy|ambassade|high commission|visa office|agent(?:e)? de visa(?:s)?|bureau de visa"),
         ("minister_or_department", r"\b(?:mci|mpsep)\b|minister|ministre|department of citizenship"),
         ("mandamus", r"\bmandamus\b"),
         ("extension_of_time", r"extension of time|prorogation de délai"),
@@ -840,7 +881,17 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
     if decision_date_match is None:
         decision_date_match = re.search(r"against (?:a )?decision\s+[^,]+,\s*(\d{1,2}-[A-Za-z]{3,9}-\d{2,4})", text, re.IGNORECASE)
     if decision_date_match is None:
-        decision_date_match = re.search(r"\b(?:dated|made on|decision dated)\s+(\d{1,2}[-/]?[A-Za-z]{3,9}[-/]?\d{2,4}|[A-Za-z]{3,9}\.?\s*\d{1,2},?\s*\d{2,4}|[A-Za-z]{3,9}\.?\s*\d{1,2}/\d{2})", text, re.IGNORECASE)
+        decision_date_match = re.search(
+            r"(?:against\s+(?:a\s+)?decision|contre\s+la\s+d[ée]cision)\s+[^;]{1,250};\s*(\d{1,2}[-/][A-Za-z]{3,9}[-/]\d{2,4})",
+            text,
+            re.IGNORECASE,
+        )
+    if decision_date_match is None:
+        decision_date_match = re.search(
+            r"\b(?:dated|made on|decision dated|rendered on|rendue?\s+le)\s+((?:\d{1,2}[-/]?[A-Za-z]{3,9}[-/]?\d{2,4})|(?:\d{1,2}\s+[A-Za-z]{3,9}\.?\s+\d{2,4})|(?:[A-Za-z]{3,9}\.?\s*\d{1,2},?\s*\d{2,4})|(?:[A-Za-z]{3,9}\.?\s*\d{1,2}/\d{2}))",
+            text,
+            re.IGNORECASE,
+        )
     tribunal_file_numbers = sorted(set(re.findall(r"\b[A-Z]{1,4}\d[-A-Z0-9]{3,}\b", text, re.IGNORECASE)))
     decision_maker = None
     marker = re.search(r"against (?:a )?decision\s+(.+?)(?:,\s*(?:mandamus|dated|file|IRB|RPD|RAD)\b|\s+dated\b|\s+file\s+no\.?\b)", text, re.IGNORECASE)
@@ -891,6 +942,53 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
 
 def _clean_origin_value(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip(" ,;:.")).strip()
+
+
+def _originating_party_fields(events: list[ActivityEvent]) -> dict[str, Any]:
+    case_name = next((event.case_name for event in events if event.case_name), None)
+    if not case_name:
+        return {
+            "aljr_filer_type": "unknown",
+            "aljr_filer_name": None,
+            "respondent_minister": "unknown",
+            "party_source": None,
+            "party_rule": "case_name_not_available",
+        }
+
+    parties = re.split(r"\s+(?:v\.?|c\.?)\s+", case_name, maxsplit=1, flags=re.IGNORECASE)
+    if len(parties) != 2:
+        return {
+            "aljr_filer_type": "unknown",
+            "aljr_filer_name": None,
+            "respondent_minister": "unknown",
+            "party_source": case_name,
+            "party_rule": "case_name_party_separator_not_found",
+        }
+
+    filer_name, respondent_name = (part.strip(" ,") for part in parties)
+    if re.search(r"\b(?:minister|attorney general|government|crown)\b", filer_name, re.IGNORECASE):
+        filer_type = "government"
+    elif re.search(r"\b(?:union|corporation|corp\.?|inc\.?|ltd\.?|association|society|institute|company)\b", filer_name, re.IGNORECASE):
+        filer_type = "organization"
+    elif filer_name:
+        filer_type = "individual"
+    else:
+        filer_type = "unknown"
+
+    if re.search(r"\b(?:MCI|CIC|IRCC)\b", respondent_name, re.IGNORECASE):
+        respondent_minister = "MCI/IRCC"
+    elif re.search(r"\b(?:MPSEP|MSPPC|PSEP|CBSA)\b", respondent_name, re.IGNORECASE):
+        respondent_minister = "MPSEP/CBSA"
+    else:
+        respondent_minister = "unknown"
+
+    return {
+        "aljr_filer_type": filer_type,
+        "aljr_filer_name": filer_name,
+        "respondent_minister": respondent_minister,
+        "party_source": case_name,
+        "party_rule": "case_name_party_roles",
+    }
 
 
 def _judge_stage(event: dict[str, Any]) -> str:
@@ -1079,6 +1177,12 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
     ordered = list(events)
     procedural_events = extract_procedural_events(ordered)
     challenged_decision = _challenged_decision(ordered)
+    originating_party_fields = _originating_party_fields(ordered)
+    motion_events = [
+        event
+        for event in procedural_events
+        if event.get("event_type") in {"motion_filed", "motion_decision"}
+    ]
     application_filed = _evidence(ordered, "application_filed")
     application_perfected = _evidence(ordered, "application_perfected")
     leave_granted = _evidence(ordered, "leave_granted")
@@ -1185,6 +1289,16 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "full_history_resolution": full_history_resolution,
         "lifecycle_status": lifecycle_status,
         "challenged_decision": challenged_decision,
+        "aljr_filer_type": originating_party_fields["aljr_filer_type"],
+        "aljr_filer_name": originating_party_fields["aljr_filer_name"],
+        "respondent_minister": originating_party_fields["respondent_minister"],
+        "party_evidence": originating_party_fields,
+        "motion_presence": {
+            "status": "yes" if motion_events else "no",
+            "event_count": len(motion_events),
+            "doc_ids": sorted({event["doc_id"] for event in motion_events}),
+            "rule": "procedural_motion_event_present" if motion_events else "no_procedural_motion_event",
+        },
         "history_profile": history_profile,
         "hearing_held": asdict(hearing_held),
         "hearing_status": hearing_status,
@@ -1347,14 +1461,17 @@ def persist_report(report: list[dict[str, Any]]) -> int:
     written = 0
     with SessionLocal() as session:
         source_ids = [int(row["activity_case_id"]) for row in report]
+        if len(source_ids) != len(set(source_ids)):
+            raise ValueError("Classification report contains duplicate activity_case_id values.")
         source_cases = {
             row.id: row
             for row in session.scalars(select(FCActivityCase).where(FCActivityCase.id.in_(source_ids)))
         }
+        missing_source_ids = sorted(set(source_ids) - set(source_cases))
+        if missing_source_ids:
+            raise ValueError(f"Classification report references missing source cases: {missing_source_ids}")
         for row in report:
             source = source_cases.get(int(row["activity_case_id"]))
-            if source is None:
-                continue
             derived = session.scalar(
                 select(FCActivityClassification).where(FCActivityClassification.source_case_id == source.id)
             )

@@ -19,7 +19,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal
-from scripts.classify_fc_activity import classify_case
+from scripts.classify_fc_activity import classify_case, validate_fc_activity_classification
 
 
 def _parse_date(value: Any) -> date | None:
@@ -261,6 +261,44 @@ def _applicability_coverage(classifications: list[dict[str, Any]]) -> dict[str, 
     }
 
 
+def _challenged_decision_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
+    total = len(classifications)
+    rows = [classification.get("challenged_decision") or {} for classification in classifications]
+    originating_rows = [row for row in rows if row.get("status") == "yes"]
+    information_known = [
+        row for row in originating_rows
+        if row.get("originating_decision_maker_type") not in {None, "unknown"}
+        or row.get("decision_type") not in {None, "unknown"}
+        or row.get("decision_date")
+    ]
+    return {
+        "case_count": total,
+        "originating_row_count": len(originating_rows),
+        "originating_row_rate": round(len(originating_rows) / total, 4) if total else 0.0,
+        "filing_date_count": sum(bool(row.get("filing_date")) for row in originating_rows),
+        "originating_maker_type_count": sum(row.get("originating_decision_maker_type") not in {None, "unknown"} for row in originating_rows),
+        "decision_type_count": sum(row.get("decision_type") not in {None, "unknown"} for row in originating_rows),
+        "decision_date_count": sum(bool(row.get("decision_date")) for row in originating_rows),
+        "decision_information_count": len(information_known),
+        "decision_information_rate": round(len(information_known) / total, 4) if total else 0.0,
+    }
+
+
+def _validation_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
+    results = [validate_fc_activity_classification(classification) for classification in classifications]
+    issue_counts = Counter(
+        issue["rule"]
+        for result in results
+        for issue in result.get("issues", [])
+    )
+    return {
+        "case_count": len(results),
+        "valid_case_count": sum(result["is_valid"] for result in results),
+        "invalid_case_count": sum(not result["is_valid"] for result in results),
+        "issue_counts": dict(sorted(issue_counts.items())),
+    }
+
+
 def _queryable_analytics(classifications: list[dict[str, Any]]) -> dict[str, Any]:
     dimensions = {
         "lifecycle_status": Counter(),
@@ -404,7 +442,7 @@ def build_report(
     gold_set: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     with SessionLocal() as session:
-        candidate_query = select(FCActivityCase.id, FCActivityCase.year)
+        candidate_query = select(FCActivityCase.id, FCActivityCase.year).order_by(FCActivityCase.id)
         if min_year is not None:
             candidate_query = candidate_query.where(FCActivityCase.year >= min_year)
         candidates = list(session.execute(candidate_query).all())
@@ -513,6 +551,8 @@ def build_report(
         "delay_metrics": _aggregate_delay_metrics(case_delay_metrics),
         "intelligence_coverage": _intelligence_coverage(intelligence_classifications),
         "applicability_coverage": _applicability_coverage(intelligence_classifications),
+        "challenged_decision_coverage": _challenged_decision_coverage(intelligence_classifications),
+        "validation_coverage": _validation_coverage(intelligence_classifications),
         "analytics": _queryable_analytics(intelligence_classifications),
         "gold_set_metrics": evaluate_gold_set(rows, gold_set or []),
         "cases": rows,

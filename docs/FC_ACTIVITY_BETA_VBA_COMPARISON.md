@@ -118,3 +118,22 @@ The next implementation should be considered successful only if:
 - focused classifier tests and the bounded evaluator pass with before/after coverage counts.
 
 The Beta workbook is therefore best treated as a rule and QA reference, not as a replacement extraction engine. Its highest-return additions are motion subtype normalization, structured validation findings, and a reproducible review queue.
+
+## Implementation Checkpoint
+
+The first bounded implementation slice is complete in
+`scripts/classify_fc_activity.py`:
+
+- Motion events now retain stable subtypes for Beta categories such as
+	removal stays, s.87 IRPA, intervention, production, and unknown categories.
+- Explicit results now distinguish `granted`, `granted_in_part`, `refused`,
+	`abandoned`, and `discontinued` without changing the existing
+	`motion_filed`/`motion_decision` event types.
+- `validate_fc_activity_classification()` returns deterministic, read-only
+	findings for Beta-derived leave/JR and activity-date contradictions.
+
+The focused fixture suite passed 4 tests and the existing FC Activity
+classifier suite passed 49 tests. Source document identifiers and text remain
+on every promoted motion event; raw Activity rows and canonical case records
+were not changed. The next bounded task is a fixed 100-record coverage
+measurement before expanding the taxonomy.

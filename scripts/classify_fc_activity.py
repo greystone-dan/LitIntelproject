@@ -279,6 +279,48 @@ def _removal_schedule(text: str) -> tuple[str | None, str | None]:
     return scheduled_date, destination
 
 
+def _normalize_motion_subtype(text: str) -> str:
+    lowered = text.casefold()
+    subtype_rules = (
+        ("stay_removal", (r"stay of execution of (?:the )?removal", r"stay(?: of| the execution of)? removal", r"removal order.*\bstay\b")),
+        ("stay_deportation", (r"stay of deportation",)),
+        ("stay_release", (r"stay of release",)),
+        ("stay_admissibility_hearing", (r"stay of admissibility hearing",)),
+        ("stay_proceedings", (r"stay of proceedings",)),
+        ("stay_execution", (r"stay of execution",)),
+        ("abeyance", (r"abeyance",)),
+        ("s_37_cea", (r"s\.?\s*37", r"canada evidence act")),
+        ("s_87_irpa", (r"s\.?\s*87\s+irpa",)),
+        ("anonymity", (r"anonym",)),
+        ("amendment_aljr", (r"amend",)),
+        ("extension_of_time", (r"extension of time", r"prorogation de délai", r"prorogation de delai")),
+        ("consent_judgment", (r"judgment on consent", r"request for judgment on consent", r"notice of settlement")),
+        ("confidentiality", (r"confidential",)),
+        ("production", (r"production",)),
+        ("intervention", (r"intervene", r"intervention")),
+        ("stay", (r"\bstay\b",)),
+    )
+    for subtype, patterns in subtype_rules:
+        if any(re.search(pattern, lowered) for pattern in patterns):
+            return subtype
+    return "unknown"
+
+
+def _normalize_motion_result(text: str) -> str | None:
+    lowered = text.casefold()
+    if re.search(r"granted in part|partially granted|partially allowed|accordée? en partie|accorde(?:e|e)? en partie|partiellement accord", lowered):
+        return "granted_in_part"
+    if re.search(r"abandon(?:ed|ned)?|withdrawn|abandonn[éee]|retir[éee]", lowered):
+        return "abandoned"
+    if re.search(r"discontinu(?:ed|ance)|d[eé]sistement", lowered):
+        return "discontinued"
+    if re.search(r"grant(?:ed|ing)?|allow(?:ed|ing)?|accord(?:ant|ée|ee)", lowered):
+        return "granted"
+    if re.search(r"dismiss(?:ed|ing)?|refus(?:ed|ing)?|rejet(?:ant|ée|ee)", lowered):
+        return "refused"
+    return None
+
+
 def extract_procedural_events(events: Iterable[ActivityEvent]) -> list[dict[str, Any]]:
     """Extract repeatable, evidence-backed procedural events without database writes."""
     extracted: list[dict[str, Any]] = []
@@ -321,13 +363,14 @@ def extract_procedural_events(events: Iterable[ActivityEvent]) -> list[dict[str,
                 add("leave_decision", outcome="refused", rule="leave_refused")
 
         if re.search(r"\bmotion\b|\bnotice of motion\b|\brequête\b|\brequete\b", text, re.IGNORECASE):
-            motion_outcome = None
-            if re.search(r"granting|granted|allowing|allowed|accordant|accordée|accordee", lowered, re.IGNORECASE):
-                motion_outcome = "granted"
-            elif re.search(r"dismissing|dismissed|refusing|refused|rejetant|rejetée|rejetee", lowered, re.IGNORECASE):
-                motion_outcome = "refused"
+            motion_outcome = _normalize_motion_result(text)
             event_type = "motion_decision" if motion_outcome else "motion_filed"
-            add(event_type, outcome=motion_outcome, rule="motion_with_explicit_outcome" if motion_outcome else "motion_reference")
+            add(
+                event_type,
+                subtype=_normalize_motion_subtype(text),
+                outcome=motion_outcome,
+                rule="motion_with_explicit_outcome" if motion_outcome else "motion_reference",
+            )
 
         hearing_negation = re.search(
             r"hearing (?:was|is|has been)?\s*(?:not held|cancelled|did not proceed)|"
@@ -938,6 +981,85 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "judges": judges,
         "milestone_rollups": milestone_rollups,
         "procedural_events": procedural_events,
+    }
+
+
+def validate_fc_activity_classification(classification: dict[str, Any]) -> dict[str, Any]:
+    """Return deterministic cross-field findings without changing the input."""
+    issues: list[dict[str, Any]] = []
+    leave = classification.get("leave_decision") or {}
+    leave_context = classification.get("leave_context") or {}
+    review = classification.get("judicial_review_result") or {}
+    review_final = classification.get("judicial_review_final_decision") or {}
+    history = classification.get("history_profile") or {}
+    events = classification.get("procedural_events") or []
+
+    def add_issue(rule: str, fields: list[str], description: str, evidence_doc_ids: list[Any] | None = None) -> None:
+        issues.append(
+            {
+                "severity": "error",
+                "rule": rule,
+                "fields_affected": fields,
+                "evidence_doc_ids": sorted({doc_id for doc_id in (evidence_doc_ids or []) if doc_id is not None}),
+                "description": description,
+            }
+        )
+
+    leave_result = leave.get("result")
+    review_result = review.get("result")
+    leave_date = leave.get("date")
+    review_date = review_final.get("date")
+    latest_date = history.get("last_any_entry_date")
+    substantive_review = review_result in {"granted", "dismissed"}
+    event_doc_ids = [event.get("doc_id") for event in events if isinstance(event, dict)]
+
+    if leave_context.get("status") == "pending" and substantive_review:
+        add_issue(
+            "leave_still_pending_with_jr_result",
+            ["leave_context.status", "judicial_review_result.result"],
+            "Leave remains pending even though a substantive judicial review result exists.",
+            event_doc_ids,
+        )
+    if substantive_review and not review_date:
+        add_issue(
+            "jr_result_without_jr_date",
+            ["judicial_review_result.result", "judicial_review_final_decision.date"],
+            "A substantive judicial review result has no decision date.",
+            event_doc_ids,
+        )
+    if leave_date and review_date and leave_date > review_date:
+        add_issue(
+            "leave_date_after_jr_date",
+            ["leave_decision.date", "judicial_review_final_decision.date"],
+            "The leave decision date is later than the judicial review decision date.",
+            event_doc_ids,
+        )
+    if leave_date and latest_date and leave_date > latest_date:
+        add_issue(
+            "leave_date_after_latest_activity",
+            ["leave_decision.date", "history_profile.last_any_entry_date"],
+            "The leave decision date is later than the latest recorded activity date.",
+            event_doc_ids,
+        )
+    if events and not latest_date:
+        add_issue(
+            "missing_latest_activity_date",
+            ["history_profile.last_any_entry_date"],
+            "Activity events exist but the latest activity date is missing.",
+            event_doc_ids,
+        )
+    if leave_result in {None, "unknown"} and substantive_review and leave_context.get("status") not in {"inferred_granted", "not_applicable_direct_judicial_review"}:
+        add_issue(
+            "leave_na_with_substantive_jr_result",
+            ["leave_decision.result", "judicial_review_result.result"],
+            "Leave is unresolved while a substantive judicial review result is present.",
+            event_doc_ids,
+        )
+
+    return {
+        "is_valid": not issues,
+        "issues": issues,
+        "summary": "No cross-field issues found." if not issues else f"{len(issues)} cross-field issue(s) found.",
     }
 
 

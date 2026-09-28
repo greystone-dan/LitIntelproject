@@ -54,6 +54,18 @@ The Federal Court activity layer is also distinct from judgment capture. An
 activity or procedural record may be useful context while remaining outside the
 canonical judgment path.
 
+## Beta Motion Taxonomy Checkpoint
+
+The Beta comparison led to a bounded implementation in
+`scripts/classify_fc_activity.py`. Motion events retain evidence-backed
+subtypes and explicit results including partial grants, abandonment, and
+discontinuance; unknown categories remain visible. The pure
+`validate_fc_activity_classification()` function reports leave/JR/date
+contradictions without persistence. Focused motion tests passed 4 cases and
+the existing classifier regression suite passed 49 cases. The next measurement
+is a fixed 100-record coverage report; raw Activity and canonical case writes
+remain outside this slice.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

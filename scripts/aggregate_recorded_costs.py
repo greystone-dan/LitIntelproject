@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "eval"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs" / "EVALUATION_COSTS.md"
 COST_KEYS = ("spent_usd", "actual_cost_usd", "cost_usd", "estimated_cost_usd", "cost")
+EXCLUDED_STATUSES = {"dry_run", "dry_run_ready", "prep", "request"}
 
 
 def _find_cost(value: Any, *, is_root: bool = True) -> tuple[str, float] | None:
@@ -27,8 +28,9 @@ def _find_cost(value: Any, *, is_root: bool = True) -> tuple[str, float] | None:
 	return None
 
 
-def collect_costs(input_dir: Path) -> list[dict[str, Any]]:
+def collect_costs(input_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
 	rows: list[dict[str, Any]] = []
+	excluded: list[dict[str, Any]] = []
 	paths = sorted(input_dir.rglob("*.json"))
 	path_set = {path for path in paths}
 	for path in paths:
@@ -43,23 +45,29 @@ def collect_costs(input_dir: Path) -> list[dict[str, Any]]:
 			continue
 		found = _find_cost(payload)
 		if found:
-			rows.append({"artifact": relative, "field": found[0], "estimated_cost_usd": found[1]})
-	return rows
+			row = {"artifact": relative, "field": found[0], "estimated_cost_usd": found[1]}
+			if isinstance(payload, dict) and payload.get("status") in EXCLUDED_STATUSES:
+				excluded.append(row)
+			else:
+				rows.append(row)
+	return rows, excluded
 
 
-def render_report(rows: list[dict[str, Any]]) -> str:
+def render_report(rows: list[dict[str, Any]], excluded: list[dict[str, Any]]) -> str:
 	total = sum(float(row["estimated_cost_usd"]) for row in rows)
+	excluded_total = sum(float(row["estimated_cost_usd"]) for row in excluded)
 	lines = [
 		"# Evaluation Cost Ledger",
 		"",
 		"Last generated: " + datetime.now(timezone.utc).isoformat(),
 		"",
-		"This report aggregates one report-level recorded estimate per JSON artifact under `data/eval/`.",
+		"This report aggregates one report-level recorded estimate per non-dry-run JSON artifact under `data/eval/`.",
 		"It is an estimated-cost ledger, not an OpenAI invoice or provider billing export.",
 		"",
 		"## Measurement Method",
 		"",
 		"- Fields are selected in this order: `spent_usd`, `actual_cost_usd`, `cost_usd`, `estimated_cost_usd`, `cost`.",
+		"- Artifacts with status `dry_run`, `dry_run_ready`, `prep`, or `request` are excluded from the total.",
 		"- Per-request artifacts under an `requests/` directory are excluded when a report-level artifact exists.",
 		"- Comparison artifacts ending in `_aggregate.json` are excluded because they restate earlier report costs.",
 		"- A `.checkpoint.json` artifact is excluded when its finalized non-checkpoint counterpart exists.",
@@ -69,6 +77,8 @@ def render_report(rows: list[dict[str, Any]]) -> str:
 		"",
 		f"- Report-level artifacts: {len(rows)}",
 		f"- Recorded estimated spend: ${total:.6f} USD",
+		f"- Excluded dry-run/preparation estimates: {len(excluded)} artifacts / ${excluded_total:.6f} USD",
+		"- Unmeasured: runtime embedding calls, overnight operations without cost artifacts, and any provider billing not persisted in these reports.",
 		"",
 		"## Artifacts",
 		"",
@@ -85,9 +95,9 @@ def main() -> None:
 	parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
 	parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
 	args = parser.parse_args()
-	rows = collect_costs(args.input.resolve())
-	args.output.resolve().write_text(render_report(rows), encoding="utf-8")
-	print(f"artifacts={len(rows)} total_usd={sum(float(row['estimated_cost_usd']) for row in rows):.6f} output={args.output.resolve()}")
+	rows, excluded = collect_costs(args.input.resolve())
+	args.output.resolve().write_text(render_report(rows, excluded), encoding="utf-8")
+	print(f"artifacts={len(rows)} excluded={len(excluded)} total_usd={sum(float(row['estimated_cost_usd']) for row in rows):.6f} output={args.output.resolve()}")
 
 
 if __name__ == "__main__":

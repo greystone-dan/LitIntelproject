@@ -34,10 +34,10 @@ Docs/generated references: `WORK_HISTORY.md`; `docs/EVALUATION_COSTS.md`; `DOCS_
 
 Rollback/recovery: Restore the prior work-history JSON exports and generated ledger if the Chronicle scope or cost-artifact selection policy is revised.
 
-Evidence: Chronicle query returned 34 workspace sessions through 2026-09-28. Regeneration produced 2,982 turns and 7,387.9 capped active minutes (123.1 hours), with session/day totals reconciled. Cost aggregation produced 100 report-level artifacts totaling $4.314381 estimated USD after excluding request children, comparison aggregates, and superseded checkpoints. `scripts/check_generated_docs.py` passed and the focused FC Activity suite passed 84 tests.
+Evidence: Chronicle query returned 34 workspace sessions through 2026-09-28. Regeneration produced 2,982 turns and 7,387.9 capped day minutes (123.1 hours), with session/day totals reconciled within 0.1 minute. The corrected cost aggregation includes 86 non-dry-run report artifacts totaling $4.042849 estimated USD and explicitly excludes 14 dry-run/preparation artifacts totaling $0.271532. Runtime embeddings, overnight operations without cost artifacts, and provider billing not persisted in reports remain unmeasured. `scripts/check_generated_docs.py` passed and the focused FC Activity suite passed 84 tests.
 
 Validation: `scripts/generate_work_history.py`; `scripts/aggregate_recorded_costs.py`; `scripts/generate_script_catalog.py`; `scripts/check_generated_docs.py`; `pytest tests/test_classify_fc_activity.py tests/test_evaluate_fc_activity_deterministic.py -q`; `git diff --check`.
 
-Residual risk: The cost total reflects recorded estimates and script-era rates, not invoice-level provider billing. Chronicle excludes unrecorded terminal, browser, and reading time.
+Residual risk: The cost total is a lower bound on persisted non-dry-run estimates, not invoice-level provider billing. Runtime embedding calls and overnight operations are not retroactively measurable from current artifacts. Chronicle excludes unrecorded terminal, browser, and reading time.
 
 Next recommended task: Reconcile provider billing exports separately if invoice-grade spend is required.

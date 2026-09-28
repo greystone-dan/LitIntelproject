@@ -1,13 +1,14 @@
 # Evaluation Cost Ledger
 
-Last generated: 2026-09-28T16:26:13.027727+00:00
+Last generated: 2026-09-28T16:31:23.673997+00:00
 
-This report aggregates one report-level recorded estimate per JSON artifact under `data/eval/`.
+This report aggregates one report-level recorded estimate per non-dry-run JSON artifact under `data/eval/`.
 It is an estimated-cost ledger, not an OpenAI invoice or provider billing export.
 
 ## Measurement Method
 
 - Fields are selected in this order: `spent_usd`, `actual_cost_usd`, `cost_usd`, `estimated_cost_usd`, `cost`.
+- Artifacts with status `dry_run`, `dry_run_ready`, `prep`, or `request` are excluded from the total.
 - Per-request artifacts under an `requests/` directory are excluded when a report-level artifact exists.
 - Comparison artifacts ending in `_aggregate.json` are excluded because they restate earlier report costs.
 - A `.checkpoint.json` artifact is excluded when its finalized non-checkpoint counterpart exists.
@@ -15,8 +16,10 @@ It is an estimated-cost ledger, not an OpenAI invoice or provider billing export
 
 ## Total
 
-- Report-level artifacts: 100
-- Recorded estimated spend: $4.314381 USD
+- Report-level artifacts: 86
+- Recorded estimated spend: $4.042849 USD
+- Excluded dry-run/preparation estimates: 14 artifacts / $0.271532 USD
+- Unmeasured: runtime embedding calls, overnight operations without cost artifacts, and any provider billing not persisted in these reports.
 
 ## Artifacts
 
@@ -55,19 +58,12 @@ It is an estimated-cost ledger, not an OpenAI invoice or provider billing export
 | `five_case_citation_ai_triage_suggestions.json` | `cost_estimate.estimated_cost_usd` | $0.000530 |
 | `llm_discussion_units_pilot/case_35868_paragraphs_0_9_qwen3_result.json` | `spent_usd` | $0.000000 |
 | `llm_discussion_units_pilot/core_300_run/ledger.json` | `cases.62.spent_usd` | $0.002623 |
-| `llm_discussion_units_pilot/mason_argument_citation_30_request.json` | `estimated_cost_usd` | $0.004381 |
 | `llm_discussion_units_pilot/mason_argument_citation_30_result.json` | `spent_usd` | $0.005731 |
-| `llm_discussion_units_pilot/mason_argument_citation_all_request.json` | `estimated_cost_usd` | $0.015405 |
 | `llm_discussion_units_pilot/mason_argument_citation_all_result.json` | `spent_usd` | $0.029339 |
-| `llm_discussion_units_pilot/mason_argument_citation_analysis_request.json` | `estimated_cost_usd` | $0.002251 |
 | `llm_discussion_units_pilot/mason_argument_citation_analysis_result.json` | `spent_usd` | $0.002612 |
-| `llm_discussion_units_pilot/mason_argument_citation_compact_canary_request.json` | `estimated_cost_usd` | $0.001946 |
 | `llm_discussion_units_pilot/mason_argument_citation_compact_canary_result.json` | `spent_usd` | $0.003452 |
-| `llm_discussion_units_pilot/mason_argument_citation_compact_request.json` | `estimated_cost_usd` | $0.016685 |
 | `llm_discussion_units_pilot/mason_argument_citation_compact_result.json` | `spent_usd` | $0.031543 |
-| `llm_discussion_units_pilot/mason_argument_citation_late_request.json` | `estimated_cost_usd` | $0.000919 |
 | `llm_discussion_units_pilot/mason_argument_citation_late_result.json` | `spent_usd` | $0.001233 |
-| `llm_discussion_units_pilot/mason_argument_citation_request.json` | `estimated_cost_usd` | $0.002054 |
 | `llm_discussion_units_pilot/mason_argument_citation_result.json` | `spent_usd` | $0.002236 |
 | `llm_discussion_units_pilot/mason_argument_citation_single_result.json` | `spent_usd` | $0.036629 |
 | `llm_discussion_units_pilot/mason_case_intelligence_result.json` | `spent_usd` | $0.398022 |
@@ -109,13 +105,6 @@ It is an estimated-cost ledger, not an OpenAI invoice or provider billing export
 | `reports/fc_priority_audit_smoke_gpt41mini_lines.json` | `openai_audit.summary.spent_usd` | $0.003808 |
 | `stored_case_to_case_openai_audit_1000.json` | `openai_audit.summary.spent_usd` | $0.136624 |
 | `stored_citation_openai_audit_report.json` | `openai_audit.summary.spent_usd` | $0.000556 |
-| `treatment_teacher_batch_100.json` | `estimated_cost_usd` | $0.004269 |
-| `treatment_teacher_batch_100_offset1000.json` | `estimated_cost_usd` | $0.008573 |
-| `treatment_teacher_batch_100_offset1500.json` | `estimated_cost_usd` | $0.008663 |
-| `treatment_teacher_batch_100_offset500.json` | `estimated_cost_usd` | $0.004274 |
-| `treatment_teacher_batch_100_v2.json` | `estimated_cost_usd` | $0.004273 |
-| `treatment_teacher_batch_2500.json` | `estimated_cost_usd` | $0.177979 |
-| `treatment_teacher_batch_500.json` | `estimated_cost_usd` | $0.019860 |
 | `treatment_teacher_result_100_offset1000.json` | `spent_usd` | $0.009511 |
 | `treatment_teacher_result_100_offset1500.json` | `spent_usd` | $0.009384 |
 | `treatment_teacher_result_100_offset500.json` | `spent_usd` | $0.008674 |

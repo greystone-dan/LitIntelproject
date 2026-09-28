@@ -15,7 +15,7 @@ Active scripts documented: 133
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
-| `aggregate_recorded_costs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --help` |
+| `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -218,14 +218,14 @@ Active scripts documented: 133
 
 **Purpose:** Aggregate report-level estimated costs from evaluation artifacts.
 
-**Operational class:** Utility
+**Operational class:** Orchestration
 
-**Write/network risk:** inspect implementation before execution
+**Write/network risk:** database/network job runner
 
 **Safe first command**
 
 ```powershell
-.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --help
+.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs
 ```
 
 ## `scripts/ai_triage_citation_candidate.py`

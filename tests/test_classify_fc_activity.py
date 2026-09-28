@@ -473,6 +473,9 @@ def test_derives_challenged_decision_from_originating_application():
     assert "VB1-03122" in challenged["tribunal_file_numbers"]
     assert "irb_refugee_or_appeal" in challenged["challenge_categories"]
     assert challenged["decision_maker_type"] == "irb_refugee_or_appeal"
+    assert challenged["filing_date"] == "2024-01-02"
+    assert challenged["originating_decision_maker_type"] == "irb_refugee_or_appeal"
+    assert challenged["decision_type"] == "refugee_protection"
     assert challenged["underlying_tribunal"] == "IRB RPD"
     assert challenged["underlying_tribunal_type"] == "irb"
     assert challenged["decision_subject"] == "refugee_protection"

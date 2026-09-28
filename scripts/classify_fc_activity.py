@@ -716,7 +716,7 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
     )
     event = next((item for item in events if any(pattern.search(item.text) for pattern in application_patterns)), None)
     if event is None:
-        return {"status": "unknown", "application_type": None, "decision_maker": None, "decision_maker_type": "unknown", "underlying_tribunal": None, "underlying_tribunal_type": "unknown", "decision_subject": "unknown", "decision_date": None, "tribunal_file_numbers": [], "doc_id": None, "re_no": None, "docno": None, "text": None, "rule": "no_originating_application_entry"}
+        return {"status": "unknown", "application_type": None, "filing_date": None, "decision_maker": None, "decision_maker_type": "unknown", "originating_decision_maker_type": "unknown", "decision_type": "unknown", "underlying_tribunal": None, "underlying_tribunal_type": "unknown", "decision_subject": "unknown", "decision_date": None, "tribunal_file_numbers": [], "doc_id": None, "re_no": None, "docno": None, "text": None, "rule": "no_originating_application_entry"}
     text = event.text
     lowered = text.casefold()
     category_rules = (
@@ -749,6 +749,15 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
                 "minister_or_department",
             )
             if category in challenge_categories
+        ),
+        "unknown",
+    )
+    originating_decision_maker_type = next(
+        (
+            category
+            for category, pattern in category_rules
+            if category in {"irb_refugee_or_appeal", "cbsa_enforcement", "cic_ircc_processing", "visa_office_or_consulate", "minister_or_department"}
+            and re.search(pattern, text, re.IGNORECASE)
         ),
         "unknown",
     )
@@ -810,6 +819,14 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
         if category in subject_categories and re.search(pattern, subject_event.text, re.IGNORECASE)
     ]
     decision_subject = next((subject_categories[category] for category in subject_categories if category in subject_matches), "unknown")
+    originating_decision_type = next(
+        (
+            subject_categories[category]
+            for category in subject_categories
+            if any(rule_category == category and re.search(pattern, text, re.IGNORECASE) for rule_category, pattern in category_rules)
+        ),
+        "unknown",
+    )
     application_type = "leave_and_judicial_review"
     if re.search(r"notice of application .* judicial review", text, re.IGNORECASE) and not re.search(r"leave|autorisation", text, re.IGNORECASE):
         application_type = "direct_judicial_review"
@@ -822,6 +839,8 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
         decision_date_match = re.search(r"\b(?:dated|rendue?\s+le)\s+(\d{1,2}[-/]?[A-Za-z]{3,9}[-/]?\d{2,4})", text, re.IGNORECASE)
     if decision_date_match is None:
         decision_date_match = re.search(r"against (?:a )?decision\s+[^,]+,\s*(\d{1,2}-[A-Za-z]{3,9}-\d{2,4})", text, re.IGNORECASE)
+    if decision_date_match is None:
+        decision_date_match = re.search(r"\b(?:dated|made on|decision dated)\s+(\d{1,2}[-/]?[A-Za-z]{3,9}[-/]?\d{2,4}|[A-Za-z]{3,9}\.?\s*\d{1,2},?\s*\d{2,4}|[A-Za-z]{3,9}\.?\s*\d{1,2}/\d{2})", text, re.IGNORECASE)
     tribunal_file_numbers = sorted(set(re.findall(r"\b[A-Z]{1,4}\d[-A-Z0-9]{3,}\b", text, re.IGNORECASE)))
     decision_maker = None
     marker = re.search(r"against (?:a )?decision\s+(.+?)(?:,\s*(?:mandamus|dated|file|IRB|RPD|RAD)\b|\s+dated\b|\s+file\s+no\.?\b)", text, re.IGNORECASE)
@@ -867,7 +886,7 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
         if any(generic_subject_marker.search(candidate.text) for candidate in events)
         else "no_subject_evidence"
     )
-    return {"status": "yes", "application_type": application_type, "challenge_categories": challenge_categories, "decision_maker": decision_maker, "decision_maker_type": decision_maker_type, "decision_maker_evidence_doc_id": maker_event.doc_id, "decision_maker_evidence_text": maker_event.text, "underlying_tribunal": decision_maker, "underlying_tribunal_type": underlying_tribunal_type, "decision_subject": decision_subject, "decision_subject_availability": subject_availability, "decision_subject_label": decision_maker if subject_availability == "generic_institution_only" else None, "decision_subject_doc_id": subject_event.doc_id, "decision_subject_text": subject_event.text, "decision_date": decision_date_match.group(1) if decision_date_match else None, "tribunal_file_numbers": tribunal_file_numbers, "doc_id": event.doc_id, "re_no": event.re_no, "docno": event.docno, "text": event.text, "rule": "originating_application_entry"}
+    return {"status": "yes", "application_type": application_type, "filing_date": _event_date(event), "challenge_categories": challenge_categories, "decision_maker": decision_maker, "decision_maker_type": decision_maker_type, "originating_decision_maker_type": originating_decision_maker_type, "decision_maker_evidence_doc_id": maker_event.doc_id, "decision_maker_evidence_text": maker_event.text, "underlying_tribunal": decision_maker, "underlying_tribunal_type": underlying_tribunal_type, "decision_subject": decision_subject, "decision_type": originating_decision_type, "decision_subject_availability": subject_availability, "decision_subject_label": decision_maker if subject_availability == "generic_institution_only" else None, "decision_subject_doc_id": subject_event.doc_id, "decision_subject_text": subject_event.text, "decision_date": decision_date_match.group(1) if decision_date_match else None, "tribunal_file_numbers": tribunal_file_numbers, "doc_id": event.doc_id, "re_no": event.re_no, "docno": event.docno, "text": event.text, "rule": "originating_application_entry"}
 
 
 def _clean_origin_value(value: str) -> str:

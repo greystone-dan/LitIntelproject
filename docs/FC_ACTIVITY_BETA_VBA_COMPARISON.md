@@ -313,6 +313,25 @@ was 51.36% and result coverage was 12.56%; grouped motion subtype coverage was
 34.17% and grouped result coverage was 6.19%. These motion figures remain
 separate from case-progression applicability and retain unknowns.
 
+## Originating ALJR Decision Analysis
+
+The IMM-15 sample now anchors challenged-decision analysis to the first
+originating ALJR entry while retaining later-history enrichment in the existing
+fields. Of 1,000 cases, 999 had an originating ALJR row and 999 had a parsed
+filing date. The first-row originating decision-maker type was identified in
+901 cases (90.1%), and the first-row decision type was identified in 423 cases
+(42.3%). First-row decision dates were identified in 507 cases (50.7%),
+including abbreviated forms such as `Dec.17,2014`, `Jun 12/15`, and `made on
+26-Oct-2015`.
+
+The new fields are `filing_date`, `originating_decision_maker_type`, and
+`decision_type`. Existing `decision_maker`, `decision_subject`, and their
+evidence fields continue to incorporate later activity where it adds useful
+information. In the same sample, an existing decision maker was present in 931
+cases and later-history subject analysis found 580 explicit subjects. Anchor
+and enrichment values remain separate so later mentions cannot silently rewrite
+what the originating ALJR challenged.
+
 ## Document Versus Unique-Motion Coverage
 
 The evaluation now reports two denominators. Document-level metrics retain one

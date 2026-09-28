@@ -81,3 +81,12 @@ judicial-review final decision 96.4%. The run made no database writes. The
 evaluator was corrected to filter through indexed `FCActivityClassification`
 rows and load documents only after sampling; the stalled whole-population run
 was stopped and produced no artifact.
+
+## Originating Decision Analysis Checkpoint
+
+On the same fixed IMM-15 slice, challenged-decision analysis now anchors filing
+and originating decision fields to the first ALJR row while retaining later
+history as enrichment. Coverage was 999/1,000 originating rows and filing
+dates, 901/1,000 originating maker types, 423/1,000 originating decision types,
+and 507/1,000 decision dates. Focused classifier tests passed; the read-only
+rerun made no database writes.

@@ -211,6 +211,17 @@ coverage was 51.36% and result coverage 12.56%; grouped motion coverage was
 suffix in the database query and loads documents only for the selected sample,
 avoiding whole-population classification during bounded runs.
 
+### Originating ALJR Decision Analysis
+
+The first originating ALJR entry is now the anchor for challenged-decision
+analysis, while later activity remains available as enrichment. In the same
+1,000-case IMM-15 sample, 999 cases had an originating row and filing date,
+901 had an originating decision-maker type, 423 had an originating decision
+type, and 507 had a parsed challenged-decision date. The output fields are
+`filing_date`, `originating_decision_maker_type`, and `decision_type`.
+Existing maker and subject evidence is not discarded; it remains separately
+available for later-history enrichment and review.
+
 ## Motion Coverage Denominators
 
 The deterministic evaluation preserves its document-level motion metrics, but

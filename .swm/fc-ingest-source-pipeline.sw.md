@@ -73,6 +73,25 @@ coverage rather than accuracy; the unknown majority is the next fixture and
 rule-review signal, and raw Activity/canonical case writes remain outside the
 slice.
 
+## Corpus Pattern Checkpoint
+
+The seeded 1,000-record FC Activity evaluation found 139 motion cases and 950
+motion events. Subtype coverage was 250/950 (26.32%), leaving 700 unknown
+subtypes. Result coverage was 127/950 (13.37%), including 78 granted, 37
+refused, 6 abandoned, 5 discontinued, and 1 granted in part; 818 results were
+unknown. The deterministic artifact is
+`data/eval/fc_activity_motion_patterns_20260928.json` and recorded no network
+call or database write.
+
+A user-authorized, review-only OpenAI batch audited 10 seeded cases at an
+estimated `$0.0014555` using `gpt-4.1-nano`. It returned three advisory
+findings concerning originating-application capture, a French leave decision,
+and a judge/date signal. The audit artifact is
+`data/eval/fc_activity_openai_motion_review_20260928.json`; it recorded
+`network_called=true` and `database_written=false`. No rule or production data
+was changed. These findings require source-backed fixture review before any
+classifier update.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

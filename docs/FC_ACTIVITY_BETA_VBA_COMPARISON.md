@@ -146,3 +146,21 @@ seven-year recent weighting, 70% recent share) and produced 8 motion cases,
 `network_called=false` and `database_written=false`. This is extraction
 coverage, not gold-set accuracy, and the unknown majority is the next fixture
 and rule-review signal.
+
+## Corpus Pattern Checkpoint
+
+The seeded 1,000-record corpus evaluation (`seed=20260925`, seven-year recent
+weighting, 70% recent share) produced 139 motion cases and 950 motion events.
+Subtype coverage was 250/950 (26.32%), with 700 unknown subtypes. Result
+coverage was 127/950 (13.37%); observed results included 78 granted, 37
+refused, 6 abandoned, 5 discontinued, and 1 granted in part, with 818 unknown
+results. The artifact is
+`data/eval/fc_activity_motion_patterns_20260928.json`; it recorded no network
+call and no database write.
+
+A bounded 10-case OpenAI audit completed with `gpt-4.1-nano` at an estimated
+cost of `$0.0014555`, with no database write. It returned three advisory
+findings concerning originating-application capture, a French leave decision,
+and a judge/date signal. These are review signals only; no classifier rule was
+promoted. The audit artifact is
+`data/eval/fc_activity_openai_motion_review_20260928.json`.

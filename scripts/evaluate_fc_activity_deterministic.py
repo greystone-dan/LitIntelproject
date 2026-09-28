@@ -18,7 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.database import FCActivityCase, FCActivityDocument, SessionLocal
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal
 from scripts.classify_fc_activity import classify_case
 
 
@@ -398,10 +398,42 @@ def build_report(
     recent_share: float,
     seed: int,
     output: Path,
+    min_year: int | None = None,
+    resolved_only: bool = False,
+    imm_suffix: str | None = None,
     gold_set: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     with SessionLocal() as session:
-        candidates = list(session.execute(select(FCActivityCase.id, FCActivityCase.year)).all())
+        candidate_query = select(FCActivityCase.id, FCActivityCase.year)
+        if min_year is not None:
+            candidate_query = candidate_query.where(FCActivityCase.year >= min_year)
+        candidates = list(session.execute(candidate_query).all())
+        if imm_suffix is not None:
+            suffix_ids = set(session.scalars(
+                select(FCActivityClassification.source_case_id).where(
+                    FCActivityClassification.imm_number.like(f"%{imm_suffix}")
+                )
+            ))
+            candidates = [(case_id, year) for case_id, year in candidates if int(case_id) in suffix_ids]
+        if resolved_only:
+            candidate_ids = [int(case_id) for case_id, _ in candidates]
+            candidate_cases = list(session.scalars(select(FCActivityCase).where(FCActivityCase.id.in_(candidate_ids)))) if candidate_ids else []
+            candidate_documents = list(
+                session.scalars(
+                    select(FCActivityDocument)
+                    .where(FCActivityDocument.case_id.in_(candidate_ids))
+                    .order_by(FCActivityDocument.case_id, FCActivityDocument.doc_dt, FCActivityDocument.id)
+                )
+            ) if candidate_ids else []
+            candidate_documents_by_case: dict[int, list[FCActivityDocument]] = defaultdict(list)
+            for document in candidate_documents:
+                candidate_documents_by_case[document.case_id].append(document)
+            resolved_ids = {
+                case.id
+                for case in candidate_cases
+                if classify_case(case, candidate_documents_by_case.get(case.id, []))["classification"].get("lifecycle_status", {}).get("status") == "closed"
+            }
+            candidates = [(case_id, year) for case_id, year in candidates if int(case_id) in resolved_ids]
         selected_ids = sample_case_ids(
             [(int(case_id), year) for case_id, year in candidates],
             sample_size=sample_size,
@@ -470,6 +502,9 @@ def build_report(
         "sample_size_actual": len(rows),
         "recent_years": recent_years,
         "recent_share_requested": recent_share,
+        "min_year": min_year,
+        "resolved_only": resolved_only,
+        "imm_suffix": imm_suffix,
         "year_counts": dict(Counter(str(row["year"]) for row in rows)),
         "event_counts": dict(sorted(event_counts.items())),
         "event_outcomes": dict(sorted(event_outcomes.items())),
@@ -496,6 +531,9 @@ def main() -> int:
     parser.add_argument("--recent-years", type=int, default=7)
     parser.add_argument("--recent-share", type=float, default=0.7)
     parser.add_argument("--seed", type=int, default=20260925)
+    parser.add_argument("--min-year", type=int, default=None, help="Only sample cases from this filing year onward")
+    parser.add_argument("--resolved-only", action="store_true", help="Only sample cases whose classified lifecycle status is closed")
+    parser.add_argument("--imm-suffix", default=None, help="Only sample cases whose IMM number ends with this suffix")
     parser.add_argument("--gold-set", type=Path, default=None, help="Optional JSON gold set with activity_case_id and expected dotted fields")
     args = parser.parse_args()
     gold_set: list[dict[str, Any]] = []
@@ -508,6 +546,9 @@ def main() -> int:
         recent_share=args.recent_share,
         seed=args.seed,
         output=args.output,
+        min_year=args.min_year,
+        resolved_only=args.resolved_only,
+        imm_suffix=args.imm_suffix,
         gold_set=gold_set,
     )
     print(json.dumps({key: report[key] for key in ("sample_size_actual", "year_counts", "event_counts", "database_written")}, sort_keys=True))

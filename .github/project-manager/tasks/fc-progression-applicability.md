@@ -71,3 +71,13 @@ Validation: Focused classifier/evaluator tests and bounded read-only evaluation 
 Residual risk: Applicability coverage is not an accuracy estimate and does not yet cover every field.
 
 Next recommended task: Revalidate a bounded source sample; keep pending states unchanged unless source evidence supports a precise rule.
+
+## IMM-15 Evaluation Checkpoint
+
+The bounded 1,000-case IMM suffix `15` sample completed with 964 cases
+classified closed and 36 active. Determinate applicability was leave 98.3%,
+perfection 98.4%, hearing 98.6%, judicial-review result 98.3%, and
+judicial-review final decision 96.4%. The run made no database writes. The
+evaluator was corrected to filter through indexed `FCActivityClassification`
+rows and load documents only after sampling; the stalled whole-population run
+was stopped and produced no artifact.

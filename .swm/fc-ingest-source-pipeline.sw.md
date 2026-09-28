@@ -195,6 +195,22 @@ gaps or unresolved progression states, not reliable signals that perfection
 occurred or that no hearing occurred. Source revalidation is required before
 adding rules.
 
+### IMM-15 Coverage Checkpoint
+
+A bounded sample selected 1,000 cases through the indexed
+`FCActivityClassification.imm_number` suffix `15`; all were 2015 cases. The
+sample retained cases classified as active: 964 were closed and 36 active. No
+database writes occurred. Leave was determinate in 98.3% of cases, perfection
+in 98.4%, hearing in 98.6%, judicial-review result in 98.3%, and
+judicial-review final decision in 96.4%. The artifact is
+`data/eval/fc_activity_imm_suffix_15_20260928.json`.
+
+The sample contained 2,794 motion events across 267 cases. Event-level subtype
+coverage was 51.36% and result coverage 12.56%; grouped motion coverage was
+34.17% for subtype and 6.19% for result. The evaluator now applies the IMM
+suffix in the database query and loads documents only for the selected sample,
+avoiding whole-population classification during bounded runs.
+
 ## Motion Coverage Denominators
 
 The deterministic evaluation preserves its document-level motion metrics, but

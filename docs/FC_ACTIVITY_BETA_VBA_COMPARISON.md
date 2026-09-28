@@ -289,6 +289,30 @@ perfected application. The correct current result is `pending`, not
 or database write was performed. Future improvement should revalidate source
 completeness for a bounded sample before changing these states.
 
+## IMM-15 Coverage Checkpoint
+
+A new bounded sample selected exactly 1,000 cases through the indexed
+`FCActivityClassification.imm_number` suffix `15`. All sampled cases carried
+the 2015 year marker. The run did not filter on the classifier's lifecycle
+judgment: 964 cases were classified `closed` and 36 `active`. It made no
+database writes. The report is
+`data/eval/fc_activity_imm_suffix_15_20260928.json`.
+
+Applicability coverage was:
+
+| Field | Known | Not applicable | Not observed | Pending | Determinate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Leave decision | 79.8% | 18.5% | 0% | 1.7% | 98.3% |
+| Application perfected | 69.5% | 28.9% | 0% | 1.6% | 98.4% |
+| Hearing held | 82.9% | 15.7% | 0.9% | 0.5% | 98.6% |
+| Judicial-review result | 15.1% | 81.5% | 1.7% | 1.7% | 98.3% |
+| Judicial-review final decision | 14.9% | 81.5% | 1.7% | 1.9% | 96.4% |
+
+Motion extraction found 2,794 motion events across 267 cases. Subtype coverage
+was 51.36% and result coverage was 12.56%; grouped motion subtype coverage was
+34.17% and grouped result coverage was 6.19%. These motion figures remain
+separate from case-progression applicability and retain unknowns.
+
 ## Document Versus Unique-Motion Coverage
 
 The evaluation now reports two denominators. Document-level metrics retain one

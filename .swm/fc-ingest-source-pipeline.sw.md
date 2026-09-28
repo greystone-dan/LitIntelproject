@@ -105,6 +105,23 @@ outcomes, dates, and bounded source evidence. Rows remain unknown and
 The family labels are triage aids only and require linked-document review
 before fixture or rule promotion.
 
+## Full Unknown-Motion OpenAI Enrichment
+
+The fixed corpus contained 700 unknown-subtype motion events. The review-only
+event adapter sent all 700 in 70 sequential batches using `gpt-4.1-nano`, with
+a `$5.00` hard budget and resumable checkpoints. The initial projected cost was
+`$0.041059`; actual combined spend after retrying responses without structured
+suggestions was `$0.0316852`.
+
+The result is stored at
+`data/eval/fc_activity_motion_unknowns_openai_20260928.json`. The run made a
+network call but wrote no database data and promoted no classifier rules. It
+contains 698 structured advisory suggestions; 2 events remain unresolved after
+the bounded retry. These outputs are review signals only, not a gold set and
+not classifier truth. A stale organization/project setting in `.env` caused the
+first authentication attempt to fail; the adapter now removes those optional
+variables before creating the client.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

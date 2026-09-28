@@ -182,3 +182,22 @@ and bounded evidence text. Every row remains `review_status=unknown` with no
 suggested subtype, and `rules_promoted=false`. These are triage families, not
 legal or procedural classifications; the next fixture work must review linked
 documents before proposing any rule.
+
+## Full Unknown-Motion OpenAI Enrichment
+
+All 700 unknown-subtype motion events from the fixed corpus were sent through
+the event-level `gpt-4.1-nano` adapter in 70 bounded batches. The run completed
+normally within the hard `$5.00` budget: projected cost was `$0.041059` and
+actual spend was `$0.0316852`. It used 93,796 prompt tokens and 44,434
+completion tokens across the initial pass and the bounded retry of responses
+that omitted structured suggestions.
+
+The review artifact is
+`data/eval/fc_activity_motion_unknowns_openai_20260928.json`. It records
+`network_called=true`, `database_written=false`, and `rules_promoted=false`.
+698 events have structured advisory suggestions; 2 remain unresolved after the
+retry and remain eligible for later source-backed review. The suggestions are
+not a gold set, classifier truth, or automatic rule input. The initial API
+failure was traced to stale organization/project environment variables loaded
+from `.env`; the adapter now removes those optional variables before client
+construction.

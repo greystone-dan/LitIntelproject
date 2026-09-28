@@ -237,7 +237,7 @@ def _intelligence_coverage(classifications: list[dict[str, Any]]) -> dict[str, A
 
 
 def _applicability_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
-    fields = ("leave_decision", "judicial_review_result", "judicial_review_final_decision", "final_decision")
+    fields = ("application_perfected", "leave_decision", "hearing_held", "judicial_review_result", "judicial_review_final_decision", "final_decision")
     counts: dict[str, Counter[str]] = {field: Counter() for field in fields}
     reasons: dict[str, Counter[str]] = {field: Counter() for field in fields}
     for classification in classifications:

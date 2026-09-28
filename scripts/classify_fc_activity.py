@@ -960,6 +960,8 @@ def _field_applicability(
     review_result: str,
     judicial_review_final: Evidence,
     final_decision: Evidence,
+    perfection_status: dict[str, Any],
+    hearing_status: dict[str, Any],
     closing_status: dict[str, Any],
     full_history_resolution: dict[str, Any],
 ) -> dict[str, dict[str, Any]]:
@@ -970,6 +972,32 @@ def _field_applicability(
     terminal_date = terminal.get("date")
     terminated_before_leave = bool(terminal_kind and (not leave_date or not terminal_date or terminal_date <= leave_date))
     terminated_after_leave = bool(terminal_kind and effective_leave_result == "granted" and leave_date and terminal_date and terminal_date > leave_date)
+
+    if perfection_status.get("status") in {"perfected", "not_perfected"}:
+        application_perfected_status = {
+            "status": "known",
+            "reason": perfection_status["status"],
+            "evidence_status": "yes" if perfection_status["status"] == "perfected" else "no",
+        }
+    elif leave_context.get("status") == "not_applicable_direct_judicial_review":
+        application_perfected_status = {"status": "not_applicable", "reason": "direct_judicial_review"}
+    elif application_filed.status != "yes":
+        application_perfected_status = {"status": "not_applicable", "reason": "no_originating_application"}
+    elif terminal_kind and not perfection_status.get("date"):
+        application_perfected_status = {"status": "not_applicable", "reason": f"not_perfected_before_{terminal_kind}"}
+    else:
+        application_perfected_status = {"status": "pending", "reason": "perfection_signal_not_observed"}
+
+    if hearing_status.get("status") in {"held", "reserved", "not_held"}:
+        hearing_applicability = {"status": "known", "reason": hearing_status["status"], "evidence_status": "yes" if hearing_status["status"] != "not_held" else "no"}
+    elif effective_leave_result == "refused":
+        hearing_applicability = {"status": "not_applicable", "reason": "leave_refused"}
+    elif terminated_before_leave:
+        hearing_applicability = {"status": "not_applicable", "reason": f"{terminal_kind}_before_leave"}
+    elif effective_leave_result == "granted" or leave_context.get("status") == "not_applicable_direct_judicial_review":
+        hearing_applicability = {"status": "not_observed", "reason": "hearing_signal_not_observed"}
+    else:
+        hearing_applicability = {"status": "pending", "reason": "leave_not_resolved"}
 
     if leave_context.get("status") == "not_applicable_direct_judicial_review":
         leave_status = {
@@ -1013,10 +1041,12 @@ def _field_applicability(
         review_final_status = {"status": "not_observed", "reason": "leave_not_resolved"}
 
     return {
+        "application_perfected": application_perfected_status,
         "leave_decision": {**leave_status, "evidence_status": leave_result},
         "judicial_review_result": {**review_status, "evidence_result": review_result},
         "judicial_review_final_decision": {**review_final_status, "evidence_status": judicial_review_final.status},
         "final_decision": {"status": "known" if final_decision.status == "yes" else "not_observed", "reason": "generic_final_decision_marker" if final_decision.status == "yes" else "generic_final_decision_not_observed"},
+        "hearing_held": hearing_applicability,
     }
 
 
@@ -1096,6 +1126,8 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         review_result=review_result,
         judicial_review_final=judicial_review_final,
         final_decision=final_decision,
+        perfection_status=perfection_status,
+        hearing_status=hearing_status,
         closing_status=closing_status,
         full_history_resolution=full_history_resolution,
     )

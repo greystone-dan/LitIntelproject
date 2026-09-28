@@ -205,6 +205,47 @@ def test_does_not_treat_respondent_record_as_application_perfected():
 
     assert result["application_perfected"]["status"] == "unknown"
     assert result["application_perfected"]["date"] is None
+    assert result["field_applicability"]["application_perfected"] == {"status": "not_applicable", "reason": "no_originating_application"}
+
+
+def test_application_perfected_pending_when_filing_has_no_perfection_signal():
+    result = classify_events([event(1, "2024-01-02", "Application for leave and judicial review filed.")])
+
+    assert result["field_applicability"]["application_perfected"] == {"status": "pending", "reason": "perfection_signal_not_observed"}
+
+
+def test_hearing_is_not_applicable_when_leave_is_refused():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Order dismissing the application for leave."),
+        ]
+    )
+
+    assert result["field_applicability"]["hearing_held"] == {"status": "not_applicable", "reason": "leave_refused"}
+
+
+def test_hearing_is_not_applicable_when_discontinued_before_leave():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Notice of discontinuance filed."),
+        ]
+    )
+
+    assert result["field_applicability"]["hearing_held"] == {"status": "not_applicable", "reason": "discontinued_before_leave"}
+
+
+def test_hearing_applicability_is_known_when_hearing_is_held():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Order granting the application for leave."),
+            event(3, "2024-03-15", "Result of hearing: held in court."),
+        ]
+    )
+
+    assert result["field_applicability"]["hearing_held"] == {"status": "known", "reason": "held", "evidence_status": "yes"}
 
 
 def test_classifies_english_and_french_applicant_record_wording():

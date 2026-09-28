@@ -35,13 +35,13 @@ Docs/generated references: `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`; `.swm/fc-i
 
 Rollback/recovery: Revert the applicability-only code/test/docs commit; no database migration or bulk write is required.
 
-Evidence: Existing classifier inspection showed `leave_context.status` already distinguished `refused`, `pending`, direct judicial review, and inferred grant, while downstream final-decision applicability remained ambiguous. The implementation now emits `field_applicability` with explicit leave N/A reasons and explanations; the bounded 1,000-case evaluation recorded leave known=466, pending=252, not applicable=278, including 152 not perfected before discontinuance, 121 discontinued after perfection before leave, 4 administratively terminated before perfection, and 1 direct judicial review; judicial-review result known=52, pending=20, not applicable=672; judicial-review final known=50, pending=22, not applicable=672; `database_written=false`.
+Evidence: Existing classifier inspection showed `leave_context.status` already distinguished `refused`, `pending`, direct judicial review, and inferred grant, while downstream final-decision applicability remained ambiguous. The implementation now emits `field_applicability` with explicit leave N/A reasons and explanations plus application-perfection and hearing applicability. The bounded 1,000-case evaluation recorded leave known=466, pending=252, not applicable=278; application perfection known=529, pending=309, not applicable=162; hearing known=516, pending=220, not observed=6, not applicable=258; judicial-review result known=52, pending=20, not applicable=672; judicial-review final known=50, pending=22, not applicable=672; `database_written=false`.
 
 Files changed: `scripts/classify_fc_activity.py`, `scripts/evaluate_fc_activity_deterministic.py`, `tests/test_classify_fc_activity.py`, `tests/test_evaluate_fc_activity_deterministic.py`, `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`, `.swm/fc-ingest-source-pipeline.sw.md`, this task record, and the read-only evaluation artifact.
 Delegated work: Explore agent reviewed classifier, tests, docs, schema, and the existing 1,000-case artifact; no files changed.
 Focused validation: `pytest tests/test_classify_fc_activity.py -q` (54 passed); `pytest tests/test_evaluate_fc_activity_deterministic.py -q` (12 passed); bounded evaluation completed with no database write. Final documentation and generated-doc checks pending.
 Residual risk: Some terminal states remain uncertain when source history is incomplete or contradictory; production-order inference is supporting evidence, not a direct leave decision.
-Next bounded task: Extend applicability to hearing and application-perfection states after review of the new denominator report.
+Next bounded task: Review pending perfection and hearing cases for source-history gaps before adding further progression rules.
 
 ## Hypothesis
 
@@ -70,4 +70,4 @@ Validation: Focused classifier/evaluator tests and bounded read-only evaluation 
 
 Residual risk: Applicability coverage is not an accuracy estimate and does not yet cover every field.
 
-Next recommended task: Extend the same state model to hearing and perfection applicability.
+Next recommended task: Sample pending perfection and hearing cases to determine whether additional deterministic evidence rules are justified.

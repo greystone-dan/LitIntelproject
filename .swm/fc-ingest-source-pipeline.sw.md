@@ -171,6 +171,15 @@ judicial-review result and final decision not applicable, 20 pending
 judicial-review results, and 22 pending judicial-review final decisions.
 These are applicability-aware denominators, not accuracy estimates.
 
+The same model now covers application perfection and hearings. In the bounded
+report, application perfection was known in 529 cases, pending in 309, and
+not applicable in 162; hearing status was known in 516, pending in 220, not
+observed in 6, and not applicable in 258. Perfection N/A reasons distinguish
+no originating application, direct judicial review, and terminal closure
+before perfection. Hearing N/A reasons distinguish leave refusal from
+discontinuance or administrative termination before leave. Explicit hearing
+signals remain authoritative, including not-held and reserved outcomes.
+
 ## Motion Coverage Denominators
 
 The deterministic evaluation preserves its document-level motion metrics, but

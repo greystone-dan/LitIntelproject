@@ -29,6 +29,9 @@ routine confirmation or status approval:
 1. Read the required authority docs and local owner/test surface.
 2. Write the hypothesis, acceptance criteria, rollback, and focused check into
 	the task record.
+	Declare the same acceptance criteria when creating the harness run and record
+	each result with the harness `criterion` action; completion requires every
+	declared criterion to be explicitly passed.
 3. For every multi-step, strategic, open-ended, or cross-surface task, enter a
 	delegated phase before manager implementation. Assign the smallest bounded
 	worker slice and require the exact structured delegated return below. Skip
@@ -50,6 +53,17 @@ under bounded watchdogs, but they must leave state, logs, and a recovery command
 Completion is forbidden until the task record names: files changed, delegated
 work, commands actually run, focused validation results, canonical documentation
 path, Swimm walkthrough path, residual risk, and the next bounded task.
+Use the task-record labels `Files changed:`, `Delegated work:`,
+`Focused validation:`, `Residual risk:`, and `Next bounded task:` so the
+repository evidence gate can verify the completion contract. Before reporting
+completion, run `scripts/evidence_gate.py` against the terminal run state and
+task record; if it fails, repair the same task and rerun the gate. New runs
+must be created with the task record and required documentation paths so the
+harness performs this check automatically before changing state to `complete`.
+A managed run must not transition directly from planning to `complete`.
+Declare criteria with repeated `--criterion` options and record each result with
+`scripts/agent_harness.py criterion RUN_DIR INDEX true`; missing, false, extra,
+or invalidly linked results block completion.
 
 Delegated returns must use exactly this schema:
 

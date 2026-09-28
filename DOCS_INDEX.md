@@ -70,11 +70,14 @@ Current operational sources of truth:
 6. `AI_HANDOFF.md`
 - Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
 
-7. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+7. `docs/CLAUDE_ACTIVITY_PROJECT_SETUP.md`
+- Portable Claude Project setup, Activity data contract, commands, prompts, evidence rules, and implementation acceptance criteria.
+
+8. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
 - Swimm mapping plan and future manager-agent contract; it does not override
 	the canonical architecture or generated references.
 
-8. `side_projects/luck_of_the_draw_iii/README.md`
+9. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
 Historical context (read with caution):

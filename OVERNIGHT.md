@@ -119,6 +119,14 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Federal Court activity | `backend/fc_activity.py`; activity normalization/classification support | Staged activity records -> normalized activity data | Separate activity/procedural tables; not proof of captured judgment | FC activity tests and bounded import |
 | Page builders | `backend/pages/`; page-specific HTML builders (`data_explorer.py`, `quick_search.py`, `research.py`, etc.) | Data/config -> rendered page fragments | No canonical writes during rendering | feature-tab tests and browser check |
 
+Federal Court activity worker preparation and future independent execution are
+documented in `docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md`. The planned worker
+stages portal/API discovery, JSONL or SQLite staging, and deterministic
+classification outside the public website. Oracle account access, VM/network
+creation, credentials, protected-data hosting, and canonical PostgreSQL writes
+remain explicit approval-gated operations. Never run a bulk FC writer beside
+another PostgreSQL writer.
+
 ## Repository Families
 
 ### `backend/`

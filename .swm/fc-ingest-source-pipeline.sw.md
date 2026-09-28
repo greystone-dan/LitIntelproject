@@ -54,14 +54,207 @@ The Federal Court activity layer is also distinct from judgment capture. An
 activity or procedural record may be useful context while remaining outside the
 canonical judgment path.
 
+## Independent Activity Worker
+
+The preparation contract for a future independent Federal Court activity worker
+is documented in `docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md`. The worker may
+stage portal/API discovery and deterministic classification away from the public
+website, while preserving raw payloads, checkpoints, provenance, and source
+status. Canonical PostgreSQL import remains a separate exclusive operation.
+
+Oracle Always Free is an approval-gated hosting option, not an implemented
+deployment. Account access, VM/network creation, credentials, protected-data
+hosting, and remote execution require explicit operator approval and the
+security, privacy, backup, and recovery decisions described by the runbook.
+
+## Bounded Run Evidence
+
+On 2026-09-25, the decision-portal collector was tested but is not the FC
+Activity acquisition path: IMM-only and default-prefix runs were each limited
+to one page and five records, exited with code 0, but reported
+`Scanned=0 Written=0` and created neither JSONL nor checkpoint output.
+
+The FC Activity endpoint path was then tested separately with a bounded
+sequential dry-run. Five candidates were attempted and 63 activity records were
+returned with exit code 0, confirming endpoint reachability. No database tables
+were written. The endpoint adapter now supports an explicit
+`--write-activity` mode. That mode uses a stable IMM-based case key, stable
+entry hashes, preserves the endpoint payload and source IMM, and writes only
+`fc_activity_cases` and `fc_activity_documents`; it does not write
+`fc_procedural_history` or canonical cases. The next bounded slice is the live
+Activity-only write and rerun-deduplication verification. Before that write, the
+harvester enforces a 2-second default inter-candidate floor with optional
+jitter and caps API attempts including retries. A bounded dry-run diagnostic may
+explicitly use `--diagnostic-allow-sub-2000ms-delay` to probe faster rates; this
+does not change the routine collection default. Explicit `--adaptive-delay` mode
+can process 20-case checkpoints, pause 5 seconds after an issue, and double the
+delay up to its ceiling before continuing. The Court does not publish a robots
+policy; these local controls are the reviewed safety policy.
+The harvester also supports `--log-file` for line-buffered operator monitoring;
+the log mirrors candidate progress, warnings, adaptive pauses, checkpoints, and
+final request totals.
+
+The Activity normalization checkpoint is deterministic and read-only over raw
+`fc_activity_documents`. It emits evidence-backed procedural observations for
+filing/perfection, notices of appearance, leave, judges, motions, stays, hearings, decisions, and
+procedural markers without turning an Activity row into a canonical case or
+citation. Explicit semantic filing/hearing/decision dates are kept separate
+from the source `DOC_DT`; unknown and ambiguous signals remain visible.
+
+The 2026-09-26 evaluation checkpoint used a fixed 100-record cross-year sample
+with seven-year weighting and a bounded 12-record `gpt-4.1-nano` audit at
+75-percent recent-year weighting. The deterministic report and audit JSON are
+stored under `data/eval/`. The audit made no database writes and cost an
+estimated `$0.001548`; its remaining improvement signals concern final
+decision-marker clarity and explicit filing-date labeling. The runbook remains
+the operational procedure for reproducing this checkpoint.
+
+The next bounded classifier improvement recognizes explicit removal-cancellation
+wording as an implicit granted-stay signal under `stay_cancellation`. The event
+retains source evidence and does not alter raw Activity rows. This is deliberately
+not a categorical judicial disposition: administrative cancellation wording and
+French equivalents require additional source-backed review before statistics are
+exposed as final outcomes.
+
+Explicit stay-motion wording such as `removal order scheduled for
+26-FEB-2007 to Nigeria` is also retained as optional
+`removal_scheduled_date` and `removal_destination` metadata on the derived
+event. These fields support future procedural-delay metrics while preserving
+the source document date and avoiding any inference that removal occurred.
+
+The deterministic report now aggregates these explicit dates into additive
+filing-to-removal and motion-to-removal delay metrics. Complete intervals are
+summarized separately from missing scheduled dates and ambiguous date order; the
+fixed 100-record checkpoint produced three valid intervals for each metric and
+one ambiguous case. Coverage counts and rates are included so the small valid
+sample is not mistaken for a population estimate; current coverage is 3%.
+
+On 2026-09-27, a five-record real-data smoke classification completed with no
+write, followed by a seeded 100-record deterministic evaluation. The coverage
+rerun reported 84 closed and 16 active records, 32% final-decision judge-stage
+coverage, 67% unknown decision subjects, and 2% valid removal-delay coverage.
+Explicit `refugee_protection` markers now cover 21 records; rows without an
+explicit subject marker remain unknown. No Activity or canonical database
+writes were performed.
+The follow-up stay-pattern pass also recognizes explicit month-first removal
+dates such as `on Monday January 31, 2023`; the same report remained at 2%
+valid delay coverage because the added date did not form another complete
+filing/removal interval.
+The next deterministic judge pass added explicit French and English judicial
+title forms, including `Monsieur le juge`, `BEFORE The Honourable ... Justice`,
+initials, and hearing metadata delimiters. The seeded 100-record rerun raised
+judge-identified cases from 43 to 63, with final-decision coverage rising from
+32% to 42%. Hearing status remains unknown where the docket has no explicit
+hearing signal.
+The evaluator's full-inventory sampling was corrected from an O(N2) list scan
+to set-based cohort splitting before this checkpoint. A bounded local review of
+one captured Activity entry returned source-linked JSON through Ollama
+`qwen3:4b`; it remained review-only and wrote no production fact.
+
+The 2026-09-27 bounded OpenAI feedback loop reviewed three 100-record batches
+at a combined estimated cost of `$0.0219956`. Two early batches used the same
+100-record artifact and therefore had complete overlap; the corrected
+1,000-record corpus produced a zero-overlap third sample. The audit path was
+then changed to include bounded source-document excerpts, since extracted
+events alone cannot support missed-event review. One source-supported gap was
+promoted: explicit filed or served notices of appearance now emit
+`appearance_filed` with subtype `notice_of_appearance`. Model suggestions about
+hearings, finality, and judge/date fields were not promoted where the
+deterministic record already contained the signal or the proposed semantics
+were ambiguous. All batches remained review-only with no database writes.
+
+The next manual-audit checkpoint exported 10 real Activity cases using one
+case per available year and a reproducible seed. The package contains 83
+documents and 7 persisted `fc_activity_v3` classifications; one selected case
+has no documents and three selected cases have no persisted classification. The
+companion `audit_report.md` and `audit_report.json` present 27 evidence-linked
+findings, case summaries, and 47 explicit audit gaps. The report supports both
+the older persisted classification shape and the newer `procedural_events`
+shape, while preserving the raw JSONL package as the source of truth.
+
+The classifier also emits evidence-linked judge observations grouped by
+procedural stage (`leave`, `motion`, `hearing`, and `final_decision`), separates
+challenged-decision maker type from subject, and assigns a conservative
+lifecycle state (`closed`, `abeyance`, `active`, or `unknown`). The active
+state means substantive activity exists without a terminal signal and is
+marked as inferred; elapsed age alone is not a closure rule. Explicit
+no-personal-appearance wording is excluded from held-hearing extraction. The
+bounded deterministic evaluator reports stage, decision-field, lifecycle, and
+delay coverage with explicit denominators before any bulk write or local-LLM
+review.
+
+The stabilized JSON now groups application, leave, motion, hearing,
+final-decision, and closure observations under stage-aware
+`milestone_rollups`. Challenged decisions retain separate decision-maker,
+underlying-tribunal, and subject taxonomy fields with conservative unknowns.
+Hearing semantics distinguish scheduled, held, reserved, and not-held text;
+English/French negation remains negative evidence rather than an affirmative
+event. The evaluator exposes queryable analytics dimensions and optional
+seeded JSON gold-set coverage/accuracy/disagreement metrics without changing
+the Activity schema. The local provider remains review-only and abstaining;
+the 2026-09-27 probe was blocked by HTTP 404 from the configured localhost
+chat endpoint, so no LLM-derived facts were accepted.
+
+## Claude Activity Handoff
+
+The read-only `scripts/export_fc_activity_package.py` exporter creates a
+portable handoff for Claude without exposing PostgreSQL credentials. It writes
+streamed UTF-8 JSONL layers for Activity cases, procedural documents, and
+deterministic classifications, plus a manifest containing counts, joins,
+classifier versions, provenance, and limitations. Raw `raw_payload` and
+`raw_document` evidence stays separate from derived classification. Use
+`--limit` for a bounded review; the limit applies to case rows and retains all
+linked child rows. The full export is appropriate only after disk-space review.
+The package is for designing and evaluating transformations, not for asserting
+legal outcomes or treating procedural Activity as canonical judgment data.
+
 ## Operational Rules
 
 - Use bounded date/month or prefix scopes, delays, retries, and checkpoints.
-- Respect robots, source terms, and remote access limits.
+- Respect source terms and remote access limits.
 - Treat source blocks and empty payloads as explicit failures.
 - Use JSONL/SQLite staging and resume support before attempting a bridge import.
 - Never run a bulk canonical import alongside another PostgreSQL writer.
 - Verify sampled source keys, document hashes, capture status, and import counts.
+
+Decision entries preserve distinct date meanings: an explicit rendered/order
+date becomes the decision event date, an explicit later filed date is retained
+as `filing_date`, and the source registry `DOC_DT` remains
+`source_document_date`. Filing, motion, and stay events continue to prefer
+their explicit filing date. These derived fields stay inside the Activity
+layer and are not canonical judgment dates.
+
+Subject extraction remains explicit-only. SPR/SAR/PRRA and full French
+refugee-protection wording produce `refugee_protection`; H&C/Humanitarian
+Migration produces `humanitarian_and_compassionate`; explicit Express Entry
+or family/spousal program wording produces `permanent_residence`; and
+Visitor's Visa produces `temporary_residence`. Generic visa-office, IRCC,
+CBSA, and IRB references remain unknown when no subject is stated. The
+2010-present-weighted 500-case checkpoint reduced unknown subjects from 335 to
+304 with evidence completeness unchanged.
+
+The classifier now searches the full linked Activity history for explicit
+subject and decision-maker evidence. The originating entry remains the source
+for application metadata and parsed maker text; later records can fill the
+typed subject or maker category and retain their supporting document id/text.
+In the 1,000-case recent-weighted checkpoint, subject unknowns fell from 658 to
+547 and maker unknowns from 237 to 130 without changing event counts or
+evidence completeness. Generic agency and tribunal references remain unknown
+when they do not state the legal subject.
+
+Reports now distinguish explicit subjects from generic institutional evidence
+and from no subject evidence. Generic labels such as IRCC CPC, visa office,
+embassy/consulate, IRB/IAD, CBSA, MPSEP, GTEC, and French agency names remain
+available as `decision_subject_label` without being promoted to a legal
+subject. The final 1,000-case audit contained 461 explicit subjects, 437
+generic-only cases, and 8 cases with no subject evidence.
+
+The leave classifier follows the VBA-derived priority ladder: explicit English
+or French leave outcomes win; a later judicial-review outcome can expose
+`inferred_granted`; discontinuance, withdrawal, termination, and direct review
+remain not applicable; and an unresolved leave application is surfaced as
+`leave_context.status = pending`. In the fixed 1,000-case comparison, 14 prior
+unknown results became explicit outcomes, with no event-count change.
 
 ## Modularization Direction
 

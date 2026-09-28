@@ -333,9 +333,16 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 - **Statutes**: statute references appearing alongside authority use.
 - **Evidence/table views**: stored citation rows, offsets, and target context.
 
-The Overview also includes a compact case fingerprint: incoming/outgoing network metrics, stored citing decisions with bounded mention bars, and a shared-authority cluster when resolved citation data supports it. Citing rows open the active inline reader. The cluster is a derived navigation aid based on shared authorities, not a finding that decisions are legally similar or that an authority received a particular treatment.
+The Overview also includes a compact case fingerprint and citation-footprint visual: incoming/outgoing network metrics, stored citing decisions with bounded mention bars, relative bars for citing decisions/mentions/top-decision volume, date span, and a shared-authority cluster when resolved citation data supports it. Citing rows open the active inline reader. The visual combines stored counts with a clearly labeled derived concentration value; it is not a finding that decisions are legally similar or that an authority received a particular treatment.
 
 Timeline years are actionable. Selecting a year opens the existing evidence view filtered to stored citation rows from that year; the filter can be cleared without leaving Citation Intelligence. This is a traceability path into stored evidence, not a claim about how an authority was treated in that year.
+
+Citation Intelligence behaves as a case-focused workspace rather than a
+bottom-of-page feature tray. Its secondary navigation stays above the result
+and content regions, so the available research paths are visible before the
+overview grows. When a result opens the inline reader, the originating
+Citation Intelligence result list is cleared so stale cards do not remain
+above the decision and force an avoidable scroll.
 
 The Overview presents explicit research paths to Timeline, Neighborhood, and
 stored Evidence, so the existing citation-intelligence work is visible as one

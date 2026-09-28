@@ -44,6 +44,10 @@ data/eval/reports/tag-candidate-review.json
 # Local Discussion Unit evaluation outputs; retain summaries separately if needed
 data/eval/llm_discussion_units_pilot/*_run/
 
+# Project-manager run state and large external-review exports stay local.
+.github/project-manager/runs/
+data/copilot_exports/
+
 # Side-project generated artifacts
 side_projects/**/cache/
 side_projects/**/output/

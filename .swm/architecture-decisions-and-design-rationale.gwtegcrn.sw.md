@@ -113,10 +113,25 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 	generative model authoritative for citations, statutes, offsets, or source
 	provenance.
 - **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
-	path; users must install Ollama and pull an instruct model separately.
+	path; `TEXT_GENERATION_PROVIDER=local` selects it for the experimental
+	`/research` route; users must install Ollama and pull an instruct model
+	separately. The script runner and API share the same OpenAI-compatible
+	contract.
 - **Revisit trigger:** A local model passes bounded accuracy, latency,
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.
+
+The first Qwen3 paragraph-summary baseline (Case 1093, paragraphs 0-9) keeps
+	this boundary report-only. `scripts/run_local_paragraph_summary_baseline.py`
+	reconstructs source text from read-only `CaseChunk` offsets, validates hashes,
+	and records explicit per-paragraph failures. The run produced 3 valid summaries
+	and 7 structured-output failures, so no persistent summary field or enrichment
+	write is justified yet.
+
+A Case 35868 replay against the existing OpenAI discussion-unit request reinforced
+	the boundary: the full local payload timed out, while a first-10-paragraph
+	replay returned a non-matching case-summary schema and conflicting case identity.
+	The result is retained only as a diagnostic comparison artifact.
 
 ### Use `/data-explorer` as the active research workflow
 

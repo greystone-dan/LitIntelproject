@@ -17,7 +17,9 @@ Input sources (choose one or more):
 
 Options:
   --update       Re-fetch and overwrite entries that already exist
-  --delay-ms     Milliseconds between requests (default 1000)
+    --delay-ms     Milliseconds between requests (default 2000)
+    --diagnostic-allow-sub-2000ms-delay
+                                 Explicitly allow a faster diagnostic probe; never use for routine collection
   --dry-run      Parse and print without writing to DB
 """
 
@@ -25,7 +27,9 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import random
 import re
 import sys
 import time
@@ -42,7 +46,13 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from sqlalchemy import select
 
-from backend.database import Case, FCProceduralHistory, SessionLocal
+from backend.database import (
+    Case,
+    FCActivityCase,
+    FCActivityDocument,
+    FCProceduralHistory,
+    SessionLocal,
+)
 
 # ---------------------------------------------------------------------------
 # FC API endpoints
@@ -68,14 +78,65 @@ HEADERS = {
     "Referer": "https://www.fct-cf.ca/",
 }
 
+MIN_DELAY_MS = 2000
+LOG_HANDLE = None
+
+
+def log_print(*args: Any, **kwargs: Any) -> None:
+    kwargs.setdefault("flush", True)
+    print(*args, **kwargs)
+    if LOG_HANDLE is not None:
+        log_kwargs = dict(kwargs)
+        log_kwargs["file"] = LOG_HANDLE
+        log_kwargs["flush"] = True
+        print(*args, **log_kwargs)
+
+
+class RequestBudget:
+    def __init__(self, maximum: int) -> None:
+        if maximum < 1:
+            raise ValueError("request budget must be at least 1")
+        self.maximum = maximum
+        self.used = 0
+
+    def spend(self) -> None:
+        if self.used >= self.maximum:
+            raise RuntimeError(f"request budget exhausted ({self.maximum})")
+        self.used += 1
+
+
+def validate_delay_ms(delay_ms: int, allow_sub_floor: bool = False) -> None:
+    if delay_ms < MIN_DELAY_MS and not allow_sub_floor:
+        raise ValueError(f"--delay-ms must be at least {MIN_DELAY_MS} ms")
+
+
+def wait_between_candidates(delay_ms: int, jitter_ms: int) -> None:
+    if jitter_ms < 0:
+        raise ValueError("--jitter-ms must be non-negative")
+    time.sleep((delay_ms + random.randint(0, jitter_ms)) / 1000)
+
+
+def adaptive_backoff_delay_ms(current_delay_ms: int, factor: float, maximum_ms: int) -> int:
+    if current_delay_ms < 0 or factor <= 1 or maximum_ms < current_delay_ms:
+        raise ValueError("invalid adaptive delay parameters")
+    return min(maximum_ms, max(current_delay_ms + 1, int(current_delay_ms * factor)))
+
 # ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
 
-def http_get(client: httpx.Client, url: str, retries: int = 3, delay: float = 1.0) -> str:
+def http_get(
+    client: httpx.Client,
+    url: str,
+    retries: int = 3,
+    delay: float = 1.0,
+    request_budget: RequestBudget | None = None,
+) -> str:
     last_err: Exception | None = None
     for attempt in range(1, retries + 1):
         try:
+            if request_budget is not None:
+                request_budget.spend()
             resp = client.get(url, timeout=20)
             if resp.status_code == 200:
                 return resp.text
@@ -129,6 +190,8 @@ def parse_all_entries(re_text: str) -> list[dict[str, str]]:
             entries.append({
                 "date": _clean_date(str(raw_date)),
                 "entry": str(entry_text).strip(),
+                "re_no": str(item.get("RE_NO") or item.get("RENO") or "").strip(),
+                "docno": str(item.get("DOCNO") or item.get("DOC_NO") or "").strip(),
             })
     except Exception:
         # Fallback: regex extraction (same as VBA)
@@ -137,7 +200,7 @@ def parse_all_entries(re_text: str) -> list[dict[str, str]]:
             re_text,
             re.DOTALL,
         ):
-            entries.append({"date": _clean_date(m_date), "entry": m_entry.strip()})
+            entries.append({"date": _clean_date(m_date), "entry": m_entry.strip(), "re_no": "", "docno": ""})
     return [e for e in entries if e["entry"]]  # drop header rows with no entry text
 
 
@@ -383,24 +446,28 @@ def _parse_date(s: str) -> date | None:
         return None
 
 
-def process_imm(client: httpx.Client, imm: str) -> dict[str, Any]:
+def process_imm(
+    client: httpx.Client,
+    imm: str,
+    request_budget: RequestBudget | None = None,
+) -> dict[str, Any]:
     imm = imm.strip().upper()
 
     # Metadata
     meta_text = ""
     try:
-        meta_text = http_get(client, FC_META_URL.format(imm=imm))
+        meta_text = http_get(client, FC_META_URL.format(imm=imm), request_budget=request_budget)
     except Exception as exc:
-        print(f"  [warn] meta fetch failed for {imm}: {exc}")
+        log_print(f"  [warn] meta fetch failed for {imm}: {exc}")
 
     style_of_cause = get_json_value(meta_text, "STYLE_OF_CAUSE") if meta_text else ""
 
     # Record of events
     re_text = ""
     try:
-        re_text = http_get(client, FC_RE_URL.format(imm=imm))
+        re_text = http_get(client, FC_RE_URL.format(imm=imm), request_budget=request_budget)
     except Exception as exc:
-        print(f"  [warn] RE fetch failed for {imm}: {exc}")
+        log_print(f"  [warn] RE fetch failed for {imm}: {exc}")
 
     if not re_text:
         return {
@@ -474,6 +541,113 @@ def upsert_result(db, result: dict[str, Any]) -> None:
         db.add(row)
     db.commit()
 
+
+def _activity_hash(*parts: Any) -> str:
+    payload = "|".join("" if part is None else str(part) for part in parts)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _activity_year(imm_number: str) -> int | None:
+    suffix = imm_number.rsplit("-", 1)[-1]
+    if not suffix.isdigit():
+        return None
+    value = int(suffix)
+    return 2000 + value if value <= 50 else 1900 + value
+
+
+def _json_safe(value: Any) -> Any:
+    if isinstance(value, (date, datetime)):
+        return value.isoformat()
+    if isinstance(value, dict):
+        return {key: _json_safe(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_json_safe(item) for item in value]
+    return value
+
+
+def _activity_document_identity(re_no: str | None, docno: str | None) -> tuple[str, str] | None:
+    if re_no is None or docno is None:
+        return None
+    return re_no, docno
+
+
+def write_activity_result(db, result: dict[str, Any]) -> tuple[int | None, int]:
+    """Upsert one endpoint result into the separate FC Activity tables."""
+    imm_number = str(result.get("imm_number") or "").strip().upper()
+    if not imm_number or result.get("error"):
+        return None, 0
+
+    year = _activity_year(imm_number)
+    source_key = _activity_hash("fc-procedural-endpoint", imm_number)
+    case = db.scalar(select(FCActivityCase).where(FCActivityCase.source_key == source_key))
+    payload = _json_safe(result)
+    if case is None:
+        case = FCActivityCase(
+            source_key=source_key,
+            citation=None,
+            year=year,
+            case_name=result.get("style_of_cause"),
+            date_filed=result.get("latest_activity_date"),
+            scraped_timestamp=result.get("fetched_at"),
+            raw_payload=payload,
+        )
+        db.add(case)
+        db.flush()
+    else:
+        case.case_name = result.get("style_of_cause") or case.case_name
+        case.year = year
+        case.date_filed = result.get("latest_activity_date")
+        case.scraped_timestamp = result.get("fetched_at")
+        case.raw_payload = payload
+
+    added = 0
+    seen_identities: set[tuple[str, str]] = set()
+    for entry in result.get("entries_json") or []:
+        entry_text = str(entry.get("entry") or "").strip()
+        entry_date = entry.get("date") or None
+        re_no = str(entry.get("re_no") or "").strip() or None
+        docno = str(entry.get("docno") or "").strip() or None
+        if not entry_text and not entry_date:
+            continue
+        entry_hash = _activity_hash(imm_number, re_no, docno, entry_date, entry_text)
+        identity = _activity_document_identity(re_no, docno)
+        if identity is not None:
+            if identity in seen_identities:
+                continue
+            seen_identities.add(identity)
+            existing = db.scalar(
+                select(FCActivityDocument).where(
+                    FCActivityDocument.case_id == case.id,
+                    FCActivityDocument.re_no == re_no,
+                    FCActivityDocument.docno == docno,
+                )
+            )
+            if existing is not None:
+                continue
+        existing = db.scalar(
+            select(FCActivityDocument).where(
+                FCActivityDocument.case_id == case.id,
+                FCActivityDocument.entry_hash == entry_hash,
+            )
+        )
+        if existing is not None:
+            continue
+        db.add(
+            FCActivityDocument(
+                case_id=case.id,
+                re_no=re_no,
+                docno=docno,
+                doc_dt=_parse_date(entry_date) if entry_date else None,
+                recorded_entry=entry_text or None,
+                entry_hash=entry_hash,
+                raw_document={"imm_number": imm_number, **entry},
+            )
+        )
+        added += 1
+
+    db.commit()
+    return case.id, added
+
 # ---------------------------------------------------------------------------
 # Seed loading
 # ---------------------------------------------------------------------------
@@ -544,15 +718,66 @@ def parse_args() -> argparse.Namespace:
     ctl = parser.add_argument_group("Options")
     ctl.add_argument("--update", action="store_true", help="Re-fetch and overwrite existing entries")
     ctl.add_argument("--reverse", action="store_true", help="Process IMM numbers in reverse order (newest first)")
-    ctl.add_argument("--delay-ms", type=int, default=1000, metavar="MS", help="Milliseconds between IMM fetches (default 1000)")
+    ctl.add_argument("--delay-ms", type=int, default=2000, metavar="MS", help="Milliseconds between IMM fetches (minimum 2000)")
+    ctl.add_argument(
+        "--diagnostic-allow-sub-2000ms-delay",
+        action="store_true",
+        help="Allow --delay-ms below 2000 ms for a bounded diagnostic probe only",
+    )
+    ctl.add_argument(
+        "--adaptive-delay",
+        action="store_true",
+        help="Back off after fetch issues and report bounded batch checkpoints",
+    )
+    ctl.add_argument("--batch-size", type=int, default=20, metavar="N", help="Cases per adaptive checkpoint (default 20)")
+    ctl.add_argument("--batch-pause-ms", type=int, default=0, metavar="MS", help="Pause after each adaptive checkpoint (default 0)")
+    ctl.add_argument("--issue-pause-ms", type=int, default=5000, metavar="MS", help="Pause after an adaptive fetch issue (default 5000)")
+    ctl.add_argument("--backoff-factor", type=float, default=2.0, metavar="FACTOR", help="Multiply delay after an adaptive fetch issue (default 2.0)")
+    ctl.add_argument("--max-delay-ms", type=int, default=None, metavar="MS", help="Adaptive delay ceiling (default 2000 or the starting delay, whichever is higher)")
+    ctl.add_argument("--jitter-ms", type=int, default=500, metavar="MS", help="Additional random delay up to this many milliseconds")
+    ctl.add_argument("--max-requests", type=int, default=100, metavar="N", help="Maximum API attempts including retries")
     ctl.add_argument("--limit", type=int, default=None, metavar="N", help="Max IMM numbers to process")
+    ctl.add_argument("--log-file", metavar="FILE", help="Append live console output to a UTF-8 log file")
     ctl.add_argument("--dry-run", action="store_true", help="Fetch and parse without writing to DB")
+    ctl.add_argument(
+        "--write-activity",
+        action="store_true",
+        help="Write endpoint results to fc_activity_* instead of fc_procedural_history",
+    )
 
-    return parser.parse_args()
+    args = parser.parse_args()
+    try:
+        validate_delay_ms(args.delay_ms, args.diagnostic_allow_sub_2000ms_delay)
+    except ValueError as exc:
+        parser.error(str(exc))
+    if args.jitter_ms < 0:
+        parser.error("--jitter-ms must be non-negative")
+    if args.batch_size < 1:
+        parser.error("--batch-size must be at least 1")
+    if args.batch_pause_ms < 0:
+        parser.error("--batch-pause-ms must be non-negative")
+    if args.issue_pause_ms < 0:
+        parser.error("--issue-pause-ms must be non-negative")
+    if args.backoff_factor <= 1:
+        parser.error("--backoff-factor must be greater than 1")
+    if args.max_delay_ms is None:
+        args.max_delay_ms = max(MIN_DELAY_MS, args.delay_ms)
+    elif args.max_delay_ms < args.delay_ms:
+        parser.error("--max-delay-ms must be at least --delay-ms")
+    if args.max_requests < 1:
+        parser.error("--max-requests must be at least 1")
+    return args
 
 
 def main() -> None:
+    global LOG_HANDLE
     args = parse_args()
+    if args.log_file:
+        try:
+            LOG_HANDLE = Path(args.log_file).open("a", encoding="utf-8", buffering=1)
+        except OSError as exc:
+            sys.exit(f"[error] Cannot open --log-file: {exc}")
+        log_print(f"[log] Writing live output to {Path(args.log_file)}")
 
     # Collect IMM numbers
     imms: list[str] = []
@@ -562,7 +787,7 @@ def main() -> None:
         imms.extend(load_imm_from_file(Path(args.imm_file)))
     if args.from_prototype:
         proto_imms = load_imm_from_prototype()
-        print(f"[info] {len(proto_imms)} IMM numbers from prototype cohort")
+        log_print(f"[info] {len(proto_imms)} IMM numbers from prototype cohort")
         imms.extend(proto_imms)
     if args.generate_years:
         years = [y.strip().zfill(2) for y in args.generate_years.split(",") if y.strip()]
@@ -571,14 +796,14 @@ def main() -> None:
             for yr in sorted(years, reverse=True)  # newest year first
             for n in range(args.max_imm, 0, -1)     # highest number first within each year
         ]
-        print(f"[info] Generated {len(generated):,} IMM numbers for years {', '.join(years)} (max_imm={args.max_imm})")
+        log_print(f"[info] Generated {len(generated):,} IMM numbers for years {', '.join(years)} (max_imm={args.max_imm})")
         # Only add ones not already in the explicit lists
         existing_keys = {i.upper() for i in imms}
         imms.extend(g for g in generated if g not in existing_keys)
 
     if not imms:
         if args.from_prototype:
-            print("[info] No prototype IMM numbers require procedural-history fetching.")
+            log_print("[info] No prototype IMM numbers require procedural-history fetching.")
             return
         sys.exit("[error] No IMM numbers provided. Use --imm-numbers, --imm-file, --from-prototype, or --generate-years.")
 
@@ -598,10 +823,10 @@ def main() -> None:
     if args.limit:
         imms = imms[: args.limit]
 
-    print(f"[info] Processing {len(imms)} IMM numbers")
+    log_print(f"[info] Processing {len(imms)} IMM numbers")
 
     # Skip already-existing unless --update
-    if not args.update and not args.dry_run:
+    if not args.update and not args.dry_run and not args.write_activity:
         db = SessionLocal()
         try:
             # For large lists, load all already-fetched IMM numbers once rather than a giant IN clause
@@ -612,53 +837,87 @@ def main() -> None:
             imms = [imm for imm in imms if imm not in already_done]
             skipped = before - len(imms)
             if skipped:
-                print(f"[info] Skipping {skipped:,} already-fetched IMM numbers (use --update to refresh)")
+                log_print(f"[info] Skipping {skipped:,} already-fetched IMM numbers (use --update to refresh)")
         finally:
             db.close()
 
     if not imms:
-        print("[info] Nothing to fetch.")
+        log_print("[info] Nothing to fetch.")
         return
 
     fetched = 0
     errors = 0
+    batch_pause_ms = getattr(args, "batch_pause_ms", 0)
 
     with httpx.Client(headers=HEADERS, follow_redirects=True) as client:
+        request_budget = RequestBudget(args.max_requests)
         db = SessionLocal() if not args.dry_run else None
+        current_delay_ms = args.delay_ms
         try:
             for i, imm in enumerate(imms, 1):
-                print(f"[fetch] ({i}/{len(imms)}) {imm}")
+                log_print(f"[fetch] ({i}/{len(imms)}) {imm}")
                 if i > 1:
-                    time.sleep(args.delay_ms / 1000)
+                    wait_between_candidates(current_delay_ms, args.jitter_ms)
 
                 try:
-                    result = process_imm(client, imm)
+                    result = process_imm(client, imm, request_budget=request_budget)
                 except Exception as exc:
-                    print(f"  [error] {imm}: {exc}")
+                    if "request budget exhausted" in str(exc).lower():
+                        raise
+                    log_print(f"  [error] {imm}: {exc}")
                     errors += 1
+                    if args.adaptive_delay:
+                        log_print(f"  [adaptive] pausing {args.issue_pause_ms} ms after issue")
+                        time.sleep(args.issue_pause_ms / 1000)
+                        current_delay_ms = adaptive_backoff_delay_ms(
+                            current_delay_ms, args.backoff_factor, args.max_delay_ms
+                        )
+                        log_print(f"  [adaptive] next delay: {current_delay_ms} ms")
+                    if args.adaptive_delay and (i % args.batch_size == 0 or i == len(imms)):
+                        log_print(f"[batch] checkpoint after {i}/{len(imms)} cases; delay={current_delay_ms} ms")
+                        if batch_pause_ms:
+                            log_print(f"[batch] pausing {batch_pause_ms} ms")
+                            time.sleep(batch_pause_ms / 1000)
                     continue
 
                 if args.dry_run:
-                    print(f"  style_of_cause : {result.get('style_of_cause') or '—'}")
-                    print(f"  leave_decision : {result.get('leave_decision')}")
-                    print(f"  jr_decision    : {result.get('jr_decision')}")
-                    print(f"  case_status    : {result.get('case_status')}")
-                    print(f"  latest_activity: {result.get('latest_activity_date')}")
-                    print(f"  entries        : {len(result.get('entries_json') or [])}")
+                    log_print(f"  style_of_cause : {result.get('style_of_cause') or '—'}")
+                    log_print(f"  leave_decision : {result.get('leave_decision')}")
+                    log_print(f"  jr_decision    : {result.get('jr_decision')}")
+                    log_print(f"  case_status    : {result.get('case_status')}")
+                    log_print(f"  latest_activity: {result.get('latest_activity_date')}")
+                    log_print(f"  entries        : {len(result.get('entries_json') or [])}")
                     if result.get("conflict_flag"):
-                        print(f"  [conflict] leave/JR conflict resolved")
+                        log_print(f"  [conflict] leave/JR conflict resolved")
+                elif args.write_activity:
+                    case_id, document_count = write_activity_result(db, result)
+                    if case_id is not None:
+                        log_print(f"  activity case {case_id}: {document_count} new documents")
                 else:
                     upsert_result(db, result)
 
                 fetched += 1
+                if args.adaptive_delay and (i % args.batch_size == 0 or i == len(imms)):
+                    log_print(f"[batch] checkpoint after {i}/{len(imms)} cases; delay={current_delay_ms} ms")
+                    if batch_pause_ms:
+                        log_print(f"[batch] pausing {batch_pause_ms} ms")
+                        time.sleep(batch_pause_ms / 1000)
 
         finally:
             if db:
                 db.close()
 
-    print(f"\n[done] {fetched} processed, {errors} errors.")
+    log_print(f"\n[done] {fetched} processed, {errors} errors.")
+    log_print(f"       API attempts: {request_budget.used}/{request_budget.maximum}")
     if not args.dry_run:
-        print(f"       Results in fc_procedural_history table.")
+        if args.write_activity:
+            log_print("       Results in fc_activity_cases and fc_activity_documents tables.")
+        else:
+            log_print("       Results in fc_procedural_history table.")
+
+    if LOG_HANDLE is not None:
+        LOG_HANDLE.close()
+        LOG_HANDLE = None
 
 
 if __name__ == "__main__":

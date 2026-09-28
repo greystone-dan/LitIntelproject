@@ -5,8 +5,10 @@ from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
+import time
 from typing import Any
 
+from backend.text_generation_providers import OllamaChatProvider
 from openai import OpenAI
 
 
@@ -17,7 +19,7 @@ DEFAULT_OLLAMA_MODEL = "qwen2.5:7b"
 
 def build_client(provider: str, *, ollama_base_url: str, ollama_model: str) -> Any:
     if provider == "local":
-        return OpenAI(base_url=ollama_base_url, api_key="ollama-local")
+        return OllamaChatProvider(base_url=ollama_base_url, model_name=ollama_model)
     return OpenAI()
 
 
@@ -42,13 +44,24 @@ def run_request(
     estimated_cost = estimate_cost(messages, max_output_tokens, input_rate, output_rate)
     if estimated_cost > float(request["budget_usd"]):
         raise ValueError(f"estimated cost ${estimated_cost:.4f} exceeds budget ${request['budget_usd']:.2f}")
-    completion = client.chat.completions.create(
-        model=request["model"],
-        temperature=0,
-        max_tokens=max_output_tokens,
-        response_format={"type": "json_object"},
-        messages=messages,
-    )
+    started = time.perf_counter()
+    if isinstance(client, OllamaChatProvider):
+        completion = client.create_chat_completion(
+            model=request["model"],
+            temperature=0,
+            max_tokens=max_output_tokens,
+            response_format={"type": "json_object"},
+            messages=messages,
+        )
+    else:
+        completion = client.chat.completions.create(
+            model=request["model"],
+            temperature=0,
+            max_tokens=max_output_tokens,
+            response_format={"type": "json_object"},
+            messages=messages,
+        )
+    elapsed_seconds = time.perf_counter() - started
     content = completion.choices[0].message.content or ""
     usage = completion.usage
     input_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
@@ -62,6 +75,7 @@ def run_request(
         "status": "case_intelligence_run_complete",
         "network_called": True,
         "started_at": datetime.now(timezone.utc).isoformat(),
+        "elapsed_seconds": elapsed_seconds,
         "request_id": request.get("request_id"),
         "model": request["model"],
         "budget_usd": request["budget_usd"],
@@ -100,14 +114,31 @@ def main() -> int:
         default=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL),
     )
     parser.add_argument("--max-output-tokens", type=int, default=8_000)
+    parser.add_argument("--max-paragraphs", type=int, help="Limit a replay payload to its first N paragraphs")
     parser.add_argument("--input-cost-per-1m", type=float, default=2.0)
     parser.add_argument("--output-cost-per-1m", type=float, default=8.0)
     args = parser.parse_args()
     if args.max_output_tokens < 1:
         parser.error("--max-output-tokens must be positive")
     request = json.loads(args.request.read_text(encoding="utf-8"))
-    if request.get("status") != "dry_run_ready" or request.get("network_called"):
-        raise SystemExit("request must be a dry_run_ready, network-free payload")
+    if "request" in request and isinstance(request["request"], dict):
+        request = request["request"]
+    elif request.get("status") != "dry_run_ready" or request.get("network_called"):
+        raise SystemExit("request must be a dry_run_ready, network-free payload or a replay envelope")
+    if not isinstance(request.get("messages"), list) or not request.get("model"):
+        raise SystemExit("request payload must contain model and messages")
+    if args.max_paragraphs is not None:
+        if args.max_paragraphs < 1:
+            parser.error("--max-paragraphs must be positive")
+        user_message = next((message for message in request["messages"] if message.get("role") == "user"), None)
+        if user_message is None:
+            raise SystemExit("request payload has no user message to window")
+        payload = json.loads(user_message["content"])
+        paragraphs = payload.get("paragraphs")
+        if not isinstance(paragraphs, list):
+            raise SystemExit("user payload has no paragraph list to window")
+        payload["paragraphs"] = paragraphs[: args.max_paragraphs]
+        user_message["content"] = json.dumps(payload, ensure_ascii=True, sort_keys=True)
     if float(request.get("budget_usd", 0)) <= 0 or float(request["budget_usd"]) > HARD_CAP_USD:
         raise SystemExit(f"request budget must be between 0 and {HARD_CAP_USD}")
     if args.provider == "hosted" and not os.getenv("OPENAI_API_KEY"):

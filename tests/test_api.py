@@ -43,6 +43,22 @@ def test_main_search_accepts_only_named_core_cohort(monkeypatch):
         routes.search_analytics_cases(cohort_id="arbitrary", db=object())
 
 
+def test_cohort_assessment_search_requires_named_core_cohort(monkeypatch):
+    monkeypatch.setattr(routes, "search_cohort_assessments", lambda query, limit: {"query": query, "limit": limit})
+
+    assert routes.search_cohort_assessment_records(query="review", limit=10) == {"query": "review", "limit": 10}
+    with pytest.raises(HTTPException):
+        routes.search_cohort_assessment_records(cohort_id="arbitrary")
+
+
+def test_cohort_assessment_comparison_requires_named_core_cohort(monkeypatch):
+    monkeypatch.setattr(routes, "compare_cohort_assessments", lambda query, topic, role, limit: {"query": query, "topic": topic, "role": role, "limit": limit})
+
+    assert routes.compare_cohort_assessment_records(query="review", topic="Standard of review", limit=5) == {"query": "review", "topic": "Standard of review", "role": "", "limit": 5}
+    with pytest.raises(HTTPException):
+        routes.compare_cohort_assessment_records(cohort_id="arbitrary")
+
+
 class FakeDatabase:
     def __init__(self, rows=(), scalar_value=None):
         self.rows = list(rows)

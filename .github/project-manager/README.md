@@ -65,3 +65,15 @@ A task is complete only when it names the files changed, the focused validation
 that actually ran, the result, residual risk, and the next bounded task. A
 preflight, static review, or documentation check does not prove a bulk job,
 browser journey, migration, or deployment succeeded.
+
+Terminal managed runs must pass `scripts/evidence_gate.py` before completion.
+The gate requires command/evidence records, required documentation paths, and
+structured task-record fields for changed files, delegated work, focused
+validation, residual risk, and the next bounded task. A run cannot transition
+directly from planning to `complete`; it must pass through validation or
+documentation first. Create runs with `--task-record` and one
+`--required-doc` per canonical or Swimm path so completion validation occurs
+inside the transition rather than as a post-hoc command.
+Declare criteria with repeated `--criterion` options and record each result
+with the `criterion` action. Completion rejects missing, false, extra, or
+invalidly linked criterion results.

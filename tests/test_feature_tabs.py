@@ -200,6 +200,23 @@ def test_citation_intelligence_overview_exposes_case_fingerprint_pattern():
     assert "/citation-map/cases/${ciState.caseId}/similar?limit=6&min_shared=2" in html
 
 
+def test_citation_intelligence_is_a_case_workspace_with_visual_footprint():
+    html = routes._data_explorer_page_html()
+
+    panel_start = html.index('<section id="citationIntelligencePanel"')
+    panel_end = html.index('<section id="judgeProfilePanel"', panel_start)
+    panel = html[panel_start:panel_end]
+
+    assert 'class="panel-card search-layout citation-workspace"' in panel
+    assert 'Authority analysis workspace' in panel
+    assert panel.index('citation-subtabs') < panel.index('citationSearchResults')
+    assert 'ci-overview-visual' in html
+    assert 'Citation footprint' in html
+    assert 'Stored counts' in html
+    assert 'top-decision concentration' in html
+    assert "document.getElementById('citationSearchResults').innerHTML=''" in html
+
+
 def test_citation_timeline_drills_into_year_filtered_evidence():
     html = routes._data_explorer_page_html()
 

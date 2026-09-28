@@ -68,6 +68,22 @@ through `/cases/{case_id}/paragraph-assessments` and matches rows using the
 backend-owned `paragraph_start`; cases or paragraphs without artifacts remain
 usable without an overlay.
 
+After Core Cases is activated, the same search surface reveals a second,
+experimental assessment search. `/analytics/search/cohort-assessments` searches
+the report-only paragraph evidence bridge across all 300 allowlisted cases and
+returns paragraph-level topic, role, explanation, match reasons, and linked
+citation IDs. Its matcher is transparent lexical/token scoring rather than
+embedding retrieval; it does not infer citation treatment and does not write
+canonical rows.
+Each assessment hit can also launch a deterministic cross-case comparison by
+topic and role. Comparison groups preserve `(case_id, paragraph, chunk_id,
+citation_id)` identity; citation chips open the originating source case and
+are labeled as stored paragraph evidence, not inferred authority treatment.
+The active generated bridge also preserves paragraph-local citation offsets and
+resolved `target_case_id` values where canonical citation resolution exists.
+Assessment citation chips open that target authority; unresolved rows retain
+their source-case fallback and are not assigned guessed targets.
+
 ### Supporting Interfaces
 
 The Discussion Units sandbox is an isolated, read-only experimental surface
@@ -338,6 +354,120 @@ Definitions, scopes, formulas, and interpretation cautions for search, citation,
 
 Federal Court activity is a separate data layer, not a substitute for a judgment record. It stores normalized case/activity records and document-level entries from A2AJ/Federal Court activity sources, including docket-associated procedural material where available. Activity classifications can be generated and audited separately. A discovered Federal Court identifier does not prove that a full decision, PDF, or official judgment body was captured.
 
+The deterministic Activity event layer is a traceable observation over raw
+`fc_activity_documents`; it does not rewrite those source rows or create
+canonical cases, judgment text, citations, statutes, tags, or embeddings. The
+current taxonomy covers application filing/perfection, leave decisions, judge
+identification, motions and motion decisions, stays, hearings, decisions, and
+source-backed procedural markers. This taxonomy also includes explicit notices
+of appearance as `appearance_filed` observations when filing, service, or
+receipt wording is present. Each emitted event retains its source
+document evidence. Explicit filing, hearing, and decision dates are labeled by
+semantic context; `DOC_DT` remains a source/registry date when no such context
+exists, and unknown or ambiguous states must remain visible.
+
+Leave status follows the VBA-aligned priority model: explicit granted/refused
+wording is authoritative; later judicial-review activity may expose an
+`inferred_granted` context; discontinuance, withdrawal, termination, and direct
+judicial review are marked not applicable; and a filed leave application with
+no observed outcome is labeled `pending` rather than silently treated as
+granted or refused. English registry shorthand and French outcome wording are
+covered by deterministic rules with source-document evidence.
+
+Explicit wording that a removal was cancelled is currently treated as an
+evidence-backed implicit granted stay, with a distinct `stay_cancellation` rule
+on the derived event. This is a procedural signal, not proof that every
+administrative cancellation was ordered by the Court; it remains subject to
+source review before publication as a management statistic.
+
+Activity-only persistence is idempotent on the source registry identity
+`(case_id, re_no, docno)` when both document keys are present, with entry-hash
+fallback for incomplete identities. A repeated endpoint entry therefore does
+not authorize a duplicate row or a canonical write; conflicting content under
+one complete identity remains a source-review concern.
+
+Stay events also preserve explicit `removal_scheduled_date` and bounded
+`removal_destination` values when the source wording supplies them. These are
+planning/procedural observations for later delay metrics; they are never
+substituted for the Activity document date or treated as proof that a stay was
+granted.
+
+The deterministic evaluation report now includes additive `delay_metrics` for
+filing-to-removal and motion-to-removal intervals. Valid intervals are reported
+with count and quartile summaries; missing scheduled dates and non-chronological
+date pairs remain separate status counts. In the fixed 100-record checkpoint,
+three intervals were complete for each metric and one case was explicitly
+ambiguous due to date order.
+The report also exposes `case_count`, `valid_count`, and `coverage_rate`; the
+current bounded sample has 3% valid coverage for each delay metric.
+
+The read-only 10-case manual audit artifact under
+`data/copilot_exports/fc_activity_manual_audit_10_20260927/` combines the
+exported source layers with per-case summaries, deterministic findings, linked
+source-entry text, and audit gaps. It supports both current procedural-event
+reports and persisted `fc_activity_v3` evidence fields; it does not alter
+Activity or canonical records.
+
+The 2026-09-27 real-data checkpoint classified five records as a smoke test and
+evaluated a seeded 100-record cross-year sample without database writes. The
+coverage-improvement rerun reported 84 closed and 16 active lifecycle states,
+32% final-decision judge-stage coverage, 67% unknown decision subjects, and 2%
+valid removal-delay coverage. Explicit `refugee_protection` subjects now cover
+21 records based on Refugee Appeal/RPD/RAD/CRDD and bilingual refugee-section
+wording; unsupported subjects remain `unknown`. The evaluator's inventory
+sampling uses set-based cohort splitting to avoid quadratic behavior on the
+full Activity corpus.
+The follow-up stay-pattern pass also recognizes explicit month-first removal
+dates such as `on Monday January 31, 2023`; the sampled report remained at 2%
+valid delay coverage because the new date did not complete an additional
+filing/removal interval.
+The judge-coverage pass added explicit French `Monsieur/Madame le juge` and
+English `BEFORE The Honourable ... Justice` forms, including names followed by
+hearing metadata and initials such as `S. Noel`. The same seeded rerun raised
+judge-identified cases from 43 to 63, final-decision judge coverage from 32%
+to 42%, hearing-stage coverage from 1% to 6%, and motion-stage coverage to 2%.
+Hearing-status unknowns were not filled without explicit hearing evidence.
+
+The stabilized classification JSON adds stage-aware `milestone_rollups` for
+application, leave, motion, hearing, final-decision, and closure signals. It
+also separates challenged-decision `decision_maker_type`, the evidence-backed
+`underlying_tribunal` and its taxonomy, and `decision_subject`, retaining
+`unknown` when the Activity text does not support a narrower value. Hearing
+semantics distinguish `scheduled`, `held`, `reserved`, and `not_held`; English
+and French negation is retained as negative evidence and is not emitted as an
+affirmative hearing event.
+
+The seeded evaluator exposes report-only `analytics` dimensions for lifecycle,
+hearing, tribunal, subject, and milestone-stage counts. An optional JSON gold
+set passed to `scripts/evaluate_fc_activity_deterministic.py --gold-set` adds
+field-level coverage, accuracy, and disagreement records. These outputs are
+queryable evaluation artifacts, not an API contract or a schema migration.
+The local text-generation provider may be used for a bounded, evidence-linked
+review suggestion only; it must abstain when uncertain and never promote its
+output to a production Activity fact.
+
+The bounded evaluation artifacts are
+`data/eval/fc_activity_deterministic_evaluation_20260925.json` and
+`data/eval/fc_activity_openai_audit_20260925.json`. The deterministic report
+uses a fixed 100-record cross-year sample weighted toward the last seven years.
+The optional audit used 12 records with 75% recent-year weighting, model
+`gpt-4.1-nano`, no database writes, and an estimated cost of `$0.001548`.
+Audit findings are improvement signals only; deterministic extraction remains
+the production boundary.
+
+For a bounded external-AI handoff, use
+`scripts/export_fc_activity_package.py`. It is read-only and writes a new
+directory containing `cases.jsonl`, `documents.jsonl`,
+`classifications.jsonl`, and `manifest.json`. The three JSONL layers preserve
+raw case/document payloads separately from deterministic classification and
+link through `activity_case_id` plus `source_key`. `--limit N` limits Activity
+case rows and includes all linked documents and classifications; omitting the
+limit exports the full inventory. The manifest records source tables,
+classifier versions, counts, encoding, known BOM/empty-history limitations,
+and the boundary that Activity is procedural history rather than canonical
+judgment data. This package is the approved first handoff format for Claude;
+it does not expose PostgreSQL credentials or unrestricted SQL.
+
 ### Source Preservation And Provenance
 
 The complete source-governance register is [docs/DATA_SOURCE_REGISTER.md](docs/DATA_SOURCE_REGISTER.md). It identifies every active source family, its canonical/staging/reference status, merge priority, storage path, provenance requirements, adapters, and known source limitations.
@@ -371,6 +501,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
 | `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `backend/text_generation_providers.py` | Opt-in hosted or Ollama chat-generation provider selection for experimental `/research` |
 | `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
 | `backend/case_reader.py` | Legacy standalone reader UI; not the primary active workflow |
@@ -428,7 +559,18 @@ replacement for source-data provenance or application audit logging.
 Bounded delegated work uses `.github/agents/managed-worker.agent.md`, which has
 no task-record or Git authority. Completion evidence can be checked with
 `scripts/evidence_gate.py`; it requires a terminal complete phase, command
-evidence, evidence records, and named canonical/Swimm documentation paths.
+evidence, evidence records, named canonical/Swimm documentation paths, and
+structured task-record markers for changed files, delegated work, focused
+validation, residual risk, and the next bounded task. The run harness rejects
+direct planned-to-complete transitions; validation or documentation must occur
+first.
+New runs should persist the task record and required documentation paths at
+creation; completion validates those paths and the prospective terminal state
+before writing `phase=complete`.
+Structured run criteria are stored as ordered `criteria` plus
+`criterion_results`; completion rejects incomplete, false, duplicate, extra,
+or invalidly linked results. Runs with no declared criteria remain compatible
+with the prior state format.
 
 ### Canonical Processing Pipeline
 
@@ -5001,6 +5143,7 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
@@ -5012,8 +5155,22 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | OpenAI-compatible local Ollama endpoint used when the local provider is selected. |
+| `OLLAMA_MODEL` | `qwen2.5:7b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected; it must be pulled separately. |
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
+
+The experimental `/research` route uses the same provider boundary as the
+bounded case-intelligence runner. Set `TEXT_GENERATION_PROVIDER=local` to call
+Ollama; the application provider uses Ollama's native `/api/chat` endpoint and
+disables Qwen3 thinking mode so bounded summaries are returned as content. The
+route does not download models and returns a controlled `503` when the selected
+provider is not configured or reachable. Deterministic citations, statutes,
+offsets, and source provenance remain authoritative.
+
+The first bounded Qwen3 paragraph-summary baseline is report-only: `scripts/run_local_paragraph_summary_baseline.py` reconstructs text from read-only `CaseChunk` offsets, validates source hashes, and records one result per paragraph. Case 1093 paragraphs 0-9 produced 3 valid summaries and 7 explicit structured-output failures; this is an evaluation artifact, not persistent enrichment.
+
+A matched diagnostic replay of the existing Case 35868 OpenAI discussion-unit request is also report-only. The full 71-paragraph local replay timed out after 120 seconds; a first-10-paragraph replay completed in 106.995 seconds but returned a different case-summary schema and conflicting case identity (`R. v. Febles`, 2013 SCC 5 instead of 2014 SCC 68). The comparison remains diagnostic and is not suitable for enrichment.
 
 ## Local Embedding Settings
 
@@ -7366,6 +7523,20 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 - **Courts/Judges**: attributed citation use by court or canonical judge data where available.
 - **Statutes**: statute references appearing alongside authority use.
 - **Evidence/table views**: stored citation rows, offsets, and target context.
+
+The Overview also presents a compact case fingerprint within the active Data Explorer workflow. It combines existing network metrics with a bounded list of stored citing decisions and a shared-authority cluster from resolved citation rows. Each citing decision links to the inline reader. These summaries are research aids for tracing authority use; shared authorities do not establish legal similarity, citation treatment, or controlling status, and the UI does not infer those conclusions.
+
+The Timeline subtab provides a bounded drill-down from a year to the existing stored citation evidence table. The selected year is passed to the evidence route and can be cleared in place. This preserves the distinction between year-level aggregates and the underlying citation rows.
+
+The Overview also surfaces up to four ranked authority signals from stored
+citation frequency and spread. These are derived research aids, not legal-
+importance, treatment, or controlling-status classifications; authority rows
+retain their case IDs and open the active reader.
+
+The Citation Intelligence Neighborhood subview uses the existing resolved
+citation graph to show up to 20 direct edges around the selected case. It
+preserves source/target direction, occurrence counts, and related case IDs for
+reader navigation; it does not infer legal similarity or citation treatment.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 

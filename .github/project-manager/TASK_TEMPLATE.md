@@ -28,11 +28,19 @@ Acceptance criteria:
 - <observable completion condition>
 - <focused validation outcome>
 
+Harness criteria: <one stable criterion per line; pass each with the harness `criterion` action before completion>
+
 Docs/generated references: <canonical docs, Swimm walkthrough, generators, or none>
 
 Rollback/recovery: <reversal or recovery action; include data/run recovery where relevant>
 
 Evidence: Pending. Record delegated work, commands, observed results, artifacts, known failures, canonical documentation path, and Swimm walkthrough path.
+
+Files changed: <paths or none>
+Delegated work: <agent, bounded slice, and structured result or exception>
+Focused validation: <command and observed result>
+Residual risk: <known limitation or none>
+Next bounded task: <one concrete follow-up or none>
 
 ## Hypothesis
 

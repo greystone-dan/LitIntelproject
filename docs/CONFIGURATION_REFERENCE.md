@@ -51,6 +51,7 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
@@ -62,13 +63,18 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
-| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `scripts/run_case_intelligence_request.py` | OpenAI-compatible local Ollama endpoint used when `--provider local` is selected. |
-| `OLLAMA_MODEL` | `qwen2.5:7b` | `scripts/run_case_intelligence_request.py` | Local instruct model used when `--provider local` is selected. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
+| `OLLAMA_MODEL` | `qwen2.5:7b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately. |
 
 The case-intelligence runner defaults to the hosted OpenAI provider. Use
 `--provider local` to keep prompts and JSON result artifacts on the local
 machine through Ollama. Local generation is optional enrichment; deterministic
 citations, statutes, offsets, and source provenance remain authoritative.
+
+The experimental `/research` route uses the same provider boundary. Set
+`TEXT_GENERATION_PROVIDER=local` to call Ollama; its default model is
+`qwen2.5:7b`. The route reports a controlled `503` when the selected provider
+is not configured or reachable. This setting does not download a model.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 

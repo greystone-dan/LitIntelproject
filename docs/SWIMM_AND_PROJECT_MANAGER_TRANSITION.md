@@ -55,8 +55,17 @@ the repository state is authoritative meanwhile.
 The managed-worker agent is intentionally restricted to an assigned owner slice;
 it cannot edit manager task state or commit/push. `scripts/evidence_gate.py`
 provides a deterministic completion check over run state and required
-documentation paths. This is the current repository harness; native hook/AHP
-integration remains optional future work.
+documentation paths. Completion also requires command/evidence records, the
+structured task-record fields for changed files, delegation, focused
+validation, residual risk, and the next bounded task. The run harness rejects
+direct `planned -> complete` transitions; a run must pass through `validating`
+or `documenting` first. This is the current repository harness; native hook/AHP
+integration remains optional future work. The CLI stores the task record and
+required documentation paths at run creation, and completion validates a
+prospective terminal state before writing it.
+Runs may declare ordered acceptance criteria at creation and record explicit
+pass/fail results through the harness. A complete run requires one valid,
+passing result for every declared criterion.
 
 ## Recommended Swimm Pass
 

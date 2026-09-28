@@ -16,6 +16,13 @@ REQUIRED_STATE_KEYS = {
     "commands",
     "evidence",
 }
+REQUIRED_COMPLETION_MARKERS = (
+    "Files changed:",
+    "Delegated work:",
+    "Focused validation:",
+    "Residual risk:",
+    "Next bounded task:",
+)
 
 
 def validate_state(state: dict, *, task_text: str, required_docs: list[str]) -> list[str]:
@@ -27,6 +34,36 @@ def validate_state(state: dict, *, task_text: str, required_docs: list[str]) -> 
         failures.append("no-command-evidence")
     if not state.get("evidence"):
         failures.append("no-evidence")
+    if state.get("phase") == "complete" and state.get("phase_before_complete") not in {"validating", "documenting"}:
+        failures.append("completion-not-after-validation-or-documentation")
+    if state.get("phase") == "complete":
+        for marker in REQUIRED_COMPLETION_MARKERS:
+            if marker not in task_text:
+                failures.append(f"missing-completion-evidence:{marker.rstrip(':')}")
+        if any(
+            command.get("phase") == "validating" and command.get("exit_code") != 0
+            for command in state.get("commands", [])
+        ):
+            failures.append("failed-validation-command")
+        criteria = state.get("criteria", [])
+        criterion_results = state.get("criterion_results", [])
+        if criteria:
+            if len(criterion_results) != len(criteria):
+                failures.append("criterion-results-count-mismatch")
+            else:
+                expected_indexes = set(range(len(criteria)))
+                actual_indexes = {result.get("index") for result in criterion_results}
+                if actual_indexes != expected_indexes:
+                    failures.append("criterion-results-index-mismatch")
+                if any(result.get("passed") is not True for result in criterion_results):
+                    failures.append("criterion-not-passed")
+                command_count = len(state.get("commands", []))
+                if any(
+                    result.get("evidence_command") is not None
+                    and not 1 <= result["evidence_command"] <= command_count
+                    for result in criterion_results
+                ):
+                    failures.append("criterion-evidence-command-invalid")
     for path in required_docs:
         if path not in task_text:
             failures.append(f"missing-documentation-path:{path}")

@@ -74,14 +74,22 @@ that canonical text cannot recover; those differences remain review signals.
 | --- | --- |
 | Class | Dataset/staging intelligence layer |
 | Source shape | A2AJ/Hugging Face Federal Court activity rows and document-level docket entries |
-| Adapters | `backend/fc_activity.py`, `scripts/ingest_hf_fc_activity.py`, `scripts/classify_fc_activity.py`, `scripts/backfill_case_metadata_outcomes.py` |
+| Adapters | `backend/fc_activity.py`, `scripts/fetch_fc_procedural_history.py` (`--write-activity`), `scripts/ingest_hf_fc_activity.py`, `scripts/classify_fc_activity.py`, `scripts/backfill_case_metadata_outcomes.py` |
 | Tables | `fc_activity_cases`, `fc_activity_documents`, `fc_activity_classifications` |
-| Identity | Stable source key, optional citation, date/year, case name, source URL, plus deduplicated document entries |
+| Identity | Stable source key, optional citation, date/year, case name, source URL, plus deduplicated document entries; endpoint additions use stable IMM-based keys and preserve source payloads |
 | Canonical relationship | Separate from canonical `cases`; can provide activity context or verified docket correlation |
 | Classification | Deterministic classification JSON/version is stored separately from source activity data |
 | Constraint | Activity records and classifications are research signals, not judicial reasons, outcomes, or canonical decision capture |
 
 The dataset is particularly useful for IMM-focused procedural/activity analysis but has source-period and coverage limits. Keep date scope and correlation logic visible when presenting results.
+
+Independent collection preparation and the approval boundary for a future
+worker are documented in
+`docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md`. The worker may stage discovery,
+procedural history, and activity classifications without the public website;
+canonical PostgreSQL import remains a separate, exclusive, explicitly approved
+operation. Oracle Always Free is not an approved hosting decision or a source
+of access control.
 
 ### A2AJ Canadian Case Law
 

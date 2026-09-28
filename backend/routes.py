@@ -11,7 +11,7 @@ from typing import Any
 
 from fastapi import APIRouter, Depends, File, HTTPException, Query, Response, UploadFile, status
 from fastapi.responses import HTMLResponse, RedirectResponse
-from openai import OpenAI, OpenAIError
+from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
@@ -58,6 +58,10 @@ from .citation_map import (
 	search_citation_cases as _search_citation_cases,
 	similar_cases_by_authority as _similar_cases_by_authority,
 	top_authorities as _top_authorities,
+)
+from .text_generation_providers import (
+	TextGenerationConfigurationError,
+	get_text_generation_provider,
 )
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
@@ -150,6 +154,8 @@ from .discussion_units_sandbox import (
 	load_discussion_unit_cohort,
 	load_paragraph_assessments,
 	require_discussion_unit_case,
+	search_cohort_assessments,
+	compare_cohort_assessments,
 	search_discussion_unit_cases,
 )
 from .search_service import (
@@ -1292,6 +1298,30 @@ def search_analytics_cases(
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])
 def get_case_paragraph_assessments(case_id: int) -> dict[str, Any]:
 	return load_paragraph_assessments(case_id, enforce_cohort=False)
+
+
+@router.get("/analytics/search/cohort-assessments", response_model=dict[str, Any])
+def search_cohort_assessment_records(
+	query: str = "",
+	cohort_id: str = "discussion_units_core_300",
+	limit: int = 50,
+) -> dict[str, Any]:
+	if cohort_id != "discussion_units_core_300":
+		raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+	return search_cohort_assessments(query, limit=limit)
+
+
+@router.get("/analytics/search/cohort-assessments/compare", response_model=dict[str, Any])
+def compare_cohort_assessment_records(
+	query: str = "",
+	topic: str = "",
+	role: str = "",
+	limit: int = 25,
+	cohort_id: str = "discussion_units_core_300",
+) -> dict[str, Any]:
+	if cohort_id != "discussion_units_core_300":
+		raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+	return compare_cohort_assessments(query, topic=topic, role=role, limit=limit)
 
 
 @router.get("/analytics/search/ministers", response_model=dict[str, list[str]])
@@ -2943,18 +2973,17 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		f"{_RESEARCH_DISCLAIMER}"
 	)
 
-	api_key = os.getenv("OPENAI_API_KEY")
-	if not api_key:
+	try:
+		provider = get_text_generation_provider()
+	except TextGenerationConfigurationError as exc:
 		raise HTTPException(
 			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="OPENAI_API_KEY is not configured",
-		)
+			detail=str(exc),
+		) from exc
 
-	chat_model = os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini")
 	try:
-		client = OpenAI(api_key=api_key)
-		completion = client.chat.completions.create(
-			model=chat_model,
+		completion = provider.create_chat_completion(
+			model=provider.model_name,
 			temperature=search.temperature,
 			messages=[
 				{"role": "system", "content": system_prompt},
@@ -2987,7 +3016,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		question=search.query,
 		answer=answer,
 		sources=sources,
-		model_used=chat_model,
+		model_used=provider.model_name,
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)

@@ -110,6 +110,41 @@ def _aggregate_delay_metrics(case_metrics: list[dict[str, Any]]) -> dict[str, An
     return output
 
 
+def _motion_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
+    motion_events: list[dict[str, Any]] = []
+    motion_case_count = 0
+    for classification in classifications:
+        case_motion_events = []
+        for event in classification.get("procedural_events", []):
+            if not str(event.get("event_type", "")).startswith("motion"):
+                continue
+            case_motion_events.append(event)
+            motion_events.append(event)
+        if case_motion_events:
+            motion_case_count += 1
+
+    event_count = len(motion_events)
+    case_count = len(classifications)
+    subtype_counts = Counter(str(event.get("subtype") or "unknown") for event in motion_events)
+    result_counts = Counter(str(event.get("outcome") or "unknown") for event in motion_events)
+    unknown_subtype_count = subtype_counts.get("unknown", 0)
+    unknown_result_count = result_counts.get("unknown", 0)
+    return {
+        "case_count": case_count,
+        "motion_case_count": motion_case_count,
+        "motion_case_rate": round(motion_case_count / case_count, 4) if case_count else 0.0,
+        "motion_event_count": event_count,
+        "subtype_counts": dict(sorted(subtype_counts.items())),
+        "result_counts": dict(sorted(result_counts.items())),
+        "subtype_coverage_rate": round((event_count - unknown_subtype_count) / event_count, 4) if event_count else 0.0,
+        "result_coverage_rate": round((event_count - unknown_result_count) / event_count, 4) if event_count else 0.0,
+        "evidence_complete_count": sum(
+            bool(event.get("doc_id") is not None and event.get("text") and event.get("rule"))
+            for event in motion_events
+        ),
+    }
+
+
 def _intelligence_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
     stage_counts: Counter[str] = Counter()
     decision_maker_counts: Counter[str] = Counter()
@@ -347,6 +382,7 @@ def build_report(
         "year_counts": dict(Counter(str(row["year"]) for row in rows)),
         "event_counts": dict(sorted(event_counts.items())),
         "event_outcomes": dict(sorted(event_outcomes.items())),
+        "motion_coverage": _motion_coverage(intelligence_classifications),
         "evidence_fields_present": evidence_complete,
         "delay_metrics": _aggregate_delay_metrics(case_delay_metrics),
         "intelligence_coverage": _intelligence_coverage(intelligence_classifications),

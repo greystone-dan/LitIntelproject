@@ -62,9 +62,16 @@ subtypes and explicit results including partial grants, abandonment, and
 discontinuance; unknown categories remain visible. The pure
 `validate_fc_activity_classification()` function reports leave/JR/date
 contradictions without persistence. Focused motion tests passed 4 cases and
-the existing classifier regression suite passed 49 cases. The next measurement
-is a fixed 100-record coverage report; raw Activity and canonical case writes
-remain outside this slice.
+the existing classifier regression suite passed 49 cases. A fixed seeded
+100-record measurement then found 8 motion cases and 22 motion events, with
+22/22 events retaining complete source evidence. Subtype coverage was 5/22
+(22.73%) and result coverage was 4/22 (18.18%); unknowns remained visible at
+17 subtypes and 18 results. The artifact is
+`data/eval/fc_activity_motion_coverage_20260928.json`, with
+`network_called=false` and `database_written=false`. This is extraction
+coverage rather than accuracy; the unknown majority is the next fixture and
+rule-review signal, and raw Activity/canonical case writes remain outside the
+slice.
 
 ## Independent Activity Worker
 

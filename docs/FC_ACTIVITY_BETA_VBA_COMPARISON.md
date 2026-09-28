@@ -135,5 +135,14 @@ The first bounded implementation slice is complete in
 The focused fixture suite passed 4 tests and the existing FC Activity
 classifier suite passed 49 tests. Source document identifiers and text remain
 on every promoted motion event; raw Activity rows and canonical case records
-were not changed. The next bounded task is a fixed 100-record coverage
-measurement before expanding the taxonomy.
+were not changed.
+
+The fixed seeded coverage measurement used 100 cases (`seed=20260925`,
+seven-year recent weighting, 70% recent share) and produced 8 motion cases,
+22 motion events, and complete evidence on all 22 events. Subtype coverage was
+22.73% (5 classified, 17 unknown); result coverage was 18.18% (4 classified,
+18 unknown). The artifact is
+`data/eval/fc_activity_motion_coverage_20260928.json`; it records
+`network_called=false` and `database_written=false`. This is extraction
+coverage, not gold-set accuracy, and the unknown majority is the next fixture
+and rule-review signal.

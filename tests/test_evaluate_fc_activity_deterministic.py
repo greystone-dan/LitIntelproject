@@ -2,6 +2,7 @@ from scripts.evaluate_fc_activity_deterministic import (
     _aggregate_delay_metrics,
     _build_delay_metrics,
     _intelligence_coverage,
+    _motion_coverage,
     _queryable_analytics,
     evaluate_gold_set,
     sample_case_ids,
@@ -65,6 +66,36 @@ def test_aggregate_delay_metrics_reports_status_counts_and_percentiles():
     assert metrics["filing_to_removal"]["status_counts"] == {"complete": 2, "missing_removal_date": 1}
     assert metrics["filing_to_removal"]["valid_delay"]["p50_days"] == 10
     assert metrics["motion_to_removal"]["status_counts"] == {"complete": 2, "missing_anchor_date": 1}
+
+
+def test_motion_coverage_reports_cases_subtypes_results_and_unknowns():
+    metrics = _motion_coverage(
+        [
+            {
+                "activity_case_id": 10,
+                "procedural_events": [
+                    {"event_type": "motion_filed", "subtype": "production", "outcome": None, "doc_id": 1, "text": "motion", "rule": "motion_reference"},
+                    {"event_type": "stay", "subtype": "stay", "outcome": None, "doc_id": 1, "text": "stay", "rule": "stay"},
+                ],
+            },
+            {
+                "activity_case_id": 11,
+                "procedural_events": [
+                    {"event_type": "motion_decision", "subtype": "unknown", "outcome": "granted_in_part", "doc_id": 2, "text": "motion", "rule": "motion_with_explicit_outcome"},
+                ],
+            },
+            {"activity_case_id": 12, "procedural_events": []},
+        ]
+    )
+
+    assert metrics["motion_case_count"] == 2
+    assert metrics["motion_case_rate"] == 0.6667
+    assert metrics["motion_event_count"] == 2
+    assert metrics["subtype_counts"] == {"production": 1, "unknown": 1}
+    assert metrics["result_counts"] == {"granted_in_part": 1, "unknown": 1}
+    assert metrics["subtype_coverage_rate"] == 0.5
+    assert metrics["result_coverage_rate"] == 0.5
+    assert metrics["evidence_complete_count"] == 2
 
 
 def test_intelligence_coverage_reports_judges_decision_fields_and_lifecycle():

@@ -98,6 +98,32 @@ def test_motion_coverage_reports_cases_subtypes_results_and_unknowns():
     assert metrics["evidence_complete_count"] == 2
 
 
+def test_motion_coverage_groups_re_no_and_flags_conflicts_and_fallbacks():
+    metrics = _motion_coverage(
+        [
+            {
+                "activity_case_id": 10,
+                "procedural_events": [
+                    {"event_type": "motion_filed", "subtype": "extension_of_time", "outcome": None, "re_no": "R-1", "doc_id": 1, "text": "motion", "rule": "rule"},
+                    {"event_type": "motion_filed", "subtype": "unknown", "outcome": None, "re_no": "R-1", "doc_id": 2, "text": "record", "rule": "rule"},
+                    {"event_type": "motion_filed", "subtype": "production", "outcome": None, "re_no": "R-2", "doc_id": 3, "text": "Motion Doc 9", "rule": "rule"},
+                    {"event_type": "motion_filed", "subtype": "intervention", "outcome": None, "re_no": "R-2", "doc_id": 4, "text": "Written representations for Motion Doc 9", "rule": "rule"},
+                    {"event_type": "motion_decision", "subtype": "unknown", "outcome": "granted", "re_no": None, "doc_id": 5, "text": "order", "rule": "rule"},
+                ],
+            }
+        ]
+    )["grouped_motion_coverage"]
+
+    assert metrics["group_count"] == 3
+    assert metrics["motion_doc_reference_group_count"] == 1
+    assert metrics["stable_re_no_group_count"] == 1
+    assert metrics["singleton_fallback_group_count"] == 1
+    assert metrics["subtype_counts"] == {"conflict": 1, "extension_of_time": 1, "unknown": 1}
+    assert metrics["subtype_conflict_count"] == 1
+    assert metrics["subtype_coverage_rate"] == 0.3333
+    assert metrics["result_coverage_rate"] == 0.3333
+
+
 def test_intelligence_coverage_reports_judges_decision_fields_and_lifecycle():
     metrics = _intelligence_coverage(
         [

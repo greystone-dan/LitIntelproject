@@ -8,6 +8,7 @@ from datetime import date
 import json
 from pathlib import Path
 import random
+import re
 import sys
 from typing import Any
 
@@ -129,7 +130,7 @@ def _motion_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
     result_counts = Counter(str(event.get("outcome") or "unknown") for event in motion_events)
     unknown_subtype_count = subtype_counts.get("unknown", 0)
     unknown_result_count = result_counts.get("unknown", 0)
-    return {
+    metrics = {
         "case_count": case_count,
         "motion_case_count": motion_case_count,
         "motion_case_rate": round(motion_case_count / case_count, 4) if case_count else 0.0,
@@ -142,6 +143,71 @@ def _motion_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
             bool(event.get("doc_id") is not None and event.get("text") and event.get("rule"))
             for event in motion_events
         ),
+    }
+    metrics["grouped_motion_coverage"] = _grouped_motion_coverage(motion_events)
+    return metrics
+
+
+def _motion_document_reference(text: str) -> str | None:
+    patterns = (
+        r"(?:motion|requ[eê]te)\s*(?:doc(?:ument)?\.?|n[°oº]?|no\.?)\s*#?\s*(\d+)",
+        r"(?:doc(?:ument)?\.?|n[°oº]?|no\.?)\s*#?\s*(\d+)\s*(?:motion|requ[eê]te)",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text or "", re.IGNORECASE)
+        if match:
+            return match.group(1)
+    return None
+
+
+def _grouped_motion_coverage(motion_events: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize unique motion records without hiding identifier uncertainty."""
+    groups: dict[tuple[Any, ...], list[dict[str, Any]]] = {}
+    fallback_count = 0
+    for index, event in enumerate(motion_events):
+        case_id = event.get("activity_case_id")
+        motion_reference = _motion_document_reference(str(event.get("text") or ""))
+        re_no = event.get("re_no")
+        if motion_reference:
+            key = (case_id, "motion_doc_reference", motion_reference)
+        elif re_no:
+            key = (case_id, "re_no", str(re_no))
+        else:
+            fallback_count += 1
+            key = (case_id, "singleton_doc", event.get("doc_id", index))
+        groups.setdefault(key, []).append(event)
+
+    grouped = []
+    for key, events in groups.items():
+        known_subtypes = {event.get("subtype") for event in events if event.get("subtype") not in {None, "unknown"}}
+        known_outcomes = {event.get("outcome") for event in events if event.get("outcome") not in {None, "unknown"}}
+        subtype = next(iter(known_subtypes)) if len(known_subtypes) == 1 else "conflict" if known_subtypes else "unknown"
+        outcome = next(iter(known_outcomes)) if len(known_outcomes) == 1 and all(event.get("outcome") not in {None, "unknown"} for event in events) else "conflict" if len(known_outcomes) > 1 else "unknown"
+        grouped.append({
+            "group_key": f"{key[0]}:{key[1]}:{key[2]}",
+            "group_key_kind": key[1],
+            "doc_count": len(events),
+            "subtype": subtype,
+            "outcome": outcome,
+            "doc_ids": [event.get("doc_id") for event in events],
+        })
+
+    subtype_counts = Counter(item["subtype"] for item in grouped)
+    outcome_counts = Counter(item["outcome"] for item in grouped)
+    group_count = len(grouped)
+    return {
+        "group_count": group_count,
+        "motion_doc_reference_group_count": sum(item["group_key_kind"] == "motion_doc_reference" for item in grouped),
+        "stable_re_no_group_count": sum(item["group_key_kind"] == "re_no" for item in grouped),
+        "singleton_fallback_group_count": sum(item["group_key_kind"] == "singleton_doc" for item in grouped),
+        "fallback_event_count": fallback_count,
+        "subtype_counts": dict(sorted(subtype_counts.items())),
+        "result_counts": dict(sorted(outcome_counts.items())),
+        "subtype_conflict_count": subtype_counts.get("conflict", 0),
+        "result_conflict_count": outcome_counts.get("conflict", 0),
+        "subtype_coverage_rate": round((group_count - subtype_counts.get("unknown", 0) - subtype_counts.get("conflict", 0)) / group_count, 4) if group_count else 0.0,
+        "result_coverage_rate": round((group_count - outcome_counts.get("unknown", 0) - outcome_counts.get("conflict", 0)) / group_count, 4) if group_count else 0.0,
+        "groups": grouped,
     }
 
 

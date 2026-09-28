@@ -221,3 +221,19 @@ coverage remains a separate metric at 13.45%; the rerun recorded
 The OpenAI adapter now preserves cumulative usage, spend, pass history, and
 explicit unresolved event keys across retries. No advisory suggestion was
 promoted automatically.
+
+## Document Versus Unique-Motion Coverage
+
+The evaluation now reports two denominators. Document-level metrics retain one
+row per extracted motion event for regression continuity. A separate grouped
+metric connects documents using an explicit `Motion Doc`/`Requête Doc` number
+within a case, then falls back to case-scoped `re_no` and finally a singleton
+document when no stable link exists. Conflicting subtype or outcome evidence is
+reported as `conflict`, not resolved by majority vote.
+
+On the seeded 1,000-case evaluation, 952 document events produced 917 grouped
+motion candidates. 44 groups used explicit motion-document references and 873
+used the conservative `re_no` fallback. Grouped subtype coverage was 264/917
+(28.68%), versus 264/952 (27.73%) at document level. Grouped outcome coverage
+was 127/917 (13.85%). These are coverage-of-extracted-signals measures, not
+accuracy estimates; unresolved groups remain visible.

@@ -139,6 +139,22 @@ made no network call and no database write. The advisory adapter also now keeps
 cumulative retry/pass history, usage, spend, and unresolved event keys for
 reproducible review without another API call.
 
+## Motion Coverage Denominators
+
+The deterministic evaluation preserves its document-level motion metrics, but
+now also reports grouped motion candidates. Grouping first uses explicit
+`Motion Doc` or French `Requête Doc` references within a case, then falls back
+to case-scoped `re_no`; records without a usable link remain singleton groups.
+Subtype and outcome conflicts are exposed rather than silently merged.
+
+The seeded 1,000-case run contained 952 document events and 917 grouped motion
+candidates. 44 groups used explicit motion-document references and 873 used
+`re_no`. Grouped subtype coverage was 28.68% (264/917), compared with 27.73%
+(264/952) document-level coverage. Grouped outcome coverage was 13.85%
+(127/917). The grouped number is more useful for motion-level review, but it
+still excludes relationships that are not explicit in the source text or
+identifiers.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

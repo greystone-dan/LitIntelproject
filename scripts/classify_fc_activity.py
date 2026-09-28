@@ -950,8 +950,65 @@ def _milestone_rollups(
     }
 
 
+def _field_applicability(
+    *,
+    application_filed: Evidence,
+    application_perfected: Evidence,
+    leave_result: str,
+    effective_leave_result: str,
+    leave_context: dict[str, Any],
+    review_result: str,
+    judicial_review_final: Evidence,
+    final_decision: Evidence,
+    closing_status: dict[str, Any],
+    full_history_resolution: dict[str, Any],
+) -> dict[str, dict[str, Any]]:
+    terminal_kinds = {"discontinued", "withdrawn", "administratively_terminated"}
+    terminal = closing_status if closing_status.get("status_kind") in terminal_kinds else full_history_resolution
+    terminal_kind = terminal.get("status") if terminal.get("status") in terminal_kinds else None
+    leave_date = leave_context.get("evidence", {}).get("date") or (leave_context.get("evidence") or {}).get("event_date")
+    terminal_date = terminal.get("date")
+    terminated_before_leave = bool(terminal_kind and (not leave_date or not terminal_date or terminal_date <= leave_date))
+    terminated_after_leave = bool(terminal_kind and effective_leave_result == "granted" and leave_date and terminal_date and terminal_date > leave_date)
+
+    if leave_context.get("status") == "not_applicable_direct_judicial_review":
+        leave_status = {"status": "not_applicable", "reason": "direct_judicial_review"}
+    elif effective_leave_result in {"granted", "refused"}:
+        leave_status = {"status": "known", "reason": leave_context.get("status") if leave_context.get("status", "").startswith("inferred_") else effective_leave_result}
+    elif terminated_before_leave and (application_perfected.status != "yes" or terminal_kind):
+        leave_status = {"status": "not_applicable", "reason": f"{terminal_kind}_before_leave"}
+    elif application_filed.status == "yes":
+        leave_status = {"status": "pending", "reason": "leave_decision_not_observed"}
+    else:
+        leave_status = {"status": "not_observed", "reason": "no_originating_application"}
+
+    if effective_leave_result == "refused":
+        review_status = {"status": "not_applicable", "reason": "leave_refused"}
+        review_final_status = {"status": "not_applicable", "reason": "leave_refused"}
+    elif terminated_after_leave:
+        review_status = {"status": "not_applicable", "reason": f"{terminal_kind}_after_leave_granted"}
+        review_final_status = {"status": "not_applicable", "reason": f"{terminal_kind}_after_leave_granted"}
+    elif effective_leave_result == "granted" or leave_context.get("status") == "not_applicable_direct_judicial_review":
+        review_status = {"status": "known", "reason": review_result} if review_result in {"granted", "dismissed"} else {"status": "pending", "reason": "judicial_review_result_not_observed"}
+        review_final_status = {"status": "known", "reason": "substantive_final_decision"} if judicial_review_final.status == "yes" else {"status": "pending", "reason": "judicial_review_final_decision_not_observed"}
+    elif leave_status["status"] == "not_applicable":
+        review_status = {"status": "not_applicable", "reason": leave_status["reason"]}
+        review_final_status = {"status": "not_applicable", "reason": leave_status["reason"]}
+    else:
+        review_status = {"status": "not_observed", "reason": "leave_not_resolved"}
+        review_final_status = {"status": "not_observed", "reason": "leave_not_resolved"}
+
+    return {
+        "leave_decision": {**leave_status, "evidence_status": leave_result},
+        "judicial_review_result": {**review_status, "evidence_result": review_result},
+        "judicial_review_final_decision": {**review_final_status, "evidence_status": judicial_review_final.status},
+        "final_decision": {"status": "known" if final_decision.status == "yes" else "not_observed", "reason": "generic_final_decision_marker" if final_decision.status == "yes" else "generic_final_decision_not_observed"},
+    }
+
+
 def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
     ordered = list(events)
+    procedural_events = extract_procedural_events(ordered)
     challenged_decision = _challenged_decision(ordered)
     application_filed = _evidence(ordered, "application_filed")
     application_perfected = _evidence(ordered, "application_perfected")
@@ -970,6 +1027,14 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
     later_review_dismissed = _evidence(ordered, "judicial_review_dismissed", latest=True)
     if leave_result == "unknown" and (later_review_granted.status == "yes" or later_review_dismissed.status == "yes"):
         leave_context = {"status": "inferred_granted", "evidence": asdict(later_review_granted if later_review_granted.status == "yes" else later_review_dismissed), "rule": "later_judicial_review_requires_leave"}
+        effective_leave_result = "granted"
+    elif leave_result == "unknown" and any(
+        event.get("subtype") == "production"
+        and (event.get("outcome") == "granted" or re.search(r"production order\s+(?:issued|made|granted)", event.get("text", ""), re.IGNORECASE))
+        for event in procedural_events
+    ):
+        production_event = next(event for event in procedural_events if event.get("subtype") == "production")
+        leave_context = {"status": "inferred_granted_production_order", "evidence": production_event, "rule": "production_order_supports_leave_grant"}
         effective_leave_result = "granted"
     elif leave_result == "unknown" and preliminary_resolution["status"] == "discontinued":
         leave_context = {"status": "not_relevant_discontinued", "evidence": preliminary_resolution, "rule": "discontinuance_before_confirmed_leave"}
@@ -1007,8 +1072,19 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
     stay_decision = _evidence(ordered, "stay_decision", latest=True)
     history_profile = _history_profile(ordered, full_history_resolution)
     lifecycle_status = _lifecycle_status(ordered, closing_status, full_history_resolution, history_profile)
-    procedural_events = extract_procedural_events(ordered)
     judges = _judge_observations(procedural_events)
+    field_applicability = _field_applicability(
+        application_filed=application_filed,
+        application_perfected=application_perfected,
+        leave_result=leave_result,
+        effective_leave_result=effective_leave_result,
+        leave_context=leave_context,
+        review_result=review_result,
+        judicial_review_final=judicial_review_final,
+        final_decision=final_decision,
+        closing_status=closing_status,
+        full_history_resolution=full_history_resolution,
+    )
     milestone_rollups = _milestone_rollups(
         application_filed=application_filed,
         perfection_status=perfection_status,
@@ -1033,6 +1109,7 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "stay_decision": asdict(stay_decision),
         "judicial_review_result": {"result": review_result, "granted": asdict(review_granted), "dismissed": asdict(review_dismissed)},
         "judicial_review_final_decision": asdict(judicial_review_final),
+        "field_applicability": field_applicability,
         "closing_status": closing_status,
         "full_history_resolution": full_history_resolution,
         "lifecycle_status": lifecycle_status,

@@ -144,6 +144,27 @@ advisory adapter also now keeps
 cumulative retry/pass history, usage, spend, and unresolved event keys for
 reproducible review without another API call.
 
+## Progression-Aware Applicability
+
+FC Activity coverage separates evidence absence from procedural
+non-applicability. The classifier preserves raw evidence and emits
+`field_applicability` for leave, judicial-review result, judicial-review final
+decision, and the generic final-decision marker. Each status is `known`,
+`pending`, `not_applicable`, or `not_observed`.
+
+The state rules treat discontinuance or withdrawal before leave as no applicable
+leave decision; leave refusal as making substantive judicial-review fields not
+applicable; and withdrawal or discontinuance after leave grant as making the
+substantive final decision not applicable. A generic final-decision marker is
+kept separate because it may be the leave dismissal. A substantive judicial
+review result supports inferred leave grant, and a granted production order is
+retained as a lower-confidence supporting signal.
+
+The bounded 1,000-case report counted 278 cases with leave not applicable and
+673 with judicial-review result and final decision not applicable. It counted
+19 pending judicial-review results and 21 pending judicial-review final
+decisions. These are applicability-aware denominators, not accuracy estimates.
+
 ## Motion Coverage Denominators
 
 The deterministic evaluation preserves its document-level motion metrics, but

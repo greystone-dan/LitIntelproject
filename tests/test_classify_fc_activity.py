@@ -243,6 +243,65 @@ def test_judicial_review_is_not_reached_when_leave_is_refused():
     assert result["leave_decision"]["result"] == "refused"
     assert result["judicial_review_result"]["result"] == "not_reached"
     assert result["judicial_review_final_decision"]["status"] == "unknown"
+    assert result["field_applicability"]["judicial_review_result"]["status"] == "not_applicable"
+    assert result["field_applicability"]["judicial_review_final_decision"]["status"] == "not_applicable"
+
+
+def test_leave_is_not_applicable_when_case_discontinued_before_perfection():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Notice of discontinuance filed."),
+        ]
+    )
+
+    assert result["application_perfected"]["status"] == "unknown"
+    assert result["field_applicability"]["leave_decision"] == {
+        "status": "not_applicable",
+        "reason": "discontinued_before_leave",
+        "evidence_status": "unknown",
+    }
+
+
+def test_substantive_final_decision_infers_leave_granted():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-06-01", "(Final decision) Order dismissing the application for judicial review."),
+        ]
+    )
+
+    assert result["leave_context"]["status"] == "inferred_granted"
+    assert result["judicial_review_result"]["result"] == "dismissed"
+    assert result["field_applicability"]["judicial_review_final_decision"]["status"] == "known"
+
+
+def test_final_decision_is_not_applicable_after_withdrawal_following_leave_grant():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Order granting the application for leave."),
+            event(3, "2024-03-01", "Notice of withdrawal on behalf of the applicant filed."),
+        ]
+    )
+
+    assert result["field_applicability"]["judicial_review_final_decision"] == {
+        "status": "not_applicable",
+        "reason": "withdrawn_after_leave_granted",
+        "evidence_status": "unknown",
+    }
+
+
+def test_production_order_supports_inferred_leave_grant():
+    result = classify_events(
+        [
+            event(1, "2024-01-02", "Application for leave and judicial review filed."),
+            event(2, "2024-02-01", "Motion for production of documents granted; production order issued."),
+        ]
+    )
+
+    assert result["leave_context"]["status"] == "inferred_granted_production_order"
+    assert result["field_applicability"]["leave_decision"]["reason"] == "inferred_granted_production_order"
 
 
 def test_classifies_vba_leave_shorthand_and_french_refusal_wording():

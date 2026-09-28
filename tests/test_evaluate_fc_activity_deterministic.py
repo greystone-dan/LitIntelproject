@@ -1,5 +1,6 @@
 from scripts.evaluate_fc_activity_deterministic import (
     _aggregate_delay_metrics,
+    _applicability_coverage,
     _build_delay_metrics,
     _intelligence_coverage,
     _motion_coverage,
@@ -66,6 +67,28 @@ def test_aggregate_delay_metrics_reports_status_counts_and_percentiles():
     assert metrics["filing_to_removal"]["status_counts"] == {"complete": 2, "missing_removal_date": 1}
     assert metrics["filing_to_removal"]["valid_delay"]["p50_days"] == 10
     assert metrics["motion_to_removal"]["status_counts"] == {"complete": 2, "missing_anchor_date": 1}
+
+
+def test_applicability_coverage_separates_not_applicable_from_pending():
+    metrics = _applicability_coverage(
+        [
+            {"field_applicability": {
+                "leave_decision": {"status": "known"},
+                "judicial_review_result": {"status": "not_applicable"},
+                "judicial_review_final_decision": {"status": "not_applicable"},
+                "final_decision": {"status": "known"},
+            }},
+            {"field_applicability": {
+                "leave_decision": {"status": "pending"},
+                "judicial_review_result": {"status": "pending"},
+                "judicial_review_final_decision": {"status": "pending"},
+                "final_decision": {"status": "not_observed"},
+            }},
+        ]
+    )
+
+    assert metrics["fields"]["judicial_review_result"]["counts"] == {"not_applicable": 1, "pending": 1}
+    assert metrics["fields"]["leave_decision"]["rates"] == {"known": 0.5, "pending": 0.5}
 
 
 def test_motion_coverage_reports_cases_subtypes_results_and_unknowns():

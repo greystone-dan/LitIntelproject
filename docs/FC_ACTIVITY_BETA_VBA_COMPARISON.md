@@ -225,6 +225,30 @@ The OpenAI adapter now preserves cumulative usage, spend, pass history, and
 explicit unresolved event keys across retries. No advisory suggestion was
 promoted automatically.
 
+## Progression-Aware Applicability
+
+Field coverage must distinguish absent evidence from fields that cannot exist
+for a case's procedural path. The classifier now preserves the raw evidence
+fields and emits `field_applicability` statuses of `known`, `pending`,
+`not_applicable`, or `not_observed` for leave, judicial-review result,
+judicial-review final decision, and the generic final-decision marker.
+
+The progression rules are directional: a case discontinued or withdrawn before
+leave has no applicable leave decision; leave refusal makes the substantive
+judicial-review result and final decision not applicable; and withdrawal or
+discontinuance after leave grant makes the substantive final decision not
+applicable. A generic final-decision marker may still be the leave dismissal
+and is kept separate from `judicial_review_final_decision`. Substantive
+judicial-review results infer that leave was granted. A granted production
+order is retained as a lower-confidence supporting signal for inferred leave
+grant, with its source event preserved.
+
+In the bounded 1,000-case evaluation, leave was known in 466 cases, pending in
+252, and not applicable in 278. Judicial-review result was known in 52 cases,
+pending in 19, and not applicable in 673; judicial-review final decision was
+known in 50, pending in 21, and not applicable in 673. These denominators are
+more meaningful than treating all 1,000 cases as eligible for every field.
+
 ## Document Versus Unique-Motion Coverage
 
 The evaluation now reports two denominators. Document-level metrics retain one

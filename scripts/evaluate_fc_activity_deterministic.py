@@ -236,6 +236,26 @@ def _intelligence_coverage(classifications: list[dict[str, Any]]) -> dict[str, A
     }
 
 
+def _applicability_coverage(classifications: list[dict[str, Any]]) -> dict[str, Any]:
+    fields = ("leave_decision", "judicial_review_result", "judicial_review_final_decision", "final_decision")
+    counts: dict[str, Counter[str]] = {field: Counter() for field in fields}
+    for classification in classifications:
+        for field in fields:
+            status = (classification.get("field_applicability") or {}).get(field, {}).get("status") or "unavailable"
+            counts[field][status] += 1
+    total = len(classifications)
+    return {
+        "case_count": total,
+        "fields": {
+            field: {
+                "counts": dict(sorted(field_counts.items())),
+                "rates": {status: round(count / total, 4) if total else 0.0 for status, count in sorted(field_counts.items())},
+            }
+            for field, field_counts in counts.items()
+        },
+    }
+
+
 def _queryable_analytics(classifications: list[dict[str, Any]]) -> dict[str, Any]:
     dimensions = {
         "lifecycle_status": Counter(),
@@ -452,6 +472,7 @@ def build_report(
         "evidence_fields_present": evidence_complete,
         "delay_metrics": _aggregate_delay_metrics(case_delay_metrics),
         "intelligence_coverage": _intelligence_coverage(intelligence_classifications),
+        "applicability_coverage": _applicability_coverage(intelligence_classifications),
         "analytics": _queryable_analytics(intelligence_classifications),
         "gold_set_metrics": evaluate_gold_set(rows, gold_set or []),
         "cases": rows,

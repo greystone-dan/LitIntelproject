@@ -284,6 +284,7 @@ def test_judicial_review_is_not_reached_when_leave_is_refused():
     assert result["leave_decision"]["result"] == "refused"
     assert result["judicial_review_result"]["result"] == "not_reached"
     assert result["judicial_review_final_decision"]["status"] == "unknown"
+    assert result["field_applicability"]["application_perfected"] == {"status": "not_applicable", "reason": "leave_refused"}
     assert result["field_applicability"]["judicial_review_result"]["status"] == "not_applicable"
     assert result["field_applicability"]["judicial_review_final_decision"]["status"] == "not_applicable"
 

@@ -173,19 +173,21 @@ These are applicability-aware denominators, not accuracy estimates.
 
 The same model now covers application perfection and hearings. In the bounded
 report, application perfection was known in 529 cases, pending in 309, and
-not applicable in 162; hearing status was known in 516, pending in 220, not
+not applicable in 286; hearing status was known in 516, pending in 220, not
 observed in 6, and not applicable in 258. Perfection N/A reasons distinguish
-no originating application, direct judicial review, and terminal closure
-before perfection. Hearing N/A reasons distinguish leave refusal from
+leave refusal, no originating application, direct judicial review, and
+terminal closure before perfection. Hearing N/A reasons distinguish leave refusal from
 discontinuance or administrative termination before leave. Explicit hearing
 signals remain authoritative, including not-held and reserved outcomes.
 
 ### Pending Applicability Review
 
-A bounded read-only review sampled the 309 pending application-perfection cases
+A bounded read-only review sampled the 185 pending application-perfection cases
 and 220 pending hearing cases. No deterministic inference was promoted.
-Pending perfection was concentrated in leave-refused (110), unresolved or
-unknown leave (85), and leave-pending (79) paths. Pending hearing was
+Leave refusal is now a separate perfection N/A reason: without explicit
+perfection evidence, a refused-leave case is no longer pending perfection;
+explicit perfection evidence remains known. Pending perfection was concentrated
+in unresolved or unknown leave and leave-pending paths. Pending hearing was
 concentrated in unresolved or unknown leave (89), leave-pending (79), and
 corresponding perfected-application subsets (28 and 24). These are evidence
 gaps or unresolved progression states, not reliable signals that perfection

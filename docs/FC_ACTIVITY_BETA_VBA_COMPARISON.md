@@ -257,23 +257,28 @@ applicable in 672; judicial-review final decision was known in 50, pending in
 treating all 1,000 cases as eligible for every field.
 
 The same applicability model now covers application perfection and hearings.
-Application perfection was known in 529 cases, pending in 309, and not
-applicable in 162: 152 were not perfected before discontinuance, 4 before
-administrative termination, 5 had no originating application, and 1 was
-direct judicial review. Hearing status was known in 516 cases, pending in 220,
-not observed in 6, and not applicable in 258. The hearing N/A reasons were
+Application perfection was known in 529 cases, pending in 185, and not
+applicable in 286: 124 followed leave refusal, 152 were not perfected before
+discontinuance, 4 before administrative termination, 5 had no originating
+application, and 1 was direct judicial review. Hearing status was known in 516
+cases, pending in 220, not observed in 6, and not applicable in 258. The
+hearing N/A reasons were
 249 discontinued before leave, 4 administratively terminated before leave, and
 5 leave refusals. Explicit hearing evidence remains authoritative, including
 484 known not-held outcomes and 15 reserved outcomes.
 
 ## Pending Applicability Review
 
-A bounded read-only review of the 309 pending perfection cases and 220 pending
+A bounded read-only review of the 185 pending perfection cases and 220 pending
 hearing cases found no safe deterministic inference to promote. Pending
-perfection cases most commonly had leave refused (110), an unresolved or
-unknown leave path (85), or leave still pending (79). Treating a downstream
-leave outcome as proof of perfection would conflate missing docket evidence
-with a procedural fact.
+perfection cases are now limited to unresolved or unknown leave paths and
+leave-pending paths. Treating a downstream leave outcome as proof of perfection
+would conflate missing docket evidence with a procedural fact.
+
+Leave refusal is now handled separately: when no explicit perfection evidence
+exists, perfection is `not_applicable` with reason `leave_refused`, because the
+case can no longer be pending perfection. Explicit perfection evidence remains
+`known` even when leave was refused.
 
 Pending hearing cases were concentrated in unresolved or unknown leave paths:
 89 had no resolved leave status, 79 remained leave-pending, 28 had no leave

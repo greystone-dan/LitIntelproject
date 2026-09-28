@@ -164,3 +164,21 @@ findings concerning originating-application capture, a French leave decision,
 and a judge/date signal. These are review signals only; no classifier rule was
 promoted. The audit artifact is
 `data/eval/fc_activity_openai_motion_review_20260928.json`.
+
+## Unknown Motion Review Matrix
+
+The 700 unknown-subtype events in the fixed 1,000-record artifact were
+independently grouped using conservative source-language families:
+
+- `motion_record_reference`: 441
+- `unresolved_motion`: 242
+- `motion_order_without_subject`: 12
+- `hearing_motion_reference`: 5
+
+The bounded review artifact
+`data/eval/fc_activity_motion_unknowns_20260928.json` preserves 30 candidate
+rows with activity case IDs, document IDs, event types, outcomes, source dates,
+and bounded evidence text. Every row remains `review_status=unknown` with no
+suggested subtype, and `rules_promoted=false`. These are triage families, not
+legal or procedural classifications; the next fixture work must review linked
+documents before proposing any rule.

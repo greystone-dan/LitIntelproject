@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 128
+Active scripts documented: 129
 
 ## Catalog
 
@@ -112,6 +112,7 @@ Active scripts documented: 128
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
 | `report_fc_activity_coverage.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help` |
+| `report_fc_activity_motion_unknowns.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help` |
 | `report_incomplete_short_form_anchors.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help` |
 | `report_unresolved_citation_shapes.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
@@ -1565,6 +1566,20 @@ Active scripts documented: 128
 
 ```powershell
 .\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help
+```
+
+## `scripts/report_fc_activity_motion_unknowns.py`
+
+**Purpose:** Report recurring evidence patterns among unknown FC Activity motions.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help
 ```
 
 ## `scripts/report_incomplete_short_form_anchors.py`

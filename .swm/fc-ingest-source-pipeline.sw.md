@@ -92,6 +92,19 @@ and a judge/date signal. The audit artifact is
 was changed. These findings require source-backed fixture review before any
 classifier update.
 
+## Unknown Motion Review Matrix
+
+The independent report over the fixed 1,000-record artifact confirmed 700
+unknown-subtype motion events. Conservative phrase families measured
+`motion_record_reference` 441, `unresolved_motion` 242,
+`motion_order_without_subject` 12, and `hearing_motion_reference` 5. The
+30-row review matrix is stored at
+`data/eval/fc_activity_motion_unknowns_20260928.json` with case/document IDs,
+outcomes, dates, and bounded source evidence. Rows remain unknown and
+`rules_promoted=false`; no classifier, Activity, or canonical data changed.
+The family labels are triage aids only and require linked-document review
+before fixture or rule promotion.
+
 ## Independent Activity Worker
 
 The preparation contract for a future independent Federal Court activity worker

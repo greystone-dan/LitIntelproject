@@ -48,6 +48,13 @@ data/eval/llm_discussion_units_pilot/*_run/
 .github/project-manager/runs/
 data/copilot_exports/
 
+# Local FC Activity evaluation payloads and external workbook references.
+data/eval/fc_activity_*.json
+data/eval/fc_activity_*.csv
+data/eval/llm_discussion_units_pilot/case_35868_*
+data/eval/qwen3_case_1093_paragraph_summary_baseline.json
+data/reference_library/*.xlsm
+
 # Side-project generated artifacts
 side_projects/**/cache/
 side_projects/**/output/

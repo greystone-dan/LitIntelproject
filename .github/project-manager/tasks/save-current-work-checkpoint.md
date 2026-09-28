@@ -7,7 +7,7 @@ Smallest falsifiable check: `git diff --check` passes and ignored run/export pat
 Acceptance criteria: Source, tests, canonical docs, Swimm updates, and durable task records are committed; transient run state and oversized exports remain local; commit is pushed to origin/main; post-push status and remote ancestry agree.
 Docs/generated references: `DOCS_INDEX.md`, `SYSTEM_REFERENCE.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, relevant `.swm/` maps, and `.github/project-manager/README.md`.
 Rollback/recovery: Revert the checkpoint commit if needed; local generated artifacts remain available in the worktree and are not deleted by this task.
-Evidence: `git diff --check`; focused project tests; commit hash; `git status --short --branch`; `git ls-remote origin refs/heads/main`.
-Status: in_progress
+Evidence: `git diff --check --cached` passed; focused pytest passed 103 tests with one existing pypdf deprecation warning; commit `a31807d` was pushed to `origin/main`; generated run/export paths were excluded by `.gitignore`; final remote verification follows.
+Status: complete
 Commit allowed: yes
 Push allowed: yes

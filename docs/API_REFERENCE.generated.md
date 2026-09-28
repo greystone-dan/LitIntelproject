@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-22T16:59:40.996193+00:00
+Generated: 2026-09-28T10:49:45.795329+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 85 across 85 paths
-Hidden operations: 34 excluded from OpenAPI
+OpenAPI operations: 88 across 88 paths
+Hidden operations: 41 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -130,6 +130,7 @@ Search Analytics Cases
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
 - `offset` (query, optional; integer, default `0`)
+- `cohort_id` (query, optional; string, default `""`)
 
 **Responses**
 
@@ -143,6 +144,38 @@ Get Analytics Search Case
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/cohort-assessments`
+
+Search Cohort Assessment Records
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cohort_id` (query, optional; string, default `"discussion_units_core_300"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/cohort-assessments/compare`
+
+Compare Cohort Assessment Records
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `topic` (query, optional; string, default `""`)
+- `role` (query, optional; string, default `""`)
+- `limit` (query, optional; integer, default `25`)
+- `cohort_id` (query, optional; string, default `"discussion_units_core_300"`)
 
 **Responses**
 
@@ -318,6 +351,19 @@ Get Case Contextual Anchors
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-assessments`
+
+Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/reader-data`
@@ -1579,6 +1625,116 @@ Handler: `backend.routes.citation_pass_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.data_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/activity`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_activity`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/paragraph-assessments`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_paragraph_assessments`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/reader-data`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_reader_data`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/statute-references`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_statute_references`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_search`
+
+**Handler parameters**
+
+- `query` (str; default `''`)
+- `cites` (str; default `''`)
+- `government_outcome` (str; default `''`)
+- `decision_outcome` (str; default `''`)
+- `minister` (str; default `''`)
+- `judge` (str; default `''`)
+- `court` (str; default `''`)
+- `year` (str; default `''`)
+- `search_full_text` (bool; default `False`)
+- `sort_by` (str; default `'relevance'`)
+- `limit` (int; default `50`)
+- `offset` (int; default `0`)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 

@@ -256,6 +256,24 @@ remain not applicable; and an unresolved leave application is surfaced as
 `leave_context.status = pending`. In the fixed 1,000-case comparison, 14 prior
 unknown results became explicit outcomes, with no event-count change.
 
+## Beta VBA Comparison Checkpoint
+
+The read-only comparison in `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md` confirms
+that the current JRU Beta workbook is a useful rule and QA reference, not a
+replacement extractor. Its strongest additions are normalized motion subtypes
+(including stays, abeyance, s.37 CEA, s.87 IRPA, consent, confidentiality,
+production, and intervention), cross-field validation findings, and a simple
+cases-to-review queue. The current Python layer remains stronger on event-level
+source evidence, semantic versus registry dates, stage-specific judges, and
+typed challenged-decision subjects.
+
+The Beta source also has limitations that must remain visible: its motion
+result normalizer is not called by the array-based motion extractor, JSON is
+parsed by string search, and judge/decision-maker extraction is first-match
+and aggregate-only. The next bounded experiment is a 20-30 case motion fixture
+set followed by a pure structured validation function; raw Activity rows and
+canonical case records remain unchanged.
+
 ## Modularization Direction
 
 The safe seams are discovery, item parsing, document parsing, PDF validation,

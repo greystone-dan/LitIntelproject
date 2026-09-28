@@ -73,7 +73,10 @@ Current operational sources of truth:
 7. `docs/CLAUDE_ACTIVITY_PROJECT_SETUP.md`
 - Portable Claude Project setup, Activity data contract, commands, prompts, evidence rules, and implementation acceptance criteria.
 
-8. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+8. `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`
+- Read-only comparison of the current JRU Beta VBA extraction/validation logic with the active Python FC Activity pipeline.
+
+9. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
 - Swimm mapping plan and future manager-agent contract; it does not override
 	the canonical architecture or generated references.
 

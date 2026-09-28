@@ -266,6 +266,23 @@ not observed in 6, and not applicable in 258. The hearing N/A reasons were
 5 leave refusals. Explicit hearing evidence remains authoritative, including
 484 known not-held outcomes and 15 reserved outcomes.
 
+## Pending Applicability Review
+
+A bounded read-only review of the 309 pending perfection cases and 220 pending
+hearing cases found no safe deterministic inference to promote. Pending
+perfection cases most commonly had leave refused (110), an unresolved or
+unknown leave path (85), or leave still pending (79). Treating a downstream
+leave outcome as proof of perfection would conflate missing docket evidence
+with a procedural fact.
+
+Pending hearing cases were concentrated in unresolved or unknown leave paths:
+89 had no resolved leave status, 79 remained leave-pending, 28 had no leave
+resolution despite a perfected application, and 24 were leave-pending with a
+perfected application. The correct current result is `pending`, not
+`not_held` or `not_applicable`. No classifier rule was promoted and no source
+or database write was performed. Future improvement should revalidate source
+completeness for a bounded sample before changing these states.
+
 ## Document Versus Unique-Motion Coverage
 
 The evaluation now reports two denominators. Document-level metrics retain one

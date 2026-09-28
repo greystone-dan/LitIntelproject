@@ -180,6 +180,18 @@ before perfection. Hearing N/A reasons distinguish leave refusal from
 discontinuance or administrative termination before leave. Explicit hearing
 signals remain authoritative, including not-held and reserved outcomes.
 
+### Pending Applicability Review
+
+A bounded read-only review sampled the 309 pending application-perfection cases
+and 220 pending hearing cases. No deterministic inference was promoted.
+Pending perfection was concentrated in leave-refused (110), unresolved or
+unknown leave (85), and leave-pending (79) paths. Pending hearing was
+concentrated in unresolved or unknown leave (89), leave-pending (79), and
+corresponding perfected-application subsets (28 and 24). These are evidence
+gaps or unresolved progression states, not reliable signals that perfection
+occurred or that no hearing occurred. Source revalidation is required before
+adding rules.
+
 ## Motion Coverage Denominators
 
 The deterministic evaluation preserves its document-level motion metrics, but

@@ -35,13 +35,13 @@ Docs/generated references: `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`; `.swm/fc-i
 
 Rollback/recovery: Revert the applicability-only code/test/docs commit; no database migration or bulk write is required.
 
-Evidence: Existing classifier inspection showed `leave_context.status` already distinguished `refused`, `pending`, direct judicial review, and inferred grant, while downstream final-decision applicability remained ambiguous. The implementation now emits `field_applicability` with explicit leave N/A reasons and explanations plus application-perfection and hearing applicability. The bounded 1,000-case evaluation recorded leave known=466, pending=252, not applicable=278; application perfection known=529, pending=309, not applicable=162; hearing known=516, pending=220, not observed=6, not applicable=258; judicial-review result known=52, pending=20, not applicable=672; judicial-review final known=50, pending=22, not applicable=672; `database_written=false`.
+Evidence: Existing classifier inspection showed `leave_context.status` already distinguished `refused`, `pending`, direct judicial review, and inferred grant, while downstream final-decision applicability remained ambiguous. The implementation now emits `field_applicability` with explicit leave N/A reasons and explanations plus application-perfection and hearing applicability. The bounded 1,000-case evaluation recorded leave known=466, pending=252, not applicable=278; application perfection known=529, pending=309, not applicable=162; hearing known=516, pending=220, not observed=6, not applicable=258; judicial-review result known=52, pending=20, not applicable=672; judicial-review final known=50, pending=22, not applicable=672; `database_written=false`. A read-only stratification of all pending perfection and hearing cases found no safe inference rule: pending perfection concentrated in leave-refused (110), unknown/unresolved leave (85), and leave-pending (79); pending hearing concentrated in unknown/unresolved leave (89), leave-pending (79), and perfected subsets (28 and 24). No rule was promoted.
 
 Files changed: `scripts/classify_fc_activity.py`, `scripts/evaluate_fc_activity_deterministic.py`, `tests/test_classify_fc_activity.py`, `tests/test_evaluate_fc_activity_deterministic.py`, `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md`, `.swm/fc-ingest-source-pipeline.sw.md`, this task record, and the read-only evaluation artifact.
 Delegated work: Explore agent reviewed classifier, tests, docs, schema, and the existing 1,000-case artifact; no files changed.
-Focused validation: `pytest tests/test_classify_fc_activity.py -q` (54 passed); `pytest tests/test_evaluate_fc_activity_deterministic.py -q` (12 passed); bounded evaluation completed with no database write. Final documentation and generated-doc checks pending.
+Focused validation: `pytest tests/test_classify_fc_activity.py tests/test_evaluate_fc_activity_deterministic.py -q` (70 passed); Python compilation, generated-doc check, and `git diff --check` passed; bounded evaluation completed with no database write. Pending-case stratification was read-only and promoted no rules.
 Residual risk: Some terminal states remain uncertain when source history is incomplete or contradictory; production-order inference is supporting evidence, not a direct leave decision.
-Next bounded task: Review pending perfection and hearing cases for source-history gaps before adding further progression rules.
+Next bounded task: Revalidate source completeness for a small pending-perfection and pending-hearing sample before considering additional deterministic rules.
 
 ## Hypothesis
 
@@ -64,10 +64,10 @@ If applicability is derived from confirmed progression states, the evaluator wil
 
 Completion recorded: yes
 
-Summary: Added progression-aware applicability metadata and reporting for leave and judicial-review fields without changing raw evidence values.
+Summary: Added progression-aware applicability metadata and reporting for leave, judicial-review, application-perfection, and hearing fields without changing raw evidence values. A bounded pending-case review found no safe additional inference rule.
 
 Validation: Focused classifier/evaluator tests and bounded read-only evaluation passed; final documentation checks pending.
 
 Residual risk: Applicability coverage is not an accuracy estimate and does not yet cover every field.
 
-Next recommended task: Sample pending perfection and hearing cases to determine whether additional deterministic evidence rules are justified.
+Next recommended task: Revalidate a bounded source sample; keep pending states unchanged unless source evidence supports a precise rule.

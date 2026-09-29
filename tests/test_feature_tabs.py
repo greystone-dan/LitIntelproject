@@ -97,15 +97,18 @@ def test_rendered_shell_exposes_tabs_and_product_title():
 
 
 def test_research_bench_tab_exposes_three_prototype_views():
-     html = routes._data_explorer_page_html()
+    html = routes._data_explorer_page_html()
 
-     assert 'data-tab="research-bench"' in html
-     assert 'id="researchBenchPanel"' in html
-     assert 'data-bench-tab="library"' in html
-     assert 'data-bench-tab="tracker"' in html
-     assert 'data-bench-tab="analysis"' in html
-     assert "DocketAdapter" in html
-     assert "AnalysisService" in html
+    assert 'data-tab="research-bench"' in html
+    assert 'id="researchBenchPanel" class="panel-card search-layout research-bench-panel"' in html
+    assert 'data-bench-tab="library"' in html
+    assert 'data-bench-tab="tracker"' in html
+    assert 'data-bench-tab="analysis"' in html
+    assert ".research-bench-panel" in html
+    assert "LibraryService" in html
+    assert "CaseTrackerService" in html
+    assert "DocketAdapter" in html
+    assert "AnalysisService" in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

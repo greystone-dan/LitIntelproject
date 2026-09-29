@@ -210,6 +210,24 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 </style>
 <style>
 .reader-text,.chunk-body{font-family:Georgia,"Times New Roman",serif!important;font-weight:400!important}
+.research-bench-panel{--bench-blue:#315d8d;--bench-blue-soft:#e7eef6;--bench-teal:#176c68;--bench-teal-soft:#edf5f3;--bench-rust:#a4412b;--bench-rust-soft:#f7e8e3;--bench-amber:#8a6418;--bench-amber-soft:#f8f0dc;background:linear-gradient(135deg,#fffef9,#f7faf8)}
+.research-bench-panel>.page-header{padding:6px 4px 14px;border-bottom:1px solid var(--border)}
+.research-bench-panel>.page-header h2{font:700 30px/1.1 "Newsreader",serif;color:var(--text);margin:0 0 8px}
+.research-bench-panel>.page-header p{max-width:760px;margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.research-bench-panel>.summaryRows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:16px 0 0}
+.research-bench-panel>.summaryRows span{padding:13px 14px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--muted);font-size:11px;line-height:1.45}
+.research-bench-panel>.summaryRows strong{display:block;margin-bottom:4px;color:var(--text);font:600 13px/1 "Newsreader",serif;letter-spacing:0}
+.research-bench-panel>.view-tabs{margin-top:18px;padding-left:4px}
+.research-bench-panel [data-bench-view]{margin-top:14px}
+.research-bench-panel .about-section{margin:10px 0 0;padding:18px;border:1px solid var(--border);border-left:3px solid var(--bench-blue);border-radius:5px;background:rgba(255,254,249,.9)}
+.research-bench-panel .about-section:first-child{margin-top:0;border-left-color:var(--bench-rust)}
+.research-bench-panel .about-section h3{font:600 22px/1.15 "Newsreader",serif;color:var(--text)}
+.research-bench-panel .about-section p{max-width:780px;color:var(--muted);font-size:13px;line-height:1.7}
+.research-bench-panel .about-fields span{border-radius:3px;background:var(--bench-blue-soft);border-color:#c8d7e8;color:var(--bench-blue);font:600 10px/1.2 "IBM Plex Mono",monospace;letter-spacing:.02em}
+.research-bench-panel .status{margin-top:14px;border:1px solid var(--border);border-radius:5px;background:var(--surface)}
+.research-bench-panel .status div{grid-template-columns:100px minmax(0,1fr);padding:12px 14px;border-color:var(--border);font-size:12px}
+.research-bench-panel code,.research-bench-panel strong{color:var(--bench-teal)}
+@media(max-width:700px){.research-bench-panel>.summaryRows{grid-template-columns:1fr}.research-bench-panel .status div{grid-template-columns:1fr;gap:4px}.research-bench-panel .about-section{padding:15px}}
 </style>
 </head>
 <body>
@@ -347,9 +365,9 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 </div>
 </div>
 </section>
-<section id="researchBenchPanel" class="panel-card search-layout" hidden>
+<section id="researchBenchPanel" class="panel-card search-layout research-bench-panel" hidden>
 <div class="page-header"><div class="eyebrow">Concept workspace</div><h2>Research Bench</h2><p>A personal and team workspace for saving decisions, tracking live court files, and testing decision-level analysis. This prototype uses the supplied service skeleton; court and CanLII adapters remain stubs.</p></div>
-<div class="summaryRows"><span><strong>Library</strong><br>Private saves + team sharing</span><span><strong>Live tracker</strong><br>FCA and FC docket updates</span><span><strong>Live analysis</strong><br>Decision + provision review</span></div>
+<div class="summaryRows"><span><strong>Library</strong><code>LibraryService</code><br>Private saves + team sharing</span><span><strong>Live tracker</strong><code>CaseTrackerService</code><br>FCA and FC docket updates</span><span><strong>Live analysis</strong><code>AnalysisService</code><br>Decision + provision review</span></div>
 <div class="view-tabs" role="tablist" aria-label="Research Bench views"><button class="tab active" type="button" data-bench-tab="library">Library</button><button class="tab" type="button" data-bench-tab="tracker">Live case tracker</button><button class="tab" type="button" data-bench-tab="analysis">Live analysis</button></div>
 <div id="researchBenchLibrary" data-bench-view="library">
 <section class="about-section"><div class="about-kicker">My Bench</div><h3>Save a decision and keep the reasoning around it.</h3><p>Save decisions into folders, add private notes and tags, and promote a case to the team library when it is ready to share. Team changes should remain auditable rather than silently overwriting one another.</p><div class="about-fields"><span>Private saves</span><span>Folders and tags</span><span>Paragraph notes</span><span>Team publishing</span><span>Audit history</span></div></section>

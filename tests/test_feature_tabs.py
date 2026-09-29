@@ -118,29 +118,12 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     architecture_end = html.index('<section id="citationIntelligencePanel"', architecture_start)
     architecture_panel = html[architecture_start:architecture_end]
 
-    assert 'id="aboutSystemMap"' in about_panel
-    assert 'class="system-map-canvas graph-canvas"' in about_panel
-    assert 'class="system-map-connections graph-connections"' in about_panel
-    assert about_panel.count('data-graph-node=') == 11
-    assert 'data-route="pipeline citations resolution library"' in about_panel
-    assert 'data-route="pipeline statutes evidence"' in about_panel
-    assert 'id="graphExpansion"' in about_panel
-    assert 'class="graph-expansion-children"' in about_panel
-    assert 'id="systemMapDetail"' in about_panel
-    assert 'selectArchitectureNode' in html
-    assert 'openArchitectureNode' in html
-    assert "Official sources" in about_panel
-    assert "V2 pipeline" in about_panel
-    assert "Live analysis" in about_panel
-    assert 'id="casePipelineGraphic"' in about_panel
-    assert 'class="pipeline-canvas"' in about_panel
-    assert about_panel.count('<button class="pipeline-node') == 12
-    assert 'pipeline-route-main' in about_panel
-    assert 'Target resolution' in about_panel
-    assert 'Anchor backfill' in about_panel
-    assert 'Discussion units' in about_panel
-    assert 'selectPipelineStage' in html
-    assert 'class="about-story"' not in about_panel
+    assert about_panel == '<section id="aboutPanel" class="panel-card search-layout" hidden>\n</section>\n'
+    assert 'Data layer coverage' in architecture_panel
+    assert 'id="aboutSummary"' in architecture_panel
+    assert architecture_panel.index('Data layer coverage') < architecture_panel.index('Site Architecture')
+    assert 'id="aboutSystemMap"' not in about_panel
+    assert 'id="casePipelineGraphic"' not in about_panel
     assert 'id="movedAboutOverview"' in architecture_panel
     assert 'Citation records' in architecture_panel
 

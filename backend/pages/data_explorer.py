@@ -1,5 +1,5 @@
 def data_explorer_page_html() -> str:
-	return """<!doctype html>
+  html = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -732,3 +732,13 @@ const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));
 </body>
 </html>
 """
+  coverage_start = '<div class="page-header"><div class="eyebrow">About the tool</div>'
+  coverage_end = '<div id="aboutSystemMap" class="about-system-map"'
+  coverage_block = html[html.index(coverage_start):html.index(coverage_end)]
+  html = html.replace(coverage_block, "", 1)
+  architecture_start = '<section id="siteArchitecturePanel" class="panel-card search-layout" hidden>\n'
+  html = html.replace(architecture_start, architecture_start + coverage_block, 1)
+  about_start = html.index('<section id="aboutPanel"')
+  about_end = html.index('<section id="searchPanel"', about_start)
+  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n</section>\n' + html[about_end:]
+  return html

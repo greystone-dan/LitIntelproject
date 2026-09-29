@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 def data_explorer_page_html() -> str:
   html = """<!doctype html>
 <html lang="en">
@@ -740,5 +743,7 @@ const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));
   html = html.replace(architecture_start, architecture_start + coverage_block, 1)
   about_start = html.index('<section id="aboutPanel"')
   about_end = html.index('<section id="searchPanel"', about_start)
-  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n</section>\n' + html[about_end:]
+  about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
+  about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
+  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
   return html

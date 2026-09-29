@@ -258,6 +258,7 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <div class="view-tabs" role="tablist" aria-label="Research views">
 <button class="tab" type="button" data-tab="about">About</button>
 <button class="tab active" type="button" data-tab="search">Case search</button>
+<button class="tab" type="button" data-tab="research-bench">Research Bench</button>
 <button class="tab" type="button" data-tab="site-architecture">Site Architecture</button>
 <button class="tab" type="button" data-tab="citation-intelligence">Citation Intelligence</button>
 <button class="tab" type="button" data-tab="judge-profile">Judge Profile</button>
@@ -344,6 +345,23 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <div class="reader-pane-splitter" data-reader-splitter="linked" role="separator" aria-label="Resize case context column" tabindex="0"></div>
 <aside class="reader-pane linked"><div class="reader-pane-header" id="linkedCaseHeading">Case context</div><div id="linkedCaseContext" class="reader-status">Linked cases and related authorities will appear here.</div></aside>
 </div>
+</div>
+</section>
+<section id="researchBenchPanel" class="panel-card search-layout" hidden>
+<div class="page-header"><div class="eyebrow">Concept workspace</div><h2>Research Bench</h2><p>A personal and team workspace for saving decisions, tracking live court files, and testing decision-level analysis. This prototype uses the supplied service skeleton; court and CanLII adapters remain stubs.</p></div>
+<div class="summaryRows"><span><strong>Library</strong><br>Private saves + team sharing</span><span><strong>Live tracker</strong><br>FCA and FC docket updates</span><span><strong>Live analysis</strong><br>Decision + provision review</span></div>
+<div class="view-tabs" role="tablist" aria-label="Research Bench views"><button class="tab active" type="button" data-bench-tab="library">Library</button><button class="tab" type="button" data-bench-tab="tracker">Live case tracker</button><button class="tab" type="button" data-bench-tab="analysis">Live analysis</button></div>
+<div id="researchBenchLibrary" data-bench-view="library">
+<section class="about-section"><div class="about-kicker">My Bench</div><h3>Save a decision and keep the reasoning around it.</h3><p>Save decisions into folders, add private notes and tags, and promote a case to the team library when it is ready to share. Team changes should remain auditable rather than silently overwriting one another.</p><div class="about-fields"><span>Private saves</span><span>Folders and tags</span><span>Paragraph notes</span><span>Team publishing</span><span>Audit history</span></div></section>
+<section class="about-section"><div class="about-kicker">Annotations</div><h3>Anchor comments to paragraph ranges.</h3><p>Annotations use paragraph numbers rather than character offsets so they can survive a decision being downloaded again. Labels include supports, adverse, context, and distinguish, with replies for team discussion.</p><div class="about-fields"><span>Paragraph anchors</span><span>Supports</span><span>Adverse</span><span>Context</span><span>Distinguish</span><span>Threaded replies</span></div></section>
+</div>
+<div id="researchBenchTracker" data-bench-view="tracker" hidden>
+<section class="about-section"><div class="about-kicker">Live case tracker</div><h3>Keep an analyst's own FCA and FC files in view.</h3><p>Track a docket and its style of cause, then check the source adapter for entries newer than the last seen fingerprint. New entries, hearings, or released decisions become alerts; the current adapter is a sample stub until a court source is agreed.</p><div class="status"><div><strong>Track</strong><span>Docket, style of cause, court, analyst, and current status.</span></div><div><strong>Check</strong><span>Idempotent update checks return only entries after the last seen point.</span></div><div><strong>Alert</strong><span>New docket entries, hearings, and decisions can be offered for saving to the bench.</span></div></div></section>
+<section class="about-section"><div class="about-kicker">Prototype boundary</div><h3>Live means designed for a source connection, not connected yet.</h3><p>The skeleton keeps court access behind a <strong>DocketAdapter</strong>. This tab presents the workflow without claiming that FCA or FC requests are currently running from the browser.</p></section>
+</div>
+<div id="researchBenchAnalysis" data-bench-view="analysis" hidden>
+<section class="about-section"><div class="about-kicker">Live analysis</div><h3>Ask what a decision says about a provision.</h3><p>Select a decision, a provision such as <strong>s. 34(1)(f)</strong>, and an optional question. The planned result returns key paragraphs, explains how the decision bears on the provision, and offers passages for annotation.</p><div class="about-fields"><span>Decision</span><span>Provision</span><span>Research question</span><span>Key paragraphs</span><span>Authorities to watch</span><span>Add as annotation</span></div></section>
+<section class="about-section"><div class="about-kicker">Service boundary</div><h3>Analysis is a mockup until its evidence contract is wired.</h3><p>The supplied <strong>AnalysisService</strong> is intentionally a stub. Any future implementation should return source-linked passages and preserve the distinction between extracted evidence, derived analysis, and analyst notes.</p></section>
 </div>
 </section>
 <section id="siteArchitecturePanel" class="panel-card search-layout" hidden>
@@ -731,6 +749,13 @@ const effectiveCitationOverview=loadCitationOverview;loadCitationOverview=async 
 const citationOverviewVisualObserver=new MutationObserver(()=>{const box=document.getElementById('citationIntelligenceContent');if(!box||!ciState.caseId||box.querySelector('.ci-overview-visual')||!box.textContent.includes('Research paths')||box.dataset.visualLoading)return;box.dataset.visualLoading='true';fetch(`/api/citation-intelligence/${ciState.caseId}/overview`).then(response=>{if(!response.ok)throw new Error(`Request failed (${response.status})`);return response.json()}).then(data=>box.insertAdjacentHTML('afterbegin',renderCitationOverviewVisual(data.metrics||data))).catch(()=>box.insertAdjacentHTML('afterbegin','<div class="reader-status ci-overview-visual" data-ci-state="error">Citation footprint visual unavailable; stored research paths remain available below.</div>'))});citationOverviewVisualObserver.observe(document.getElementById('citationIntelligenceContent'),{childList:true,subtree:true});
 setTimeout(()=>{const box=document.getElementById('citationIntelligenceContent');if(!box||!ciState.caseId||box.querySelector('.ci-overview-visual')||!box.textContent.includes('Research paths'))return;fetch(`/api/citation-intelligence/${ciState.caseId}/overview`).then(response=>response.ok?response.json():Promise.reject(new Error('overview unavailable'))).then(data=>box.insertAdjacentHTML('afterbegin',renderCitationOverviewVisual(data.metrics||data))).catch(()=>box.insertAdjacentHTML('afterbegin','<div class="reader-status ci-overview-visual" data-ci-state="error">Citation footprint visual unavailable; stored research paths remain available below.</div>'))},3000);
 const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));if(Number.isInteger(initialCaseId)&&initialCaseId>0)openDecision(initialCaseId);if(requestedTab==='citation-intelligence')loadCitationIntelligence();
+</script>
+<script>
+const researchBenchPanel=document.getElementById('researchBenchPanel');
+const showResearchBench=()=>{document.querySelectorAll('.panel-card').forEach(panel=>{panel.hidden=panel!==researchBenchPanel});document.querySelectorAll('[data-tab]').forEach(tab=>tab.classList.toggle('active',tab.dataset.tab==='research-bench'));history.replaceState(null,'','/data-explorer?tab=research-bench');};
+document.querySelectorAll('[data-bench-tab]').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('[data-bench-tab]').forEach(item=>item.classList.toggle('active',item===tab));document.querySelectorAll('[data-bench-view]').forEach(view=>{view.hidden=view.dataset.benchView!==tab.dataset.benchTab});}));
+document.querySelector('[data-tab="research-bench"]')?.addEventListener('click',event=>{event.stopImmediatePropagation();showResearchBench();},true);
+if(new URLSearchParams(location.search).get('tab')==='research-bench')showResearchBench();
 </script>
 </body>
 </html>

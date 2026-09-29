@@ -78,6 +78,7 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     for label in (
         "About",
         "Case search",
+        "Research Bench",
         "Site Architecture",
         "Citation Intelligence",
         "Judge Profile",
@@ -93,6 +94,18 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="aboutOutcomeChart"' not in html
     assert 'data-tab="judge">Judge outcomes</button>' not in html
     assert 'id="judgePanel"' not in html
+
+
+def test_research_bench_tab_exposes_three_prototype_views():
+     html = routes._data_explorer_page_html()
+
+     assert 'data-tab="research-bench"' in html
+     assert 'id="researchBenchPanel"' in html
+     assert 'data-bench-tab="library"' in html
+     assert 'data-bench-tab="tracker"' in html
+     assert 'data-bench-tab="analysis"' in html
+     assert "DocketAdapter" in html
+     assert "AnalysisService" in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

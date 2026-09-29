@@ -711,6 +711,7 @@ async function loadStatuteAffinity(pinpoint){
   }
 }
 
+const legacyJudgePanel=document.createElement('div');legacyJudgePanel.id='judgePanel';legacyJudgePanel.hidden=true;document.body.appendChild(legacyJudgePanel);
 (async()=>{const response=await fetch('/analytics/explorer?limit=1');if(!response.ok)throw new Error('Unable to load available fields');const data=await response.json();fields=data.fields;paintFields();await loadMinisters();document.getElementById('apply')?.addEventListener('click', load);document.getElementById('caseSearch').onsubmit=loadSearch;
 document.getElementById('loadAffinityBtn')?.addEventListener('click',()=>loadStatuteAffinity());
 document.querySelectorAll('.statute-preset-btn').forEach(btn=>btn.addEventListener('click',()=>loadStatuteAffinity(btn.dataset.statute)));
@@ -774,6 +775,12 @@ const showResearchBench=()=>{document.querySelectorAll('.panel-card').forEach(pa
 document.querySelectorAll('[data-bench-tab]').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('[data-bench-tab]').forEach(item=>item.classList.toggle('active',item===tab));document.querySelectorAll('[data-bench-view]').forEach(view=>{view.hidden=view.dataset.benchView!==tab.dataset.benchTab});}));
 document.querySelector('[data-tab="research-bench"]')?.addEventListener('click',event=>{event.stopImmediatePropagation();showResearchBench();},true);
 if(new URLSearchParams(location.search).get('tab')==='research-bench')showResearchBench();
+</script>
+<script>
+const activeResearchPanels={about:'aboutPanel',search:'searchPanel','research-bench':'researchBenchPanel','site-architecture':'siteArchitecturePanel','citation-intelligence':'citationIntelligencePanel','judge-profile':'judgeProfilePanel','fc-history':'fcHistoryPanel',themes:'themesPanel'};
+function activateResearchTab(tabKey,updateUrl=true){const selected=activeResearchPanels[tabKey]?tabKey:'search';Object.entries(activeResearchPanels).forEach(([key,id])=>{const panel=document.getElementById(id);if(panel)panel.hidden=key!==selected});const reader=document.getElementById('caseReaderPanel');if(reader)reader.hidden=true;document.querySelectorAll('[data-tab]').forEach(tab=>tab.classList.toggle('active',tab.dataset.tab===selected));if(updateUrl){const params=new URLSearchParams(location.search);params.set('tab',selected);history.replaceState(null,'',`/data-explorer?${params.toString()}`)}}
+document.addEventListener('click',event=>{const tab=event.target.closest?.('[data-tab]');if(!tab)return;event.preventDefault();event.stopImmediatePropagation();activateResearchTab(tab.dataset.tab);},true);
+activateResearchTab(new URLSearchParams(location.search).get('tab')||'search',false);
 </script>
 </body>
 </html>

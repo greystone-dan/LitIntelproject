@@ -109,6 +109,9 @@ def test_research_bench_tab_exposes_three_prototype_views():
     assert "CaseTrackerService" in html
     assert "DocketAdapter" in html
     assert "AnalysisService" in html
+    assert "activeResearchPanels" in html
+    assert "activateResearchTab" in html
+    assert "new URLSearchParams(location.search).get('tab')||'search'" in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

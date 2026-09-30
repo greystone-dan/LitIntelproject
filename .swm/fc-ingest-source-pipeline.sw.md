@@ -413,6 +413,19 @@ procedural markers without turning an Activity row into a canonical case or
 citation. Explicit semantic filing/hearing/decision dates are kept separate
 from the source `DOC_DT`; unknown and ambiguous signals remain visible.
 
+Full-inventory deterministic classification is a separate bounded write to
+`fc_activity_classifications`. `scripts/classify_fc_activity.py --all` writes
+an atomic post-commit state file and skips rows already carrying the current
+classifier version; `--force` is required to replace current rows. The A2AJ HF
+importer records nullable `source_type`, `source_name`, and `source_id` on the
+FC Activity case and classification layers when it has direct source evidence.
+Its source keys are namespaced so an A2AJ citation/year identity cannot
+overwrite a local Federal Court scraper row. Rows with unknown provenance
+remain nullable. The read-only `/api/fc-activity/analytics` endpoint accepts a
+`source_type` filter and returns `source_counts`; analytics must use this
+separate FC Activity layer and its source fields rather than joining Activity
+rows to canonical judgments.
+
 The 2026-09-26 evaluation checkpoint used a fixed 100-record cross-year sample
 with seven-year weighting and a bounded 12-record `gpt-4.1-nano` audit at
 75-percent recent-year weighting. The deterministic report and audit JSON are

@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 from backend import routes
+from backend.analytics_service import fetch_fc_activity_breakdowns, fetch_fc_activity_flow
 from backend.citation_map import _build_citation_intelligence_insights
 
 
@@ -72,6 +73,67 @@ def test_compatibility_routes_select_tabs():
     assert routes.fc_history_page().headers["location"] == "/data-explorer?tab=fc-history"
 
 
+def test_fc_activity_flow_route_delegates_to_live_aggregation(monkeypatch):
+    database = object()
+    expected = {"total": 4, "nodes": [], "links": []}
+    monkeypatch.setattr(routes, "fetch_fc_activity_flow", lambda db, city="", source_type="": expected)
+
+    assert routes.fc_activity_flow("Toronto", "a2aj", database) == expected
+
+
+def test_fc_activity_breakdowns_use_structured_case_fields():
+    class Database:
+        def __init__(self):
+            self.rows = iter(
+                [
+                    [SimpleNamespace(label="Toronto", count=12), SimpleNamespace(label="Vancouver", count=4)],
+                    [SimpleNamespace(label="Immigration", count=13), SimpleNamespace(label="Administrative", count=3)],
+                    [SimpleNamespace(label="Regular", count=11), SimpleNamespace(label="Simplified", count=5)],
+                ]
+            )
+
+        def execute(self, statement):
+            return SimpleNamespace(all=lambda: next(self.rows))
+
+    result = fetch_fc_activity_breakdowns(Database(), city="Toronto")
+
+    assert result == {
+        "city": "Toronto",
+        "registry_locations": [{"label": "Toronto", "count": 12}, {"label": "Vancouver", "count": 4}],
+        "case_classes": [{"label": "Immigration", "count": 13}, {"label": "Administrative", "count": 3}],
+        "tracks": [{"label": "Regular", "count": 11}, {"label": "Simplified", "count": 5}],
+    }
+
+
+def test_fc_activity_flow_uses_exclusive_procedural_branches():
+    class Database:
+        def execute(self, statement):
+            return SimpleNamespace(
+                all=lambda: [
+                    SimpleNamespace(branch="active", count=2),
+                    SimpleNamespace(branch="leave_refused", count=3),
+                    SimpleNamespace(branch="leave_jr_granted", count=4),
+                    SimpleNamespace(branch="leave_jr_dismissed", count=5),
+                    SimpleNamespace(branch="leave_granted_pending_jr", count=6),
+                    SimpleNamespace(branch="direct_jr_granted", count=7),
+                    SimpleNamespace(branch="direct_jr_pending", count=8),
+                    SimpleNamespace(branch="closed_before_leave", count=9),
+                    SimpleNamespace(branch="unresolved", count=10),
+                ]
+            )
+
+    result = fetch_fc_activity_flow(Database())
+    links = {(item["source"], item["target"]): item["value"] for item in result["links"]}
+
+    assert result["total"] == 54
+    assert result["semantics"] == "exclusive_procedural_branches"
+    assert sum(value for (source, _), value in links.items() if source == "total") == result["total"]
+    assert links[("leave_granted", "leave_jr_granted")] == 4
+    assert links[("leave_granted", "leave_jr_dismissed")] == 5
+    assert links[("direct_jr", "direct_jr_granted")] == 7
+    assert "overlap" in result["note"]
+
+
 def test_rendered_shell_exposes_tabs_and_product_title():
     html = routes._data_explorer_page_html()
 
@@ -94,6 +156,17 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="aboutOutcomeChart"' not in html
     assert 'data-tab="judge">Judge outcomes</button>' not in html
     assert 'id="judgePanel"' not in html
+
+
+def test_fc_activity_panel_exposes_three_non_overlapping_charts():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="fcActivityChart"' in html
+    assert 'id="fcActivityRegistryChart"' in html
+    assert 'id="fcActivityClassChart"' in html
+    assert 'id="fcActivityTrackChart"' in html
+    assert 'id="fcActivitySankey"' not in html
+    assert 'id="fcActivityFlowSummary"' not in html
 
 
 def test_research_bench_tab_exposes_three_prototype_views():

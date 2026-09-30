@@ -11,7 +11,7 @@ from typing import Any
 
 import httpx
 from fastapi import HTTPException, status
-from sqlalchemy import bindparam, func, or_, select, text as sql_text
+from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
@@ -408,7 +408,126 @@ def fetch_fc_activity_timeline(db: Session, *, city: str = "") -> dict[str, Any]
 		),
 		"rows": selected_rows,
 		"total_rows": timeline(total_counts),
-		"province_rows": province_rows,
+		"province_rows": [],
+	}
+
+
+def fetch_fc_activity_breakdowns(
+	db: Session,
+	*,
+	city: str = "",
+	limit: int = 8,
+) -> dict[str, Any]:
+	"""Return bounded, structured distributions for the FC History panel."""
+	selected_city = city.strip()
+	chart_limit = max(1, min(limit, 12))
+	filters = [FCActivityCase.year.is_not(None), FCActivityCase.year >= FC_ACTIVITY_DISPLAY_START_YEAR]
+	if selected_city:
+		filters.append(FCActivityCase.city_filed == selected_city)
+
+	def distribution(column: Any) -> list[dict[str, Any]]:
+		label = func.coalesce(func.nullif(column, ""), "Unknown").label("label")
+		rows = db.execute(
+			select(label, func.count(FCActivityCase.id).label("count"))
+			.where(*filters)
+			.group_by(label)
+			.order_by(func.count(FCActivityCase.id).desc(), label)
+			.limit(chart_limit)
+		).all()
+		return [{"label": str(row.label), "count": int(row.count)} for row in rows]
+
+	return {
+		"city": selected_city or None,
+		"registry_locations": distribution(FCActivityCase.city_filed),
+		"case_classes": distribution(FCActivityCase.case_class),
+		"tracks": distribution(FCActivityCase.track),
+	}
+
+
+def fetch_fc_activity_flow(
+	db: Session,
+	*,
+	city: str = "",
+	source_type: str = "",
+) -> dict[str, Any]:
+	"""Return a live, exclusive procedural branch flow for classified activity."""
+	classification = FCActivityClassification.classification_json
+	direct_review = classification["challenged_decision"]["application_type"].as_string()
+	leave_result = classification["leave_decision"]["result"].as_string()
+	jr_result = classification["judicial_review_result"]["result"].as_string()
+	lifecycle_status = classification["lifecycle_status"]["status"].as_string()
+	lifecycle_kind = classification["lifecycle_status"]["status_kind"].as_string()
+	branch = case(
+		(direct_review == "direct_judicial_review", case(
+			(jr_result == "granted", "direct_jr_granted"),
+			(jr_result == "dismissed", "direct_jr_dismissed"),
+			else_="direct_jr_pending",
+		)),
+		(leave_result == "refused", "leave_refused"),
+		(leave_result == "granted", case(
+			(jr_result == "granted", "leave_jr_granted"),
+			(jr_result == "dismissed", "leave_jr_dismissed"),
+			else_="leave_granted_pending_jr",
+		)),
+		(lifecycle_status.in_(("active", "abeyance")), "active"),
+		(lifecycle_kind.in_(("discontinued", "withdrawn", "administratively_terminated")), "closed_before_leave"),
+		else_="unresolved",
+	).label("branch")
+	statement = select(branch, func.count(FCActivityClassification.id).label("count")).select_from(FCActivityClassification)
+	if city.strip():
+		statement = statement.where(FCActivityClassification.city_filed == city.strip())
+	if source_type.strip():
+		statement = statement.where(FCActivityClassification.source_type == source_type.strip())
+	counts = {str(row.branch): int(row.count) for row in db.execute(statement.group_by(branch)).all()}
+	leaf_keys = (
+		"active", "leave_refused", "leave_jr_granted", "leave_jr_dismissed",
+		"leave_granted_pending_jr", "direct_jr_granted", "direct_jr_dismissed",
+		"direct_jr_pending", "closed_before_leave", "unresolved",
+	)
+	total = sum(counts.get(key, 0) for key in leaf_keys)
+	leave_granted = sum(counts.get(key, 0) for key in ("leave_jr_granted", "leave_jr_dismissed", "leave_granted_pending_jr"))
+	direct_jr = sum(counts.get(key, 0) for key in ("direct_jr_granted", "direct_jr_dismissed", "direct_jr_pending"))
+	nodes = [
+		{"key": "total", "label": "Classified activity cases", "value": total},
+		{"key": "active", "label": "Active / live", "value": counts.get("active", 0)},
+		{"key": "leave_refused", "label": "Leave dismissed", "value": counts.get("leave_refused", 0)},
+		{"key": "leave_granted", "label": "Leave granted", "value": leave_granted},
+		{"key": "direct_jr", "label": "Direct JR", "value": direct_jr},
+		{"key": "closed_before_leave", "label": "Closed before leave", "value": counts.get("closed_before_leave", 0)},
+		{"key": "unresolved", "label": "Unresolved evidence", "value": counts.get("unresolved", 0)},
+		{"key": "leave_jr_granted", "label": "JR granted", "value": counts.get("leave_jr_granted", 0)},
+		{"key": "leave_jr_dismissed", "label": "JR dismissed", "value": counts.get("leave_jr_dismissed", 0)},
+		{"key": "leave_granted_pending_jr", "label": "JR pending / not observed", "value": counts.get("leave_granted_pending_jr", 0)},
+		{"key": "direct_jr_granted", "label": "JR granted", "value": counts.get("direct_jr_granted", 0)},
+		{"key": "direct_jr_dismissed", "label": "JR dismissed", "value": counts.get("direct_jr_dismissed", 0)},
+		{"key": "direct_jr_pending", "label": "JR pending / not observed", "value": counts.get("direct_jr_pending", 0)},
+	]
+	links = [
+		{"source": "total", "target": key, "value": counts.get(key, 0)}
+		for key in ("active", "leave_refused", "closed_before_leave", "unresolved")
+	]
+	links.extend(
+		[
+			{"source": "total", "target": "leave_granted", "value": leave_granted},
+			{"source": "total", "target": "direct_jr", "value": direct_jr},
+		]
+	)
+	links.extend(
+		{"source": "leave_granted", "target": key, "value": counts.get(key, 0)}
+		for key in ("leave_jr_granted", "leave_jr_dismissed", "leave_granted_pending_jr")
+	)
+	links.extend(
+		{"source": "direct_jr", "target": key, "value": counts.get(key, 0)}
+		for key in ("direct_jr_granted", "direct_jr_dismissed", "direct_jr_pending")
+	)
+	return {
+		"city": city.strip() or None,
+		"source_type": source_type.strip() or None,
+		"total": total,
+		"nodes": nodes,
+		"links": links,
+		"semantics": "exclusive_procedural_branches",
+		"note": "Each case is assigned one branch using lifecycle and outcome precedence. Leave, judicial-review, and applicability fields otherwise overlap and are not represented as a cross-field Sankey.",
 	}
 
 
@@ -420,6 +539,7 @@ def fetch_fc_activity_analytics(
 	year_from: int | None = None,
 	year_to: int | None = None,
 	city: str = "",
+	source_type: str = "",
 ) -> dict[str, Any]:
 	allowed_x = {"year", "city", "case_class", "track"}
 	allowed_groups = {
@@ -450,7 +570,27 @@ def fetch_fc_activity_analytics(
 		statement = statement.where(FCActivityClassification.year <= year_to)
 	if city.strip():
 		statement = statement.where(FCActivityClassification.city_filed == city.strip())
+	if source_type.strip():
+		statement = statement.where(
+			FCActivityClassification.source_type == source_type.strip()
+		)
 	rows = db.execute(statement).all()
+	def coverage_statement(model: Any):
+		statement = select(func.count()).select_from(model)
+		if year_from is not None:
+			statement = statement.where(model.year >= year_from)
+		if year_to is not None:
+			statement = statement.where(model.year <= year_to)
+		if city.strip():
+			statement = statement.where(model.city_filed == city.strip())
+		if source_type.strip():
+			statement = statement.where(model.source_type == source_type.strip())
+		return statement
+
+	case_coverage = coverage_statement(FCActivityCase)
+	classification_coverage = coverage_statement(FCActivityClassification)
+	activity_case_count = db.scalar(case_coverage) or 0
+	classified_case_count = db.scalar(classification_coverage) or 0
 	labels: dict[str, str] = {
 		"year": "Year filed",
 		"city": "City filed",
@@ -468,11 +608,22 @@ def fetch_fc_activity_analytics(
 		key=lambda value: (int(value) if value.isdigit() else value),
 	)[:60]
 	group_values = sorted({key[1] for key in counts})
+	source_counts: dict[str, int] = {}
+	for row in rows:
+		value = row.source_type or "unknown"
+		source_counts[value] = source_counts.get(value, 0) + 1
 	return {
 		"x": x,
 		"x_label": labels[x],
 		"group_by": group_by,
 		"total": sum(counts.values()),
+		"source_type": source_type.strip() or None,
+		"source_counts": dict(sorted(source_counts.items())),
+		"coverage": {
+			"activity_cases": activity_case_count,
+			"classified_cases": classified_case_count,
+			"missing_classifications": max(activity_case_count - classified_case_count, 0),
+		},
 		"x_values": x_values,
 		"groups": [
 			{

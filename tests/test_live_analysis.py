@@ -6,6 +6,7 @@ from fastapi.testclient import TestClient
 
 from backend.live_analysis import _provision_excerpt, analyze_docx, validate_docx_upload
 from backend.main import app
+from backend.pages.live_analysis import live_analysis_page_html
 
 
 class FakeLegislationResolutionSession:
@@ -141,6 +142,17 @@ def test_live_analysis_api_is_ephemeral_and_returns_evidence() -> None:
 	assert payload["summary"]["case_citations"] == 1
 	assert payload["summary"]["statute_references"] == 1
 	assert client.get("/live-analysis").status_code == 200
+
+
+def test_live_analysis_page_groups_ephemeral_evidence_in_layer_tabs() -> None:
+	html = live_analysis_page_html()
+
+	assert 'data-evidence-tab="cases"' in html
+	assert 'data-evidence-tab="statutes"' in html
+	assert 'function groupedEvidence(' in html
+	assert 'authority_document_title||row.source_title||row.instrument_key' in html
+	assert 'data-start="${row.offset_start}"' in html
+	assert 'Evidence stays local to this uploaded document.' in html
 
 
 def test_live_analysis_api_rejects_non_docx() -> None:

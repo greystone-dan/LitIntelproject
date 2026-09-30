@@ -103,7 +103,7 @@ paragraphs. The control is off by default and has no effect on `/data-explorer`.
 | `/data-explorer` | Primary research interface | Active |
 | `/case-reader` | Compatibility redirect for legacy bookmarks | Redirects to the active Data Explorer case reader |
 | `/discussion-units-sandbox` | 300-case Discussion Units search and reader experiment | Experimental; read-only |
-| `/live-analysis` | Ephemeral DOCX/text-PDF reader with citation and statute highlights | Active prototype |
+| `/live-analysis` | Ephemeral DOCX/text-PDF reader with citation/statute highlights and grouped evidence tabs | Active prototype |
 | `/citation-map` | Citation graph workbench and authority analytics | Active |
 | `/citation-pass` | Deterministic extraction/offset QA surface | QA only |
 | `/quick-search` | Lightweight lexical/semantic search interface | Supporting |
@@ -353,6 +353,12 @@ Definitions, scopes, formulas, and interpretation cautions for search, citation,
 ### Federal Court Activity
 
 Federal Court activity is a separate data layer, not a substitute for a judgment record. It stores normalized case/activity records and document-level entries from A2AJ/Federal Court activity sources, including docket-associated procedural material where available. Activity classifications can be generated and audited separately. A discovered Federal Court identifier does not prove that a full decision, PDF, or official judgment body was captured.
+
+The active FC History panel retains its annual filed-case timeline and adds
+bounded registry-location, case-class, and filing-track distributions. These four charts read
+only structured `fc_activity_cases` fields through SQL aggregations, respect the
+selected registry-location filter, and are descriptive activity-inventory
+measures rather than procedural outcome flow or judgment coverage claims.
 
 The deterministic Activity event layer is a traceable observation over raw
 `fc_activity_documents`; it does not rewrite those source rows or create
@@ -723,6 +729,19 @@ and request-only paragraph pilots were retired on 2026-09-24 after the
 300-case run became the active review boundary. The historical run design is
 represented by the current scripts and task records; no live reader route
 depends on the removed pilot directories.
+
+`scripts/audit_discussion_unit_structure.py` reads the 300 deterministic reports
+under `core_300_run/reports` without database or network access and emits a
+review-only structural audit. Its initial thresholds flag a 12-or-more-paragraph
+case with one Discussion Unit or one sub-theme as collapsed, a 20-or-more-
+paragraph Discussion Unit as oversized, and a 12-or-more-paragraph sub-theme as
+oversized. The 2026-09-29 baseline found 11 collapsed top-level cases, 1
+collapsed-subtheme case, 231 cases with an oversized top-level unit, and 74
+with an oversized sub-theme. These flags quantify review risk; they do not
+establish legal-quality errors or change segmentation, UI behavior, canonical
+evidence, or model-publication status. The next gate is human review of a
+stratified flagged cohort before a fine-subtheme-first segmentation design is
+considered.
 
 The 2026-09-24 core-300 preflight completed deterministic preparation for all
 300 cases. Its explicitly approved first-10 API validation completed 9 cases

@@ -1,4 +1,12 @@
 from backend.fc_activity import normalize_fc_activity, normalize_hf_case_record
+from scripts.ingest_hf_fc_activity import derive_a2aj_source_key
+
+
+def test_a2aj_source_key_is_namespaced_from_local_source_key():
+    local_key = "same-citation-and-year"
+
+    assert derive_a2aj_source_key(local_key) != local_key
+    assert derive_a2aj_source_key(local_key) == derive_a2aj_source_key(local_key)
 
 
 def test_normalize_fc_activity_deduplicates_cases_and_documents():

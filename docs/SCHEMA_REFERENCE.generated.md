@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-18T02:22:41.199201+00:00
+Generated: 2026-09-29T12:46:29.251365+00:00
 Tables: 22
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -188,6 +188,9 @@ erDiagram
         String(120) case_class
         String(120) track
         String(2048) source_url
+        String(100) source_type
+        String(255) source_name
+        String(255) source_id
         DATETIME scraped_timestamp
         JSON raw_payload
         DATETIME created_at
@@ -206,6 +209,9 @@ erDiagram
         String(120) case_class
         String(120) track
         String(2048) source_url
+        String(100) source_type
+        String(255) source_name
+        String(255) source_id
         DATETIME scraped_timestamp
         JSON classification_json
         String(80) classifier_version
@@ -338,8 +344,8 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
-| `fc_activity_cases` | 15 | `id` |
-| `fc_activity_classifications` | 17 | `id` |
+| `fc_activity_cases` | 18 | `id` |
+| `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
@@ -751,6 +757,9 @@ erDiagram
 | `case_class` | `String(120)` | yes | - |
 | `track` | `String(120)` | yes | - |
 | `source_url` | `String(2048)` | yes | - |
+| `source_type` | `String(100)` | yes | - |
+| `source_name` | `String(255)` | yes | - |
+| `source_id` | `String(255)` | yes | - |
 | `scraped_timestamp` | `DATETIME` | yes | - |
 | `raw_payload` | `JSON` | yes | - |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
@@ -760,7 +769,10 @@ erDiagram
 
 - `ix_fc_activity_cases_citation`: index on `citation`
 - `ix_fc_activity_cases_date_filed`: index on `date_filed`
+- `ix_fc_activity_cases_source_id`: index on `source_id`
 - `ix_fc_activity_cases_source_key`: unique index on `source_key`
+- `ix_fc_activity_cases_source_name`: index on `source_name`
+- `ix_fc_activity_cases_source_type`: index on `source_type`
 - `ix_fc_activity_cases_year`: index on `year`
 
 ### Unique Constraints
@@ -786,6 +798,9 @@ erDiagram
 | `case_class` | `String(120)` | yes | - |
 | `track` | `String(120)` | yes | - |
 | `source_url` | `String(2048)` | yes | - |
+| `source_type` | `String(100)` | yes | - |
+| `source_name` | `String(255)` | yes | - |
+| `source_id` | `String(255)` | yes | - |
 | `scraped_timestamp` | `DATETIME` | yes | - |
 | `classification_json` | `JSON` | no | NOT NULL |
 | `classifier_version` | `String(80)` | no | NOT NULL |
@@ -797,7 +812,10 @@ erDiagram
 - `ix_fc_activity_classifications_date_filed`: index on `date_filed`
 - `ix_fc_activity_classifications_imm_number`: index on `imm_number`
 - `ix_fc_activity_classifications_source_case_id`: unique index on `source_case_id`
+- `ix_fc_activity_classifications_source_id`: index on `source_id`
 - `ix_fc_activity_classifications_source_key`: index on `source_key`
+- `ix_fc_activity_classifications_source_name`: index on `source_name`
+- `ix_fc_activity_classifications_source_type`: index on `source_type`
 - `ix_fc_activity_classifications_year`: index on `year`
 
 ### Foreign Keys

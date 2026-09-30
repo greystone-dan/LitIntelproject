@@ -2,11 +2,39 @@ from datetime import date
 
 import pytest
 
-from scripts.classify_fc_activity import ActivityEvent, classify_events, extract_procedural_events
+from scripts.classify_fc_activity import (
+    ActivityEvent,
+    CLASSIFIER_VERSION,
+    _read_checkpoint,
+    _write_checkpoint,
+    classification_needs_update,
+    classify_events,
+    extract_procedural_events,
+)
 
 
 def event(doc_id, doc_date, text, *, docno=None, re_no=None, case_name="Example v. Canada"):
     return ActivityEvent(1, "IMM-1-24", case_name, doc_id, date.fromisoformat(doc_date), text, re_no=re_no, docno=docno)
+
+
+def test_classification_skip_requires_force_for_current_version():
+    assert not classification_needs_update(CLASSIFIER_VERSION)
+    assert classification_needs_update(CLASSIFIER_VERSION, force=True)
+    assert classification_needs_update("fc_activity_v4")
+    assert classification_needs_update(None)
+
+
+def test_checkpoint_is_atomic_and_version_bound(tmp_path):
+    state_file = tmp_path / "state.json"
+    _write_checkpoint(state_file, last_source_case_id=42, written=39)
+
+    assert _read_checkpoint(state_file) == {
+        "classifier_version": CLASSIFIER_VERSION,
+        "last_source_case_id": 42,
+        "written": 39,
+        "updated_at": _read_checkpoint(state_file)["updated_at"],
+    }
+    assert not state_file.with_suffix(".json.tmp").exists()
 
 
 def test_extracts_repeatable_procedural_events_with_source_evidence():

@@ -126,7 +126,9 @@ from .analytics_service import (
 	fetch_analytics_search_cases,
 	fetch_analytics_search_ministers,
 	fetch_data_explorer_analytics,
+	fetch_fc_activity_breakdowns,
 	fetch_fc_activity_analytics,
+	fetch_fc_activity_flow,
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
@@ -1093,6 +1095,21 @@ def fc_activity_timeline(city: str = "", db: Session = Depends(get_db)) -> dict[
 	return fetch_fc_activity_timeline(db, city=city)
 
 
+@router.get("/api/fc-activity/breakdowns", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_breakdowns(city: str = "", db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Return bounded FC activity distributions using structured case fields."""
+	return fetch_fc_activity_breakdowns(db, city=city)
+
+
+@router.get("/api/fc-activity/flow", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_flow(
+	city: str = "",
+	source_type: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_fc_activity_flow(db, city=city, source_type=source_type)
+
+
 @router.get("/api/fc-activity/analytics", response_model=dict[str, Any], include_in_schema=False)
 def fc_activity_analytics(
 	x: str = "year",
@@ -1100,6 +1117,7 @@ def fc_activity_analytics(
 	year_from: int | None = None,
 	year_to: int | None = None,
 	city: str = "",
+	source_type: str = "",
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_fc_activity_analytics(
@@ -1109,6 +1127,7 @@ def fc_activity_analytics(
 		year_from=year_from,
 		year_to=year_to,
 		city=city,
+		source_type=source_type,
 	)
 
 

@@ -8,6 +8,12 @@ This is the connected register for engineering debt and high-leverage product
 improvements. It is a prioritization aid, not a replacement for task records,
 the roadmap, or current architecture documentation.
 
+The broader, deduplicated delivery register is
+[`docs/STILL_TO_DO.md`](../docs/STILL_TO_DO.md). It groups product, accuracy,
+operations, contextual-intelligence, and Federal Court Activity work with
+status and next gates. This walkthrough retains technical-debt rationale and
+closure rules; the still-to-do register is the cross-project selection queue.
+
 ## How To Read This Register
 
 Each item should state the affected owner surface, evidence, user or system

@@ -82,7 +82,10 @@ Current operational sources of truth:
 10. `docs/EVALUATION_COSTS.md`
 - Generated report-level estimated-cost ledger for persisted evaluation artifacts; it is not provider billing.
 
-11. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
+11. `docs/STILL_TO_DO.md`
+- Consolidated remaining product work, known accuracy gaps, operational debt, deferred research, and next-task decision gates.
+
+12. `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`
 - Swimm mapping plan and future manager-agent contract; it does not override
 	the canonical architecture or generated references.
 

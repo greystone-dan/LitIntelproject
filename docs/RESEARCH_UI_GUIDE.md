@@ -221,6 +221,13 @@ The temporary reader displays extracted source text, highlights case citations a
 statute references in place, and provides an evidence inspector with paragraph or
 PDF page, offsets, context, and resolution status.
 
+The inspector uses separate **Case citations** and **Statutes** tabs with stored
+occurrence counts. Case rows group by their locally resolved authority when one
+exists, otherwise by the extracted reference; statute rows group by the returned
+authority document title. Selecting an occurrence returns to its highlighted
+source span. These controls use only the analysis response: the browser does not
+create replacement offsets, and the upload remains ephemeral.
+
 Accepted formats are `.docx` and text-based `.pdf`, up to 10 MB. Scanned PDFs are
 not OCR'd by this prototype. Enable **Resolve local matches** when neutral
 citations should be checked against existing local case metadata. Resolution is
@@ -231,10 +238,16 @@ records.
 
 - Case-citation highlights identify stored case-law references.
 - Statute/instrument highlights identify independently stored law references.
-- A citation with a resolved target is interactive. Selecting it loads the matched authority into the context pane.
+- A citation with a resolved target shows the locally matched authority in the
+	inspector. Live Analysis does not open a canonical-case context pane.
 - Hover text can show a target-authority preview. It is deliberately viewport-positioned so it does not get clipped by the chunk containing the citation.
 
-No highlight means one of several things: the case may have no stored rows, its relevant enrichment may not have been run, its offsets may not validate against the displayed text, or the source formatting mode may not map directly to chunk evidence. Use Citation Pass before changing extraction logic.
+Live Analysis deliberately does not add Case Reader features that depend on a
+canonical case record: case metadata and provenance tabs, chunk mode, linked
+authority panes, paragraph assessments, and citation-graph analytics remain in
+the active `/data-explorer` reader. No highlight means the uploaded text had no
+matching extracted reference or its backend-issued offsets did not validate
+against the displayed text. Use Citation Pass before changing extraction logic.
 
 ### Case Information Panels
 
@@ -375,6 +388,12 @@ Judge Profile resolves a canonical judge identity, aliases, primary court, linke
 Data Explorer is an inventory-oriented research tool. It supports inspection of case/source records and aggregate group/split views. Use it to understand coverage, source composition, processing state, and structured field availability.
 
 FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxied Federal Court procedural history and available activity context. Treat it as procedural/activity context, not official judgment reasons. A matching IMM number alone does not prove all linked records are the same proceeding.
+
+Its activity summary keeps an annual filed-case chart and adds top registry
+locations, recorded case classes, and filing tracks for the selected filing location. The
+charts are bounded aggregations of structured activity-case fields; they are
+not a procedural Sankey, a measure of procedural success, or proof of judgment
+capture.
 
 ### Legal Themes & Statutes
 

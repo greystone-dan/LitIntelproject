@@ -9,6 +9,11 @@ litigation research. The system already has a substantial deterministic
 foundation, so delivery now prioritizes showing its value clearly over broad
 corpus expansion or exhaustive quality work.
 
+The consolidated cross-project backlog, accuracy gaps, deferred research, and
+implemented-feature guardrails are maintained in
+[docs/STILL_TO_DO.md](docs/STILL_TO_DO.md). Use it to select a bounded next
+task; this roadmap remains authoritative for product direction and sequencing.
+
 The demo journey is: start with a legal issue or case type, find useful
 decisions, understand why they matter, inspect source-grounded evidence, and
 move through linked authorities without losing context.

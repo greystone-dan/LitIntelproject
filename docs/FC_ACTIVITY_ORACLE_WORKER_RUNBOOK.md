@@ -100,6 +100,39 @@ Explicit no-appearance wording is excluded from held-hearing signals. The
 evaluator reports denominators and coverage for these fields before bulk
 reclassification or local-LLM review.
 
+## Full-Inventory Classification Recovery
+
+The deterministic classifier writes only to `fc_activity_classifications` and
+keeps its source-case relationship inside the FC Activity layer. A full local
+inventory run is bounded by `--batch-size` and records an atomic JSON checkpoint
+only after each database batch commits. The database version check is the
+authoritative skip guard: rows already carrying `fc_activity_v5` are skipped on
+rerun, including when the process stopped after a commit but before its
+checkpoint was replaced. Use `--force` only for an intentional full
+reclassification.
+
+The approximately 300k run command is documented here but was not executed as
+part of this change:
+
+```powershell
+.\venv\Scripts\python.exe -u scripts\classify_fc_activity.py --all --write --batch-size 500 --state-file data\overnight_runs\fc-activity-classification-v5\state.json --resume
+```
+
+Keep the state file with the run artifacts and resume the same file after an
+interruption. A stale checkpoint is safe to replay because current-version
+rows are skipped; missing or older-version rows remain eligible. Verify
+source-case and classification counts, and inspect version/source-layer
+distributions after the run. `FCActivityCase.source_type`, `source_name`, and
+`source_id` are nullable. The HF A2AJ importer sets them only for rows it
+directly imports, and mirrors that known provenance to an existing
+classification row. Existing rows without source evidence remain unknown.
+This layer remains separate from canonical `cases` and
+`fc_procedural_history`; analytics must group by FC Activity source fields and
+cover the full `fc_activity_cases` inventory without a canonical-case join.
+The read-only `/api/fc-activity/analytics` endpoint accepts `source_type` and
+returns `source_counts`; use `source_type=a2aj` when reviewing the A2AJ
+reference layer separately.
+
 The 2026-09-27 real-data checkpoint classified five records as a smoke test and
 evaluated a seeded 100-record cross-year sample without database writes. The
 sample contained 84 `closed` and 16 `active` lifecycle states, 32% final-

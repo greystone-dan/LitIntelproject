@@ -21,6 +21,13 @@ DEFAULT_DATASET = "refugee-law-lab/luck-of-the-draw-iii"
 DEFAULT_SPLIT = "train"
 DEFAULT_SOURCE_FILE = Path("data/raw/a2aj/fc_activity/train.parquet")
 LEGACY_SOURCE_FILE = Path("data/raw/a2aj/FC/train.parquet")
+A2AJ_SOURCE_TYPE = "a2aj"
+A2AJ_SOURCE_NAME = "refugee-law-lab/luck-of-the-draw-iii"
+
+
+def derive_a2aj_source_key(source_key: str) -> str:
+    """Keep A2AJ identities distinct from local Federal Court scraper keys."""
+    return hashlib.sha256(f"{A2AJ_SOURCE_NAME}:{source_key}".encode("utf-8")).hexdigest()
 
 
 def resolve_source_file(source_file: str | Path | None) -> Path:
@@ -136,7 +143,8 @@ def ingest_rows(rows: list[dict[str, Any]], dry_run: bool = False) -> dict[str, 
 
     with SessionLocal() as session:
         for row in canonical_rows:
-            source_key = row.get("source_key") or derive_case_source_key(row)
+            source_id = row.get("source_key") or derive_case_source_key(row)
+            source_key = derive_a2aj_source_key(source_id)
             citation = row.get("citation")
             case = session.scalar(select(FCActivityCase).where(FCActivityCase.source_key == source_key))
             if case is None:
@@ -151,6 +159,9 @@ def ingest_rows(rows: list[dict[str, Any]], dry_run: bool = False) -> dict[str, 
                     case_class=row.get("case_class"),
                     track=row.get("track"),
                     source_url=row.get("source_url"),
+                    source_type=A2AJ_SOURCE_TYPE,
+                    source_name=A2AJ_SOURCE_NAME,
+                    source_id=source_id,
                     scraped_timestamp=parse_iso_datetime(row.get("scraped_timestamp")),
                     raw_payload=row,
                 )
@@ -167,8 +178,13 @@ def ingest_rows(rows: list[dict[str, Any]], dry_run: bool = False) -> dict[str, 
                 case.case_class = row.get("case_class")
                 case.track = row.get("track")
                 case.source_url = row.get("source_url")
+                case.source_type = A2AJ_SOURCE_TYPE
+                case.source_name = A2AJ_SOURCE_NAME
+                case.source_id = source_id
                 case.scraped_timestamp = parse_iso_datetime(row.get("scraped_timestamp"))
                 case.raw_payload = row
+                if case.classification is not None:
+                    session.delete(case.classification)
 
             for doc in row.get("documents") or []:
                 re_no = str(doc.get("re_no")) if doc.get("re_no") is not None else None

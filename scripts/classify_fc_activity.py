@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import sys
 from collections.abc import Iterable
@@ -22,6 +23,7 @@ from sqlalchemy import select
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal, init_db
 
 CLASSIFIER_VERSION = "fc_activity_v5"
+DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v5/state.json")
 
 
 @dataclass(frozen=True)
@@ -1454,10 +1456,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--write", action="store_true", help="Persist derived rows to fc_activity_classifications")
     parser.add_argument("--all", action="store_true", help="Persist the complete FC activity inventory in batches")
     parser.add_argument("--batch-size", type=int, default=500, help="Cases per full-inventory batch")
+    parser.add_argument("--state-file", type=Path, default=DEFAULT_STATE_FILE, help="Atomic full-inventory checkpoint path")
+    parser.add_argument("--resume", action="store_true", help="Resume from the checkpoint at --state-file")
+    parser.add_argument("--force", action="store_true", help="Reclassify rows already current for this classifier version")
     return parser.parse_args()
 
 
-def persist_report(report: list[dict[str, Any]]) -> int:
+def classification_needs_update(classifier_version: str | None, *, force: bool = False) -> bool:
+    return force or classifier_version != CLASSIFIER_VERSION
+
+
+def persist_report(report: list[dict[str, Any]], *, force: bool = False) -> int:
     written = 0
     with SessionLocal() as session:
         source_ids = [int(row["activity_case_id"]) for row in report]
@@ -1470,8 +1479,21 @@ def persist_report(report: list[dict[str, Any]]) -> int:
         missing_source_ids = sorted(set(source_ids) - set(source_cases))
         if missing_source_ids:
             raise ValueError(f"Classification report references missing source cases: {missing_source_ids}")
+        current_ids = set()
+        if not force:
+            current_ids = {
+                row.source_case_id
+                for row in session.scalars(
+                    select(FCActivityClassification).where(
+                        FCActivityClassification.source_case_id.in_(source_ids),
+                        FCActivityClassification.classifier_version == CLASSIFIER_VERSION,
+                    )
+                )
+            }
         for row in report:
             source = source_cases.get(int(row["activity_case_id"]))
+            if source.id in current_ids:
+                continue
             derived = session.scalar(
                 select(FCActivityClassification).where(FCActivityClassification.source_case_id == source.id)
             )
@@ -1487,6 +1509,9 @@ def persist_report(report: list[dict[str, Any]]) -> int:
                 "case_class": source.case_class,
                 "track": source.track,
                 "source_url": source.source_url,
+                "source_type": source.source_type,
+                "source_name": source.source_name,
+                "source_id": source.source_id,
                 "scraped_timestamp": source.scraped_timestamp,
                 "classification_json": row["classification"],
                 "classifier_version": CLASSIFIER_VERSION,
@@ -1503,12 +1528,50 @@ def persist_report(report: list[dict[str, Any]]) -> int:
     return written
 
 
-def persist_all(batch_size: int) -> int:
+def _write_checkpoint(path: Path, last_source_case_id: int, written: int) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(f"{path.suffix}.tmp")
+    temporary.write_text(
+        json.dumps(
+            {
+                "classifier_version": CLASSIFIER_VERSION,
+                "last_source_case_id": last_source_case_id,
+                "written": written,
+                "updated_at": datetime.now(timezone.utc).isoformat(),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    os.replace(temporary, path)
+
+
+def _read_checkpoint(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"last_source_case_id": 0, "written": 0}
+    checkpoint = json.loads(path.read_text(encoding="utf-8"))
+    if checkpoint.get("classifier_version") != CLASSIFIER_VERSION:
+        raise ValueError(f"Checkpoint classifier version does not match {CLASSIFIER_VERSION}: {path}")
+    return checkpoint
+
+
+def persist_all(batch_size: int, state_file: Path = DEFAULT_STATE_FILE, *, resume: bool = False, force: bool = False) -> int:
     written = 0
-    last_id = 0
+    checkpoint = _read_checkpoint(state_file) if resume else {"last_source_case_id": 0, "written": 0}
+    last_id = int(checkpoint.get("last_source_case_id", 0))
+    written = int(checkpoint.get("written", 0))
     while True:
         with SessionLocal() as session:
-            cases = list(session.scalars(select(FCActivityCase).where(FCActivityCase.id > last_id).order_by(FCActivityCase.id).limit(batch_size)))
+            cases = list(
+                session.scalars(
+                    select(FCActivityCase)
+                    .where(
+                        FCActivityCase.id > last_id,
+                    )
+                    .order_by(FCActivityCase.id)
+                    .limit(batch_size)
+                )
+            )
             if not cases:
                 break
             case_ids = [case.id for case in cases]
@@ -1517,8 +1580,9 @@ def persist_all(batch_size: int) -> int:
             for document in documents:
                 documents_by_case.setdefault(document.case_id, []).append(document)
             report = [classify_case(case, documents_by_case.get(case.id, [])) for case in cases]
-        written += persist_report(report)
+        written += persist_report(report, force=force)
         last_id = cases[-1].id
+        _write_checkpoint(state_file, last_id, written)
         print(f"written={written} last_source_case_id={last_id}", flush=True)
     return written
 
@@ -1529,7 +1593,7 @@ def main() -> None:
     if args.all:
         if not args.write or args.limit or args.per_year or args.citation:
             raise SystemExit("--all requires --write and cannot be combined with filters")
-        written = persist_all(args.batch_size)
+        written = persist_all(args.batch_size, args.state_file, resume=args.resume, force=args.force)
         print(f"classified_cases={written} written={written}")
         return
     if args.limit and args.per_year:

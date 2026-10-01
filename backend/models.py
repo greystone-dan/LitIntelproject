@@ -108,6 +108,8 @@ class CaseSearchRequest(BaseModel):
 	scraped_from: date | None = None
 	scraped_to: date | None = None
 	source_type: str | None = Field(default=None, max_length=100)
+	chunk_set: str | None = Field(default=None, max_length=50)
+	embedding_model: str | None = Field(default=None, max_length=100)
 	language: str | None = Field(default=None, max_length=10)
 	processing_status: str | None = Field(default=None, max_length=30)
 	tag_filters: list[str] | None = Field(default=None, max_length=20)

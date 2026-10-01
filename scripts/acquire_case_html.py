@@ -102,7 +102,15 @@ def apply_result(db, case: Case, result: dict[str, object]) -> None:
     }
     case.source_html = str(result["sanitized"])
     case.metadata_json = metadata
-    source = db.scalar(select(CaseSource).where(CaseSource.case_id == case.id, CaseSource.source_url == case.source_url).limit(1))
+    source = db.scalar(
+        select(CaseSource)
+        .where(
+            CaseSource.case_id == case.id,
+            CaseSource.source_type == "source_html",
+            CaseSource.source_url == case.source_url,
+        )
+        .limit(1)
+    )
     if source is None:
         db.add(CaseSource(case_id=case.id, source_type="source_html", source_name="Canonical source HTML", source_url=case.source_url, is_primary=False, raw_hash=str(result["sha256"]), metadata_json={"retrieved_at": retrieved_at, "final_url": result["final_url"]}))
     else:

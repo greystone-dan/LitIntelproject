@@ -167,6 +167,7 @@ from .search_service import (
 	execute_grouped_chunk_search,
 	execute_search_cases,
 	execute_search_chunks,
+	execute_search_paragraphs,
 	execute_search_chunks_local,
 	_apply_case_filters,
 	_case_lexical_rank_expr,
@@ -2920,6 +2921,13 @@ def search_chunks(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
 	return execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+
+
+@router.post("/search/chunks/paragraphs", response_model=list[ChunkSearchResponse])
+def search_paragraphs(
+	search: CaseSearchRequest, db: Session = Depends(get_db)
+) -> list[ChunkSearchResponse]:
+	return execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
 
 
 @router.post("/search/chunks/local", response_model=list[ChunkSearchResponse])

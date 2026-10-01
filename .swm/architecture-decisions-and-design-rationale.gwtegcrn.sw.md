@@ -121,6 +121,23 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.
 
+### Keep RAG retrieval evidence-first and read-only
+
+- **Decision:** Build the experimental `/research` workflow as retrieval first,
+	then bounded generation over retrieved case excerpts; do not let generation
+	write canonical legal evidence.
+- **Why:** Stored chunks and backend-owned source offsets provide a reviewable
+	path from a generated answer back to decisions. Retrieval and generation can
+	be improved independently without conflating model output with citation,
+	statute, metadata, or provenance layers.
+- **Consequence:** Grouped chunk search supplies the context, the route caps
+	assembled context at 12,000 characters, and the response includes retrieved
+	case sources. Local generation is selected independently from local BGE-M3
+	chunk retrieval; enabling one does not backfill the other.
+- **Revisit trigger:** A benchmarked retrieval/context assembly path preserves
+	complete evidence spans and meets explicit recall, grounding, latency, and
+	error-handling gates for a named research workflow.
+
 The first Qwen3 paragraph-summary baseline (Case 1093, paragraphs 0-9) keeps
 	this boundary report-only. `scripts/run_local_paragraph_summary_baseline.py`
 	reconstructs source text from read-only `CaseChunk` offsets, validates hashes,

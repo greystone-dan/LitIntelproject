@@ -64,7 +64,7 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
 | `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
-| `OLLAMA_MODEL` | `qwen2.5:7b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately. |
+| `OLLAMA_MODEL` | `qwen3:4b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
 
 The case-intelligence runner defaults to the hosted OpenAI provider. Use
 `--provider local` to keep prompts and JSON result artifacts on the local
@@ -72,8 +72,8 @@ machine through Ollama. Local generation is optional enrichment; deterministic
 citations, statutes, offsets, and source provenance remain authoritative.
 
 The experimental `/research` route uses the same provider boundary. Set
-`TEXT_GENERATION_PROVIDER=local` to call Ollama; its default model is
-`qwen2.5:7b`. The route reports a controlled `503` when the selected provider
+`TEXT_GENERATION_PROVIDER=local` to call Ollama; its code default model is
+`qwen3:4b`. The route reports a controlled `503` when the selected provider
 is not configured or reachable. This setting does not download a model.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.

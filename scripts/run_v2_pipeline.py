@@ -95,14 +95,15 @@ def _run_stage_with_watchdog(case_id: int, stage: str, timeout: float, retries: 
     return result
 
 
-def run(*, limit: int | None, case_ids: list[int] | None, batch_size: int, timeout: float, retries: int, stage_timeout: float, run_dir: Path, dry_run: bool, excluded_courts: set[str] | None = None, text_only: bool = True, detailed_snapshots: bool = False, checkpoint_interval: int = 100) -> dict:
+def run(*, limit: int | None, case_ids: list[int] | None, batch_size: int, timeout: float, retries: int, stage_timeout: float, run_dir: Path, dry_run: bool, excluded_courts: set[str] | None = None, text_only: bool = True, detailed_snapshots: bool = False, checkpoint_interval: int = 100, stages: tuple[str, ...] | None = None) -> dict:
+    selected_stages = stages or STAGES
     run_dir.mkdir(parents=True, exist_ok=True)
     state_path = run_dir / "state.json"
     quarantine_path = run_dir / "quarantine.jsonl"
     if state_path.exists():
         state = json.loads(state_path.read_text(encoding="utf-8"))
     else:
-        state = {"run_id": run_dir.name, "created_at": now(), "updated_at": now(), "status": "running", "selected_stages": list(STAGES), "cases": {}}
+        state = {"run_id": run_dir.name, "created_at": now(), "updated_at": now(), "status": "running", "selected_stages": list(selected_stages), "cases": {}}
     interrupted = False
     try:
         with SessionLocal() as db:
@@ -113,7 +114,7 @@ def run(*, limit: int | None, case_ids: list[int] | None, batch_size: int, timeo
                 statement = statement.limit(limit or 1000000)
             cases = db.scalars(statement).yield_per(batch_size)
             for case in cases:
-                if (case.court or "").upper() in (excluded_courts or TEXT_ONLY_DEFAULT_EXCLUDED_COURTS):
+                if (case.court or "").upper() in (excluded_courts if excluded_courts is not None else TEXT_ONLY_DEFAULT_EXCLUDED_COURTS):
                     continue
                 source_host = urlparse((case.source_url or "").strip()).hostname
                 if not source_host or source_host not in ALLOWED_HOSTS:
@@ -121,7 +122,7 @@ def run(*, limit: int | None, case_ids: list[int] | None, batch_size: int, timeo
                     continue
                 case_state = state["cases"].setdefault(str(case.id), {"case_id": case.id, "stages": {}, "errors": []})
                 before_snapshot = snapshot_case(case.id) if detailed_snapshots and not dry_run else None
-                for stage in STAGES:
+                for stage in selected_stages:
                     if case_state["stages"].get(stage) == "completed":
                         continue
                     if stage == "source_html" and text_only and (case.court or "").upper() != "SCC":
@@ -181,6 +182,7 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--include-court", action="append", default=[], help="Court codes to include; SCC remains excluded unless explicitly selected")
     parser.add_argument("--allow-scc", action="store_true", help="Allow SCC in this run; intended only for the separate SCC path")
+    parser.add_argument("--skip-source-html", action="store_true", help="Skip source HTML acquisition and run only deterministic processing stages")
     parser.add_argument("--detailed-snapshots", action="store_true", help="Write per-case before/after reports; disabled for bulk runs")
     args = parser.parse_args()
     if args.batch_size < 1 or args.timeout <= 0 or args.retries < 1:
@@ -188,7 +190,8 @@ def main() -> None:
     if args.stage_timeout <= 0:
         raise SystemExit("stage-timeout must be positive")
     excluded = set() if args.allow_scc else TEXT_ONLY_DEFAULT_EXCLUDED_COURTS
-    state = run(limit=args.limit, case_ids=sorted(set(args.case_id)), batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, stage_timeout=args.stage_timeout, run_dir=args.run_dir, dry_run=args.dry_run, excluded_courts=excluded, detailed_snapshots=args.detailed_snapshots)
+    stages = tuple(stage for stage in STAGES if not (args.skip_source_html and stage == "source_html"))
+    state = run(limit=args.limit, case_ids=sorted(set(args.case_id)), batch_size=args.batch_size, timeout=args.timeout, retries=args.retries, stage_timeout=args.stage_timeout, run_dir=args.run_dir, dry_run=args.dry_run, excluded_courts=excluded, detailed_snapshots=args.detailed_snapshots, stages=stages)
     completed = sum(all(value == "completed" for value in item["stages"].values()) for item in state["cases"].values())
     quarantined = sum(bool(item["errors"]) for item in state["cases"].values())
     print(f"status={state['status']} cases={len(state['cases'])} complete={completed} quarantined={quarantined} embeddings=False")

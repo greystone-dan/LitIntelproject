@@ -31,6 +31,11 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source_file", type=Path)
     parser.add_argument("--court", default="FC", help="A2AJ dataset code, default: FC")
+    parser.add_argument(
+        "--after-date",
+        type=date.fromisoformat,
+        help="Only process records with a decision date after YYYY-MM-DD",
+    )
     parser.add_argument("--limit", type=int, default=None, help="Optional cap on imported cases")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
@@ -160,6 +165,9 @@ def main() -> None:
     for batch in parquet.iter_batches(batch_size=256):
         for record in batch.to_pylist():
             if value(record, "dataset") != args.court:
+                continue
+            decision_date = parse_date(value(record, "document_date_en", "document_date_fr"))
+            if args.after_date and (decision_date is None or decision_date <= args.after_date):
                 continue
             selected += 1
             case = build_case(record)

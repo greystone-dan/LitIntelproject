@@ -221,6 +221,10 @@ def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
 			statement = statement.where(or_(*party_clauses))
 	if search.source_type:
 		statement = statement.where(Case.source_type == search.source_type)
+	if search.chunk_set:
+		statement = statement.where(CaseChunk.chunk_set == search.chunk_set)
+	if search.embedding_model:
+		statement = statement.where(CaseChunk.embedding_model == search.embedding_model)
 	if search.language:
 		statement = statement.where(Case.language == search.language)
 	if search.processing_status:
@@ -477,6 +481,25 @@ def execute_search_chunks(
 		)
 		for case, chunk, distance_value in rows
 	]
+
+
+
+
+def execute_search_paragraphs(
+	search: CaseSearchRequest,
+	db: Session,
+	*,
+	embed_fn: Callable[[str], list[float]] | None = None,
+	rollout: dict[str, bool] | None = None,
+) -> list[ChunkSearchResponse]:
+	paragraph_search = search.model_copy(
+		update={
+			"search_mode": "semantic",
+			"chunk_set": "paragraph",
+			"embedding_model": EMBEDDING_MODEL,
+		}
+	)
+	return execute_search_chunks(paragraph_search, db, embed_fn=embed_fn, rollout=rollout)
 
 
 def execute_search_chunks_local(

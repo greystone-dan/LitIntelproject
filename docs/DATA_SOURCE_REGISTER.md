@@ -104,6 +104,66 @@ of access control.
 | Stored source fields | Bilingual citations/names/text where available, URLs, scrape timestamps, cited/citing lists, source licence metadata, and source identity |
 | Trust status | Unofficial copy. Verify critical propositions, dates, citations, and dispositions against authoritative material. |
 
+#### Current coverage assessment (2026-09-30)
+
+The live canonical database currently reports `60,849` cases with source type
+`a2aj_parquet`, with the newest dated decision at `2026-07-24`. The smaller
+`a2aj_api_seed`, `a2aj_curated`, and `a2aj_immigration_core` populations are
+targeted subsets rather than a complete refresh. The local `canlaw.db` staging
+archive is approximately 6.7 GB and was last modified in August 2026; its
+documented snapshot is not proof of present-day A2AJ coverage.
+
+The repository has both a bounded paginated API importer and a Hugging Face
+staging bridge, but the public API contract still needs a current, non-mutating
+probe. A single unauthenticated request to the documented A2AJ search endpoint
+on 2026-09-30 returned HTTP 400 for the attempted query shape, so newer records
+are not yet confirmed. Do not infer that the endpoint is unavailable or change
+the importer based on that one response; first reconcile the current A2AJ API
+request/response contract.
+
+The next safe step is a read-only, one-page source probe or refreshed staging
+metadata check, followed by a bounded dry-run comparison against the canonical
+date/citation baseline. Any bulk acquisition, source-terms decision, or
+canonical PostgreSQL write requires a separate approval and must retain the
+existing provenance, hash, source-priority, conflict, checkpoint, and
+single-writer safeguards.
+
+The scoped FC/FCA/SCC probe confirmed that the live A2AJ Hugging Face dataset
+exposes all three target Parquet partitions. Remote HEAD metadata reported
+approximately 850 MB for FC, 145 MB for FCA, and 365 MB for SCC; the remote FC
+object differs from the local 844 MB, 35,814-row file. Local staging contains
+FC/FCA/SCC rows from the older snapshot, but only the FC Parquet file is
+present under `data/raw/a2aj/`; FCA and SCC must be acquired from the current
+upstream partitions before they can be dry-run through the Parquet importer.
+This establishes a viable refresh source, not the date coverage or permission
+to download and import it.
+
+The bounded refresh acquisition completed on 2026-09-30 in
+`data/raw/a2aj/refresh-20260930/`. FC contains 35,990 rows through
+2026-09-25, FCA contains 7,813 rows through 2026-09-24, and SCC contains
+10,893 rows through 2026-09-18. Court-filtered dry-runs found 206 FC, 33 FCA,
+and 4 SCC candidates; 168 FC, 28 FCA, and 4 SCC are dated after the canonical
+2026-07-24 baseline. The files matched their upstream linked SHA-256 values.
+These are staging candidates only. Review of source terms, citation/hash
+conflicts, and canonical import remains approval-gated.
+
+SCC HTML acquisition was canaried on 2026-09-30 using
+`scripts/acquire_case_html.py --court SCC --missing-html-only`. Five official
+pages were inspected: one validated and was stored as a sanitized
+`source_html` snapshot with a dedicated provenance row; four were quarantined
+because the returned page did not contain the expected citation. The validated
+case mapped to canonical text at `0.6828`, below the SCC structural threshold
+of `0.85`, so broader SCC HTML acquisition is paused for source-structure
+review. The canary did not replace canonical text or rebuild chunks.
+
+The approved post-baseline import completed on 2026-09-30. It added 168 FC, 28
+FCA, and 4 SCC cases through the existing `/ingest` contract, increasing the
+canonical `a2aj_parquet` population from 60,849 to 61,049. The importer now
+supports `--after-date YYYY-MM-DD`, and the run used `--after-date 2026-07-24`
+with court filters for only FC, FCA, and SCC. Existing cases were not enriched
+or replaced; refreshed relationship metadata and HTML snapshots remain a
+separate task.
+
 Importers support bounded `--limit` and dry-run workflows. A2AJ data may be broader than immigration and should be filtered/curated rather than assumed IMM-specific.
 
 ### A2AJ Citation Network

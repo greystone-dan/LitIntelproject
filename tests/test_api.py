@@ -1015,6 +1015,33 @@ def test_chunk_search_applies_citation_filters(monkeypatch):
     assert "%FC%" in params.values()
 
 
+def test_paragraph_search_forces_semantic_openai_paragraph_filter(monkeypatch):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    case = SimpleNamespace(
+        id=1,
+        title="Paragraph case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 7, 31),
+        citation="2026 FC 1",
+        summary=None,
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    chunk = SimpleNamespace(chunk_index=1, text="Relevant paragraph")
+    database = FakeDatabase(rows=[(case, chunk, 0.2)])
+
+    result = routes.search_paragraphs(CaseSearchRequest(query="procedural fairness"), database)
+    params = database.statement.compile().params
+
+    assert result[0].chunk_text == "Relevant paragraph"
+    assert "paragraph" in params.values()
+    assert "text-embedding-3-small" in params.values()
+
+
 def test_local_chunk_search_uses_requested_model(monkeypatch):
     provider = SimpleNamespace(embed_query=lambda text: [0.3] * 1024)
     monkeypatch.setattr(routes, "_local_embedding_provider", lambda model_name: provider)

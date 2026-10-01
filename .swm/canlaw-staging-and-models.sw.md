@@ -56,6 +56,37 @@ case tables unless an explicit migration/bridge is documented.
 - Do not run a large PostgreSQL writer beside overnight or another importer.
 - Treat repair operations as writes and validate before broad execution.
 
+The current A2AJ freshness check is a source-contract question, not an
+automatic bulk-refresh authorization. On 2026-09-30 the canonical database
+contained 60,849 `a2aj_parquet` cases, newest dated 2026-07-24, while the local
+staging archive was last modified in August. The paginated API importer exists,
+but one bounded unauthenticated probe returned HTTP 400 for the attempted
+search shape. Reconcile the live API contract and run a read-only date/citation
+comparison before any acquisition or canonical bridge write.
+
+The 2026-09-30 scoped probe confirmed that the live Hugging Face source exposes
+FC, FCA, and SCC Parquet partitions. Their approximate remote sizes are 850 MB,
+145 MB, and 365 MB respectively; only the older FC Parquet file is present in
+`data/raw/a2aj/`, while local SQLite staging contains the older three-court
+snapshot. Downloading the current partitions and importing them remains a
+separate bulk-operation checkpoint requiring source metadata capture, a dry-run
+delta review, and explicit approval.
+
+That bounded acquisition completed on 2026-09-30 in
+`data/raw/a2aj/refresh-20260930/`. The refreshed partitions contain FC 35,990
+rows through 2026-09-25, FCA 7,813 through 2026-09-24, and SCC 10,893 through
+2026-09-18. Court-filtered dry-runs identified 206 FC, 33 FCA, and 4 SCC
+deduplication candidates; 200 are dated after the July 24 canonical baseline.
+All three files matched their upstream linked SHA-256 values. No canonical
+write was made; candidate review and import remain separate approval-gated
+steps.
+
+The approved new-case import completed on 2026-09-30 using the date-filtered
+Parquet importer. It added 168 FC, 28 FCA, and 4 SCC records after the July 24
+baseline, increasing canonical `a2aj_parquet` cases from 60,849 to 61,049.
+The write did not replace or enrich existing cases. Citation-network enrichment
+and official HTML snapshots remain separate follow-up work.
+
 Example command shape:
 
 ```powershell

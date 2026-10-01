@@ -217,8 +217,18 @@ def load_case_ids_from_csv(path: str | Path) -> list[int]:
 def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
     marker_re = SCC_PARAGRAPH_MARKER_RE if (getattr(case, "court", "") or "").upper() == "SCC" else PARAGRAPH_MARKER_RE
     matches = list(marker_re.finditer(text))
+    heading_matches = list(SECTION_HEADING_RE.finditer(text))
+    first_outro_start = next(
+        (
+            match.start()
+            for match in OUTRO_HEADING_RE.finditer(text)
+            if not matches or match.start() > matches[-1].start()
+        ),
+        len(text),
+    )
+    heading_matches = [match for match in heading_matches if match.start() < first_outro_start]
     rows: list[CaseChunk] = []
-    if not matches:
+    if not matches and not heading_matches:
         if text.strip():
             rows.append(
                 _chunk_row(
@@ -233,7 +243,12 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
             )
         return rows
 
-    intro = text[: matches[0].start()].strip()
+    structural_matches = sorted(
+        [(match.start(), "heading", match) for match in heading_matches]
+        + [(match.start(), "paragraph", match) for match in matches],
+        key=lambda item: item[0],
+    )
+    intro = text[: structural_matches[0][0]].strip()
     if intro:
         rows.append(
             _chunk_row(
@@ -247,18 +262,32 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
             )
         )
 
-    outro_start = len(text)
-    for outro_match in OUTRO_HEADING_RE.finditer(text):
-        if outro_match.start() > matches[-1].start():
-            outro_start = outro_match.start()
-            break
-
     last_paragraph_number: int | None = None
-    for match_index, match in enumerate(matches):
-        start = match.start()
-        end = matches[match_index + 1].start() if match_index + 1 < len(matches) else outro_start
-        paragraph_text = text[start:end].strip()
+    consumed_end = structural_matches[0][0]
+    for match_index, (start, kind, match) in enumerate(structural_matches):
+        if kind == "heading":
+            heading_text = match.group(0).strip()
+            if heading_text:
+                rows.append(
+                    _chunk_row(
+                        case.id,
+                        chunk_set=CHUNK_SET_PARAGRAPH,
+                        chunk_index=len(rows),
+                        text=heading_text,
+                        chunk_label="heading",
+                    )
+                )
+            consumed_end = match.end()
+            continue
+
+        next_start = (
+            structural_matches[match_index + 1][0]
+            if match_index + 1 < len(structural_matches)
+            else first_outro_start
+        )
+        paragraph_text = text[start:next_start].strip()
         if not paragraph_text:
+            consumed_end = next_start
             continue
         paragraph_number = _mapped_paragraph_number(paragraph_text, last_paragraph_number)
         rows.append(
@@ -274,8 +303,23 @@ def _build_paragraph_chunks(case: Case, text: str) -> list[CaseChunk]:
         )
         if paragraph_number is not None:
             last_paragraph_number = paragraph_number
+        consumed_end = next_start
 
-    tail = text[outro_start:].strip() if outro_start < len(text) else ""
+    trailing_context = text[consumed_end:first_outro_start].strip()
+    if trailing_context:
+        rows.append(
+            _chunk_row(
+                case.id,
+                chunk_set=CHUNK_SET_PARAGRAPH,
+                chunk_index=len(rows),
+                text=trailing_context,
+                chunk_label="tail",
+                paragraph_start=(last_paragraph_number or 0) + 1,
+                paragraph_end=(last_paragraph_number or 0) + 1,
+            )
+        )
+
+    tail = text[first_outro_start:].strip() if first_outro_start < len(text) else ""
     if tail:
         last_number = last_paragraph_number or 0
         rows.append(
@@ -531,7 +575,7 @@ def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: 
     last_end = 0
     last_paragraph_number: int | None = None
     for block in mapped_blocks:
-        if block.kind not in {"paragraph", "list_item", "table_row", "quote", "preformatted"} and not (source_family == "scc" and block.kind == "heading"):
+        if block.kind not in {"heading", "paragraph", "list_item", "table_row", "quote", "preformatted"}:
             continue
         start = block.canonical_text_start or 0
         end = block.canonical_text_end or start
@@ -539,6 +583,18 @@ def _build_html_chunk_layers(case: Case, text: str, document, *, source_family: 
             continue
         block_text = text[start:end].strip()
         if not block_text:
+            continue
+        if block.kind == "heading":
+            paragraph_rows.append(
+                _chunk_row(
+                    case.id,
+                    chunk_set=CHUNK_SET_PARAGRAPH,
+                    chunk_index=len(paragraph_rows),
+                    text=block_text,
+                    chunk_label="heading",
+                )
+            )
+            last_end = end
             continue
         paragraph_number = _mapped_paragraph_number(block_text, last_paragraph_number)
         paragraph_rows.append(_chunk_row(case.id, chunk_set=CHUNK_SET_PARAGRAPH, chunk_index=len(paragraph_rows), text=block_text, chunk_label=str(paragraph_number) if paragraph_number is not None else block.kind, paragraph_start=paragraph_number, paragraph_end=paragraph_number))

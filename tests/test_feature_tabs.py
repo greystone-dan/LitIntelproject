@@ -1,4 +1,11 @@
 from types import SimpleNamespace
+from html.parser import HTMLParser
+import json
+import re
+import shutil
+import subprocess
+
+import pytest
 
 from backend import routes
 from backend.analytics_service import fetch_fc_activity_breakdowns, fetch_fc_activity_flow
@@ -156,6 +163,104 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="aboutOutcomeChart"' not in html
     assert 'data-tab="judge">Judge outcomes</button>' not in html
     assert 'id="judgePanel"' not in html
+
+
+class NavigationParser(HTMLParser):
+    def __init__(self, html):
+        super().__init__()
+        self.controls = []
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        if 'data-group' in attributes or 'data-nav-group' in attributes:
+            self.controls.append((tag, attributes))
+
+
+def test_primary_navigation_has_exactly_four_left_aligned_groups():
+    html = routes._data_explorer_page_html()
+    header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
+    controls = NavigationParser(header).controls
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'workbench', 'testing']
+    assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
+    assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
+    assert header.index('primary-groups') < header.index('class="brand"')
+    assert '<a ' not in header
+    assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
+    assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
+    for label in ('Info', 'Research', 'Workbench', 'Testing'):
+        assert f'>{label}</button>' in header
+
+
+def test_secondary_navigation_groups_existing_views_and_functional_tools():
+    controls = NavigationParser(routes._data_explorer_page_html()).controls
+    views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
+    assert views == {
+        'about': 'info', 'site-architecture': 'info', 'search': 'research',
+        'citation-intelligence': 'research', 'judge-profile': 'research',
+        'fc-history': 'research', 'themes': 'research', 'research-bench': 'testing',
+    }
+    links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
+    assert links == {
+        '/citation-map': 'workbench', '/live-analysis': 'workbench',
+        '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
+    }
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
+
+
+@pytest.mark.parametrize(('query', 'selected', 'group'), [
+    ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
+    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'info'),
+    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'research'),
+    ('?tab=judge-profile&judge=smith', 'judge-profile', 'research'),
+    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'research'),
+    ('?tab=themes', 'themes', 'research'), ('?tab=research-bench', 'research-bench', 'testing'),
+    ('?group=workbench', 'workbench', 'workbench'), ('?group=testing', 'research-bench', 'testing'),
+    ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
+    ('?tab=search&case_id=7', 'search', 'research'),
+    ('?tab=themes&group=info', 'themes', 'research'),
+    ('?tab=unknown', 'search', 'research'),
+])
+def test_navigation_controller_initializes_deep_links_and_restores_history(query, selected, group):
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required to execute the navigation controller')
+    html = routes._data_explorer_page_html()
+    controls = [attrs for _, attrs in NavigationParser(html).controls]
+    controller = html[html.index('const activeResearchPanels='):].split('</script>', 1)[0]
+    controller = controller.split('const initialCaseId=', 1)[0]
+    script = """
+const assert=require('node:assert/strict');
+const controls=CONTROLS.map(attrs=>({attrs,hidden:'hidden' in attrs,dataset:{group:attrs['data-group'],navGroup:attrs['data-nav-group'],tab:attrs['data-tab']},classList:{active:(attrs.class||'').includes('active'),toggle(key,value){this[key]=value}},setAttribute(key,value){this.attrs[key]=value}}));
+const panels={};
+const location=new URL('http://localhost/data-explorer'+QUERY);
+const history={pushState(state,title,path){location.href=new URL(path,location).href}};
+const window={addEventListener(name,handler){this[name]=handler}};
+const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
+function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
+CONTROLLER
+assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true').dataset.group,GROUP);
+assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));
+if(SELECTED!=='workbench')assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
+const original=location.href;
+activateResearchTab('workbench');
+assert.equal(location.searchParams.get('group'),'workbench');
+assert.equal(location.searchParams.get('tab'),'workbench');
+assert.equal(location.searchParams.has('case_id'),false);
+assert.ok(Object.values(activeResearchPanels).every(id=>panels[id].hidden));
+location.href=original;window.popstate();
+assert.equal(controls.find(item=>item.dataset.group&&item.classList.active).dataset.group,GROUP);
+activateResearchTab('research-bench');
+assert.equal(location.searchParams.get('group'),'testing');
+assert.equal(panels.researchBenchPanel.hidden,false);
+assert.equal(location.searchParams.get('judge'),new URL(original).searchParams.get('judge'));
+assert.equal(location.searchParams.get('imm'),new URL(original).searchParams.get('imm'));
+"""
+    for marker, value in [('CONTROLS', json.dumps(controls)), ('QUERY', json.dumps(query)),
+                          ('CONTROLLER', controller), ('SELECTED', json.dumps(selected)), ('GROUP', json.dumps(group))]:
+        script = script.replace(marker, value)
+    result = subprocess.run([node, '-'], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
 
 
 def test_fc_activity_panel_exposes_three_non_overlapping_charts():

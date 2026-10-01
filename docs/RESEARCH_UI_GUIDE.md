@@ -1,12 +1,80 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-25
+Last reviewed: 2026-09-30
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+## Experimental RAG Research
+
+The `/research` page is the current, experimental RAG workflow. It has four
+steps:
+
+1. Retrieve relevant stored case passages with grouped chunk search.
+2. Assemble a bounded excerpt context from the retrieved cases.
+3. Ask the configured text-generation provider to answer only from those
+	excerpts.
+4. Return the answer with the cases and excerpts used as sources.
+
+To use a local model during development, run Ollama locally, pull an instruct
+model, and set these values in the ignored `.env` file:
+
+```dotenv
+TEXT_GENERATION_PROVIDER=local
+OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
+OLLAMA_MODEL=qwen3:4b
+```
+
+The model is not downloaded by the application. `OLLAMA_MODEL` must name a
+model already available to Ollama. Local generation and local semantic
+retrieval are separate settings: the former selects the answer provider, while
+the latter uses model-versioned BGE-M3 chunk embeddings when enabled and when
+matching stored vectors exist. Hosted corpus backfill uses
+`scripts/embed_openai_chunks.py` with `text-embedding-3-small` and 1536-dimensional
+vectors in `case_chunks.embedding`; it is budget-capped, resumable, and
+preflights the 8,192-token API limit without changing canonical chunk text. A local model failure returns a controlled
+service error; it does not silently change the evidence or provider.
+
+RAG output is a navigation and synthesis aid, not an authoritative legal
+answer. Verify every material proposition against the linked decision. The
+workflow currently has a bounded 12,000-character context and remains
+experimental until retrieval quality, evidence-span preservation, latency,
+and browser behavior have dedicated checks.
+
 ## Start Here: Data Explorer
 
-Open `/data-explorer`. This is the active research workspace. It has seven visible top-level tabs:
+Open `/data-explorer`. This is the active research workspace. The top-left
+header has exactly four primary groups: **Info**, **Research**, **Workbench**,
+and **Testing**. Research / Case search is the default. Selecting a group
+controls the secondary navigation and hides unrelated panels; it is not a
+collection of header route links.
+
+| Group | Secondary views |
+| --- | --- |
+| Info | About; Site Architecture |
+| Research | Case search; Citation Intelligence; Judge Profile; FC History; Legal Themes & Statutes |
+| Workbench | Citation Map (`/citation-map`); Live Analysis (`/live-analysis`) |
+| Testing | Research Bench prototype; Discussion Units Sandbox (`/discussion-units-sandbox`); Citation Pass QA (`/citation-pass`) |
+
+Workbench retains existing route links. Testing collects work-in-progress and
+QA surfaces, not production research guarantees. Group buttons expose their
+pressed state and controlled navigation to assistive technology. Arrow keys,
+Home, and End move focus within each navigation row; native button activation
+and route-link behavior remain available. Both rows wrap on narrow screens.
+
+Existing `?tab=` links still select their view and owning group, including
+`?tab=info` as an About alias and `?tab=research-bench` under Testing. A tab
+takes precedence over a conflicting `?group=` parameter. Group-only links
+select the group's default view on a fresh load; browser history restores the
+selection. Search and reader IDs and handlers remain unchanged.
+
+The 2026-09-30 navigation checkpoint passed the 48 feature-tab tests, builder
+compilation, and live Playwright checks at 1440x1000 and 390x844. Browser checks
+covered group visibility, legacy Research Bench and Site Architecture links,
+arrow-key focus and Enter activation, and non-overlapping group buttons with
+no horizontal overflow or uncaught page errors. These checks do not certify
+research-result accuracy or every standalone tool workflow.
+
+The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
@@ -61,7 +129,8 @@ that path is in place, address accessibility and responsive behavior:
 	status, and a direct path into the reader.
 - Preserve search state and return navigation across the reader workflow.
 
-- Add `aria-selected` and keyboard semantics to the top-level and reader tabsets.
+- Review reader tabset selection and keyboard semantics; primary groups and
+	secondary view buttons already expose pressed state and focus navigation.
 - Give reader pane separators visible focus treatment and keyboard resizing.
 - Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.

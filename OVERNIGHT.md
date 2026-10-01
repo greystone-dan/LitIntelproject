@@ -47,6 +47,83 @@ frozen cohort, and must retain separate target-resolution and metrics phases.
 
 ## Purpose And Authority
 
+### Hosted paragraph embedding continuation
+
+The packed remaining run in
+`data/overnight_runs/openai-paragraph-packed-remaining-20260930` stopped with a
+PermissionError after 278,035 committed paragraphs. Its complete ledger replay
+totals $1.1254703, including ten uncertain reserves and one usage-only request.
+Preserve that ledger unchanged; do not label uncertain charges rejected.
+The user authorized retry. A separate continuation ledger retains only the
+$20.8745297 remainder of the approved $22 cap, not a fresh $22 allowance.
+It embeds missing paragraph vectors with one writer and transient pooling.
+The published synchronous limits are 5,000 RPM and 1,000,000 TPM; the pasted
+20,000,000 TPD entry is under Batch queue limits and is not assumed to limit
+synchronous requests. Continuation command (never run concurrently with a writer):
+
+```powershell
+.\venv\Scripts\python.exe -u -m scripts.embed_openai_chunks --case-ids-csv data/overnight_runs/openai-embedding-frozen-20260930/case_ids.csv --model text-embedding-3-small --max-workers 1 --batch-size 100 --max-request-tokens 100000 --requests-per-minute 5000 --tokens-per-minute 1000000 --budget-usd 20.8745297 --run-dir data/overnight_runs/openai-paragraph-packed-continuation-20260930
+```
+
+Before another recovery, confirm the writer exited and replay both ledgers.
+Subtract all conservative costs from the same approved allowance before opening
+another directory. Reuse a matching ledger only when no unresolved reserve/usage
+blocks replay. The exact PermissionError source was not retained by the runner;
+do not claim it is fixed from a successful relaunch alone. Do not erase costs,
+reset the cap with a fresh directory, or run the legacy four-worker command.
+The OS lock releases on process exit; keep the terminal alive and the machine
+awake for uninterrupted execution. An active writer is not completed coverage.
+
+2026-10-01 monitored recovery: the continuation also stopped with PermissionError,
+after 830,683 saved paragraphs. Full replay confirms $2.29606668 in that ledger
+(including 32 uncertain reserves); combined retained spend is $3.42153698.
+The user authorized sequential restarts. A terminal-owned monitor uses new
+`openai-paragraph-monitored-20261001-attempt-N` ledgers, subtracting every
+attempt's complete conservative ledger spend from the same $22 cap before each
+launch. Initial allowance is $18.57846302. Old ledgers remain unchanged.
+Restart only after the previous child exits with PermissionError, at most five
+attempts; stop on other errors, unreadable accounting, or budget exhaustion.
+The shared OS lock still prevents competing embedding writers. Reconcile the
+frozen cohort's null-vector count before claiming completion; uncertain charges
+remain retained even when all eligible vectors have been saved.
+
+Completion checkpoint: attempt 1 saved all 143,373 remaining paragraphs in
+4,290.188 seconds. Independent read-only PostgreSQL verification confirms
+1,987,620 frozen-cohort paragraphs, all with the expected model, zero pending,
+and no active bulk writer. No PermissionError restart was needed. The 12,755
+unembedded database-wide paragraphs outside this cohort remain untouched.
+Retained spend is $1.27709902 for this attempt and $4.698636 across the three
+recovery runs; this is conservative local accounting, not invoice verification.
+Runner status is accounting-blocked (33 uncertain reserves), not missing vectors.
+Ledger-only replay also fails on one usage record whose reserve exists only in
+events.log. Read-only cross-artifact replay verifies the reported spend and saved
+count without changing artifacts. Do not launch again for this completed cohort;
+diagnose durable ledger/permission behavior before future paid runs.
+
+Vector retrieval index checkpoint (2026-10-01): migration `0028` adds the
+reversible HNSW cosine index on `case_chunks.embedding` using concurrent DDL.
+Use `.\venv\Scripts\python.exe -m scripts.monitor_vector_index` as a
+read-only one-shot progress check. It reports PostgreSQL's active phase,
+blocks, tuples, and final index existence; do not launch a second Alembic build
+while it reports an active row. The current build was observed in
+`building index: loading tuples` with 21,315 of 241,571 blocks and 201,051
+tuples processed; it was left running in PostgreSQL.
+
+Read-only resource diagnostic (2026-10-01, 09:35 local): PostgreSQL is on this
+machine and its data is on C:. Default diagnostic-session settings show 64 MiB
+maintenance_work_mem and 128 MiB shared_buffers; these do not prove the settings
+of the existing build session. The machine had 11.84 GiB RAM with 2.41 GiB free,
+and C: had 153.54 GiB free of 475.70 GiB. One disk snapshot showed about
+102 MiB/s reads; it does not attribute all disk activity to PostgreSQL.
+Other client sessions were idle. The unblocked main build advanced from 810,994
+to 811,922 tuples over about 26 seconds, with DataFileRead observed. Small build
+memory and disk-intensive graph construction are plausible causes, not proven
+by a spill notice. The second index session waits on the main transaction.
+The live progress command reports CREATE INDEX, not CREATE INDEX CONCURRENTLY;
+editing the migration does not change already-running sessions. No settings,
+processes, or index builds were changed during diagnosis.
+
+
 This is the repository atlas and the canonical operational guide for bounded overnight work. It explains what each meaningful repository family does, how data moves between families, which boundaries are active or isolated, and how to validate changes. It is paired with these authorities:
 
 - `SYSTEM_REFERENCE.md`: current architecture, contracts, data model, routes, limitations, and review posture.
@@ -114,7 +191,7 @@ The central invariant is additive traceability: acquire and preserve source reco
 | Citation analytics | `backend/citation_map.py`; read-only graph and authority calculations | Resolved citation edges + metadata -> bounded analytics/CSV | Reads citations, metrics, tags, outcomes | citation-map API tests |
 | Metadata | `backend/metadata.py`; fields, outcomes, evidence, confidence | Source text/HTML -> structured observations | Case metadata JSON and review flags | metadata tests and gold-set audit |
 | Tagging | `backend/legal_tagger_v3.py`, `backend/case_processing.py`; active deterministic core, with V1/V2 retained for comparison | Case text -> repeated evidence-backed V3 occurrences/status | `case_tags`, `case_tagging_status`; V3 proposal in `data/eval/reports/` | focused V3 tests and bounded canary |
-| Embeddings | `backend/embedding_providers.py`; provider selection and vector wiring | Cases/chunks -> model-versioned vectors | pgvector case/chunk embedding tables; optional local/hosted providers | provider tests; bounded embedding run |
+| Embeddings | `backend/embedding_providers.py`, `scripts/embed_openai_chunks.py`; provider selection and vector wiring | Cases/chunks -> model-versioned vectors | pgvector case/chunk embedding tables; hosted OpenAI chunk writer is budget-capped and resumable; optional local provider remains separate | provider tests; dry-run; bounded embedding run |
 | Live analysis | `backend/live_analysis.py`; temporary DOCX/text-PDF extraction and local resolution | Uploaded bytes -> in-memory text, spans, resolution results | No upload/case/chunk/citation persistence | live-analysis tests and API check |
 | Federal Court activity | `backend/fc_activity.py`; activity normalization/classification support | Staged activity records -> normalized activity data | Separate activity/procedural tables; not proof of captured judgment | FC activity tests and bounded import |
 | Page builders | `backend/pages/`; page-specific HTML builders (`data_explorer.py`, `quick_search.py`, `research.py`, etc.) | Data/config -> rendered page fragments | No canonical writes during rendering | feature-tab tests and browser check |

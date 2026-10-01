@@ -46,7 +46,15 @@ The system intentionally separates three kinds of derived information:
 
 ### Primary Research Workflows
 
-`/data-explorer` is the main research surface. It contains these seven visible tabs:
+`/data-explorer` is the main research surface. Its top-left primary navigation
+is **Info**, **Research**, **Workbench**, and **Testing**, with Research / Case
+Search as the default. Info groups About and Site Architecture; Research groups
+Case Search, Citation Intelligence, Judge Profile, FC History, and Themes.
+Workbench links to the existing Citation Map and Live Analysis routes. Testing
+groups the Research Bench prototype, Discussion Units Sandbox, and Citation
+Pass QA as work-in-progress/support surfaces. Group state controls secondary
+views; existing `?tab=` deep links and reader/search handlers remain supported.
+The embedded information and research views are:
 
 1. **About**: interactive architecture graph connecting source/staging, canonical ingestion, the seven-stage processing pipeline, citation extraction and separate target resolution, live services, research surfaces, and evidence rules, with live inventory from `/api/about/stats`.
 2. **Case Search**: filtered research search with an inline decision reader.
@@ -122,7 +130,71 @@ The API supports case-level, chunk-level, and grouped-chunk retrieval.
 - `hybrid` search combines semantic and lexical scores with validated weights.
 - `metadata` search emphasizes structured filters and text predicates.
 - Chunk search can group passages under their parent case.
-- Local BGE-M3 chunk embeddings are stored separately from OpenAI-compatible 1536-dimensional case vectors.
+- Local BGE-M3 chunk embeddings are stored separately from hosted OpenAI
+  1536-dimensional vectors. `scripts/embed_openai_chunks.py` writes
+  `text-embedding-3-small` vectors to `case_chunks.embedding` for paragraph rows
+  only, with one worker and bounded keyset queries scoped to an explicit cohort.
+  Short paragraphs retain the direct API vector. Long paragraphs are split only
+  in memory into inputs of at most 8,192 tokens; bounded requests cover all tokens,
+  and a token-weighted mean is L2-normalized into one stored paragraph vector.
+  Canonical chunk rows, text and offsets are unchanged; existing vectors are
+  never overwritten. Default requests contain at most 100 inputs and 100,000
+  tokens (the aggregate cap is configurable with `--max-request-tokens`). One
+  shared buffer mixes short inputs and long-paragraph windows across paragraphs
+  and keyset fetch pages. A paragraph may span requests; only receipt of all its
+  indexed pieces permits its vector to be committed. Completed paragraphs are
+  committed after each response even when neighboring paragraphs remain partial.
+  ORM expiration is temporarily disabled during packing to avoid per-row reloads
+  after those commits. Offline tests demonstrate ten alternating short/long
+  paragraphs packed into four requests instead of the former ten, with zero
+  success-path sleeps; this is not a live throughput measurement. Summaries
+  report elapsed seconds, paragraphs per second, and successful-request counts,
+  input counts and tokens. There is no voluntary default RPM/TPM pacing; actual rate-limit errors
+  trigger bounded backoff and Retry-After handling. A shared OS-owned writer lock,
+  explicit spend cap and append-only request ledger protect restart behavior.
+  Received-but-uncommitted responses retain their charged cost on restart and
+  null rows are re-embedded; mixed requests retain both their committed-paragraph
+  counts and unfinished-paragraph costs. Ambiguous reservations or usage records
+  require reconciliation before restart.
+  Merged-vector retrieval quality remains unmeasured against judged queries.
+  The packed runner has passed a bounded 5,000-paragraph live benchmark with
+  independently verified persisted vectors; measured throughput and request
+  evidence are retained in the hosted embedding recovery task record. A bounded
+  success does not certify full-cohort coverage or a fixed provider throughput.
+  A completed vector write and a clean accounting state are separate checks:
+  after a retried connection failure, all selected paragraphs may be committed
+  while the runner still reports blocked because the failed attempt's charge
+  is unknown. Reconcile that reservation before resuming its ledger; do not
+  discard it or interpret the warning as proof that saved vectors are missing.
+  A per-run ledger spend cap is not a cross-run billing total. Before starting a
+  fresh continuation directory, reconcile prior spend against the approved total
+  or obtain an explicit additional allowance; changing directories does not reset
+  spending authorization.
+  The approved remaining-run command and ledger-first recovery procedure are
+  maintained in `OVERNIGHT.md`; the recovery task record owns active status and
+  launch evidence rather than duplicating changing progress totals here.
+
+The experimental `/research` route is the current retrieval-augmented
+generation (RAG) path. It retrieves grouped case chunks first, keeps the top
+requested cases and their passages, assembles a bounded context of 12,000
+characters, and sends that context to the selected text-generation provider.
+The prompt requires the provider to answer only from the supplied excerpts and
+to name when the excerpts are insufficient. The response returns the answer
+alongside the retrieved case sources; it does not create canonical summaries,
+citation rows, statute rows, embeddings, or source offsets.
+
+For local-only operation, set `TEXT_GENERATION_PROVIDER=local` and configure
+an Ollama model with `OLLAMA_MODEL` and `OLLAMA_BASE_URL`. Local semantic
+retrieval uses the separate 1024-dimensional BGE-M3 chunk-vector path when its
+rollout flag is enabled. These are two independent choices: local generation
+does not automatically create or backfill embeddings, and changing an
+embedding model requires a coordinated model/dimension/schema change.
+
+The route is intentionally experimental. A retrieved passage is evidence to
+review, not a verified legal conclusion; researchers must open the cited case
+and confirm the source. Before making this workflow production-facing, add
+retrieval recall/relevance evaluation, context assembly that preserves complete
+evidence spans, latency/error monitoring, and browser coverage.
 
 Case Search supports query, title, court, jurisdiction, dates, source details, citation variants, party/minister presets, cited authority, legal tags, language, processing status, cited/citing data, decision outcome, government outcome, judge, and full-text opt-in matching. Court abbreviations `FC`, `FCA`, and `SCC` expand to canonical court names for filtering.
 

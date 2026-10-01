@@ -75,7 +75,9 @@ def test_build_case_chunk_layers_creates_full_section_and_paragraph_rows():
     assert rows[0].chunk_label == "Full case"
     assert rows[0].text == case.full_text
     assert rows[1].chunk_label == "Overview"
-    assert [row.chunk_label for row in rows[2:]] == ["intro", "1", "2"]
+    assert [row.chunk_label for row in rows[2:]] == ["heading", "1", "2"]
+    assert rows[2].text == "OVERVIEW"
+    assert rows[2].paragraph_start is None
 
 
 def test_build_case_chunk_layers_uses_confident_html_headings():
@@ -89,6 +91,7 @@ def test_build_case_chunk_layers_uses_confident_html_headings():
     rows = build_case_chunk_layers(case)
 
     assert [row.chunk_label for row in rows if row.chunk_set == "section"] == ["Intro Metadata", "Background", "Analysis"]
+    assert [row.chunk_label for row in rows if row.chunk_set == "paragraph"] == ["heading", "1", "heading", "2"]
     assert all(row.text in case.full_text for row in rows)
 
 
@@ -165,7 +168,7 @@ def test_scc_text_fallback_uses_body_lines_for_older_unnumbered_decisions():
     assert paragraphs[-1].text.startswith("Solicitor for")
 
 
-def test_build_case_chunks_creates_only_intro_and_paragraph_chunks():
+def test_build_case_chunks_separates_main_headings_from_paragraphs():
     case = SimpleNamespace(
         id=20,
         full_text="Header line\nOVERVIEW\n[1] First paragraph.\n[2] Second paragraph.\nCONCLUSION\nDone.",
@@ -174,10 +177,29 @@ def test_build_case_chunks_creates_only_intro_and_paragraph_chunks():
 
     rows = build_case_chunks(case)
 
-    assert [row.chunk_set for row in rows] == ["paragraph", "paragraph", "paragraph"]
-    assert [row.chunk_label for row in rows] == ["intro", "1", "2"]
-    assert rows[1].paragraph_start == 1
-    assert rows[2].paragraph_end == 2
+    assert [row.chunk_set for row in rows] == ["paragraph"] * 6
+    assert [row.chunk_label for row in rows] == ["intro", "heading", "1", "2", "heading", "tail"]
+    assert rows[1].text == "OVERVIEW"
+    assert rows[1].paragraph_start is None
+    assert rows[2].paragraph_start == 1
+    assert rows[3].paragraph_end == 2
+    assert rows[4].text == "CONCLUSION"
+    assert rows[5].text == "Done."
+
+
+def test_build_case_chunks_separates_heading_between_numbered_paragraphs():
+    case = SimpleNamespace(
+        id=23,
+        full_text="[1] First decision paragraph.\nANALYSIS\n[2] Second decision paragraph.",
+        summary=None,
+    )
+
+    rows = build_case_chunks(case)
+
+    assert [row.chunk_label for row in rows] == ["1", "heading", "2"]
+    assert rows[0].text == "[1] First decision paragraph."
+    assert rows[1].text == "ANALYSIS"
+    assert rows[2].text == "[2] Second decision paragraph."
 
 
 def test_build_case_chunks_paragraph_pass_has_intro_numbered_and_tail_chunks():

@@ -22,8 +22,8 @@ from sqlalchemy import select
 
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal, init_db
 
-CLASSIFIER_VERSION = "fc_activity_v5"
-DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v5/state.json")
+CLASSIFIER_VERSION = "fc_activity_v6"
+DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v6/state.json")
 
 
 @dataclass(frozen=True)
@@ -47,6 +47,35 @@ class ActivityEvent:
     text: str
     re_no: str | None = None
     docno: str | None = None
+
+
+# "The Court's decision is with regard to Judicial Review (s.18) and certification ... Result: granted"
+# "Before the Court: Judicial Review Result of Hearing: Matter granted"; "Result: JR is dismissed"
+STRUCTURED_JR_GRANTED = (
+    r"with regard to (?:the )?(?:application for )?judicial review\b[^\n]{0,160}?result:\s*(?:(?:the )?(?:jr|judicial review|application|matter)\s+(?:is\s+)?)?(?:granted|allowed)"
+    r"|before the court:\s*judicial review\s*result of hearing:\s*matter (?:partially )?granted"
+    # Merits judgments the registry mislabels as "the application for leave" after an in-person hearing.
+    r"|reasons for judgment[^\n]{0,200}?with personal appearance[^\n]{0,80}?application for leave\s*result:\s*(?:granted|allowed)"
+)
+STRUCTURED_JR_DISMISSED = (
+    r"with regard to (?:the )?(?:application for )?judicial review\b[^\n]{0,160}?result:\s*(?:(?:the )?(?:jr|judicial review|application|matter)\s+(?:is\s+)?)?dismissed"
+    r"|before the court:\s*judicial review\s*result of hearing:\s*matter dismissed"
+    r"|reasons for judgment[^\n]{0,200}?with personal appearance[^\n]{0,80}?application for leave\s*result:\s*dismissed"
+)
+# "Certificate of Order ... concerning the application for leave Result: dismissed"
+STRUCTURED_LEAVE_REFUSED = (
+    r"(?:with regard to|concerning) (?:the )?application for leave\b[^\n]{0,40}?result\s*:\s*(?:leave\s+)?(?:dismissed|refused|denied)"
+    r"|concernant (?:\(le/la/l'\) )?la demande d['’]autorisation\s*r[ée]sultat\s*:\s*affaire rejet[ée]+"
+    r"|dismissing the (?:application for (?:an )?)?extension of time to (?:file|commence|bring)"
+)
+GROUP_ORDER_DISMISSED = r"(?:present application and |applications? )?(?:those |the applications? )?listed in the (?:attached )?schedules?\s*(?:[a-z]\s*)?(?:are|is|were) (?:hereby )?dismissed"
+STRUCTURED_LEAVE_GRANTED = r"(?:with regard to|concerning) (?:the )?application for leave\b[^\n]{0,40}?result\s*:\s*(?:leave\s+)?granted"
+CANCELLED_ENTRY = re.compile(r"^\W*\*{3,}\s*(?:cancelled|canceled|annul[ée]+(?:\(e\))?)\s*\*{3,}", re.IGNORECASE)
+
+
+def _is_cancelled(text: str) -> bool:
+    """Registry entries struck out as "****** CANCELLED ******" carry no procedural meaning."""
+    return bool(CANCELLED_ENTRY.search(text))
 
 
 RULES: dict[str, tuple[str, tuple[str, ...]]] = {
@@ -75,6 +104,7 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
         "leave_granted",
         (
             r"granting the application for leave",
+            STRUCTURED_LEAVE_GRANTED,
             r"application for leave granted",
             r"\bleave\s*(?:is\s*)?granted\b",
             r"\bresult\s*[-:]\s*leave\s+granted\b",
@@ -89,6 +119,7 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
         "leave_refused",
         (
             r"dismissing the application for leave",
+            STRUCTURED_LEAVE_REFUSED,
             r"dismissing .* application for leave",
             r"application for leave dismissed",
             r"application for leave:\s*dismissed",
@@ -139,6 +170,7 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
         "judicial_review_granted",
         (
             r"judicial review result:\s*granted",
+            STRUCTURED_JR_GRANTED,
             r"judicial review .* result:\s*granted",
             r"result:\s*granted .* judicial review",
             r"contrôle judiciaire .* accord",
@@ -150,6 +182,7 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
         "judicial_review_dismissed",
         (
             r"judicial review result:\s*dismissed",
+            STRUCTURED_JR_DISMISSED,
             r"judicial review .* result:\s*dismissed",
             r"result:\s*dismissed .* judicial review",
             r"dismissing the application for judicial review",
@@ -630,10 +663,12 @@ def _closing_status(events: list[ActivityEvent], leave_result: str, review_resul
     patterns: tuple[tuple[str, str], ...] = (
         ("discontinued", r"notice of discontinuance|\bdiscontinuance\b|désistement|desistement"),
         ("administratively_terminated", r"application terminated by s\.?\s*87\.4\(1\) of irpa"),
-        ("abeyance", r"held in abeyance until|file is held in abeyance"),
-        ("leave_refused", r"dismissing the application for leave|application for leave:\s*dismissed|rejetant la demande d['’]autorisation|rejetant la demande d['’]autorisation"),
-        ("judicial_review_granted", r"judicial review result:\s*granted|contrôle judiciaire .* accord"),
-        ("judicial_review_dismissed", r"judicial review result:\s*dismissed|dismissing the application for judicial review|contrôle judiciaire .* rejet"),
+        ("dismissed_by_group_order", GROUP_ORDER_DISMISSED),
+        ("abeyance", r"held in abeyance until|file is held in abeyance|holding [^\n]{0,60}?(?:applications?|files?|matters?) in abeyance|(?:applications?|files?|matters?) (?:are|is|be) held in abeyance"),
+        ("leave_refused", rf"dismissing the application for leave|application for leave:\s*dismissed|rejetant la demande d['’]autorisation|{STRUCTURED_LEAVE_REFUSED}"),
+        ("dismissed_for_delay", r"with regard to status review\s*result\s*:\s*(?:matter\s+)?dismissed"),
+        ("judicial_review_granted", rf"judicial review result:\s*granted|{STRUCTURED_JR_GRANTED}|granting the application for judicial review|contrôle judiciaire .* accord"),
+        ("judicial_review_dismissed", rf"judicial review result:\s*dismissed|{STRUCTURED_JR_DISMISSED}|dismissing the application for judicial review|contrôle judiciaire .* rejet"),
             ("withdrawn", r"notice of withdrawal|retrait de la demande"),
             ("underlying_decision_pending", r"no decision has yet been made, as such, no reasons exist|aucune décision n['’]a encore été rendue"),
             ("case_management", r"case management conference|parties are to consult each other to reach consent"),
@@ -669,6 +704,10 @@ def _lifecycle_status(
         "leave_refused",
         "judicial_review_granted",
         "judicial_review_dismissed",
+        "resolved_by_consent",
+        "dismissed_for_delay",
+        "dismissed_by_group_order",
+        "file_cancelled",
     }
     for signal in (closing_status, full_history_resolution):
         status = signal.get("status")
@@ -716,9 +755,11 @@ def _lifecycle_status(
 def _full_history_resolution(events: list[ActivityEvent], leave_result: str) -> dict[str, Any]:
     """Find the decisive IMM-level outcome across the complete docket history."""
     rules: tuple[tuple[str, str], ...] = (
-        ("judicial_review_granted", r"judicial review result:\s*granted|result:\s*granted .* judicial review|contrôle judiciaire .* accord|accordant la demande de contrôle judiciaire|granting the application for judicial review"),
-        ("judicial_review_dismissed", r"judicial review result:\s*dismissed|dismissing the application for judicial review|contrôle judiciaire .* rejet|rejetant la demande de contrôle judiciaire"),
-        ("leave_refused", r"dismissing the application for leave|application for leave:\s*dismissed|rejetant la demande d['’]autorisation"),
+        ("judicial_review_granted", rf"judicial review result:\s*granted|{STRUCTURED_JR_GRANTED}|result:\s*granted .* judicial review|contrôle judiciaire .* accord|accordant la demande de contrôle judiciaire|granting the application for judicial review"),
+        ("judicial_review_dismissed", rf"judicial review result:\s*dismissed|{STRUCTURED_JR_DISMISSED}|dismissing the application for judicial review|contrôle judiciaire .* rejet|rejetant la demande de contrôle judiciaire"),
+        ("leave_refused", rf"dismissing the application for leave|application for leave:\s*dismissed|rejetant la demande d['’]autorisation|{STRUCTURED_LEAVE_REFUSED}"),
+        ("dismissed_by_group_order", GROUP_ORDER_DISMISSED),
+        ("dismissed_for_delay", r"with regard to status review\s*result\s*:\s*(?:matter\s+)?dismissed|dismissing the application (?:for leave )?(?:further to|following|on|as a result of) (?:the )?status review"),
         ("discontinued", r"notice of discontinuance|\bdiscontinuance\b|désistement|desistement"),
         ("withdrawn", r"notice of withdrawal|retrait de la demande"),
         ("administratively_terminated", r"application terminated by s\.?\s*87\.4\(1\)(?:\s+of)?\s*irpa|termination under s\.?\s*87\.4\(1\)"),
@@ -1175,8 +1216,101 @@ def _field_applicability(
     }
 
 
+_PAPER_JR_DISMISSAL = re.compile(r"dismissing the application for judicial review|rejetant la demande de contrôle judiciaire", re.IGNORECASE)
+_WITHOUT_APPEARANCE = re.compile(r"without (?:a )?personal appearance|sans comparution en personne", re.IGNORECASE)
+_WITH_APPEARANCE = re.compile(r"with personal appearance|avec comparution en personne|result of hearing|held in court", re.IGNORECASE)
+
+
+def _paper_judicial_review_dismissal(events: list[ActivityEvent]) -> ActivityEvent | None:
+    """A paper dismissal of the whole application before any hearing is a leave-stage refusal.
+
+    Older registry entries (and some visa-officer files) record leave refusals as
+    "dismissing the application for judicial review ... without personal appearance".
+    Judicial reviews decided on the merits are heard in person, so a paper dismissal
+    with no in-person hearing anywhere in the file is read as leave refused.
+    """
+    if any(_WITH_APPEARANCE.search(event.text) for event in events):
+        return None
+    return next(
+        (event for event in events if _PAPER_JR_DISMISSAL.search(event.text) and _WITHOUT_APPEARANCE.search(event.text)),
+        None,
+    )
+
+
+_CONSENT = re.compile(r"\b(?:by|on|upon|with) (?:the )?consent\b|\bconsent (?:order|judgment|judgement)\b|\bconsenting to\b|\bconsents? to (?:the )?(?:judgment|order|allow|grant|set)|de consentement|sur consentement|du consentement|avec le consentement|en consentement|consentement (?:à|a) jugement", re.IGNORECASE)
+_CONSENT_MERITS = re.compile(r"\ballow(?:ing|s)?\b|\bgrant(?:ing)? the (?:application|judicial review)|set(?:ting)? aside|quash|redetermin|refer(?:ring|red)? (?:the matter |it )?back|send(?:ing)? (?:the matter |it )?back|\bjudgment\b|\bjugement\b|annul|accueill|renvoy", re.IGNORECASE)
+_CONSENT_PROCEDURAL = re.compile(r"extension|extend|prorog|adjourn|ajourn|abeyance|\bstay\b|sursis|amend|style of cause|intitulé|reschedul|filing of|to file|time to|délai|change of solicitor|removal of solicitor|confidential|anonym|production", re.IGNORECASE)
+_COURT_DECISION = re.compile(r"\brendered\b|\brendu(?:\(?e\)?)?s?\b|\(final decision\)|\(décision finale\)|^(?:order|judgment|judgement|ordonnance|jugement)\b[^.]{0,60}?\b(?:dated|en date)", re.IGNORECASE)
+_NOT_A_DECISION = re.compile(r"^\W*(?:copy of|certified (?:french |english )?translation|traduction|acknowledg|accusé|draft|projet|notice of motion|letter|lettre|communication)", re.IGNORECASE)
+_MOTION_GRANTED_RESULT = re.compile(r"with regard to motion[^\n]{0,60}?result:\s*granted|granting the motion|motion (?:is )?granted|accordant la requête|requête (?:est )?accueillie|order to go as asked", re.IGNORECASE)
+
+
+def _consent_disposition(events: list[ActivityEvent]) -> dict[str, Any]:
+    """Detect files resolved by a consent order or judgment setting the decision aside."""
+    request = next(
+        (
+            event
+            for event in events
+            if _CONSENT.search(event.text)
+            and _CONSENT_MERITS.search(event.text)
+            and not _CONSENT_PROCEDURAL.search(event.text)
+            and not re.search(r"\b(?:dismiss|discontinu|désistement)", event.text, re.IGNORECASE)
+        ),
+        None,
+    )
+    if request is None:
+        return {"status": "none", "rule": "no_consent_merits_request"}
+    if _COURT_DECISION.search(request.text) and not _NOT_A_DECISION.search(request.text) and re.search(r"grant|allow|accord|accueill|set(?:ting)? aside|quash|consent", request.text, re.IGNORECASE):
+        return {
+            "status": "granted",
+            "date": _event_date(request),
+            "doc_id": request.doc_id,
+            "request_doc_id": request.doc_id,
+            "request_date": _event_date(request),
+            "text": request.text,
+            "request_text": request.text,
+            "rule": "consent_order_or_judgment",
+        }
+    request_docno = request.docno
+    later = [event for event in events if (event.doc_date or date.min) >= (request.doc_date or date.min) and event.doc_id != request.doc_id]
+    for event in later:
+        if not _COURT_DECISION.search(event.text) or _NOT_A_DECISION.search(event.text):
+            continue
+        merits_grant = re.search(r"\(final decision\)|\(décision finale\)|judgment|jugement", event.text, re.IGNORECASE) and re.search(
+            r"allowing the application|granting the application for (?:leave and (?:for )?)?judicial review|set(?:ting)? aside|quash|accordant la demande|cass[ée]+|consent",
+            event.text,
+            re.IGNORECASE,
+        )
+        if not _MOTION_GRANTED_RESULT.search(event.text) and not merits_grant:
+            continue
+        reference = re.search(r"doc(?:ument)?\.?\s*(?:n[°oº]?\.?|no\.?|#)?\s*(\d+)", event.text, re.IGNORECASE)
+        if request_docno and reference and reference.group(1) != str(request_docno):
+            continue
+        return {
+            "status": "granted",
+            "date": _event_date(event),
+            "doc_id": event.doc_id,
+            "request_doc_id": request.doc_id,
+            "request_date": _event_date(request),
+            "text": event.text,
+            "request_text": request.text,
+            "rule": "consent_merits_request_then_granting_order",
+        }
+    return {
+        "status": "requested",
+        "date": None,
+        "doc_id": None,
+        "request_doc_id": request.doc_id,
+        "request_date": _event_date(request),
+        "text": None,
+        "request_text": request.text,
+        "rule": "consent_merits_request_without_observed_order",
+    }
+
+
 def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
-    ordered = list(events)
+    received = list(events)
+    ordered = [event for event in received if not _is_cancelled(event.text)]
     procedural_events = extract_procedural_events(ordered)
     challenged_decision = _challenged_decision(ordered)
     originating_party_fields = _originating_party_fields(ordered)
@@ -1197,6 +1331,14 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
 
     leave = leave_granted if leave_granted.status == "yes" else leave_refused
     leave_result = "granted" if leave_granted.status == "yes" else "refused" if leave_refused.status == "yes" else "unknown"
+    paper_dismissal = None
+    if leave_result == "unknown" and challenged_decision.get("application_type") not in {"direct_judicial_review", "direct_judicial_review_extension_of_time"}:
+        paper_dismissal = _paper_judicial_review_dismissal(ordered)
+        if paper_dismissal is not None:
+            leave_result = "refused"
+            leave = Evidence("yes", _event_date(paper_dismissal), paper_dismissal.doc_id, paper_dismissal.re_no, paper_dismissal.docno, paper_dismissal.text, "paper_dismissal_without_leave_grant")
+            leave_refused = leave
+    consent = _consent_disposition(ordered)
     preliminary_resolution = _full_history_resolution(ordered, leave_result)
     later_review_granted = _evidence(ordered, "judicial_review_granted", latest=True)
     later_review_dismissed = _evidence(ordered, "judicial_review_dismissed", latest=True)
@@ -1241,11 +1383,17 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
     judicial_review_final = final_decision if effective_leave_result == "granted" and review_result in {"granted", "dismissed"} else Evidence("unknown", None, None, None, None, None, "leave_not_confirmed_or_review_result_missing")
     closing_status = _closing_status(ordered, leave_result, review_result)
     full_history_resolution = _full_history_resolution(ordered, effective_leave_result)
+    if paper_dismissal is not None and full_history_resolution["status"] in {"unknown", "judicial_review_dismissed"}:
+        full_history_resolution = {"status": "leave_refused", "date": leave.date, "doc_id": leave.doc_id, "re_no": leave.re_no, "docno": leave.docno, "text": leave.text, "rule": "full_history:paper_dismissal_without_leave_grant"}
+    if consent["status"] == "granted" and full_history_resolution["status"] in {"unknown", "discontinued", "withdrawn"} and review_result not in {"granted", "dismissed"}:
+        full_history_resolution = {"status": "resolved_by_consent", "date": consent["date"], "doc_id": consent["doc_id"], "re_no": None, "docno": None, "text": consent["text"], "rule": "full_history:consent_disposition"}
     perfection_status = _perfection_status(ordered, application_perfected)
     leave_final_decision = _evidence(ordered, "leave_final_decision", latest=True)
     motion_final_decision = _evidence(ordered, "motion_final_decision", latest=True)
     stay_decision = _evidence(ordered, "stay_decision", latest=True)
     history_profile = _history_profile(ordered, full_history_resolution)
+    if received and not ordered:
+        full_history_resolution = {"status": "file_cancelled", "date": _event_date(received[-1]), "doc_id": received[-1].doc_id, "re_no": received[-1].re_no, "docno": received[-1].docno, "text": received[-1].text, "rule": "full_history:every_entry_cancelled"}
     lifecycle_status = _lifecycle_status(ordered, closing_status, full_history_resolution, history_profile)
     judges = _judge_observations(procedural_events)
     field_applicability = _field_applicability(
@@ -1291,6 +1439,7 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "full_history_resolution": full_history_resolution,
         "lifecycle_status": lifecycle_status,
         "challenged_decision": challenged_decision,
+        "consent_disposition": consent,
         "aljr_filer_type": originating_party_fields["aljr_filer_type"],
         "aljr_filer_name": originating_party_fields["aljr_filer_name"],
         "respondent_minister": originating_party_fields["respondent_minister"],
@@ -1389,8 +1538,8 @@ def validate_fc_activity_classification(classification: dict[str, Any]) -> dict[
     }
 
 
-def classify_case(activity_case: FCActivityCase, documents: Iterable[FCActivityDocument]) -> dict[str, Any]:
-    events = [
+def _case_events(activity_case: FCActivityCase, documents: Iterable[FCActivityDocument]) -> list[ActivityEvent]:
+    return [
         ActivityEvent(
             activity_case_id=activity_case.id,
             citation=activity_case.citation,
@@ -1404,6 +1553,9 @@ def classify_case(activity_case: FCActivityCase, documents: Iterable[FCActivityD
         for document in documents
         if (document.recorded_entry or "").strip()
     ]
+
+
+def _case_report(activity_case: FCActivityCase, events: list[ActivityEvent], classification: dict[str, Any]) -> dict[str, Any]:
     return {
         "activity_case_id": activity_case.id,
         "citation": activity_case.citation,
@@ -1411,8 +1563,28 @@ def classify_case(activity_case: FCActivityCase, documents: Iterable[FCActivityD
         "year": activity_case.year,
         "case_name": activity_case.case_name,
         "document_count": len(events),
-        "classification": classify_events(events),
+        "classification": classification,
     }
+
+
+def classify_case(activity_case: FCActivityCase, documents: Iterable[FCActivityDocument]) -> dict[str, Any]:
+    events = _case_events(activity_case, documents)
+    return _case_report(activity_case, events, classify_events(events))
+
+
+def classify_cases(
+    cases: list[FCActivityCase],
+    documents_by_case: dict[int, list[FCActivityDocument]],
+    *,
+    pool: Any = None,
+) -> list[dict[str, Any]]:
+    """Classify a batch of cases, optionally spreading the work over a process pool."""
+    event_lists = [_case_events(case, documents_by_case.get(case.id, [])) for case in cases]
+    if pool is None:
+        classifications = [classify_events(events) for events in event_lists]
+    else:
+        classifications = list(pool.map(classify_events, event_lists, chunksize=max(1, len(event_lists) // 64)))
+    return [_case_report(case, events, classification) for case, events, classification in zip(cases, event_lists, classifications)]
 
 
 def load_report(limit: int | None = None, citation: str | None = None, per_year: int | None = None) -> list[dict[str, Any]]:
@@ -1443,7 +1615,7 @@ def load_report(limit: int | None = None, citation: str | None = None, per_year:
         documents_by_case: dict[int, list[FCActivityDocument]] = {}
         for document in documents:
             documents_by_case.setdefault(document.case_id, []).append(document)
-        return [classify_case(row, documents_by_case.get(row.id, [])) for row in cases]
+        return classify_cases(cases, documents_by_case)
 
 
 def parse_args() -> argparse.Namespace:
@@ -1459,6 +1631,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--state-file", type=Path, default=DEFAULT_STATE_FILE, help="Atomic full-inventory checkpoint path")
     parser.add_argument("--resume", action="store_true", help="Resume from the checkpoint at --state-file")
     parser.add_argument("--force", action="store_true", help="Reclassify rows already current for this classifier version")
+    parser.add_argument("--workers", type=int, default=1, help="Worker processes for --all (e.g. 4 or 8 on a multi-core PC)")
     return parser.parse_args()
 
 
@@ -1490,13 +1663,19 @@ def persist_report(report: list[dict[str, Any]], *, force: bool = False) -> int:
                     )
                 )
             }
+        existing = {
+            row.source_case_id: row
+            for row in session.scalars(
+                select(FCActivityClassification).where(
+                    FCActivityClassification.source_case_id.in_(set(source_ids) - current_ids)
+                )
+            )
+        }
         for row in report:
             source = source_cases.get(int(row["activity_case_id"]))
             if source.id in current_ids:
                 continue
-            derived = session.scalar(
-                select(FCActivityClassification).where(FCActivityClassification.source_case_id == source.id)
-            )
+            derived = existing.get(source.id)
             values = {
                 "source_case_id": source.id,
                 "source_key": source.source_key,
@@ -1555,7 +1734,23 @@ def _read_checkpoint(path: Path) -> dict[str, Any]:
     return checkpoint
 
 
-def persist_all(batch_size: int, state_file: Path = DEFAULT_STATE_FILE, *, resume: bool = False, force: bool = False) -> int:
+def persist_all(
+    batch_size: int,
+    state_file: Path = DEFAULT_STATE_FILE,
+    *,
+    resume: bool = False,
+    force: bool = False,
+    workers: int = 1,
+) -> int:
+    if workers > 1:
+        from concurrent.futures import ProcessPoolExecutor
+
+        with ProcessPoolExecutor(max_workers=workers) as pool:
+            return _persist_all(batch_size, state_file, resume=resume, force=force, pool=pool)
+    return _persist_all(batch_size, state_file, resume=resume, force=force, pool=None)
+
+
+def _persist_all(batch_size: int, state_file: Path, *, resume: bool, force: bool, pool: Any) -> int:
     written = 0
     checkpoint = _read_checkpoint(state_file) if resume else {"last_source_case_id": 0, "written": 0}
     last_id = int(checkpoint.get("last_source_case_id", 0))
@@ -1579,7 +1774,7 @@ def persist_all(batch_size: int, state_file: Path = DEFAULT_STATE_FILE, *, resum
             documents_by_case: dict[int, list[FCActivityDocument]] = {}
             for document in documents:
                 documents_by_case.setdefault(document.case_id, []).append(document)
-            report = [classify_case(case, documents_by_case.get(case.id, [])) for case in cases]
+            report = classify_cases(cases, documents_by_case, pool=pool)
         written += persist_report(report, force=force)
         last_id = cases[-1].id
         _write_checkpoint(state_file, last_id, written)
@@ -1593,7 +1788,7 @@ def main() -> None:
     if args.all:
         if not args.write or args.limit or args.per_year or args.citation:
             raise SystemExit("--all requires --write and cannot be combined with filters")
-        written = persist_all(args.batch_size, args.state_file, resume=args.resume, force=args.force)
+        written = persist_all(args.batch_size, args.state_file, resume=args.resume, force=args.force, workers=args.workers)
         print(f"classified_cases={written} written={written}")
         return
     if args.limit and args.per_year:

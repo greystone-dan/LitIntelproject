@@ -979,3 +979,104 @@ def test_direct_judicial_review_does_not_use_leave_stage():
     assert result["leave_context"]["status"] == "not_applicable_direct_judicial_review"
     assert result["field_applicability"]["leave_decision"]["explanation"] == "This application proceeded as direct judicial review and did not require leave."
     assert result["closing_status"]["status"] == "discontinued"
+
+
+def test_cancelled_entries_are_ignored():
+    result = classify_events(
+        [
+            event(1, "2018-08-01", "Application for leave and judicial review against a decision of the visa officer filed on 01-AUG-2018"),
+            event(2, "2018-10-25", "****** CANCELLED ****** (Final decision) Order rendered by The Honourable Madam Justice Gagné at Ottawa on 25-OCT-2018 dismissing the application for leave Decision endorsed on the record"),
+            event(3, "2018-12-03", "Notice of discontinuance on behalf of the applicant filed on 03-DEC-2018 with proof of service on the respondent"),
+        ]
+    )
+    assert result["leave_decision"]["result"] == "unknown"
+    assert result["full_history_resolution"]["status"] == "discontinued"
+
+
+def test_paper_dismissal_of_judicial_review_without_leave_is_leave_refusal():
+    result = classify_events(
+        [
+            event(1, "1993-03-01", "Application for leave and for judicial review filed on 01-MAR-1993"),
+            event(2, "1993-09-10", "(Final decision) Order of the Court/ The Honourable Mr. Justice Cullen rendered at Ottawa on 10-SEP-1993 dismissing the application for judicial review and COMPLETING THE FILE endorsed on 1 Considered by the Court without personal appearance"),
+        ]
+    )
+    assert result["leave_decision"]["result"] == "refused"
+    assert result["leave_decision"]["rule"] == "paper_dismissal_without_leave_grant"
+    assert result["judicial_review_result"]["result"] == "not_reached"
+    assert result["full_history_resolution"]["status"] == "leave_refused"
+    assert result["lifecycle_status"]["status"] == "closed"
+
+
+def test_judicial_review_dismissed_after_hearing_is_not_a_paper_dismissal():
+    result = classify_events(
+        [
+            event(1, "2014-11-01", "Application for leave and judicial review filed on 01-NOV-2014"),
+            event(2, "2015-03-01", "Order rendered by The Honourable Madam Justice Strickland granting the application for leave fixing the hearing"),
+            event(3, "2015-09-02", "(Final decision) Reasons for Judgment and Judgment dated 02-SEP-2015 rendered by The Honourable Madam Justice Strickland Matter considered with personal appearance The Court's decision is with regard to Judicial Review and certification of a serious question of general importance Result: dismissed Filed on 02-SEP-2015"),
+            event(4, "2016-06-02", "Copy of Notice of Discontinuance placed on file on 02-JUN-2016 Original filed on Court File No. A-431-15"),
+        ]
+    )
+    assert result["leave_decision"]["result"] == "granted"
+    assert result["judicial_review_result"]["result"] == "dismissed"
+    assert result["full_history_resolution"]["status"] == "judicial_review_dismissed"
+
+
+def test_consent_motion_then_granting_order_resolves_by_consent():
+    result = classify_events(
+        [
+            event(1, "2018-06-01", "Application for leave and judicial review against a decision of the IRB-IAD filed on 01-JUN-2018"),
+            event(2, "2018-11-15", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing to be dealt with in the Toronto local office for Judgment on consent filed on 15-NOV-2018 Draft Order\\Judgment received.", docno="14"),
+            event(3, "2018-11-19", "Order dated 19-NOV-2018 rendered by The Honourable Mr. Justice Manson Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 14 Result: granted Filed on 19-NOV-2018", docno="19"),
+        ]
+    )
+    consent = result["consent_disposition"]
+    assert consent["status"] == "granted"
+    assert consent["date"] == "2018-11-19"
+    assert result["full_history_resolution"]["status"] == "resolved_by_consent"
+    assert result["lifecycle_status"]["status"] == "closed"
+
+
+def test_consent_to_procedural_relief_is_not_a_consent_disposition():
+    result = classify_events(
+        [
+            event(1, "2020-01-10", "Application for leave and judicial review filed on 10-JAN-2020"),
+            event(2, "2020-02-01", "Notice of Motion on behalf of Applicant on consent for an Order extending the time to file the Applicant's Record filed on 01-FEB-2020", docno="5"),
+            event(3, "2020-02-05", "Order dated 05-FEB-2020 rendered by The Honourable Mr. Justice Example The Court's decision is with regard to Motion in writing Doc. No. 5 Result: granted"),
+        ]
+    )
+    assert result["consent_disposition"]["status"] == "none"
+    assert result["full_history_resolution"]["status"] != "resolved_by_consent"
+
+
+def test_group_order_dismissal_and_fully_cancelled_file():
+    grouped = classify_events(
+        [
+            event(1, "2012-11-01", "Application for leave and judicial review and mandamus filed on 01-NOV-2012"),
+            event(2, "2017-07-05", "Copy of Order dated 05-JUL-2017 rendered by The Honourable Madam Justice Kane concerning The present application and those listed in the attached schedule are dismissed. (Original file : IMM-7502-11) placed on file. Original filed on Court File No. IMM-9024-12"),
+        ]
+    )
+    assert grouped["full_history_resolution"]["status"] == "dismissed_by_group_order"
+    assert grouped["lifecycle_status"]["status"] == "closed"
+    cancelled = classify_events([event(1, "2020-10-05", "****** CANCELLED ****** Application for leave and judicial review against a decision Test filed on 05-OCT-2020")])
+    assert cancelled["full_history_resolution"]["status"] == "file_cancelled"
+    assert cancelled["lifecycle_status"]["status"] == "closed"
+
+
+def test_certificate_of_order_and_hearing_results_are_read():
+    leave = classify_events(
+        [
+            event(1, "2009-01-05", "Application for leave and judicial review filed on 05-JAN-2009"),
+            event(2, "2009-05-20", "Certificate of Order rendered by The Honourable Madam Justice Simpson on 19-MAY-2009 endorsed on the record on Doc. 1 received in the Registry on 20-MAY-2009 issued to parties Matter considered without personal appearance concerning the application for leave Result: dismissed Copy of Certificate placed on file"),
+        ]
+    )
+    assert leave["leave_decision"]["result"] == "refused"
+    assert leave["full_history_resolution"]["status"] == "leave_refused"
+    mislabelled = classify_events(
+        [
+            event(1, "2007-10-17", "Application for leave and judicial review against a decision IRB - RPD filed on 17-OCT-2007"),
+            event(2, "2008-01-15", "Order rendered by The Honourable Madam Justice Hansen at Ottawa on 15-JAN-2008 granting the application for leave fixing the hearing"),
+            event(3, "2008-04-11", "(Final decision) Reasons for Judgment and Judgment dated 11-APR-2008 rendered by The Honourable Madam Justice Tremblay-Lamer Matter considered with personal appearance The Court's decision is with regard to the application for leave Result: dismissed Filed on 11-APR-2008"),
+        ]
+    )
+    assert mislabelled["judicial_review_result"]["result"] == "dismissed"
+    assert mislabelled["full_history_resolution"]["status"] == "judicial_review_dismissed"

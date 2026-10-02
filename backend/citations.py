@@ -948,7 +948,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 				global_parties_start,
 				global_end,
 				_raw_match(
-						"case_name" if reported.startswith("(") else "case",
+					"case",
 					citation_text,
 					normalized,
 					global_parties_start,

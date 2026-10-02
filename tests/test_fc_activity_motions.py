@@ -177,3 +177,73 @@ def test_judge_names_across_registry_wordings(text, key):
 )
 def test_motion_types(relief, expected):
     assert motion_type(relief) == expected
+
+
+def test_ruling_without_reference_picks_motion_by_relief_wording():
+    register = extract_motions(
+        [
+            event(10, "2006-08-09", "Notice of Motion contained within a Motion Record on behalf of Respondent in writing to be dealt with in the Ottawa local office for a variation of Justice Phelan's order on the timetable", docno="8"),
+            event(21, "2006-09-05", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing to be dealt with in the Ottawa local office for an extension of time to file the applicant's further memorandum", docno="17"),
+            event(25, "2006-09-12", "Order rendered by The Honourable Mr. Justice Shore at Ottawa on 12-SEP-2006 granting the motion on behalf of the Applicant for an extension of time to file the further memorandum"),
+        ]
+    )
+    by_doc = {motion["doc_number"]: motion for motion in register["motions"]}
+    assert by_doc["17"]["outcome"] == "granted"
+    assert by_doc["17"]["link"] == "scored_match"
+    assert by_doc["8"]["decision_doc_id"] is None
+
+
+def test_ambiguous_ruling_is_kept_aside_not_guessed_or_double_counted():
+    register = extract_motions(
+        [
+            event(5, "2010-01-11", "Notice of Motion on behalf of Applicant in writing for an extension of time to file the record", docno="4"),
+            event(9, "2010-01-11", "Notice of Motion on behalf of Applicant in writing for an extension of time to file the affidavit", docno="7"),
+            event(12, "2010-02-01", "Order rendered by The Honourable Mr. Justice Example at Ottawa on 01-FEB-2010 granting the motion"),
+        ]
+    )
+    assert len(register["motions"]) == 2
+    assert all(motion["decision_doc_id"] is None for motion in register["motions"])
+    assert register["unlinked_rulings"][0]["reason"] == "ambiguous_open_motions"
+
+
+def test_duplicate_listing_of_one_notice_is_one_motion():
+    register = extract_motions(
+        [
+            event(18, "1998-07-20", "Notice of Motion on behalf of Applicant in writing to be placed before the Court in Ottawa for an extension of time to serve the Application for Leave"),
+            event(24, "1998-07-20", "Notice of Motion on behalf of Applicant in writing to be placed before the Court in Ottawa for an extension of time to serve the Application for Leave", docno="5"),
+        ]
+    )
+    assert len(register["motions"]) == 1
+    assert register["motions"][0]["doc_number"] == "5"
+
+
+def test_unruled_motion_in_a_closed_file_is_inferred_not_asserted():
+    register = extract_motions(
+        [
+            event(5, "2007-12-03", "Notice of Motion contained within a Motion Record on behalf of Applicant for a stay of execution of deportation to Antigua", docno="5"),
+            event(13, "2008-01-24", "(Final decision) Order rendered by The Honourable Mr. Justice O'Keefe at Ottawa on 24-JAN-2008 dismissing the application for leave"),
+        ]
+    )
+    assert only(register)["outcome"] == "not_ruled_case_closed"
+
+
+def test_minister_filed_case_stay_is_a_stay_of_release_by_the_government():
+    events = [
+        ActivityEvent(1, "IMM-1988-17", "MPSEP v SERGIO RIGOBERTO SORIA TORRES", 1, date(2017, 5, 2), "Application for leave and judicial review against a decision IRB Immigration Division"),
+        ActivityEvent(1, "IMM-1988-17", "MPSEP v SERGIO RIGOBERTO SORIA TORRES", 2, date(2017, 5, 2), "Notice of Motion contained within a Motion Record on behalf of Applicant returnable at Special Sitting in Vancouver on 02-MAY-2017 for a stay of execution of release from detention", docno="2"),
+    ]
+    register = extract_motions(events)
+    assert register["government_is_applicant"] is True
+    assert only(register)["type"] == "stay_of_release"
+    assert only(register)["side"] == "government"
+
+
+def test_mislabelled_stay_of_removal_is_attributed_to_the_person():
+    motion = only(
+        extract_motions(
+            [ActivityEvent(1, "IMM-493-96", "OWEN CAMPBELL v. MCI", 3, date(1996, 4, 15), "Notice of Motion on behalf of Respondent returnable at General Sitting in Toronto for an Order staying the removal of the Applicant", docno="3")]
+        )
+    )
+    assert motion["type"] == "stay_of_removal"
+    assert motion["side"] == "person"
+    assert motion["filer_corrected"] is True

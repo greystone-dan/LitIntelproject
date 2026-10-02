@@ -86,7 +86,7 @@ def test_motions_by_type(session_factory):
     assert stay["motions"] == 1
     assert stay["grant_rate"] == 1.0
     assert stay["median_days_to_ruling"] == 1
-    assert stay["applicant_grant_rate"] == 1.0
+    assert stay["person_grant_rate"] == 1.0
 
 
 def test_case_lookup_returns_compact_classification(session_factory):

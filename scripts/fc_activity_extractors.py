@@ -675,7 +675,7 @@ def motion_rows(register: dict[str, Any]) -> list[dict[str, Any]]:
             {
                 "position": position,
                 "motion_type": motion["type"],
-                "filer": motion.get("filer"),
+                "filer": motion.get("side") or motion.get("filer"),
                 "outcome": motion["outcome"],
                 "link": motion.get("link"),
                 "judge_key": judge.get("key"),
@@ -802,7 +802,8 @@ _LEAVE_ORDER = re.compile(r"(?:granting|dismissing|accordant|rejetant)\s+(?:the\
 _WITHDRAWN_MOTION = re.compile(r"(?:(?:motion|requ[êe]te)\s+doc(?:ument)?\.?\s*(?:no\.?\s*)?\d+[^\n]{0,120}?\bnow withdrawn|notice of (?:withdrawal|abandonment|discontinuance) of (?:the |its |their |[\w-]+['’]s )*(?:\w+ )?motion|(?<!if current )(?<!if the )(?<!if )withdraw(?:s|ing)? (?:the |its |their |his |her )?motion|motion (?:is |was |has been )?(?:withdrawn|abandoned)|désistement de (?:la )?requ[êe]te|retrait de la requ[êe]te)", re.IGNORECASE)
 
 MOTION_TYPES: tuple[tuple[str, str], ...] = (
-    ("stay_of_release", r"stay(?:ing)?\b[^\n]{0,40}?(?:order (?:of|for) release|release order|release of the respondent)|sursis [^\n]{0,30}mise en liberté"),
+    # The Minister's motions to stop a release from detention or another tribunal order taking effect.
+    ("stay_of_release", r"stay(?:ing)?\b[^\n]{0,60}?(?:release|libération|order of (?:the )?(?:immigration division|immigration appeal division|member|id\b)|decision of (?:the )?(?:immigration division|member)|id member)|sursis [^\n]{0,40}(?:mise en liberté|libération|décision rendue par le commissaire)|empêchant la lib[ée]ration|emp[eê]chant la liberation"),
     ("stay_of_removal", r"\bstay(?:ing)?\b[^\n]{0,60}?(?:removal|deportation|execution|exclusion|departure)|sursis|\bstay of (?:the )?(?:removal|execution|deportation)"),
     ("judgment_on_consent", r"(?:judgment|order|jugement)\s+(?:on|by|par|sur)\s+consent|consent judgment|consentement (?:à|a) jugement|settle|allow(?:ing)? the (?:application|judicial review|jr)|grant(?:ing)? the (?:application for )?(?:leave and )?(?:for )?judicial review|grant(?:ing)? the application\b(?! for (?:an )?extension)|(?:judicial review|application|jr) (?:is|be|shall be) (?:allowed|granted)|leave (?:of the court )?(?:is|be|shall be) granted[^\n]{0,80}?(?:judicial review|set aside|quash|redetermin)|set(?:ting)? aside the decision|quash(?:ing)? the decision|redetermination|referr?(?:ing|ed)? (?:the matter )?back|accueillir la demande de contrôle"),
     ("extension_of_time", r"extension of time|extend(?:ing)? (?:the )?time|prorogation|proroger|délai|more time|additional time"),
@@ -843,11 +844,41 @@ def _motion_relief(text: str) -> str:
     return relief[:400]
 
 
+_GOVERNMENT_PARTY = re.compile(r"^\W*(?:the\s+)?(?:m\.?\s*c\.?\s*i\.?|m\.?\s*p\.?\s*s\.?\s*e\.?\s*p\.?|m\.?\s*s\.?\s*p\.?\s*p\.?\s*c\.?|m\.?\s*c\.?\s*r\.?\s*i\.?|m\.?\s*i\.?\s*r\.?\s*c\.?|m\.?\s*e\.?\s*i\.?|s\.?\s*g\.?\s*c\.?|minist(?:er|re)|attorney general|procureur général|solicitor general|solliciteur général|canada\b)", re.IGNORECASE)
+
+
+def government_is_applicant(case_name: str | None) -> bool:
+    """True when the style of cause puts the Minister first ("MPSEP v. X"): the Minister filed the ALJR."""
+    if not case_name:
+        return False
+    applicants = re.split(r"\s+v\.?\s+|\s+c\.\s+", case_name, maxsplit=1)[0]
+    return bool(_GOVERNMENT_PARTY.search(applicants))
+
+
+def _motion_side(filer: str, motion_kind: str, government_applicant: bool) -> tuple[str, bool]:
+    """Which side brought the motion (person or government), and whether the registry label had to be corrected.
+
+    A stay of removal is only ever sought by the person facing removal, and a stay of a release
+    order only by the Minister, whatever the registry's applicant/respondent label says.
+    """
+    if motion_kind == "stay_of_removal":
+        recorded = {"applicant": "government" if government_applicant else "person", "respondent": "person" if government_applicant else "government"}.get(filer)
+        return "person", recorded == "government"
+    if motion_kind == "stay_of_release":
+        recorded = {"applicant": "government" if government_applicant else "person", "respondent": "person" if government_applicant else "government"}.get(filer)
+        return "government", recorded == "person"
+    if filer == "applicant":
+        return ("government" if government_applicant else "person"), False
+    if filer == "respondent":
+        return ("person" if government_applicant else "government"), False
+    return filer, False
+
+
 def _motion_filer(text: str) -> str:
     lowered = text.casefold()
     if re.search(r"on behalf of (?:the )?(?:respondent|minister)|de la part (?:de la partie (?:défenderesse|intimée)|du défendeur|du ministre)", lowered):
         return "respondent"
-    if re.search(r"on behalf of (?:the )?applicants?|de la part (?:de la partie (?:demanderesse|requérante)|du demandeur|de la demanderesse)", lowered):
+    if re.search(r"on behalf of (?:the )?(?:applicants?|plaintiffs?)|de la part (?:de la partie (?:demanderesse|requérante)|du demandeur|de la demanderesse)", lowered):
         return "applicant"
     if re.search(r"on behalf of (?:all parties|the parties)|joint motion|requête conjointe", lowered):
         return "joint"
@@ -915,8 +946,93 @@ def _decision_on_motion(text: str) -> dict[str, Any] | None:
     return None
 
 
+def _ruling_type(text: str) -> str:
+    """Type a ruling from the words that name what was granted or dismissed, not from the whole entry."""
+    verb = re.search(r"\b(?:granting|dismissing|allowing|refusing|accordant|rejetant|accueillant)\b(.{0,140})", text, re.IGNORECASE)
+    if verb:
+        kind = motion_type(verb.group(1))
+        if kind != "other":
+            return kind
+    return motion_type(text)
+
+
+_LINK_STOPWORDS = {
+    "order", "motion", "court", "applicant", "applicants", "respondent", "respondents", "filed", "with", "that", "this", "from", "date",
+    "time", "within", "which", "under", "upon", "behalf", "writing", "office", "local", "dealt", "placed", "before", "ottawa", "toronto",
+    "montréal", "vancouver", "granting", "dismissing", "granted", "dismissed", "rendered", "honourable", "justice", "decision", "considered",
+    "personal", "appearance", "pour", "dans", "requête", "ordonnance", "partie", "demanderesse", "défenderesse", "cour", "accordant", "rejetant",
+}
+
+
+def _content_words(text: str) -> set[str]:
+    return {word for word in re.findall(r"[a-zà-ÿ]{4,}", text.casefold()) if word not in _LINK_STOPWORDS}
+
+
+def _ruling_side(text: str) -> str | None:
+    lowered = text.casefold()
+    if re.search(r"respondent['’]s (?:informal )?(?:motion|request)|motion (?:of|by|on behalf of) the respondent|requête (?:du|de la partie) (?:défende|intim)", lowered):
+        return "respondent"
+    if re.search(r"applicant['’]?s['’]? (?:informal )?(?:motion|request)|motion (?:of|by|on behalf of) the applicant|requête (?:du|de la partie) (?:demande|requér)", lowered):
+        return "applicant"
+    return None
+
+
+# Chosen on the blind-link benchmark (references hidden from rulings in multi-motion files): favour precision.
+_LINK_TUNING = {"newest_same": 0.5, "margin": 1.5}
+
+
+def _best_open_motion(open_motions: list[dict[str, Any]], event: Any, hint: str, when: str | None) -> tuple[dict[str, Any] | None, str | None]:
+    """Score each open motion against an unreferenced ruling; link only when one clearly wins."""
+    if not open_motions:
+        return None, None
+    ruling_words = _content_words(event.text[:500])
+    side = _ruling_side(event.text)
+    heard = bool(re.search(r"with personal appearance|avec comparution|result of hearing|résultat de l['’]audition", event.text, re.IGNORECASE))
+    on_paper = bool(re.search(r"without personal appearance|sans comparution|in writing|par écrit", event.text, re.IGNORECASE))
+    newest = max(open_motions, key=lambda motion: (motion["filed_date"] or "", motion.get("filed_doc_id") or 0))
+    same_family = [motion for motion in open_motions if hint != "other" and _same_family(motion["type"], hint)]
+    newest_same = max(same_family, key=lambda motion: (motion["filed_date"] or "", motion.get("filed_doc_id") or 0)) if same_family else None
+    scored = []
+    for motion in open_motions:
+        score = 0.0
+        if hint != "other":
+            if _same_family(motion["type"], hint):
+                score += 4
+            elif motion["type"] != "other":
+                score -= 4
+        if side and motion.get("raw_filer") in {"applicant", "respondent"}:
+            score += 2 if motion["raw_filer"] == side else -3
+        overlap = len(ruling_words & _content_words(motion["relief"]))
+        score += min(overlap, 5) * 0.75
+        if motion.get("returnable_date") and when and motion["returnable_date"] == when:
+            score += 3
+        if heard and motion.get("in_writing") is False:
+            score += 1
+        if on_paper and motion.get("in_writing"):
+            score += 1
+        if motion is newest:
+            score += 0.5
+        if motion is newest_same:
+            score += _LINK_TUNING["newest_same"]  # a renewed motion supersedes the earlier one of the same kind
+        age = _days_between(motion["filed_date"], when) if motion["filed_date"] and when else None
+        if age is not None and age > 365:
+            score -= 2
+        scored.append((score, motion))
+    scored.sort(key=lambda item: -item[0])
+    best_score, best = scored[0]
+    runner_up = scored[1][0] if len(scored) > 1 else None
+    if runner_up is None:
+        if best_score >= 0 and not (hint != "other" and best["type"] != "other" and not _same_family(best["type"], hint)):
+            return best, "only_open_motion"
+        return None, None
+    if best_score >= 2 and best_score - runner_up >= _LINK_TUNING["margin"]:
+        return best, "scored_match"
+    return None, None
+
+
 def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
     events = [event for event in events]
+    government_applicant = government_is_applicant(next((getattr(event, "case_name", None) for event in events if getattr(event, "case_name", None)), None))
     motions: list[dict[str, Any]] = []
     by_doc: dict[str, dict[str, Any]] = {}
     for event in events:
@@ -928,6 +1044,21 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
         if doc_number and doc_number in by_doc:
             by_doc[doc_number]["amended"] = True
             continue
+        duplicate = next(
+            (
+                motion
+                for motion in motions
+                if motion["filed_date"] == _event_date(event) and motion["relief"][:80].casefold() == relief[:80].casefold()
+            ),
+            None,
+        )
+        if duplicate is not None:
+            # The registry sometimes lists the same notice twice, once without its document number.
+            if doc_number and not duplicate["doc_number"]:
+                duplicate["doc_number"] = doc_number
+                by_doc[doc_number] = duplicate
+            continue
+        returnable = re.search(r"returnable at [^\n]{0,60}? on (\d{1,2}-[A-Za-zÀ-ÿ]{3,5}-\d{4})|présentable [^\n]{0,60}? le (\d{1,2}-[A-Za-zÀ-ÿ]{3,5}-\d{4})", event.text, re.IGNORECASE)
         motion = {
             "doc_number": doc_number,
             "filed_date": _event_date(event),
@@ -935,6 +1066,8 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
             "filer": _motion_filer(event.text),
             "type": motion_type(relief) if motion_type(relief) != "other" else motion_type(event.text),
             "relief": relief,
+            "returnable_date": _parse_date(returnable.group(1) or returnable.group(2)) if returnable else None,
+            "raw_filer": _motion_filer(event.text),
             "in_writing": bool(re.search(r"in writing|par écrit|rule 369|règle 369|by (?:way of )?letter|par voie de lettre", event.text, re.IGNORECASE)),
             "outcome": "pending_or_unknown",
             "decision_date": None,
@@ -984,13 +1117,10 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
             ]
             if re.search(r"(?:application|demande) (?:for an |de )(?:extension of time|prorogation de délai)\s+\d", event.text, re.IGNORECASE):
                 hint = "other"  # generic old wording, not an extension-of-time ruling
-            same_type = [motion for motion in open_motions if hint != "other" and _same_family(motion["type"], hint)]
-            if not same_type and re.search(r"granting the application for (?:leave and )?(?:for )?judicial review|allowing the application|referring the matter back|accordant la demande de contrôle", event.text, re.IGNORECASE):
-                same_type = [motion for motion in open_motions if motion["type"] == "judgment_on_consent"]
-            if same_type:
-                target, link = same_type[-1], "same_type_open_motion"
-            elif len(open_motions) == 1 and not reference_number and (hint == "other" or open_motions[0]["type"] in {hint, "other"}):
-                target, link = open_motions[0], "only_open_motion"
+            if hint == "other" and re.search(r"granting the application for (?:leave and )?(?:for )?judicial review|allowing the application|referring the matter back|accordant la demande de contrôle", event.text, re.IGNORECASE):
+                hint = "judgment_on_consent"
+            if not (reference_number and reference_number not in by_doc and open_motions and len(open_motions) > 1):
+                target, link = _best_open_motion(open_motions, event, hint, when)
         judge = _helpers()._clean_judge_name(_helpers()._judge_name(event.text))
         if target is None and ruling["source"] != "withdrawal":
             # The formal order often follows the hearing record that already announced the result.
@@ -1021,6 +1151,10 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
                 continue
         if target is None and ruling["source"] == "implicit_order":
             continue
+        if target is None and any(motion["outcome"] in {"pending_or_unknown", "reserved", "adjourned"} and motion.get("filed_doc_id") for motion in motions):
+            # Several motions are open and none clearly matches: keep the ruling aside rather than guess or double count.
+            unlinked.append({"doc_id": event.doc_id, "date": when, "outcome": ruling["outcome"], "type": _ruling_type(event.text), "judge": judge, "reference": reference_number, "source": ruling["source"], "reason": "ambiguous_open_motions"})
+            continue
         if target is None:
             if ruling["outcome"] in {"reserved", "adjourned", "withdrawn"}:
                 unlinked.append({"doc_id": event.doc_id, "date": when, "outcome": ruling["outcome"], "type": motion_type(event.text), "judge": judge, "reference": reference_number, "source": ruling["source"]})
@@ -1031,7 +1165,7 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
                 "filed_date": None,
                 "filed_doc_id": None,
                 "filer": _motion_filer(event.text),
-                "type": motion_type(event.text),
+                "type": _ruling_type(event.text),
                 "relief": event.text[:240],
                 "in_writing": None,
                 "outcome": ruling["outcome"],
@@ -1082,11 +1216,16 @@ def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
             motion["outcome"] = "not_ruled_case_closed"
         elif last_date and motion["filed_date"] and last_date == motion["filed_date"]:
             motion["outcome"] = "pending_at_last_entry"
+    for motion in motions:
+        if motion["type"] == "stay_of_removal" and government_applicant and motion["filer"] == "applicant":
+            motion["type"] = "stay_of_release"
+        motion["side"], motion["filer_corrected"] = _motion_side(motion["filer"], motion["type"], government_applicant)
     decided = [motion for motion in motions if motion["outcome"] not in {"pending_or_unknown", "reserved", "adjourned", "removed_from_list", "not_ruled_case_closed", "pending_at_last_entry"}]
     by_type: dict[str, Counter[str]] = {}
     for motion in motions:
         by_type.setdefault(motion["type"], Counter())[motion["outcome"]] += 1
     return {
+        "government_is_applicant": government_applicant,
         "count": len(motions),
         "decided": len(decided),
         "motions": motions,

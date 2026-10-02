@@ -415,7 +415,7 @@ def fetch_fc_activity_counsel(
 
 MOTION_TYPE_LABELS = {
     "stay_of_removal": "Stay of removal",
-    "stay_of_release": "Stay of release (detention)",
+    "stay_of_release": "Stay of release or tribunal order (Minister)",
     "extension_of_time": "Extension of time",
     "judgment_on_consent": "Consent judgment / allow the application",
     "reconsideration": "Reconsideration",
@@ -480,8 +480,8 @@ def fetch_fc_activity_motions(
                     "withdrawn": entry["outcomes"].get("withdrawn", 0),
                     "not_ruled": sum(entry["outcomes"].get(key, 0) for key in ("not_ruled_case_closed", "removed_from_list", "pending_or_unknown", "pending_at_last_entry", "reserved", "adjourned")),
                     "median_days_to_ruling": int(median(entry["days"])) if entry["days"] else None,
-                    "applicant_grant_rate": _rate(entry["by_filer"].get("applicant", {}).get("granted", 0), sum(entry["by_filer"].get("applicant", {}).values())),
-                    "respondent_grant_rate": _rate(entry["by_filer"].get("respondent", {}).get("granted", 0), sum(entry["by_filer"].get("respondent", {}).values())),
+                    "person_grant_rate": _rate(entry["by_filer"].get("person", {}).get("granted", 0), sum(entry["by_filer"].get("person", {}).values())),
+                    "government_grant_rate": _rate(entry["by_filer"].get("government", {}).get("granted", 0), sum(entry["by_filer"].get("government", {}).values())),
                 }
             )
         rows.sort(key=lambda row: -row["motions"])
@@ -489,7 +489,7 @@ def fetch_fc_activity_motions(
             "filters": {key: value for key, value in {"city": city, "year_from": year_from, "year_to": year_to}.items() if value not in ("", None)},
             "total_motions": sum(row["motions"] for row in rows),
             "types": rows,
-            "note": "Grant rates use motions with a ruling linked to them. 'Not ruled' covers motions overtaken by the end of the file, removed from the list, or still pending.",
+            "note": "Grant rates use motions with a ruling linked to them. Person/government is the side that brought the motion (the Minister is the applicant when the Minister filed the leave application). 'Not ruled' covers motions overtaken by the end of the file, removed from the list, or still pending.",
         }
 
     return _cached(("motions", city.strip(), year_from, year_to), build)

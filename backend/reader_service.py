@@ -22,6 +22,7 @@ from .citations import (
 	parse_legislation_citation,
 	resolve_legislation_reference,
 )
+from .case_formatter import format_decision
 from .document_structure import map_span_to_chunk_layers
 from .database import (
 	Case,
@@ -741,6 +742,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
+		format_blocks=format_decision(case.full_text),
 		sources=[CaseSourceResponse.model_validate(row, from_attributes=True) for row in sources],
 		chunks=[
 			CaseReaderChunkResponse(

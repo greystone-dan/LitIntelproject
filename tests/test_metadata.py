@@ -186,7 +186,7 @@ def test_build_case_outcome_returns_dedicated_normalized_record():
 	text = "Between:\nJane Doe Applicant\nand\nThe Minister Respondent\nORDER\nThe application is allowed."
 	record = build_case_outcome(text, {})
 
-	assert record["classifier_version"] == "deterministic_outcome_v1"
+	assert record["classifier_version"] == "deterministic_outcome_v2"
 	assert record["decision_outcome"] == "allowed"
 	assert record["outcome_status"] == "won"
 	assert record["winner_side"] == "applicant"
@@ -507,3 +507,48 @@ def test_short_numeric_docket_fails_shape_validation():
 
 	assert "invalid_shape:docket" in payload["_quality_flags"]
 	assert payload["_field_confidence"]["docket"] < 0.9
+
+
+def _disposition(text: str) -> str | None:
+	return build_case_outcome(text, {})["decision_outcome"]
+
+
+def test_outcome_judicial_review_allowed_with_remittal_stays_allowed():
+	text = (
+		"JUDGMENT\nTHIS COURT'S JUDGMENT is that:\n"
+		"1. The application for judicial review is allowed.\n"
+		"2. The decision is set aside and the matter is remitted to a different officer.\n"
+		"3. There is no question to certify."
+	)
+	assert _disposition(text) == "allowed"
+
+
+def test_outcome_main_ruling_beats_ancillary_leave_and_stay():
+	text = (
+		"JUDGMENT\n1. Leave is granted.\n2. The application for judicial review is dismissed.\n"
+		"3. The motion for a stay is granted."
+	)
+	assert _disposition(text) == "dismissed"
+
+
+def test_outcome_ignores_negated_and_conditional_cues():
+	text = (
+		"The applicant argues the application should not be allowed. If the appeal were allowed, "
+		"the matter would be remitted.\nORDER\nTHIS COURT ORDERS that the application is dismissed."
+	)
+	assert _disposition(text) == "dismissed"
+
+
+def test_outcome_allowed_in_part_is_mixed():
+	assert _disposition("ORDER\nThe application is allowed in part.") == "mixed"
+
+
+def test_outcome_actor_and_bare_verdict_forms():
+	assert _disposition("Reasons.\nFor these reasons, the Court dismisses the application.") == "dismissed"
+	assert _disposition("Reasons.\nORDER\n1. ALLOWED.") == "allowed"
+	assert _disposition("Reasons.\nI would allow the appeal.") == "allowed"
+
+
+def test_outcome_not_confused_by_in_order_to_text():
+	text = "In order to decide, the Court notes the application is allowed only if x.\nORDER\nThe appeal is dismissed."
+	assert _disposition(text) == "dismissed"

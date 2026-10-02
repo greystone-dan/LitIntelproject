@@ -364,6 +364,7 @@ class CaseReaderDataResponse(BaseModel):
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
+	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
 

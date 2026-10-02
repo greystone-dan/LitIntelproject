@@ -1047,4 +1047,9 @@ qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',(
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
+  here = Path(__file__).resolve().parent
+  snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
+  snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
+  html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
+  html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
   return inject_fc_analytics(html)

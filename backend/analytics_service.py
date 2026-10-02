@@ -675,6 +675,24 @@ def fetch_judge_profiles(
 	]
 
 
+def _case_influence(case_ids: list[int], db: Session) -> dict[int, tuple[int, int]]:
+	"""Per case: distinct citing decisions, and how many of those are FCA or SCC decisions."""
+	if not case_ids:
+		return {}
+	statement = sql_text(
+		"SELECT cit.target_case_id AS case_id, "
+		"COUNT(DISTINCT cit.source_case_id) AS cited_by, "
+		"COUNT(DISTINCT cit.source_case_id) FILTER ("
+		"WHERE UPPER(src.court) IN ('FCA', 'SCC', 'FEDERAL COURT OF APPEAL', 'SUPREME COURT OF CANADA')"
+		") AS appeal_cited_by "
+		"FROM citations cit JOIN cases src ON src.id = cit.source_case_id "
+		"WHERE cit.target_case_id IN :case_ids AND cit.source_case_id <> cit.target_case_id "
+		"GROUP BY cit.target_case_id"
+	).bindparams(bindparam("case_ids", expanding=True))
+	rows = db.execute(statement, {"case_ids": case_ids}).all()
+	return {int(row.case_id): (int(row.cited_by or 0), int(row.appeal_cited_by or 0)) for row in rows}
+
+
 def fetch_judge_profile_by_slug(
 	db: Session,
 	slug: str,
@@ -703,6 +721,7 @@ def fetch_judge_profile_by_slug(
 		if case.date:
 			year = str(case.date)[:4]
 			years[year] = years.get(year, 0) + 1
+	influence = _case_influence([case.id for case in filtered_cases], db)
 	return {
 		"profile": {
 			"slug": profile.slug,
@@ -733,6 +752,8 @@ def fetch_judge_profile_by_slug(
 				"government_outcome": _profile_reader_metadata(case).get("government outcome"),
 				"decision_outcome": _profile_reader_metadata(case).get("decision outcome"),
 				"case_type": _profile_reader_metadata(case).get("case type"),
+				"cited_by_cases": influence.get(case.id, (0, 0))[0],
+				"cited_by_appeal_courts": influence.get(case.id, (0, 0))[1],
 			}
 			for case in sorted(filtered_cases, key=lambda item: item.date or "", reverse=True)
 		],

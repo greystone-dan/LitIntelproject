@@ -56,3 +56,25 @@ def test_old_scc_bracket_notes_after_counsel_are_footnotes_not_paragraphs():
 
 def test_empty_text():
     assert format_decision(None) == [] and format_decision("") == []
+
+
+FCA = "\n".join([
+    "Doe v. Canada", "Decision Content", "Date: 20230101", "Docket: A-1-23", "CORAM:", "WEBB J.A.", "BETWEEN:",
+    "JOHN DOE", "Appellant", "and", "HIS MAJESTY", "Respondent", "REASONS FOR JUDGMENT",
+    "WEBB J.A.", "[1] First paragraph.", "“" + "q" * 90, "[…]", "[Emphasis added.]", "Analysis", "[2] Second.",
+    "“I agree.", "“Jane Roe”", "Judge", "FEDERAL COURT OF APPEAL", "NAMES OF COUNSEL AND SOLICITORS OF RECORD", "DOCKET: A-1-23",
+])
+
+
+def test_fca_signature_quote_filler_and_plain_headings():
+    kinds = _kinds(FCA)
+    assert ("courtline", "WEBB J.A.") in kinds
+    assert ("quote", "[…]") in kinds and ("quote", "[Emphasis added.]") in kinds
+    assert ("heading", "Analysis") in kinds
+    assert ("signature", "“Jane Roe”") in kinds and ("signature", "Judge") in kinds
+    assert kinds[-1][0] == "footer"
+
+
+def test_short_citation_shaped_bracket_lines_are_footnotes_even_without_counsel_footer():
+    text = "\n".join(["Case", "Decision Content", "Reasoning here.", "[1] (1887), 56 L.J.Q.B. 621.", "[2] [1910] A.C. 614."])
+    assert [k for k, _ in _kinds(text)].count("footnote") == 2

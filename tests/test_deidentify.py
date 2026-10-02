@@ -1,4 +1,5 @@
 import json
+import re
 from io import BytesIO
 
 import pytest
@@ -104,3 +105,71 @@ def test_api_round_trip_without_database():
 	assert bad.status_code == 422
 	docx = client.post("/api/deidentify/docx", data={"text": "Hello\n\nWorld", "filename": "a b.docx"})
 	assert docx.status_code == 200 and docx.content[:2] == b"PK"
+
+
+# ---- Automatic name detection ----------------------------------------------
+
+spacy = pytest.importorskip("spacy")
+try:
+	spacy.load("en_core_web_lg")
+	HAS_MODEL = True
+except OSError:
+	HAS_MODEL = False
+needs_model = pytest.mark.skipif(not HAS_MODEL, reason="en_core_web_lg is not installed")
+
+NARRATIVE = """BASIS OF CLAIM
+
+My name is Oluwaseun Adebayo. I am a citizen of Nigeria and I worked as a teacher.
+1. In 2016 I married my wife, Folake Adebayo. Her uncle, Tunde Bakare, accused me of being gay.
+2. Mr. Bakare told the elders. One attacker, Ibrahim Musa, said they would kill me if I stayed in Lagos.
+3. The Adebayos fled. Prices rose and my brother Harjinder Singh Sandhu sent money.
+4. The decision must be reasonable: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65.
+   As Justice Grammond said, Vavilov applies.
+"""
+
+
+@needs_model
+def test_names_are_found_without_being_typed():
+	result = deidentify_text(NARRATIVE, auto_names=True)
+	text = result["text"]
+	for name in ["Oluwaseun", "Adebayo", "Folake", "Tunde", "Bakare", "Ibrahim", "Musa", "Harjinder", "Sandhu"]:
+		assert name not in text, name
+	assert "The [PERSON" in text and "Adebayos" not in text  # plural surname
+	assert "Prices rose" in text  # ordinary words that are also names survive
+	assert "Nigeria" in text and "Lagos" in text and "teacher" in text
+
+
+@needs_model
+def test_cited_cases_and_judges_are_kept_but_can_be_forced():
+	result = deidentify_text(NARRATIVE, auto_names=True)
+	assert "v Vavilov, 2019 SCC 65" in result["text"] and "Justice Grammond" in result["text"]
+	reasons = {k["name"]: k["reason"] for k in result["kept_names"]}
+	assert reasons["Vavilov"] == "Party in a cited case"
+	forced = deidentify_text(NARRATIVE, names=["Vavilov"], auto_names=True)
+	assert "Vavilov" not in forced["text"]
+
+
+@needs_model
+def test_never_hide_list_overrides_detection():
+	result = deidentify_text(NARRATIVE, auto_names=True, never_hide=["Ibrahim Musa"])
+	assert "Ibrahim Musa" in result["text"]
+	assert any(k["name"] == "Ibrahim Musa" for k in result["kept_names"])
+
+
+@needs_model
+def test_court_style_of_cause_names_are_hidden_and_restore_exactly():
+	text = (
+		"BETWEEN:\nSeonhee lee a.k.a. Younglan LEE, Seonwoo JUNG et al\nApplicants\nand\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\n"
+		"[1] Ms. Lee and Mr. Jung seek judicial review. JUNG, Seonwoo was born in Seoul.\n"
+	)
+	result = deidentify_text(text, auto_names=True)
+	for name in ["Seonhee", "Younglan", "LEE", "Lee", "Seonwoo", "JUNG", "Jung"]:
+		assert not re.search(rf"\b{name}\b", result["text"]), name
+	assert "Seoul" in result["text"]
+	assert reidentify_text(result["text"], result["key"])["text"] == text
+
+
+def test_auto_names_off_hides_only_typed_names():
+	result = deidentify_text("Juan Perez met Ana Diaz.", names=["Juan Perez"], auto_names=False)
+	assert result["text"] == "[PERSON_1] met Ana Diaz." and result["detected_names"] == []

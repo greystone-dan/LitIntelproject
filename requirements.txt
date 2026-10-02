@@ -54,6 +54,10 @@ python-multipart==0.0.9
 python-docx==1.1.2
 pypdf==4.2.0
 
+# --- De-identify tool: offline name detection (model runs locally, no API calls) ---
+spacy==3.7.5
+en_core_web_lg @ https://huggingface.co/spacy/en_core_web_lg/resolve/557bf758b8b070251eef3a62dd5442e72e72e2ce/en_core_web_lg-any-py3-none-any.whl
+
 # --- Configuration ---
 python-dotenv==1.0.1
 pyyaml==6.0.1

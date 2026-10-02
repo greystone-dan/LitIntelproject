@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T15:46:46.552369+00:00
+Generated: 2026-10-02T16:57:49.246257+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 89 across 89 paths
@@ -1501,6 +1501,8 @@ Handler: `backend.routes.deidentify_api`
 - `names` (str; default `Form()`)
 - `details` (str; default `Form()`)
 - `categories` (str; default `Form()`)
+- `auto_names` (bool; default `Form(True)`)
+- `never_hide` (str; default `Form()`)
 
 **Responses**
 

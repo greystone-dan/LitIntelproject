@@ -53,6 +53,14 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 .preview{margin-top:14px;max-height:520px;overflow:auto;padding:16px;border:1px solid var(--line);background:white;font:13px/1.65 Manrope,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}
 .preview mark{padding:0 2px;border-radius:3px;background:var(--mark);color:#6b4708;font:500 12px "DM Mono",monospace}
 .keytable{width:100%;margin-top:10px;border-collapse:collapse;font-size:12px}.keytable td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}.keytable td:first-child{font-family:"DM Mono",monospace;white-space:nowrap;color:#6b4708}
+.toggle{display:flex;gap:8px;align-items:center;font-size:13px}
+textarea.small{min-height:70px}
+.names-box{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:4px;background:#f7faf7;font-size:12px}
+.names-box .chips{margin-top:8px}
+.chip button{margin-left:6px;padding:1px 6px;border:1px solid var(--line);border-radius:999px;background:white;font:600 10px Manrope,sans-serif;cursor:pointer}
+.chip.off{opacity:.45;text-decoration:line-through}
+.chip em{color:var(--muted);font-style:normal;margin-left:4px}
+.rerun{margin-top:12px;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700}
 .keynote{margin-top:12px;font-size:12px;color:#87341f}
 </style>
 </head>
@@ -61,7 +69,7 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 <main class="wrap">
 <div class="eyebrow">Private materials</div>
 <h1>De-identify a document, then put it back together</h1>
-<p class="lead">Names, ID numbers, contact details, specific dates and ages are swapped for placeholders like <code>[PERSON_1]</code>, following how published RPD decisions are redacted. Countries and employment are left in. Later, the key file puts the real details back.</p>
+<p class="lead">People's names (found automatically, plus any you add), ID numbers, contact details, specific dates and ages are swapped for placeholders like <code>[PERSON_1]</code>, following how published RPD decisions are redacted. Countries and employment are left in. Later, the key file puts the real details back.</p>
 <div class="privacy"><strong>Nothing is saved.</strong> Your file is read in memory, the result is sent back to this page, and the server forgets it. It is never added to the case library. The <strong>key file</strong> is the only copy of the hidden details, and it is downloaded to your computer. Keep it private.</div>
 
 <div class="steps" role="tablist">
@@ -78,12 +86,16 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 <textarea id="deidText" class="big" placeholder="Paste text here"></textarea>
 </div>
 <div>
-<label class="field" for="names">People to hide</label>
+<label class="toggle"><input type="checkbox" id="autoNames" checked> <strong>Find names automatically</strong></label>
+<p class="hint">A language model on the iLit server looks for people's names. Nothing is sent anywhere else. Names in cited cases (Vavilov, Baker) and judges' names are left in.</p>
+<label class="field block" for="names">Always hide these people</label>
 <textarea id="names" placeholder="One person per line, e.g.&#10;Maria Elena Lopez&#10;Juan Perez"></textarea>
-<p class="hint">Full names, one per line. The tool also catches the surname or given name on its own, "Lopez, Maria", and ALL-CAPS spellings. Include the client, family, witnesses, and anyone else named.</p>
+<p class="hint">Add anyone the automatic search missed, one full name per line. The tool also catches the surname or given name on its own, "Lopez, Maria", plurals and ALL-CAPS spellings.</p>
 <label class="field block" for="details">Other details to hide</label>
 <textarea id="details" placeholder="One per line, e.g. a home town, a church, a school"></textarea>
 <p class="hint">Anything else that could point to the person: a small town, an organization, a school, a nickname.</p>
+<label class="field block" for="neverHide">Never hide</label>
+<textarea id="neverHide" class="small" placeholder="Names found by mistake, one per line"></textarea>
 </div>
 </div>
 <details class="opts"><summary>What gets hidden automatically</summary><div class="checks" id="categoryChecks"></div></details>
@@ -94,6 +106,9 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 <h2>De-identified text</h2>
 <div class="chips" id="deidChips"></div>
 <div class="warn hidden" id="deidWarn"></div>
+<div class="names-box hidden" id="foundBox"><strong>Names found automatically</strong> <span class="hint">These are hidden. Click "Don't hide" on any that are not people, or are fine to share.</span><div class="chips" id="foundChips"></div></div>
+<div class="names-box hidden" id="keptBox"><strong>Left in on purpose</strong> <span class="hint">Public names. Click "Hide" if one is actually someone in your file.</span><div class="chips" id="keptChips"></div></div>
+<div class="rerun hidden" id="rerunNote">Lists changed. <button class="button" id="rerun" type="button">Run again</button></div>
 <div class="warn">Read the preview before using it. Automatic detection can miss things, for example a name you did not list, or a detail only the person would have. Add anything you spot to the lists above and run it again.</div>
 <div class="actions">
 <button class="button key" id="saveKey" type="button">Download key file</button>
@@ -170,8 +185,9 @@ $('runDeid').onclick=async()=>{
   if(!file&&!text.trim()){showError('deidError','Choose a file or paste some text first.');return}
   const form=new FormData();if(file)form.append('file',file);else form.append('text',text);
   form.append('names',$('names').value);form.append('details',$('details').value);
+  form.append('never_hide',$('neverHide').value);form.append('auto_names',$('autoNames').checked?'true':'false');
   form.append('categories',[...document.querySelectorAll('#categoryChecks input:checked')].map(i=>i.value).join(',')||'NONE');
-  $('runDeid').disabled=true;$('deidStatus').textContent='Working…';
+  $('runDeid').disabled=true;$('deidStatus').textContent=$('autoNames').checked?'Working… the first run can take a few seconds while the name model loads.':'Working…';$('rerunNote').classList.add('hidden');
   try{deidResult=await post('/api/deidentify',form);sessionKey=deidResult.key;sourceName=file?file.name:'pasted-text';renderDeid()}
   catch(e){showError('deidError',e.message)}
   finally{$('runDeid').disabled=false;$('deidStatus').textContent=''}};
@@ -179,10 +195,19 @@ $('runDeid').onclick=async()=>{
 function renderDeid(){const r=deidResult;
   $('deidChips').innerHTML=`<span class="chip"><strong>${r.replacements}</strong>replacements</span>`+r.summary.map(s=>`<span class="chip"><strong>${s.count}</strong>${esc(s.label)}</span>`).join('');
   showWarnings('deidWarn',r.warnings);
-  $('deidPreview').innerHTML=esc(r.text).replace(/\[[A-Z0-9_]+\]/g,m=>`<mark>${m}</mark>`);
+  renderNames(r);
+  $('deidPreview').innerHTML=esc(r.text).replace(/\[[A-Z][A-Z_]*_\d+(?:_[A-Z0-9]+)*\]/g,m=>`<mark>${m}</mark>`);
   const entries=Object.entries(r.key.entries);$('keyCount').textContent=entries.length;
   $('keyTable').innerHTML=entries.map(([k,v])=>`<tr><td>[${esc(k)}]</td><td>${esc(v)}</td></tr>`).join('');
   $('deidResult').classList.remove('hidden');$('deidResult').scrollIntoView({behavior:'smooth'})}
+function addLine(id,value){const box=$(id);const lines=box.value.split('\n').map(l=>l.trim()).filter(Boolean);if(!lines.some(l=>l.toLowerCase()===value.toLowerCase()))lines.push(value);box.value=lines.join('\n');$('rerunNote').classList.remove('hidden')}
+function renderNames(r){const found=r.detected_names||[],kept=r.kept_names||[];
+  $('foundBox').classList.toggle('hidden',!found.length);$('keptBox').classList.toggle('hidden',!kept.length);
+  $('foundChips').innerHTML=found.map((n,i)=>`<span class="chip" data-i="${i}">${esc(n)}<button type="button" data-keep="${i}">Don't hide</button></span>`).join('');
+  $('keptChips').innerHTML=kept.map((k,i)=>`<span class="chip" data-i="${i}">${esc(k.name)}<em>${esc(k.reason)}</em><button type="button" data-hide="${i}">Hide</button></span>`).join('');
+  $('foundChips').querySelectorAll('[data-keep]').forEach(b=>b.onclick=()=>{addLine('neverHide',found[b.dataset.keep]);b.parentElement.classList.add('off');b.remove()});
+  $('keptChips').querySelectorAll('[data-hide]').forEach(b=>b.onclick=()=>{addLine('names',kept[b.dataset.hide].name);b.parentElement.classList.add('off');b.remove()})}
+$('rerun').onclick=()=>$('runDeid').click();
 $('saveKey').onclick=()=>download(`${baseName()}.key.json`,new Blob([JSON.stringify(deidResult.key,null,2)],{type:'application/json'}));
 $('copyDeid').onclick=e=>copy(deidResult.text,e.target);
 $('saveDeidTxt').onclick=()=>download(`${baseName()}.deidentified.txt`,new Blob([deidResult.text],{type:'text/plain'}));

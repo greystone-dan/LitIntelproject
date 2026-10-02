@@ -121,6 +121,11 @@ _ID_CONTEXT = re.compile(
 _UCI_CONTEXT = re.compile(r"\b(?:UCI|client\s+ID)\s*(?:number|no\.?|#)?\s*[:#]?\s*(\d{8}|\d{10})\b", re.IGNORECASE)
 
 _PLACEHOLDER = re.compile(r"\[\s*([A-Za-z]+(?:[ _-][A-Za-z]+)*)[ _-]*(\d+)((?:[ _-][A-Za-z][A-Za-z0-9]*){0,2})\s*\]")
+# Small joining words inside names ("de los Santos", "bin Rashid"); never hidden on their own.
+NAME_PARTICLES = {
+	"de", "da", "das", "do", "dos", "del", "della", "der", "den", "di", "du", "des", "la", "las", "le", "les",
+	"lo", "los", "van", "von", "ter", "ten", "bin", "bint", "ibn", "abu", "al", "el", "ben", "y", "e", "st",
+}
 _HONORIFICS = {"mr", "mrs", "ms", "miss", "mx", "dr", "sr", "jr", "mme", "m", "mlle"}
 
 
@@ -159,7 +164,9 @@ def _looks_like_year_range(value: str) -> bool:
 
 
 def _name_regex(value: str) -> str:
-	return r"(?<![\w])" + r"\s+".join(re.escape(part) for part in value.split()) + r"(?![\w])"
+	# Longer names also match a plural ("the Karims"); the "s" stays outside the placeholder.
+	plural = r"(?:s|es)?" if len(value) >= 4 else ""
+	return r"(?<![\w])" + r"\s+".join(re.escape(part) for part in value.split()) + r"(?=" + plural + r"(?![\w]))"
 
 
 def _person_spans(text: str, names: Iterable[str]) -> list[Span]:
@@ -179,9 +186,16 @@ def _person_spans(text: str, names: Iterable[str]) -> list[Span]:
 			for middle_index, middle in enumerate(parts[1:-1], start=2):
 				forms.append((middle, f"NAME{middle_index}"))
 		for form, variant in forms:
-			if len(form) < 2:
+			if len(form) < 2 or (variant.startswith("NAME") and form.casefold() in NAME_PARTICLES):
 				continue
-			for match in re.finditer(_name_regex(form), text, re.IGNORECASE):
+			# A single word ("Rose", "Will", "Hope") only counts when capitalised, so ordinary words survive.
+			if variant or " " not in form:
+				# Any spelling that starts with a capital ("Lee", "LEE"), or exactly as written ("lee").
+				capitalised = r"(?=[A-ZÀ-ÖØ-Þ])(?i:" + _name_regex(form) + ")"
+				pattern, flags = "(?:" + capitalised + "|" + _name_regex(form) + ")", 0
+			else:
+				pattern, flags = _name_regex(form), re.IGNORECASE
+			for match in re.finditer(pattern, text, flags):
 				spans.append(Span(match.start(), match.end(), "PERSON", group, variant))
 	return spans
 
@@ -258,12 +272,26 @@ def deidentify_text(
 	details: Iterable[str] = (),
 	categories: Iterable[str] | None = None,
 	source_name: str = "",
+	auto_names: bool = False,
+	never_hide: Iterable[str] = (),
 ) -> dict[str, Any]:
 	"""Replace identifying details with placeholders. Returns text, key, summary and warnings."""
-	names = [name for name in names if name.strip()]
+	names = [name.strip() for name in names if name.strip()]
+	typed_count = len(names)
 	details = [detail for detail in details if detail.strip()]
 	enabled = set(categories) if categories is not None else set(CATEGORY_LABELS)
 	enabled |= {"PERSON", "DETAIL"}
+
+	detection = None
+	if auto_names:
+		from .deidentify_names import detect_names
+
+		detection = detect_names(text, typed_names=names, never_hide=never_hide)
+		typed_words = [set(name.casefold().split()) for name in names]
+		for name in detection.names:
+			# Skip a found name when every word of it is already part of a typed name.
+			if not any(set(name.casefold().split()) <= words for words in typed_words):
+				names.append(name)
 
 	spans = _person_spans(text, names) + _detail_spans(text, details) + _pattern_spans(text, enabled)
 	spans = _resolve_overlaps(spans)
@@ -271,6 +299,7 @@ def deidentify_text(
 	numbers: dict[str, dict[str, int]] = {}
 	group_numbers: dict[str, int] = {}
 	surface_forms: dict[str, Counter[str]] = {}
+	spellings_by_base: dict[str, dict[str, str]] = {}
 	pieces: list[str] = []
 	cursor = 0
 	for span in spans:
@@ -280,11 +309,23 @@ def deidentify_text(
 			per_category[identity] = len(per_category) + 1
 		group_numbers[span.group] = per_category[identity]
 		surface = text[span.start : span.end]
-		variants = [span.variant] if span.variant else []
-		if span.category in {"PERSON", "DETAIL"} and surface.isupper() and len(surface) > 1:
-			# Keep ALL-CAPS spellings (common in court headings) separate so they restore as written.
-			variants.append("CAPS")
-		placeholder = "_".join([span.category, str(per_category[identity]), *variants])
+		base = "_".join([span.category, str(per_category[identity]), *([span.variant] if span.variant else [])])
+		# Each distinct spelling gets its own placeholder so it restores exactly as written:
+		# [PERSON_1] "Maria Lopez", [PERSON_1_CAPS] "MARIA LOPEZ", [PERSON_1_V2] "Lopez, Maria".
+		spellings = spellings_by_base.setdefault(base, {})
+		if surface not in spellings:
+			taken = set(spellings.values())
+			caps = surface.isupper() and sum(c.isalpha() for c in surface) > 1 and span.category in {"PERSON", "DETAIL"}
+			if caps and f"{base}_CAPS" not in taken:
+				spellings[surface] = f"{base}_CAPS"
+			elif not caps and base not in taken:
+				spellings[surface] = base
+			else:
+				number = 2
+				while f"{base}_V{number}" in taken:
+					number += 1
+				spellings[surface] = f"{base}_V{number}"
+		placeholder = spellings[surface]
 		surface_forms.setdefault(placeholder, Counter())[surface] += 1
 		pieces.append(text[cursor : span.start])
 		pieces.append(f"[{placeholder}]")
@@ -292,17 +333,20 @@ def deidentify_text(
 	pieces.append(text[cursor:])
 	redacted = "".join(pieces)
 
-	entries = {placeholder: forms.most_common(1)[0][0] for placeholder, forms in surface_forms.items()}
+	entries = {placeholder: next(iter(forms)) for placeholder, forms in surface_forms.items()}
 	counts: Counter[str] = Counter()
 	for span in spans:
 		counts[span.category] += 1
 
 	warnings: list[str] = []
-	folded = redacted.casefold()
 	for original in sorted({value for forms in surface_forms.values() for value in forms}):
-		if len(original) >= 3 and original.casefold() in folded:
+		if len(original) >= 3 and re.search(_name_regex(original), redacted, re.IGNORECASE):
 			warnings.append(f"“{original}” still appears in the de-identified text.")
-	missing = [name for index, name in enumerate(names) if not any(s.group == f"person:{index}" for s in spans)]
+	if detection is not None and not detection.available:
+		warnings.append(detection.message)
+	missing = [
+		name for index, name in enumerate(names[:typed_count]) if not any(s.group == f"person:{index}" for s in spans)
+	]
 	for name in missing:
 		warnings.append(f"The name “{name}” was not found in the document. Check the spelling.")
 
@@ -322,6 +366,8 @@ def deidentify_text(
 		],
 		"replacements": sum(counts.values()),
 		"warnings": warnings,
+		"detected_names": names[typed_count:],
+		"kept_names": detection.kept if detection is not None else [],
 	}
 
 

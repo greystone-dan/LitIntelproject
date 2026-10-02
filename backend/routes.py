@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
@@ -981,18 +982,24 @@ async def deidentify_api(
 	names: str = Form(""),
 	details: str = Form(""),
 	categories: str = Form(""),
+	auto_names: bool = Form(True),
+	never_hide: str = Form(""),
 ) -> JSONResponse:
 	try:
 		source, filename = await _deidentify_input_text(file, text)
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	enabled = [item.strip().upper() for item in categories.split(",") if item.strip()] if categories.strip() else None
-	result = deidentify_text(
+	# Name detection is CPU work: run it off the event loop so the rest of the site stays responsive.
+	result = await run_in_threadpool(
+		deidentify_text,
 		source,
 		names=_deidentify_lines(names),
 		details=_deidentify_lines(details),
 		categories=enabled,
 		source_name=filename,
+		auto_names=auto_names,
+		never_hide=_deidentify_lines(never_hide),
 	)
 	return JSONResponse(content=result, headers=_NO_STORE)
 

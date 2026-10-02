@@ -21,6 +21,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import select
 
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal, init_db
+from scripts.fc_activity_extractors import extract_insights
 
 CLASSIFIER_VERSION = "fc_activity_v6"
 DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v6/state.json")
@@ -98,6 +99,8 @@ RULES: dict[str, tuple[str, tuple[str, ...]]] = {
             r"dossier(?: \(demande\))? nombre de copies reçu(?:e)?/préparé(?:e)?",
             r"dossier de la partie demanderesse .* déposé",
             r"dossier de la partie demanderesse .* depose",
+            r"^\W*record on behalf of (?:the )?applicants?\b",
+            r"^\W*dossier (?:de la demande )?de la part de la partie (?:requérante|demanderesse)",
         ),
     ),
     "leave_granted": (
@@ -250,6 +253,9 @@ _MONTHS = {
     "janv": 1, "févr": 2, "fevr": 2, "mars": 3, "avr": 4, "mai": 5,
     "juin": 6, "juil": 7, "août": 8, "aout": 8, "sept": 9, "oct": 10,
     "nov": 11, "déc": 12, "dec": 12,
+    # Registry abbreviations in French entries: 09-FEV-1998, 03-AOU-1993.
+    "fev": 2, "fév": 2, "aou": 8, "aoû": 8, "avril": 4, "juillet": 7, "janvier": 1, "février": 2, "fevrier": 2,
+    "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12, "decembre": 12,
 }
 _DATE_TOKEN = r"\d{1,2}(?:[-/]\d{1,2}|[-/][A-Za-zÀ-ÖØ-öø-ÿ]{3,9})[-/]\d{2,4}|\d{1,2}\s+[A-Za-zÀ-ÖØ-öø-ÿ]{3,9}\s+\d{2,4}|[A-Za-zÀ-ÖØ-öø-ÿ]{3,9}\s+\d{1,2},\s*\d{2,4}"
 
@@ -1410,7 +1416,7 @@ def _paper_judicial_review_dismissal(events: list[ActivityEvent]) -> ActivityEve
 
 _CONSENT = re.compile(r"\b(?:by|on|upon|with) (?:the )?consent\b|\bconsent (?:order|judgment|judgement)\b|\bconsenting to\b|\bconsents? to (?:the )?(?:judgment|order|allow|grant|set)|de consentement|sur consentement|du consentement|avec le consentement|en consentement|consentement (?:à|a) jugement", re.IGNORECASE)
 _CONSENT_MERITS = re.compile(r"\ballow(?:ing|s)?\b|\bgrant(?:ing)? the (?:application|judicial review)|set(?:ting)? aside|quash|redetermin|refer(?:ring|red)? (?:the matter |it )?back|send(?:ing)? (?:the matter |it )?back|\bjudgment\b|\bjugement\b|annul|accueill|renvoy", re.IGNORECASE)
-_CONSENT_PROCEDURAL = re.compile(r"extension|extend|prorog|adjourn|ajourn|abeyance|\bstay\b|sursis|amend|style of cause|intitulé|reschedul|filing of|to file|time to|délai|change of solicitor|removal of solicitor|confidential|anonym|production", re.IGNORECASE)
+_CONSENT_PROCEDURAL = re.compile(r"extension|extend|prorog|adjourn|ajourn|abeyance|\bstay\b|sursis|amend|style of cause|intitulé|reschedul|filing of|to file|time to|délai|change of solicitor|removal of solicitor|confidential|anonym|production|suspen|abeyance|en suspens|stay of proceedings", re.IGNORECASE)
 _COURT_DECISION = re.compile(r"\brendered\b|\brendu(?:\(?e\)?)?s?\b|\(final decision\)|\(décision finale\)|^(?:order|judgment|judgement|ordonnance|jugement)\b[^.]{0,60}?\b(?:dated|en date)", re.IGNORECASE)
 _NOT_A_DECISION = re.compile(r"^\W*(?:copy of|certified (?:french |english )?translation|traduction|acknowledg|accusé|draft|projet|notice of motion|letter|lettre|communication)", re.IGNORECASE)
 _MOTION_GRANTED_RESULT = re.compile(r"with regard to motion[^\n]{0,60}?result:\s*granted|granting the motion|motion (?:is )?granted|accordant la requête|requête (?:est )?accueillie|order to go as asked", re.IGNORECASE)
@@ -1556,7 +1562,7 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
     full_history_resolution = _full_history_resolution(ordered, effective_leave_result)
     if paper_dismissal is not None and full_history_resolution["status"] in {"unknown", "judicial_review_dismissed"}:
         full_history_resolution = {"status": "leave_refused", "date": leave.date, "doc_id": leave.doc_id, "re_no": leave.re_no, "docno": leave.docno, "text": leave.text, "rule": "full_history:paper_dismissal_without_leave_grant"}
-    if consent["status"] == "granted" and full_history_resolution["status"] in {"unknown", "discontinued", "withdrawn"} and review_result not in {"granted", "dismissed"}:
+    if consent["status"] == "granted" and full_history_resolution["status"] in {"unknown", "discontinued", "withdrawn"} and review_result not in {"granted", "dismissed"} and leave_result != "refused":
         full_history_resolution = {"status": "resolved_by_consent", "date": consent["date"], "doc_id": consent["doc_id"], "re_no": None, "docno": None, "text": consent["text"], "rule": "full_history:consent_disposition"}
     perfection_status = _perfection_status(ordered, application_perfected)
     leave_final_decision = _evidence(ordered, "leave_final_decision", latest=True)
@@ -1594,7 +1600,7 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
         lifecycle_status=lifecycle_status,
     )
 
-    return {
+    result = {
         "application_filed": asdict(application_filed),
         "application_perfected": asdict(application_perfected),
         "perfection_status": perfection_status,
@@ -1631,6 +1637,9 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
         "milestone_rollups": milestone_rollups,
         "procedural_events": procedural_events,
     }
+    citation = next((event.citation for event in received if event.citation), None)
+    result.update(extract_insights(ordered, result, citation))
+    return result
 
 
 def validate_fc_activity_classification(classification: dict[str, Any]) -> dict[str, Any]:

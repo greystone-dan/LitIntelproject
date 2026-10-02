@@ -5,13 +5,13 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 
 import scripts.classify_fc_activity as classifier
-from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary
 
 
 @pytest.fixture()
 def session_factory(monkeypatch):
     engine = create_engine("sqlite://")
-    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__):
+    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__, FCActivitySummary.__table__):
         table.create(engine)
     factory = sessionmaker(bind=engine)
     monkeypatch.setattr(classifier, "SessionLocal", factory)
@@ -20,7 +20,7 @@ def session_factory(monkeypatch):
             case = FCActivityCase(id=index, source_key=f"key-{index}", citation=f"IMM-{index}-22", year=2022)
             session.add(case)
             session.add(FCActivityDocument(case_id=index, re_no="1", docno="1", doc_dt=date(2022, 1, 3), recorded_entry="Application for leave and judicial review against a decision of the RPD filed on 03-JAN-2022"))
-            session.add(FCActivityDocument(case_id=index, re_no="2", docno=None, doc_dt=date(2022, 4, 5), recorded_entry="(Final decision) Order rendered by The Honourable Mr. Justice Example dismissing the application for leave"))
+            session.add(FCActivityDocument(case_id=index, re_no="2", docno=None, doc_dt=date(2022, 4, 5), recorded_entry="(Final decision) Order rendered by The Honourable Mr. Justice Example at Ottawa on 05-APR-2022 dismissing the application for leave"))
         session.commit()
     return factory
 
@@ -35,6 +35,12 @@ def test_persist_all_writes_each_case_once_and_resumes(session_factory, tmp_path
     assert [row.source_case_id for row in rows] == list(range(1, 8))
     assert all(row.classifier_version == classifier.CLASSIFIER_VERSION for row in rows)
     assert rows[0].classification_json["leave_decision"]["result"] == "refused"
+    with session_factory() as session:
+        summaries = list(session.scalars(select(FCActivitySummary).order_by(FCActivitySummary.source_case_id)))
+    assert [row.source_case_id for row in summaries] == list(range(1, 8))
+    assert summaries[0].leave_result == "refused"
+    assert summaries[0].leave_judge_key == "example"
+    assert summaries[0].days_filing_to_leave_decision == 92
     assert classifier.persist_all(3, state_file, workers=workers) == 0
 
 

@@ -72,7 +72,7 @@ def _hearing_kind(subject: str) -> str:
         return "stay_motion"
     if re.search(r"motion|requête", lowered):
         return "motion"
-    if re.search(r"case management|conference|gestion", lowered):
+    if re.search(r"case management|conference|gestion|^meeting", lowered):
         return "case_management"
     if re.search(r"status review|examen de l'état", lowered):
         return "status_review"
@@ -129,9 +129,16 @@ def _hearing_minutes(text: str) -> int | None:
     return None
 
 
+def _tidy_case(value: str) -> str:
+    """Title-case names the registry typed in capitals; leave mixed-case text alone."""
+    if value.isupper() or value.islower():
+        return re.sub(r"(?<![’'])\b([a-zà-ÿ])", lambda match: match.group(1).upper(), value.lower())
+    return value
+
+
 def _clean_person(raw: str) -> str | None:
     name = re.sub(r"^(?:mr|mrs|ms|me|dr)\.?\s*", "", raw.strip(" .,;:"), flags=re.IGNORECASE)
-    name = re.sub(r"\s+", " ", name).strip(" .,;:")
+    name = _tidy_case(re.sub(r"\s+", " ", name).strip(" .,;:"))
     if len(name) < 4 or not re.search(r"[A-Za-zÀ-ÿ]{2,}\S*\s+(?:\S+\s+)*[A-Za-zÀ-ÿ'’-]{2,}", name):
         return None
     if re.search(r"\b(?:comments?|minutes|court|registrar|usher|duration|appearances?|counsel)\b", name, re.IGNORECASE):
@@ -151,21 +158,26 @@ def _appearances(text: str) -> list[dict[str, Any]]:
         return []
     found: list[dict[str, Any]] = []
     for match in _APPEARANCE.finditer(marker.group(1)):
-        name = _clean_person(match.group(1))
-        if not name:
-            continue
         side = (match.group(2) or "").casefold()
-        role = (
-            "self_represented"
-            if not side
-            else "applicant_counsel"
-            if side.startswith("applicant") or side.startswith("appellant")
-            else "respondent_counsel"
-            if side.startswith("respondent") or side == "minister"
-            else "other"
-        )
-        found.append({"name": name, "key": person_key(name), "role": role})
+        # "Patricia Ritter Mr. Matthew Jeffery representing Applicant" lists two counsel.
+        for part in re.split(r"\s+(?=(?:mr|mrs|ms|me|dr)\.?\s)", match.group(1), flags=re.IGNORECASE):
+            name = _clean_person(part)
+            if name:
+                found.append(_appearance_entry(name, side))
     return found
+
+
+def _appearance_entry(name: str, side: str) -> dict[str, Any]:
+    role = (
+        "self_represented"
+        if not side
+        else "applicant_counsel"
+        if side.startswith("applicant") or side.startswith("appellant")
+        else "respondent_counsel"
+        if side.startswith("respondent") or side == "minister"
+        else "other"
+    )
+    return {"name": name, "key": person_key(name), "role": role}
 
 
 def extract_hearings(events: Iterable[Any]) -> dict[str, Any]:
@@ -184,7 +196,7 @@ def extract_hearings(events: Iterable[Any]) -> dict[str, Any]:
         hearings.append(
             {
                 "date": _parse_date(head.group(2)) if head else _event_date(event),
-                "city": head.group(1).strip().title() if head else None,
+                "city": _tidy_case(head.group(1).strip()) if head else None,
                 "judge": judge,
                 "language": {"E": "english", "F": "french", "B": "bilingual"}.get(language.group(1).upper()) if language else None,
                 "subject": subject[:120] or None,
@@ -540,4 +552,52 @@ def extract_insights(events: list[Any], classification: dict[str, Any], citation
             "leave_refusal_reason": leave_refusal_reason(leave.get("result") or "unknown", leave.get("date"), leave.get("text"), perfected_date),
         },
         "timeline": build_timeline(classification, hearings),
+    }
+
+
+def summary_row(classification: dict[str, Any]) -> dict[str, Any]:
+    """Flatten the fields the site aggregates into one fc_activity_summaries row."""
+
+    def get(*path: str) -> Any:
+        value: Any = classification
+        for key in path:
+            if not isinstance(value, dict):
+                return None
+            value = value.get(key)
+        return value
+
+    def text(value: Any, limit: int) -> str | None:
+        return str(value)[:limit] if value not in (None, "") else None
+
+    timeline = classification.get("timeline") or {}
+    return {
+        "resolution": text(get("full_history_resolution", "status"), 80),
+        "lifecycle": text(get("lifecycle_status", "status"), 40),
+        "leave_result": text(get("leave_decision", "result"), 40),
+        "review_result": text(get("judicial_review_result", "result"), 40),
+        "decision_body": text(get("decision_body", "code"), 40),
+        "leave_judge_key": text(get("judge_roles", "leave_judge", "key"), 120),
+        "leave_judge_name": text(get("judge_roles", "leave_judge", "name"), 255),
+        "merits_judge_key": text(get("judge_roles", "merits_judge", "key"), 120),
+        "merits_judge_name": text(get("judge_roles", "merits_judge", "name"), 255),
+        "applicant_counsel_key": text(get("representation", "applicant_counsel", "key"), 160),
+        "applicant_counsel_name": text(get("representation", "applicant_counsel", "name"), 255),
+        "representation": text(get("representation", "status"), 40),
+        "respondent_position": text(get("respondent_position", "status"), 40),
+        "leave_refusal_reason": text(get("filing_details", "leave_refusal_reason"), 40),
+        "stay_status": text(get("stay_of_removal", "status"), 40),
+        "hearing_mode": text(get("hearings", "judicial_review_hearing", "mode"), 40),
+        "hearing_minutes": get("hearings", "judicial_review_hearing", "duration_minutes"),
+        "appeal_status": text(get("appeal", "status"), 40),
+        "certified_question": text(get("certified_question", "status"), 60),
+        "consent_status": text(get("consent_disposition", "status"), 40),
+        "reasons_at_filing": text(get("filing_details", "reasons_at_filing"), 40),
+        "proceeding_language": text(get("filing_details", "proceeding_language"), 20),
+        "lead_file": text(get("filing_details", "lead_file"), 40),
+        "days_filing_to_perfection": timeline.get("days_filing_to_perfection"),
+        "days_filing_to_leave_decision": timeline.get("days_filing_to_leave_decision"),
+        "days_leave_grant_to_hearing": timeline.get("days_leave_grant_to_hearing"),
+        "days_hearing_to_judgment": timeline.get("days_hearing_to_judgment"),
+        "days_filing_to_final_disposition": timeline.get("days_filing_to_final_disposition"),
+        "judgment_from_bench": timeline.get("judgment_from_bench"),
     }

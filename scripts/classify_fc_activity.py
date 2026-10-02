@@ -20,8 +20,8 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from sqlalchemy import select
 
-from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, SessionLocal, init_db
-from scripts.fc_activity_extractors import extract_insights
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary, SessionLocal, init_db
+from scripts.fc_activity_extractors import extract_insights, summary_row
 
 CLASSIFIER_VERSION = "fc_activity_v6"
 DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v6/state.json")
@@ -1852,13 +1852,16 @@ def persist_report(report: list[dict[str, Any]], *, force: bool = False) -> int:
                     )
                 )
             }
+        pending_ids = set(source_ids) - current_ids
         existing = {
             row.source_case_id: row
             for row in session.scalars(
-                select(FCActivityClassification).where(
-                    FCActivityClassification.source_case_id.in_(set(source_ids) - current_ids)
-                )
+                select(FCActivityClassification).where(FCActivityClassification.source_case_id.in_(pending_ids))
             )
+        }
+        existing_summaries = {
+            row.source_case_id: row
+            for row in session.scalars(select(FCActivitySummary).where(FCActivitySummary.source_case_id.in_(pending_ids)))
         }
         for row in report:
             source = source_cases.get(int(row["activity_case_id"]))
@@ -1891,6 +1894,20 @@ def persist_report(report: list[dict[str, Any]], *, force: bool = False) -> int:
                 for key, value in values.items():
                     if key != "source_case_id":
                         setattr(derived, key, value)
+            summary_values = {
+                "source_case_id": source.id,
+                "imm_number": source.citation,
+                "classifier_version": CLASSIFIER_VERSION,
+                "year": source.year,
+                "city_filed": source.city_filed,
+                **summary_row(row["classification"]),
+            }
+            summary = existing_summaries.get(source.id)
+            if summary is None:
+                session.add(FCActivitySummary(**summary_values))
+            else:
+                for key, value in summary_values.items():
+                    setattr(summary, key, value)
             written += 1
         session.commit()
     return written

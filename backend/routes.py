@@ -135,6 +135,11 @@ from .analytics_service import (
 	fetch_judge_profiles,
 	fetch_outcomes_by_year,
 )
+from .fc_activity_insights import (
+	fetch_fc_activity_case,
+	fetch_fc_activity_insights,
+	fetch_fc_activity_judges,
+)
 from .reader_service import (
 	build_case_citation_pass,
 	build_case_citation_pass_detail,
@@ -1130,6 +1135,34 @@ def fc_activity_analytics(
 		city=city,
 		source_type=source_type,
 	)
+
+
+@router.get("/api/fc-activity/insights", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_insights(
+	city: str = "",
+	year_from: int | None = None,
+	year_to: int | None = None,
+	decision_body: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Outcome rates, wait times and procedural breakdowns from the classified FC activity summaries."""
+	return fetch_fc_activity_insights(db, city=city, year_from=year_from, year_to=year_to, decision_body=decision_body)
+
+
+@router.get("/api/fc-activity/judges", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_judges(
+	min_decisions: int = 25,
+	year_from: int | None = None,
+	year_to: int | None = None,
+	decision_body: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_fc_activity_judges(db, min_decisions=min_decisions, year_from=year_from, year_to=year_to, decision_body=decision_body)
+
+
+@router.get("/api/fc-activity/case", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_case(imm: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	return fetch_fc_activity_case(db, imm)
 
 
 @router.get("/api/citation-intelligence/search", response_model=list[dict[str, Any]], include_in_schema=False)

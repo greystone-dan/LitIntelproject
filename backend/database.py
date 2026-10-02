@@ -626,6 +626,48 @@ class FCActivityClassification(Base):
 	source_case = relationship("FCActivityCase", back_populates="classification")
 
 
+class FCActivitySummary(Base):
+	"""One flat row per classified IMM file so the site can aggregate without parsing classification_json."""
+
+	__tablename__ = "fc_activity_summaries"
+
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), primary_key=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	classifier_version: Mapped[str] = mapped_column(String(80), nullable=False)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	resolution: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	lifecycle: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	review_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	decision_body: Mapped[str | None] = mapped_column(String(40), nullable=True, index=True)
+	leave_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	leave_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	merits_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	merits_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	applicant_counsel_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
+	applicant_counsel_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	representation: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	respondent_position: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_refusal_reason: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	stay_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_mode: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	appeal_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	certified_question: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	consent_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	reasons_at_filing: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	proceeding_language: Mapped[str | None] = mapped_column(String(20), nullable=True)
+	lead_file: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	days_filing_to_perfection: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_leave_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_leave_grant_to_hearing: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_hearing_to_judgment: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_final_disposition: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	judgment_from_bench: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+
 class FCActivityDocument(Base):
 	__tablename__ = "fc_activity_documents"
 	__table_args__ = (

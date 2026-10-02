@@ -576,3 +576,13 @@ def test_rendered_shell_exposes_independent_case_summary_control():
     assert 'Show case summary' in html
     assert 'id="readerCaseSummaryDetail"' in html
     assert 'renderCaseSummary' in html
+
+
+def test_fc_activity_panel_exposes_procedural_insights():
+    html = routes._data_explorer_page_html()
+
+    for element_id in ("fcInsights", "fcInsightsKpis", "fcInsightsDurations", "fcInsightsBreakdowns", "fcJudgeTable", "fcCaseForm"):
+        assert f'id="{element_id}"' in html
+    assert "/api/fc-activity/insights" in html
+    assert "/api/fc-activity/judges" in html
+    assert "/api/fc-activity/case" in html

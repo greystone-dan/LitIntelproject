@@ -18,7 +18,7 @@ from sqlalchemy.orm import Session
 from backend.database import FCActivityClassification, FCActivityMotion, FCActivitySummary
 
 _CACHE: dict[tuple[Any, ...], tuple[float, dict[str, Any]]] = {}
-_CACHE_SECONDS = 600
+_CACHE_SECONDS = 1800
 
 DURATION_FIELDS = {
     "days_decision_to_filing": "Tribunal decision to filing",
@@ -498,3 +498,211 @@ def fetch_fc_activity_motions(
         }
 
     return _cached(("motions", city.strip(), year_from, year_to), build)
+
+
+# ---------------------------------------------------------------------------
+# Dashboard: every aggregate the FC Analytics tab draws, for one filter slice.
+# ---------------------------------------------------------------------------
+
+DASHBOARD_FILTERS = {
+    "city": FCActivitySummary.city_filed,
+    "decision_body": FCActivitySummary.decision_body,
+    "application_type": FCActivitySummary.application_type,
+    "representation": FCActivitySummary.representation,
+    "language": FCActivitySummary.proceeding_language,
+    "office": FCActivitySummary.office_location,
+    "resolution": FCActivitySummary.resolution,
+    "counsel": FCActivitySummary.applicant_counsel_key,
+}
+OUTCOME_GROUPS = {
+    "leave_refused": "leave_refused",
+    "judicial_review_granted": "jr_granted",
+    "judicial_review_dismissed": "jr_dismissed",
+    "resolved_by_consent": "settled",
+    "discontinued": "discontinued",
+    "withdrawn": "discontinued",
+}
+
+
+def _dashboard_where(statement, filters: dict[str, Any]):
+    if filters.get("year_from") is not None:
+        statement = statement.where(FCActivitySummary.year >= filters["year_from"])
+    if filters.get("year_to") is not None:
+        statement = statement.where(FCActivitySummary.year <= filters["year_to"])
+    for key, column in DASHBOARD_FILTERS.items():
+        value = filters.get(key)
+        if value:
+            statement = statement.where(column == value)
+    judge = filters.get("judge")
+    if judge:
+        statement = statement.where((FCActivitySummary.leave_judge_key == judge) | (FCActivitySummary.merits_judge_key == judge))
+    return statement
+
+
+def fetch_fc_activity_dashboard(db: Session, **raw_filters: Any) -> dict[str, Any]:
+    filters = {key: value for key, value in raw_filters.items() if value not in (None, "")}
+
+    def build() -> dict[str, Any]:
+        columns = (
+            FCActivitySummary.source_case_id,
+            FCActivitySummary.year,
+            FCActivitySummary.city_filed,
+            FCActivitySummary.resolution,
+            FCActivitySummary.leave_result,
+            FCActivitySummary.review_result,
+            FCActivitySummary.decision_body,
+            FCActivitySummary.office_location,
+            FCActivitySummary.days_filing_to_perfection,
+            FCActivitySummary.days_filing_to_leave_decision,
+            FCActivitySummary.days_leave_grant_to_hearing,
+            FCActivitySummary.days_hearing_to_judgment,
+            FCActivitySummary.days_filing_to_final_disposition,
+            FCActivitySummary.days_decision_to_filing,
+            FCActivitySummary.stay_status,
+            FCActivitySummary.filing_timeliness,
+            FCActivitySummary.record_timeliness,
+            FCActivitySummary.memorandum_timeliness,
+            FCActivitySummary.hearing_window,
+            FCActivitySummary.leave_refusal_reason,
+            FCActivitySummary.representation,
+        )
+        rows = db.execute(_dashboard_where(select(*columns), filters)).all()
+        files = len(rows)
+
+        def rate(granted: int, other: int) -> float | None:
+            return _rate(granted, granted + other)
+
+        leave_granted = sum(1 for row in rows if row.leave_result == "granted")
+        leave_refused = sum(1 for row in rows if row.leave_result == "refused")
+        jr_granted = sum(1 for row in rows if row.review_result == "granted")
+        jr_dismissed = sum(1 for row in rows if row.review_result == "dismissed")
+        settled = sum(1 for row in rows if row.resolution == "resolved_by_consent")
+        perfected = sum(1 for row in rows if row.days_filing_to_perfection is not None)
+        leave_days = [row.days_filing_to_leave_decision for row in rows if row.days_filing_to_leave_decision is not None and row.days_filing_to_leave_decision <= 3650]
+
+        by_year: dict[int, dict[str, Any]] = {}
+        for row in rows:
+            if row.year is None:
+                continue
+            bucket = by_year.setdefault(int(row.year), {"year": int(row.year), "files": 0, "leave_granted": 0, "leave_refused": 0, "jr_granted": 0, "jr_dismissed": 0, "outcomes": {}, "_leave_days": []})
+            bucket["files"] += 1
+            group = OUTCOME_GROUPS.get(row.resolution or "", "other" if row.resolution not in (None, "unknown") else "open_or_unknown")
+            bucket["outcomes"][group] = bucket["outcomes"].get(group, 0) + 1
+            if row.leave_result in {"granted", "refused"}:
+                bucket[f"leave_{row.leave_result}"] += 1
+            if row.review_result in {"granted", "dismissed"}:
+                bucket[f"jr_{row.review_result}"] += 1
+            if row.days_filing_to_leave_decision is not None and row.days_filing_to_leave_decision <= 3650:
+                bucket["_leave_days"].append(row.days_filing_to_leave_decision)
+        year_rows = []
+        for year in sorted(by_year):
+            bucket = by_year[year]
+            days = bucket.pop("_leave_days")
+            bucket["leave_grant_rate"] = rate(bucket["leave_granted"], bucket["leave_refused"])
+            bucket["jr_grant_rate"] = rate(bucket["jr_granted"], bucket["jr_dismissed"])
+            bucket["median_days_to_leave"] = int(median(days)) if days else None
+            year_rows.append(bucket)
+
+        def grouped(attribute: str, limit: int = 20) -> list[dict[str, Any]]:
+            groups: dict[str, dict[str, int]] = {}
+            for row in rows:
+                key = getattr(row, attribute) or "unknown"
+                bucket = groups.setdefault(key, {"files": 0, "leave_granted": 0, "leave_refused": 0, "jr_granted": 0, "jr_dismissed": 0})
+                bucket["files"] += 1
+                if row.leave_result in {"granted", "refused"}:
+                    bucket[f"leave_{row.leave_result}"] += 1
+                if row.review_result in {"granted", "dismissed"}:
+                    bucket[f"jr_{row.review_result}"] += 1
+            result = [
+                {"value": key, **values, "leave_grant_rate": rate(values["leave_granted"], values["leave_refused"]), "jr_grant_rate": rate(values["jr_granted"], values["jr_dismissed"])}
+                for key, values in groups.items()
+            ]
+            result.sort(key=lambda item: -item["files"])
+            return result[:limit]
+
+        def counts(attribute: str) -> list[dict[str, Any]]:
+            tally: dict[str, int] = {}
+            for row in rows:
+                key = getattr(row, attribute) or "unknown"
+                tally[key] = tally.get(key, 0) + 1
+            return [{"value": key, "count": count} for key, count in sorted(tally.items(), key=lambda item: -item[1])]
+
+        durations = {}
+        for field, label in {
+            "days_decision_to_filing": "Decision to filing",
+            "days_filing_to_perfection": "Filing to applicant's record",
+            "days_filing_to_leave_decision": "Filing to leave decision",
+            "days_leave_grant_to_hearing": "Leave granted to hearing",
+            "days_hearing_to_judgment": "Hearing to judgment",
+            "days_filing_to_final_disposition": "Filing to final outcome",
+        }.items():
+            values = [getattr(row, field) for row in rows if getattr(row, field) is not None and 0 <= getattr(row, field) <= 3650]
+            durations[field] = {"label": label, **_quantiles(values)}
+
+        case_ids = [row.source_case_id for row in rows]
+        motion_types: dict[str, dict[str, Any]] = {}
+        if case_ids:
+            motion_statement = select(FCActivityMotion.motion_type, FCActivityMotion.outcome, FCActivityMotion.days_to_decision).where(
+                FCActivityMotion.source_case_id.in_(select(FCActivitySummary.source_case_id).where(FCActivitySummary.source_case_id.in_(_dashboard_where(select(FCActivitySummary.source_case_id), filters).scalar_subquery())))
+            )
+            for motion in db.execute(motion_statement).all():
+                bucket = motion_types.setdefault(motion.motion_type, {"type": motion.motion_type, "label": MOTION_TYPE_LABELS.get(motion.motion_type, motion.motion_type), "motions": 0, "granted": 0, "dismissed": 0, "withdrawn": 0, "not_ruled": 0, "_days": []})
+                bucket["motions"] += 1
+                if motion.outcome in {"granted", "granted_in_part"}:
+                    bucket["granted"] += 1
+                elif motion.outcome == "dismissed":
+                    bucket["dismissed"] += 1
+                elif motion.outcome == "withdrawn":
+                    bucket["withdrawn"] += 1
+                elif motion.outcome not in {"moot", "declined_to_hear", "ruled_unclear", "ruled_in_related_file"}:
+                    bucket["not_ruled"] += 1
+                if motion.days_to_decision is not None and 0 <= motion.days_to_decision <= 730:
+                    bucket["_days"].append(motion.days_to_decision)
+        motion_rows = []
+        for bucket in motion_types.values():
+            days = bucket.pop("_days")
+            bucket["grant_rate"] = rate(bucket["granted"], bucket["dismissed"])
+            bucket["median_days"] = int(median(days)) if days else None
+            motion_rows.append(bucket)
+        motion_rows.sort(key=lambda item: -item["motions"])
+        stays = next((item for item in motion_rows if item["type"] == "stay_of_removal"), None)
+
+        return {
+            "filters": filters,
+            "kpis": {
+                "files": files,
+                "leave_decisions": leave_granted + leave_refused,
+                "leave_grant_rate": rate(leave_granted, leave_refused),
+                "jr_decisions": jr_granted + jr_dismissed,
+                "jr_grant_rate": rate(jr_granted, jr_dismissed),
+                "settled": settled,
+                "median_days_to_leave": int(median(leave_days)) if leave_days else None,
+                "record_filed": perfected,
+                "stay_grant_rate": stays["grant_rate"] if stays else None,
+                "stay_rulings": (stays["granted"] + stays["dismissed"]) if stays else 0,
+            },
+            "funnel": [
+                {"stage": "Filed", "count": files},
+                {"stage": "Leave decided", "count": leave_granted + leave_refused},
+                {"stage": "Leave granted", "count": leave_granted},
+                {"stage": "Judgment on the merits", "count": jr_granted + jr_dismissed},
+                {"stage": "Judicial review granted", "count": jr_granted},
+            ],
+            "by_year": year_rows,
+            "by_decision_body": grouped("decision_body"),
+            "by_office": [item for item in grouped("office_location", 16) if item["value"] != "unknown"][:15],
+            "by_city": grouped("city_filed", 12),
+            "durations": durations,
+            "motions": motion_rows,
+            "compliance": {
+                "filing_timeliness": counts("filing_timeliness"),
+                "record_timeliness": counts("record_timeliness"),
+                "memorandum_timeliness": counts("memorandum_timeliness"),
+                "hearing_window": counts("hearing_window"),
+            },
+            "refusal_reasons": counts("leave_refusal_reason"),
+            "representation": counts("representation"),
+        }
+
+    key = ("dashboard",) + tuple(sorted(filters.items()))
+    return _cached(key, build)

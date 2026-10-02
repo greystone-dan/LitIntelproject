@@ -138,6 +138,7 @@ from .analytics_service import (
 from .fc_activity_insights import (
 	fetch_fc_activity_case,
 	fetch_fc_activity_counsel,
+	fetch_fc_activity_dashboard,
 	fetch_fc_activity_insights,
 	fetch_fc_activity_judges,
 	fetch_fc_activity_motions,
@@ -1182,6 +1183,28 @@ def fc_activity_motions(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_fc_activity_motions(db, city=city, year_from=year_from, year_to=year_to)
+
+
+@router.get("/api/fc-activity/dashboard", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_dashboard(
+	year_from: int | None = None,
+	year_to: int | None = None,
+	city: str = "",
+	decision_body: str = "",
+	application_type: str = "",
+	representation: str = "",
+	language: str = "",
+	office: str = "",
+	resolution: str = "",
+	judge: str = "",
+	counsel: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Every aggregate the FC Analytics tab draws, for one filter slice."""
+	return fetch_fc_activity_dashboard(
+		db, year_from=year_from, year_to=year_to, city=city, decision_body=decision_body, application_type=application_type,
+		representation=representation, language=language, office=office, resolution=resolution, judge=judge, counsel=counsel,
+	)
 
 
 @router.get("/api/fc-activity/case", response_model=dict[str, Any], include_in_schema=False)

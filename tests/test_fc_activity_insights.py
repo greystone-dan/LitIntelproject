@@ -127,3 +127,19 @@ def test_counsel_table(session_factory):
             "resolved_by_consent": 0,
         }
     ]
+
+
+def test_dashboard_aggregates_and_filters(session_factory):
+    with session_factory() as db:
+        everything = insights.fetch_fc_activity_dashboard(db)
+        ottawa = insights.fetch_fc_activity_dashboard(db, city="Ottawa")
+        by_judge = insights.fetch_fc_activity_dashboard(db, judge="strickland", year_from=2015, year_to=2015)
+    assert everything["kpis"]["files"] == 4
+    assert [stage["count"] for stage in everything["funnel"]] == [4, 3, 1, 1, 1]
+    assert everything["kpis"]["stay_grant_rate"] == 1.0
+    assert {row["year"] for row in everything["by_year"]} == {2014, 2015, 2016}
+    assert ottawa["kpis"]["files"] == 2
+    assert ottawa["kpis"]["leave_grant_rate"] == 0.0
+    assert ottawa["motions"] == []
+    assert by_judge["kpis"]["files"] == 1
+    assert by_judge["kpis"]["jr_grant_rate"] == 1.0

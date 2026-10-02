@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from .fc_analytics import inject_fc_analytics
+
 
 def data_explorer_page_html() -> str:
   html = """<!doctype html>
@@ -1044,4 +1046,4 @@ qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',(
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
-  return html
+  return inject_fc_analytics(html)

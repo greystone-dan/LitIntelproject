@@ -1,0 +1,301 @@
+from datetime import date
+
+import pytest
+
+from scripts.classify_fc_activity import ActivityEvent, _clean_judge_name, _judge_name, classify_events
+from scripts.fc_activity_extractors import extract_motions, motion_type
+
+
+def event(doc_id, doc_date, text, *, docno=None, re_no=None):
+    return ActivityEvent(1, "IMM-1-15", "Example v. Canada", doc_id, date.fromisoformat(doc_date), text, re_no=re_no, docno=docno)
+
+
+def only(register):
+    assert len(register["motions"]) == 1
+    return register["motions"][0]
+
+
+def test_motion_linked_by_document_number_with_judge_and_timing():
+    motion = only(
+        extract_motions(
+            [
+                event(5, "2013-03-15", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing to be dealt with in the Toronto local office for an extension of time to file the applicants record filed on 15-MAR-2013", docno="4"),
+                event(9, "2013-03-29", "Order dated 29-MAR-2013 rendered by Martha Milczynski, Prothonotary Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 4 Result: granted Applicant granted extension of 15 days"),
+            ]
+        )
+    )
+    assert motion["type"] == "extension_of_time"
+    assert motion["filer"] == "applicant"
+    assert motion["in_writing"] is True
+    assert motion["outcome"] == "granted"
+    assert motion["link"] == "doc_number"
+    assert motion["judge"]["key"] == "milczynski"
+    assert motion["days_to_decision"] == 14
+
+
+def test_stay_hearing_result_then_formal_order_is_one_motion():
+    motion = only(
+        extract_motions(
+            [
+                event(5, "2011-11-08", "Notice of Motion contained within a Motion Record on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of the removal order scheduled for 12-NOV-2011 to Bogota", docno="5"),
+                event(15, "2011-11-14", "Toronto 14-NOV-2011 BEFORE The Honourable Mr. Justice Hughes Language: E Before the Court: Motion Doc. No. 5 on behalf of Applicant Result of Hearing: Matter dismissed held in Court"),
+                event(16, "2011-11-14", "Order rendered by The Honourable Mr. Justice Hughes at Toronto on 10-NOV-2011 dismissing the stay of execution Decision filed on 14-NOV-2011"),
+            ]
+        )
+    )
+    assert motion["type"] == "stay_of_removal"
+    assert motion["outcome"] == "dismissed"
+    assert motion["order_doc_id"] == 16
+    assert motion["judge"]["key"] == "hughes"
+
+
+def test_leave_order_with_extension_request_is_not_a_motion_ruling():
+    register = extract_motions(
+        [event(9, "2006-07-14", "Order rendered by The Honourable Madam Justice Layden-Stevenson at Ottawa on 14-JUL-2006 granting the application for leave with a request for an extension of time (R.6) fixing the hearing")]
+    )
+    assert register["motions"] == []
+
+
+def test_old_generic_wording_links_by_document_number():
+    motion = only(
+        extract_motions(
+            [
+                event(6, "1995-09-01", "Notice of Motion on behalf of Applicant pursuant to R. 324 for an Order AMENDING THE RELIEF THE APPLICATION FOR LEAVE AND FOR JUDICIAL REVIEW filed on 01-SEP-1995", docno="11"),
+                event(9, "1995-09-11", "Order of the Court/ The Honourable Mr. Justice Nadon rendered at Ottawa on 11-SEP-1995 and granting the application for an extension of time 11 which reads as follow: The applicants shall have until Sept.29,1995 to amend"),
+            ]
+        )
+    )
+    assert motion["type"] == "amendment"
+    assert motion["outcome"] == "granted"
+    assert motion["link"] == "doc_number"
+    assert motion["judge"]["key"] == "nadon"
+
+
+def test_withdrawals_and_conditional_wording():
+    withdrawn = only(
+        extract_motions(
+            [
+                event(25, "2010-05-19", "Notice of Motion on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of removal order.", docno="19"),
+                event(29, "2010-05-21", "Notice of discontinuance of the Applicant's motion for a stay of removal on behalf of the applicant filed on 21-MAY-2010"),
+            ]
+        )
+    )
+    assert withdrawn["outcome"] == "withdrawn"
+    pending = only(
+        extract_motions(
+            [
+                event(7, "2010-12-07", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing for an Order TO RECONSIDER THE ORDER DATED 30-NOV-2010.", docno="4"),
+                event(15, "2010-12-20", "Letter from counsel for applicant dated 19-DEC-2010 Applicant will be out of time to rely on R.397 if current motion is withdrawn and refiled"),
+            ]
+        )
+    )
+    assert pending["outcome"] != "withdrawn"
+
+
+def test_motion_discontinuance_does_not_close_the_file():
+    result = classify_events(
+        [
+            event(1, "2010-01-05", "Application for leave and judicial review against a decision IRB-RPD filed on 05-JAN-2010"),
+            event(25, "2010-05-19", "Notice of Motion on behalf of Applicant for a stay of execution of removal order.", docno="19"),
+            event(29, "2010-05-21", "Notice of discontinuance of the Applicant's motion for a stay of removal on behalf of the applicant filed on 21-MAY-2010"),
+        ]
+    )
+    assert result["full_history_resolution"]["status"] != "discontinued"
+
+
+def test_reconsidered_leave_refusal_lets_the_merits_result_stand():
+    result = classify_events(
+        [
+            event(1, "2010-09-01", "Application for leave and judicial review against a decision visa officer, Embassy of Canada Damascus filed on 01-SEP-2010"),
+            event(6, "2010-11-29", "(Final decision) Order rendered by The Honourable Mr. Justice Kelen at Ottawa on 29-NOV-2010 dismissing the application for leave Decision endorsed on the record"),
+            event(7, "2010-12-07", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing for an Order TO RECONSIDER THE ORDER DATED 30-NOV-2010.", docno="4"),
+            event(18, "2011-01-06", "Order rendered by The Honourable Mr. Justice Kelen at Ottawa on 06-JAN-2011 granting the motion for reconsideration Decision filed on 06-JAN-2011"),
+            event(40, "2011-07-06", "(Final decision) Reasons for Judgment and Judgment dated 06-JUL-2011 rendered by The Honourable Mr. Justice Beaudry Matter considered with personal appearance The Court's decision is with regard to Judicial Review Result: dismissed"),
+        ]
+    )
+    assert result["leave_decision"]["result"] == "granted"
+    assert result["leave_decision"]["rule"] == "leave_refusal_reconsidered"
+    assert result["judicial_review_result"]["result"] == "dismissed"
+    assert result["full_history_resolution"]["status"] == "judicial_review_dismissed"
+
+
+def test_granted_motion_to_allow_the_application_settles_the_file():
+    result = classify_events(
+        [
+            event(1, "2012-10-25", "Application for leave and judicial review against a decision IRB/RPD filed on 25-OCT-2012"),
+            event(8, "2013-07-30", "Order rendered by The Honourable Mr. Justice Manson at Ottawa on 30-JUL-2013 granting the application for leave fixing the hearing"),
+            event(10, "2013-10-01", "Notice of Motion contained within a Motion Record on behalf of Respondent in writing to be dealt with in the Toronto local office for an Order granting the application for judicial review; and other relief filed on 01-OCT-2013", docno="8"),
+            event(16, "2013-10-07", "Order dated 07-OCT-2013 rendered by The Honourable Mr. Justice Hughes Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 8 Result: granted Filed on 07-OCT-2013"),
+        ]
+    )
+    assert result["consent_disposition"]["status"] == "granted"
+    assert result["consent_disposition"]["date"] == "2013-10-07"
+    assert result["full_history_resolution"]["status"] == "resolved_by_consent"
+
+
+def test_letters_quoting_leave_are_not_leave_decisions():
+    result = classify_events(
+        [
+            event(1, "2017-03-01", "Application for leave and judicial review against a decision IRB-RAD filed on 01-MAR-2017"),
+            event(5, "2017-05-15", "Letter from RESPONDENT dated 15-MAY-2017 ...DO NOT OPPOSE LEAVE...RESERVES RIGHT TO FILE SUBMISSIONS IF LEAVE GRANTED... received on 15-MAY-2017"),
+            event(9, "2017-07-20", "(Final decision) Order rendered by The Honourable Mr. Justice Diner at Ottawa on 20-JUL-2017 dismissing the application for leave Decision endorsed on the record"),
+        ]
+    )
+    assert result["leave_decision"]["result"] == "refused"
+    assert result["judge_roles"]["leave_judge"]["key"] == "diner"
+
+
+@pytest.mark.parametrize(
+    "text,key",
+    [
+        ("(Décision finale) Ordonnance rendu(e) par L'honorable Orville Frenette, juge suppléant à Ottawa le 24-MAI-2009", "frenette"),
+        ("(Final decision) Order of the Court/ The Honourable Mr. Justice MacGuigan acting as an ex officio judge of the Trial Division", "macguigan"),
+        ("(Décision finale) Ordonnance de la Cour/ Monsieur le juge Noël rendu(e) à Ottawa le 22-MAR-1994", "noel"),
+        ("(Décision finale) Motifs de jugement et jugement en date du 17-OCT-2022 rendus par Monsieur le juge McHaffie Affaire considérée", "mchaffie"),
+        ("Order of the Court/ Peter Giles, Esq., Associate Senior Prothonotary rendered at Toronto", "giles"),
+        ("Order rendered by Associate Chief Justice Gagné at Ottawa on 06-JUL-2022", "gagne"),
+        ("Order rendered by Mandy Aylen, Associate Judge at Ottawa on 10-AUG-2023", "aylen"),
+        ("Ottawa 16-MAR-2007 En présence de Monsieur le juge S. Noël Langue : F", "s-noel"),
+        ("Oral directions of the Court: Kevin Aalto, Prothonotary dated 09-JUN-2021 directing", "aalto"),
+    ],
+)
+def test_judge_names_across_registry_wordings(text, key):
+    assert _clean_judge_name(_judge_name(text))["key"] == key
+
+
+@pytest.mark.parametrize(
+    "relief,expected",
+    [
+        ("a stay of execution of the removal order scheduled for 12-NOV-2011", "stay_of_removal"),
+        ("Judgment on consent", "judgment_on_consent"),
+        ("an Order 1. Leave is granted, the judicial review is allowed and the decision set aside", "judgment_on_consent"),
+        ("an extension of time to file the Applicant's Record", "extension_of_time"),
+        ("an Order TO RECONSIDER THE ORDER DATED 30-NOV-2010", "reconsideration"),
+        ("an Order dismissing the Application for Leave and Judicial Review", "dismiss_or_strike"),
+        ("prorogation de délai pour déposer le dossier de la partie demanderesse", "extension_of_time"),
+    ],
+)
+def test_motion_types(relief, expected):
+    assert motion_type(relief) == expected
+
+
+def test_ruling_without_reference_picks_motion_by_relief_wording():
+    register = extract_motions(
+        [
+            event(10, "2006-08-09", "Notice of Motion contained within a Motion Record on behalf of Respondent in writing to be dealt with in the Ottawa local office for a variation of Justice Phelan's order on the timetable", docno="8"),
+            event(21, "2006-09-05", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing to be dealt with in the Ottawa local office for an extension of time to file the applicant's further memorandum", docno="17"),
+            event(25, "2006-09-12", "Order rendered by The Honourable Mr. Justice Shore at Ottawa on 12-SEP-2006 granting the motion on behalf of the Applicant for an extension of time to file the further memorandum"),
+        ]
+    )
+    by_doc = {motion["doc_number"]: motion for motion in register["motions"]}
+    assert by_doc["17"]["outcome"] == "granted"
+    assert by_doc["17"]["link"] == "scored_match"
+    assert by_doc["8"]["decision_doc_id"] is None
+
+
+def test_ambiguous_ruling_is_kept_aside_not_guessed_or_double_counted():
+    register = extract_motions(
+        [
+            event(5, "2010-01-11", "Notice of Motion on behalf of Applicant in writing for an extension of time to file the record", docno="4"),
+            event(9, "2010-01-11", "Notice of Motion on behalf of Applicant in writing for an extension of time to file the affidavit", docno="7"),
+            event(12, "2010-02-01", "Order rendered by The Honourable Mr. Justice Example at Ottawa on 01-FEB-2010 granting the motion"),
+        ]
+    )
+    assert len(register["motions"]) == 2
+    assert all(motion["decision_doc_id"] is None for motion in register["motions"])
+    assert register["unlinked_rulings"][0]["reason"] == "ambiguous_open_motions"
+
+
+def test_duplicate_listing_of_one_notice_is_one_motion():
+    register = extract_motions(
+        [
+            event(18, "1998-07-20", "Notice of Motion on behalf of Applicant in writing to be placed before the Court in Ottawa for an extension of time to serve the Application for Leave"),
+            event(24, "1998-07-20", "Notice of Motion on behalf of Applicant in writing to be placed before the Court in Ottawa for an extension of time to serve the Application for Leave", docno="5"),
+        ]
+    )
+    assert len(register["motions"]) == 1
+    assert register["motions"][0]["doc_number"] == "5"
+
+
+def test_unruled_motion_in_a_closed_file_is_inferred_not_asserted():
+    register = extract_motions(
+        [
+            event(5, "2007-12-03", "Notice of Motion contained within a Motion Record on behalf of Applicant for a stay of execution of deportation to Antigua", docno="5"),
+            event(13, "2008-01-24", "(Final decision) Order rendered by The Honourable Mr. Justice O'Keefe at Ottawa on 24-JAN-2008 dismissing the application for leave"),
+        ]
+    )
+    assert only(register)["outcome"] == "not_ruled_leave_decided"
+
+
+def test_minister_filed_case_stay_is_a_stay_of_release_by_the_government():
+    events = [
+        ActivityEvent(1, "IMM-1988-17", "MPSEP v SERGIO RIGOBERTO SORIA TORRES", 1, date(2017, 5, 2), "Application for leave and judicial review against a decision IRB Immigration Division"),
+        ActivityEvent(1, "IMM-1988-17", "MPSEP v SERGIO RIGOBERTO SORIA TORRES", 2, date(2017, 5, 2), "Notice of Motion contained within a Motion Record on behalf of Applicant returnable at Special Sitting in Vancouver on 02-MAY-2017 for a stay of execution of release from detention", docno="2"),
+    ]
+    register = extract_motions(events)
+    assert register["government_is_applicant"] is True
+    assert only(register)["type"] == "stay_of_release"
+    assert only(register)["side"] == "government"
+
+
+def test_mislabelled_stay_of_removal_is_attributed_to_the_person():
+    motion = only(
+        extract_motions(
+            [ActivityEvent(1, "IMM-493-96", "OWEN CAMPBELL v. MCI", 3, date(1996, 4, 15), "Notice of Motion on behalf of Respondent returnable at General Sitting in Toronto for an Order staying the removal of the Applicant", docno="3")]
+        )
+    )
+    assert motion["type"] == "stay_of_removal"
+    assert motion["side"] == "person"
+    assert motion["filer_corrected"] is True
+
+
+def test_registry_referral_and_hearing_link_unreferenced_order():
+    register = extract_motions(
+        [
+            event(3, "2019-02-14", "Notice of Motion on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of the removal Order scheduled for 17-FEB-2019", docno="3"),
+            event(13, "2019-02-14", "Toronto 14-FEB-2019 BEFORE The Honourable Madam Justice Heneghan Language: E Before the Court: Motion Doc. No. 3 on behalf of Applicant Result of Hearing: Matter reserved held in Court"),
+            event(22, "2019-07-22", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing for an Order for leave to add documentary evidence through the applicant's affidavit to the Motion Record for a stay of removal", docno="15"),
+            event(27, "2019-07-24", "Toronto 24-JUL-2019 BEFORE The Honourable Madam Justice Heneghan Language: E Before the Court: Continuation of the Motion Doc. No. 3 on behalf of Applicant Result of Hearing: Matter reserved held in Court"),
+            event(28, "2019-07-24", "Order rendered by The Honourable Madam Justice Heneghan at Toronto on 24-JUL-2019 granting the stay of execution Decision filed on 24-JUL-2019"),
+        ]
+    )
+    by_doc = {motion["doc_number"]: motion for motion in register["motions"]}
+    assert by_doc["3"]["outcome"] == "granted"
+    assert by_doc["3"]["decision_date"] == "2019-07-24"
+    assert by_doc["15"]["type"] == "further_evidence"
+
+
+@pytest.mark.parametrize(
+    "follow_up,reason",
+    [
+        ("Notice of discontinuance on behalf of the applicant filed on 24-MAY-2006", "not_ruled_file_discontinued"),
+        ("(Final decision) Order rendered by The Honourable Mr. Justice Example at Ottawa on 01-JUN-2006 dismissing the application for leave", "not_ruled_leave_decided"),
+        ("Letter from Respondent dated 20-MAY-2006 advising that the removal has been deferred", "moot_removal_deferred"),
+        ("Correction to General Sitting concerning Motion Doc. No. 4 Hearing removed from General Sitting at Toronto on 25-MAY-2006", "removed_from_list"),
+    ],
+)
+def test_reason_a_motion_was_never_ruled_on(follow_up, reason):
+    motion = only(
+        extract_motions(
+            [
+                event(4, "2006-05-18", "Notice of Motion contained within a Motion Record on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of removal order that is set for 26-MAY-2006", docno="4"),
+                event(9, "2006-05-24", follow_up),
+            ]
+        )
+    )
+    assert motion["outcome"] == reason
+
+
+@pytest.mark.parametrize(
+    "text,outcome",
+    [
+        ("Order rendered by The Honourable Mr. Justice O'Keefe at Toronto on 17-OCT-2012 it is ordered that the removal of the applicant from Canada is stayed until leave is denied", "granted"),
+        ("Ordonnance rendu(e) par Alexandra Steele, protonotaire à Montréal le 08-JUL-2022 1.La demande informelle du demandeur est accueillie.", "granted"),
+        ("Oral directions of the Court: The Honourable Madam Justice Snider dated 20-MAR-2013 directing \"The Court declines to hear the motion on the basis of the material filed\"", "declined_to_hear"),
+        ("Order dated 16-DEC-2019 rendered by Angela Furlanetto, Prothonotary Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 4 Result: The proceeding is held pending the decision", "ruled_unclear"),
+    ],
+)
+def test_other_ruling_wordings(text, outcome):
+    from scripts.fc_activity_extractors import _decision_on_motion
+
+    assert _decision_on_motion(text)["outcome"] == outcome

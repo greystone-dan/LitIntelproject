@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T16:57:49.246257+00:00
+Generated: 2026-10-02T17:42:49.452557+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 89 across 89 paths
-Hidden operations: 47 excluded from OpenAPI
+Hidden operations: 53 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1558,6 +1558,65 @@ Handler: `backend.routes.fc_activity_breakdowns`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /api/fc-activity/case`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_case`
+
+**Handler parameters**
+
+- `imm` (str; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/counsel`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_counsel`
+
+**Handler parameters**
+
+- `min_files` (int; default `20`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/dashboard`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_dashboard`
+
+**Handler parameters**
+
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `city` (str; default `''`)
+- `decision_body` (str; default `''`)
+- `application_type` (str; default `''`)
+- `representation` (str; default `''`)
+- `language` (str; default `''`)
+- `office` (str; default `''`)
+- `resolution` (str; default `''`)
+- `judge` (str; default `''`)
+- `counsel` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/fc-activity/flow`
 
 **Hidden from OpenAPI.**
@@ -1568,6 +1627,59 @@ Handler: `backend.routes.fc_activity_flow`
 
 - `city` (str; default `''`)
 - `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/insights`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_insights`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_judges`
+
+**Handler parameters**
+
+- `min_decisions` (int; default `25`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/motions`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_motions`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**

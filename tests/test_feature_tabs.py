@@ -198,7 +198,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert views == {
         'about': 'info', 'site-architecture': 'info', 'search': 'research',
         'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'themes': 'research', 'research-bench': 'testing',
+        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {
@@ -576,3 +576,26 @@ def test_rendered_shell_exposes_independent_case_summary_control():
     assert 'Show case summary' in html
     assert 'id="readerCaseSummaryDetail"' in html
     assert 'renderCaseSummary' in html
+
+
+def test_fc_activity_panel_exposes_procedural_insights():
+    html = routes._data_explorer_page_html()
+
+    for element_id in ("fcInsights", "fcInsightsKpis", "fcInsightsDurations", "fcInsightsBreakdowns", "fcJudgeTable", "fcCaseForm"):
+        assert f'id="{element_id}"' in html
+    assert "/api/fc-activity/insights" in html
+    assert "/api/fc-activity/judges" in html
+    assert "/api/fc-activity/case" in html
+
+
+def test_fc_analytics_tab_is_wired_into_research_navigation():
+    html = routes._data_explorer_page_html()
+
+    assert 'data-tab="fc-analytics"' in html
+    assert 'id="fcAnalyticsPanel"' in html
+    assert "'fc-analytics':'fcAnalyticsPanel'" in html
+    assert "'fc-analytics','fc-history'" in html
+    assert "window.fcxLoadDashboard" in html
+    assert "/api/fc-activity/dashboard" in html
+    for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
+        assert f'id="{chart}"' in html

@@ -626,6 +626,84 @@ class FCActivityClassification(Base):
 	source_case = relationship("FCActivityCase", back_populates="classification")
 
 
+class FCActivityMotion(Base):
+	"""One row per motion in a classified IMM file: type, filer, outcome and the judge who ruled."""
+
+	__tablename__ = "fc_activity_motions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	position: Mapped[int] = mapped_column(Integer, nullable=False)
+	motion_type: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	filer: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	outcome: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	link: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	filed_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	decision_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	days_to_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	in_writing: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	relief: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class FCActivitySummary(Base):
+	"""One flat row per classified IMM file so the site can aggregate without parsing classification_json."""
+
+	__tablename__ = "fc_activity_summaries"
+
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), primary_key=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	classifier_version: Mapped[str] = mapped_column(String(80), nullable=False)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	resolution: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	lifecycle: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	review_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	decision_body: Mapped[str | None] = mapped_column(String(40), nullable=True, index=True)
+	leave_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	leave_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	merits_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	merits_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	applicant_counsel_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
+	applicant_counsel_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	representation: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	respondent_position: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_refusal_reason: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	stay_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_mode: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	appeal_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	certified_question: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	consent_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	reasons_at_filing: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	proceeding_language: Mapped[str | None] = mapped_column(String(20), nullable=True)
+	lead_file: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	lead_resolution: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	application_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	office_location: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	joint_applicants: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	motions_filed: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	extension_of_time: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	dormant: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	days_decision_to_filing: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	filing_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	record_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	memorandum_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_window: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	days_filing_to_perfection: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_leave_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_leave_grant_to_hearing: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_hearing_to_judgment: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_final_disposition: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	judgment_from_bench: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+
 class FCActivityDocument(Base):
 	__tablename__ = "fc_activity_documents"
 	__table_args__ = (

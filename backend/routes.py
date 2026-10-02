@@ -137,6 +137,7 @@ from .analytics_service import (
 )
 from .fc_activity_insights import (
 	fetch_fc_activity_case,
+	fetch_fc_activity_counsel,
 	fetch_fc_activity_insights,
 	fetch_fc_activity_judges,
 )
@@ -1158,6 +1159,18 @@ def fc_activity_judges(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_fc_activity_judges(db, min_decisions=min_decisions, year_from=year_from, year_to=year_to, decision_body=decision_body)
+
+
+@router.get("/api/fc-activity/counsel", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_counsel(
+	min_files: int = 20,
+	year_from: int | None = None,
+	year_to: int | None = None,
+	decision_body: str = "",
+	city: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_fc_activity_counsel(db, min_files=min_files, year_from=year_from, year_to=year_to, decision_body=decision_body, city=city)
 
 
 @router.get("/api/fc-activity/case", response_model=dict[str, Any], include_in_schema=False)

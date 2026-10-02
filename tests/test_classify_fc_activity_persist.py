@@ -52,3 +52,18 @@ def test_persist_report_updates_stale_rows(session_factory):
         session.commit()
     assert classifier.persist_report(report) == 1
     assert classifier.persist_report(report, force=True) == 2
+
+
+def test_inherit_lead_outcomes_copies_the_lead_file_resolution(session_factory, tmp_path):
+    classifier.persist_all(10, tmp_path / "state.json")
+    with session_factory() as session:
+        lead = session.get(FCActivitySummary, 1)
+        lead.resolution = "judicial_review_dismissed"
+        follower = session.get(FCActivitySummary, 2)
+        follower.lead_file = lead.imm_number
+        follower.resolution = "unknown"
+        session.commit()
+    assert classifier.inherit_lead_outcomes() == 1
+    with session_factory() as session:
+        assert session.get(FCActivitySummary, 2).lead_resolution == "judicial_review_dismissed"
+    assert classifier.inherit_lead_outcomes() == 0

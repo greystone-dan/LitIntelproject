@@ -426,7 +426,7 @@ def extract_representation(events: Iterable[Any], hearings: dict[str, Any] | Non
 # Respondent's position on leave.
 # ---------------------------------------------------------------------------
 
-_RESPONDENT_MEMO = re.compile(r"memorandum of argument (?:on behalf )?of the respondent|memorandum of argument on behalf of (?:the )?respondent|respondent['’]s memorandum|mémoire (?:des arguments )?de la partie défenderesse|mémoire de la partie intimée|respondent['’]s (?:record|written submissions)", re.IGNORECASE)
+_RESPONDENT_MEMO = re.compile(r"memorandum of argument (?:on behalf )?of the respondent|memorandum of argument on behalf of (?:the )?respondent|respondent['’]s memorandum|mémoire (?:des arguments )?de la partie défenderesse|mémoire de la partie intimée|mémoire (?:des arguments )?de la part (?:de la partie défenderesse|du défendeur|de la défenderesse|de l['’]intimée?|de la partie intimée)|respondent['’]s (?:record|written submissions)", re.IGNORECASE)
 _RESPONDENT_NOT_OPPOSING = re.compile(r"(?:does not|will not|doesn['’]t|won['’]t) (?:oppose|contest) (?:the )?(?:application for )?leave|not oppos(?:e|ing) (?:the )?(?:granting of )?leave|consents? to (?:the granting of )?leave|ne s['’]oppose pas à (?:la demande d['’])?autorisation", re.IGNORECASE)
 _RESPONDENT_NO_MEMO = re.compile(r"(?:will not|does not intend to|shall not) (?:be )?fil(?:e|ing) (?:a |any )?(?:memorandum|written submissions)|n['’]a pas l['’]intention de déposer (?:de |un )?mémoire|ne déposera pas", re.IGNORECASE)
 
@@ -494,6 +494,11 @@ def leave_refusal_reason(
     return "unknown"
 
 
+def _plausible(days: int | None, limit: int = 3650) -> int | None:
+    """Drop gaps produced by mistyped dates (a decision "dated" decades before filing)."""
+    return days if days is not None and days <= limit else None
+
+
 def build_timeline(classification: dict[str, Any], hearings: dict[str, Any]) -> dict[str, Any]:
     """Day counts between procedural milestones; null when either end is not observed."""
     filed = (classification.get("application_filed") or {}).get("date") or (classification.get("challenged_decision") or {}).get("filing_date")
@@ -522,6 +527,7 @@ def build_timeline(classification: dict[str, Any], hearings: dict[str, Any]) -> 
         "days_filing_to_final_disposition": _days_between(filed, final_date),
         "judgment_from_bench": bool(hearing_date and review_date and hearing_date == review_date),
         "challenged_decision_date": _parse_date(decision_date) if decision_date else None,
+        "days_decision_to_filing": _plausible(_days_between(_parse_date(decision_date) if decision_date else None, filed)),
     }
 
 
@@ -552,7 +558,100 @@ def extract_insights(events: list[Any], classification: dict[str, Any], citation
             "leave_refusal_reason": leave_refusal_reason(leave.get("result") or "unknown", leave.get("date"), leave.get("text"), perfected_date),
         },
         "timeline": build_timeline(classification, hearings),
+        "office_location": extract_office_location(classification),
+        "motion_profile": extract_motion_profile(classification, events),
+        "parties": extract_parties(events),
     }
+
+
+# ---------------------------------------------------------------------------
+# Where the challenged decision was made: visa office abroad, IRB region or processing centre.
+# ---------------------------------------------------------------------------
+
+OFFICE_LOCATIONS: tuple[tuple[str, str], ...] = (
+    ("New Delhi", r"new delhi|\bdelhi\b"), ("Chandigarh", r"chandigarh"), ("Hong Kong", r"hong\s*kong"), ("Beijing", r"beijing|pékin"),
+    ("Shanghai", r"shanghai"), ("Guangzhou", r"guangzhou"), ("Manila", r"manila|makati"), ("Singapore", r"singapore|singapour"),
+    ("Islamabad", r"islamabad"), ("Abu Dhabi", r"abu\s*dhabi"), ("Dubai", r"dubai"), ("Ankara", r"ankara"), ("Damascus", r"damascus|damas\b"),
+    ("Beirut", r"beyrouth|beirut"), ("Amman", r"\bamman\b"), ("Cairo", r"cairo|le caire"), ("Tel Aviv", r"tel\s*aviv"), ("Riyadh", r"riyadh"),
+    ("Nairobi", r"nairobi"), ("Accra", r"accra"), ("Lagos", r"lagos"), ("Dakar", r"dakar"), ("Pretoria", r"pretoria"), ("Abidjan", r"abidjan"),
+    ("Rabat", r"rabat"), ("Tunis", r"\btunis\b"), ("Dar es Salaam", r"dar es salaam"), ("Colombo", r"colombo"), ("Dhaka", r"dhaka"),
+    ("Kathmandu", r"kathmandu"), ("Bangkok", r"bangkok"), ("Ho Chi Minh City", r"ho chi minh"), ("Seoul", r"seoul|séoul"), ("Tokyo", r"tokyo"),
+    ("Sydney (Australia)", r"sydney,? australia"), ("London", r"\blondon\b(?!,? ont)"), ("Paris", r"\bparis\b"), ("Rome", r"\brome\b"),
+    ("Vienna", r"vienna|vienne"), ("Warsaw", r"warsaw|varsovie"), ("Bucharest", r"bucharest|bucarest"), ("Moscow", r"moscow|moscou"),
+    ("Kyiv", r"kyiv|kiev"), ("Berlin", r"berlin"), ("Buffalo", r"buffalo"), ("Seattle", r"seattle"), ("Los Angeles", r"los angeles"),
+    ("New York", r"new york"), ("Detroit", r"detroit"), ("Mexico City", r"mexico city|mexico,? mexico|ciudad de méxico"),
+    ("Port of Spain", r"port of spain"), ("Kingston", r"kingston,? jamaica"), ("Port-au-Prince", r"port-au-prince"), ("Bogotá", r"bogot"),
+    ("Lima", r"\blima\b"), ("Santiago", r"santiago"), ("São Paulo", r"s[ãa]o paulo"), ("Guatemala City", r"guatemala"),
+    ("Sydney NS (CIO)", r"sydney,? (?:ns|nova scotia)|centralized intake"), ("Vegreville CPC", r"vegreville"), ("Mississauga", r"mississauga"),
+    ("Etobicoke", r"etobicoke"), ("Scarborough", r"scarborough"), ("Niagara Falls", r"niagara"), ("Toronto", r"toronto|\btor\b"),
+    ("Montréal", r"montr[ée]al|\bmtl\b"), ("Vancouver", r"vancouver|\bvan\b"), ("Calgary", r"calgary"), ("Edmonton", r"edmonton"),
+    ("Winnipeg", r"winnipeg"), ("Ottawa", r"ottawa|\bnhq\b"), ("Halifax", r"halifax"), ("Québec City", r"qu[ée]bec city|ville de qu[ée]bec"),
+)
+_OFFICE_PATTERNS = tuple((name, re.compile(pattern, re.IGNORECASE)) for name, pattern in OFFICE_LOCATIONS)
+
+
+def extract_office_location(classification: dict[str, Any]) -> dict[str, Any]:
+    """Name the office that made the challenged decision, from the decision maker or tribunal-record sender text."""
+    body = classification.get("decision_body") or {}
+    challenged = classification.get("challenged_decision") or {}
+    for source, text in (("decision_maker", challenged.get("decision_maker")), ("record_sender", body.get("evidence") if body.get("source") == "record_sender" else None), ("application_text", challenged.get("text"))):
+        if not text:
+            continue
+        for name, pattern in _OFFICE_PATTERNS:
+            if pattern.search(text):
+                return {"office": name, "abroad": not re.search(r"\(cio\)|cpc|^(?:mississauga|etobicoke|scarborough|niagara falls|toronto|montréal|vancouver|calgary|edmonton|winnipeg|ottawa|halifax|québec city)$", name, re.IGNORECASE), "source": source}
+    return {"office": None, "abroad": None, "source": None}
+
+
+# ---------------------------------------------------------------------------
+# Motions filed in the file, by type and outcome.
+# ---------------------------------------------------------------------------
+
+_MOTION_FAMILIES = (
+    ("stay", r"^stay"),
+    ("extension_of_time", r"extension"),
+    ("consent_judgment", r"consent"),
+    ("amendment", r"amend"),
+    ("reconsideration", r"reconsider|rule_397"),
+    ("confidentiality", r"confiden|anonym"),
+    ("abeyance", r"abeyance"),
+    ("intervention", r"interven"),
+    ("production", r"production"),
+)
+
+
+_MOTION_NOTICE = re.compile(r"^\W*(?:amended\s+)?(?:notice of motion|avis de requête|requête (?:par voie de lettre|informelle)|informal motion|motion (?:in writing )?by (?:way of )?letter)", re.IGNORECASE)
+
+
+def extract_motion_profile(classification: dict[str, Any], events: list[Any]) -> dict[str, Any]:
+    decided: dict[str, Counter[str]] = {}
+    filed = sum(1 for event in events if _MOTION_NOTICE.search(event.text))
+    for item in classification.get("procedural_events") or []:
+        if item.get("event_type") != "motion_decision":
+            continue
+        subtype = str(item.get("subtype") or "unknown")
+        family = next((name for name, pattern in _MOTION_FAMILIES if re.search(pattern, subtype)), "other")
+        if item.get("outcome"):
+            decided.setdefault(family, Counter())[item["outcome"]] += 1
+    reconsideration = any(re.search(r"reconsideration|rule 397|règle 397|nouvel examen", event.text, re.IGNORECASE) for event in events)
+    return {
+        "motions_filed": filed,
+        "decisions": {family: dict(counts) for family, counts in decided.items()},
+        "families": sorted(decided),
+        "reconsideration_requested": reconsideration,
+        "extension_of_time": (
+            "granted" if decided.get("extension_of_time", Counter()).get("granted") else "refused" if decided.get("extension_of_time") else None
+        ),
+    }
+
+
+def extract_parties(events: list[Any]) -> dict[str, Any]:
+    name = next((event.case_name for event in events if getattr(event, "case_name", None)), None) or ""
+    parts = re.split(r"\s+v\.?\s+|\s+c\.\s+", name, maxsplit=1)
+    applicants = parts[0]
+    respondent = parts[1] if len(parts) > 1 else ""
+    joint = bool(re.search(r"\bet al\b|\s(?:and|et|&)\s|,", applicants, re.IGNORECASE))
+    return {"joint_applicants": joint if name else None, "respondent_style": respondent.strip()[:80] or None}
 
 
 def summary_row(classification: dict[str, Any]) -> dict[str, Any]:
@@ -600,4 +699,11 @@ def summary_row(classification: dict[str, Any]) -> dict[str, Any]:
         "days_hearing_to_judgment": timeline.get("days_hearing_to_judgment"),
         "days_filing_to_final_disposition": timeline.get("days_filing_to_final_disposition"),
         "judgment_from_bench": timeline.get("judgment_from_bench"),
+        "application_type": text(get("challenged_decision", "application_type"), 80),
+        "office_location": text(get("office_location", "office"), 80),
+        "joint_applicants": get("parties", "joint_applicants"),
+        "motions_filed": get("motion_profile", "motions_filed"),
+        "extension_of_time": text(get("motion_profile", "extension_of_time"), 40),
+        "dormant": bool(get("lifecycle_status", "status") == "active" and (get("history_profile", "days_since_last_entry") or 0) > 730),
+        "days_decision_to_filing": timeline.get("days_decision_to_filing"),
     }

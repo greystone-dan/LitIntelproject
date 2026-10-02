@@ -21,6 +21,7 @@ _CACHE: dict[tuple[Any, ...], tuple[float, dict[str, Any]]] = {}
 _CACHE_SECONDS = 600
 
 DURATION_FIELDS = {
+    "days_decision_to_filing": "Tribunal decision to filing",
     "days_filing_to_perfection": "Filing to applicant's record",
     "days_filing_to_leave_decision": "Filing to leave decision",
     "days_leave_grant_to_hearing": "Leave granted to hearing",
@@ -38,7 +39,14 @@ BREAKDOWN_FIELDS = {
     "appeal_status": "Federal Court of Appeal",
     "certified_question": "Certified question",
     "proceeding_language": "Language of the file",
+    "application_type": "Type of application",
+    "office_location": "Office that decided",
+    "extension_of_time": "Extension of time motions",
+    "joint_applicants": "Joint applicants (families)",
+    "dormant": "Open files with no activity for 2+ years",
+    "lead_resolution": "Outcome of the lead file (group-managed files)",
 }
+BREAKDOWN_LIMITS = {"office_location": 15}
 
 
 def _cached(key: tuple[Any, ...], build) -> dict[str, Any]:
@@ -102,11 +110,11 @@ def fetch_fc_activity_insights(
             missing = "not_applicable" if field == "leave_refusal_reason" else "unknown"
             merged: dict[str, int] = {}
             for row in rows:
-                value = row.value or missing
+                value = ("yes" if row.value else "no") if isinstance(row.value, bool) else row.value or missing
                 merged[value] = merged.get(value, 0) + int(row.count)
             breakdowns[field] = {
                 "label": label,
-                "rows": [{"value": value, "count": count} for value, count in sorted(merged.items(), key=lambda item: -item[1])],
+                "rows": [{"value": value, "count": count} for value, count in sorted(merged.items(), key=lambda item: -item[1])][: BREAKDOWN_LIMITS.get(field, 50)],
             }
         durations: dict[str, Any] = {}
         for field, label in DURATION_FIELDS.items():
@@ -147,6 +155,37 @@ def fetch_fc_activity_insights(
         leave_refused = sum(row["leave_refused"] for row in year_rows)
         jr_granted = sum(row["jr_granted"] for row in year_rows)
         jr_dismissed = sum(row["jr_dismissed"] for row in year_rows)
+        body_rows = db.execute(
+            _filtered(
+                select(
+                    FCActivitySummary.decision_body,
+                    FCActivitySummary.leave_result,
+                    FCActivitySummary.review_result,
+                    func.count().label("count"),
+                ).select_from(FCActivitySummary),
+                **filters,
+            ).group_by(FCActivitySummary.decision_body, FCActivitySummary.leave_result, FCActivitySummary.review_result)
+        ).all()
+        bodies: dict[str, dict[str, int]] = {}
+        for row in body_rows:
+            bucket = bodies.setdefault(row.decision_body or "unknown", {"files": 0, "leave_granted": 0, "leave_refused": 0, "jr_granted": 0, "jr_dismissed": 0})
+            bucket["files"] += int(row.count)
+            if row.leave_result in {"granted", "refused"}:
+                bucket[f"leave_{row.leave_result}"] += int(row.count)
+            if row.review_result in {"granted", "dismissed"}:
+                bucket[f"jr_{row.review_result}"] += int(row.count)
+        by_body = sorted(
+            (
+                {
+                    "decision_body": body,
+                    **values,
+                    "leave_grant_rate": _rate(values["leave_granted"], values["leave_granted"] + values["leave_refused"]),
+                    "jr_grant_rate": _rate(values["jr_granted"], values["jr_granted"] + values["jr_dismissed"]),
+                }
+                for body, values in bodies.items()
+            ),
+            key=lambda row: -row["files"],
+        )
         consent = sum(item["count"] for item in breakdowns["resolution"]["rows"] if item["value"] == "resolved_by_consent")
         return {
             "filters": {key: value for key, value in filters.items() if value not in ("", None)},
@@ -161,6 +200,7 @@ def fetch_fc_activity_insights(
             "durations": durations,
             "breakdowns": breakdowns,
             "by_year": year_rows,
+            "by_decision_body": by_body,
             "note": "Rates use files with an observed decision. Wait times are in days; files without both dates are left out.",
         }
 
@@ -263,6 +303,7 @@ def fetch_fc_activity_case(db: Session, imm: str) -> dict[str, Any]:
         "full_history_resolution", "lifecycle_status", "leave_decision", "leave_context", "judicial_review_result",
         "decision_body", "challenged_decision", "judge_roles", "consent_disposition", "timeline", "hearings",
         "certified_question", "appeal", "stay_of_removal", "representation", "respondent_position", "filing_details",
+        "office_location", "motion_profile", "parties",
     )
     summary = {key: classification.get(key) for key in keep if key in classification}
     challenged = summary.get("challenged_decision")
@@ -277,3 +318,77 @@ def fetch_fc_activity_case(db: Session, imm: str) -> dict[str, Any]:
         "classifier_version": row.classifier_version,
         "classification": summary,
     }
+
+
+def fetch_fc_activity_counsel(
+    db: Session,
+    *,
+    min_files: int = 20,
+    year_from: int | None = None,
+    year_to: int | None = None,
+    decision_body: str = "",
+    city: str = "",
+) -> dict[str, Any]:
+    """Applicant counsel by volume with leave and judicial review grant rates."""
+
+    def build() -> dict[str, Any]:
+        filters = {"city": city, "year_from": year_from, "year_to": year_to, "decision_body": decision_body}
+        rows = db.execute(
+            _filtered(
+                select(
+                    FCActivitySummary.applicant_counsel_key,
+                    FCActivitySummary.applicant_counsel_name,
+                    FCActivitySummary.leave_result,
+                    FCActivitySummary.review_result,
+                    FCActivitySummary.resolution,
+                    func.count().label("count"),
+                ).where(FCActivitySummary.applicant_counsel_key.is_not(None)),
+                **filters,
+            ).group_by(
+                FCActivitySummary.applicant_counsel_key,
+                FCActivitySummary.applicant_counsel_name,
+                FCActivitySummary.leave_result,
+                FCActivitySummary.review_result,
+                FCActivitySummary.resolution,
+            )
+        ).all()
+        counsel: dict[str, dict[str, Any]] = {}
+        for row in rows:
+            entry = counsel.setdefault(row.applicant_counsel_key, {"key": row.applicant_counsel_key, "names": {}, "files": 0, "leave_granted": 0, "leave_refused": 0, "jr_granted": 0, "jr_dismissed": 0, "consent": 0})
+            count = int(row.count)
+            entry["files"] += count
+            if row.applicant_counsel_name:
+                entry["names"][row.applicant_counsel_name] = entry["names"].get(row.applicant_counsel_name, 0) + count
+            if row.leave_result in {"granted", "refused"}:
+                entry[f"leave_{row.leave_result}"] += count
+            if row.review_result in {"granted", "dismissed"}:
+                entry[f"jr_{row.review_result}"] += count
+            if row.resolution == "resolved_by_consent":
+                entry["consent"] += count
+        result = []
+        for entry in counsel.values():
+            if entry["files"] < min_files:
+                continue
+            leave_total = entry["leave_granted"] + entry["leave_refused"]
+            jr_total = entry["jr_granted"] + entry["jr_dismissed"]
+            result.append(
+                {
+                    "key": entry["key"],
+                    "name": max(entry["names"].items(), key=lambda item: item[1])[0] if entry["names"] else entry["key"],
+                    "files": entry["files"],
+                    "leave_decisions": leave_total,
+                    "leave_grant_rate": _rate(entry["leave_granted"], leave_total),
+                    "jr_decisions": jr_total,
+                    "jr_grant_rate": _rate(entry["jr_granted"], jr_total),
+                    "resolved_by_consent": entry["consent"],
+                }
+            )
+        result.sort(key=lambda row: (-row["files"], row["name"]))
+        return {
+            "min_files": min_files,
+            "filters": {key: value for key, value in filters.items() if value not in ("", None)},
+            "counsel": result,
+            "note": "Counsel is named in about a quarter of files (certificates of service and hearing appearances), so these are partial counts.",
+        }
+
+    return _cached(("counsel", min_files, year_from, year_to, decision_body.strip(), city.strip()), build)

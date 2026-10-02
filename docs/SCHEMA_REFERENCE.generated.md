@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T14:47:34.372173+00:00
+Generated: 2026-10-02T15:32:44.880734+00:00
 Tables: 24
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -258,6 +258,14 @@ erDiagram
         String(40) reasons_at_filing
         String(20) proceeding_language
         String(40) lead_file
+        String(80) lead_resolution
+        String(80) application_type
+        String(80) office_location
+        BOOLEAN joint_applicants
+        Integer motions_filed
+        String(40) extension_of_time
+        BOOLEAN dormant
+        Integer days_decision_to_filing
         Integer days_filing_to_perfection
         Integer days_filing_to_leave_decision
         Integer days_leave_grant_to_hearing
@@ -399,7 +407,7 @@ erDiagram
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
-| `fc_activity_summaries` | 35 | `source_case_id` |
+| `fc_activity_summaries` | 43 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
@@ -943,6 +951,14 @@ erDiagram
 | `reasons_at_filing` | `String(40)` | yes | - |
 | `proceeding_language` | `String(20)` | yes | - |
 | `lead_file` | `String(40)` | yes | - |
+| `lead_resolution` | `String(80)` | yes | - |
+| `application_type` | `String(80)` | yes | - |
+| `office_location` | `String(80)` | yes | - |
+| `joint_applicants` | `BOOLEAN` | yes | - |
+| `motions_filed` | `Integer` | yes | - |
+| `extension_of_time` | `String(40)` | yes | - |
+| `dormant` | `BOOLEAN` | yes | - |
+| `days_decision_to_filing` | `Integer` | yes | - |
 | `days_filing_to_perfection` | `Integer` | yes | - |
 | `days_filing_to_leave_decision` | `Integer` | yes | - |
 | `days_leave_grant_to_hearing` | `Integer` | yes | - |
@@ -959,6 +975,7 @@ erDiagram
 - `ix_fc_activity_summaries_imm_number`: index on `imm_number`
 - `ix_fc_activity_summaries_leave_judge_key`: index on `leave_judge_key`
 - `ix_fc_activity_summaries_merits_judge_key`: index on `merits_judge_key`
+- `ix_fc_activity_summaries_office_location`: index on `office_location`
 - `ix_fc_activity_summaries_resolution`: index on `resolution`
 - `ix_fc_activity_summaries_year`: index on `year`
 

@@ -163,3 +163,29 @@ def test_timeline_and_filing_details_for_full_case():
     assert result["filing_details"]["proceeding_language"] == "english"
     assert result["judge_roles"]["merits_judge"]["key"] == "strickland"
     assert result["representation"]["applicant_counsel"]["name"] == "Lorne Waldman"
+
+
+def test_office_location_motions_parties_and_filing_speed():
+    result = classify_events(
+        [
+            event(1, "2015-10-20", "Application for leave and judicial review against a decision Visa Section, High Commission of Canada, New Delhi, India dated 08-SEP-2015 filed on 20-OCT-2015"),
+            event(2, "2015-11-02", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing for an Order extending the time to file the Applicant's Record filed on 02-NOV-2015", docno="3"),
+            event(3, "2015-11-03", "Motion Record containing the following original document(s): 3 4 on behalf of Applicant filed on 02-NOV-2015"),
+            event(4, "2015-11-10", "Order dated 10-NOV-2015 rendered by The Honourable Mr. Justice Example Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 3 Result: granted extension of time"),
+        ]
+    )
+    assert result["office_location"] == {"office": "New Delhi", "abroad": True, "source": "decision_maker"}
+    assert result["motion_profile"]["motions_filed"] == 1
+    assert result["timeline"]["days_decision_to_filing"] == 42
+    assert result["parties"]["joint_applicants"] is False
+
+
+def test_joint_applicants_from_style_of_cause():
+    from scripts.fc_activity_extractors import extract_parties
+
+    joint = ActivityEvent(1, "IMM-1-15", "FERUZA LER ET AL v. MCI", 1, date(2015, 1, 1), "Application")
+    pair = ActivityEvent(1, "IMM-1-15", "BOGLARKA KALOTAI AND CSENGE LOSONCZKI v MCI", 1, date(2015, 1, 1), "Application")
+    single = ActivityEvent(1, "IMM-1-15", "KEIRAN CURTIS ST. BRICE v. MCI", 1, date(2015, 1, 1), "Application")
+    assert extract_parties([joint])["joint_applicants"] is True
+    assert extract_parties([pair])["joint_applicants"] is True
+    assert extract_parties([single])["joint_applicants"] is False

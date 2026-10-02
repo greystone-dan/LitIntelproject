@@ -10,6 +10,7 @@ import scripts.classify_fc_activity as classifier
 from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary
 
 GRANTED = [
+    ("2015-01-04", "Solicitor's certificate of service on behalf of Mario D. Bellissimo confirming service of doc 1 upon Respondent by email on 04-JAN-2015 filed on 04-JAN-2015"),
     ("2015-01-05", "Application for leave and judicial review against a decision IRB-RPD Toronto filed on 05-JAN-2015 Written reasons received by the Applicant"),
     ("2015-02-04", "Applicant's Record Number of copies received/prepared: 1 on behalf of Applicant filed on 04-FEB-2015"),
     ("2015-04-01", "Order rendered by The Honourable Madam Justice Strickland at Ottawa on 01-APR-2015 granting the application for leave fixing the hearing"),
@@ -82,3 +83,30 @@ def test_case_lookup_returns_compact_classification(session_factory):
         with pytest.raises(HTTPException) as invalid:
             insights.fetch_fc_activity_case(db, "not a number")
         assert invalid.value.status_code == 422
+
+
+def test_rates_by_decision_body_and_new_breakdowns(session_factory):
+    with session_factory() as db:
+        result = insights.fetch_fc_activity_insights(db)
+    bodies = {row["decision_body"]: row for row in result["by_decision_body"]}
+    assert bodies["irb_rpd"]["leave_grant_rate"] == 1.0
+    assert bodies["visa_office"]["leave_grant_rate"] == 0.0
+    assert {row["value"] for row in result["breakdowns"]["joint_applicants"]["rows"]} == {"unknown"}
+    assert "days_decision_to_filing" in result["durations"]
+
+
+def test_counsel_table(session_factory):
+    with session_factory() as db:
+        result = insights.fetch_fc_activity_counsel(db, min_files=1)
+    assert result["counsel"] == [
+        {
+            "key": "mario-bellissimo",
+            "name": "Mario D. Bellissimo",
+            "files": 1,
+            "leave_decisions": 1,
+            "leave_grant_rate": 1.0,
+            "jr_decisions": 1,
+            "jr_grant_rate": 1.0,
+            "resolved_by_consent": 0,
+        }
+    ]

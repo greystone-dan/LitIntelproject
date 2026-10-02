@@ -68,7 +68,10 @@ STRUCTURED_LEAVE_REFUSED = (
     r"(?:with regard to|concerning) (?:the )?application for leave\b[^\n]{0,40}?result\s*:\s*(?:leave\s+)?(?:dismissed|refused|denied)"
     r"|concernant (?:\(le/la/l'\) )?la demande d['’]autorisation\s*r[ée]sultat\s*:\s*affaire rejet[ée]+"
     r"|dismissing the (?:application for (?:an )?)?extension of time to (?:file|commence|bring)"
+    r"|dismissing the application (?:for leave )?(?:for|due to|because of) (?:the )?(?:failure|failing) (?:of the applicant )?to (?:file|serve|perfect)"
+    r"|rejetant la demande(?: d['’]autorisation)? (?:pour|en raison du) défaut de (?:déposer|produire|signifier)"
 )
+WITHDRAWN = r"notice of withdrawal|retrait de la demande|(?:decided|decision|wishes|intends) to (?:withdraw|abandon)(?:/abandon)? (?:his|her|their|the|this) (?:application|judicial review|file)|withdraw/abandon"
 GROUP_ORDER_DISMISSED = r"(?:present application and |applications? )?(?:those |the applications? )?listed in the (?:attached )?schedules?\s*(?:[a-z]\s*)?(?:are|is|were) (?:hereby )?dismissed"
 STRUCTURED_LEAVE_GRANTED = r"(?:with regard to|concerning) (?:the )?application for leave\b[^\n]{0,40}?result\s*:\s*(?:leave\s+)?granted"
 CANCELLED_ENTRY = re.compile(r"^\W*\*{3,}\s*(?:cancelled|canceled|annul[ée]+(?:\(e\))?)\s*\*{3,}", re.IGNORECASE)
@@ -219,7 +222,7 @@ def _judge_name(text: str) -> str | None:
     name = r"[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?){0,2}?"
     match = re.search(
         r"\b(?:before|coram|devant|\(?presiding\s+judge\)?|rendered\s+by|rendu(?:e|es)?\s+par|rendu\(e\)\s+par)[,:]?\s*"
-        r"(?:(?:the|la)\s+)?(?:honou?rable\s+)?(?:acting\s+chief\s+justice\s+|chief\s+justice\s+|associate\s+justice\s+|"
+        r"(?:(?:the|la)\s+)?(?:honou?rable\s+)?(?:acting\s+chief\s+justice\s+|associate\s+chief\s+justice\s+|chief\s+justice\s+|associate\s+justice\s+|"
         r"madam\s+justice\s+|mr\.\s+justice\s+|"
         r"ms\.\s+justice\s+|(?:monsieur|madame)\s+le\s+juge\s+|justice\s+|j\.\s+|"
         r"juge\s+|prothonotary\s+|protonotaire\s+)([A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?"
@@ -675,7 +678,7 @@ def _closing_status(events: list[ActivityEvent], leave_result: str, review_resul
         ("dismissed_for_delay", r"with regard to status review\s*result\s*:\s*(?:matter\s+)?dismissed"),
         ("judicial_review_granted", rf"judicial review result:\s*granted|{STRUCTURED_JR_GRANTED}|granting the application for judicial review|contrôle judiciaire .* accord"),
         ("judicial_review_dismissed", rf"judicial review result:\s*dismissed|{STRUCTURED_JR_DISMISSED}|dismissing the application for judicial review|contrôle judiciaire .* rejet"),
-            ("withdrawn", r"notice of withdrawal|retrait de la demande"),
+            ("withdrawn", WITHDRAWN),
             ("underlying_decision_pending", r"no decision has yet been made, as such, no reasons exist|aucune décision n['’]a encore été rendue"),
             ("case_management", r"case management conference|parties are to consult each other to reach consent"),
     )
@@ -767,7 +770,7 @@ def _full_history_resolution(events: list[ActivityEvent], leave_result: str) -> 
         ("dismissed_by_group_order", GROUP_ORDER_DISMISSED),
         ("dismissed_for_delay", r"with regard to status review\s*result\s*:\s*(?:matter\s+)?dismissed|dismissing the application (?:for leave )?(?:further to|following|on|as a result of) (?:the )?status review"),
         ("discontinued", r"notice of discontinuance|\bdiscontinuance\b|désistement|desistement"),
-        ("withdrawn", r"notice of withdrawal|retrait de la demande"),
+        ("withdrawn", WITHDRAWN),
         ("administratively_terminated", r"application terminated by s\.?\s*87\.4\(1\)(?:\s+of)?\s*irpa|termination under s\.?\s*87\.4\(1\)"),
     )
     matches: list[tuple[ActivityEvent, str, re.Match[str]]] = []
@@ -1422,8 +1425,15 @@ _NOT_A_DECISION = re.compile(r"^\W*(?:copy of|certified (?:french |english )?tra
 _MOTION_GRANTED_RESULT = re.compile(r"with regard to motion[^\n]{0,60}?result:\s*granted|granting the motion|motion (?:is )?granted|accordant la requête|requête (?:est )?accueillie|order to go as asked", re.IGNORECASE)
 
 
+_SEND_BACK_ORDER = re.compile(
+    r"\(final decision\)[^\n]{0,200}?granting (?:the )?(?:respondent['’]s )?motion[^\n]{0,60}?(?:send(?:ing)? (?:the matter |it )?back|redetermin|set(?:ting)? aside|quash)",
+    re.IGNORECASE,
+)
+
+
 def _consent_disposition(events: list[ActivityEvent]) -> dict[str, Any]:
     """Detect files resolved by a consent order or judgment setting the decision aside."""
+    send_back = next((event for event in events if _SEND_BACK_ORDER.search(event.text)), None)
     request = next(
         (
             event
@@ -1435,6 +1445,18 @@ def _consent_disposition(events: list[ActivityEvent]) -> dict[str, Any]:
         ),
         None,
     )
+    if request is None and send_back is not None:
+        # A final order granting a motion to send the decision back is the Minister conceding the review.
+        return {
+            "status": "granted",
+            "date": _event_date(send_back),
+            "doc_id": send_back.doc_id,
+            "request_doc_id": None,
+            "request_date": None,
+            "text": send_back.text,
+            "request_text": None,
+            "rule": "final_order_granting_motion_to_send_back",
+        }
     if request is None:
         return {"status": "none", "rule": "no_consent_merits_request"}
     if _COURT_DECISION.search(request.text) and not _NOT_A_DECISION.search(request.text) and re.search(r"grant|allow|accord|accueill|set(?:ting)? aside|quash|consent", request.text, re.IGNORECASE):
@@ -1956,6 +1978,30 @@ def persist_all(
     return _persist_all(batch_size, state_file, resume=resume, force=force, pool=None)
 
 
+def inherit_lead_outcomes() -> int:
+    """Copy each lead file's outcome onto the files managed under it (group mandamus, consolidated files).
+
+    The registry often records the decisive judgment only on the lead IMM file and places a
+    copy, or nothing, on the others. Runs after classification so every lead row exists.
+    """
+    updated = 0
+    with SessionLocal() as session:
+        followers = list(session.scalars(select(FCActivitySummary).where(FCActivitySummary.lead_file.is_not(None))))
+        lead_numbers = {row.lead_file for row in followers}
+        leads = {
+            row.imm_number: row.resolution
+            for row in session.scalars(select(FCActivitySummary).where(FCActivitySummary.imm_number.in_(lead_numbers)))
+        } if lead_numbers else {}
+        for row in followers:
+            value = leads.get(row.lead_file)
+            value = value if value not in (None, "unknown") else None
+            if row.lead_resolution != value:
+                row.lead_resolution = value
+                updated += 1
+        session.commit()
+    return updated
+
+
 def _persist_all(batch_size: int, state_file: Path, *, resume: bool, force: bool, pool: Any) -> int:
     written = 0
     checkpoint = _read_checkpoint(state_file) if resume else {"last_source_case_id": 0, "written": 0}
@@ -1995,7 +2041,8 @@ def main() -> None:
         if not args.write or args.limit or args.per_year or args.citation:
             raise SystemExit("--all requires --write and cannot be combined with filters")
         written = persist_all(args.batch_size, args.state_file, resume=args.resume, force=args.force, workers=args.workers)
-        print(f"classified_cases={written} written={written}")
+        inherited = inherit_lead_outcomes()
+        print(f"classified_cases={written} written={written} lead_outcomes_updated={inherited}")
         return
     if args.limit and args.per_year:
         raise SystemExit("Use either --limit or --per-year, not both")

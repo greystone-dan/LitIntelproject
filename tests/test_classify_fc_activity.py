@@ -792,7 +792,7 @@ def test_extracts_full_immigration_division_name_as_irb_decision_maker():
 @pytest.mark.parametrize(
     ("text", "maker_type", "subject"),
     [
-        ("Application for leave and judicial review against a decision PRRA Toronto dated 30-NOV-2009.", "irb_refugee_or_appeal", "refugee_protection"),
+        ("Application for leave and judicial review against a decision PRRA Toronto dated 30-NOV-2009.", "cic_ircc_processing", "refugee_protection"),
         ("Application for leave and judicial review against a decision Enforcement Section dated 06-NOV-2015.", "cbsa_enforcement", "unknown"),
         ("Application for leave and judicial review against a decision Service Canada dated 19-JAN-2015.", "cic_ircc_processing", "unknown"),
         ("Application for leave and judicial review against a decision High Commission of Canada dated 19-JAN-2015.", "visa_office_or_consulate", "unknown"),
@@ -1080,3 +1080,64 @@ def test_certificate_of_order_and_hearing_results_are_read():
     )
     assert mislabelled["judicial_review_result"]["result"] == "dismissed"
     assert mislabelled["full_history_resolution"]["status"] == "judicial_review_dismissed"
+
+
+@pytest.mark.parametrize(
+    "raw,key",
+    [
+        ("SIMPSON", "simpson"),
+        ("Rennie. filed", "rennie"),
+        ("S. Noël émis", "s-noel"),
+        ("Simon Noel", "s-noel"),
+        ("Noël placed", "noel"),
+        ("Layden Stevenson. placed", "layden-stevenson"),
+        ("Lutfy A.C.J.", "lutfy"),
+        ("Roger Lafreniere", "lafreniere"),
+        ("Mosely", "mosley"),
+        ("de Montigny", "de-montigny"),
+    ],
+)
+def test_judge_names_are_normalized_to_stable_keys(raw, key):
+    from scripts.classify_fc_activity import _clean_judge_name
+
+    assert _clean_judge_name(raw)["key"] == key
+
+
+@pytest.mark.parametrize("raw", ["and and", "J", "L'audition", None])
+def test_judge_name_noise_is_rejected(raw):
+    from scripts.classify_fc_activity import _clean_judge_name
+
+    assert _clean_judge_name(raw) is None
+
+
+def test_judge_roles_and_deduplicated_observations():
+    result = classify_events(
+        [
+            event(1, "2007-10-17", "Application for leave and judicial review against a decision IRB - RPD filed on 17-OCT-2007"),
+            event(2, "2008-01-15", "Order rendered by The Honourable Madam Justice Hansen at Ottawa on 15-JAN-2008 granting the application for leave fixing the hearing"),
+            event(3, "2008-04-10", "Toronto 10-APR-2008 BEFORE The Honourable Madam Justice Tremblay-Lamer Language: E Before the Court: Judicial Review Result of Hearing: Matter reserved held in Court"),
+            event(4, "2008-04-11", "(Final decision) Reasons for Judgment and Judgment dated 11-APR-2008 rendered by The Honourable Madam Justice Tremblay-Lamer Matter considered with personal appearance The Court's decision is with regard to Judicial Review Result: granted Filed on 11-APR-2008"),
+        ]
+    )
+    roles = result["judge_roles"]
+    assert roles["leave_judge"]["key"] == "hansen"
+    assert roles["hearing_judge"]["key"] == "tremblay-lamer"
+    assert roles["merits_judge"]["key"] == "tremblay-lamer"
+    pairs = [(item["doc_id"], item["name"]) for item in result["judges"]["observations"]]
+    assert len(pairs) == len(set(pairs))
+
+
+@pytest.mark.parametrize(
+    "nature,text,code",
+    [
+        ("Imm - Appl. for leave & jud. review - Pre-removal risk assessment", "Application for leave and judicial review against a decision PRRA Officer (CIC Mississauga) 6-DEC-2004 filed on 15-MAR-2005", "prra_officer"),
+        ("Imm - Appl. for leave & jud. review - IRB - Refugee", "Application for leave and judicial review against a decision IRB-RAD TORONTO, 4-AUG-2021, FILE:TC1-02118 filed on 12-AUG-2021", "irb_rad"),
+        ("Imm - Appl. for leave & jud. review - IRB - Refugee", "Application for leave and judicial review against a decision IRB, 3-MAR-2005 filed on 30-MAR-2005", "irb_rpd"),
+        ("Imm - Appl. for leave & jud. review - Arising outside Canada", "Application for leave and judicial review against a decision MANDAMUS, VISA OFFICER - HONG KONG, SAR; E000049777 filed on 28-APR-2014", "visa_office"),
+        ("Imm - Appl. for leave & jud. review - Other Arising in Canada", "Application for leave and judicial review against a decision of Inland Enforcement Officer, CBSA Toronto filed on 01-MAY-2015", "cbsa"),
+        ("Imm - Appl. for leave & jud. review - Other Arising in Canada", "Application for leave and judicial review against a decision FOSS ID 1234-5678 immigration officer filed on 01-MAY-2015", "ircc"),
+    ],
+)
+def test_decision_body_uses_text_and_registry_nature(nature, text, code):
+    result = classify_events([event(1, "2015-05-01", text)], nature=nature)
+    assert result["decision_body"]["code"] == code

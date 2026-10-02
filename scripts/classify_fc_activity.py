@@ -804,9 +804,9 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
     text = event.text
     lowered = text.casefold()
     category_rules = (
-        ("irb_refugee_or_appeal", r"\b(?:irb|rpd|rad|crdd|cisr|iad|id|spr|sar|prra)\b|immigration(?: and)? refugee board|immigration division|refugee division|refugee protection division|immigration appeal division|section de la protection des réfugiés|section d['’]appel(?: des réfugiés| d'immigration)"),
+        ("irb_refugee_or_appeal", r"\b(?:irb|rpd|rad|crdd|cisr|iad|spr|sar)\b|\birb\s*[-/(]?\s*id\b|immigration(?: and)? refugee board|immigration division|refugee division|refugee protection division|immigration appeal division|section de la protection des réfugiés|section d['’]appel(?: des réfugiés| d'immigration)"),
         ("cbsa_enforcement", r"\b(?:cbsa|asfc)\b|canada bord(?:er|er) services|agence des services frontaliers|border services agency|services frontaliers|inland enforcement|enforcement section"),
-        ("cic_ircc_processing", r"\b(?:cic|ircc)\b|citizenship and immigration|immigration,? refugees?,? and citizenship canada|immigration canada|case processing centre|backlog reduction office|service canada|immigration officer|agent(?: principal)? d['’]immigration|immigration section|program support officer|temporary foreign worker rules"),
+        ("cic_ircc_processing", r"\b(?:cic|ircc)\b|citizenship and immigration|immigration,? refugees?,? and citizenship canada|immigration canada|case processing centre|backlog reduction office|service canada|immigration officer|agent(?: principal)? d['’]immigration|immigration section|program support officer|temporary foreign worker rules|\bprra\b|\berar\b|pre-?\s*removal risk"),
         ("visa_office_or_consulate", r"consulate|consulat|embassy|embbassy|ambassade|high commission|visa office|agent(?:e)? de visa(?:s)?|bureau de visa"),
         ("minister_or_department", r"\b(?:mci|mpsep)\b|minister|ministre|department of citizenship"),
         ("mandamus", r"\bmandamus\b"),
@@ -982,6 +982,85 @@ def _challenged_decision(events: list[ActivityEvent]) -> dict[str, Any]:
     )
     return {"status": "yes", "application_type": application_type, "filing_date": _event_date(event), "challenge_categories": challenge_categories, "decision_maker": decision_maker, "decision_maker_type": decision_maker_type, "originating_decision_maker_type": originating_decision_maker_type, "decision_maker_evidence_doc_id": maker_event.doc_id, "decision_maker_evidence_text": maker_event.text, "underlying_tribunal": decision_maker, "underlying_tribunal_type": underlying_tribunal_type, "decision_subject": decision_subject, "decision_type": originating_decision_type, "decision_subject_availability": subject_availability, "decision_subject_label": decision_maker if subject_availability == "generic_institution_only" else None, "decision_subject_doc_id": subject_event.doc_id, "decision_subject_text": subject_event.text, "decision_date": decision_date_match.group(1) if decision_date_match else None, "tribunal_file_numbers": tribunal_file_numbers, "doc_id": event.doc_id, "re_no": event.re_no, "docno": event.docno, "text": event.text, "rule": "originating_application_entry"}
 
+# Canonical body whose decision is challenged. Specific text evidence wins over the registry
+# "nature" category, which is reliable for the broad family but coarse inside the IRB.
+DECISION_BODIES: tuple[tuple[str, str, str], ...] = (
+    ("irb_rad", "IRB Refugee Appeal Division", r"\brad\b|refugee appeal division|(?<!kong,\s)(?<!kong\s)(?<!kong-)(?<!kong)(?<!macao,\s)(?<!macau,\s)\bsar\b|section d['’]appel des réfugiés"),
+    ("irb_iad", "IRB Immigration Appeal Division", r"\biad\b|immigration appeal (?:division|board)|\bsai\b|section d['’]appel de l['’]immigration|section d['’]appel d['’]immigration"),
+    ("irb_id", "IRB Immigration Division", r"\birb\s*[-/(]?\s*id\b|\bid\s*[-/]\s*irb\b|immigration division|section de l['’]immigration|\badjudicat(?:or|ion)\b"),
+    ("irb_rpd", "IRB Refugee Protection Division", r"\b(?:rpd|crdd|spr|ssr)\b|refugee protection division|refugee division|convention refugee determination|section de la protection des réfugiés|section (?:du )?statut(?: de réfugié)?"),
+    ("prra_officer", "PRRA officer", r"\bprra\b|\berar\b|pre-?\s*removal risk|examen des risques avant renvoi"),
+    ("visa_office", "Visa office abroad", r"consulate|consulat|embassy|embbassy|ambassade|high commission|haut-commissariat|visa (?:office|section|post)|agent(?:e)? de visa(?:s)?|bureau de visa|immigration program manager|\bvisa officer\b"),
+    ("cbsa", "CBSA", r"\b(?:cbsa|asfc)\b|border services|services frontaliers|inland enforcement|enforcement (?:officer|section)|removals? officer|agent d['’]exécution"),
+    ("citizenship", "Citizenship judge or officer", r"citizenship (?:judge|officer|commissioner)|juge de la citoyenneté"),
+    ("ircc", "IRCC / CIC officer", r"\b(?:cic|ircc|cpc|cpo)\b|citizenship and immigration|immigration,? refugees?,? and citizenship|immigration canada|case processing cent|immigration officer|agent(?: principal)? d['’]immigration|senior immigration officer|\bsio\b|backlog reduction"),
+    ("minister", "Minister or delegate", r"\bminist(?:er|re)\b|\bmpsep\b|\bmci\b|delegate"),
+    ("irb", "IRB (division not stated)", r"\birb\b|\bcisr\b|c\.\s*i\.\s*s\.\s*r|immigration and refugee board|commission de l['’]immigration et du statut"),
+)
+_DECISION_BODY_LABELS = {code: label for code, label, _ in DECISION_BODIES}
+_DECISION_BODY_PATTERNS = tuple((code, re.compile(pattern, re.IGNORECASE)) for code, _, pattern in DECISION_BODIES)
+_NATURE_BODIES: tuple[tuple[str, str], ...] = (
+    (r"refugee appeal division", "irb_rad"),
+    (r"immigration appeal div|\biad\b", "irb_iad"),
+    (r"immigration division", "irb_id"),
+    (r"refugee protection div|\bcrdd\b|irb - refugee$", "irb_rpd"),
+    (r"pre-removal risk", "prra_officer"),
+    (r"visa officer|arising outside canada", "visa_office"),
+    (r"\bsio\b|h&c", "ircc"),
+    (r"citizenship", "citizenship"),
+)
+_RECORD_SENDER = re.compile(r"(?:record|decision|reasons|dossier|décision)[^\n]{0,80}?(?:sent|transmis|envoy[ée]+)\s+(?:by|par)\s+(.{3,80}?)(?:\s+on\b|\s+le\b|\s+pursuant|\s+conformément|[,;]|$)", re.IGNORECASE)
+
+
+def _body_from_text(text: str) -> str | None:
+    return next((code for code, pattern in _DECISION_BODY_PATTERNS if pattern.search(text)), None)
+
+
+def _decision_body(events: list[ActivityEvent], application_text: str | None, decision_maker: str | None, nature: str | None) -> dict[str, Any]:
+    """Name the body whose decision is under review from the application, the record sender and the registry nature."""
+    nature_code = None
+    if nature:
+        nature_code = next((code for pattern, code in _NATURE_BODIES if re.search(pattern, nature.strip(), re.IGNORECASE)), None)
+    candidates: list[tuple[str, str, str | None]] = []
+    if decision_maker:
+        code = _body_from_text(decision_maker)
+        if code:
+            candidates.append(("application_decision_maker", code, decision_maker))
+    for event in events:
+        sender = _RECORD_SENDER.search(event.text)
+        if sender and re.search(r"rule\s*(?:9|17)|règle\s*(?:9|17)|tribunal record|certified (?:copy of the )?record|dossier certifié|pursuant to the order", event.text, re.IGNORECASE):
+            code = _body_from_text(sender.group(1))
+            if code:
+                candidates.append(("record_sender", code, sender.group(1).strip()))
+                break
+    if application_text:
+        code = _body_from_text(application_text)
+        if code:
+            candidates.append(("application_text", code, None))
+    specific_irb = {"irb_rad", "irb_iad", "irb_id", "irb_rpd"}
+    chosen: tuple[str, str, str | None] | None = None
+    for source, code, evidence in candidates:
+        if code == "irb" and nature_code in specific_irb:
+            continue
+        if code == "minister" and nature_code:
+            continue
+        if code == "ircc" and nature_code in {"prra_officer", "visa_office"}:
+            continue
+        if code == "irb_rpd" and nature_code == "irb_rad":
+            continue
+        chosen = (source, code, evidence)
+        break
+    if chosen is None and nature_code:
+        chosen = ("nature", nature_code, nature)
+    if chosen is None:
+        irb_generic = next((item for item in candidates if item[1] == "irb"), None)
+        chosen = irb_generic
+    if chosen is None:
+        return {"code": "unknown", "label": "Unknown", "family": "unknown", "source": None, "evidence": None, "nature_code": nature_code}
+    source, code, evidence = chosen
+    family = "irb" if code.startswith("irb") else code if code in {"visa_office", "cbsa", "prra_officer", "citizenship", "minister"} else "ircc"
+    return {"code": code, "label": _DECISION_BODY_LABELS[code], "family": family, "source": source, "evidence": evidence, "nature_code": nature_code}
+
 
 def _clean_origin_value(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip(" ,;:.")).strip()
@@ -1034,6 +1113,69 @@ def _originating_party_fields(events: list[ActivityEvent]) -> dict[str, Any]:
     }
 
 
+_JUDGE_TRAILING_NOISE = re.compile(
+    r"\s+(?:filed|placed|that|received|concerning|regarding|rendered|rendue?s?|déposée?s?|émise?s?|visant|fixant|for|and|delivered|"
+    r"dismissing|granting|par|dated|en|issued|was|were|is|at|on|le|à)\b.*$",
+    re.IGNORECASE,
+)
+_JUDGE_PREFIX_NOISE = re.compile(r"^(?:me|mr\.?|mrs\.?|ms\.?|madam|madame|monsieur|adjointe?|justice|juge|the|honou?rable)\s+", re.IGNORECASE)
+_JUDGE_SUFFIX_NOISE = re.compile(r",?\s*(?:a\.?\s*c\.?\s*j\.?|c\.?\s*j\.?|j\.?\s*a\.?|j\.?|esq\.?|d\.?\s*j\.?)$", re.IGNORECASE)
+_JUDGE_NAME_STOPWORDS = {"and", "l'audition", "audition", "the", "court", "cour", "registry", "greffe", "madame", "monsieur", "relativement", "concernant"}
+# Registry misspellings of sitting judges' surnames.
+_JUDGE_KEY_ALIASES = {"mosely": "mosley", "elliot": "elliott", "gleeson": "gleason", "lafreniere-esq": "lafreniere", "noel-s": "s-noel"}
+# Surnames shared by more than one judge of the Court; the first initial is kept to tell them apart.
+_JUDGE_SHARED_SURNAMES = {"noel"}
+# Hyphenated surnames the registry sometimes types with a space.
+_JUDGE_COMPOUND_SURNAMES = {"layden stevenson", "tremblay lamer", "saint louis", "st louis"}
+
+
+def _fold(value: str) -> str:
+    import unicodedata
+
+    return "".join(char for char in unicodedata.normalize("NFKD", value) if not unicodedata.combining(char)).casefold()
+
+
+def _clean_judge_name(raw: str | None) -> dict[str, str] | None:
+    """Normalize a raw judge capture into a display name and a stable grouping key."""
+    if not raw:
+        return None
+    value = re.sub(r"\s+", " ", raw).strip(" .,;:")
+    value = _JUDGE_TRAILING_NOISE.sub("", value)
+    previous = None
+    while previous != value:
+        previous = value
+        value = _JUDGE_PREFIX_NOISE.sub("", value).strip(" .,;:")
+        value = _JUDGE_SUFFIX_NOISE.sub("", value).strip(" .,;:")
+    tokens = [token for token in value.replace("’", "'").split(" ") if token]
+    if not tokens or any(_fold(token) in _JUDGE_NAME_STOPWORDS for token in tokens):
+        return None
+    if len(tokens) > 3 or any(re.search(r"\d", token) for token in tokens):
+        return None
+    tokens = [token.capitalize() if token.isupper() and len(token) > 2 else token for token in tokens]
+    tokens = ["-".join(part.capitalize() if part.isupper() else part for part in token.split("-")) for token in tokens]
+    initials = [token for token in tokens[:-1] if re.fullmatch(r"[A-Za-zÀ-ÿ]\.?", token)]
+    particles = {"de", "du", "des", "la", "le", "st", "st.", "saint", "van", "von", "mac", "mc"}
+    words = [token for token in tokens if token not in initials]
+    if len(words) == 2 and _fold(" ".join(words)) in _JUDGE_COMPOUND_SURNAMES:
+        words = ["-".join(words)]
+    if len(words) >= 2 and _fold(words[0].rstrip(".")) not in particles:
+        given = words[0]
+        surname_tokens = words[1:]
+    else:
+        given = initials[0] if initials else None
+        surname_tokens = words
+    surname = " ".join(surname_tokens).strip(" .")
+    if len(surname) < 3:
+        return None
+    key = _fold(surname).replace(" - ", "-").replace("'", "").replace(" ", "-")
+    key = re.sub(r"-+", "-", key)
+    key = _JUDGE_KEY_ALIASES.get(key, key)
+    if key.replace("-", "") in _JUDGE_SHARED_SURNAMES and given:
+        key = f"{_fold(given)[0]}-{key}"
+    display = " ".join(tokens).strip(" .")
+    return {"name": display, "key": key}
+
+
 def _judge_stage(event: dict[str, Any]) -> str:
     text = str(event.get("text") or "").casefold()
     event_type = event.get("event_type")
@@ -1051,13 +1193,20 @@ def _judge_stage(event: dict[str, Any]) -> str:
 def _judge_observations(events: list[dict[str, Any]]) -> dict[str, Any]:
     observations: list[dict[str, Any]] = []
     by_stage: dict[str, list[dict[str, Any]]] = {}
+    seen: set[tuple[Any, str]] = set()
     for event in events:
         judge_name = event.get("judge_name")
         if not judge_name:
             continue
+        if (event.get("doc_id"), judge_name) in seen:
+            continue
+        seen.add((event.get("doc_id"), judge_name))
+        cleaned = _clean_judge_name(judge_name)
         stage = _judge_stage(event)
         observation = {
             "name": judge_name,
+            "judge_key": cleaned["key"] if cleaned else None,
+            "judge_display": cleaned["name"] if cleaned else None,
             "stage": stage,
             "doc_id": event.get("doc_id"),
             "re_no": event.get("re_no"),
@@ -1075,6 +1224,28 @@ def _judge_observations(events: list[dict[str, Any]]) -> dict[str, Any]:
         "status": "yes" if observations else "unknown",
         "rule": "judge_name_stage_observations" if observations else "no_judge_name_observation",
     }
+
+
+def _judge_roles(leave: Evidence, judicial_review_final: Evidence, review_result: str, hearing_status: dict[str, Any], events: list[ActivityEvent]) -> dict[str, Any]:
+    """Who decided leave, who heard the merits, and who decided the judicial review."""
+
+    def role(text: str | None, date_value: str | None, doc_id: int | None) -> dict[str, Any] | None:
+        cleaned = _clean_judge_name(_judge_name(text or ""))
+        if not cleaned:
+            return None
+        return {"name": cleaned["name"], "key": cleaned["key"], "date": date_value, "doc_id": doc_id}
+
+    leave_judge = role(leave.text, leave.date, leave.doc_id) if leave.status == "yes" else None
+    merits_judge = role(judicial_review_final.text, judicial_review_final.date, judicial_review_final.doc_id) if review_result in {"granted", "dismissed"} else None
+    hearing_judge = None
+    for event in events:
+        if re.search(r"result of hearing|held in court|held by way of|audience", event.text, re.IGNORECASE) and re.search(r"\bbefore\b|\bdevant\b", event.text, re.IGNORECASE):
+            hearing_judge = role(event.text, _event_date(event), event.doc_id)
+            if hearing_judge:
+                break
+    if merits_judge is None and review_result in {"granted", "dismissed"} and hearing_judge:
+        merits_judge = {**hearing_judge, "inferred_from": "hearing_judge"}
+    return {"leave_judge": leave_judge, "hearing_judge": hearing_judge, "merits_judge": merits_judge}
 
 
 def _milestone_rollups(
@@ -1308,7 +1479,7 @@ def _consent_disposition(events: list[ActivityEvent]) -> dict[str, Any]:
     }
 
 
-def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
+def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = None) -> dict[str, Any]:
     received = list(events)
     ordered = [event for event in received if not _is_cancelled(event.text)]
     procedural_events = extract_procedural_events(ordered)
@@ -1396,6 +1567,7 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         full_history_resolution = {"status": "file_cancelled", "date": _event_date(received[-1]), "doc_id": received[-1].doc_id, "re_no": received[-1].re_no, "docno": received[-1].docno, "text": received[-1].text, "rule": "full_history:every_entry_cancelled"}
     lifecycle_status = _lifecycle_status(ordered, closing_status, full_history_resolution, history_profile)
     judges = _judge_observations(procedural_events)
+    judge_roles = _judge_roles(leave, judicial_review_final, review_result, hearing_status, ordered)
     field_applicability = _field_applicability(
         application_filed=application_filed,
         application_perfected=application_perfected,
@@ -1440,6 +1612,7 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "lifecycle_status": lifecycle_status,
         "challenged_decision": challenged_decision,
         "consent_disposition": consent,
+        "decision_body": _decision_body(ordered, challenged_decision.get("text"), challenged_decision.get("decision_maker"), nature),
         "aljr_filer_type": originating_party_fields["aljr_filer_type"],
         "aljr_filer_name": originating_party_fields["aljr_filer_name"],
         "respondent_minister": originating_party_fields["respondent_minister"],
@@ -1454,6 +1627,7 @@ def classify_events(events: Iterable[ActivityEvent]) -> dict[str, Any]:
         "hearing_held": asdict(hearing_held),
         "hearing_status": hearing_status,
         "judges": judges,
+        "judge_roles": judge_roles,
         "milestone_rollups": milestone_rollups,
         "procedural_events": procedural_events,
     }
@@ -1569,7 +1743,12 @@ def _case_report(activity_case: FCActivityCase, events: list[ActivityEvent], cla
 
 def classify_case(activity_case: FCActivityCase, documents: Iterable[FCActivityDocument]) -> dict[str, Any]:
     events = _case_events(activity_case, documents)
-    return _case_report(activity_case, events, classify_events(events))
+    return _case_report(activity_case, events, classify_events(events, nature=activity_case.nature))
+
+
+def _classify_with_nature(item: tuple[list[ActivityEvent], str | None]) -> dict[str, Any]:
+    events, nature = item
+    return classify_events(events, nature=nature)
 
 
 def classify_cases(
@@ -1580,10 +1759,11 @@ def classify_cases(
 ) -> list[dict[str, Any]]:
     """Classify a batch of cases, optionally spreading the work over a process pool."""
     event_lists = [_case_events(case, documents_by_case.get(case.id, [])) for case in cases]
+    items = [(events, case.nature) for case, events in zip(cases, event_lists)]
     if pool is None:
-        classifications = [classify_events(events) for events in event_lists]
+        classifications = [_classify_with_nature(item) for item in items]
     else:
-        classifications = list(pool.map(classify_events, event_lists, chunksize=max(1, len(event_lists) // 64)))
+        classifications = list(pool.map(_classify_with_nature, items, chunksize=max(1, len(items) // 64)))
     return [_case_report(case, events, classification) for case, events, classification in zip(cases, event_lists, classifications)]
 
 

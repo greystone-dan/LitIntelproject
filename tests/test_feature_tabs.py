@@ -202,7 +202,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {
-        '/citation-map': 'workbench', '/live-analysis': 'workbench',
+        '/citation-map': 'workbench', '/live-analysis': 'workbench', '/deidentify': 'workbench',
         '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
     }
     assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
@@ -447,7 +447,7 @@ def test_citation_intelligence_overview_has_stable_context_and_result_states():
 def test_case_search_has_clear_primary_query_and_filter_state():
     html = routes._data_explorer_page_html()
 
-    assert 'class="search-intro"' in html
+    assert 'class="search-hero"' in html
     assert 'class="search-query-row"' in html
     assert 'role="combobox"' in html
     assert 'id="searchSuggestions"' in html

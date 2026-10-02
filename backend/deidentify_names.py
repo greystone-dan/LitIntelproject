@@ -23,7 +23,7 @@ from .deidentify import NAME_PARTICLES
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL = "en_core_web_lg"
+DEFAULT_MODEL = "en_core_web_md"
 CHUNK_CHARS = 20000
 
 _NAME_WORD = r"[A-ZÀ-ÖØ-Þ][\w'’À-ÖØ-öø-ÿ-]*"
@@ -38,7 +38,7 @@ _HONORIFIC_NAME = re.compile(
 	r"\b" + _HONORIFIC + r"\s+(?!(?:Justice|Chief|Associate|Judge|Member|Commissioner)\b)(" + _NAME_WORD + r"(?:\s+" + _NAME_WORD + r"){0,3})"
 )
 _RELATION_NAME = re.compile(
-	r"\b(?:my|his|her|their|our|the claimant's|the applicant's)\s+" + _RELATION
+	r"\b(?:my|his|her|their|our|the claimant's|the applicant's)(?:\s+\w+['’]s)?\s+" + _RELATION
 	+ r",?\s+(" + _NAME_WORD + r"(?:\s+" + _NAME_WORD + r"){0,3})"
 )
 _DOCUMENT_OF = re.compile(
@@ -264,6 +264,14 @@ def detect_names(text: str, typed_names: Iterable[str] = (), never_hide: Iterabl
 		else:
 			found[name] = how
 			personal_context.update(w.casefold() for w in name.split() if not _INITIAL.fullmatch(w))
+
+	# A found surname drags in the capitalised words right before it: "by Harjinder Singh Sandhu".
+	for name in [n for n in found if " " not in n and len(n) >= 3]:
+		lead = re.compile(r"(?<=[a-z,;] )((?:" + _NAME_WORD + r" ){1,3})" + re.escape(name) + r"(?![\w'’-])")
+		for match in lead.finditer(text):
+			fuller = _clean(match.group(1) + name)
+			if fuller != name and _plausible(fuller, lowercase_words):
+				found.setdefault(fuller, found[name])
 
 	decision_makers: set[str] = set()
 	for match in _DECISION_MAKER.finditer(text):

@@ -111,11 +111,11 @@ def test_api_round_trip_without_database():
 
 spacy = pytest.importorskip("spacy")
 try:
-	spacy.load("en_core_web_lg")
+	spacy.load("en_core_web_md")
 	HAS_MODEL = True
 except OSError:
 	HAS_MODEL = False
-needs_model = pytest.mark.skipif(not HAS_MODEL, reason="en_core_web_lg is not installed")
+needs_model = pytest.mark.skipif(not HAS_MODEL, reason="en_core_web_md is not installed")
 
 NARRATIVE = """BASIS OF CLAIM
 

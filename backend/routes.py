@@ -2953,6 +2953,8 @@ def search_chunks_grouped(
 
 
 _CONTEXT_CHAR_LIMIT = 12_000
+_LOCAL_CONTEXT_CHAR_LIMIT = 4_000
+_LOCAL_RAG_MAX_TOKENS = 256
 _RESEARCH_DISCLAIMER = (
 	"Research aid only � not legal advice. "
 	"Sources are unofficial copies; verify against authoritative records."
@@ -2980,20 +2982,24 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		)
 
 	context_parts: list[str] = []
-	for group in top_cases:
-		header = f"Case: {group.title} [{group.citation or 'No citation'}] ({group.date or 'Unknown date'})"
-		body = "\n".join(chunk.chunk_text for chunk in group.chunks)
-		context_parts.append(f"{header}\n{body}")
+	for case_number, group in enumerate(top_cases, start=1):
+		header = f"[S{case_number}] Case: {group.title} [{group.citation or 'No citation'}] ({group.date or 'Unknown date'})"
+		passages = [f"[S{case_number}P{passage_number}] {chunk.chunk_text}" for passage_number, chunk in enumerate(group.chunks, start=1)]
+		context_parts.append(f"{header}\n" + "\n".join(passages))
 
 	context = "\n\n---\n\n".join(context_parts)
-	if len(context) > _CONTEXT_CHAR_LIMIT:
-		context = context[:_CONTEXT_CHAR_LIMIT] + "\n[Context truncated]"
+	context_limit = _LOCAL_CONTEXT_CHAR_LIMIT if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else _CONTEXT_CHAR_LIMIT
+	if len(context) > context_limit:
+		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
 
 	system_prompt = (
 		"You are a Canadian legal research assistant helping lawyers and researchers find relevant case law. "
 		"Base your answer ONLY on the case excerpts provided below. "
-		"CRITICAL: Only cite cases that are explicitly named in the provided excerpts. "
+		"Use the evidence labels such as [S1P2] as inline citations for every material proposition. "
+		"CRITICAL: Only cite cases and propositions that are explicitly supported by the provided excerpts. "
 		"Do NOT draw on your training knowledge to add cases, statutes, or legal tests that are not in the excerpts. "
+		"Synthesize across authorities: identify the common rule, explain how each authority applies it, distinguish tensions or limits, and do not treat repeated language as independent confirmation. "
+		"Prefer a structured answer with: short conclusion, governing principles, application or limits, and an evidence-based caveat where the excerpts are incomplete. "
 		"If the excerpts discuss a different but related legal provision (e.g., s. 96 when s. 34 was asked), "
 		"say so explicitly and describe only what those cases actually say. "
 		"If the excerpts are genuinely insufficient to address the question, say so and suggest the user try a broader or rephrased query. "
@@ -3012,12 +3018,13 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		completion = provider.create_chat_completion(
 			model=provider.model_name,
 			temperature=search.temperature,
+			max_tokens=_LOCAL_RAG_MAX_TOKENS if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else None,
 			messages=[
 				{"role": "system", "content": system_prompt},
 				{"role": "user", "content": f"Question: {search.query}\n\nCase excerpts:\n{context}"},
 			],
 		)
-	except OpenAIError as exc:
+	except (OpenAIError, httpx.HTTPError) as exc:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
 			detail="The generation service is unavailable",

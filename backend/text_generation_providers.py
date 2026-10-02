@@ -25,7 +25,12 @@ class ChatGenerationProvider:
 
 class OpenAIChatProvider(ChatGenerationProvider):
 	def __init__(self, *, api_key: str, model_name: str) -> None:
-		self.client = OpenAI(api_key=api_key)
+		organization = os.environ.pop("OPENAI_ORG_ID", None)
+		try:
+			self.client = OpenAI(api_key=api_key)
+		finally:
+			if organization is not None:
+				os.environ["OPENAI_ORG_ID"] = organization
 		self.model_name = model_name
 
 	def create_chat_completion(self, **kwargs: Any) -> Any:

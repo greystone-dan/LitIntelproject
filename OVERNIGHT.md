@@ -123,6 +123,15 @@ The live progress command reports CREATE INDEX, not CREATE INDEX CONCURRENTLY;
 editing the migration does not change already-running sessions. No settings,
 processes, or index builds were changed during diagnosis.
 
+Authorized memory cleanup (2026-10-01): stopped unused Steam, Steam helpers,
+and Claude desktop processes only. Available Windows RAM rose from 1.33 GiB
+to 2.68 GiB of 11.84 GiB total. VS Code, SQL/PostgreSQL, Windows/security,
+sync and hardware services were preserved. At 16:40:58 local, the same builder
+PID 47696 remained unblocked at 189,348/241,571 blocks and 1,526,693 tuples,
+with IO/DataFileRead observed. This verifies continuity and freed memory, not
+a measured indexing speedup. Closing applications does not raise the active
+builder's maintenance_work_mem. Diagnostic defaults do not prove its overrides.
+
 
 This is the repository atlas and the canonical operational guide for bounded overnight work. It explains what each meaningful repository family does, how data moves between families, which boundaries are active or isolated, and how to validate changes. It is paired with these authorities:
 

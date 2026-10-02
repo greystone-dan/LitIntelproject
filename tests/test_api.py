@@ -6,6 +6,7 @@ from fastapi import HTTPException
 from pydantic import ValidationError
 
 from backend import routes
+from backend import search_service
 from backend.reader_service import _build_reader_inferred_tags
 from backend.models import (
     CaseIngestRequest,
@@ -13,6 +14,7 @@ from backend.models import (
     CaseSearchRequest,
     ChunkGroupSearchRequest,
     LocalChunkSearchRequest,
+    ResearchRequest,
 )
 
 
@@ -66,6 +68,7 @@ class FakeDatabase:
         self.scalars_values = []
         self.added = []
         self.committed = False
+        self.executed_statements = []
 
     def add(self, value):
         self.added.append(value)
@@ -79,8 +82,9 @@ class FakeDatabase:
     def refresh(self, value):
         value.id = 1
 
-    def execute(self, statement):
+    def execute(self, statement, params=None):
         self.statement = statement
+        self.executed_statements.append(statement)
         return self.rows
 
     def scalar(self, statement):
@@ -947,6 +951,93 @@ def test_grouped_chunk_search_groups_by_case(monkeypatch):
     assert result.cases[0].chunks[0].chunk_text == "Best passage A"
     assert len(result.cases[0].chunks) == 1
     assert result.cases[1].id == 202
+
+
+def test_grouped_chunk_search_supports_recent_case_cohort(monkeypatch):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(search_service, "_recent_5000_artifact_ready", lambda db: False)
+    case = SimpleNamespace(
+        id=401,
+        title="Recent case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 8, 1),
+        citation="2026 FC 401",
+        summary="A",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    chunk = SimpleNamespace(chunk_index=0, text="Recent passage")
+    database = FakeDatabase(rows=[(case, chunk, 0.1, 0.5)])
+
+    result = routes.search_chunks_grouped(
+        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+    )
+
+    assert result.total_cases == 1
+    compiled_sql = str(database.statement.compile())
+    assert "LIMIT" in compiled_sql
+    assert "cases.id IN" in compiled_sql
+
+
+def test_research_defaults_to_full_hosted_paragraph_retrieval():
+    request = ResearchRequest(query="procedural fairness")
+
+    assert request.chunk_set == "paragraph"
+    assert request.embedding_model == "text-embedding-3-small"
+    assert request.case_cohort is None
+
+
+def test_balanced_rag_local_passage_reranker_rewards_direct_answer_language():
+    direct = search_service._local_passage_relevance(
+        "What is the test for procedural fairness?",
+        "The court held that the applicable test for procedural fairness is contextual.",
+    )
+    background = search_service._local_passage_relevance(
+        "What is the test for procedural fairness?",
+        "The applicant described the history of the immigration application.",
+    )
+
+    assert direct > background
+
+
+def test_grouped_chunk_search_recent_cohort_uses_ivfflat_artifact(monkeypatch):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(search_service, "_recent_5000_artifact_ready", lambda db: True)
+    case = SimpleNamespace(
+        id=402,
+        title="Recent indexed case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 8, 2),
+        citation="2026 FC 402",
+        summary="A",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    artifact_chunk = SimpleNamespace(
+        chunk_index=0,
+        text="Recent indexed passage",
+    )
+    database = FakeDatabase(rows=[(case, artifact_chunk, 0.1, 0.5)])
+
+    result = routes.search_chunks_grouped(
+        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+    )
+
+    assert result.total_cases == 1
+    compiled_sql = str(database.statement.compile())
+    assert "recent_case_chunk_embeddings" in compiled_sql
+    assert any(
+        "set_config('ivfflat.probes'" in str(statement)
+        for statement in database.executed_statements
+    )
 
 
 def test_grouped_chunk_search_lexical_mode_skips_embedding(monkeypatch):

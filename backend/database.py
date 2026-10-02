@@ -264,6 +264,35 @@ class CaseChunkEmbedding(Base):
 	chunk = relationship("CaseChunk", back_populates="local_embeddings")
 
 
+class RecentCaseChunkEmbedding(Base):
+	__tablename__ = "recent_case_chunk_embeddings"
+
+	chunk_id: Mapped[int] = mapped_column(
+		Integer,
+		ForeignKey("case_chunks.id", ondelete="CASCADE"),
+		primary_key=True,
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer,
+		ForeignKey("cases.id", ondelete="CASCADE"),
+		nullable=False,
+		index=True,
+	)
+	chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
+	paragraph_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	paragraph_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	chunk_set: Mapped[str] = mapped_column(String(50), nullable=False, server_default="paragraph")
+	text: Mapped[str] = mapped_column(Text, nullable=False)
+	embedding: Mapped[list[float]] = mapped_column(Vector(1536), nullable=False)
+	embedding_model: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	refreshed_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	chunk = relationship("CaseChunk")
+	case = relationship("Case")
+
+
 class CaseTag(Base):
 	__tablename__ = "case_tags"
 	__table_args__ = (

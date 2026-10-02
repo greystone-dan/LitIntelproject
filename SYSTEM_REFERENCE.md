@@ -130,6 +130,24 @@ The API supports case-level, chunk-level, and grouped-chunk retrieval.
 - `hybrid` search combines semantic and lexical scores with validated weights.
 - `metadata` search emphasizes structured filters and text predicates.
 - Chunk search can group passages under their parent case.
+- Requests may set `case_cohort: "recent_5000"` to restrict retrieval to the
+  5,000 newest decisions ordered by decision date and ID. This cohort filter
+  is applied inside the SQL query. Semantic grouped/chunk retrieval can
+  optionally use a dedicated `recent_case_chunk_embeddings` artifact with an
+  IVFFlat cosine index (`lists=200`) scoped to this cohort and hosted
+  paragraph vectors (`text-embedding-3-small`). If that artifact is absent,
+  retrieval falls back to exact scan over canonical paragraph rows.
+- The full hosted paragraph corpus also has a partial IVFFlat cosine index on
+  non-null `text-embedding-3-small` vectors. It is approximately 15 GB and
+  uses per-session `ivfflat.probes`; exact retrieval remains the fallback.
+- `/research` now defaults to paragraph retrieval against this full hosted
+  vector corpus, then sends the bounded grouped excerpts to the configured
+  generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
+  generation; retrieval and generation models remain separate.
+- The active Data Explorer keeps ordinary case search as the default. Its
+  opt-in RAG checkbox calls `/research` and ranks candidate cases with the
+  default blend of 55% best paragraph similarity, 30% full-case similarity,
+  and 15% incoming citation authority.
 - Local BGE-M3 chunk embeddings are stored separately from hosted OpenAI
   1536-dimensional vectors. `scripts/embed_openai_chunks.py` writes
   `text-embedding-3-small` vectors to `case_chunks.embedding` for paragraph rows

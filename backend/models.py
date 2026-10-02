@@ -108,6 +108,7 @@ class CaseSearchRequest(BaseModel):
 	scraped_from: date | None = None
 	scraped_to: date | None = None
 	source_type: str | None = Field(default=None, max_length=100)
+	case_cohort: Literal["recent_5000"] | None = None
 	chunk_set: str | None = Field(default=None, max_length=50)
 	embedding_model: str | None = Field(default=None, max_length=100)
 	language: str | None = Field(default=None, max_length=10)
@@ -412,6 +413,7 @@ class LocalChunkSearchRequest(CaseSearchRequest):
 
 class ChunkGroupSearchRequest(CaseSearchRequest):
 	max_chunks_per_case: int = Field(default=2, ge=1, le=10)
+	ranking_mode: Literal["paragraph", "balanced_rag"] = "paragraph"
 
 
 class ChunkPassage(BaseModel):
@@ -751,8 +753,25 @@ class A2AJCaseMapResponse(BaseModel):
 
 
 class ResearchRequest(ChunkGroupSearchRequest):
-	max_cases: int = Field(default=5, ge=1, le=10)
+	max_cases: int = Field(default=8, ge=1, le=10)
 	temperature: float = Field(default=0.3, ge=0.0, le=1.0)
+	chunk_set: Literal["paragraph"] = "paragraph"
+	embedding_model: Literal["text-embedding-3-small"] = "text-embedding-3-small"
+	ranking_mode: Literal["paragraph", "balanced_rag"] = "balanced_rag"
+	paragraph_weight: float = Field(default=0.55, ge=0.0, le=1.0)
+	case_similarity_weight: float = Field(default=0.30, ge=0.0, le=1.0)
+	citation_weight: float = Field(default=0.15, ge=0.0, le=1.0)
+	candidate_pool: int = Field(default=300, ge=10, le=500)
+	max_chunks_per_case: int = Field(default=4, ge=1, le=10)
+	page_size: int = Field(default=50, ge=1, le=50)
+
+	@model_validator(mode="after")
+	def validate_ranking_weights(self) -> "ResearchRequest":
+		if self.ranking_mode == "balanced_rag" and (
+			self.paragraph_weight + self.case_similarity_weight + self.citation_weight <= 0
+		):
+			raise ValueError("balanced_rag requires positive ranking weights")
+		return self
 	# override ChunkGroupSearchRequest defaults for richer context
 	max_chunks_per_case: int = Field(default=3, ge=1, le=10)
 	page_size: int = Field(default=20, ge=1, le=50)

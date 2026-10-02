@@ -795,8 +795,12 @@ def fetch_analytics_search_cases(
 		params["judge"] = f"%{judge}%"
 		filters.append("c.metadata_json->'reader_extracted'->>'judge' ILIKE :judge")
 	if court:
-		params["court"] = f"%{court}%"
-		filters.append("c.court ILIKE :court")
+		if court.strip().upper() == "FC":
+			# Exact match so "FC" does not also match "FCA" or "Federal Court of Appeal".
+			filters.append("UPPER(c.court) IN ('FC', 'FEDERAL COURT')")
+		else:
+			params["court"] = f"%{court}%"
+			filters.append("c.court ILIKE :court")
 	if year:
 		params["year"] = f"{year}%"
 		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
@@ -815,6 +819,10 @@ def fetch_analytics_search_cases(
 	resolved_target_cases = (
 		"(SELECT COUNT(DISTINCT cited.target_case_id) FROM citations cited "
 		"WHERE cited.source_case_id = c.id AND cited.target_case_id IS NOT NULL)"
+	)
+	cited_by_cases = (
+		"(SELECT COUNT(DISTINCT cited.source_case_id) FROM citations cited "
+		"WHERE cited.target_case_id = c.id AND cited.source_case_id <> c.id)"
 	)
 	default_sort = (
 		"matching_citations DESC, c.date DESC NULLS LAST, c.id DESC"
@@ -847,6 +855,7 @@ def fetch_analytics_search_cases(
 				,{citation_mentions} AS citation_mentions
 				,{unique_cited_authorities} AS unique_cited_authorities
 				,{resolved_target_cases} AS resolved_target_cases
+				,{cited_by_cases} AS cited_by_cases
 			FROM cases c
 			WHERE {where_clause}
 			ORDER BY {sort_order}
@@ -872,6 +881,7 @@ def fetch_analytics_search_cases(
 				"citation_mentions": int(row["citation_mentions"] or 0),
 				"unique_cited_authorities": int(row["unique_cited_authorities"] or 0),
 				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
+				"cited_by_cases": int(row["cited_by_cases"] or 0),
 			}
 			for row in rows
 		],

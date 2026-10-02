@@ -31,6 +31,21 @@ _FOOTER_START_RE = re.compile(r"^(?:(?:NAMES OF COUNSEL AND )?SOLICITORS OF RECO
 _COUNSEL_START_RE = re.compile(r"^(?:Solicitors?|Attorneys?|Counsel|Appeal (?:allowed|dismissed)|Judgment accordingly)", re.IGNORECASE)
 _BARE_PARA_RE = re.compile(r"^(\d{1,3})\s+(?=\S)")
 _FOOTNOTE_RE = re.compile(r"^\[(\d{1,3})\]\s+(?=\S)")
+_SIGNATURE_RE = re.compile(
+    r"^(?:[A-ZÀ-Ý][A-ZÀ-Ý'’ .\-]{2,40} (?:J\.A\.|J\.|C\.J\.|C\.J\.C\.|P\.)|J\.A\.|J\.|Judge|Prothonotary|Justice|Juge|Assessment Officer)$"
+)
+_SIGNED_NAME_RE = re.compile(r'^[“"][A-Z][^“”"]{3,60}[”"]$')
+_COURTLINE_START_RE = re.compile(
+    r"^(?:Heard at|Judgment delivered|Reasons for judgment|REASONS FOR JUDGMENT|Concurred in by|Dissenting reasons|Certified true translation|Date:|Docket:)",
+    re.IGNORECASE,
+)
+_PLAIN_HEADING_RE = re.compile(
+    r"^(?:Analysis(?: and decision)?|Conclusion|Background|Issues?|Facts|Overview|Introduction|Decision|Disposition|Standard of review|Relevant legislation|Costs?)$",
+    re.IGNORECASE,
+)
+_OPERATIVE_RE = re.compile(r"^(?:THIS COURT[’']S (?:JUDGMENT|ORDER)(?: is)?(?: that)?:?|JUDGMENT|ORDER)$")
+_QUOTE_FILLER_RE = re.compile(r"^(?:\[…\]|…|\.\.\.|\[Emphasis (?:added\.?|in original\.?)\]|\[footnotes? omitted\]|\[Citations? omitted\])$", re.IGNORECASE)
+_NOTE_SHAPE_RE = re.compile(r"^\[(\d{1,3})\]\s+(?:\(\d{4}\)|\[\d{4}\]|\d{1,3}\s+[A-Z][A-Za-z.]*\s)")
 _ROMAN = {"I", "V", "X"}
 _NON_HEADING_UPPER = {"SOLICITORS OF RECORD", "APPEARANCES"}
 
@@ -111,6 +126,9 @@ def format_decision(text: str | None) -> list[dict[str, Any]]:
                 first_para_seen = True
                 continue
         para = _PARA_RE.match(raw)
+        if para and len(raw) <= 120 and _NOTE_SHAPE_RE.match(raw):
+            blocks.append(_block("footnote", start, end, num=int(para.group(1))))
+            continue
         if para and not in_counsel:
             first_para_seen = True
             last_num = int(para.group(1))
@@ -140,6 +158,8 @@ def format_decision(text: str | None) -> list[dict[str, Any]]:
                 blocks.append(_block("role", start, end))
             elif _CONNECTOR_RE.match(stripped):
                 blocks.append(_block("connector", start, end))
+            elif _SIGNATURE_RE.match(stripped) or _COURTLINE_START_RE.match(stripped):
+                blocks.append(_block("courtline", start, end))
             elif re.match(r"^(?:Date|Docket|Citation|Neutral citation|File No\.?|Present|PRESENT|Coram|CORAM):", stripped) or re.match(
                 r"^(?:Ottawa|Toronto|Montréal|Montreal|Vancouver|Calgary|Winnipeg|Halifax|Edmonton|Quebec|Québec),\s", stripped
             ):
@@ -153,15 +173,25 @@ def format_decision(text: str | None) -> list[dict[str, Any]]:
                 else:
                     blocks.append(_block("text", start, end))
             continue
-        hm = _HEADING_RE.match(stripped)
-        if hm and not stripped.endswith((".", ",", ";", ":")):
-            blocks.append(_block("heading", start, end, level=_heading_level(hm.group("label"))))
-        elif _UPPER_HEADING_RE.match(stripped) and stripped not in _NON_HEADING_UPPER and len(stripped.split()) <= 8:
+        prev = blocks[-1]["type"] if blocks else None
+        if _SIGNATURE_RE.match(stripped) or (_SIGNED_NAME_RE.match(stripped) and len(stripped) < 50):
+            blocks.append(_block("signature", start, end))
+        elif _COURTLINE_START_RE.match(stripped):
+            blocks.append(_block("courtline", start, end))
+        elif _OPERATIVE_RE.match(stripped) or _PLAIN_HEADING_RE.match(stripped):
             blocks.append(_block("heading", start, end, level=1))
-        elif stripped[0] in "“\"" and len(stripped) > 200:
+        elif _QUOTE_FILLER_RE.match(stripped) and prev in ("quote", "text", "para"):
             blocks.append(_block("quote", start, end))
-        elif _LISTITEM_RE.match(stripped):
-            blocks.append(_block("listitem", start, end))
+        elif stripped[0] in "“\"" and len(stripped) >= 80:
+            blocks.append(_block("quote", start, end))
         else:
-            blocks.append(_block("text", start, end))
+            hm = _HEADING_RE.match(stripped)
+            if hm and not stripped.endswith((".", ",", ";", ":")):
+                blocks.append(_block("heading", start, end, level=_heading_level(hm.group("label"))))
+            elif _UPPER_HEADING_RE.match(stripped) and stripped not in _NON_HEADING_UPPER and len(stripped.split()) <= 8:
+                blocks.append(_block("heading", start, end, level=1))
+            elif _LISTITEM_RE.match(stripped):
+                blocks.append(_block("listitem", start, end))
+            else:
+                blocks.append(_block("text", start, end))
     return blocks

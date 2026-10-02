@@ -373,6 +373,7 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <button class="tab" type="button" data-nav-group="research" data-tab="themes" aria-pressed="false" aria-controls="themesPanel">Legal Themes &amp; Statutes</button>
 <a class="tab" data-nav-group="workbench" href="/citation-map" hidden>Citation Map</a>
 <a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>
+<a class="tab" data-nav-group="workbench" href="/deidentify" hidden>De-identify</a>
 <button class="tab" type="button" data-nav-group="testing" data-tab="research-bench" aria-pressed="false" aria-controls="researchBenchPanel" hidden>Research Bench</button>
 <a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>
 <a class="tab" data-nav-group="testing" href="/citation-pass" hidden>Citation Pass QA</a>

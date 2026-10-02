@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T11:07:42.652512+00:00
+Generated: 2026-10-02T15:46:46.552369+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 89 across 89 paths
-Hidden operations: 43 excluded from OpenAPI
+Hidden operations: 47 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1488,6 +1488,39 @@ Handler: `backend.routes.citation_intelligence_timeline`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /api/deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `names` (str; default `Form()`)
+- `details` (str; default `Form()`)
+- `categories` (str; default `Form()`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/deidentify/docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_docx_api`
+
+**Handler parameters**
+
+- `text` (str; default `Form(PydanticUndefined)`)
+- `filename` (str; default `Form(document.docx)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/fc-activity/analytics`
 
 **Hidden from OpenAPI.**
@@ -1601,6 +1634,22 @@ Handler: `backend.routes.judge_profile`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /api/reidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.reidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `key` (str; default `Form(PydanticUndefined)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader`
 
 **Hidden from OpenAPI.**
@@ -1670,6 +1719,16 @@ Handler: `backend.routes.citation_pass_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.data_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_page`
 
 **Responses**
 

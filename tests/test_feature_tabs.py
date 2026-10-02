@@ -447,7 +447,7 @@ def test_citation_intelligence_overview_has_stable_context_and_result_states():
 def test_case_search_has_clear_primary_query_and_filter_state():
     html = routes._data_explorer_page_html()
 
-    assert 'class="search-intro"' in html
+    assert 'class="search-hero"' in html
     assert 'class="search-query-row"' in html
     assert 'role="combobox"' in html
     assert 'id="searchSuggestions"' in html

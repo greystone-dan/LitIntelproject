@@ -3231,3 +3231,8 @@ def test_new_csv_exports_include_expected_headers(monkeypatch):
 	assert dashboard_csv.media_type == "text/csv; charset=utf-8"
 	assert dashboard_csv.headers["content-disposition"] == 'attachment; filename="shift-dashboard.csv"'
 	assert b"replacement_candidate" in dashboard_csv.body
+
+def test_legacy_extraction_handles_case_name_chains(monkeypatch):
+	monkeypatch.setenv("CASELIBRARY_CITATION_PIPELINE", "legacy")
+	rows = citations.extract_raw_citation_matches("See Smith v. Canada, 2010 FC 5 at para 3.")
+	assert any(row.kind == "case" and "2010 FC 5" in row.normalized_citation for row in rows)

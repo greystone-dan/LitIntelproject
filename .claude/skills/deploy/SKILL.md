@@ -11,8 +11,8 @@ Runs only on Daniel's computer (the project's default device) through a Remote C
 2. `git checkout main` then `git pull origin main`. Note the new commit with `git log --oneline -1`.
 3. If `requirements.txt` changed in the pull, run `./venv/Scripts/python.exe -m pip install -r requirements.txt`.
 4. Restart the site.
-   - If the background service is installed (scheduled task `iLitSite`, see `scripts/service/`): `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`.
-   - Otherwise run `scripts\refresh_site.ps1` in a terminal that stays open (it blocks while the site runs; start it detached so the session is not stuck).
+   - The site runs as the scheduled task `iLitSite` (see `scripts/service/`): `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`.
+   - Never run `scripts\refresh_site.ps1` while the service is installed (it clashes on port 8001). Use it only if the task was removed, in a detached window that stays open.
 5. Verify, waiting up to about 30 seconds for startup:
    - `Invoke-RestMethod http://127.0.0.1:8001/health` returns ok.
    - `Invoke-WebRequest https://www.ilit.ca/health` returns 200 (proves the tunnel).

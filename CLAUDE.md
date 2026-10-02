@@ -6,7 +6,9 @@ The owner (Daniel) does not code. Explain things in plain words, do merges and d
 
 ## Where things run
 - The live site runs on Daniel's Windows workstation, not in the cloud. Cloud sessions cannot reach the database or the live site's machine; anything that touches the database or deploys goes through a Remote Control session on his computer.
-- `scripts\refresh_site.ps1` stops the old app and tunnel, then starts uvicorn (`backend.main:app`, port 8001) and the Cloudflare tunnel. It does not `git pull`.
+- Since 2026-10-02 the site and tunnel run as the Windows scheduled task `iLitSite` (`scripts\service\run_site.ps1`; installed by `scripts\service\install_site_service.ps1`, removed by `uninstall_site_service.ps1`). It starts at login, runs hidden, restarts itself, and runs whatever is checked out in his repo folder (`C:\Users\danny\OneDrive\Desktop\AI CaseLibrary`, path has spaces: quote paths). Keep that folder on `main`.
+- To deploy: `git pull origin main`, then `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite` (about 45 seconds down). Do not run `scripts\refresh_site.ps1` while the service is installed; it clashes on port 8001. It is only the fallback if the task is removed.
+- Registering scheduled tasks on his PC needs his own typed OK; his PC's permissions block it otherwise.
 - Cloudflare "Workers Builds" is unused. Ignore its failure emails.
 - Password gate (`CASELIBRARY_ACCESS_PASSWORD`) is deliberately off for now (Daniel's decision, 2026-10-02). Do not enable it unasked.
 

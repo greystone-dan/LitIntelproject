@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-29T12:46:29.251365+00:00
-Tables: 22
+Generated: 2026-10-02T11:07:43.595959+00:00
+Tables: 23
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -286,6 +286,18 @@ erDiagram
         TEXT text
         Integer display_order
     }
+    recent_case_chunk_embeddings {
+        Integer chunk_id PK FK
+        Integer case_id  FK
+        Integer chunk_index
+        Integer paragraph_start
+        Integer paragraph_end
+        String(50) chunk_set
+        TEXT text
+        VECTOR(1536) embedding
+        String(100) embedding_model
+        DATETIME refreshed_at
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -323,6 +335,8 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
+    cases ||--o{ recent_case_chunk_embeddings : "case_id"
+    case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -352,6 +366,7 @@ erDiagram
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
+| `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
@@ -967,6 +982,33 @@ erDiagram
 ### Foreign Keys
 
 - `document_id` -> `legislation_documents.id`; on delete `CASCADE`
+
+## `recent_case_chunk_embeddings`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `chunk_id` | `Integer` | no | PK; FK -> case_chunks.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_index` | `Integer` | no | NOT NULL |
+| `paragraph_start` | `Integer` | yes | - |
+| `paragraph_end` | `Integer` | yes | - |
+| `chunk_set` | `String(50)` | no | NOT NULL; default=paragraph |
+| `text` | `TEXT` | no | NOT NULL |
+| `embedding` | `VECTOR(1536)` | no | NOT NULL |
+| `embedding_model` | `String(100)` | no | NOT NULL |
+| `refreshed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_recent_case_chunk_embeddings_case_id`: index on `case_id`
+- `ix_recent_case_chunk_embeddings_embedding_model`: index on `embedding_model`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
 
 ## `statute_references`
 

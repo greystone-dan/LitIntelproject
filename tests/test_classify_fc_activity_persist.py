@@ -5,13 +5,13 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 
 import scripts.classify_fc_activity as classifier
-from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivityMotion, FCActivitySummary
 
 
 @pytest.fixture()
 def session_factory(monkeypatch):
     engine = create_engine("sqlite://")
-    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__, FCActivitySummary.__table__):
+    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__, FCActivitySummary.__table__, FCActivityMotion.__table__):
         table.create(engine)
     factory = sessionmaker(bind=engine)
     monkeypatch.setattr(classifier, "SessionLocal", factory)

@@ -626,6 +626,30 @@ class FCActivityClassification(Base):
 	source_case = relationship("FCActivityCase", back_populates="classification")
 
 
+class FCActivityMotion(Base):
+	"""One row per motion in a classified IMM file: type, filer, outcome and the judge who ruled."""
+
+	__tablename__ = "fc_activity_motions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	position: Mapped[int] = mapped_column(Integer, nullable=False)
+	motion_type: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	filer: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	outcome: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	link: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	filed_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	decision_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	days_to_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	in_writing: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	relief: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
 class FCActivitySummary(Base):
 	"""One flat row per classified IMM file so the site can aggregate without parsing classification_json."""
 

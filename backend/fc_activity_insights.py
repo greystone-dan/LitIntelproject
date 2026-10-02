@@ -15,7 +15,7 @@ from fastapi import HTTPException, status
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from backend.database import FCActivityClassification, FCActivitySummary
+from backend.database import FCActivityClassification, FCActivityMotion, FCActivitySummary
 
 _CACHE: dict[tuple[Any, ...], tuple[float, dict[str, Any]]] = {}
 _CACHE_SECONDS = 600
@@ -261,11 +261,26 @@ def fetch_fc_activity_judges(
                 entry[f"jr_{row.review_result}"] += 1
                 if row.days_hearing_to_judgment is not None:
                     entry["days_to_judgment"].append(int(row.days_hearing_to_judgment))
+        motion_statement = select(FCActivityMotion.judge_key, FCActivityMotion.judge_name, FCActivityMotion.motion_type, FCActivityMotion.outcome, func.count().label("count")).where(
+            FCActivityMotion.judge_key.is_not(None), FCActivityMotion.outcome.in_(("granted", "granted_in_part", "dismissed"))
+        )
+        if year_from is not None:
+            motion_statement = motion_statement.where(FCActivityMotion.year >= year_from)
+        if year_to is not None:
+            motion_statement = motion_statement.where(FCActivityMotion.year <= year_to)
+        for row in db.execute(motion_statement.group_by(FCActivityMotion.judge_key, FCActivityMotion.judge_name, FCActivityMotion.motion_type, FCActivityMotion.outcome)).all():
+            entry = bucket(row.judge_key, row.judge_name)
+            granted = row.outcome != "dismissed"
+            entry["motion_decisions"] = entry.get("motion_decisions", 0) + int(row.count)
+            entry["motion_granted"] = entry.get("motion_granted", 0) + (int(row.count) if granted else 0)
+            if row.motion_type in {"stay_of_removal", "stay_of_release"}:
+                entry["stay_decisions"] = entry.get("stay_decisions", 0) + int(row.count)
+                entry["stay_granted"] = entry.get("stay_granted", 0) + (int(row.count) if granted else 0)
         rows = []
         for entry in judges.values():
             leave_total = entry["leave_granted"] + entry["leave_refused"]
             jr_total = entry["jr_granted"] + entry["jr_dismissed"]
-            if max(leave_total, jr_total) < min_decisions:
+            if max(leave_total, jr_total, entry.get("motion_decisions", 0)) < min_decisions:
                 continue
             name = max(entry["names"].items(), key=lambda item: item[1])[0] if entry["names"] else entry["key"]
             rows.append(
@@ -277,14 +292,18 @@ def fetch_fc_activity_judges(
                     "jr_decisions": jr_total,
                     "jr_grant_rate": _rate(entry["jr_granted"], jr_total),
                     "median_days_hearing_to_judgment": int(median(entry["days_to_judgment"])) if entry["days_to_judgment"] else None,
+                    "motion_decisions": entry.get("motion_decisions", 0),
+                    "motion_grant_rate": _rate(entry.get("motion_granted", 0), entry.get("motion_decisions", 0)),
+                    "stay_decisions": entry.get("stay_decisions", 0),
+                    "stay_grant_rate": _rate(entry.get("stay_granted", 0), entry.get("stay_decisions", 0)),
                 }
             )
-        rows.sort(key=lambda row: (-(row["leave_decisions"] + row["jr_decisions"]), row["name"]))
+        rows.sort(key=lambda row: (-(row["leave_decisions"] + row["jr_decisions"] + row["motion_decisions"]), row["name"]))
         return {
             "min_decisions": min_decisions,
             "filters": {key: value for key, value in filters.items() if value not in ("", None)},
             "judges": rows,
-            "note": "Leave rates count leave decisions where the judge is named on the order. Judicial review rates count merits judgments. Small counts are not reliable.",
+            "note": "Leave rates count leave orders naming the judge; JR rates count merits judgments; motion and stay rates count rulings linked to a filed motion. Prothonotaries (associate judges) appear mainly for motions. Small counts are not reliable.",
         }
 
     return _cached(("judges", min_decisions, year_from, year_to, decision_body.strip()), build)
@@ -303,7 +322,7 @@ def fetch_fc_activity_case(db: Session, imm: str) -> dict[str, Any]:
         "full_history_resolution", "lifecycle_status", "leave_decision", "leave_context", "judicial_review_result",
         "decision_body", "challenged_decision", "judge_roles", "consent_disposition", "timeline", "hearings",
         "certified_question", "appeal", "stay_of_removal", "representation", "respondent_position", "filing_details",
-        "office_location", "motion_profile", "parties",
+        "office_location", "motion_profile", "parties", "motions",
     )
     summary = {key: classification.get(key) for key in keep if key in classification}
     challenged = summary.get("challenged_decision")
@@ -392,3 +411,85 @@ def fetch_fc_activity_counsel(
         }
 
     return _cached(("counsel", min_files, year_from, year_to, decision_body.strip(), city.strip()), build)
+
+
+MOTION_TYPE_LABELS = {
+    "stay_of_removal": "Stay of removal",
+    "stay_of_release": "Stay of release (detention)",
+    "extension_of_time": "Extension of time",
+    "judgment_on_consent": "Consent judgment / allow the application",
+    "reconsideration": "Reconsideration",
+    "adjournment": "Adjournment",
+    "abeyance": "Abeyance",
+    "dismiss_or_strike": "Dismiss or strike",
+    "amendment": "Amendment",
+    "confidentiality": "Confidentiality",
+    "production_or_record": "Production or record",
+    "further_evidence": "Further evidence",
+    "consolidation": "Consolidation",
+    "counsel": "Change or removal of counsel",
+    "intervention": "Intervention",
+    "expedite": "Expedite",
+    "release_or_detention": "Release or detention",
+    "costs": "Costs",
+    "other": "Other",
+}
+
+
+def fetch_fc_activity_motions(
+    db: Session,
+    *,
+    city: str = "",
+    year_from: int | None = None,
+    year_to: int | None = None,
+) -> dict[str, Any]:
+    """Motions by type: how often they are filed, granted, dismissed or never ruled on, and how long rulings take."""
+
+    def build() -> dict[str, Any]:
+        statement = select(FCActivityMotion.motion_type, FCActivityMotion.filer, FCActivityMotion.outcome, FCActivityMotion.days_to_decision)
+        if city.strip():
+            statement = statement.where(FCActivityMotion.city_filed == city.strip())
+        if year_from is not None:
+            statement = statement.where(FCActivityMotion.year >= year_from)
+        if year_to is not None:
+            statement = statement.where(FCActivityMotion.year <= year_to)
+        types: dict[str, dict[str, Any]] = {}
+        for row in db.execute(statement).all():
+            entry = types.setdefault(row.motion_type, {"motions": 0, "outcomes": {}, "by_filer": {}, "days": []})
+            entry["motions"] += 1
+            entry["outcomes"][row.outcome] = entry["outcomes"].get(row.outcome, 0) + 1
+            filer = entry["by_filer"].setdefault(row.filer or "unknown", {"granted": 0, "dismissed": 0})
+            if row.outcome in {"granted", "granted_in_part"}:
+                filer["granted"] += 1
+            elif row.outcome == "dismissed":
+                filer["dismissed"] += 1
+            if row.days_to_decision is not None and 0 <= row.days_to_decision <= 730:
+                entry["days"].append(int(row.days_to_decision))
+        rows = []
+        for motion_type, entry in types.items():
+            granted = entry["outcomes"].get("granted", 0) + entry["outcomes"].get("granted_in_part", 0)
+            dismissed = entry["outcomes"].get("dismissed", 0)
+            rows.append(
+                {
+                    "type": motion_type,
+                    "label": MOTION_TYPE_LABELS.get(motion_type, motion_type),
+                    "motions": entry["motions"],
+                    "granted": granted,
+                    "dismissed": dismissed,
+                    "grant_rate": _rate(granted, granted + dismissed),
+                    "withdrawn": entry["outcomes"].get("withdrawn", 0),
+                    "not_ruled": sum(entry["outcomes"].get(key, 0) for key in ("not_ruled_case_closed", "removed_from_list", "pending_or_unknown", "pending_at_last_entry", "reserved", "adjourned")),
+                    "median_days_to_ruling": int(median(entry["days"])) if entry["days"] else None,
+                    "applicant_grant_rate": _rate(entry["by_filer"].get("applicant", {}).get("granted", 0), sum(entry["by_filer"].get("applicant", {}).values())),
+                    "respondent_grant_rate": _rate(entry["by_filer"].get("respondent", {}).get("granted", 0), sum(entry["by_filer"].get("respondent", {}).values())),
+                }
+            )
+        rows.sort(key=lambda row: -row["motions"])
+        return {
+            "filters": {key: value for key, value in {"city": city, "year_from": year_from, "year_to": year_to}.items() if value not in ("", None)},
+            "total_motions": sum(row["motions"] for row in rows),
+            "types": rows,
+            "note": "Grant rates use motions with a ruling linked to them. 'Not ruled' covers motions overtaken by the end of the file, removed from the list, or still pending.",
+        }
+
+    return _cached(("motions", city.strip(), year_from, year_to), build)

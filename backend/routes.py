@@ -140,6 +140,7 @@ from .fc_activity_insights import (
 	fetch_fc_activity_counsel,
 	fetch_fc_activity_insights,
 	fetch_fc_activity_judges,
+	fetch_fc_activity_motions,
 )
 from .reader_service import (
 	build_case_citation_pass,
@@ -1171,6 +1172,16 @@ def fc_activity_counsel(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_fc_activity_counsel(db, min_files=min_files, year_from=year_from, year_to=year_to, decision_body=decision_body, city=city)
+
+
+@router.get("/api/fc-activity/motions", response_model=dict[str, Any], include_in_schema=False)
+def fc_activity_motions(
+	city: str = "",
+	year_from: int | None = None,
+	year_to: int | None = None,
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_fc_activity_motions(db, city=city, year_from=year_from, year_to=year_to)
 
 
 @router.get("/api/fc-activity/case", response_model=dict[str, Any], include_in_schema=False)

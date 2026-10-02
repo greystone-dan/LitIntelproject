@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 import backend.fc_activity_insights as insights
 import scripts.classify_fc_activity as classifier
-from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivityMotion, FCActivitySummary
 
 GRANTED = [
     ("2015-01-04", "Solicitor's certificate of service on behalf of Mario D. Bellissimo confirming service of doc 1 upon Respondent by email on 04-JAN-2015 filed on 04-JAN-2015"),
@@ -16,6 +16,11 @@ GRANTED = [
     ("2015-04-01", "Order rendered by The Honourable Madam Justice Strickland at Ottawa on 01-APR-2015 granting the application for leave fixing the hearing"),
     ("2015-06-17", "Toronto 17-JUN-2015 BEFORE The Honourable Madam Justice Strickland Language: E Before the Court: Judicial Review Result of Hearing: Matter reserved held in Court Total Duration: 1h"),
     ("2015-09-02", "(Final decision) Reasons for Judgment and Judgment dated 02-SEP-2015 rendered by The Honourable Madam Justice Strickland Matter considered with personal appearance The Court's decision is with regard to Judicial Review Result: granted Filed on 02-SEP-2015"),
+]
+STAY = [
+    ("2014-06-01", "Application for leave and judicial review against a decision CBSA Inland Enforcement Toronto filed on 01-JUN-2014"),
+    ("2014-06-25", "Notice of Motion contained within a Motion Record on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of removal to Kosovo scheduled for 03-JUL-2014"),
+    ("2014-06-26", "Order rendered by The Honourable Madam Justice Strickland at Toronto on 26-JUN-2014 granting the stay of execution Decision filed on 26-JUN-2014"),
 ]
 REFUSED = [
     ("2016-01-05", "Application for leave and judicial review against a decision visa officer, High Commission of Canada filed on 05-JAN-2016"),
@@ -26,13 +31,13 @@ REFUSED = [
 @pytest.fixture()
 def session_factory(monkeypatch, tmp_path):
     engine = create_engine("sqlite://")
-    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__, FCActivitySummary.__table__):
+    for table in (FCActivityCase.__table__, FCActivityDocument.__table__, FCActivityClassification.__table__, FCActivitySummary.__table__, FCActivityMotion.__table__):
         table.create(engine)
     factory = sessionmaker(bind=engine)
     monkeypatch.setattr(classifier, "SessionLocal", factory)
     insights._CACHE.clear()
     with factory() as session:
-        for case_id, (entries, city, year) in enumerate([(GRANTED, "Toronto", 2015), (REFUSED, "Ottawa", 2016), (REFUSED, "Ottawa", 2016)], start=1):
+        for case_id, (entries, city, year) in enumerate([(GRANTED, "Toronto", 2015), (REFUSED, "Ottawa", 2016), (REFUSED, "Ottawa", 2016), (STAY, "Toronto", 2014)], start=1):
             session.add(FCActivityCase(id=case_id, source_key=f"k{case_id}", citation=f"IMM-{case_id}-{year % 100}", year=year, city_filed=city, nature="Imm - Appl. for leave & jud. review - IRB - Refugee"))
             for index, (doc_date, text) in enumerate(entries, start=1):
                 session.add(FCActivityDocument(case_id=case_id, re_no=str(index), docno=str(index), doc_dt=date.fromisoformat(doc_date), recorded_entry=text))
@@ -44,15 +49,15 @@ def session_factory(monkeypatch, tmp_path):
 def test_insights_summarize_rates_durations_and_breakdowns(session_factory):
     with session_factory() as db:
         result = insights.fetch_fc_activity_insights(db)
-    assert result["total_files"] == 3
+    assert result["total_files"] == 4
     assert result["headline"]["leave_decisions"] == 3
     assert result["headline"]["leave_grant_rate"] == pytest.approx(1 / 3, abs=1e-3)
     assert result["headline"]["judicial_review_grant_rate"] == 1.0
     assert result["durations"]["days_filing_to_leave_decision"]["count"] == 3
     bodies = {row["value"]: row["count"] for row in result["breakdowns"]["decision_body"]["rows"]}
-    assert bodies == {"irb_rpd": 1, "visa_office": 2}
+    assert bodies == {"irb_rpd": 1, "visa_office": 2, "cbsa": 1}
     reasons = {row["value"]: row["count"] for row in result["breakdowns"]["leave_refusal_reason"]["rows"]}
-    assert reasons == {"not_perfected": 2, "not_applicable": 1}
+    assert reasons == {"not_perfected": 2, "not_applicable": 2}
 
 
 def test_insights_filter_by_city(session_factory):
@@ -70,6 +75,18 @@ def test_judge_table_counts_leave_and_merits_decisions(session_factory):
     assert judge["leave_grant_rate"] == pytest.approx(1 / 3, abs=1e-3)
     assert judge["jr_decisions"] == 1
     assert judge["median_days_hearing_to_judgment"] == 77
+    assert judge["stay_decisions"] == 1
+    assert judge["stay_grant_rate"] == 1.0
+
+
+def test_motions_by_type(session_factory):
+    with session_factory() as db:
+        result = insights.fetch_fc_activity_motions(db)
+    stay = next(row for row in result["types"] if row["type"] == "stay_of_removal")
+    assert stay["motions"] == 1
+    assert stay["grant_rate"] == 1.0
+    assert stay["median_days_to_ruling"] == 1
+    assert stay["applicant_grant_rate"] == 1.0
 
 
 def test_case_lookup_returns_compact_classification(session_factory):

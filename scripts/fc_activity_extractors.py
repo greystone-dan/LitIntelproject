@@ -550,7 +550,7 @@ def extract_insights(events: list[Any], classification: dict[str, Any], citation
         "hearings": hearings,
         "certified_question": certified,
         "appeal": appeal,
-        "stay_of_removal": extract_stay_of_removal(events),
+        "stay_of_removal": _stay_from_register(extract_stay_of_removal(events), classification.get("motions") or {}),
         "representation": extract_representation(events, hearings),
         "respondent_position": extract_respondent_position(events, leave.get("date") if leave.get("result") in {"granted", "refused"} else None),
         "filing_details": {
@@ -559,7 +559,7 @@ def extract_insights(events: list[Any], classification: dict[str, Any], citation
         },
         "timeline": build_timeline(classification, hearings),
         "office_location": extract_office_location(classification),
-        "motion_profile": extract_motion_profile(classification, events),
+        "motion_profile": motion_profile_from_register(classification.get("motions") or extract_motions(events)),
         "parties": extract_parties(events),
     }
 
@@ -645,6 +645,64 @@ def extract_motion_profile(classification: dict[str, Any], events: list[Any]) ->
     }
 
 
+_STAY_STATUS = {"granted": "granted", "granted_in_part": "granted", "dismissed": "refused", "withdrawn": "withdrawn", "moot": "moot_or_removal_cancelled"}
+
+
+def _stay_from_register(stay: dict[str, Any], register: dict[str, Any]) -> dict[str, Any]:
+    """Prefer the motion register's linked ruling for the stay outcome, keeping removal details from the text reader."""
+    stays = [motion for motion in register.get("motions") or [] if motion["type"] in {"stay_of_removal", "stay_of_release"}]
+    if not stays:
+        return stay
+    decided = [motion for motion in stays if motion["outcome"] in _STAY_STATUS]
+    chosen = decided[-1] if decided else stays[-1]
+    status = _STAY_STATUS.get(chosen["outcome"], "requested" if chosen.get("filed_doc_id") else stay.get("status", "mentioned"))
+    return {
+        **stay,
+        "status": status,
+        "motions": len(stays),
+        "decision_date": chosen.get("decision_date") or stay.get("decision_date"),
+        "decision_judge": chosen.get("judge") or stay.get("decision_judge"),
+        "rule": "motion_register",
+    }
+
+
+def motion_rows(register: dict[str, Any]) -> list[dict[str, Any]]:
+    """Flat rows for fc_activity_motions."""
+    rows = []
+    for position, motion in enumerate(register.get("motions") or [], start=1):
+        judge = motion.get("judge") or {}
+        rows.append(
+            {
+                "position": position,
+                "motion_type": motion["type"],
+                "filer": motion.get("filer"),
+                "outcome": motion["outcome"],
+                "link": motion.get("link"),
+                "judge_key": judge.get("key"),
+                "judge_name": judge.get("name"),
+                "filed_date": motion.get("filed_date"),
+                "decision_date": motion.get("decision_date"),
+                "days_to_decision": motion.get("days_to_decision"),
+                "in_writing": motion.get("in_writing"),
+                "relief": (motion.get("relief") or "")[:400] or None,
+            }
+        )
+    return rows
+
+
+def motion_profile_from_register(register: dict[str, Any]) -> dict[str, Any]:
+    motions = register.get("motions") or []
+    extension = [motion for motion in motions if motion["type"] == "extension_of_time" and motion["outcome"] in {"granted", "granted_in_part", "dismissed"}]
+    return {
+        "motions_filed": sum(1 for motion in motions if motion.get("filed_doc_id")),
+        "motions_ruled": register.get("decided", 0),
+        "families": sorted({motion["type"] for motion in motions}),
+        "decisions": register.get("by_type", {}),
+        "reconsideration_requested": any(motion["type"] == "reconsideration" for motion in motions),
+        "extension_of_time": None if not extension else "granted" if any(motion["outcome"] != "dismissed" for motion in extension) else "refused",
+    }
+
+
 def extract_parties(events: list[Any]) -> dict[str, Any]:
     name = next((event.case_name for event in events if getattr(event, "case_name", None)), None) or ""
     parts = re.split(r"\s+v\.?\s+|\s+c\.\s+", name, maxsplit=1)
@@ -706,4 +764,332 @@ def summary_row(classification: dict[str, Any]) -> dict[str, Any]:
         "extension_of_time": text(get("motion_profile", "extension_of_time"), 40),
         "dormant": bool(get("lifecycle_status", "status") == "active" and (get("history_profile", "days_since_last_entry") or 0) > 730),
         "days_decision_to_filing": timeline.get("days_decision_to_filing"),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Motion register: each motion filed, its type, who filed it, and the decision on it.
+# ---------------------------------------------------------------------------
+
+_MOTION_FILING = re.compile(
+    r"^\W*(?:\*+\s*)?(?:amended\s+|further\s+amended\s+)?(?:notice of motion|avis de requ[êe]te|requ[êe]te (?:par voie de lettre|informelle|écrite)|requ[êe]te (?:de la part|en vertu|pour|selon)|informal (?:motion|request)|request by way of letter|motion (?:in writing )?by (?:way of )?letter|notice of (?:cross|urgent) motion)",
+    re.IGNORECASE,
+)
+_NOT_DECISION = re.compile(
+    r"^\W*(?:copy|copie|acknowledg|accus[ée]|certified|traduction|draft|projet|letter|lettre|communication|memorandum|mémoire|notice of|avis de|motion record|dossier de (?:la )?requ|affidavit|written representations|book of|reply|réplique|consent|consentement|solicitor|attestation|record|reasons for order dated)",
+    re.IGNORECASE,
+)
+_COURT_ACT = re.compile(r"\brendered\b|\brendu(?:\(e\))?s?\b|^\W*(?:\(final decision\)\s*|\(décision finale\)\s*)?(?:order|ordonnance|judgment|jugement)\b[^\n]{0,40}?(?:dated|en date)|order of the court", re.IGNORECASE)
+_MOTION_DOC_REF = re.compile(
+    r"(?:motion|requ[êe]te)(?:\s+in\s+writing)?\s*(?:\(|,)?\s*(?:doc(?:ument)?s?\.?|#)\s*(?:n[°oº]?\.?|no\.?|number|#)?\s*(\d{1,3})\b"
+    r"|\(\s*(?:motion|requ[êe]te)\s+doc(?:ument)?\.?\s*(?:n[°oº]?\.?|no\.?|#)?\s*(\d{1,3})\s*\)"
+    r"|(?:granting|dismissing|accordant|rejetant)\s+(?:the\s+|la\s+)?(?:motion|requ[êe]te)(?:\(s\))?\s*(?:doc\.?\s*)?#?\s*(\d{1,3})\b"
+    r"|(?:motion|requ[êe]te)[^\n]{0,80}?\(\s*doc(?:ument)?\.?\s*(?:n[°oº]?\.?|no\.?|#)?\s*(\d{1,3})\s*\)"
+    # 1990s registry wording names every motion "the application for an extension of time <doc>".
+    r"|(?:application|demande) (?:for an |de )(?:extension of time|prorogation de délai)\s+(\d{1,3})\b",
+    re.IGNORECASE,
+)
+_ENTRY_ID_REF = re.compile(r"\(\s*id\s*(?:no\.?|#)?\s*(\d{1,3})\s*\)|\bid\s*#\s*(\d{1,3})\b|\(id\s*#?(\d{1,3})\)", re.IGNORECASE)
+_STRUCTURED_MOTION_RESULT = re.compile(
+    r"with regard to (?:the )?(?:motion|requ[êe]te|letter|informal (?:motion|request)|request)[^\n]{0,160}?result\s*:\s*([^\n]{0,60})"
+    r"|concernant (?:\(le/la/l['’]\) )?(?:la |le |l['’])?(?:requ[êe]te|lettre|demande informelle)[^\n]{0,160}?r[ée]sultat\s*:\s*([^\n]{0,60})",
+    re.IGNORECASE,
+)
+_DIRECTION_RULING = re.compile(r"^\W*(?:oral\s+)?directions? (?:of the (?:court|presiding judge)|verbales|de la cour)[^\n]{0,160}?directing[^\n]{0,40}?\b(granted|is granted|refused|is refused|dismissed|denied|accordée?|rejetée?)\b", re.IGNORECASE)
+_IMPLICIT_GRANT = re.compile(r"this court orders|il est ordonné|la cour ordonne|is (?:hereby )?(?:extended|adjourned|granted an extension)|(?:is|are) granted an extension|time (?:for|to) [^\n]{0,60}?is extended", re.IGNORECASE)
+_HEARING_MOTION = re.compile(r"(?:before the court|matière en litige)\s*:\s*(?:continuation of (?:the )?)?(?:reprise [^\n]{0,30})?(?:motion|requ[êe]te)[^\n]{0,200}?(?:result of hearing|résultat de l['’]audition)\s*:\s*([^\n]{0,60})", re.IGNORECASE)
+_LEAVE_ORDER = re.compile(r"(?:granting|dismissing|accordant|rejetant)\s+(?:the\s+|la\s+)?(?:application for leave|demande d['’]autorisation)|dismissing the (?:application for (?:an )?)?extension of time to (?:file|commence)", re.IGNORECASE)
+_WITHDRAWN_MOTION = re.compile(r"(?:(?:motion|requ[êe]te)\s+doc(?:ument)?\.?\s*(?:no\.?\s*)?\d+[^\n]{0,120}?\bnow withdrawn|notice of (?:withdrawal|abandonment|discontinuance) of (?:the |its |their |[\w-]+['’]s )*(?:\w+ )?motion|(?<!if current )(?<!if the )(?<!if )withdraw(?:s|ing)? (?:the |its |their |his |her )?motion|motion (?:is |was |has been )?(?:withdrawn|abandoned)|désistement de (?:la )?requ[êe]te|retrait de la requ[êe]te)", re.IGNORECASE)
+
+MOTION_TYPES: tuple[tuple[str, str], ...] = (
+    ("stay_of_release", r"stay(?:ing)?\b[^\n]{0,40}?(?:order (?:of|for) release|release order|release of the respondent)|sursis [^\n]{0,30}mise en liberté"),
+    ("stay_of_removal", r"\bstay(?:ing)?\b[^\n]{0,60}?(?:removal|deportation|execution|exclusion|departure)|sursis|\bstay of (?:the )?(?:removal|execution|deportation)"),
+    ("judgment_on_consent", r"(?:judgment|order|jugement)\s+(?:on|by|par|sur)\s+consent|consent judgment|consentement (?:à|a) jugement|settle|allow(?:ing)? the (?:application|judicial review|jr)|grant(?:ing)? the (?:application for )?(?:leave and )?(?:for )?judicial review|grant(?:ing)? the application\b(?! for (?:an )?extension)|(?:judicial review|application|jr) (?:is|be|shall be) (?:allowed|granted)|leave (?:of the court )?(?:is|be|shall be) granted[^\n]{0,80}?(?:judicial review|set aside|quash|redetermin)|set(?:ting)? aside the decision|quash(?:ing)? the decision|redetermination|referr?(?:ing|ed)? (?:the matter )?back|accueillir la demande de contrôle"),
+    ("extension_of_time", r"extension of time|extend(?:ing)? (?:the )?time|prorogation|proroger|délai|more time|additional time"),
+    ("reconsideration", r"reconsider|rule\s*39[79]|règle\s*39[79]|nouvel examen|vary (?:the|an?) order"),
+    ("adjournment", r"adjourn|reschedul|postpone|ajourn|remise|change (?:the )?(?:date|hearing)"),
+    ("abeyance", r"abeyance|suspen[ds]|en suspens|stay of (?:the )?proceedings"),
+    ("dismiss_or_strike", r"(?:to|an order|order) (?:dismiss|strike|quash)(?:ing)? (?:the |this |his |her |their |applicant['’]s )?(?:application|proceeding)|dismissing the (?:applicant['’]s )?application|motion to (?:dismiss|strike)|radier|rejeter la demande"),
+    ("amendment", r"amend|style of cause|intitulé|modifi"),
+    ("confidentiality", r"confidential|anonym|sealing|seal\b|non-disclosure|section 87|s\.?\s*87|s\.?\s*37|huis clos"),
+    ("production_or_record", r"production|tribunal record|certified (?:tribunal )?record|rule\s*(?:14|17|317|318)|transcript|dossier certifié"),
+    ("further_evidence", r"further (?:affidavit|evidence|memorandum)|additional (?:affidavit|evidence)|fresh evidence|nouvelle preuve|affidavit supplémentaire|file (?:a )?(?:further|reply)"),
+    ("consolidation", r"consolidat|join (?:the )?(?:files|proceedings)|joinder|réunion|jonction|heard together"),
+    ("counsel", r"solicitor of record|removal (?:of|as) (?:counsel|solicitor)|cease to act|cesser d['’]occuper|withdraw as counsel|change of solicitor"),
+    ("intervention", r"interven"),
+    ("expedite", r"expedit|urgent|abridg|accélér"),
+    ("release_or_detention", r"release|detention|détention|mise en liberté"),
+    ("costs", r"\bcosts\b|dépens"),
+)
+_MOTION_TYPE_PATTERNS = tuple((name, re.compile(pattern, re.IGNORECASE)) for name, pattern in MOTION_TYPES)
+
+
+_TYPE_FAMILY = {"stay_of_removal": "stay", "stay_of_release": "stay"}
+
+
+def _same_family(first: str, second: str) -> bool:
+    return first == second or (_TYPE_FAMILY.get(first) is not None and _TYPE_FAMILY.get(first) == _TYPE_FAMILY.get(second))
+
+
+def motion_type(text: str) -> str:
+    return next((name for name, pattern in _MOTION_TYPE_PATTERNS if pattern.search(text)), "other")
+
+
+def _motion_relief(text: str) -> str:
+    """The relief asked for: the text after the first "for"/"pour", up to the filing details."""
+    start = re.search(r"\b(?:for|pour|seeking|requesting|visant à obtenir|en vue d['’]obtenir)\s+", text, re.IGNORECASE)
+    relief = text[start.end():] if start else text
+    relief = re.split(r"\s+(?:filed|déposée?\(?s?\)?)\s+(?:on|le)\b|\s+draft order|\s+projet d|\s+with proof of service|\s+avec preuve de signification", relief, maxsplit=1, flags=re.IGNORECASE)[0]
+    return relief[:400]
+
+
+def _motion_filer(text: str) -> str:
+    lowered = text.casefold()
+    if re.search(r"on behalf of (?:the )?(?:respondent|minister)|de la part (?:de la partie (?:défenderesse|intimée)|du défendeur|du ministre)", lowered):
+        return "respondent"
+    if re.search(r"on behalf of (?:the )?applicants?|de la part (?:de la partie (?:demanderesse|requérante)|du demandeur|de la demanderesse)", lowered):
+        return "applicant"
+    if re.search(r"on behalf of (?:all parties|the parties)|joint motion|requête conjointe", lowered):
+        return "joint"
+    return "unknown"
+
+
+def _normalize_outcome(raw: str) -> str | None:
+    lowered = raw.casefold()
+    if re.search(r"reserved|délibéré|under advisement", lowered):
+        return "reserved"
+    if re.search(r"adjourn|ajourn|sine die|remis", lowered):
+        return "adjourned"
+    if re.search(r"granted in part|partially granted|in part|en partie|partiellement", lowered):
+        return "granted_in_part"
+    if re.search(r"moot|théorique|sans objet", lowered):
+        return "moot"
+    if re.search(r"withdrawn|abandon|retir|désist", lowered):
+        return "withdrawn"
+    if re.search(r"grant|allow|accord|accueill|order to go as asked|quashed|set aside|remitted|referred back|returned for redetermination|cass[ée]|renvoy", lowered):
+        return "granted"
+    if re.search(r"dismiss|refus|deni|rejet|reject", lowered):
+        return "dismissed"
+    return None
+
+
+def _decision_on_motion(text: str) -> dict[str, Any] | None:
+    """Read one docket entry as a ruling on a motion; None when it is not one."""
+    direction = _DIRECTION_RULING.search(text)
+    if direction:
+        return {"outcome": _normalize_outcome(direction.group(1)), "source": "direction", "raw": direction.group(0)[-80:]}
+    hearing = _HEARING_MOTION.search(text)
+    if hearing:
+        outcome = _normalize_outcome(hearing.group(1))
+        if outcome:
+            return {"outcome": outcome, "source": "hearing_record", "raw": hearing.group(1).strip()[:80]}
+    if _NOT_DECISION.search(text) or not _COURT_ACT.search(text):
+        return None
+    structured = _STRUCTURED_MOTION_RESULT.search(text)
+    if structured:
+        result = structured.group(1) or structured.group(2) or ""
+        outcome = _normalize_outcome(result) or ("granted" if re.search(r"this court orders|il est ordonné", result, re.IGNORECASE) else None)
+        if outcome:
+            return {"outcome": outcome, "source": "structured_result", "raw": result.strip()[:80]}
+    if _LEAVE_ORDER.search(text) and not re.search(r"\b(?:motion|requ[êe]te)\b", text[:200], re.IGNORECASE):
+        return None
+    verb = re.search(
+        r"\b(granting|dismissing|allowing|refusing|accordant|rejetant|accueillant)\b[^\n]{0,30}?\b(?:the\s+|la\s+|le\s+|respondent['’]s\s+|applicant['’]s\s+|motion\s+)?(motion|requ[êe]te|stay|sursis|demande de sursis|request|extension)"
+        r"|\b(?:motion|requ[êe]te|stay|request)\s+(?:is|was|est)\s+(granted|dismissed|allowed|refused|accordée?|rejetée?|accueillie)"
+        r"|\bla cour (?:accueille|rejette) la re\w*te|\bthe court (?:allows|grants|dismisses) the (?:motion|request)"
+        r"|\b(?:granting|dismissing|accordant|rejetant)\s+(?:the\s+)?(?:applicant['’]s|respondent['’]s|a['’]s|r['’]s)?\s*informal\s+(?:request|motion)"
+        r"|\b(?:accordant|rejetant)\s+(?:les?\s+|la\s+)?(?:deux\s+)?demandes?\s+de\s+prorogation",
+        text,
+        re.IGNORECASE,
+    )
+    if verb:
+        raw = verb.group(0)
+        return {"outcome": _normalize_outcome(raw.replace("motion", "")), "source": "order_text", "raw": raw[:80]}
+    if _MOTION_DOC_REF.search(text):
+        # "granting the Application for Judicial Review on Consent (Motion Doc. No. 7)"
+        anywhere = re.search(r"\b(granting|allowing|dismissing|refusing|accordant|accueillant|rejetant)\b", text, re.IGNORECASE)
+        if anywhere:
+            return {"outcome": _normalize_outcome(anywhere.group(1)), "source": "order_with_motion_reference", "raw": anywhere.group(0)}
+    if _IMPLICIT_GRANT.search(text):
+        return {"outcome": "granted", "source": "implicit_order", "raw": _IMPLICIT_GRANT.search(text).group(0)}
+    return None
+
+
+def extract_motions(events: Iterable[Any]) -> dict[str, Any]:
+    events = [event for event in events]
+    motions: list[dict[str, Any]] = []
+    by_doc: dict[str, dict[str, Any]] = {}
+    for event in events:
+        if not _MOTION_FILING.search(event.text):
+            continue
+        relief = _motion_relief(event.text)
+        number = re.fullmatch(r"\s*(\d+)(?:\.0+)?\s*", str(event.docno or ""))
+        doc_number = number.group(1) if number else None
+        if doc_number and doc_number in by_doc:
+            by_doc[doc_number]["amended"] = True
+            continue
+        motion = {
+            "doc_number": doc_number,
+            "filed_date": _event_date(event),
+            "filed_doc_id": event.doc_id,
+            "filer": _motion_filer(event.text),
+            "type": motion_type(relief) if motion_type(relief) != "other" else motion_type(event.text),
+            "relief": relief,
+            "in_writing": bool(re.search(r"in writing|par écrit|rule 369|règle 369|by (?:way of )?letter|par voie de lettre", event.text, re.IGNORECASE)),
+            "outcome": "pending_or_unknown",
+            "decision_date": None,
+            "decision_doc_id": None,
+            "decision_text": None,
+            "judge": None,
+            "link": None,
+            "days_to_decision": None,
+            "interim_results": [],
+        }
+        motion["entry_id"] = str(event.re_no) if getattr(event, "re_no", None) not in (None, "") else None
+        motions.append(motion)
+        if doc_number:
+            by_doc[doc_number] = motion
+    by_entry = {motion["entry_id"]: motion for motion in motions if motion.get("entry_id")}
+    unlinked: list[dict[str, Any]] = []
+    for event in events:
+        if _MOTION_FILING.search(event.text):
+            continue
+        withdrawn = _WITHDRAWN_MOTION.search(event.text)
+        if withdrawn and re.search(r"\b(?:if|unless|whether|si)\b[^.]{0,40}$", event.text[: withdrawn.start()], re.IGNORECASE):
+            withdrawn = None  # "out of time ... if current motion is withdrawn" is not a withdrawal
+        ruling = {"outcome": "withdrawn", "source": "withdrawal", "raw": withdrawn.group(0)} if withdrawn else _decision_on_motion(event.text)
+        if ruling is None and not _NOT_DECISION.search(event.text) and _COURT_ACT.search(event.text) and re.search(
+            r"granting the application for (?:leave and )?(?:for )?judicial review|allowing the application|accordant la demande de contrôle judiciaire", event.text, re.IGNORECASE
+        ) and any(motion["type"] == "judgment_on_consent" and motion["outcome"] == "pending_or_unknown" for motion in motions):
+            ruling = {"outcome": "granted", "source": "judgment_granting_review", "raw": "judgment granting the application"}
+        if not ruling or not ruling.get("outcome"):
+            continue
+        reference = _MOTION_DOC_REF.search(event.text)
+        reference_number = next((group for group in reference.groups() if group), None) if reference else None
+        when = event.doc_date.isoformat() if event.doc_date else None
+        target, link = None, None
+        entry_reference = _ENTRY_ID_REF.search(event.text)
+        entry_number = next((group for group in entry_reference.groups() if group), None) if entry_reference else None
+        if reference_number and reference_number in by_doc:
+            target, link = by_doc[reference_number], "doc_number"
+        elif entry_number and entry_number in by_entry:
+            target, link = by_entry[entry_number], "entry_id"
+        else:
+            hint = motion_type(event.text)
+            open_motions = [
+                motion
+                for motion in motions
+                if motion["outcome"] in {"pending_or_unknown", "reserved", "adjourned"}
+                and (not when or not motion["filed_date"] or motion["filed_date"] <= when)
+            ]
+            if re.search(r"(?:application|demande) (?:for an |de )(?:extension of time|prorogation de délai)\s+\d", event.text, re.IGNORECASE):
+                hint = "other"  # generic old wording, not an extension-of-time ruling
+            same_type = [motion for motion in open_motions if hint != "other" and _same_family(motion["type"], hint)]
+            if not same_type and re.search(r"granting the application for (?:leave and )?(?:for )?judicial review|allowing the application|referring the matter back|accordant la demande de contrôle", event.text, re.IGNORECASE):
+                same_type = [motion for motion in open_motions if motion["type"] == "judgment_on_consent"]
+            if same_type:
+                target, link = same_type[-1], "same_type_open_motion"
+            elif len(open_motions) == 1 and not reference_number and (hint == "other" or open_motions[0]["type"] in {hint, "other"}):
+                target, link = open_motions[0], "only_open_motion"
+        judge = _helpers()._clean_judge_name(_helpers()._judge_name(event.text))
+        if target is None and ruling["source"] != "withdrawal":
+            # The formal order often follows the hearing record that already announced the result.
+            hint = motion_type(event.text)
+            def gap(motion: dict[str, Any]) -> int:
+                days = _days_between(motion["decision_date"], when) if motion["decision_date"] and when else None
+                return 99 if days is None else days
+
+            confirmed = [
+                motion
+                for motion in motions
+                if gap(motion) <= 45
+                and (
+                    (reference_number and motion["doc_number"] == reference_number)
+                    or (_same_family(motion["type"], hint) and (motion["outcome"] == ruling["outcome"] or gap(motion) <= 7))
+                    or (len(motions) == 1 and motion["outcome"] == ruling["outcome"])
+                )
+            ]
+            if confirmed:
+                motion = confirmed[-1]
+                motion["order_doc_id"] = event.doc_id
+                motion["order_outcome"] = ruling["outcome"]
+                if judge and not motion["judge"]:
+                    motion["judge"] = judge
+                if ruling["outcome"] != motion["outcome"] and ruling["outcome"] not in {"reserved", "adjourned"}:
+                    motion["conflict"] = f"hearing record {motion['outcome']} but order {ruling['outcome']}"
+                    motion["outcome"] = ruling["outcome"]
+                continue
+        if target is None and ruling["source"] == "implicit_order":
+            continue
+        if target is None:
+            if ruling["outcome"] in {"reserved", "adjourned", "withdrawn"}:
+                unlinked.append({"doc_id": event.doc_id, "date": when, "outcome": ruling["outcome"], "type": motion_type(event.text), "judge": judge, "reference": reference_number, "source": ruling["source"]})
+                continue
+            # A ruling with no filed motion behind it: oral motions, informal requests, filings missing from the registry.
+            motion = {
+                "doc_number": reference_number,
+                "filed_date": None,
+                "filed_doc_id": None,
+                "filer": _motion_filer(event.text),
+                "type": motion_type(event.text),
+                "relief": event.text[:240],
+                "in_writing": None,
+                "outcome": ruling["outcome"],
+                "decision_date": when,
+                "decision_doc_id": event.doc_id,
+                "decision_text": event.text[:400],
+                "judge": judge,
+                "link": "ruling_without_filing",
+                "decision_source": ruling["source"],
+                "days_to_decision": None,
+                "interim_results": [],
+            }
+            motions.append(motion)
+            if reference_number:
+                by_doc.setdefault(reference_number, motion)
+            continue
+        if ruling["outcome"] in {"reserved", "adjourned"}:
+            target["interim_results"].append({"date": when, "outcome": ruling["outcome"], "doc_id": event.doc_id})
+            if target["outcome"] == "pending_or_unknown":
+                target["outcome"] = ruling["outcome"]
+            if judge and not target["judge"]:
+                target["judge"] = judge
+            continue
+        if target["outcome"] not in {"pending_or_unknown", "reserved", "adjourned"}:
+            continue  # first final ruling wins; later entries are reasons, corrections or duplicates
+        target.update(
+            {
+                "outcome": ruling["outcome"],
+                "decision_date": when,
+                "decision_doc_id": event.doc_id,
+                "decision_text": event.text[:400],
+                "judge": judge or target["judge"],
+                "link": link,
+                "decision_source": ruling["source"],
+                "days_to_decision": _days_between(target["filed_date"], when),
+            }
+        )
+    removed = [event for event in events if re.search(r"hearing removed from|removed from (?:the )?(?:general sitting|list)|audition retirée du rôle|retirée? du rôle", event.text, re.IGNORECASE)]
+    last_date = max((event.doc_date.isoformat() for event in events if event.doc_date), default=None)
+    closing = next((event for event in events if re.search(r"notice of discontinuance|avis de désistement|\(final decision\)|\(décision finale\)", event.text, re.IGNORECASE)), None)
+    for motion in motions:
+        if motion["outcome"] != "pending_or_unknown":
+            continue
+        reference = motion.get("doc_number")
+        if reference and any(re.search(rf"(?:motion|requ[êe]te)\s*(?:doc\.?\s*)?(?:no\.?\s*|#\s*)?{reference}\b", event.text, re.IGNORECASE) for event in removed):
+            motion["outcome"] = "removed_from_list"
+        elif closing is not None and closing.doc_date and motion["filed_date"] and closing.doc_date.isoformat() >= motion["filed_date"]:
+            motion["outcome"] = "not_ruled_case_closed"
+        elif last_date and motion["filed_date"] and last_date == motion["filed_date"]:
+            motion["outcome"] = "pending_at_last_entry"
+    decided = [motion for motion in motions if motion["outcome"] not in {"pending_or_unknown", "reserved", "adjourned", "removed_from_list", "not_ruled_case_closed", "pending_at_last_entry"}]
+    by_type: dict[str, Counter[str]] = {}
+    for motion in motions:
+        by_type.setdefault(motion["type"], Counter())[motion["outcome"]] += 1
+    return {
+        "count": len(motions),
+        "decided": len(decided),
+        "motions": motions,
+        "unlinked_rulings": unlinked,
+        "by_type": {name: dict(counts) for name, counts in by_type.items()},
     }

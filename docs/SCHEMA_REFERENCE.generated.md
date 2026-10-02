@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T15:32:44.880734+00:00
-Tables: 24
+Generated: 2026-10-02T16:15:19.430657+00:00
+Tables: 25
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -229,6 +229,25 @@ erDiagram
         JSON raw_document
         DATETIME created_at
     }
+    fc_activity_motions {
+        Integer id PK
+        Integer source_case_id  FK
+        String(255) imm_number
+        Integer year
+        String(255) city_filed
+        Integer position
+        String(60) motion_type
+        String(40) filer
+        String(60) outcome
+        String(60) link
+        String(120) judge_key
+        String(255) judge_name
+        DATE filed_date
+        DATE decision_date
+        Integer days_to_decision
+        BOOLEAN in_writing
+        TEXT relief
+    }
     fc_activity_summaries {
         Integer source_case_id PK FK
         String(255) imm_number
@@ -379,6 +398,7 @@ erDiagram
     case_chunks ||--o{ citations : "target_chunk_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
+    fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
@@ -407,6 +427,7 @@ erDiagram
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
+| `fc_activity_motions` | 17 | `id` |
 | `fc_activity_summaries` | 43 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
@@ -916,6 +937,43 @@ erDiagram
 ### Foreign Keys
 
 - `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+
+## `fc_activity_motions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `imm_number` | `String(255)` | yes | - |
+| `year` | `Integer` | yes | - |
+| `city_filed` | `String(255)` | yes | - |
+| `position` | `Integer` | no | NOT NULL |
+| `motion_type` | `String(60)` | no | NOT NULL |
+| `filer` | `String(40)` | yes | - |
+| `outcome` | `String(60)` | no | NOT NULL |
+| `link` | `String(60)` | yes | - |
+| `judge_key` | `String(120)` | yes | - |
+| `judge_name` | `String(255)` | yes | - |
+| `filed_date` | `DATE` | yes | - |
+| `decision_date` | `DATE` | yes | - |
+| `days_to_decision` | `Integer` | yes | - |
+| `in_writing` | `BOOLEAN` | yes | - |
+| `relief` | `TEXT` | yes | - |
+
+### Indexes
+
+- `ix_fc_activity_motions_imm_number`: index on `imm_number`
+- `ix_fc_activity_motions_judge_key`: index on `judge_key`
+- `ix_fc_activity_motions_motion_type`: index on `motion_type`
+- `ix_fc_activity_motions_outcome`: index on `outcome`
+- `ix_fc_activity_motions_source_case_id`: index on `source_case_id`
+- `ix_fc_activity_motions_year`: index on `year`
+
+### Foreign Keys
+
+- `source_case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
 
 ## `fc_activity_summaries`
 

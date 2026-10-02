@@ -18,10 +18,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from sqlalchemy import select
+from sqlalchemy import delete, select
 
-from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivitySummary, SessionLocal, init_db
-from scripts.fc_activity_extractors import extract_insights, summary_row
+from backend.database import FCActivityCase, FCActivityClassification, FCActivityDocument, FCActivityMotion, FCActivitySummary, SessionLocal, init_db
+from scripts.fc_activity_extractors import extract_insights, extract_motions, motion_rows, summary_row
 
 CLASSIFIER_VERSION = "fc_activity_v6"
 DEFAULT_STATE_FILE = Path("data/overnight_runs/fc-activity-classification-v6/state.json")
@@ -71,10 +71,23 @@ STRUCTURED_LEAVE_REFUSED = (
     r"|dismissing the application (?:for leave )?(?:for|due to|because of) (?:the )?(?:failure|failing) (?:of the applicant )?to (?:file|serve|perfect)"
     r"|rejetant la demande(?: d['’]autorisation)? (?:pour|en raison du) défaut de (?:déposer|produire|signifier)"
 )
+# A discontinued motion ("Notice of discontinuance of the Applicant's motion for a stay") is not a discontinued file.
+DISCONTINUED = r"(?:notice of discontinuance|\bdiscontinuance\b|désistement|desistement)(?![^\n]{0,40}?\b(?:motion|requête)\b)"
 WITHDRAWN = r"notice of withdrawal|retrait de la demande|(?:decided|decision|wishes|intends) to (?:withdraw|abandon)(?:/abandon)? (?:his|her|their|the|this) (?:application|judicial review|file)|withdraw/abandon"
 GROUP_ORDER_DISMISSED = r"(?:present application and |applications? )?(?:those |the applications? )?listed in the (?:attached )?schedules?\s*(?:[a-z]\s*)?(?:are|is|were) (?:hereby )?dismissed"
 STRUCTURED_LEAVE_GRANTED = r"(?:with regard to|concerning) (?:the )?application for leave\b[^\n]{0,40}?result\s*:\s*(?:leave\s+)?granted"
 CANCELLED_ENTRY = re.compile(r"^\W*\*{3,}\s*(?:cancelled|canceled|annul[ée]+(?:\(e\))?)\s*\*{3,}", re.IGNORECASE)
+
+
+# Party filings and registry paperwork that quote a decision without being one.
+NON_COURT_ENTRY = re.compile(
+    r"^\W*(?:amended\s+)?(?:copy of (?:a |the )?(?:letter|memorandum|notice|doc)|letter|lettre|memorandum|mémoire|communication|affidavit|notice of motion|avis de requ|"
+    r"reply|réplique|written|solicitor|attestation|applicant'?s record|application record|record\b|dossier|book of|draft|projet|acknowledg|accusé|further memorandum|"
+    r"consent\b|consentement|correction|certified (?:french |english )?(?:language )?translation|traduction|motion record|transmittal|successful facsimile|fax confirmation|covering letter)",
+    re.IGNORECASE,
+)
+_PARTY_STATUSES = {"discontinued", "withdrawn", "abeyance", "underlying_decision_pending", "case_management", "administratively_terminated"}
+_DECISION_RULE_KEYS = {"leave_granted", "leave_refused", "judicial_review_granted", "judicial_review_dismissed", "final_decision", "leave_final_decision", "motion_final_decision"}
 
 
 def _is_cancelled(text: str) -> bool:
@@ -218,7 +231,34 @@ def _event_date(event: ActivityEvent) -> str | None:
     return event.doc_date.isoformat() if event.doc_date else None
 
 
+_JUDGE_INTRO = (
+    r"(?:rendered\s+by|rendus?\s+par|rendue?s?\s+par|rendu\(e\)(?:\(s\))?\s+par|\bbefore\b|\bdevant\b|en\s+présence\s+de|\bcoram\b|"
+    r"order\s+of\s+the\s+court\s*/|ordonnance\s+de\s+la\s+cour\s*/|directions?\s+of\s+the\s+court\s*:|directives\s+(?:verbales\s+)?de\s+la\s+cour\s*:|presiding\s+judge\s*:?)"
+)
+_JUDGE_TITLE = (
+    r"(?:(?:the|la)\s+)?(?:l['’]\s*)?(?:honou?rable\s+|honorable\s+)?(?:(?:mr|mrs|ms|madam|madame|monsieur)\.?\s+)?"
+    r"(?:(?:acting\s+|associate\s+|senior\s+)*(?:chief\s+)?justice\s+|(?:le|la)\s+juge\s+(?:en\s+chef\s+)?(?:adjointe?\s+)?|juge\s+(?:en\s+chef\s+)?(?:adjointe?\s+)?|"
+    r"associate\s+judge\s+|(?:associate\s+senior\s+|senior\s+)?(?:prothonotary|protonotaire)\s+)?"
+)
+_JUDGE_STOP = (
+    r"(?=\s+(?:at|on|le|à|a|in|language|langue|before|result|matter|dated|affaire|rendered|rendu\S*|considered|pris|acting|agissant|and|et|filed|"
+    r"déposée?|concerning|concernant|directing|indiquant|the\s+court|la\s+cour|of\s+the\s+court|sitting|siégeant)\b|\s*[,;]|\.\s|\s*$)"
+)
+_JUDGE_PATTERN = re.compile(
+    _JUDGE_INTRO + r"\s*" + _JUDGE_TITLE + r"([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*){0,3}?)" + _JUDGE_STOP,
+    re.IGNORECASE,
+)
+
+
 def _judge_name(text: str) -> str | None:
+    """Name of the judge or prothonotary who signed or heard the entry."""
+    for match in _JUDGE_PATTERN.finditer(text):
+        if _clean_judge_name(match.group(1)):
+            return re.sub(r"\s+", " ", match.group(1)).strip(" .,;")
+    return _judge_name_fallback(text)
+
+
+def _judge_name_fallback(text: str) -> str | None:
     name = r"[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ'’-]+\.?){0,2}?"
     match = re.search(
         r"\b(?:before|coram|devant|\(?presiding\s+judge\)?|rendered\s+by|rendu(?:e|es)?\s+par|rendu\(e\)\s+par)[,:]?\s*"
@@ -547,6 +587,8 @@ def _match_events(events: Iterable[ActivityEvent], rule_key: str) -> list[tuple[
     _, patterns = COMPILED_RULES[rule_key]
     matches: list[tuple[ActivityEvent, re.Match[str]]] = []
     for event in events:
+        if rule_key in _DECISION_RULE_KEYS and NON_COURT_ENTRY.search(event.text):
+            continue
         if rule_key in {"judicial_review_granted", "judicial_review_dismissed"}:
             is_originating_application = re.search(
                 r"(?:application for leave|demande d['’]autorisation).*?(?:judicial review|contrôle judiciaire)",
@@ -670,7 +712,7 @@ def _closing_status(events: list[ActivityEvent], leave_result: str, review_resul
     """Derive the IMM-level closing signal from the three latest docket entries."""
     recent = events[-3:]
     patterns: tuple[tuple[str, str], ...] = (
-        ("discontinued", r"notice of discontinuance|\bdiscontinuance\b|désistement|desistement"),
+        ("discontinued", DISCONTINUED),
         ("administratively_terminated", r"application terminated by s\.?\s*87\.4\(1\) of irpa"),
         ("dismissed_by_group_order", GROUP_ORDER_DISMISSED),
         ("abeyance", r"held in abeyance until|file is held in abeyance|holding [^\n]{0,60}?(?:applications?|files?|matters?) in abeyance|(?:applications?|files?|matters?) (?:are|is|be) held in abeyance"),
@@ -686,6 +728,8 @@ def _closing_status(events: list[ActivityEvent], leave_result: str, review_resul
         for status, pattern in patterns:
             match = re.search(pattern, event.text, re.IGNORECASE)
             if match:
+                if status not in _PARTY_STATUSES and NON_COURT_ENTRY.search(event.text):
+                    continue
                 if status.startswith("judicial_review") and leave_result != "granted":
                     continue
                 return {
@@ -717,6 +761,7 @@ def _lifecycle_status(
         "dismissed_for_delay",
         "dismissed_by_group_order",
         "file_cancelled",
+        "dismissed_on_motion",
     }
     for signal in (closing_status, full_history_resolution):
         status = signal.get("status")
@@ -769,7 +814,7 @@ def _full_history_resolution(events: list[ActivityEvent], leave_result: str) -> 
         ("leave_refused", rf"dismissing the application for leave|application for leave:\s*dismissed|rejetant la demande d['’]autorisation|{STRUCTURED_LEAVE_REFUSED}"),
         ("dismissed_by_group_order", GROUP_ORDER_DISMISSED),
         ("dismissed_for_delay", r"with regard to status review\s*result\s*:\s*(?:matter\s+)?dismissed|dismissing the application (?:for leave )?(?:further to|following|on|as a result of) (?:the )?status review"),
-        ("discontinued", r"notice of discontinuance|\bdiscontinuance\b|désistement|desistement"),
+        ("discontinued", DISCONTINUED),
         ("withdrawn", WITHDRAWN),
         ("administratively_terminated", r"application terminated by s\.?\s*87\.4\(1\)(?:\s+of)?\s*irpa|termination under s\.?\s*87\.4\(1\)"),
     )
@@ -778,6 +823,8 @@ def _full_history_resolution(events: list[ActivityEvent], leave_result: str) -> 
         for status, pattern in rules:
             match = re.search(pattern, event.text, re.IGNORECASE)
             if match:
+                if status not in _PARTY_STATUSES and NON_COURT_ENTRY.search(event.text):
+                    continue
                 if status.startswith("judicial_review") and leave_result != "granted":
                     continue
                 if "cancelled" in event.text.casefold():
@@ -791,7 +838,7 @@ def _full_history_resolution(events: list[ActivityEvent], leave_result: str) -> 
     final_matches = [item for item in matches if any(marker in item[0].text.casefold() for marker in final_markers)]
     if final_matches:
         matches = final_matches
-    if any(status == "leave_refused" for _, status, _ in all_matches):
+    if leave_result != "granted" and any(status == "leave_refused" for _, status, _ in all_matches):
         leave_matches = [item for item in all_matches if item[1] == "leave_refused"]
         if leave_matches:
             event, status, match = min(leave_matches, key=lambda item: (item[0].doc_date or date.max, item[0].doc_id))
@@ -1538,6 +1585,49 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
             leave = Evidence("yes", _event_date(paper_dismissal), paper_dismissal.doc_id, paper_dismissal.re_no, paper_dismissal.docno, paper_dismissal.text, "paper_dismissal_without_leave_grant")
             leave_refused = leave
     consent = _consent_disposition(ordered)
+    motions = extract_motions(ordered)
+    merits_motion = next(
+        (
+            motion
+            for motion in motions["motions"]
+            if motion["outcome"] in {"granted", "granted_in_part"}
+            and motion["type"] == "judgment_on_consent"
+            and motion.get("decision_date")
+        ),
+        None,
+    )
+    if merits_motion is not None and consent["status"] != "granted":
+        consent = {
+            "status": "granted",
+            "date": merits_motion["decision_date"],
+            "doc_id": merits_motion["decision_doc_id"],
+            "request_doc_id": merits_motion.get("filed_doc_id"),
+            "request_date": merits_motion.get("filed_date"),
+            "text": merits_motion.get("decision_text"),
+            "request_text": merits_motion.get("relief"),
+            "rule": "motion_to_allow_application_granted",
+        }
+    reconsidered = next(
+        (
+            motion
+            for motion in motions["motions"]
+            if motion["type"] == "reconsideration"
+            and motion["outcome"] in {"granted", "granted_in_part"}
+            and motion.get("decision_date")
+            and leave.date
+            and motion["decision_date"] >= leave.date
+        ),
+        None,
+    ) if leave_result == "refused" else None
+    if reconsidered is not None:
+        # Rule 397/399: the leave refusal was set aside, so later merits results apply.
+        leave_result = "granted"
+        leave = Evidence("yes", reconsidered["decision_date"], reconsidered["decision_doc_id"], None, None, reconsidered.get("decision_text"), "leave_refusal_reconsidered")
+        leave_granted = leave
+    dismissal_motion = next(
+        (motion for motion in motions["motions"] if motion["type"] == "dismiss_or_strike" and motion["outcome"] in {"granted", "granted_in_part"} and motion.get("decision_date")),
+        None,
+    )
     preliminary_resolution = _full_history_resolution(ordered, leave_result)
     later_review_granted = _evidence(ordered, "judicial_review_granted", latest=True)
     later_review_dismissed = _evidence(ordered, "judicial_review_dismissed", latest=True)
@@ -1591,6 +1681,9 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
     motion_final_decision = _evidence(ordered, "motion_final_decision", latest=True)
     stay_decision = _evidence(ordered, "stay_decision", latest=True)
     history_profile = _history_profile(ordered, full_history_resolution)
+    if dismissal_motion is not None and full_history_resolution["status"] in {"unknown"}:
+        status = "withdrawn" if dismissal_motion["filer"] == "applicant" else "dismissed_on_motion"
+        full_history_resolution = {"status": status, "date": dismissal_motion["decision_date"], "doc_id": dismissal_motion["decision_doc_id"], "re_no": None, "docno": None, "text": dismissal_motion.get("decision_text"), "rule": f"full_history:motion_to_dismiss_granted:{dismissal_motion['filer']}"}
     if received and not ordered:
         full_history_resolution = {"status": "file_cancelled", "date": _event_date(received[-1]), "doc_id": received[-1].doc_id, "re_no": received[-1].re_no, "docno": received[-1].docno, "text": received[-1].text, "rule": "full_history:every_entry_cancelled"}
     lifecycle_status = _lifecycle_status(ordered, closing_status, full_history_resolution, history_profile)
@@ -1640,6 +1733,7 @@ def classify_events(events: Iterable[ActivityEvent], *, nature: str | None = Non
         "lifecycle_status": lifecycle_status,
         "challenged_decision": challenged_decision,
         "consent_disposition": consent,
+        "motions": motions,
         "decision_body": _decision_body(ordered, challenged_decision.get("text"), challenged_decision.get("decision_maker"), nature),
         "aljr_filer_type": originating_party_fields["aljr_filer_type"],
         "aljr_filer_name": originating_party_fields["aljr_filer_name"],
@@ -1924,6 +2018,21 @@ def persist_report(report: list[dict[str, Any]], *, force: bool = False) -> int:
                 "city_filed": source.city_filed,
                 **summary_row(row["classification"]),
             }
+            session.execute(delete(FCActivityMotion).where(FCActivityMotion.source_case_id == source.id))
+            for motion in motion_rows(row["classification"].get("motions") or {}):
+                session.add(
+                    FCActivityMotion(
+                        source_case_id=source.id,
+                        imm_number=source.citation,
+                        year=source.year,
+                        city_filed=source.city_filed,
+                        **{
+                            **motion,
+                            "filed_date": date.fromisoformat(motion["filed_date"]) if motion["filed_date"] else None,
+                            "decision_date": date.fromisoformat(motion["decision_date"]) if motion["decision_date"] else None,
+                        },
+                    )
+                )
             summary = existing_summaries.get(source.id)
             if summary is None:
                 session.add(FCActivitySummary(**summary_values))

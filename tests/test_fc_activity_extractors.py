@@ -189,3 +189,23 @@ def test_joint_applicants_from_style_of_cause():
     assert extract_parties([joint])["joint_applicants"] is True
     assert extract_parties([pair])["joint_applicants"] is True
     assert extract_parties([single])["joint_applicants"] is False
+
+
+def test_procedural_deadlines():
+    result = classify_events(
+        [
+            event(1, "2007-10-17", "Application for leave and judicial review against a decision IRB - RPD, TOR, 27-SEP-2007 (rec'd 4-OCT-2007), TA5-12457 filed on 17-OCT-2007 Written reasons received by the Applicant"),
+            event(2, "2007-11-19", "Applicant's Record Number of copies received/prepared: 1 on behalf of Applicant filed on 19-NOV-2007"),
+            event(3, "2007-12-14", "Memorandum of argument on behalf of the respondent filed on 14-DEC-2007 with proof of service on the applicant"),
+            event(4, "2008-01-15", "Order rendered by The Honourable Madam Justice Hansen at Ottawa on 15-JAN-2008 granting the application for leave fixing the hearing"),
+            event(5, "2008-04-10", "Toronto 10-APR-2008 BEFORE The Honourable Madam Justice Tremblay-Lamer Language: E Before the Court: Judicial Review Result of Hearing: Matter reserved held in Court"),
+        ],
+        nature="Imm - Appl. for leave & jud. review - IRB - Refugee",
+    )
+    deadlines = result["deadlines"]
+    assert deadlines["notified_date"] == "2007-10-04"
+    assert deadlines["days_notice_to_filing"] == 13
+    assert deadlines["filing"] == "within_limit"
+    assert deadlines["record"] == "within_a_few_days"
+    assert deadlines["respondent_memorandum"] == "on_time"
+    assert deadlines["hearing_window"] == "within_window"

@@ -224,7 +224,7 @@ def test_unruled_motion_in_a_closed_file_is_inferred_not_asserted():
             event(13, "2008-01-24", "(Final decision) Order rendered by The Honourable Mr. Justice O'Keefe at Ottawa on 24-JAN-2008 dismissing the application for leave"),
         ]
     )
-    assert only(register)["outcome"] == "not_ruled_case_closed"
+    assert only(register)["outcome"] == "not_ruled_leave_decided"
 
 
 def test_minister_filed_case_stay_is_a_stay_of_release_by_the_government():
@@ -247,3 +247,55 @@ def test_mislabelled_stay_of_removal_is_attributed_to_the_person():
     assert motion["type"] == "stay_of_removal"
     assert motion["side"] == "person"
     assert motion["filer_corrected"] is True
+
+
+def test_registry_referral_and_hearing_link_unreferenced_order():
+    register = extract_motions(
+        [
+            event(3, "2019-02-14", "Notice of Motion on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of the removal Order scheduled for 17-FEB-2019", docno="3"),
+            event(13, "2019-02-14", "Toronto 14-FEB-2019 BEFORE The Honourable Madam Justice Heneghan Language: E Before the Court: Motion Doc. No. 3 on behalf of Applicant Result of Hearing: Matter reserved held in Court"),
+            event(22, "2019-07-22", "Notice of Motion contained within a Motion Record on behalf of Applicant in writing for an Order for leave to add documentary evidence through the applicant's affidavit to the Motion Record for a stay of removal", docno="15"),
+            event(27, "2019-07-24", "Toronto 24-JUL-2019 BEFORE The Honourable Madam Justice Heneghan Language: E Before the Court: Continuation of the Motion Doc. No. 3 on behalf of Applicant Result of Hearing: Matter reserved held in Court"),
+            event(28, "2019-07-24", "Order rendered by The Honourable Madam Justice Heneghan at Toronto on 24-JUL-2019 granting the stay of execution Decision filed on 24-JUL-2019"),
+        ]
+    )
+    by_doc = {motion["doc_number"]: motion for motion in register["motions"]}
+    assert by_doc["3"]["outcome"] == "granted"
+    assert by_doc["3"]["decision_date"] == "2019-07-24"
+    assert by_doc["15"]["type"] == "further_evidence"
+
+
+@pytest.mark.parametrize(
+    "follow_up,reason",
+    [
+        ("Notice of discontinuance on behalf of the applicant filed on 24-MAY-2006", "not_ruled_file_discontinued"),
+        ("(Final decision) Order rendered by The Honourable Mr. Justice Example at Ottawa on 01-JUN-2006 dismissing the application for leave", "not_ruled_leave_decided"),
+        ("Letter from Respondent dated 20-MAY-2006 advising that the removal has been deferred", "moot_removal_deferred"),
+        ("Correction to General Sitting concerning Motion Doc. No. 4 Hearing removed from General Sitting at Toronto on 25-MAY-2006", "removed_from_list"),
+    ],
+)
+def test_reason_a_motion_was_never_ruled_on(follow_up, reason):
+    motion = only(
+        extract_motions(
+            [
+                event(4, "2006-05-18", "Notice of Motion contained within a Motion Record on behalf of Applicant returnable (but no hearing date indicated at this time) for a stay of execution of removal order that is set for 26-MAY-2006", docno="4"),
+                event(9, "2006-05-24", follow_up),
+            ]
+        )
+    )
+    assert motion["outcome"] == reason
+
+
+@pytest.mark.parametrize(
+    "text,outcome",
+    [
+        ("Order rendered by The Honourable Mr. Justice O'Keefe at Toronto on 17-OCT-2012 it is ordered that the removal of the applicant from Canada is stayed until leave is denied", "granted"),
+        ("Ordonnance rendu(e) par Alexandra Steele, protonotaire à Montréal le 08-JUL-2022 1.La demande informelle du demandeur est accueillie.", "granted"),
+        ("Oral directions of the Court: The Honourable Madam Justice Snider dated 20-MAR-2013 directing \"The Court declines to hear the motion on the basis of the material filed\"", "declined_to_hear"),
+        ("Order dated 16-DEC-2019 rendered by Angela Furlanetto, Prothonotary Matter considered without personal appearance The Court's decision is with regard to Motion in writing Doc. No. 4 Result: The proceeding is held pending the decision", "ruled_unclear"),
+    ],
+)
+def test_other_ruling_wordings(text, outcome):
+    from scripts.fc_activity_extractors import _decision_on_motion
+
+    assert _decision_on_motion(text)["outcome"] == outcome

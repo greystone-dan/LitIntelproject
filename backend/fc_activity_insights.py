@@ -45,6 +45,10 @@ BREAKDOWN_FIELDS = {
     "joint_applicants": "Joint applicants (families)",
     "dormant": "Open files with no activity for 2+ years",
     "lead_resolution": "Outcome of the lead file (group-managed files)",
+    "filing_timeliness": "Filed within the IRPA s. 72 limit",
+    "record_timeliness": "Applicant's record within 30 days (Rule 10)",
+    "memorandum_timeliness": "Respondent's memorandum within 30 days (Rule 11)",
+    "hearing_window": "Hearing 30 to 90 days after leave (Rule 15)",
 }
 BREAKDOWN_LIMITS = {"office_location": 15}
 
@@ -322,7 +326,7 @@ def fetch_fc_activity_case(db: Session, imm: str) -> dict[str, Any]:
         "full_history_resolution", "lifecycle_status", "leave_decision", "leave_context", "judicial_review_result",
         "decision_body", "challenged_decision", "judge_roles", "consent_disposition", "timeline", "hearings",
         "certified_question", "appeal", "stay_of_removal", "representation", "respondent_position", "filing_details",
-        "office_location", "motion_profile", "parties", "motions",
+        "office_location", "motion_profile", "parties", "motions", "deadlines",
     )
     summary = {key: classification.get(key) for key in keep if key in classification}
     challenged = summary.get("challenged_decision")
@@ -478,7 +482,8 @@ def fetch_fc_activity_motions(
                     "dismissed": dismissed,
                     "grant_rate": _rate(granted, granted + dismissed),
                     "withdrawn": entry["outcomes"].get("withdrawn", 0),
-                    "not_ruled": sum(entry["outcomes"].get(key, 0) for key in ("not_ruled_case_closed", "removed_from_list", "pending_or_unknown", "pending_at_last_entry", "reserved", "adjourned")),
+                    "not_ruled": sum(count for key, count in entry["outcomes"].items() if key not in {"granted", "granted_in_part", "dismissed", "withdrawn", "moot", "declined_to_hear", "ruled_unclear", "ruled_in_related_file"}),
+                    "not_ruled_reasons": {key: count for key, count in entry["outcomes"].items() if key not in {"granted", "granted_in_part", "dismissed", "withdrawn", "moot", "declined_to_hear", "ruled_unclear", "ruled_in_related_file"}},
                     "median_days_to_ruling": int(median(entry["days"])) if entry["days"] else None,
                     "person_grant_rate": _rate(entry["by_filer"].get("person", {}).get("granted", 0), sum(entry["by_filer"].get("person", {}).values())),
                     "government_grant_rate": _rate(entry["by_filer"].get("government", {}).get("granted", 0), sum(entry["by_filer"].get("government", {}).values())),

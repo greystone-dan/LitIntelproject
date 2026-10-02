@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T16:36:54.166500+00:00
+Generated: 2026-10-02T16:55:16.098389+00:00
 Tables: 25
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -285,6 +285,10 @@ erDiagram
         String(40) extension_of_time
         BOOLEAN dormant
         Integer days_decision_to_filing
+        String(40) filing_timeliness
+        String(40) record_timeliness
+        String(40) memorandum_timeliness
+        String(40) hearing_window
         Integer days_filing_to_perfection
         Integer days_filing_to_leave_decision
         Integer days_leave_grant_to_hearing
@@ -428,7 +432,7 @@ erDiagram
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
 | `fc_activity_motions` | 17 | `id` |
-| `fc_activity_summaries` | 43 | `source_case_id` |
+| `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
@@ -1017,6 +1021,10 @@ erDiagram
 | `extension_of_time` | `String(40)` | yes | - |
 | `dormant` | `BOOLEAN` | yes | - |
 | `days_decision_to_filing` | `Integer` | yes | - |
+| `filing_timeliness` | `String(40)` | yes | - |
+| `record_timeliness` | `String(40)` | yes | - |
+| `memorandum_timeliness` | `String(40)` | yes | - |
+| `hearing_window` | `String(40)` | yes | - |
 | `days_filing_to_perfection` | `Integer` | yes | - |
 | `days_filing_to_leave_decision` | `Integer` | yes | - |
 | `days_leave_grant_to_hearing` | `Integer` | yes | - |

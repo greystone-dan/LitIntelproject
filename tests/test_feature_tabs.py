@@ -202,7 +202,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {
-        '/citation-map': 'workbench', '/live-analysis': 'workbench',
+        '/citation-map': 'workbench', '/live-analysis': 'workbench', '/deidentify': 'workbench',
         '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
     }
     assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))

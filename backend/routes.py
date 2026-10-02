@@ -1,4 +1,5 @@
 import os
+import json
 import math
 import csv
 import io
@@ -9,8 +10,9 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, File, HTTPException, Query, Response, UploadFile, status
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
@@ -67,10 +69,12 @@ from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
+from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
+from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
@@ -945,6 +949,91 @@ async def live_analysis_resolve(
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	return LiveAnalysisResponse.model_validate(payload)
+
+
+# De-identify tool: works entirely in memory. These endpoints never touch the
+# database, never write files, and tell browsers and proxies not to cache.
+_NO_STORE = {"Cache-Control": "no-store", "Pragma": "no-cache"}
+
+
+@router.get("/deidentify", response_class=HTMLResponse, include_in_schema=False)
+def deidentify_page() -> HTMLResponse:
+	return HTMLResponse(content=deidentify_page_html(), status_code=status.HTTP_200_OK, headers=_NO_STORE)
+
+
+async def _deidentify_input_text(file: UploadFile | None, text: str) -> tuple[str, str]:
+	if file is not None and file.filename:
+		content = await file.read()
+		try:
+			return text_from_upload(file.filename, content), file.filename
+		except ValueError:
+			raise
+		except Exception as exc:
+			raise ValueError("The file could not be read. Is it a valid .docx, .pdf or .txt file?") from exc
+	if text.strip():
+		return text, ""
+	raise ValueError("Upload a file or paste some text.")
+
+
+@router.post("/api/deidentify", include_in_schema=False)
+async def deidentify_api(
+	file: UploadFile | None = File(None),
+	text: str = Form(""),
+	names: str = Form(""),
+	details: str = Form(""),
+	categories: str = Form(""),
+	auto_names: bool = Form(True),
+	never_hide: str = Form(""),
+) -> JSONResponse:
+	try:
+		source, filename = await _deidentify_input_text(file, text)
+	except ValueError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	enabled = [item.strip().upper() for item in categories.split(",") if item.strip()] if categories.strip() else None
+	# Name detection is CPU work: run it off the event loop so the rest of the site stays responsive.
+	result = await run_in_threadpool(
+		deidentify_text,
+		source,
+		names=_deidentify_lines(names),
+		details=_deidentify_lines(details),
+		categories=enabled,
+		source_name=filename,
+		auto_names=auto_names,
+		never_hide=_deidentify_lines(never_hide),
+	)
+	return JSONResponse(content=result, headers=_NO_STORE)
+
+
+@router.post("/api/reidentify", include_in_schema=False)
+async def reidentify_api(
+	file: UploadFile | None = File(None),
+	text: str = Form(""),
+	key: str = Form(...),
+) -> JSONResponse:
+	try:
+		source, _ = await _deidentify_input_text(file, text)
+		result = reidentify_text(source, json.loads(key))
+	except json.JSONDecodeError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The key file is not valid JSON.") from exc
+	except ValueError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	return JSONResponse(content=result, headers=_NO_STORE)
+
+
+@router.post("/api/deidentify/docx", include_in_schema=False)
+def deidentify_docx_api(text: str = Form(...), filename: str = Form("document.docx")) -> Response:
+	safe_name = re.sub(r"[^\w.-]+", "_", filename)[:100] or "document.docx"
+	if not safe_name.lower().endswith(".docx"):
+		safe_name += ".docx"
+	return Response(
+		content=text_to_docx(text),
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={**_NO_STORE, "Content-Disposition": f'attachment; filename="{safe_name}"'},
+	)
+
+
+def _deidentify_lines(raw: str) -> list[str]:
+	return [line.strip() for line in re.split(r"[\r\n]+", raw or "") if line.strip()]
 
 
 @router.get("/case-reader", response_class=HTMLResponse, include_in_schema=False)

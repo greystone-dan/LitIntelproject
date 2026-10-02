@@ -50,7 +50,7 @@ while ($true) {
         -ArgumentList "-m", "uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", $LocalPort `
         -RedirectStandardOutput (Join-Path $logDir "app.out.log") -RedirectStandardError (Join-Path $logDir "app.err.log")
     $tunnel = Start-Process -FilePath $cloudflared -WindowStyle Hidden -PassThru -WorkingDirectory $repoRoot `
-        -ArgumentList "tunnel", "--config", $configFull, "run" `
+        -ArgumentList "tunnel", "--config", "`"$configFull`"", "run" `
         -RedirectStandardOutput (Join-Path $logDir "tunnel.out.log") -RedirectStandardError (Join-Path $logDir "tunnel.err.log")
 
     $failures = 0

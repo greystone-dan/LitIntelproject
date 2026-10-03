@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-03T17:37:32.778045+00:00
+Generated: 2026-10-03T22:42:20.978053+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 90 across 90 paths
-Hidden operations: 54 excluded from OpenAPI
+OpenAPI operations: 91 across 91 paths
+Hidden operations: 55 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1159,6 +1159,19 @@ Live Analysis Resolve
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /memo-citation-check`
+
+Memo Citation Check Analyze
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_memo_citation_check_analyze_memo_citation_check_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -2007,6 +2020,16 @@ Handler: `backend.routes.judge_profile_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.live_analysis_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /memo-citation-check`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.memo_citation_check_page`
 
 **Responses**
 

@@ -817,3 +817,53 @@ class ResearchResponse(BaseModel):
 	model_used: str
 	prompt_tokens: int
 	completion_tokens: int
+
+
+class TreatmentInfo(BaseModel):
+	has_treatment: bool
+	treatment_flags: list[str]
+	citing_cases_count: int
+
+
+class RelatedAuthorityResponse(BaseModel):
+	id: int
+	title: str
+	citation: str | None
+	court: str
+	date: str | None
+	citing_count: int
+	issues: list[str]
+
+
+class EnhancedCitationResponse(LiveAnalysisReferenceResponse):
+	treatment: TreatmentInfo | None = None
+	related_authorities: list[RelatedAuthorityResponse] = []
+
+
+class MissingAuthorityResponse(BaseModel):
+	id: int
+	title: str
+	citation: str | None
+	court: str
+	date: str | None
+	citing_count: int
+	issues: list[str]
+	reason: str
+
+
+class MemoCitationAnalysis(BaseModel):
+	total_authorities_cited: int
+	resolved_authorities: int
+	authorities_with_treatment: int
+	missing_authorities_found: int
+
+
+class MemoCitationCheckResponse(BaseModel):
+	filename: str
+	text: str
+	text_length: int
+	paragraph_count: int
+	case_citations: list[EnhancedCitationResponse]
+	statute_references: list[LiveAnalysisReferenceResponse]
+	missing_authorities: list[MissingAuthorityResponse]
+	memo_analysis: MemoCitationAnalysis

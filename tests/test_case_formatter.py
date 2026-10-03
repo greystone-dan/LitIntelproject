@@ -78,3 +78,29 @@ def test_fca_signature_quote_filler_and_plain_headings():
 def test_short_citation_shaped_bracket_lines_are_footnotes_even_without_counsel_footer():
     text = "\n".join(["Case", "Decision Content", "Reasoning here.", "[1] (1887), 56 L.J.Q.B. 621.", "[2] [1910] A.C. 614."])
     assert [k for k, _ in _kinds(text)].count("footnote") == 2
+
+
+def test_citation_counts_annotate_only_exact_existing_paragraph_blocks():
+    text = "Decision Content\n[1] First.\n[2] Second."
+    blocks = format_decision(text, {1: 12, 3: 4})
+    cited = next(block for block in blocks if block["type"] == "para" and block["num"] == 1)
+    uncited = next(block for block in blocks if block["type"] == "para" and block["num"] == 2)
+
+    assert cited["cited_by_count"] == 12
+    assert cited["citation_tooltip"] == "Cited by 12 cases"
+    assert "cited_by_count" not in uncited
+
+
+def test_single_case_citation_tooltip_uses_singular():
+    block = next(
+        block for block in format_decision("Decision Content\n[1] First.", {1: 1})
+        if block["type"] == "para"
+    )
+    assert block["citation_tooltip"] == "Cited by 1 case"
+
+
+def test_no_incoming_pinpoints_leave_paragraphs_unannotated():
+    blocks = format_decision("Decision Content\n[1] First.")
+    paragraph = next(block for block in blocks if block["type"] == "para")
+    assert "cited_by_count" not in paragraph
+    assert "citation_tooltip" not in paragraph

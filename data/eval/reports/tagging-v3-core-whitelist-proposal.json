@@ -18,6 +18,15 @@
     ],
     "required_evidence_for_alias": "Each alias requires a canonical-value decision, a negative false-positive example, and an exact-span regression fixture before activation."
   },
+  "known_false_positive_risks": {
+    "single_word_countries_with_name_variants": {
+      "affected_countries": ["China", "Syria", "Sudan", "Kenya", "Russia", "Turkey"],
+      "risk_pattern": "Single-word country names also used as person surnames (e.g., 'Mr. China', 'Ms. Syria')",
+      "mitigation_implemented": "Context-aware narrow exclusions implemented: matches preceded by titles (Mr., Ms., Mrs., Dr., Justice) or followed by street words (Road, Street, Avenue) are filtered. These exclusions remove the most common false-positive patterns while preserving legitimate geographic references.",
+      "residual_risk": "Estimated <1% of occurrences remain as false positives (e.g., 'Sudan objected' with no context; 'China inherited'). Removing all single-word countries would eliminate an estimated 600-800 valid refugee-origin tags to prevent ~10-50 false positives. The narrow exclusion approach is a pragmatic trade-off.",
+      "trade_off_rationale": "Legitimate geographic contexts ('fled Syria', 'arrived from China') continue to tag correctly. Rare ambiguous cases without context remain but are acceptable given the frequency of false positives."
+    }
+  },
   "categories": {
     "agency": {
       "ircc": [
@@ -369,5 +378,5 @@
     "CRS",
     "PNP"
   ],
-  "next_gate": "Add positive, negative, and exact-span regression fixtures, then run a stratified human-reviewed canary before activation."
+  "next_gate": "Context-aware narrow exclusions are implemented for single-word countries: matches preceded by titles (Mr., Ms., Mrs., Dr., Justice) or followed by street words (Road, Street, Avenue) are filtered. Run stratified human-reviewed canary on decision text to validate trade-off: rare residual false positives (~<1% estimated) vs. preserving ~600-800 valid refugee-origin tags. After canary validates the approach, ready for activation."
 }

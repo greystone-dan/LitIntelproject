@@ -33,6 +33,7 @@ from .database import (
 	CitationMetrics,
 	StatuteReference,
 )
+from .statute_versioning import get_statute_version_label
 from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
@@ -532,6 +533,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 		legislation_url = reference.legislation_url or (
 			authority_document.source_url if authority_document is not None else None
 		)
+		version_label = get_statute_version_label(getattr(reference, "statute_version", None))
 		return CaseReaderCitationResponse(
 			id=-1000000 - reference.id,
 			citation_kind=reference.reference_kind,
@@ -563,6 +565,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 			provision_nested_depth=resolution.provision_nested_depth,
 			provision_is_range_or_list=resolution.is_range_or_list or reference.provision_is_range_or_list,
 			unresolved=resolution.resolution_status != "resolved_section",
+			statute_version_label=version_label,
 		)
 	return [
 		build_response(reference)

@@ -78,7 +78,14 @@ def _is_irpa_irpr_reference(value: str | None) -> bool:
 	)
 
 
-def _build_evidence_summary(case_id: int, db: Session, *, has_paragraph_chunks: bool) -> CaseEvidenceSummaryResponse | None:
+def _build_evidence_summary(
+	case_id: int,
+	db: Session,
+	*,
+	has_paragraph_chunks: bool,
+	chunks: list[CaseChunk] | None = None,
+	citations: list[CaseReaderCitationResponse] | None = None,
+) -> CaseEvidenceSummaryResponse | None:
 	if not has_paragraph_chunks:
 		return None
 	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
@@ -120,6 +127,33 @@ def _build_evidence_summary(case_id: int, db: Session, *, has_paragraph_chunks: 
 				subthemes=subthemes,
 			)
 		)
+
+	# Build citation-to-subtheme mapping
+	citation_mappings = {}
+	if chunks and citations:
+		chunks_by_id = {chunk.id: chunk for chunk in chunks if chunk.id is not None}
+
+		for citation in citations:
+			if citation.chunk_id is None or citation.id is None:
+				continue
+
+			chunk = chunks_by_id.get(citation.chunk_id)
+			if chunk is None or chunk.paragraph_start is None:
+				continue
+
+			# Find subtheme(s) that contain this citation's paragraph
+			citation_para = chunk.paragraph_start
+			for unit in units:
+				for subtheme in unit.subthemes:
+					if citation_para in subtheme.paragraph_indices:
+						citation_mappings[citation.id] = {
+							"unit_index": unit.unit_index,
+							"subtheme_id": subtheme.subtheme_id,
+							"key_terms": subtheme.key_terms,
+							"explanation": subtheme.explanation,
+						}
+						break
+
 	return CaseEvidenceSummaryResponse(
 		method="discussion_unit_v1",
 		version="1.4",
@@ -127,6 +161,7 @@ def _build_evidence_summary(case_id: int, db: Session, *, has_paragraph_chunks: 
 		total_subthemes=sum(len(unit.subthemes) for unit in units),
 		note="Evidence-based structural summary; not a legal conclusion. Each evidence span maps to canonical source text and a source hash.",
 		units=units,
+		citation_mappings=citation_mappings,
 	)
 
 
@@ -737,6 +772,8 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		case_id,
 		db,
 		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+		chunks=all_chunks,
+		citations=citation_responses,
 	)
 	case_summary = _build_case_summary(evidence_summary)
 

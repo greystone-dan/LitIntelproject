@@ -329,6 +329,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
 
 
 class CaseSummarySectionItemResponse(BaseModel):

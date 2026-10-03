@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 138
+Active scripts documented: 139
 
 ## Catalog
 
@@ -26,6 +26,7 @@ Active scripts documented: 138
 | `backfill_case_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
@@ -371,6 +372,20 @@ Active scripts documented: 138
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
+```
+
+## `scripts/batch_compute_units.py`
+
+**Purpose:** Resumable batch job CLI for computing discussion units across the case corpus. Usage: python scripts/batch_compute_units.py [--start CASE_ID] [--end CASE_ID] [--clear] Examples: # Compute all cases from start (default: case 1) python scripts/batch_compute_units.py # Compute specific range python scripts/batch_compute_units.py --start 1 --end 500 # Clear all cached units and recompute python scripts/batch_compute_units.py --clear # Resume from case 501 after a previous run python scripts/batch_compute_units.py --start 501
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\batch_compute_units.py --help
 ```
 
 ## `scripts/benchmark_case_citations.py`

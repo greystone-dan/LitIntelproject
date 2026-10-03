@@ -10,7 +10,7 @@ from .models import text_hash
 
 
 DISCUSSION_UNIT_METHOD = "discussion_unit_v1"
-DISCUSSION_UNIT_VERSION = "1.2"
+DISCUSSION_UNIT_VERSION = "1.3"
 _CONTENT_STOPWORDS = frozenset(
     "a an and are as at be been being by for from had has have he her his in is it its may of on or that the their them they this to was were will with would".split()
 )
@@ -144,6 +144,56 @@ def _density_shift(left: ParagraphFeatures, right: ParagraphFeatures) -> float:
     return min(1.0, abs(left_density - right_density))
 
 
+def _is_boilerplate_start(text: str) -> bool:
+    """Detect case header/metadata at document start."""
+    text_upper = text.upper()
+    # Case headers typically contain multiple metadata fields
+    has_court = "COURT" in text_upper and "DATABASE" in text_upper
+    has_neutral = "NEUTRAL CITATION" in text_upper
+    has_docket = "DOCKET" in text_upper
+
+    # Trigger on court database OR neutral citation
+    return has_court or has_neutral
+
+
+def _is_boilerplate_end(text: str) -> bool:
+    """Detect case footer/metadata at document end."""
+    text_upper = text.upper()
+    # Court order/footer markers
+    boilerplate_markers = (
+        "SOLICITORS OF RECORD",
+        "ORDER AND ORDER:",
+        "ORDER :",
+        "DOCKET :",
+        "DOCKET:",
+        "STYLE OF CAUSE",
+        "PLACE OF HEARING",
+        "DATE OF HEARING",
+        "REASONS FOR",
+        "APPEARANCES",
+        "FOR THE",
+        "FOR RESPONDENT",
+        "FOR APPLICANT",
+    )
+    return any(marker in text_upper for marker in boilerplate_markers)
+
+
+def _is_disposition(text: str) -> bool:
+    """Detect final order/judgment language."""
+    text_upper = text.upper()
+    disposition_markers = (
+        "IT IS ORDERED",
+        "THIS COURT ORDERS",
+        "THIS COURT'S JUDGMENT",
+        "THE APPLICATION IS",
+        "THE APPLICATION FOR",
+        "JUDGMENT IS",
+        "FOR THESE REASONS",
+        "DISPOSITION",
+    )
+    return any(marker in text_upper for marker in disposition_markers)
+
+
 def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> ContinuityComponents:
     authority_overlap = _jaccard(left.citation_ids, right.citation_ids)
     statute_overlap = _jaccard(left.statute_ids, right.statute_ids)
@@ -211,6 +261,24 @@ def segment_discussion_units(
     low_score_count = 0
     signal_vacuum_count = 0
     signal_vacuum_active = False
+
+    # Detect structural boundaries: boilerplate headers and footers, disposition markers
+    boilerplate_start_idx = 0
+    boilerplate_end_idx = len(paragraphs)
+    for i, para in enumerate(paragraphs):
+        if boilerplate_start_idx == 0 and _is_boilerplate_start(para.text):
+            boilerplate_start_idx = i + 1
+            if i > 0:
+                boundaries.add(i + 1)
+
+    # Find disposition/footer boundaries from the end
+    for i in range(len(paragraphs) - 1, -1, -1):
+        if _is_boilerplate_end(paragraphs[i].text):
+            boilerplate_end_idx = i
+            if i < len(paragraphs) - 1:
+                boundaries.add(i)
+            break
+
     for index, component in enumerate(continuity, 1):
         left = paragraphs[index - 1]
         right = paragraphs[index]
@@ -227,6 +295,11 @@ def segment_discussion_units(
             and not has_signal
             and component.text_overlap < signal_vacuum_text_overlap
         )
+
+        # Disposition boundary marker
+        if _is_disposition(right.text) and index > 2:
+            boundaries.add(index)
+
         if is_signal_vacuum:
             signal_vacuum_count += 1
             if signal_vacuum_count >= consecutive_signal_vacuum_pairs and not signal_vacuum_active:

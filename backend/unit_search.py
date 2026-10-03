@@ -98,7 +98,7 @@ def _semantic_search(
 			select(
 				CaseChunk.case_id,
 				CaseChunk.id.label("chunk_id"),
-				CaseChunk.chunk_text,
+				CaseChunk.text,
 				func.cosine_distance(
 					CaseChunkEmbedding.embedding,
 					query_embedding
@@ -149,7 +149,7 @@ def _semantic_search(
 			seen_units.add(unit_key)
 
 			# Extract key terms from chunk text (top content words)
-			key_terms = _extract_key_terms(chunk.chunk_text, max_terms=3)
+			key_terms = _extract_key_terms(chunk.text, max_terms=3)
 
 			result = UnitSearchResult(
 				case_id=chunk.case_id,
@@ -189,9 +189,9 @@ def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResul
 			chunks = db.execute(
 				select(
 					CaseChunk.case_id,
-					CaseChunk.chunk_text,
+					CaseChunk.text,
 				)
-				.where(CaseChunk.chunk_text.ilike(pattern))
+				.where(CaseChunk.text.ilike(pattern))
 				.limit(limit * 3)
 			).all()
 
@@ -215,7 +215,7 @@ def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResul
 				seen_units.add(unit_key)
 
 				# Extract key terms from chunk text
-				key_terms = _extract_key_terms(chunk.chunk_text, max_terms=3)
+				key_terms = _extract_key_terms(chunk.text, max_terms=3)
 
 				result = UnitSearchResult(
 					case_id=chunk.case_id,

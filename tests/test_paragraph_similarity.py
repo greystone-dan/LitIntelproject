@@ -286,6 +286,144 @@ def test_source_signal_cap_disclosed(db, monkeypatch):
     assert result.coverage.partial
 
 
+def bare_scc_case(db, owner):
+    paragraph = "3 😀 fairness and 2020 SCC 8 apply."
+    prefix = "Supreme Court of Canada\nDecision Content\n1 Background.\n2 Prior reasons.\n"
+    case(db, owner, paragraph, number=3)
+    db.get(Case, owner).court = "SCC"
+    cite(db, owner, "2020 SCC 8")
+    db.get(Case, owner).full_text = prefix + paragraph
+    db.flush()
+    tag(db, owner, "fairness")
+    return prefix, paragraph
+
+
+def test_bounded_bare_scc_actual_context_and_offsets(db, monkeypatch):
+    contexts = {owner: bare_scc_case(db, owner) for owner in (1, 2)}
+    formatted = []
+    formatter = service.format_decision
+
+    def capture(text):
+        formatted.append(text)
+        return formatter(text)
+
+    monkeypatch.setattr(service, "format_decision", capture)
+    # A large suffix must not be fetched/formatted as candidate context.
+    db.get(Case, 2).full_text += "\nUnrelated suffix " + "x" * service.TEXT_CHARS
+    db.flush()
+    paragraphs, capped, consumed = service._located_chunks(db, 2)
+    assert not capped and consumed == 1
+    paragraph = paragraphs[0]
+    prefix, text = contexts[2]
+    assert paragraph.pos - 1 == len(prefix)
+    assert paragraph.text == text and paragraph.prefix == prefix
+    stored_tag = db.query(CaseTag).filter_by(case_id=2).one()
+    stored_cite = db.query(Citation).filter_by(source_case_id=2).one()
+    assert stored_tag.offset_start == len(prefix) + text.index("fairness")
+    assert stored_cite.offset_start == text.index("2020 SCC 8")
+    verified_cite = db.execute(service._citation_query().where(Citation.id == stored_cite.id)).one()
+    assert verified_cite.start == len(prefix) + stored_cite.offset_start
+    assert verified_cite.exact == "2020 SCC 8"
+    result = service.similar_paragraphs(1, 3, 10, db)
+    assert [(row.case_id, row.paragraph_number, row.score) for row in result.results] == [(2, 3, 3)]
+    assert not result.coverage.partial
+    assert formatted and all(text == prefix + contexts[2][1] for text in formatted)
+    assert all(len(text) <= service.TEXT_CHARS for text in formatted)
+    # Canonical tags must not be silently interpreted as chunk-relative offsets.
+    stored_tag.offset_start -= len(prefix)
+    stored_tag.offset_end -= len(prefix)
+    db.flush()
+    assert service.similar_paragraphs(1, 3, 10, db).results[0].score == 2
+
+
+@pytest.mark.parametrize("owner", [1, 2])
+@pytest.mark.parametrize("fault", [
+    "missing-marker", "broken-sequence", "broken-before-valid", "oversized-context",
+    "repeat", "duplicate", "ambiguous-marker",
+])
+def test_bounded_bare_scc_rejects_unverified_context(db, owner, fault):
+    contexts = {number: bare_scc_case(db, number) for number in (1, 2)}
+    prefix, paragraph = contexts[owner]
+    decision = db.get(Case, owner)
+    if fault == "missing-marker":
+        decision.full_text = prefix.replace("Decision Content", "Reasons") + paragraph
+    elif fault == "broken-sequence":
+        decision.full_text = prefix.replace("2 Prior reasons.", "4 Prior reasons.") + paragraph
+    elif fault == "broken-before-valid":
+        decision.full_text = prefix.replace("2 Prior reasons.", "4 Skipped number.\n2 Prior reasons.") + paragraph
+    elif fault == "ambiguous-marker":
+        decision.full_text = "Decision Content\n" + prefix + paragraph
+    elif fault == "oversized-context":
+        decision.full_text = "x" * service.TEXT_CHARS + "\n" + prefix + paragraph
+    elif fault == "repeat":
+        decision.full_text += "\n" + paragraph
+    else:
+        db.add(CaseChunk(id=100 + owner, case_id=owner, chunk_set="paragraph",
+                         chunk_index=0, paragraph_start=3, paragraph_end=3,
+                         text=paragraph, text_hash=f"duplicate-{owner}", token_estimate=10))
+    db.flush()
+    assert service._located_chunks(db, owner, paragraph=3)[0] == []
+    if owner == 1:
+        with pytest.raises(Exception) as error:
+            service.similar_paragraphs(1, 3, 10, db)
+        assert error.value.status_code == 404
+    else:
+        assert service.similar_paragraphs(1, 3, 10, db).results == []
+
+
+def test_bounded_bare_scc_context_cap_boundary(db, monkeypatch):
+    prefix, paragraph = bare_scc_case(db, 1)
+    monkeypatch.setattr(service, "TEXT_CHARS", len(prefix + paragraph))
+    assert len(service._located_chunks(db, 1)[0]) == 1
+    monkeypatch.setattr(service, "TEXT_CHARS", len(prefix + paragraph) - 1)
+    assert service._located_chunks(db, 1)[0] == []
+
+
+@pytest.mark.parametrize("budget,expected,partial,limits", [
+    (0, [], True, [1]),
+    (1, [4], True, [2]),
+    (3, [2, 3, 4], True, [4, 3]),
+    (6, [2, 3, 4, 5, 6], False, [7, 6]),
+])
+def test_bounded_unresolved_labels_equality_and_shared_postings_budget(
+        db, monkeypatch, budget, expected, partial, limits):
+    labels = ["2020 FC 8", "2020 FCT 8"]
+    case(db, 1, "[7] " + " and ".join(labels) + ".")
+    for label in reversed(labels):
+        cite(db, 1, label, target=None)
+    for owner, label in [(6, labels[1]), (4, labels[0]), (3, labels[1]),
+                         (5, labels[1]), (2, labels[1])]:
+        case(db, owner, f"[7] See {label}.")
+        cite(db, owner, label, target=None)
+    monkeypatch.setattr(service, "POSTINGS", budget)
+    statements = []
+
+    @event.listens_for(db.bind, "before_cursor_execute")
+    def capture(_, __, statement, parameters, ___, ____):
+        statements.append((statement, parameters))
+
+    for _ in range(2):
+        statements.clear()
+        result = service.similar_paragraphs(1, 7, 10, db)
+        assert [row.case_id for row in result.results] == expected
+        assert all(row.score == 2 for row in result.results)
+        assert result.coverage.partial is partial
+        seeks = [(sql, params) for sql, params in statements
+                 if sql.startswith("SELECT citations.id, citations.source_case_id AS owner")]
+        assert len(seeks) == len(limits)
+        assert [params[-2] for _, params in seeks] == limits
+        assert [params[0] for _, params in seeks] == labels[:len(limits)]
+        assert all("citations.normalized_citation = ?" in sql for sql, _ in seeks)
+        assert all("ORDER BY citations.source_case_id, citations.id" in sql for sql, _ in seeks)
+        assert all("LIMIT" in sql for sql, _ in seeks)
+        assert not any("citations.normalized_citation IN" in sql for sql, _ in statements)
+        # Known eligible row counts prove all label seeks share one lookahead.
+        fetched = sum(min(count, cap) for count, cap in zip([1, 4], limits))
+        assert fetched <= budget + 1
+        assert not any(re.search(r"(?:SELECT |, )cases\.full_text(?: AS |,\s|\sFROM)", sql)
+                       for sql, _ in statements)
+
+
 def test_api_validation_and_payload(monkeypatch):
     from backend.routes import router
     app = FastAPI()

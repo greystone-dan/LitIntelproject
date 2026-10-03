@@ -1,9 +1,11 @@
 """Bounded, stored-evidence paragraph matching; no embeddings or text inference."""
 
+import re
+
 from fastapi import HTTPException
 from sqlalchemy import case as sql_case, func, select
 
-from .case_formatter import format_decision
+from .case_formatter import DECISION_MARKER, format_decision
 from .citations import CASE_CITATION_KINDS, _citation_variants
 from .database import Case, CaseChunk, CaseTag, Citation
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
@@ -34,6 +36,11 @@ def _located_chunks(db, case_id, *, paragraph=None, budget=PARAGRAPHS_PER_CASE):
         duplicate.label("duplicate"),
         func.strpos(func.substr(Case.full_text, pos + 1), CaseChunk.text).label("repeat"),
         func.substr(Case.full_text, pos - 1, 1).label("previous"),
+        sql_case(
+            ((pos > 0) & (pos - 1 + func.length(CaseChunk.text) <= TEXT_CHARS),
+             func.substr(Case.full_text, 1, pos - 1)),
+            else_=None,
+        ).label("prefix"),
         Case.title, Case.citation,
     ).join(Case, Case.id == CaseChunk.case_id).where(
         CaseChunk.case_id == case_id, CaseChunk.chunk_set == "paragraph",
@@ -45,10 +52,34 @@ def _located_chunks(db, case_id, *, paragraph=None, budget=PARAGRAPHS_PER_CASE):
     for row in rows:
         if row.duplicate or not row.pos or row.repeat or (row.pos > 1 and row.previous != "\n"):
             continue
-        blocks = format_decision(row.text)
+        bare = re.match(r"^\d{1,3}\s+(?=\S)", row.text)
+        if bare:
+            # Only complete, actual canonical context can establish SCC numbering.
+            # The combined prefix and chunk is bounded; no invented marker or base.
+            if row.prefix is None or len(row.prefix) != row.pos - 1:
+                continue
+            context = row.prefix + row.text
+            if sum(line.strip() == DECISION_MARKER for line in context.split("\n")) != 1:
+                continue
+            blocks = format_decision(context)
+            body_start = blocks[0]["end"]
+            para_starts = {block["start"] for block in blocks if block["type"] == "para"}
+            # A skipped bare number in the actual body breaks trustworthy context,
+            # even if a later line happens to resume the formatter's sequence.
+            if any(match.start() >= body_start and match.start() not in para_starts
+                   for match in re.finditer(r"(?m)^\d{1,3}[^\S\n]+(?=\S)", context)):
+                continue
+            start = row.pos - 1
+            if sum(block["type"] == "para" and block["num"] == row.paragraph_start
+                   for block in blocks) != 1:
+                continue
+            blocks = [block for block in blocks if block["start"] >= start]
+        else:
+            blocks = format_decision(row.text)
+            start = 0
         paras = [block for block in blocks if block["type"] == "para"]
         # Conservatively omit unnumbered, grouped, duplicated and footnote chunks.
-        if (len(paras) != 1 or paras[0]["start"] != 0
+        if (len(paras) != 1 or paras[0]["start"] != start
                 or paras[0]["num"] != row.paragraph_start
                 or row.paragraph_start != row.paragraph_end):
             continue
@@ -152,6 +183,10 @@ def _source_rows(db, model, owner_column, case_id, verification_query):
 
 
 def similar_paragraphs(case_id, paragraph_number, limit, db):
+    """Score distinct shared tags one each and distinct authorities two each.
+
+    Ties sort by case ID, then paragraph number.
+    """
     if db.scalar(select(Case.id).where(Case.id == case_id).limit(1)) is None:
         raise HTTPException(404, "Case not found")
     source, partial, _ = _located_chunks(db, case_id, paragraph=paragraph_number, budget=2)
@@ -170,27 +205,38 @@ def similar_paragraphs(case_id, paragraph_number, limit, db):
     authorities = {value for kind, value in chosen if kind == "authority"}
     candidate_tags, candidate_cites = {}, {}
     for kind, value in chosen:
+        queries = []
         if kind == "tag":
             query = select(CaseTag.id, CaseTag.case_id.label("owner")).where(
                 CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
                 CaseTag.category == value[0], CaseTag.value == value[1],
                 CaseTag.case_id != case_id).order_by(CaseTag.case_id, CaseTag.id)
+            queries.append(query)
         else:
             if value.startswith("case:"):
-                predicate = Citation.target_case_id == int(value.split(":", 1)[1])
+                predicates = [Citation.target_case_id == int(value.split(":", 1)[1])]
             else:
                 labels = sorted({row[0].normalized_citation for row in source_cites[:SOURCE_ROWS]
                                  if _authority(row) == value and row[0].normalized_citation})
-                predicate = Citation.normalized_citation.in_(labels)
-            query = select(Citation.id, Citation.source_case_id.label("owner")).where(
-                predicate, Citation.source_case_id != case_id,
-                Citation.citation_kind.in_(sorted(CASE_CITATION_KINDS))).order_by(
-                    Citation.source_case_id, Citation.id)
-        rows = list(db.execute(query.limit(POSTINGS + 1)))
-        partial |= len(rows) > POSTINGS
-        for row in rows[:POSTINGS]:
-            store = candidate_tags if kind == "tag" else candidate_cites
-            store.setdefault(row.owner, set()).add(row.id)
+                predicates = [Citation.normalized_citation == label for label in labels]
+            for predicate in predicates:
+                queries.append(select(Citation.id, Citation.source_case_id.label("owner")).where(
+                    predicate, Citation.source_case_id != case_id,
+                    Citation.citation_kind.in_(sorted(CASE_CITATION_KINDS))).order_by(
+                        Citation.source_case_id, Citation.id))
+        # Sorted-label seeks share one postings budget and at most one lookahead.
+        # Charge fetched rows, not unique owners or the later verified evidence.
+        remaining = POSTINGS
+        for index, query in enumerate(queries):
+            rows = list(db.execute(query.limit(remaining + 1)))
+            partial |= len(rows) > remaining
+            for row in rows[:remaining]:
+                store = candidate_tags if kind == "tag" else candidate_cites
+                store.setdefault(row.owner, set()).add(row.id)
+            remaining -= min(len(rows), remaining)
+            if remaining == 0:
+                partial |= index + 1 < len(queries)
+                break
     case_ids = sorted(set(candidate_tags) | set(candidate_cites))
     partial |= len(case_ids) > CANDIDATE_CASES
     results, checked, cases_checked = [], 0, 0

@@ -14,7 +14,14 @@ short-form anchors remain document-relative and may precede that chunk, but must
 match canonical text and end before the absolute occurrence start.
 Indexed postings, source signals, candidate cases and
 paragraph rows are capped; coverage is explicitly non-exhaustive. Ambiguous
-or unverified chunks/spans and statutes are excluded. Migration
+or unverified chunks/spans and statutes are excluded. Bare-numbered SCC chunks
+require the actual canonical `Decision Content` marker and preceding numbering:
+only a bounded prefix plus chunk is formatted, never a full candidate decision
+retrieval. Chunks beyond that context cap or with ambiguous numbering are omitted.
+Unresolved authority labels use separate ordered equality seeks, in sorted label
+order, sharing one total postings budget and one lookahead per signal. Candidate
+IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
+partial. Migration
 `0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
 must review/apply it separately.
 

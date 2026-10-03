@@ -168,8 +168,16 @@ def test_rendered_shell_exposes_tabs_and_product_title():
 def test_data_explorer_word_export_uses_active_case_search_filters():
     html = routes._data_explorer_page_html()
 
-    assert '<a id="downloadSearchWord" class="qf-link" href="/search/export.docx" hidden aria-hidden="true">Download Word</a>' in html
-    assert 'Download Word</a><div class="search-status" id="searchMeta"' in html
+    search_actions = re.findall(r'<div class="search-actions">(.*?)</div>', html)
+    export_actions = next(actions for actions in search_actions if 'id="downloadSearchWord"' in actions)
+    assert 'type="submit" class="sq-go">Search cases</button>' in export_actions
+    assert (
+        '<a id="downloadSearchWord" class="qf-link" href="/search/export.docx" '
+        'hidden aria-hidden="true">Download Word</a>'
+    ) in export_actions
+    if 'id="downloadSearchCsv"' in html:
+        assert 'id="downloadSearchCsv"' in export_actions
+    assert '<div class="search-status" id="searchMeta"' in html
     assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
     assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
     search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)

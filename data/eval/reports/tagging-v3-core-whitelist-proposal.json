@@ -22,8 +22,9 @@
     "single_word_countries_with_name_variants": {
       "affected_countries": ["China", "Syria", "Sudan", "Kenya", "Russia", "Turkey"],
       "risk_pattern": "Single-word country names also used as person surnames (e.g., 'Mr. China', 'Ms. Syria')",
-      "impact": "Rare in practice (estimated <1% of occurrences). Keeping in core preserves ~600-800 valid refugee-origin tags vs. removing ~10-50 false positives.",
-      "mitigation": "Future context-aware rules can exclude matches preceded by titles (Mr., Ms., Dr., Justice) or followed by street words (Road, Street, Avenue). This false-positive risk is acceptable until those rules are available."
+      "mitigation_implemented": "Context-aware narrow exclusions implemented: matches preceded by titles (Mr., Ms., Mrs., Dr., Justice) or followed by street words (Road, Street, Avenue) are filtered. These exclusions remove the most common false-positive patterns while preserving legitimate geographic references.",
+      "residual_risk": "Estimated <1% of occurrences remain as false positives (e.g., 'Sudan objected' with no context; 'China inherited'). Removing all single-word countries would eliminate an estimated 600-800 valid refugee-origin tags to prevent ~10-50 false positives. The narrow exclusion approach is a pragmatic trade-off.",
+      "trade_off_rationale": "Legitimate geographic contexts ('fled Syria', 'arrived from China') continue to tag correctly. Rare ambiguous cases without context remain but are acceptable given the frequency of false positives."
     }
   },
   "categories": {
@@ -377,5 +378,5 @@
     "CRS",
     "PNP"
   ],
-  "next_gate": "Run stratified human-reviewed canary before activation. Known risk: single-word countries (China, Syria, Sudan, Kenya, Russia, Turkey) may match person surnames in rare cases (~<1% of occurrences). Accept this trade-off to preserve 600-800 valid refugee-origin tags. Future work: implement context-aware exclusions for titles (Mr., Ms., Dr.) and street words (Road, Street, Avenue)."
+  "next_gate": "Context-aware narrow exclusions are implemented for single-word countries: matches preceded by titles (Mr., Ms., Mrs., Dr., Justice) or followed by street words (Road, Street, Avenue) are filtered. Run stratified human-reviewed canary on decision text to validate trade-off: rare residual false positives (~<1% estimated) vs. preserving ~600-800 valid refugee-origin tags. After canary validates the approach, ready for activation."
 }

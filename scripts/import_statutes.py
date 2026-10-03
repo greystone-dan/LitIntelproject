@@ -118,56 +118,108 @@ class JusticeLawsXMLClient:
 	def __exit__(self, exc_type, exc_val, exc_tb):
 		self.client.close()
 
-	def fetch_statute_html(self, instrument_key: str, statute_url: str) -> str | None:
-		"""Fetch statute HTML from justice.gc.ca."""
+	def fetch_statute_xml(self, instrument_key: str, xml_url: str) -> ET.Element | None:
+		"""Fetch and parse statute XML from justice.gc.ca."""
 		try:
-			logger.info(f"Fetching {instrument_key} from {statute_url}...")
-			response = self.client.get(statute_url)
+			logger.info(f"Fetching XML for {instrument_key} from {xml_url}...")
+			response = self.client.get(xml_url)
 			if response.status_code == 200:
-				return response.text
+				root = ET.fromstring(response.content)
+				return root
 			else:
-				logger.warning(f"Status {response.status_code} for {instrument_key}")
+				logger.warning(f"Status {response.status_code} for {instrument_key} XML")
 				return None
 		except Exception as e:
-			logger.error(f"Error fetching {instrument_key}: {e}")
+			logger.error(f"Error fetching XML for {instrument_key}: {e}")
 			return None
 
-	def extract_statute_text_from_html(self, html: str) -> str | None:
-		"""
-		Extract statute text from justice.gc.ca HTML.
-		Simple text extraction from the main content div.
-		"""
+	def extract_statute_text_from_xml(self, root: ET.Element) -> str | None:
+		"""Extract statute text from justice.gc.ca XML."""
 		try:
-			# Extract text from <main> tag or specific content divs
-			# This is a simplified approach; production would parse HTML properly
-			import re
-
-			# Remove scripts and styles
-			html = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL)
-			html = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.DOTALL)
-
-			# Extract main content
-			match = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL)
-			if not match:
-				match = re.search(r'<div[^>]*id=["\']content["\'][^>]*>(.*?)</div>', html, re.DOTALL)
-
-			if match:
-				content = match.group(1)
-				# Remove HTML tags
-				text = re.sub(r'<[^>]+>', '\n', content)
-				# Clean up whitespace
-				text = re.sub(r'\n\s*\n', '\n', text)
-				return text.strip()
-
-			return None
+			# Get all text elements from the statute
+			text_parts = []
+			for elem in root.iter():
+				if elem.text and elem.text.strip():
+					text_parts.append(elem.text.strip())
+			return "\n".join(text_parts) if text_parts else None
 		except Exception as e:
-			logger.error(f"Error extracting text: {e}")
+			logger.error(f"Error extracting text from XML: {e}")
 			return None
+
+	def extract_metadata_from_xml(self, root: ET.Element) -> dict:
+		"""Extract metadata (dates, version info) from statute XML."""
+		metadata = {}
+		ns = {'lims': 'http://justice.gc.ca/lims'}
+
+		# Extract point-in-time date
+		pit_date = root.attrib.get('{http://justice.gc.ca/lims}pit-date')
+		if pit_date:
+			metadata['pit_date'] = pit_date
+
+		# Extract in-force start date
+		inforce_date = root.attrib.get('{http://justice.gc.ca/lims}inforce-start-date')
+		if inforce_date:
+			metadata['inforce_start_date'] = inforce_date
+
+		# Check if there are previous versions
+		has_prev = root.attrib.get('hasPreviousVersion', 'false') == 'true'
+		metadata['has_previous_versions'] = has_prev
+
+		return metadata
+
+
+def parse_statute_sections_from_xml(root: ET.Element) -> list[dict]:
+	"""
+	Parse sections from statute XML.
+	Extracts Section elements with their numbers, headings, and text.
+	"""
+	sections = []
+	offset = 0
+	ns = {'lims': 'http://justice.gc.ca/lims'}
+
+	# Find all Section elements in the statute
+	for section_elem in root.findall('.//Section', ns):
+		section_num = section_elem.attrib.get('sid', '').split('/')[-1] if 'sid' in section_elem.attrib else None
+
+		# Try to get section number from text content
+		if not section_num:
+			for child in section_elem:
+				if 'sectionLabel' in child.tag.lower():
+					section_num = child.text
+					break
+
+		# Extract heading
+		heading = ''
+		heading_elem = section_elem.find('.//Heading')
+		if heading_elem is not None and heading_elem.text:
+			heading = heading_elem.text
+
+		# Extract full text by joining all text content
+		text_parts = []
+		for elem in section_elem.iter():
+			if elem.text and elem.text.strip():
+				text_parts.append(elem.text.strip())
+		section_text = '\n'.join(text_parts)
+
+		if section_num or section_text:
+			section_dict = {
+				'section_number': section_num or f'Section {len(sections) + 1}',
+				'subsection': None,
+				'paragraph': None,
+				'heading': heading,
+				'text': section_text[:5000],  # Limit to 5000 chars per section
+				'offset_start': offset,
+				'offset_end': offset + len(section_text),
+			}
+			sections.append(section_dict)
+			offset += len(section_text)
+
+	return sections if sections else []
 
 
 def parse_statute_sections(statute_text: str) -> list[dict]:
 	"""
-	Parse statute text into sections with hierarchical structure.
+	Fallback: parse statute text into sections.
 	Returns list of section dicts with number, heading, text, and offsets.
 	"""
 	sections = []
@@ -207,24 +259,45 @@ def parse_statute_sections(statute_text: str) -> list[dict]:
 		current_section["offset_end"] = current_offset
 		sections.append(current_section)
 
-	return sections if sections else [{"section_number": "1", "heading": "Full Text", "text": statute_text}]
+	return sections if sections else []
 
 
-def import_statute_from_text(
+def import_statute_from_xml(
 	db: Session,
 	instrument_key: str,
 	statute_info: dict,
-	statute_text: str,
-	version_date: date,
-	version_number: str = "1.0",
+	xml_root: ET.Element,
+	metadata: dict,
+	client: JusticeLawsXMLClient | None = None,
 ) -> Statute | None:
 	"""
-	Import a single statute version into the database.
+	Import a single statute version from XML into the database.
 	"""
 	try:
+		# Extract statute text
+		if client:
+			statute_text = client.extract_statute_text_from_xml(xml_root)
+		else:
+			# Fallback: extract text directly
+			text_parts = []
+			for elem in xml_root.iter():
+				if elem.text and elem.text.strip():
+					text_parts.append(elem.text.strip())
+			statute_text = "\n".join(text_parts) if text_parts else None
+
 		if not statute_text or len(statute_text) < 100:
 			logger.warning(f"Statute text too short for {instrument_key}, skipping")
 			return None
+
+		# Get version date from metadata
+		version_date_str = metadata.get('pit_date') or metadata.get('inforce_start_date')
+		if not version_date_str:
+			version_date = date.today()
+		else:
+			try:
+				version_date = datetime.strptime(version_date_str, '%Y-%m-%d').date()
+			except:
+				version_date = date.today()
 
 		# Get or create statute record
 		statute = db.query(Statute).filter(Statute.instrument_key == instrument_key).first()
@@ -238,7 +311,7 @@ def import_statute_from_text(
 				statute_type=statute_info["statute_type"],
 				source=statute_info["source"],
 				license=statute_info.get("license"),
-				source_url=statute_info.get("source_url"),
+				source_url=statute_info.get("url"),
 			)
 			db.add(statute)
 			db.flush()
@@ -260,7 +333,7 @@ def import_statute_from_text(
 		# Create statute version
 		statute_version = StatuteVersion(
 			statute_id=statute.id,
-			version_number=version_number,
+			version_number='1.0',
 			in_force_date=version_date,
 			full_text=full_text,
 			text_compressed=text_compressed,
@@ -269,9 +342,12 @@ def import_statute_from_text(
 		db.add(statute_version)
 		db.flush()
 
-		# Parse and store sections
-		sections = parse_statute_sections(statute_text)
-		for section_data in sections:
+		# Parse and store sections from XML
+		sections = parse_statute_sections_from_xml(xml_root)
+		if not sections:
+			sections = parse_statute_sections(statute_text)
+
+		for section_data in sections[:100]:  # Limit to first 100 sections to avoid DB bloat
 			section = StatuteSection(
 				statute_version_id=statute_version.id,
 				section_number=section_data["section_number"],
@@ -285,13 +361,25 @@ def import_statute_from_text(
 			db.add(section)
 
 		db.commit()
-		logger.info(f"Imported {len(sections)} sections for {instrument_key} v{version_number} ({version_date})")
+		logger.info(f"Imported {min(len(sections), 100)} sections for {instrument_key} ({version_date})")
 		return statute
 
 	except Exception as e:
 		logger.error(f"Error importing {instrument_key}: {e}")
 		db.rollback()
 		return None
+
+
+def get_xml_url_for_statute(statute_url: str) -> str:
+	"""Convert a statute HTML URL to its XML equivalent."""
+	# Pattern: /eng/acts/i-2.5/ -> /eng/XML/I-2.5.xml
+	# Pattern: /eng/regulations/SOR-2002-227/ -> /eng/XML/SOR-2002-227.xml
+	import re
+	match = re.search(r'/eng/(acts|regulations)/([^/]+)/?$', statute_url)
+	if match:
+		code = match.group(2)
+		return f"https://laws-lois.justice.gc.ca/eng/XML/{code}.xml"
+	return None
 
 
 def import_phase1_statutes(instruments: list[str] | None = None, db: Session | None = None) -> None:
@@ -323,24 +411,24 @@ def import_phase1_statutes(instruments: list[str] | None = None, db: Session | N
 				logger.warning(f"No URL for {instrument_key}, skipping")
 				continue
 
-			# Fetch statute HTML
-			html = client.fetch_statute_html(instrument_key, statute_url)
-			if not html:
-				logger.warning(f"Could not fetch {instrument_key}")
+			# Get XML URL
+			xml_url = get_xml_url_for_statute(statute_url)
+			if not xml_url:
+				logger.warning(f"Could not determine XML URL for {instrument_key}")
 				continue
 
-			# Extract text
-			statute_text = client.extract_statute_text_from_html(html)
-			if not statute_text:
-				logger.warning(f"Could not extract text for {instrument_key}")
+			# Fetch statute XML
+			xml_root = client.fetch_statute_xml(instrument_key, xml_url)
+			if xml_root is None:
+				logger.warning(f"Could not fetch XML for {instrument_key}")
 				continue
 
-			logger.info(f"Extracted {len(statute_text)} characters for {instrument_key}")
+			# Extract metadata
+			metadata = client.extract_metadata_from_xml(xml_root)
+			logger.info(f"Fetched {instrument_key} with metadata: {metadata}")
 
-			# Import to database (using current date as version date for this simple test)
-			import_statute_from_text(
-				db, instrument_key, statute_info, statute_text, date.today(), version_number="current"
-			)
+			# Import to database
+			import_statute_from_xml(db, instrument_key, statute_info, xml_root, metadata, client)
 
 	logger.info("Phase 1 import complete")
 	db.close()

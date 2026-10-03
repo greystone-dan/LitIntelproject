@@ -2365,7 +2365,7 @@ def test_citation_map_issue_and_evidence_endpoints_are_bounded(monkeypatch):
 
 	monkeypatch.setattr(routes, "_citation_map_topics", lambda db, query, limit: calls.update(topics=(db, query, limit)) or [])
 	monkeypatch.setattr(routes, "_citation_issue_map", lambda db, category, value, limit: calls.update(issue=(db, category, value, limit)) or {})
-	monkeypatch.setattr(routes, "_case_legal_tags", lambda db, case_id, limit: calls.update(tags=(db, case_id, limit)) or [])
+	monkeypatch.setattr(routes, "_case_legal_tags", lambda db, case_id, limit, display_limit=None: calls.update(tags=(db, case_id, limit)) or [])
 	monkeypatch.setattr(routes, "_common_citing_cases", lambda db, case_ids, limit: calls.update(common=(db, case_ids, limit)) or [])
 	monkeypatch.setattr(routes, "_citation_contexts", lambda db, source, target, limit: calls.update(context=(db, source, target, limit)) or [context])
 

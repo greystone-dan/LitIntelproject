@@ -322,29 +322,106 @@ def citation_contexts(
 	return contexts
 
 
-def case_legal_tags(session: Session, case_id: int, limit: int = 100) -> list[dict[str, Any]]:
+def case_legal_tags(
+	session: Session, case_id: int, limit: int = 100, display_limit: int | None = None
+) -> list[dict[str, Any]]:
+	"""Get tags for a case, optionally ranked and capped for display.
+
+	If display_limit is set, returns tags ranked by rarity (inverse fire rate) and mention count,
+	capped at display_limit for display UI, but all tags are included (marked with 'display' flag).
+	Otherwise returns all tags up to limit, sorted by priority and score (legacy behavior).
+	"""
 	priority = {"statute": 0, "issue": 1, "legal_area": 2, "outcome": 3}
-	rows = session.scalars(
-		select(CaseTag)
-		.where(
-			CaseTag.case_id == case_id,
-			CaseTag.category.in_(priority),
-			CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+	rows = list(
+		session.scalars(
+			select(CaseTag)
+			.where(
+				CaseTag.case_id == case_id,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+			)
+			.order_by(CaseTag.score.desc(), CaseTag.category, CaseTag.value)
+			.limit(max(limit, display_limit or limit))
 		)
-		.order_by(CaseTag.score.desc(), CaseTag.category, CaseTag.value)
-		.limit(limit)
 	)
-	return [
-		{
-			"category": tag.category,
-			"value": tag.value,
-			"score": tag.score,
-			"evidence": tag.evidence,
-			"source": tag.source,
-			"taxonomy_version": tag.taxonomy_version,
-		}
-		for tag in sorted(rows, key=lambda tag: (priority.get(tag.category, 9), -tag.score, tag.value))
-	]
+
+	if display_limit is None:
+		# Legacy behavior: filter by priority categories and sort by priority
+		rows = [r for r in rows if r.category in priority]
+		sorted_rows = sorted(rows, key=lambda tag: (priority.get(tag.category, 9), -tag.score, tag.value))
+	else:
+		# New behavior: rank by rarity and mention count
+		sorted_rows = _rank_tags_by_rarity_and_frequency(session, rows, display_limit)
+
+	result = []
+	for i, tag in enumerate(sorted_rows[:limit]):
+		result.append(
+			{
+				"category": tag.category,
+				"value": tag.value,
+				"score": tag.score,
+				"evidence": tag.evidence,
+				"source": tag.source,
+				"taxonomy_version": tag.taxonomy_version,
+				"display": i < (display_limit or limit),  # Mark if should be shown in display UI
+			}
+		)
+	return result
+
+
+def _rank_tags_by_rarity_and_frequency(
+	session: Session, tags: list[CaseTag], display_limit: int
+) -> list[CaseTag]:
+	"""Rank tags by rarity (inverse fire rate) and mention frequency in the case.
+
+	Rarity is calculated as 1 / (fire_rate + 0.01) to avoid division by zero.
+	Frequency is the count of tags with the same category and value for the case.
+	Returns tags sorted by (rarity * frequency) in descending order.
+	"""
+	from functools import lru_cache
+
+	# Count total cases for fire rate calculation
+	total_cases = session.query(func.count(distinct(CaseTag.case_id))).scalar() or 1
+
+	# Calculate fire rate for each tag type (category, value)
+	@lru_cache(maxsize=10000)
+	def get_fire_rate(category: str, value: str) -> float:
+		cases_with_tag = (
+			session.query(func.count(distinct(CaseTag.case_id)))
+			.where(
+				CaseTag.category == category,
+				CaseTag.value == value,
+				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+			)
+			.scalar()
+			or 0
+		)
+		return cases_with_tag / max(total_cases, 1)
+
+	# Count mentions of each tag in this case
+	tag_counts: dict[tuple[str, str], int] = defaultdict(int)
+	for tag in tags:
+		tag_counts[(tag.category, tag.value)] += 1
+
+	# Calculate rarity scores
+	tagged_with_scores: list[tuple[CaseTag, float]] = []
+	for tag in tags:
+		fire_rate = get_fire_rate(tag.category, tag.value)
+		rarity = 1.0 / (fire_rate + 0.01)  # Rare tags have higher scores
+		mention_count = tag_counts[(tag.category, tag.value)]
+		combined_score = rarity * mention_count
+		tagged_with_scores.append((tag, combined_score))
+
+	# Sort by combined score (descending), deduplicate by category+value
+	sorted_tags = sorted(tagged_with_scores, key=lambda x: -x[1])
+	seen: set[tuple[str, str]] = set()
+	unique_sorted_tags: list[CaseTag] = []
+	for tag, _score in sorted_tags:
+		key = (tag.category, tag.value)
+		if key not in seen:
+			seen.add(key)
+			unique_sorted_tags.append(tag)
+
+	return unique_sorted_tags
 
 
 def citation_map_topics(

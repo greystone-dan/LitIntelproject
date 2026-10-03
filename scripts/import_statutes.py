@@ -106,6 +106,7 @@ CBSA_IMMIGRATION_STATUTES = {
 		"source": "justice_laws_xml",
 		"license": "OGL",
 		"url": "https://laws-lois.justice.gc.ca/eng/const/page-12.html",
+		"xml_url": "https://laws-lois.justice.gc.ca/eng/XML/CRF.xml",
 		"phase": 1,
 	},
 	# Phase 2: Additional CBSA-relevant acts and regulations (10)
@@ -159,14 +160,24 @@ CBSA_IMMIGRATION_STATUTES = {
 		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-230/",
 		"phase": 2,
 	},
-	"IDRR": {
-		"title": "Immigrant Appeal Division Rules",
+	"IADR": {
+		"title": "Immigration Appeal Division Rules",
 		"short_title": "IAD Rules",
 		"jurisdiction": "Federal",
 		"statute_type": "Rules",
 		"source": "justice_laws_xml",
 		"license": "OGL",
 		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229/",
+		"phase": 2,
+	},
+	"IDR": {
+		"title": "Immigration Division Rules",
+		"short_title": "ID Rules",
+		"jurisdiction": "Federal",
+		"statute_type": "Rules",
+		"source": "justice_laws_xml",
+		"license": "OGL",
+		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229-2/",
 		"phase": 2,
 	},
 	"FCRR": {
@@ -555,9 +566,11 @@ def import_statute_from_xml(
 		return None
 
 
-def get_xml_url_for_statute(statute_url: str) -> str:
+def get_xml_url_for_statute(statute_url: str, override_xml_url: str | None = None) -> str:
 	"""Convert a statute HTML URL to its XML equivalent."""
-	# Pattern: /eng/acts/i-2.5/ -> /eng/XML/I-2.5.xml
+	if override_xml_url:
+		return override_xml_url
+	# Pattern: /eng/acts/i-2.5/ -> /eng/XML/i-2.5.xml
 	# Pattern: /eng/regulations/SOR-2002-227/ -> /eng/XML/SOR-2002-227.xml
 	import re
 	match = re.search(r'/eng/(acts|regulations)/([^/]+)/?$', statute_url)
@@ -650,8 +663,8 @@ def import_statutes_bulk(
 			logger.info("=" * 60)
 
 			try:
-				# Get XML URL for current version
-				xml_url = get_xml_url_for_statute(statute_url)
+				# Get XML URL for current version (use override if provided)
+				xml_url = get_xml_url_for_statute(statute_url, statute_info.get("xml_url"))
 				if not xml_url:
 					logger.warning(f"Could not determine XML URL for {instrument_key}")
 					continue

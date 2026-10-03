@@ -74,6 +74,7 @@ from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.tag_finder import tag_finder_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
@@ -128,6 +129,7 @@ from .analytics_service import (
 	_judge_outcome_counts,
 	_profile_reader_metadata,
 	fetch_about_stats,
+	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
 	fetch_analytics_search_ministers,
@@ -936,7 +938,7 @@ async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
@@ -944,14 +946,15 @@ async def live_analysis_analyze(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed as DOCX") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
@@ -959,7 +962,8 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
@@ -1097,26 +1101,7 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
-	content = data_explorer_page_html()
-	search_action = (
-		'<div class="search-actions"><button type="submit" class="sq-go">Search cases</button></div>'
-	)
-	search_action_with_export = (
-		'<div class="search-actions"><button type="submit" class="sq-go">Search cases</button>'
-		'<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button></div>'
-	)
-	content = content.replace(search_action, search_action_with_export, 1)
-	export_script = """
-<script>
-document.getElementById('downloadSearchCsv')?.addEventListener('click',()=>{
-	const params=new URLSearchParams();
-	Object.entries(searchValues()).forEach(([key,value])=>{if(value)params.set(key,value)});
-	window.location.href=`/search/export.csv?${params}`;
-});
-</script>
-"""
-	content = content.replace("</body>", export_script + "</body>", 1)
-	return HTMLResponse(content=content, status_code=status.HTTP_200_OK)
+	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
@@ -1700,6 +1685,11 @@ def get_case_thematic_cluster(
 	)
 
 
+@router.get("/analytics/tags", response_model=dict[str, Any])
+def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
+	return fetch_all_tag_analytics(db)
+
+
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:
 	return _get_case_metadata_pass_impl(
 		case_id,
@@ -1809,10 +1799,20 @@ def get_case_authority_map(
 def get_citation_map_case_tags(
 	case_id: int,
 	limit: int = 100,
+	display_limit: int | None = None,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	_get_case_or_404(case_id, db)
-	return _case_legal_tags(db, case_id, limit=max(1, min(250, limit)))
+	# Apply display ranking by default, capping at 8-10 tags
+	# Can be disabled by passing display_limit=-1
+	if display_limit is None:
+		display_limit = 10  # Default: show top 10 tags ranked by rarity
+	elif display_limit < 0:
+		display_limit = None  # Disable ranking/capping
+
+	return _case_legal_tags(
+		db, case_id, limit=max(1, min(250, limit)), display_limit=display_limit
+	)
 
 
 @router.get("/citation-map/common-citers", response_model=list[CitationMapCommonCiterResponse])
@@ -3264,6 +3264,11 @@ def research_interface() -> HTMLResponse:
 	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/tag-finder", response_class=HTMLResponse, include_in_schema=False)
+def tag_finder_interface() -> HTMLResponse:
+	return HTMLResponse(content=tag_finder_page_html(), status_code=status.HTTP_200_OK)
+
+
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
 	result = _grouped_chunk_search(search, db)
@@ -3348,3 +3353,89 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)
+
+
+@router.get("/search/tags/similar")
+def find_similar_cases_by_tags(
+	case_id: int = Query(...),
+	limit: int = Query(10, ge=1, le=50),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs."""
+	source_case = db.query(Case).filter(Case.id == case_id).first()
+	if not source_case:
+		raise HTTPException(status_code=404, detail="Case not found")
+
+	source_tags = db.query(CaseTag).filter(
+		CaseTag.case_id == case_id,
+		CaseTag.taxonomy_version == "ca_legal_v3_core",
+	).all()
+
+	if not source_tags:
+		return {
+			"source_case": {"id": case_id, "title": source_case.title, "tag_count": 0},
+			"similar_cases": [],
+			"note": "Source case has no V3 core tags to match against."
+		}
+
+	source_tag_set = frozenset((t.category, t.value) for t in source_tags)
+
+	all_tags = db.query(CaseTag, Case).join(Case).filter(
+		CaseTag.case_id != case_id,
+		CaseTag.taxonomy_version == "ca_legal_v3_core",
+	).all()
+
+	case_tag_map = {}
+	case_metadata = {}
+	for tag, case in all_tags:
+		if case.id not in case_tag_map:
+			case_tag_map[case.id] = []
+			case_metadata[case.id] = case
+		case_tag_map[case.id].append((tag.category, tag.value))
+
+	scored_cases = []
+	for case_id_other, tags_list in case_tag_map.items():
+		case_tag_set = frozenset(tags_list)
+		intersection = len(source_tag_set & case_tag_set)
+		union = len(source_tag_set | case_tag_set)
+		jaccard = intersection / union if union > 0 else 0.0
+
+		if jaccard > 0:
+			shared_tags = sorted(list(source_tag_set & case_tag_set))
+			scored_cases.append({
+				"case_id": case_id_other,
+				"case": case_metadata[case_id_other],
+				"jaccard_similarity": jaccard,
+				"shared_tag_count": intersection,
+				"shared_tags": shared_tags,
+				"total_tags": len(tags_list),
+			})
+
+	scored_cases.sort(key=lambda x: (-x["jaccard_similarity"], -x["shared_tag_count"]))
+	top_cases = scored_cases[:limit]
+
+	return {
+		"source_case": {
+			"id": source_case.id,
+			"title": source_case.title,
+			"citation": source_case.citation,
+			"date": source_case.date,
+			"tag_count": len(source_tags),
+			"tags": sorted(list(source_tag_set)),
+		},
+		"similar_cases": [
+			{
+				"case_id": item["case_id"],
+				"title": item["case"].title,
+				"citation": item["case"].citation,
+				"court": item["case"].court,
+				"date": item["case"].date,
+				"similarity": round(item["jaccard_similarity"], 4),
+				"shared_tag_count": item["shared_tag_count"],
+				"shared_tags": item["shared_tags"],
+				"total_tags": item["total_tags"],
+			}
+			for item in top_cases
+		],
+		"total_similar": len(scored_cases),
+	}

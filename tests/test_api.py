@@ -167,8 +167,10 @@ def test_case_search_ui_has_download_action_using_current_search_values():
     page = routes.data_explorer_page().body.decode("utf-8")
 
     assert 'id="downloadSearchCsv">Download CSV' in page
+    assert '<div class="search-actions"><button type="submit" class="sq-go">Search cases</button><button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in page
     assert "Object.entries(searchValues())" in page
     assert "/search/export.csv?" in page
+    assert "searchActions.append(wordExport)" in page
 
 
 def test_cohort_assessment_search_requires_named_core_cohort(monkeypatch):

@@ -32,6 +32,9 @@ Primary explainer docs:
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
     agent, durable task records, status, and escalation rules.
+7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
+   review for live document analysis and de-identification; current route
+   behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
 
 ## Active Vs Legacy Locations
 

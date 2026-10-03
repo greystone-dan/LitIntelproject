@@ -315,7 +315,7 @@ CASELIBRARY_SESSION_SECRET=use-a-different-long-random-secret
 CASELIBRARY_SESSION_SECONDS=86400
 ```
 
-After restarting the site, unauthenticated browser requests go to `/access`. A successful password entry creates an `HttpOnly` cookie valid for 24 hours. API requests without the cookie receive `401`; the health and robots endpoints remain public.
+These settings currently provide a login page and issue an `HttpOnly` cookie, but the application middleware does not validate that cookie or block unauthenticated requests to protected routes. The `X-Robots-Tag` and `robots.txt` directives are not access controls. Do not rely on these settings to protect sensitive material; verify an independent proxy/identity access gate before exposure. See [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md#high-configured-private-access-is-not-enforced) and the [CBSA readiness checklist](docs/reports/cbsa-readiness-checklist.md).
 
 ---
 

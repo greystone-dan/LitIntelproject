@@ -30,6 +30,10 @@
 - Added a separate deterministic `Show case summary` projection with stable
 	issue, positions, facts, law, reasoning, limitations, and disposition
 	sections plus explicit unavailable states.
+- Shaded numbered paragraphs with incoming pinpoint citations in the inline
+	Case Search reader and added a distinct-citing-case tooltip without changing
+	citation offsets; paragraphs without matching pinpoint evidence remain
+	unmarked.
 
 # Change History
 

@@ -1716,10 +1716,20 @@ def get_case_authority_map(
 def get_citation_map_case_tags(
 	case_id: int,
 	limit: int = 100,
+	display_limit: int | None = None,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	_get_case_or_404(case_id, db)
-	return _case_legal_tags(db, case_id, limit=max(1, min(250, limit)))
+	# Apply display ranking by default, capping at 8-10 tags
+	# Can be disabled by passing display_limit=-1
+	if display_limit is None:
+		display_limit = 10  # Default: show top 10 tags ranked by rarity
+	elif display_limit < 0:
+		display_limit = None  # Disable ranking/capping
+
+	return _case_legal_tags(
+		db, case_id, limit=max(1, min(250, limit)), display_limit=display_limit
+	)
 
 
 @router.get("/citation-map/common-citers", response_model=list[CitationMapCommonCiterResponse])

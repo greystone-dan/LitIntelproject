@@ -207,7 +207,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert views == {
         'about': 'info', 'site-architecture': 'info', 'search': 'research',
         'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'research-bench': 'testing',
+        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'tag-analytics': 'research', 'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {

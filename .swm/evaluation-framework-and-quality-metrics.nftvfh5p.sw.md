@@ -33,6 +33,28 @@ Next experiment:
 | Retrieval quality | MRR, recall@k, and precision@k on fixed questions | Compare against a stable benchmark before changing ranking |
 | Performance | p50/p95 latency and bounded scan behavior | Measure on representative corpus and query conditions |
 
+## Automated Python Coverage
+
+Pytest statement coverage is a test-maintenance signal, separate from the legal
+quality metrics above. The repository coverage run scopes collection to
+`backend/`, uses the three intentional CI deselects, and reports each module.
+Coverage percentages do not establish citation accuracy, evidence validity, or
+corpus completeness. The canonical testing matrix and measured, risk-ranked
+module report link to the workflow, exact command, exclusions, and current
+environment limitations:
+
+- [Testing matrix](../docs/TESTING_MATRIX.md)
+- [Pytest coverage report](../docs/reports/test-coverage.md)
+
+Use the documented report to prioritize focused tests at ownership boundaries.
+Do not add database dependencies to pure-logic tests or treat percentages as a
+release gate without an explicit, justified threshold.
+
+For CBSA-visible numbers, risk priority overrides raw coverage ordering: test
+outcome classification, citations, analytics, minister-side classification,
+and judge handling first, in that order. The report keeps these calculation
+risks distinct from SQL/query and route integration gaps.
+
 ## Evaluation Families
 
 1. **Citation and statute extraction:** precision, recall/coverage, exact spans,

@@ -92,6 +92,14 @@ Current operational sources of truth:
 12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
+## Task-Specific Review Reports
+
+- `docs/reports/open-pr-review.md` records the read-only, point-in-time review
+  of PRs #28, #29, #32, and #34, including immutable source citations,
+  migration/route interactions, untested paths, and review limitations. It is
+  evidence for that review only; it does not replace current GitHub checks or
+  the authoritative source code and migrations.
+
 Historical context (read with caution):
 
 1. `docs/history/AI_HANDOFF.md`

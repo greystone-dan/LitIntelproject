@@ -1,12 +1,12 @@
 # Testing Matrix
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-03
 
 This matrix maps current automated coverage to active system surfaces. It distinguishes deterministic unit-style tests from route, source-pipeline, and operational tests. It does not claim browser end-to-end coverage where none exists.
 
-## Current Baseline
+## Historical Baseline
 
-Latest broad run: `268 passed, 2 failed`.
+The 2026-09-01 broad run had `268 passed, 2 failed`.
 
 The two failures are stale expectation mismatches, not known active-path defects:
 
@@ -15,6 +15,20 @@ The two failures are stale expectation mismatches, not known active-path defects
 
 Focused active UI/citation regression checks most recently passed with `18 passed`. Always rerun the relevant slice after a change; do not treat this historical count as a substitute for current validation.
 
+## Measured Coverage Baseline
+
+The 2026-10-03 pytest-cov run measured **77.5% backend statement coverage**
+(8,413 / 10,859 statements) with the exact three intentional CI deselects.
+It completed with `987 passed, 3 failed, 3 deselected`; the failures were
+network-fetch failures for uncached Hugging Face and OpenAI tokenizer assets.
+Coverage is a measured snapshot, not a green-suite claim or a legal-quality
+metric. The risk-ranked module results, full module matrix, reproduction command,
+and failure details are in [the test-coverage report](reports/test-coverage.md).
+
+Development and CI coverage tooling is installed with
+`python -m pip install -r requirements-dev.txt`; `pytest-cov` is intentionally
+not part of the base `requirements.txt`.
+
 ## Coverage Matrix
 
 | System surface | Primary tests | Coverage focus | Main gaps |
@@ -22,6 +36,7 @@ Focused active UI/citation regression checks most recently passed with `18 passe
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
 | Active Data Explorer UI contract | `test_feature_tabs.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup | No browser interaction/screenshot test |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
+| Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
 | Metadata/outcomes/dockets | `test_metadata.py`, `test_api.py`, `test_fc_document_scraper.py` | Exact spans, outcome derivation, reader fields, scraper metadata | Limited real-world multilingual/format gold coverage |
 | Legal tags | `test_legal_tagger.py` | Immigration/refugee, CBSA, IRPA/IRPR, French rules, metadata tags | Taxonomy recall/precision not continuously benchmarked by humans |

@@ -32,10 +32,14 @@ caused an outcome.
 
 ## Judge profiles and Federal Court activity
 
-- In **Judge Profile**, search a judge by name. The profile resolves known name
-  variants and shows linked decisions and available outcome/year information.
-  Use it to find records, not to infer bias or assume complete judicial
-  coverage.
+- **Judge Profile** is the only active judge workflow; the standalone Judge
+  Outcomes view is retired. Search a judge by name to see known aliases, linked
+  decisions, and outcome/year information. The profile summarizes government
+  wins, classified decisions, all linked decisions, and government win rate:
+  government wins ÷ classified decisions, with unclassified decisions excluded.
+  Its optional Minister filter narrows the linked decisions; it does not report
+  an individual Minister's performance. Treat the profile as a way to find
+  records, not to infer bias or assume complete judicial coverage.
 - In **FC History**, enter an IMM number (for example, `IMM-1234-19`) to view
   available Federal Court leave/judicial-review procedural history and activity
   context. The activity summary provides an annual filed-case chart, top
@@ -50,11 +54,12 @@ caused an outcome.
 Open `/memo-citation-check`, choose a DOCX or text-based PDF (up to 10 MB), and
 select **Analyze document**. The page lists detected authorities, which ones
 match the local library, treatment information when available, and commonly
-cited authorities on related issues that were not found in the draft. Scanned
-PDFs are not OCR'd. The page describes this upload as temporary and not stored,
-logged, or sent to external services. A missing authority is a lead to
-investigate, not a required citation; treatment labels and citation matches
-must be checked against the decisions.
+cited authorities on the same issues that were not found in the draft. These
+are context leads, not recommendations. Scanned PDFs are not OCR'd. The page
+describes this upload as temporary and not stored, logged, or sent to external
+services. A missing authority is a lead to investigate, not a required
+citation; treatment labels and citation matches must be checked against the
+decisions.
 
 ## Read outcomes and win rates carefully
 
@@ -65,14 +70,13 @@ classification; it is not a loss, an undecided case, or a mixed result.
 `Mixed` and `undetermined` are distinct classifications and should not be
 folded into wins or losses.
 
-The government win rate is the government-won count divided by the displayed
-classified-decision denominator. Unclassified decisions remain in the total
-decision count but are excluded from the rate. Always report the numerator,
-classified denominator, total and unclassified counts, and the cohort/time
-scope; small denominators, source gaps, and classification error can distort
-comparisons. A Minister/government-party search filter selects cases; it does
-not make a rate a measure of an individual Minister's performance. Rates are
-not proof of causation, judicial bias, or legal merit.
+The government win rate is government wins ÷ classified decisions. Unclassified
+decisions remain in the total decision count but are excluded from the rate.
+Always report the numerator, classified denominator, total and unclassified
+counts, and the cohort/time scope; small denominators, source gaps, and
+classification error can distort comparisons. A Minister filter scopes cases
+or linked decisions; it does not create an individual Minister's performance
+rate. Rates are not proof of causation, judicial bias, or legal merit.
 
 ## What this tool does not do
 

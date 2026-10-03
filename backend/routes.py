@@ -126,6 +126,7 @@ from .analytics_service import (
 	_judge_outcome_counts,
 	_profile_reader_metadata,
 	fetch_about_stats,
+	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
 	fetch_analytics_search_ministers,
@@ -1573,6 +1574,11 @@ def get_case_thematic_cluster(
 		case_id,
 		limit=max(1, min(50, limit)),
 	)
+
+
+@router.get("/analytics/tags", response_model=dict[str, Any])
+def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
+	return fetch_all_tag_analytics(db)
 
 
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:

@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from .fc_analytics import inject_fc_analytics
+from .tag_analytics import inject_tag_analytics
 
 
 def data_explorer_page_html() -> str:
@@ -1052,4 +1053,5 @@ qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',(
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
-  return inject_fc_analytics(html)
+  html = inject_fc_analytics(html)
+  return inject_tag_analytics(html)

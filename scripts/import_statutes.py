@@ -75,7 +75,7 @@ CBSA_IMMIGRATION_STATUTES = {
 		"statute_type": "Act",
 		"source": "justice_laws_xml",
 		"license": "OGL",
-		"url": "https://laws-lois.justice.gc.ca/eng/acts/r-8.88/",
+		"url": "https://laws-lois.justice.gc.ca/eng/acts/c-52.6/",
 		"phase": 1,
 	},
 	"FCA": {
@@ -99,14 +99,14 @@ CBSA_IMMIGRATION_STATUTES = {
 		"phase": 1,
 	},
 	"Charter": {
-		"title": "Canadian Charter of Rights and Freedoms",
+		"title": "Canadian Charter of Rights and Freedoms (Constitution Act, 1982)",
 		"short_title": "Charter",
 		"jurisdiction": "Federal",
 		"statute_type": "Constitutional",
 		"source": "justice_laws_xml",
 		"license": "OGL",
 		"url": "https://laws-lois.justice.gc.ca/eng/const/page-12.html",
-		"xml_url": "https://laws-lois.justice.gc.ca/eng/XML/CRF.xml",
+		"skip": True,  # No XML available on justice.gc.ca
 		"phase": 1,
 	},
 	# Phase 2: Additional CBSA-relevant acts and regulations (10)
@@ -127,7 +127,7 @@ CBSA_IMMIGRATION_STATUTES = {
 		"statute_type": "Regulation",
 		"source": "justice_laws_xml",
 		"license": "OGL",
-		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-100/",
+		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-246/",
 		"phase": 2,
 	},
 	"CustTariff": {
@@ -177,7 +177,7 @@ CBSA_IMMIGRATION_STATUTES = {
 		"statute_type": "Rules",
 		"source": "justice_laws_xml",
 		"license": "OGL",
-		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229-2/",
+		"url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229/",
 		"phase": 2,
 	},
 	"FCRR": {
@@ -652,6 +652,12 @@ def import_statutes_bulk(
 	with JusticeLawsXMLClient() as client:
 		for instrument_key in sorted(statutes_to_import.keys()):
 			statute_info = statutes_to_import[instrument_key]
+
+			if statute_info.get("skip"):
+				logger.info(f"Skipping {instrument_key} (marked as skip)")
+				import_counts[instrument_key] = 0
+				continue
+
 			statute_url = statute_info.get("url")
 
 			if not statute_url:

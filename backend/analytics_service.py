@@ -194,57 +194,6 @@ def fetch_outcomes_by_year(db: Session) -> list[dict[str, Any]]:
 	return result
 
 
-def fetch_judge_outcomes(
-	db: Session,
-	*,
-	limit: int = 50,
-	min_decisions: int = 0,
-) -> dict[str, Any]:
-	limit = max(1, min(limit, 300))
-	min_decisions = max(0, min(min_decisions, 10_000))
-	limit_clause = "" if min_decisions else "LIMIT :limit"
-	rows = db.execute(
-		sql_text(
-			f"""
-			SELECT
-				metadata_json->'reader_extracted'->>'judge' AS judge,
-				COUNT(*) AS decisions,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'won') AS government_wins,
-				COUNT(*) FILTER (WHERE metadata_json->'reader_extracted'->>'government outcome' = 'lost') AS individual_wins
-			FROM cases
-			WHERE COALESCE(metadata_json->'reader_extracted'->>'judge', '') <> ''
-			  AND metadata_json->'reader_extracted'->>'judge' !~* :judge_junk_pattern
-			GROUP BY judge
-			HAVING COUNT(*) > :min_decisions
-			ORDER BY decisions DESC, judge ASC
-			{limit_clause}
-			"""
-		),
-		{"limit": limit, "min_decisions": min_decisions, "judge_junk_pattern": _JUDGE_JUNK_PATTERN},
-	).mappings().all()
-	judges = []
-	for row in rows:
-		decisions = int(row["decisions"] or 0)
-		government_wins = int(row["government_wins"] or 0)
-		individual_wins = int(row["individual_wins"] or 0)
-		judges.append(
-			{
-				"judge": str(row["judge"]),
-				"decisions": decisions,
-				"government_wins": government_wins,
-				"individual_wins": individual_wins,
-				"unclassified": decisions - government_wins - individual_wins,
-			}
-		)
-	return {
-		"judges": judges,
-		"totals": {
-			"decisions": sum(row["decisions"] for row in judges),
-			"classified": sum(row["government_wins"] + row["individual_wins"] for row in judges),
-		},
-	}
-
-
 def fetch_data_explorer_analytics(
 	db: Session,
 	*,

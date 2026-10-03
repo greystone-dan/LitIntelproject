@@ -70,10 +70,12 @@ from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
+from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
+from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
@@ -253,6 +255,7 @@ from .models import (
 	ChunkSearchResponse,
 	GroupedChunkCaseResponse,
 	GroupedChunkSearchResponse,
+	MemoCitationCheckResponse,
 	ResearchRequest,
 	ResearchResponse,
 	ResearchSource,
@@ -958,6 +961,26 @@ async def live_analysis_resolve(
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	return LiveAnalysisResponse.model_validate(payload)
+
+
+@router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
+def memo_citation_check_page() -> HTMLResponse:
+	return HTMLResponse(content=memo_citation_check_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.post("/memo-citation-check", response_model=MemoCitationCheckResponse)
+async def memo_citation_check_analyze(
+	file: UploadFile = File(...),
+	db: Session = Depends(get_db),
+) -> MemoCitationCheckResponse:
+	content = await file.read()
+	try:
+		payload = analyze_memo_citations(content, file.filename or "document.docx", file.content_type, db)
+	except ValueError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	except Exception as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed") from exc
+	return MemoCitationCheckResponse.model_validate(payload)
 
 
 # De-identify tool: works entirely in memory. These endpoints never touch the

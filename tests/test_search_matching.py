@@ -267,7 +267,7 @@ assert.ok(!resultCard({case_id:7,matched_on:'<img src=x>'}).includes('<img'));
 	assert result.returncode == 0, result.stderr
 	# Compile the complete edited Case Search script. Other feature scripts have
 	# separate owners; baseline compilation defects there are not this slice.
-	for source in re.findall(r"<script(?: [^>]*)?>(.*?)</script>", html, re.S | re.I):
+	for source in re.findall(r"<script\b[^>]*>(.*?)</script\s*>", html, re.S | re.I):
 		if "function resultCard(item)" not in source:
 			continue
 		result = subprocess.run([node, "-"], input="new Function(" + json.dumps(source) + ");",

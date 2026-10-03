@@ -1,6 +1,7 @@
 """Offline identity fixtures and parameterized PostgreSQL query contracts."""
 
 from datetime import date
+from html.parser import HTMLParser
 from types import SimpleNamespace
 import json
 import re
@@ -246,6 +247,33 @@ def test_topic_sql_legacy_tier_is_unchanged_and_full_text_is_opt_in():
 	assert full_order.index("THEN 1000") < full_order.index("THEN 700")
 
 
+class ScriptParser(HTMLParser):
+	def __init__(self):
+		super().__init__()
+		self.scripts = []
+		self.chunks = None
+
+	def handle_starttag(self, tag, attrs):
+		if tag == "script":
+			self.chunks = []
+
+	def handle_data(self, data):
+		if self.chunks is not None:
+			self.chunks.append(data)
+
+	def handle_endtag(self, tag):
+		if tag == "script" and self.chunks is not None:
+			self.scripts.append("".join(self.chunks))
+			self.chunks = None
+
+
+def test_script_parser_handles_uppercase_and_whitespace_closing_tags():
+	parser = ScriptParser()
+	parser.feed("outside<SCRIPT>const value = '<tag>';</SCRIPT\t\n >outside")
+	parser.close()
+	assert parser.scripts == ["const value = '<tag>';"]
+
+
 def test_active_result_card_executes_and_escapes_matched_on():
 	node = shutil.which("node")
 	if not node:
@@ -267,9 +295,10 @@ assert.ok(!resultCard({case_id:7,matched_on:'<img src=x>'}).includes('<img'));
 	assert result.returncode == 0, result.stderr
 	# Compile the complete edited Case Search script. Other feature scripts have
 	# separate owners; baseline compilation defects there are not this slice.
-	for source in re.findall(r"<script\b[^>]*>(.*?)</script\s*>", html, re.S | re.I):
-		if "function resultCard(item)" not in source:
-			continue
-		result = subprocess.run([node, "-"], input="new Function(" + json.dumps(source) + ");",
-			text=True, capture_output=True, timeout=15)
-		assert result.returncode == 0, result.stderr
+	parser = ScriptParser()
+	parser.feed(html)
+	parser.close()
+	source = next(source for source in parser.scripts if "function resultCard(item)" in source)
+	result = subprocess.run([node, "-"], input="new Function(" + json.dumps(source) + ");",
+		text=True, capture_output=True, timeout=15)
+	assert result.returncode == 0, result.stderr

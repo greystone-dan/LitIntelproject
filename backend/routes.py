@@ -942,7 +942,7 @@ async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
@@ -950,14 +950,15 @@ async def live_analysis_analyze(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed as DOCX") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
@@ -965,7 +966,8 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
@@ -1718,10 +1720,20 @@ def get_case_authority_map(
 def get_citation_map_case_tags(
 	case_id: int,
 	limit: int = 100,
+	display_limit: int | None = None,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	_get_case_or_404(case_id, db)
-	return _case_legal_tags(db, case_id, limit=max(1, min(250, limit)))
+	# Apply display ranking by default, capping at 8-10 tags
+	# Can be disabled by passing display_limit=-1
+	if display_limit is None:
+		display_limit = 10  # Default: show top 10 tags ranked by rarity
+	elif display_limit < 0:
+		display_limit = None  # Disable ranking/capping
+
+	return _case_legal_tags(
+		db, case_id, limit=max(1, min(250, limit)), display_limit=display_limit
+	)
 
 
 @router.get("/citation-map/common-citers", response_model=list[CitationMapCommonCiterResponse])

@@ -4,6 +4,8 @@ Last reviewed: 2026-09-30
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+
 ## Experimental RAG Research
 
 The `/research` page is the current, experimental RAG workflow. It has four
@@ -455,11 +457,19 @@ citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Outcomes And Profiles
+## Judge Profile
 
-Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
-
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+Judge Profile is the sole active judge workflow; the standalone Judge Outcomes
+view is retired. It resolves a canonical judge identity, aliases, primary
+court, linked cases, and available outcome/year information. The profile
+summary shows government wins, classified decisions, all linked decisions,
+and government win rate. The rate is government wins divided by classified
+decisions; unclassified decisions are excluded from the denominator. Its
+optional Minister filter narrows linked decisions associated with the selected
+government actor; it does not calculate an individual Minister's performance.
+Use profiles to reduce name variation, not to claim a complete judicial record
+or infer individual bias. Source and classification gaps matter when comparing
+rates.
 
 ## Data Explorer And FC History
 

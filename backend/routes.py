@@ -5,6 +5,7 @@ import csv
 import io
 import re
 import httpx
+from datetime import datetime
 from functools import lru_cache
 from hashlib import sha256
 from pathlib import Path
@@ -73,6 +74,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.saved_searches import saved_searches_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
@@ -255,6 +257,12 @@ from .models import (
 	ResearchRequest,
 	ResearchResponse,
 	ResearchSource,
+	SavedSearchCreateRequest,
+	SavedSearchResponse,
+	SavedSearchDetailResponse,
+	SavedSearchUpdateRequest,
+	SearchAlertResponse,
+	SearchDigestResponse,
 )
 
 _data_explorer_page_html = data_explorer_page_html
@@ -3130,6 +3138,213 @@ _RESEARCH_DISCLAIMER = (
 )
 
 
+# Saved Searches and Alerts API
+
+
+@router.post("/saved-searches", response_model=SavedSearchResponse, status_code=status.HTTP_201_CREATED)
+def create_saved_search(
+	req: SavedSearchCreateRequest,
+	db: Session = Depends(get_db),
+) -> SavedSearchResponse:
+	from .saved_searches_service import create_saved_search as create_search
+
+	search = create_search(
+		db=db,
+		name=req.name,
+		description=req.description,
+		query=req.query,
+		search_mode=req.search_mode,
+		filters=req.filters,
+	)
+
+	return SavedSearchResponse(
+		id=search.id,
+		name=search.name,
+		description=search.description,
+		query=search.query,
+		search_mode=search.search_mode,
+		filters=search.filters,
+		created_at=search.created_at,
+		updated_at=search.updated_at,
+		last_alert_check=search.last_alert_check,
+		alert_count=0,
+	)
+
+
+@router.get("/saved-searches", response_model=list[SavedSearchResponse])
+def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchResponse]:
+	from .saved_searches_service import list_saved_searches as list_searches
+	from .database import SearchAlert
+
+	searches = list_searches(db)
+	result = []
+
+	for search in searches:
+		alert_count = db.query(SearchAlert).filter(
+			SearchAlert.search_id == search.id
+		).count()
+
+		result.append(SavedSearchResponse(
+			id=search.id,
+			name=search.name,
+			description=search.description,
+			query=search.query,
+			search_mode=search.search_mode,
+			filters=search.filters,
+			created_at=search.created_at,
+			updated_at=search.updated_at,
+			last_alert_check=search.last_alert_check,
+			alert_count=alert_count,
+		))
+
+	return result
+
+
+@router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)
+def get_saved_search(search_id: int, db: Session = Depends(get_db)) -> SavedSearchDetailResponse:
+	from .saved_searches_service import get_saved_search as get_search
+	from .database import SearchAlert
+
+	search = get_search(db, search_id)
+	if not search:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+
+	alerts = db.query(SearchAlert).filter(
+		SearchAlert.search_id == search_id
+	).all()
+
+	alert_responses = []
+	for alert in alerts:
+		case = db.query(Case).filter(Case.id == alert.case_id).first()
+		chunk_text = None
+		if alert.chunk_id:
+			chunk = db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()
+			if chunk:
+				chunk_text = chunk.text[:200]
+
+		alert_responses.append(SearchAlertResponse(
+			id=alert.id,
+			search_id=alert.search_id,
+			case_id=alert.case_id,
+			chunk_id=alert.chunk_id,
+			match_type=alert.match_type,
+			relevance_score=alert.relevance_score,
+			discovered_at=alert.discovered_at,
+			case_title=case.title if case else None,
+			case_citation=case.citation if case else None,
+			case_date=case.date if case else None,
+			chunk_text=chunk_text,
+		))
+
+	return SavedSearchDetailResponse(
+		id=search.id,
+		name=search.name,
+		description=search.description,
+		query=search.query,
+		search_mode=search.search_mode,
+		filters=search.filters,
+		created_at=search.created_at,
+		updated_at=search.updated_at,
+		last_alert_check=search.last_alert_check,
+		alert_count=len(alerts),
+		alerts=alert_responses,
+	)
+
+
+@router.put("/saved-searches/{search_id}", response_model=SavedSearchResponse)
+def update_saved_search(
+	search_id: int,
+	req: SavedSearchUpdateRequest,
+	db: Session = Depends(get_db),
+) -> SavedSearchResponse:
+	from .saved_searches_service import update_saved_search as update_search, get_saved_search as get_search
+	from .database import SearchAlert
+
+	updated = update_search(
+		db=db,
+		search_id=search_id,
+		name=req.name,
+		description=req.description,
+		query=req.query,
+		search_mode=req.search_mode,
+		filters=req.filters,
+	)
+
+	if not updated:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+
+	alert_count = db.query(SearchAlert).filter(
+		SearchAlert.search_id == search_id
+	).count()
+
+	return SavedSearchResponse(
+		id=updated.id,
+		name=updated.name,
+		description=updated.description,
+		query=updated.query,
+		search_mode=updated.search_mode,
+		filters=updated.filters,
+		created_at=updated.created_at,
+		updated_at=updated.updated_at,
+		last_alert_check=updated.last_alert_check,
+		alert_count=alert_count,
+	)
+
+
+@router.delete("/saved-searches/{search_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_saved_search(search_id: int, db: Session = Depends(get_db)) -> None:
+	from .saved_searches_service import delete_saved_search as delete_search
+
+	if not delete_search(db, search_id):
+		raise HTTPException(status_code=404, detail="Saved search not found")
+
+
+@router.post("/saved-searches/{search_id}/check", response_model=SearchDigestResponse)
+def check_saved_search(search_id: int, db: Session = Depends(get_db)) -> SearchDigestResponse:
+	from .saved_searches_service import get_saved_search as get_search, get_recent_alerts, update_last_check
+	from .database import SearchAlert
+
+	search = get_search(db, search_id)
+	if not search:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+
+	since = search.last_alert_check
+	alerts = get_recent_alerts(db, search_id, limit=100)
+
+	alert_responses = []
+	for alert in alerts:
+		case = db.query(Case).filter(Case.id == alert.case_id).first()
+		chunk_text = None
+		if alert.chunk_id:
+			chunk = db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()
+			if chunk:
+				chunk_text = chunk.text[:200]
+
+		alert_responses.append(SearchAlertResponse(
+			id=alert.id,
+			search_id=alert.search_id,
+			case_id=alert.case_id,
+			chunk_id=alert.chunk_id,
+			match_type=alert.match_type,
+			relevance_score=alert.relevance_score,
+			discovered_at=alert.discovered_at,
+			case_title=case.title if case else None,
+			case_citation=case.citation if case else None,
+			case_date=case.date if case else None,
+			chunk_text=chunk_text,
+		))
+
+	update_last_check(db, search_id)
+
+	return SearchDigestResponse(
+		search_id=search_id,
+		search_name=search.name,
+		generated_at=datetime.now(datetime.now().astimezone().tzinfo),
+		new_case_matches=alert_responses,
+		total_new_results=len(alert_responses),
+	)
+
+
 def _research_page_html() -> str:
 	return research_page_html()
 
@@ -3223,3 +3438,8 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)
+
+
+@router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
+def saved_searches_interface() -> HTMLResponse:
+	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)

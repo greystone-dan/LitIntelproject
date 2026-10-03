@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 138
+Active scripts documented: 139
 
 ## Catalog
 
@@ -49,6 +49,7 @@ Active scripts documented: 138
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
+| `check_saved_searches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
@@ -693,6 +694,20 @@ Active scripts documented: 138
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_generated_docs.py --help
+```
+
+## `scripts/check_saved_searches.py`
+
+**Purpose:** Scheduled job to check saved searches and generate alerts for new matches. Run this script periodically (e.g., hourly) on the PC to discover new case law and FC docket entries matching saved searches. Usage: python scripts/check_saved_searches.py To schedule on Windows, add to Task Scheduler: - Program: python - Arguments: scripts/check_saved_searches.py - Frequency: hourly or daily
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_saved_searches.py --help
 ```
 
 ## `scripts/chunk_cases.py`

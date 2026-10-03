@@ -148,7 +148,11 @@ class TestApplyNormalizationToList:
             return (name or "").upper() if name else None
 
         raw = ["test", "test2"]
-        result = apply_normalization_to_list(raw, normalize_fn=custom_normalize)
+        result = apply_normalization_to_list(
+            raw,
+            normalize_fn=custom_normalize,
+            filter_fn=lambda x: True,  # Accept all for testing normalization
+        )
         assert result == ["TEST", "TEST2"]
 
     def test_custom_filter_function(self):

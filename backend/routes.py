@@ -88,6 +88,7 @@ from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from . import resource_limits
 from .pages.testing import testing_page_html
+from .pages.statute_viewer import statute_viewer_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
@@ -1174,6 +1175,11 @@ def data_explorer_page() -> HTMLResponse:
 @router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
 def saved_searches_page() -> HTMLResponse:
 	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)
+def statute_viewer_page() -> HTMLResponse:
+	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)

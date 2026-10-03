@@ -198,7 +198,7 @@ def test_compute_case_thematic_signature():
 	assert "security:terrorism" in sig.top_tags
 
 
-def test_api_endpoints_contextual_intelligence():
+def test_api_endpoints_contextual_intelligence(requires_postgres):
 	client = TestClient(app)
 
 	# 1. Themes endpoint

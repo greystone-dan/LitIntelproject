@@ -938,7 +938,7 @@ async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
@@ -946,14 +946,15 @@ async def live_analysis_analyze(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed as DOCX") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
@@ -961,7 +962,8 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)

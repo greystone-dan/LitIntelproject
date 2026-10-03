@@ -387,8 +387,16 @@ only. A separate `POST /live-analysis/resolve` request performs a batched,
 read-only lookup of neutral, named, and short-form references against existing
 case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
-Local resolution intentionally does not call external services. Scanned PDFs are
-outside the prototype because they require OCR.
+Local resolution intentionally does not call external services. Successful
+responses include the extracted source text and set `Cache-Control: no-store`
+and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
+after the multipart file is read, and no expanded-DOCX, PDF page-count, or
+pasted-text resource budget is enforced in these paths. Multipart temporary
+spooling and deployment-level request logging/retention are outside the
+application persistence boundary. Scanned PDFs are outside the prototype
+because they require OCR. The scoped privacy/security review, including
+de-identification routes and residual risks, is
+[`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 

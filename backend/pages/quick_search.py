@@ -125,10 +125,132 @@ def quick_search_page_html() -> str:
 			color: #2f4b5f;
 			margin-bottom: 4px;
 		}
+		.saved-searches-section {
+			margin-top: 20px;
+		}
+		.saved-searches-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+		.saved-searches-list {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 10px;
+		}
+		.saved-search-card {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			padding: 12px;
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+		.saved-search-card:hover {
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			border-color: var(--accent);
+		}
+		.saved-search-card h4 {
+			margin: 0 0 4px;
+			font-size: 0.9rem;
+		}
+		.saved-search-card p {
+			margin: 0 0 8px;
+			font-size: 0.78rem;
+			color: var(--muted);
+		}
+		.saved-search-card-actions {
+			display: flex;
+			gap: 6px;
+			font-size: 0.78rem;
+		}
+		.saved-search-card-actions button {
+			flex: 1;
+			padding: 6px 10px;
+		}
+		.modal {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.5);
+			z-index: 1000;
+			align-items: center;
+			justify-content: center;
+		}
+		.modal.open {
+			display: flex;
+		}
+		.modal-content {
+			background: var(--card);
+			border-radius: 10px;
+			padding: 20px;
+			max-width: 400px;
+			width: 90%;
+		}
+		.modal-header {
+			font-size: 1rem;
+			font-weight: 700;
+			margin-bottom: 16px;
+		}
+		.form-group {
+			margin-bottom: 12px;
+		}
+		.form-group label {
+			display: block;
+			font-weight: 600;
+			font-size: 0.82rem;
+			margin-bottom: 4px;
+		}
+		.form-group input,
+		.form-group textarea {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			font-family: inherit;
+			font-size: 0.85rem;
+		}
+		.form-group textarea {
+			resize: vertical;
+			min-height: 60px;
+		}
+		.form-group label input[type="checkbox"] {
+			width: auto;
+			margin-right: 6px;
+		}
+		.modal-actions {
+			display: flex;
+			gap: 8px;
+			justify-content: flex-end;
+			margin-top: 16px;
+		}
+		.modal-actions button {
+			padding: 8px 14px;
+			font-size: 0.85rem;
+		}
+		.modal-actions button.secondary {
+			background: var(--card);
+			color: var(--ink);
+			border: 1px solid var(--border);
+		}
+		.save-btn-group {
+			display: flex;
+			gap: 10px;
+		}
+		.save-btn-group button {
+			flex: 1;
+		}
 		@media (max-width: 860px) {
 			.row,
 			.filters {
 				grid-template-columns: 1fr;
+			}
+			.save-btn-group {
+				flex-direction: column;
 			}
 		}
 	</style>
@@ -174,11 +296,46 @@ def quick_search_page_html() -> str:
 				</div>
 			</div>
 
-			<button id="searchBtn">Search</button>
+			<div class="save-btn-group">
+				<button id="searchBtn">Search</button>
+				<button id="saveBtn" style="background: #666;">Save Search</button>
+			</div>
 			<div id="status" class="status">Ready.</div>
 		</section>
 
+		<section class="saved-searches-section card">
+			<div class="saved-searches-header">
+				<h2 style="margin: 0; font-size: 1rem;">Saved Searches</h2>
+				<span id="savedCount" style="font-size: 0.85rem; color: var(--muted);">Loading...</span>
+			</div>
+			<div id="savedSearchesList" class="saved-searches-list" style="min-height: 40px;">Loading saved searches...</div>
+		</section>
+
 		<section id="results"></section>
+	</div>
+
+	<div id="saveModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">Save This Search</div>
+			<div class="form-group">
+				<label for="saveName">Name</label>
+				<input id="saveName" type="text" placeholder="e.g., Recent Procedural Fairness Cases" />
+			</div>
+			<div class="form-group">
+				<label for="saveDesc">Description</label>
+				<textarea id="saveDesc" placeholder="Optional description..."></textarea>
+			</div>
+			<div class="form-group">
+				<label>
+					<input id="saveAlert" type="checkbox" />
+					Set up alert (notify me of new matching cases)
+				</label>
+			</div>
+			<div class="modal-actions">
+				<button class="secondary" onclick="closeModal()">Cancel</button>
+				<button onclick="submitSave()" style="background: var(--accent);">Save</button>
+			</div>
+		</div>
 	</div>
 
 	<script>
@@ -220,16 +377,9 @@ def quick_search_page_html() -> str:
 			}
 		}
 
-		async function runSearch() {
-			const statusEl = document.getElementById("status");
-			const query = document.getElementById("query").value.trim();
-			if (!query) {
-				statusEl.textContent = "Enter a query first.";
-				return;
-			}
-
-			const payload = {
-				query,
+		function getSearchParams() {
+			return {
+				query: document.getElementById("query").value.trim(),
 				search_mode: document.getElementById("mode").value,
 				page: 1,
 				page_size: Number(document.getElementById("pageSize").value || 8),
@@ -239,6 +389,15 @@ def quick_search_page_html() -> str:
 				source_type: document.getElementById("sourceType").value || null,
 				citation_contains: document.getElementById("citationContains").value || null,
 			};
+		}
+
+		async function runSearch() {
+			const statusEl = document.getElementById("status");
+			const payload = getSearchParams();
+			if (!payload.query) {
+				statusEl.textContent = "Enter a query first.";
+				return;
+			}
 
 			statusEl.textContent = "Searching...";
 			try {
@@ -259,13 +418,132 @@ def quick_search_page_html() -> str:
 			}
 		}
 
+		function openModal() {
+			document.getElementById("saveModal").classList.add("open");
+			document.getElementById("saveName").focus();
+		}
+
+		function closeModal() {
+			document.getElementById("saveModal").classList.remove("open");
+		}
+
+		async function submitSave() {
+			const name = document.getElementById("saveName").value.trim();
+			if (!name) {
+				alert("Please enter a name for this search.");
+				return;
+			}
+
+			const params = getSearchParams();
+			const payload = {
+				name,
+				description: document.getElementById("saveDesc").value.trim() || null,
+				query: params.query,
+				search_mode: params.search_mode,
+				filters: {
+					court: params.court,
+					source_type: params.source_type,
+					citation_contains: params.citation_contains,
+					page_size: params.page_size,
+					max_chunks_per_case: params.max_chunks_per_case,
+					candidate_pool: params.candidate_pool,
+				},
+			};
+
+			try {
+				const response = await fetch("/saved-searches", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(payload),
+				});
+				if (!response.ok) throw new Error("Failed to save search");
+				closeModal();
+				document.getElementById("saveName").value = "";
+				document.getElementById("saveDesc").value = "";
+				document.getElementById("saveAlert").checked = false;
+				loadSavedSearches();
+			} catch (error) {
+				alert("Error saving search: " + error.message);
+			}
+		}
+
+		async function loadSavedSearches() {
+			try {
+				const response = await fetch("/saved-searches");
+				const searches = await response.ok ? await response.json() : [];
+				const listEl = document.getElementById("savedSearchesList");
+				const countEl = document.getElementById("savedCount");
+
+				if (!searches.length) {
+					listEl.innerHTML = '<p style="color: var(--muted); font-size: 0.85rem;">No saved searches yet. Create one after running a search.</p>';
+					countEl.textContent = "0 saved";
+					return;
+				}
+
+				countEl.textContent = `${searches.length} saved`;
+				listEl.innerHTML = "";
+				for (const search of searches) {
+					const card = document.createElement("div");
+					card.className = "saved-search-card";
+					card.innerHTML = `
+						<h4>${clip(search.name, 40)}</h4>
+						<p>${clip(search.description || search.query, 60)}</p>
+						<div class="saved-search-card-actions">
+							<button onclick="loadSavedSearch(${search.id})" style="background: var(--accent); color: white; border: none;">Load</button>
+							<button onclick="deleteSavedSearch(${search.id})" style="background: #c00; color: white; border: none;">Delete</button>
+						</div>
+					`;
+					listEl.appendChild(card);
+				}
+			} catch (error) {
+				console.error("Error loading saved searches:", error);
+			}
+		}
+
+		async function loadSavedSearch(searchId) {
+			try {
+				const response = await fetch(`/saved-searches/${searchId}`);
+				const search = await response.json();
+				document.getElementById("query").value = search.query;
+				document.getElementById("mode").value = search.search_mode;
+				document.getElementById("court").value = search.filters.court || "";
+				document.getElementById("sourceType").value = search.filters.source_type || "";
+				document.getElementById("citationContains").value = search.filters.citation_contains || "";
+				document.getElementById("pageSize").value = search.filters.page_size || 8;
+				window.scrollTo(0, 0);
+				runSearch();
+			} catch (error) {
+				alert("Error loading search: " + error.message);
+			}
+		}
+
+		async function deleteSavedSearch(searchId) {
+			if (!confirm("Delete this saved search?")) return;
+			try {
+				const response = await fetch(`/saved-searches/${searchId}`, { method: "DELETE" });
+				if (!response.ok) throw new Error("Failed to delete");
+				loadSavedSearches();
+			} catch (error) {
+				alert("Error deleting search: " + error.message);
+			}
+		}
+
 		document.getElementById("searchBtn").addEventListener("click", runSearch);
+		document.getElementById("saveBtn").addEventListener("click", openModal);
 		document.getElementById("query").addEventListener("keydown", (event) => {
 			if (event.key === "Enter") {
 				event.preventDefault();
 				runSearch();
 			}
 		});
+		document.getElementById("saveName").addEventListener("keydown", (event) => {
+			if (event.key === "Enter") {
+				event.preventDefault();
+				submitSave();
+			}
+		});
+
+		loadSavedSearches();
 	</script>
 </body>
 </html>

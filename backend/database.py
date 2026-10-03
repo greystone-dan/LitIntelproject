@@ -833,5 +833,8 @@ def init_db() -> None:
 	from . import models
 
 	with engine.begin() as connection:
-		connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+		try:
+			connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+		except Exception as e:
+			print(f"Warning: pgvector extension not available: {e}")
 	Base.metadata.create_all(bind=engine)

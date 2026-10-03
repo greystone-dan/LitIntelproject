@@ -194,6 +194,18 @@ def _is_disposition(text: str) -> bool:
     return any(marker in text_upper for marker in disposition_markers)
 
 
+def _is_issue_marker(text: str) -> bool:
+    """Detect explicit issue markers (Issue 1, Issue 2, First issue, etc)."""
+    text_upper = text.upper()
+    # Only match at the start of the text or after paragraph markers like "[N]"
+    # This avoids matching "issue" within phrases like "issue a FIR"
+    issue_patterns = (
+        r"^\[?\d+\]?\s*(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
+        r"^(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
+    )
+    return any(re.search(pattern, text_upper) for pattern in issue_patterns)
+
+
 def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> ContinuityComponents:
     authority_overlap = _jaccard(left.citation_ids, right.citation_ids)
     statute_overlap = _jaccard(left.statute_ids, right.statute_ids)
@@ -298,6 +310,10 @@ def segment_discussion_units(
 
         # Disposition boundary marker
         if _is_disposition(right.text) and index > 2:
+            boundaries.add(index)
+
+        # Issue marker boundary - separates multiple legal issues
+        if _is_issue_marker(right.text):
             boundaries.add(index)
 
         if is_signal_vacuum:

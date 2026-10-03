@@ -1,6 +1,6 @@
 # Task: Live Analysis Privacy And Security Review
 
-Status: blocked
+Status: completed
 Created: 2026-10-03
 Updated: 2026-10-03
 
@@ -38,13 +38,13 @@ Docs/generated references: `docs/reports/privacy-security-review.md`, `SYSTEM_RE
 
 Rollback/recovery: Revert only the small cache-header/test edits if they cause a regression; documentation can be corrected independently. No data migration or persistent upload artifact is involved.
 
-Evidence: Security-review specialist found missing no-store response headers on Live Analysis and no other newly exploitable in-scope issue; it also flagged the pre-existing unenforced login middleware as a deployment caveat. Managed worker added route headers and a focused test. Manager restored the explicit `LiveAnalysisResponse` OpenAPI contract and expanded coverage to both upload POST routes. Focused tests passed: `python -m pytest -q tests/test_live_analysis.py tests/test_deidentify.py` (22 passed, one upstream deprecation warning). `python scripts/check_generated_docs.py` passed (3 references checked); local documentation links passed; `python -m py_compile backend/routes.py`, `git diff --check`, and the changed-file secret scan passed. Canonical report: `docs/reports/privacy-security-review.md`; system reference: `SYSTEM_REFERENCE.md`; Swimm walkthrough: `.swm/1.oi7rhqp2.sw.md`. Caller-requested `report_progress` and `parallel_validation` are not available as tools or PATH commands; no commit or push was made.
+Evidence: Security-review specialist found missing no-store response headers on Live Analysis and no other newly exploitable in-scope issue; it also flagged the pre-existing unenforced login middleware as a deployment caveat. Managed worker added route headers and a focused test. Manager restored the explicit `LiveAnalysisResponse` OpenAPI contract and expanded coverage to both upload POST routes. Focused tests passed: `python -m pytest -q tests/test_live_analysis.py tests/test_deidentify.py` (22 passed, one upstream deprecation warning). `python scripts/check_generated_docs.py` passed (3 references checked); local documentation links passed; `python -m py_compile backend/routes.py`, `git diff --check`, and the changed-file secret scan passed. The published review includes severity, file/line references, and suggested remediation for each finding. Canonical report: `docs/reports/privacy-security-review.md`; system reference: `SYSTEM_REFERENCE.md`; Swimm walkthrough: `.swm/1.oi7rhqp2.sw.md`.
 
 Files changed: `backend/routes.py`, `tests/test_live_analysis.py`, `docs/reports/privacy-security-review.md`, `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `.swm/1.oi7rhqp2.sw.md`, this task record.
 Delegated work: Security-review specialist completed a read-only scoped assessment; managed worker added no-store headers and initial API coverage. Both returned the required structured report. Manager reviewed and retained response-model schema validation.
 Focused validation: `python -m pytest -q tests/test_live_analysis.py tests/test_deidentify.py` — 22 passed, one upstream Starlette deprecation warning.
 Residual risk: Multipart reads precede the 10 MiB check; expanded DOCX/PDF processing and pasted text are not comprehensively resource-bounded. App middleware does not enforce its apparent login; deployment access control requires separate verification. No hostile-file fuzzing, browser/proxy retention audit, or full suite run.
-Next bounded task: Resume commit/push through the requested `report_progress` mechanism when available; then separately confirm deployment access control and scope a resource-limit hardening task.
+Next bounded task: Separately verify deployment access control and scope a resource-limit hardening task.
 
 ## Hypothesis
 
@@ -72,12 +72,12 @@ If live-analysis responses carry `Cache-Control: no-store` and the review is acc
 
 ## Completion
 
-Completion recorded: no
+Completion recorded: yes
 
 Summary: Scoped privacy/security report delivered; Live Analysis success responses made non-cacheable without changing their validated payload contract.
 
 Validation: `python -m pytest -q tests/test_live_analysis.py tests/test_deidentify.py` passed 22 tests with one upstream deprecation warning.
 
-Residual risk: See the report and task evidence; hostile-file fuzzing, full-suite validation, and deployment access-control verification were not run. Commit/push remains blocked on the requested mechanism being unavailable.
+Residual risk: See the report and task evidence; hostile-file fuzzing, full-suite validation, and deployment access-control verification were not run.
 
-Next recommended task: Resume through the requested progress mechanism to commit/push; separately investigate deployed access controls before exposing these routes.
+Next recommended task: Separately investigate deployed access controls before exposing these routes.

@@ -33,6 +33,20 @@ verified reverse proxy or tunnel enforces access, reachable routes should be
 treated as available to anyone who can reach the application. No-index headers
 are not authentication.
 
+## Findings
+
+Line references point to the reviewed repository version. Severity reflects
+the risk if the application is reachable by untrusted users; the access-control
+finding is deployment-dependent.
+
+| Severity | File and lines | Finding | Suggested fix / status |
+| --- | --- | --- | --- |
+| High (deployment-dependent) | `backend/main.py:78–82`; sensitive handlers in `backend/routes.py:931–1042` | The middleware only adds a search-engine exclusion header; it does not authenticate requests. The sensitive upload and de-identification routes therefore rely on an unverified external access boundary. | Verify and enforce authentication at the deployment gateway before exposure. The repository owner has deliberately left the optional password gate off; this review does not enable it. |
+| Medium | `backend/routes.py:937,953,976`; `backend/live_analysis.py:79–87`; `backend/deidentify.py:467–479` | Each upload is fully read before the 10 MiB validation, so that check does not bound bytes read or multipart temporary spooling. Pasted text also has no application-level size check. | Enforce request-body limits before buffering and bound pasted text; retain the parser-level checks as defense in depth. |
+| Medium | `backend/live_analysis.py:38–65,263–286`; `backend/deidentify.py:434–464` | DOCX/PDF parsing has no explicit expanded-ZIP, page-count, extracted-text, CPU, or memory budget. A small compressed DOCX or a PDF with many/complex pages could consume disproportionate resources. | Add bounded decompressed-size/page/output limits and time/resource controls with hostile-file tests before broadening parser support. |
+| Low (fixed here) | `backend/routes.py:944–945,960–961` | Live Analysis responses contain the complete extracted document text and previously had no explicit cache directives. | Both successful POST routes now set `Cache-Control: no-store` and `Pragma: no-cache`; focused tests assert both headers. |
+| Medium (coverage limitation) | `backend/deidentify.py:67–105,269–371,434–479`; `backend/deidentify_names.py:92–110,208–316` | Pattern and optional model-based name detection are heuristic and extraction is incomplete; identifiers, names, indirect identifiers, and text outside supported document parts can remain. | Keep the warning that output is not guaranteed anonymous; require human review and consider adversarial recall testing before relying on it for disclosure. |
+
 ## Routes and data flow
 
 | Route | Input and processing | Response / persistence |

@@ -1,201 +1,112 @@
-"""Simple navigable statute viewer page."""
+def statute_viewer_page_html() -> str:
+	return """<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Statute Library | AI CaseLibrary</title>
+	<style>
+		:root{--ink:#14212b;--muted:#63707a;--paper:#f6f4ee;--panel:#fffdfa;--line:#d9d5ca;--accent:#285d75;}
+		*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}.shell{max-width:1280px;margin:auto;padding:32px 24px 56px}.masthead{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:20px}.eyebrow{font:700 12px/1.2 Arial,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent)}h1{font-size:34px;font-weight:normal;margin:7px 0 0;letter-spacing:0}.subhead{max-width:620px;margin:0;color:var(--muted);font-size:16px;line-height:1.45}.search-controls{display:flex;gap:12px;margin:24px 0;flex-wrap:wrap}.search-controls select,.search-controls input{padding:10px 12px;border:1px solid var(--line);border-radius:4px;font:14px Georgia,serif;background:var(--panel)}.search-controls button{padding:10px 20px;background:var(--accent);color:white;border:none;border-radius:4px;cursor:pointer;font:700 12px Arial,sans-serif;text-transform:uppercase;letter-spacing:.7px}.search-controls button:hover{background:#1e4a5f}.statute-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:24px 0}.statute-card{background:var(--panel);border:1px solid var(--line);padding:16px;border-radius:4px;cursor:pointer;transition:all .2s ease}.statute-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(40,93,117,.1)}.statute-card-code{font:700 12px Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}.statute-card-title{font-size:16px;font-weight:normal;margin:0 0 8px;line-height:1.35}.statute-card-type{font:12px Arial,sans-serif;color:var(--muted);margin:8px 0 0}.statute-view{margin:24px 0}.statute-header{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:4px;margin-bottom:16px}.statute-version-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;font-size:14px;margin:12px 0 0}.statute-version-info div{display:flex;gap:8px}.statute-version-info strong{font-weight:700;color:var(--ink);min-width:120px}section{margin:24px 0}.section-header{display:flex;gap:12px;align-items:baseline;margin:16px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line)}.section-number{font:700 14px Arial,sans-serif;color:var(--accent);min-width:60px}.section-heading{font-size:15px;font-weight:600}.section-text{background:var(--panel);padding:16px;border-left:3px solid var(--accent);margin:0 0 8px;line-height:1.6;font-size:14px;white-space:pre-wrap;word-wrap:break-word}.empty{padding:30px;text-align:center;color:var(--muted)}.loading{padding:30px;text-align:center;color:var(--muted)}@media(max-width:680px){.shell{padding:22px 14px}.masthead{display:block}.subhead{margin-top:15px}.search-controls{flex-direction:column}.search-controls select,.search-controls input,.search-controls button{width:100%}.statute-list{grid-template-columns:1fr}h1{font-size:29px}}
+	</style>
+</head>
+<body>
+	<main class="shell">
+		<header class="masthead"><div><div class="eyebrow">Legislation Library</div><h1>Federal Statutes</h1></div><p class="subhead">Browse Canadian federal laws with point-in-time versions matched to decision dates. Find the text of statutes that were in force when cases were decided.</p></header>
 
-from fastapi import APIRouter, Query, HTTPException
-from sqlalchemy.orm import Session
+		<div id="statute-browser">
+			<div class="search-controls">
+				<select id="statute-select">
+					<option value="">Select a statute...</option>
+					<option value="IRPA">Immigration and Refugee Protection Act (IRPA)</option>
+					<option value="IRPR">Immigration and Refugee Protection Regulations (IRPR)</option>
+					<option value="CA">Citizenship Act</option>
+					<option value="CustA">Customs Act</option>
+					<option value="FCA">Federal Courts Act</option>
+					<option value="FCR">Federal Courts Rules</option>
+					<option value="Charter">Canadian Charter of Rights and Freedoms</option>
+				</select>
+				<input type="date" id="decision-date" placeholder="Decision date (optional)">
+				<button onclick="loadStatute()">Load Statute</button>
+			</div>
 
-from backend.database import SessionLocal, Statute, StatuteVersion, StatuteSection
-import gzip
+			<div id="statute-content">
+				<div class="empty">Select a statute to view its text and sections.</div>
+			</div>
+		</div>
 
-router = APIRouter(prefix="/api/statutes", tags=["statutes"])
+		<p class="note" style="color:var(--muted);font-size:13px;margin-top:32px;">Statute data is sourced from the Government of Canada's Justice Laws XML service (justice.gc.ca) under the Open Government License. Sections and subsections are indexed and searchable.</p>
+	</main>
 
+	<script>
+		const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
-def get_statute_text(statute_version: StatuteVersion) -> str:
-	"""Decompress statute text if needed."""
-	if statute_version.full_text:
-		return statute_version.full_text
-	elif statute_version.text_compressed:
-		return gzip.decompress(statute_version.text_compressed).decode()
-	return ""
+		async function loadStatute(){
+			const statuteCode=document.getElementById('statute-select').value;
+			const decisionDate=document.getElementById('decision-date').value;
 
-
-@router.get("/")
-def list_statutes(db: Session = None):
-	"""List all statutes in the library."""
-	if db is None:
-		db = SessionLocal()
-
-	statutes = db.query(Statute).order_by(Statute.instrument_key).all()
-
-	result = []
-	for statute in statutes:
-		# Get latest version
-		latest_version = (
-			db.query(StatuteVersion)
-			.filter(StatuteVersion.statute_id == statute.id)
-			.order_by(StatuteVersion.in_force_date.desc())
-			.first()
-		)
-
-		result.append({
-			"key": statute.instrument_key,
-			"title": statute.title,
-			"short_title": statute.short_title,
-			"statute_type": statute.statute_type,
-			"jurisdiction": statute.jurisdiction,
-			"license": statute.license,
-			"source": statute.source,
-			"latest_version": latest_version.in_force_date.isoformat() if latest_version else None,
-		})
-
-	return {"statutes": result}
-
-
-@router.get("/{statute_key}")
-def get_statute_view(statute_key: str, db: Session = None):
-	"""Get statute with all its versions and sections."""
-	if db is None:
-		db = SessionLocal()
-
-	statute = db.query(Statute).filter(Statute.instrument_key == statute_key).first()
-	if not statute:
-		raise HTTPException(status_code=404, detail=f"Statute {statute_key} not found")
-
-	versions = (
-		db.query(StatuteVersion)
-		.filter(StatuteVersion.statute_id == statute.id)
-		.order_by(StatuteVersion.in_force_date.desc())
-		.all()
-	)
-
-	return {
-		"statute": {
-			"key": statute.instrument_key,
-			"title": statute.title,
-			"short_title": statute.short_title,
-			"statute_type": statute.statute_type,
-			"jurisdiction": statute.jurisdiction,
-			"license": statute.license,
-			"source": statute.source,
-			"source_url": statute.source_url,
-		},
-		"versions": [
-			{
-				"id": v.id,
-				"version_number": v.version_number,
-				"in_force_date": v.in_force_date.isoformat(),
-				"end_date": v.end_date.isoformat() if v.end_date else None,
-				"section_count": db.query(StatuteSection).filter(StatuteSection.statute_version_id == v.id).count(),
+			if(!statuteCode){
+				document.getElementById('statute-content').innerHTML='<div class="empty">Please select a statute.</div>';
+				return;
 			}
-			for v in versions
-		],
-	}
 
+			const contentDiv=document.getElementById('statute-content');
+			contentDiv.innerHTML='<div class="loading">Loading statute...</div>';
 
-@router.get("/{statute_key}/versions/{version_id}/sections")
-def get_statute_sections(statute_key: str, version_id: int, db: Session = None):
-	"""Get all sections of a statute version."""
-	if db is None:
-		db = SessionLocal()
+			try{
+				// Fetch statute information and current version
+				const response=await fetch(`/api/statutes/${statuteCode}${decisionDate?`?as_of=${decisionDate}`:''}`);
+				if(!response.ok){
+					if(response.status===404){
+						contentDiv.innerHTML='<div class="empty">Statute not yet loaded in database. This feature will be available after Phase 1 deployment.</div>';
+					}else{
+						throw new Error(`Request failed (${response.status})`);
+					}
+					return;
+				}
 
-	statute = db.query(Statute).filter(Statute.instrument_key == statute_key).first()
-	if not statute:
-		raise HTTPException(status_code=404, detail=f"Statute {statute_key} not found")
+				const statute=await response.json();
+				let html=`<div class="statute-header">
+					<h2 style="margin:0 0 12px;">${escape(statute.title)}</h2>
+					<div style="font:12px Arial,sans-serif;color:var(--muted);margin-bottom:8px;">${escape(statute.short_title)} | ${escape(statute.statute_type)} | ${escape(statute.jurisdiction)}</div>
+					<div class="statute-version-info">
+						<div><strong>Version:</strong><span>${escape(statute.current_version)}</span></div>
+						<div><strong>In force:</strong><span>${escape(statute.in_force_date)}</span></div>
+						<div><strong>License:</strong><span>${escape(statute.license)}</span></div>
+					</div>
+				</div>`;
 
-	version = db.query(StatuteVersion).filter(StatuteVersion.id == version_id).first()
-	if not version:
-		raise HTTPException(status_code=404, detail=f"Version {version_id} not found")
+				// Fetch sections for this statute version
+				if(statute.version_id){
+					const sectionsResponse=await fetch(`/api/statutes/${statuteCode}/versions/${statute.version_id}/sections`);
+					if(sectionsResponse.ok){
+						const sections=await sectionsResponse.json();
+						if(sections && sections.length > 0){
+							html+='<section><h3>Sections</h3>';
+							sections.slice(0, 100).forEach(sec=>{
+								html+=`<div class="section-header">
+									<span class="section-number">${escape(sec.section_number)}${sec.subsection?'('+escape(sec.subsection)+')':''}</span>
+									<span class="section-heading">${escape(sec.heading||'')}</span>
+								</div>
+								<div class="section-text">${escape(sec.text||'')}</div>`;
+							});
+							if(sections.length > 100){
+								html+=`<p style="color:var(--muted);font-size:13px;">Showing first 100 of ${sections.length} sections.</p>`;
+							}
+							html+='</section>';
+						}
+					}
+				}
 
-	sections = (
-		db.query(StatuteSection)
-		.filter(StatuteSection.statute_version_id == version_id)
-		.order_by(StatuteSection.section_number)
-		.all()
-	)
-
-	return {
-		"statute_key": statute_key,
-		"version_id": version_id,
-		"in_force_date": version.in_force_date.isoformat(),
-		"sections": [
-			{
-				"id": s.id,
-				"section_number": s.section_number,
-				"subsection": s.subsection,
-				"paragraph": s.paragraph,
-				"heading": s.heading,
-				"text": s.text[:500] + "..." if s.text and len(s.text) > 500 else s.text,
+				contentDiv.innerHTML=html;
+			}catch(error){
+				contentDiv.innerHTML=`<div class="empty">${escape(error.message)}</div>`;
 			}
-			for s in sections
-		],
-	}
+		}
 
-
-@router.get("/{statute_key}/versions/{version_id}/sections/{section_id}")
-def get_statute_section(statute_key: str, version_id: int, section_id: int, db: Session = None):
-	"""Get a single section of a statute version."""
-	if db is None:
-		db = SessionLocal()
-
-	section = db.query(StatuteSection).filter(StatuteSection.id == section_id).first()
-	if not section:
-		raise HTTPException(status_code=404, detail=f"Section {section_id} not found")
-
-	return {
-		"statute_key": statute_key,
-		"section": {
-			"id": section.id,
-			"section_number": section.section_number,
-			"subsection": section.subsection,
-			"paragraph": section.paragraph,
-			"heading": section.heading,
-			"text": section.text,
-			"offset_start": section.offset_start,
-			"offset_end": section.offset_end,
-		},
-	}
-
-
-@router.get("/{statute_key}/search")
-def search_statute_sections(statute_key: str, query: str = Query(..., min_length=2), db: Session = None):
-	"""Search statute sections by text."""
-	if db is None:
-		db = SessionLocal()
-
-	statute = db.query(Statute).filter(Statute.instrument_key == statute_key).first()
-	if not statute:
-		raise HTTPException(status_code=404, detail=f"Statute {statute_key} not found")
-
-	# Get latest version
-	latest_version = (
-		db.query(StatuteVersion)
-		.filter(StatuteVersion.statute_id == statute.id)
-		.order_by(StatuteVersion.in_force_date.desc())
-		.first()
-	)
-
-	if not latest_version:
-		raise HTTPException(status_code=404, detail="No versions found")
-
-	# Simple full-text search
-	sections = (
-		db.query(StatuteSection)
-		.filter(
-			StatuteSection.statute_version_id == latest_version.id,
-			(StatuteSection.heading.ilike(f"%{query}%")) | (StatuteSection.text.ilike(f"%{query}%")),
-		)
-		.limit(20)
-		.all()
-	)
-
-	return {
-		"statute_key": statute_key,
-		"query": query,
-		"results": [
-			{
-				"section_number": s.section_number,
-				"heading": s.heading,
-				"text": s.text[:200] + "..." if s.text and len(s.text) > 200 else s.text,
-			}
-			for s in sections
-		],
-	}
+		// Load default statute on page load
+		document.getElementById('statute-select').addEventListener('change', loadStatute);
+		document.getElementById('decision-date').addEventListener('change', loadStatute);
+	</script>
+</body>
+</html>"""

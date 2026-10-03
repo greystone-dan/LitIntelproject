@@ -76,6 +76,7 @@ from .pages.research import research_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
+from .pages.statute_viewer import statute_viewer_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
@@ -1075,6 +1076,11 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)
+def statute_viewer_page() -> HTMLResponse:
+	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)

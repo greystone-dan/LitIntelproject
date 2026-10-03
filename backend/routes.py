@@ -140,6 +140,7 @@ from .analytics_service import (
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
+	fetch_judge_comparison,
 	fetch_judge_profiles,
 	fetch_outcomes_by_year,
 )
@@ -1462,6 +1463,27 @@ def judges_page() -> RedirectResponse:
 @router.get("/fc-history", include_in_schema=False)
 def fc_history_page() -> RedirectResponse:
 	return RedirectResponse(url="/data-explorer?tab=fc-history", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get(
+	"/judges/compare",
+	response_model=dict[str, Any],
+	responses={404: {"description": "Unknown canonical judge slug (detail.code: unknown_judge)"}},
+)
+def judge_comparison(
+	a: str = Query(min_length=1, max_length=200, description="Canonical judge slug"),
+	b: str = Query(min_length=1, max_length=200, description="Canonical judge slug"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Compare stored research coverage, shared issues and outcomes; not a ranking."""
+	result = fetch_judge_comparison(db, a, b)
+	if result["status"] == "unknown_judge":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_judge",
+			"message": "Unknown canonical judge slug. Choose a judge from Judge Profile.",
+			"unknown_slugs": result["unknown_slugs"],
+		})
+	return result
 
 
 @router.get("/judges/{slug}", include_in_schema=False)

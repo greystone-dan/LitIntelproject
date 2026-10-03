@@ -106,6 +106,9 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .bar{display:flex;align-items:center;height:10px;border-radius:999px;overflow:hidden;background:#edf2f7;min-width:120px}
 .bar span{display:block;height:100%}
 .empty{padding:20px;color:var(--muted);font-size:14px}
+#judgeComparisonResult .judge-comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#judgeComparisonResult .judge-comparison-grid>*{min-width:0}
+@media(max-width:760px){#judgeComparisonResult .judge-comparison-grid{grid-template-columns:minmax(0,1fr)}}
 .right-panel{display:flex;flex-direction:column;padding:18px 18px 12px 0;gap:12px;border-left:1px solid var(--border);background:rgba(255,255,255,0.32)}
 .side-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
 .side-card .header{padding:12px 14px;border-bottom:1px solid var(--border);background:rgba(248,250,252,0.8);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
@@ -558,6 +561,20 @@ html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM
 <form class="search-form" id="judgeProfileSearch"><div class="wide"><label for="judgeProfileQuery">Find a judge by name</label><input id="judgeProfileQuery" placeholder="e.g. Zinn" autocomplete="off"></div><select id="judgeMinisterFilter" multiple hidden aria-hidden="true"></select><div class="search-actions"><button type="submit">Find judge</button></div></form>
 <div class="search-meta" id="judgeProfileSearchMeta">Search by judge name to open a profile.</div>
 <div id="judgeProfileContent" class="search-meta">Loading judge profiles...</div>
+<section aria-labelledby="judgeComparisonHeading" style="padding:16px">
+<h3 id="judgeComparisonHeading">Compare shared issues and outcomes</h3>
+<p>Choose two canonical judge slugs. This comparison uses all linked decisions, independently of profile Minister filters. Stored research signals are not a complete judicial record or a ranking.</p>
+<form id="judgeComparisonForm">
+<label for="judgeCompareA">First judge slug</label>
+<input id="judgeCompareA" list="judgeCompareOptionsA" required maxlength="200" autocomplete="off">
+<datalist id="judgeCompareOptionsA"></datalist>
+<label for="judgeCompareB">Second judge slug</label>
+<input id="judgeCompareB" list="judgeCompareOptionsB" required maxlength="200" autocomplete="off">
+<datalist id="judgeCompareOptionsB"></datalist>
+<button type="submit">Compare judges</button>
+</form>
+<div id="judgeComparisonResult" role="status" aria-live="polite"></div>
+</section>
 </section>
 <section id="explorerPanel" class="panel-card search-layout" hidden>
 <div class="search-form" style="grid-template-columns:repeat(3,minmax(180px,1fr));margin-bottom:8px;">
@@ -778,6 +795,84 @@ async function loadJudgeProfile(slug,minister){const box=document.getElementById
 const originalLoadJudgeProfile=loadJudgeProfile;function syncJudgeMinisterCheckboxes(){const select=document.getElementById('judgeMinisterFilter'),box=document.getElementById('judgeMinisterCheckboxes');if(!select||!box)return;box.innerHTML=[...select.options].filter(option=>option.value).map((option,index)=>`<label class="tag neutral" for="judgeMinisterOption${index}"><input type="checkbox" id="judgeMinisterOption${index}" value="${esc(option.value)}" ${option.selected?'checked':''}> ${esc(option.textContent)}</label>`).join('')||'<span class="search-meta">No Minister options available.</span>';box.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{[...select.options].forEach(option=>option.selected=option.value!==''&&[...box.querySelectorAll('input:checked')].some(item=>item.value===option.value));const slug=new URLSearchParams(location.search).get('judge');if(slug)originalLoadJudgeProfile(slug,[...select.selectedOptions].map(option=>option.value));}))}const loadedJudgeProfile=loadJudgeProfile;loadJudgeProfile=async function(slug,minister){await loadedJudgeProfile(slug,minister);syncJudgeMinisterCheckboxes();const params=new URLSearchParams(location.search),query=params.toString(),response=await fetch(`/api/judge-profiles/${encodeURIComponent(slug)}${query?`?${query}`:''}`),data=await response.json(),table=document.querySelectorAll('#judgeProfileContent .ci-table')[1],body=table?.querySelector('tbody');if(!body)return;data.decisions.slice(50).forEach(item=>{body.insertAdjacentHTML('beforeend',`<tr><td class="group">${esc(item.title||'Untitled decision')}</td><td>${esc(item.government_party||'Party unavailable')} / ${esc(item.government_role||'Role unavailable')}</td><td>${esc(item.government_outcome||'Unclassified')} / ${esc(item.decision_outcome||'Outcome unavailable')}</td><td>${esc(item.case_type||'Type unavailable')}</td><td class="number"><button class="judge-open" type="button" data-case-id="${item.case_id}">Open</button></td></tr>`)});const note=document.querySelector('#judgeProfileContent .judge-decisions h3:nth-of-type(2) + p');if(note)note.textContent=`Showing all ${num(data.decisions.length)} linked decisions.`;box.querySelectorAll('.judge-open').forEach(button=>button.onclick=()=>openDecision(Number(button.dataset.caseId)))};async function searchCitationCases(event){event.preventDefault();const query=document.getElementById('citationCaseQuery').value.trim(),meta=document.getElementById('citationSearchMeta'),results=document.getElementById('citationSearchResults');if(!query){meta.textContent='Enter a case title.';results.innerHTML='';return}meta.textContent='Searching case titles...';try{const response=await fetch(`/api/citation-intelligence/cases?title=${encodeURIComponent(query)}&limit=12`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const cases=await response.json();meta.textContent=`Found ${num(cases.length)} matching case${cases.length===1?'':'s'}.`;results.innerHTML=cases.map(item=>`<button class="case-result citation-case-result" data-case-id="${item.case_id}"><div class="result-title">${esc(item.title)}</div><div class="result-meta">${esc(item.citation||'No citation')} · ${esc(item.court)} · ${esc(item.date)}</div></button>`).join('')||'<div class="empty">No case titles matched.</div>';results.querySelectorAll('.citation-case-result').forEach(button=>button.onclick=()=>{const url=new URL(location.href);url.searchParams.set('tab','citation-intelligence');url.searchParams.set('case_id',button.dataset.caseId);history.pushState(null,'',url);loadCitationIntelligence()})}catch(error){meta.textContent=String(error);results.innerHTML=''}}
 async function searchJudgeProfiles(event){event.preventDefault();const query=document.getElementById('judgeProfileQuery').value.trim(),meta=document.getElementById('judgeProfileSearchMeta'),box=document.getElementById('judgeProfileContent');if(!query){meta.textContent='Enter a judge name.';loadJudgeProfiles();return}meta.textContent='Searching judge names...';try{const response=await fetch(`/api/judge-profiles?q=${encodeURIComponent(query)}&limit=50`);if(!response.ok)throw new Error(`Request failed (${response.status})`);const profiles=await response.json();meta.textContent=`Found ${num(profiles.length)} matching judge${profiles.length===1?'':'s'}.`;box.innerHTML=profiles.map(profile=>`<button class="case-result judge-profile-result" data-slug="${esc(profile.slug)}"><div class="result-title">${esc(profile.display_name)}</div><div class="result-meta">${esc(profile.primary_court||'Court not recorded')} · ${num(profile.decision_count)} decisions</div></button>`).join('')||'<div class="empty">No judge profiles matched.</div>';box.querySelectorAll('.judge-profile-result').forEach(button=>button.onclick=()=>{const url=new URL(location.href);url.searchParams.set('tab','judge-profile');url.searchParams.set('judge',button.dataset.slug);history.pushState(null,'',url);loadJudgeProfile(button.dataset.slug)})}catch(error){meta.textContent=String(error)}}
 const ciState={caseId:null,active:'overview',page:1,selectedYear:null,initialized:false};
+// Comparison is a sibling of profile content: legacy positional table selectors stay intact.
+function judgeComparisonCount(stat,unit='linked decisions'){
+  return `${num(stat.count)} / ${num(stat.denominator)} ${esc(unit)}`;
+}
+function judgeComparisonOutcomes(outcomes){
+  return ['government_won','government_lost','unclassified'].map(key=>
+    `${esc(key.replaceAll('_',' '))}: ${judgeComparisonCount(outcomes[key],'decisions in this set')}`
+  ).join('<br>');
+}
+function renderJudgeComparison(data){
+  const judges=data.judges, names=['a','b'].map(side=>esc(judges[side].profile.display_name));
+  const shared=data.shared_issues.map(issue=>`<tr><th scope="row">${esc(issue.issue)}</th>${['a','b'].map(side=>
+    `<td>${judgeComparisonCount(issue[side].decisions)}<br>${judgeComparisonOutcomes(issue[side].outcomes)}</td>`
+  ).join('')}</tr>`).join('');
+  const table=(heading,rows)=>`<h4>${heading}</h4><div class="table-wrap"><table><tbody>${rows||'<tr><td>No recorded data.</td></tr>'}</tbody></table></div>`;
+  const coverage=['a','b'].map(side=>{
+    const judge=judges[side], rows=(items,label)=>items.map(item=>
+      `<tr><th scope="row">${label(item)}</th><td>${judgeComparisonCount(item.decisions)}</td></tr>`
+    ).join('');
+    return `<section><h4>${esc(judge.profile.display_name)} — coverage</h4>
+      <p>Linked decisions: ${judgeComparisonCount(judge.decisions)}. Recorded issues: ${judgeComparisonCount(judge.decisions_with_issues)}.</p>
+      ${table('Decisions per year',rows(judge.yearly_decisions,item=>esc(item.year)))}
+      <p>Undated: ${judgeComparisonCount(judge.undated_decisions)}</p>
+      ${table('Most-used tags (up to ten)',rows(judge.top_tags,item=>`${esc(item.category)}: ${esc(item.value)}`))}
+      ${table('Most-cited authorities (up to ten)',rows(judge.top_authorities,item=>esc(item.citation)))}
+      </section>`;
+  }).join('');
+  return `<h4>Shared recorded issues and outcomes</h4>
+    <p>Only issues recorded in at least five distinct decisions for each judge are included.
+    Issue labels come from stored case issues, normalized for whitespace and case, without metadata fallback.
+    Outcome denominators below are decisions in the issue set; unclassified decisions remain visible.</p>
+    <div class="table-wrap"><table><thead><tr><th>Recorded issue</th><th>${names[0]}</th><th>${names[1]}</th></tr></thead>
+    <tbody>${shared||'<tr><td colspan="3">No shared recorded issues meet the minimum for both judges.</td></tr>'}</tbody></table></div>
+    <h4>Overall outcomes</h4><div class="judge-comparison-grid judge-comparison-outcomes">${['a','b'].map(side=>`<p><strong>${esc(judges[side].profile.display_name)}</strong><br>${judgeComparisonOutcomes(data.outcomes[side])}</p>`).join('')}</div>
+    <p>Year, issue, tag and authority counts use all linked decisions for that judge as denominator. Repeated tag/citation occurrences count once per decision.
+    Multiple issues, tags or authorities can overlap, so their counts are not additive.
+    Unknown outcomes are unclassified; missing issues are not inferred. No causal, bias or harshness conclusions are supported.</p><div class="judge-comparison-grid judge-comparison-coverage">${coverage}</div>`;
+}
+let judgeComparisonRequest;
+async function loadJudgeComparison(event){
+  event.preventDefault();
+  const box=document.getElementById('judgeComparisonResult');
+  judgeComparisonRequest?.abort();
+  const request=new AbortController();judgeComparisonRequest=request;
+  box.textContent='Loading comparison...';
+  try{
+    const query=new URLSearchParams({a:document.getElementById('judgeCompareA').value.trim(),b:document.getElementById('judgeCompareB').value.trim()});
+    const response=await fetch(`/judges/compare?${query}`,{signal:request.signal}),data=await response.json();
+    if(!response.ok){
+      if(data.detail?.code==='unknown_judge')throw new Error(`Unknown canonical judge: ${data.detail.unknown_slugs.join(', ')}. Choose a suggested slug.`);
+      throw new Error(`Comparison request failed (${response.status}).`);
+    }
+    if(!request.signal.aborted)box.innerHTML=renderJudgeComparison(data);
+  }catch(error){if(error.name!=='AbortError')box.textContent=error.message;}
+}
+document.getElementById('judgeComparisonForm').addEventListener('submit',loadJudgeComparison);
+['A','B'].forEach(side=>{
+  const input=document.getElementById(`judgeCompare${side}`);let timer,request;
+  input.addEventListener('input',()=>{
+    clearTimeout(timer);request?.abort();
+    timer=setTimeout(async()=>{
+      const current=new AbortController();request=current;
+      try{
+        const response=await fetch(`/api/judge-profiles?q=${encodeURIComponent(input.value.trim())}&limit=20`,{signal:current.signal});
+        if(!response.ok)return;
+        const profiles=await response.json();
+        if(!current.signal.aborted)document.getElementById(`judgeCompareOptions${side}`).innerHTML=profiles.map(profile=>
+          `<option value="${esc(profile.slug)}">${esc(profile.display_name)}</option>`).join('');
+      }catch(error){/* Suggestions are optional; explicit slugs still work. */}
+    },250);
+  });
+});
+const judgeComparisonProfileObserver=new MutationObserver(()=>{
+  const slug=new URLSearchParams(location.search).get('judge');
+  if(slug&&document.activeElement!==document.getElementById('judgeCompareA'))
+    document.getElementById('judgeCompareA').value=slug;
+});
+judgeComparisonProfileObserver.observe(document.getElementById('judgeProfileContent'),{childList:true});
 const ciLabel=key=>({case_id:'case ID',in_degree:'incoming links',unique_citing_cases:'citing decisions',total_occurrences:'citation mentions',avg_mentions_per_case:'average mentions per decision',max_mentions_in_single_case:'most mentions in one decision'}[key]||key.replaceAll('_',' '));
 const ciTable=(headers,rows)=>`<div class="table-wrap ci-table"><table><thead><tr>${headers.map(header=>`<th>${esc(header)}</th>`).join('')}</tr></thead><tbody>${rows||'<tr><td colspan="8" class="empty">No data available.</td></tr>'}</tbody></table></div>`;
 const ciOutcomeLabel=key=>({government_win:'Government won',government_loss:'Individual won',mixed:'Mixed outcome',unknown:'Outcome not classified'}[key]||ciLabel(key));

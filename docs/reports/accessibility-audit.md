@@ -1,7 +1,7 @@
 # Accessibility audit: research and citation HTML builders
 
-**Audit date:** 2026-10-03  
-**Target:** WCAG 2.1 AA  
+**Audit date:** 2026-10-03
+**Target:** WCAG 2.1 AA
 **Status:** Static review with surgical fixes; not a conformance certification.
 
 ## Scope and method

@@ -73,6 +73,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.theme_explorer import theme_explorer_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
@@ -1127,6 +1128,11 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/themes", response_class=HTMLResponse, include_in_schema=False)
+def theme_explorer_page() -> HTMLResponse:
+	return HTMLResponse(content=theme_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)

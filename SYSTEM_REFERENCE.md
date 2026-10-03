@@ -5276,13 +5276,19 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
-The experimental `/research` route uses the same provider boundary as the
-bounded case-intelligence runner. Set `TEXT_GENERATION_PROVIDER=local` to call
-Ollama; the application provider uses Ollama's native `/api/chat` endpoint and
-disables Qwen3 thinking mode so bounded summaries are returned as content. The
-route does not download models and returns a controlled `503` when the selected
-provider is not configured or reachable. Deterministic citations, statutes,
-offsets, and source provenance remain authoritative.
+The experimental `/research` route selects its provider through
+`backend/text_generation_providers.py`. Set `TEXT_GENERATION_PROVIDER=local` to
+call Ollama; the application provider uses Ollama's native `/api/chat` endpoint
+and disables Qwen3 thinking mode so bounded summaries are returned as content.
+The separate bounded case-intelligence runner,
+`scripts/run_case_intelligence_request.py`, uses the OpenAI Python client for
+hosted and local requests. Its local configuration points that client at
+Ollama's OpenAI-compatible `/v1` endpoint with the non-secret placeholder key
+`ollama-local`. The runner previously returned the native `/api/chat` adapter
+instead, so the OpenAI-compatible client-construction test observed no kwargs.
+The route does not download models and returns a controlled `503` when the
+selected provider is not configured or reachable. Deterministic citations,
+statutes, offsets, and source provenance remain authoritative.
 
 The first bounded Qwen3 paragraph-summary baseline is report-only: `scripts/run_local_paragraph_summary_baseline.py` reconstructs text from read-only `CaseChunk` offsets, validates source hashes, and records one result per paragraph. Case 1093 paragraphs 0-9 produced 3 valid summaries and 7 explicit structured-output failures; this is an evaluation artifact, not persistent enrichment.
 

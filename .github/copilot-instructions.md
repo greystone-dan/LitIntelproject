@@ -6,37 +6,29 @@ AI CaseLibrary is a Canadian legal research system focused on immigration litiga
 
 Read `SYSTEM_REFERENCE.md` for current architecture, `DOCS_INDEX.md` for documentation authority, and the relevant Swimm walkthrough under `.swm/` before changing an owned subsystem.
 
-## Manager Workflow
+## Working Rules
 
-For autonomous multi-step work, use `.github/agents/project-manager.agent.md`
-or the `managed-task` prompt. Durable task records use
-`.github/project-manager/TASK_TEMPLATE.md` and live under
-`.github/project-manager/tasks/`.
+- Make one small pull request per issue. Keep the change focused and preserve unrelated worktree changes.
+- Use plain language in pull request descriptions. Start with:
 
-For every task, record:
+  ```text
+  Before: <what happened before>
+  After: <what changes>
+  ```
 
-```text
-Task:
-Why now:
-Owner surface:
-Dependencies:
-Risk boundary:
-Smallest falsifiable check:
-Acceptance criteria:
-Docs/generated references:
-Rollback/recovery:
-Evidence:
-```
+- Never delete a working feature unless the issue explicitly requires it; preserve existing behavior and compatibility.
+- For requests asking for analysis, provide a report file rather than implementing code unless implementation is explicitly requested.
+- Agents must not access or operate on the database, deploy or restart the live site, or read or modify `.env` files.
 
-Choose one owning surface and one focused validation command. Keep unrelated worktree changes intact. Do not expand scope without a new acceptance check.
+## Tests And Documentation
 
-For strategic, open-ended, multi-step, or cross-surface work, delegation is
-mandatory when the managed worker is available. The manager must create the
-task record, assign a bounded worker slice before doing equivalent discovery,
-consume the structured worker report, and retain product decisions, final
-validation, documentation acceptance, and commit/push authority. Direct work is
-reserved for tiny one-step operations, manager synthesis, final checks, or
-bounded recovery from a failed delegation; record any exception.
+- Run tests with `python -m pytest -q`. CI deselects three tests:
+  - `tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence`
+  - `tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes`
+  - `tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint`
+- `python scripts/check_generated_docs.py` must pass.
+- Run the narrowest relevant check first, and report test failures or checks that were not run honestly.
+- Do not manually edit generated references; regenerate them from their source.
 
 ## Ownership Boundaries
 

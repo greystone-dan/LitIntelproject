@@ -98,6 +98,14 @@ Current operational sources of truth:
 13. `docs/reports/id-iad-coverage-design.md`
 - Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
 
+## Task-Specific Review Reports
+
+- `docs/reports/open-pr-review.md` records the read-only, point-in-time review
+  of PRs #28, #29, #32, and #34, including immutable source citations,
+  migration/route interactions, untested paths, and review limitations. It is
+  evidence for that review only; it does not replace current GitHub checks or
+  the authoritative source code and migrations.
+
 Historical context (read with caution):
 
 1. `docs/history/AI_HANDOFF.md`

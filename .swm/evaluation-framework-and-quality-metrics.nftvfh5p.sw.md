@@ -61,6 +61,13 @@ Next experiment:
 - A failed or unavailable optional model/integration cannot corrupt deterministic
   processing or canonical source records.
 
+Issue #45's synthetic outcome-classifier test plan now lives at
+`docs/reports/outcome-classifier-test-plan.md`. It documents the current
+`deterministic_outcome_v2` wording coverage, keeps unsupported conditional /
+certified-question / redetermination cases xfailed with reasons, and calls out
+Minister win-rate denominator risks for partial, withdrawn, and non-merits
+outcomes.
+
 ## Latest Baseline Signal
 
 The 2026-09-04 read-only corpus run found zero orphan targets and zero invalid

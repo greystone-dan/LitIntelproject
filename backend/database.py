@@ -797,6 +797,30 @@ class FCActivityAlert(Base):
 	case = relationship("FCActivityCase")
 
 
+class DiscussionUnitCache(Base):
+	"""Cache of computed discussion units and subthemes for all cases."""
+
+	__tablename__ = "discussion_unit_cache"
+	__table_args__ = (
+		UniqueConstraint("case_id", "method_version", name="uq_discussion_unit_cache_identity"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	method_version: Mapped[str] = mapped_column(String(80), nullable=False)
+	units_json: Mapped[str] = mapped_column(Text, nullable=False)
+	total_units: Mapped[int] = mapped_column(Integer, nullable=False)
+	total_subthemes: Mapped[int] = mapped_column(Integer, nullable=False)
+	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	case = relationship("Case", foreign_keys=[case_id])
+
+
 def get_db() -> Generator[Session, None, None]:
 	db = SessionLocal()
 	try:

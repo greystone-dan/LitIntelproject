@@ -73,6 +73,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.theme_explorer import theme_explorer_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
@@ -259,6 +260,9 @@ from .models import (
 	UnitSearchResultResponse,
 	JudgeAnalyticsResponse,
 	ThemeWithJudgeAnalyticsResponse,
+	ThemeOccurrenceResponse,
+	DiscoveredThemeResponse,
+	ThemeDiscoveryResponse,
 )
 
 _data_explorer_page_html = data_explorer_page_html
@@ -1079,6 +1083,11 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/themes", response_class=HTMLResponse, include_in_schema=False)
+def theme_explorer_page() -> HTMLResponse:
+	return HTMLResponse(content=theme_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
@@ -3226,6 +3235,58 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		model_used=provider.model_name,
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
+	)
+
+
+@router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
+def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:
+	"""
+	Discover recurring legal themes by grouping discussion unit subthemes
+	with shared key terms across the Core-300 case collection.
+
+	Returns themes with their occurrences across cases and judges.
+	"""
+	from .theme_discovery import discover_themes
+	from .reader_service import build_case_reader_data
+
+	# Load evidence summaries for Core-300 cases
+	case_evidence_summaries = {}
+	for case_id in range(1, 301):
+		try:
+			reader_data = build_case_reader_data(case_id, db)
+			if reader_data.evidence_summary:
+				case_evidence_summaries[case_id] = reader_data.evidence_summary
+		except Exception:
+			continue
+
+	# Discover themes
+	discovered_themes = discover_themes(case_evidence_summaries)
+
+	# Convert to response objects
+	theme_responses = []
+	for theme in discovered_themes:
+		occurrence_responses = [
+			ThemeOccurrenceResponse(
+				case_id=occ.case_id,
+				unit_index=occ.unit_index,
+				subtheme_id=occ.subtheme_id,
+			)
+			for occ in theme.occurrences
+		]
+		theme_responses.append(
+			DiscoveredThemeResponse(
+				theme_id=theme.theme_id,
+				theme_name=theme.theme_name,
+				top_key_terms=theme.top_key_terms,
+				top_argument_roles=theme.top_argument_roles,
+				occurrence_count=theme.occurrence_count,
+				occurrences=occurrence_responses,
+			)
+		)
+
+	return ThemeDiscoveryResponse(
+		total_themes=len(theme_responses),
+		themes=theme_responses,
 	)
 
 

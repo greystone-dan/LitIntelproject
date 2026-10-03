@@ -849,3 +849,26 @@ class ThemeWithJudgeAnalyticsResponse(BaseModel):
 	top_argument_roles: list[str]
 	occurrences: list[dict[str, Any]]  # Includes judge/outcome/disposition info
 	judge_patterns: dict[str, Any] = Field(default_factory=dict)
+
+
+class ThemeOccurrenceResponse(BaseModel):
+	"""One occurrence of a theme in a case's discussion unit."""
+	case_id: int
+	unit_index: int
+	subtheme_id: str
+
+
+class DiscoveredThemeResponse(BaseModel):
+	"""A discovered recurring theme across the case corpus."""
+	theme_id: str
+	theme_name: str
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrence_count: int
+	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
+
+
+class ThemeDiscoveryResponse(BaseModel):
+	"""Response from theme discovery endpoint."""
+	total_themes: int
+	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)

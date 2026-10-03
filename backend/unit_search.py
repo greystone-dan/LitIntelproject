@@ -174,22 +174,71 @@ def _semantic_search(
 
 def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResult]:
 	"""Search units using keyword matching."""
-	# Split query into words for keyword search
 	keywords = query.lower().split()
-
-	# Query case_chunks for matching text
-	# Join with discussion_unit_cache to get unit info
-	# This is a simplified implementation; production would:
-	# 1. Use full-text search (FTS) for better performance
-	# 2. Match against subtheme key_terms
-	# 3. Weight matches by relevance (title matches > content matches)
+	if not keywords:
+		return []
 
 	results = []
+	seen_units = set()
 
-	# For now, return empty to prevent errors in development
-	# TODO: Implement full keyword search across units
+	try:
+		# Search case chunks by keyword matching
+		# Join with discussion_unit_cache to map chunks to units
+		for keyword in keywords:
+			pattern = f"%{keyword}%"
+			chunks = db.execute(
+				select(
+					CaseChunk.case_id,
+					CaseChunk.chunk_text,
+				)
+				.where(CaseChunk.chunk_text.ilike(pattern))
+				.limit(limit * 3)
+			).all()
 
-	return results
+			for chunk in chunks:
+				if len(results) >= limit:
+					break
+
+				# Get judge and outcome info for case
+				judge_analytics = get_unit_judge_analytics(chunk.case_id, 0, db)
+
+				# Map chunk to unit using discussion_unit_cache
+				unit_index, start_para, end_para, subtheme_id = _map_chunk_to_unit(
+					chunk.case_id, None, db
+				)
+
+				# Use unit as key to avoid duplicate results
+				unit_key = (chunk.case_id, unit_index, subtheme_id)
+				if unit_key in seen_units:
+					continue
+
+				seen_units.add(unit_key)
+
+				# Extract key terms from chunk text
+				key_terms = _extract_key_terms(chunk.chunk_text, max_terms=3)
+
+				result = UnitSearchResult(
+					case_id=chunk.case_id,
+					unit_index=unit_index,
+					start_paragraph=start_para,
+					end_paragraph=end_para,
+					subtheme_id=subtheme_id,
+					key_terms=key_terms,
+					judges=judge_analytics.get("judges", []),
+					disposition=judge_analytics.get("disposition"),
+					score=0.5,  # Default score for keyword matches
+					match_type="keyword",
+				)
+				results.append(result)
+
+			if len(results) >= limit:
+				break
+
+	except Exception as e:
+		logger.warning(f"Keyword search failed: {e}")
+		return []
+
+	return results[:limit]
 
 
 def _map_chunk_to_unit(

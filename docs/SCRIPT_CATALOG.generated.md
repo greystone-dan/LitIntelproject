@@ -4,12 +4,13 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 137
+Active scripts documented: 139
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
+| `_tmp_crosscourt_audit.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -48,6 +49,7 @@ Active scripts documented: 137
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
+| `check_saved_searches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
@@ -147,6 +149,20 @@ Active scripts documented: 137
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
+
+## `scripts/_tmp_crosscourt_audit.py`
+
+**Purpose:** THROWAWAY cross-court metadata-extraction audit (read-only). Patterns on scripts/audit_fc_metadata_extraction.py but audits a court selected via --court (FCA | SCC | both). Reuses fc_ingest.document_scraper._extract_metadata_with_quality and backend.database. Purpose: measure whether the recent FC metadata-extraction fixes generalize to FCA and SCC without court-specific handling. Usage: & ".\venv\Scripts\python.exe" scripts\_tmp_crosscourt_audit.py --court both
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help
+```
 
 ## `scripts/acquire_case_html.py`
 
@@ -678,6 +694,20 @@ Active scripts documented: 137
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_generated_docs.py --help
+```
+
+## `scripts/check_saved_searches.py`
+
+**Purpose:** Scheduled job to check saved searches and generate alerts for new matches. Run this script periodically (e.g., hourly) on the PC to discover new case law and FC docket entries matching saved searches. Usage: python scripts/check_saved_searches.py To schedule on Windows, add to Task Scheduler: - Program: python - Arguments: scripts/check_saved_searches.py - Frequency: hourly or daily
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_saved_searches.py --help
 ```
 
 ## `scripts/chunk_cases.py`

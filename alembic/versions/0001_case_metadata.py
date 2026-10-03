@@ -16,8 +16,6 @@ depends_on = None
 def upgrade() -> None:
     bind = op.get_bind()
     inspector = sa.inspect(bind)
-    existing_columns = {column["name"] for column in inspector.get_columns("cases")}
-
     if "cases" not in inspector.get_table_names():
         op.create_table(
             "cases",
@@ -40,6 +38,7 @@ def upgrade() -> None:
             op.create_index(f"ix_cases_{column}", "cases", [column])
         return
 
+    existing_columns = {column["name"] for column in inspector.get_columns("cases")}
     additions = {
         "jurisdiction": sa.Column("jurisdiction", sa.String(length=100), nullable=True),
         "citation": sa.Column("citation", sa.String(length=255), nullable=True),

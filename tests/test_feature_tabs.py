@@ -174,6 +174,189 @@ def test_reader_renders_backend_cited_paragraph_metadata():
     assert 'data-para="${b.num}"' in html
 
 
+def test_extracted_reader_summary_omits_missing_fields_and_escapes_source_quote():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the extracted reader summary")
+    html = routes._data_explorer_page_html()
+    helpers = "\n".join([
+        html.split("const esc=", 1)[1].split("\n", 1)[0],
+    ])
+    helpers = "const esc=" + helpers
+    helpers += "\n" + html[html.index("function sideFact("):].split("\n", 1)[0]
+    helpers += "\n" + html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1
+    )[0]
+    script = helpers + """
+const assert=require('node:assert/strict');
+assert.equal(extractedReaderSummaryHtml({}), '');
+assert.equal(extractedReaderSummaryHtml(null), '');
+const sparse=extractedReaderSummaryHtml({case:{court:'Federal Court'}});
+assert.equal(sparse,'');
+const quote='[42] The application is dismissed.\\n<script>alert("x")</script> & costs.';
+const data={
+  case:{court:'Federal Court',date:'2026-10-03'},
+  format_blocks:[{type:'meta',start:0},{type:'para',num:42,start:100}],
+  extracted_summary:[
+    {key:'court',label:'Court',value:'Federal Court',evidence:'Federal Court',block_start:0,block_type:'meta',paragraph_number:null},
+    {key:'judge',label:'Judge',value:'Justice "Smith"',evidence:'Justice "Smith"',block_start:0,block_type:'meta',paragraph_number:null},
+    ...[['outcome','Outcome','dismissed'],['outcome_source','Outcome source','stored <rule>'],['disposition','Disposition',quote]].map(([key,label,value])=>({key,label,value,evidence:quote,block_start:100,block_type:'para',paragraph_number:42}))
+  ],
+  tags:[{category:'issue',value:'unverified tag',score:1}]
+};
+const rendered=extractedReaderSummaryHtml(data);
+assert.ok(rendered.includes('dismissed'));
+assert.ok(rendered.includes('stored &lt;rule&gt;'));
+assert.ok(rendered.includes('Justice &quot;Smith&quot;'));
+assert.ok(rendered.includes(esc(quote)));
+assert.ok(!rendered.includes('<script>'));
+assert.equal((rendered.match(/href="#decision-source-100"/g)||[]).length,3);
+assert.equal((rendered.match(/href="#decision-source-0"/g)||[]).length,2);
+assert.ok(rendered.includes('data-summary-source="100"'));
+assert.ok(!rendered.includes('unverified tag'));
+assert.ok(!rendered.includes('2026-10-03'));
+delete data.format_blocks;
+assert.equal(extractedReaderSummaryHtml(data),'');
+data.extracted_summary=data.extracted_summary.filter(row=>!row.key.startsWith('outcome'));
+data.format_blocks=[{type:'para',num:42,start:100}];
+const noOutcome=extractedReaderSummaryHtml(data);
+assert.ok(noOutcome.includes('Disposition'));
+assert.ok(!noOutcome.includes('Outcome source'));
+data.format_blocks=[{type:'para',num:42,start:200}];
+assert.equal(extractedReaderSummaryHtml(data),''); // same number is not the same source block
+console.log('Extracted summary rendering assertions passed');
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+    assert "Extracted summary rendering assertions passed" in result.stdout
+
+
+def test_extracted_reader_summary_mounts_in_active_reader_and_links_formatter_paragraphs():
+    html = routes._data_explorer_page_html()
+    assert "body.insertAdjacentHTML('afterbegin',extractedReaderSummaryHtml(readerState.payload.readerData))" in html
+    assert 'const anchor=`id="decision-source-${b.start}"`' in html
+    assert "const start=link.dataset.summarySource;readerState.formatted=true;setReaderMode('normalized')" in html
+    assert "target.focus({preventScroll:true})" in html
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the active reader summary mount")
+    mount = html[html.index("const extractedSummaryPreviousMode="):].split(
+        "document.getElementById('decisionBody')?.addEventListener('click',event=>{", 1
+    )[0]
+    script = """
+const assert=require('node:assert/strict');
+const readerState={payload:{readerData:{marker:'stored reader data'}}};
+let modeCalls=[],insertions=[],removed=0;
+const paragraph={dataset:{para:'42'}};
+const body={
+  querySelectorAll:selector=>selector==='.reader-extracted-summary'?[{remove:()=>removed++}]:[paragraph],
+  insertAdjacentHTML:(where,html)=>insertions.push([where,html])
+};
+const document={getElementById:id=>id==='decisionBody'?body:null};
+let setReaderMode=mode=>modeCalls.push(mode);
+const extractedReaderSummaryHtml=data=>{assert.equal(data.marker,'stored reader data');return '<section>quote</section>';};
+""" + mount + """
+setReaderMode('normalized');setReaderMode('chunks');setReaderMode('normalized');
+assert.deepEqual(modeCalls,['normalized','chunks','normalized']);
+assert.equal(removed,3);
+assert.deepEqual(insertions,Array(3).fill(['afterbegin','<section>quote</section>']));
+readerState.payload=null;
+setReaderMode('normalized');
+assert.equal(insertions.length,3);
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+
+
+def test_extracted_summary_browser_source_links():
+    """Optional local Chromium acceptance; no browser dependency for CI."""
+    playwright = pytest.importorskip("playwright.sync_api")
+    chromium = shutil.which("chromium")
+    if not chromium:
+        pytest.skip("Chromium is required for local browser acceptance")
+    from datetime import date
+    from backend.case_formatter import format_decision
+    from backend.reader_service import _build_reader_extracted_summary
+    from backend.models import CaseReaderMetadataFieldResponse
+
+    text = ("Federal Court\nDate: 20250102\nJudge: Justice Smith\nDecision Content\n"
+            "[1] Refugee evidence 😀.\n[2] The application is dismissed.")
+    case = SimpleNamespace(full_text=text, court="Federal Court",
+                           date=date(2025, 1, 2), metadata_json={})
+    start = text.index("application is dismissed")
+    outcome = SimpleNamespace(
+        decision_outcome="dismissed", source="stored_rule",
+        disposition_evidence="application is dismissed",
+        evidence_offset_start=start, evidence_offset_end=start + len("application is dismissed"),
+    )
+    start = text.index("Refugee evidence")
+    tag = SimpleNamespace(
+        category="issue", value="refugee", score=1, source="stored_tag",
+        evidence="Refugee evidence", offset_start=start, offset_end=start + len("Refugee evidence"),
+    )
+    judge = CaseReaderMetadataFieldResponse(
+        key="judge", value="Justice Smith", source="reader_extracted", evidence="Justice Smith",
+    )
+    blocks = format_decision(text)
+
+    def payload(stored_outcome):
+        return {
+            "format_blocks": blocks,
+            "extracted_summary": [
+                row.model_dump() for row in _build_reader_extracted_summary(
+                    case, stored_outcome, blocks, [tag], [judge],
+                )
+            ],
+        }
+
+    html = routes._data_explorer_page_html()
+    helpers = "const esc=" + html.split("const esc=", 1)[1].split("\n", 1)[0] + "\n"
+    for name in ["highlightedDecision", "formattedDecision"]:
+        helpers += html[html.index("function " + name + "("):].split("\n", 1)[0] + "\n"
+    helpers += html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1,
+    )[0]
+    hooks = html[html.index("const extractedSummaryPreviousMode="):].split("</script>", 1)[0]
+    setup = (
+        "const readerState={formatted:false,payload:{readerData:" + json.dumps(payload(outcome)) +
+        "}};const storedText=" + json.dumps(text) + ";"
+        "let setReaderMode=mode=>{document.getElementById('decisionBody').innerHTML="
+        "mode==='chunks'?'<div>Chunks</div>':"
+        "formattedDecision(storedText,[],[],readerState.payload.readerData.format_blocks);};"
+    )
+    with playwright.sync_playwright() as browser_driver:
+        browser = browser_driver.chromium.launch(
+            executable_path=chromium, headless=True, args=["--no-sandbox"],
+        )
+        page = browser.new_page()
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.set_content("<div id=decisionBody></div>")
+        page.add_script_tag(content=helpers + setup + hooks)
+        for size in [{"width": 1280, "height": 900}, {"width": 390, "height": 844}]:
+            page.set_viewport_size(size)
+            page.evaluate("setReaderMode('chunks')")
+            assert page.locator(".reader-extracted-summary").count() == 1
+            assert page.locator(".reader-extracted-summary a").count() == 7
+            for index in range(7):
+                page.evaluate("setReaderMode('chunks')")
+                link = page.locator(".reader-extracted-summary a").nth(index)
+                href = link.get_attribute("href")
+                link.click()
+                assert page.locator("#decisionBody " + href).count() == 1
+                assert page.evaluate("document.activeElement.id") == href[1:]
+            assert page.locator("blockquote").inner_text() == "[2] The application is dismissed."
+        update = "data=>{readerState.payload.readerData=data;setReaderMode('normalized')}"
+        for stored_outcome in [None, SimpleNamespace(**(vars(outcome) | {"evidence_offset_start": -1}))]:
+            page.evaluate(update, payload(stored_outcome))
+            assert page.locator(".reader-extracted-summary a").count() == 4
+            assert "Outcome" not in page.locator(".reader-extracted-summary").inner_text()
+        page.evaluate(update, {"case": {"court": "unverified"}, "format_blocks": [], "extracted_summary": []})
+        assert page.locator(".reader-extracted-summary").count() == 0
+        assert not errors
+        browser.close()
+
+
 class NavigationParser(HTMLParser):
     def __init__(self, html):
         super().__init__()

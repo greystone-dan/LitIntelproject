@@ -68,6 +68,29 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The source pane begins with a short **Extracted case summary** only when
+verified stored-text facts exist. Every item has its own evidence link:
+court/date/judge link to an explicit matching source-header block; up to three
+highest-scoring distinct verified stored tags link to their source paragraphs
+(category/value break score ties). Unsupported court abbreviations, dates
+outside supported labelled header forms, judges without matching stored
+extraction/header evidence, and tags without exact document evidence offsets
+are omitted rather than linked to incidental mentions in the reasons.
+Labelled judge headers may contain only the prefixes supported by the metadata
+judge normalizer; the evidence span and offsets still capture the exact stored
+name alone, excluding those prefixes.
+The latest stored outcome and its displayed extraction source share the same
+verified disposition paragraph link. A verbatim disposition can still appear
+without an outcome label. Outcome evidence must match stored full text at its
+stored offsets inside one numbered formatter paragraph, including continuation
+blocks; unverifiable, unnumbered, or cross-paragraph evidence is omitted.
+Links use backend formatter block starts (plus paragraph identity), not
+paragraph numbers alone, and switch to formatted mode to focus that exact
+source block. Header blocks may be unnumbered and are labelled **Source header**.
+The additive reader `extracted_summary` projection has no unverified UI
+fallback. Empty summaries are hidden; no generated prose, classification,
+stored-data changes, or browser-created offsets are involved. This surface is
+separate from the optional technical **Show case summary** control.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values

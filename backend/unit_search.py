@@ -136,8 +136,13 @@ def _semantic_search(
 			# Get judge and outcome info for case
 			judge_analytics = get_unit_judge_analytics(chunk.case_id, 0, db)
 
-			# Use chunk as proxy for unit with judge enrichment
-			unit_key = (chunk.case_id, chunk.chunk_id)
+			# Map chunk to unit using discussion_unit_cache
+			unit_index, start_para, end_para, subtheme_id = _map_chunk_to_unit(
+				chunk.case_id, None, db  # TODO: Get paragraph indices from chunk
+			)
+
+			# Use unit as key to avoid duplicate results
+			unit_key = (chunk.case_id, unit_index, subtheme_id)
 			if unit_key in seen_units:
 				continue
 
@@ -148,10 +153,10 @@ def _semantic_search(
 
 			result = UnitSearchResult(
 				case_id=chunk.case_id,
-				unit_index=0,  # TODO: Map from discussion_unit_cache
-				start_paragraph=0,  # TODO: Get from chunk metadata
-				end_paragraph=0,  # TODO: Get from chunk metadata
-				subtheme_id="",  # TODO: Map to subtheme from cache
+				unit_index=unit_index,
+				start_paragraph=start_para,
+				end_paragraph=end_para,
+				subtheme_id=subtheme_id,
 				key_terms=key_terms,
 				judges=judge_analytics.get("judges", []),
 				disposition=judge_analytics.get("disposition"),
@@ -185,6 +190,69 @@ def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResul
 	# TODO: Implement full keyword search across units
 
 	return results
+
+
+def _map_chunk_to_unit(
+	case_id: int,
+	chunk_paragraph_indices: tuple[int, ...] | None,
+	db: Session,
+) -> tuple[int, int, int, str]:
+	"""
+	Map a chunk to its discussion unit and subtheme.
+
+	Args:
+		case_id: Case ID
+		chunk_paragraph_indices: Paragraph indices in chunk (if available)
+		db: Database session
+
+	Returns:
+		Tuple of (unit_index, start_paragraph, end_paragraph, subtheme_id)
+	"""
+	if not chunk_paragraph_indices:
+		return (0, 0, 0, "")
+
+	try:
+		# Get cached units for case
+		cache_entry = db.execute(
+			select(DiscussionUnitCache)
+			.where(DiscussionUnitCache.case_id == case_id)
+			.where(
+				DiscussionUnitCache.method_version
+				== f"{DISCUSSION_UNIT_METHOD}:{DISCUSSION_UNIT_VERSION}"
+			)
+		).scalar_one_or_none()
+
+		if not cache_entry:
+			return (0, 0, 0, "")
+
+		# Parse units JSON
+		units_data = json.loads(cache_entry.units_json)
+
+		# Find unit containing first paragraph of chunk
+		first_para = chunk_paragraph_indices[0]
+
+		for unit in units_data.get("units", []):
+			unit_start = unit.get("start_paragraph", 0)
+			unit_end = unit.get("end_paragraph", 0)
+
+			if unit_start <= first_para <= unit_end:
+				# Found the unit, now find the subtheme
+				unit_index = unit.get("unit_index", 0)
+				subtheme_id = ""
+
+				for subtheme in unit.get("subthemes", []):
+					para_indices = subtheme.get("paragraph_indices", [])
+					if first_para in para_indices:
+						subtheme_id = subtheme.get("subtheme_id", "")
+						break
+
+				return (unit_index, unit_start, unit_end, subtheme_id)
+
+		return (0, 0, 0, "")
+
+	except Exception as e:
+		logger.warning(f"Failed to map chunk to unit: {e}")
+		return (0, 0, 0, "")
 
 
 def _extract_key_terms(text: str, max_terms: int = 3) -> list[str]:

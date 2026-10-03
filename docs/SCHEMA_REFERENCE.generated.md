@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-03T12:56:31.503584+00:00
+Generated: 2026-10-03T17:34:57.190400+00:00
 Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -370,6 +370,7 @@ erDiagram
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -382,6 +383,7 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
     }
     statute_sections {
@@ -447,6 +449,7 @@ erDiagram
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
     statute_versions ||--o{ statute_sections : "statute_version_id"
     statutes ||--o{ statute_versions : "statute_id"
 ```
@@ -479,7 +482,7 @@ erDiagram
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
-| `statute_references` | 16 | `id` |
+| `statute_references` | 18 | `id` |
 | `statute_sections` | 10 | `id` |
 | `statute_versions` | 10 | `id` |
 | `statutes` | 12 | `id` |
@@ -1241,6 +1244,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -1253,6 +1257,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -1267,11 +1272,13 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
 
 ## `statute_sections`
 

@@ -4,13 +4,14 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 142
+Active scripts documented: 143
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
 | `_tmp_crosscourt_audit.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help` |
+| `a2aj_case_importer.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -165,6 +166,20 @@ Active scripts documented: 142
 
 ```powershell
 .\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help
+```
+
+## `scripts/a2aj_case_importer.py`
+
+**Purpose:** A2AJ case law importer for Federal courts (FC, FCA, SCC, RAD, RPD). Loads A2AJ Canadian case law dataset, deduplicates against existing iLit cases, and reports how many new decisions per court would be added. This enables expansion of case database with 100k+ academic dataset cases.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help
 ```
 
 ## `scripts/acquire_case_html.py`

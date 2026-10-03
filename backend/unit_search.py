@@ -73,14 +73,86 @@ def _semantic_search(
 	threshold: float,
 ) -> list[UnitSearchResult]:
 	"""Search units using semantic similarity on embeddings."""
-	# Note: In a real system, we'd embed the query using the same model
-	# For now, we return an empty list to demonstrate the fallback flow
-	# Production implementation would:
-	# 1. Embed the query using bge-m3
-	# 2. Query <=> operator on pgvector for similarity
-	# 3. Join with discussion_unit_cache to get unit metadata
-	logger.debug(f"Semantic search not yet implemented for: {query}")
-	return []
+	try:
+		from .embedding_providers import SentenceTransformerEmbeddingProvider
+		from sqlalchemy import func
+	except ImportError:
+		logger.warning(f"Embedding provider not available, falling back to keyword search")
+		return []
+
+	try:
+		# Get query embedding
+		provider = SentenceTransformerEmbeddingProvider(model_name=embedding_model)
+		query_embedding = provider.embed_query(query)
+
+		# Search for similar chunks using cosine similarity
+		# This uses pgvector's <=> operator for efficient similarity search
+		similarity_results = db.execute(
+			select(
+				CaseChunk.case_id,
+				CaseChunk.id.label("chunk_id"),
+				CaseChunk.chunk_text,
+				func.cosine_distance(
+					CaseChunkEmbedding.embedding,
+					query_embedding
+				).label("distance"),
+			)
+			.join(
+				CaseChunkEmbedding,
+				and_(
+					CaseChunk.id == CaseChunkEmbedding.chunk_id,
+					CaseChunkEmbedding.model_name == embedding_model,
+				),
+			)
+			.where(
+				func.cosine_distance(
+					CaseChunkEmbedding.embedding,
+					query_embedding,
+				) < (1.0 - threshold)  # Convert threshold to distance
+			)
+			.order_by("distance")
+			.limit(limit * 2)  # Get extra to account for deduplication
+		).all()
+
+		if not similarity_results:
+			logger.debug(f"No semantic matches for: {query}")
+			return []
+
+		# Convert to UnitSearchResult
+		results = []
+		seen_units = set()
+
+		for chunk in similarity_results:
+			if len(results) >= limit:
+				break
+
+			# For now, use chunk info as proxy for unit
+			# TODO: Map chunks to units via paragraph indices
+			unit_key = (chunk.case_id, chunk.chunk_id)
+			if unit_key in seen_units:
+				continue
+
+			seen_units.add(unit_key)
+
+			result = UnitSearchResult(
+				case_id=chunk.case_id,
+				unit_index=0,  # TODO: Map from paragraph indices
+				start_paragraph=0,  # TODO: Get from chunk metadata
+				end_paragraph=0,  # TODO: Get from chunk metadata
+				subtheme_id="",  # TODO: Map to subtheme
+				key_terms=[],  # TODO: Extract from chunk
+				judges=[],  # TODO: Get from case
+				disposition=None,  # TODO: Get from case outcome
+				score=1.0 - chunk.distance,  # Convert distance to similarity
+				match_type="semantic",
+			)
+			results.append(result)
+
+		return results
+
+	except Exception as e:
+		logger.error(f"Semantic search failed: {e}", exc_info=True)
+		return []
 
 
 def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResult]:

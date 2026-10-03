@@ -353,7 +353,7 @@ def get_unit_judge_analytics(
 		select(CaseOutcome).where(CaseOutcome.case_id == case_id)
 	).scalars().all()
 
-	judge_names = [j.judge_name for j in judges] if judges else []
+	judge_names = [j.raw_name for j in judges] if judges else []
 	outcome_disposition = outcomes[0].decision_outcome if outcomes else None
 
 	return {

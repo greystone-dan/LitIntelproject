@@ -912,17 +912,21 @@ def fetch_analytics_search_cases(
 
 
 def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:
+	from .minister_normalization import apply_normalization_to_list
+
 	rows = db.execute(
 		sql_text(
 			"""
 			SELECT DISTINCT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister
 			FROM cases
 			WHERE SUBSTRING(title FROM 'Canada [(]([^)]*)[)]') IS NOT NULL
-			ORDER BY minister
 			"""
 		)
 	).scalars().all()
-	return {"ministers": [str(value) for value in rows if value]}
+
+	raw_ministers = [str(value) for value in rows if value]
+	normalized_ministers = apply_normalization_to_list(raw_ministers)
+	return {"ministers": normalized_ministers}
 
 
 def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, Any]:

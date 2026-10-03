@@ -322,7 +322,15 @@ def _build_reader_extracted_summary(
 		match = re.search(
 			r"(?mi)^[ \t]*(?:Judge|Judges|Present|Coram|Before|"
 			r"Reasons for judgment(?: and judgment)? by|Judgment delivered by)"
-			r"[ \t]*:[ \t]*(?:\n[ \t]*)?(" + name + r")[ \t]*$",
+			r"[ \t]*:[ \t]*(?:\n[ \t]*)?"
+			# Only prefixes stripped by the metadata judge normalizer are eligible.
+			# Keep them outside the capture so evidence offsets cover the name only.
+			r"(?:(?:The[ \t]+)?(?:(?:Right[ \t]+)?Honourable|Honorable|L['’]honorable)[ \t]+)?"
+			r"(?:(?:(?:monsieur|madame)[ \t]+)?(?:le|la)[ \t]+juge"
+			r"(?:[ \t]+en[ \t]+chef(?:[ \t]+par[ \t]+int[ée]rim)?)?[ \t]+)?"
+			r"(?:(?:Madame|Mme|M\.|Mme\.|Mr\.?|Mrs\.?|Madam|Mr\.?[ \t]+Justice|"
+			r"Madame[ \t]+Justice|madame[ \t]+la[ \t]+juge[ \t]+en[ \t]+chef"
+			r"[ \t]+par[ \t]+intérim)[ \t]+)?(" + name + r")[ \t]*$",
 			header,
 		)
 		if match:

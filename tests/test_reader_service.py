@@ -7,6 +7,7 @@ import pytest
 
 from backend import reader_service
 from backend.case_formatter import format_decision
+from backend.metadata import extract_case_metadata
 from backend.reader_service import _build_reader_outcome_metadata, _build_reader_extracted_summary
 
 
@@ -127,6 +128,61 @@ def test_summary_stored_judge_provenance_must_match_labelled_header(source_text)
     }})
     rows = _build_reader_extracted_summary(case, None, format_decision(text), [], [])
     assert [row.value for row in rows] == (["Justice Smith"] if source_text == "Justice Smith" else [])
+
+
+@pytest.mark.parametrize("use_stored_payload", [True, False])
+def test_summary_normalized_honourable_judge_links_exact_name_without_changing_offsets(use_stored_payload):
+    text = (
+        "Date: 20060914\nDocket: IMM-123-05\nCitation: 2006 FC 1160\n"
+        "PRESENT: The Honourable Paul U.C. Rouleau\n"
+        "BETWEEN:\nFADILA KHARCHI\nApplicant\nand\n"
+        "THE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\n"
+        "REASONS FOR JUDGMENT\n[1] The application is dismissed.\n"
+    )
+    stored = extract_case_metadata(text)
+    name = "Paul U.C. Rouleau"
+    assert stored["judge"] == name
+    case = summary_case(text, metadata_json={"reader_extracted": stored})
+    blocks = format_decision(text)
+    before = deepcopy((vars(case), blocks))
+    metadata = [] if use_stored_payload else [
+        reader_service.CaseReaderMetadataFieldResponse(
+            key="judge", value=name, source="reader_extracted", evidence=name,
+        ),
+    ]
+    if not use_stored_payload:
+        case.metadata_json = {}
+        before = deepcopy((vars(case), blocks))
+    rows = _build_reader_extracted_summary(case, None, blocks, [], metadata)
+    judge = next(row for row in rows if row.key == "judge")
+    assert judge.value == judge.evidence == name
+    assert judge.source == "reader_extracted"
+    assert (judge.start, judge.end) == (text.index(name), text.index(name) + len(name))
+    assert text[judge.start:judge.end] == name
+    header = next(block for block in blocks if block["start"] == judge.block_start)
+    assert header["type"] == judge.block_type == "courtline"
+    assert "PRESENT: The Honourable " + name in text[header["start"]:header["end"]]
+    assert header["start"] <= judge.start < judge.end <= header["end"]
+    assert judge.paragraph_number is None
+    assert (vars(case), blocks) == before
+
+
+@pytest.mark.parametrize("prefix", [
+    "The Right Honourable ", "Honorable ", "L’honorable ",
+    "The Honourable Mr. Justice ", "Madame Justice ",
+    "monsieur le juge en chef par intérim ",
+    "Counsel ", "The distinguished ", "The Honourable Counsel ",
+])
+def test_summary_judge_header_only_allows_supported_normalizer_prefixes(prefix):
+    name = "Paul U.C. Rouleau"
+    text = f"PRESENT: {prefix}{name}\nREASONS FOR JUDGMENT\n[1] Background."
+    case = summary_case(text, metadata_json={"reader_extracted": {
+        "judge": name, "_field_sources": {"judge": {"text": name}},
+    }})
+    rows = _build_reader_extracted_summary(case, None, format_decision(text), [], [])
+    assert [row.value for row in rows] == (
+        [] if prefix in {"Counsel ", "The distinguished ", "The Honourable Counsel "} else [name]
+    )
 
 
 def test_summary_unsupported_header_values_are_omitted_without_body_fallback():

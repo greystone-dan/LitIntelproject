@@ -76,6 +76,9 @@ highest-scoring distinct verified stored tags link to their source paragraphs
 outside supported labelled header forms, judges without matching stored
 extraction/header evidence, and tags without exact document evidence offsets
 are omitted rather than linked to incidental mentions in the reasons.
+Labelled judge headers may contain only the prefixes supported by the metadata
+judge normalizer; the evidence span and offsets still capture the exact stored
+name alone, excluding those prefixes.
 The latest stored outcome and its displayed extraction source share the same
 verified disposition paragraph link. A verbatim disposition can still appear
 without an outcome label. Outcome evidence must match stored full text at its

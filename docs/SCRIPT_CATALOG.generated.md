@@ -4,13 +4,12 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 138
+Active scripts documented: 146
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
-| `_tmp_crosscourt_audit.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -32,12 +31,14 @@ Active scripts documented: 138
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
+| `build_expansion_proposal.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_expansion_proposal.py --help` |
 | `build_fc_activity_audit_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_audit_report.py --help` |
 | `build_fc_activity_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_gold_template.py --help` |
 | `build_fc_batch_from_party.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_batch_from_party.py --help` |
 | `build_fc_citation_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_gold_template.py --help` |
 | `build_fc_citation_seed.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_seed.py --help` |
 | `build_fc_metadata_gold_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help` |
+| `build_final_expansion.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_final_expansion.py --help` |
 | `build_five_case_citation_gold_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help` |
 | `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
@@ -75,6 +76,7 @@ Active scripts documented: 138
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
+| `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
@@ -105,6 +107,11 @@ Active scripts documented: 138
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
+| `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
+| `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
+| `mine_a2aj_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help` |
+| `mine_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help` |
 | `monitor_vector_index.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help` |
 | `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
@@ -146,22 +153,9 @@ Active scripts documented: 138
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
-
-## `scripts/_tmp_crosscourt_audit.py`
-
-**Purpose:** THROWAWAY cross-court metadata-extraction audit (read-only). Patterns on scripts/audit_fc_metadata_extraction.py but audits a court selected via --court (FCA | SCC | both). Reuses fc_ingest.document_scraper._extract_metadata_with_quality and backend.database. Purpose: measure whether the recent FC metadata-extraction fixes generalize to FCA and SCC without court-specific handling. Usage: & ".\venv\Scripts\python.exe" scripts\_tmp_crosscourt_audit.py --court both
-
-**Operational class:** Utility
-
-**Write/network risk:** inspect implementation before execution
-
-**Safe first command**
-
-```powershell
-.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help
-```
 
 ## `scripts/acquire_case_html.py`
 
@@ -457,6 +451,20 @@ Active scripts documented: 138
 .\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help
 ```
 
+## `scripts/build_expansion_proposal.py`
+
+**Purpose:** Build comprehensive V3 expansion proposal with categorized legal terms. Mines 1-2 word legal concepts from immigration case law and organizes them into V3 taxonomy categories for deterministic tagging expansion.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_expansion_proposal.py --help
+```
+
 ## `scripts/build_fc_activity_audit_report.py`
 
 **Purpose:** Build a readable, source-backed audit report from an FC Activity package.
@@ -539,6 +547,20 @@ Active scripts documented: 138
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help
+```
+
+## `scripts/build_final_expansion.py`
+
+**Purpose:** Build final V3 expansion proposal with measured coverage. Takes mined concepts, combines with existing proposal, and generates a comprehensive expansion JSON and coverage report.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_final_expansion.py --help
 ```
 
 ## `scripts/build_five_case_citation_gold_candidate.py`
@@ -1059,6 +1081,20 @@ Active scripts documented: 138
 .\venv\Scripts\python.exe scripts\evidence_gate.py --help
 ```
 
+## `scripts/expand_legal_concepts.py`
+
+**Purpose:** Expand legal concept list to several hundred through domain analysis. Uses legal domain patterns, procedure names, and common case findings to expand the concept vocabulary comprehensively.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help
+```
+
 ## `scripts/export_fc_activity_package.py`
 
 **Purpose:** Export reproducible Federal Court Activity source and derived cohorts.
@@ -1477,6 +1513,76 @@ Active scripts documented: 138
 
 ```powershell
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
+```
+
+## `scripts/measure_precision.py`
+
+**Purpose:** Measure precision of V3 expansion concepts on real case data. Tags a sample of real cases, checks for false positives, and adjusts concept definitions as needed.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_precision.py --help
+```
+
+## `scripts/measure_real_coverage.py`
+
+**Purpose:** Measure real coverage on A2AJ dataset with precision validation. Loads 200+ real FC/RAD decisions, tags them before and after expansion, and reports actual precision on new concept matches.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help
+```
+
+## `scripts/measure_tagging_coverage.py`
+
+**Purpose:** Measure V3 tagging coverage before and after expansion. Uses the CoreLegalTaggerV3 to tag a sample of real cases and computes: - Percentage of cases with at least one tag - Tag frequency distribution - Coverage improvement from expansion
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help
+```
+
+## `scripts/mine_a2aj_concepts.py`
+
+**Purpose:** Mine 1-2 word legal concepts from A2AJ Canadian case law dataset. Downloads FC and RAD decisions from Hugging Face A2AJ dataset, extracts high-frequency legal concepts, and measures coverage impact.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help
+```
+
+## `scripts/mine_legal_concepts.py`
+
+**Purpose:** Mine 1-2 word legal concepts from case text for V3 tagging expansion. Sources: - A2AJ dataset (Hugging Face, MIT-licensed) - Local case samples - Statute references and headings Outputs: - Candidate terms grouped by category - Frequency and document frequency metrics - Coverage analysis (before/after)
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help
 ```
 
 ## `scripts/monitor_vector_index.py`
@@ -2051,6 +2157,20 @@ Active scripts documented: 138
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/validate_precision.py`
+
+**Purpose:** Validate precision of V3 expansion on representative case law text. Uses representative FC and RAD case law snippets to measure precision.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\validate_precision.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`

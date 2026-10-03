@@ -32,12 +32,15 @@ Primary explainer docs:
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
     agent, durable task records, status, and escalation rules.
+7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
+   review for live document analysis and de-identification; current route
+   behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
 
 ## Active Vs Legacy Locations
 
 Active implementation and operations:
 
-1. Root docs (`README.md`, `AI_HANDOFF.md`, `CHANGELOG.md`, `SYSTEM_OVERVIEW.txt`)
+1. Root docs (`README.md`, `SYSTEM_REFERENCE.md`, `CHANGELOG.md`)
 2. Active backend modules under `backend/` (excluding `backend/legacy/`)
 3. Isolated side-project utilities under `side_projects/` when the task explicitly concerns non-core datasets
 
@@ -67,8 +70,8 @@ Current operational sources of truth:
 5. `ROADMAP.md`
 - Forward-looking phased delivery plan for missing features, QA, and release readiness.
 
-6. `AI_HANDOFF.md`
-- Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
+6. `docs/history/AI_HANDOFF_2026-09-02_root.md`
+- Archived detailed working handoff (moved out of the repo root). It is time-bound; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
 
 7. `docs/CLAUDE_ACTIVITY_PROJECT_SETUP.md`
 - Portable Claude Project setup, Activity data contract, commands, prompts, evidence rules, and implementation acceptance criteria.
@@ -139,7 +142,7 @@ or reproducibility requires a source-controlled artifact.
 2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
-5. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+5. Root documentation should prioritize `README.md`, `SYSTEM_REFERENCE.md`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

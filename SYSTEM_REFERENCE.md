@@ -7393,25 +7393,136 @@ This record is sufficient for a later developer or agent to continue without rep
 
 ### Appendix: Research UI Guide
 
-Last reviewed: 2026-09-22
+Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+## Experimental RAG Research
+
+The `/research` page is the current, experimental RAG workflow. It has four
+steps:
+
+1. Retrieve relevant stored case passages with grouped chunk search.
+2. Assemble a bounded excerpt context from the retrieved cases.
+3. Ask the configured text-generation provider to answer only from those
+	excerpts.
+4. Return the answer with the cases and excerpts used as sources.
+
+To use a local model during development, run Ollama locally, pull an instruct
+model, and set these values in the ignored `.env` file:
+
+```dotenv
+TEXT_GENERATION_PROVIDER=local
+OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
+OLLAMA_MODEL=qwen3:4b
+```
+
+The model is not downloaded by the application. `OLLAMA_MODEL` must name a
+model already available to Ollama. Local generation and local semantic
+retrieval are separate settings: the former selects the answer provider, while
+the latter uses model-versioned BGE-M3 chunk embeddings when enabled and when
+matching stored vectors exist. Hosted corpus backfill uses
+`scripts/embed_openai_chunks.py` with `text-embedding-3-small` and 1536-dimensional
+vectors in `case_chunks.embedding`; it is budget-capped, resumable, and
+preflights the 8,192-token API limit without changing canonical chunk text. A local model failure returns a controlled
+service error; it does not silently change the evidence or provider.
+
+RAG output is a navigation and synthesis aid, not an authoritative legal
+answer. Verify every material proposition against the linked decision. The
+workflow currently has a bounded 12,000-character context and remains
+experimental until retrieval quality, evidence-span preservation, latency,
+and browser behavior have dedicated checks.
+
 ## Start Here: Data Explorer
 
-Open `/data-explorer`. This is the active research workspace. It has seven visible top-level tabs:
+Open `/data-explorer`. This is the active research workspace. The top-left
+header has exactly four primary groups: **Info**, **Research**, **Workbench**,
+and **Testing**. Research / Case search is the default. Selecting a group
+controls the secondary navigation and hides unrelated panels; it is not a
+collection of header route links.
+
+| Group | Secondary views |
+| --- | --- |
+| Info | About; Site Architecture |
+| Research | Case search; Citation Intelligence; Judge Profile; FC History; Legal Themes & Statutes |
+| Workbench | Citation Map (`/citation-map`); Live Analysis (`/live-analysis`) |
+| Testing | Research Bench prototype; Discussion Units Sandbox (`/discussion-units-sandbox`); Citation Pass QA (`/citation-pass`) |
+
+Workbench retains existing route links. Testing collects work-in-progress and
+QA surfaces, not production research guarantees. Group buttons expose their
+pressed state and controlled navigation to assistive technology. Arrow keys,
+Home, and End move focus within each navigation row; native button activation
+and route-link behavior remain available. Both rows wrap on narrow screens.
+
+Existing `?tab=` links still select their view and owning group, including
+`?tab=info` as an About alias and `?tab=research-bench` under Testing. A tab
+takes precedence over a conflicting `?group=` parameter. Group-only links
+select the group's default view on a fresh load; browser history restores the
+selection. Search and reader IDs and handlers remain unchanged.
+
+The 2026-09-30 navigation checkpoint passed the 48 feature-tab tests, builder
+compilation, and live Playwright checks at 1440x1000 and 390x844. Browser checks
+covered group visibility, legacy Research Bench and Site Architecture links,
+arrow-key focus and Enter activation, and non-overlapping group buttons with
+no horizontal overflow or uncaught page errors. These checks do not certify
+research-result accuracy or every standalone tool workflow.
+
+## Accessibility review
+
+The 2026-10-03 static review covered Case Search, the inline case reader, Judge
+Profile, Citation Map, and citation-oriented standalone page builders. It added
+keyboard-visible focus rings to the audited search/reader controls, a
+programmatic name to Citation Map search, and pressed state to the inline
+reader's information-view buttons and Citation Map mode/detail controls. The
+audit and remaining limitations are in
+`docs/reports/accessibility-audit.md`.
+
+This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
+announcements, responsive/touch behavior, and assistive-technology use still
+need manual verification.
+
+The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Live system inventory and coverage | `/api/about/stats`, outcome series |
+| About | Interactive architecture graph and live inventory | `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
-| Site Architecture | Explain live tables and derived views | Documentation/UI explanation |
+| Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
 | Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
+
+## Discussion Units Sandbox
+
+Open `/discussion-units-sandbox` to inspect the experimental Discussion Units
+cohort without changing the active Data Explorer workflow. The Sandbox uses
+the same Case Search and inline reader renderer as the normal workflow,
+including advanced filters, suggestions, highlighting, reader modes, evidence
+controls, and reader subtabs. It is limited to the 300 IDs in
+`data/eval/llm_discussion_units_pilot/discussion_unit_core_300.csv`. Its search
+and reader endpoints are separately scoped; requests for cases outside the
+manifest return `404`, and linked authorities outside the cohort are not
+exposed as navigable sandbox targets.
+
+The active Data Explorer also provides a Core Cases proof of concept. `Display
+core cases` loads the first 100 ordinary case results while retaining the full
+300-case scope. A second bar then searches paragraph assessments across the
+same cohort using transparent topic, role, explanation, and paragraph-text
+matching. Results show the matched paragraph and linked citation count/IDs when
+the report-only bridge has them. This is an experimental lexical matcher, not
+vector semantic retrieval or citation-treatment classification.
+Selecting `Compare topic/role` on a result groups matching assessment
+paragraphs across the Core 300 cohort. The comparison keeps citations attached
+to the paragraph that produced them and opens the originating case for source
+review. It does not claim that a citation applies to the assessment merely
+because it appears elsewhere in the same case.
+Where the generated bridge has a resolved `target_case_id`, the citation chip
+opens the cited authority directly. The chip retains stored paragraph-local
+offsets and link status; unresolved citations remain source-bound rather than
+being guessed.
 
 ## Current UI Review Backlog
 
@@ -7425,9 +7536,10 @@ that path is in place, address accessibility and responsive behavior:
 	status, and a direct path into the reader.
 - Preserve search state and return navigation across the reader workflow.
 
-- Add `aria-selected` and keyboard semantics to the top-level and reader tabsets.
+- Review reader tabset selection and keyboard semantics; primary groups and
+	secondary view buttons already expose pressed state and focus navigation.
 - Give reader pane separators visible focus treatment and keyboard resizing.
-- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Verify strengthened search/input focus visibility at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
 - Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
 
@@ -7437,7 +7549,36 @@ misleading or untraceable output.
 
 ## About
 
-About shows live counts rather than hard-coded documentation figures. It describes cases, chunks, citation rows, resolved case links, judge profiles, Federal Court activity records/documents, and coverage-style status labels.
+About contains an interactive architecture graph and live inventory shell. The
+graph is organized around the actual system: official sources, staging,
+canonical ingestion, the case library, the seven ordered processing stages,
+citation extraction, separate target resolution, live FastAPI services, the
+active Data Explorer workflow, Live Analysis, and evidence rules. Branches make
+the citation-resolution loop and separate statute/evidence layers visible
+instead of presenting the site as a linear six-category checklist.
+
+Selecting a node expands that box inside the diagram itself. The expanded box
+shows what the node does and the layers it connects; adjacent child boxes appear
+in the same canvas and can be opened in turn. There is no separate explanatory
+strip below the graphic. The route animation is disabled for reduced-motion
+preferences. The former detailed overview of cases, chunks, citations, judge
+profiles, Federal Court activity, and coverage status remains in Site
+Architecture alongside the full data model.
+
+Immediately below the architecture graph, the case pipeline graphic follows one
+decision through `full_case`, `heading_chunks`, `metadata`, `outcome`,
+`case_citations`, `statutes`, and `tags_v3`. Its side branches keep derived
+layers distinct and show target resolution as a separate local pass. Deferred
+anchor review, incomplete statute source indexing, and experimental Discussion
+Units are deliberately marked as unfinished; selecting any stage expands its
+detail inside the same canvas.
+
+## Site Architecture
+
+Site Architecture is the consolidated explanation of the live tables, derived
+views, provenance layers, and the overview formerly shown in About. Its live
+inventory still reads from the current database; it does not imply that every
+layer is complete or that derived fields are legal conclusions.
 
 Use it to understand available inventory, not legal relevance. A populated layer means records exist; it does not establish extraction precision, source authority, or complete corpus coverage. The outcome chart uses classified decisions only. Hover a point to see the classified count behind a rate before comparing years.
 
@@ -7445,7 +7586,24 @@ Use it to understand available inventory, not legal relevance. A populated layer
 
 ### Basic Search
 
-Enter a case name or citation, for example `Vavilov` or `2019 SCC 65`. The default path favors title/citation matching. This is intentional: it keeps the common authority-lookup workflow fast and avoids broad full-text matches unless requested.
+Enter a case name or citation, for example `Vavilov` or `2019 SCC 65`. The
+primary query row is the fastest path and keeps the submit and clear actions
+close to the query. The default path favors title/citation matching. This is
+intentional: it keeps the common authority-lookup workflow fast and avoids
+broad full-text matches unless requested.
+
+After two characters, the case finder offers up to five title/citation
+suggestions. Suggestions are debounced, cancel stale requests, and never turn
+on full-text matching. Use the arrow keys and Enter to select a suggestion,
+Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
+to the query. Selecting a suggestion runs the normal case search; it does not
+bypass filters or open an unverified external source.
+
+Open **Advanced options** when the question needs more precision. Filters are
+grouped into authority/outcome, people/court/time, and result display. The
+button reports how many optional filters are active, so a refined search stays
+visible as a state rather than hidden configuration. On narrow screens the
+query actions and filter groups stack vertically.
 
 Choose a result count and sort order:
 
@@ -7462,7 +7620,13 @@ Enable **Search full decision text** only when the research question requires te
 
 ### Reading Result Metadata
 
-Search result cards can show case identity, court/date, source context, outcome labels, and citation counts. A citation count is an occurrence count, not a count of legally controlling authorities. A resolved link means the system matched the citation to a case in the local library; it does not verify the proposition for which it was cited.
+Search results lead with the case title and citation, followed by court, date,
+judge or party context where recorded. Outcome labels remain visually separate
+from citation metrics. The metrics report stored citation mentions, unique
+cited authorities, and locally resolved case links. A citation count is an
+occurrence count, not a count of legally controlling authorities. A resolved
+link means the system matched the citation to a case in the local library; it
+does not verify the proposition for which it was cited.
 
 ## Inline Decision Reader
 
@@ -7480,17 +7644,29 @@ The side panes are resizable on larger screens and can stack on smaller displays
 
 ### Reader Modes
 
-- **Chunk breakdown**: displays stored decision chunks with labels/paragraph context. This is the evidence-oriented mode for inspecting citation, statute, and green Tagging V2 spans.
+- **Chunk breakdown**: displays stored decision chunks as a continuous reading
+	surface with subtle separators. Chunk IDs, ordinal labels, and character
+	counts are intentionally hidden; the underlying chunk boundaries remain in
+	the DOM and evidence payload. This is the evidence-oriented mode for
+	inspecting citation, statute, and green Tagging V2 spans.
 - **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
 
 Tags are rendered as single-word, word-bounded occurrences in the decision
 text. Case citations and laws/regulations are span highlights with hover
 previews; a linked case preview includes stored pinpoint text when available.
 Yellow marks identify case citations and purple marks identify statutes or
-regulations. The active browser smoke check uses a bounded evidence-rich case
+regulations. Inline citation and statute highlights inherit the surrounding
+judgment font size and line height, so evidence styling does not shrink or
+reflow the legal text. The active browser smoke check uses a bounded evidence-rich case
 workflow to verify search-to-reader navigation, visible evidence in both
 reader modes, distinct computed colors, hover text, and the mobile research
 shell. Exact DOM counts remain dataset- and overlap-dependent.
+
+When paragraph assessments are enabled, each matching assessment appears as a
+compact indented rail beneath its source chunk. The topic, role/confidence
+metadata, and explanation use a restrained hierarchy and amber analysis accent;
+the source paragraph remains the primary reading surface. On narrow screens the
+rail returns to the full content width so the explanation stays legible.
 
 The active reader uses one chunk renderer and one offset-based chunk tag
 projection. It does not run a second text-search overlay over already-rendered
@@ -7521,6 +7697,13 @@ The temporary reader displays extracted source text, highlights case citations a
 statute references in place, and provides an evidence inspector with paragraph or
 PDF page, offsets, context, and resolution status.
 
+The inspector uses separate **Case citations** and **Statutes** tabs with stored
+occurrence counts. Case rows group by their locally resolved authority when one
+exists, otherwise by the extracted reference; statute rows group by the returned
+authority document title. Selecting an occurrence returns to its highlighted
+source span. These controls use only the analysis response: the browser does not
+create replacement offsets, and the upload remains ephemeral.
+
 Accepted formats are `.docx` and text-based `.pdf`, up to 10 MB. Scanned PDFs are
 not OCR'd by this prototype. Enable **Resolve local matches** when neutral
 citations should be checked against existing local case metadata. Resolution is
@@ -7531,10 +7714,16 @@ records.
 
 - Case-citation highlights identify stored case-law references.
 - Statute/instrument highlights identify independently stored law references.
-- A citation with a resolved target is interactive. Selecting it loads the matched authority into the context pane.
+- A citation with a resolved target shows the locally matched authority in the
+	inspector. Live Analysis does not open a canonical-case context pane.
 - Hover text can show a target-authority preview. It is deliberately viewport-positioned so it does not get clipped by the chunk containing the citation.
 
-No highlight means one of several things: the case may have no stored rows, its relevant enrichment may not have been run, its offsets may not validate against the displayed text, or the source formatting mode may not map directly to chunk evidence. Use Citation Pass before changing extraction logic.
+Live Analysis deliberately does not add Case Reader features that depend on a
+canonical case record: case metadata and provenance tabs, chunk mode, linked
+authority panes, paragraph assessments, and citation-graph analytics remain in
+the active `/data-explorer` reader. No highlight means the uploaded text had no
+matching extracted reference or its backend-issued offsets did not validate
+against the displayed text. Use Citation Pass before changing extraction logic.
 
 ### Case Information Panels
 
@@ -7624,7 +7813,7 @@ reporting one unexplained instance.
 
 ## Citation Intelligence
 
-Citation Intelligence starts with a title search or a case selected from Case Search. It provides bounded views over resolved case-citation data:
+Citation Intelligence starts with a title search or a case selected from Case Search. Once a case is selected, the Overview keeps that authority's identity and footprint visible before the user drills into a subview. It provides bounded views over resolved case-citation data:
 
 - **Overview**: citing decisions, total mentions, average/max mentions, and related high-level authority signals.
 - **Timeline**: year-based use over time.
@@ -7633,19 +7822,34 @@ Citation Intelligence starts with a title search or a case selected from Case Se
 - **Statutes**: statute references appearing alongside authority use.
 - **Evidence/table views**: stored citation rows, offsets, and target context.
 
-The Overview also presents a compact case fingerprint within the active Data Explorer workflow. It combines existing network metrics with a bounded list of stored citing decisions and a shared-authority cluster from resolved citation rows. Each citing decision links to the inline reader. These summaries are research aids for tracing authority use; shared authorities do not establish legal similarity, citation treatment, or controlling status, and the UI does not infer those conclusions.
+The Overview also includes a compact case fingerprint and citation-footprint visual: incoming/outgoing network metrics, stored citing decisions with bounded mention bars, relative bars for citing decisions/mentions/top-decision volume, date span, and a shared-authority cluster when resolved citation data supports it. Citing rows open the active inline reader. The visual combines stored counts with a clearly labeled derived concentration value; it is not a finding that decisions are legally similar or that an authority received a particular treatment.
 
-The Timeline subtab provides a bounded drill-down from a year to the existing stored citation evidence table. The selected year is passed to the evidence route and can be cleared in place. This preserves the distinction between year-level aggregates and the underlying citation rows.
+Timeline years are actionable. Selecting a year opens the existing evidence view filtered to stored citation rows from that year; the filter can be cleared without leaving Citation Intelligence. This is a traceability path into stored evidence, not a claim about how an authority was treated in that year.
 
-The Overview also surfaces up to four ranked authority signals from stored
-citation frequency and spread. These are derived research aids, not legal-
-importance, treatment, or controlling-status classifications; authority rows
-retain their case IDs and open the active reader.
+Citation Intelligence behaves as a case-focused workspace rather than a
+bottom-of-page feature tray. Its secondary navigation stays above the result
+and content regions, so the available research paths are visible before the
+overview grows. When a result opens the inline reader, the originating
+Citation Intelligence result list is cleared so stale cards do not remain
+above the decision and force an avoidable scroll.
 
-The Citation Intelligence Neighborhood subview uses the existing resolved
-citation graph to show up to 20 direct edges around the selected case. It
-preserves source/target direction, occurrence counts, and related case IDs for
-reader navigation; it does not infer legal similarity or citation treatment.
+The Overview presents explicit research paths to Timeline, Neighborhood, and
+stored Evidence, so the existing citation-intelligence work is visible as one
+workflow rather than a collection of disconnected cards. Loading, empty, and
+request-failure states are shown in the content area; a partial enrichment
+failure does not erase the authority summary or the evidence paths. The page
+also prevents duplicate neighborhood loading during tab activation.
+
+The Overview shows up to four distinctive cited authorities using the
+existing authority-signals route. Occurrence, section spread, and signal score
+are derived navigation aids; they are not legal-importance or treatment scores.
+Each row links to the active inline reader.
+
+The Neighborhood subview shows up to 20 direct citation relationships around
+the selected case, including whether each related decision cites the focus
+case or is cited by it and the stored occurrence count. Related rows open the
+active reader. This is a bounded relationship view, not a legal-similarity or
+citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
@@ -7660,6 +7864,12 @@ Judge Profile resolves a canonical judge identity, aliases, primary court, linke
 Data Explorer is an inventory-oriented research tool. It supports inspection of case/source records and aggregate group/split views. Use it to understand coverage, source composition, processing state, and structured field availability.
 
 FC History accepts an IMM number such as `IMM-1234-19` and presents stored/proxied Federal Court procedural history and available activity context. Treat it as procedural/activity context, not official judgment reasons. A matching IMM number alone does not prove all linked records are the same proceeding.
+
+Its activity summary keeps an annual filed-case chart and adds top registry
+locations, recorded case classes, and filing tracks for the selected filing location. The
+charts are bounded aggregations of structured activity-case fields; they are
+not a procedural Sankey, a measure of procedural success, or proof of judgment
+capture.
 
 ### Legal Themes & Statutes
 

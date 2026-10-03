@@ -69,23 +69,40 @@ def populate_embeddings(
 ) -> None:
     """Generate and store embeddings for all case chunks."""
 
-    print(f"Initializing embedding model: {model_name} ({dimensions} dims)...")
-    provider = get_embedding_provider(model_name, dimensions)
-
     print(f"Connecting to database...")
     session_generator = get_db()
     session = next(session_generator)
 
     try:
-        # Count total chunks needing embeddings
+        # Count total chunks needing embeddings BEFORE loading model
+        print(f"Scanning database for chunks needing embeddings...")
         chunks_iter = get_chunks_needing_embeddings(session, model_name, skip_existing)
         chunks_list = list(chunks_iter)
         total = len(chunks_list)
 
-        print(f"Found {total} chunks to embed")
         if total == 0:
             print("No chunks need embeddings. Use --skip-existing=false to re-embed all.")
             return
+
+        # Estimate time BEFORE loading the expensive model
+        print(f"\n{'='*70}")
+        print(f"CHUNK COUNT & TIME ESTIMATE")
+        print(f"{'='*70}")
+        print(f"Total chunks to embed: {total:,}")
+
+        num_batches = (total + batch_size - 1) // batch_size
+        ms_per_batch = 125  # Typical: 100-150ms per batch on Windows CPU
+        estimated_seconds = (num_batches * ms_per_batch) / 1000
+        estimated_hours = estimated_seconds / 3600
+
+        print(f"Batches: {num_batches:,} × {batch_size} chunks")
+        print(f"Estimated time: {estimated_hours:.1f}–{estimated_hours * 1.2:.1f} hours on Windows CPU")
+        print(f"  - With GPU (CUDA): {estimated_hours / 4:.1f} hours")
+        print(f"  - Resumable: Use --skip-existing to continue if interrupted")
+        print(f"{'='*70}\n")
+
+        print(f"Initializing embedding model: {model_name} ({dimensions} dims)...")
+        provider = get_embedding_provider(model_name, dimensions)
 
         # Process in batches
         for batch_start in range(0, total, batch_size):
@@ -140,7 +157,21 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Populate case_chunk_embeddings with local sentence-transformer embeddings"
+        description="Populate case_chunk_embeddings with local sentence-transformer embeddings",
+        epilog="""
+SCALE: ~150K paragraphs from 61K decisions. Supports resumable runs with --skip-existing.
+
+PERFORMANCE ESTIMATES (Windows CPU):
+  • First run: 2-4 hours on CPU (100-150ms per 32-chunk batch)
+  • If GPU available: <1 hour with CUDA
+  • Memory: ~1GB for model + batch buffer
+  • Resumable: Use --skip-existing to continue interrupted runs
+
+USAGE:
+  python3 scripts\\populate_embeddings.py                   # Full run
+  python3 scripts\\populate_embeddings.py --skip-existing   # Resume (skip completed)
+  python3 scripts\\populate_embeddings.py --batch-size=64   # Larger batches (faster)
+        """,
     )
     parser.add_argument(
         "--model",

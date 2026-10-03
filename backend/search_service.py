@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Any, Callable
 
 from fastapi import HTTPException, status
-from openai import OpenAI, OpenAIError
 from sqlalchemy import Text, func, or_, select
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
@@ -38,8 +37,10 @@ from .models import (
 	LocalChunkSearchRequest,
 )
 
-EMBEDDING_DIMENSIONS = 1536
-EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
+# Use local embedding model (BAAI/bge-m3: 1024 dims, matches pgvector column)
+# No OpenAI fallback for semantic search queries
+EMBEDDING_MODEL = os.getenv("LOCAL_EMBEDDING_MODEL", "BAAI/bge-m3")
+EMBEDDING_DIMENSIONS = 1024
 
 
 def _env_bool(name: str) -> bool | None:
@@ -94,30 +95,39 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 	return requested_mode
 
 
+@lru_cache(maxsize=1)
+def _get_embedding_provider() -> SentenceTransformerEmbeddingProvider:
+	"""Cache the embedding model across requests (expensive to load)."""
+	device = os.getenv("LOCAL_EMBEDDING_DEVICE", "cpu")
+	return SentenceTransformerEmbeddingProvider(
+		model_name=EMBEDDING_MODEL,
+		dimensions=EMBEDDING_DIMENSIONS,
+		device=device,
+	)
+
+
 def _embed(text: str) -> list[float]:
-	api_key = os.getenv("OPENAI_API_KEY")
-	if not api_key:
+	"""Embed a query string using local sentence-transformers model."""
+	try:
+		provider = _get_embedding_provider()
+		embedding = provider.embed_query(text)
+		if len(embedding) != EMBEDDING_DIMENSIONS:
+			raise HTTPException(
+				status_code=status.HTTP_502_BAD_GATEWAY,
+				detail=f"Embedding returned {len(embedding)} dimensions, expected {EMBEDDING_DIMENSIONS}",
+			)
+		return embedding
+	except RuntimeError as exc:
+		# sentence-transformers import failed
 		raise HTTPException(
 			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="OPENAI_API_KEY is not configured",
-		)
-
-	try:
-		client = OpenAI(api_key=api_key)
-		response = client.embeddings.create(input=text, model=EMBEDDING_MODEL)
-	except OpenAIError as exc:
-		raise HTTPException(
-			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service is unavailable",
+			detail="Embedding service is not available",
 		) from exc
-
-	embedding = response.data[0].embedding
-	if len(embedding) != EMBEDDING_DIMENSIONS:
+	except Exception as exc:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service returned an unexpected vector size",
-		)
-	return embedding
+			detail="Embedding service error",
+		) from exc
 
 
 def _party_filter_terms(filters: list[str]) -> list[str]:

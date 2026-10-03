@@ -8,10 +8,17 @@ import re
 from dataclasses import dataclass
 from typing import Any
 
-from sqlalchemy import and_, select, text
+from sqlalchemy import and_, select, text, func
 from sqlalchemy.orm import Session
 
-from .database import CaseChunk, CaseChunkEmbedding, Case, CaseJudgeProfile, CaseOutcome
+from .database import (
+	CaseChunk,
+	CaseChunkEmbedding,
+	Case,
+	CaseJudgeProfile,
+	CaseOutcome,
+	DiscussionUnitCache,
+)
 from .contextual_authority.discussion_units import DISCUSSION_UNIT_METHOD, DISCUSSION_UNIT_VERSION
 
 logger = logging.getLogger(__name__)
@@ -118,7 +125,7 @@ def _semantic_search(
 			logger.debug(f"No semantic matches for: {query}")
 			return []
 
-		# Convert to UnitSearchResult
+		# Convert to UnitSearchResult with judge enrichment
 		results = []
 		seen_units = set()
 
@@ -126,23 +133,28 @@ def _semantic_search(
 			if len(results) >= limit:
 				break
 
-			# For now, use chunk info as proxy for unit
-			# TODO: Map chunks to units via paragraph indices
+			# Get judge and outcome info for case
+			judge_analytics = get_unit_judge_analytics(chunk.case_id, 0, db)
+
+			# Use chunk as proxy for unit with judge enrichment
 			unit_key = (chunk.case_id, chunk.chunk_id)
 			if unit_key in seen_units:
 				continue
 
 			seen_units.add(unit_key)
 
+			# Extract key terms from chunk text (top content words)
+			key_terms = _extract_key_terms(chunk.chunk_text, max_terms=3)
+
 			result = UnitSearchResult(
 				case_id=chunk.case_id,
-				unit_index=0,  # TODO: Map from paragraph indices
+				unit_index=0,  # TODO: Map from discussion_unit_cache
 				start_paragraph=0,  # TODO: Get from chunk metadata
 				end_paragraph=0,  # TODO: Get from chunk metadata
-				subtheme_id="",  # TODO: Map to subtheme
-				key_terms=[],  # TODO: Extract from chunk
-				judges=[],  # TODO: Get from case
-				disposition=None,  # TODO: Get from case outcome
+				subtheme_id="",  # TODO: Map to subtheme from cache
+				key_terms=key_terms,
+				judges=judge_analytics.get("judges", []),
+				disposition=judge_analytics.get("disposition"),
 				score=1.0 - chunk.distance,  # Convert distance to similarity
 				match_type="semantic",
 			)
@@ -173,6 +185,29 @@ def _keyword_search(query: str, db: Session, limit: int) -> list[UnitSearchResul
 	# TODO: Implement full keyword search across units
 
 	return results
+
+
+def _extract_key_terms(text: str, max_terms: int = 3) -> list[str]:
+	"""Extract key terms from text (top content words)."""
+	import re
+	from collections import Counter
+
+	# Simple extraction: content words (3+ chars, not stopwords)
+	stopwords = {
+		"the", "and", "for", "that", "this", "with", "from", "have", "has",
+		"been", "are", "were", "was", "is", "be", "by", "or", "an", "a",
+		"of", "to", "in", "on", "at", "as", "if", "it", "but", "not",
+	}
+
+	words = re.findall(r'\b[a-z]+\b', text.lower())
+	content_words = [w for w in words if len(w) >= 3 and w not in stopwords]
+
+	if not content_words:
+		return []
+
+	# Return most common words
+	counter = Counter(content_words)
+	return [word for word, count in counter.most_common(max_terms)]
 
 
 def get_unit_judge_analytics(

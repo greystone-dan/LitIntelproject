@@ -14,7 +14,9 @@ references that would make a seemingly unused item unsafe to remove.
 Static searches cannot prove the absence of dynamic imports, external consumers,
 or runtime behavior not represented in the repository. “Safe-to-remove” below
 means only that the repository search found no reference; it is not permission
-to delete code as part of this inventory.
+to delete code as part of this inventory. Exact-name findings below describe the
+repository before this report was added; this report’s necessary self-references
+to the listed candidates are not counted as pre-existing consumers.
 
 ## Unused or potentially unserved code
 

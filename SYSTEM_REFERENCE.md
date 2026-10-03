@@ -75,6 +75,13 @@ or the same pinpoint text already exposed in citation rows, and counts distinct
 other citing cases. This paragraph cue does not recompute citation offsets;
 without a pinpoint that matches a formatted paragraph, the paragraph remains
 unmarked.
+The source reader also offers a collapsed **Most cited paragraphs** panel,
+hidden when no formatted paragraphs have incoming pinpoint counts. It reuses
+the same shading data without another query, showing up to five paragraphs
+ranked by distinct other citing cases (numeric paragraph order breaks ties),
+with counts, short excerpts, and keyboard-operable jumps. Jumps switch to
+normalized formatted text and scroll/focus the source paragraph, not linked
+context; backend offsets remain unchanged.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph

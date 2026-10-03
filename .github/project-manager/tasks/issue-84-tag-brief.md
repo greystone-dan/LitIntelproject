@@ -36,17 +36,17 @@ Harness criteria:
 - `issue_brief_empty_tag`
 - `issue_brief_docs_and_swimm`
 
-Docs/generated references: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, and `CHANGELOG.md`; Swimm walkthroughs `.swm/1.oi7rhqp2.sw.md` and `.swm/6.maiixtsw.sw.md`; regenerate `docs/API_REFERENCE.generated.md` from its generator if route contract changes.
+Docs/generated references: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, and generated `docs/API_REFERENCE.generated.md`; Swimm walkthroughs `.swm/1.oi7rhqp2.sw.md` and `.swm/6.maiixtsw.sw.md`.
 
 Rollback/recovery: Remove the additive routes/page builder/tests and revert only the related documentation changes; no persistent data or schema is modified.
 
-Evidence: The managed worker added the JSON/UI routes, analytics aggregation, SQLite contract tests, and documentation. The printable page was bounded to 12 links with a shown/total disclosure; its JSON payload remains complete. The worker updated `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md`. Manager final checks: `python -m pytest -q tests/test_issue_brief.py` failed because pytest is not installed; `python scripts/generate_api_reference.py` failed because FastAPI is not installed; `python -m py_compile backend/analytics_service.py backend/pages/issue_brief.py backend/routes.py tests/test_issue_brief.py && git diff --check` passed; standalone printable renderer assertions passed. API reference generation and behavioral pytest validation remain blocked.
+Evidence: The managed worker added the JSON/UI routes, analytics aggregation, SQLite contract tests, and documentation. The printable page is bounded to 12 links with a shown/total disclosure; its JSON payload remains complete. The worker updated `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md`. Manager checks reported that `python -m py_compile backend/analytics_service.py backend/pages/issue_brief.py backend/routes.py tests/test_issue_brief.py && git diff --check` and standalone printable renderer assertions passed. Coordinator review found no Code Review findings and CodeQL reported zero alerts. The API reference was regenerated successfully with `python scripts/generate_api_reference.py` after installing existing runtime packages in the sandbox. Focused pytest execution was not performed; pytest remains unavailable.
 
-Files changed: `.github/project-manager/tasks/issue-84-tag-brief.md`, `backend/routes.py`, `backend/analytics_service.py`, `backend/pages/issue_brief.py`, `tests/test_issue_brief.py`, `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, `.swm/6.maiixtsw.sw.md`.
+Files changed: `.github/project-manager/tasks/issue-84-tag-brief.md`, `backend/routes.py`, `backend/analytics_service.py`, `backend/pages/issue_brief.py`, `tests/test_issue_brief.py`, `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `docs/API_REFERENCE.generated.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, `.swm/6.maiixtsw.sw.md`.
 Delegated work: `managed-worker` implemented routes, reusable analytics-service aggregation, page builder, SQLite tests, and docs; a bounded managed-worker follow-up capped printed case links at 12 and added shown/total disclosure. Both returned the required structured reports. Neither committed or pushed.
-Focused validation: `python -m pytest -q tests/test_issue_brief.py` — blocked (`No module named pytest`); `python -m py_compile backend/analytics_service.py backend/pages/issue_brief.py backend/routes.py tests/test_issue_brief.py && git diff --check` — passed; standalone print-renderer assertions for 12-link cap, disclosure, and print CSS — passed.
-Residual risk: SQLite/API behavior has not been executed because pytest and FastAPI are unavailable; generated API reference remains stale because its generator could not import FastAPI. No browser or physical-print validation was performed.
-Next bounded task: In an environment with project dependencies installed, run the focused pytest tests and regenerate `docs/API_REFERENCE.generated.md`; then perform final acceptance without committing or pushing.
+Focused validation: `python -m pytest -q tests/test_issue_brief.py` — not run (`pytest` unavailable); manager-reported `python -m py_compile backend/analytics_service.py backend/pages/issue_brief.py backend/routes.py tests/test_issue_brief.py && git diff --check` — passed; manager-reported standalone print-renderer assertions for 12-link cap, disclosure, and print CSS — passed; `python scripts/generate_api_reference.py` — passed and updated the generated route reference.
+Residual risk: SQLite/API behavior has not been executed. No browser or physical-print validation was performed.
+Next bounded task: Run the focused SQLite tests and CI test command in a test-enabled environment, then perform browser/print acceptance.
 
 ## Hypothesis
 
@@ -62,7 +62,7 @@ If the additive issue-brief routes reuse existing read-only analytics over tagge
 
 - Delegation: Managed worker implementation and bounded print-layout follow-up completed; exact structured summaries are recorded in Evidence.
 - Implementation: Worker changed the stated API/research-UI owner slice; coordinator made no implementation edits.
-- Documentation: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md` updated.
+- Documentation: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, generated `docs/API_REFERENCE.generated.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md` updated.
 - Recovery: No database or long-running operation expected.
 
 ## Decision Log
@@ -70,16 +70,16 @@ If the additive issue-brief routes reuse existing read-only analytics over tagge
 | Date | Decision | Reason | Evidence |
 | --- | --- | --- | --- |
 | 2026-10-03 | Select API/research UI as the sole owner surface | Both requested routes are additive research-facing contracts and should share existing analytics | `SYSTEM_REFERENCE.md`, `.swm/1.oi7rhqp2.sw.md`, `.swm/6.maiixtsw.sw.md` |
-| 2026-10-03 | Block completion on missing test/generator dependencies | Focused behavioral tests and generated API contract were not validated | `pytest` and `fastapi` modules are unavailable in the current Python environment |
+| 2026-10-03 | Block completion pending focused behavioral tests | SQLite API behavior still needs test execution; generated reference is now current | Focused pytest was not run; `scripts/generate_api_reference.py` passed |
 
 ## Completion
 
 Completion recorded: no
 
-Summary: Implementation and canonical/Swimm documentation are present, but completion is blocked pending behavioral tests and API-reference regeneration in an environment with project dependencies.
+Summary: Implementation, canonical/Swimm docs, and generated API reference are present, but completion remains blocked pending behavioral tests.
 
-Validation: Python compilation, `git diff --check`, and standalone renderer assertions passed. Focused pytest and API-reference generation both failed at import because required modules are absent.
+Validation: Manager-reported Python compilation, `git diff --check`, and standalone renderer assertions passed. API-reference generation passed after installing declared runtime dependencies; focused pytest was not run because pytest is unavailable.
 
-Residual risk: API/SQLite runtime behavior and the generated route reference remain unverified; no browser or physical-print validation occurred.
+Residual risk: API/SQLite runtime behavior remains unverified; no browser or physical-print validation occurred.
 
-Next recommended task: Run the focused tests and API-reference generator where `pytest` and `fastapi` are installed, then complete final acceptance.
+Next recommended task: Run focused and CI tests plus browser/print acceptance in an environment with pytest installed, then complete final acceptance.

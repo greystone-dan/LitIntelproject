@@ -4,6 +4,21 @@
   "purpose": "Expanded V3 core layer with high-frequency legal concepts from Canadian immigration case law",
   "source": "Mined from A2AJ dataset + domain expertise",
   "matching_policy": "Exact alias matching produces mention evidence only. It does not infer an outcome, legal finding, or case topic.",
+  "alias_policy": {
+    "include": [
+      "Acronym and full-name pairs when the acronym is reviewed for this domain.",
+      "Case-insensitive display variants.",
+      "Reviewed punctuation, apostrophe, hyphen, and spacing variants that preserve the same meaning.",
+      "Explicit plural forms only when the plural refers to the same canonical entity or record type."
+    ],
+    "exclude_until_review": [
+      "Automatically generated plurals or adjectival forms.",
+      "Substring fragments and partial words.",
+      "Generic synonyms that broaden a formal term.",
+      "Two- or three-letter acronyms with common non-legal meanings."
+    ],
+    "required_evidence_for_alias": "Each alias requires a canonical-value decision, a negative false-positive example, and an exact-span regression fixture before activation."
+  },
   "expansion_note": "These concepts are candidates for V3 expansion. Each requires human review, negative examples, and regression fixtures before activation.",
   "categories": {
     "agency": {

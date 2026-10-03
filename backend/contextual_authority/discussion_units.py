@@ -10,7 +10,7 @@ from .models import text_hash
 
 
 DISCUSSION_UNIT_METHOD = "discussion_unit_v1"
-DISCUSSION_UNIT_VERSION = "1.3"
+DISCUSSION_UNIT_VERSION = "1.4"
 _CONTENT_STOPWORDS = frozenset(
     "a an and are as at be been being by for from had has have he her his in is it its may of on or that the their them they this to was were will with would".split()
 )
@@ -240,9 +240,9 @@ def segment_discussion_units(
     *,
     threshold: float = 0.35,
     consecutive_low_scores: int = 2,
-    consecutive_signal_vacuum_pairs: int = 8,
+    consecutive_signal_vacuum_pairs: int = 4,
     signal_vacuum_text_overlap: float = 0.10,
-    signal_vacuum_min_paragraphs: int = 50,
+    signal_vacuum_min_paragraphs: int = 40,
     config: dict[str, object] | None = None,
 ) -> tuple[DiscussionUnit, ...]:
     if not paragraphs:

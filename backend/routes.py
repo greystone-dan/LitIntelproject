@@ -3231,7 +3231,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 	)
 
 
-@router.post("/search/tags/similar")
+@router.get("/search/tags/similar")
 def find_similar_cases_by_tags(
 	case_id: int = Query(...),
 	limit: int = Query(10, ge=1, le=50),
@@ -3256,19 +3256,22 @@ def find_similar_cases_by_tags(
 
 	source_tag_set = frozenset((t.category, t.value) for t in source_tags)
 
-	all_cases = db.query(Case).filter(Case.id != case_id).all()
+	all_tags = db.query(CaseTag, Case).join(Case).filter(
+		CaseTag.case_id != case_id,
+		CaseTag.taxonomy_version == "ca_legal_v3_core",
+	).all()
+
+	case_tag_map = {}
+	case_metadata = {}
+	for tag, case in all_tags:
+		if case.id not in case_tag_map:
+			case_tag_map[case.id] = []
+			case_metadata[case.id] = case
+		case_tag_map[case.id].append((tag.category, tag.value))
+
 	scored_cases = []
-
-	for case in all_cases:
-		case_tags = db.query(CaseTag).filter(
-			CaseTag.case_id == case.id,
-			CaseTag.taxonomy_version == "ca_legal_v3_core",
-		).all()
-
-		if not case_tags:
-			continue
-
-		case_tag_set = frozenset((t.category, t.value) for t in case_tags)
+	for case_id_other, tags_list in case_tag_map.items():
+		case_tag_set = frozenset(tags_list)
 		intersection = len(source_tag_set & case_tag_set)
 		union = len(source_tag_set | case_tag_set)
 		jaccard = intersection / union if union > 0 else 0.0
@@ -3276,10 +3279,12 @@ def find_similar_cases_by_tags(
 		if jaccard > 0:
 			shared_tags = sorted(list(source_tag_set & case_tag_set))
 			scored_cases.append({
-				"case": case,
+				"case_id": case_id_other,
+				"case": case_metadata[case_id_other],
 				"jaccard_similarity": jaccard,
 				"shared_tag_count": intersection,
 				"shared_tags": shared_tags,
+				"total_tags": len(tags_list),
 			})
 
 	scored_cases.sort(key=lambda x: (-x["jaccard_similarity"], -x["shared_tag_count"]))
@@ -3296,18 +3301,15 @@ def find_similar_cases_by_tags(
 		},
 		"similar_cases": [
 			{
-				"id": item["case"].id,
+				"case_id": item["case_id"],
 				"title": item["case"].title,
 				"citation": item["case"].citation,
 				"court": item["case"].court,
 				"date": item["case"].date,
-				"jaccard_similarity": round(item["jaccard_similarity"], 4),
+				"similarity": round(item["jaccard_similarity"], 4),
 				"shared_tag_count": item["shared_tag_count"],
 				"shared_tags": item["shared_tags"],
-				"total_tags": len(db.query(CaseTag).filter(
-					CaseTag.case_id == item["case"].id,
-					CaseTag.taxonomy_version == "ca_legal_v3_core",
-				).all()),
+				"total_tags": item["total_tags"],
 			}
 			for item in top_cases
 		],

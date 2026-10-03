@@ -187,3 +187,37 @@ def test_live_analysis_api_extracts_text_pdf_with_page_numbers() -> None:
 		"unresolved_case_citations": 1,
 		"statute_references": 1,
 	}
+
+
+def test_live_analysis_responses_have_no_cache_headers() -> None:
+	"""Both upload endpoints must prevent caching their sensitive payloads."""
+	client = TestClient(app)
+	content = make_docx("A temporary upload with no citations.")
+
+	analyze_response = client.post(
+		"/live-analysis/analyze",
+		files={
+			"file": (
+				"brief.docx",
+				content,
+				"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+			)
+		},
+	)
+
+	resolve_response = client.post(
+		"/live-analysis/resolve",
+		files={
+			"file": (
+				"brief.docx",
+				content,
+				"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+			)
+		},
+	)
+
+	for response in (analyze_response, resolve_response):
+		assert response.status_code == 200
+		assert response.headers.get("Cache-Control") == "no-store"
+		assert response.headers.get("Pragma") == "no-cache"
+		assert response.json()["filename"] == "brief.docx"

@@ -268,6 +268,21 @@ profiles, and legacy combined tag/citation jobs stay outside the active V2 path.
 - Route responses may contain incomplete enrichment, unresolved targets, or
 	empty results; those states must remain explicit.
 
+## Deployment And Access Boundary
+
+`backend/main.py` issues a signed access cookie at the login endpoint, but its
+HTTP middleware currently adds no-index headers without checking that cookie or
+denying unauthenticated requests. No-index controls are not authentication. The
+setup guide and `SYSTEM_REFERENCE.md` should be read with that runtime behavior
+in mind; a separately verified perimeter gate is required before exposing
+restricted material.
+
+The local deployment and tunnel documents describe possible hosting and
+administration paths, not proof of the currently deployed region, provider
+settings, retention, or organizational approval. The repository-grounded
+readiness questions and evidence are maintained in
+[`docs/reports/cbsa-readiness-checklist.md`](../docs/reports/cbsa-readiness-checklist.md).
+
 ## Refactoring Seams
 
 The most useful seams are application startup versus route registration,

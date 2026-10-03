@@ -9,6 +9,7 @@ from .memo_citation_check import memo_citation_check_page_html
 from .prototype import prototype_page_html
 from .quick_search import quick_search_page_html
 from .research import research_page_html
+from .tag_finder import tag_finder_page_html
 from .testing import testing_page_html
 
 __all__ = [
@@ -21,5 +22,6 @@ __all__ = [
 	"prototype_page_html",
 	"quick_search_page_html",
 	"research_page_html",
+	"tag_finder_page_html",
 	"testing_page_html",
 ]

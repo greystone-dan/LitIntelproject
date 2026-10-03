@@ -68,6 +68,29 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The source pane begins with a short **Extracted case summary** only when
+verified stored-text facts exist. Every item has its own evidence link:
+court/date/judge link to an explicit matching source-header block; up to three
+highest-scoring distinct verified stored tags link to their source paragraphs
+(category/value break score ties). Unsupported court abbreviations, dates
+outside supported labelled header forms, judges without matching stored
+extraction/header evidence, and tags without exact document evidence offsets
+are omitted rather than linked to incidental mentions in the reasons.
+Labelled judge headers may contain only the prefixes supported by the metadata
+judge normalizer; the evidence span and offsets still capture the exact stored
+name alone, excluding those prefixes.
+The latest stored outcome and its displayed extraction source share the same
+verified disposition paragraph link. A verbatim disposition can still appear
+without an outcome label. Outcome evidence must match stored full text at its
+stored offsets inside one numbered formatter paragraph, including continuation
+blocks; unverifiable, unnumbered, or cross-paragraph evidence is omitted.
+Links use backend formatter block starts (plus paragraph identity), not
+paragraph numbers alone, and switch to formatted mode to focus that exact
+source block. Header blocks may be unnumbered and are labelled **Source header**.
+The additive reader `extracted_summary` projection has no unverified UI
+fallback. Empty summaries are hidden; no generated prose, classification,
+stored-data changes, or browser-created offsets are involved. This surface is
+separate from the optional technical **Show case summary** control.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
@@ -385,8 +408,16 @@ only. A separate `POST /live-analysis/resolve` request performs a batched,
 read-only lookup of neutral, named, and short-form references against existing
 case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
-Local resolution intentionally does not call external services. Scanned PDFs are
-outside the prototype because they require OCR.
+Local resolution intentionally does not call external services. Successful
+responses include the extracted source text and set `Cache-Control: no-store`
+and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
+after the multipart file is read, and no expanded-DOCX, PDF page-count, or
+pasted-text resource budget is enforced in these paths. Multipart temporary
+spooling and deployment-level request logging/retention are outside the
+application persistence boundary. Scanned PDFs are outside the prototype
+because they require OCR. The scoped privacy/security review, including
+de-identification routes and residual risks, is
+[`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
@@ -2042,7 +2073,7 @@ Before calling a change stable for the active research workflow:
 7. Confirm migrations, large-file handling, and deployment configuration if the
     change touches any of those surfaces.
 
-The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
+The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md); the measured, risk-ranked pytest statement-coverage report is at [docs/reports/test-coverage.md](docs/reports/test-coverage.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
 
 ## Documentation Map
 

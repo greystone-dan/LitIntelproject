@@ -70,6 +70,7 @@ from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
+from .pages.issue_brief import issue_brief_page_html
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -141,6 +142,7 @@ from .analytics_service import (
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
 	fetch_judge_profiles,
+	fetch_issue_brief,
 	fetch_outcomes_by_year,
 )
 from .fc_activity_insights import (
@@ -1603,6 +1605,32 @@ def get_case_thematic_cluster(
 @router.get("/analytics/tags", response_model=dict[str, Any])
 def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
 	return fetch_all_tag_analytics(db)
+
+
+@router.get(
+	"/issue-brief",
+	response_model=dict[str, Any],
+	summary="Build a legal issue brief for a tag",
+	description=(
+		"Summarizes active-taxonomy tagged decisions by year, outcome, and court, "
+		"with resolved case authorities and traceable decision links. Outcome percentages "
+		"use all decisions in the year as denominator and each split includes the "
+		"unclassified count and denominator. An empty tag returns an empty brief."
+	),
+)
+def get_issue_brief(
+	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form; empty is supported."),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	return fetch_issue_brief(db, tag)
+
+
+@router.get("/issue-brief-ui", response_class=HTMLResponse, include_in_schema=False)
+def get_issue_brief_ui(
+	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form."),
+	db: Session = Depends(get_db),
+) -> str:
+	return issue_brief_page_html(fetch_issue_brief(db, tag))
 
 
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:

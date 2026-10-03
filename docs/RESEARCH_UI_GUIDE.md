@@ -88,6 +88,25 @@ The embedded research and information views retain these data responsibilities:
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
 
+## Printable Legal Issue Brief
+
+Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
+summary of decisions carrying an exact active-taxonomy tag. The page reports
+decision counts by year and court, per-year outcome splits, the ten most cited
+resolved case authorities, and links up to 12 tagged decisions and the
+authorities in the case reader. The page discloses the shown/total decision-link
+count; `/issue-brief?tag=category:value` retains the complete decision list and
+provides the data as JSON. An empty tag returns a valid empty brief.
+
+Outcome labels come from `reader_extracted` decision metadata. Percentages use
+all tagged decisions in that year as the denominator, including records with no
+classified outcome; each percentage is shown alongside the unclassified count
+and denominator. Authority counts mean stored citation occurrences from tagged
+source decisions with a resolved case target, with distinct citing decisions
+reported separately. Unresolved citations and the separate statute-reference
+layer are not included. The print stylesheet is intended to keep the summary
+compact, but no browser/physical-page behavior is certified here.
+
 ## Discussion Units Sandbox
 
 Open `/discussion-units-sandbox` to inspect the experimental Discussion Units

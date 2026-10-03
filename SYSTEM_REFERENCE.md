@@ -64,6 +64,18 @@ The embedded information and research views are:
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
+The standalone `/issue-brief-ui?tag=category:value` page provides a printable
+tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
+tagged decisions by year, outcome, and court, lists up to ten resolved case
+authorities, and links up to 12 tagged decisions and each authority to the case
+reader; the JSON response retains the complete decision list. An empty tag
+returns a valid empty brief. Outcomes come from `reader_extracted` decision
+metadata; each outcome percentage uses all decisions in that year, including
+unclassified records, and is accompanied by the unclassified count and
+denominator. Authority counts are stored citation occurrences with a resolved
+case target from tagged decisions; distinct citing decisions are counted
+separately, and statute references and unresolved citations are excluded.
+
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 

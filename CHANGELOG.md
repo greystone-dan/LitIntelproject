@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added read-only `/issue-brief?tag=category:value` analytics and a standalone
+  printable `/issue-brief-ui` with yearly outcomes, courts, resolved cited
+  authorities, and reader links. Outcome percentages disclose the unclassified
+  count and all-decision denominator; empty tags return an explicit empty brief.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

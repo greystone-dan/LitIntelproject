@@ -1,7 +1,10 @@
 from datetime import date
+from io import BytesIO
+import re
 from types import SimpleNamespace
 
 import pytest
+from docx import Document
 from fastapi import HTTPException
 from pydantic import ValidationError
 
@@ -229,6 +232,105 @@ def test_search_metadata_mode_uses_basic_identifiers(monkeypatch):
     assert any("Federal Court" in str(value) for value in params.values())
     assert "Canada" in params.values()
     assert "%2024 FC%" in params.values()
+
+
+def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeypatch):
+    calls = []
+
+    def fake_search(database, **kwargs):
+        calls.append((database, kwargs))
+        start = kwargs["offset"]
+        return {
+            "results": [
+                {
+                    "citation": f"2024 FC {index + 1}",
+                    "title": f"Example case {index + 1}",
+                    "court": "Federal Court",
+                    "date": date(2024, 6, 1),
+                    "decision_outcome": "dismissed",
+                }
+                for index in range(start, start + 100)
+            ]
+        }
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    database = object()
+    response = routes.export_search_docx(
+        query="contract/fairness?",
+        cites="Vavilov",
+        government_outcome="won",
+        decision_outcome="dismissed",
+        minister="Minister A",
+        judge="Zinn",
+        court="Federal Court",
+        year="2024",
+        search_full_text=True,
+        sort_by="newest",
+        limit=25,
+        db=database,
+    )
+
+    document = Document(BytesIO(response.body))
+    header = document.paragraphs[0].text
+    assert "Query: contract/fairness?" in header
+    for filter_value in (
+        "cites=Vavilov",
+        "government_outcome=won",
+        "decision_outcome=dismissed",
+        "minister=Minister A",
+        "judge=Zinn",
+        "court=Federal Court",
+        "year=2024",
+        "search_full_text=True",
+        "sort_by=newest",
+        "limit=25",
+    ):
+        assert filter_value in header
+    assert "Count: 200" in header
+    assert re.search(r"Generated: \d{4}-\d{2}-\d{2}", header)
+    assert [cell.text for cell in document.tables[0].rows[0].cells] == [
+        "Citation",
+        "Title",
+        "Court",
+        "Date",
+        "Outcome",
+    ]
+    assert len(document.tables[0].rows) == 201
+    assert [cell.text for cell in document.tables[0].rows[1].cells] == [
+        "2024 FC 1",
+        "Example case 1",
+        "Federal Court",
+        "2024-06-01",
+        "dismissed",
+    ]
+    assert document.tables[0].rows[1].cells[4].text == "dismissed"
+    assert response.headers["content-type"] == (
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
+    assert response.headers["content-disposition"] == (
+        'attachment; filename="search-contract-fairness.docx"'
+    )
+    assert response.headers["cache-control"] == "no-store"
+    assert len(calls) == 2
+    assert [kwargs["offset"] for _, kwargs in calls] == [0, 100]
+    assert all(kwargs["limit"] == 100 for _, kwargs in calls)
+    assert all(
+        {key: value for key, value in kwargs.items() if key not in {"limit", "offset"}}
+        == {
+            "query": "contract/fairness?",
+            "cites": "Vavilov",
+            "government_outcome": "won",
+            "decision_outcome": "dismissed",
+            "minister": "Minister A",
+            "judge": "Zinn",
+            "court": "Federal Court",
+            "year": "2024",
+            "search_full_text": True,
+            "sort_by": "newest",
+        }
+        for _, kwargs in calls
+    )
+    assert all(database_arg is database for database_arg, _ in calls)
 
 
 def test_analytics_search_relevance_prefers_exact_case_name_matches():

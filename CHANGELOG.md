@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a visible Data Explorer **Download Word** control and the
+  `GET /search/export.docx` endpoint, which preserve active analytics search
+  filters and export up to 200 cases with citation/title/court/date/outcome
+  columns and query/filter/date/count context; the response is no-store.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

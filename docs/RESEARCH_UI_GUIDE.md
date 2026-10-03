@@ -211,6 +211,14 @@ Open Advanced options to narrow the candidate set. Available filters include cit
 
 Enable **Search full decision text** only when the research question requires text passages rather than named authorities. Full-text matching broadens results and can be slower or noisier than title/citation lookup.
 
+After a nonempty successful ordinary case search, **Download Word** appears
+beside the result status. It exports the current query and the same named
+filters used by `searchValues()` through `GET /search/export.docx`. The link is
+hidden before results, for empty/error/loading states, while RAG is selected,
+and after any search field is edited; submit the search again to export its
+current result set. Older asynchronous case-search responses cannot restore a
+stale link.
+
 ### Reading Result Metadata
 
 Search results lead with the case title and citation, followed by court, date,

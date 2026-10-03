@@ -223,6 +223,8 @@ evidence spans, latency/error monitoring, and browser coverage.
 
 Case Search supports query, title, court, jurisdiction, dates, source details, citation variants, party/minister presets, cited authority, legal tags, language, processing status, cited/citing data, decision outcome, government outcome, judge, and full-text opt-in matching. Court abbreviations `FC`, `FCA`, and `SCC` expand to canonical court names for filtering.
 
+`GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py` and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable; no CSV export endpoint is added.
+
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
 
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
@@ -1250,6 +1252,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 ### Research And Analytics APIs
 
 - `GET /analytics/search/cases`: filtered active Case Search API.
+- `GET /search/export.docx`: bounded DOCX export of the active Data Explorer search (up to 200 cases).
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.

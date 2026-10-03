@@ -491,6 +491,9 @@ class StatuteReference(Base):
 	chunk_id: Mapped[int | None] = mapped_column(
 		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
 	)
+	statute_version_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("statute_versions.id", ondelete="SET NULL"), nullable=True, index=True
+	)
 	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	reference_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -503,10 +506,12 @@ class StatuteReference(Base):
 	provision_nested_depth: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	provision_is_range_or_list: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, index=True)
 	legislation_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	section_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 
 	source_case = relationship("Case", back_populates="statute_references")
 	chunk = relationship("CaseChunk", back_populates="statute_references")
+	statute_version = relationship("StatuteVersion")
 
 
 class A2AJCase(Base):

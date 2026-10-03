@@ -69,11 +69,13 @@ from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
+from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
+from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
@@ -216,6 +218,7 @@ from .models import (
 	InventoryCaseResponse,
 	LocalChunkSearchRequest,
 	LiveAnalysisResponse,
+	MemoCitationCheckResponse,
 	A2AJCaseMapResponse,
 	A2AJCaseResponse,
 	A2AJCitationEdgeResponse,
@@ -928,6 +931,11 @@ def live_analysis_page() -> HTMLResponse:
 	return HTMLResponse(content=live_analysis_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
+def memo_citation_check_page() -> HTMLResponse:
+	return HTMLResponse(content=memo_citation_check_page_html(), status_code=status.HTTP_200_OK)
+
+
 @router.post("/live-analysis/analyze", response_model=LiveAnalysisResponse)
 async def live_analysis_analyze(
 	file: UploadFile = File(...),
@@ -957,6 +965,29 @@ async def live_analysis_resolve(
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	return LiveAnalysisResponse.model_validate(payload)
+
+
+@router.post("/memo-citation-check", response_model=MemoCitationCheckResponse)
+async def memo_citation_check(
+	file: UploadFile = File(...),
+	db: Session = Depends(get_db),
+) -> MemoCitationCheckResponse:
+	"""Analyze a memo/draft document for citation completeness and treatment.
+
+	Detects all cited authorities, resolves them to iLit cases, identifies
+	treatment status (positive/negative), and suggests commonly cited
+	authorities on related issues that may be missing from the draft.
+
+	Upload memory only; no persistence.
+	"""
+	content = await file.read()
+	try:
+		payload = analyze_memo_citations(content, file.filename or "document.docx", file.content_type, db)
+	except ValueError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	except Exception as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be analyzed") from exc
+	return MemoCitationCheckResponse.model_validate(payload)
 
 
 # De-identify tool: works entirely in memory. These endpoints never touch the

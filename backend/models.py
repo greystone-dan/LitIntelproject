@@ -83,6 +83,57 @@ class LiveAnalysisResponse(BaseModel):
 	summary: LiveAnalysisSummaryResponse
 
 
+class TreatmentInfo(BaseModel):
+	has_treatment: bool
+	treatment_flags: list[str]
+	citing_cases_count: int
+
+
+class RelatedAuthorityResponse(BaseModel):
+	id: int
+	title: str
+	citation: str | None
+	court: str
+	date: str | None
+	citing_count: int
+	issues: list[str]
+
+
+class EnhancedCitationResponse(LiveAnalysisReferenceResponse):
+	treatment: TreatmentInfo = Field(default_factory=dict)
+	related_authorities: list[RelatedAuthorityResponse] = Field(default_factory=list)
+
+
+class MissingAuthorityResponse(BaseModel):
+	id: int
+	title: str
+	citation: str | None
+	court: str
+	date: str | None
+	citing_count: int
+	issues: list[str]
+	reason: str
+
+
+class MemoCitationAnalysis(BaseModel):
+	total_authorities_cited: int
+	resolved_authorities: int
+	authorities_with_treatment: int
+	missing_authorities_found: int
+
+
+class MemoCitationCheckResponse(BaseModel):
+	filename: str
+	text: str
+	text_length: int
+	paragraph_count: int
+	case_citations: list[EnhancedCitationResponse]
+	statute_references: list[LiveAnalysisReferenceResponse]
+	missing_authorities: list[MissingAuthorityResponse]
+	memo_analysis: MemoCitationAnalysis
+	summary: LiveAnalysisSummaryResponse
+
+
 class CaseSearchRequest(BaseModel):
 	query: str = Field(min_length=1)
 	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"

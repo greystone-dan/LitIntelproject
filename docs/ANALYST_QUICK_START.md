@@ -65,10 +65,11 @@ decisions.
 
 Outcome labels are derived research classifications based on disposition and
 party-role evidence. A government win describes the government side's recorded
-outcome, not the merits of a case. **Unclassified** means no usable outcome
-classification; it is not a loss, an undecided case, or a mixed result.
-`Mixed` and `undetermined` are distinct classifications and should not be
-folded into wins or losses.
+outcome, not the merits of a case. In Judge Profile, only records labelled
+government `won` or `lost` count as classified for the win-rate calculation.
+Other values—including `mixed`, `undetermined`, or missing—are counted as
+unclassified and excluded from the rate. Unclassified is not itself a loss or
+proof that a case was undecided; check the decision for its recorded outcome.
 
 The government win rate is government wins ÷ classified decisions. Unclassified
 decisions remain in the total decision count but are excluded from the rate.

@@ -746,8 +746,32 @@ def test_extract_statute_reference_matches_supports_french_provision_forms():
 
 	matches = citations.extract_statute_reference_matches(text)
 
-	assert any("Loi sur l'immigration" in match.normalized_citation for match in matches)
-	assert any("Code criminel" in match.normalized_citation for match in matches)
+	french_matches = [
+		match
+		for match in matches
+		if "Loi sur l'immigration" in match.normalized_citation
+		or "Code criminel" in match.normalized_citation
+	]
+	assert [match.citation_text for match in french_matches] == [
+		"article 112 de la Loi sur l'immigration et la protection des réfugiés",
+		"paragraphe 320.13(1) du Code criminel",
+	]
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in french_matches)
+
+
+def test_extract_statute_reference_matches_rejects_dates_page_numbers_and_other_statute_sections():
+	text = (
+		"The hearing occurred on 2024-01-01. The record is at pages 34 and 35-37. "
+		"Section 34(1)(f) of the Citizenship Act applies."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert [match.citation_text for match in matches] == [
+		"Section 34(1)(f) of the Citizenship Act"
+	]
+	assert all("Immigration and Refugee Protection" not in match.normalized_citation for match in matches)
+	assert not citations.extract_case_citation_matches("The hearing occurred on 2024-01-01.")
 
 
 def test_extract_statute_reference_matches_excludes_procedural_order_labels():
@@ -1625,6 +1649,40 @@ def test_extract_raw_citation_matches_populates_pinpoint_for_short_form_range():
 	assert len(short_matches) == 1
 	assert short_matches[0].citation_text == "Vavilov at paras 10-12"
 	assert short_matches[0].pinpoint == "at paras. 10-12"
+
+
+def test_extract_case_citations_preserves_exact_spans_for_para_12_and_range():
+	text = (
+		"Vavilov v. Canada, 2019 SCC 65. "
+		"Vavilov at para 12; Vavilov at paras 12-14."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert [match.citation_text for match in short_matches] == [
+		"Vavilov at para 12",
+		"Vavilov at paras 12-14",
+	]
+	assert [match.pinpoint for match in short_matches] == ["at para. 12", "at paras. 12-14"]
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in short_matches)
+
+
+@pytest.mark.xfail(
+	reason="backend.citations does not resolve Ibid short forms; the citation refinement layer handles them."
+)
+def test_extract_case_citations_supports_ibid_short_form():
+	text = "Vavilov v. Canada, 2019 SCC 65. Ibid at para 12."
+
+	short_matches = [
+		match
+		for match in citations.extract_case_citation_matches(text)
+		if match.kind == "case_short"
+	]
+
+	assert len(short_matches) == 1
+	assert short_matches[0].citation_text == "Ibid at para 12"
+	assert short_matches[0].pinpoint == "at para. 12"
 
 
 def test_extract_raw_citation_matches_preserves_case_trailing_reporter_and_pinpoint():

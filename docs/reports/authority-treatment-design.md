@@ -27,7 +27,7 @@ refinement design likewise separates extraction, resolution and pinpoints, and
 does not define a treatment classifier
 ([`backend/citations.py`](../../backend/citations.py#L338-L349);
 [`docs/CITATION_REFINEMENT.md`](../CITATION_REFINEMENT.md#L1-L6),
-[#L44-L48)).
+[`docs/CITATION_REFINEMENT.md`](../CITATION_REFINEMENT.md#L44-L48)).
 
 ## Proposed label set
 
@@ -38,7 +38,10 @@ contract is a non-production LLM teacher-label schema, including exact treatment
 phrase offsets and separate exact-span context fields for actor, reason raised,
 argument supported/addressed, court response and argument conclusion. It is not
 the requested rule-based classifier and does not provide that classifier's
-rules. Reuse its enum only as a vocabulary candidate, subject to legal review
+rules. Its broad `negative` value is too coarse for a researcher-facing label;
+the proposed display taxonomy below separates criticism, rejection and
+overruling. Reuse the teacher enum only as a vocabulary starting point, subject
+to legal review
 ([`teacher_contract.py`](../../backend/contextual_authority/teacher_contract.py#L72-L107);
 the [long-term vision](../LONG_TERM_INTELLIGENCE_VISION.md#L204-L227)
 also requires legal review of treatment vocabulary).
@@ -47,8 +50,10 @@ also requires legal review of treatment vocabulary).
 |---|---|---|
 | **Supportive** | The citing court expressly adopts, follows, applies, confirms, or relies on the cited authority for an identifiable proposition. | A citation in the same paragraph as a proposition is not enough; identify the court's own use. |
 | **Distinguishing** | The court explains that the cited authority does not govern, or is materially different, on a stated basis. | A distinction is not automatically criticism or rejection of the authority. |
-| **Negative** | The court expressly questions, rejects, disapproves of, overrules, or declines to follow the cited authority or the relevant proposition. | Do not assign this because a party attacks the authority or because the citing party loses. |
-| **Neutral** | The authority is described or mentioned, but the court's language does not show a directional endorsement, distinction, or rejection. | This is a substantive “descriptive mention” label, not a low-confidence guess. |
+| **Critical / questioned** | The court criticizes or questions the authority or proposition, without clearly refusing to apply it or changing its precedential status. | Criticism is not equivalent to rejection, non-following, or overruling. |
+| **Rejected / declined to follow** | The court expressly refuses to apply or follow the cited authority for the proposition at issue in this case. | Do not infer rejection from criticism, distinction, a party's attack, or the citing party's loss. |
+| **Overruled** | The court expressly states that the prior authority/rule is overruled or no longer good law. | Require explicit source language; do not infer overruling from criticism, distinguishing, or declining to follow in the present case. |
+| **Neutral** | The authority is described or mentioned, but the court's language does not show a directional endorsement, distinction, criticism, rejection, or overruling. | This is a substantive “descriptive mention” label, not a low-confidence guess. |
 | **Absent** | The citation occurrence is present, but the inspected source context contains no supported treatment evidence. | Means “no treatment evidence found in this context,” not “the case never treated the authority.” |
 | **Ambiguous** | The source supports multiple plausible readings, conflicting treatment, or unclear attribution. | Preserve the competing evidence; do not force a single polarity. |
 
@@ -78,7 +83,7 @@ paragraph/chunk, offsets, method/version, confidence and alternatives.
    position. Track who said the words and whether the citing court adopts,
    limits, or rejects them. A quoted positive phrase without judicial adoption
    must not become a supportive flag; a party's criticism must not become a
-   court's negative treatment.
+   court's critical, rejecting, or overruling treatment.
 3. **Local context and Discussion Unit position.** Start with the citation
    paragraph and a bounded neighboring-sentence window; use its reviewed
    Discussion Unit as context for whether it is stating a rule, recounting a
@@ -114,8 +119,9 @@ Those cues do not establish citation treatment or attribution.
 ## Precision target and first hand-check
 
 **Proposed expectation, not a measured result:** before any confident,
-researcher-facing supportive, distinguishing or negative flag is enabled, target
-at least **95% event-level precision per displayed label** on a held-out,
+researcher-facing supportive, distinguishing, critical/questioned,
+rejected/declined-to-follow or overruled flag is enabled, target at least
+**95% event-level precision per displayed label** on a held-out,
 hand-adjudicated sample. Report precision separately by label, plus coverage,
 abstention and confusion counts; never let a large neutral class hide errors in
 an adverse label. A UI threshold should favor abstention over unsupported
@@ -130,7 +136,7 @@ or guarantee. A small pilot can expose obvious failure modes but cannot by
 itself establish that target.
 
 **Smallest useful manual screen:** sample 48 citation events from at least 12
-decisions. Include candidate positive and negative language, quoted/party
+decisions. Include candidate supportive and adverse language, quoted/party
 language, neutral mentions, no-treatment cases, and more than one Discussion
 Unit position; split by decision so no decision appears in both calibration and
 held-out examples. Two legal reviewers independently label each event and
@@ -154,6 +160,16 @@ actor where known, confidence/method, and a one-click route to the full decision
 context. Put the citing case's outcome in a separate field, never inside the
 treatment badge. Show conflicting, ambiguous, absent and unreviewed events
 rather than filtering them away by default.
+
+Show a literal evidence line directly with each treatment label:
+
+```text
+How this was assigned: rule_id=<rule> | phrase="<exact source phrase>" [span=<start>:<end>] | speaker=<court/party/quoted authority/unknown> | location=<paragraph; Discussion Unit or unavailable> | review=<reviewed/unreviewed> | uncertainty=<level and reason>
+```
+
+The rule ID identifies the rule that produced the candidate; the phrase and
+span must reconstruct from the cited source. “Unknown,” “unavailable,” and
+unreviewed/uncertain states must remain visible, not be filled by inference.
 
 Citation Intelligence authority signals currently summarize frequency,
 occurrences, chunk spread, context and navigation; they are not treatment
@@ -181,18 +197,24 @@ Check surface, so the exact user-facing workflow remains unverified.
 If/when that workflow is defined, show independently reviewed treatment as a
 *verification prompt* for citations used in the memo: compare the memo's
 proposition with the source passage and expose supportive,
-limiting/distinguishing, negative, neutral, ambiguous and unreviewed evidence
+limiting/distinguishing, critical/questioned, rejected/declined-to-follow,
+overruled, neutral, ambiguous and unreviewed evidence
 side by side. Require the researcher to open and verify the judgment. Never
 present the existing `citation_kind` flags as that review, auto-approve a
 proposition, mark a memo legally correct, or silently omit contrary evidence.
 Keep every displayed label traceable to exact source text and make uncertainty
-conspicuous.
+conspicuous. Use the same visible attribution line:
+
+```text
+How this was assigned: rule_id=<rule> | phrase="<exact source phrase>" [span=<start>:<end>] | speaker=<court/party/quoted authority/unknown> | location=<paragraph; Discussion Unit or unavailable> | review=<reviewed/unreviewed> | uncertainty=<level and reason>
+```
 
 ## Risks of wrong flags in litigation research
 
-- A false **negative** or **distinguishing** flag can make counsel wrongly
-  discount controlling or favorable authority; a false **supportive** flag can
-  make a proposition appear safer than the reasons support.
+- A false **rejected**, **overruled**, or **distinguishing** flag can make
+  counsel wrongly discount controlling or favorable authority; a false
+  **supportive** flag can make a proposition appear safer than the reasons
+  support. A critical/questioned label must not be displayed as rejection.
 - A wrong **case outcome** association can be mistaken for authority strength or
   argument success. Keep case disposition, argument result and treatment as
   distinct fields.

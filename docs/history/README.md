@@ -15,6 +15,9 @@ Use this directory for documents that preserve implementation history or decisio
 ## Current files
 
 - AI_HANDOFF.md
+- AI_HANDOFF_2026-09-02_root.md (moved from the repo root)
+- SYSTEM_OVERVIEW_2026-08-12.txt (moved from the repo root)
+- FORMATTING_IMPROVEMENTS.md (moved from the repo root)
 - AI_STAGE_SUMMARY_2026-07-31.md
 - PROJECT_NOTES.md
 
@@ -24,7 +27,7 @@ For day-to-day operations and current system behavior, use:
 
 - README.md
 - DOCS_INDEX.md
-- SYSTEM_OVERVIEW.txt
+- SYSTEM_REFERENCE.md
 - OVERNIGHT.md
 - CHANGELOG.md
 

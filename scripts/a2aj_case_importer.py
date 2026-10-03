@@ -105,21 +105,16 @@ def assess_a2aj_imports() -> dict[str, dict]:
         for row in ds:
             try:
                 # Map A2AJ dataset field to court
-                dataset_name = row.get("dataset", "")
+                dataset_name = row.get("dataset", "").upper()
                 court_map = {
-                    "Federal Court": "Federal Court",
-                    "Federal Court of Appeal": "Federal Court of Appeal",
-                    "Supreme Court of Canada": "SCC",
-                    "Refugee Appeal Division": "RAD",
-                    "Refugee Protection Division": "RPD",
+                    "FC": "Federal Court",
+                    "FCA": "Federal Court of Appeal",
+                    "SCC": "SCC",
+                    "RAD": "RAD",
+                    "RPD": "RPD",
                 }
 
-                court = None
-                for key, mapped_court in court_map.items():
-                    if key.lower() in dataset_name.lower():
-                        court = mapped_court
-                        break
-
+                court = court_map.get(dataset_name)
                 if not court:
                     continue
 

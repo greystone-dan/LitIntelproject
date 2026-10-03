@@ -73,6 +73,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.tag_finder import tag_finder_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
@@ -3139,6 +3140,11 @@ def research_interface() -> HTMLResponse:
 	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/tag-finder", response_class=HTMLResponse, include_in_schema=False)
+def tag_finder_interface() -> HTMLResponse:
+	return HTMLResponse(content=tag_finder_page_html(), status_code=status.HTTP_200_OK)
+
+
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
 	result = _grouped_chunk_search(search, db)
@@ -3223,3 +3229,87 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)
+
+
+@router.post("/search/tags/similar")
+def find_similar_cases_by_tags(
+	case_id: int = Query(...),
+	limit: int = Query(10, ge=1, le=50),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs."""
+	source_case = db.query(Case).filter(Case.id == case_id).first()
+	if not source_case:
+		raise HTTPException(status_code=404, detail="Case not found")
+
+	source_tags = db.query(CaseTag).filter(
+		CaseTag.case_id == case_id,
+		CaseTag.taxonomy_version == "ca_legal_v3_core",
+	).all()
+
+	if not source_tags:
+		return {
+			"source_case": {"id": case_id, "title": source_case.title, "tag_count": 0},
+			"similar_cases": [],
+			"note": "Source case has no V3 core tags to match against."
+		}
+
+	source_tag_set = frozenset((t.category, t.value) for t in source_tags)
+
+	all_cases = db.query(Case).filter(Case.id != case_id).all()
+	scored_cases = []
+
+	for case in all_cases:
+		case_tags = db.query(CaseTag).filter(
+			CaseTag.case_id == case.id,
+			CaseTag.taxonomy_version == "ca_legal_v3_core",
+		).all()
+
+		if not case_tags:
+			continue
+
+		case_tag_set = frozenset((t.category, t.value) for t in case_tags)
+		intersection = len(source_tag_set & case_tag_set)
+		union = len(source_tag_set | case_tag_set)
+		jaccard = intersection / union if union > 0 else 0.0
+
+		if jaccard > 0:
+			shared_tags = sorted(list(source_tag_set & case_tag_set))
+			scored_cases.append({
+				"case": case,
+				"jaccard_similarity": jaccard,
+				"shared_tag_count": intersection,
+				"shared_tags": shared_tags,
+			})
+
+	scored_cases.sort(key=lambda x: (-x["jaccard_similarity"], -x["shared_tag_count"]))
+	top_cases = scored_cases[:limit]
+
+	return {
+		"source_case": {
+			"id": source_case.id,
+			"title": source_case.title,
+			"citation": source_case.citation,
+			"date": source_case.date,
+			"tag_count": len(source_tags),
+			"tags": sorted(list(source_tag_set)),
+		},
+		"similar_cases": [
+			{
+				"id": item["case"].id,
+				"title": item["case"].title,
+				"citation": item["case"].citation,
+				"court": item["case"].court,
+				"date": item["case"].date,
+				"jaccard_similarity": round(item["jaccard_similarity"], 4),
+				"shared_tag_count": item["shared_tag_count"],
+				"shared_tags": item["shared_tags"],
+				"total_tags": len(db.query(CaseTag).filter(
+					CaseTag.case_id == item["case"].id,
+					CaseTag.taxonomy_version == "ca_legal_v3_core",
+				).all()),
+			}
+			for item in top_cases
+		],
+		"total_similar": len(scored_cases),
+	}

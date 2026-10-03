@@ -27,6 +27,7 @@ except Exception:  # pragma: no cover
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .search_matching import citation_query, match_details
 from .models import (
 	CaseResponse,
 	CaseSearchRequest,
@@ -486,7 +487,8 @@ def execute_search_cases(
 		max_lexical = max(max_lexical, lexical_score)
 		prepared_rows.append((case, semantic_similarity, lexical_score))
 
-	weighted_rows: list[tuple[Case, float, float]] = []
+	weighted_rows: list[tuple[Case, float, float, str, int]] = []
+	identity_query = bool(citation_query(search.query))
 	for case, semantic_similarity, lexical_score in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
@@ -499,9 +501,14 @@ def execute_search_cases(
 				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
 			) / denominator
 		graph_boost = min(0.05, math.log1p(max(0, graph_in_degree_value)) / 100.0)
-		weighted_rows.append((case, final_score, final_score + graph_boost))
+		label, tier = match_details(case, search.query, effective_mode)
+		identity_query = identity_query or tier >= 3
+		weighted_rows.append((case, final_score, final_score + graph_boost, label, tier))
 
-	weighted_rows.sort(key=lambda item: item[2], reverse=True)
+	if identity_query:
+		weighted_rows.sort(key=lambda item: (item[4], item[2]), reverse=True)
+	else:
+		weighted_rows.sort(key=lambda item: item[2], reverse=True)
 	start = (search.page - 1) * search.page_size
 	end = start + search.page_size
 	page_rows = weighted_rows[start:end]
@@ -511,8 +518,9 @@ def execute_search_cases(
 			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
 			similarity=score,
 			match_source=_case_match_source(case, search.query, effective_mode),
+			matched_on=label,
 		)
-		for case, score, _ in page_rows
+		for case, score, _, label, _ in page_rows
 	]
 
 

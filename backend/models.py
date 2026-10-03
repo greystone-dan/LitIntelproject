@@ -398,6 +398,7 @@ class InventoryResponse(BaseModel):
 class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
+	matched_on: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):

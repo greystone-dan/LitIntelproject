@@ -132,6 +132,20 @@ Compatibility redirects such as `/about`, `/citation-intelligence`, and `/judges
 
 The API supports case-level, chunk-level, and grouped-chunk retrieval.
 
+Case-level relevance search and `/analytics/search/cases` first promote exact
+neutral/reported citations, then contiguous whole-token party names from captions
+(`v`, `v.`, `vs`, `versus`) or stored reader party metadata. Case/spacing/bracket
+variants are normalized; `Baker` is not a party match for `Bakery`. Citation fields
+may contain multiple citations, including reported citations alongside neutral
+citations, with dotted `S.C.R.` normalized consistently. Body mentions are not
+identity matches. Case-level identity queries (citation-shaped queries or any
+candidate citation/party hit) rank Citation > Party name > Title > Full text >
+fallback, preserving legacy scores within each bucket. Ordinary topic queries
+without identity hits retain exactly their legacy score order. Analytics retains
+its legacy title-before-body ranking after citation/party promotion; filters,
+paging and explicit date/minister sorts remain intact. Results expose a short
+`matched_on` label, displayed in Case Search, without inventing evidence offsets.
+
 - `semantic` search uses stored vectors when available.
 - `lexical` search avoids embedding generation and searches text/metadata predicates.
 - `hybrid` search combines semantic and lexical scores with validated weights.

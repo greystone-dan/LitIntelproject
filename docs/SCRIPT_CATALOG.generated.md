@@ -1362,7 +1362,7 @@ Active scripts documented: 145
 
 ## `scripts/import_historical_statutes.py`
 
-**Purpose:** Importer for historical point-in-time statute versions from justice.gc.ca. Fetches statute versions from PITIndex.html and extracts text from point-in-time HTML pages. Stores multiple versions with their in-force dates to enable decision-date matching (core of Phase 1 requirement). Example: IRPA had 12+ versions between 2017-2026; this importer stores them with their effective dates so a decision from 2019-06-15 can be matched to the IRPA version that was in force on that date.
+**Purpose:** Importer for historical point-in-time statute versions from justice.gc.ca. Fetches statute versions from PITIndex.html and extracts text from point-in-time HTML pages. Stores multiple versions with their in-force dates to enable decision-date matching (core of Phase 1 requirement). Available versions depend on the Justice Laws PIT index at import time; this script does not guarantee a fixed version count or prove current library coverage.
 
 **Operational class:** Source acquisition or canonical import
 

@@ -306,6 +306,11 @@ class JusticeLawsXMLClient:
 		if inforce_date:
 			metadata['inforce_start_date'] = inforce_date
 
+		# Extract in-force end date when supplied by the XML snapshot.
+		end_date = root.attrib.get('{http://justice.gc.ca/lims}inforce-end-date')
+		if end_date:
+			metadata['inforce_end_date'] = end_date
+
 		# Check if there are previous versions
 		has_prev = root.attrib.get('hasPreviousVersion', 'false') == 'true'
 		metadata['has_previous_versions'] = has_prev
@@ -374,7 +379,7 @@ def parse_statute_sections_from_xml(root: ET.Element) -> list[dict]:
 	ns = {'lims': 'http://justice.gc.ca/lims'}
 
 	# Find all Section elements in the statute
-	for section_elem in root.findall('.//Section', ns):
+	for section_elem in root.findall('.//lims:Section', ns):
 		section_num = section_elem.attrib.get('sid', '').split('/')[-1] if 'sid' in section_elem.attrib else None
 
 		# Try to get section number from text content
@@ -485,15 +490,25 @@ def import_statute_from_xml(
 			logger.warning(f"Statute text too short for {instrument_key}, skipping")
 			return None
 
-		# Get version date from metadata
-		version_date_str = metadata.get('pit_date') or metadata.get('inforce_start_date')
-		if not version_date_str:
-			version_date = date.today()
-		else:
-			try:
-				version_date = datetime.strptime(version_date_str, '%Y-%m-%d').date()
-			except:
-				version_date = date.today()
+		# Use the effective in-force boundary, not the PIT snapshot date, when both exist.
+		def metadata_date(*keys):
+			for key in keys:
+				value = metadata.get(key)
+				if isinstance(value, datetime):
+					return value.date()
+				if isinstance(value, date):
+					return value
+				if isinstance(value, str):
+					try:
+						return date.fromisoformat(value[:10])
+					except ValueError:
+						continue
+			return None
+
+		version_date = (
+			metadata_date('inforce_start_date', 'pit_date') or date.today()
+		)
+		end_date = metadata_date('inforce_end_date', 'end_date')
 
 		# Get or create statute record
 		statute = db.query(Statute).filter(Statute.instrument_key == instrument_key).first()
@@ -531,6 +546,7 @@ def import_statute_from_xml(
 			statute_id=statute.id,
 			version_number='1.0',
 			in_force_date=version_date,
+			end_date=end_date,
 			full_text=full_text,
 			text_compressed=text_compressed,
 			fetched_at=datetime.now(),
@@ -707,6 +723,8 @@ def import_statutes_bulk(
 							if version_xml:
 								logger.info(f"  Importing version {version_info['in_force_date']}...")
 								version_metadata = client.extract_metadata_from_xml(version_xml)
+								version_metadata.setdefault("inforce_start_date", version_info["in_force_date"])
+								version_metadata.setdefault("inforce_end_date", version_info.get("end_date"))
 								if import_statute_from_xml(db, instrument_key, statute_info, version_xml, version_metadata, client):
 									version_count += 1
 						except Exception as e:

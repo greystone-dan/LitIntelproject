@@ -1125,9 +1125,9 @@ def get_statute_by_code(statute_code: str, as_of: str | None = Query(None), db: 
 			version = find_statute_version_at_date(db, statute_code, decision_date)
 		except ValueError:
 			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid date format. Use YYYY-MM-DD")
-
-	# If no version found for the date, get the latest version
-	if not version:
+		if not version:
+			raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"No statute version in force on {as_of}")
+	else:
 		version = (
 			db.query(StatuteVersion)
 			.filter(StatuteVersion.statute_id == statute.id)

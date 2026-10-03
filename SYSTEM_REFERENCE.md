@@ -312,6 +312,29 @@ recoverable class within that second backfill.
 
 Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. Nested provision identity is canonicalized case-insensitively for section-letter variants, so `34(1)(A)` and a later `section 34(1)(a)` retain their original spans while sharing normalized identity when the existing bounded anchor rules permit it. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision. The raw `statute_references.pinpoint` remains a lossless opaque string, while additive structured fields expose section, subsection, paragraph, nesting depth, and range/list status. Read-only legislation resolution now returns explicit status and stored document/section metadata in live analysis and the stored reader when an indexed instrument and base section match; lists/ranges and missing sources remain explicitly unresolved. Further recall work should target additional shorthand and list/range forms across sentence boundaries with positive and negative precision fixtures.
 
+#### Phase 1 statute reference-library counts and point-in-time lookup
+
+The Justice Laws XML library registry configures seven Phase 1 instruments, but
+the bulk XML importer skips Charter because no XML source is configured; its
+XML import path therefore handles six. The namespaced XML parser counts
+recognized `Section` elements and the importer stores at most the first 100 per
+version. These fixture-derived counts are not production coverage totals.
+The statute viewer's seven choices are configured in page code; it displays
+sections returned by the API. The section endpoint returns rows rather than a
+separate total-count field. The historical `statute_references`,
+`legislation_documents`, and `legislation_sections` inventory numbers below
+describe different tables and must not be presented as counts for this
+reference library.
+
+Effective version ranges use inclusive start/end dates; when ranges overlap,
+point-in-time lookup selects the covering version with the latest start date,
+and a date in a gap returns no version. The importer stores the effective start
+and end dates from XML/PIT-index metadata; an API request with an explicit
+`as_of` date does not fall back to the latest version when no range covers it.
+Existing database coverage and stored effective ranges remain **needs DB**.
+The fixture audit, count-surface classification, and caveats are recorded in
+[`docs/reports/statute-library-count-check.md`](docs/reports/statute-library-count-check.md).
+
 A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
 
 The 2026-09-17 read-only coverage inventory found `751,944` statute-reference

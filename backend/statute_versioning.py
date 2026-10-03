@@ -3,7 +3,7 @@
 from datetime import date
 import logging
 from sqlalchemy.orm import Session
-from sqlalchemy import and_
+from sqlalchemy import and_, or_
 
 from backend.database import Statute, StatuteVersion, StatuteSection, Case, StatuteReference
 
@@ -37,6 +37,10 @@ def find_statute_version_at_date(
             .filter(
                 StatuteVersion.statute_id == statute.id,
                 StatuteVersion.in_force_date <= decision_date,
+                or_(
+                    StatuteVersion.end_date.is_(None),
+                    StatuteVersion.end_date >= decision_date,
+                ),
             )
             .order_by(StatuteVersion.in_force_date.desc())
             .first()

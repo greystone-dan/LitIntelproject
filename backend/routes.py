@@ -77,6 +77,7 @@ from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
 from .pages.statute_viewer import statute_viewer_page_html
+from .statute_versioning import find_statute_version_at_date, get_statute_version_label
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
@@ -105,6 +106,9 @@ from .database import (
 	LegislationDocument,
 	LegislationSection,
 	StatuteReference,
+	Statute,
+	StatuteVersion,
+	StatuteSection,
 	get_db,
 )
 from .embedding_providers import SentenceTransformerEmbeddingProvider
@@ -1081,6 +1085,80 @@ def data_explorer_page() -> HTMLResponse:
 @router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)
 def statute_viewer_page() -> HTMLResponse:
 	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/api/statutes/{statute_code}")
+def get_statute_by_code(statute_code: str, as_of: str | None = Query(None), db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Get statute details, optionally as of a specific date."""
+	statute = db.query(Statute).filter(Statute.instrument_key == statute_code).first()
+	if not statute:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute not found")
+
+	# Determine which version to return
+	version = None
+	if as_of:
+		from datetime import datetime
+		try:
+			decision_date = datetime.strptime(as_of, "%Y-%m-%d").date()
+			version = find_statute_version_at_date(db, statute_code, decision_date)
+		except ValueError:
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid date format. Use YYYY-MM-DD")
+
+	# If no version found for the date, get the latest version
+	if not version:
+		version = (
+			db.query(StatuteVersion)
+			.filter(StatuteVersion.statute_id == statute.id)
+			.order_by(StatuteVersion.in_force_date.desc())
+			.first()
+		)
+
+	if not version:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No statute versions found")
+
+	return {
+		"title": statute.title,
+		"short_title": statute.short_title or "",
+		"statute_type": statute.statute_type,
+		"jurisdiction": statute.jurisdiction,
+		"current_version": version.version_number,
+		"in_force_date": version.in_force_date.strftime("%Y-%m-%d"),
+		"license": statute.license or "Open Government License",
+		"version_id": version.id,
+	}
+
+
+@router.get("/api/statutes/{statute_code}/versions/{version_id}/sections")
+def get_statute_sections(statute_code: str, version_id: int, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	"""Get sections for a specific statute version."""
+	statute = db.query(Statute).filter(Statute.instrument_key == statute_code).first()
+	if not statute:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute not found")
+
+	version = db.query(StatuteVersion).filter(
+		StatuteVersion.id == version_id,
+		StatuteVersion.statute_id == statute.id,
+	).first()
+	if not version:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute version not found")
+
+	sections = db.query(StatuteSection).filter(
+		StatuteSection.statute_version_id == version.id
+	).order_by(
+		StatuteSection.section_number,
+		StatuteSection.subsection,
+		StatuteSection.paragraph,
+	).all()
+
+	return [
+		{
+			"section_number": sec.section_number,
+			"subsection": sec.subsection,
+			"heading": sec.heading,
+			"text": sec.text,
+		}
+		for sec in sections
+	]
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)

@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 revision = "0032_discussion_unit_cache"
-down_revision = "0031_statute_library_schema"
+down_revision = "0030_full_paragraph_ivfflat"
 branch_labels = None
 depends_on = None
 

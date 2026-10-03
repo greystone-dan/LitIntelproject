@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 139
+Active scripts documented: 140
 
 ## Catalog
 
@@ -17,6 +17,7 @@ Active scripts documented: 139
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -246,6 +247,20 @@ Active scripts documented: 139
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/analyze_themes_before_after.py`
+
+**Purpose:** Analyze theme discovery before and after stopword filtering. Run this on the PC with access to the caselibrary database: python scripts/analyze_themes_before_after.py Outputs: logs/theme_analysis_before_after.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help
 ```
 
 ## `scripts/audit_discussion_unit_structure.py`

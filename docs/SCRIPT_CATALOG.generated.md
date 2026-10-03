@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 133
+Active scripts documented: 138
 
 ## Catalog
 
@@ -17,6 +17,7 @@ Active scripts documented: 133
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
@@ -102,9 +103,11 @@ Active scripts documented: 133
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `monitor_vector_index.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help` |
 | `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
+| `populate_embeddings.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\populate_embeddings.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `prepare_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help` |
 | `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
@@ -141,6 +144,8 @@ Active scripts documented: 133
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_embedding_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_embedding_models.py --help` |
+| `validate_model_retrieval.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_model_retrieval.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
 
@@ -240,6 +245,20 @@ Active scripts documented: 133
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/audit_discussion_unit_structure.py`
+
+**Purpose:** Audit retained Discussion Unit reports for review-only structural risks.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help
 ```
 
 ## `scripts/audit_fc_activity_motion_unknowns_openai.py`
@@ -1432,6 +1451,20 @@ Active scripts documented: 133
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
 ```
 
+## `scripts/monitor_vector_index.py`
+
+**Purpose:** Report PostgreSQL progress for the hosted paragraph vector index build.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help
+```
+
 ## `scripts/normalize_fc_activity_openai_outputs.py`
 
 **Purpose:** Normalize open-ended FC Activity model outputs for evaluation only.
@@ -1472,6 +1505,20 @@ Active scripts documented: 133
 
 ```powershell
 .\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help
+```
+
+## `scripts/populate_embeddings.py`
+
+**Purpose:** Populate case_chunk_embeddings table with local sentence-transformer embeddings. Run this on the PC where the database is accessible. Generates embeddings for all case chunks using BAAI/bge-m3 (1024 dims). Usage: python3 scripts/populate_embeddings.py [--model MODEL_NAME] [--batch-size N] [--skip-existing]
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\populate_embeddings.py --help
 ```
 
 ## `scripts/populate_fc_gold_case_ids.py`
@@ -1976,6 +2023,34 @@ Active scripts documented: 133
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/test_embedding_models.py`
+
+**Purpose:** Compare embedding models for legal domain queries. Tests BAAI/bge-m3 (1024 dims) vs legal-domain models. Measures query embedding time and semantic similarity on legal queries. Usage: python3 scripts/test_embedding_models.py
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_embedding_models.py --help
+```
+
+## `scripts/validate_model_retrieval.py`
+
+**Purpose:** Validate that embedding models actually retrieve relevant paragraphs for legal queries. This is a small check to verify semantic search works correctly, not just that embeddings have high cosine similarity in the abstract. Runs on sample legal paragraphs extracted from actual case law, testing whether known-relevant paragraphs rank high for targeted queries.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\validate_model_retrieval.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`

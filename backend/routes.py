@@ -1091,8 +1091,8 @@ def statute_viewer_page_route() -> HTMLResponse:
 	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
 
 
-@router.get("/cases/{case_id}/reader", response_class=HTMLResponse, include_in_schema=False)
-def case_reader_page(case_id: int, db: Session = Depends(get_db)) -> HTMLResponse:
+@router.get("/case-reader-ui/{case_id}", response_class=HTMLResponse, include_in_schema=False)
+def case_reader_ui_page(case_id: int, db: Session = Depends(get_db)) -> HTMLResponse:
 	"""Display case reader with statute reference integration."""
 	case = db.query(Case).filter(Case.id == case_id).first()
 	if not case:

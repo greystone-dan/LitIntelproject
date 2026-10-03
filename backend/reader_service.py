@@ -533,7 +533,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 		legislation_url = reference.legislation_url or (
 			authority_document.source_url if authority_document is not None else None
 		)
-		version_label = get_statute_version_label(reference.statute_version)
+		version_label = get_statute_version_label(getattr(reference, "statute_version", None))
 		return CaseReaderCitationResponse(
 			id=-1000000 - reference.id,
 			citation_kind=reference.reference_kind,

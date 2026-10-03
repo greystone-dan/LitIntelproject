@@ -1,9 +1,10 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import and_, desc, func
-from . import database, models as db_models
+from . import database
 from . import models
-from .search_service import perform_search
+from .search_service import execute_search_cases
+from .database import SavedSearch, SearchAlert, FCActivityAlert, CaseChunk
 
 
 def create_saved_search(
@@ -13,8 +14,8 @@ def create_saved_search(
 	query: str,
 	search_mode: str,
 	filters: dict,
-) -> db_models.SavedSearch:
-	saved_search = db_models.SavedSearch(
+) -> SavedSearch:
+	saved_search = SavedSearch(
 		name=name,
 		description=description,
 		query=query,
@@ -28,12 +29,12 @@ def create_saved_search(
 	return saved_search
 
 
-def list_saved_searches(db: Session) -> list[db_models.SavedSearch]:
-	return db.query(db_models.SavedSearch).order_by(desc(db_models.SavedSearch.created_at)).all()
+def list_saved_searches(db: Session) -> list[SavedSearch]:
+	return db.query(SavedSearch).order_by(desc(SavedSearch.created_at)).all()
 
 
-def get_saved_search(db: Session, search_id: int) -> db_models.SavedSearch | None:
-	return db.query(db_models.SavedSearch).filter(db_models.SavedSearch.id == search_id).first()
+def get_saved_search(db: Session, search_id: int) -> SavedSearch | None:
+	return db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
 
 
 def update_saved_search(
@@ -44,7 +45,7 @@ def update_saved_search(
 	query: str | None = None,
 	search_mode: str | None = None,
 	filters: dict | None = None,
-) -> db_models.SavedSearch | None:
+) -> SavedSearch | None:
 	saved_search = get_saved_search(db, search_id)
 	if not saved_search:
 		return None
@@ -80,7 +81,7 @@ def find_new_matches(
 	db: Session,
 	search_id: int,
 	since: datetime | None = None,
-) -> list[db_models.Case]:
+) -> list:
 	saved_search = get_saved_search(db, search_id)
 	if not saved_search:
 		return []
@@ -98,7 +99,7 @@ def find_new_matches(
 	)
 
 	# Perform the search
-	search_result = perform_search(db, search_req)
+	search_result = execute_search_cases(db, search_req)
 
 	# Filter results created after last check
 	new_cases = [
@@ -117,8 +118,8 @@ def record_alert(
 	chunk_id: int | None,
 	match_type: str,
 	relevance_score: float | None = None,
-) -> db_models.SearchAlert:
-	alert = db_models.SearchAlert(
+) -> SearchAlert:
+	alert = SearchAlert(
 		search_id=search_id,
 		case_id=case_id,
 		chunk_id=chunk_id,
@@ -135,16 +136,16 @@ def get_alerts_since(
 	db: Session,
 	search_id: int,
 	since: datetime,
-) -> list[db_models.SearchAlert]:
+) -> list[SearchAlert]:
 	return (
-		db.query(db_models.SearchAlert)
+		db.query(SearchAlert)
 		.filter(
 			and_(
-				db_models.SearchAlert.search_id == search_id,
-				db_models.SearchAlert.discovered_at >= since,
+				SearchAlert.search_id == search_id,
+				SearchAlert.discovered_at >= since,
 			)
 		)
-		.order_by(desc(db_models.SearchAlert.discovered_at))
+		.order_by(desc(SearchAlert.discovered_at))
 		.all()
 	)
 
@@ -153,25 +154,25 @@ def get_recent_alerts(
 	db: Session,
 	search_id: int,
 	limit: int = 50,
-) -> list[db_models.SearchAlert]:
+) -> list[SearchAlert]:
 	return (
-		db.query(db_models.SearchAlert)
-		.filter(db_models.SearchAlert.search_id == search_id)
-		.order_by(desc(db_models.SearchAlert.discovered_at))
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id == search_id)
+		.order_by(desc(SearchAlert.discovered_at))
 		.limit(limit)
 		.all()
 	)
 
 
 def clear_alerts(db: Session, search_id: int) -> int:
-	count = db.query(db_models.SearchAlert).filter(
-		db_models.SearchAlert.search_id == search_id
+	count = db.query(SearchAlert).filter(
+		SearchAlert.search_id == search_id
 	).delete()
 	db.commit()
 	return count
 
 
-def update_last_check(db: Session, search_id: int) -> db_models.SavedSearch | None:
+def update_last_check(db: Session, search_id: int) -> SavedSearch | None:
 	saved_search = get_saved_search(db, search_id)
 	if not saved_search:
 		return None
@@ -187,8 +188,8 @@ def record_fc_activity_alert(
 	search_id: int,
 	case_id: int,
 	entry_type: str,
-) -> db_models.FCActivityAlert:
-	alert = db_models.FCActivityAlert(
+) -> FCActivityAlert:
+	alert = FCActivityAlert(
 		search_id=search_id,
 		case_id=case_id,
 		entry_type=entry_type,
@@ -204,12 +205,12 @@ def get_fc_activity_alerts(
 	search_id: int,
 	since: datetime | None = None,
 	limit: int = 50,
-) -> list[db_models.FCActivityAlert]:
-	query = db.query(db_models.FCActivityAlert).filter(
-		db_models.FCActivityAlert.search_id == search_id
+) -> list[FCActivityAlert]:
+	query = db.query(FCActivityAlert).filter(
+		FCActivityAlert.search_id == search_id
 	)
 
 	if since:
-		query = query.filter(db_models.FCActivityAlert.discovered_at >= since)
+		query = query.filter(FCActivityAlert.discovered_at >= since)
 
-	return query.order_by(desc(db_models.FCActivityAlert.discovered_at)).limit(limit).all()
+	return query.order_by(desc(FCActivityAlert.discovered_at)).limit(limit).all()

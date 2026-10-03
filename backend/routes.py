@@ -3215,7 +3215,7 @@ def get_saved_search(search_id: int, db: Session = Depends(get_db)) -> SavedSear
 
 	alert_responses = []
 	for alert in alerts:
-		case = db.query(CaseResponse).filter(db.Case.id == alert.case_id).first()
+		case = db.query(Case).filter(Case.id == alert.case_id).first()
 		chunk_text = None
 		if alert.chunk_id:
 			chunk = db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()
@@ -3301,7 +3301,7 @@ def delete_saved_search(search_id: int, db: Session = Depends(get_db)) -> None:
 
 @router.post("/saved-searches/{search_id}/check", response_model=SearchDigestResponse)
 def check_saved_search(search_id: int, db: Session = Depends(get_db)) -> SearchDigestResponse:
-	from .saved_searches_service import get_saved_search as get_search, find_new_matches, get_recent_alerts, update_last_check
+	from .saved_searches_service import get_saved_search as get_search, get_recent_alerts, update_last_check
 	from .database import SearchAlert
 
 	search = get_search(db, search_id)
@@ -3313,7 +3313,7 @@ def check_saved_search(search_id: int, db: Session = Depends(get_db)) -> SearchD
 
 	alert_responses = []
 	for alert in alerts:
-		case = db.query(db.Case).filter(db.Case.id == alert.case_id).first()
+		case = db.query(Case).filter(Case.id == alert.case_id).first()
 		chunk_text = None
 		if alert.chunk_id:
 			chunk = db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()

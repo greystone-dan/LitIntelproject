@@ -1097,7 +1097,26 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
-	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
+	content = data_explorer_page_html()
+	search_action = (
+		'<div class="search-actions"><button type="submit" class="sq-go">Search cases</button></div>'
+	)
+	search_action_with_export = (
+		'<div class="search-actions"><button type="submit" class="sq-go">Search cases</button>'
+		'<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button></div>'
+	)
+	content = content.replace(search_action, search_action_with_export, 1)
+	export_script = """
+<script>
+document.getElementById('downloadSearchCsv')?.addEventListener('click',()=>{
+	const params=new URLSearchParams();
+	Object.entries(searchValues()).forEach(([key,value])=>{if(value)params.set(key,value)});
+	window.location.href=`/search/export.csv?${params}`;
+});
+</script>
+"""
+	content = content.replace("</body>", export_script + "</body>", 1)
+	return HTMLResponse(content=content, status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
@@ -1504,6 +1523,89 @@ def search_analytics_cases(
 		limit=limit,
 		offset=offset,
 		cohort_ids=cohort_ids,
+	)
+
+
+def _csv_safe_cell(value: Any) -> str:
+	text_value = "" if value is None else str(value)
+	if text_value.startswith(("=", "+", "-", "@")):
+		return "'" + text_value
+	return text_value
+
+
+@router.get(
+	"/search/export.csv",
+	response_class=Response,
+	responses={200: {"content": {"text/csv": {"schema": {"type": "string"}}}}},
+)
+def export_search_analytics_cases(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> Response:
+	cohort_ids = None
+	if cohort_id:
+		if cohort_id != "discussion_units_core_300":
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+		cohort_ids = list(load_discussion_unit_cohort())
+
+	rows: list[dict[str, Any]] = []
+	while len(rows) < 1000:
+		page = fetch_analytics_search_cases(
+			db,
+			query=query,
+			cites=cites,
+			government_outcome=government_outcome,
+			decision_outcome=decision_outcome,
+			minister=minister,
+			judge=judge,
+			court=court,
+			year=year,
+			search_full_text=search_full_text,
+			sort_by=sort_by,
+			limit=min(100, 1000 - len(rows)),
+			offset=len(rows),
+			cohort_ids=cohort_ids,
+		)
+		page_rows = page.get("results", [])
+		rows.extend(page_rows[: 1000 - len(rows)])
+		if len(page_rows) < 100 or not page_rows:
+			break
+
+	output = io.StringIO(newline="")
+	writer = csv.writer(output)
+	writer.writerow(["citation", "title", "court", "date", "judge", "outcome", "iLit URL"])
+	for row in rows:
+		government_outcome = row.get("government_outcome")
+		outcome = (
+			government_outcome
+			if government_outcome in {"won", "lost"}
+			else row.get("decision_outcome")
+		)
+		writer.writerow(
+			[
+				_csv_safe_cell(row.get("citation")),
+				_csv_safe_cell(row.get("title")),
+				_csv_safe_cell(row.get("court")),
+				_csv_safe_cell(row.get("date")),
+				_csv_safe_cell(row.get("judge")),
+				_csv_safe_cell(outcome),
+				_csv_safe_cell(f"/data-explorer?case_id={row['case_id']}"),
+			]
+		)
+	return Response(
+		content="\ufeff" + output.getvalue(),
+		media_type="text/csv",
+		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
 	)
 
 

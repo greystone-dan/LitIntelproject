@@ -185,6 +185,10 @@ from .reader_service import (
 	_stored_case_citation_details,
 	_stored_statute_reference_details,
 )
+from .case_reader_ui import (
+	case_reader_with_statutes_html,
+	statute_viewer_page_html,
+)
 from .discussion_units_sandbox import (
 	discussion_units_sandbox_page_html,
 	load_discussion_unit_cohort,
@@ -1182,8 +1186,26 @@ def saved_searches_page() -> HTMLResponse:
 
 
 @router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)
-def statute_viewer_page() -> HTMLResponse:
+def statute_viewer_page_route() -> HTMLResponse:
 	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/cases/{case_id}/reader", response_class=HTMLResponse, include_in_schema=False)
+def case_reader_page(case_id: int, db: Session = Depends(get_db)) -> HTMLResponse:
+	"""Display case reader with statute reference integration."""
+	case = db.query(Case).filter(Case.id == case_id).first()
+	if not case:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
+
+	html_content = case_reader_with_statutes_html(
+		case_id=case.id,
+		case_title=case.title or "",
+		case_citation=case.citation or "",
+		case_date=case.date.isoformat() if case.date else "",
+		case_court=case.court or "",
+		case_summary=case.summary or case.full_text[:500] if case.full_text else "",
+	)
+	return HTMLResponse(content=html_content, status_code=status.HTTP_200_OK)
 
 
 @router.get("/api/statutes/{statute_code}")

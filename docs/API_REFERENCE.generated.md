@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-03T17:34:56.186899+00:00
+Generated: 2026-10-03T18:09:58.522489+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 91 across 91 paths
-Hidden operations: 54 excluded from OpenAPI
+Hidden operations: 55 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1810,6 +1810,21 @@ Handler: `backend.routes.case_reader_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader/cases`
 
 **Hidden from OpenAPI.**
@@ -2078,7 +2093,7 @@ Handler: `backend.main.robots`
 
 **Hidden from OpenAPI.**
 
-Handler: `backend.routes.statute_viewer_page`
+Handler: `backend.routes.statute_viewer_page_route`
 
 **Responses**
 

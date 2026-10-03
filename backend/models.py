@@ -259,6 +259,7 @@ class CaseReaderCitationResponse(BaseModel):
 	provenance: str = "local"
 	unresolved: bool = False
 	layer_spans: dict[str, dict[str, int | None]] | None = None
+	statute_version_label: str | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):

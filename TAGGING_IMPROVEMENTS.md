@@ -45,7 +45,8 @@ Tags found:
 ### detention_ground
 - **danger_to_the_public** - "danger to the public"
 - **flight_risk** - "flight risk", "unlikely to appear"
-- **identity_verification** - "identity document", "identity documents", "establish identity"
+
+(Note: identity verification tags deferred to contextual layer due to high false-positive risk)
 
 ### decision_maker_action
 - **credibility_finding** - "credibility finding"

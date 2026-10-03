@@ -224,7 +224,7 @@ def test_v3_tagger_does_not_infer_contextual_terms_or_findings():
 
 def test_detention_ground_tags_match_core_detention_concepts():
     tags = CoreLegalTaggerV3().tag(
-        "The member found danger to the public and a flight risk. The applicant was unlikely to appear."
+        "The member found danger to the public and a flight risk. The applicant was unlikely to appear at the hearing."
     )
     values = {(tag.category, tag.value) for tag in tags}
 

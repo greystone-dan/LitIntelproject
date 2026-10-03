@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added saved-search persistence and CRUD/alert routes, a standalone saved
+  searches page, a Case Search action to save the current query and filters,
+  and a bounded read-only-by-default alert checker. The new schema revision is
+  chained from the latest existing Alembic head; standard search behavior is
+  unchanged when no saved searches exist. Focused checks passed (63); the full
+  CI-deselected suite had 991 passes and 3 unrelated failures because uncached
+  Hugging Face and OpenAI tokenizer assets could not be downloaded.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

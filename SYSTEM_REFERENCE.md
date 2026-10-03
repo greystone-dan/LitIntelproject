@@ -227,6 +227,27 @@ The active Case Search interface presents the case name or citation query as the
 
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
 
+### Saved Searches And Alerts
+
+Saved-search persistence is separate from the existing case-search contract.
+`POST` and `GET /saved-searches` create and list saved queries;
+`GET`, `PUT`, and `DELETE /saved-searches/{id}` retrieve, update, or remove
+one saved query. `POST /saved-searches/{id}/check` returns up to 100 recent
+recorded alerts and advances the saved search's last-check timestamp. An empty
+saved-search collection returns `[]`. Saved requests retain a search query,
+search mode, and filter object; the existing `/search` behavior is unchanged.
+
+The ORM and Alembic schema define `saved_searches`, `search_alerts`, and
+`fc_activity_alerts`. Alert rows reference their saved search and corresponding
+case/chunk records with cascading foreign keys. The check route reports
+persisted alert rows; it is not a scheduler, source poller, or automatic alert
+discovery process. Case Search's **Save current search** action stores its
+current query and filters, and `/saved-searches-ui` lists saved searches and
+their recorded alerts. `scripts/check_saved_searches.py` checks a bounded
+number of saved searches in read-only mode by default; `--apply` explicitly
+stores newly matching case alerts. Empty saved-search storage does not change
+normal Case Search behavior.
+
 ### Citation, Statute, And Metadata Processing
 
 `backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.

@@ -472,6 +472,16 @@ def test_case_search_has_clear_primary_query_and_filter_state():
     assert 'function professionalResultCard(item)' in html
 
 
+def test_case_search_can_save_current_query_and_filters():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="saveCurrentSearch"' in html
+    assert 'href="/saved-searches-ui"' in html
+    assert "filters})" in html
+    assert "search_mode:'metadata'" in html
+    assert "async function saveCurrentSearch()" in html
+
+
 def test_chunk_reader_uses_compact_sections_and_inherited_reference_type():
     html = routes._data_explorer_page_html()
 

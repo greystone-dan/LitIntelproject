@@ -12,6 +12,7 @@ from sqlalchemy import (
 	Float,
 	Integer,
 	JSON,
+	LargeBinary,
 	ForeignKey,
 	String,
 	Text,
@@ -726,6 +727,65 @@ class FCActivityDocument(Base):
 	)
 
 	case = relationship("FCActivityCase", back_populates="documents")
+
+
+class Statute(Base):
+	__tablename__ = "statutes"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	instrument_key: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)
+	title: Mapped[str] = mapped_column(Text, nullable=False)
+	short_title: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	jurisdiction: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	statute_type: Mapped[str] = mapped_column(String(50), nullable=False)
+	consolidated_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	source: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	license: Mapped[str | None] = mapped_column(String(100), nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+	versions = relationship("StatuteVersion", back_populates="statute", cascade="all, delete-orphan")
+
+
+class StatuteVersion(Base):
+	__tablename__ = "statute_versions"
+	__table_args__ = (
+		UniqueConstraint("statute_id", "in_force_date", name="uq_statute_version_date"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	statute_id: Mapped[int] = mapped_column(Integer, ForeignKey("statutes.id", ondelete="CASCADE"), nullable=False, index=True)
+	version_number: Mapped[str] = mapped_column(String(50), nullable=False)
+	in_force_date: Mapped[date_type] = mapped_column(Date, nullable=False, index=True)
+	end_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	full_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	text_compressed: Mapped[bytes | None] = mapped_column(LargeBinary(), nullable=True)
+	source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+	statute = relationship("Statute", back_populates="versions")
+	sections = relationship("StatuteSection", back_populates="statute_version", cascade="all, delete-orphan")
+
+
+class StatuteSection(Base):
+	__tablename__ = "statute_sections"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	statute_version_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("statute_versions.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	section_number: Mapped[str] = mapped_column(String(50), nullable=False)
+	subsection: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	paragraph: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	heading: Mapped[str | None] = mapped_column(Text, nullable=True)
+	text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+	statute_version = relationship("StatuteVersion", back_populates="sections")
 
 
 def get_db() -> Generator[Session, None, None]:

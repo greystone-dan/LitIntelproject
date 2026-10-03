@@ -167,6 +167,57 @@ class JusticeLawsXMLClient:
 
 		return metadata
 
+	def fetch_pitindex_versions(self, instrument_key: str, statute_url: str) -> list[dict]:
+		"""
+		Fetch historical versions from PITIndex.html.
+		Returns list of dicts with pit_date, in_force_date, end_date, url.
+		"""
+		try:
+			code = re.search(r'/(?:acts|regulations)/([^/]+)', statute_url)
+			if not code:
+				return []
+
+			statute_type = "acts" if "/acts/" in statute_url else "regulations"
+			pitindex_url = f"{self.BASE_URL}/eng/{statute_type}/{code.group(1)}/PITIndex.html"
+
+			logger.info(f"Fetching PITIndex from {pitindex_url}...")
+			response = self.client.get(pitindex_url)
+			if response.status_code != 200:
+				logger.warning(f"Could not fetch PITIndex (status {response.status_code})")
+				return []
+
+			versions = []
+			# Pattern: <li><a href='20260326/P1TT3xt3.html'>From 2026-03-26 to 2026-09-21</a></li>
+			pattern = r'<li><a href=[\'"](\d{8})/P1TT3xt3\.html[\'"]>From (\d{4}-\d{2}-\d{2}) to (\d{4}-\d{2}-\d{2})</a></li>'
+
+			for match in re.finditer(pattern, response.text):
+				pit_date_str = match.group(1)
+				start_str = match.group(2)
+				end_str = match.group(3)
+
+				try:
+					pit_date = datetime.strptime(pit_date_str, "%Y%m%d").date()
+					start_date = datetime.strptime(start_str, "%Y-%m-%d").date()
+					end_date = datetime.strptime(end_str, "%Y-%m-%d").date()
+
+					version_url = f"{self.BASE_URL}/eng/{statute_type}/{code.group(1)}/{pit_date_str}/P1TT3xt3.xml"
+
+					versions.append({
+						'pit_date': pit_date,
+						'in_force_date': start_date,
+						'end_date': end_date,
+						'url': version_url,
+					})
+				except Exception as e:
+					logger.warning(f"Could not parse version entry: {e}")
+
+			logger.info(f"Found {len(versions)} historical versions for {instrument_key}")
+			return versions
+
+		except Exception as e:
+			logger.error(f"Error fetching PITIndex: {e}")
+			return []
+
 
 def parse_statute_sections_from_xml(root: ET.Element) -> list[dict]:
 	"""
@@ -382,13 +433,14 @@ def get_xml_url_for_statute(statute_url: str) -> str:
 	return None
 
 
-def import_phase1_statutes(instruments: list[str] | None = None, db: Session | None = None) -> None:
+def import_phase1_statutes(instruments: list[str] | None = None, db: Session | None = None, with_history: bool = True) -> None:
 	"""
-	Import Phase 1 statutes from Justice Laws XML.
+	Import Phase 1 statutes from Justice Laws XML with historical versions.
 
 	Args:
 		instruments: List of instrument keys to import (default: all Phase 1)
 		db: Database session (creates new one if None)
+		with_history: Fetch and import historical versions (default True)
 	"""
 	if db is None:
 		db = SessionLocal()
@@ -411,31 +463,56 @@ def import_phase1_statutes(instruments: list[str] | None = None, db: Session | N
 				logger.warning(f"No URL for {instrument_key}, skipping")
 				continue
 
-			# Get XML URL
+			logger.info(f"\n{'='*60}")
+			logger.info(f"Importing {instrument_key}")
+			logger.info("=" * 60)
+
+			# Get XML URL for current version
 			xml_url = get_xml_url_for_statute(statute_url)
 			if not xml_url:
 				logger.warning(f"Could not determine XML URL for {instrument_key}")
 				continue
 
-			# Fetch statute XML
+			# Fetch and import current statute XML
 			xml_root = client.fetch_statute_xml(instrument_key, xml_url)
 			if xml_root is None:
 				logger.warning(f"Could not fetch XML for {instrument_key}")
 				continue
 
-			# Extract metadata
 			metadata = client.extract_metadata_from_xml(xml_root)
-			logger.info(f"Fetched {instrument_key} with metadata: {metadata}")
-
-			# Import to database
+			logger.info(f"Fetched current version with metadata: {metadata}")
 			import_statute_from_xml(db, instrument_key, statute_info, xml_root, metadata, client)
 
-	logger.info("Phase 1 import complete")
+			# Fetch and import historical versions
+			if with_history:
+				logger.info(f"Fetching historical versions for {instrument_key}...")
+				historical_versions = client.fetch_pitindex_versions(instrument_key, statute_url)
+
+				for version_info in historical_versions:
+					try:
+						# Only import if different from current version
+						if version_info['in_force_date'] == metadata.get('pit_date'):
+							logger.info(f"  Skipping current version (already imported)")
+							continue
+
+						version_xml = client.fetch_statute_xml(
+							f"{instrument_key}@{version_info['in_force_date']}",
+							version_info['url']
+						)
+						if version_xml:
+							logger.info(f"  Importing version {version_info['in_force_date']}...")
+							version_metadata = client.extract_metadata_from_xml(version_xml)
+							import_statute_from_xml(db, instrument_key, statute_info, version_xml, version_metadata, client)
+					except Exception as e:
+						logger.warning(f"  Error importing version {version_info['in_force_date']}: {e}")
+
+	logger.info("\nPhase 1 import complete")
 	db.close()
 
 
 if __name__ == "__main__":
 	import sys
 
-	instruments = sys.argv[1:] if len(sys.argv) > 1 else ["IRPA", "IRPR"]
-	import_phase1_statutes(instruments)
+	# Default to all Phase 1 laws
+	instruments = sys.argv[1:] if len(sys.argv) > 1 else None
+	import_phase1_statutes(instruments, with_history=True)

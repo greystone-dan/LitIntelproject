@@ -177,6 +177,30 @@ def _build_case_summary(evidence_summary: CaseEvidenceSummaryResponse | None) ->
 	)
 
 
+def _citation_target_paragraph(
+	citation_text: str | None,
+	normalized_citation: str | None,
+	stored_target_paragraph: int | None = None,
+) -> int | None:
+	if stored_target_paragraph is not None:
+		return int(stored_target_paragraph)
+	match = re.search(
+		r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
+		citation_text or normalized_citation or "",
+		re.IGNORECASE,
+	)
+	return int(match.group(1)) if match is not None else None
+
+
+def _cited_case_counts_by_paragraph(rows: Any, case_id: int) -> dict[int, int]:
+	sources_by_paragraph: dict[int, set[int]] = {}
+	for source_case_id, paragraph in rows:
+		if source_case_id is None or source_case_id == case_id or paragraph is None:
+			continue
+		sources_by_paragraph.setdefault(int(paragraph), set()).add(int(source_case_id))
+	return {paragraph: len(sources) for paragraph, sources in sources_by_paragraph.items()}
+
+
 def _legislation_url_for_reference(value: str | None) -> str | None:
 	"""Return the official Justice Laws section page for an IRPA/IRPR reference."""
 	text = value or ""
@@ -630,12 +654,10 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	stored_citations = list(citation_rows)
 
 	def target_paragraph(citation: Citation) -> int | None:
-		match = re.search(
-			r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
-			citation.citation_text or citation.normalized_citation or "",
-			re.IGNORECASE,
+		return _citation_target_paragraph(
+			citation.citation_text,
+			citation.normalized_citation,
 		)
-		return int(match.group(1)) if match is not None else None
 
 	target_pinpoints = {
 		(target_case_id, paragraph)
@@ -739,10 +761,28 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
 	)
 	case_summary = _build_case_summary(evidence_summary)
+	incoming_citations = db.execute(
+		select(
+			Citation.source_case_id,
+			Citation.citation_text,
+			Citation.normalized_citation,
+			Citation.target_paragraph,
+		).where(Citation.target_case_id == case_id)
+	).all()
+	cited_paragraph_counts = _cited_case_counts_by_paragraph(
+		(
+			(
+				source_case_id,
+				_citation_target_paragraph(citation_text, normalized_citation, target_paragraph),
+			)
+			for source_case_id, citation_text, normalized_citation, target_paragraph in incoming_citations
+		),
+		case_id,
+	)
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
-		format_blocks=format_decision(case.full_text),
+		format_blocks=format_decision(case.full_text, cited_paragraph_counts),
 		sources=[CaseSourceResponse.model_validate(row, from_attributes=True) for row in sources],
 		chunks=[
 			CaseReaderChunkResponse(

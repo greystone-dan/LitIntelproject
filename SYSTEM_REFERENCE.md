@@ -68,6 +68,13 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+Incoming case citations with an available pinpoint also mark the matching
+numbered paragraph in the full-text reader with a subtle shade and a
+“Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
+or the same pinpoint text already exposed in citation rows, and counts distinct
+other citing cases. This paragraph cue does not recompute citation offsets;
+without a pinpoint that matches a formatted paragraph, the paragraph remains
+unmarked.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph

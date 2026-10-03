@@ -7,7 +7,11 @@ from pydantic import ValidationError
 
 from backend import routes
 from backend import search_service
-from backend.reader_service import _build_reader_inferred_tags
+from backend.reader_service import (
+    _build_reader_inferred_tags,
+    _citation_target_paragraph,
+    _cited_case_counts_by_paragraph,
+)
 from backend.models import (
     CaseIngestRequest,
     CaseReaderMetadataFieldResponse,
@@ -30,6 +34,19 @@ def test_main_paragraph_assessments_are_read_only_and_optional(monkeypatch):
     monkeypatch.setattr(routes, "load_paragraph_assessments", lambda case_id, enforce_cohort: {"case_id": case_id, "available": False, "assessments": {}, "source": "paragraph_level_300_run"})
 
     assert routes.get_case_paragraph_assessments(42)["available"] is False
+
+
+def test_reader_cited_paragraph_counts_use_distinct_other_source_cases_only():
+    assert _cited_case_counts_by_paragraph(
+        [(10, 1), (11, 1), (11, 1), (10, 2), (12, None), (None, 3)], 10
+    ) == {1: 1}
+
+
+def test_reader_incoming_pinpoint_uses_existing_stored_paragraph_or_citation_text():
+    assert _citation_target_paragraph("reported case at para. 12", None) == 12
+    assert _citation_target_paragraph(None, "reported case, paragraph 7") == 7
+    assert _citation_target_paragraph("no pinpoint", None) is None
+    assert _citation_target_paragraph("at para. 12", None, 9) == 9
 
 
 def test_main_search_accepts_only_named_core_cohort(monkeypatch):

@@ -253,6 +253,44 @@
         "FGM"
       ],
       "forced_marriage": ["forced marriage"]
+    },
+    "detention_ground": {
+      "danger_to_the_public": [
+        "danger to the public"
+      ],
+      "flight_risk": [
+        "flight risk",
+        "unlikely to appear"
+      ],
+      "identity_verification": [
+        "identity document",
+        "identity documents",
+        "establish identity"
+      ]
+    },
+    "decision_maker_action": {
+      "credibility_finding": [
+        "credibility finding"
+      ],
+      "negative_credibility_finding": [
+        "negative credibility finding",
+        "adverse credibility finding"
+      ],
+      "fettering_of_discretion": [
+        "fettering of discretion",
+        "fettered discretion"
+      ]
+    },
+    "enforcement_action": {
+      "deportation_order": [
+        "deportation order"
+      ],
+      "exclusion_order": [
+        "exclusion order"
+      ],
+      "departure_order": [
+        "departure order"
+      ]
     }
   },
   "agency_research_facets": {
@@ -296,7 +334,8 @@
       "research_questions": [
         "Is the case about admissibility, detention, removal, or enforcement?",
         "What formal proceeding or review controls the next step?",
-        "Is a removal or detention consequence active, stayed, or under review?"
+        "Is a removal or detention consequence active, stayed, or under review?",
+        "What detention grounds or enforcement actions are at issue?"
       ],
       "core_signals": [
         "CBSA",
@@ -310,7 +349,12 @@
         "removal order",
         "stay of removal",
         "voluntary departure",
-        "travel document"
+        "travel document",
+        "danger to the public",
+        "flight risk",
+        "deportation order",
+        "exclusion order",
+        "departure order"
       ],
       "contextual_signals": [
         "removal",

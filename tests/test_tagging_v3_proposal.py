@@ -222,6 +222,38 @@ def test_v3_tagger_does_not_infer_contextual_terms_or_findings():
     assert not tags
 
 
+def test_detention_ground_tags_match_core_detention_concepts():
+    tags = CoreLegalTaggerV3().tag(
+        "The member found danger to the public and a flight risk. The applicant was unlikely to appear."
+    )
+    values = {(tag.category, tag.value) for tag in tags}
+
+    assert ("detention_ground", "danger_to_the_public") in values
+    assert ("detention_ground", "flight_risk") in values
+
+
+def test_decision_maker_action_tags_capture_judicial_findings():
+    tags = CoreLegalTaggerV3().tag(
+        "The board made a credibility finding and a negative credibility finding. The officer fettered discretion."
+    )
+    values = {(tag.category, tag.value) for tag in tags}
+
+    assert ("decision_maker_action", "credibility_finding") in values
+    assert ("decision_maker_action", "negative_credibility_finding") in values
+    assert ("decision_maker_action", "fettering_of_discretion") in values
+
+
+def test_enforcement_action_tags_distinguish_order_types():
+    tags = CoreLegalTaggerV3().tag(
+        "The immigration officer issued a deportation order, exclusion order, and departure order."
+    )
+    values = {(tag.category, tag.value) for tag in tags}
+
+    assert ("enforcement_action", "deportation_order") in values
+    assert ("enforcement_action", "exclusion_order") in values
+    assert ("enforcement_action", "departure_order") in values
+
+
 def test_v3_pipeline_preserves_repeated_occurrences_and_evidence_metadata():
     rows = build_case_tag_rows("IRCC contacted IRCC about GCMS notes.")
     ircc_rows = [row for row in rows if row["value"] == "ircc"]

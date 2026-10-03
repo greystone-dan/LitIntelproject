@@ -165,16 +165,6 @@ def _is_partial(tail: str, match: re.Match[str]) -> bool:
 	return bool(_PARTIAL_RE.search(tail[left:right]))
 
 
-def _latest_outcome_label(content: str) -> str | None:
-	best = _best_outcome(content)
-	return best[0] if best else None
-
-
-def _latest_outcome_match(content: str) -> tuple[str, re.Match[str]] | None:
-	best = _best_outcome(content)
-	return (best[0], best[1]) if best else None
-
-
 def _government_role(style_or_between: str) -> str | None:
 	if not style_or_between:
 		return None

@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added issue #45 outcome-classifier test fixtures and the report at
+  `docs/reports/outcome-classifier-test-plan.md`, covering current
+  `deterministic_outcome_v2` wording coverage plus xfailed unsupported
+  categories without changing classifier behavior.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

@@ -1,6 +1,8 @@
 from hashlib import sha256
 from types import SimpleNamespace
 
+import pytest
+
 from backend.case_processing import _run_metadata_layer
 from backend.metadata import extract_case_metadata, extract_metadata_matches, extract_metadata_observations
 from backend.metadata_outcomes import build_case_outcome
@@ -210,6 +212,145 @@ def test_extract_case_metadata_derives_case_type_and_challenge_from_legal_signal
 
 def test_extract_case_metadata_returns_empty_payload_for_empty_text():
 	assert extract_case_metadata("  ") == {}
+
+
+@pytest.mark.parametrize(
+	("name", "text", "expected"),
+	[
+		(
+			"allowed_in_part",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nThe application is allowed in part."
+			),
+			{
+				"decision_outcome": "mixed",
+				"outcome_status": "mixed",
+				"winner_side": "mixed",
+				"loser_side": "mixed",
+				"government_outcome": "mixed",
+			},
+		),
+		(
+			"withdrawn",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nThe application is withdrawn."
+			),
+			{
+				"decision_outcome": "withdrawn",
+				"outcome_status": "lost",
+				"winner_side": "respondent",
+				"loser_side": "applicant",
+				"government_outcome": "undetermined",
+			},
+		),
+		(
+			"discontinued",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nThe proceeding is discontinued."
+			),
+			{
+				"decision_outcome": "withdrawn",
+				"outcome_status": "lost",
+				"winner_side": "respondent",
+				"loser_side": "applicant",
+				"government_outcome": "undetermined",
+			},
+		),
+		(
+			"vavilov",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"REASONS\nAs in Vavilov, the application is dismissed."
+			),
+			{
+				"decision_outcome": "dismissed",
+				"outcome_status": "lost",
+				"winner_side": "respondent",
+				"loser_side": "applicant",
+				"government_outcome": "won",
+			},
+		),
+	],
+)
+def test_outcome_classifier_supports_current_decidable_wording_categories(name, text, expected):
+	record = build_case_outcome(text, {})
+
+	assert record["classifier_version"] == "deterministic_outcome_v2"
+	for field, value in expected.items():
+		assert record[field] == value, name
+
+
+@pytest.mark.parametrize(
+	("name", "text", "expected"),
+	[
+		pytest.param(
+			"conditional_order",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nThe application is allowed subject to the filing of further submissions."
+			),
+			{"outcome_status": "conditional"},
+			marks=pytest.mark.xfail(
+				strict=True,
+				reason="deterministic_outcome_v2 does not yet model conditional-order dispositions separately",
+			),
+		),
+		pytest.param(
+			"questions_certified",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nTwo questions are certified for appeal."
+			),
+			{"decision_outcome": "certified"},
+			marks=pytest.mark.xfail(
+				strict=True,
+				reason="deterministic_outcome_v2 does not classify certified-question wording as a final disposition",
+			),
+		),
+		pytest.param(
+			"redetermination",
+			(
+				"Between:\n"
+				"Jane Doe Applicant\n"
+				"and\n"
+				"The Minister of Citizenship and Immigration Respondent\n"
+				"ORDER\nThe matter is returned for redetermination."
+			),
+			{"decision_outcome": "redetermined"},
+			marks=pytest.mark.xfail(
+				strict=True,
+				reason="deterministic_outcome_v2 does not yet label redetermination orders as a distinct disposition",
+			),
+		),
+	],
+)
+def test_outcome_classifier_expected_future_wording_categories(name, text, expected):
+	record = build_case_outcome(text, {})
+
+	assert record["classifier_version"] == "deterministic_outcome_v2"
+	for field, value in expected.items():
+		assert record[field] == value, name
 
 
 def test_judge_signature_block_captures_signature_name_not_court_label():

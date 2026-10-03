@@ -200,6 +200,7 @@ from .models import (
 	CaseMergeResponse,
 	CaseReaderChunkResponse,
 	CaseReaderCitationResponse,
+	DiscoveredThemeResponse,
 	LegislationCaseOccurrenceResponse,
 	LegislationSectionCaseResponse,
 	LegislationSectionLookupResponse,
@@ -255,6 +256,8 @@ from .models import (
 	ResearchRequest,
 	ResearchResponse,
 	ResearchSource,
+	ThemeDiscoveryResponse,
+	ThemeOccurrenceResponse,
 )
 
 _data_explorer_page_html = data_explorer_page_html
@@ -745,6 +748,55 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
+def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:
+	"""Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms."""
+	from .theme_discovery import discover_themes, get_core_300_themes
+	from .reader_service import build_case_reader_data
+
+	# Load reader data for Core-300 cases to get evidence summaries
+	core_300_ids = range(1, 301)  # Core-300 case IDs
+	case_evidence_summaries = {}
+
+	for case_id in core_300_ids:
+		try:
+			reader_data = build_case_reader_data(case_id, db)
+			if reader_data.evidence_summary:
+				case_evidence_summaries[case_id] = reader_data.evidence_summary
+		except Exception:
+			continue
+
+	# Discover themes
+	discovered_themes = discover_themes(case_evidence_summaries)
+
+	# Convert to response objects
+	theme_responses = []
+	for theme in discovered_themes:
+		occurrence_responses = [
+			ThemeOccurrenceResponse(
+				case_id=occ.case_id,
+				unit_index=occ.unit_index,
+				subtheme_id=occ.subtheme_id,
+			)
+			for occ in theme.occurrences
+		]
+		theme_responses.append(
+			DiscoveredThemeResponse(
+				theme_id=theme.theme_id,
+				theme_name=theme.theme_name,
+				top_key_terms=theme.top_key_terms,
+				top_argument_roles=theme.top_argument_roles,
+				occurrence_count=theme.occurrence_count,
+				occurrences=occurrence_responses,
+			)
+		)
+
+	return ThemeDiscoveryResponse(
+		total_themes=len(theme_responses),
+		themes=theme_responses,
+	)
 
 
 @router.get("/cases/{case_id}/statute-references", response_model=list[CaseReaderCitationResponse])

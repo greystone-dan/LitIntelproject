@@ -102,6 +102,61 @@ def test_extracts_conservative_aljr_filer_and_respondent_minister_from_case_name
     assert organization["respondent_minister"] == "MPSEP/CBSA"
 
 
+@pytest.mark.parametrize(
+    ("respondent", "expected"),
+    [
+        ("MCI", "MCI/IRCC"),
+        ("CIC", "MCI/IRCC"),
+        ("IRCC", "MCI/IRCC"),
+        ("MPSEP", "MPSEP/CBSA"),
+        ("MSPPC", "MPSEP/CBSA"),
+        ("PSEP", "MPSEP/CBSA"),
+        ("CBSA", "MPSEP/CBSA"),
+        ("Example Corporation", "unknown"),
+        ("Attorney General", "unknown"),
+    ],
+)
+def test_respondent_minister_case_name_abbreviations_and_non_immigration_parties(respondent, expected):
+    result = classify_events(
+        [
+            event(
+                1,
+                "2024-01-02",
+                "Application for leave and judicial review filed.",
+                case_name=f"Applicant v. {respondent}",
+            )
+        ]
+    )
+
+    assert result["respondent_minister"] == expected
+
+
+@pytest.mark.parametrize(
+    "respondent",
+    [
+        "MCl",
+        "Minister of Citizenship and Immigration",
+        "Minister of Immigration, Refugees and Citizenship",
+    ],
+)
+@pytest.mark.xfail(
+    reason="Current case-name extraction recognizes only listed abbreviations, not OCR or full-title variants."
+)
+def test_respondent_minister_case_name_ocr_and_full_title_variants(respondent):
+    result = classify_events(
+        [
+            event(
+                1,
+                "2024-01-02",
+                "Application for leave and judicial review filed.",
+                case_name=f"Applicant v. {respondent}",
+            )
+        ]
+    )
+
+    assert result["respondent_minister"] == "MCI/IRCC"
+
+
 def test_links_motion_filing_description_to_referenced_decision():
     events = extract_procedural_events(
         [

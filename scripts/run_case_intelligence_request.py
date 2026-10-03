@@ -19,7 +19,7 @@ DEFAULT_OLLAMA_MODEL = "qwen2.5:7b"
 
 def build_client(provider: str, *, ollama_base_url: str, ollama_model: str) -> Any:
     if provider == "local":
-        return OllamaChatProvider(base_url=ollama_base_url, model_name=ollama_model)
+        return OpenAI(base_url=ollama_base_url, api_key="ollama-local")
     return OpenAI()
 
 

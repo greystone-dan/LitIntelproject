@@ -115,8 +115,12 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 - **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
 	path; `TEXT_GENERATION_PROVIDER=local` selects it for the experimental
 	`/research` route; users must install Ollama and pull an instruct model
-	separately. The script runner and API share the same OpenAI-compatible
-	contract.
+	separately. The bounded case-intelligence script uses the OpenAI Python
+	client against Ollama's OpenAI-compatible `/v1` endpoint (with a
+	non-secret placeholder API key); the `/research` route uses its separate
+	provider adapter and Ollama's native `/api/chat` endpoint. Do not treat
+	these transports as interchangeable: the script's local client must be
+	constructed with its configured endpoint and placeholder key.
 - **Revisit trigger:** A local model passes bounded accuracy, latency,
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.

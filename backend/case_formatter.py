@@ -9,7 +9,7 @@ the reader can render structure while the intelligence layers stay aligned.
 from __future__ import annotations
 
 import re
-from typing import Any
+from typing import Any, Mapping
 
 DECISION_MARKER = "Decision Content"
 
@@ -73,7 +73,9 @@ def _heading_level(label: str) -> int:
     return 1
 
 
-def format_decision(text: str | None) -> list[dict[str, Any]]:
+def format_decision(
+    text: str | None, cited_paragraph_counts: Mapping[int, int] | None = None
+) -> list[dict[str, Any]]:
     """Return ordered, non-overlapping typed blocks covering the non-blank lines of ``text``."""
     if not text:
         return []
@@ -194,4 +196,11 @@ def format_decision(text: str | None) -> list[dict[str, Any]]:
                 blocks.append(_block("listitem", start, end))
             else:
                 blocks.append(_block("text", start, end))
+    for block in blocks:
+        if block["type"] != "para":
+            continue
+        count = int((cited_paragraph_counts or {}).get(block["num"], 0))
+        if count > 0:
+            block["cited_by_count"] = count
+            block["citation_tooltip"] = f"Cited by {count} case{'s' if count != 1 else ''}"
     return blocks

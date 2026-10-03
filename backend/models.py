@@ -4,6 +4,34 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
+class SimilarParagraphResponse(BaseModel):
+	case_id: int
+	title: str
+	citation: str | None = None
+	paragraph_number: int
+	excerpt: str
+	score: int
+	shared_tags: list[str]
+	shared_authorities: list[str]
+	why_matched: str
+
+
+class ParagraphSimilarityCoverage(BaseModel):
+	partial: bool
+	candidate_cases_checked: int
+	source_row_budget: int
+	signal_budget: int
+	postings_per_signal: int
+	candidate_case_budget: int
+	paragraph_row_budget: int
+	note: str
+
+
+class ParagraphSimilarityResponse(BaseModel):
+	results: list[SimilarParagraphResponse]
+	coverage: ParagraphSimilarityCoverage
+
+
 class CaseIngestRequest(BaseModel):
 	title: str = Field(min_length=1, max_length=255)
 	court: str = Field(min_length=1, max_length=255)

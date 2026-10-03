@@ -947,6 +947,42 @@ document.addEventListener('click',event=>{const group=event.target.closest?.('[d
 document.querySelectorAll('.primary-groups,.group-views').forEach(nav=>nav.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;const items=[...nav.querySelectorAll('button,a')].filter(item=>!item.hidden),index=items.indexOf(document.activeElement);if(index<0)return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?items.length-1:(index+(event.key==='ArrowRight'?1:-1)+items.length)%items.length;items[next].focus();}));
 window.addEventListener('popstate',()=>{restoreResearchNavigation();const params=new URLSearchParams(location.search),caseId=Number(params.get('case_id'));if((params.get('tab')||'search')==='search'&&caseId>0)openDecision(caseId)});
 restoreResearchNavigation();
+let paragraphSimilarityRequest=0;
+const paragraphSimilarityOpenDecision=openDecision;
+openDecision=async function(caseId){
+  paragraphSimilarityRequest++;
+  await paragraphSimilarityOpenDecision(caseId);
+  const params=new URLSearchParams(location.search),n=Number(params.get('paragraph'));
+  if(Number(params.get('case_id'))===Number(caseId)&&Number.isInteger(n)&&n>0){
+    const target=document.querySelector(`#decisionBody .fmt-para[data-para="${n}"]`);
+    if(target){target.classList.add('is-cited');target.scrollIntoView({block:'center'});}
+  }
+};
+async function showSimilarParagraphs(para){
+  const caseId=readerState.caseId,n=Number(para.dataset.para),request=++paragraphSimilarityRequest;
+  document.getElementById('paragraphSimilarity')?.remove();
+  const panel=document.createElement('section');panel.id='paragraphSimilarity';panel.className='reader-info-section';panel.setAttribute('aria-live','polite');para.after(panel);
+  const heading='<h3>Similar paragraphs in other cases</h3>';
+  panel.innerHTML=heading+'<p>Loading stored-evidence matches...</p>';
+  const current=()=>request===paragraphSimilarityRequest&&readerState.caseId===caseId&&panel.isConnected;
+  try{
+    const response=await fetch(`/cases/${caseId}/paragraphs/${n}/similar?limit=10`);
+    if(!response.ok)throw new Error(response.status===404?'No verified stored paragraph is available.':`Unable to load similar paragraphs (${response.status}).`);
+    const data=await response.json();if(!current())return;
+    panel.innerHTML=heading+`<p>${esc(data.coverage?.note||'Bounded stored-evidence search.')}</p>`+
+      ((data.results||[]).map(row=>`<article class="reader-info-row"><a href="/data-explorer?tab=search&case_id=${Number(row.case_id)}&paragraph=${Number(row.paragraph_number)}">${esc(row.title)} · ${esc(row.citation||'')} · paragraph ${Number(row.paragraph_number)}</a><p>${esc(row.excerpt)}</p><p>${esc(row.why_matched)}</p><small>Shared tags: ${esc((row.shared_tags||[]).join(', ')||'none')} · Shared authorities: ${esc((row.shared_authorities||[]).join(', ')||'none')}</small></article>`).join('')||'<p>No matches found in the bounded verified evidence. This does not mean no similar passages exist.</p>');
+  }catch(error){if(current())panel.innerHTML=heading+`<p>${esc(error.message)}</p>`;}
+}
+const similarityBody=document.getElementById('decisionBody');
+if(similarityBody&&typeof MutationObserver!=='undefined'){
+  new MutationObserver(()=>{
+    similarityBody.querySelectorAll('.fmt-para').forEach(para=>{
+      if(para.querySelector('[data-paragraph-similar]'))return;
+      const button=document.createElement('button');button.type='button';button.dataset.paragraphSimilar='';button.textContent='Similar paragraphs';button.className='reader-source-link';button.setAttribute('aria-label',`Similar paragraphs for paragraph ${para.dataset.para}`);para.append(button);
+    });
+  }).observe(similarityBody,{childList:true,subtree:true});
+  similarityBody.addEventListener('click',event=>{const button=event.target.closest?.('[data-paragraph-similar]');if(button)showSimilarParagraphs(button.closest('.fmt-para'));});
+}
 const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));if(Number.isInteger(initialCaseId)&&initialCaseId>0&&(new URLSearchParams(location.search).get('tab')||'search')==='search')openDecision(initialCaseId);
 </script>
 <script>

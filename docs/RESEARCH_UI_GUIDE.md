@@ -6,6 +6,15 @@ This guide explains the active iLIT research interfaces, their controls, and how
 
 ## Experimental RAG Research
 
+In the `/data-explorer` formatted reader, select **Similar paragraphs** beside
+a numbered paragraph to see stored-evidence matches in other cases. Matches
+explain shared V3 legal tags (one point each) and cited case authorities (two
+points each); ties use case ID then paragraph number. Links open the returned
+case at its paragraph. This is a bounded search, not semantic similarity or a
+legal conclusion: no embeddings, live-inferred tags or statute references are
+scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
+an empty result does not establish that no similar passages exist.
+
 The `/research` page is the current, experimental RAG workflow. It has four
 steps:
 

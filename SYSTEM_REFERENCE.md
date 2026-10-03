@@ -2041,9 +2041,9 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `LEGAL_TAGGING.md` | Taxonomy guidance and legal-source hierarchy |
 | `ROADMAP.md` | Prioritized forward plan and quality gates |
 | `MASTER_IDEAS.md` | Broader product ideas/backlog |
-| `SYSTEM_OVERVIEW.txt` | Supplemental plain-language snapshot; some figures are historical |
+| `docs/history/SYSTEM_OVERVIEW_2026-08-12.txt` | Archived plain-language snapshot; some figures are historical |
 | `GUIDANCE.md` | Long-term product/architecture direction |
-| `AI_HANDOFF.md` | Time-bound working context for a developer/agent |
+| `docs/history/AI_HANDOFF_2026-09-02_root.md` | Archived time-bound working context for a developer/agent |
 | `docs/history/` | Archived historical snapshots only |
 
 ## Glossary

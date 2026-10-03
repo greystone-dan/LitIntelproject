@@ -55,6 +55,8 @@ def load_core_terms() -> dict[str, dict[str, tuple[str, ...]]]:
 
 
 class CoreLegalTaggerV3:
+    SINGLE_WORD_COUNTRIES = {"china", "syria", "sudan", "kenya", "russia", "turkey"}
+
     def __init__(self) -> None:
         self._entries = tuple(
             (category, value, re.compile(_pattern(*aliases), re.IGNORECASE))
@@ -68,6 +70,42 @@ class CoreLegalTaggerV3:
     def tag_occurrences(self, text: str | None) -> list[CoreTag]:
         return self._tag(text, occurrences=True)
 
+    def _should_exclude_context(self, text: str, match) -> bool:
+        """Check if a single-word country match should be excluded based on context.
+
+        Excludes matches preceded by titles (Mr., Ms., Dr., Justice) or
+        followed by street words (Road, Street, Avenue) to avoid person-name false positives.
+        """
+        # Extract the matched text value to check if it's a single-word country
+        matched_value = match.group(0).lower()
+
+        if matched_value not in self.SINGLE_WORD_COUNTRIES:
+            return False
+
+        start = match.start()
+        end = match.end()
+
+        # Check preceding context for titles/honorifics (within 20 chars)
+        if start > 0:
+            before_start = max(0, start - 20)
+            before_text = text[before_start:start].lower()
+            # Match title patterns at the boundary before the match
+            if re.search(
+                r"(mr|ms|mrs|dr|justice)\s*\.?\s*$",
+                before_text
+            ):
+                return True
+
+        # Check following context for street words (within 20 chars)
+        if end < len(text):
+            after_end = min(len(text), end + 20)
+            after_text = text[end:after_end].lower()
+            # Match street word patterns at the boundary after the match
+            if re.search(r"^\s+(road|street|avenue)\b", after_text):
+                return True
+
+        return False
+
     def _tag(self, text: str | None, occurrences: bool) -> list[CoreTag]:
         content = text or ""
         found: list[CoreTag] = []
@@ -75,6 +113,8 @@ class CoreLegalTaggerV3:
             matches = pattern.finditer(content) if occurrences else [pattern.search(content)]
             for match in matches:
                 if match is None:
+                    continue
+                if category == "country_or_territory" and self._should_exclude_context(content, match):
                     continue
                 found.append(
                     CoreTag(

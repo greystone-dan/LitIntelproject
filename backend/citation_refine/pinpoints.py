@@ -131,13 +131,6 @@ def parse_bare_page_pinpoint(text_after_citation: str) -> Pinpoint | None:
 	return Pinpoint(PINPOINT_PAGE, f"at {label} {' '.join(match.group('values').split())}", values, is_range_or_list, truncated)
 
 
-def parse_footnote_reference(text: str) -> Pinpoint | None:
-	match = FOOTNOTE_RE.search(text)
-	if match is None:
-		return None
-	return Pinpoint(PINPOINT_FOOTNOTE, " ".join(match.group(0).split()), (int(match.group("values")),))
-
-
 def pinpoint_phrase(pinpoint: Pinpoint) -> str:
 	"""Render a pinpoint in the "at para. N" style used by pass-one normalization."""
 	raw_numbers = re.sub(

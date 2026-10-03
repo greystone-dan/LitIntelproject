@@ -165,6 +165,15 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="judgePanel"' not in html
 
 
+def test_reader_renders_backend_cited_paragraph_metadata():
+    html = routes._data_explorer_page_html()
+
+    assert "Number(b.cited_by_count)>0" in html
+    assert "Cited by ${b.cited_by_count} cases" in html
+    assert "background:#fff9e8" in html
+    assert 'data-para="${b.num}"' in html
+
+
 class NavigationParser(HTMLParser):
     def __init__(self, html):
         super().__init__()

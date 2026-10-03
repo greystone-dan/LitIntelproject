@@ -277,6 +277,70 @@ def test_timeout_or_crash_records_retryable_failure_without_raising_unsafe_state
     assert [case.id for case in session.scalars(tag_cases_v3.pending_case_query()).all()] == [1]
 
 
+def test_single_word_countries_exclude_honorific_context():
+    """Narrow exclusions filter single-word countries when preceded by titles."""
+    tags = CoreLegalTaggerV3().tag(
+        "Mr. China reported the incident. Ms. Syria testified. Dr. Sudan examined."
+    )
+    country_tags = {tag.value for tag in tags if tag.category == "country_or_territory"}
+
+    # Honorific patterns (Mr., Ms., Dr., etc.) before the country name exclude the match
+    assert "china" not in country_tags  # Mr. China
+    assert "syria" not in country_tags  # Ms. Syria
+    assert "sudan" not in country_tags  # Dr. Sudan
+
+
+def test_legitimate_country_references_tag_correctly():
+    """Legitimate geographic references work correctly with honorific/street exclusions."""
+    tags = CoreLegalTaggerV3().tag(
+        "The applicant fled Syria and arrived from China. Sudan's civil war was documented. "
+        "Russia and Turkey are signatories. The refugee came from Kenya."
+    )
+    values = {(tag.category, tag.value) for tag in tags}
+
+    # All countries tag correctly in legitimate geographic contexts
+    assert ("country_or_territory", "syria") in values
+    assert ("country_or_territory", "china") in values
+    assert ("country_or_territory", "sudan") in values
+    assert ("country_or_territory", "russia") in values
+    assert ("country_or_territory", "turkey") in values
+    assert ("country_or_territory", "kenya") in values
+
+
+def test_honorific_exclusions_various_formats():
+    """Honorific exclusions work with and without periods, various formats."""
+    text = "Mr China arrived. Ms. Syria testified. Dr. Sudan examined. Dr Kenya briefed. Justice Russia ruled. Mrs. Turkey spoke."
+    tags = CoreLegalTaggerV3().tag(text)
+    country_tags = {tag.value for tag in tags if tag.category == "country_or_territory"}
+
+    # All should be excluded due to preceding title/honorific
+    assert "china" not in country_tags
+    assert "syria" not in country_tags
+    assert "sudan" not in country_tags
+    assert "kenya" not in country_tags
+    assert "russia" not in country_tags
+    assert "turkey" not in country_tags
+
+
+def test_street_word_exclusions():
+    """Street words following single-word countries exclude the match."""
+    tags = CoreLegalTaggerV3().tag(
+        "123 China Road. The Syria Street intersection. Sudan Avenue is closed. "
+        "Kenya Boulevard is open. Russia Lane is secure. Turkey Way is clear."
+    )
+    country_tags = {tag.value for tag in tags if tag.category == "country_or_territory"}
+
+    # Road, Street, Avenue should exclude the preceding country
+    assert "china" not in country_tags  # "China Road"
+    assert "syria" not in country_tags  # "Syria Street"
+    assert "sudan" not in country_tags  # "Sudan Avenue"
+    # Boulevard, Lane, Way are not street-word filters, so these would not be excluded
+    # (unless they're actually in the street-word exclusion list)
+    assert "kenya" in country_tags  # "Kenya Boulevard" - Boulevard not in exclusion list
+    assert "russia" in country_tags  # "Russia Lane" - Lane not in exclusion list
+    assert "turkey" in country_tags  # "Turkey Way" - Way not in exclusion list
+
+
 def test_summary_only_cases_follow_the_active_v3_text_contract(monkeypatch):
     summary_only = _case(1, text=None, summary="IRCC and GCMS notes")
     empty_case = _case(2, text=None, summary=None)

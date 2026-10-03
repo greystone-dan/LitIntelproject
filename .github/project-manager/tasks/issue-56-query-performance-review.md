@@ -45,8 +45,8 @@ check passed; changed-document whitespace and secret-pattern scans passed.
 `python scripts/check_generated_docs.py` was attempted but could not import
 FastAPI or SQLAlchemy in the environment and therefore did not pass. No
 application code or Alembic file was changed.
-Commit/push were not performed: the requested `report_progress` tool is not
-available in this session.
+The report, walkthrough, and task record were committed and pushed with
+`report_progress`.
 
 Files changed: `docs/reports/query-performance-review.md`, `.swm/5.b49ftjal.sw.md`,
 and this task record.

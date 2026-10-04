@@ -16,9 +16,7 @@ depends_on = None
 def upgrade() -> None:
     bind = op.get_bind()
     inspector = sa.inspect(bind)
-
     if "cases" not in inspector.get_table_names():
-        existing_columns = set()
         op.create_table(
             "cases",
             sa.Column("id", sa.Integer(), primary_key=True),
@@ -38,9 +36,14 @@ def upgrade() -> None:
         )
         for column in ("title", "court", "jurisdiction", "date", "citation"):
             op.create_index(f"ix_cases_{column}", "cases", [column])
-    else:
-        existing_columns = {column["name"] for column in inspector.get_columns("cases")}
-        additions = {
+        op.execute(
+            "CREATE INDEX IF NOT EXISTS ix_cases_embedding_cosine "
+            "ON cases USING hnsw (embedding vector_cosine_ops)"
+        )
+        return
+
+    existing_columns = {column["name"] for column in inspector.get_columns("cases")}
+    additions = {
         "jurisdiction": sa.Column("jurisdiction", sa.String(length=100), nullable=True),
         "citation": sa.Column("citation", sa.String(length=255), nullable=True),
         "full_text": sa.Column("full_text", sa.Text(), nullable=True),
@@ -48,14 +51,14 @@ def upgrade() -> None:
         "metadata_json": sa.Column("metadata_json", sa.JSON(), nullable=True),
         "source_url": sa.Column("source_url", sa.String(length=2048), nullable=True),
         "source_name": sa.Column("source_name", sa.String(length=255), nullable=True),
-        }
-        for name, column in additions.items():
-            if name not in existing_columns:
-                op.add_column("cases", column)
+    }
+    for name, column in additions.items():
+        if name not in existing_columns:
+            op.add_column("cases", column)
 
-        for column in ("jurisdiction", "citation"):
-            if column not in existing_columns:
-                op.create_index(f"ix_cases_{column}", "cases", [column])
+    for column in ("jurisdiction", "citation"):
+        if column not in existing_columns:
+            op.create_index(f"ix_cases_{column}", "cases", [column])
 
     op.execute(
         "CREATE INDEX IF NOT EXISTS ix_cases_embedding_cosine "

@@ -1,4 +1,22 @@
+import subprocess
+import sys
+from pathlib import Path
+
 from scripts.check_site_links import Route, audit_html_pages
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_all_registered_html_page_snapshots_have_no_dead_local_urls():
+    result = subprocess.run(
+        [sys.executable, str(PROJECT_ROOT / "scripts/check_site_links.py"), "--quiet"],
+        cwd=PROJECT_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
 
 
 def test_route_aware_links_accept_parameter_routes_and_intentional_urls():
@@ -7,7 +25,6 @@ def test_route_aware_links_accept_parameter_routes_and_intentional_urls():
             <a href="/cases/42">case</a>
             <a href="https://example.test/path">external</a>
             <a href="#section">fragment</a>
-            <link href="/assets/site.css">
             <form action="/api/cases/42"></form>
             <script>
               fetch('/api/cases/42');
@@ -49,6 +66,25 @@ def test_resolves_relative_urls_from_page_and_query_strings_do_not_affect_match(
     }
 
     assert audit_html_pages(pages, [Route("/cases/{case_id}")]) == []
+
+
+def test_only_existing_mounted_static_assets_are_accepted(tmp_path):
+    assets = tmp_path / "assets"
+    assets.mkdir()
+    (assets / "site.css").write_text("body {}", encoding="utf-8")
+    findings = audit_html_pages(
+        {
+            "/start": (
+                '<link href="/assets/site.css">'
+                '<link href="/assets/missing.css">'
+            )
+        },
+        [Route("/assets", static_directories=(assets,))],
+    )
+
+    assert [(finding.url, finding.source) for finding in findings] == [
+        ("/assets/missing.css", "href"),
+    ]
 
 
 def test_checks_http_methods_for_forms_fetch_and_xhr_calls():

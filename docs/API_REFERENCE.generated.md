@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.005395+00:00
+Generated: 2026-10-04T15:00:27.822759+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 109 across 106 paths
@@ -2177,6 +2177,10 @@ Handler: `backend.routes.citation_pass_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.data_explorer_page`
+
+**Handler parameters**
+
+- `tab` (str; default `''`)
 
 **Responses**
 

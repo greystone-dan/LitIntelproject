@@ -38,7 +38,8 @@ def html_error_page(status_code: int) -> HTMLResponse:
         "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
         f"<title>{title}</title></head><body><main><h1>{title}</h1>"
-        f"<p>{message}</p><a href=\"/data-explorer\">Return to Data Explorer</a>"
+        f"<p>{message}</p><nav><a href=\"/data-explorer\">Home</a> "
+        "<a href=\"/data-explorer?tab=search\">Search</a></nav>"
         "</main></body></html>"
     )
     return HTMLResponse(content=content, status_code=status_code)

@@ -7,11 +7,10 @@
 - Added an offline route-aware audit for local URLs in registered HTML pages,
   including links, form actions, and literal inline fetch/XHR calls, with
   parameterized-route and HTTP-method checks. Browser requests that accept HTML
-  now receive safe 404/500 pages while API response behavior is preserved.
-  See [`docs/reports/dead-ends-audit.md`](docs/reports/dead-ends-audit.md);
-  full page rendering and pytest validation are pending because this workspace
-  lacks the repository's `python-dotenv`, FastAPI, SQLAlchemy, and pytest
-  dependencies.
+  now receive safe 404/500 pages with Home and Search recovery links while API
+  response behavior is preserved. The rendered audit found and removed a stale
+  request to the retired Judge Outcomes endpoint; old tab bookmarks lead to
+  Judge Profile. See [`docs/reports/dead-ends-audit.md`](docs/reports/dead-ends-audit.md).
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

@@ -30,6 +30,8 @@ def test_html_not_found_response_is_safe_html_with_correct_status():
     assert response.status_code == 404
     assert response.media_type == "text/html"
     assert b"Page not found" in response.body
+    assert b'href="/data-explorer">Home</a>' in response.body
+    assert b'href="/data-explorer?tab=search">Search</a>' in response.body
     assert b"private detail" not in response.body
 
 

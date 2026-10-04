@@ -17,10 +17,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-_ASSET_SUFFIXES = {
-    ".css", ".js", ".mjs", ".map", ".png", ".jpg", ".jpeg", ".gif",
-    ".svg", ".webp", ".ico", ".woff", ".woff2", ".ttf", ".otf",
-}
 _DYNAMIC_MARKERS = ("${", "{{", "}}", "<%", "%>")
 _FETCH_RE = re.compile(
     r"\bfetch\s*\(\s*([^,\)]+)(?:,\s*(\{[^)]*\}))?", re.IGNORECASE
@@ -40,6 +36,7 @@ _TEMPLATE_RE = re.compile(r"^\s*`(.*?)`\s*$", re.DOTALL)
 class Route:
     path: str
     methods: frozenset[str] = frozenset()
+    static_directories: tuple[Path, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -115,9 +112,22 @@ def _classify(url: str, page: str) -> tuple[str, str | None]:
         return "fragment", None
     resolved = urlsplit(urljoin("http://local.invalid" + page, value))
     path = resolved.path or "/"
-    if path.lower().endswith(tuple(_ASSET_SUFFIXES)) or path.startswith("/static/"):
-        return "asset", path
     return "local", path
+
+
+def _known_static_asset(path: str, routes: Iterable[Route | object]) -> bool:
+    for route in routes:
+        directories = getattr(route, "static_directories", ())
+        mount_path = route.path.rstrip("/")
+        if not directories or not mount_path:
+            continue
+        prefix = mount_path + "/"
+        if not path.startswith(prefix):
+            continue
+        relative_path = path[len(prefix):]
+        if any((Path(directory) / relative_path).is_file() for directory in directories):
+            return True
+    return False
 
 
 def _route_match(
@@ -197,6 +207,8 @@ def audit_html_pages(
                 continue
             if path is not None and _route_match(path, route_list, method):
                 continue
+            if path is not None and _known_static_asset(path, route_list):
+                continue
             route_exists = path is not None and _route_match(path, route_list, None)
             reason = (
                 f"local path {path!r} has no registered {method} route"
@@ -217,7 +229,7 @@ def audit_html_pages(
 
 
 def _served_html_pages() -> tuple[dict[str, str], list[Route]]:
-    """Render route-backed page builders without starting app lifespan or a database."""
+    """Render HTML routes without starting app lifespan or connecting to a database."""
     # Importing the application normally makes backend.database load local dotenv
     # files and inspect database credentials. The audit must not access either.
     import dotenv
@@ -233,22 +245,24 @@ def _served_html_pages() -> tuple[dict[str, str], list[Route]]:
     }.items():
         os.environ[key] = value
 
-    from fastapi.openapi.docs import (
-        get_redoc_html,
-        get_swagger_ui_html,
-        get_swagger_ui_oauth2_redirect_html,
-    )
     from fastapi.responses import HTMLResponse
     from fastapi.routing import APIRoute
-    from backend.main import _login_page, app
+    from fastapi.testclient import TestClient
+    from backend.main import app
     from backend.routes import issue_brief_page_html
     from backend.case_reader_ui import case_reader_with_statutes_html
 
     pages: dict[str, str] = {}
     routes: list[Route] = []
+    client = TestClient(app, raise_server_exceptions=True)
     for route in app.routes:
         route_methods = frozenset(getattr(route, "methods", None) or ())
-        routes.append(Route(route.path, route_methods))
+        static_app = getattr(route, "app", None)
+        static_directories = tuple(
+            Path(directory)
+            for directory in getattr(static_app, "all_directories", ())
+        )
+        routes.append(Route(route.path, route_methods, static_directories))
         path = route.path
         is_builtin_html = path in {
             app.docs_url,
@@ -264,30 +278,22 @@ def _served_html_pages() -> tuple[dict[str, str], list[Route]]:
         ):
             continue
         if path == app.docs_url:
-            content = get_swagger_ui_html(
-                openapi_url=app.openapi_url or "",
-                title=f"{app.title} - Swagger UI",
-                oauth2_redirect_url=app.swagger_ui_oauth2_redirect_url,
-                init_oauth=app.swagger_ui_init_oauth,
-                swagger_ui_parameters=app.swagger_ui_parameters,
-            ).body.decode("utf-8")
+            content = client.get(path).text
             pages[path] = content
             continue
         if path == app.redoc_url:
-            content = get_redoc_html(
-                openapi_url=app.openapi_url or "", title=f"{app.title} - ReDoc"
-            ).body.decode("utf-8")
+            content = client.get(path).text
             pages[path] = content
             continue
         if path == app.swagger_ui_oauth2_redirect_url:
-            content = get_swagger_ui_oauth2_redirect_html().body.decode("utf-8")
+            content = client.get(path).text
             pages[path] = content
             continue
         if not isinstance(route, APIRoute):
             continue
         endpoint = route.endpoint
         if path == "/access":
-            content = _login_page().body.decode("utf-8")
+            content = client.get(path).text
         elif path == "/issue-brief-ui":
             content = issue_brief_page_html({})
         elif path == "/case-reader-ui/{case_id}":
@@ -306,11 +312,15 @@ def _served_html_pages() -> tuple[dict[str, str], list[Route]]:
                     f"HTML route {path} needs a deterministic fixture for "
                     f"{', '.join(parameter.name for parameter in required)}"
                 )
-            response = endpoint()
-            if hasattr(response, "body"):
-                content = response.body.decode("utf-8", errors="replace")
-            else:
-                content = str(response)
+            response = client.get(path)
+            if response.status_code >= 400 or "text/html" not in response.headers.get(
+                "content-type", ""
+            ):
+                raise RuntimeError(
+                    f"HTML route {path} returned {response.status_code} "
+                    f"with {response.headers.get('content-type', 'no content type')}"
+                )
+            content = response.text
         pages[path] = content
     return pages, routes
 

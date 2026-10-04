@@ -85,9 +85,11 @@ from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
+from .pages.language_analytics import language_analytics_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
+from .language_analytics import MAX_DECISIONS, analyze_phrases_for_tag
 from . import resource_limits
 from .pages.testing import testing_page_html
 from .pages.statute_viewer import statute_viewer_page_html
@@ -1963,6 +1965,40 @@ def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
 	return fetch_all_tag_analytics(db)
 
 
+@router.get("/api/language-analytics", response_model=dict[str, Any])
+def get_language_analytics(
+	tag: str = Query(...),
+	judge: str | None = Query(None),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Return bounded wording associations for one tag; associations are not causes."""
+	try:
+		result = analyze_phrases_for_tag(
+			db,
+			tag=tag.strip(),
+			judge_slug=judge.strip() if judge else None,
+			max_decisions=MAX_DECISIONS,
+			min_phrase_frequency=5,
+			top_phrases_per_side=25,
+		)
+	except ValueError as e:
+		raise HTTPException(
+			status_code=status.HTTP_400_BAD_REQUEST,
+			detail=f"Invalid parameters: {str(e)}",
+		)
+	except Exception:
+		raise HTTPException(
+			status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+			detail="Language analytics service error",
+		)
+	if result.decisions_scanned == 0:
+		raise HTTPException(
+			status_code=status.HTTP_404_NOT_FOUND,
+			detail="No decisions found for the requested tag and judge.",
+		)
+	return result.to_dict()
+
+
 @router.get(
 	"/issue-brief",
 	response_model=dict[str, Any],
@@ -3835,6 +3871,12 @@ def check_saved_search(
 def tag_finder_interface() -> HTMLResponse:
 	return HTMLResponse(content=tag_finder_page_html(), status_code=status.HTTP_200_OK)
 
+
+
+@router.get("/language-analytics", response_class=HTMLResponse, include_in_schema=False)
+def language_analytics_interface() -> HTMLResponse:
+	"""Research page for language analytics."""
+	return HTMLResponse(content=language_analytics_page_html(), status_code=status.HTTP_200_OK)
 
 @router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
 def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:

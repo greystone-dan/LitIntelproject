@@ -108,6 +108,9 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/language-analytics-evaluation-plan.md` defines the fixture and
+  corpus checks for the stage-1 descriptive phrase-association feature; it is a
+  review plan, not evidence that production data has been evaluated.
 
 Historical context (read with caution):
 

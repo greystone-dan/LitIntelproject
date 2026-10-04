@@ -126,6 +126,7 @@ Active scripts documented: 158
 | `monitor_vector_index.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help` |
 | `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
+| `phrase_analysis.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\phrase_analysis.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `prepare_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help` |
@@ -1791,6 +1792,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help
+```
+
+## `scripts/phrase_analysis.py`
+
+**Purpose:** Offline, read-only CLI tool for phrase association analysis. Analyzes 2-4 word phrases in allowed (applicant win) vs. dismissed (minister win) decisions for a specific legal tag. Results are printed to stdout. Uses the existing database access layer. Usage: python scripts/phrase_analysis.py --tag "procedural fairness" python scripts/phrase_analysis.py --tag "due process" --judge judge_slug Output: JSON with phrase counts and group denominators. Caveats describe wording patterns, not causes of outcomes.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\phrase_analysis.py --help
 ```
 
 ## `scripts/plan_self_citation_cleanup.py`

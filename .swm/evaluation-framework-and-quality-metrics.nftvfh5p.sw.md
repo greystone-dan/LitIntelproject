@@ -69,6 +69,12 @@ risks distinct from SQL/query and route integration gaps.
 5. **Research workflow:** task completion time, evidence traceability, false
 	positives, missed authorities, and researcher review burden.
 
+For stage-1 phrase association checks, follow
+[`docs/reports/language-analytics-evaluation-plan.md`](../docs/reports/language-analytics-evaluation-plan.md).
+It defines cohort/outcome verification, phrase-level document counts,
+denominators, score recomputation, cap bias checks, and the non-causal
+interpretation boundary; it is a plan, not a claim of corpus evaluation.
+
 ## Release Gates
 
 - No regression in focused exact-span tests.

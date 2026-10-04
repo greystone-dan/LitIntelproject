@@ -774,7 +774,8 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
 | `backend/analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines |
-| `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
+| `backend/language_analytics.py` | Bounded, read-only phrase document-frequency comparisons for one exact stored issue tag and allowed/dismissed outcomes |
+| `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `language_analytics.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
 | `backend/database.py` | Environment loading, SQLAlchemy engine/session, ORM models, database initialization |
 | `backend/models.py` | Pydantic request/response contracts |
 | `backend/ingestion.py` | Canonical ingest, deduplication, source precedence, source HTML sanitization, provenance writes |
@@ -1488,7 +1489,28 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /api/judge-profiles/{slug}/issues`: issue-first judge outcome counts and
   percentages plus a matching Federal Court baseline; requires an exact
   canonical slug and returns HTTP 404 (`detail.code=unknown_judge`) when absent.
+- `GET /api/language-analytics?tag=...&judge=...`: bounded top-25 phrase
+  associations in allowed (`government outcome=lost`) versus dismissed
+  (`government outcome=won`) decisions for one exact `cases.issues` tag. The
+  optional judge slug filters the cohort. It reports per-phrase group document
+  counts, outcome-group denominators, excluded unclassified/other decisions,
+  scanned count, and cap status. The fixed minimum frequency is five documents
+  in the phrase's associated outcome group.
+- `/language-analytics`: standalone research page for the endpoint. The
+  companion read-only CLI is `scripts/phrase_analysis.py --tag TAG [--judge
+  SLUG]`; it uses the existing local database access layer only when explicitly
+  run by an operator.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
+
+Language analytics scores are log2-smoothed outcome-group rate ratios; positive
+scores associate the phrase with allowed decisions and negative scores with
+dismissed decisions. Decision IDs define a stable scan order and the 10,000
+decision hard/default cap is applied in the database query before full text is
+materialized; `decisions_capped` discloses a truncated cohort. `mixed`, missing,
+and unrecognized outcomes are excluded and counted. These are associations in
+decision wording, not causes of outcomes or evidence of judicial bias. See the
+[language analytics evaluation plan](docs/reports/language-analytics-evaluation-plan.md)
+for the exact checks required before interpreting a result.
 
 The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
 `/api/judge-profiles` endpoints use a bounded, in-process TTL cache for

@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added stage-1 read-only language analytics for one exact stored issue tag:
+  `GET /api/language-analytics`, `/language-analytics`, and
+  `scripts/phrase_analysis.py`. The bounded analysis compares 2–4 word phrase
+  document frequencies in allowed and dismissed decisions, reports group
+  counts/denominators and excluded outcomes, and prominently describes wording
+  associations rather than causes. Fixture-only tests and an explicit
+  evaluation plan accompany the feature.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

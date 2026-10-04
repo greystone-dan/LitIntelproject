@@ -645,6 +645,171 @@ def _case_influence(case_ids: list[int], db: Session) -> dict[int, tuple[int, in
 	return {int(row.case_id): (int(row.cited_by or 0), int(row.appeal_cited_by or 0)) for row in rows}
 
 
+def fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
+	"""Read-only comparison of two exact canonical JudgeProfile slugs.
+
+	Returns status='unknown_judge' and unknown_slugs (route may map to HTTP 404),
+	or status='ok' with shared_issues/outcomes first, then judges a/b.
+	Every count/rate carries its denominator; counts are distinct source decisions,
+	not tag/citation occurrences. Rates exclude unclassified outcomes explicitly.
+	Issues use ONLY the stored Case.issues JSON list: whitespace/case normalized,
+	deduplicated per decision, with no inferred issues or metadata fallback. These
+	are recorded issue labels, not findings of dispositiveness. Shared issues need
+	at least five decisions for EACH judge, independently of outcome coverage.
+	Authorities group by resolved target Case ID, otherwise stored normalized
+	citation (citation_text fallback); resolved Case citation/title labels prevail.
+	No writes, judge ranking, bias or harshness inference. Caller order is retained.
+	"""
+	with db.no_autoflush:
+		return _fetch_judge_comparison(db, a.strip(), b.strip())
+
+
+def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
+	profiles = {
+		row.slug: row
+		for row in db.execute(
+			select(JudgeProfile.id, JudgeProfile.slug, JudgeProfile.display_name, JudgeProfile.primary_court)
+			.where(JudgeProfile.slug.in_([a, b]))
+		)
+	}
+	unknown = list(dict.fromkeys(slug for slug in (a, b) if slug not in profiles))
+	if unknown:
+		return {"status": "unknown_judge", "unknown_slugs": unknown}
+
+	def statistic(count: int, denominator: int) -> dict[str, int]:
+		return {"count": count, "denominator": denominator}
+
+	def outcomes(rows: list[Any]) -> dict[str, Any]:
+		counts = _judge_outcome_counts(rows)
+		total = len(rows)
+		classified = int(counts["classified"])
+		return {
+			"government_won": statistic(int(counts["government_wins"]), total),
+			"government_lost": statistic(int(counts["individual_wins"]), total),
+			"unclassified": statistic(int(counts["unclassified"]), total),
+			"classified": statistic(classified, total),
+			"government_win_rate": {
+				"percent": counts["government_win_rate"], "denominator": classified,
+			},
+		}
+
+	judges: dict[str, Any] = {}
+	issue_cases: dict[str, dict[str, list[Any]]] = {}
+	for side, slug in (("a", a), ("b", b)):
+		profile = profiles[slug]
+		linked_ids = select(CaseJudgeProfile.case_id).where(
+			CaseJudgeProfile.judge_profile_id == profile.id
+		)
+		rows = list(db.execute(
+			select(Case.id, Case.date, Case.issues, Case.metadata_json)
+			.where(Case.id.in_(linked_ids)).order_by(Case.id)
+		))
+		total = len(rows)
+		years: dict[str, int] = {}
+		issues: dict[str, list[Any]] = {}
+		for row in rows:
+			if row.date:
+				year = str(row.date)[:4]
+				years[year] = years.get(year, 0) + 1
+			labels = {
+				" ".join(label.split()).casefold()
+				for label in (row.issues if isinstance(row.issues, list) else [])
+				if isinstance(label, str) and label.strip()
+			}
+			for label in labels:
+				issues.setdefault(label, []).append(row)
+		issue_cases[side] = issues
+		tag_rows = db.execute(
+			select(CaseTag.category, CaseTag.value, func.count(func.distinct(CaseTag.case_id)).label("decisions"))
+			.where(CaseTag.case_id.in_(linked_ids))
+			.group_by(CaseTag.category, CaseTag.value)
+			.order_by(func.count(func.distinct(CaseTag.case_id)).desc(), CaseTag.category, CaseTag.value)
+			.limit(10)
+		)
+		tags = [
+			{"category": row.category, "value": row.value, "decisions": statistic(row.decisions, total)}
+			for row in tag_rows
+		]
+		authority_cases: dict[tuple[str, Any], set[int]] = {}
+		authority_labels: dict[tuple[str, Any], tuple[str, str | None]] = {}
+		for citation in db.execute(
+			select(Citation.source_case_id, Citation.target_case_id, Citation.normalized_citation,
+				Citation.citation_text, Case.citation.label("target_citation"), Case.title.label("target_title"))
+			.outerjoin(Case, Case.id == Citation.target_case_id)
+			.where(Citation.source_case_id.in_(linked_ids))
+			.order_by(Citation.id)
+		):
+			label = (citation.target_citation or citation.normalized_citation or citation.citation_text or "").strip()
+			if citation.target_case_id is not None:
+				key = ("case", citation.target_case_id)
+				label = citation.target_citation or citation.target_title or label or str(citation.target_case_id)
+			elif label:
+				label = " ".join(label.split())
+				key = ("citation", label.casefold())
+			else:
+				continue
+			authority_cases.setdefault(key, set()).add(citation.source_case_id)
+			authority_labels.setdefault(key, (label, citation.target_title))
+		authority_keys = sorted(authority_cases, key=lambda key: (
+			-len(authority_cases[key]), authority_labels[key][0].casefold(), str(key),
+		))[:10]
+		judges[side] = {
+			"profile": {"slug": slug, "display_name": profile.display_name, "primary_court": profile.primary_court},
+			"decisions": statistic(total, total),
+			"outcomes": outcomes(rows),
+			"yearly_decisions": [
+				{"year": year, "decisions": statistic(count, total)} for year, count in sorted(years.items())
+			],
+			"undated_decisions": statistic(total - sum(years.values()), total),
+			"top_tags": tags,
+			"top_authorities": [
+				{
+					"target_case_id": key[1] if key[0] == "case" else None,
+					"citation": authority_labels[key][0], "title": authority_labels[key][1],
+					"decisions": statistic(len(authority_cases[key]), total),
+				}
+				for key in authority_keys
+			],
+			"issues": [
+				{"issue": label, "decisions": statistic(len(cases), total)}
+				for label, cases in sorted(issues.items())
+			],
+			"decisions_with_issues": statistic(len({row.id for cases in issues.values() for row in cases}), total),
+		}
+	shared = [
+		{
+			"issue": label,
+			**{
+				side: {
+					"decisions": statistic(len(issue_cases[side][label]), judges[side]["decisions"]["count"]),
+					"outcomes": outcomes(issue_cases[side][label]),
+				}
+				for side in ("a", "b")
+			},
+		}
+		for label in sorted(issue_cases["a"].keys() & issue_cases["b"].keys())
+		if all(len(issue_cases[side][label]) >= 5 for side in ("a", "b"))
+	]
+	return {
+		"status": "ok",
+		"shared_issues": shared,
+		"outcomes": {side: judges[side]["outcomes"] for side in ("a", "b")},
+		"judges": judges,
+		"metadata": {
+			"issue_source": "cases.issues",
+			"issue_normalization": "whitespace collapsed and casefolded; distinct per decision; no fallback",
+			"shared_issue_minimum_decisions_per_judge": 5,
+			"count_unit": "distinct source decisions",
+			"count_denominator": "all linked decisions for that judge; issue outcomes use issue decisions",
+			"rate_denominator": "classified government outcomes only",
+			"outcome_source": "cases.metadata_json.reader_extracted.government outcome",
+			"tag_source": "case_tags; all stored taxonomy versions deduplicated by case/category/value",
+			"authority_source": "citations; resolved target Case ID or unresolved stored citation label",
+			"interpretation": "Stored research signals, not a complete judicial record or a ranking.",
+		},
+	}
+
+
 def fetch_judge_profile_by_slug(
 	db: Session,
 	slug: str,

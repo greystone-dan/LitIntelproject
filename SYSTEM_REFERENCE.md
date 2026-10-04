@@ -61,6 +61,20 @@ The embedded information and research views are:
 3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
+   The embedded comparison calls read-only `GET /judges/compare?a=<slug>&b=<slug>`.
+   Exact canonical slugs are required; unknown judges return HTTP 404 with
+   `detail.code=unknown_judge`. Shared recorded issues/outcomes lead, without
+   rankings or harshness inference. Overall outcomes and per-judge coverage
+   use two columns on wide screens and one on mobile, with comparison-scoped CSS.
+   Issues use only stored `Case.issues` string
+   lists (case/whitespace normalized, no metadata fallback); each shared issue
+   needs at least five distinct decisions for **each** judge. Counts for years,
+   issues, top-ten tags and authorities use all canonical linked decisions as
+   explicit denominators. Outcomes include unclassified decisions; issue
+   outcomes use the issue set, and API percentages use classified outcomes only.
+   Tag/citation occurrences are deduplicated per source decision. Authorities
+   use resolved target identity, otherwise the stored citation label. Comparison
+   is independent of profile Minister filters and does not imply corpus completeness.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 

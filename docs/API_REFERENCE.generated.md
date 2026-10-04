@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T11:00:04.022686+00:00
+Generated: 2026-10-04T11:03:38.712121+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 101 across 98 paths
+OpenAPI operations: 102 across 99 paths
 Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1151,6 +1151,23 @@ Summarizes active-taxonomy tagged decisions by year, outcome, and court, with re
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /judges/compare`
+
+Judge Comparison
+
+Compare stored research coverage, shared issues and outcomes; not a ranking.
+
+**Parameters**
+
+- `a` (query, required; string): Canonical judge slug
+- `b` (query, required; string): Canonical judge slug
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/analyze`

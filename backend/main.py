@@ -14,6 +14,7 @@ from starlette.staticfiles import StaticFiles
 from .audit import RequestAuditMiddleware
 from .database import init_db
 from .routes import router
+from .decision_timing_routes import router as decision_timing_router
 
 
 @asynccontextmanager
@@ -110,6 +111,7 @@ app.add_middleware(RequestAuditMiddleware)
 
 
 app.include_router(router)
+app.include_router(decision_timing_router)
 
 
 @app.get("/")

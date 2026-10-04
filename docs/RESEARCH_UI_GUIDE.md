@@ -575,6 +575,30 @@ charts are bounded aggregations of structured activity-case fields; they are
 not a procedural Sankey, a measure of procedural success, or proof of judgment
 capture.
 
+### Timing panels
+
+**FC Analytics** adds a compact hearing-to-judgment Timing panel using the same
+dashboard filters, including year/office/judge/counsel/outcome drill-in chips.
+It shows median, p25, p75 and valid paired-date `n` overall, by filing year, by
+stored challenge subject, and by challenge category. Subjects/categories are
+staged Activity classifications, not canonical case issues or V3 tags; groups
+overlap and cannot be summed. They do not include canonical judgment records.
+
+**Judge Profile** adds a separate Timing panel comparing the selected canonical
+judge's Federal Court decisions with the canonical Federal Court baseline,
+including the judge's own decisions. Both sample counts are shown. This panel
+is independent of Minister filters. It uses stored hearing-header dates and
+decision dates, never a docket correlation with staged activity.
+
+Statistics are withheld for **n < 10**, with counts still visible. Hidden year,
+subject and category group counts and timed memberships are disclosed without
+revealing their labels. Missing, malformed/ambiguous, and reversed dates are
+excluded and counted; same-day judgments are valid zero-day intervals. An
+empty cohort has no median. These are descriptive recorded-date distributions,
+**not predictions, judicial-speed rankings, or evidence of causation**.
+See [SYSTEM_REFERENCE.md](../SYSTEM_REFERENCE.md#descriptive-decision-timing)
+for exact fields, date parsing, cohort boundaries and quantile semantics.
+
 ### Legal Themes & Statutes
 
 The Legal Themes & Statutes tab calls `/analytics/themes` for defined themes

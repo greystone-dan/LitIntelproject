@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:53:24.873212+00:00
+Generated: 2026-10-04T14:40:08.081963+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 107 across 104 paths
+OpenAPI operations: 109 across 106 paths
 Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -221,6 +221,38 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/fc-activity/timing`
+
+Fc Activity Timing
+
+Recorded hearing-to-judgment days for filtered staged Activity files.
+
+Median/p25/p75 use linear interpolation and are null when n < 10.
+Tiny year/subject/category labels are omitted; hidden group and timed
+membership counts are disclosed. Missing, invalid/ambiguous and reversed
+endpoints are excluded and counted. Years are filing years. Issue/tag
+groups are stored challenge subjects/categories, not canonical issues or
+V3 tags. Descriptive coverage only, never predictions or rankings.
+
+**Parameters**
+
+- `city` (query, optional; string, default `""`)
+- `year_from` (query, optional; integer | null)
+- `year_to` (query, optional; integer | null)
+- `decision_body` (query, optional; string, default `""`)
+- `application_type` (query, optional; string, default `""`)
+- `representation` (query, optional; string, default `""`)
+- `language` (query, optional; string, default `""`)
+- `office` (query, optional; string, default `""`)
+- `resolution` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `counsel` (query, optional; string, default `""`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/judge-profiles/{slug}/issues`
 
 Judge Profile Issues
@@ -233,6 +265,28 @@ Judge Profile Issues
 
 - `200`: Successful Response; `application/json`: `object`
 - `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/timing`
+
+Judge Timing
+
+Canonical FC judge versus court hearing-to-judgment days, both n.
+
+Uses canonical profile links, stored reader hearing date and Case.date;
+never an Activity/docket join. Court baseline includes this judge.
+Statistics are null for n < 10; each cohort discloses date exclusions.
+Timing is independent of repeated profile Minister filters and describes
+recorded coverage, not judicial speed rankings or predictions.
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/legislation/cases`

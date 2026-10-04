@@ -118,6 +118,64 @@ The embedded information and research views are:
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
+### Descriptive decision timing
+
+The additive Timing panels in active **FC Analytics** and **Judge Profile**
+show recorded **hearing-to-judgment calendar days**, not predictions, rankings,
+or a complete judicial record. Aggregation lives in
+`backend/decision_timing.py`; `backend/decision_timing_routes.py` is mounted
+independently by `backend/main.py`. No schema or stored-data change is involved.
+
+`GET /api/fc-activity/timing` uses only staged
+`FCActivityClassification.classification_json.timeline.judicial_review_heard`
+and `.judicial_review_decided`, joined to `FCActivitySummary` by the explicit
+`source_case_id` foreign-key identity. Eligible records are classifications with
+a summary, matching the dashboard's city, inclusive filing-year range,
+decision body, application type, representation, language, office, resolution,
+leave-or-merits judge key, and counsel filters. Overall and year distributions
+count distinct staged files, **not canonical judgments**; years mean summary
+filing years. `by_issue` uses the stored
+`challenged_decision.decision_subject`; `by_tag` uses its string-list
+`challenge_categories`, whitespace/case-normalized and deduplicated per file.
+These are Activity challenge subjects/categories, **not** `Case.issues` or V3
+legal tags. Unknown/malformed labels are not grouped; overlapping groups must
+not be added. No docket, IMM, citation, or judge-name join to canonical cases is
+performed.
+
+`GET /api/judge-profiles/{slug}/timing` instead uses canonical
+`CaseJudgeProfile` links and **Federal Court** decisions (stored court
+`FC`, `Federal Court`, or `Federal Court of Canada`, case/whitespace normalized).
+The start is only `Case.metadata_json.reader_extracted["date of hearing"]`;
+the end is only `Case.date`. Both judge and court baseline count distinct
+`Case.id`; the baseline includes this judge. The endpoint is independent of
+profile Minister filters, explicitly disclosed in the UI/API. An unknown exact
+canonical slug returns 404 with `detail.code=unknown_judge`.
+
+Date provenance is intentionally conservative. `fc_ingest/document_scraper.py`
+normalizes hearing-header whitespace and valid YMD tokens
+(`YYYYMMDD`, `YYYY-MM-DD`, `YYYY/MM/DD`) to ISO, but retains other strings.
+The consumer additionally accepts a single explicit English/French named-month
+date with a four-digit year; ambiguous numeric day/month forms, ranges,
+timestamps, non-string JSON values, and impossible dates are invalid.
+`scripts/fc_activity_extractors.py:extract_hearings` selects the first recorded
+non-adjourned judicial-review hearing; `build_timeline` pairs it with a final
+review date only for a granted/dismissed review. The Activity classifier
+normalizes its observed date tokens to ISO before persistence. These stored
+extractions are research evidence, not independently audited official dates.
+There is **no** fallback to generic document dates, filing dates (which activity
+normalization can derive from document dates), latest activity, motion dates,
+summary duration integers, or a guessed canonical hearing.
+
+Median/p25/p75 use linear interpolation at `(n - 1) * p` over valid paired
+dates. Same-day judgments count as zero. Missing endpoints (including blank
+strings), invalid/ambiguous endpoints, and judgment-before-hearing chronology
+are mutually exclusive exclusions reported per cohort. Samples below **10**
+retain `n` but have null timing statistics; tiny grouped labels are omitted,
+with hidden group and timed membership counts disclosed. Both API and UI
+enforce this minimum. Empty coverage returns zero counts and null statistics;
+it never fabricates a zero-day median. Coverage remains selection-biased toward
+records with both dates; no completeness or causal inference is made.
+
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
 tagged decisions by year, outcome, and court, lists up to ten resolved case

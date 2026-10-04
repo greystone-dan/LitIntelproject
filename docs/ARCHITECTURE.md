@@ -159,6 +159,8 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
+| `backend/decision_timing.py` | Read-only, separate staged and canonical hearing-to-judgment cohorts and suppressed quantiles |
+| `backend/decision_timing_routes.py` | Additive Activity and canonical judge timing API router |
 | `backend/deidentify.py` | Reversible document de-identification |
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
@@ -184,6 +186,7 @@ test checks that these paths continue to exist.
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
+| `backend/pages/decision_timing.py` | Compact descriptive timing panels and explicit filter/profile selection hooks |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |
 | `backend/pages/explorer_snapshots.css` | Styles for Explorer snapshot views |

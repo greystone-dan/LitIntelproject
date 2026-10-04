@@ -744,7 +744,9 @@ review:
 Memo Citation Check also returns an additive `suggestions` object, including
 without a local session, while preserving its legacy treatment, related
 authorities, `missing_authorities`, and analysis counts. The page labels the new
-section **Suggestions, not legal advice**. The independent
+section **Suggestions, not legal advice**. A separate additive `gap_suggestions`
+object and page section are labelled **Suggestions for review, not legal advice**.
+The independent
 `backend/memo_authority_suggestions.py` uses deterministic V3 memo tags and exact
 normalized statute identities to select decisions sharing any signal. It ranks
 only resolved authorities actually cited by distinct decisions in that cohort,
@@ -762,6 +764,19 @@ candidates below five are counted as hidden. Cohort/edge caps and display
 truncation are explicit; results are descriptive, not treatment or legal advice.
 Definitions, offline validation and limitations are in
 [`docs/reports/memo-missing-authority.md`](docs/reports/memo-missing-authority.md).
+
+The separate `backend/memo_gap_check.py` tags the in-memory memo with the same V3
+tagger, ranks up to five tags by occurrence count, and compares uncited resolved
+authorities cited by decisions sharing those tags. Counts are distinct by source
+decision and authority, with an explicit denominator for each matched tag and
+for the checked cohort. For each tag, a possible-contrary lead is shown only when
+at least eight distinct citing decisions have a higher stored Minister-loss rate
+than the full checked tag cohort; both rates and denominators are shown, and
+unclassified outcomes remain visible and included in the denominators. This is a
+descriptive comparison, not a conclusion about an authority or a memo argument.
+The query caps are 500 tagged decisions and 10,000 distinct citation edges, with
+at most ten authorities per list; truncation is disclosed. The memo text is not
+persisted, logged, or sent to a network service.
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 

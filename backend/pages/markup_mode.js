@@ -10,12 +10,13 @@ const clip=(s,n)=>{s=String(s==null?'':s).replace(/\s+/g,' ').trim();return s.le
 const ROLE_LABELS={evidence_fact:'Evidence / fact',governing_rule:'Governing rule',reasoning_application:'Reasoning application',counterargument_limitation:'Counterargument',issue:'Issue',disposition:'Disposition',party_position:'Party position'};
 const roleLabel=r=>ROLE_LABELS[r]||String(r||'').replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
 const BAND_COLORS=['#a78bfa','#0f766e','#d97706','#2563eb','#db2777','#65a30d','#0891b2','#9333ea','#dc2626','#0d9488','#ca8a04','#4f46e5'];
-const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},mine:{label:'My note',color:'#7c3aed'}};
+const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},statute:{label:'Act / statute',color:'#8b5bb2'},mine:{label:'My note',color:'#7c3aed'}};
 const LAYER_DEFS=[
  {key:'cite',label:'Citations',states:['off','markers','open'],def:'markers'},
  {key:'unit',label:'Discussion units',states:['off','markers','open'],def:'markers'},
  {key:'outcome',label:'Outcome',states:['off','markers','open'],def:'open'},
  {key:'judge',label:'Judge',states:['off','markers','open'],def:'markers'},
+ {key:'statute',label:'Acts / statutes',states:['off','markers','open'],def:'markers'},
  {key:'tags',label:'Tags',states:['off','underline','tint','bubbles'],def:'underline'},
  {key:'citedby',label:'Cited by others',states:['off','gutter'],def:'gutter'},
  {key:'mine',label:'My notes',states:['off','markers','open'],def:'open'}
@@ -80,6 +81,23 @@ function foldRuns(visible){
   }
   return runs;
 }
+/* By-topic view: every sub-theme as a group of its own paragraphs (lead sentence, full text on request). */
+function leadSentence(text,max){
+  const t=String(text||'').replace(/^\s*\[\d+\]\s*/,'').replace(/\s+/g,' ').trim();
+  const m=/^(.{20,}?[.!?])(?=\s+[A-Z“"(\[]|$)/.exec(t);
+  const first=m?m[1]:t;
+  return first.length>max?first.slice(0,max-1).trimEnd()+'…':first;
+}
+function topicGroups(payload){
+  const rd=payload&&payload.readerData||{},item=Object.assign({},rd.case||{},payload&&payload.item||{}),blocks=rd.format_blocks||[],full=String(item.full_text||'');
+  const byNum=new Map();
+  for(const b of blocks)if(b&&b.type==='para'&&b.num!=null&&!byNum.has(b.num))byNum.set(b.num,b);
+  return subthemeRanges(payload).map(s=>{
+    const paras=[];
+    for(let n=s.first;n<=s.last;n++){const b=byNum.get(n);if(!b)continue;const text=full.slice(b.start,b.end).replace(/^\s*\[\d+\]\s*/,'').trim();if(text)paras.push({num:n,lead:leadSentence(text,220),text:text})}
+    return Object.assign({title:sectionHeading(blocks,full,s.first,true)||('Paragraphs ¶['+s.first+']–['+s.last+']'),paras:paras},s);
+  }).filter(g=>g.paras.length);
+}
 const PURPOSE_SHORT={disagreed:'Disagreed',distinguished:'Distinguished',followed:'Followed',quoted:'Quoted',compared:'Compared',see:'See',mentioned:'Mentioned'};
 /* "Cited by 3 cases · Followed 1, See 2" from a stored paragraph cited-by summary. */
 function citedByLine(s){
@@ -95,37 +113,110 @@ function peekFor(note){
     missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
     citedBy:c.inLibrary?citedByLine(c.citedBy):''};
 }
+/* "Canada (Citizenship and Immigration) v Vavilov" -> "Vavilov": the party that is not the Crown, for the short pill label. */
+const CROWN=/^(canada|the minister|minister|attorney general|ministre|procureur|her majesty|his majesty|the queen|the king|mci|mpsep|mcic)\b/i;
+function shortCaseName(title){
+  const t=String(title||'').replace(/\s+/g,' ').trim();if(!t)return '';
+  const parts=t.split(/\s+v\.?\s+|\s+c\.\s+/i).map(x=>x.replace(/\s*\(.*?\)\s*/g,' ').replace(/[,;].*$/,'').trim()).filter(Boolean);
+  if(!parts.length)return clip(t,18);
+  const pick=parts.find(x=>!CROWN.test(x)&&x.length>2)||parts.find(x=>x.length>2)||parts[0];
+  return clip(pick,20);
+}
+/* "Strachn 2012 FC 984": short party name plus neutral citation, for the margin pill. */
+const NEUTRAL=/\b\d{4}\s+[A-Z]{2,5}\s+\d+\b/;
+function citePill(row,title){
+  const text=String(row.target_title||row.citation_text||'');
+  const neutral=(NEUTRAL.exec(row.target_citation||'')||NEUTRAL.exec(row.citation_text||'')||NEUTRAL.exec(row.normalized_citation||'')||[''])[0];
+  const name=shortCaseName(text.split(/,\s*(?:\d{4}|\[)/)[0].replace(/\s+(at\s+)?para.*$/i,''));
+  if(name&&/\s(v\.?|c\.)\s/i.test(text))return (name+' '+neutral).trim();
+  return clip(row.target_citation||row.citation_text||title,26);
+}
+/* Which numbered paragraph a character offset falls in, from the formatter's blocks. */
+function paraAtOffset(blocks,offset){
+  let hit=null;
+  for(const b of blocks||[]){
+    if(!b||b.type!=='para'||b.num==null)continue;
+    if(Number(b.start)<=offset)hit=b.num;else break;
+  }
+  return hit;
+}
+/* Heading of the section a paragraph sits in ("Analysis"), from heading blocks and the decision text. */
+function sectionHeading(blocks,fullText,paraNum,nearest){
+  if(paraNum==null||!blocks||!fullText)return '';
+  let top=null,near=null;
+  for(const b of blocks){
+    if(!b)continue;
+    if(b.type==='para'&&b.num===paraNum)break;
+    if(b.type==='heading'){near=b;if(b.level==null||b.level<=1)top=b;}
+  }
+  const h=nearest?near:(top||near);if(!h)return '';
+  return String(fullText).slice(h.start,h.end).replace(/^[\s\dIVXLC.()A-Za-z]{0,6}?(?=\b[A-Z][a-z])/,m=>/^[IVXLC\d]+[.)]\s*$/.test(m.trim())?'':m).replace(/\s+/g,' ').trim();
+}
+/* Case-level facts for the header pills: outcome, judge, file number. */
+function headerInfo(payload){
+  const rd=payload&&payload.readerData||{},item=Object.assign({},rd.case||{},payload&&payload.item||{}),meta=rd.extracted_metadata||[];
+  const oc=metaValue(meta,'decision_outcome'),jm=metaValue(meta,'judge');
+  const file=String(item.docket_number||(metaValue(meta,'docket')||{}).value||(metaValue(meta,'imm_number')||{}).value||(metaValue(meta,'case_number')||{}).value||'').trim();
+  return {outcome:oc?String(oc.value).replace(/_/g,' ').replace(/^./,c=>c.toUpperCase()):'',judge:String(item.judge||(jm&&jm.value)||'').trim(),file:file};
+}
+/* Short Act names for the pill; anything else falls back to the stored document title. */
+const ACT_SHORT={'canada.irpa':'IRPA','canada.irpr':'IRPR'};
+function statuteNote(row){
+  const key=row.instrument_key||'';
+  const act=ACT_SHORT[key]||(key?String(key.split('.').pop()).toUpperCase():'');
+  if(!act&&!row.authority_document_title&&row.unresolved)return null;   /* "In the Order": not a real instrument */
+  const doc=row.authority_document_title||row.normalized_citation||row.citation_text||'Statute reference';
+  const pin=String(row.pinpoint||row.section_number||row.provision_section||'').trim();
+  const label=(act||clip(doc,18))+(pin?' s '+pin:'');
+  const text=String(row.provision_text||row.authority_section_text||'').trim();
+  const url=/^https:\/\//i.test(row.legislation_url||'')?row.legislation_url:(/^https:\/\//i.test(row.source_url||'')?row.source_url:'');
+  const status=row.unresolved?'Instrument or section not matched to stored legislation':(text?'Provision text as stored':'Provision text is not stored for this section');
+  return {id:'statute-'+row.id,type:'statute',anchor:{kind:'cite',id:row.id},pill:clip(label,28),title:label,meta:[doc,row.statute_version_label&&row.statute_version_label!=='Version unknown'?row.statute_version_label:''].filter(Boolean).join(' · '),body:text?'':status+'.',quote:text?clip(text,900):'',quoteLabel:text?'Provision text as stored':'',statute:{act:act,pinpoint:pin,url:url},foot:(url?[{label:'Open the Act',action:'open-url',arg:url}]:[])};
+}
 /* Notes the margin can show. anchor: {kind:'cite',id} | {kind:'para',num} | {kind:'top'}. */
 function buildNotes(payload){
   const rd=payload&&payload.readerData||{},item=Object.assign({},rd.case||{},payload&&payload.item||{});
   const chunks=rd.chunks||[],meta=rd.extracted_metadata||[],notes=[];
   /* judge */
-  const judge=String(item.judge||'').trim();
-  if(judge)notes.push({id:'judge',type:'judge',anchor:{kind:'top'},pill:'Judge · '+clip(judge,28),title:judge,meta:[item.court,item.date&&String(item.date).slice(0,10)].filter(Boolean).join(' · '),body:'Judge named on this decision.',foot:[]});
+  const judge=String(item.judge||(metaValue(meta,'judge')||{}).value||'').trim();
+  if(judge)notes.push({id:'judge',type:'judge',anchor:{kind:'top'},pill:'Judge · '+clip(judge,28),title:judge,meta:[item.court,item.citation,item.date&&String(item.date).slice(0,10)].filter(Boolean).join(' · '),body:'Judge named on this decision.',foot:[{label:'Open judge profile',action:'judge-profile',arg:judge}]});
   /* outcome: verified only when stored evidence maps to one formatter paragraph */
   const oc=metaValue(meta,'decision_outcome'),dp=metaValue(meta,'disposition_paragraph'),dn=metaValue(meta,'disposition_paragraph_number');
   if(oc){
     const verified=!!(dp&&dn);
     const label=String(oc.value).replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
-    notes.push({id:'outcome',type:'outcome',anchor:verified?{kind:'para',num:Number(dn.value)}:{kind:'top'},pill:'Outcome · '+clip(label,24)+(verified?'':' (unverified)'),title:label,meta:verified?'Verified against the decision text at ¶['+dn.value+']':'Stored outcome — evidence passage not verified',body:verified?'':'No verified disposition passage is stored for this decision, so this outcome is shown for reference only.',quote:verified?clip(dp.value,500):'',quoteLabel:verified?'Disposition passage as stored':'',foot:[],unverified:!verified});
+    notes.push({id:'outcome',type:'outcome',anchor:verified?{kind:'para',num:Number(dn.value)}:{kind:'top'},pill:'Outcome · '+clip(label,24)+(verified?'':' (unverified)'),title:label,meta:verified?'Verified against the decision text at ¶['+dn.value+']':'Stored outcome — evidence passage not verified',body:verified?'':'No verified disposition passage is stored for this decision, so this outcome is shown for reference only.',quote:verified?clip(dp.value,500):'',quoteLabel:verified?'Disposition passage as stored':'',foot:verified?[{label:'Show ¶['+dn.value+']',action:'goto-para',arg:dn.value}]:[],unverified:!verified});
+  }
+  /* statutes and regulations: one note per reference, with the provision text only when it is stored */
+  const sseen=new Set();
+  for(const row of rd.citations||[]){
+    if(!row||row.id==null||sseen.has(row.id)||!(row.citation_kind==='statute'||row.citation_kind==='instrument'))continue;
+    const sn=statuteNote(row);if(!sn)continue;
+    sseen.add(row.id);notes.push(sn);
   }
   /* citations: resolved or unresolved case citations that have a position in the text */
-  const seen=new Set();
+  const seen=new Set(),citedAt={};
+  for(const row of rd.citations||[]){
+    if(!row||!row.target_case_id||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
+    const pn=paraAtOffset(rd.format_blocks,Number(row.offset_start));if(pn==null)continue;
+    (citedAt[row.target_case_id]=citedAt[row.target_case_id]||[]).push({id:row.id,para:pn});
+  }
   for(const row of rd.citations||[]){
     if(!row||row.id==null||seen.has(row.id)||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
     if(!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name'))continue;
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,loc:paraAtOffset(rd.format_blocks,Number(row.offset_start)),alsoAt:(citedAt[row.target_case_id]||[]).filter(x=>x.id!==row.id).map(x=>x.para).filter((v,i,a)=>a.indexOf(v)===i),meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
   for(const u of units){
     const r=rangeParas(chunks,u.start_paragraph,u.end_paragraph);
     if(!r)continue;
+    const head=sectionHeading(rd.format_blocks,item.full_text,r.first);
     const subs=subthemeRanges({readerData:{chunks:chunks,evidence_summary:{units:[u]}}});
-    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit '+u.unit_index+' · ¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
+    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit · '+(head?clip(head,18)+' ':u.unit_index+' · ')+'¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+(head?': '+clip(head,40):'')+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
   }
   /* cited-by counts per paragraph come from the formatter's blocks; the batch job's stored rows add who and why */
   const stored=rd.paragraph_cited_by||null,storedBy={};
@@ -194,7 +285,7 @@ function exportPlan(notes,layers,blockOf){
   }
   return out;
 }
-const api={mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+const api={mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,paraAtOffset,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -202,7 +293,7 @@ window.__markupMode=api;
 /* ---------- browser behaviour ---------- */
 const $=id=>document.getElementById(id);
 const state={on:false,layers:defaultLayers(),overrides:{},notes:[],infoOpen:false,outlineOpen:false,layersOpen:false,findTerm:'',findHits:[],findAt:-1,
-  caseId:null,mine:[],editing:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[]};
+  caseId:null,mine:[],editing:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[],view:'reading',topicOpen:[],printing:false};
 const store={get(){try{return JSON.parse(localStorage.getItem('ilit.markup.layers')||'null')}catch(e){return null}},set(v){try{localStorage.setItem('ilit.markup.layers',JSON.stringify(v))}catch(e){}}};
 state.layers=sanitizeLayers(store.get());
 const MINE_KEY='ilit.markup.notes.v1';
@@ -223,8 +314,9 @@ function ensureStage(){
   if(!body||!source)return null;
   const bar=document.createElement('div');bar.id='markupBar';
   stage=document.createElement('div');stage.id='markupStage';
-  stage.innerHTML='<div id="markupOutline" hidden></div><div id="markupBands" aria-hidden="true"></div><div id="markupBodySlot"></div><div id="markupMargin"><svg id="markupConn" aria-hidden="true"></svg></div>';
-  source.insertBefore(bar,body);source.insertBefore(stage,body);
+  stage.innerHTML='<div id="markupOutline" hidden></div><div id="markupBands" aria-hidden="true"></div><div id="markupTopicView" hidden></div><div id="markupBodySlot"></div><div id="markupMargin"><svg id="markupConn" aria-hidden="true"></svg></div>';
+  const head=document.createElement('div');head.id='markupPrintHead';
+  source.insertBefore(bar,body);source.insertBefore(head,body);source.insertBefore(stage,body);
   $('markupBodySlot').appendChild(body);
   /* the reader adds things to paragraphs after first paint (similar-paragraph buttons, fonts); re-place the notes whenever the text's height changes */
   if(typeof ResizeObserver==='function'){bodyObserver=new ResizeObserver(()=>schedule());bodyObserver.observe(body)}
@@ -235,7 +327,7 @@ function removeStage(){
   const stage=$('markupStage');if(!stage)return;
   const body=$('decisionBody'),source=stage.parentElement;
   if(body)source.insertBefore(body,stage);
-  stage.remove();const bar=$('markupBar');if(bar)bar.remove();
+  stage.remove();for(const id of ['markupBar','markupPrintHead']){const e=$(id);if(e)e.remove()}
 }
 function setOn(on){
   if(on===state.on)return;
@@ -265,7 +357,7 @@ function afterRender(){
   p.classList.add('markup-on');
   ensureStage();
   const cid=(payload.item&&payload.item.id)||(payload.readerData&&payload.readerData.case&&payload.readerData.case.id)||null;
-  if(cid!==state.caseId){state.caseId=cid;state.pins=[];state.topicSel=[];state.foldOthers=false;state.unfolded=[];closeEditor()}
+  if(cid!==state.caseId){state.caseId=cid;state.pins=[];state.topicSel=[];state.foldOthers=false;state.unfolded=[];state.view='reading';state.topicOpen=[];closeEditor()}
   state.mine=mineStore.get(cid);
   state.notes=buildNotes(payload).concat(mineToNotes(state.mine));
   state.topics=topicIndex(payload,10);
@@ -284,24 +376,43 @@ function focusKey(el){
   if(el.dataset&&el.dataset.mkLayer)return {sel:`[data-mk-layer="${el.dataset.mkLayer}"][data-mk-state="${el.dataset.mkState}"]`};
   return null;
 }
+let groupsCache={key:null,list:[]};
+function topicGroupsCached(){
+  const p=readerState.payload,key=p&&p.readerData;
+  if(groupsCache.key!==key){groupsCache={key:key,list:p?topicGroups(p):[]}}
+  return groupsCache.list;
+}
+function renderTopicView(){
+  const stage=$('markupStage'),tv=$('markupTopicView');if(!stage||!tv)return;
+  const on=state.view==='topic'&&topicGroupsCached().length>0;
+  stage.classList.toggle('is-topic',on);tv.hidden=!on;
+  if(!on){tv.innerHTML='';return}
+  const open=new Set(state.topicOpen);
+  tv.innerHTML=`<div class="mk-tv-note"><b>By topic.</b> The automatic sub-themes of this decision, each with its own paragraphs, in reading order. The judgment's own wording is shown unchanged; only the order and grouping differ. Use the paragraph number to jump back to it in reading order.</div>`+
+    topicGroupsCached().map((g,i)=>{const isOpen=open.has(i),shown=g.paras;return `<section class="mk-tg" style="--c:${g.color}"><header><button type="button" class="mk-tg-t" data-mk-tg="${i}" aria-expanded="${isOpen}"><span class="mk-tg-c">${isOpen?'▾':'▸'}</span><b>${E(g.title)}</b></button><span class="mk-tg-r">¶[${g.first}]${g.last!==g.first?'–['+g.last+']':''} · ${g.paras.length} paragraph${g.paras.length===1?'':'s'} · ${isOpen?'showing full text':'showing lead sentences'}</span></header><div class="mk-tg-m">${E(g.terms.join(' · '))}</div><div class="mk-tg-roles">${g.roles.map(r=>`<em>${E(r)}</em>`).join('')}</div>${shown.map(p=>`<p class="mk-tp"><button type="button" class="mk-tn" data-mk-tgo="${p.num}" title="Show in reading order">[${p.num}]</button>${E(isOpen?p.text:p.lead)}</p>`).join('')}</section>`}).join('');
+}
 function renderBar(){
   const bar=$('markupBar');if(!bar)return;
   const keep=focusKey(document.activeElement);
   const L=state.layers;
-  const tagsN=tagCount();
+  const tagsN=tagCount(),groupsN=topicGroupsCached().length;
   const chips=LAYER_DEFS.filter(d=>d.key!=='tags').map(d=>{
     const n=countFor(d.key);
     if(!n)return '';
     return `<button type="button" class="mk-chip${L[d.key]==='off'?' is-off':''}" data-mk-chip="${d.key}" aria-pressed="${L[d.key]!=='off'}"><i style="background:${(TYPE[d.key]||{color:'#2d8a50'}).color}"></i>${E(d.label)} <b>${n}</b></button>`;
   }).join('')+(tagsN?`<button type="button" class="mk-chip${L.tags==='off'?' is-off':''}" data-mk-chip="tags" aria-pressed="${L.tags!=='off'}"><i style="background:#2d8a50"></i>Tags <b>${tagsN}</b></button>`:'');
-  const rows=LAYER_DEFS.map(d=>`<div class="mk-lr"><b>${E(d.label)}</b><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button" data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
+  const countOf=d=>d.key==='tags'?tagsN:countFor(d.key);
+  const live=LAYER_DEFS.filter(d=>countOf(d)>0),liveOn=live.filter(d=>L[d.key]!=='off').length;
+  const rows=LAYER_DEFS.map(d=>`<div class="mk-lr${countOf(d)?'':' is-empty'}"><b>${E(d.label)}</b><span class="mk-lc">${countOf(d)||'—'}</span><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button"${countOf(d)?'':' disabled'} data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
   const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
   bar.classList.toggle('is-open',!!state.barOpen);
-  bar.innerHTML=`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾</button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
-  `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="export" title="Word file of this case with the margin notes as comments">Export to Word</button><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
-  `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="reset">Reset layers</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
+  const hi=headerInfo(readerState.payload),hdr=[hi.outcome&&`<span class="mk-hp is-outcome">${E(hi.outcome)}</span>`,hi.judge&&`<span class="mk-hp">${E(clip(hi.judge.replace(/^The Honourable\s+(Mr\.?|Madam|Mrs\.?|Ms\.?)?\s*Justice\s+/i,'Justice '),40))}</span>`,hi.file&&`<span class="mk-hp">${E(hi.file)}</span>`].filter(Boolean).join('');
+  bar.innerHTML=(hdr?`<div class="mk-row mk-hdr">${hdr}</div>`:'')+`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾ <small>${liveOn} of ${live.length}</small></button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
+  `${groupsN?`<div class="mk-row mk-row2 mk-viewrow"><span class="mk-seg" role="group" aria-label="Reading order or by topic"><button type="button" data-mk-act="view-reading" aria-pressed="${state.view==='reading'}">Reading order</button><button type="button" data-mk-act="view-topic" aria-pressed="${state.view==='topic'}">By topic</button></span>${state.view==='topic'?`<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="topic-fold">Fold all</button><button type="button" class="mk-btn" data-mk-act="topic-unfold">Unfold all</button>`:''}</div>`:''}<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="export" title="Word file of this case with the margin notes as comments">Export to Word</button><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
+  `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="showall">Show all layers</button><button type="button" class="mk-btn" data-mk-act="reset">Reset</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
   if(keep){const f=bar.querySelector(keep.sel);if(f){f.focus({preventScroll:true});if(keep.s!=null){try{f.setSelectionRange(keep.s,keep.e)}catch(e){}}}}
   updateFindCount();
+  const lb=bar.querySelector('[data-mk-act="layers"]');if(lb)bar.style.setProperty('--mk-pop-top',(lb.offsetTop+lb.offsetHeight+6)+'px');
   const p=panel();if(p)p.style.setProperty('--mk-bar-h',bar.offsetHeight+'px');
 }
 const isShown=el=>!!el&&el.getClientRects().length>0;
@@ -320,7 +431,7 @@ function noteHTML(n,st){
   if(st==='markers'||(st==='off'))return `<button type="button" class="mk-pill" data-mk-note="${E(n.id)}" aria-expanded="false" title="${E(n.title)}"><i style="background:${t.color}"></i>${E(n.pill)}</button>`;
   const subs=n.subs&&n.subs.length?`<div class="mk-subs">${n.subs.map(s=>`<div class="mk-sub" style="--c:${s.color}"><b>¶[${s.first}]${s.last!==s.first?'–['+s.last+']':''}</b><span>${E(s.terms.join(' · '))}</span><div>${s.roles.map(r=>`<em>${E(r)}</em>`).join('')}</div></div>`).join('')}</div>`:'';
   const foot=(n.foot||[]).map(f=>`<button type="button" class="mk-link" data-mk-foot="${E(f.action)}" data-mk-arg="${E(f.arg)}">${E(f.label)}</button>`).join('');
-  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.quote?`<blockquote>${E(n.quote)}<small>${E(n.quoteLabel)}</small></blockquote>`:''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
+  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}${n.loc!=null?`<span class="mk-loc">¶[${E(n.loc)}]</span>`:''}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.alsoAt&&n.alsoAt.length?`<div class="mk-meta">also cited at ${n.alsoAt.map(x=>'¶['+E(x)+']').join(', ')}</div>`:''}${n.quote?`<blockquote>${E(n.quote)}<small>${E(n.quoteLabel)}</small></blockquote>`:''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
 }
 /* Fold view: topic emphasis and "show only selected" with fold bars for the hidden runs. */
 function clearFold(){
@@ -354,16 +465,20 @@ function render(){
   applyFold();
   applyMine();
   renderBar();
+  renderTopicView();
+  if(state.view==='topic'&&topicGroupsCached().length){const p0=panel();if(p0)p0.classList.toggle('markup-info-open',state.infoOpen);return}
   const body=$('decisionBody'),margin=$('markupMargin'),svg=$('markupConn');
   /* tag style changes line wrapping, so it must be applied before anything is measured */
   body.classList.remove('mk-tags-off','mk-tags-underline','mk-tags-tint','mk-tags-bubbles');
   body.classList.add('mk-tags-'+state.layers.tags);
-  const wanted=state.notes.filter(n=>{const st=noteState(n,state.layers,state.overrides);return n.type==='citedby'?st==='open':st!=='off'});
+  body.querySelectorAll('.mk-pn').forEach(e=>e.remove());
+  const stateOf=n=>{const st=noteState(n,state.layers,state.overrides);return state.printing&&n.type!=='citedby'&&st!=='off'?'open':st};
+  const wanted=state.notes.filter(n=>{const st=stateOf(n);return n.type==='citedby'?st==='open':st!=='off'});
   [...margin.querySelectorAll('.mk-note')].forEach(e=>e.remove());
   const frag=document.createDocumentFragment(),els=[];
   for(const n of wanted){
     const a=anchorEl(n);if(!a||!isShown(a))continue;
-    const st=noteState(n,state.layers,state.overrides);
+    const st=stateOf(n);
     const el=document.createElement('div');el.className='mk-note';el.dataset.id=n.id;el.innerHTML=noteHTML(n,st);
     frag.appendChild(el);els.push({n,el,a,st});
   }
@@ -380,6 +495,15 @@ function render(){
       g+=`<path d="M${bodyR.right-base.left-2} ${ay} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${o.st==='open'?1.4:1}" opacity="${o.st==='open'?.85:.4}"/>`;
     }
   }
+  if(state.printing){
+    /* numbered markers in the text and matching numbers on the margin comments, in reading order */
+    lay.forEach((l,i)=>{const o=els[l.index],n=i+1;o.el.dataset.n=n;
+      const sup=document.createElement('span');sup.className='mk-pn';sup.textContent=n;sup.style.setProperty('--c',TYPE[o.n.type].color);
+      if(o.n.anchor.kind==='cite')o.a.insertAdjacentElement('afterend',sup);else if(o.a.firstChild)o.a.insertBefore(sup,o.a.firstChild.nextSibling||null);});
+  }
+  const ph=$('markupPrintHead');
+  if(ph){const hi=headerInfo(readerState.payload),it=(readerState.payload&&readerState.payload.item)||{},on=LAYER_DEFS.filter(d=>state.layers[d.key]!=='off'&&(d.key==='tags'?tagCount():countFor(d.key))).map(d=>d.label);
+    ph.innerHTML=`<b>${E(it.title||'')}</b> · ${E([it.citation,it.court,hi.judge,it.date&&String(it.date).slice(0,10),hi.outcome].filter(Boolean).join(' · '))}<span>Annotated copy · layers: ${E(on.join(', ')||'none')}</span>`}
   stage.style.minHeight=Math.max(bottom+24,body.offsetHeight)+'px';
   svg.setAttribute('width',Math.max(margin.offsetWidth,1));svg.setAttribute('height',Math.max(bottom+24,body.offsetHeight));
   svg.style.left=0;svg.innerHTML=g;
@@ -595,6 +719,10 @@ document.addEventListener('click',ev=>{
   const ls=t.closest('[data-mk-layer]');if(ls){setLayer(ls.dataset.mkLayer,ls.dataset.mkState);return}
   const tp=t.closest('[data-mk-topic]');
   if(tp){const k=tp.dataset.mkTopic,i=state.topicSel.indexOf(k);if(i>=0)state.topicSel.splice(i,1);else state.topicSel.push(k);if(!state.topicSel.length)state.foldOthers=false;state.unfolded=[];render();return}
+  const tg=t.closest('[data-mk-tg]');
+  if(tg){const i=Number(tg.dataset.mkTg),at=state.topicOpen.indexOf(i);if(at>=0)state.topicOpen.splice(at,1);else state.topicOpen.push(i);render();return}
+  const tgo=t.closest('[data-mk-tgo]');
+  if(tgo){const n=tgo.dataset.mkTgo;state.view='reading';render();const e=$('decisionBody').querySelector(`.fmt-para[data-para="${n}"]`);if(e)goto(e);return}
   const ed=t.closest('[data-mk-ed]');
   if(ed){const k=ed.dataset.mkEd;if(k==='save')saveEditor(false);else if(k==='delete')saveEditor(true);else closeEditor();return}
   const num=t.closest('#decisionBody .fmt-para-num.mk-num');
@@ -606,6 +734,11 @@ document.addEventListener('click',ev=>{
     if(a==='layers'){state.layersOpen=!state.layersOpen;render()}
     else if(a==='expand'){for(const d of LAYER_DEFS)if(d.states.includes('open'))state.layers[d.key]='open';state.overrides={};persist();render()}
     else if(a==='collapse'){for(const d of LAYER_DEFS)if(d.states.includes('open'))state.layers[d.key]='markers';state.overrides={};persist();render()}
+    else if(a==='view-topic'){state.view='topic';render()}
+    else if(a==='view-reading'){state.view='reading';render()}
+    else if(a==='topic-fold'){state.topicOpen=[];render()}
+    else if(a==='topic-unfold'){state.topicOpen=topicGroupsCached().map((g,i)=>i);render()}
+    else if(a==='showall'){for(const d of LAYER_DEFS)if(state.layers[d.key]==='off')state.layers[d.key]=d.def;persist();render()}
     else if(a==='reset'){state.layers=defaultLayers();state.overrides={};persist();render()}
     else if(a==='info'){state.infoOpen=!state.infoOpen;render();if(state.infoOpen){const d=$('decisionTarget');if(d)d.scrollTop=0}}
     else if(a==='more'){state.barOpen=!state.barOpen;render()}
@@ -628,6 +761,9 @@ document.addEventListener('click',ev=>{
   if(foot){
     if(foot.dataset.mkFoot==='pin'){pinNote(foot.dataset.mkArg);return}
     if(foot.dataset.mkFoot==='mine-edit'){openEditor(foot.dataset.mkArg);return}
+    if(foot.dataset.mkFoot==='goto-para'){const e=$('decisionBody').querySelector(`.fmt-para[data-para="${foot.dataset.mkArg}"]`);if(e)goto(e);return}
+    if(foot.dataset.mkFoot==='judge-profile'){const tab=document.querySelector('[data-tab="judge-profile"]');if(tab){setOn(false);tab.click();const q=$('judgeProfileQuery');if(q){q.value=foot.dataset.mkArg||'';q.dispatchEvent(new Event('input',{bubbles:true}))}}return}
+    if(foot.dataset.mkFoot==='open-url'){if(/^https:\/\//i.test(foot.dataset.mkArg||''))window.open(foot.dataset.mkArg,'_blank','noopener,noreferrer');return}
     if(foot.dataset.mkFoot==='open-case'&&typeof openDecision==='function'){setOn(false);openDecision(Number(foot.dataset.mkArg))}return}
   const go=t.closest('[data-mk-goto]');if(go){goto($('decisionBody').querySelector(`[id="decision-source-${go.dataset.mkGoto}"]`));return}
   const gp=t.closest('[data-mk-para]');if(gp){goto($('decisionBody').querySelector(`.fmt-para[data-para="${gp.dataset.mkPara}"]`));return}
@@ -690,9 +826,10 @@ document.addEventListener('pointerdown',ev=>{
 });
 window.addEventListener('resize',schedule);
 /* Print hides the toolbar and re-flows the page, so lay the notes out again for the print layout and back. */
-window.addEventListener('beforeprint',()=>{if(state.on)render()});
-window.addEventListener('afterprint',()=>{if(state.on)render()});
-try{const mq=window.matchMedia('print');const onPrint=()=>{if(state.on)render()};mq.addEventListener?mq.addEventListener('change',onPrint):mq.addListener(onPrint)}catch(e){}
+const setPrinting=v=>{if(!state.on||state.printing===v)return;state.printing=v;render()};
+window.addEventListener('beforeprint',()=>setPrinting(true));
+window.addEventListener('afterprint',()=>setPrinting(false));
+try{const mq=window.matchMedia('print');const onPrint=()=>setPrinting(mq.matches);mq.addEventListener?mq.addEventListener('change',onPrint):mq.addListener(onPrint)}catch(e){}
 const prevSet=setReaderMode;
 setReaderMode=function(mode){prevSet(mode);if(state.on)afterRender();};
 const prevClose=closeDecisionReader;

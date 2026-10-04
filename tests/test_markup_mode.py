@@ -287,13 +287,13 @@ const off = m.exportPlan(notes, layers, blockOf);
 console.log(JSON.stringify({on, off, mine: m.commentFor(notes.find(n => n.type === 'mine'))}));
 """, payload)
     kinds = {c["label"].split(":")[0] for c in out["on"]}
-    assert {"Citation", "Discussion unit", "Outcome", "Judge", "Cited by others", "My note"} <= kinds
+    assert {"Citation", "Discussion unit", "Outcome", "Judge", "Cited by others", "My note", "Act / statute"} <= kinds
     cite = next(c for c in out["on"] if c["label"].startswith("Citation"))
     assert cite["quote"] == "2019 SCC 65 at para 7" and "Quoted text" in cite["text"]
     judge = next(c for c in out["on"] if c["label"].startswith("Judge"))
     assert judge["block"] is None  # case-level notes go on the header
     assert next(c for c in out["on"] if c["author"] == "My note")["block"] == 20
-    assert {c["label"].split(":")[0] for c in out["off"]} == {"Outcome", "Judge", "My note"}  # hidden layers are not exported
+    assert {c["label"].split(":")[0] for c in out["off"]} == {"Outcome", "Judge", "My note", "Act / statute"}  # hidden layers are not exported
     assert out["mine"]["text"] == "check this"  # no "private, saved in this browser" boilerplate in Word
 
 
@@ -304,3 +304,25 @@ def test_notes_and_export_are_wired_into_the_page():
     assert "ilit.markup.notes.v1" in js and "ResizeObserver" in js
     assert "#mkEditor" in CSS.read_text(encoding="utf-8")
     assert "markup-export" in html
+
+
+@needs_node
+def test_statute_notes_group_by_act_with_stored_text_only():
+    payload = _payload()
+    payload["readerData"]["citations"] += [
+        {"id": -1, "citation_kind": "statute", "citation_text": "section 110(4) of the Act", "instrument_key": "canada.irpa",
+         "pinpoint": "110(4)", "legislation_url": "https://laws-lois.justice.gc.ca/eng/acts/I-2.5/",
+         "provision_text": "Subsection (1) does not apply to a person referred to in 112(3)...", "unresolved": False,
+         "statute_version_label": "Version unknown"},
+        {"id": -2, "citation_kind": "statute", "citation_text": "s 96", "instrument_key": "canada.irpa", "pinpoint": "96",
+         "legislation_url": "javascript:alert(1)", "unresolved": False},
+        {"id": -3, "citation_kind": "statute", "citation_text": "In the Order", "instrument_key": None, "unresolved": True},
+    ]
+    notes = [n for n in _run(payload=payload)["notes"] if n["type"] == "statute"]
+    by_id = {n["id"]: n for n in notes}
+    assert "statute--3" not in by_id  # an unmatched "instrument" is not shown as an Act
+    full, bare = by_id["statute--1"], by_id["statute--2"]
+    assert full["pill"] == "IRPA s 110(4)" and full["quote"].startswith("Subsection (1)")
+    assert full["foot"] == [{"label": "Open the Act", "action": "open-url", "arg": "https://laws-lois.justice.gc.ca/eng/acts/I-2.5/"}]
+    assert bare["quote"] == "" and "not stored" in bare["body"] and bare["foot"] == []  # no invented text, no unsafe link
+    assert full["anchor"] == {"kind": "cite", "id": -1}

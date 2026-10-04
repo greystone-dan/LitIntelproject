@@ -27,7 +27,7 @@ def classify(name: str, text: str) -> tuple[str, str, str]:
 	}
 	if name in explicit:
 		return explicit[name]
-	if name.startswith("generate_"):
+	if name.startswith(("generate_", "inventory_")):
 		return "Documentation generation", "read-only", f".\\venv\\Scripts\\python.exe scripts\\{name}"
 	if name.startswith(("evaluate_", "audit_", "report_", "verify_", "extract_fc_citation_evidence", "cross_reference_", "map_", "build_", "quick_search_")):
 		return "Evaluation, audit, or build artifact", "usually read-only/filesystem output", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"

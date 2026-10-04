@@ -94,7 +94,6 @@ Active scripts documented: 151
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
-| `generate_ui_string_inventory.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_ui_string_inventory.py` |
 | `generate_work_history.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_work_history.py` |
 | `import_canlaw_staging.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_canlaw_staging.py --help` |
 | `import_fc_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_fc_decisions.py --help` |
@@ -108,6 +107,7 @@ Active scripts documented: 151
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
 | `inspect_context_variants.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help` |
 | `inspect_discussion_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help` |
+| `inventory_ui_strings.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\inventory_ui_strings.py` |
 | `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
@@ -1338,20 +1338,6 @@ Active scripts documented: 151
 .\venv\Scripts\python.exe scripts\generate_script_catalog.py
 ```
 
-## `scripts/generate_ui_string_inventory.py`
-
-**Purpose:** Generate a bounded inventory of literal UI text in application source.
-
-**Operational class:** Documentation generation
-
-**Write/network risk:** read-only
-
-**Safe first command**
-
-```powershell
-.\venv\Scripts\python.exe scripts\generate_ui_string_inventory.py
-```
-
 ## `scripts/generate_work_history.py`
 
 **Purpose:** Generate the project work-history ledger from an exported session snapshot.
@@ -1532,6 +1518,20 @@ Active scripts documented: 151
 
 ```powershell
 .\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help
+```
+
+## `scripts/inventory_ui_strings.py`
+
+**Purpose:** Generate a static inventory of literal UI text and route error messages.
+
+**Operational class:** Documentation generation
+
+**Write/network risk:** read-only
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\inventory_ui_strings.py
 ```
 
 ## `scripts/judge_reconciliation_report.py`

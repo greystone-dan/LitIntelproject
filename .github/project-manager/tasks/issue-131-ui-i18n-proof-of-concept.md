@@ -24,8 +24,8 @@ Smallest falsifiable check: `python -m pytest tests/test_ui_string_inventory.py 
 
 Acceptance criteria:
 
-- A reproducible inventory reports user-facing UI strings in both a readable report and JSON, with its source scope and limitations stated.
-- A single-page French proof of concept is available on About (or `/start` only if that route already exists), while English remains the default.
+- `scripts/inventory_ui_strings.py` generates `docs/reports/french-ui-inventory.md` and `docs/reports/ui-strings.json`.
+- A single-page French proof of concept is available on About (or `/start` only if that route already exists), while English remains the default and the page language is set correctly.
 - Focused tests cover inventory output and localization behavior without database access.
 - `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, and the Active Research UI Swimm walkthrough document the implemented behavior and its limits.
 - Focused validation, prescribed full tests, generated-document check, changed-file secret scan, and `parallel_validation` are reported accurately.
@@ -40,13 +40,13 @@ Docs/generated references: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `
 
 Rollback/recovery: Revert the bounded UI localization and inventory-tool changes together; no database or deployment state is involved.
 
-Evidence: The worktree was clean at task start. GitHub CLI could not retrieve issue #131 because this environment has no `GH_TOKEN`; scope is taken from the user's request. Managed worker `issue-131-ui-i18n` confirmed `/start` is absent, implemented the bounded inventory and About preview, added focused tests, and updated the canonical docs and Swimm map. Manager review corrected a documentation mismatch so the About architecture graph/pipeline and Site Architecture inventory are described according to the builder. Direct invocation of all five new test assertions passed; `python scripts/generate_ui_string_inventory.py --check`, Python compilation, JavaScript syntax checking, Chromium interaction, `git diff --check`, changed-link review, and the changed-file secret-pattern scan passed. Headless Chromium verified six About toggle assertions (French title/lang/pressed state and English restoration). `python -m pytest -q` and the focused pytest command could not run because pytest is absent. `python scripts/check_generated_docs.py` could not complete because FastAPI and SQLAlchemy are absent; after it identified the new script catalog entry as stale, `python scripts/generate_script_catalog.py` regenerated that output. The required standalone `parallel_validation` command/tool is not available; independent checks were executed through `multi_tool_use.parallel`. Canonical docs updated: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`; Swimm walkthrough updated: `.swm/6.maiixtsw.sw.md`.
+Evidence: `/start` is absent, so About is the proof-of-concept page. The requested script and report paths are implemented. The English page output was compared with the pre-change builder and matched byte-for-byte; the French response has `lang="fr"`. Focused tests passed (60 passed, 1 skipped). Generated reports and generated-doc validation passed. The full CI-equivalent pytest run completed with 1,272 passed, 3 failed, 1 skipped, 1 xfailed, and 3 deselected; the three failures need network downloads from Hugging Face and OpenAI tokenizer storage, which DNS could not resolve here. GitHub Actions previously showed `action_required` for the draft PR and zero jobs, with no failed job logs. Canonical docs updated: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`; Swimm walkthrough updated: `.swm/6.maiixtsw.sw.md`.
 
-Files changed: `.github/project-manager/tasks/issue-131-ui-i18n-proof-of-concept.md`, `backend/pages/about_content.html`, `scripts/generate_ui_string_inventory.py`, `tests/test_ui_string_inventory.py`, `docs/UI_STRING_INVENTORY.generated.md`, `docs/UI_STRING_INVENTORY.generated.json`, `docs/SCRIPT_CATALOG.generated.md`, `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `.swm/6.maiixtsw.sw.md`
-Delegated work: Managed worker `issue-131-ui-i18n` implemented the static inventory generator/report/JSON, About language preview, focused tests, and UI documentation. It reported a direct assertion runner with five passes, inventory staleness check, compilation, Node syntax, and whitespace check; its pytest attempt was blocked by missing pytest. Manager corrected the docs to reflect the actual About graph/pipeline placement.
-Focused validation: Passed direct invocation of all five tests in `tests/test_ui_string_inventory.py`; `python scripts/generate_ui_string_inventory.py --check`; `python -m py_compile scripts/generate_ui_string_inventory.py backend/pages/data_explorer.py`; `git diff --check`; and a headless Chromium check with six language-toggle assertions. `python -m pytest tests/test_ui_string_inventory.py tests/test_feature_tabs.py -q` and `python -m pytest -q` were attempted but blocked (`No module named pytest`). `python scripts/check_generated_docs.py` was attempted and blocked because FastAPI and SQLAlchemy are absent; `docs/SCRIPT_CATALOG.generated.md` was regenerated by `python scripts/generate_script_catalog.py`. Independent validation calls ran via `multi_tool_use.parallel`; no standalone `parallel_validation` tool/command was exposed.
-Residual risk: Full pytest suite, feature-tab pytest coverage, and API/schema generated-doc check remain unverified because dependencies are unavailable. Browser verification covered the About toggle only, not general responsive/accessibility behavior. The string inventory is static source coverage, not runtime-complete. French preview is intentionally limited to the About overview summary and section links, not the whole app. The exact issue body could not be fetched through GitHub CLI.
-Next bounded task: In an environment with pytest, FastAPI, SQLAlchemy, and browser tooling installed, run the prescribed full suite, generated-doc check, and About interaction smoke check before merge.
+Files changed: `.github/project-manager/tasks/issue-131-ui-i18n-proof-of-concept.md`, `.swm/6.maiixtsw.sw.md`, `SYSTEM_REFERENCE.md`, `backend/i18n.py`, `backend/pages/about_content.html`, `backend/pages/data_explorer.py`, `backend/routes.py`, `docs/API_REFERENCE.generated.md`, `docs/RESEARCH_UI_GUIDE.md`, `docs/SCRIPT_CATALOG.generated.md`, `docs/reports/french-ui-inventory.md`, `docs/reports/ui-strings.json`, `scripts/generate_script_catalog.py`, `scripts/inventory_ui_strings.py`, `tests/test_ui_string_inventory.py`.
+Delegated work: The initial delegated implementation was corrected to the requested script/report paths and a catalog-backed About proof of concept. English catalog strings reproduce the original About text; only the French query localizes the selected strings and document language.
+Focused validation: `python scripts/inventory_ui_strings.py --check`, `python scripts/check_generated_docs.py`, Python compilation, and `git diff --check` passed. Focused UI/localization tests passed (60 passed, 1 skipped). The script catalog was regenerated with `python scripts/generate_script_catalog.py`.
+Residual risk: Three unrelated full-suite tests could not access remote model/tokenizer resources due DNS/network failure. Inventory extraction is static and cannot guarantee runtime completeness. French preview is intentionally limited to the About title/lead/three links and requires fluent-speaker review; legal terms are not final. The GitHub Actions workflows did not execute because the PR was draft (`action_required`).
+Next bounded task: Re-run the three network-dependent tests and full suite from an environment with Hugging Face and OpenAI tokenizer-resource access before merge.
 
 ## Hypothesis
 
@@ -61,7 +61,7 @@ If the inventory and single-page language switch are implemented without changin
 ## Execution Checkpoints
 
 - Delegation: Managed worker `issue-131-ui-i18n` implemented inventory, About language preview, and focused tests; manager accepted the bounded slice and corrected a documentation placement error.
-- Implementation: Added deterministic static HTML/UI-attribute inventory generation, checked-in Markdown and JSON outputs, French/English About controls, and five focused assertion tests.
+- Implementation: Added deterministic static UI inventory generation, checked-in report/JSON outputs, a catalog-backed French About preview, and focused tests.
 - Documentation: Updated `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, and `.swm/6.maiixtsw.sw.md`; regenerated `docs/SCRIPT_CATALOG.generated.md`.
 - Recovery: No persistent data or long-running operation.
 
@@ -69,7 +69,7 @@ If the inventory and single-page language switch are implemented without changin
 
 | Date | Decision | Reason | Evidence |
 | --- | --- | --- | --- |
-| 2026-10-04 | Use About as the proof-of-concept page | No `/start` route exists; About is the requested fallback. Translations stay limited to the overview summary and section links | `backend/routes.py`; `backend/pages/data_explorer.py` |
+| 2026-10-04 | Use About as the proof-of-concept page | No `/start` route exists; About is the requested fallback. Translations stay limited to the title, lead, and three section links | `backend/routes.py`; `backend/pages/data_explorer.py` |
 | 2026-10-04 | Keep task blocked pending prescribed environment checks | Test runner and generated-doc dependencies are missing, preventing the requested broad checks | `python -m pytest -q`; `python scripts/check_generated_docs.py` |
 
 ## Completion
@@ -78,8 +78,8 @@ Completion recorded: no
 
 Summary: Implementation and required documentation are present; validation is blocked by missing test and generated-document dependencies.
 
-Validation: Five focused assertion functions and six browser toggle assertions passed; the UI inventory generator check passed. Full pytest and API/schema generated-document checks were attempted and blocked by missing dependencies.
+Validation: Inventory freshness, compilation, focused UI tests, and generated-document checks passed. The CI-equivalent full test run had three network-dependent failures.
 
-Residual risk: Browser interaction received a bounded check; broad pytest and API/schema generated-doc checks remain blocked; see Evidence.
+Residual risk: Three network-dependent full-suite failures remain; see Evidence.
 
-Next recommended task: Run the blocked acceptance checks in a correctly provisioned test environment.
+Next recommended task: Re-run the full suite where Hugging Face and tokenizer downloads are available.

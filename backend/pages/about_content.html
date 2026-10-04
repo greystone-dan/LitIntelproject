@@ -109,10 +109,6 @@
 .ilit-about summary{cursor:pointer;font-weight:600;font-size:14px}
 .ilit-about details p{margin:10px 0 0;font-size:13.5px}
 .ilit-about footer{margin-top:24px;font-size:12px;color:var(--muted);max-width:78ch}
-.ilit-about .language-proof{display:flex;align-items:center;gap:8px;margin:0 0 18px}
-.ilit-about .language-proof button{border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--text);padding:6px 10px;cursor:pointer}
-.ilit-about .language-proof button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);font-weight:600}
-.ilit-about .language-proof button:focus-visible{outline:3px solid rgba(23,108,104,.35);outline-offset:2px}
 
 @media (max-width:820px){
   .ilit-about .big{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -128,24 +124,18 @@
 <div class="ilit-about">
 <div class="wrap">
   <header class="top">
-    <div class="language-proof" role="group" aria-label="About page language proof of concept" data-about-language-controls>
-      <span data-about-i18n="language-label">Language preview:</span>
-      <button type="button" data-about-locale="en" aria-pressed="true">English</button>
-      <button type="button" data-about-locale="fr" aria-pressed="false">Français</button>
-      <span class="small muted" data-about-i18n="scope">French preview covers this overview and section links only; the remaining page is in English.</span>
-    </div>
-    <p class="eyebrow" data-about-i18n="eyebrow">Status overview · shared informally with the CBSA Hearings and Litigation Division · 28 Sept 2026</p>
-    <h1 data-about-i18n="title">iLit: where the project stands</h1>
-    <p class="lede" data-about-i18n="lede">iLit is a litigation intelligence tool for immigration law that I have been building independently. It reads every Federal Court immigration file and decision, connects them, and answers the questions a litigation analyst is asked every week, with the source behind every answer. This is where it is today, and where it could go next.</p>
+    <p class="eyebrow">Status overview · shared informally with the CBSA Hearings and Litigation Division · 28 Sept 2026</p>
+    <h1>{{about.title}}</h1>
+    <p class="lede">{{about.lede}}</p>
     <div class="big" role="list">
-      <div class="d" role="listitem"><b>316,940</b><span data-about-i18n="stat-files">Federal Court immigration files tracked step by step</span></div>
-      <div role="listitem"><b>≈61,000</b><span data-about-i18n="stat-decisions">decisions read paragraph by paragraph</span></div>
-      <div class="a" role="listitem"><b>1.44 M</b><span data-about-i18n="stat-citations">citations, each linked to what it cites</span></div>
-      <div role="listitem"><b>183,010</b><span data-about-i18n="stat-pinpoints">citations linked to the exact paragraph they point to</span></div>
+      <div class="d" role="listitem"><b>316,940</b><span>Federal Court immigration files tracked step by step</span></div>
+      <div role="listitem"><b>≈61,000</b><span>decisions read paragraph by paragraph</span></div>
+      <div class="a" role="listitem"><b>1.44 M</b><span>citations, each linked to what it cites</span></div>
+      <div role="listitem"><b>183,010</b><span>citations linked to the exact paragraph they point to</span></div>
     </div>
     <div class="ask"><p><strong>In short:</strong> this is not a request to adopt anything or start a pilot. The project runs on public data, outside government, and moves quickly because of it. The last section sets out an unofficial idea of what modest funding would speed up, in three sizes.</p></div>
     <nav class="jump" aria-label="Jump to">
-      <a href="#today" data-about-i18n="nav-today">CanLII vs iLit</a><a href="#how" data-about-i18n="nav-how">How it works</a><a href="#files" data-about-i18n="nav-files">Tracking files</a><a href="#cites" data-about-i18n="nav-cites">Smart citations</a><a href="#ai" data-about-i18n="nav-ai">AI on paragraphs</a><a href="#internal" data-about-i18n="nav-internal">Internal material</a><a href="#intake" data-about-i18n="nav-intake">New cases</a><a href="#analyst" data-about-i18n="nav-analyst">For the analyst</a><a href="#trust" data-about-i18n="nav-trust">Trust</a><a href="#state" data-about-i18n="nav-state">Where I am</a><a href="#foundation" data-about-i18n="nav-foundation">Foundation</a><a href="#independent" data-about-i18n="nav-independent">Why independent</a><a href="#value" data-about-i18n="nav-value">Costs compared</a><a href="#funding" data-about-i18n="nav-funding">Funding idea</a>
+      <a href="#today">{{about.nav_today}}</a><a href="#how">{{about.nav_how}}</a><a href="#files">{{about.nav_files}}</a><a href="#cites">Smart citations</a><a href="#ai">AI on paragraphs</a><a href="#internal">Internal material</a><a href="#intake">New cases</a><a href="#analyst">For the analyst</a><a href="#trust">Trust</a><a href="#state">Where I am</a><a href="#foundation">Foundation</a><a href="#independent">Why independent</a><a href="#value">Costs compared</a><a href="#funding">Funding idea</a>
     </nav>
   </header>
 
@@ -424,57 +414,3 @@
   <footer>Based on a code-level review of the iLit repository (github.com/greystone-dan/LitIntelproject) on 28 Sept 2026 and a September 2026 scan of competing tools. Figures come from the project’s own reports and samples and may differ from live counts. Funding figures are rough and unofficial.</footer>
 </div>
 </div>
-<script>
-(() => {
-  const strings = {
-    en: {
-      "language-label": "Language preview:",
-      scope: "French preview covers this overview and section links only; the remaining page is in English.",
-      eyebrow: "Status overview · shared informally with the CBSA Hearings and Litigation Division · 28 Sept 2026",
-      title: "iLit: where the project stands",
-      lede: "iLit is a litigation intelligence tool for immigration law that I have been building independently. It reads every Federal Court immigration file and decision, connects them, and answers the questions a litigation analyst is asked every week, with the source behind every answer. This is where it is today, and where it could go next.",
-      "stat-files": "Federal Court immigration files tracked step by step",
-      "stat-decisions": "decisions read paragraph by paragraph",
-      "stat-citations": "citations, each linked to what it cites",
-      "stat-pinpoints": "citations linked to the exact paragraph they point to",
-      "nav-today": "CanLII vs iLit", "nav-how": "How it works", "nav-files": "Tracking files",
-      "nav-cites": "Smart citations", "nav-ai": "AI on paragraphs", "nav-internal": "Internal material",
-      "nav-intake": "New cases", "nav-analyst": "For the analyst", "nav-trust": "Trust",
-      "nav-state": "Where I am", "nav-foundation": "Foundation", "nav-independent": "Why independent",
-      "nav-value": "Costs compared", "nav-funding": "Funding idea"
-    },
-    fr: {
-      "language-label": "Aperçu linguistique :",
-      scope: "L’aperçu français couvre uniquement cette présentation et les liens de section; le reste de la page demeure en anglais.",
-      eyebrow: "Aperçu de l’état du projet · communiqué de façon informelle à la Direction des audiences et du contentieux de l’ASFC · 28 sept. 2026",
-      title: "iLit : où en est le projet",
-      lede: "iLit est un outil de recherche en contentieux de l’immigration que je développe de façon indépendante. Il lit les dossiers d’immigration de la Cour fédérale et les décisions, les relie et répond aux questions que les analystes en contentieux posent chaque semaine, avec la source à l’appui de chaque réponse. Voici l’état actuel du projet et ses prochaines possibilités.",
-      "stat-files": "dossiers d’immigration de la Cour fédérale suivis étape par étape",
-      "stat-decisions": "décisions lues paragraphe par paragraphe",
-      "stat-citations": "citations, chacune reliée à la source citée",
-      "stat-pinpoints": "citations reliées au paragraphe exact visé",
-      "nav-today": "CanLII et iLit", "nav-how": "Fonctionnement", "nav-files": "Suivi des dossiers",
-      "nav-cites": "Citations enrichies", "nav-ai": "IA et paragraphes", "nav-internal": "Documents internes",
-      "nav-intake": "Nouvelles décisions", "nav-analyst": "Pour les analystes", "nav-trust": "Fiabilité",
-      "nav-state": "État du projet", "nav-foundation": "Fondements", "nav-independent": "Indépendance",
-      "nav-value": "Comparaison des coûts", "nav-funding": "Piste de financement"
-    }
-  };
-  const applyLanguage = (language) => {
-    document.querySelector(".ilit-about")?.setAttribute("lang", language);
-    document.querySelectorAll("[data-about-i18n]").forEach((element) => {
-      element.textContent = strings[language][element.dataset.aboutI18n];
-    });
-    document.querySelectorAll("[data-about-locale]").forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.dataset.aboutLocale === language));
-    });
-    document.querySelector("[data-about-language-controls]")?.setAttribute(
-      "aria-label",
-      language === "fr" ? "Aperçu linguistique de la page À propos" : "About page language proof of concept"
-    );
-  };
-  document.querySelectorAll("[data-about-locale]").forEach((button) => {
-    button.addEventListener("click", () => applyLanguage(button.dataset.aboutLocale));
-  });
-})();
-</script>

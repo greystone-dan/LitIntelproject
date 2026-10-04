@@ -1,10 +1,11 @@
 from pathlib import Path
 
+from ..i18n import render_about_fragment
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
 
 
-def data_explorer_page_html() -> str:
+def data_explorer_page_html(lang: str = "en") -> str:
   html = """<!doctype html>
 <html lang="en">
 <head>
@@ -1294,7 +1295,10 @@ qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',(
   about_end = html.index('<section id="searchPanel"', about_start)
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
+  about_fragment = render_about_fragment(about_fragment, lang)
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
+  if lang == "fr":
+    html = html.replace('<html lang="en">', '<html lang="fr">', 1)
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')

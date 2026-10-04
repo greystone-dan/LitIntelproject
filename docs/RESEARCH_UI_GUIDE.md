@@ -80,20 +80,21 @@ selection. Search and reader IDs and handlers remain unchanged.
 
 `/start` is not a registered route. `/about` remains a compatibility redirect
 to `/data-explorer?tab=about`. About has an English-default French
-internationalization proof of concept: the language buttons translate the
-overview summary and its section links only. The rest of About and every other
-page remain English. This is a manually authored demonstration, not machine
-translation or app-wide French support.
+internationalization proof of concept at `/data-explorer?tab=about&lang=fr`.
+The small `backend/i18n.py` catalog translates its title, summary, and three
+section links only; the rest of About and every other page remain English. A
+French-only header link returns to English. The displayed French draft requires
+review by a fluent speaker, and its legal terminology is not final.
 
-The reproducible [static UI string inventory](UI_STRING_INVENTORY.generated.md)
-and [JSON data](UI_STRING_INVENTORY.generated.json) are generated with
-`python scripts/generate_ui_string_inventory.py`; verify them with
-`python scripts/generate_ui_string_inventory.py --check`. The inventory
-captures literal HTML text and selected literal accessibility/form attributes
-from application page-source files. It does not claim runtime completeness:
-dynamically generated JavaScript text, API/data-derived labels, strings
-assembled from runtime values, and out-of-scope sources are excluded, and
-conditional or superseded source markup may still be listed.
+The reproducible [French UI string inventory](reports/french-ui-inventory.md)
+and [JSON data](reports/ui-strings.json) are generated with
+`python scripts/inventory_ui_strings.py`; verify them with
+`python scripts/inventory_ui_strings.py --check`. The inventory records
+literal markup text, selected accessibility/form attributes, JavaScript DOM
+text assignments, English catalog messages, and literal FastAPI error details
+with source lines and context kinds. Runtime-generated/API-derived text and messages assembled
+entirely from variables need manual review; see the report for scope,
+concatenation candidates, and the human-review glossary.
 
 The 2026-09-30 navigation checkpoint passed the 48 feature-tab tests, builder
 compilation, and live Playwright checks at 1440x1000 and 390x844. Browser checks
@@ -208,9 +209,10 @@ misleading or untraceable output.
 
 About is the project/status overview assembled from
 `backend/pages/about_content.html`. Its English-default French proof of concept
-translates the overview heading, lead, summary labels, and section links; the
-remaining About content stays English. The translations are hand-authored and
-do not signal machine translation or app-wide French support.
+at `?tab=about&lang=fr` translates the title, lead, and three section links in
+`backend/i18n.py`; the remaining About content stays English. French is
+machine-drafted and requires fluent-speaker review. The terminology is not final,
+and this does not signal app-wide French support.
 
 About also contains the interactive architecture graph and per-case pipeline
 graphic. The graph is organized around the actual system: official sources,

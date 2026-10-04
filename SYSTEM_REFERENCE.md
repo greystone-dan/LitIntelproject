@@ -79,7 +79,7 @@ Pass QA as work-in-progress/support surfaces. Group state controls secondary
 views; existing `?tab=` deep links and reader/search handlers remain supported.
 The embedded information and research views are:
 
-1. **About**: project/status overview, interactive architecture graph, and per-case pipeline graphic. Its English-default French proof of concept translates the overview summary and section links only; the rest of this page and the application remain English.
+1. **About**: project/status overview, interactive architecture graph, and per-case pipeline graphic. Its English-default French proof of concept is selected with `?lang=fr` and translates the overview title, summary, and section links only; the rest of About and the application remain English.
 2. **Case Search**: filtered research search with an inline decision reader.
 3. **Site Architecture**: live data-layer inventory, feature-to-table explanation, and former About data-model material.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
@@ -102,20 +102,20 @@ The embedded information and research views are:
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
 There is no registered `/start` route. `/about` is a compatibility redirect to
-`/data-explorer?tab=about`. The About page contains an English-default French
-proof of concept for its overview summary and section links; the rest of About
-and all other pages remain English. Its French text is a manually authored
-demonstration, not machine translation or an app-wide localization claim.
+`/data-explorer?tab=about`. The About proof of concept is available at
+`/data-explorer?tab=about&lang=fr`; it marks the document `lang="fr"` and links
+back to the English view. Its French catalog text is machine-drafted and requires
+review by a fluent speaker. This is not app-wide French support, and legal
+terminology is not final.
 
-The generated [static UI string inventory](docs/UI_STRING_INVENTORY.generated.md)
-and [JSON inventory](docs/UI_STRING_INVENTORY.generated.json) are reproduced
-with `python scripts/generate_ui_string_inventory.py` and checked with
-`python scripts/generate_ui_string_inventory.py --check`. They cover literal
-HTML text nodes and selected literal accessibility/form attributes in the
-declared backend page sources. They exclude dynamically generated JavaScript
-text, data/API-derived labels, strings assembled from runtime values, and other
-sources; source markup can include conditional or superseded text and is not a
-runtime-complete catalog.
+The generated [French UI string inventory](docs/reports/french-ui-inventory.md)
+and [JSON inventory](docs/reports/ui-strings.json) are written with
+`python scripts/inventory_ui_strings.py` and checked with
+`python scripts/inventory_ui_strings.py --check`. The reports include source
+lines, context kind, placeholder flags, page counts, concatenation candidates,
+and a terminology review glossary. Static extraction cannot capture all
+runtime-generated or API-derived text, so the report documents its scope and
+limitations rather than claiming runtime completeness.
 
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
@@ -9755,10 +9755,10 @@ misleading or untraceable output.
 ## About
 
 About is the project/status overview in `backend/pages/about_content.html`. Its
-English-default French proof of concept translates the overview summary,
-summary labels, and section links only; remaining About content and other pages
-stay English. Its manually authored translations do not claim machine
-translation or app-wide French support.
+English-default French proof of concept at `?tab=about&lang=fr` uses
+`backend/i18n.py` to translate the title, lead, and three section links only.
+Remaining About content and other pages stay English. French is machine-drafted
+and requires fluent-speaker review; legal terminology is not final.
 
 About also contains the interactive architecture graph and per-case pipeline
 graphic. The graph is organized around the actual system: official sources,

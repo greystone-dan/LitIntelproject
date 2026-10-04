@@ -284,9 +284,9 @@ from .models import (
 	SearchDigestResponse,
 )
 
-def _data_explorer_page_html() -> str:
+def _data_explorer_page_html(lang: str = "en") -> str:
 	"""Render the active Data Explorer page."""
-	return data_explorer_page_html()
+	return data_explorer_page_html(lang=lang)
 
 router = APIRouter(tags=["cases"])
 
@@ -1167,8 +1167,8 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
-def data_explorer_page() -> HTMLResponse:
-	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
+def data_explorer_page(lang: str = Query("en", max_length=2)) -> HTMLResponse:
+	return HTMLResponse(content=_data_explorer_page_html(lang), status_code=status.HTTP_200_OK)
 
 
 @router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)

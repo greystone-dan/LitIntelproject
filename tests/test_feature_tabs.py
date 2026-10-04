@@ -239,6 +239,30 @@ def test_reader_renders_backend_cited_paragraph_metadata():
     assert 'data-para="${b.num}"' in html
 
 
+def test_inline_reader_keyboard_navigation_and_print_contract():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerKeyboardHelpToggle"' in html
+    assert 'id="readerKeyboardHelp"' in html
+    assert '<kbd>j</kbd> / <kbd>n</kbd> Next paragraph' in html
+    assert '<kbd>k</kbd> / <kbd>p</kbd> Previous paragraph' in html
+    assert 'id="readerPrintCitation"' in html
+    assert '#decisionBody .fmt-para.is-reader-current' in html
+    assert '@media print' in html
+    assert '#decisionBody .fmt-para{break-inside:avoid!important;page-break-inside:avoid!important' in html
+    assert '#caseReaderPanel .reader-pane.target' in html
+    assert '#caseReaderPanel .reader-pane.linked' in html
+    controller = html.split('/* Inline reader keyboard navigation and print behavior. */', 1)[1]
+    controller = controller.split('</script>', 1)[0]
+    assert "key==='j'||key==='n'?1:key==='k'||key==='p'?-1:0" in controller
+    assert "readerTypingTarget(event.target)" in controller
+    assert "target.setAttribute('aria-current','location')" in controller
+    assert "target.classList.add('is-reader-current')" in controller
+    assert "readerState.formatted=true" in controller
+    assert "window.addEventListener('beforeprint'" in controller
+    assert "window.addEventListener('afterprint'" in controller
+
+
 def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
     node = shutil.which('node')
     if not node:

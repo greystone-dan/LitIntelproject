@@ -2,6 +2,7 @@ from pathlib import Path
 
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
+from .paragraph_citation_counts import inject_paragraph_citation_counts
 
 
 def data_explorer_page_html() -> str:
@@ -1429,4 +1430,4 @@ window.addEventListener('afterprint',()=>{
       reader_tab_selection + "button.setAttribute('aria-pressed',String(button.dataset.readerTab===activeTab));",
   )
   html = inject_fc_analytics(html)
-  return inject_tag_analytics(html)
+  return inject_paragraph_citation_counts(inject_tag_analytics(html))

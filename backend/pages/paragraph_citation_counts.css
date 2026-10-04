@@ -1,0 +1,14 @@
+.reader-paragraph-count-controls{padding:8px 12px;border-bottom:1px solid var(--border)}
+.reader-paragraph-count-controls p{margin:6px 0 0;font-size:12px;color:var(--muted)}
+.reader-paragraph-count-controls p:empty{display:none}
+#readerParagraphCountsToggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#decisionBody .fmt-para[data-citation-heat]:not(.is-reader-current){background:var(--citation-heat)!important;box-shadow:none!important;color:#202522!important}
+#decisionBody .fmt-para[data-citation-heat="0"]{--citation-heat:transparent}
+#decisionBody .fmt-para[data-citation-heat="1"]{--citation-heat:#fff9e8}
+#decisionBody .fmt-para[data-citation-heat="2"]{--citation-heat:#fff0cc}
+#decisionBody .fmt-para[data-citation-heat="3"]{--citation-heat:#ffe4a3}
+.reader-paragraph-count-label{display:block;grid-column:2;min-width:0;font:600 11px/1.5 sans-serif;color:#202522}
+@media print{
+  .reader-paragraph-count-controls,.reader-paragraph-count-label{display:none!important}
+  #caseReaderPanel #decisionBody .fmt-para{background:transparent!important;box-shadow:none!important}
+}

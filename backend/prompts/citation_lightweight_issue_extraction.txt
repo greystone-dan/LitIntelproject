@@ -1,0 +1,5 @@
+# prompt_version: v1
+
+For each legal paragraph, extract three pieces of information in plain language: (1) What is the legal ISSUE being addressed? (one phrase) (2) Which authorities (cases/statutes) are cited and how are they used? (one sentence max) (3) What is the conclusion about that issue? (one sentence) 
+Return JSON with: paragraph_index, issue, cited_authorities (brief description), conclusion, explanation (optional, brief), confidence (0.0-1.0). 
+Use paragraph text exactly as written. Return all paragraphs in order.

@@ -22,24 +22,41 @@ of that authority has been processed, so a partly finished run never shows a wro
 
 ## Run it on Daniel's PC
 
-Run it when the PC is plugged in and nobody needs the site (evening or overnight). The site can stay up;
-the job runs at lower priority, in small batches, with a pause between them.
+**Do not run it until the PC thread confirms the live site is healthy.** The first run once made the site
+unresponsive. The job now has safety rails that are on by default (see below), but run it only when the
+site is up, and watch the first few minutes.
 
 1. Deploy first (the migration must be applied: `alembic upgrade head`). The site works before and
    after; without the tables it simply shows the old counts.
 2. Preview, which writes nothing:
    `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py`
-3. Run for real, in a window of an hour at a time:
-   `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --apply --max-minutes 60`
-4. Run the same command again to carry on. It skips finished citing cases, so stopping (Ctrl+C or the time
-   limit) loses nothing.
+3. Run for real, in a window of 30 minutes at a time, watching the site:
+   `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --apply --max-minutes 30 --health-url http://127.0.0.1:8001/health/ready`
+4. Run the same command again to carry on. It skips finished citing cases, so stopping (Ctrl+C, the stop file or
+   the time limit) loses nothing.
 5. Check one case: `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --report-cited <case id>`
 
-Useful flags: `--batch-size 25`, `--sleep 0.5` (seconds between batches; raise it to be gentler),
-`--limit N` (stop after N citing cases), `--case-ids 12 34` (just these), `--statement-timeout-ms 60000`.
-A citing case that errors is skipped and reported; it stays pending and is retried on the next run.
+**Stop it at any moment:** create an empty file named `stop_cited_by.txt` in the folder it was started from
+(or press Ctrl+C). It finishes the small batch it is on and exits.
 
-On Windows, to lower the priority further, start it with `start /low` from a normal Command Prompt.
+### Safety rails (all on by default)
+
+- Lowest process priority at start (Windows background mode, else idle, else below-normal; `nice 19` elsewhere).
+- At most one database connection, ever.
+- Server-side limits set for the whole connection: 15 s per statement, 2 s waiting for a lock, 30 s idle in a
+  transaction. A slow or locked query is skipped (the case stays pending) and the job rests longer.
+- One short transaction per batch of 5 citing cases, committed at once, nothing held between batches.
+- It rests after every batch for at least 4 times as long as the batch took (works at most 20% of the time),
+  and never less than 2 s.
+- With `--health-url` it times the site before each batch; if the answer takes over 1.5 s, or fails, it waits
+  (10 s, doubling up to 2 min) and asks again, and stops after 12 waits in a row.
+- It does not scan the whole citations table at start; `--count` asks for the full total (slow).
+- It stops after 5 database errors in a row.
+
+Useful flags: `--batch-size`, `--sleep-between-batches` (raise to be gentler), `--sleep-between-cases`,
+`--max-duty`, `--max-minutes`, `--max-cpu-seconds`, `--limit N`, `--case-ids 12 34`, `--statement-timeout-ms`,
+`--lock-timeout-ms`, `--health-slow-seconds`, `--health-max-waits`, `--stop-file`, `--max-db-errors`.
+A citing case that errors is skipped and reported; it stays pending and is retried on the next run.
 
 ## Changing the rules later
 

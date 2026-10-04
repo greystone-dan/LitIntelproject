@@ -91,12 +91,12 @@ def load_dataset(path: Path, mode: str) -> dict[str, Any]:
                 )
             if not isinstance(item.get("source_text"), str):
                 raise ValueError(f"JSON-task item {item['id']} requires source_text")
-            spans = item.get("reference_spans", [])
-            if not isinstance(spans, list):
+            spans = item.get("reference_spans")
+            if "reference_spans" in item and not isinstance(spans, list):
                 raise ValueError(
                     f"JSON-task item {item['id']} reference_spans must be an array"
                 )
-            for span in spans:
+            for span in spans or []:
                 if not _span_matches_source(span, item["source_text"]):
                     raise ValueError(
                         f"JSON-task item {item['id']} has an invalid reference span"
@@ -328,23 +328,29 @@ def evaluate_json_task(
             == _canonical_label(reference_labels[field])
             for field in fields
         ) / len(fields)
-        references = item.get("reference_spans", [])
-        spans_are_exact = valid and all(
-            _span_matches_source(span, item["source_text"]) for span in predicted_spans
-        )
-        exact_span_validity = spans_are_exact and {
-            _span_key(span) for span in predicted_spans
-        } == {_span_key(span) for span in references}
+        references = item.get("reference_spans")
+        exact_span_validity = None
+        if references is not None or "reference_spans" in item:
+            spans_are_exact = valid and all(
+                _span_matches_source(span, item["source_text"])
+                for span in predicted_spans
+            )
+            exact_span_validity = float(
+                spans_are_exact
+                and {_span_key(span) for span in predicted_spans}
+                == {_span_key(span) for span in references}
+            )
         rows.append(
             {
                 "id": item["id"],
                 "output": {"raw": raw, "parsed": parsed},
                 "reference_labels": reference_labels,
                 "predicted_labels": predicted_labels,
+                "reference_spans": references,
                 "metrics": {
                     "json_valid": float(valid),
                     "field_agreement": field_agreement,
-                    "exact_span_validity": float(exact_span_validity),
+                    "exact_span_validity": exact_span_validity,
                 },
                 "timing_ms": (time.perf_counter() - item_started) * 1000,
                 "token_counts": {"input": input_tokens, "output": output_tokens},
@@ -352,8 +358,16 @@ def evaluate_json_task(
         )
     metrics = {
         name: mean(row["metrics"][name] for row in rows)
-        for name in ("json_valid", "field_agreement", "exact_span_validity")
+        for name in ("json_valid", "field_agreement")
     }
+    annotated_span_scores = [
+        row["metrics"]["exact_span_validity"]
+        for row in rows
+        if row["metrics"]["exact_span_validity"] is not None
+    ]
+    metrics["exact_span_validity"] = (
+        mean(annotated_span_scores) if annotated_span_scores else None
+    )
     metrics["cohen_kappa"] = cohen_kappa(rows)
     return {
         "schema_version": "1.0",

@@ -213,6 +213,21 @@ def test_json_task_rejects_span_with_wrong_source_offsets():
     assert result["metrics"]["exact_span_validity"] == 0.0
 
 
+def test_unannotated_spans_are_excluded_from_exact_span_score():
+    dataset = eval_models.load_dataset(FIXTURES / "json_task.json", "json_task")
+    dataset["items"][1].pop("reference_spans")
+
+    result = eval_models.evaluate_json_task(dataset, FakeChat(), "partly-annotated")
+    for item in dataset["items"]:
+        item.pop("reference_spans", None)
+    no_span_labels = eval_models.evaluate_json_task(dataset, FakeChat(), "unannotated")
+
+    assert result["metrics"]["exact_span_validity"] == 1.0
+    assert result["items"][0]["metrics"]["exact_span_validity"] == 1.0
+    assert result["items"][1]["metrics"]["exact_span_validity"] is None
+    assert no_span_labels["metrics"]["exact_span_validity"] is None
+
+
 def test_paired_bootstrap_is_seeded_and_pairs_by_item_id():
     baseline = {
         "mode": "retrieval",
@@ -242,6 +257,43 @@ def test_paired_bootstrap_is_seeded_and_pairs_by_item_id():
     assert first == second
     assert first["difference"]["estimate"] == 0.5
     assert first["difference"]["confidence_interval"][0] >= 0.0
+
+
+def test_exact_span_comparison_bootstraps_only_annotated_pairs():
+    baseline = {
+        "mode": "json_task",
+        "dataset": {"name": "d", "version": "1", "item_count": 2},
+        "parameters": {"max_tokens": 512},
+        "items": [
+            {
+                "id": "unannotated",
+                "reference_labels": {"label": "x"},
+                "reference_spans": None,
+                "metrics": {"exact_span_validity": None},
+            },
+            {
+                "id": "annotated",
+                "reference_labels": {"label": "y"},
+                "reference_spans": [],
+                "metrics": {"exact_span_validity": 0.0},
+            },
+        ],
+    }
+    candidate = {
+        **baseline,
+        "items": [
+            {**baseline["items"][0]},
+            {**baseline["items"][1], "metrics": {"exact_span_validity": 1.0}},
+        ],
+    }
+
+    result = compare_eval_runs.compare_runs(
+        baseline, candidate, "exact_span_validity", samples=20
+    )
+
+    assert result["item_count"] == 2
+    assert result["metric_item_count"] == 1
+    assert result["difference"]["estimate"] == 1.0
 
 
 def test_comparison_cli_writes_result_file(tmp_path):

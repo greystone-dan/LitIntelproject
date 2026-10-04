@@ -13,7 +13,9 @@ and reports JSON validity, field agreement, Cohen's kappa, and exact-span
 validity. Exact-span validity is one only when the predicted span set exactly
 matches the labeled spans and every offset selects the stated substring of
 `source_text`. Offsets are zero-based Python character offsets with an
-exclusive end.
+exclusive end. Span annotations may be omitted; those items are unavailable
+for the exact-span metric. An explicit empty `reference_spans` array is a
+labeled negative example and is included.
 
 ## Run
 
@@ -103,12 +105,14 @@ Each evaluation JSON result contains:
 | `mode`, `dataset`, `model`, `parameters` | Evaluation mode, frozen dataset identity, provider/model and prompt version, run settings |
 | `created_at`, `timing_ms` | UTC creation time and elapsed wall-clock milliseconds |
 | `metrics` | Macro-average metrics; Cohen's kappa is computed over all labeled fields |
-| `items` | Item ID, model output, per-item metrics, elapsed time, and token counts |
+| `items` | Item ID, model output, available per-item metrics, elapsed time, and token counts |
 
 JSON-generation token counts come from the provider response. The current local
 embedding interface exposes no token usage, so retrieval token counts are
-`null`. Per-item JSON results retain reference and predicted labels so the
-comparison tool can recompute kappa for each paired bootstrap sample. Treat
+`null`. Per-item JSON results retain reference labels and span-annotation presence so
+the comparison tool can recompute kappa and filter exact-span comparisons for
+each paired bootstrap sample. `metric_item_count` reports the number of paired
+items included for the selected metric. Treat
 result files as evaluation artifacts because they include model outputs and
 reference labels.
 

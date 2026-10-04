@@ -30,6 +30,8 @@ evaluation examples, never user data.
 Retrieval reports Recall@k, MRR, and nDCG@10. JSON tasks report validity, field
 agreement, Cohen's kappa, and exact-span validity. The latter requires exact
 agreement with the labeled span set and verifies each character offset against
-the original source text. Bootstrap intervals quantify uncertainty on the
-paired sample; they do not establish corpus-wide quality or justify a model
-change without representative data and operational review.
+the original source text. Items without span annotations are omitted from that
+metric; a labeled empty span list remains evaluable. Bootstrap intervals
+quantify uncertainty on the paired sample; they do not establish corpus-wide
+quality or justify a model change without representative data and operational
+review.

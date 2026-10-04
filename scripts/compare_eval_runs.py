@@ -101,6 +101,21 @@ def compare_runs(
         for left, right in zip(paired_baseline, paired_candidate)
     ):
         raise ValueError("Evaluation runs must use the same reference labels")
+    if mode == "json_task" and any(
+        left.get("reference_spans") != right.get("reference_spans")
+        for left, right in zip(paired_baseline, paired_candidate)
+    ):
+        raise ValueError("Evaluation runs must use the same span annotations")
+    if metric == "exact_span_validity":
+        paired = [
+            (left, right)
+            for left, right in zip(paired_baseline, paired_candidate)
+            if left["metrics"].get(metric) is not None
+            and right["metrics"].get(metric) is not None
+        ]
+        if not paired:
+            raise ValueError("No paired items have exact-span reference annotations")
+        paired_baseline, paired_candidate = map(list, zip(*paired))
     if samples <= 0 or not 0 < confidence < 1:
         raise ValueError(
             "samples must be positive and confidence must be between 0 and 1"
@@ -110,8 +125,9 @@ def compare_runs(
     point_delta = candidate_score - baseline_score
     rng = random.Random(seed)
     deltas = []
+    metric_item_count = len(paired_baseline)
     for _ in range(samples):
-        indices = [rng.randrange(len(ids)) for _ in ids]
+        indices = [rng.randrange(metric_item_count) for _ in range(metric_item_count)]
         deltas.append(
             _score([paired_candidate[index] for index in indices], mode, metric)
             - _score([paired_baseline[index] for index in indices], mode, metric)
@@ -125,6 +141,7 @@ def compare_runs(
         "baseline_model": baseline.get("model"),
         "candidate_model": candidate.get("model"),
         "item_count": len(ids),
+        "metric_item_count": metric_item_count,
         "difference": {
             "direction": "candidate_minus_baseline",
             "estimate": point_delta,

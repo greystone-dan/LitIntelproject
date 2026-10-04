@@ -123,17 +123,22 @@ tag-focused brief, backed by `GET /issue-brief?tag=category:value`. The matching
 `GET /issue-brief.docx?tag=category:value` download uses the same issue-brief
 data and tag bound. Its Word document carries the page's displayed summaries,
 semantic notes, and up to 12 linked decisions and ten linked authorities, with a
-footer beginning `Generated from iLit data on` followed by the UTC date. Both
-page and DOCX accept an empty tag and show the empty-tag guidance. The brief
-summarizes tagged decisions by year, outcome, and court, lists up to ten resolved
-case authorities, and links up to 12 tagged decisions and each authority to the
-case reader; the JSON response retains the complete decision list. Outcomes come
-from `reader_extracted` decision metadata; each outcome percentage uses all
-decisions in that year, including unclassified records, and is accompanied by
-the unclassified count and denominator. Authority counts are stored citation
-occurrences with a resolved case target from tagged decisions; distinct citing
-decisions are counted separately, and statute references and unresolved
-citations are excluded.
+footer `Generated from iLit data on <UTC date>; descriptive statistics, see
+denominators`. Both page and DOCX accept an empty tag and show the empty-tag
+guidance. The brief summarizes tagged decisions by year, outcome, and court,
+lists up to ten resolved case authorities, and links up to 12 tagged decisions
+and each authority to the case reader; the JSON response retains the complete
+decision list. Decision outcomes come from `reader_extracted` decision metadata;
+each outcome percentage uses all decisions in that year, including unclassified
+records, and is accompanied by the unclassified count and denominator. Minister
+win means `reader_extracted` government outcome `won`; the yearly rate is wins
+divided by classified government outcomes (`won`, `lost`, or `mixed`). Each
+year reports total `n`, classified `n`, and unclassified count so missing or
+unrecognized outcomes are visible and are not counted as losses. These yearly
+statistics are descriptive, not generated prose. Authority counts are stored
+citation occurrences with a resolved case target from tagged decisions;
+distinct citing decisions are counted separately, and statute references and
+unresolved citations are excluded.
 
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
@@ -341,6 +346,11 @@ evidence spans, latency/error monitoring, and browser coverage.
 Case Search supports query, title, court, jurisdiction, dates, source details, citation variants, party/minister presets, cited authority, legal tags, language, processing status, cited/citing data, decision outcome, government outcome, judge, and full-text opt-in matching. Court abbreviations `FC`, `FCA`, and `SCC` expand to canonical court names for filtering.
 
 `GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, beside Download CSV in the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable.
+
+Both `/search/export.docx` and `/issue-brief.docx` use shared document bootstrap
+and byte-serialization helpers from `backend/docx_export.py`; the issue brief
+also uses its shared hyperlink helper for source-linked case authorities and
+decisions.
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
 
@@ -754,6 +764,9 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
 | `backend/analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines |
+| `backend/issue_brief_analytics.py` | Additive issue-brief Minister-win rates by year with classified and unclassified denominators |
+| `backend/issue_brief_docx.py` | Source-linked DOCX rendering for the legal issue brief |
+| `backend/docx_export.py` | Shared DOCX bootstrap, hyperlink, and serialization helpers used by both exports |
 | `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
 | `backend/database.py` | Environment loading, SQLAlchemy engine/session, ORM models, database initialization |
 | `backend/models.py` | Pydantic request/response contracts |

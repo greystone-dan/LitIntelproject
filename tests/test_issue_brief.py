@@ -49,7 +49,12 @@ def issue_brief_client():
             court="Federal Court",
             date=date(2024, 2, 1),
             citation="2024 FC 2",
-            metadata_json={"reader_extracted": {"decision outcome": "allowed"}},
+            metadata_json={
+                "reader_extracted": {
+                    "decision outcome": "allowed",
+                    "government outcome": "won",
+                }
+            },
         ),
         Case(
             id=3,
@@ -65,7 +70,12 @@ def issue_brief_client():
             court="Federal Court",
             date=date(2025, 3, 1),
             citation="2025 FC 4",
-            metadata_json={"reader_extracted": {"decision outcome": "dismissed"}},
+            metadata_json={
+                "reader_extracted": {
+                    "decision outcome": "dismissed",
+                    "government outcome": "lost",
+                }
+            },
         ),
     ]
     session.add_all(cases)
@@ -123,6 +133,20 @@ def test_issue_brief_json_contract(issue_brief_client):
     assert outcomes_2024 == {"allowed": 50.0, "unclassified": 50.0}
     assert brief["years"][1]["outcome_splits"][0]["percentage"] == 100.0
     assert brief["years"][0]["unclassified_count"] == 1
+    assert brief["years"][0]["minister_win_rate"] == {
+        "minister_wins": 1,
+        "rate": 100.0,
+        "n": 2,
+        "classified_n": 1,
+        "unclassified_count": 1,
+    }
+    assert brief["years"][1]["minister_win_rate"] == {
+        "minister_wins": 0,
+        "rate": 0.0,
+        "n": 1,
+        "classified_n": 1,
+        "unclassified_count": 0,
+    }
     authority = brief["top_authorities"][0]
     assert authority["citation_occurrences"] == 3
     assert authority["citing_decisions"] == 2
@@ -139,6 +163,8 @@ def test_issue_brief_printable_ui(issue_brief_client):
     assert "@media print" in response.text
     assert "Decisions by year and outcome" in response.text
     assert "unclassified 1; denominator 2" in response.text
+    assert "Minister win rate" in response.text
+    assert "100.0% (wins 1 / classified n 1; n 2, unclassified 1)" in response.text
     assert 'href="/case-reader?case_id=2"' in response.text
     assert "Top cited authorities" in response.text
 
@@ -208,6 +234,9 @@ def test_issue_brief_docx_route_content_links_and_headers(issue_brief_client):
     assert "3 tagged decisions" in text
     assert "Decisions by year and outcome" in text
     assert "denominator 2" in text
+    assert "Minister win rate" in text
+    assert "100.0% (wins 1 / classified n 1; n 2, unclassified 1)" in text
+    assert "0.0% (wins 0 / classified n 1; n 1, unclassified 0)" in text
     assert "Federal Court of Appeal" in text
     assert "Top cited authorities" in text
     assert "2020 FC 1" in text
@@ -217,11 +246,19 @@ def test_issue_brief_docx_route_content_links_and_headers(issue_brief_client):
     assert "Outcome source:" in text
     assert "Citation scope:" in text
     assert "Tag matching:" in text
+    assert "Minister outcomes:" in text
     footer = document.sections[0].footer.paragraphs[0].text
-    assert re.fullmatch(r"Generated from iLit data on \d{4}-\d{2}-\d{2}", footer)
+    assert re.fullmatch(
+        r"Generated from iLit data on \d{4}-\d{2}-\d{2}; "
+        r"descriptive statistics, see denominators",
+        footer,
+    )
     targets = {rel.target_ref for rel in document.part.rels.values() if rel.is_external}
     assert "/case-reader?case_id=1" in targets
     assert "/case-reader?case_id=2" in targets
+    authority_table = document.tables[2]
+    assert authority_table.rows[1].cells[1].text == "3"
+    assert authority_table.rows[1].cells[2].text == "2"
 
 
 def test_issue_brief_docx_empty_state_and_tag_bounds(issue_brief_client):

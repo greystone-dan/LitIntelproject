@@ -2,164 +2,13 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
 from html import escape
-from io import BytesIO
 from typing import Any
 
-from docx import Document
-from docx.opc.constants import RELATIONSHIP_TYPE as RT
-from docx.oxml import OxmlElement
-from docx.oxml.ns import qn
-from docx.shared import Pt
-
-from ..deidentify import text_to_docx
+from ..issue_brief_analytics import minister_win_rate_label
 
 
 MAX_PRINT_DECISIONS = 12
-
-
-def _add_hyperlink(paragraph: Any, text: str, url: str) -> None:
-	"""Add a clickable link to a Word paragraph."""
-	relationship_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
-	hyperlink = OxmlElement("w:hyperlink")
-	hyperlink.set(qn("r:id"), relationship_id)
-	run = OxmlElement("w:r")
-	properties = OxmlElement("w:rPr")
-	color = OxmlElement("w:color")
-	color.set(qn("w:val"), "164B73")
-	properties.append(color)
-	run.append(properties)
-	text_element = OxmlElement("w:t")
-	text_element.text = text
-	run.append(text_element)
-	hyperlink.append(run)
-	paragraph._p.append(hyperlink)
-
-
-def issue_brief_docx(brief: dict[str, Any]) -> bytes:
-	"""Render all issue-brief page content as a source-linked Word document."""
-	tag = str(brief.get("tag") or "")
-	decision_count = int(brief.get("decision_count") or 0)
-	semantics = brief.get("semantics") or {}
-	title = f"Legal issue brief: {tag or '(empty tag)'}"
-	document = Document(BytesIO(text_to_docx(title)))
-	document.paragraphs[0].style = "Heading 1"
-	document.add_paragraph(
-		f"{decision_count} tagged decisions · exact active-taxonomy tag match"
-	)
-	if not tag:
-		document.add_paragraph(
-			"Enter a tag in category:value form, for example issue:procedural_fairness, "
-			"then reload /issue-brief-ui?tag=…."
-		)
-	if not decision_count and tag:
-		document.add_paragraph("No decisions are tagged with this issue.")
-
-	if decision_count:
-		document.add_heading("Decisions by year and outcome", level=2)
-		years_table = document.add_table(rows=1, cols=3)
-		years_table.style = "Table Grid"
-		for cell, label in zip(
-			years_table.rows[0].cells,
-			("Year / outcome", "Decisions", "Unclassified / outcome share"),
-		):
-			cell.text = label
-		for row in brief.get("years", []):
-			year_cells = years_table.add_row().cells
-			year_cells[0].text = str(
-				row.get("year") if row.get("year") is not None else "Unknown"
-			)
-			year_cells[1].text = str(int(row.get("decision_count") or 0))
-			year_cells[2].text = (
-				f"Unclassified: {int(row.get('unclassified_count') or 0)}"
-			)
-			for outcome in row.get("outcome_splits", []):
-				outcome_cells = years_table.add_row().cells
-				outcome_cells[0].text = str(outcome.get("outcome") or "unclassified")
-				outcome_cells[1].text = str(int(outcome.get("count") or 0))
-				outcome_cells[2].text = (
-					f"{float(outcome.get('percentage') or 0):.1f}% "
-					f"(unclassified {int(outcome.get('unclassified_count') or 0)}; "
-					f"denominator {int(outcome.get('denominator') or 0)})"
-				)
-		document.add_paragraph(
-			"Each outcome percentage uses all tagged decisions in its year as the "
-			"denominator, including unclassified decisions; unclassified count and "
-			"denominator are shown beside every percentage."
-		)
-
-		document.add_heading("Courts", level=2)
-		courts_table = document.add_table(rows=1, cols=2)
-		courts_table.style = "Table Grid"
-		courts_table.rows[0].cells[0].text = "Court"
-		courts_table.rows[0].cells[1].text = "Decisions"
-		for row in brief.get("courts", []):
-			cells = courts_table.add_row().cells
-			cells[0].text = str(row.get("court") or "Unspecified")
-			cells[1].text = str(int(row.get("decision_count") or 0))
-
-		document.add_heading("Top cited authorities", level=2)
-		authorities = brief.get("top_authorities", [])
-		if authorities:
-			authority_table = document.add_table(rows=1, cols=3)
-			authority_table.style = "Table Grid"
-			for cell, label in zip(
-				authority_table.rows[0].cells,
-				("Authority", "Citation occurrences", "Tagged citing decisions"),
-			):
-				cell.text = label
-			for row in authorities:
-				cells = authority_table.add_row().cells
-				paragraph = cells[0].paragraphs[0]
-				label = str(row.get("citation") or row.get("title") or "Linked authority")
-				url = str(row.get("url") or "")
-				if url:
-					_add_hyperlink(paragraph, label, url)
-				else:
-					paragraph.add_run(label)
-				cells[1].text = str(int(row.get("citation_occurrences") or 0))
-				cells[2].text = str(int(row.get("citing_decisions") or 0))
-		else:
-			document.add_paragraph("No resolved case citations found.")
-
-		document.add_heading("Tagged decisions", level=2)
-		decisions = brief.get("decisions", [])
-		for row in decisions[:MAX_PRINT_DECISIONS]:
-			paragraph = document.add_paragraph(style="List Bullet")
-			label = str(row.get("citation") or row.get("title") or "Decision")
-			url = str(row.get("url") or "")
-			if url:
-				_add_hyperlink(paragraph, label, url)
-			else:
-				paragraph.add_run(label)
-			paragraph.add_run(f" — {row.get('court') or 'Unspecified'}")
-			if row.get("outcome"):
-				paragraph.add_run(f" · {row['outcome']}")
-		if not decisions:
-			document.add_paragraph("No linked decisions.")
-		if len(decisions) or decision_count:
-			shown_count = min(len(decisions), MAX_PRINT_DECISIONS)
-			document.add_paragraph(
-				f"Showing {shown_count} of {decision_count} decisions; "
-				"see JSON brief for the complete list."
-			)
-
-	document.add_paragraph(f"Outcome source: {semantics.get('outcomes') or ''}")
-	document.add_paragraph(f"Citation scope: {semantics.get('citations') or ''}")
-	if semantics.get("tag_matching"):
-		document.add_paragraph(f"Tag matching: {semantics['tag_matching']}")
-
-	footer = document.sections[0].footer.paragraphs[0]
-	footer.text = (
-		"Generated from iLit data on "
-		+ datetime.now(timezone.utc).date().isoformat()
-	)
-	for run in footer.runs:
-		run.font.size = Pt(8)
-	buffer = BytesIO()
-	document.save(buffer)
-	return buffer.getvalue()
 
 
 def issue_brief_page_html(brief: dict[str, Any]) -> str:
@@ -178,6 +27,7 @@ def issue_brief_page_html(brief: dict[str, Any]) -> str:
 			f"<td>{escape(str(row.get('year') if row.get('year') is not None else 'Unknown'))}</td>"
 			f"<td>{int(row.get('decision_count') or 0)}</td>"
 			f"<td>Unclassified: {int(row.get('unclassified_count') or 0)}</td>"
+			f"<td>{escape(minister_win_rate_label(row.get('minister_win_rate')))}</td>"
 			"</tr>"
 			+ "".join(
 				"<tr class=\"split\">"
@@ -186,7 +36,7 @@ def issue_brief_page_html(brief: dict[str, Any]) -> str:
 				f"<td>{float(outcome.get('percentage') or 0):.1f}%"
 				f" (unclassified {int(outcome.get('unclassified_count') or 0)};"
 				f" denominator {int(outcome.get('denominator') or 0)})</td>"
-				"</tr>"
+				"<td></td></tr>"
 				for outcome in row.get("outcome_splits", [])
 			)
 			for row in brief.get("years", [])
@@ -245,11 +95,12 @@ a{{color:inherit;text-decoration:none}}a[href]::after{{content:""}}.meta,.note{{
 {('<p class="empty">Enter a tag in category:value form, for example <code>issue:procedural_fairness</code>, then reload <code>/issue-brief-ui?tag=…</code>.</p>' if not tag else '')}
 {('<p class="empty">No decisions are tagged with this issue.</p>' if empty_state and tag else '')}
 {'' if empty_state else f'''<div class="grid">
-<section><h2>Decisions by year and outcome</h2><table><thead><tr><th>Year / outcome</th><th>Decisions</th><th>Unclassified / outcome share</th></tr></thead><tbody>{year_rows}</tbody></table>
-<p class="note">Each outcome percentage uses all tagged decisions in its year as the denominator, including unclassified decisions; unclassified count and denominator are printed beside every percentage.</p></section>
+<section><h2>Decisions by year and outcome</h2><table><thead><tr><th>Year / outcome</th><th>Decisions</th><th>Unclassified / outcome share</th><th>Minister win rate</th></tr></thead><tbody>{year_rows}</tbody></table>
+<p class="note">Outcome percentages use all tagged decisions in the year. Minister win rates use classified government outcomes only; total n and unclassified counts are shown for every year.</p></section>
 <section><h2>Courts</h2><table><thead><tr><th>Court</th><th>Decisions</th></tr></thead><tbody>{court_rows}</tbody></table>
 <h2>Top cited authorities</h2><table><thead><tr><th>Authority</th><th>Citation occurrences</th><th>Tagged citing decisions</th></tr></thead><tbody>{authority_rows}</tbody></table></section>
 </div><h2>Tagged decisions</h2>{decision_disclosure}<ul>{decision_rows}</ul>'''}
 <p class="note">Outcome source: {escape(str(semantics.get("outcomes") or ""))}</p>
 <p class="note">Citation scope: {escape(str(semantics.get("citations") or ""))}</p>
+<p class="note">Minister outcomes: {escape(str(semantics.get("minister_outcomes") or ""))}</p>
 </main></body></html>"""

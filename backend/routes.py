@@ -15,7 +15,6 @@ from typing import Any
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
-from docx import Document
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
@@ -75,7 +74,9 @@ from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
-from .pages.issue_brief import issue_brief_docx, issue_brief_page_html
+from .issue_brief_docx import issue_brief_docx
+from .pages.issue_brief import issue_brief_page_html
+from .docx_export import new_docx_document, serialize_docx
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -1928,7 +1929,9 @@ def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
 		"Summarizes active-taxonomy tagged decisions by year, outcome, and court, "
 		"with resolved case authorities and traceable decision links. Outcome percentages "
 		"use all decisions in the year as denominator and each split includes the "
-		"unclassified count and denominator. An empty tag returns an empty brief."
+		"unclassified count and denominator. Minister win rates use classified "
+		"government outcomes and disclose total n, classified n, and unclassified "
+		"counts. An empty tag returns an empty brief."
 	),
 )
 def get_issue_brief(
@@ -1946,7 +1949,20 @@ def get_issue_brief_ui(
 	return issue_brief_page_html(fetch_issue_brief(db, tag))
 
 
-@router.get("/issue-brief.docx")
+@router.get(
+	"/issue-brief.docx",
+	response_class=Response,
+	responses={
+		200: {
+			"description": "DOCX issue brief",
+			"content": {
+				"application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+					"schema": {"type": "string", "format": "binary"}
+				}
+			},
+		}
+	},
+)
 def export_issue_brief_docx(
 	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form; empty is supported."),
 	db: Session = Depends(get_db),
@@ -3540,7 +3556,7 @@ def export_search_docx(
 		f"Query: {query} | Filters: {filter_summary} | "
 		f"Generated: {datetime.now(timezone.utc).date().isoformat()} | Count: {len(cases)}"
 	)
-	document = Document(io.BytesIO(text_to_docx(header)))
+	document = new_docx_document(header)
 	table = document.add_table(rows=1, cols=5)
 	table.style = "Table Grid"
 	for cell, heading in zip(table.rows[0].cells, ("Citation", "Title", "Court", "Date", "Outcome")):
@@ -3559,12 +3575,10 @@ def export_search_docx(
 			),
 		):
 			cell.text = str(value)
-	buffer = io.BytesIO()
-	document.save(buffer)
 
 	slug = re.sub(r"[^A-Za-z0-9]+", "-", query).strip("-")[:60] or "results"
 	return Response(
-		content=buffer.getvalue(),
+		content=serialize_docx(document),
 		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 		headers={
 			**_NO_STORE,

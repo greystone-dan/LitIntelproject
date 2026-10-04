@@ -127,6 +127,8 @@ from .database import (
 )
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .database import A2AJCase, A2AJCaseMap, A2AJCitationEdge
+from .pages.research_folders import inject_research_folders
+from .research_folders import router as research_folders_router
 from .ingestion import merge_case_record
 from .contextual_intelligence import (
 	compute_case_thematic_signature,
@@ -295,9 +297,11 @@ from .models import (
 
 def _data_explorer_page_html() -> str:
 	"""Render the active Data Explorer page."""
-	return data_explorer_page_html()
+	return inject_research_folders(data_explorer_page_html())
 
 router = APIRouter(tags=["cases"])
+
+router.include_router(research_folders_router)
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:

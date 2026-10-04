@@ -85,6 +85,21 @@ arrow-key focus and Enter activation, and non-overlapping group buttons with
 no horizontal overflow or uncaught page errors. These checks do not certify
 research-result accuracy or every standalone tool workflow.
 
+## Saved research folders
+
+Open **Research folders** from Case Search or go directly to
+`/research-folders`. Use folders to collect cases from a search result or the
+inline reader, rename folders, and add private working notes to each saved
+case. Deleting a folder asks for confirmation. Folder contents remain in this
+browser's `localStorage`; there is no server-side folder account or sync.
+
+If browser storage is unavailable or full, a prominent warning explains that
+changes are temporary in page memory. Download a JSON backup before closing
+that page. JSON import validates the backup and asks before replacing the
+current folder set. CSV and Word exports include selected cases and their notes
+and are limited to 500 cases per request. Only citation, case name, court,
+date, outcome (including `unclassified`), and note are included.
+
 ## Accessibility review
 
 The 2026-10-03 static review covered Case Search, the inline case reader, Judge

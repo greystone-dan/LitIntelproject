@@ -5,6 +5,11 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added browser-local **Research folders** with visible blocked-storage fallback,
+  folder CRUD, per-case notes, JSON backup/import, and additive Case Search and
+  inline-reader controls. `POST /api/research-folders/export` returns selected
+  case citation/name/court/date/outcome/note fields as capped (500-case), no-store
+  CSV or DOCX; no folder data is persisted or logged server-side.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

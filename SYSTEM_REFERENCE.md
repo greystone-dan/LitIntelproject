@@ -347,6 +347,24 @@ number of saved searches in read-only mode by default; `--apply` explicitly
 stores newly matching case alerts. Empty saved-search storage does not change
 normal Case Search behavior.
 
+### Saved Research Folders
+
+The **Research folders** page at `/research-folders` stores folder names, case
+references, and per-case notes only in the current browser's `localStorage`.
+Case Search results and the inline Data Explorer reader have additive **Add to
+folder** controls; creating, renaming, and deleting folders does not change the
+existing search or reader behavior. If browser storage is blocked or full, the
+page displays a warning and keeps changes in memory only until the page closes.
+Users can download or import a versioned JSON backup; import replaces the
+current browser-local folders after confirmation.
+
+`POST /api/research-folders/export` accepts selected case IDs, notes, and
+`csv`/`docx` format and returns a no-store attachment containing only citation,
+name, court, date, outcome, and note. Exports are capped at 500 requested
+cases; missing outcomes are reported as `unclassified`. Folder data is not
+stored or logged by the server; this endpoint reads selected case metadata to
+build the requested export.
+
 ### Citation, Statute, And Metadata Processing
 
 `backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
@@ -1437,6 +1455,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /analytics/search/cases`: filtered active Case Search API.
 - `GET /search/export.docx`: bounded DOCX export of the active Data Explorer search (up to 200 cases).
 - `GET /search/export.csv`: bounded (maximum 1,000 rows) CSV export using the active Case Search query and filters.
+- `GET /research-folders` and `POST /api/research-folders/export`: browser-local
+  folder manager and stateless, 500-case CSV/DOCX export.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.

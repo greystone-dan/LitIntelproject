@@ -1,0 +1,149 @@
+---
+name: Dependency Audit
+
+'on':
+  pull_request:
+    paths:
+      - "requirements*.txt"
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pip-audit:
+    name: pip-audit (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install and run pip-audit
+        id: pip-audit
+        continue-on-error: true
+        run: |
+          set +e
+          python -m pip install pip-audit > pip-audit-install.log 2>&1
+          install_status=$?
+          if [ "$install_status" -eq 0 ]; then
+            pip-audit --version > pip-audit-version.txt 2>&1
+            pip-audit --desc --format json -r requirements.txt \
+              > pip-audit-output.json 2>&1
+            check_status=$?
+          else
+            printf '{"error":"install failed","exit_code":%s}\n' \
+              "$install_status" > pip-audit-output.json
+            check_status=$install_status
+          fi
+          printf 'exit_code=%s\n' "$check_status" > pip-audit-status.txt
+          cat pip-audit-output.json
+          exit "$check_status"
+      - name: Upload pip-audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pip-audit-results
+          path: |
+            pip-audit-install.log
+            pip-audit-version.txt
+            pip-audit-output.json
+            pip-audit-status.txt
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Write job summary
+        if: always()
+        run: |
+          printf '%s\n\n' '## pip-audit Security Scan' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f pip-audit-status.txt ]; then
+            status=$(cut -d= -f2 pip-audit-status.txt)
+            printf '**pip-audit exit code:** `%s`\n' "$status" \
+              >> "$GITHUB_STEP_SUMMARY"
+            if [ "$status" = "0" ]; then
+              printf '%s\n' 'No known vulnerabilities were reported.' \
+                >> "$GITHUB_STEP_SUMMARY"
+            else
+              printf '%s\n' \
+                'The audit reported findings or could not complete; inspect' \
+                'the uploaded report and logs.' >> "$GITHUB_STEP_SUMMARY"
+            fi
+          else
+            printf '%s\n' \
+              'The audit did not produce a status file; inspect the workflow' \
+              'logs.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          printf '\n%s\n' \
+            'Download the `pip-audit-results` artifact for the full JSON' \
+            'report and logs.' >> "$GITHUB_STEP_SUMMARY"
+
+  sbom-generate:
+    name: Generate CycloneDX SBOM (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install cyclonedx-py and generate SBOM
+        id: sbom
+        continue-on-error: true
+        run: |
+          set +e
+          python -m pip install cyclonedx-bom > sbom-install.log 2>&1
+          install_status=$?
+          if [ "$install_status" -eq 0 ]; then
+            cyclonedx-py --version > sbom-version.txt 2>&1
+            cyclonedx-py requirements requirements.txt \
+              --output-format JSON --output-file sbom.cdx.json \
+              > sbom-generate.log 2>&1
+            generate_status=$?
+            if [ "$generate_status" -eq 0 ]; then
+              echo "SBOM generated successfully" >> sbom-generate.log
+            fi
+          else
+            printf '{"error":"install failed","exit_code":%s}\n' \
+              "$install_status" > sbom-generate.log
+            generate_status=$install_status
+          fi
+          printf 'exit_code=%s\n' "$generate_status" > sbom-status.txt
+          cat sbom-generate.log
+          exit "$generate_status"
+      - name: Upload SBOM artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-results
+          path: |
+            sbom.cdx.json
+            sbom-install.log
+            sbom-version.txt
+            sbom-generate.log
+            sbom-status.txt
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Write job summary
+        if: always()
+        run: |
+          printf '%s\n\n' '## CycloneDX SBOM Generation' \
+            >> "$GITHUB_STEP_SUMMARY"
+          if [ -f sbom.cdx.json ]; then
+            printf '%s\n' 'SBOM generated successfully (CycloneDX format).' \
+              >> "$GITHUB_STEP_SUMMARY"
+            sbom_size=$(wc -c < sbom.cdx.json)
+            printf '\n**File size:** %s bytes\n' "$sbom_size" \
+              >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf '%s\n' \
+              'SBOM generation produced no output; inspect the artifact' \
+              'and workflow logs.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          printf '\n%s\n' \
+            'Download `sbom.cdx.json` and the generation logs from the' \
+            '`sbom-results` artifact.' >> "$GITHUB_STEP_SUMMARY"

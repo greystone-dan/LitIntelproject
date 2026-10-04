@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def testing_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -1114,4 +1118,3 @@ def testing_page_html() -> str:
 </body>
 </html>
 """
-

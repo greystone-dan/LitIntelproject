@@ -1,6 +1,10 @@
 """Theme Discovery explorer page - browse recurring legal themes across case library."""
 
 
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def theme_explorer_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">

@@ -4572,6 +4572,16 @@ Handler: `backend.routes.about_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /accessibility`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.accessibility_page`
+
+Returns the plain-language accessibility information page. The page names
+WCAG 2.1 AA as a target, reports the limited static checks performed and known
+gaps, and does not claim conformance.
+
 ### `GET /access`
 
 **Hidden from OpenAPI.**
@@ -9776,12 +9786,38 @@ reader's information-view buttons and Citation Map mode/detail controls. Cited
 paragraph shading and linked-case pinpoint shading use high-contrast text
 (14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
 remains a separate accessible control.
-The audit and remaining limitations are in
-`docs/reports/accessibility-audit.md`.
+The Citation Map SVG has a title and description, plus a “View as table”
+alternative that lists the displayed cases and directed citation links without
+replacing its visual graph. A single shared helper in
+`backend/pages/skip_link.py` adds a keyboard-visible skip link and focusable
+target to each complete generated page. The rendered-output regression in
+`tests/test_page_builder_shell.py` inventories 23 full-page builders (including
+the private access page and Discussion Units route variant) and checks
+`lang`, title, viewport, one `h1`, a skip link targeting the focusable main
+landmark (or first heading when no main exists), and image `alt` presence.
+There is no image allow-list. `fc_analytics` and `tag_analytics` are fragments,
+not documents; their emitted markup is part of the Data Explorer output covered
+by the inventory. Thin routes pass through those same builders.
 
-This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
-announcements, responsive/touch behavior, and assistive-technology use still
-need manual verification.
+Open draft PR #136 independently implements the overlapping shared skip-link
+and image-`alt` checks. This branch does not import or cherry-pick it and avoids
+its unrelated live-region, table, focus, and ARIA enhancements. If #136 lands,
+merge owners should keep one shared helper and one all-builder skip-link/alt
+regression, reusing either implementation after reconciling the access-gate,
+accessibility, and Discussion Units builders. PR #146 changes responsive
+layout/tests only; its page-file overlap is not accessibility behavior.
+
+The accessibility statement names WCAG 2.1 AA as a target, describes only the
+static markup checks (not image-description quality or interaction), and marks
+the feedback contact as a placeholder for the site owner. The manual keyboard,
+NVDA, VoiceOver, 200% zoom, and contrast procedure is
+`docs/reports/accessibility-manual-test-plan.md`. No screen-reader or 200% zoom
+test has been performed. This is not a WCAG conformance claim;
+dynamic browser output, keyboard use, rendered contrast, responsive behavior,
+and assistive technology still require manual verification. Semantic heading
+corrections on the About and case-reader pages preserve their existing visible
+title treatment. The audit history and limitations are in
+`docs/reports/accessibility-audit.md`.
 
 The embedded research and information views retain these data responsibilities:
 

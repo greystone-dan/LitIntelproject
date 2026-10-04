@@ -73,6 +73,7 @@ from .text_generation_providers import (
 )
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
+from .pages.accessibility_statement import accessibility_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
@@ -1703,6 +1704,11 @@ def judge_profile_issues(slug: str, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/about", include_in_schema=False)
 def about_page() -> RedirectResponse:
 	return RedirectResponse(url="/data-explorer?tab=about", status_code=status.HTTP_307_TEMPORARY_REDIRECT)
+
+
+@router.get("/accessibility", response_class=HTMLResponse, include_in_schema=False)
+def accessibility_page() -> HTMLResponse:
+	return HTMLResponse(content=accessibility_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/citation-intelligence", include_in_schema=False)

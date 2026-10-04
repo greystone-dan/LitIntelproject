@@ -30,7 +30,7 @@ touch-target test was run.
 | Data Explorer — inline case reader | Information-view controls expose their active state with `aria-pressed`; keyboard focus is visible. Cited-paragraph shading pairs `#fff9e8` with `#202522` text (14.8:1); linked-case pinpoint shading pairs `#fff4c2` with `#202522` paragraph-number text (14.06:1). | 1.4.3 Contrast (Minimum); 2.1.1 Keyboard; 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/data_explorer.py:167, 209, 287, 722, 1057-1061` | Small — fixed |
 | Citation Map — case search | Search previously relied on its placeholder for its accessible name; it now has an explicit `aria-label` and visible focus. | 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/citation_map.py:27, 34` | Small — fixed |
 | Citation Map — mode and detail controls | Active state was conveyed only by a CSS class; controls now initialize and synchronize `aria-pressed`. Buttons, links, and selects have explicit focus styles. | 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/citation_map.py:28, 69-100` | Small — fixed |
-| Citation Map — graph | SVG has a generic accessible name, but an equivalent description of the changing graph and its relationships was not verified. | 1.1.1 Non-text Content; 1.3.1 Info and Relationships | `backend/pages/citation_map.py:35` | Larger — defer pending browser/assistive-technology review |
+| Citation Map — graph | SVG now has a title and description; “View as table” lists the displayed cases and directed citation links. The visual graph is retained. Dynamic screen-reader and keyboard behavior are not verified. | 1.1.1 Non-text Content; 1.3.1 Info and Relationships | `backend/pages/citation_map.py` | Static alternative added; manual review remains |
 | Search, reader, judge, and citation views | No clear static defect was identified for heading hierarchy, link text, or table headers. Narrow-screen CSS exists, but rendered reflow and usable keyboard order were not verified. Other shading and tag color combinations were not measured. | 1.3.1 Info and Relationships; 1.4.3 Contrast (Minimum); 1.4.10 Reflow; 2.4.3 Focus Order; 2.4.4 Link Purpose; 2.4.6 Headings and Labels | `backend/pages/data_explorer.py:1-1062`; `backend/pages/citation_map.py:4-101`; `backend/pages/citation_pass.py:1-195`; `backend/pages/live_analysis.py:4-48`; `backend/pages/quick_search.py:4-272` | Not sized — manual browser review needed |
 
 The explicit control-name inventory found no unnamed exposed form controls in
@@ -83,3 +83,13 @@ across all views, color contrast in rendered states, zoom/reflow, mobile
 touch-target sizes, and screen-reader behavior remain unverified. The next
 bounded check is a browser keyboard and screen-reader review of Data Explorer
 search/reader and Citation Map at desktop and narrow viewports.
+
+The repository now has a plain-language `/accessibility` page and a repeatable
+manual procedure at `docs/reports/accessibility-manual-test-plan.md`. Its
+static rendered-page inventory checks 23 complete builders for `lang`, title,
+viewport, one `h1`, a focusable skip-link target, and image `alt` presence; it
+does not measure description quality. This exact helper/alt overlap with open
+draft PR #136 is documented for later convergence; no unrelated PR #136
+enhancements were copied. PR #146 is responsive-only. The feedback line is an
+owner-set placeholder. No screen-reader, 200% zoom, browser, or WCAG
+conformance test is claimed.

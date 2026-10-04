@@ -1,9 +1,13 @@
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def citation_pass_page_html() -> str:
 	return r"""<!doctype html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-	<meta charset=\"utf-8\">
-	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Citation Pass | AI CaseLibrary</title>
 	<style>
 		:root{
@@ -191,5 +195,3 @@ def citation_pass_page_html() -> str:
 	</script>
 </body>
 </html>"""
-
-

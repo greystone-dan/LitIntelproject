@@ -1,6 +1,10 @@
 """Tag-based case similarity finder page."""
 
 
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def tag_finder_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">

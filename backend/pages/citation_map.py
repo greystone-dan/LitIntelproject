@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from .skip_link import with_skip_link
 
+
+@with_skip_link
 def citation_map_html() -> str:
 	html = r"""<!doctype html>
 <html lang="en">
@@ -84,18 +87,45 @@ def citation_map_html() -> str:
 		html = html.replace(old, new, 1)
 	html = html.replace(
 		"b.classList.toggle('active',b.dataset.mode===state.mode)",
-		"b.classList.toggle('active',b.dataset.mode===state.mode);b.setAttribute('aria-pressed',String(b.dataset.mode===state.mode))",
+		"{b.classList.toggle('active',b.dataset.mode===state.mode);b.setAttribute('aria-pressed',String(b.dataset.mode===state.mode))}",
 	)
 	html = html.replace(
 		"t.classList.toggle('active',t.dataset.tab==='common')",
-		"t.classList.toggle('active',t.dataset.tab==='common');t.setAttribute('aria-pressed',String(t.dataset.tab==='common'))",
+		"{t.classList.toggle('active',t.dataset.tab==='common');t.setAttribute('aria-pressed',String(t.dataset.tab==='common'))}",
 	)
 	html = html.replace(
 		"x.classList.toggle('active',x===t)",
-		"x.classList.toggle('active',x===t);x.setAttribute('aria-pressed',String(x===t))",
+		"{x.classList.toggle('active',x===t);x.setAttribute('aria-pressed',String(x===t))}",
 	)
 	for tab in ("context", "tags", "related", "common"):
 		old = f'<button class="tab" data-tab="{tab}">'
 		new = f'<button class="tab" data-tab="{tab}" aria-pressed="false">'
 		html = html.replace(old, new, 1)
+	html = html.replace(
+		"</style>",
+		".table-alternative{position:absolute;top:10px;right:10px;z-index:3;max-width:min(90%,720px);padding:7px 10px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink);font-size:11px}.table-alternative summary{cursor:pointer;font-weight:600}.table-alternative[open]{max-height:72%;overflow:auto;box-shadow:0 6px 22px rgba(32,37,34,.18)}.table-alternative p{max-width:60ch;color:var(--muted);line-height:1.5}.map-table-scroll{max-width:100%;overflow:auto}.map-table-scroll table{border-collapse:collapse;width:100%;font-size:11px}.map-table-scroll th,.map-table-scroll td{padding:5px 7px;border:1px solid var(--line);text-align:left;vertical-align:top}.map-table-scroll th{background:#f1efe8}</style>",
+		1,
+	)
+	html = html.replace(
+		'<svg id="mapSvg" role="img" aria-label="Citation map"></svg>',
+		'<svg id="mapSvg" role="img" aria-labelledby="mapSvgTitle mapSvgDescription"><title id="mapSvgTitle">Citation map</title><desc id="mapSvgDescription">A visual graph of cases and citation links. Open “View as table” for a text listing of the displayed nodes and links.</desc></svg>',
+		1,
+	)
+	html = html.replace(
+		'Expanded</span></div></div></section>',
+		'''Expanded</span></div><details class="table-alternative"><summary>View as table</summary><p>Nodes are cases or authorities. Each directed link means the source decision cites the target authority; the occurrence count is the stored number of mentions in that link.</p><h3>Nodes</h3><div class="map-table-scroll"><table><thead><tr><th scope="col">Case or authority</th><th scope="col">Citation</th><th scope="col">Citing cases</th></tr></thead><tbody id="mapTableNodes"><tr><td colspan="3">The map has not loaded yet.</td></tr></tbody></table></div><h3>Citation links</h3><div class="map-table-scroll"><table><thead><tr><th scope="col">Source decision</th><th scope="col">Cites target</th><th scope="col">Mentions</th></tr></thead><tbody id="mapTableEdges"><tr><td colspan="3">The map has not loaded yet.</td></tr></tbody></table></div></details></div></section>''',
+		1,
+	)
+	html = html.replace(
+		"renderCompare();applyModeUI();lucide.createIcons();load().catch",
+		'''\t\tfunction renderTableAlternative(){
+			const nodes=[...state.nodes.values()],byId=new Map(nodes.map(node=>[node.case_id,node]));
+			document.getElementById('mapTableNodes').innerHTML=nodes.length?nodes.map(node=>`<tr><td>${esc(node.title||caseName(node))}</td><td>${esc(node.citation||'Not recorded')}</td><td>${fmt(node.in_degree||0)}</td></tr>`).join(''):'<tr><td colspan="3">No nodes are displayed.</td></tr>';
+			document.getElementById('mapTableEdges').innerHTML=state.edges.length?state.edges.map(edge=>{const source=byId.get(edge.source_case_id),target=byId.get(edge.target_case_id);return source&&target?`<tr><td>${esc(source.title||caseName(source))}</td><td>${esc(target.title||caseName(target))}</td><td>${fmt(edge.occurrence_count||0)}</td></tr>`:''}).filter(Boolean).join('')||'<tr><td colspan="3">No links are displayed.</td></tr>':'<tr><td colspan="3">No links are displayed.</td></tr>';
+		}
+		const renderMapWithAlternatives=renderMap;
+		renderMap=function(){renderMapWithAlternatives();const svg=document.getElementById('mapSvg');if(!svg.querySelector('#mapSvgTitle'))svg.insertAdjacentHTML('afterbegin','<title id="mapSvgTitle">Citation map</title><desc id="mapSvgDescription">A visual graph of cases and citation links. Open “View as table” for a text listing of the displayed nodes and links.</desc>');renderTableAlternative();};
+		renderCompare();applyModeUI();lucide.createIcons();load().catch''',
+		1,
+	)
 	return html

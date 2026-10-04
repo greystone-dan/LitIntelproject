@@ -1,6 +1,10 @@
 """Research experiment HTML page builder."""
 
 
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def research_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">

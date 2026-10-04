@@ -108,6 +108,9 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/accessibility-manual-test-plan.md` is a repeatable manual
+  keyboard, screen-reader, zoom/reflow, and contrast checklist. It is a plan,
+  not evidence that testing was performed or that the site conforms.
 
 Historical context (read with caution):
 

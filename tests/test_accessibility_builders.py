@@ -25,7 +25,7 @@ def test_citation_map_search_is_named_and_controls_have_visible_focus():
     assert 'aria-label="Find a case by citation or case name"' in html
     assert ".search input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}" in html
     assert "button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:2px}" in html
-    assert '<svg id="mapSvg" role="img" aria-label="Citation map"></svg>' in html
+    assert 'aria-labelledby="mapSvgTitle mapSvgDescription"' in html
     assert '<button class="mode-button active" data-mode="case" aria-pressed="true">' in html
     assert 'b.setAttribute(\'aria-pressed\',String(b.dataset.mode===state.mode))' in html
     assert '<button class="tab active" data-tab="links" aria-pressed="true">' in html

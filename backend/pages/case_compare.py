@@ -3,7 +3,10 @@
 from html import escape
 import json
 
+from .skip_link import with_skip_link
 
+
+@with_skip_link
 def case_compare_page_html(comparison: dict | None = None, a: str = "", b: str = "") -> str:
     def esc(value):
         return escape(str(value if value is not None else "Not recorded"), quote=True)

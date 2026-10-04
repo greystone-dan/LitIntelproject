@@ -1,12 +1,21 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-30
+Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
 New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
 
 ## Experimental RAG Research
+
+In the `/data-explorer` formatted reader, select **Similar paragraphs** beside
+a numbered paragraph to see stored-evidence matches in other cases. Matches
+explain shared V3 legal tags (one point each) and cited case authorities (two
+points each); ties use case ID then paragraph number. Links open the returned
+case at its paragraph. This is a bounded search, not semantic similarity or a
+legal conclusion: no embeddings, live-inferred tags or statute references are
+scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
+an empty result does not establish that no similar passages exist.
 
 The `/research` page is the current, experimental RAG workflow. It has four
 steps:
@@ -76,6 +85,23 @@ arrow-key focus and Enter activation, and non-overlapping group buttons with
 no horizontal overflow or uncaught page errors. These checks do not certify
 research-result accuracy or every standalone tool workflow.
 
+## Accessibility review
+
+The 2026-10-03 static review covered Case Search, the inline case reader, Judge
+Profile, Citation Map, and citation-oriented standalone page builders. It added
+keyboard-visible focus rings to the audited search/reader controls, a
+programmatic name to Citation Map search, and pressed state to the inline
+reader's information-view buttons and Citation Map mode/detail controls. Cited
+paragraph shading and linked-case pinpoint shading use high-contrast text
+(14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
+remains a separate accessible control.
+The audit and remaining limitations are in
+`docs/reports/accessibility-audit.md`.
+
+This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
+announcements, responsive/touch behavior, and assistive-technology use still
+need manual verification.
+
 The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
@@ -89,6 +115,25 @@ The embedded research and information views retain these data responsibilities:
 | Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
+
+## Printable Legal Issue Brief
+
+Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
+summary of decisions carrying an exact active-taxonomy tag. The page reports
+decision counts by year and court, per-year outcome splits, the ten most cited
+resolved case authorities, and links up to 12 tagged decisions and the
+authorities in the case reader. The page discloses the shown/total decision-link
+count; `/issue-brief?tag=category:value` retains the complete decision list and
+provides the data as JSON. An empty tag returns a valid empty brief.
+
+Outcome labels come from `reader_extracted` decision metadata. Percentages use
+all tagged decisions in that year as the denominator, including records with no
+classified outcome; each percentage is shown alongside the unclassified count
+and denominator. Authority counts mean stored citation occurrences from tagged
+source decisions with a resolved case target, with distinct citing decisions
+reported separately. Unresolved citations and the separate statute-reference
+layer are not included. The print stylesheet is intended to keep the summary
+compact, but no browser/physical-page behavior is certified here.
 
 ## Discussion Units Sandbox
 
@@ -134,7 +179,7 @@ that path is in place, address accessibility and responsive behavior:
 - Review reader tabset selection and keyboard semantics; primary groups and
 	secondary view buttons already expose pressed state and focus navigation.
 - Give reader pane separators visible focus treatment and keyboard resizing.
-- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Verify strengthened search/input focus visibility at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
 - Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
 
@@ -199,6 +244,19 @@ grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
+
+### Saved Searches And Alerts
+
+Use **Save current search** below the Case Search controls to name and preserve
+the current query and filter values. **Saved searches** opens `/saved-searches-ui`,
+where saved criteria and recorded case alerts can be reviewed, checked, or
+deleted. No saved search is loaded or applied automatically, so the existing
+search workflow is unchanged when the collection is empty.
+
+The `scripts/check_saved_searches.py` checker evaluates a bounded number of
+stored searches. It is read-only unless invoked with `--apply`; apply mode
+records only previously unseen case matches. The checker does not poll external
+sources or schedule itself, and does not change the active search API.
 
 Choose a result count and sort order:
 
@@ -482,6 +540,26 @@ government actor; it does not calculate an individual Minister's performance.
 Use profiles to reduce name variation, not to claim a complete judicial record
 or infer individual bias. Source and classification gaps matter when comparing
 rates.
+
+**Compare judges** within Judge Profile accepts two canonical slugs, with
+name-search suggestions and the open profile prefilled as the first judge.
+It compares all linked decisions, independently of the profile's Minister filter.
+Shared recorded issues and their outcome splits appear first; an issue must
+occur in at least five distinct decisions for **both** judges. Issues come only
+from stored case issue lists, normalized for case/whitespace, with no inferred
+or metadata fallback. No qualifying issues is a coverage result, not proof
+that the judges address different legal questions.
+
+Overall outcomes retain government won, government lost and unclassified
+decisions. Every displayed count is `count / denominator`: issue outcome
+denominators are issue decisions; year, issue-coverage, tag and authority counts
+use all linked decisions for that judge. Undated decisions remain visible.
+Most-used tags and most-cited authorities show up to ten entries, counting
+distinct source decisions rather than repeated occurrences; overlapping counts
+must not be added. Resolved authority labels come from the target case, otherwise
+the stored citation label. Unknown slugs produce an explicit message. This is
+research coverage, not a ranking, a measure of harshness, or a causal inference.
+The read-only endpoint is `GET /judges/compare?a=<slug>&b=<slug>`.
 
 ## Data Explorer And FC History
 

@@ -215,6 +215,23 @@ def test_reader_renders_backend_cited_paragraph_metadata():
     assert "Number(b.cited_by_count)>0" in html
     assert "Cited by ${b.cited_by_count} cases" in html
     assert "background:#fff9e8" in html
+    assert ".fmt-para.is-cited-by{color:#202522}" in html
+    def luminance(color):
+        channels = [int(color[index : index + 2], 16) / 255 for index in (0, 2, 4)]
+        linear = [
+            channel / 12.92
+            if channel <= 0.04045
+            else ((channel + 0.055) / 1.055) ** 2.4
+            for channel in channels
+        ]
+        return sum(value * weight for value, weight in zip(linear, (0.2126, 0.7152, 0.0722)))
+
+    def contrast_ratio(background, foreground):
+        return (luminance(background) + 0.05) / (luminance(foreground) + 0.05)
+
+    assert contrast_ratio("fff9e8", "202522") >= 4.5
+    assert ".rs-context-text .fmt-para.is-cited .fmt-para-num{color:#202522}" in html
+    assert contrast_ratio("fff4c2", "202522") >= 4.5
     assert 'data-para="${b.num}"' in html
 
 
@@ -807,6 +824,16 @@ def test_case_search_has_clear_primary_query_and_filter_state():
     assert "limit:'5'" in html
     assert "sort_by:'relevance'" in html
     assert 'function professionalResultCard(item)' in html
+
+
+def test_case_search_can_save_current_query_and_filters():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="saveCurrentSearch"' in html
+    assert 'href="/saved-searches-ui"' in html
+    assert "filters})" in html
+    assert "search_mode:'metadata'" in html
+    assert "async function saveCurrentSearch()" in html
 
 
 def test_chunk_reader_uses_compact_sections_and_inherited_reference_type():

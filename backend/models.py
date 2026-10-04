@@ -4,6 +4,34 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
+class SimilarParagraphResponse(BaseModel):
+	case_id: int
+	title: str
+	citation: str | None = None
+	paragraph_number: int
+	excerpt: str
+	score: int
+	shared_tags: list[str]
+	shared_authorities: list[str]
+	why_matched: str
+
+
+class ParagraphSimilarityCoverage(BaseModel):
+	partial: bool
+	candidate_cases_checked: int
+	source_row_budget: int
+	signal_budget: int
+	postings_per_signal: int
+	candidate_case_budget: int
+	paragraph_row_budget: int
+	note: str
+
+
+class ParagraphSimilarityResponse(BaseModel):
+	results: list[SimilarParagraphResponse]
+	coverage: ParagraphSimilarityCoverage
+
+
 class CaseIngestRequest(BaseModel):
 	title: str = Field(min_length=1, max_length=255)
 	court: str = Field(min_length=1, max_length=255)
@@ -350,6 +378,26 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
 
 
+class ThemeOccurrenceResponse(BaseModel):
+	case_id: int
+	unit_index: int
+	subtheme_id: str
+
+
+class DiscoveredThemeResponse(BaseModel):
+	theme_id: str
+	theme_name: str
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrence_count: int
+	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
+
+
+class ThemeDiscoveryResponse(BaseModel):
+	total_themes: int
+	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
+
+
 class CaseSummarySectionItemResponse(BaseModel):
 	section_role: str
 	subtheme_id: str
@@ -418,6 +466,7 @@ class InventoryResponse(BaseModel):
 class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
+	matched_on: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):
@@ -867,3 +916,68 @@ class MemoCitationCheckResponse(BaseModel):
 	statute_references: list[LiveAnalysisReferenceResponse]
 	missing_authorities: list[MissingAuthorityResponse]
 	memo_analysis: MemoCitationAnalysis
+
+
+class SavedSearchCreateRequest(BaseModel):
+	name: str = Field(min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str = ""
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	filters: dict[str, Any] = Field(default_factory=dict)
+
+
+class SavedSearchUpdateRequest(BaseModel):
+	name: str | None = Field(default=None, min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str | None = None
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] | None = None
+	filters: dict[str, Any] | None = None
+
+
+class SearchAlertResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	search_id: int
+	case_id: int
+	chunk_id: int | None = None
+	match_type: str
+	relevance_score: float | None = None
+	discovered_at: datetime
+	case_title: str | None = None
+	case_citation: str | None = None
+	case_date: date | None = None
+	chunk_text: str | None = None
+
+
+class SavedSearchResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	name: str
+	description: str | None = None
+	query: str
+	search_mode: str
+	filters: dict[str, Any]
+	created_at: datetime
+	updated_at: datetime
+	last_alert_check: datetime | None = None
+	alert_count: int = 0
+
+
+class SavedSearchDetailResponse(SavedSearchResponse):
+	alerts: list[SearchAlertResponse] = Field(default_factory=list)
+
+
+class SearchDigestRequest(BaseModel):
+	search_id: int
+	include_fc_activity: bool = True
+
+
+class SearchDigestResponse(BaseModel):
+	search_id: int
+	search_name: str
+	generated_at: datetime
+	new_case_matches: list[SearchAlertResponse]
+	new_fc_activity: list[dict[str, Any]] = Field(default_factory=list)
+	total_new_results: int

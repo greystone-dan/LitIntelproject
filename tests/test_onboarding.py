@@ -3,6 +3,7 @@
 import ast
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -12,6 +13,8 @@ import time
 from urllib.parse import parse_qs, urlsplit
 
 import pytest
+
+os.environ["PYTHON_DOTENV_DISABLED"] = "1"
 
 from backend.pages.data_explorer import data_explorer_page_html
 from backend.pages.start import TASKS, start_page_html
@@ -108,6 +111,24 @@ def test_onboarding_tour_generated_contract_and_wrapper_order():
         if node:
             result = subprocess.run([node, "--check"], input=script, text=True, capture_output=True)
             assert result.returncode == 0, result.stderr
+
+
+def test_onboarding_preserves_operator_search_and_lazy_judge_issue_controls():
+    """Both entry paths share the existing controls, not alternate renderers."""
+    html = data_explorer_page_html()
+    for marker in (
+        'id="searchTipsToggle"', 'id="searchTipsPopover"', 'id="searchQueryEcho"',
+        "queryEcho.textContent=", "data.query_echo", "runProfessionalSearch()",
+        "const query = params.get('query')", "query.slice(0, 500)",
+        "entryParams.get('judge_query')", "$('jpSearch').value=jp.q",
+        "issueData:null", "issueRequest:0", "jp.issueRequest!==request",
+        "Load issue outcomes", "searchTourButton", "readerTourButton",
+    ):
+        assert marker in html
+    assert html.index("const researchEntryParams=") < html.index("const entryParams=")
+    assert html.index("const entryParams=") < html.index("const seenThisSession")
+    assert "<<<<<<<" not in html
+    assert ">>>>>>>" not in html
 
 
 def run_node(script, data=None):
@@ -264,7 +285,10 @@ const input=JSON.parse(require('node:fs').readFileSync(0,'utf8'));
  Object.defineProperty(window,'localStorage',{get(){throw new Error('storage blocked')}});
  window.fetch=async url=>{
   url=String(url);
-  if(url.includes('/analytics/search/cases?'))return {ok:true,json:async()=>({results:[]})};
+  if(url.includes('/analytics/search/cases?')){
+   (window.searchRequests ||= []).push(url);
+   return {ok:true,json:async()=>({results:[],query_echo:'Court FC; year 2020; fairness AND NOT delay <literal>'})};
+  }
   if(url.includes('/analytics/search/cases/')){
    const id=Number(url.split('/').pop());
    if(id===91)await new Promise(r=>setTimeout(r,220));
@@ -278,7 +302,12 @@ const input=JSON.parse(require('node:fs').readFileSync(0,'utf8'));
    return {ok:true,json:async()=>({case:{id,title:'Mock decision '+id,full_text:'[1] Mock reasons.'},full_text:'[1] Mock reasons.',chunks:[],citations:[],tags:[],formatted:{blocks:[]}})};
   }
   if(url.includes('/statute-references'))return {ok:true,json:async()=>[]};
-  if(url.includes('/api/judge-profiles?'))return {ok:true,json:async()=>[]};
+  if(url.includes('/api/judge-profiles?'))return {ok:true,json:async()=>[{slug:'zinn',display_name:'Justice Zinn',primary_court:'FC',decision_count:12}]};
+  if(url.includes('/api/judge-profiles/zinn/issues')){
+   window.issueRequests=(window.issueRequests||0)+1;
+   return {ok:true,json:async()=>({issues:[],hidden_issue_count:2,metadata:{minimum_decisions_per_visible_issue:10}})};
+  }
+  if(url.includes('/api/judge-profiles/zinn'))return {ok:true,json:async()=>({profile:{slug:'zinn',display_name:'Justice Zinn',primary_court:'FC'},decisions:[],outcomes:{}})};
   return {ok:true,json:async()=>({results:[],profiles:[],judges:[],rows:[],tags:[],ministers:[]})};
  };`});
  const evaluate=async expression=>{
@@ -313,6 +342,21 @@ const input=JSON.parse(require('node:fs').readFileSync(0,'utf8'));
  assert.equal(await evaluate("document.getElementById('researchTour').open"),false);
  await evaluate("document.getElementById('searchTourButton').focus();document.getElementById('searchTourButton').click();document.getElementById('tourDismiss').click()");
  assert.equal(await evaluate("document.activeElement.id"),'searchTourButton');
+ // Operator-rich URLs still prefill only, and submit through the normal search.
+ const operatorQuery='court:FC year:2020 fairness AND -delay';
+ await send('Page.navigate',{url:'http://ilit.test/data-explorer?query='+encodeURIComponent(operatorQuery)});
+ await wait("!!document.getElementById('researchTour')?.open");
+ assert.equal(await evaluate("document.getElementById('searchQuery').value"),operatorQuery);
+ assert.equal(await evaluate("(window.searchRequests||[]).length"),0);
+ assert.equal(await evaluate("!!document.getElementById('searchTipsToggle') && !!document.getElementById('downloadSearchCsv')"),true);
+ await evaluate("document.getElementById('tourDismiss').click();document.getElementById('caseSearch').requestSubmit()");
+ await wait("!document.getElementById('searchQueryEcho').hidden");
+ const searchUrl=await evaluate("window.searchRequests.at(-1)");
+ assert.equal(new URL(searchUrl,'http://ilit.test').searchParams.get('query'),operatorQuery);
+ assert.equal(await evaluate("document.getElementById('searchQueryEcho').textContent"),'Search interpreted as: Court FC; year 2020; fairness AND NOT delay <literal>');
+ assert.equal(await evaluate("document.getElementById('searchQueryEcho').children.length"),0);
+ await evaluate("document.getElementById('searchTourButton').click();document.getElementById('tourDismiss').click()");
+ assert.equal(await evaluate("document.getElementById('searchQuery').value"),operatorQuery);
  // Overlapping real reader loaders: delayed old result must not replace the current reader.
  await evaluate("openDecision(91);openDecision(92);true");
  await wait("readerState.caseId===92 && document.getElementById('researchTour').open");
@@ -340,12 +384,21 @@ const input=JSON.parse(require('node:fs').readFileSync(0,'utf8'));
  await send('Page.navigate',{url:'http://ilit.test/data-explorer?tab=judge-profile&judge_query=Zinn'});
  await wait("document.getElementById('jpSearch')?.value==='Zinn'");
  assert.equal(await evaluate("document.getElementById('researchTour').open"),false);
+ await wait("!!document.querySelector('#jpList [data-slug=\"zinn\"]')");
+ assert.equal(await evaluate("window.issueRequests||0"),0);
+ await evaluate("document.querySelector('#jpList [data-slug=\"zinn\"]').click()");
+ await wait("!!document.querySelector('#jpIssuesContent [data-jp-issues]')");
+ assert.equal(await evaluate("window.issueRequests||0"),0);
+ await evaluate("document.querySelector('#jpIssuesContent [data-jp-issues]').click()");
+ await wait("!!document.querySelector('#jpIssuesContent .jp-issue-scope')");
+ assert.equal(await evaluate("window.issueRequests"),1);
+ assert.equal(await evaluate("document.getElementById('jpSearch').value"),'Zinn');
  await send('Page.navigate',{url:'http://ilit.test/memo-citation-check?example=vavilov'});
  await wait("document.getElementById('fileLabel')?.textContent==='example-memo.pdf'");
  assert.equal(await evaluate("document.getElementById('analyze').disabled"),false);
  assert.equal(await evaluate("document.getElementById('status').textContent.includes('Analyzing')"),false);
  assert.deepEqual(errors,[]);
- console.log('offline browser checks passed: five cards, search/judge/memo prefills, Tab/Escape/focus restoration, blocked storage, actual reader stale/error/tab-switch/close guards');
+ console.log('offline browser checks passed: five cards, operator search echo/tour coexistence, judge prefill/lazy issue outcomes, memo prefill, Tab/Escape/focus restoration, blocked storage, actual reader stale/error/tab-switch/close guards');
  ws.close();
 })().catch(error=>{console.error(error);process.exit(1)});
 """

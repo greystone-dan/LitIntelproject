@@ -10,7 +10,13 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `config.yaml` is currently a checked-in static reference template. No active runtime module loads it, so changing it alone does not reconfigure FastAPI, SQLAlchemy, embedding providers, logging, or security behavior.
+5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
+
+For offline imports, set `PYTHON_DOTENV_DISABLED=1`. The database module honors
+this standard flag even with the pinned older dotenv version; `true`, `t`,
+`yes`, and `y` also disable loading (case-insensitive). It does not disable
+database operations or application startup: callers must still avoid lifespan
+and database routes. Normal local loading and precedence are unchanged.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -20,7 +26,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | --- | --- | --- |
 | `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` or `DATABASE_URL` | Canonical database routes and write scripts | Prefer complete `POSTGRES_*` local configuration; see precedence above. |
 | `OPENAI_API_KEY` | OpenAI embedding, research-answer, and OpenAI audit/adjudication paths | Not required for deterministic extraction, tag, chunk, or most local read paths. |
-| `CASELIBRARY_ACCESS_PASSWORD` plus independent `CASELIBRARY_SESSION_SECRET` | Intended private-site login | Current middleware does not enforce this login design; do not treat merely setting these variables as access protection. |
+| `CASELIBRARY_ACCESS_PASSWORD` and preferably a separate `CASELIBRARY_SESSION_SECRET` | Optional private-site login | The gate is off by default and enforced when the password is non-empty. Use a separate strong signing secret and a verified perimeter policy where needed. |
 
 ## Application And Database Settings
 
@@ -34,14 +40,14 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
 
 ## Access, Session, And Indexing Settings
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
-| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
+| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
@@ -131,11 +137,18 @@ Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validate
 
 The CanLII API client enforces an in-process default ceiling of two requests per second and 1,000 requests per UTC day. Those values are currently dataclass defaults, not environment variables.
 
-## Static Template Settings
+## Partially Consumed Template Settings
 
-`config.yaml` records non-secret aspirational/default settings for app identity, server, database pool, pgvector, AI behavior, logging, security, Copilot indexing, and common paths. It is not currently loaded by active application code.
+`config.yaml` records defaults for application, server, database, vector, AI,
+logging, security, and path settings. Only the four `ai.rollout` flags read by
+`backend/search_service.py` currently affect application behavior.
 
-Treat it as a planning template until a configuration loader is implemented. In particular, changing `server.host`, `server.port`, `database.pool_size`, `pgvector.index_type`, `ai.rollout`, `logging`, `security`, or `paths` in that file will not alter runtime behavior today. Use explicit Uvicorn flags, runtime environment variables, or code changes instead.
+Changing `server.host`, `server.port`, database-pool, vector, logging, security,
+or path values in that file does not alter runtime behavior. The four rollout
+flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
+`embed_on_ingest_enabled`; matching `CASELIBRARY_*_ENABLED` environment values
+override them. Use the consuming module's environment settings or explicit
+server flags for other runtime configuration.
 
 ## Example Local Development Setup
 
@@ -168,8 +181,8 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 
 ## Known Configuration Gaps
 
-1. `config.yaml` is not a live configuration source and can drift from code.
-2. The private-access variables are not enforced by current middleware.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
 3. The `.env.example` includes several legacy/aspirational names not read by active code.
 4. There is no central typed settings object or startup validation report for all required configuration.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.

@@ -25,6 +25,14 @@ Both the PDF and visible notice label it as synthetic, not a real memo or legal
 advice; it makes no claim about the cited decision's holding.
 **Analyze document** still requires explicit activation before upload.
 
+Prefilled search text uses the same query field as power-user operators. A link
+containing `query=court%3AFC%20year%3A2020%20fairness` fills
+`court:FC year:2020 fairness`; it waits for **Search cases** before parsing and
+showing the interpretation. Search tips and exports remain available alongside
+the tours. The separate URL `court` control retains its contains-filter behavior.
+Judge-name prefills narrow the visible list only; selecting a judge still exposes
+the on-demand **Load issue outcomes** section without loading it automatically.
+
 Search and successfully loaded inline readers offer four- and five-step first
 visit tours, respectively, plus **Take the tour** buttons. The native modal
 dialog names its title/text/progress, highlights existing controls, contains
@@ -277,6 +285,29 @@ Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
 
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
@@ -341,6 +372,8 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
 
 Above the source decision, **Most cited paragraphs** is collapsed by default
 and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it

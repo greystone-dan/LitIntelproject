@@ -39,6 +39,15 @@ from .database import (
 	JudgeProfile,
 	StatuteReference,
 )
+from .judge_issue_record import (
+	_FEDERAL_COURT_NAMES,
+	_ISSUE_OUTCOME_CATEGORIES,
+	_JUDGE_ISSUE_MINIMUM_DECISIONS,
+	_issue_outcome_category,
+	_issue_outcome_summary,
+	_stored_issue_labels,
+	fetch_judge_profile_issues,
+)
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import identity_sql, matched_on_sql
 

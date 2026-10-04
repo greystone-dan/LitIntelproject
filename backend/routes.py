@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
 
 try:
@@ -3674,10 +3675,6 @@ def search_chunks_grouped(
 _CONTEXT_CHAR_LIMIT = 12_000
 _LOCAL_CONTEXT_CHAR_LIMIT = 4_000
 _LOCAL_RAG_MAX_TOKENS = 256
-_RESEARCH_DISCLAIMER = (
-	"Research aid only � not legal advice. "
-	"Sources are unofficial copies; verify against authoritative records."
-)
 
 
 def _research_page_html() -> str:
@@ -3953,19 +3950,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 	if len(context) > context_limit:
 		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
 
-	system_prompt = (
-		"You are a Canadian legal research assistant helping lawyers and researchers find relevant case law. "
-		"Base your answer ONLY on the case excerpts provided below. "
-		"Use the evidence labels such as [S1P2] as inline citations for every material proposition. "
-		"CRITICAL: Only cite cases and propositions that are explicitly supported by the provided excerpts. "
-		"Do NOT draw on your training knowledge to add cases, statutes, or legal tests that are not in the excerpts. "
-		"Synthesize across authorities: identify the common rule, explain how each authority applies it, distinguish tensions or limits, and do not treat repeated language as independent confirmation. "
-		"Prefer a structured answer with: short conclusion, governing principles, application or limits, and an evidence-based caveat where the excerpts are incomplete. "
-		"If the excerpts discuss a different but related legal provision (e.g., s. 96 when s. 34 was asked), "
-		"say so explicitly and describe only what those cases actually say. "
-		"If the excerpts are genuinely insufficient to address the question, say so and suggest the user try a broader or rephrased query. "
-		f"{_RESEARCH_DISCLAIMER}"
-	)
+	system_prompt, prompt_version = get_prompt("research_system")
 
 	try:
 		provider = get_text_generation_provider()
@@ -4012,6 +3997,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		answer=answer,
 		sources=sources,
 		model_used=provider.model_name,
+		prompt_version=prompt_version,
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)

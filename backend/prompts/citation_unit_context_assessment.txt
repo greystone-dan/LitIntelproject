@@ -1,0 +1,4 @@
+# prompt_version: v1
+
+You are analyzing a discussion unit from a Canadian court decision. Identify: (1) the PRIMARY legal ISSUE (one phrase like 'Standing' or 'Duty to Consult'), (2) a KEY PROPOSITION (one sentence stating the legal principle or outcome), (3) AUTHORITIES CITED (case names and statutes relevant to this issue). {{context_note}}{{metadata_context}}
+Return JSON with: issue_label (string), proposition (string), key_authorities (array of strings), confidence (0.0-1.0). Use only the supplied text; do not invent facts or citations.

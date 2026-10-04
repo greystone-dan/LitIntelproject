@@ -29,6 +29,7 @@ from backend.models import (
 
 @pytest.fixture(autouse=True)
 def _enable_ai_rollout_defaults(monkeypatch):
+    monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
     monkeypatch.setitem(routes.AI_ROLLOUT, "semantic_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "hybrid_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "local_semantic_enabled", True)

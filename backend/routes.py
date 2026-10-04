@@ -71,6 +71,7 @@ from .text_generation_providers import (
 	TextGenerationConfigurationError,
 	get_text_generation_provider,
 )
+from .ai_mode import AI_DISABLED_MESSAGE, enhanced_mode, mode_status, search_downgrade_reason
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
@@ -3508,7 +3509,22 @@ def prototype_graph(
 def search_cases(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
-	return execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
+
+
+def _ai_disabled_reason(requested_mode: str, effective_mode: str) -> str | None:
+	return search_downgrade_reason(requested_mode, effective_mode)
+
+
+@router.get("/ai-mode", response_model=dict[str, str])
+def get_ai_mode() -> dict[str, str]:
+	return mode_status()
 
 
 @router.get("/search/export.docx")
@@ -3605,14 +3621,26 @@ def export_search_docx(
 def search_chunks(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/paragraphs", response_model=list[ChunkSearchResponse])
 def search_paragraphs(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode("semantic", rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason("semantic", effective_mode)
+	results = execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/local", response_model=list[ChunkSearchResponse])
@@ -3894,6 +3922,11 @@ def theme_explorer_page() -> HTMLResponse:
 
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
+	if enhanced_mode() == "off":
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail=AI_DISABLED_MESSAGE,
+		)
 	result = _grouped_chunk_search(search, db)
 
 	top_cases = result.cases[: search.max_cases]

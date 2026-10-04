@@ -8,8 +8,8 @@ language-model calls; deterministic extraction is separately identified.
 
 | Use | Input and output | Runtime/activation | Evidence |
 | --- | --- | --- | --- |
-| Semantic search embeddings | User query text is sent to OpenAI's embedding API by default for semantic search. The API returns a vector used for local retrieval. Lexical/metadata modes do not use this embedding call. | Default semantic mode; rollout flags can change behavior. | [backend/models.py:115-117](../../backend/models.py#L115-L117) [backend/search_service.py:101-129](../../backend/search_service.py#L101-L129) [backend/search_service.py:424-441](../../backend/search_service.py#L424-L441) |
-| Experimental research answers | The user question and retrieved case excerpts are submitted to a text-generation provider. It defaults to OpenAI; setting `TEXT_GENERATION_PROVIDER=local` selects the configured Ollama endpoint. The output is a generated answer with source references. | Only when `/research` is used. | [backend/routes.py:3851-3903](../../backend/routes.py#L3851-L3903) [backend/text_generation_providers.py:77-95](../../backend/text_generation_providers.py#L77-L95) |
+| Semantic search embeddings | User query text is sent to OpenAI's embedding API only when `ENHANCED_AI_MODE=hosted` and semantic or hybrid search is explicitly requested. Off is the default and downgrades these requests to lexical without an embedding call. Local mode also avoids hosted query embeddings; the separate local chunk-search endpoint uses stored BGE-M3 vectors. | Hosted API mode is explicit opt-in; lexical is the API default. | [backend/ai_mode.py](../../backend/ai_mode.py) [backend/models.py](../../backend/models.py) [backend/search_service.py](../../backend/search_service.py) |
+| Experimental research answers | The user question and retrieved case excerpts are submitted to the selected text-generation provider only when enhanced mode is enabled. Local mode selects Ollama without constructing an OpenAI generation client; hosted mode preserves provider selection, whose default is OpenAI. | `/research` returns a disabled response unless `ENHANCED_AI_MODE` is `local` or `hosted`. | [backend/ai_mode.py](../../backend/ai_mode.py) [backend/routes.py](../../backend/routes.py) [backend/text_generation_providers.py](../../backend/text_generation_providers.py) |
 | Build-time paragraph assessment/discussion units | Selected decision paragraph text is provided to a prompt. The model returns topics/roles/explanations or grouped discussion spans. The script validates and writes model output to operator-selected files. | Optional script workflow; model send requires `--send`. | [scripts/package_discussion_units_llm.py:137-160](../../scripts/package_discussion_units_llm.py#L137-L160) [scripts/package_discussion_units_llm.py:391-405](../../scripts/package_discussion_units_llm.py#L391-L405) [scripts/package_discussion_units_llm.py:472-552](../../scripts/package_discussion_units_llm.py#L472-L552) |
 | Model-assisted paragraph segmentation experiment | Decision text is sent for model-proposed paragraph boundaries; returned offsets are checked against the source and text is derived locally. This is a bounded comparison, not the deterministic canonical extraction path. | Explicit experiment script run. | [scripts/run_model_paragraph_experiment.py:31-56](../../scripts/run_model_paragraph_experiment.py#L31-L56) [scripts/run_model_paragraph_experiment.py:70-102](../../scripts/run_model_paragraph_experiment.py#L70-L102) [scripts/run_model_paragraph_experiment.py:174-189](../../scripts/run_model_paragraph_experiment.py#L174-L189) |
 
@@ -66,9 +66,11 @@ governance controls must be specified by the department.
 
 ## External processing
 
-OpenAI receives semantic query text on the default semantic-search path,
-research prompts/excerpts when hosted generation is selected, and explicitly
-submitted build-time assessment text. Ollama may be selected as a configured
-alternative; confirm the actual URL because it can be overridden. Provider
-region, retention, training/data-use terms, and account settings are not
-established by application code. See [subprocessors](subprocessors.md).
+OpenAI receives semantic query text only when enhanced API mode is explicitly
+set to hosted and a semantic/hybrid search is requested; research prompts and
+excerpts are sent only when `/research` is enabled and hosted generation is
+selected. Build-time assessment scripts remain separately and explicitly
+invoked. Local mode selects Ollama for `/research`; confirm the actual URL
+because it can be overridden. Provider region, retention, training/data-use
+terms, and account settings are not established by application code. See
+[subprocessors](subprocessors.md).

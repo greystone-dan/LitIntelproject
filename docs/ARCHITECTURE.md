@@ -128,6 +128,7 @@ test checks that these paths continue to exist.
 
 | File | Responsibility |
 | --- | --- |
+| `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |

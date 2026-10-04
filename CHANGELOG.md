@@ -5,6 +5,16 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added the centralized `ENHANCED_AI_MODE` gate (`off` by default; `local` and
+  `hosted` require explicit opt-in). Off mode makes API search lexical without
+  embedding calls, reports effective search mode when results exist, exposes
+  `GET /ai-mode`, and returns a clear `503` from `/research`. Local mode uses
+  Ollama without constructing an OpenAI generation client; hosted mode preserves
+  the existing provider behavior. The analytics Case Search UI and its
+  SQL-backed CSV/Word exports remain unchanged. Python compilation and
+  `git diff --check` passed. Focused pytest and generated-reference checks were
+  attempted but are blocked in this environment because pytest, FastAPI, and
+  SQLAlchemy are unavailable.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

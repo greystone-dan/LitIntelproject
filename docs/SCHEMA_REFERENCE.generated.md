@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T17:42:51.362741+00:00
-Tables: 25
+Generated: 2026-10-04T00:22:13.544362+00:00
+Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -175,6 +175,14 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    fc_activity_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        String(100) entry_type
+        DATETIME discovered_at
+        DATETIME created_at
     }
     fc_activity_cases {
         Integer id PK
@@ -366,6 +374,27 @@ erDiagram
         String(100) embedding_model
         DATETIME refreshed_at
     }
+    saved_searches {
+        Integer id PK
+        String(255) name
+        TEXT description
+        TEXT query
+        String(20) search_mode
+        JSON filters
+        DATETIME created_at
+        DATETIME updated_at
+        DATETIME last_alert_check
+    }
+    search_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        Integer chunk_id  FK
+        String(50) match_type
+        FLOAT relevance_score
+        DATETIME discovered_at
+        DATETIME created_at
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -400,6 +429,8 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
+    saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
@@ -407,6 +438,9 @@ erDiagram
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
+    cases ||--o{ search_alerts : "case_id"
+    case_chunks ||--o{ search_alerts : "chunk_id"
+    saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -428,6 +462,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
@@ -439,6 +474,8 @@ erDiagram
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
+| `saved_searches` | 9 | `id` |
+| `search_alerts` | 8 | `id` |
 | `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
@@ -827,6 +864,30 @@ erDiagram
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 
+## `fc_activity_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `entry_type` | `String(100)` | no | NOT NULL |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_fc_activity_alerts_case_id`: index on `case_id`
+- `ix_fc_activity_alerts_discovered_at`: index on `discovered_at`
+- `ix_fc_activity_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
+
 ## `fc_activity_cases`
 
 ### Columns
@@ -1188,6 +1249,54 @@ erDiagram
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+
+## `saved_searches`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `name` | `String(255)` | no | NOT NULL |
+| `description` | `TEXT` | yes | - |
+| `query` | `TEXT` | no | NOT NULL |
+| `search_mode` | `String(20)` | no | NOT NULL; default=semantic |
+| `filters` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `last_alert_check` | `DATETIME` | yes | - |
+
+### Indexes
+
+- `ix_saved_searches_created_at`: index on `created_at`
+- `ix_saved_searches_name`: index on `name`
+
+## `search_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `match_type` | `String(50)` | no | NOT NULL |
+| `relevance_score` | `FLOAT` | yes | - |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_search_alerts_case_id`: index on `case_id`
+- `ix_search_alerts_discovered_at`: index on `discovered_at`
+- `ix_search_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
 
 ## `statute_references`
 

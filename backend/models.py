@@ -292,6 +292,24 @@ class CaseReaderMetadataFieldResponse(BaseModel):
 	evidence: str | None = None
 
 
+class CaseReaderExtractedSummaryItemResponse(BaseModel):
+	"""Verified full_text excerpt with an exact formatter anchor (code-point offsets).
+
+	block_start disambiguates repeated paragraph numbers and anchors unnumbered
+	header blocks. start/end are the evidence range, not chunk-local offsets.
+	"""
+	key: str
+	label: str
+	value: str
+	source: str
+	evidence: str
+	start: int
+	end: int
+	block_start: int
+	block_type: str
+	paragraph_number: int | None = None
+
+
 class CaseEvidenceSpanResponse(BaseModel):
 	role: str
 	text: str
@@ -329,6 +347,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
 
 
 class CaseSummarySectionItemResponse(BaseModel):
@@ -368,6 +387,7 @@ class CaseReaderDataResponse(BaseModel):
 	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
+	extracted_summary: list[CaseReaderExtractedSummaryItemResponse] = Field(default_factory=list)
 
 
 class InventoryCaseResponse(BaseModel):

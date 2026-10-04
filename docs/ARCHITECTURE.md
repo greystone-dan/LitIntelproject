@@ -283,7 +283,7 @@ test checks that these paths continue to exist.
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
-| `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
+| `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 

@@ -156,6 +156,64 @@ separately, and statute references and unresolved citations are excluded.
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
+### Ephemeral Precedent Finder
+
+`GET /precedent-finder` serves a standalone research page;
+`POST /precedent-finder` accepts JSON `{"proposition": "<text>"}` with at most
+3000 characters. The existing V3 tagger and statute extractor run in memory.
+Input is not stored, cached, echoed, or logged by this feature, including
+validation and service errors; every response uses no-store headers. The page
+does not use browser storage and clears text on exit. Infrastructure outside
+the application may have separate logging policies. There are no embeddings,
+external analysis calls, new dependencies, migrations, or writes.
+
+The finder remains available when `ENHANCED_AI_MODE=off`: its deterministic
+tag/statute extraction is separate from optional semantic search and generation.
+It coexists with the stored-evidence reader enhancements, Statute Library,
+health probes, and versioned prompts without changing their contracts.
+
+`backend/precedent_finder.py` follows the paragraph-similarity ID-first posting
+pattern, reusing existing tag/source-citation indexes. Sorted active V3 tag
+equality seeks and outgoing resolved case-citation rows have explicit row,
+decision, signal and authority budgets, charged before deduplication.
+Coverage is explicitly non-exhaustive; budget exhaustion is reported. Legacy
+canonical rows without source types remain eligible; known canonical ingestion
+sources are allowlisted. Explicit synthetic, staged, discovered, activity,
+reference-library and side-project sources/datasets, old taxonomy tags,
+unresolved/statute citations and self-citations are excluded.
+
+Authorities sort lexicographically by distinct matching citing decisions,
+distinct matched tags across those decisions, authority date descending, then
+citation ascending (case ID breaks identical-label ties). The three displayed
+numbers are citing-decision count, tag count and date key `YYYYMMDD`, not a
+weighted relevance score. Court, date, matching tags and an authority reader
+link accompany each result. An excerpt is available only from a verified
+numbered paragraph of a **matching citing source decision** containing an exact
+stored citation span to that authority. It is never an authority header or a
+cited target pinpoint. Existing paragraph formatter/chunk and citation-span
+verification supply canonical locations, including chunk-relative occurrences
+and document-relative short-form anchors. Missing, invalid, repeated, ambiguous,
+oversized or mixed structured paragraph chunks are omitted, without fallback.
+Excerpt selection uses descending distinct matched-tag count of the source
+decision, then source citation label ascending, source case ID, source paragraph
+number and citation row ID. This is a decision-level retrieval basis, not a
+paragraph-tag or legal-treatment score. `excerpt_source` exposes those source
+identifiers, matched tags/count and basis; the page labels and links the citing
+source paragraph separately from the authority. Verification runs only for
+returned authorities within the discovery citation IDs, with 64 paragraph rows
+per source and 512 total (rejected rows also count); projected paragraph text
+and canonical formatter context are bounded by the existing 12,000-character
+verification limit. Coverage reports these limits and rows checked.
+Outcome mixes use stored `reader_extracted` government outcomes of the
+**matching citing decisions**, not the authority's outcome; won/lost/mixed and
+unclassified counts share an explicit distinct-decision denominator.
+Tags are decision-level retrieval signals, not verified paragraph evidence,
+legal treatment or proof that an authority supports the proposition. Statute
+references remain separate and do not affect ranking. Empty/tagless inputs and
+empty postings provide helpful guidance rather than guessed precedents.
+Fixture contracts live in `tests/test_precedent_finder.py`; connected explanation
+and ownership are in `.swm/6.maiixtsw.sw.md`.
+
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Keyboard shortcuts move among formatted paragraphs (`j`/`n` next; `k`/`p` previous), visibly mark and focus the current paragraph, and expose a `?` shortcut list; typing fields are excluded. Print mode presents the decision title and citation with numbered paragraphs, hides navigation and side panels, and avoids splitting paragraphs across pages. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 The reader also displays a cautious, additive overruling-risk banner when
 `GET /api/overruling-risk/{case_id}` returns a seeded direct match or a stored,

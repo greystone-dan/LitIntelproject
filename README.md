@@ -268,7 +268,7 @@ If you generate large local archives in [backups](backups), keep them out of Git
 ## Core Documentation
 
 - [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md): canonical current architecture, functionality, data model, operations, and limitations
-- [SYSTEM_OVERVIEW.txt](SYSTEM_OVERVIEW.txt): plain-language system state
+- [docs/history/SYSTEM_OVERVIEW_2026-08-12.txt](docs/history/SYSTEM_OVERVIEW_2026-08-12.txt): archived plain-language system snapshot (August 2026; some figures are historical)
 - [SETUP.md](SETUP.md): environment and workstation setup
 - [OVERNIGHT.md](OVERNIGHT.md): unattended operation guide
 - [DOCS_INDEX.md](DOCS_INDEX.md): document authority map

@@ -27,6 +27,7 @@ from .document_structure import map_span_to_chunk_layers
 from .database import (
 	Case,
 	CaseChunk,
+	CaseOutcome,
 	CaseSource,
 	CaseTag,
 	Citation,
@@ -42,6 +43,7 @@ from .models import (
 	CaseReaderChunkResponse,
 	CaseReaderCitationResponse,
 	CaseReaderDataResponse,
+	CaseReaderExtractedSummaryItemResponse,
 	CaseReaderMetadataFieldResponse,
 	CaseReaderTagResponse,
 	CaseSummaryResponse,
@@ -210,6 +212,220 @@ def _build_case_summary(evidence_summary: CaseEvidenceSummaryResponse | None) ->
 		total_available_sections=sum(section.available for section in sections),
 		total_unavailable_sections=sum(not section.available for section in sections),
 	)
+
+
+def _verified_reader_evidence_location(
+	text: str, evidence: str | None, start: int | None, end: int | None,
+	blocks: list[dict[str, Any]],
+) -> tuple[dict[str, Any], int] | None:
+	"""Verify an absolute excerpt, then map it by containment, never text search."""
+	if not evidence or type(start) is not int or type(end) is not int:
+		return None
+	if not (0 <= start < end <= len(text)) or text[start:end] != evidence:
+		return None
+	for index, block in enumerate(blocks):
+		if block["type"] != "para":
+			continue
+		paragraph_end = block["end"]
+		for continuation in blocks[index + 1:]:
+			if continuation["type"] not in {"text", "quote", "listitem"}:
+				break
+			paragraph_end = continuation["end"]
+		if block["start"] <= start < end <= paragraph_end:
+			return block, paragraph_end
+	for block in blocks:
+		if block["start"] <= start < end <= block["end"]:
+			return block, block["end"]
+	return None
+
+
+def _build_reader_outcome_metadata(
+	case: Case, outcome: CaseOutcome | None, blocks: list[dict[str, Any]]
+) -> list[CaseReaderMetadataFieldResponse]:
+	"""Project stored outcome evidence into existing reader metadata, without reclassification.
+
+	The paragraph number is the formatter identity, not a chunk index. Only
+	verified evidence inside one formatter paragraph can supply a quotation.
+	"""
+	if outcome is None:
+		return []
+	rows = []
+	source = outcome.source or ""
+	if outcome.decision_outcome:
+		rows.append(CaseReaderMetadataFieldResponse(
+			key="decision_outcome", value=outcome.decision_outcome, source=source,
+		))
+	text = case.full_text or ""
+	evidence = outcome.disposition_evidence
+	start, end = outcome.evidence_offset_start, outcome.evidence_offset_end
+	location = _verified_reader_evidence_location(text, evidence, start, end, blocks)
+	if location is None or location[0]["type"] != "para":
+		return rows
+	block, paragraph_end = location
+	quote = text[block["start"]:paragraph_end]
+	rows.extend([
+		CaseReaderMetadataFieldResponse(
+			key="disposition_paragraph", value=quote, source=source, evidence=quote,
+		),
+		CaseReaderMetadataFieldResponse(
+			key="disposition_paragraph_number", value=str(block["num"]), source="formatter",
+		),
+	])
+	return rows
+
+
+def _build_reader_extracted_summary(
+	case: Case, outcome: CaseOutcome | None, blocks: list[dict[str, Any]],
+	tags: list[CaseTag], metadata: list[CaseReaderMetadataFieldResponse],
+) -> list[CaseReaderExtractedSummaryItemResponse]:
+	"""Read-only short projection; no prose, fallback summary text or inferred tags.
+
+	Header values must match explicit source-header facts. Stored tags/outcomes
+	require exact evidence at their stored document offsets; stale or unmappable
+	evidence is omitted, never relocated to a coincidental occurrence.
+	"""
+	text = case.full_text or ""
+	items: list[CaseReaderExtractedSummaryItemResponse] = []
+
+	def add(
+		key: str, label: str, value: str, source: str,
+		evidence: str | None, start: int | None, end: int | None, *, paragraph_only: bool = False,
+	) -> bool:
+		location = _verified_reader_evidence_location(text, evidence, start, end, blocks)
+		if not value or location is None:
+			return False
+		block, _ = location
+		if paragraph_only and block["type"] != "para":
+			return False
+		items.append(CaseReaderExtractedSummaryItemResponse(
+			key=key, label=label, value=value, source=source, evidence=evidence,
+			start=start, end=end, block_start=block["start"], block_type=block["type"],
+			paragraph_number=block.get("num") if block["type"] == "para" else None,
+		))
+		return True
+
+	# Only the pre-reasons header is eligible for metadata. In particular, a
+	# quoted case's date/judge/court in the reasons must not become this case's.
+	header_end = next(
+		(block["start"] for block in blocks if block["type"] in {"para", "doctitle"}),
+		blocks[0]["end"] if blocks and blocks[0]["type"] == "meta" else 0,
+	)
+	header = text[:header_end]
+	court = _normalize_whitespace(case.court or "")
+	if court:
+		match = re.search(r"(?mi)^[ \t]*(" + re.escape(court) + r")[ \t]*$", header)
+		if match:
+			add("court", "Court", court, "canonical_case",
+				match.group(0), match.start(), match.end())
+	if case.date is not None and hasattr(case.date, "strftime"):
+		date_values = (
+			str(case.date), case.date.strftime("%Y/%m/%d"), case.date.strftime("%Y%m%d"),
+			f"{case.date.strftime('%B')} {case.date.day}, {case.date.year}",
+		)
+		match = re.search(
+			r"(?mi)^[ \t]*(?:Date|Decision date|Date du jugement)[ \t]*:[ \t]*"
+			r"(?:\n[ \t]*)?(" + "|".join(re.escape(value) for value in date_values) + r")[ \t]*$",
+			header,
+		)
+		if match:
+			add("date", "Decision date", match.group(1), "canonical_case",
+				match.group(1), match.start(1), match.end(1))
+
+	judge_candidates = [
+		(row.value, row.source) for row in metadata
+		if row.key == "judge" and row.evidence
+		and _normalize_whitespace(row.evidence).casefold() == row.value.casefold()
+	]
+	stored = (getattr(case, "metadata_json", None) or {}).get("reader_extracted")
+	if isinstance(stored, dict):
+		field_sources = stored.get("_field_sources")
+		judge_sources = field_sources.get("judge") if isinstance(field_sources, dict) else None
+		value = stored.get("judge")
+		if isinstance(value, str) and isinstance(judge_sources, dict):
+			source_value = judge_sources.get("text")
+			if isinstance(source_value, str) and (
+				_normalize_whitespace(source_value).casefold()
+				== _normalize_whitespace(value).casefold()
+			):
+				judge_candidates.append((_normalize_whitespace(value), "reader_extracted"))
+	for value, source in judge_candidates:
+		# Reuse the extracted value only in a judge-labelled header capture,
+		# not by searching for the name in the body or a party caption.
+		name = r"[ \t]+".join(re.escape(part) for part in value.split())
+		if not name:
+			continue
+		match = re.search(
+			r"(?mi)^[ \t]*(?:Judge|Judges|Present|Coram|Before|"
+			r"Reasons for judgment(?: and judgment)? by|Judgment delivered by)"
+			r"[ \t]*:[ \t]*(?:\n[ \t]*)?"
+			# Only prefixes stripped by the metadata judge normalizer are eligible.
+			# Keep them outside the capture so evidence offsets cover the name only.
+			r"(?:(?:The[ \t]+)?(?:(?:Right[ \t]+)?Honourable|Honorable|L['’]honorable)[ \t]+)?"
+			r"(?:(?:(?:monsieur|madame)[ \t]+)?(?:le|la)[ \t]+juge"
+			r"(?:[ \t]+en[ \t]+chef(?:[ \t]+par[ \t]+int[ée]rim)?)?[ \t]+)?"
+			r"(?:(?:Madame|Mme|M\.|Mme\.|Mr\.?|Mrs\.?|Madam|Mr\.?[ \t]+Justice|"
+			r"Madame[ \t]+Justice|madame[ \t]+la[ \t]+juge[ \t]+en[ \t]+chef"
+			r"[ \t]+par[ \t]+intérim)[ \t]+)?(" + name + r")[ \t]*$",
+			header,
+		)
+		if match:
+			if add("judge", "Judge", match.group(1), source,
+				match.group(1), match.start(1), match.end(1)):
+				break
+
+	seen_tags: set[tuple[str, str]] = set()
+	for tag in sorted(tags, key=lambda row: (-(row.score or 0), row.category, row.value)):
+		pair = (tag.category, tag.value)
+		if pair in seen_tags:
+			continue
+		if add(f"tag:{tag.category}", f"Tag ({tag.category})", tag.value, tag.source,
+			tag.evidence, tag.offset_start, tag.offset_end, paragraph_only=True):
+			seen_tags.add(pair)
+		if len(seen_tags) >= 3:
+			break
+
+	if outcome is not None:
+		location = _verified_reader_evidence_location(
+			text, outcome.disposition_evidence, outcome.evidence_offset_start,
+			outcome.evidence_offset_end, blocks,
+		)
+		if location and location[0]["type"] == "para":
+			block, end = location
+			quote = text[block["start"]:end]
+			add("disposition", "Disposition · verbatim", quote, outcome.source or "",
+				quote, block["start"], end, paragraph_only=True)
+		if outcome.decision_outcome and add("outcome", "Outcome", outcome.decision_outcome, outcome.source or "",
+			outcome.disposition_evidence, outcome.evidence_offset_start,
+			outcome.evidence_offset_end, paragraph_only=True):
+			if outcome.source:
+				add("outcome_source", "Outcome source", outcome.source, outcome.source,
+					outcome.disposition_evidence, outcome.evidence_offset_start,
+					outcome.evidence_offset_end, paragraph_only=True)
+	return items
+
+
+def _citation_target_paragraph(
+	citation_text: str | None,
+	normalized_citation: str | None,
+	stored_target_paragraph: int | None = None,
+) -> int | None:
+	if stored_target_paragraph is not None:
+		return int(stored_target_paragraph)
+	match = re.search(
+		r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
+		citation_text or normalized_citation or "",
+		re.IGNORECASE,
+	)
+	return int(match.group(1)) if match is not None else None
+
+
+def _cited_case_counts_by_paragraph(rows: Any, case_id: int) -> dict[int, int]:
+	sources_by_paragraph: dict[int, set[int]] = {}
+	for source_case_id, paragraph in rows:
+		if source_case_id is None or source_case_id == case_id or paragraph is None:
+			continue
+		sources_by_paragraph.setdefault(int(paragraph), set()).add(int(source_case_id))
+	return {paragraph: len(sources) for paragraph, sources in sources_by_paragraph.items()}
 
 
 def _legislation_url_for_reference(value: str | None) -> str | None:
@@ -665,12 +881,10 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	stored_citations = list(citation_rows)
 
 	def target_paragraph(citation: Citation) -> int | None:
-		match = re.search(
-			r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
-			citation.citation_text or citation.normalized_citation or "",
-			re.IGNORECASE,
+		return _citation_target_paragraph(
+			citation.citation_text,
+			citation.normalized_citation,
 		)
-		return int(match.group(1)) if match is not None else None
 
 	target_pinpoints = {
 		(target_case_id, paragraph)
@@ -776,10 +990,38 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		citations=citation_responses,
 	)
 	case_summary = _build_case_summary(evidence_summary)
+	incoming_citations = db.execute(
+		select(
+			Citation.source_case_id,
+			Citation.citation_text,
+			Citation.normalized_citation,
+			Citation.target_paragraph,
+		).where(Citation.target_case_id == case_id)
+	).all()
+	cited_paragraph_counts = _cited_case_counts_by_paragraph(
+		(
+			(
+				source_case_id,
+				_citation_target_paragraph(citation_text, normalized_citation, target_paragraph),
+			)
+			for source_case_id, citation_text, normalized_citation, target_paragraph in incoming_citations
+		),
+		case_id,
+	)
+
+	format_blocks = format_decision(case.full_text, cited_paragraph_counts)
+	outcome = db.scalar(
+		select(CaseOutcome).where(CaseOutcome.case_id == case_id)
+		.order_by(CaseOutcome.updated_at.desc(), CaseOutcome.id.desc()).limit(1)
+	)
+	extracted_metadata += _build_reader_outcome_metadata(case, outcome, format_blocks)
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
-		format_blocks=format_decision(case.full_text),
+		format_blocks=format_blocks,
+		extracted_summary=_build_reader_extracted_summary(
+			case, outcome, format_blocks, tags, extracted_metadata,
+		),
 		sources=[CaseSourceResponse.model_validate(row, from_attributes=True) for row in sources],
 		chunks=[
 			CaseReaderChunkResponse(

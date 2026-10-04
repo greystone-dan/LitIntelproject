@@ -70,15 +70,15 @@ If the inventory and single-page language switch are implemented without changin
 | Date | Decision | Reason | Evidence |
 | --- | --- | --- | --- |
 | 2026-10-04 | Use About as the proof-of-concept page | No `/start` route exists; About is the requested fallback. Translations stay limited to the title, lead, and three section links | `backend/routes.py`; `backend/pages/data_explorer.py` |
-| 2026-10-04 | Keep task blocked pending prescribed environment checks | Test runner and generated-doc dependencies are missing, preventing the requested broad checks | `python -m pytest -q`; `python scripts/check_generated_docs.py` |
+| 2026-10-04 | Keep task open pending the remote-resource tests | Three full-suite tests cannot resolve remote model/tokenizer resources in this environment | `python -m pytest -q` |
 
 ## Completion
 
 Completion recorded: no
 
-Summary: Implementation and required documentation are present; validation is blocked by missing test and generated-document dependencies.
+Summary: Implementation and required documentation are present; the CI-equivalent suite has three network-dependent failures.
 
-Validation: Inventory freshness, compilation, focused UI tests, and generated-document checks passed. The CI-equivalent full test run had three network-dependent failures.
+Validation: Inventory freshness, compilation, focused UI tests, generated-document checks, and the final CodeQL scan (zero alerts) passed. The CI-equivalent full test run had three network-dependent failures.
 
 Residual risk: Three network-dependent full-suite failures remain; see Evidence.
 

@@ -292,6 +292,19 @@ class CaseReaderMetadataFieldResponse(BaseModel):
 	evidence: str | None = None
 
 
+class CaseReaderExtractedSummaryItemResponse(BaseModel):
+	"""Verified full_text excerpt with an exact formatter anchor (code-point offsets).
+
+	block_start disambiguates repeated paragraph numbers and anchors unnumbered
+	header blocks. start/end are the evidence range, not chunk-local offsets.
+	"""
+	key: str
+	label: str
+	value: str
+	source: str
+	evidence: str
+
+
 class CaseEvidenceSpanResponse(BaseModel):
 	role: str
 	text: str

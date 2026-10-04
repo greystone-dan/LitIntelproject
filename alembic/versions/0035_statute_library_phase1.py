@@ -1,7 +1,7 @@
 """Add statute library with point-in-time versioning for Phase 1 (federal laws)
 
 Revision ID: 0035_statute_library_phase1
-Revises: 0034_merge_similarity_main_merge_paragraph_similarity_and_main_
+Revises: 0034_merge_similarity_main
 Create Date: 2026-10-03 12:45:00.000000
 """
 
@@ -11,7 +11,7 @@ from sqlalchemy import LargeBinary
 
 
 revision = "0035_statute_library_phase1"
-down_revision = "0034_merge_similarity_main_merge_paragraph_similarity_and_main_"
+down_revision = "0034_merge_similarity_main"
 branch_labels = None
 depends_on = None
 

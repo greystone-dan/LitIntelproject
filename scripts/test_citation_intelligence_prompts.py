@@ -33,8 +33,8 @@ from backend.citation_intelligence_prompts import (
     build_lightweight_issue_extraction_request,
     build_unit_context_assessment_request,
 )
-from backend.database import Case, CaseChunk, get_session
-from backend.package_discussion_units_llm import (
+from backend.database import Case, CaseChunk, get_db
+from scripts.package_discussion_units_llm import (
     build_paragraph_assessment_request,
     _parse_paragraph_assessment,
 )
@@ -159,7 +159,7 @@ def main() -> int:
     variants = [v.strip() for v in args.variants.split(",") if v.strip()]
 
     # Get database and API clients
-    session = next(get_session())
+    session = next(get_db())
     try:
         client = OpenAI()  # Uses OPENAI_API_KEY from environment
     except Exception as e:

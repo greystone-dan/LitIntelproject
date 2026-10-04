@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:38:19.916027+00:00
+Generated: 2026-10-04T14:16:41.032795+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 106 across 103 paths
+OpenAPI operations: 107 across 104 paths
 Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -220,6 +220,19 @@ Get Analytics Themes
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/cases/{case_id}/summary`
+
+Get Case Summary
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/legislation/cases`
 

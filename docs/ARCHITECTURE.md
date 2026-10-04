@@ -132,6 +132,7 @@ test checks that these paths continue to exist.
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
+| `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
@@ -180,6 +181,7 @@ test checks that these paths continue to exist.
 | `backend/models.py` | Pydantic request and response contracts |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
+| `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |

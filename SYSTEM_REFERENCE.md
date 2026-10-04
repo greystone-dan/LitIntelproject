@@ -24,6 +24,8 @@ IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
 partial. Migration
 `0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
 must review/apply it separately.
+The offline migration graph test expects `0031_paragraph_similarity` as its
+single head; it does not apply migrations to a database.
 
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
 

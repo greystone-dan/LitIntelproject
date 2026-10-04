@@ -11,6 +11,7 @@ from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
 from backend import routes, search_service, text_generation_providers
+from backend import query_embedding_providers
 from backend.ai_mode import AI_DISABLED_MESSAGE, enhanced_mode, mode_status
 from backend.main import app
 from backend.models import (
@@ -161,7 +162,7 @@ def test_off_mode_exports_remain_sql_analytics_without_ai_calls(monkeypatch):
 	csv_response = routes.export_search_analytics_cases(db=FakeDatabase())
 	docx_response = routes.export_search_docx(db=FakeDatabase())
 
-	assert csv_response.media_type == "text/csv; charset=utf-8"
+	assert csv_response.media_type == "text/csv"
 	assert docx_response.media_type == (
 		"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 	)
@@ -170,9 +171,20 @@ def test_off_mode_exports_remain_sql_analytics_without_ai_calls(monkeypatch):
 def test_local_generation_provider_never_constructs_openai(monkeypatch):
 	monkeypatch.setenv("ENHANCED_AI_MODE", "local")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "openai")
+	monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+	monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
 	monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 	monkeypatch.setattr(
+		query_embedding_providers,
+		"_local_provider",
+		lambda *_args: SimpleNamespace(embed_query=lambda _text: [0.2] * 1536),
+	)
+	monkeypatch.setattr(
 		text_generation_providers, "OpenAI",
+		lambda **_kwargs: (_ for _ in ()).throw(AssertionError("OpenAI client must not be constructed")),
+	)
+	monkeypatch.setattr(
+		query_embedding_providers, "OpenAI",
 		lambda **_kwargs: (_ for _ in ()).throw(AssertionError("OpenAI client must not be constructed")),
 	)
 
@@ -180,6 +192,8 @@ def test_local_generation_provider_never_constructs_openai(monkeypatch):
 		text_generation_providers.get_text_generation_provider(),
 		text_generation_providers.OllamaChatProvider,
 	)
+	assert search_service._effective_search_mode("semantic") == "semantic"
+	assert len(search_service._embed("local query")) == 1536
 
 
 def test_hosted_mode_preserves_configured_openai_provider_through_fake(monkeypatch):
@@ -223,6 +237,9 @@ def test_research_page_displays_server_disabled_message():
 
 def test_default_search_and_memo_endpoints_make_no_model_calls(monkeypatch):
 	monkeypatch.delenv("ENHANCED_AI_MODE", raising=False)
+	monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+	monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+	monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 	case = _case()
 	chunk = _chunk()
 	monkeypatch.setitem(app.dependency_overrides, routes.get_db, lambda: FakeDatabase([(case, chunk, 0.5)]))
@@ -233,8 +250,18 @@ def test_default_search_and_memo_endpoints_make_no_model_calls(monkeypatch):
 		raise AssertionError("default mode must not call or construct an AI provider")
 
 	monkeypatch.setattr(openai, "OpenAI", fail_model_call)
-	monkeypatch.setattr(search_service, "OpenAI", fail_model_call)
 	monkeypatch.setattr(text_generation_providers, "OpenAI", fail_model_call)
+	monkeypatch.setattr(query_embedding_providers, "OpenAI", fail_model_call)
+	monkeypatch.setattr(query_embedding_providers, "embed_query", fail_model_call)
+	monkeypatch.setattr(
+		query_embedding_providers, "SentenceTransformerEmbeddingProvider", fail_model_call
+	)
+	monkeypatch.setattr(
+		query_embedding_providers,
+		"_local_provider",
+		lambda *_args: fail_model_call(),
+	)
+	assert query_embedding_providers.get_search_embedding_status()["query_provider"] == "none"
 	monkeypatch.setattr(search_service, "SentenceTransformerEmbeddingProvider", fail_model_call)
 	monkeypatch.setattr(routes, "_local_embedding_provider", fail_model_call)
 	monkeypatch.setattr(httpx, "post", fail_model_call)

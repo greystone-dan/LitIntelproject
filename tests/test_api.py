@@ -7,10 +7,12 @@ from types import SimpleNamespace
 
 import pytest
 from docx import Document
-from fastapi import HTTPException
+from fastapi import FastAPI, HTTPException
+from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
 from backend import routes
+from backend import query_embedding_providers
 from backend import search_service
 from backend.reader_service import (
     _build_reader_inferred_tags,
@@ -30,6 +32,7 @@ from backend.models import (
 @pytest.fixture(autouse=True)
 def _enable_ai_rollout_defaults(monkeypatch):
     monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
     monkeypatch.setitem(routes.AI_ROLLOUT, "semantic_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "hybrid_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "local_semantic_enabled", True)
@@ -259,7 +262,9 @@ class QueuedReaderSession:
 
 
 def test_ingest_stores_metadata_and_embedding(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     database = FakeDatabase()
     request = CaseIngestRequest(
         title="Example v. Jones",
@@ -1085,7 +1090,9 @@ def test_raw_ingest_skips_embedding(monkeypatch):
 
 
 def test_ingest_hashes_server_text_and_derives_status(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     request = CaseIngestRequest(
         title="Hash test",
         court="Federal Court",
@@ -1198,6 +1205,7 @@ def test_grouped_chunk_search_groups_by_case(monkeypatch):
     )
     request = ChunkGroupSearchRequest(
         query="risk",
+        search_mode="semantic",
         source_type="a2aj_curated",
         page=1,
         page_size=5,
@@ -1237,7 +1245,10 @@ def test_grouped_chunk_search_supports_recent_case_cohort(monkeypatch):
     database = FakeDatabase(rows=[(case, chunk, 0.1, 0.5)])
 
     result = routes.search_chunks_grouped(
-        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
     )
 
     assert result.total_cases == 1
@@ -1291,7 +1302,10 @@ def test_grouped_chunk_search_recent_cohort_uses_ivfflat_artifact(monkeypatch):
     database = FakeDatabase(rows=[(case, artifact_chunk, 0.1, 0.5)])
 
     result = routes.search_chunks_grouped(
-        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
     )
 
     assert result.total_cases == 1
@@ -1398,7 +1412,7 @@ def test_paragraph_search_forces_semantic_openai_paragraph_filter(monkeypatch):
 
 def test_local_chunk_search_uses_requested_model(monkeypatch):
     provider = SimpleNamespace(embed_query=lambda text: [0.3] * 1024)
-    monkeypatch.setattr(routes, "_local_embedding_provider", lambda model_name: provider)
+    monkeypatch.setattr(search_service, "_local_embedding_provider", lambda model_name: provider)
     case = SimpleNamespace(
         id=701,
         title="Local vector case",
@@ -1425,6 +1439,126 @@ def test_local_chunk_search_uses_requested_model(monkeypatch):
     assert result[0].chunk_text == "Relevant local passage"
     assert result[0].similarity == pytest.approx(0.88)
     assert "BAAI/bge-m3" in database.statement.compile().params.values()
+
+
+def test_search_embedding_status_reports_no_embedding_default(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("TEXT_GENERATION_PROVIDER", raising=False)
+    app = FastAPI()
+    app.include_router(routes.router)
+
+    with TestClient(app) as client:
+        response = client.get("/api/search-embedding-status")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "query_provider": "none",
+        "model": None,
+        "dimensions": None,
+        "indexed_dimensions": 1536,
+        "query_data_leaves_machine": False,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_default_semantic_search_falls_back_without_constructing_model_client(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+
+    def fail_if_constructed(**kwargs):
+        raise AssertionError("default search must not construct an embedding client")
+
+    monkeypatch.setattr(query_embedding_providers, "OpenAI", fail_if_constructed)
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_local_provider",
+        lambda *args: fail_if_constructed(),
+    )
+    case = SimpleNamespace(
+        id=1,
+        title="Default Search Case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 7, 31),
+        citation="2026 FC 55",
+        summary="state protection analysis",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    database = FakeDatabase(rows=[(case, 0.3)])
+
+    results = routes.search_cases(CaseSearchRequest(query="state protection"), database)
+
+    assert results[0].title == "Default Search Case"
+    assert "cosine" not in str(database.statement).lower()
+
+
+def test_local_query_embedding_with_matching_indexed_dimensions(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.setenv("QUERY_EMBEDDING_MODEL", "test-1536-local")
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
+    provider = SimpleNamespace(embed_query=lambda text: [0.25] * 1536)
+    monkeypatch.setattr(query_embedding_providers, "_local_provider", lambda model, dims: provider)
+
+    assert len(search_service._embed("local query")) == 1536
+    assert query_embedding_providers.get_search_embedding_status() == {
+        "query_provider": "local",
+        "model": "test-1536-local",
+        "dimensions": 1536,
+        "indexed_dimensions": 1536,
+        "query_data_leaves_machine": False,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_local_query_embedding_mismatch_fails_before_provider_use(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_DIMENSIONS", raising=False)
+    provider_calls = []
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_local_provider",
+        lambda model, dims: provider_calls.append((model, dims)),
+    )
+
+    with pytest.raises(HTTPException) as exc:
+        search_service._embed("local query")
+    assert exc.value.status_code == 503
+    assert "1024" in exc.value.detail
+    assert "1536" in exc.value.detail
+    assert "re-embedding" in exc.value.detail
+    assert provider_calls == []
+
+
+def test_query_embedding_provider_supports_explicit_openai_opt_in_without_live_client(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    created = {}
+
+    class FakeOpenAI:
+        def __init__(self, **kwargs):
+            created.update(kwargs)
+            self.embeddings = SimpleNamespace(
+                create=lambda **params: SimpleNamespace(
+                    data=[SimpleNamespace(embedding=[0.5] * 1536)]
+                )
+            )
+
+    monkeypatch.setattr(query_embedding_providers, "OpenAI", FakeOpenAI)
+    vector = query_embedding_providers.embed_query("outbound query")
+
+    assert len(vector) == 1536
+    assert created == {"api_key": "test-key"}
+    assert query_embedding_providers.get_search_embedding_status()["query_data_leaves_machine"] is True
 
 
 def test_search_lexical_mode_skips_embedding_call(monkeypatch):
@@ -1465,7 +1599,9 @@ def test_hybrid_mode_requires_non_zero_weight_sum():
 
 
 def test_ingest_adds_extracted_citations_to_metadata(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     monkeypatch.setattr(routes, "_extract_legal_citations", lambda text: ["2007 FC 1262", "2026 ONCA 1"])
 
     request = CaseIngestRequest(
@@ -1484,7 +1620,9 @@ def test_ingest_adds_extracted_citations_to_metadata(monkeypatch):
 
 
 def test_ingest_preserves_cases_cited_when_provided(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     monkeypatch.setattr(routes, "_extract_legal_citations", lambda text: ["2007 FC 1262"])
 
     request = CaseIngestRequest(

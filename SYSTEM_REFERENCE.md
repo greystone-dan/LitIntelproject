@@ -328,6 +328,20 @@ paging and explicit date/minister sorts remain intact. Results expose a short
 - The CSV and Word exports use the existing SQL analytics Case Search rather
   than vector retrieval; their behavior and `/analytics/search/cases` remain
   unchanged and do not construct an AI provider.
+- Query embedding selection is independent of generation and disabled by
+  default. Semantic/hybrid requests use lexical ranking unless the operator
+  explicitly selects a query provider and enables enhanced mode. The OpenAI
+  provider requires `ENHANCED_AI_MODE=hosted` and
+  `QUERY_EMBEDDING_PROVIDER=openai`; the local SentenceTransformer option keeps
+  query text on-device and requires `QUERY_EMBEDDING_PROVIDER=local` in
+  `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
+  provider/model/output dimensions, indexed dimensions, whether query text
+  leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
+  Search rejects query vectors that do not match its 1536-dimensional
+  indexed-vector contract. The default local BGE-M3 model is 1024-dimensional,
+  so it requires a compatible indexed-vector family before it can be used by
+  that search path. See [the local query embedding report](docs/reports/local-query-embeddings.md)
+  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -1532,6 +1546,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /search/chunks`: chunk-level search.
 - `POST /search/chunks/grouped`: grouped matching passages per case.
 - `POST /search/local-chunks`: local embedding-backed chunk search where populated.
+- `GET /api/search-embedding-status`: configured query and generation provider
+  metadata; does not load an embedding model or perform retrieval.
 
 ### Ephemeral Document Analysis APIs
 
@@ -1638,6 +1654,15 @@ python -m venv venv
 pip install -r requirements.txt
 .\venv\Scripts\python.exe -m alembic upgrade head
 .\venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+The base install supports application startup and the CI test suite; it includes
+sentence-transformers because a CI test exercises local semantic search.
+Automatic spaCy name detection is optional; install `requirements-ml.txt`
+alongside the base requirements only when using that feature:
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-ml.txt
 ```
 
 Set secrets only in ignored environment files or secure environment configuration. Do not put API keys, database passwords, tunnel credentials, or access passwords in documentation, tests, exports, or commits.
@@ -7166,7 +7191,10 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local enables the local-generation and local-embedding paths without constructing an OpenAI generation client. Hosted explicitly enables the existing hosted search/generation behavior. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only explicitly selected local query embeddings. Hosted permits configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings; OpenAI additionally requires `ENHANCED_AI_MODE=hosted`. |
+| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
 | `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
@@ -10291,6 +10319,8 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
+The separate `backend/unit_search.py` semantic helper is deprecated and is not
+called by these routes; its default and stored-vector filter use `BAAI/bge-m3`.
 
 The active Data Explorer also provides a Core Cases proof of concept. `Display
 core cases` loads the first 100 ordinary case results while retaining the full

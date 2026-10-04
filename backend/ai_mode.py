@@ -22,11 +22,11 @@ def mode_status() -> dict[str, str]:
 
 
 def search_downgrade_reason(requested_mode: str, effective_mode: str) -> str | None:
-	if requested_mode not in {"semantic", "hybrid"} or effective_mode == requested_mode:
+	if requested_mode not in {"semantic", "hybrid"} or effective_mode != "lexical":
 		return None
 	mode = enhanced_mode()
 	if mode == "off":
 		return "Enhanced AI mode is off; lexical search was used."
 	if mode == "local":
-		return "Hosted semantic search is unavailable in local mode; lexical search was used."
-	return None
+		return "A local query embedding provider is not enabled; lexical search was used."
+	return "Query embeddings are disabled; lexical search was used."

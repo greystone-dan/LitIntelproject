@@ -14,7 +14,6 @@ from pathlib import Path
 from typing import Any, Callable
 
 from fastapi import HTTPException, status
-from openai import OpenAI, OpenAIError
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
@@ -27,6 +26,11 @@ except Exception:  # pragma: no cover
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
+from .query_embedding_providers import (
+	embed_query,
+	query_embedding_provider,
+	query_embeddings_enabled,
+)
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import citation_query, match_details
 from .models import (
@@ -90,7 +94,9 @@ AI_ROLLOUT = _load_ai_rollout_flags()
 
 def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None = None) -> str:
 	mode = enhanced_mode()
-	if requested_mode in {"semantic", "hybrid"} and mode != "hosted":
+	if requested_mode in {"semantic", "hybrid"} and (
+		mode == "off" or (mode == "local" and query_embedding_provider() != "local")
+	):
 		return "lexical"
 	flags = rollout or AI_ROLLOUT
 	if requested_mode == "semantic" and not flags.get("semantic_enabled", True):
@@ -99,36 +105,21 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 		not flags.get("hybrid_enabled", True) or not flags.get("semantic_enabled", True)
 	):
 		return "metadata"
+	if requested_mode in {"semantic", "hybrid"} and not query_embeddings_enabled():
+		return "lexical"
 	return requested_mode
 
 
 def _embed(text: str) -> list[float]:
-	api_key = os.getenv("OPENAI_API_KEY")
-	if not api_key:
-		raise HTTPException(
-			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="OPENAI_API_KEY is not configured",
-		)
-
-	try:
-		organization = os.environ.pop("OPENAI_ORG_ID", None)
-		try:
-			client = OpenAI(api_key=api_key)
-		finally:
-			if organization is not None:
-				os.environ["OPENAI_ORG_ID"] = organization
-		response = client.embeddings.create(input=text, model=EMBEDDING_MODEL)
-	except OpenAIError as exc:
-		raise HTTPException(
-			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service is unavailable",
-		) from exc
-
-	embedding = response.data[0].embedding
+	embedding = embed_query(text, indexed_dimensions=EMBEDDING_DIMENSIONS)
 	if len(embedding) != EMBEDDING_DIMENSIONS:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service returned an unexpected vector size",
+			detail=(
+				f"The query embedding returned {len(embedding)} dimensions but searched "
+				f"vectors are {EMBEDDING_DIMENSIONS}-dimensional; re-embedding is "
+				"required before using a query model with a different dimension."
+			),
 		)
 	return embedding
 

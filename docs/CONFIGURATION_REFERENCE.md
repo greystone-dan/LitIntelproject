@@ -86,7 +86,10 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local enables local-generation and local-chunk-embedding paths without constructing an OpenAI client. Hosted explicitly enables the existing hosted search/generation behavior. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
+| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
 | `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
@@ -117,14 +120,32 @@ The local provider's code-default model is `qwen3:4b`. An enabled route reports
 a controlled `503` when the selected provider is not configured or reachable.
 Setting these values does not download a model.
 
+Query embedding is a separate provider decision and is disabled by default.
+Semantic/hybrid search uses lexical ranking until an operator explicitly sets
+`QUERY_EMBEDDING_PROVIDER=openai` or `local` and enables enhanced AI mode. OpenAI
+query inference additionally requires `ENHANCED_AI_MODE=hosted`; local query
+inference is permitted in `local` or `hosted` mode. The default off mode never
+constructs a query embedding provider. Only the OpenAI setting sends query text
+off-machine. Case-ingestion summary embeddings retain their existing,
+separately controlled provider path. The read-only
+`GET /api/search-embedding-status` endpoint reports both selected providers,
+the query model and dimensions (`null` when embeddings are disabled), the
+indexed-vector dimension, and whether query text is sent off-machine. It does
+not instantiate the embedding model. With the local BGE-M3 model,
+query vectors are 1024-dimensional while the standard hosted semantic index is
+1536-dimensional; the search dimension guard rejects that incompatible vector
+rather than submitting it. Local model inference may fetch model artifacts on
+first use if they are not already cached; this is separate from whether query
+text leaves the machine. See `docs/reports/local-query-embeddings.md`.
+
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
 ## Local Embedding Settings
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
-| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 

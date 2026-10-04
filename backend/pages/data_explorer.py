@@ -460,17 +460,55 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="search-status" id="searchMeta" role="status" aria-live="polite" data-state="idle">Search by case name or citation. Open Advanced options for filters or full-decision text.</div>
 <div class="results-wrap" id="searchResults" aria-label="Case search results"></div>
 </section>
+<style>
+.reader-print-citation{display:none}
+.reader-toolbar{align-items:flex-start;gap:7px}
+.reader-keyboard-help-toggle{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer}
+.reader-keyboard-help{position:absolute;z-index:5;right:14px;top:52px;width:240px;padding:12px 14px;border:1px solid var(--border);border-radius:7px;background:var(--surface);box-shadow:var(--shadow);color:var(--text);font-size:11px;letter-spacing:0;text-transform:none}
+.reader-keyboard-help ul{margin:7px 0 0;padding-left:18px;line-height:1.8}
+.reader-keyboard-help kbd{display:inline-block;min-width:18px;padding:1px 4px;border:1px solid var(--border);border-radius:3px;background:var(--surface-alt);font:700 10px monospace;text-align:center}
+#decisionBody .fmt-para.is-reader-current{background:#e5f3ef!important;box-shadow:0 0 0 4px #e5f3ef!important;border-radius:4px}
+#decisionBody .fmt-para.is-reader-current .fmt-para-num{color:#202522;font-weight:700}
+@media print{
+	@page{margin:18mm}
+	body{background:#fff!important}
+	body *{visibility:hidden!important}
+	.app-shell,.workspace,.center-pane{display:block!important;width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important;box-shadow:none!important}
+	.topbar,.sidebar,.page-header,.center-pane>.panel-card:not(#caseReaderPanel){display:none!important}
+	#caseReaderPanel:not([hidden]),#caseReaderPanel:not([hidden]) *{visibility:visible!important}
+	#caseReaderPanel[hidden]{display:none!important}
+	#caseReaderPanel:not([hidden]){position:static!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;background:#fff!important}
+	#caseReaderPanel .reader-shell,#caseReaderPanel .reader-layout{display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important}
+	#caseReaderPanel .reader-head{position:static!important;padding:0 0 12px!important;border-bottom:1px solid #888!important;background:#fff!important}
+	#caseReaderPanel .reader-head h2{margin:0 0 4px!important;color:#000!important;font-size:20pt!important}
+	#caseReaderPanel .reader-print-citation{display:block!important;margin:0 0 8px!important;color:#222!important;font:11pt/1.4 Georgia,"Times New Roman",serif!important}
+	#caseReaderPanel .reader-meta,#caseReaderPanel .reader-toolbar,#caseReaderPanel .return-to-results,#caseReaderPanel .reader-pane-header,#caseReaderPanel .reader-evidence-bar,#caseReaderPanel .reader-evidence-detail,#caseReaderPanel .reader-keyboard-help,#caseReaderPanel .reader-keyboard-help-toggle,#caseReaderPanel .reader-pane.target,#caseReaderPanel .reader-pane.linked,#caseReaderPanel .reader-pane-splitter,#caseReaderPanel button{display:none!important}
+	#caseReaderPanel .reader-pane.source{display:block!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;background:#fff!important}
+	#caseReaderPanel .reader-text{overflow:visible!important;padding:12px 0 0!important;color:#000!important;background:#fff!important}
+	#decisionBody .fmt-para{break-inside:avoid!important;page-break-inside:avoid!important;color:#000!important}
+	#decisionBody .fmt-para-num{color:#222!important}
+	#decisionBody .fmt-para.is-reader-current{background:transparent!important;box-shadow:none!important}
+	#decisionBody .fmt-footer{break-inside:auto!important}
+	a{color:inherit!important;text-decoration:none!important}
+}
+</style>
 <section id="caseReaderPanel" class="panel-card inline-case-reader" hidden>
 <div class="reader-shell">
 <div class="reader-head">
 <button class="return-to-results" type="button" onclick="closeDecisionReader()">&larr; Back to case results</button>
 <div class="rh-eyebrow" id="decisionEyebrow"></div>
 <h2 id="decisionTitle">Decision</h2>
+<div id="readerPrintCitation" class="reader-print-citation" aria-label="Case citation"></div>
 <div class="reader-meta" id="decisionMeta"></div>
 <div class="reader-toolbar">
 	<div class="reader-view-toggle" aria-label="Reader view mode">
 		<button type="button" class="reader-view-button" id="readerViewToggle" aria-pressed="false" title="Switch to chunk breakdown">Chunk breakdown</button>
 		<button type="button" class="reader-view-button" id="readerFormatToggle" aria-pressed="true" title="Switch between formatted and plain decision text" hidden>Formatted</button>
+	</div>
+	<button type="button" class="reader-keyboard-help-toggle" id="readerKeyboardHelpToggle" aria-expanded="false" aria-controls="readerKeyboardHelp" title="Show keyboard shortcuts">?</button>
+	<div class="reader-keyboard-help" id="readerKeyboardHelp" role="dialog" aria-label="Reader keyboard shortcuts" hidden>
+		<strong>Reader shortcuts</strong>
+		<ul><li><kbd>j</kbd> / <kbd>n</kbd> Next paragraph</li><li><kbd>k</kbd> / <kbd>p</kbd> Previous paragraph</li><li><kbd>?</kbd> Show or hide this list</li></ul>
 	</div>
 </div>
 </div>
@@ -1278,6 +1316,91 @@ document.addEventListener('click',event=>{if(event.target.closest?.('#clearSearc
 document.getElementById('searchExamples')?.addEventListener('click',event=>{const chip=event.target.closest?.('[data-example]');if(!chip)return;const input=document.getElementById('searchQuery');input.value=chip.dataset.example;document.getElementById('caseSearch')?.requestSubmit();});
 professionalResultCard=function(item){const context=[item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':'',cls=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'';const tags=[outcome?`<span class="rc-tag ${cls}">${esc(outcome)}</span>`:'',item.decision_outcome?`<span class="rc-tag">${esc(item.decision_outcome)}</span>`:''].filter(Boolean).join('');return `<button type="button" class="case-result rc ${cls?'rc-'+cls:''}" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="rc-main"><div class="rc-top"><span class="rc-cite">${esc(item.citation||'No citation')}</span>${item.court?`<span class="rc-court">${esc(item.court)}</span>`:''}${item.date?`<span class="rc-date">${esc(item.date)}</span>`:''}</div><div class="rc-title">${esc(item.title||'Untitled decision')}</div>${context.length?`<div class="rc-meta">${context.map(esc).join('  ·  ')}</div>`:''}${tags?`<div class="rc-tags">${tags}</div>`:''}</div><div class="rc-side"><div class="rc-stats"><div class="rc-stat rc-stat-main" title="Other cases in the library that cite this decision"><b>${item.cited_by_cases===undefined||item.cited_by_cases===null?'-':num(item.cited_by_cases)}</b><span>cited by other cases</span></div><div class="rc-stat" title="Different cases, statutes and other authorities this decision cites"><b>${num(item.unique_cited_authorities)}</b><span>authorities cited</span></div><div class="rc-stat" title="Cited cases that are also in this library, so you can open them"><b>${num(item.resolved_target_cases)}</b><span>cases you can open</span></div></div><span class="rc-open">Open decision &rarr;</span></div></button>`;};
 qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',()=>setTimeout(()=>document.getElementById('cohortSearchPanel')?.scrollIntoView({behavior:'smooth',block:'start'}),400));
+</script>
+<script>
+/* Inline reader keyboard navigation and print behavior. */
+const readerKeyboardHelpToggle=document.getElementById('readerKeyboardHelpToggle');
+const readerKeyboardHelp=document.getElementById('readerKeyboardHelp');
+function toggleReaderKeyboardHelp(force){
+	if(!readerKeyboardHelp||!readerKeyboardHelpToggle)return;
+	const show=force===undefined?readerKeyboardHelp.hidden:Boolean(force);
+	readerKeyboardHelp.hidden=!show;
+	readerKeyboardHelpToggle.setAttribute('aria-expanded',String(show));
+}
+readerKeyboardHelpToggle?.addEventListener('click',()=>toggleReaderKeyboardHelp());
+function readerTypingTarget(target){
+	return Boolean(target?.isContentEditable||target?.closest?.('input, textarea, select, [contenteditable=""], [contenteditable="true"], [contenteditable="plaintext-only"]'));
+}
+function readerNumberedParagraphs(){
+	return [...(document.querySelectorAll('#decisionBody .fmt-para[data-para]')||[])].filter(para=>Number.isInteger(Number(para.dataset.para)));
+}
+function moveReaderParagraph(direction){
+	const body=document.getElementById('decisionBody');
+	if(!body||!readerState.payload)return false;
+	if(!readerNumberedParagraphs().length&&readerState.payload.readerData?.format_blocks?.some(block=>block.type==='para')){
+		readerState.formatted=true;
+		setReaderMode('normalized');
+	}
+	const paragraphs=readerNumberedParagraphs();
+	if(!paragraphs.length)return false;
+	const active=document.activeElement?.closest?.('#decisionBody .fmt-para[data-para]');
+	let index=paragraphs.indexOf(active||body.querySelector('.fmt-para.is-reader-current'));
+	if(index<0)index=direction>0?-1:paragraphs.length;
+	const nextIndex=Math.max(0,Math.min(paragraphs.length-1,index+direction));
+	const target=paragraphs[nextIndex];
+	if(!target)return false;
+	body.querySelectorAll('.fmt-para.is-reader-current').forEach(para=>{para.classList.remove('is-reader-current');para.removeAttribute('aria-current');});
+	target.classList.add('is-reader-current');
+	target.setAttribute('aria-current','location');
+	target.setAttribute('tabindex','-1');
+	target.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+	target.focus({preventScroll:true});
+	return true;
+}
+document.addEventListener('keydown',event=>{
+	if(event.defaultPrevented||event.isComposing||readerTypingTarget(event.target)||event.ctrlKey||event.metaKey||event.altKey)return;
+	const panel=document.getElementById('caseReaderPanel');
+	if(!panel||panel.hidden||!readerState.payload)return;
+	if(event.key==='?'){
+		event.preventDefault();
+		toggleReaderKeyboardHelp();
+		return;
+	}
+	if(event.key==='Escape'&&!readerKeyboardHelp?.hidden){toggleReaderKeyboardHelp(false);return;}
+	const key=event.key.toLowerCase();
+	const direction=key==='j'||key==='n'?1:key==='k'||key==='p'?-1:0;
+	if(direction&&moveReaderParagraph(direction))event.preventDefault();
+});
+const readerKeyboardOpenDecision=openDecision;
+openDecision=async function(caseId){
+	await readerKeyboardOpenDecision(caseId);
+	const citation=document.getElementById('readerPrintCitation');
+	if(citation)citation.textContent=readerState.payload?.item?.citation||'';
+	toggleReaderKeyboardHelp(false);
+};
+const readerKeyboardCloseDecisionReader=closeDecisionReader;
+closeDecisionReader=function(){
+	toggleReaderKeyboardHelp(false);
+	document.getElementById('readerPrintCitation')?.replaceChildren();
+	document.querySelectorAll('#decisionBody .fmt-para.is-reader-current').forEach(para=>para.classList.remove('is-reader-current'));
+	readerKeyboardCloseDecisionReader();
+};
+let readerPrintState=null;
+window.addEventListener('beforeprint',()=>{
+	if(!readerState.payload||document.getElementById('caseReaderPanel')?.hidden)return;
+	readerPrintState={mode:readerState.mode,formatted:readerState.formatted};
+	if(readerState.payload.readerData?.format_blocks?.some(block=>block.type==='para')){
+		readerState.formatted=true;
+		setReaderMode('normalized');
+	}
+});
+window.addEventListener('afterprint',()=>{
+	if(!readerPrintState)return;
+	const previous=readerPrintState;
+	readerPrintState=null;
+	readerState.formatted=previous.formatted;
+	setReaderMode(previous.mode);
+});
 </script>
 
 

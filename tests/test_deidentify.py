@@ -8,6 +8,7 @@ from fastapi.testclient import TestClient
 
 from backend.deidentify import deidentify_text, reidentify_text, text_from_upload
 from backend.main import app
+from backend import resource_limits
 
 SAMPLE = """AFFIDAVIT OF MARIA ELENA LOPEZ
 Court File No. IMM-4521-25   RPD File No. TB9-14699
@@ -105,6 +106,36 @@ def test_api_round_trip_without_database():
 	assert bad.status_code == 422
 	docx = client.post("/api/deidentify/docx", data={"text": "Hello\n\nWorld", "filename": "a b.docx"})
 	assert docx.status_code == 200 and docx.content[:2] == b"PK"
+
+
+def test_deidentify_upload_limit_returns_http_413(monkeypatch):
+	monkeypatch.setattr(resource_limits, "MAX_UPLOAD_BYTES", 16)
+	response = TestClient(app).post(
+		"/api/deidentify",
+		files={"file": ("brief.txt", b"x" * 17, "text/plain")},
+	)
+
+	assert response.status_code == 413
+	assert "uploaded file exceeds" in response.json()["detail"]
+
+
+def test_deidentify_pasted_text_limit_returns_http_413(monkeypatch):
+	monkeypatch.setattr(resource_limits, "MAX_PASTED_TEXT_CHARS", 8)
+	response = TestClient(app).post("/api/deidentify", data={"text": "123456789"})
+
+	assert response.status_code == 413
+	assert response.json()["detail"] == "The pasted text exceeds the 8 character limit."
+
+
+def test_deidentify_docx_output_text_limit_returns_http_413(monkeypatch):
+	monkeypatch.setattr(resource_limits, "MAX_PASTED_TEXT_CHARS", 8)
+	response = TestClient(app).post(
+		"/api/deidentify/docx",
+		data={"text": "123456789"},
+	)
+
+	assert response.status_code == 413
+	assert response.json()["detail"] == "The pasted text exceeds the 8 character limit."
 
 
 # ---- Automatic name detection ----------------------------------------------

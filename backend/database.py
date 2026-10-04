@@ -11,6 +11,7 @@ from sqlalchemy import (
 	DateTime,
 	Float,
 	Integer,
+	Index,
 	JSON,
 	ForeignKey,
 	String,
@@ -211,6 +212,7 @@ class CaseSource(Base):
 
 class CaseChunk(Base):
 	__tablename__ = "case_chunks"
+	__table_args__ = (Index("ix_similarity_paragraph", "case_id", "chunk_set", "paragraph_start", "id"),)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	case_id: Mapped[int] = mapped_column(
@@ -296,6 +298,8 @@ class RecentCaseChunkEmbedding(Base):
 class CaseTag(Base):
 	__tablename__ = "case_tags"
 	__table_args__ = (
+		Index("ix_similarity_tag_posting", "taxonomy_version", "category", "value", "case_id", "id"),
+		Index("ix_similarity_tag_source", "case_id", "taxonomy_version", "id"),
 		UniqueConstraint(
 			"case_id",
 			"category",
@@ -402,6 +406,11 @@ class IngestionRun(Base):
 
 class Citation(Base):
 	__tablename__ = "citations"
+	__table_args__ = (
+		Index("ix_similarity_authority_posting", "target_case_id", "source_case_id", "id"),
+		Index("ix_similarity_unresolved_posting", "normalized_citation", "source_case_id", "id"),
+		Index("ix_similarity_citation_source", "source_case_id", "id"),
+	)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	source_case_id: Mapped[int] = mapped_column(
@@ -726,6 +735,75 @@ class FCActivityDocument(Base):
 	)
 
 	case = relationship("FCActivityCase", back_populates="documents")
+
+
+class SavedSearch(Base):
+	__tablename__ = "saved_searches"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+	description: Mapped[str | None] = mapped_column(Text, nullable=True)
+	query: Mapped[str] = mapped_column(Text, nullable=False)
+	search_mode: Mapped[str] = mapped_column(String(20), nullable=False, default="semantic")
+	filters: Mapped[dict[str, object]] = mapped_column(JSON, nullable=False)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False
+	)
+	last_alert_check: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+	alerts = relationship("SearchAlert", back_populates="search", cascade="all, delete-orphan")
+
+
+class SearchAlert(Base):
+	__tablename__ = "search_alerts"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	search_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("saved_searches.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="CASCADE"), nullable=True
+	)
+	match_type: Mapped[str] = mapped_column(String(50), nullable=False)
+	relevance_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+	discovered_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	search = relationship("SavedSearch", back_populates="alerts")
+	case = relationship("Case")
+	chunk = relationship("CaseChunk")
+
+
+class FCActivityAlert(Base):
+	__tablename__ = "fc_activity_alerts"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	search_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("saved_searches.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	entry_type: Mapped[str] = mapped_column(String(100), nullable=False)
+	discovered_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	search = relationship("SavedSearch")
+	case = relationship("FCActivityCase")
 
 
 def get_db() -> Generator[Session, None, None]:

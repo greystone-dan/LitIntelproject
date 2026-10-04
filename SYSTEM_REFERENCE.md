@@ -1,8 +1,31 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-22
+Last updated: 2026-10-04
 
 ## Purpose And Authority
+
+The active `/data-explorer` formatted reader offers **Similar paragraphs** for
+numbered paragraphs. `GET /cases/{case_id}/paragraphs/{n}/similar?limit=10`
+ranks other cases by one point per shared stored active V3 tag and two per
+shared cited case authority, then case ID and paragraph number. It verifies
+exact canonical spans (including tags without chunk IDs), not chunk indices
+or cited pinpoints. Citation occurrences are rebased from their containing chunk;
+short-form anchors remain document-relative and may precede that chunk, but must
+match canonical text and end before the absolute occurrence start.
+Indexed postings, source signals, candidate cases and
+paragraph rows are capped; coverage is explicitly non-exhaustive. Ambiguous
+or unverified chunks/spans and statutes are excluded. Bare-numbered SCC chunks
+require the actual canonical `Decision Content` marker and preceding numbering:
+only a bounded prefix plus chunk is formatted, never a full candidate decision
+retrieval. Chunks beyond that context cap or with ambiguous numbering are omitted.
+Unresolved authority labels use separate ordered equality seeks, in sorted label
+order, sharing one total postings budget and one lookahead per signal. Candidate
+IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
+partial. Migration
+`0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
+must review/apply it separately.
+The offline migration graph test expects `0031_paragraph_similarity` as its
+single head; it does not apply migrations to a database.
 
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
 
@@ -61,8 +84,34 @@ The embedded information and research views are:
 3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
+   The embedded comparison calls read-only `GET /judges/compare?a=<slug>&b=<slug>`.
+   Exact canonical slugs are required; unknown judges return HTTP 404 with
+   `detail.code=unknown_judge`. Shared recorded issues/outcomes lead, without
+   rankings or harshness inference. Overall outcomes and per-judge coverage
+   use two columns on wide screens and one on mobile, with comparison-scoped CSS.
+   Issues use only stored `Case.issues` string
+   lists (case/whitespace normalized, no metadata fallback); each shared issue
+   needs at least five distinct decisions for **each** judge. Counts for years,
+   issues, top-ten tags and authorities use all canonical linked decisions as
+   explicit denominators. Outcomes include unclassified decisions; issue
+   outcomes use the issue set, and API percentages use classified outcomes only.
+   Tag/citation occurrences are deduplicated per source decision. Authorities
+   use resolved target identity, otherwise the stored citation label. Comparison
+   is independent of profile Minister filters and does not imply corpus completeness.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The standalone `/issue-brief-ui?tag=category:value` page provides a printable
+tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
+tagged decisions by year, outcome, and court, lists up to ten resolved case
+authorities, and links up to 12 tagged decisions and each authority to the case
+reader; the JSON response retains the complete decision list. An empty tag
+returns a valid empty brief. Outcomes come from `reader_extracted` decision
+metadata; each outcome percentage uses all decisions in that year, including
+unclassified records, and is accompanied by the unclassified count and
+denominator. Authority counts are stored citation occurrences with a resolved
+case target from tagged decisions; distinct citing decisions are counted
+separately, and statute references and unresolved citations are excluded.
 
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
@@ -98,6 +147,15 @@ or the same pinpoint text already exposed in citation rows, and counts distinct
 other citing cases. This paragraph cue does not recompute citation offsets;
 without a pinpoint that matches a formatted paragraph, the paragraph remains
 unmarked.
+The source reader also offers a collapsed **Most cited paragraphs** panel,
+hidden when no formatted paragraphs have incoming pinpoint counts. It reuses
+the same shading data without another query, showing up to five paragraphs
+ranked by distinct other citing cases (numeric paragraph order breaks ties),
+with counts, short excerpts, and keyboard-operable jumps. Jumps switch to
+normalized formatted text and scroll/focus the source paragraph, not linked
+context; backend offsets remain unchanged. The panel and extracted case summary
+share formatter anchors keyed by backend block starts, so switching reader
+modes preserves both sets of evidence links without replacing their IDs.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph
@@ -154,6 +212,20 @@ Compatibility redirects such as `/about`, `/citation-intelligence`, and `/judges
 ### Search And Retrieval
 
 The API supports case-level, chunk-level, and grouped-chunk retrieval.
+
+Case-level relevance search and `/analytics/search/cases` first promote exact
+neutral/reported citations, then contiguous whole-token party names from captions
+(`v`, `v.`, `vs`, `versus`) or stored reader party metadata. Case/spacing/bracket
+variants are normalized; `Baker` is not a party match for `Bakery`. Citation fields
+may contain multiple citations, including reported citations alongside neutral
+citations, with dotted `S.C.R.` normalized consistently. Body mentions are not
+identity matches. Case-level identity queries (citation-shaped queries or any
+candidate citation/party hit) rank Citation > Party name > Title > Full text >
+fallback, preserving legacy scores within each bucket. Ordinary topic queries
+without identity hits retain exactly their legacy score order. Analytics retains
+its legacy title-before-body ranking after citation/party promotion; filters,
+paging and explicit date/minister sorts remain intact. Results expose a short
+`matched_on` label, displayed in Case Search, without inventing evidence offsets.
 
 - `semantic` search uses stored vectors when available.
 - `lexical` search avoids embedding generation and searches text/metadata predicates.
@@ -248,7 +320,30 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
 
+Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
+
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
+
+### Saved Searches And Alerts
+
+Saved-search persistence is separate from the existing case-search contract.
+`POST` and `GET /saved-searches` create and list saved queries;
+`GET`, `PUT`, and `DELETE /saved-searches/{id}` retrieve, update, or remove
+one saved query. `POST /saved-searches/{id}/check` returns up to 100 recent
+recorded alerts and advances the saved search's last-check timestamp. An empty
+saved-search collection returns `[]`. Saved requests retain a search query,
+search mode, and filter object; the existing `/search` behavior is unchanged.
+
+The ORM and Alembic schema define `saved_searches`, `search_alerts`, and
+`fc_activity_alerts`. Alert rows reference their saved search and corresponding
+case/chunk records with cascading foreign keys. The check route reports
+persisted alert rows; it is not a scheduler, source poller, or automatic alert
+discovery process. Case Search's **Save current search** action stores its
+current query and filters, and `/saved-searches-ui` lists saved searches and
+their recorded alerts. `scripts/check_saved_searches.py` checks a bounded
+number of saved searches in read-only mode by default; `--apply` explicitly
+stores newly matching case alerts. Empty saved-search storage does not change
+normal Case Search behavior.
 
 ### Citation, Statute, And Metadata Processing
 
@@ -375,8 +470,16 @@ A bounded non-XML dry run now has reviewed source snapshots for the official Jus
 ### Live Analysis
 
 `/live-analysis` is a separate, ephemeral document-reading workflow. It accepts
-`.docx` and text-based `.pdf` files up to 10 MB, extracts text in memory, and
-returns source text plus deterministic case-citation and statute-reference rows.
+`.docx` and text-based `.pdf` files, extracts text in memory, and returns source
+text plus deterministic case-citation and statute-reference rows. Upload reads
+are bounded in chunks; shared defaults are 10 MiB per upload, 100 MiB of
+expanded DOCX members, 2,000 DOCX archive entries, 500 PDF pages, and 5,000,000
+extracted characters. De-identification also caps pasted text at 1,000,000
+characters. `backend/resource_limits.py` owns these defaults and their
+`LITINTEL_MAX_UPLOAD_BYTES`, `LITINTEL_MAX_DOCX_UNCOMPRESSED_BYTES`,
+`LITINTEL_MAX_DOCX_ARCHIVE_ENTRIES`, `LITINTEL_MAX_PDF_PAGES`,
+`LITINTEL_MAX_EXTRACTED_TEXT_CHARS`, and `LITINTEL_MAX_PASTED_TEXT_CHARS`
+positive-integer environment overrides.
 Rows retain character offsets, paragraph locations, and PDF page numbers where
 applicable, and resolved statute rows now include authority document and section
 details when the local match exists. The UI presents a temporary Case Reader
@@ -389,13 +492,16 @@ case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
 Local resolution intentionally does not call external services. Successful
 responses include the extracted source text and set `Cache-Control: no-store`
-and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
-after the multipart file is read, and no expanded-DOCX, PDF page-count, or
-pasted-text resource budget is enforced in these paths. Multipart temporary
-spooling and deployment-level request logging/retention are outside the
-application persistence boundary. Scanned PDFs are outside the prototype
-because they require OCR. The scoped privacy/security review, including
-de-identification routes and residual risks, is
+and `Pragma: no-cache`; this is not access control. Multipart parsing can still
+spool data before route-level chunked reads begin; application limits are not
+proxy/server request-body limits. Upload or parser-cap violations return HTTP
+413 with a limit-specific explanation; invalid or unsupported documents retain
+validation errors. Memo Citation Check uses the same upload and parser limits,
+as do de-identification uploads and pasted text. Deployment-level request
+logging/retention remains outside the application persistence boundary. Scanned
+PDFs are outside the prototype because they require OCR. Remaining boundaries
+and de-identification coverage are recorded in the scoped privacy/security
+review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
@@ -619,6 +725,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | Component | Responsibility |
 | --- | --- |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
@@ -662,7 +769,17 @@ opinion.
 
 ### Startup And Configuration
 
-The application loads `.env` from the repository root and `backend/.env`. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`, avoiding accidental connection to a stale shell database. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+The application loads `.env` from the repository root and then `backend/.env`, both with `override=True`: dotenv values override shell settings, and backend dotenv values win over root dotenv values. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`. Disposable migration checks must refuse either dotenv path (including symlinks) before importing the database module, then set all five `POSTGRES_*` connection settings. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+
+Request auditing is disabled unless `CASELIBRARY_AUDIT_LOG` names a file.
+`backend/audit.py` records allowlisted metadata only: UTC time, generated request
+ID, method, route template, status, elapsed milliseconds, and a process-keyed
+client-address hash. Unknown paths become `<unmatched>`; bodies, uploaded
+filenames, and query strings are never recorded. Raw addresses require the
+separate `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS=true` opt-in. Files rotate at 5 MiB
+with three backups; all audit write failures are fail-open. See
+[SETUP.md](SETUP.md#optional-request-audit-log) for permissions, restart,
+single-process rotation, and separate access-log considerations.
 
 `init_db()` is called during FastAPI startup. Alembic remains the authoritative schema migration path for reproducible environments:
 
@@ -1191,6 +1308,16 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Proposed ID/IAD Decision Coverage
+
+ID/IAD tribunal decisions are not currently described as an implemented
+collection here. A documentation-only proposal for CBSA-hearing research,
+including candidate sources and unverified licence/access status, ingestion and
+schema touchpoints, outcome/Minister analytics, affected filters, and a phased
+pilot, is in [docs/reports/id-iad-coverage-design.md](docs/reports/id-iad-coverage-design.md).
+No source access, reuse permission, or corpus completeness is assumed by that
+design.
+
 | Table | Purpose |
 | --- | --- |
 | `cases` | Canonical case record: identity, court/date/citation/docket, text, sanitized source HTML, metadata, provenance summary, hashes, status, case embedding |
@@ -1225,7 +1352,30 @@ The appendix is generated from `backend.database.Base.metadata`. Alembic remains
 
 ## Migrations
 
-Alembic migrations currently run from `0001_case_metadata` through `0016_case_source_html`.
+Alembic migrations currently have one head, `0030_full_paragraph_ivfflat`.
+The table below summarizes the early revisions; the complete graph remains
+authoritative in `alembic/versions/`.
+
+The empty-database path checks that `cases` exists before inspecting its
+columns in `0001`. Revision `0015` creates `fc_activity_cases` only when absent,
+using a frozen pre-`0027` schema before creating its classification child.
+The fresh `0001` branch also creates the cosine HNSW index before returning.
+The `0015` downgrade preserves the activity parent, including bootstrap-created
+parents, and removes only its classification child.
+Existing activity parents are not altered or replaced; `0027` still owns
+nullable source provenance additions. Revision identities and ordering are
+unchanged. These historical repairs do not run again on databases already
+stamped beyond them and do not reconcile unrelated schema drift.
+
+`tests/test_migrations.py` covers missing-table guards, existing-table
+preservation, compatibility with the real `0027` upgrade, the actual sole head,
+and synthetic multiple-head rejection. The independent `migrations` job in
+`.github/workflows/tests.yml` uses disposable PostgreSQL 16 with pgvector,
+refuses dotenv overrides, verifies/enables the vector extension, upgrades an
+empty database, displays its current revision, checks exactly one graph head
+and current-at-head, and repeats the upgrade. The existing pytest job remains
+unchanged. This is an empty-database deployment check, not proof of production
+schema equivalence or authorization to upgrade production.
 
 | Revision | Main change |
 | --- | --- |
@@ -1277,16 +1427,29 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /live-analysis/analyze`: in-memory DOCX/text-PDF extraction.
 - `POST /live-analysis/resolve`: separate batched local resolution for neutral,
   named, and short-form case references.
+- `POST /memo-citation-check`: in-memory memo analysis with the same upload and
+  parser resource limits.
 
 ### Research And Analytics APIs
 
 - `GET /analytics/search/cases`: filtered active Case Search API.
+- `GET /search/export.csv`: bounded (maximum 1,000 rows) CSV export using the active Case Search query and filters.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
+- `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
+
+The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
+`/api/judge-profiles` endpoints use a bounded, in-process TTL cache for
+successful results. `X-Cache` is `hit` only when the current worker serves a
+cached result; uncached and disabled-cache requests report `miss`. Each endpoint
+keys the result on its complete parsed query-parameter set. The cache is local
+to each application process, is not shared across workers, and does not replace
+the underlying database as the source of truth. Configure freshness and
+disablement with `ANALYTICS_CACHE_TTL_SECONDS` below.
 
 ### Citation Intelligence APIs
 
@@ -1424,11 +1587,11 @@ Focused active-interface and citation rebuild checks passed (`18 passed`). Edito
 
 ## Code Review Findings: 2026-09-01
 
-### High: Configured Private Access Is Not Enforced
+### Resolved: Optional Private Access Enforcement
 
-`backend/main.py` contains password/cookie generation and login routes, but `private_access_and_noindex()` only calls the next handler and adds no-index headers. It does not check `CASELIBRARY_ACCESS_PASSWORD`, validate the access cookie, or redirect unauthenticated public requests. A Cloudflare-exposed instance is therefore publicly reachable unless Cloudflare or another external layer enforces access.
+`backend/main.py` enforces signed access cookies only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty. The gate remains off by default; without that setting, routes remain publicly reachable unless an external layer enforces access.
 
-Required remediation: add an explicit allowlist for health/login/static routes, require a valid cookie for non-local requests when a password is configured, and test both anonymous denial and authenticated access. Until this is done, treat the tunnel as public.
+When enabled, only `/access`, `/access/login`, `/health`, and mounted static assets are exempt. All other routes, including local requests, require a valid cookie. HTML requests redirect to `/access`; API requests receive `401`. `POST /access/logout` clears the browser cookie. No-index headers remain indexing controls, not authentication.
 
 ### Medium: Large Generated UI Module Is Fragile
 
@@ -2801,11 +2964,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-03T23:15:47.591200+00:00
+Generated: 2026-10-04T12:21:12.735141+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 92 across 92 paths
-Hidden operations: 55 excluded from OpenAPI
+OpenAPI operations: 103 across 100 paths
+Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3171,6 +3334,21 @@ Get Case Paragraph Assessments
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraphs/{n}/similar`
+
+Get Similar Paragraphs
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `n` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ParagraphSimilarityResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/reader-data`
@@ -3937,6 +4115,38 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `GET /issue-brief`
+
+Build a legal issue brief for a tag
+
+Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. An empty tag returns an empty brief.
+
+**Parameters**
+
+- `tag` (query, optional; string, default `""`): Exact legal tag in category:value form; empty is supported.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /judges/compare`
+
+Judge Comparison
+
+Compare stored research coverage, shared issues and outcomes; not a ranking.
+
+**Parameters**
+
+- `a` (query, required; string): Canonical judge slug
+- `b` (query, required; string): Canonical judge slug
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/analyze`
 
 Live Analysis Analyze
@@ -4031,6 +4241,83 @@ Research
 - `200`: Successful Response; `application/json`: `ResearchResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /saved-searches`
+
+List Saved Searches
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `POST /saved-searches`
+
+Create Saved Search
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchCreateRequest`
+
+**Responses**
+
+- `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `DELETE /saved-searches/{search_id}`
+
+Delete Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `204`: Successful Response
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}`
+
+Get Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchDetailResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `PUT /saved-searches/{search_id}`
+
+Update Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchUpdateRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /saved-searches/{search_id}/check`
+
+Check Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SearchDigestResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /search`
 
 Search Cases
@@ -4096,6 +4383,29 @@ Search Paragraphs
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /search/export.csv`
+
+Export Search Analytics Cases
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `cohort_id` (query, optional; string, default `""`)
+
+**Responses**
+
+- `200`: Successful Response; `text/csv`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /search/tags/similar`
 
 Find Similar Cases By Tags
@@ -4111,6 +4421,16 @@ Find cases with overlapping tags. Score by Jaccard similarity of tag (category, 
 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /themes/discovery`
+
+Get Theme Discovery
+
+Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ThemeDiscoveryResponse`
 
 ## Hidden Operations
 
@@ -4149,6 +4469,20 @@ Handler: `backend.main.access_login`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /access/logout`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.main.access_logout`
+
+**Handler parameters**
+
+- `request` (Request; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/about/stats`
 
 **Hidden from OpenAPI.**
@@ -4158,6 +4492,7 @@ Handler: `backend.routes.about_stats`
 **Handler parameters**
 
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -4375,6 +4710,7 @@ Handler: `backend.routes.fc_activity_analytics`
 - `city` (str; default `''`)
 - `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -4564,6 +4900,7 @@ Handler: `backend.routes.judge_profiles`
 - `q` (str; default `''`)
 - `limit` (int; default `50`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -4805,6 +5142,21 @@ Handler: `backend.routes.fc_history_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /issue-brief-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_issue_brief_ui`
+
+**Handler parameters**
+
+- `tag` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /judges`
 
 **Hidden from OpenAPI.**
@@ -4889,6 +5241,16 @@ Handler: `backend.main.robots`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /saved-searches-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /tag-finder`
 
 **Hidden from OpenAPI.**
@@ -4909,6 +5271,16 @@ Handler: `backend.routes.testing_interface`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /themes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.theme_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### Appendix Source: `docs/SCHEMA_REFERENCE.generated.md`
 
 *The text below is synchronized from the companion file. Update the source file or its generator, then rerun `scripts/embed_documentation_appendices.py`.*
@@ -4917,8 +5289,8 @@ Handler: `backend.routes.testing_interface`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-02T17:42:51.362741+00:00
-Tables: 25
+Generated: 2026-10-04T12:21:10.600717+00:00
+Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -5090,6 +5462,14 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    fc_activity_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        String(100) entry_type
+        DATETIME discovered_at
+        DATETIME created_at
     }
     fc_activity_cases {
         Integer id PK
@@ -5281,6 +5661,27 @@ erDiagram
         String(100) embedding_model
         DATETIME refreshed_at
     }
+    saved_searches {
+        Integer id PK
+        String(255) name
+        TEXT description
+        TEXT query
+        String(20) search_mode
+        JSON filters
+        DATETIME created_at
+        DATETIME updated_at
+        DATETIME last_alert_check
+    }
+    search_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        Integer chunk_id  FK
+        String(50) match_type
+        FLOAT relevance_score
+        DATETIME discovered_at
+        DATETIME created_at
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -5315,6 +5716,8 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
+    saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
@@ -5322,6 +5725,9 @@ erDiagram
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
+    cases ||--o{ search_alerts : "case_id"
+    case_chunks ||--o{ search_alerts : "chunk_id"
+    saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -5343,6 +5749,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
@@ -5354,6 +5761,8 @@ erDiagram
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
+| `saved_searches` | 9 | `id` |
+| `search_alerts` | 8 | `id` |
 | `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
@@ -5463,6 +5872,7 @@ erDiagram
 - `ix_case_chunks_case_id`: index on `case_id`
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
+- `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
 
 ### Foreign Keys
 
@@ -5628,6 +6038,8 @@ erDiagram
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
+- `ix_similarity_tag_posting`: index on `taxonomy_version`, `category`, `value`, `case_id`, `id`
+- `ix_similarity_tag_source`: index on `case_id`, `taxonomy_version`, `id`
 
 ### Unique Constraints
 
@@ -5734,6 +6146,9 @@ erDiagram
 - `ix_citations_target_case_id`: index on `target_case_id`
 - `ix_citations_target_chunk_id`: index on `target_chunk_id`
 - `ix_citations_target_paragraph`: index on `target_paragraph`
+- `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
+- `ix_similarity_citation_source`: index on `source_case_id`, `id`
+- `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
 
 ### Foreign Keys
 
@@ -5741,6 +6156,30 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `fc_activity_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `entry_type` | `String(100)` | no | NOT NULL |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_fc_activity_alerts_case_id`: index on `case_id`
+- `ix_fc_activity_alerts_discovered_at`: index on `discovered_at`
+- `ix_fc_activity_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
 
 ## `fc_activity_cases`
 
@@ -6104,6 +6543,54 @@ erDiagram
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
 
+## `saved_searches`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `name` | `String(255)` | no | NOT NULL |
+| `description` | `TEXT` | yes | - |
+| `query` | `TEXT` | no | NOT NULL |
+| `search_mode` | `String(20)` | no | NOT NULL; default=semantic |
+| `filters` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `last_alert_check` | `DATETIME` | yes | - |
+
+### Indexes
+
+- `ix_saved_searches_created_at`: index on `created_at`
+- `ix_saved_searches_name`: index on `name`
+
+## `search_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `match_type` | `String(50)` | no | NOT NULL |
+| `relevance_score` | `FLOAT` | yes | - |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_search_alerts_case_id`: index on `case_id`
+- `ix_search_alerts_discovered_at`: index on `discovered_at`
+- `ix_search_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
+
 ## `statute_references`
 
 ### Columns
@@ -6197,6 +6684,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
 
 ## OpenAI And External Model Settings
 
@@ -6616,7 +7121,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 147
+Active scripts documented: 150
 
 ## Catalog
 
@@ -6628,6 +7133,7 @@ Active scripts documented: 147
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -6638,6 +7144,7 @@ Active scripts documented: 147
 | `backfill_case_tags_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_tags_v3.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
@@ -6663,6 +7170,7 @@ Active scripts documented: 147
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
+| `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
@@ -6854,6 +7362,20 @@ Active scripts documented: 147
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
 ```
 
+## `scripts/analyze_themes_before_after.py`
+
+**Purpose:** Analyze theme discovery before and after stopword filtering. Run this on the PC with access to the caselibrary database: python scripts/analyze_themes_before_after.py Outputs: logs/theme_analysis_before_after.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help
+```
+
 ## `scripts/audit_discussion_unit_structure.py`
 
 **Purpose:** Audit retained Discussion Unit reports for review-only structural risks.
@@ -6992,6 +7514,20 @@ Active scripts documented: 147
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
+```
+
+## `scripts/batch_compute_units.py`
+
+**Purpose:** Resumable batch job CLI for computing discussion units across the case corpus. Usage: python scripts/batch_compute_units.py [--start CASE_ID] [--end CASE_ID] [--clear] Examples: # Compute all cases from start (default: case 1) python scripts/batch_compute_units.py # Compute specific range python scripts/batch_compute_units.py --start 1 --end 500 # Clear all cached units and recompute python scripts/batch_compute_units.py --clear # Resume from case 501 after a previous run python scripts/batch_compute_units.py --start 501
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\batch_compute_units.py --help
 ```
 
 ## `scripts/benchmark_case_citations.py`
@@ -7342,6 +7878,20 @@ Active scripts documented: 147
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_generated_docs.py --help
+```
+
+## `scripts/check_saved_searches.py`
+
+**Purpose:** Check saved case searches and optionally persist previously unseen matches.
+
+**Operational class:** Saved-search alert check
+
+**Write/network risk:** bounded database reader; --apply writes unseen case alerts; dry-run is default
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_saved_searches.py --help
 ```
 
 ## `scripts/chunk_cases.py`
@@ -9004,6 +9554,15 @@ New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_
 
 ## Experimental RAG Research
 
+In the `/data-explorer` formatted reader, select **Similar paragraphs** beside
+a numbered paragraph to see stored-evidence matches in other cases. Matches
+explain shared V3 legal tags (one point each) and cited case authorities (two
+points each); ties use case ID then paragraph number. Links open the returned
+case at its paragraph. This is a bounded search, not semantic similarity or a
+legal conclusion: no embeddings, live-inferred tags or statute references are
+scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
+an empty result does not establish that no similar passages exist.
+
 The `/research` page is the current, experimental RAG workflow. It has four
 steps:
 
@@ -9102,6 +9661,25 @@ The embedded research and information views retain these data responsibilities:
 | Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
+
+## Printable Legal Issue Brief
+
+Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
+summary of decisions carrying an exact active-taxonomy tag. The page reports
+decision counts by year and court, per-year outcome splits, the ten most cited
+resolved case authorities, and links up to 12 tagged decisions and the
+authorities in the case reader. The page discloses the shown/total decision-link
+count; `/issue-brief?tag=category:value` retains the complete decision list and
+provides the data as JSON. An empty tag returns a valid empty brief.
+
+Outcome labels come from `reader_extracted` decision metadata. Percentages use
+all tagged decisions in that year as the denominator, including records with no
+classified outcome; each percentage is shown alongside the unclassified count
+and denominator. Authority counts mean stored citation occurrences from tagged
+source decisions with a resolved case target, with distinct citing decisions
+reported separately. Unresolved citations and the separate statute-reference
+layer are not included. The print stylesheet is intended to keep the summary
+compact, but no browser/physical-page behavior is certified here.
 
 ## Discussion Units Sandbox
 
@@ -9213,6 +9791,19 @@ button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
 
+### Saved Searches And Alerts
+
+Use **Save current search** below the Case Search controls to name and preserve
+the current query and filter values. **Saved searches** opens `/saved-searches-ui`,
+where saved criteria and recorded case alerts can be reviewed, checked, or
+deleted. No saved search is loaded or applied automatically, so the existing
+search workflow is unchanged when the collection is empty.
+
+The `scripts/check_saved_searches.py` checker evaluates a bounded number of
+stored searches. It is read-only unless invoked with `--apply`; apply mode
+records only previously unseen case matches. The checker does not poll external
+sources or schedule itself, and does not change the active search API.
+
 Choose a result count and sort order:
 
 - **Newest decision**: date-first ordering.
@@ -9249,6 +9840,18 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+Above the source decision, **Most cited paragraphs** is collapsed by default
+and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it
+with Enter or Space to see up to five paragraphs, ranked by distinct other
+citing cases in this library; ties use ascending paragraph number. Each entry
+shows the count, a short excerpt, and a jump link (Tab, then Enter). A jump
+switches from chunk/plain text to normalized formatted text and focuses the
+source paragraph, leaving linked context separate. These are the same counts
+as paragraph shading, not a second query or a finding about citation treatment.
+Opening another case, a failed load, or closing the reader clears the panel.
+The panel and **Extracted case summary** use the same backend block-start
+anchors, so either evidence link remains usable after switching reader modes.
 
 ### Reader Modes
 
@@ -9474,6 +10077,26 @@ government actor; it does not calculate an individual Minister's performance.
 Use profiles to reduce name variation, not to claim a complete judicial record
 or infer individual bias. Source and classification gaps matter when comparing
 rates.
+
+**Compare judges** within Judge Profile accepts two canonical slugs, with
+name-search suggestions and the open profile prefilled as the first judge.
+It compares all linked decisions, independently of the profile's Minister filter.
+Shared recorded issues and their outcome splits appear first; an issue must
+occur in at least five distinct decisions for **both** judges. Issues come only
+from stored case issue lists, normalized for case/whitespace, with no inferred
+or metadata fallback. No qualifying issues is a coverage result, not proof
+that the judges address different legal questions.
+
+Overall outcomes retain government won, government lost and unclassified
+decisions. Every displayed count is `count / denominator`: issue outcome
+denominators are issue decisions; year, issue-coverage, tag and authority counts
+use all linked decisions for that judge. Undated decisions remain visible.
+Most-used tags and most-cited authorities show up to ten entries, counting
+distinct source decisions rather than repeated occurrences; overlapping counts
+must not be added. Resolved authority labels come from the target case, otherwise
+the stored citation label. Unknown slugs produce an explicit message. This is
+research coverage, not a ranking, a measure of harshness, or a causal inference.
+The read-only endpoint is `GET /judges/compare?a=<slug>&b=<slug>`.
 
 ## Data Explorer And FC History
 

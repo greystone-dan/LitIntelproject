@@ -6,7 +6,6 @@ import re
 from typing import Any
 
 from docx import Document
-from pypdf import PdfReader
 from sqlalchemy import func, or_, select, tuple_
 from sqlalchemy.orm import Session
 
@@ -17,8 +16,9 @@ from .citations import (
 	resolve_legislation_reference,
 )
 from .database import Case
+from . import resource_limits
 
-MAX_DOCX_BYTES = 10 * 1024 * 1024
+MAX_DOCX_BYTES = resource_limits.MAX_UPLOAD_BYTES
 LIVE_ANALYSIS_CONTENT_TYPES = {
 	"application/pdf",
 	"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -36,12 +36,14 @@ class LiveParagraph:
 
 
 def _paragraphs_from_docx(content: bytes) -> tuple[str, list[LiveParagraph]]:
+	resource_limits.validate_docx_archive(content)
 	document = Document(BytesIO(content))
 	paragraphs: list[LiveParagraph] = []
 	parts: list[str] = []
 	offset = 0
 	for index, paragraph in enumerate(document.paragraphs):
 		text = paragraph.text
+		resource_limits.validate_extracted_text_length(offset + len(text))
 		start = offset
 		end = start + len(text)
 		paragraphs.append(LiveParagraph(index, text, start, end))
@@ -51,12 +53,11 @@ def _paragraphs_from_docx(content: bytes) -> tuple[str, list[LiveParagraph]]:
 
 
 def _paragraphs_from_pdf(content: bytes) -> tuple[str, list[LiveParagraph]]:
-	reader = PdfReader(BytesIO(content))
+	page_texts = resource_limits.extract_pdf_pages(content)
 	paragraphs: list[LiveParagraph] = []
 	parts: list[str] = []
 	offset = 0
-	for index, page in enumerate(reader.pages):
-		text = page.extract_text() or ""
+	for index, text in enumerate(page_texts):
 		start = offset
 		end = start + len(text)
 		paragraphs.append(LiveParagraph(index, text, start, end, page_number=index + 1))
@@ -83,8 +84,8 @@ def validate_live_analysis_upload(filename: str | None, content_type: str | None
 		raise ValueError("The uploaded file must be a DOCX or PDF document")
 	if not content:
 		raise ValueError("The uploaded file is empty")
-	if len(content) > MAX_DOCX_BYTES:
-		raise ValueError("The uploaded file exceeds the 10 MB limit")
+	if len(content) > resource_limits.MAX_UPLOAD_BYTES:
+		raise resource_limits.ResourceLimitError(resource_limits.upload_limit_message())
 
 
 def validate_docx_upload(filename: str | None, content_type: str | None, content: bytes) -> None:
@@ -261,15 +262,15 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 
 
 def analyze_docx(content: bytes, filename: str, session: Session | None = None) -> dict[str, Any]:
-	if len(content) > MAX_DOCX_BYTES:
-		raise ValueError("The uploaded file exceeds the 10 MB limit")
+	if len(content) > resource_limits.MAX_UPLOAD_BYTES:
+		raise resource_limits.ResourceLimitError(resource_limits.upload_limit_message())
 	text, paragraphs = _paragraphs_from_docx(content)
 	return _analyze_text(text, paragraphs, filename, session)
 
 
 def analyze_pdf(content: bytes, filename: str, session: Session | None = None) -> dict[str, Any]:
-	if len(content) > MAX_DOCX_BYTES:
-		raise ValueError("The uploaded file exceeds the 10 MB limit")
+	if len(content) > resource_limits.MAX_UPLOAD_BYTES:
+		raise resource_limits.ResourceLimitError(resource_limits.upload_limit_message())
 	text, paragraphs = _paragraphs_from_pdf(content)
 	return _analyze_text(text, paragraphs, filename, session)
 

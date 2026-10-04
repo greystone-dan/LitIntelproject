@@ -5,6 +5,40 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a bounded in-process TTL cache for the About statistics, Federal Court
+  activity analytics, and Judge Profile list reads. The cache defaults to ten
+  minutes, supports `ANALYTICS_CACHE_TTL_SECONDS` configuration or disablement,
+  keys by all parsed filters, and reports `X-Cache: hit|miss`.
+- Added an independent non-blocking pull-request and weekly workflow for
+  pinned Ruff (`E,F401`) and pip-audit checks, with a separate artifact for each
+  result. The first baseline is recorded in
+  [`docs/reports/baseline-lint-and-audit.md`](docs/reports/baseline-lint-and-audit.md).
+  The required CI pytest command ran 1,032 tests successfully; three other tests
+  failed while attempting to download external Hugging Face/OpenAI tokenizer
+  resources, one was skipped, one xfailed, and three configured tests were
+  deselected.
+- Added centralized, environment-configurable upload and parsing limits for
+  memo citation checks, Live Analysis, and de-identification. Upload reads stop
+  at the configured limit; DOCX expansion/entry count, PDF pages, extracted
+  text, and de-identification pasted text are capped with HTTP 413 limit errors.
+- Added read-only `/issue-brief?tag=category:value` analytics and a standalone
+  printable `/issue-brief-ui` with yearly outcomes, courts, resolved cited
+  authorities, and reader links. Outcome percentages disclose the unclassified
+  count and all-decision denominator; empty tags return an explicit empty brief.
+- Added saved-search persistence and CRUD/alert routes, a standalone saved
+  searches page, a Case Search action to save the current query and filters,
+  and a bounded read-only-by-default alert checker. The new schema revision is
+  chained from the latest existing Alembic head; standard search behavior is
+  unchanged when no saved searches exist. Focused checks passed (63); the full
+  CI-deselected suite had 991 passes and 3 unrelated failures because uncached
+  Hugging Face and OpenAI tokenizer assets could not be downloaded.
+- Added **Download CSV** to Case Search and `GET /search/export.csv`, carrying
+  the active query, filters, and sort order into a maximum 1,000-row export
+  with stable columns, UTF-8 BOM, spreadsheet formula escaping, and active
+  Data Explorer case links. Focused export tests (3) and feature-tab tests (51)
+  passed; generated documentation is current. The configured CI command ran
+  982 passed, 3 failed, and 3 intentionally deselected; the three failures
+  require unavailable Hugging Face/OpenAI tokenizer downloads.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

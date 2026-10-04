@@ -16,12 +16,9 @@ depends_on = None
 
 
 def upgrade() -> None:
-    bind = op.get_bind()
-    inspector = sa.inspect(bind)
-
-    # Create fc_activity_cases if it doesn't exist
-    # Note: source_type, source_name, source_id will be added by migration 0027
-    if "fc_activity_cases" not in inspector.get_table_names():
+    if "fc_activity_cases" not in sa.inspect(op.get_bind()).get_table_names():
+        # Frozen pre-0027 schema: do not import live ORM metadata here.
+        # 0027 owns the source_type/source_name/source_id provenance columns.
         op.create_table(
             "fc_activity_cases",
             sa.Column("id", sa.Integer(), nullable=False),
@@ -37,16 +34,15 @@ def upgrade() -> None:
             sa.Column("source_url", sa.String(length=2048), nullable=True),
             sa.Column("scraped_timestamp", sa.DateTime(timezone=True), nullable=True),
             sa.Column("raw_payload", sa.JSON(), nullable=True),
-            sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
-            sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
+            sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+            sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
             sa.PrimaryKeyConstraint("id"),
             sa.UniqueConstraint("citation", name="uq_fc_activity_case_citation"),
             sa.UniqueConstraint("source_key", name="uq_fc_activity_case_source_key"),
         )
-        op.create_index("ix_fc_activity_cases_source_key", "fc_activity_cases", ["source_key"])
-        op.create_index("ix_fc_activity_cases_citation", "fc_activity_cases", ["citation"])
-        op.create_index("ix_fc_activity_cases_year", "fc_activity_cases", ["year"])
-        op.create_index("ix_fc_activity_cases_date_filed", "fc_activity_cases", ["date_filed"])
+        op.create_index("ix_fc_activity_cases_source_key", "fc_activity_cases", ["source_key"], unique=True)
+        for column in ("citation", "year", "date_filed"):
+            op.create_index(f"ix_fc_activity_cases_{column}", "fc_activity_cases", [column])
 
     op.create_table(
         "fc_activity_classifications",
@@ -85,12 +81,3 @@ def downgrade() -> None:
     op.drop_index("ix_fc_activity_classifications_source_key", table_name="fc_activity_classifications")
     op.drop_index("ix_fc_activity_classifications_source_case_id", table_name="fc_activity_classifications")
     op.drop_table("fc_activity_classifications")
-
-    bind = op.get_bind()
-    inspector = sa.inspect(bind)
-    if "fc_activity_cases" in inspector.get_table_names():
-        op.drop_index("ix_fc_activity_cases_date_filed", table_name="fc_activity_cases")
-        op.drop_index("ix_fc_activity_cases_year", table_name="fc_activity_cases")
-        op.drop_index("ix_fc_activity_cases_citation", table_name="fc_activity_cases")
-        op.drop_index("ix_fc_activity_cases_source_key", table_name="fc_activity_cases")
-        op.drop_table("fc_activity_cases")

@@ -95,8 +95,14 @@ Current operational sources of truth:
 12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
+13. `docs/reports/id-iad-coverage-design.md`
+- Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
+
 ## Task-Specific Review Reports
 
+- `docs/reports/baseline-lint-and-audit.md` records the first non-blocking
+  Ruff and pip-audit results and their scope. The checks and their artifact
+  behavior are defined by `.github/workflows/quality.yml`.
 - `docs/reports/open-pr-review.md` records the read-only, point-in-time review
   of PRs #28, #29, #32, and #34, including immutable source citations,
   migration/route interactions, untested paths, and review limitations. It is

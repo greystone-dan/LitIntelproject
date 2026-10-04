@@ -1,8 +1,9 @@
 from __future__ import annotations
+from .research_header import inject_research_help
 
 
 def memo_citation_check_page_html() -> str:
-	return r'''<!doctype html>
+	html = r'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,3 +29,27 @@ function missingRow(authority){const reason=authority.reason || 'Commonly cited 
 function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const m=data.memo_analysis||{};document.getElementById('summary').innerHTML=`<div class="metric"><strong>${m.total_authorities_cited||0}</strong><span>Authorities cited</span></div><div class="metric"><strong>${m.resolved_authorities||0}</strong><span>Resolved in iLit</span></div><div class="metric"><strong>${m.authorities_with_treatment||0}</strong><span>With treatment data</span></div><div class="metric"><strong>${m.missing_authorities_found||0}</strong><span>Missing authorities</span></div>`;const cited=data.case_citations||[];const missing=data.missing_authorities||[];document.getElementById('cited').innerHTML=cited.length>0?cited.map(authorityRow).join(''):'<div class="empty">No case citations found in document.</div>';const treatedCitations=cited.filter(c=>c.resolved_case_id);document.getElementById('treatment').innerHTML=treatedCitations.length>0?treatedCitations.map(treatmentRow).join(''):'<div class="empty">Analyze document to see treatment status of cited authorities.</div>';document.getElementById('missing').innerHTML=missing.length>0?missing.map(missingRow).join(''):'<div class="empty">No commonly cited authorities found on same issues. Your citation coverage looks thorough.</div>';results.classList.remove('hidden');}
 fileInput.onchange=()=>choose(fileInput.files[0]);['dragenter','dragover'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>choose(e.dataTransfer.files[0]));analyze.onclick=async()=>{if(!selected)return;analyze.disabled=true;status.textContent='Analyzing document…';showError('');const body=new FormData();body.append('file',selected);try{const response=await fetch('/memo-citation-check',{method:'POST',body});const data=await response.json();if(!response.ok)throw new Error(data.detail||`Request failed (${response.status})`);render(data);status.textContent='Analysis complete';}catch(e){showError(e.message);status.textContent='Analysis failed';}finally{analyze.disabled=false}};clear.onclick=()=>{selected=null;fileInput.value='';choose(null);results.classList.add('hidden');};
 </script></body></html>'''
+	example = r'''
+<script>
+// A local text-PDF sample, never uploaded until Analyze document is selected.
+function sampleMemoPdf(){
+ const text='Synthetic sample - not a real memo or legal advice. Verify Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 against the authoritative decision.';
+ const stream=`BT /F1 11 Tf 40 740 Td (${text.replace(/[\\()]/g,'\\$&')}) Tj ET`;
+ const objects=['<< /Type /Catalog /Pages 2 0 R >>','<< /Type /Pages /Kids [3 0 R] /Count 1 >>','<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>','<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`];
+ let pdf='%PDF-1.4\n',offsets=[0];
+ objects.forEach((object,index)=>{offsets.push(pdf.length);pdf+=`${index+1} 0 obj\n${object}\nendobj\n`});
+ const start=pdf.length;
+ pdf+=`xref\n0 ${objects.length+1}\n0000000000 65535 f \n`+offsets.slice(1).map(offset=>`${String(offset).padStart(10,'0')} 00000 n \n`).join('');
+ pdf+=`trailer\n<< /Size ${objects.length+1} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF\n`;
+ return new File([pdf],'example-memo.pdf',{type:'application/pdf'});
+}
+const sampleButton=document.createElement('button');
+sampleButton.type='button';sampleButton.className='button secondary';sampleButton.textContent='Load sample memo';
+sampleButton.onclick=()=>{fileInput.value='';choose(sampleMemoPdf());results.classList.add('hidden');};
+document.querySelector('.upload .actions').append(sampleButton);
+const sampleNote=document.createElement('p');sampleNote.className='notice';
+sampleNote.textContent='Synthetic sample: not a real memo or legal advice. It cites Vavilov (2019 SCC 65) for practice only. Loading it stays in this browser; select Analyze document to check its citation.';
+document.querySelector('.upload').append(sampleNote);
+if(new URLSearchParams(location.search).get('example')==='vavilov')sampleButton.click();
+</script>'''
+	return inject_research_help(html.replace('</body>', example + '</body>', 1))

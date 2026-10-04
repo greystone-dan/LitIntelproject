@@ -73,6 +73,7 @@ from .text_generation_providers import (
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
+from .pages.start import start_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
@@ -1169,6 +1170,11 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/start", response_class=HTMLResponse, include_in_schema=False)
+def start_page() -> HTMLResponse:
+	return HTMLResponse(content=start_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)

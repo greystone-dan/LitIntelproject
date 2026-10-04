@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .research_header import inject_research_help
 
 
 def citation_map_html() -> str:
@@ -98,4 +99,4 @@ def citation_map_html() -> str:
 		old = f'<button class="tab" data-tab="{tab}">'
 		new = f'<button class="tab" data-tab="{tab}" aria-pressed="false">'
 		html = html.replace(old, new, 1)
-	return html
+	return inject_research_help(html)

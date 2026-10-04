@@ -1,8 +1,9 @@
 from __future__ import annotations
+from .research_header import inject_research_help
 
 
 def live_analysis_page_html() -> str:
-	return r'''<!doctype html>
+	return inject_research_help(r'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -45,4 +46,4 @@ function activateEvidenceTab(tab){document.querySelectorAll('[data-evidence-tab]
 function renderEvidenceInspector(data){const inspector=document.querySelectorAll('.grid .panel')[1];const caseRows=data.case_citations||[],statuteRows=data.statute_references||[];inspector.innerHTML=`<h3>Evidence inspector</h3><div class="meta" style="margin-bottom:12px">Select a reference to return to its source span. Evidence stays local to this uploaded document.</div><div class="evidence-tabs" role="tablist" aria-label="Live analysis evidence"><button class="evidence-tab" type="button" role="tab" data-evidence-tab="cases" aria-selected="true">Case citations <span class="evidence-count">${caseRows.length}</span></button><button class="evidence-tab" type="button" role="tab" data-evidence-tab="statutes" aria-selected="false">Statutes <span class="evidence-count">${statuteRows.length}</span></button></div><div class="evidence-panel" data-evidence-panel="cases">${groupedEvidence(caseRows,'No case citations found.',row=>row.resolved_case_title||row.reference_text)}</div><div class="evidence-panel" data-evidence-panel="statutes" hidden>${groupedEvidence(statuteRows,'No statute references found.',row=>row.authority_document_title||row.source_title||row.instrument_key||row.reference_text)}</div>`;inspector.querySelectorAll('[data-evidence-tab]').forEach(button=>button.onclick=()=>activateEvidenceTab(button.dataset.evidenceTab));}
 function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const s=data.summary;document.getElementById('summary').innerHTML=`<div class="metric"><strong>${s.case_citations}</strong><span>Case citations</span></div><div class="metric"><strong>${s.resolved_case_citations}</strong><span>Resolved locally</span></div><div class="metric"><strong>${s.unresolved_case_citations}</strong><span>Unresolved</span></div><div class="metric"><strong>${s.statute_references}</strong><span>Statute references</span></div>`;document.getElementById('source').innerHTML=renderSource(data);renderEvidenceInspector(data);results.classList.remove('hidden');document.querySelectorAll('.match').forEach(row=>row.onclick=()=>document.querySelector(`mark[data-start="${row.dataset.start}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}));if(!document.getElementById('resolveCitations')){analyze.insertAdjacentHTML('afterend','<button class="button secondary" id="resolveCitations" type="button">Resolve citations</button>');document.getElementById('resolveCitations').onclick=resolveCitations}}
 initHoverTooltips();
-</script></body></html>'''
+</script></body></html>''')

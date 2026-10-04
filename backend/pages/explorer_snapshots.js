@@ -16,10 +16,12 @@ const outcomePill=o=>o==='won'?'<span class="ix-pill red">Government won</span>'
 const junkName=s=>{const t=String(s||'').toLowerCase();return !t||t.includes('translation')||t==='unknown'||t==='n/a'||t.includes('certified')||t.length<3};
 
 /* ---------------- Judge profiles ---------------- */
-const jp={list:null,slug:null,data:null,q:'',court:'',sort:'count',f:{outcome:'',q:'',year:''},shown:20,minister:''};
+const entryParams=typeof researchEntryParams==='undefined'?new URLSearchParams(location.search):researchEntryParams;
+const jp={list:null,slug:null,data:null,q:entryParams.get('tab')==='judge-profile'?(entryParams.get('judge_query')||'').slice(0,120):'',court:'',sort:'count',f:{outcome:'',q:'',year:''},shown:20,minister:''};
 const titleCase=t=>t===t.toUpperCase()?t.toLowerCase().replace(/(^|[ '-])([a-z])/g,(m,a,b)=>a+b.toUpperCase()):t;
 function jpName(raw){const s=String(raw||'').trim(),low=s.toLowerCase(),i=low.lastIndexOf('justice ');if(i>=0){const rest=s.slice(i+8).trim();const pre=low.includes('associate chief justice')?'Associate Chief Justice ':low.includes('chief justice')?'Chief Justice ':'Justice ';return pre+titleCase(rest)}return titleCase(s)}
 function jpShell(){const panel=$('judgeProfilePanel');if(!panel||$('jpApp'))return;panel.insertAdjacentHTML('beforeend',`<div id="jpApp"><div class="ix-head"><div><div class="ix-eyebrow">Judicial profiles</div><h2>Judge Profiles</h2><p>Pick a judge to see their decision history, how often the government and individuals succeeded, the cases they heard and what kinds of matters they decide.</p></div></div><div class="jp-layout"><aside class="jp-rail"><div class="ix-search"><input id="jpSearch" type="search" placeholder="Search judges, e.g. Zinn" autocomplete="off" aria-label="Search judges"></div><div class="ix-chips" id="jpCourts"></div><div class="ix-chips"><label for="jpSort" style="font-size:12px;color:var(--muted)">Sort</label><select id="jpSort" style="font-size:12px;padding:4px 6px;border:1px solid var(--border);border-radius:6px;background:var(--surface)"><option value="count">Most decisions</option><option value="name">Name A to Z</option></select></div><div class="jp-list" id="jpList"><div class="ix-load">Loading judges...</div></div></aside><section class="jp-main" id="jpMain"><div class="ix-empty"><b>Select a judge</b>Choose a name on the left to open a profile snapshot.</div></section></div></div>`);
+$('jpSearch').value=jp.q;
 $('jpSearch').addEventListener('input',debounce(e=>{jp.q=e.target.value.trim();jpRenderList()},120));
 $('jpSort').addEventListener('change',e=>{jp.sort=e.target.value;jpRenderList()});
 $('jpCourts').addEventListener('click',e=>{const b=e.target.closest('[data-court]');if(!b)return;jp.court=b.dataset.court;jpRenderList()});

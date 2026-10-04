@@ -247,7 +247,7 @@ def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
     controller = html.split('/* Most cited paragraphs: reader-only controls. */', 1)[1].split('</script>', 1)[0]
     summary_controller = html[html.index('function extractedReaderSummaryHtml('):].split('</script>', 1)[0]
     formatter = html.split('function formattedDecision(', 1)[1].split('\n', 1)[0]
-    loader = html.split('async function openDecision(', 1)[1].split('\n', 1)[0]
+    loader = html.split('async function openDecision(', 1)[1].split('function renderJudge(', 1)[0]
     assert html.index('const sidePreviousSetReaderMode=') < html.index('const mostCitedSetReaderMode=')
     assert html.index('const extractedSummaryPreviousMode=') < html.index('const mostCitedSetReaderMode=')
     assert html.index('const citationWorkspaceOpenDecision=') < html.index('const mostCitedOpenDecision=')
@@ -255,6 +255,7 @@ def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
 const assert=require('node:assert/strict');
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const readerState={caseId:7,mode:'chunks',formatted:false,payload:null};
+let readerLoadGeneration=0;
 const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(selector){return selector==='.reader-extracted-summary'?[]:[target,duplicate]},querySelector(selector){assert.equal(selector,`[id="decision-source-${block.start}"]`);return target},insertAdjacentHTML(where,html){assert.equal(where,'afterbegin');this.summaryHtml=html},addEventListener(name,handler){this[name]=handler}}};
 const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options},closest(){return null}};
 const duplicate={dataset:{para:'2'},setAttribute(){throw Error('Duplicate paragraph received an anchor')}};
@@ -548,7 +549,8 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
-    assert '<a ' not in header
+    assert '<a ' not in header.split('</nav>', 1)[0]
+    assert 'href="/start" aria-label="Help: start a research task"' in header
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('Info', 'Research', 'Workbench', 'Testing'):
@@ -596,6 +598,7 @@ def test_navigation_controller_initializes_deep_links_and_restores_history(query
 const assert=require('node:assert/strict');
 const controls=CONTROLS.map(attrs=>({attrs,hidden:'hidden' in attrs,dataset:{group:attrs['data-group'],navGroup:attrs['data-nav-group'],tab:attrs['data-tab']},classList:{active:(attrs.class||'').includes('active'),toggle(key,value){this[key]=value}},setAttribute(key,value){this.attrs[key]=value}}));
 const panels={};
+let readerLoadGeneration=0;
 const location=new URL('http://localhost/data-explorer'+QUERY);
 const history={pushState(state,title,path){location.href=new URL(path,location).href}};
 const window={addEventListener(name,handler){this[name]=handler}};
@@ -652,7 +655,8 @@ def test_research_bench_tab_exposes_three_prototype_views():
     assert "AnalysisService" in html
     assert "activeResearchPanels" in html
     assert "activateResearchTab" in html
-    assert "new URLSearchParams(location.search).get('tab')||'search'" in html
+    assert "const researchEntryParams=new URLSearchParams(location.search)" in html
+    assert "(params.get('tab') || 'search') === 'search'" in html
 
 
 def test_site_architecture_panel_lists_data_layers_and_feature_map():

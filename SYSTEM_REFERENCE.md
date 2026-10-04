@@ -69,6 +69,18 @@ The system intentionally separates three kinds of derived information:
 
 ### Primary Research Workflows
 
+`/start` is the task-first entry point for new analysts: five cards link to
+existing search, judge, memo, and export workflows with usable prefilled examples.
+Shared research-header **?** links open it. Search prefills allow only query,
+FC/FCA/SCC court, and explicit full-text mode; judge examples filter visible
+names rather than inventing IDs. A memo example creates a local sample text PDF
+and still requires explicit Analyze activation. Search and successful/current
+inline reader tours use a keyboard/focus-contained native modal, independent
+storage guards with page-session fallback, and re-open controls. Reader
+generations ignore late responses after newer loads, closure, or tab changes.
+These navigation aids do not change evidence offsets or legal research claims.
+See [Research UI Guide](docs/RESEARCH_UI_GUIDE.md) for behavior and limitations.
+
 `/data-explorer` is the main research surface. Its top-left primary navigation
 is **Info**, **Research**, **Workbench**, and **Testing**, with Research / Case
 Search as the default. Info groups About and Site Architecture; Research groups

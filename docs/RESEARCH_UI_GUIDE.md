@@ -1,10 +1,48 @@
 # Research UI Guide
 
-Last reviewed: 2026-10-03
+Last reviewed: 2026-10-04
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
 New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+
+## Task-first Start and tours
+
+`GET /start` presents five tasks: **Find a case**, **See how the Federal Court
+ruled on an issue**, **Check a memo's citations**, **Look at a judge's record**,
+and **Export results**. Each has an existing-route action and a useful example,
+with plain-language guidance from the Analyst Quick Start. The reusable **?**
+help fragment links here from Data Explorer, Citation Map, Live Analysis, and
+Memo Check without replacing their navigation.
+
+Case Search examples prefill only `query` (500 characters), `court` (FC/FCA/SCC),
+and `search_full_text=true` (all other values leave the checkbox off). They do
+not auto-submit. The existing court filter is a contains filter, not a promise
+of exact-court coverage. `judge_query` fills the active snapshot's visible
+name filter (120 characters), without inventing canonical slugs. The memo
+`example=vavilov` link creates a small valid text PDF locally and selects it.
+Both the PDF and visible notice label it as synthetic, not a real memo or legal
+advice; it makes no claim about the cited decision's holding.
+**Analyze document** still requires explicit activation before upload.
+
+Search and successfully loaded inline readers offer four- and five-step first
+visit tours, respectively, plus **Take the tour** buttons. The native modal
+dialog names its title/text/progress, highlights existing controls, contains
+keyboard focus, supports Tab/Shift+Tab and Escape, and restores focus on dismissal.
+Each tour has a separate versioned browser completion key. Reads and writes
+are independently guarded; a page-session set remembers completion when
+storage is unavailable. Switching tabs, closing the reader, or starting a new
+reader load closes a tour without treating it as completed. Failed, stale,
+hidden, or missing-reader-data loads cannot start a reader tour.
+
+Tours are injected after the existing reader/navigation/snapshot wrappers.
+Reader request generations also protect canonical payload rendering and the
+adjacent persisted-statute fetch. The reader tour explains how to read available
+decision text in full or in smaller sections; it does not change the source
+evidence or citation links. `/case-reader` remains a redirect.
+`tests/test_onboarding.py` exercises generated contracts, all generated script
+syntax, independent storage failures, valid sample PDF, and real Chrome with
+intercepted pages and mocked requests (no application server or database).
 
 ## Experimental RAG Research
 

@@ -1,9 +1,16 @@
 # iLit Analyst Quick Start
 
-For a first research task, use the active **Data Explorer** at `/data-explorer`.
+For a first research task, open `/start` (or the **?** in a research header),
+then choose a task or a prefilled example. Examples do not submit searches or
+guarantee matches. The active **Data Explorer** remains at `/data-explorer`.
 iLit helps navigate stored Canadian immigration decisions and research signals;
 it is not a legal citator, an official court record, or legal advice. Verify
 important findings against authoritative sources.
+
+The first visit to Case Search offers a four-step tour; opening a successfully
+loaded decision offers a five-step reader tour. **Take the tour** reopens either.
+Use Tab/Shift+Tab inside the dialog, Next/Back, Dismiss, or Escape. Dismissal is
+remembered in this browser, or for the current page session if storage is blocked.
 
 ## Find and read a case
 
@@ -49,6 +56,10 @@ caused an outcome.
   procedural success. A shared IMM number alone does not prove records concern
   the same proceeding.
 
+The Start page's Zinn example fills the visible Judge Profiles name filter;
+select a matching stored name to inspect its profile. It does not invent a
+profile ID or imply any particular judge is present.
+
 ## Check citations in a memo
 
 Open `/memo-citation-check`, choose a DOCX or text-based PDF (up to 10 MB), and
@@ -60,6 +71,18 @@ describes this upload as temporary and not stored, logged, or sent to external
 services. A missing authority is a lead to investigate, not a required
 citation; treatment labels and citation matches must be checked against the
 decisions.
+
+The Start page also offers a sample text PDF citing `2019 SCC 65`. Loading the
+sample creates a file in this browser only; it is not submitted until you select
+**Analyze document**. You can clear it or choose your own file instead.
+
+## Export results
+
+Run a Case Search, then use **Download CSV** for the current search or
+**Download Word** after a successful nonempty search. Word export is capped at
+200 cases and records the search context. Inspect the source decisions before
+using exported research. The Start page's Vavilov example prefills the search;
+it does not initiate a download.
 
 ## Read outcomes and win rates carefully
 

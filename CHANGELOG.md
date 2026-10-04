@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added stored-data-only decision comparison at `GET /compare` and
+  `GET /api/compare`, accepting case IDs or stored citations. It displays fact
+  and outcome provenance, separate tags/statutes/authorities, shared and unique
+  signals, stored authority pinpoints, and directional cross-citations; unknown
+  decisions and self-comparison receive clear errors. The reader adds a
+  prefilled “Compare with…” link. The pre-existing `/case-compare` page and
+  `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
+  or data writes.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real

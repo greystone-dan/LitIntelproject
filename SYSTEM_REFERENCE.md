@@ -141,6 +141,25 @@ Repeated mentions count once; stored coverage does not imply legal equivalence
 or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
 and the missing IDs. No data is written and no new resolution is attempted.
 
+`GET /compare?a=<case_id-or-citation>&b=<case_id-or-citation>` is an additive
+side-by-side comparison page, backed by `GET /api/compare?a=...&b=...` for JSON.
+Both inputs accept a canonical case ID or stored formal citation. The new
+`backend/case_compare.py` helper uses the existing local citation identity
+resolver; it performs no external lookup, extraction, or write. The page adds
+`Citation.target_paragraph` as the cited decision's paragraph pinpoint, while
+source occurrence paragraphs come from the citing decision's stored chunk.
+Cross-citations are shown only when stored `Citation.target_case_id` exactly
+matches the other compared case. The page includes an additive “Compare with…”
+reader link prefilled with the open case ID. Missing
+decisions produce an explanatory HTML/API 404; comparing a decision with itself
+is politely rejected. Forms remain usable without JavaScript; optional search
+pickers enhance selection. This is additive to the pre-existing
+`GET /case-compare` search-first page and `GET /cases/compare` JSON contract.
+The old page continues submitting to `/case-compare`; the new page submits to
+`/compare`, so their route contracts are not conflated. All displayed facts and
+outcome evidence are stored, labelled unverified, and do not imply legal
+equivalence or completeness.
+
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
 tagged decisions by year, outcome, and court, lists up to ten resolved case

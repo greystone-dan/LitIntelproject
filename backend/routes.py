@@ -87,6 +87,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
 from .pages.case_compare import case_compare_page_html
 from .case_comparison import fetch_case_comparison
+from .case_compare import compare_case_inputs, resolve_case_input
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -776,6 +777,57 @@ def case_compare_page(
 			raise HTTPException(status_code=422, detail="Case IDs must be positive integers.")
 	result = case_comparison(int(a), int(b), db) if a and b else None
 	return HTMLResponse(case_compare_page_html(result, a, b))
+
+
+@router.get("/api/compare", response_model=dict[str, Any])
+def compare_cases_by_id_or_citation(
+	a: str = Query(min_length=1),
+	b: str = Query(min_length=1),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	result = compare_case_inputs(db, a, b)
+	if result["status"] == "unknown_case":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_case",
+			"message": "Could not find a stored decision for each input. Enter a case ID or citation.",
+			"unknown_inputs": result["unknown_inputs"],
+		})
+	if result["status"] == "same_case":
+		raise HTTPException(status_code=400, detail={
+			"code": "same_case",
+			"message": "Choose two different decisions to compare.",
+		})
+	return result
+
+
+@router.get("/compare", response_class=HTMLResponse, include_in_schema=False)
+def compare_cases_page(
+	a: str = "",
+	b: str = "",
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	resolved: list[str] = []
+	for value in (a, b):
+		case_id = resolve_case_input(db, value) if value.strip() else None
+		if value.strip() and case_id is None:
+			message = "We could not find that stored decision. Try a case ID or citation."
+			return HTMLResponse(
+				f"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Case not found</title>"
+				f"<h1>Case not found</h1><p>{message}</p><p><a href=\"/compare\">Start another comparison</a></p></html>",
+				status_code=404,
+			)
+		resolved.append(str(case_id) if case_id is not None else "")
+	if len(resolved) == 2 and all(resolved):
+		result = compare_case_inputs(db, a, b)
+		if result["status"] == "same_case":
+			return HTMLResponse(
+				"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Choose two decisions</title>"
+				"<h1>Choose two different decisions</h1><p>A decision cannot be compared with itself.</p>"
+				"<p><a href=\"/compare\">Start another comparison</a></p></html>",
+				status_code=400,
+			)
+		return HTMLResponse(case_compare_page_html(result, *resolved, action="/compare"))
+	return HTMLResponse(case_compare_page_html(None, *resolved, action="/compare"))
 
 
 @router.get("/cases/{case_id}", response_model=CaseResponse)

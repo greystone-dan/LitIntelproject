@@ -76,11 +76,13 @@ def test_about_page_has_overview_and_changelog_views_without_network_calls():
 	assert "fetch(" not in script
 
 
-def test_changelog_data_cannot_close_its_script_block():
+def test_changelog_data_is_an_escaped_attribute_not_a_script():
+	import html as html_lib
+
 	html = about_panel_html("<p>overview</p>")
-	block = re.search(r'<script type="application/json" id="changelogData">(.*?)</script>', html, re.S).group(1)
-	assert "</" not in block
-	assert json.loads(block.replace("<\\/", "</"))["entries"]
+	attribute = re.search(r'id="changelogData" data-json="([^"]*)"', html).group(1)
+	assert "<" not in attribute
+	assert json.loads(html_lib.unescape(attribute))["entries"]
 
 
 def test_build_script_check_passes():

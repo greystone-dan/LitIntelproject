@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- About page refresh and a Changelog view. The About overview was audited against the repository: counts at the top
+  now read live from `/api/about/stats`, unverifiable figures (sample percentages, AI paragraph counts, test scores,
+  old test and line counts) were removed or restated, the AI wording now says the site runs without AI, and a
+  "What has been added recently" section was added. A new Overview / Changelog switch in the About tab shows a
+  timeline (newest first, date headings, theme filter) built from `data/changelog/changelog.json`, which
+  `scripts/build_changelog.py` generates from hand-written entries plus GitHub merged PRs and commits
+  (`--refresh` pulls them; `--uncovered` lists merged PRs with no entry). No network or AI at view time.
+
 - Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
   priority (including on Windows), uses one database connection with server-side statement, lock and
   idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as

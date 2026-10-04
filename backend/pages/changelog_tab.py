@@ -6,6 +6,7 @@ page when it is built, so viewing it makes no network calls and uses no AI.
 
 from __future__ import annotations
 
+import html
 import json
 from pathlib import Path
 
@@ -38,7 +39,7 @@ _CSS = """
 
 _JS = """
 (function(){
-const data=JSON.parse(document.getElementById('changelogData').textContent);
+const data=JSON.parse(document.getElementById('changelogData').dataset.json);
 const labels=Object.fromEntries(data.themes.map(t=>[t.id,t.label]));
 const root=document.getElementById('changelogList'),filters=document.getElementById('changelogFilters');
 let active='all';
@@ -89,8 +90,8 @@ def load_changelog() -> dict:
 
 def about_panel_html(overview_fragment: str) -> str:
 	"""Wrap the About overview and the changelog in two switchable views."""
-	# "</" is escaped so a stray "</script>" in an entry cannot end the data block early.
-	data = json.dumps(load_changelog(), ensure_ascii=False).replace("</", "<\\/")
+	# Kept in an escaped attribute rather than a script block so no entry text can end a script early.
+	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"
 		'<div class="about-subtabs" role="group" aria-label="About views">'
@@ -108,6 +109,6 @@ def about_panel_html(overview_fragment: str) -> str:
 		'<p class="cl-foot">Refresh with <code>python scripts/build_changelog.py --refresh</code>. Entries are stored in '
 		"<code>data/changelog/</code>; viewing this page makes no outside requests and uses no AI.</p>\n"
 		"</div>\n"
-		f'<script type="application/json" id="changelogData">{data}</script>\n'
+		f'<div id="changelogData" data-json="{data}" hidden></div>\n'
 		f"<script>{_JS}</script>"
 	)

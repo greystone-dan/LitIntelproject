@@ -1,6 +1,6 @@
 # Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
@@ -46,6 +46,23 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Security Response Headers
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_SECURITY_HEADERS` | `0` (disabled) | `backend/main.py`, `backend/security_headers.py` | Enable response security headers only when set to `1`. |
+| `CASELIBRARY_HSTS_MAX_AGE` | `31536000` seconds | `backend/security_headers.py` | HSTS max age; invalid values fall back to the default and negative values are clamped to zero. |
+| `CASELIBRARY_HSTS_SUBDOMAINS` | `0` | `backend/security_headers.py` | Adds `includeSubDomains` only when set to `1`; enable only if all subdomains support HTTPS. |
+| `CASELIBRARY_CSP_ENFORCE` | `0` | `backend/security_headers.py` | Selects enforcing CSP only when set to `1`; report-only is the default, and enforcement is untested. |
+
+Configuration is read when the application/middleware is initialized; restart
+the server after changing these settings. HSTS is emitted only for HTTPS requests
+according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
+forwarded-protocol headers when a trusted proxy overwrites them. The middleware
+preserves existing response headers and does not consume response bodies. See
+[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+report-only review, CSP policy scope, and limitations.
 
 ## Optional Request Audit Log
 

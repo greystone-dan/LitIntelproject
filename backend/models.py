@@ -261,6 +261,8 @@ class CaseReaderCitationResponse(BaseModel):
 	unresolved: bool = False
 	layer_spans: dict[str, dict[str, int | None]] | None = None
 	statute_version_label: str | None = None
+	# Stored paragraph cited-by summary for the cited paragraph (batch job; None until it has run).
+	target_cited_by: dict | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):
@@ -417,6 +419,8 @@ class CaseReaderDataResponse(BaseModel):
 	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
+	# Stored per-paragraph "cited by" from the batch job (None until it has run for this case).
+	paragraph_cited_by: dict | None = None
 
 
 class InventoryCaseResponse(BaseModel):

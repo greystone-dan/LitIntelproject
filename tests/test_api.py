@@ -99,7 +99,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
 
     monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
     response = routes.export_search_analytics_cases(
-        query="Vavilov AND court:SCC",
+        query="Vavilov",
         cites="2019 SCC 65",
         government_outcome="won",
         decision_outcome="dismissed",
@@ -123,7 +123,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
     ]
     assert calls == [
         {
-            "query": "Vavilov AND court:SCC",
+            "query": "Vavilov",
             "cites": "2019 SCC 65",
             "government_outcome": "won",
             "decision_outcome": "dismissed",
@@ -138,6 +138,20 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
             "cohort_ids": [1, 2],
         }
     ]
+
+
+def test_case_search_csv_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    routes.export_search_analytics_cases(query=query, db=object())
+
+    assert calls[0]["query"] == query
 
 
 def test_case_search_csv_export_caps_results_at_1000(monkeypatch):
@@ -369,7 +383,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
     monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
     database = object()
     response = routes.export_search_docx(
-        query="court:SCC AND year:2020-2024",
+        query="contract/fairness?",
         cites="Vavilov",
         government_outcome="won",
         decision_outcome="dismissed",
@@ -385,7 +399,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
 
     document = Document(BytesIO(response.body))
     header = document.paragraphs[0].text
-    assert "Query: court:SCC AND year:2020-2024" in header
+    assert "Query: contract/fairness?" in header
     for filter_value in (
         "cites=Vavilov",
         "government_outcome=won",
@@ -421,7 +435,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
     assert response.headers["content-disposition"] == (
-        'attachment; filename="search-court-SCC-AND-year-2020-2024.docx"'
+        'attachment; filename="search-contract-fairness.docx"'
     )
     assert response.headers["cache-control"] == "no-store"
     assert len(calls) == 2
@@ -444,6 +458,22 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
         for _, kwargs in calls
     )
     assert all(database_arg is database for database_arg, _ in calls)
+
+
+def test_search_docx_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    response = routes.export_search_docx(query=query, db=object())
+
+    document = Document(BytesIO(response.body))
+    assert f"Query: {query}" in document.paragraphs[0].text
+    assert calls[0]["query"] == query
 
 
 def test_analytics_search_relevance_prefers_exact_case_name_matches():

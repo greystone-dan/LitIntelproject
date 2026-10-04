@@ -320,7 +320,7 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   `local`, and `hosted`). In off mode, `/search` and chunk search default to
   lexical retrieval; explicit semantic/hybrid requests are downgraded to
   lexical with effective-mode metadata and no embedding/provider call. The
-  `/ai-mode` endpoint reports the configured mode. Hosted retrieval/generation
+  `/api/ai-mode` endpoint reports the configured mode. Hosted retrieval/generation
   remains available only after explicit `hosted` opt-in; local mode uses its
   local provider path.
 - `/research` is disabled in off mode and returns HTTP 503 with the message

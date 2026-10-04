@@ -1,12 +1,18 @@
 from datetime import date
+from io import BytesIO
 from types import SimpleNamespace
 
+import httpx
+import openai
 import pytest
+import requests
+from docx import Document
 from fastapi import HTTPException
+from fastapi.testclient import TestClient
 
-from backend import routes, text_generation_providers
-from backend import ai_mode
+from backend import routes, search_service, text_generation_providers
 from backend.ai_mode import AI_DISABLED_MESSAGE, enhanced_mode, mode_status
+from backend.main import app
 from backend.models import (
 	CaseSearchRequest,
 	ChunkGroupSearchRequest,
@@ -23,7 +29,11 @@ class FakeDatabase:
 
 	def execute(self, statement, *args, **kwargs):
 		self.statement = statement
-		return self.rows
+		if "case_chunks" in str(statement):
+			case, chunk, _score = self.rows[0]
+			return [(case, chunk, 0.5)]
+		case, _chunk, _score = self.rows[0]
+		return [(case, 0.5, 0)]
 
 	def scalar(self, statement):
 		return None
@@ -51,11 +61,11 @@ def _chunk():
 
 
 def test_mode_defaults_off_and_rejects_invalid_values(monkeypatch):
-	monkeypatch.setattr(ai_mode, "ENHANCED_AI_MODE", "off")
 	monkeypatch.delenv("ENHANCED_AI_MODE", raising=False)
 	assert enhanced_mode() == "off"
 	assert mode_status() == {"enhanced_ai_mode": "off"}
 	assert CaseSearchRequest(query="query").search_mode == "lexical"
+	assert ChunkGroupSearchRequest(query="query").search_mode == "lexical"
 	assert ResearchRequest(query="query").search_mode == "hybrid"
 
 	monkeypatch.setenv("ENHANCED_AI_MODE", "remote")
@@ -200,6 +210,7 @@ def test_hosted_mode_preserves_configured_openai_provider_through_fake(monkeypat
 def test_mode_changes_from_environment_and_status_is_exposed(monkeypatch):
 	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
 	assert routes.get_ai_mode() == {"enhanced_ai_mode": "hosted"}
+	assert any(route.path == "/api/ai-mode" for route in routes.router.routes)
 
 
 def test_research_page_displays_server_disabled_message():
@@ -208,3 +219,72 @@ def test_research_page_displays_server_disabled_message():
 	assert "if (!response.ok)" in html
 	assert "body.detail || response.statusText" in html
 	assert "resultSection" in html
+
+
+def test_default_search_and_memo_endpoints_make_no_model_calls(monkeypatch):
+	monkeypatch.delenv("ENHANCED_AI_MODE", raising=False)
+	case = _case()
+	chunk = _chunk()
+	monkeypatch.setitem(app.dependency_overrides, routes.get_db, lambda: FakeDatabase([(case, chunk, 0.5)]))
+	monkeypatch.setattr(routes, "fetch_analytics_search_cases", lambda *_args, **_kwargs: {"results": []})
+	monkeypatch.setattr(routes, "get_text_generation_provider", lambda: pytest.fail("generation provider constructed"))
+
+	def fail_model_call(*_args, **_kwargs):
+		raise AssertionError("default mode must not call or construct an AI provider")
+
+	monkeypatch.setattr(openai, "OpenAI", fail_model_call)
+	monkeypatch.setattr(search_service, "OpenAI", fail_model_call)
+	monkeypatch.setattr(text_generation_providers, "OpenAI", fail_model_call)
+	monkeypatch.setattr(search_service, "SentenceTransformerEmbeddingProvider", fail_model_call)
+	monkeypatch.setattr(routes, "_local_embedding_provider", fail_model_call)
+	monkeypatch.setattr(httpx, "post", fail_model_call)
+	monkeypatch.setattr(requests, "post", fail_model_call)
+
+	document = Document()
+	document.add_paragraph("This private note contains no citations or legal issues.")
+	uploaded = BytesIO()
+	document.save(uploaded)
+	client = TestClient(app)
+
+	assert client.get("/api/ai-mode").json() == {"enhanced_ai_mode": "off"}
+	assert client.get("/analytics/search/cases", params={"query": "private name"}).status_code == 200
+
+	for mode in ("semantic", "hybrid"):
+		response = client.post(
+			"/search",
+			json={"query": "private name", "search_mode": mode},
+		)
+		assert response.status_code == 200, response.text
+		assert response.json()[0]["search_mode_effective"] == "lexical"
+		assert response.json()[0]["ai_disabled_reason"]
+
+		chunk_response = client.post(
+			"/search/chunks",
+			json={"query": "private name", "search_mode": mode},
+		)
+		assert chunk_response.status_code == 200, chunk_response.text
+		assert chunk_response.json()[0]["search_mode_effective"] == "lexical"
+		assert chunk_response.json()[0]["ai_disabled_reason"]
+
+	assert client.post("/search", json={"query": "private name"}).json()[0][
+		"search_mode_effective"
+	] == "lexical"
+	assert client.post("/search/chunks", json={"query": "private name"}).json()[0][
+		"search_mode_effective"
+	] == "lexical"
+	assert client.get("/search/export.csv", params={"query": "private name"}).status_code == 200
+	assert client.get("/search/export.docx", params={"query": "private name"}).status_code == 200
+	research_response = client.post("/research", json={"query": "private question"})
+	assert research_response.status_code == 503
+	assert research_response.json()["detail"] == AI_DISABLED_MESSAGE
+	memo_response = client.post(
+		"/memo-citation-check",
+		files={
+			"file": (
+				"memo.docx",
+				uploaded.getvalue(),
+				"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+			)
+		},
+	)
+	assert memo_response.status_code == 200, memo_response.text

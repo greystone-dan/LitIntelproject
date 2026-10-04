@@ -3522,7 +3522,7 @@ def _ai_disabled_reason(requested_mode: str, effective_mode: str) -> str | None:
 	return search_downgrade_reason(requested_mode, effective_mode)
 
 
-@router.get("/ai-mode", response_model=dict[str, str])
+@router.get("/api/ai-mode", response_model=dict[str, str])
 def get_ai_mode() -> dict[str, str]:
 	return mode_status()
 

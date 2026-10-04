@@ -206,6 +206,38 @@ def _is_issue_marker(text: str) -> bool:
     return any(re.search(pattern, text_upper) for pattern in issue_patterns)
 
 
+def _detect_strong_argument_transition(left_text: str, right_text: str) -> bool:
+    """Detect strong argumentative role transitions between consecutive paragraphs.
+
+    Returns True only for high-confidence, major transitions that indicate distinct sections:
+    - Between facts/background and legal framework/principles
+    - Between legal framework and analysis/application
+    - Between analysis and conclusion/disposition
+    """
+    left_upper = left_text.upper()
+    right_upper = right_text.upper()
+
+    # Check for facts → law transition
+    has_facts_in_left = any(w in left_upper for w in ["FACTS", "BACKGROUND", "CIRCUMSTANCES"])
+    has_law_in_right = any(w in right_upper for w in ["JURISPRUDENCE", "CASE LAW", "STATUTORY", "PURSUANT"])
+    if has_facts_in_left and has_law_in_right:
+        return True
+
+    # Check for law → analysis transition
+    has_law_in_left = any(w in left_upper for w in ["JURISPRUDENCE", "CASE LAW", "LEGAL PRINCIPLE"])
+    has_analysis_in_right = any(w in right_upper for w in ["APPLYING", "ANALYSIS", "TURNING TO"])
+    if has_law_in_left and has_analysis_in_right:
+        return True
+
+    # Check for analysis → conclusion transition
+    has_analysis_in_left = any(w in left_upper for w in ["ANALYSIS", "APPLYING", "IN MY VIEW"])
+    has_conclusion_in_right = any(w in right_upper for w in ["THEREFORE", "IN CONCLUSION", "I HAVE CONCLUDED"])
+    if has_analysis_in_left and has_conclusion_in_right:
+        return True
+
+    return False
+
+
 def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> ContinuityComponents:
     authority_overlap = _jaccard(left.citation_ids, right.citation_ids)
     statute_overlap = _jaccard(left.statute_ids, right.statute_ids)

@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, event, text
 from sqlalchemy.pool import StaticPool
 from sqlalchemy.orm import Session
 
+from backend import analytics_service, judge_issue_record
 from backend.analytics_service import (
 	fetch_judge_comparison,
 	fetch_judge_profile_by_slug,
@@ -200,6 +201,15 @@ def test_pending_changes_are_not_autoflushed(db):
 	}
 	assert pending in db.new
 	assert pending.id is None
+
+
+def test_judge_issue_aggregation_remains_reexported_from_analytics_service():
+	assert analytics_service.fetch_judge_profile_issues is judge_issue_record.fetch_judge_profile_issues
+	assert analytics_service._stored_issue_labels is judge_issue_record._stored_issue_labels
+	assert analytics_service._issue_outcome_category is judge_issue_record._issue_outcome_category
+	assert analytics_service._issue_outcome_summary is judge_issue_record._issue_outcome_summary
+	assert analytics_service._JUDGE_ISSUE_MINIMUM_DECISIONS == judge_issue_record._JUDGE_ISSUE_MINIMUM_DECISIONS
+	assert analytics_service.fetch_judge_profile_issues.__module__ == "backend.judge_issue_record"
 
 
 def test_judge_issue_outcomes_threshold_mapping_and_federal_court_baseline(db):

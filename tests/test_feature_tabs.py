@@ -885,7 +885,13 @@ def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
     html = routes._data_explorer_page_html()
 
     assert "Outcome patterns by issue" in html
-    assert "At least " in html and "lower-count issue" in html
+    assert (
+        "Outcome method: government outcome “won” = Minister win, “lost” = applicant win, "
+        "“mixed” = other; undetermined, unrecognized, and missing values are unclassified, "
+        "and percentages use all issue decisions, including unclassified."
+    ) in html
+    assert "At least " in html
+    assert "${N(hidden)} issue${hidden===1?'':'s'} hidden (each has fewer than ${minimum} decisions)." in html
     assert "including unclassified" in html
     assert "undetermined, unrecognized, and missing values are unclassified" in html
     assert "Federal Court issue outcomes" in html

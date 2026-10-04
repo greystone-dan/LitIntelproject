@@ -99,11 +99,13 @@ The embedded information and research views are:
    use resolved target identity, otherwise the stored citation label. Comparison
    is independent of profile Minister filters and does not imply corpus completeness.
    **Outcome patterns by issue** is a separate, explicitly lazy-loaded profile
-   section backed by `GET /api/judge-profiles/{slug}/issues`; it uses canonical
-   profile links and stored `Case.issues` only, whitespace/case-normalized and
+   section backed by `GET /api/judge-profiles/{slug}/issues`, with aggregation
+   owned by `backend/judge_issue_record.py`; it uses canonical profile links and
+   stored `Case.issues` only, whitespace/case-normalized and
    deduplicated per decision. An issue appears only at 10 or more distinct
-   judge-linked decisions; the response/UI disclose the number of lower-count
-   issues hidden without revealing their labels. Each visible issue has a
+   judge-linked decisions; the response/UI disclose the number of issues hidden
+   and that each has fewer than 10 decisions, without revealing their labels.
+   Each visible issue has a
    Federal Court baseline from decisions whose stored court is `FC`, `Federal
    Court`, or `Federal Court of Canada`. Outcome categories are Minister win
    (`government outcome=won`), applicant win (`lost`), other (`mixed`), and

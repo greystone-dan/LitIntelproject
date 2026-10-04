@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-03T23:15:47.591200+00:00
+Generated: 2026-10-04T01:07:06.066988+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 92 across 92 paths
-Hidden operations: 55 excluded from OpenAPI
+OpenAPI operations: 101 across 98 paths
+Hidden operations: 58 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1138,6 +1138,21 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `GET /issue-brief`
+
+Build a legal issue brief for a tag
+
+Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. An empty tag returns an empty brief.
+
+**Parameters**
+
+- `tag` (query, optional; string, default `""`): Exact legal tag in category:value form; empty is supported.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/analyze`
 
 Live Analysis Analyze
@@ -1232,6 +1247,83 @@ Research
 - `200`: Successful Response; `application/json`: `ResearchResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /saved-searches`
+
+List Saved Searches
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `POST /saved-searches`
+
+Create Saved Search
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchCreateRequest`
+
+**Responses**
+
+- `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `DELETE /saved-searches/{search_id}`
+
+Delete Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `204`: Successful Response
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}`
+
+Get Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchDetailResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `PUT /saved-searches/{search_id}`
+
+Update Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchUpdateRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /saved-searches/{search_id}/check`
+
+Check Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SearchDigestResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /search`
 
 Search Cases
@@ -1297,6 +1389,29 @@ Search Paragraphs
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /search/export.csv`
+
+Export Search Analytics Cases
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `cohort_id` (query, optional; string, default `""`)
+
+**Responses**
+
+- `200`: Successful Response; `text/csv`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /search/tags/similar`
 
 Find Similar Cases By Tags
@@ -1312,6 +1427,16 @@ Find cases with overlapping tags. Score by Jaccard similarity of tag (category, 
 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /themes/discovery`
+
+Get Theme Discovery
+
+Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ThemeDiscoveryResponse`
 
 ## Hidden Operations
 
@@ -2006,6 +2131,21 @@ Handler: `backend.routes.fc_history_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /issue-brief-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_issue_brief_ui`
+
+**Handler parameters**
+
+- `tag` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /judges`
 
 **Hidden from OpenAPI.**
@@ -2090,6 +2230,16 @@ Handler: `backend.main.robots`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /saved-searches-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /tag-finder`
 
 **Hidden from OpenAPI.**
@@ -2105,6 +2255,16 @@ Handler: `backend.routes.tag_finder_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.testing_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /themes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.theme_explorer_page`
 
 **Responses**
 

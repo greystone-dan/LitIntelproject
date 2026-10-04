@@ -1683,7 +1683,7 @@ Active scripts documented: 158
 
 ## `scripts/measure_page_weight.py`
 
-**Purpose:** Measure generated research-page HTML size without a server or database.
+**Purpose:** Measure every HTML page template offline and write a Markdown baseline.
 
 **Operational class:** Utility
 

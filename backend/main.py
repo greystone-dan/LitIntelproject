@@ -5,6 +5,7 @@ import os
 import time
 from contextlib import asynccontextmanager
 from hashlib import sha256
+from pathlib import Path
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
@@ -15,6 +16,7 @@ from .audit import RequestAuditMiddleware
 from .database import init_db
 from .routes import router
 from .gzip_middleware import SelectiveGZipMiddleware
+from .cache_headers import cache_static_asset_response
 
 
 @asynccontextmanager
@@ -24,6 +26,11 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.mount(
+    "/static",
+    StaticFiles(directory=Path(__file__).resolve().parent / "static"),
+    name="static",
+)
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -87,11 +94,11 @@ def _login_page(error: str = "") -> HTMLResponse:
 async def private_access_and_noindex(request: Request, call_next):
     password, secret, lifetime = _private_access_config()
     public_path = request.url.path in {"/access", "/access/login", "/health"}
-    matched_route = next(
-        (route for route in app.routes if route.matches(request.scope)[0] == Match.FULL),
-        None,
-    ) if password else None
-    static_asset = isinstance(matched_route, Mount) and isinstance(matched_route.app, StaticFiles)
+    static_asset = any(
+        route.matches(request.scope)[0] == Match.FULL
+        for route in app.routes
+        if isinstance(route, Mount) and isinstance(route.app, StaticFiles)
+    )
     if password and not public_path and not static_asset and not _valid_access_cookie(
         request.cookies.get(ACCESS_COOKIE), secret, lifetime
     ):
@@ -103,6 +110,8 @@ async def private_access_and_noindex(request: Request, call_next):
             response = JSONResponse({"detail": "Authentication required."}, status_code=401)
     else:
         response = await call_next(request)
+    if static_asset:
+        cache_static_asset_response(response)
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response
 
@@ -111,7 +120,6 @@ async def private_access_and_noindex(request: Request, call_next):
 app.add_middleware(SelectiveGZipMiddleware, minimum_size=500)
 
 app.add_middleware(RequestAuditMiddleware)
-
 
 app.include_router(router)
 

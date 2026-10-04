@@ -5,6 +5,24 @@ from hashlib import sha256
 from starlette.responses import HTMLResponse, Response
 
 
+def cache_static_asset_response(response: Response) -> Response:
+    """Set the one-hour policy on public static files without weakening privacy.
+
+    Starlette's ``StaticFiles`` ``FileResponse`` supplies ETag and
+    Last-Modified validators. Preserve those headers rather than reading and
+    hashing a potentially large file in middleware.
+    """
+    cache_control = response.headers.get("Cache-Control", "").lower()
+    if (
+        response.status_code in {200, 304}
+        and "no-store" not in cache_control
+        and "private" not in cache_control
+        and "Content-Disposition" not in response.headers
+    ):
+        response.headers["Cache-Control"] = "public, max-age=3600"
+    return response
+
+
 def compute_etag(content: str | bytes) -> str:
     """Return a weak validator for the identity and compressed forms of HTML."""
     if isinstance(content, str):

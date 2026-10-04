@@ -5,7 +5,11 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, Response, StreamingResponse
 from starlette.testclient import TestClient
 
-from backend.cache_headers import compute_etag, static_html_response
+from backend.cache_headers import (
+    cache_static_asset_response,
+    compute_etag,
+    static_html_response,
+)
 from backend.gzip_middleware import SelectiveGZipMiddleware
 from backend.routes import router
 
@@ -141,6 +145,52 @@ def test_no_store_is_not_cacheable_via_static_helper() -> None:
     )
     assert response.headers["cache-control"] == "no-store"
     assert "etag" not in response.headers
+
+
+def test_static_asset_cache_policy_preserves_validators_and_private_responses() -> None:
+    static_asset = Response(
+        content=b"body",
+        media_type="text/css",
+        headers={"ETag": '"fixture"', "Last-Modified": "Wed, 21 Oct 2015 07:28:00 GMT"},
+    )
+    cached = cache_static_asset_response(static_asset)
+    assert cached.headers["cache-control"] == "public, max-age=3600"
+    assert cached.headers["etag"] == '"fixture"'
+    assert cached.headers["last-modified"] == "Wed, 21 Oct 2015 07:28:00 GMT"
+
+    private = Response(content=b"private", headers={"Cache-Control": "no-store"})
+    assert cache_static_asset_response(private).headers["cache-control"] == "no-store"
+
+    export = Response(
+        content=b"file",
+        headers={"Content-Disposition": 'attachment; filename="export.css"'},
+    )
+    assert "cache-control" not in cache_static_asset_response(export).headers
+
+
+@pytest.mark.parametrize(
+    "asset_path",
+    ["/static/explorer_snapshots.css", "/static/explorer_snapshots.js"],
+)
+def test_mounted_explorer_assets_are_public_and_support_etag_revalidation(
+    asset_path: str,
+) -> None:
+    from backend.main import app as application
+
+    client = TestClient(application)
+    response = client.get(asset_path)
+    assert response.status_code == 200
+    assert response.headers["cache-control"] == "public, max-age=3600"
+    assert response.headers["etag"]
+    assert response.headers["last-modified"]
+    assert response.content
+
+    unchanged = client.get(
+        asset_path,
+        headers={"if-none-match": response.headers["etag"]},
+    )
+    assert unchanged.status_code == 304
+    assert unchanged.headers["cache-control"] == "public, max-age=3600"
 
 
 def test_static_page_routes_revalidate_and_deidentify_remains_no_store() -> None:

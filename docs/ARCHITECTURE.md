@@ -218,6 +218,7 @@ test checks that these paths continue to exist.
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
+| `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |

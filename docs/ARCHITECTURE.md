@@ -132,6 +132,8 @@ test checks that these paths continue to exist.
 
 | File | Responsibility |
 | --- | --- |
+| `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
+| `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
@@ -174,6 +176,7 @@ test checks that these paths continue to exist.
 | `backend/embedding_providers.py` | Selects and configures embedding providers |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
@@ -187,8 +190,11 @@ test checks that these paths continue to exist.
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
+| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
+| `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
@@ -206,6 +212,7 @@ test checks that these paths continue to exist.
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
@@ -216,6 +223,16 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
+| `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
+| `backend/prompts/citation_issue_focused_assessment.txt` | Issue-focused paragraph-assessment prompt |
+| `backend/prompts/citation_lightweight_issue_extraction.txt` | Lightweight issue-extraction prompt |
+| `backend/prompts/citation_unit_context_assessment.txt` | Discussion-unit assessment prompt with optional context placeholders |
+| `backend/prompts/contextual_authority_teacher.txt` | Contextual-authority treatment teacher prompt |
+| `backend/prompts/discussion_paragraph_assessment.txt` | Paragraph-level discussion assessment prompt |
+| `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
+| `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
+| `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
 | `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |

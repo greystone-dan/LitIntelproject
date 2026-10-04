@@ -13,7 +13,9 @@ from starlette.staticfiles import StaticFiles
 
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .health import liveness, readiness
 from .routes import router
+from .overruling_risk_routes import router as overruling_risk_router
 from .security_headers import SecurityHeadersMiddleware
 
 
@@ -86,7 +88,13 @@ def _login_page(error: str = "") -> HTMLResponse:
 @app.middleware("http")
 async def private_access_and_noindex(request: Request, call_next):
     password, secret, lifetime = _private_access_config()
-    public_path = request.url.path in {"/access", "/access/login", "/health"}
+    public_path = request.url.path in {
+        "/access",
+        "/access/login",
+        "/health",
+        "/health/live",
+        "/health/ready",
+    }
     matched_route = next(
         (route for route in app.routes if route.matches(request.scope)[0] == Match.FULL),
         None,
@@ -113,6 +121,7 @@ if os.getenv("CASELIBRARY_SECURITY_HEADERS") == "1":
 
 
 app.include_router(router)
+app.include_router(overruling_risk_router)
 
 
 @app.get("/")
@@ -123,6 +132,20 @@ def root():
 @app.get("/health")
 def health():
     return {"message": "AI CaseLibrary backend is running"}
+
+
+@app.get("/health/live")
+def health_live():
+    return liveness()
+
+
+@app.get(
+    "/health/ready",
+    responses={503: {"description": "A required dependency is unavailable"}},
+)
+def health_ready():
+    document, is_ready = readiness()
+    return JSONResponse(document, status_code=200 if is_ready else 503)
 
 
 @app.get("/robots.txt", response_class=Response, include_in_schema=False)

@@ -8,6 +8,8 @@ from __future__ import annotations
 from typing import Any
 import json
 
+from .prompt_registry import get_prompt
+
 
 def build_issue_focused_assessment_request(
     case_id: int,
@@ -20,22 +22,7 @@ def build_issue_focused_assessment_request(
 
     Returns: issue, issue_role, cited_authority, authority_function, explanation, confidence
     """
-    system = (
-        "You are a legal researcher analyzing Canadian court decisions. For each paragraph, "
-        "identify the legal ISSUE being addressed (not procedural categories, but substantive "
-        "legal questions like standing, duty to consult, breach of fiduciary duty, etc.). "
-        "\n"
-        "For each paragraph, return JSON with: paragraph_index, issue (one phrase like "
-        "'Standing' or 'Breach of Fiduciary Duty'), issue_role (how this paragraph addresses "
-        "the issue: 'establishing_law', 'applying_law', 'citing_authority', 'distinguishing', "
-        "'outcome'), cited_authority (case name + citation if cited; null if none), "
-        "authority_function (if cited: 'establishing_rule', 'applying_rule', 'distinguished', "
-        "'followed', 'dicta'; null if none), explanation (1-2 sentences), and confidence "
-        "(0.0-1.0). "
-        "\n"
-        "Return all paragraphs in order. Do not invent facts, citations, or paragraph indices. "
-        "Use only the supplied paragraph text."
-    )
+    system, prompt_version = get_prompt("citation_issue_focused_assessment")
     payload = {
         "request_id": f"citation-intelligence-assessment-case-{case_id}",
         "contract_version": "citation_intelligence_assessment_v1",
@@ -48,6 +35,7 @@ def build_issue_focused_assessment_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
@@ -66,22 +54,7 @@ def build_citation_aware_assessment_request(
 
     Returns: issue, authorities (array), conclusion, explanation, confidence
     """
-    system = (
-        "You are analyzing legal authorities and issues in a Canadian court decision. "
-        "For each paragraph, identify: (1) What legal ISSUE is being addressed? "
-        "(2) What authorities (cases, statutes, regulations) are cited, and how? "
-        "(3) What is the conclusion about that issue? "
-        "\n"
-        "For 'how the authority is used', distinguish: establishing_governing_rule, "
-        "applying_rule_to_facts, distinguished_not_followed, followed_or_approved, "
-        "dicta_or_obiter. "
-        "\n"
-        "Return JSON with: paragraph_index, issue (one phrase), authorities (array of "
-        "{citation: string, how_used: string, conclusion: string}), paragraph_conclusion "
-        "(one sentence about the issue outcome), explanation (1-2 sentences), confidence. "
-        "\n"
-        "Return all paragraphs in order. Use only supplied text; do not invent."
-    )
+    system, prompt_version = get_prompt("citation_aware_assessment")
     payload = {
         "request_id": f"citation-aware-assessment-case-{case_id}",
         "contract_version": "citation_aware_assessment_v1",
@@ -94,6 +67,7 @@ def build_citation_aware_assessment_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
@@ -112,17 +86,7 @@ def build_lightweight_issue_extraction_request(
 
     Returns: issue, cited_authorities, conclusion, explanation, confidence
     """
-    system = (
-        "For each legal paragraph, extract three pieces of information in plain language: "
-        "(1) What is the legal ISSUE being addressed? (one phrase) "
-        "(2) Which authorities (cases/statutes) are cited and how are they used? "
-        "(one sentence max) (3) What is the conclusion about that issue? (one sentence) "
-        "\n"
-        "Return JSON with: paragraph_index, issue, cited_authorities (brief description), "
-        "conclusion, explanation (optional, brief), confidence (0.0-1.0). "
-        "\n"
-        "Use paragraph text exactly as written. Return all paragraphs in order."
-    )
+    system, prompt_version = get_prompt("citation_lightweight_issue_extraction")
     payload = {
         "request_id": f"lightweight-issue-extraction-case-{case_id}",
         "contract_version": "lightweight_issue_extraction_v1",
@@ -135,6 +99,7 @@ def build_lightweight_issue_extraction_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
@@ -185,17 +150,9 @@ def build_unit_context_assessment_request(
         if following_unit:
             context_note += "The following unit discusses: [context unit provided]."
 
-    system = (
-        "You are analyzing a discussion unit from a Canadian court decision. "
-        "Identify: (1) the PRIMARY legal ISSUE (one phrase like 'Standing' or 'Duty to Consult'), "
-        "(2) a KEY PROPOSITION (one sentence stating the legal principle or outcome), "
-        "(3) AUTHORITIES CITED (case names and statutes relevant to this issue). "
-        f"{context_note}"
-        f"{metadata_context}"
-        "\n"
-        "Return JSON with: issue_label (string), proposition (string), "
-        "key_authorities (array of strings), confidence (0.0-1.0). "
-        "Use only the supplied text; do not invent facts or citations."
+    system, prompt_version = get_prompt("citation_unit_context_assessment")
+    system = system.replace("{{context_note}}", context_note, 1).replace(
+        "{{metadata_context}}", metadata_context, 1
     )
 
     user_content = f"DISCUSSION UNIT:\n\n{unit_text}"
@@ -207,6 +164,7 @@ def build_unit_context_assessment_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user_content},

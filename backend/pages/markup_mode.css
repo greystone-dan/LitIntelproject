@@ -4,7 +4,7 @@
 #caseReaderPanel.markup-on .reader-pane.target{display:none}
 #caseReaderPanel.markup-on .reader-pane.source{width:100%;height:100%;border:0;overflow:auto}
 #caseReaderPanel.markup-on .reader-pane.source>.reader-pane-header,#caseReaderPanel.markup-on .reader-evidence-bar,#caseReaderPanel.markup-on #readerMostCited{display:none!important}
-#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{display:block;position:absolute;z-index:30;top:92px;left:16px;width:440px;max-height:70%;overflow:auto;border:1px solid #7f93b2;border-radius:8px;box-shadow:0 14px 36px rgba(16,32,56,.25);background:#f8f6ef}
+#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{display:block;position:absolute;z-index:30;top:calc(var(--mk-bar-h,92px) + 6px);left:16px;width:440px;max-height:calc(100% - var(--mk-bar-h,92px) - 20px);overflow:auto;border:1px solid #7f93b2;border-radius:8px;box-shadow:0 14px 36px rgba(16,32,56,.25);background:#f8f6ef}
 #readerMarkupToggle[aria-pressed="true"]{background:#fff!important;color:var(--text)!important;box-shadow:0 1px 3px rgba(16,32,56,.15)}
 #caseReaderPanel.markup-on #readerViewToggle[aria-pressed="false"]{color:var(--muted)}
 
@@ -24,7 +24,7 @@
 .mk-pop-f{display:flex;gap:10px;align-items:center;border-top:1px solid var(--border,#e2e8f0);padding-top:8px;color:var(--muted,#5b6d83);font-size:11px}
 
 #markupStage{display:flex;align-items:flex-start;position:relative;padding:18px 16px 40px 8px}
-#markupOutline{width:260px;flex:none;margin-right:12px;position:sticky;top:98px;max-height:calc(100vh - 220px);overflow:auto;background:#f8f6ef;border:1px solid var(--border,#e2e8f0);border-radius:6px;padding:10px;font:12px/1.4 Inter,"Segoe UI",Arial,sans-serif}
+#markupOutline{width:260px;flex:none;margin-right:12px;position:sticky;top:calc(var(--mk-bar-h,92px) + 8px);max-height:calc(100vh - var(--mk-bar-h,92px) - 140px);overflow:auto;background:#f8f6ef;border:1px solid var(--border,#e2e8f0);border-radius:6px;padding:10px;font:12px/1.4 Inter,"Segoe UI",Arial,sans-serif}
 #markupOutline[hidden]{display:none}
 #markupOutline h5{margin:8px 0 4px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#5b6d83)}#markupOutline h5:first-child{margin-top:0}
 .mk-ol{display:flex;gap:6px;align-items:baseline;width:100%;text-align:left;border:0;background:none;padding:3px 0;font:inherit;color:var(--text,#102038);cursor:pointer}.mk-ol:hover{text-decoration:underline}
@@ -56,9 +56,41 @@
 mark.markup-find{background:#ffe38a;padding:0 1px;border-radius:2px}mark.markup-find.is-current{background:#ffb347;outline:2px solid #e0912a}
 /* tags are quiet in markup mode: dotted underline, no fill; hover shows the tag name */
 #caseReaderPanel.markup-on .reader-text .tag-highlight{background:transparent!important;color:inherit!important;box-shadow:none!important;border-bottom:2px dotted #2d8a50;padding:0 1px}
-#caseReaderPanel.markup-on #decisionBody.mk-tags-off .tag-highlight{border-bottom:0}
+#caseReaderPanel.markup-on #decisionBody.mk-tags-off .tag-highlight{border-bottom:0!important}
+#caseReaderPanel.markup-on #decisionBody.mk-tags-tint .tag-highlight{background:#ccebd5!important;border-bottom:0!important;border-radius:2px}
+#caseReaderPanel.markup-on #decisionBody.mk-tags-bubbles .tag-highlight{border-bottom:0!important}
+#caseReaderPanel.markup-on #decisionBody.mk-tags-bubbles .tag-highlight::after{content:attr(data-authority);display:inline-block;margin-left:3px;padding:0 6px;border-radius:9px;background:#e3f3e8;color:#155c32;font:700 10px/16px Inter,"Segoe UI",Arial,sans-serif;vertical-align:1px;white-space:nowrap}
+/* the page's own hover tooltip is replaced by the markup hover card */
+#caseReaderPanel.markup-on .citation-link[data-authority]::after,#caseReaderPanel.markup-on .citation-link[data-authority]::before,#caseReaderPanel.markup-on mark.chunk-citation[data-authority]::after,#caseReaderPanel.markup-on mark.primary[data-authority]::after{display:none!important}
+#markupBar .mk-lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted,#5b6d83)}
+.mk-btn[disabled]{opacity:.45;cursor:default}.mk-btn[aria-pressed="true"]{background:#102038;color:#fff;border-color:#102038}
+.mk-topic{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid var(--border,#e2e8f0);border-radius:999px;background:#fff;color:var(--text,#102038);font:600 11px Inter,"Segoe UI",Arial,sans-serif;cursor:pointer}
+.mk-topic i{width:9px;height:9px;border-radius:50%;background:var(--c);display:inline-block}
+.mk-topic[aria-pressed="true"]{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c);background:#f7f8fb}
+#decisionBody .fmt-para.mk-folded{display:none}
+.mk-foldbar{display:block;width:100%;margin:6px 0;padding:6px 12px;border:1px dashed #9fb0c8;border-radius:5px;background:#f7f8fb;color:#44556f;font:600 11px Inter,"Segoe UI",Arial,sans-serif;text-align:left;cursor:pointer}
+.mk-foldbar:hover{background:#eef2f9}
+#decisionBody .fmt-para.mk-topic-hit{box-shadow:inset 3px 0 0 var(--tc,#2563eb);background:linear-gradient(90deg,rgba(37,99,235,.06),transparent 40%)}
+/* Peek panel (floating or docked) and hover card */
+.mk-panel{position:fixed;z-index:60;background:#fbf9f2;border:1px solid #7f93b2;border-radius:8px;box-shadow:0 14px 36px rgba(16,32,56,.3);font:12px/1.45 Inter,"Segoe UI",Arial,sans-serif;color:var(--text,#102038);display:flex;flex-direction:column}
+.mk-panel.float{right:24px;bottom:24px;width:380px;max-height:62vh}
+.mk-panel.dock{left:0;right:0;bottom:0;max-height:300px;border-radius:8px 8px 0 0;border-left:0;border-right:0}
+.mk-panel-h{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--border,#e2e8f0);cursor:grab;user-select:none}
+.mk-panel.dock .mk-panel-h{cursor:default}
+.mk-panel-b{overflow:auto;padding:8px;display:flex;flex-direction:column;gap:8px}
+.mk-panel.dock .mk-panel-b{flex-direction:row;align-items:flex-start}
+.mk-panel.dock .mk-peek{flex:0 0 380px}
+.mk-peek{background:#fff;border:1px solid var(--border,#e2e8f0);border-left:4px solid #c28e2d;border-radius:5px;padding:9px 12px 10px}
+.mk-peek.is-missing{border-left-style:dashed}
+.mk-peek h4,#mkHover h4{margin:3px 0 4px;font:700 13.5px/1.3 Inter,"Segoe UI",Arial,sans-serif}
+.mk-peek blockquote,#mkHover blockquote{margin:6px 0;border-left:3px solid #c9d3e3;background:#f7f8fb;padding:6px 10px;font:14px/1.5 Georgia,serif;color:#1d2c44}
+.mk-peek blockquote small,#mkHover blockquote small{display:block;margin-top:3px;font:600 10px/1.4 Inter,"Segoe UI",Arial,sans-serif;color:var(--muted,#5b6d83)}
+#mkHover{position:fixed;z-index:70;width:360px;background:#fff;border:1px solid #7f93b2;border-left:4px solid #c28e2d;border-radius:6px;box-shadow:0 12px 30px rgba(16,32,56,.28);padding:9px 12px 10px;font:12px/1.45 Inter,"Segoe UI",Arial,sans-serif;color:var(--text,#102038)}
+#mkHover .mk-hint{margin-left:auto;color:var(--muted,#5b6d83);font-size:10px}
+#caseReaderPanel.markup-docked #markupStage{padding-bottom:320px}
+
 @media(max-width:1100px){#markupMargin{width:300px}.mk-note{width:300px}#markupOutline{width:200px}}
-@media(max-width:760px){#markupStage{display:block}#markupMargin,#markupBands,#markupOutline{display:none}#markupBar{position:static}}
+@media(max-width:760px){#markupStage{display:block;padding-left:12px}#markupMargin,#markupBands,#markupOutline{display:none}#markupBar{position:static}.mk-panel.float{left:8px!important;right:8px;width:auto;bottom:8px;top:auto!important}.mk-pop{width:auto;right:16px}#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{width:auto;right:16px}}
 @media print{
  #caseReaderPanel.markup-on #markupBar,#caseReaderPanel.markup-on .mk-pop,#caseReaderPanel.markup-on .mk-x{display:none!important}
  #caseReaderPanel.markup-on #markupStage{display:flex!important;padding:0}

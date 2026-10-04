@@ -16,10 +16,10 @@ const LAYER_DEFS=[
  {key:'unit',label:'Discussion units',states:['off','markers','open'],def:'markers'},
  {key:'outcome',label:'Outcome',states:['off','markers','open'],def:'open'},
  {key:'judge',label:'Judge',states:['off','markers','open'],def:'markers'},
- {key:'tags',label:'Tags',states:['off','soft'],def:'soft'},
+ {key:'tags',label:'Tags',states:['off','underline','tint','bubbles'],def:'underline'},
  {key:'citedby',label:'Cited by others',states:['off','gutter'],def:'gutter'}
 ];
-const STATE_LABEL={off:'Off',markers:'Markers',open:'Open',soft:'Soft',gutter:'Gutter'};
+const STATE_LABEL={off:'Off',markers:'Markers',open:'Open',underline:'Underline',tint:'Tint',bubbles:'Bubbles',gutter:'Gutter'};
 
 /* ---------- pure data helpers (no DOM) ---------- */
 function paraNumberForIndex(chunks,index){
@@ -51,6 +51,40 @@ function subthemeRanges(payload){
   }
   return out;
 }
+/* Topics: sub-theme key terms ranked by how many paragraphs they cover. */
+function topicIndex(payload,limit){
+  const subs=subthemeRanges(payload),by=new Map();
+  for(const s of subs)for(const t of s.terms){
+    const key=String(t).trim().toLowerCase();if(!key)continue;
+    const e=by.get(key)||{key:key,label:String(t).trim(),ranges:[],paras:0};
+    e.ranges.push({first:s.first,last:s.last});e.paras+=s.last-s.first+1;by.set(key,e);
+  }
+  const out=[...by.values()].sort((a,b)=>b.paras-a.paras||a.key.localeCompare(b.key)).slice(0,limit||10);
+  out.forEach((t,i)=>{t.color=BAND_COLORS[i%BAND_COLORS.length]});
+  return out;
+}
+function topicParas(topics,selected){
+  const set=new Set();
+  for(const t of topics||[])if(selected&&selected.includes(t.key))for(const r of t.ranges)for(let n=r.first;n<=r.last;n++)set.add(n);
+  return set;
+}
+/* visible: array of booleans in document order; returns runs of consecutive hidden entries. */
+function foldRuns(visible){
+  const runs=[];let start=-1;
+  for(let i=0;i<=visible.length;i++){
+    const hidden=i<visible.length&&!visible[i];
+    if(hidden&&start<0)start=i;
+    if(!hidden&&start>=0){runs.push({start:start,end:i-1});start=-1;}
+  }
+  return runs;
+}
+/* What the Peek panel shows for a citation note: only stored data, never fetched. */
+function peekFor(note){
+  const c=note&&note.cite;if(!c)return null;
+  return {id:note.id,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
+    text:c.inLibrary?(note.quote||''):'',label:c.inLibrary?(c.paragraph!=null?'Paragraph ['+c.paragraph+'] of the cited case':(note.quote?'Cited text':'')):'',
+    missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.'};
+}
 /* Notes the margin can show. anchor: {kind:'cite',id} | {kind:'para',num} | {kind:'top'}. */
 function buildNotes(payload){
   const rd=payload&&payload.readerData||{},item=Object.assign({},rd.case||{},payload&&payload.item||{});
@@ -73,7 +107,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),foot:row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]});
+    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||''},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -100,7 +134,7 @@ function layoutNotes(items,gap){
 function defaultLayers(){const o={};for(const d of LAYER_DEFS)o[d.key]=d.def;return o}
 function sanitizeLayers(raw){
   const out=defaultLayers();
-  if(raw&&typeof raw==='object')for(const d of LAYER_DEFS)if(d.states.includes(raw[d.key]))out[d.key]=raw[d.key];
+  if(raw&&typeof raw==='object')for(const d of LAYER_DEFS){const v=d.key==='tags'&&raw.tags==='soft'?'underline':raw[d.key];if(d.states.includes(v))out[d.key]=v;}
   return out;
 }
 function noteState(note,layers,overrides){
@@ -111,14 +145,15 @@ function noteState(note,layers,overrides){
   if(overrides&&overrides[note.id]===false)return 'markers';
   return layer==='open'?'open':'markers';
 }
-const api={E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,LAYER_DEFS,TYPE};
+const api={E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
 
 /* ---------- browser behaviour ---------- */
 const $=id=>document.getElementById(id);
-const state={on:false,layers:defaultLayers(),overrides:{},notes:[],infoOpen:false,outlineOpen:false,findTerm:'',findHits:[],findAt:-1};
+const state={on:false,layers:defaultLayers(),overrides:{},notes:[],infoOpen:false,outlineOpen:false,layersOpen:false,findTerm:'',findHits:[],findAt:-1,
+  caseId:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[]};
 const store={get(){try{return JSON.parse(localStorage.getItem('ilit.markup.layers')||'null')}catch(e){return null}},set(v){try{localStorage.setItem('ilit.markup.layers',JSON.stringify(v))}catch(e){}}};
 state.layers=sanitizeLayers(store.get());
 let rafPending=false;
@@ -155,8 +190,10 @@ function setOn(on){
     readerState.mode='normalized';
     setReaderMode('normalized');
   }else{
-    state.on=false;state.infoOpen=false;state.outlineOpen=false;
-    removeStage();p.classList.remove('markup-on','markup-info-open');
+    state.on=false;state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
+    hideHover(true);clearFold();
+    removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked');
+    const pn=$('mkPanel');if(pn)pn.remove();
     document.querySelectorAll('mark.markup-find').forEach(unwrap);
   }
   if(toggle){toggle.setAttribute('aria-pressed',String(state.on));}
@@ -168,25 +205,45 @@ function afterRender(){
   if(!payload||!$('decisionBody')||!$('decisionBody').querySelector('.fmt-decision')){setOn(false);return}
   p.classList.add('markup-on');
   ensureStage();
+  const cid=(payload.item&&payload.item.id)||(payload.readerData&&payload.readerData.case&&payload.readerData.case.id)||null;
+  if(cid!==state.caseId){state.caseId=cid;state.pins=[];state.topicSel=[];state.foldOthers=false;state.unfolded=[];}
   state.notes=buildNotes(payload);
+  state.topics=topicIndex(payload,10);
+  state.topicSel=state.topicSel.filter(k=>state.topics.some(t=>t.key===k));
   state.overrides={};
   state.findHits=[];state.findAt=-1;
   render();
 }
 function countFor(type){return state.notes.filter(n=>n.type===type).length}
+function tagCount(){const rd=readerState.payload&&readerState.payload.readerData;return rd&&Array.isArray(rd.tags)?rd.tags.length:0}
+/* Re-render the toolbar without losing the user's place: keep focus (and caret in the find box). */
+function focusKey(el){
+  if(!el||!el.closest||!el.closest('#markupBar'))return null;
+  if(el.id==='markupFind')return {sel:'#markupFind',s:el.selectionStart,e:el.selectionEnd};
+  for(const a of ['mkAct','mkChip','mkTopic']){if(el.dataset&&el.dataset[a]!==undefined)return {sel:`[data-${a.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())}="${el.dataset[a]}"]`};}
+  if(el.dataset&&el.dataset.mkLayer)return {sel:`[data-mk-layer="${el.dataset.mkLayer}"][data-mk-state="${el.dataset.mkState}"]`};
+  return null;
+}
 function renderBar(){
   const bar=$('markupBar');if(!bar)return;
+  const keep=focusKey(document.activeElement);
   const L=state.layers;
+  const tagsN=tagCount();
   const chips=LAYER_DEFS.filter(d=>d.key!=='tags').map(d=>{
-    const n=d.key==='citedby'?state.notes.filter(x=>x.type==='citedby').length:countFor(d.key);
+    const n=countFor(d.key);
     if(!n)return '';
     return `<button type="button" class="mk-chip${L[d.key]==='off'?' is-off':''}" data-mk-chip="${d.key}" aria-pressed="${L[d.key]!=='off'}"><i style="background:${(TYPE[d.key]||{color:'#2d8a50'}).color}"></i>${E(d.label)} <b>${n}</b></button>`;
-  }).join('')+`<button type="button" class="mk-chip${L.tags==='off'?' is-off':''}" data-mk-chip="tags" aria-pressed="${L.tags!=='off'}"><i style="background:#2d8a50"></i>Tags</button>`;
+  }).join('')+(tagsN?`<button type="button" class="mk-chip${L.tags==='off'?' is-off':''}" data-mk-chip="tags" aria-pressed="${L.tags!=='off'}"><i style="background:#2d8a50"></i>Tags <b>${tagsN}</b></button>`:'');
   const rows=LAYER_DEFS.map(d=>`<div class="mk-lr"><b>${E(d.label)}</b><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button" data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
+  const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
   bar.innerHTML=`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
-  `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+
-  `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles)</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="reset">Reset layers</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
+  `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
+  `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="reset">Reset layers</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
+  if(keep){const f=bar.querySelector(keep.sel);if(f){f.focus({preventScroll:true});if(keep.s!=null){try{f.setSelectionRange(keep.s,keep.e)}catch(e){}}}}
+  updateFindCount();
+  const p=panel();if(p)p.style.setProperty('--mk-bar-h',bar.offsetHeight+'px');
 }
+const isShown=el=>!!el&&el.getClientRects().length>0;
 function anchorEl(n){
   const body=$('decisionBody');if(!body)return null;
   const a=n.anchor;
@@ -204,45 +261,68 @@ function noteHTML(n,st){
   const foot=(n.foot||[]).map(f=>`<button type="button" class="mk-link" data-mk-foot="${E(f.action)}" data-mk-arg="${E(f.arg)}">${E(f.label)}</button>`).join('');
   return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.quote?`<blockquote>${E(n.quote)}<small>${E(n.quoteLabel)}</small></blockquote>`:''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
 }
+/* Fold view: topic emphasis and "show only selected" with fold bars for the hidden runs. */
+function clearFold(){
+  const d=$('decisionBody');if(!d)return;
+  d.querySelectorAll('.mk-folded').forEach(e=>e.classList.remove('mk-folded'));
+  d.querySelectorAll('.mk-foldbar').forEach(e=>e.remove());
+  d.querySelectorAll('.mk-topic-hit').forEach(e=>{e.classList.remove('mk-topic-hit');e.style.removeProperty('--tc')});
+}
+function applyFold(){
+  clearFold();
+  const dec=document.querySelector('#decisionBody .fmt-decision');if(!dec||!state.topicSel.length)return;
+  const paras=[...dec.querySelectorAll(':scope > .fmt-para')];
+  const hit=topicParas(state.topics,state.topicSel);
+  for(const e of paras){
+    const n=Number(e.dataset.para);if(!hit.has(n))continue;
+    const t=state.topics.find(x=>state.topicSel.includes(x.key)&&x.ranges.some(r=>n>=r.first&&n<=r.last));
+    e.classList.add('mk-topic-hit');if(t)e.style.setProperty('--tc',t.color);
+  }
+  if(!state.foldOthers)return;
+  const vis=paras.map(e=>hit.has(Number(e.dataset.para))||state.unfolded.includes(Number(e.dataset.para)));
+  for(const run of foldRuns(vis)){
+    const a=Number(paras[run.start].dataset.para),b=Number(paras[run.end].dataset.para),cnt=run.end-run.start+1;
+    const bar=document.createElement('button');bar.type='button';bar.className='mk-foldbar';bar.dataset.mkUnfold=paras.slice(run.start,run.end+1).map(e=>e.dataset.para).join(',');
+    bar.textContent=`¶[${a}]${b!==a?'–['+b+']':''} · ${cnt} paragraph${cnt===1?'':'s'} hidden · show`;
+    dec.insertBefore(bar,paras[run.start]);
+    for(let i=run.start;i<=run.end;i++)paras[i].classList.add('mk-folded');
+  }
+}
 function render(){
   const stage=$('markupStage');if(!stage)return;
+  applyFold();
   renderBar();
   const body=$('decisionBody'),margin=$('markupMargin'),svg=$('markupConn');
-  const shown=state.notes.filter(n=>n.type!=='citedby'&&noteState(n,state.layers,state.overrides)!=='off'&&anchorEl(n));
-  const shownCb=state.notes.filter(n=>n.type==='citedby'&&state.layers.citedby!=='off'&&anchorEl(n));
+  const wanted=state.notes.filter(n=>{const st=noteState(n,state.layers,state.overrides);return n.type==='citedby'?st==='open':st!=='off'});
   [...margin.querySelectorAll('.mk-note')].forEach(e=>e.remove());
-  const base=margin.getBoundingClientRect();
-  const els=[],items=[];
-  for(const n of shown){
+  const frag=document.createDocumentFragment(),els=[];
+  for(const n of wanted){
+    const a=anchorEl(n);if(!a||!isShown(a))continue;
     const st=noteState(n,state.layers,state.overrides);
     const el=document.createElement('div');el.className='mk-note';el.dataset.id=n.id;el.innerHTML=noteHTML(n,st);
-    margin.appendChild(el);
-    const a=anchorEl(n),r=a.getBoundingClientRect();
-    els.push({n,el,a,st});items.push({y:r.top-base.top-2,h:el.offsetHeight});
+    frag.appendChild(el);els.push({n,el,a,st});
   }
-  for(const n of shownCb){
-    const st=noteState(n,state.layers,state.overrides);
-    if(st!=='open')continue;
-    const el=document.createElement('div');el.className='mk-note';el.dataset.id=n.id;el.innerHTML=noteHTML(n,'open');
-    margin.appendChild(el);
-    const a=anchorEl(n),r=a.getBoundingClientRect();
-    els.push({n,el,a,st});items.push({y:r.top-base.top-2,h:el.offsetHeight});
-  }
+  margin.appendChild(frag);                       /* one write, then reads: no layout thrash on long cases */
+  const base=margin.getBoundingClientRect(),bodyR=body.getBoundingClientRect();
+  const items=els.map(o=>({y:o.a.getBoundingClientRect().top-base.top-2,h:o.el.offsetHeight}));
   const lay=layoutNotes(items,8);
   let bottom=0,g='';
   for(const l of lay){
     const o=els[l.index];o.el.style.top=l.top+'px';bottom=Math.max(bottom,l.top+items[l.index].h);
-    const ar=o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
-    const bodyR=body.getBoundingClientRect();
-    const ay=ar.top-base.top+Math.min(11,ar.height/2),ty=l.top+(o.st==='open'?16:12);
-    if(o.n.anchor.kind==='cite'){g+=`<path d="M${bodyR.right-base.left-2} ${ay} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${o.st==='open'?1.4:1}" opacity="${o.st==='open'?.85:.4}"/>`;}
+    if(o.n.anchor.kind==='cite'){
+      const ar=o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
+      const ay=ar.top-base.top+Math.min(11,ar.height/2),ty=l.top+(o.st==='open'?16:12);
+      g+=`<path d="M${bodyR.right-base.left-2} ${ay} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${o.st==='open'?1.4:1}" opacity="${o.st==='open'?.85:.4}"/>`;
+    }
   }
   stage.style.minHeight=Math.max(bottom+24,body.offsetHeight)+'px';
   svg.setAttribute('width',Math.max(margin.offsetWidth,1));svg.setAttribute('height',Math.max(bottom+24,body.offsetHeight));
   svg.style.left=0;svg.innerHTML=g;
-  body.classList.toggle('mk-tags-off',state.layers.tags==='off');
+  body.classList.remove('mk-tags-off','mk-tags-underline','mk-tags-tint','mk-tags-bubbles');
+  body.classList.add('mk-tags-'+state.layers.tags);
   renderBands(stage,base);
   renderOutline();
+  renderPanel();
   const p=panel();
   p.classList.toggle('markup-info-open',state.infoOpen);
   const ob=$('markupOutline');if(ob)ob.hidden=!state.outlineOpen;
@@ -253,11 +333,10 @@ function renderBands(stage,base){
   const sb=bands.getBoundingClientRect();
   const subs=subthemeRanges(readerState.payload);
   const body=$('decisionBody');
-  const paraEls=[...body.querySelectorAll('.fmt-para')];
-  const top=n=>{const e=paraEls.find(x=>Number(x.dataset.para)===n);return e?e.getBoundingClientRect():null};
+  const rects=new Map();body.querySelectorAll('.fmt-para').forEach(e=>{if(isShown(e))rects.set(Number(e.dataset.para),e.getBoundingClientRect())});
   if(state.layers.unit!=='off'){
     for(const s of subs){
-      const a=top(s.first),b=top(s.last);if(!a||!b)continue;
+      const a=rects.get(s.first),b=rects.get(s.last);if(!a||!b)continue;
       const d=document.createElement('div');d.className='mk-band';d.style.cssText=`top:${a.top-sb.top}px;height:${Math.max(4,b.bottom-a.top)}px;background:${s.color}`;
       d.title=`Sub-theme ¶${s.first}–${s.last}: ${s.terms.join(', ')}`;bands.appendChild(d);
     }
@@ -266,7 +345,7 @@ function renderBands(stage,base){
     const rd=readerState.payload.readerData||{},max=Math.max(1,...(rd.format_blocks||[]).map(b=>Number(b.cited_by_count)||0));
     for(const b of rd.format_blocks||[]){
       const c=Number(b&&b.cited_by_count)||0;if(b.type!=='para'||c<=0)continue;
-      const e=body.querySelector(`[id="decision-source-${b.start}"]`);if(!e)continue;const r=e.getBoundingClientRect();
+      const e=body.querySelector(`[id="decision-source-${b.start}"]`);if(!e||!isShown(e))continue;const r=e.getBoundingClientRect();
       const d=document.createElement('button');d.type='button';d.className='mk-heat';d.dataset.mkNote='citedby-'+b.start;
       d.style.cssText=`top:${r.top-sb.top+2}px;height:${Math.max(6,r.height-4)}px;opacity:${(0.3+0.7*Math.min(c,max)/max).toFixed(2)}`;
       d.title=`Cited by ${c} case${c===1?'':'s'} in the library`;d.setAttribute('aria-label',d.title);bands.appendChild(d);
@@ -277,13 +356,56 @@ function renderOutline(){
   const box=$('markupOutline');if(!box)return;
   if(!state.outlineOpen){box.innerHTML='';return}
   const rd=readerState.payload.readerData||{},blocks=rd.format_blocks||[],text=readerState.payload.item&&readerState.payload.item.full_text||'';
-  const heads=blocks.filter(b=>b.type==='heading').map(b=>({start:b.start,level:b.level||1,label:Array.from(text).slice(b.start,b.end).join('').trim()}));
+  const chars=Array.from(text);
+  const heads=blocks.filter(b=>b.type==='heading').map(b=>({start:b.start,level:b.level||1,label:chars.slice(b.start,b.end).join('').trim()}));
   const subs=subthemeRanges(readerState.payload);
   const rows=heads.map(h=>`<button type="button" class="mk-ol l${Math.min(h.level,3)}" data-mk-goto="${h.start}">${E(clip(h.label,60))}</button>`);
   const subRows=subs.map(s=>`<button type="button" class="mk-ol sub" data-mk-para="${s.first}" style="--c:${s.color}"><i></i>${E(s.terms.slice(0,3).join(', ')||s.id)}<em>¶${s.first}${s.last!==s.first?'–'+s.last:''}</em></button>`);
   box.innerHTML=`<h5>Outline</h5>${rows.join('')||'<div class="mk-meta">No headings recognised.</div>'}${subRows.length?`<h5>Sub-themes</h5>${subRows.join('')}<div class="mk-meta">Automatic key terms; headings are the judgment’s own.</div>`:''}`;
 }
-function goto(el){if(!el)return;el.scrollIntoView({behavior:window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})}
+function goto(el){
+  if(!el)return;
+  const f=el.closest&&el.closest('.mk-folded');if(f||el.classList.contains('mk-folded')){const n=Number((f||el).dataset.para);if(n&&!state.unfolded.includes(n)){state.unfolded.push(n);render();}}
+  el.scrollIntoView({behavior:window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+}
+
+/* ---------- Peek panel (stored data only) ---------- */
+function pinNote(id){
+  const n=state.notes.find(x=>x.id===id&&x.cite);if(!n)return;
+  state.pins=[id].concat(state.pins.filter(x=>x!==id)).slice(0,5);
+  hideHover(true);renderPanel();
+}
+function renderPanel(){
+  let el=$('mkPanel');const p=panel();
+  if(!state.on||!state.pins.length){if(el)el.remove();if(p)p.classList.remove('markup-docked');return}
+  const cards=state.pins.map(id=>peekFor(state.notes.find(n=>n.id===id))).filter(Boolean);
+  if(!cards.length){state.pins=[];if(el)el.remove();return}
+  if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
+  el.className='mk-panel '+state.dock;
+  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">Go to citation</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
+  if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
+  if(p)p.classList.toggle('markup-docked',state.dock==='dock');
+}
+
+/* ---------- hover card ---------- */
+let showT=null,hideT=null;
+function hideHover(now){
+  clearTimeout(showT);clearTimeout(hideT);
+  const kill=()=>{const h=$('mkHover');if(h)h.remove()};
+  if(now)kill();else hideT=setTimeout(kill,220);
+}
+function showHover(span){
+  const n=state.notes.find(x=>x.id==='cite-'+span.dataset.citeId&&x.cite);if(!n)return;
+  const c=peekFor(n);let h=$('mkHover');if(h)h.remove();
+  h=document.createElement('div');h.id='mkHover';h.setAttribute('role','tooltip');
+  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}</small></blockquote>`:''):`<div class="mk-body">${E(c.missing)}</div>`}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
+  document.body.appendChild(h);
+  const r=span.getBoundingClientRect(),w=h.offsetWidth,hh=h.offsetHeight;
+  const left=Math.max(8,Math.min(r.left,window.innerWidth-w-8));
+  let top=r.bottom+6;if(top+hh>window.innerHeight-8)top=Math.max(8,r.top-hh-6);
+  h.style.left=left+'px';h.style.top=top+'px';
+}
+function scheduleHover(span){clearTimeout(hideT);clearTimeout(showT);showT=setTimeout(()=>showHover(span),180)}
 
 /* ---------- find in case ---------- */
 function runFind(term){
@@ -311,14 +433,28 @@ function updateFindCount(){const c=$('markupFindCount');if(c)c.textContent=state
 /* ---------- events ---------- */
 function persist(){store.set(state.layers)}
 function setLayer(key,val){state.layers[key]=val;persist();render()}
+const marginHidden=()=>{const m=$('markupMargin');return !m||getComputedStyle(m).display==='none'};
+function citeActivate(c,ev){
+  const id='cite-'+c.dataset.citeId;
+  if(!state.notes.some(n=>n.id===id))return false;
+  if(ev.shiftKey||marginHidden()){pinNote(id);return true}
+  const cur=noteState(state.notes.find(n=>n.id===id),state.layers,state.overrides);
+  state.overrides[id]=cur!=='open';render();
+  const target=document.querySelector(`.mk-note[data-id="${id}"]`);if(target&&cur!=='open')target.scrollIntoView({block:'nearest'});
+  return true;
+}
 document.addEventListener('click',ev=>{
   if(!state.on){const t=ev.target.closest&&ev.target.closest('#readerMarkupToggle');if(t){ev.preventDefault();setOn(true)}return}
   const t=ev.target;if(!t.closest)return;
   if(t.closest('#readerMarkupToggle')){ev.preventDefault();setOn(false);return}
   if(t.closest('#readerViewToggle')){setOn(false);return}
+  if(state.infoOpen&&!t.closest('#decisionTarget,[data-mk-act="info"]')){state.infoOpen=false;render()}
+  if(state.layersOpen&&!t.closest('#markupLayerPop,[data-mk-act="layers"]')){state.layersOpen=false;render()}
   const chip=t.closest('[data-mk-chip]');
-  if(chip){const k=chip.dataset.mkChip,d=LAYER_DEFS.find(x=>x.key===k),on=state.layers[k]!=='off';setLayer(k,on?'off':(k==='tags'?'soft':k==='citedby'?'gutter':d.def==='off'?'markers':d.def));return}
+  if(chip){const k=chip.dataset.mkChip,d=LAYER_DEFS.find(x=>x.key===k),on=state.layers[k]!=='off';setLayer(k,on?'off':(k==='citedby'?'gutter':d.def==='off'?(d.states[1]):d.def));return}
   const ls=t.closest('[data-mk-layer]');if(ls){setLayer(ls.dataset.mkLayer,ls.dataset.mkState);return}
+  const tp=t.closest('[data-mk-topic]');
+  if(tp){const k=tp.dataset.mkTopic,i=state.topicSel.indexOf(k);if(i>=0)state.topicSel.splice(i,1);else state.topicSel.push(k);if(!state.topicSel.length)state.foldOthers=false;state.unfolded=[];render();return}
   const act=t.closest('[data-mk-act]');
   if(act){
     const a=act.dataset.mkAct;
@@ -326,34 +462,73 @@ document.addEventListener('click',ev=>{
     else if(a==='expand'){for(const d of LAYER_DEFS)if(d.states.includes('open'))state.layers[d.key]='open';state.overrides={};persist();render()}
     else if(a==='collapse'){for(const d of LAYER_DEFS)if(d.states.includes('open'))state.layers[d.key]='markers';state.overrides={};persist();render()}
     else if(a==='reset'){state.layers=defaultLayers();state.overrides={};persist();render()}
-    else if(a==='info'){state.infoOpen=!state.infoOpen;render()}
+    else if(a==='info'){state.infoOpen=!state.infoOpen;render();if(state.infoOpen){const d=$('decisionTarget');if(d)d.scrollTop=0}}
     else if(a==='outline'){state.outlineOpen=!state.outlineOpen;render()}
     else if(a==='print'){window.print()}
+    else if(a==='fold'){state.foldOthers=!state.foldOthers;state.unfolded=[];render()}
+    else if(a==='topics-clear'){state.topicSel=[];state.foldOthers=false;state.unfolded=[];render()}
+    else if(a==='dock'){state.dock=state.dock==='dock'?'float':'dock';render()}
+    else if(a==='clearpins'){state.pins=[];render()}
     return;
   }
+  const uf=t.closest('[data-mk-unfold]');
+  if(uf){for(const n of uf.dataset.mkUnfold.split(',').map(Number))if(!state.unfolded.includes(n))state.unfolded.push(n);render();return}
+  const unpin=t.closest('[data-mk-unpin]');if(unpin){state.pins=state.pins.filter(x=>x!==unpin.dataset.mkUnpin);render();return}
+  const gc=t.closest('[data-mk-goto-cite]');
+  if(gc){const n=state.notes.find(x=>x.id===gc.dataset.mkGotoCite);const a=n&&anchorEl(n);if(a)goto(a);return}
   const fold=t.closest('[data-mk-fold]');if(fold){state.overrides[fold.dataset.mkFold]=false;render();return}
   const foot=t.closest('[data-mk-foot]');
-  if(foot){if(foot.dataset.mkFoot==='open-case'&&typeof openDecision==='function'){setOn(false);openDecision(Number(foot.dataset.mkArg))}return}
+  if(foot){
+    if(foot.dataset.mkFoot==='pin'){pinNote(foot.dataset.mkArg);return}
+    if(foot.dataset.mkFoot==='open-case'&&typeof openDecision==='function'){setOn(false);openDecision(Number(foot.dataset.mkArg))}return}
   const go=t.closest('[data-mk-goto]');if(go){goto($('decisionBody').querySelector(`[id="decision-source-${go.dataset.mkGoto}"]`));return}
   const gp=t.closest('[data-mk-para]');if(gp){goto($('decisionBody').querySelector(`.fmt-para[data-para="${gp.dataset.mkPara}"]`));return}
   const pill=t.closest('.mk-pill[data-mk-note],.mk-heat[data-mk-note]');
   if(pill){const id=pill.dataset.mkNote;state.overrides[id]=true;render();return}
 },false);
-/* A citation click in markup mode toggles its note instead of opening the linked-case pane. */
+/* A citation click in markup mode toggles its note (Shift-click pins it to the Peek panel) instead of opening the linked-case pane. */
 document.addEventListener('click',ev=>{
   if(!state.on)return;const c=ev.target.closest&&ev.target.closest('#decisionBody [data-cite-id]');
   if(!c)return;
   ev.stopPropagation();
-  const id='cite-'+c.dataset.citeId,cur=noteState(state.notes.find(n=>n.id===id)||{type:'cite',id},state.layers,state.overrides);
-  state.overrides[id]=cur!=='open';render();
-  const target=document.querySelector(`.mk-note[data-id="${id}"]`);if(target&&cur!=='open')target.scrollIntoView({block:'nearest'});
+  citeActivate(c,ev);
 },true);
+document.addEventListener('mouseover',ev=>{
+  if(!state.on||!ev.target.closest)return;
+  const c=ev.target.closest('#decisionBody [data-cite-id]');
+  if(c){scheduleHover(c);return}
+  if(ev.target.closest('#mkHover'))clearTimeout(hideT);
+});
+document.addEventListener('mouseout',ev=>{
+  if(!state.on||!ev.target.closest)return;
+  if(ev.target.closest('#decisionBody [data-cite-id],#mkHover')){clearTimeout(showT);hideHover(false)}
+});
+document.addEventListener('focusin',ev=>{
+  if(!state.on||!ev.target.closest)return;
+  const c=ev.target.closest('#decisionBody [data-cite-id]');
+  if(c)scheduleHover(c);else if(!ev.target.closest('#mkHover'))hideHover(true);
+});
 document.addEventListener('input',ev=>{if(ev.target&&ev.target.id==='markupFind')runFind(ev.target.value)});
 document.addEventListener('keydown',ev=>{
   if(!state.on)return;
+  const c=ev.target.closest&&ev.target.closest('#decisionBody [data-cite-id]');
+  if(c&&(ev.key==='Enter'||ev.key===' ')&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey){ev.preventDefault();ev.stopPropagation();citeActivate(c,ev);return}
   if((ev.metaKey||ev.ctrlKey)&&ev.key.toLowerCase()==='k'){ev.preventDefault();const f=$('markupFind');if(f)f.focus();return}
   if(ev.target&&ev.target.id==='markupFind'&&ev.key==='Enter'&&state.findHits.length){ev.preventDefault();state.findAt=(state.findAt+(ev.shiftKey?-1:1)+state.findHits.length)%state.findHits.length;focusHit();updateFindCount()}
-  if(ev.key==='Escape'&&(state.layersOpen||state.infoOpen)){state.layersOpen=false;state.infoOpen=false;render()}
+  if(ev.key==='Escape'){
+    if($('mkHover')){hideHover(true);return}
+    if(state.layersOpen||state.infoOpen){state.layersOpen=false;state.infoOpen=false;render()}
+  }
+},true);
+/* drag the floating Peek panel by its header */
+document.addEventListener('pointerdown',ev=>{
+  const h=ev.target.closest&&ev.target.closest('[data-mk-drag]');
+  if(!h||ev.target.closest('button')||state.dock!=='float')return;
+  const el=$('mkPanel');if(!el)return;
+  const r=el.getBoundingClientRect(),dx=ev.clientX-r.left,dy=ev.clientY-r.top;
+  const move=e=>{const x=Math.max(0,Math.min(window.innerWidth-120,e.clientX-dx)),y=Math.max(0,Math.min(window.innerHeight-60,e.clientY-dy));state.panelPos={x,y};el.style.left=x+'px';el.style.top=y+'px';el.style.right='auto';el.style.bottom='auto'};
+  const up=()=>{document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',up)};
+  document.addEventListener('pointermove',move);document.addEventListener('pointerup',up);ev.preventDefault();
 });
 window.addEventListener('resize',schedule);
 const prevSet=setReaderMode;

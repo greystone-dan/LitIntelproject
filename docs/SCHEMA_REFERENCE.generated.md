@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:55:50.367880+00:00
+Generated: 2026-10-04T15:24:45.291151+00:00
 Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.

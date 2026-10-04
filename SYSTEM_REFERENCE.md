@@ -836,8 +836,9 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 | Component | Responsibility |
 | --- | --- |
-| `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
+| `backend/security_headers.py` | Optional pure-ASGI response security headers; preserves route headers and streams |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/overruling_risk.py` | Editable, source-backed seed list and deterministic direct/indirect risk-indicator response shaping |
 | `backend/overruling_risk_routes.py` | Read-only overruling-risk endpoint using direct case matches and stored resolved citations |
@@ -2202,6 +2203,18 @@ not replace deterministic source evidence.
 The app sends `X-Robots-Tag: noindex, nofollow, noarchive` for responses and
 serves a restrictive `robots.txt`. Those measures reduce indexing signals; they
 do not create authentication or confidentiality.
+
+Optional pure-ASGI security-header middleware is disabled by default and is
+enabled with `CASELIBRARY_SECURITY_HEADERS=1`. It adds nosniff, referrer,
+same-origin framing, and restrictive camera/microphone/geolocation headers;
+HTTPS-only HSTS and a report-only CSP are also supported. Existing route-set
+headers are preserved, and response streaming is not buffered. The CSP policy
+allows the inline scripts/styles and external font/script origins used by the
+current generated pages; inspect browser report-only findings before changing
+the page origins or considering enforcement. CSP enforcement is untested.
+Configuration and operator guidance are in
+[docs/SECURITY_HEADERS.md](docs/SECURITY_HEADERS.md) and
+[docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md).
 
 The code has a password/cookie access design using a timestamped HMAC signature,
 HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. The gate

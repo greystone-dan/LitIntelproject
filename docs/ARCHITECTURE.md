@@ -223,7 +223,7 @@ test checks that these paths continue to exist.
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
-| `backend/unit_search.py` | Searches discussion units with semantic and keyword matching |
+| `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

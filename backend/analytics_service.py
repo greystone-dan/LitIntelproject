@@ -34,6 +34,7 @@ from .database import (
 	StatuteReference,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .search_matching import identity_sql, matched_on_sql
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
 
@@ -119,7 +120,7 @@ def _analytics_case_order_sql(
 ) -> tuple[str, dict[str, Any]]:
 	query = " ".join(query.split())
 	params: dict[str, Any] = {}
-	if query:
+	if query and sort_by == "relevance":
 		params["query_exact"] = query
 		params["query_like"] = f"%{query}%"
 		params["query_exact_like"] = f"%{query}%"
@@ -141,7 +142,9 @@ def _analytics_case_order_sql(
 			c.date DESC NULLS LAST,
 			c.id DESC
 			"""
-		return ranking, params
+		citation, party, match_params = identity_sql(query)
+		params.update(match_params)
+		return f"CASE WHEN {citation} THEN 2 WHEN {party} THEN 1 ELSE 0 END DESC, " + ranking, params
 	if sort_by == "newest":
 		return ("c.date DESC NULLS LAST, c.id DESC", params)
 	if sort_by == "oldest":
@@ -740,9 +743,13 @@ def fetch_analytics_search_cases(
 	court = " ".join(court.split())
 	year = "".join(character for character in year if character.isdigit())[:4]
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
+	citation_match, party_match, match_params = identity_sql(query)
+	params.update(match_params)
+	match_label, label_params = matched_on_sql(query, search_full_text=search_full_text)
+	params.update(label_params)
 	if query:
 		params["query"] = f"%{query}%"
-		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
+		query_fields = f"c.title ILIKE :query OR c.citation ILIKE :query OR {citation_match} OR {party_match}"
 		if search_full_text:
 			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 		filters.append(f"({query_fields})")
@@ -826,6 +833,7 @@ def fetch_analytics_search_cases(
 				,{unique_cited_authorities} AS unique_cited_authorities
 				,{resolved_target_cases} AS resolved_target_cases
 				,{cited_by_cases} AS cited_by_cases
+				,{match_label} AS matched_on
 			FROM cases c
 			WHERE {where_clause}
 			ORDER BY {sort_order}
@@ -852,6 +860,7 @@ def fetch_analytics_search_cases(
 				"unique_cited_authorities": int(row["unique_cited_authorities"] or 0),
 				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
 				"cited_by_cases": int(row["cited_by_cases"] or 0),
+				"matched_on": row.get("matched_on", "Metadata"),
 			}
 			for row in rows
 		],
@@ -962,4 +971,134 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 			"resolved_target_cases": len(resolved_target_cases),
 		},
 		"citations": highlights,
+	}
+
+
+def fetch_tag_trends_by_year(db: Session) -> dict[str, Any]:
+	"""Tag frequency trends by year: top tags over time."""
+	query = select(
+		func.extract('year', Case.date).label('year'),
+		CaseTag.category,
+		CaseTag.value,
+		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+		func.count(CaseTag.id).label('tag_mentions'),
+	).join(
+		Case, CaseTag.case_id == Case.id
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+	).group_by(
+		'year', CaseTag.category, CaseTag.value
+	).order_by(
+		'year desc', 'case_count desc'
+	)
+	rows = db.execute(query).all()
+	trends = {}
+	for year, category, value, case_count, tag_mentions in rows:
+		year_str = str(int(year)) if year else 'Unknown'
+		if year_str not in trends:
+			trends[year_str] = []
+		trends[year_str].append({
+			'category': category,
+			'value': value,
+			'case_count': case_count,
+			'tag_mentions': tag_mentions,
+		})
+	return trends
+
+
+def fetch_tag_by_judge(db: Session) -> dict[str, Any]:
+	"""Judge specialization: most common tags per judge."""
+	query = select(
+		Case.judge,
+		CaseTag.category,
+		CaseTag.value,
+		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+	).join(
+		Case, CaseTag.case_id == Case.id
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+		Case.judge.isnot(None),
+	).group_by(
+		Case.judge, CaseTag.category, CaseTag.value
+	).having(
+		func.count(func.distinct(CaseTag.case_id)) >= 2
+	).order_by(
+		Case.judge, 'case_count desc'
+	)
+	rows = db.execute(query).all()
+	judge_tags = {}
+	for judge, category, value, case_count in rows:
+		if judge not in judge_tags:
+			judge_tags[judge] = []
+		judge_tags[judge].append({
+			'category': category,
+			'value': value,
+			'case_count': case_count,
+		})
+	return judge_tags
+
+
+def fetch_tag_frequency(db: Session) -> list[dict[str, Any]]:
+	"""Overall tag frequency across corpus."""
+	query = select(
+		CaseTag.category,
+		CaseTag.value,
+		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+		func.count(CaseTag.id).label('tag_mentions'),
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+	).group_by(
+		CaseTag.category, CaseTag.value
+	).order_by(
+		'case_count desc'
+	).limit(100)
+	rows = db.execute(query).all()
+	return [
+		{
+			'category': category,
+			'value': value,
+			'case_count': case_count,
+			'tag_mentions': tag_mentions,
+		}
+		for category, value, case_count, tag_mentions in rows
+	]
+
+
+def fetch_all_tag_analytics(db: Session) -> dict[str, Any]:
+	"""Aggregate all tag analytics data."""
+	trends = fetch_tag_trends_by_year(db)
+	judge_tags = fetch_tag_by_judge(db)
+	frequency = fetch_tag_frequency(db)
+
+	# Summary stats
+	total_tags_query = select(
+		func.count(func.distinct(CaseTag.category + ':' + CaseTag.value))
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+	)
+	total_tags = db.execute(total_tags_query).scalar() or 0
+
+	unique_cases_query = select(
+		func.count(func.distinct(CaseTag.case_id))
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+	)
+	unique_cases_tagged = db.execute(unique_cases_query).scalar() or 0
+
+	unique_categories_query = select(
+		func.count(func.distinct(CaseTag.category))
+	).where(
+		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
+	)
+	unique_categories = db.execute(unique_categories_query).scalar() or 0
+
+	return {
+		'trends': trends,
+		'judge_tags': judge_tags,
+		'frequency': frequency,
+		'summary': {
+			'total_tags': total_tags,
+			'unique_cases_tagged': unique_cases_tagged,
+			'unique_categories': unique_categories,
+		}
 	}

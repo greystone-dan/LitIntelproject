@@ -1,6 +1,6 @@
 """Add discussion unit cache table with method versioning for batch jobs.
 
-Revision ID: 0032_discussion_unit_cache
+Revision ID: 0033_discussion_unit_cache
 Revises: 0030_full_paragraph_ivfflat
 Create Date: 2026-10-03 13:30:00.000000
 """
@@ -9,8 +9,8 @@ from alembic import op
 import sqlalchemy as sa
 
 
-revision = "0032_discussion_unit_cache"
-down_revision = "0030_full_paragraph_ivfflat"
+revision = "0033_discussion_unit_cache"
+down_revision = "0031_saved_search_migration"
 branch_labels = None
 depends_on = None
 

@@ -16,8 +16,6 @@ depends_on = None
 def upgrade() -> None:
     bind = op.get_bind()
     inspector = sa.inspect(bind)
-    existing_columns = {column["name"] for column in inspector.get_columns("cases")}
-
     if "cases" not in inspector.get_table_names():
         op.create_table(
             "cases",
@@ -38,8 +36,13 @@ def upgrade() -> None:
         )
         for column in ("title", "court", "jurisdiction", "date", "citation"):
             op.create_index(f"ix_cases_{column}", "cases", [column])
+        op.execute(
+            "CREATE INDEX IF NOT EXISTS ix_cases_embedding_cosine "
+            "ON cases USING hnsw (embedding vector_cosine_ops)"
+        )
         return
 
+    existing_columns = {column["name"] for column in inspector.get_columns("cases")}
     additions = {
         "jurisdiction": sa.Column("jurisdiction", sa.String(length=100), nullable=True),
         "citation": sa.Column("citation", sa.String(length=255), nullable=True),

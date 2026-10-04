@@ -21,7 +21,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: python -m pip install -r requirements-dev.txt
       # Deselected on purpose (not silently skipped); they only pass on Daniel's machine:
       #   test_api_endpoints_contextual_intelligence, test_v2_pipeline_dry_run_records_all_stages_without_writes
       #     -> need a live Postgres on localhost:5432
@@ -33,3 +33,83 @@ jobs:
           --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence
           --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes
           --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint
+          --cov=backend
+          --cov-report=term-missing:skip-covered
+
+  migrations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: migration_ci
+          POSTGRES_PASSWORD: disposable_ci_only
+          POSTGRES_DB: migration_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U migration_ci -d migration_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      POSTGRES_USER: migration_ci
+      POSTGRES_PASSWORD: disposable_ci_only
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: migration_ci
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Refuse dotenv database overrides
+        shell: bash
+        run: |
+          if [[ -e .env || -L .env || -e backend/.env || -L backend/.env ]]; then
+            echo "::error::Migration CI refuses root or backend dotenv files."
+            exit 1
+          fi
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Verify and enable pgvector on disposable database
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for path in (Path(".env"), Path("backend/.env")):
+              if path.exists() or path.is_symlink():
+                  raise SystemExit("Migration CI refuses dotenv database overrides")
+          from sqlalchemy import text
+          from backend.database import engine
+          with engine.begin() as connection:
+              available = connection.execute(
+                  text("SELECT name FROM pg_available_extensions WHERE name = 'vector'")
+              ).scalar_one()
+              assert available == "vector"
+              connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+          PY
+      - name: Upgrade empty database and display current revision
+        run: |
+          python -m alembic upgrade head
+          python -m alembic current
+      - name: Enforce a single graph head and database at head
+        run: |
+          python - <<'PY'
+          from alembic.config import Config
+          from alembic.migration import MigrationContext
+          from alembic.script import ScriptDirectory
+          from backend.database import engine
+          scripts = ScriptDirectory.from_config(Config("alembic.ini"))
+          head = scripts.get_current_head()  # Raises on multiple graph heads.
+          assert head is not None, "Migration graph has no head"
+          with engine.connect() as connection:
+              current = MigrationContext.configure(connection).get_current_heads()
+          assert current == (head,), f"Database revisions {current} differ from head {head}"
+          print(f"Single graph head and database revision agree: {head}")
+          PY
+      - name: Repeat upgrade at head
+        run: python -m alembic upgrade head

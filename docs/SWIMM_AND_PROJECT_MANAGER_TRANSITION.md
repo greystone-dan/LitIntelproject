@@ -38,6 +38,14 @@ focused validation evidence. If no walkthrough exists for the owner surface,
 the task is blocked until one is created or the documentation gap is explicitly
 recorded.
 
+For a read-only review spanning multiple pull requests, preserve the reviewed
+base/head SHAs and each PR's state, cite findings to exact diff files/lines,
+summarize relevant discussions and test evidence, and call out cross-PR
+route/migration overlaps. Treat the review report as the canonical assessment;
+do not modify target PR refs. Update the relevant governance walkthrough when
+the review establishes or changes a reusable review workflow, not merely to
+duplicate individual findings.
+
 Managed tasks are execution handoffs, not plan-only requests. The manager should
 carry them through authority reads, delegation, implementation, focused repair,
 validation, documentation, recovery evidence, and completion without routine

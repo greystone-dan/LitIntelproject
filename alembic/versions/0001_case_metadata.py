@@ -36,6 +36,10 @@ def upgrade() -> None:
         )
         for column in ("title", "court", "jurisdiction", "date", "citation"):
             op.create_index(f"ix_cases_{column}", "cases", [column])
+        op.execute(
+            "CREATE INDEX IF NOT EXISTS ix_cases_embedding_cosine "
+            "ON cases USING hnsw (embedding vector_cosine_ops)"
+        )
         return
 
     existing_columns = {column["name"] for column in inspector.get_columns("cases")}

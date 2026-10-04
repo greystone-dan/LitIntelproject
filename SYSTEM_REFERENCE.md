@@ -94,6 +94,10 @@ Separate narrow past-tense rules accept directly attributed “I followed”,
 Party/other-judge or historical descriptions remain unknown; tense is not
 broadened globally. “I did not follow” remains critical/non-following, and
 “I find … not distinguishable” remains supportive.
+Post-cue `not`, `never`, `no`, `neither`, or `nothing` within the same clause
+abstains conservatively, including “governs neither/nothing/no issue”.
+Independent clauses retain their own treatment; “examines … without adopting”
+can still be neutral.
 
 Counts use **all distinct other canonical decisions with resolved incoming
 case citations** as their common denominator, including unknown. A decision
@@ -112,8 +116,8 @@ metrics, target resolution, stored rows, models, or migrations change. The
 projection reads all stored case-citation rows for citing decisions to check
 authority scope; it is not paginated or performance-validated at corpus scale.
 Invented regression fixtures test intended rules, not legal-review precision.
-The current fixture-only check agrees on 113/113 occurrences in 106 invented
-paragraphs: 63 classifiable (55.75%) and 50 unknown (44.25%); synthetic
+The current fixture-only check agrees on 122/122 occurrences in 113 invented
+paragraphs: 67 classifiable (54.92%) and 55 unknown (45.08%); synthetic
 precision/recall is 100% per class, not independent legal accuracy.
 See [the treatment design](docs/reports/authority-treatment-design.md) and
 [the extraction walkthrough](.swm/4.9nn3id9f.sw.md).

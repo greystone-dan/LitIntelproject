@@ -100,6 +100,9 @@ Current operational sources of truth:
 
 ## Task-Specific Review Reports
 
+- `docs/reports/baseline-lint-and-audit.md` records the first non-blocking
+  Ruff and pip-audit results and their scope. The checks and their artifact
+  behavior are defined by `.github/workflows/quality.yml`.
 - `docs/reports/open-pr-review.md` records the read-only, point-in-time review
   of PRs #28, #29, #32, and #34, including immutable source citations,
   migration/route interactions, untested paths, and review limitations. It is

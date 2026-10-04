@@ -40,13 +40,13 @@ Docs/generated references: `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE
 
 Rollback/recovery: Revert the additive probe module and its route/access registration while retaining the original `/health`; regenerate the API reference from current routes.
 
-Evidence: Managed-worker implemented the probe module, minimal route/access registration, and tests; manager reviewed the exact code and added the explicit OpenAPI 503 response. Canonical docs updated: `SYSTEM_REFERENCE.md`, `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE.md`, and `CHANGELOG.md`. Swimm walkthrough updated: `.swm/system-map.ovnldklv.sw.md`. Focused validation passed: `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python -m pytest -q tests/test_health.py tests/test_documentation_contracts.py` (14 passed); the sitecustomize shim disables dotenv loading, and tests mock all DB/model calls. API reference was regenerated with `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python scripts/generate_api_reference.py`; `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python scripts/check_generated_docs.py` passed (3 references current); `git diff --check` and `python -m py_compile backend/main.py backend/health.py tests/test_health.py` passed. No DB or `.env` was accessed.
+Evidence: Managed-worker implemented the probe module, minimal route/access registration, and tests; manager reviewed the exact code and added the explicit OpenAPI 503 response. Canonical docs updated: `SYSTEM_REFERENCE.md`, `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE.md`, and `CHANGELOG.md`. Swimm walkthrough updated: `.swm/system-map.ovnldklv.sw.md`. Focused validation passed: `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python -m pytest -q tests/test_health.py tests/test_documentation_contracts.py` (14 passed); the sitecustomize shim disables dotenv loading, and tests mock all DB/model calls. API reference was regenerated with `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python scripts/generate_api_reference.py`; `PYTHONPATH=/tmp/health-sitecustomize /tmp/litintel-health-venv/bin/python scripts/check_generated_docs.py` passed (3 references current); `git diff --check` and `python -m py_compile backend/main.py backend/health.py tests/test_health.py` passed. `git fetch origin main` refreshed main at `3720556` (`#180`), which was already an ancestor; no merge was required. Commit `d51f873` was pushed to `copilot/add-health-endpoints`. No DB or `.env` was accessed.
 
 Files changed: `backend/health.py`, `backend/main.py`, `tests/test_health.py`, `docs/API_REFERENCE.generated.md`, `SYSTEM_REFERENCE.md`, `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE.md`, `.swm/system-map.ovnldklv.sw.md`, `CHANGELOG.md`, `.github/project-manager/tasks/issue-184-health-probes.md`.
 Delegated work: `managed-worker` implemented the backend health probe slice and focused tests, then corrected optional model-endpoint readiness semantics after manager review. Both returns were structured; worker could not run pytest in the base interpreter, so manager prepared an isolated environment with existing project dependency versions and disabled dotenv loading.
 Focused validation: 14 tests passed; API reference generation succeeded; generated-doc check passed (3 references); `git diff --check` and Python syntax compilation passed.
-Residual risk: Database SQL/readiness behavior has not been exercised against a real database; all dependency calls were mocked, as required.
-Next bounded task: Commit and publish the validated branch after the final fresh validation.
+Residual risk: Database SQL/readiness behavior has not been exercised against a real database; all dependency calls were mocked, as required. `gh issue comment` was unavailable because the environment requires an unset `GH_TOKEN`; progress is reported in the final caller response.
+Next bounded task: None; wait for any integration feedback before further scope.
 
 ## Hypothesis
 
@@ -82,4 +82,4 @@ Validation: 14 focused health/documentation tests passed; generated API referenc
 
 Residual risk: No live database or model endpoint validation was performed.
 
-Next recommended task: Commit/publish this branch; no related follow-up is required.
+Next recommended task: None until integration feedback or authorization for a non-production dependency check.

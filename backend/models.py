@@ -114,7 +114,7 @@ class LiveAnalysisResponse(BaseModel):
 
 class CaseSearchRequest(BaseModel):
 	query: str = Field(min_length=1)
-	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "lexical"
 	semantic_weight: float = Field(default=0.7, ge=0.0, le=1.0)
 	lexical_weight: float = Field(default=0.3, ge=0.0, le=1.0)
 	candidate_pool: int = Field(default=100, ge=10, le=500)
@@ -448,12 +448,16 @@ class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
 	matched_on: str | None = None
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):
 	chunk_index: int
 	chunk_text: str
 	similarity: float
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class LocalChunkSearchRequest(CaseSearchRequest):
@@ -484,6 +488,8 @@ class GroupedChunkSearchResponse(BaseModel):
 	total_chunks: int
 	max_chunks_per_case: int
 	cases: list[GroupedChunkCaseResponse]
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class CitationResponse(BaseModel):
@@ -804,6 +810,7 @@ class A2AJCaseMapResponse(BaseModel):
 
 
 class ResearchRequest(ChunkGroupSearchRequest):
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "hybrid"
 	max_cases: int = Field(default=8, ge=1, le=10)
 	temperature: float = Field(default=0.3, ge=0.0, le=1.0)
 	chunk_set: Literal["paragraph"] = "paragraph"

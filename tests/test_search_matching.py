@@ -100,6 +100,12 @@ class SearchDB:
 		return self.rows
 
 
+@pytest.fixture(autouse=True)
+def _enable_hosted_search_mode(monkeypatch):
+	"""Keep retrieval-mode characterization tests explicit about opt-in."""
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+
+
 def test_case_search_ranks_identity_before_score_and_then_paginates():
 	# Party > title > body > fallback, even with opposing legacy scores.
 	rows = [(case("Bakery v Canada", id=3, citation="2020 SCC 3"), 1.0),

@@ -1,0 +1,9 @@
+# ============================================================
+# requirements-ml.txt — Optional NLP Features
+# Python 3.11+ recommended
+# Install with: pip install -r requirements.txt -r requirements-ml.txt
+# ============================================================
+
+# Optional NLP for automatic name detection in de-identify tool (lazy-loaded if available)
+spacy==3.7.5
+en_core_web_md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl

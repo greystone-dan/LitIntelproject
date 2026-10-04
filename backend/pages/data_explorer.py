@@ -2,6 +2,7 @@ from pathlib import Path
 
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
+from .case_quick_summary import inject_case_quick_summary
 
 
 def data_explorer_page_html() -> str:
@@ -1442,4 +1443,4 @@ window.addEventListener('afterprint',()=>{
       reader_tab_selection + "button.setAttribute('aria-pressed',String(button.dataset.readerTab===activeTab));",
   )
   html = inject_fc_analytics(html)
-  return inject_tag_analytics(html)
+  return inject_case_quick_summary(inject_tag_analytics(html))

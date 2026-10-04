@@ -25,12 +25,11 @@ were not inspected. No application-managed persistence does not prove that
 request bytes never touch temporary storage or that a deployment proxy does
 not retain request data.
 
-Most importantly, `backend/main.py`'s `private_access_and_noindex` middleware
-adds `X-Robots-Tag` but does not validate the access cookie or protect routes.
-The existing configuration reference documents this gap. Unless a separately
-verified reverse proxy or tunnel enforces access, reachable routes should be
-treated as available to anyone who can reach the application. No-index headers
-are not authentication.
+`backend/main.py`'s `private_access_and_noindex` middleware validates a signed
+access cookie when `CASELIBRARY_ACCESS_PASSWORD` is non-empty. The gate is off
+by default. The checked-in code does not establish the live setting or whether
+a reverse proxy or tunnel enforces an additional access boundary. No-index
+headers alone are not authentication.
 
 ## Findings
 
@@ -40,7 +39,7 @@ finding is deployment-dependent.
 
 | Severity | File and lines | Finding | Suggested fix / status |
 | --- | --- | --- | --- |
-| High (deployment-dependent) | `backend/main.py:78–82`; sensitive handlers in `backend/routes.py:931–1042` | The middleware only adds a search-engine exclusion header; it does not authenticate requests. The sensitive upload and de-identification routes therefore rely on an unverified external access boundary. | Verify and enforce authentication at the deployment gateway before exposure. The repository owner has deliberately left the optional password gate off; this review does not enable it. |
+| Deployment-dependent | `backend/main.py:85–105`; sensitive handlers in `backend/routes.py:998–1054` | The application enforces a signed-cookie gate when `CASELIBRARY_ACCESS_PASSWORD` is non-empty; it is disabled by default. The live application setting and any additional external access boundary are unverified. | Verify the actual runtime setting and any external access control before relying on the application for restricted information. |
 | Medium (partially mitigated) | `backend/routes.py` upload handlers; `backend/resource_limits.py` | Route handlers now stop upload reads after the configured cap plus one byte and reject oversized uploads with HTTP 413. Starlette multipart parsing may still spool the request before route handling; the deployment request-body limit remains unverified. | Configure and verify an upstream body-size limit; inspect deployment logging and temporary-storage retention before exposure. |
 | Medium (mitigated within configured budgets) | `backend/resource_limits.py`, `backend/live_analysis.py`, `backend/deidentify.py` | DOCX expanded member size/count, PDF page count, extracted text, and de-identification pasted text now have configurable limits and clear HTTP 413 errors. Parsing CPU time, process memory, and malformed-file behavior are not comprehensively bounded or fuzz-tested. | Keep limits conservative and add parser time/resource isolation and adversarial fuzzing before broadening parser support. |
 | Low (fixed here) | `backend/routes.py:944–945,960–961` | Live Analysis responses contain the complete extracted document text and previously had no explicit cache directives. | Both successful POST routes now set `Cache-Control: no-store` and `Pragma: no-cache`; focused tests assert both headers. |

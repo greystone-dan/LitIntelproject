@@ -180,6 +180,37 @@ The additive reader `extracted_summary` projection has no unverified UI
 fallback. Empty summaries are hidden; no generated prose, classification,
 stored-data changes, or browser-created offsets are involved. This surface is
 separate from the optional technical **Show case summary** control.
+The formatted reader also begins with a collapsible, default-open **Quick
+summary**, fetched from read-only `GET /api/cases/{case_id}/summary`. This
+additive card preserves the existing Extracted case summary and optional
+technical summary. [`backend/case_summary.py`](backend/case_summary.py)
+projects stored title/citation/court/date and the latest stored outcome/source
+(unclassified/unknown when absent); those labels are stored metadata, not new
+classification or independently verified header facts. Verified disposition
+evidence selects its complete verbatim numbered paragraph, including continuation
+blocks. One or two complete verbatim sentences come from an explicit issue
+opening or issue/standard-of-review heading; issue candidates take precedence
+over review candidates. Ambiguous abbreviations, quotations, incomplete
+sentences, unnumbered and cross-paragraph evidence are omitted, not guessed.
+Issue openings and headings currently support explicit English forms only.
+Up to five statute/instrument keys show stored occurrence counts, with
+alphabetical tie-breaks. Chunk-linked statute offsets are not rebased by this
+projection and therefore have no source link; counts remain visible. Up to five
+distinct active-taxonomy tags require exact numbered-paragraph evidence and
+finite stored scores, ordered by score then category/value. Sources and scores
+are displayed as provenance, not legal conclusions.
+Unavailable identity rows, disposition/issue excerpts and empty statute/tag
+sections are omitted without placeholder prose. Outcome/source always remain
+visible with unclassified/unknown fallbacks; statute counts can remain without
+verified excerpts, while tags with invalid browser-verified evidence are omitted.
+[`backend/pages/case_quick_summary.py`](backend/pages/case_quick_summary.py)
+escapes all stored display values, verifies excerpts with Unicode code points
+rather than JavaScript UTF-16 indices, and focuses backend block-start anchors
+with paragraph identity even when paragraph numbers repeat. Stale requests are
+discarded, failures leave existing reader tools available, and collapse state
+survives mode changes (reopening a decision defaults open). Quick summary is
+hidden in chunk/plain modes. No generated prose, source mutation, new
+dependencies, or extraction/resolution pipeline runs are involved.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
@@ -286,6 +317,19 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   vector corpus, then sends the bounded grouped excerpts to the configured
   generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
   generation; retrieval and generation models remain separate.
+- Query embedding selection is independent of generation and disabled by
+  default. Semantic/hybrid requests use lexical ranking unless the operator
+  explicitly enables `QUERY_EMBEDDING_PROVIDER=openai` or `local`. The OpenAI
+  provider is an explicit opt-in; the local SentenceTransformer option keeps
+  query text on-device. `GET /api/search-embedding-status` reports
+  the selected query provider/model/output dimensions, indexed dimensions,
+  whether query text leaves the machine, and `TEXT_GENERATION_PROVIDER` without
+  loading a model. Search
+  rejects query vectors that do not match its 1536-dimensional indexed-vector
+  contract. The default local BGE-M3 model is 1024-dimensional, so it requires
+  a compatible indexed-vector family before it can be used by that search path.
+  See [the local query embedding report](docs/reports/local-query-embeddings.md)
+  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -577,6 +621,28 @@ and de-identification coverage are recorded in the scoped privacy/security
 review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
+Memo Citation Check also returns an additive `suggestions` object, including
+without a local session, while preserving its legacy treatment, related
+authorities, `missing_authorities`, and analysis counts. The page labels the new
+section **Suggestions, not legal advice**. The independent
+`backend/memo_authority_suggestions.py` uses deterministic V3 memo tags and exact
+normalized statute identities to select decisions sharing any signal. It ranks
+only resolved authorities actually cited by distinct decisions in that cohort,
+excluding authorities already identified in the memo. Each suggestion gives
+the distinct citing-decision numerator, checked-cohort denominator, and shared
+tags/statutes from its citing decisions. Duplicate citation occurrences do not
+inflate counts; nested statutes do not fall back to base sections, and visibly
+incomplete nested extraction is omitted from suggestion signals.
+Potential contrary suggestions require at least five distinct citing decisions
+and a strict majority of stored Minister-relative losses among all those
+decisions. Counts show won, lost, mixed and unclassified; unclassified never
+becomes win/loss. Outcomes use the stored reader-extracted government outcome,
+not applicant-relative outcome status or new text classification. Majority-lost
+candidates below five are counted as hidden. Cohort/edge caps and display
+truncation are explicit; results are descriptive, not treatment or legal advice.
+Definitions, offline validation and limitations are in
+[`docs/reports/memo-missing-authority.md`](docs/reports/memo-missing-authority.md).
+
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
 #### Judge identity audit (2026-09-22)
@@ -797,8 +863,9 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 | Component | Responsibility |
 | --- | --- |
-| `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
+| `backend/security_headers.py` | Optional pure-ASGI response security headers; preserves route headers and streams |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
@@ -1493,6 +1560,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /search/chunks`: chunk-level search.
 - `POST /search/chunks/grouped`: grouped matching passages per case.
 - `POST /search/local-chunks`: local embedding-backed chunk search where populated.
+- `GET /api/search-embedding-status`: configured query and generation provider
+  metadata; does not load an embedding model or perform retrieval.
 
 ### Ephemeral Document Analysis APIs
 
@@ -1599,6 +1668,15 @@ python -m venv venv
 pip install -r requirements.txt
 .\venv\Scripts\python.exe -m alembic upgrade head
 .\venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+The base install supports application startup and the CI test suite; it includes
+sentence-transformers because a CI test exercises local semantic search.
+Automatic spaCy name detection is optional; install `requirements-ml.txt`
+alongside the base requirements only when using that feature:
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-ml.txt
 ```
 
 Set secrets only in ignored environment files or secure environment configuration. Do not put API keys, database passwords, tunnel credentials, or access passwords in documentation, tests, exports, or commits.
@@ -2161,6 +2239,18 @@ not replace deterministic source evidence.
 The app sends `X-Robots-Tag: noindex, nofollow, noarchive` for responses and
 serves a restrictive `robots.txt`. Those measures reduce indexing signals; they
 do not create authentication or confidentiality.
+
+Optional pure-ASGI security-header middleware is disabled by default and is
+enabled with `CASELIBRARY_SECURITY_HEADERS=1`. It adds nosniff, referrer,
+same-origin framing, and restrictive camera/microphone/geolocation headers;
+HTTPS-only HSTS and a report-only CSP are also supported. Existing route-set
+headers are preserved, and response streaming is not buffered. The CSP policy
+allows the inline scripts/styles and external font/script origins used by the
+current generated pages; inspect browser report-only findings before changing
+the page origins or considering enforcement. CSP enforcement is untested.
+Configuration and operator guidance are in
+[docs/SECURITY_HEADERS.md](docs/SECURITY_HEADERS.md) and
+[docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md).
 
 The code has a password/cookie access design using a timestamped HMAC signature,
 HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. The gate
@@ -9818,6 +9908,8 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
+The separate `backend/unit_search.py` semantic helper is deprecated and is not
+called by these routes; its default and stored-vector filter use `BAAI/bge-m3`.
 
 The active Data Explorer also provides a Core Cases proof of concept. `Display
 core cases` loads the first 100 ordinary case results while retaining the full

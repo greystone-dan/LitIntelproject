@@ -1,6 +1,6 @@
 # Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
@@ -47,6 +47,23 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
+## Optional Security Response Headers
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_SECURITY_HEADERS` | `0` (disabled) | `backend/main.py`, `backend/security_headers.py` | Enable response security headers only when set to `1`. |
+| `CASELIBRARY_HSTS_MAX_AGE` | `31536000` seconds | `backend/security_headers.py` | HSTS max age; invalid values fall back to the default and negative values are clamped to zero. |
+| `CASELIBRARY_HSTS_SUBDOMAINS` | `0` | `backend/security_headers.py` | Adds `includeSubDomains` only when set to `1`; enable only if all subdomains support HTTPS. |
+| `CASELIBRARY_CSP_ENFORCE` | `0` | `backend/security_headers.py` | Selects enforcing CSP only when set to `1`; report-only is the default, and enforcement is untested. |
+
+Configuration is read when the application/middleware is initialized; restart
+the server after changing these settings. HSTS is emitted only for HTTPS requests
+according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
+forwarded-protocol headers when a trusted proxy overwrites them. The middleware
+preserves existing response headers and does not consume response bodies. See
+[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+report-only review, CSP policy scope, and limitations.
+
 ## Optional Request Audit Log
 
 | Variable | Default | Consumer | Purpose and safety notes |
@@ -70,6 +87,9 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
 | `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly opt into `openai` or `local` query embeddings. |
+| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
@@ -94,14 +114,30 @@ The experimental `/research` route uses the same provider boundary. Set
 `qwen3:4b`. The route reports a controlled `503` when the selected provider
 is not configured or reachable. This setting does not download a model.
 
+Query embedding is a separate provider decision and is disabled by default.
+Semantic/hybrid search uses lexical ranking until an operator explicitly sets
+`QUERY_EMBEDDING_PROVIDER=openai` or `local`. Only the OpenAI setting sends query
+text off-machine; local and disabled settings keep it local. Generation can
+remain hosted independently. Case-ingestion summary embeddings retain their
+existing, separately controlled provider path. The read-only
+`GET /api/search-embedding-status` endpoint reports both selected providers,
+the query model and dimensions (`null` when embeddings are disabled), the
+indexed-vector dimension, and whether query text is sent off-machine. It does
+not instantiate the embedding model. With the local BGE-M3 model,
+query vectors are 1024-dimensional while the standard hosted semantic index is
+1536-dimensional; the search dimension guard rejects that incompatible vector
+rather than submitting it. Local model inference may fetch model artifacts on
+first use if they are not already cached; this is separate from whether query
+text leaves the machine. See `docs/reports/local-query-embeddings.md`.
+
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
 ## Local Embedding Settings
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
-| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 

@@ -123,6 +123,10 @@ propositions against authoritative records and follow upstream terms.
 
 ## Backend file inventory
 
+Optional [background jobs](BACKGROUND_JOBS.md) run only through
+`scripts/run_jobs.py` in a separate process. Their standard-library scheduler
+does not import database configuration or start with the web application.
+
 Each file currently under `backend/` is listed once. The documentation contract
 test checks that these paths continue to exist.
 
@@ -132,8 +136,10 @@ test checks that these paths continue to exist.
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
+| `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
+| `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
@@ -177,7 +183,9 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
+| `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |
+| `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
 | `backend/metadata_subjects.py` | Derives subject metadata |
@@ -185,6 +193,7 @@ test checks that these paths continue to exist.
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
+| `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
@@ -196,6 +205,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
@@ -207,17 +217,19 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
+| `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
-| `backend/unit_search.py` | Searches discussion units with semantic and keyword matching |
+| `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

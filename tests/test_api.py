@@ -99,7 +99,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
 
     monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
     response = routes.export_search_analytics_cases(
-        query="Vavilov",
+        query="Vavilov AND court:SCC",
         cites="2019 SCC 65",
         government_outcome="won",
         decision_outcome="dismissed",
@@ -123,7 +123,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
     ]
     assert calls == [
         {
-            "query": "Vavilov",
+            "query": "Vavilov AND court:SCC",
             "cites": "2019 SCC 65",
             "government_outcome": "won",
             "decision_outcome": "dismissed",
@@ -369,7 +369,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
     monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
     database = object()
     response = routes.export_search_docx(
-        query="contract/fairness?",
+        query="court:SCC AND year:2020-2024",
         cites="Vavilov",
         government_outcome="won",
         decision_outcome="dismissed",
@@ -385,7 +385,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
 
     document = Document(BytesIO(response.body))
     header = document.paragraphs[0].text
-    assert "Query: contract/fairness?" in header
+    assert "Query: court:SCC AND year:2020-2024" in header
     for filter_value in (
         "cites=Vavilov",
         "government_outcome=won",
@@ -421,7 +421,7 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
     assert response.headers["content-disposition"] == (
-        'attachment; filename="search-contract-fairness.docx"'
+        'attachment; filename="search-court-SCC-AND-year-2020-2024.docx"'
     )
     assert response.headers["cache-control"] == "no-store"
     assert len(calls) == 2

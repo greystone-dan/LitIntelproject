@@ -71,7 +71,9 @@ def test_migration_from_zero_matches_case_metadata(monkeypatch):
             expected_columns = {column.name: column for column in Case.__table__.columns}
             assert set(actual_columns) == set(expected_columns)
             for name, expected in expected_columns.items():
-                assert str(actual_columns[name]["type"]) == str(expected.type)
+                assert actual_columns[name]["type"].compile(
+                    dialect=connection.dialect
+                ) == expected.type.compile(dialect=connection.dialect)
                 assert actual_columns[name]["nullable"] == expected.nullable
 
             actual_indexes = {

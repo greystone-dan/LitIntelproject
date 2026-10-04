@@ -3,7 +3,7 @@ import json
 from scripts.run_v2_pipeline import STAGES, run
 
 
-def test_v2_pipeline_dry_run_records_all_stages_without_writes(tmp_path):
+def test_v2_pipeline_dry_run_records_all_stages_without_writes(tmp_path, requires_postgres):
     state = run(limit=1, case_ids=None, batch_size=1, timeout=1, retries=1, stage_timeout=1, run_dir=tmp_path, dry_run=True)
 
     assert state["status"] == "dry_run"

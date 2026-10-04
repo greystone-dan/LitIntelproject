@@ -215,6 +215,13 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
  .saved-search-actions{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:11px}
  .saved-search-actions button{padding:7px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--ink);font-size:10px;font-weight:700;cursor:pointer}
  .saved-search-actions button:hover,.saved-search-actions a:hover{border-color:var(--teal);color:var(--teal)}
+.query-tips-trigger{margin-top:7px;padding:0;border:0;background:transparent;color:var(--teal);font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer}
+#searchTipsPopover{max-width:min(440px,calc(100vw - 32px));padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);box-shadow:var(--shadow);font-size:12px;line-height:1.55}
+#searchTipsPopover::backdrop{background:rgba(32,37,34,.18)}
+#searchTipsPopover p{margin:6px 0}
+#searchTipsPopover code{color:var(--teal);font-family:"IBM Plex Mono",monospace}
+.search-query-echo{margin-top:10px;padding:9px 11px;border-left:3px solid var(--teal);background:var(--green-soft);color:var(--text);font-size:11px;line-height:1.5}
+.search-query-echo[hidden]{display:none}
 </style>
 <style>
 .graph-canvas{min-height:620px;margin-top:16px;background:radial-gradient(circle at 51% 48%,rgba(49,93,141,.13),transparent 29%),linear-gradient(145deg,#f7faf8,#edf3f3 52%,#f9f6ef);overflow:hidden}.graph-canvas::before{inset:24px;border:1px dashed rgba(23,108,104,.22);border-radius:20px;transform:none}.graph-connections{z-index:0}.graph-route{fill:none;stroke:url(#systemMapRoute);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:8 13;filter:url(#systemMapGlow);animation:systemMapDrift 11s linear infinite}.graph-route-branch{stroke-width:1.8;opacity:.58;animation-duration:16s}.graph-layer-label{position:absolute;z-index:1;color:var(--muted-2);font:700 9px/1 "IBM Plex Mono",monospace;letter-spacing:.12em}.graph-layer-input{left:3%;top:23px}.graph-layer-process{left:39%;top:23px}.graph-layer-use{right:3%;top:23px}.graph-node{z-index:2;width:144px;min-height:86px;padding:10px 11px;border-radius:9px;background:rgba(255,255,255,.94);box-shadow:0 8px 18px rgba(31,41,55,.09)}.graph-node .system-map-node-index{font-size:8px}.graph-node .system-map-node-icon{font-size:14px}.graph-node strong{font-size:11px}.graph-node span:last-child{font-size:9px}.graph-node[data-graph-node="sources"]{left:2%;top:255px}.graph-node[data-graph-node="staging"]{left:14%;top:95px}.graph-node[data-graph-node="ingest"]{left:25%;top:255px}.graph-node[data-graph-node="library"]{left:36%;top:95px}.graph-node[data-graph-node="pipeline"]{left:43%;top:255px}.graph-node[data-graph-node="citations"]{left:54%;top:95px}.graph-node[data-graph-node="resolution"]{left:57%;top:430px}.graph-node[data-graph-node="services"]{left:67%;top:255px}.graph-node[data-graph-node="research"]{right:2%;top:95px}.graph-node[data-graph-node="live"]{right:2%;top:430px}.graph-node[data-graph-node="evidence"]{left:73%;top:430px}.graph-node.is-active{transform:translateY(-4px) scale(1.04)}.graph-node.is-connected{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,108,104,.1),0 10px 22px rgba(23,108,104,.14)}.graph-canvas[data-active-stage="sources"] .graph-route[data-route*="sources"],.graph-canvas[data-active-stage="staging"] .graph-route[data-route*="staging"],.graph-canvas[data-active-stage="pipeline"] .graph-route[data-route*="pipeline"],.graph-canvas[data-active-stage="citations"] .graph-route[data-route*="citations"],.graph-canvas[data-active-stage="resolution"] .graph-route[data-route*="resolution"],.graph-canvas[data-active-stage="services"] .graph-route[data-route*="services"],.graph-canvas[data-active-stage="research"] .graph-route[data-route*="research"],.graph-canvas[data-active-stage="live"] .graph-route[data-route*="live"],.graph-canvas[data-active-stage="evidence"] .graph-route[data-route*="evidence"]{stroke-width:4;opacity:1}.graph-detail-panel{margin-top:12px}.graph-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}.graph-detail-grid div{padding:10px;border:1px solid var(--border);background:var(--surface-alt)}.graph-detail-grid small,.system-map-expanded-panels small{display:block;color:var(--muted-2);font:700 9px/1.2 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.graph-detail-grid strong{display:block;margin-top:6px;color:var(--text);font-size:11px;line-height:1.35}.system-map-expanded-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px 18px}.system-map-expanded-panels article{min-height:82px;padding:11px 12px;border:1px solid var(--border);background:rgba(255,255,255,.8);animation:systemMapReveal .35s ease both}.system-map-expanded-panels article:nth-child(2){animation-delay:.06s}.system-map-expanded-panels article:nth-child(3){animation-delay:.12s}.system-map-expanded-panels article div{margin-top:7px;color:var(--muted);font-size:11px;line-height:1.45}.system-map-boundary{margin-top:0}.graph-canvas[data-active-stage="sources"] .graph-node[data-graph-node="staging"],.graph-canvas[data-active-stage="staging"] .graph-node[data-graph-node="ingest"],.graph-canvas[data-active-stage="ingest"] .graph-node[data-graph-node="library"],.graph-canvas[data-active-stage="library"] .graph-node[data-graph-node="pipeline"],.graph-canvas[data-active-stage="pipeline"] .graph-node[data-graph-node="citations"],.graph-canvas[data-active-stage="citations"] .graph-node[data-graph-node="resolution"],.graph-canvas[data-active-stage="resolution"] .graph-node[data-graph-node="library"],.graph-canvas[data-active-stage="services"] .graph-node[data-graph-node="research"],.graph-canvas[data-active-stage="research"] .graph-node[data-graph-node="live"],.graph-canvas[data-active-stage="pipeline"] .graph-node[data-graph-node="evidence"]{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,108,104,.1)}
@@ -455,22 +462,62 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="quick-filters" id="quickFilters" aria-label="Quick filters"><div class="qf-group"><span class="qf-label">Outcome</span><button type="button" class="qf-chip" data-qf="outcome" data-value="">Any</button><button type="button" class="qf-chip" data-qf="outcome" data-value="won">Government won</button><button type="button" class="qf-chip" data-qf="outcome" data-value="lost">Individual won</button></div><div class="qf-group"><span class="qf-label">Court</span><button type="button" class="qf-chip" data-qf="court" data-value="">Any</button><button type="button" class="qf-chip" data-qf="court" data-value="FC">FC</button><button type="button" class="qf-chip" data-qf="court" data-value="FCA">FCA</button><button type="button" class="qf-chip" data-qf="court" data-value="SCC">SCC</button></div><div class="qf-tools"><button type="button" class="qf-link" id="toggleAdvancedSearch" aria-expanded="false" aria-controls="advancedSearchOptions">More filters</button><button type="button" class="qf-link" id="displayCoreCases">Display core cases</button><button type="button" class="qf-link" id="clearSearch">Clear</button><span class="search-filter-summary" id="searchFilterSummary">0 active filters</span></div></div><div class="search-examples" id="searchExamples"><span>Try</span><button type="button" data-example="Vavilov">Vavilov</button><button type="button" data-example="Baker">Baker</button><button type="button" data-example="2019 SCC 65">2019 SCC 65</button><button type="button" data-example="Mason">Mason</button><button type="button" data-example="Kanthasamy">Kanthasamy</button></div>
 <div class="advanced-search" id="advancedSearchOptions" hidden><div class="search-form"><fieldset><legend>Authority and outcome</legend><div><label for="cites">Cases citing</label><input id="cites" placeholder="e.g. Vavilov"></div><div><label for="governmentOutcome">Government outcome</label><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select></div><div><label for="decisionOutcome">Decision outcome</label><select id="decisionOutcome"><option value="">Any result</option><option value="dismissed">Dismissed</option><option value="allowed">Allowed</option><option value="granted">Granted</option></select></div></fieldset><fieldset><legend>People, court, and time</legend><div><label for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select></div><div><label for="judgeFilter">Judge contains</label><input id="judgeFilter" placeholder="e.g. Zinn"></div><div><label for="courtFilter">Court contains</label><input id="courtFilter" placeholder="e.g. FC"></div><div><label for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div></fieldset><fieldset><legend>Result display</legend><div><label for="searchSort">Sort results</label><select id="searchSort"><option value="newest" selected>Newest decision</option><option value="relevance">Most cited / newest</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select></div><div><label for="searchLimit">Results</label><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div><label class="check-field"><input id="searchFullText" type="checkbox">Search full decision text</label></fieldset></div></div>
 </form>
+<div class="query-tips-control"><button type="button" class="query-tips-trigger" id="searchTipsToggle" popovertarget="searchTipsPopover" aria-controls="searchTipsPopover">Search tips</button><div id="searchTipsPopover" popover role="dialog" aria-label="Case Search query tips"><strong>Combine names and operators</strong><p>Use <code>AND</code>, <code>OR</code>, <code>NOT</code>, or a leading minus: <code>Vavilov AND fairness -delay</code>.</p><p>Filter by court, year, judge, cited authority, or outcome: <code>court:SCC year:2018..2022</code> (or <code>year:2018-2022</code>), <code>judge:Zinn</code>, <code>cites:"2019 SCC 65"</code>, <code>outcome:allowed</code>.</p><p>Put multi-word phrases in quotes. Unknown field names are searched as ordinary words.</p></div></div>
 <div class="saved-search-actions"><button id="saveCurrentSearch" type="button">Save current search</button><a href="/saved-searches-ui">Saved searches</a></div>
 <div id="cohortSearchPanel" class="cohort-search-panel" hidden><div class="eyebrow">Core 300 assessment search</div><form id="cohortSearchForm"><div class="search-query-row"><label class="primary-query" for="cohortQuery"><span>Find concepts in paragraph assessments</span><small>Experimental matching across topic, role, explanation, and paragraph text. Scope: Core 300 only.</small><input id="cohortQuery" placeholder="Try standard of review issues" autocomplete="off"></label><button type="submit">Search assessments</button></div></form><div class="search-status" id="cohortSearchMeta" role="status" aria-live="polite">Activate Core Cases to search the 300 assessment records.</div><div class="results-wrap" id="cohortSearchResults" aria-label="Core 300 assessment search results"></div><div class="search-status" id="cohortComparisonMeta" role="status" aria-live="polite"></div><div class="results-wrap" id="cohortComparisonResults" aria-label="Core 300 assessment comparison results"></div></div>
 <div class="search-status" id="searchMeta" role="status" aria-live="polite" data-state="idle">Search by case name or citation. Open Advanced options for filters or full-decision text.</div>
+<div class="search-query-echo" id="searchQueryEcho" role="status" aria-live="polite" hidden></div>
 <div class="results-wrap" id="searchResults" aria-label="Case search results"></div>
 </section>
+<style>
+.reader-print-citation{display:none}
+.reader-toolbar{align-items:flex-start;gap:7px}
+.reader-keyboard-help-toggle{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer}
+.reader-keyboard-help{position:absolute;z-index:5;right:14px;top:52px;width:240px;padding:12px 14px;border:1px solid var(--border);border-radius:7px;background:var(--surface);box-shadow:var(--shadow);color:var(--text);font-size:11px;letter-spacing:0;text-transform:none}
+.reader-keyboard-help ul{margin:7px 0 0;padding-left:18px;line-height:1.8}
+.reader-keyboard-help kbd{display:inline-block;min-width:18px;padding:1px 4px;border:1px solid var(--border);border-radius:3px;background:var(--surface-alt);font:700 10px monospace;text-align:center}
+#decisionBody .fmt-para.is-reader-current{background:#e5f3ef!important;box-shadow:0 0 0 4px #e5f3ef!important;border-radius:4px}
+#decisionBody .fmt-para.is-reader-current .fmt-para-num{color:#202522;font-weight:700}
+@media print{
+	@page{margin:18mm}
+	body{background:#fff!important}
+	body *{visibility:hidden!important}
+	.app-shell,.workspace,.center-pane{display:block!important;width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important;box-shadow:none!important}
+	.topbar,.sidebar,.page-header,.center-pane>.panel-card:not(#caseReaderPanel){display:none!important}
+	#caseReaderPanel:not([hidden]),#caseReaderPanel:not([hidden]) *{visibility:visible!important}
+	#caseReaderPanel[hidden]{display:none!important}
+	#caseReaderPanel:not([hidden]){position:static!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;background:#fff!important}
+	#caseReaderPanel .reader-shell,#caseReaderPanel .reader-layout{display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important}
+	#caseReaderPanel .reader-head{position:static!important;padding:0 0 12px!important;border-bottom:1px solid #888!important;background:#fff!important}
+	#caseReaderPanel .reader-head h2{margin:0 0 4px!important;color:#000!important;font-size:20pt!important}
+	#caseReaderPanel .reader-print-citation{display:block!important;margin:0 0 8px!important;color:#222!important;font:11pt/1.4 Georgia,"Times New Roman",serif!important}
+	#caseReaderPanel .reader-meta,#caseReaderPanel .reader-toolbar,#caseReaderPanel .return-to-results,#caseReaderPanel .reader-pane-header,#caseReaderPanel .reader-evidence-bar,#caseReaderPanel .reader-evidence-detail,#caseReaderPanel .reader-keyboard-help,#caseReaderPanel .reader-keyboard-help-toggle,#caseReaderPanel .reader-pane.target,#caseReaderPanel .reader-pane.linked,#caseReaderPanel .reader-pane-splitter,#caseReaderPanel button{display:none!important}
+	#caseReaderPanel .reader-pane.source{display:block!important;width:100%!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;background:#fff!important}
+	#caseReaderPanel .reader-text{overflow:visible!important;padding:12px 0 0!important;color:#000!important;background:#fff!important}
+	#decisionBody .fmt-para{break-inside:avoid!important;page-break-inside:avoid!important;color:#000!important}
+	#decisionBody .fmt-para-num{color:#222!important}
+	#decisionBody .fmt-para.is-reader-current{background:transparent!important;box-shadow:none!important}
+	#decisionBody .fmt-footer{break-inside:auto!important}
+	a{color:inherit!important;text-decoration:none!important}
+}
+</style>
 <section id="caseReaderPanel" class="panel-card inline-case-reader" hidden>
 <div class="reader-shell">
 <div class="reader-head">
 <button class="return-to-results" type="button" onclick="closeDecisionReader()">&larr; Back to case results</button>
 <div class="rh-eyebrow" id="decisionEyebrow"></div>
 <h2 id="decisionTitle">Decision</h2>
+<div id="readerPrintCitation" class="reader-print-citation" aria-label="Case citation"></div>
 <div class="reader-meta" id="decisionMeta"></div>
 <div class="reader-toolbar">
 	<div class="reader-view-toggle" aria-label="Reader view mode">
 		<button type="button" class="reader-view-button" id="readerViewToggle" aria-pressed="false" title="Switch to chunk breakdown">Chunk breakdown</button>
 		<button type="button" class="reader-view-button" id="readerFormatToggle" aria-pressed="true" title="Switch between formatted and plain decision text" hidden>Formatted</button>
+	</div>
+	<button type="button" class="reader-keyboard-help-toggle" id="readerKeyboardHelpToggle" aria-expanded="false" aria-controls="readerKeyboardHelp" title="Show keyboard shortcuts">?</button>
+	<div class="reader-keyboard-help" id="readerKeyboardHelp" role="dialog" aria-label="Reader keyboard shortcuts" hidden>
+		<strong>Reader shortcuts</strong>
+		<ul><li><kbd>j</kbd> / <kbd>n</kbd> Next paragraph</li><li><kbd>k</kbd> / <kbd>p</kbd> Previous paragraph</li><li><kbd>?</kbd> Show or hide this list</li></ul>
 	</div>
 </div>
 </div>
@@ -723,8 +770,8 @@ let fields=[];
 function searchValues(){return {query:document.getElementById('searchQuery').value,cites:document.getElementById('cites').value,government_outcome:document.getElementById('governmentOutcome').value,decision_outcome:document.getElementById('decisionOutcome').value,minister:document.getElementById('ministerFilter').value,judge:document.getElementById('judgeFilter').value,court:document.getElementById('courtFilter').value,year:document.getElementById('yearFilter').value,search_full_text:document.getElementById('searchFullText').checked?'true':'',sort_by:document.getElementById('searchSort').value,limit:document.getElementById('searchLimit').value};}
 document.getElementById('downloadSearchCsv')?.addEventListener('click',()=>{const params=new URLSearchParams();Object.entries(searchValues()).forEach(([key,value])=>{if(value)params.set(key,value)});window.location.href=`/search/export.csv?${params}`;});
 function updateSearchFilterSummary(){const values=searchValues(),count=[values.cites,values.government_outcome,values.decision_outcome,values.minister,values.judge,values.court,values.year,values.search_full_text].filter(Boolean).length,summary=document.getElementById('searchFilterSummary');if(summary)summary.textContent=`${count} active filter${count===1?'':'s'}`;}
-document.addEventListener('input',event=>{if(event.target.closest?.('#advancedSearchOptions'))updateSearchFilterSummary()});document.addEventListener('change',event=>{if(event.target.closest?.('#advancedSearchOptions'))updateSearchFilterSummary()});document.addEventListener('click',event=>{if(event.target.closest?.('#clearSearch'))setTimeout(updateSearchFilterSummary,0)});
-function bindSearchControls(){const form=document.getElementById('caseSearch'),advancedButton=document.getElementById('toggleAdvancedSearch'),advancedOptions=document.getElementById('advancedSearchOptions'),clearButton=document.getElementById('clearSearch');if(form)form.onsubmit=loadSearch;if(advancedButton&&advancedOptions)advancedButton.onclick=()=>{const expanded=advancedOptions.hidden;advancedOptions.hidden=!expanded;advancedButton.setAttribute('aria-expanded',String(expanded));advancedButton.textContent=expanded?'Hide filters':'More filters';};if(clearButton&&advancedOptions&&advancedButton)clearButton.onclick=()=>{form.reset();advancedOptions.hidden=true;advancedButton.setAttribute('aria-expanded','false');advancedButton.textContent='More filters';document.getElementById('searchMeta').textContent='';document.getElementById('searchResults').innerHTML='';updateSearchFilterSummary();};updateSearchFilterSummary();}
+document.addEventListener('input',event=>{if(event.target.closest?.('#advancedSearchOptions'))updateSearchFilterSummary()});document.addEventListener('change',event=>{if(event.target.closest?.('#advancedSearchOptions'))updateSearchFilterSummary()});document.addEventListener('click',event=>{if(event.target.closest?.('#clearSearch'))setTimeout(updateSearchFilterSummary,0)});document.getElementById('searchQuery')?.addEventListener('input',()=>{document.getElementById('searchQueryEcho').hidden=true});
+function bindSearchControls(){const form=document.getElementById('caseSearch'),advancedButton=document.getElementById('toggleAdvancedSearch'),advancedOptions=document.getElementById('advancedSearchOptions'),clearButton=document.getElementById('clearSearch');if(form)form.onsubmit=loadSearch;if(advancedButton&&advancedOptions)advancedButton.onclick=()=>{const expanded=advancedOptions.hidden;advancedOptions.hidden=!expanded;advancedButton.setAttribute('aria-expanded',String(expanded));advancedButton.textContent=expanded?'Hide filters':'More filters';};if(clearButton&&advancedOptions&&advancedButton)clearButton.onclick=()=>{form.reset();advancedOptions.hidden=true;advancedButton.setAttribute('aria-expanded','false');advancedButton.textContent='More filters';document.getElementById('searchMeta').textContent='';document.getElementById('searchQueryEcho').hidden=true;document.getElementById('searchResults').innerHTML='';updateSearchFilterSummary();};updateSearchFilterSummary();}
 bindSearchControls();
 document.getElementById('clearSearch')?.addEventListener('click',()=>{const toggle=document.getElementById('searchUseRag');if(toggle)toggle.checked=false;});
 const suggestionState={items:[],active:-1,timer:null,controller:null};
@@ -739,6 +786,7 @@ async function runProfessionalSearch(){
  const requestId=++professionalSearchGeneration;
  closeSearchSuggestions();
  const values=searchValues(),params=new URLSearchParams();
+ document.getElementById('searchQueryEcho').hidden=true;
  Object.entries(values).forEach(([key,value])=>{if(value)params.set(key,value)});
  setSearchStatus(values.search_full_text?'Searching names, citations, and full decision text...':'Searching case names and citations...','loading');
  document.getElementById('searchResults').innerHTML='';
@@ -748,6 +796,9 @@ async function runProfessionalSearch(){
   if(!response.ok)throw new Error(`Request failed (${response.status})`);
   const data=await response.json();
   if(requestId!==professionalSearchGeneration)return;
+  const queryEcho=document.getElementById('searchQueryEcho');
+  queryEcho.textContent=values.query.trim()&&data.query_echo?`Search interpreted as: ${data.query_echo}`:'';
+  queryEcho.hidden=!queryEcho.textContent;
   const results=data.results||[];
   setSearchStatus(results.length?`Showing ${num(results.length)} matching decision${results.length===1?'':'s'}. Select a result to open the decision.`:'No decisions matched this search. Check the spelling or remove a filter.',results.length?'success':'empty');
   document.getElementById('searchResults').innerHTML=results.map(professionalResultCard).join('')||(values.query?'<div class="empty">No matching decisions. Try a citation, a shorter party name, or fewer filters.</div>':'<div class="empty">Enter a case name or citation to begin.</div>');
@@ -1278,6 +1329,91 @@ document.addEventListener('click',event=>{if(event.target.closest?.('#clearSearc
 document.getElementById('searchExamples')?.addEventListener('click',event=>{const chip=event.target.closest?.('[data-example]');if(!chip)return;const input=document.getElementById('searchQuery');input.value=chip.dataset.example;document.getElementById('caseSearch')?.requestSubmit();});
 professionalResultCard=function(item){const context=[item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':'',cls=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'';const tags=[outcome?`<span class="rc-tag ${cls}">${esc(outcome)}</span>`:'',item.decision_outcome?`<span class="rc-tag">${esc(item.decision_outcome)}</span>`:''].filter(Boolean).join('');return `<button type="button" class="case-result rc ${cls?'rc-'+cls:''}" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="rc-main"><div class="rc-top"><span class="rc-cite">${esc(item.citation||'No citation')}</span>${item.court?`<span class="rc-court">${esc(item.court)}</span>`:''}${item.date?`<span class="rc-date">${esc(item.date)}</span>`:''}</div><div class="rc-title">${esc(item.title||'Untitled decision')}</div>${context.length?`<div class="rc-meta">${context.map(esc).join('  ·  ')}</div>`:''}${tags?`<div class="rc-tags">${tags}</div>`:''}</div><div class="rc-side"><div class="rc-stats"><div class="rc-stat rc-stat-main" title="Other cases in the library that cite this decision"><b>${item.cited_by_cases===undefined||item.cited_by_cases===null?'-':num(item.cited_by_cases)}</b><span>cited by other cases</span></div><div class="rc-stat" title="Different cases, statutes and other authorities this decision cites"><b>${num(item.unique_cited_authorities)}</b><span>authorities cited</span></div><div class="rc-stat" title="Cited cases that are also in this library, so you can open them"><b>${num(item.resolved_target_cases)}</b><span>cases you can open</span></div></div><span class="rc-open">Open decision &rarr;</span></div></button>`;};
 qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',()=>setTimeout(()=>document.getElementById('cohortSearchPanel')?.scrollIntoView({behavior:'smooth',block:'start'}),400));
+</script>
+<script>
+/* Inline reader keyboard navigation and print behavior. */
+const readerKeyboardHelpToggle=document.getElementById('readerKeyboardHelpToggle');
+const readerKeyboardHelp=document.getElementById('readerKeyboardHelp');
+function toggleReaderKeyboardHelp(force){
+	if(!readerKeyboardHelp||!readerKeyboardHelpToggle)return;
+	const show=force===undefined?readerKeyboardHelp.hidden:Boolean(force);
+	readerKeyboardHelp.hidden=!show;
+	readerKeyboardHelpToggle.setAttribute('aria-expanded',String(show));
+}
+readerKeyboardHelpToggle?.addEventListener('click',()=>toggleReaderKeyboardHelp());
+function readerTypingTarget(target){
+	return Boolean(target?.isContentEditable||target?.closest?.('input, textarea, select, [contenteditable=""], [contenteditable="true"], [contenteditable="plaintext-only"]'));
+}
+function readerNumberedParagraphs(){
+	return [...(document.querySelectorAll('#decisionBody .fmt-para[data-para]')||[])].filter(para=>Number.isInteger(Number(para.dataset.para)));
+}
+function moveReaderParagraph(direction){
+	const body=document.getElementById('decisionBody');
+	if(!body||!readerState.payload)return false;
+	if(!readerNumberedParagraphs().length&&readerState.payload.readerData?.format_blocks?.some(block=>block.type==='para')){
+		readerState.formatted=true;
+		setReaderMode('normalized');
+	}
+	const paragraphs=readerNumberedParagraphs();
+	if(!paragraphs.length)return false;
+	const active=document.activeElement?.closest?.('#decisionBody .fmt-para[data-para]');
+	let index=paragraphs.indexOf(active||body.querySelector('.fmt-para.is-reader-current'));
+	if(index<0)index=direction>0?-1:paragraphs.length;
+	const nextIndex=Math.max(0,Math.min(paragraphs.length-1,index+direction));
+	const target=paragraphs[nextIndex];
+	if(!target)return false;
+	body.querySelectorAll('.fmt-para.is-reader-current').forEach(para=>{para.classList.remove('is-reader-current');para.removeAttribute('aria-current');});
+	target.classList.add('is-reader-current');
+	target.setAttribute('aria-current','location');
+	target.setAttribute('tabindex','-1');
+	target.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+	target.focus({preventScroll:true});
+	return true;
+}
+document.addEventListener('keydown',event=>{
+	if(event.defaultPrevented||event.isComposing||readerTypingTarget(event.target)||event.ctrlKey||event.metaKey||event.altKey)return;
+	const panel=document.getElementById('caseReaderPanel');
+	if(!panel||panel.hidden||!readerState.payload)return;
+	if(event.key==='?'){
+		event.preventDefault();
+		toggleReaderKeyboardHelp();
+		return;
+	}
+	if(event.key==='Escape'&&!readerKeyboardHelp?.hidden){toggleReaderKeyboardHelp(false);return;}
+	const key=event.key.toLowerCase();
+	const direction=key==='j'||key==='n'?1:key==='k'||key==='p'?-1:0;
+	if(direction&&moveReaderParagraph(direction))event.preventDefault();
+});
+const readerKeyboardOpenDecision=openDecision;
+openDecision=async function(caseId){
+	await readerKeyboardOpenDecision(caseId);
+	const citation=document.getElementById('readerPrintCitation');
+	if(citation)citation.textContent=readerState.payload?.item?.citation||'';
+	toggleReaderKeyboardHelp(false);
+};
+const readerKeyboardCloseDecisionReader=closeDecisionReader;
+closeDecisionReader=function(){
+	toggleReaderKeyboardHelp(false);
+	document.getElementById('readerPrintCitation')?.replaceChildren();
+	document.querySelectorAll('#decisionBody .fmt-para.is-reader-current').forEach(para=>para.classList.remove('is-reader-current'));
+	readerKeyboardCloseDecisionReader();
+};
+let readerPrintState=null;
+window.addEventListener('beforeprint',()=>{
+	if(!readerState.payload||document.getElementById('caseReaderPanel')?.hidden)return;
+	readerPrintState={mode:readerState.mode,formatted:readerState.formatted};
+	if(readerState.payload.readerData?.format_blocks?.some(block=>block.type==='para')){
+		readerState.formatted=true;
+		setReaderMode('normalized');
+	}
+});
+window.addEventListener('afterprint',()=>{
+	if(!readerPrintState)return;
+	const previous=readerPrintState;
+	readerPrintState=null;
+	readerState.formatted=previous.formatted;
+	setReaderMode(previous.mode);
+});
 </script>
 
 

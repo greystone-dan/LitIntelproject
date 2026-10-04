@@ -1,11 +1,17 @@
+import asyncio
 from io import BytesIO
 from types import SimpleNamespace
+from zipfile import ZIP_DEFLATED, ZipFile
 
 from docx import Document
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
+from pypdf import PdfWriter
+import pytest
 
 from backend.live_analysis import _provision_excerpt, analyze_docx, validate_docx_upload
 from backend.main import app
+from backend import resource_limits, routes
 from backend.pages.live_analysis import live_analysis_page_html
 
 
@@ -57,6 +63,25 @@ def make_text_pdf(*page_texts: str) -> bytes:
 		pdf.extend(f"{offset:010d} 00000 n \n".encode("ascii"))
 	pdf.extend(f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n".encode("ascii"))
 	return bytes(pdf)
+
+
+def make_many_page_pdf(page_count: int) -> bytes:
+	writer = PdfWriter()
+	for _ in range(page_count):
+		writer.add_blank_page(width=612, height=792)
+	stream = BytesIO()
+	writer.write(stream)
+	return stream.getvalue()
+
+
+def make_docx_with_expanded_entry(*paragraphs: str, expanded_bytes: int) -> bytes:
+	base = make_docx(*paragraphs)
+	stream = BytesIO()
+	with ZipFile(BytesIO(base)) as source, ZipFile(stream, "w", ZIP_DEFLATED) as target:
+		for entry in source.infolist():
+			target.writestr(entry, source.read(entry.filename))
+		target.writestr("word/expanded.xml", b"A" * expanded_bytes)
+	return stream.getvalue()
 
 
 def test_analyze_docx_preserves_source_offsets_and_nested_references() -> None:
@@ -187,6 +212,93 @@ def test_live_analysis_api_extracts_text_pdf_with_page_numbers() -> None:
 		"unresolved_case_citations": 1,
 		"statute_references": 1,
 	}
+
+
+@pytest.mark.parametrize("path", ["/live-analysis/analyze", "/live-analysis/resolve", "/memo-citation-check"])
+def test_analysis_routes_reject_oversized_uploads_with_413(path: str, monkeypatch) -> None:
+	monkeypatch.setattr(resource_limits, "MAX_UPLOAD_BYTES", 16)
+	client = TestClient(app)
+	response = client.post(
+		path,
+		files={"file": ("brief.docx", b"x" * 17, "application/octet-stream")},
+	)
+
+	assert response.status_code == 413
+	assert response.json()["detail"] == "The uploaded file exceeds the 16 byte limit"
+
+
+def test_upload_reader_stops_after_limit_plus_one_byte(monkeypatch) -> None:
+	class TrackedUpload:
+		def __init__(self) -> None:
+			self.remaining = b"x" * 100
+			self.read_sizes: list[int] = []
+
+		async def read(self, size: int) -> bytes:
+			self.read_sizes.append(size)
+			chunk, self.remaining = self.remaining[:size], self.remaining[size:]
+			return chunk
+
+	upload = TrackedUpload()
+	monkeypatch.setattr(resource_limits, "MAX_UPLOAD_BYTES", 10)
+
+	with pytest.raises(HTTPException) as error:
+		asyncio.run(routes._read_upload_bounded(upload))
+
+	assert error.value.status_code == 413
+	assert sum(upload.read_sizes) == 11
+
+
+def test_docx_expanded_size_limit_is_enforced_by_live_analysis(monkeypatch) -> None:
+	base = make_docx("ordinary content")
+	with ZipFile(BytesIO(base)) as archive:
+		base_uncompressed_bytes = sum(entry.file_size for entry in archive.infolist())
+	monkeypatch.setattr(resource_limits, "MAX_DOCX_UNCOMPRESSED_BYTES", base_uncompressed_bytes + 32)
+	content = make_docx_with_expanded_entry("ordinary content", expanded_bytes=4096)
+	response = TestClient(app).post(
+		"/live-analysis/analyze",
+		files={"file": ("brief.docx", content, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
+	)
+
+	assert response.status_code == 413
+	assert "DOCX uncompressed content" in response.json()["detail"]
+
+
+def test_docx_archive_entry_limit_is_enforced(monkeypatch) -> None:
+	monkeypatch.setattr(resource_limits, "MAX_DOCX_ARCHIVE_ENTRIES", 1)
+	content = make_docx("ordinary content")
+
+	with pytest.raises(resource_limits.ResourceLimitError, match="DOCX archive exceeds"):
+		analyze_docx(content, "brief.docx")
+
+
+def test_pdf_page_and_extracted_text_limits_are_enforced(monkeypatch) -> None:
+	monkeypatch.setattr(resource_limits, "MAX_PDF_PAGES", 2)
+	many_pages = make_many_page_pdf(3)
+	page_response = TestClient(app).post(
+		"/live-analysis/analyze",
+		files={"file": ("brief.pdf", many_pages, "application/pdf")},
+	)
+	assert page_response.status_code == 413
+	assert "PDF exceeds the 2 page limit" in page_response.json()["detail"]
+
+	monkeypatch.setattr(resource_limits, "MAX_PDF_PAGES", 10)
+	monkeypatch.setattr(resource_limits, "MAX_EXTRACTED_TEXT_CHARS", 5)
+	text_response = TestClient(app).post(
+		"/live-analysis/analyze",
+		files={"file": ("brief.pdf", make_text_pdf("This text is too long.", "OK"), "application/pdf")},
+	)
+	assert text_response.status_code == 413
+	assert "extracted document text" in text_response.json()["detail"]
+
+
+def test_resource_limit_environment_overrides_are_positive_integers(monkeypatch) -> None:
+	monkeypatch.setenv("LITINTEL_MAX_UPLOAD_BYTES", "1234")
+
+	assert resource_limits._positive_int("LITINTEL_MAX_UPLOAD_BYTES", 99) == 1234
+
+	monkeypatch.setenv("LITINTEL_MAX_UPLOAD_BYTES", "0")
+	with pytest.raises(ValueError, match="must be a positive integer"):
+		resource_limits._positive_int("LITINTEL_MAX_UPLOAD_BYTES", 99)
 
 
 def test_live_analysis_responses_have_no_cache_headers() -> None:

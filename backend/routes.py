@@ -75,9 +75,10 @@ from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .pages.tag_finder import tag_finder_page_html
-from .live_analysis import MAX_DOCX_BYTES, analyze_document
+from .live_analysis import analyze_document
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
+from . import resource_limits
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
@@ -265,6 +266,24 @@ from .models import (
 _data_explorer_page_html = data_explorer_page_html
 
 router = APIRouter(tags=["cases"])
+
+
+async def _read_upload_bounded(file: UploadFile) -> bytes:
+	"""Read no more than the configured upload limit plus one detection byte."""
+	chunks: list[bytes] = []
+	total = 0
+	limit = resource_limits.MAX_UPLOAD_BYTES
+	while True:
+		chunk = await file.read(min(64 * 1024, limit - total + 1))
+		if not chunk:
+			return b"".join(chunks)
+		total += len(chunk)
+		if total > limit:
+			raise HTTPException(
+				status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+				detail=resource_limits.upload_limit_message(),
+			)
+		chunks.append(chunk)
 PROTOTYPE_SET_NAME = "immigration_334_v1"
 
 PROTOTYPE_IDS_CSV = Path(__file__).resolve().parent.parent / "data" / "eval" / "prototype_case_ids_v1.csv"
@@ -939,9 +958,11 @@ async def live_analysis_analyze(
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
 ) -> JSONResponse:
-	content = await file.read()
+	content = await _read_upload_bounded(file)
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
@@ -955,9 +976,11 @@ async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
 ) -> JSONResponse:
-	content = await file.read()
+	content = await _read_upload_bounded(file)
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
@@ -976,9 +999,11 @@ async def memo_citation_check_analyze(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
 ) -> MemoCitationCheckResponse:
-	content = await file.read()
+	content = await _read_upload_bounded(file)
 	try:
 		payload = analyze_memo_citations(content, file.filename or "document.docx", file.content_type, db)
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
@@ -998,7 +1023,7 @@ def deidentify_page() -> HTMLResponse:
 
 async def _deidentify_input_text(file: UploadFile | None, text: str) -> tuple[str, str]:
 	if file is not None and file.filename:
-		content = await file.read()
+		content = await _read_upload_bounded(file)
 		try:
 			return text_from_upload(file.filename, content), file.filename
 		except ValueError:
@@ -1006,6 +1031,7 @@ async def _deidentify_input_text(file: UploadFile | None, text: str) -> tuple[st
 		except Exception as exc:
 			raise ValueError("The file could not be read. Is it a valid .docx, .pdf or .txt file?") from exc
 	if text.strip():
+		resource_limits.validate_pasted_text_length(len(text))
 		return text, ""
 	raise ValueError("Upload a file or paste some text.")
 
@@ -1022,6 +1048,8 @@ async def deidentify_api(
 ) -> JSONResponse:
 	try:
 		source, filename = await _deidentify_input_text(file, text)
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	enabled = [item.strip().upper() for item in categories.split(",") if item.strip()] if categories.strip() else None
@@ -1048,6 +1076,8 @@ async def reidentify_api(
 	try:
 		source, _ = await _deidentify_input_text(file, text)
 		result = reidentify_text(source, json.loads(key))
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	except json.JSONDecodeError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The key file is not valid JSON.") from exc
 	except ValueError as exc:
@@ -1057,6 +1087,10 @@ async def reidentify_api(
 
 @router.post("/api/deidentify/docx", include_in_schema=False)
 def deidentify_docx_api(text: str = Form(...), filename: str = Form("document.docx")) -> Response:
+	try:
+		resource_limits.validate_pasted_text_length(len(text))
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
 	safe_name = re.sub(r"[^\w.-]+", "_", filename)[:100] or "document.docx"
 	if not safe_name.lower().endswith(".docx"):
 		safe_name += ".docx"

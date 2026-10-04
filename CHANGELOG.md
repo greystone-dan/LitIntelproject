@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added centralized, environment-configurable upload and parsing limits for
+  memo citation checks, Live Analysis, and de-identification. Upload reads stop
+  at the configured limit; DOCX expansion/entry count, PDF pages, extracted
+  text, and de-identification pasted text are capped with HTTP 413 limit errors.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

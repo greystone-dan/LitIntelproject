@@ -303,6 +303,11 @@ class CaseReaderExtractedSummaryItemResponse(BaseModel):
 	value: str
 	source: str
 	evidence: str
+	start: int
+	end: int
+	block_start: int
+	block_type: str
+	paragraph_number: int | None = None
 
 
 class CaseEvidenceSpanResponse(BaseModel):
@@ -376,6 +381,7 @@ class CaseReaderDataResponse(BaseModel):
 	citations: list[CaseReaderCitationResponse]
 	tags: list[CaseReaderTagResponse]
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
+	extracted_summary: list[CaseReaderExtractedSummaryItemResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
 	format_blocks: list[dict] = []
@@ -411,6 +417,7 @@ class InventoryResponse(BaseModel):
 class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
+	matched_on: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):

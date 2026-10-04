@@ -23,6 +23,7 @@ from .citations import (
 	resolve_legislation_reference,
 )
 from .case_formatter import format_decision
+from .paragraph_citation_counts import distinct_citing_cases_by_paragraph
 from .document_structure import map_span_to_chunk_layers
 from .database import (
 	Case,
@@ -421,12 +422,7 @@ def _citation_target_paragraph(
 
 
 def _cited_case_counts_by_paragraph(rows: Any, case_id: int) -> dict[int, int]:
-	sources_by_paragraph: dict[int, set[int]] = {}
-	for source_case_id, paragraph in rows:
-		if source_case_id is None or source_case_id == case_id or paragraph is None:
-			continue
-		sources_by_paragraph.setdefault(int(paragraph), set()).add(int(source_case_id))
-	return {paragraph: len(sources) for paragraph, sources in sources_by_paragraph.items()}
+	return distinct_citing_cases_by_paragraph(rows, case_id)
 
 
 def _legislation_url_for_reference(value: str | None) -> str | None:

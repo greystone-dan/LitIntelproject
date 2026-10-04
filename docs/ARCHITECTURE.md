@@ -194,6 +194,9 @@ test checks that these paths continue to exist.
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/paragraph_citation_counts.css` | Optional reader citation-count shading, labels and print suppression |
+| `backend/pages/paragraph_citation_counts.js` | Optional later-decision reader overlay and guarded loading lifecycle |
+| `backend/pages/paragraph_citation_counts.py` | Injects standalone paragraph-count controls and assets into the active reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
@@ -204,6 +207,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/paragraph_citation_counts.py` | Read-only later-decision paragraph pinpoint coverage API and shared distinct-source fold |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
 | `backend/routes.py` | API contracts, request orchestration, and page integration |

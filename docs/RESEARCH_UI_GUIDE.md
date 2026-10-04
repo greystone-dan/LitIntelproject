@@ -318,6 +318,45 @@ Opening another case, a failed load, or closing the reader clears the panel.
 The panel and **Extracted case summary** use the same backend block-start
 anchors, so either evidence link remains usable after switching reader modes.
 
+**Show most-cited paragraphs** is a separate, optional formatted-reader toggle,
+off whenever a case opens. It adds relative shading, a visible count label
+(including zero), and a count tooltip to actual backend-numbered paragraphs.
+It does not replace the existing collapsed top-five list or its default pale
+shading. Those existing features retain their distinct-other-case counts and
+single stored/fallback pinpoint semantics, without a chronology filter.
+Turning the new mode off restores their original shading and tooltips.
+
+The new mode calls `GET /api/cases/{case_id}/paragraph-citation-counts` only when
+enabled. Each paragraph counts **distinct source decisions dated strictly
+later** than the open decision, using resolved incoming stored case citations.
+Repeated mentions/duplicate rows from one decision count once per paragraph.
+Same-day, earlier, self, and unknown-date citations are excluded from both
+denominators; an unknown target date cannot establish later-decision counts.
+In that state the toggle reports the date gap without replacing legacy shading
+or displaying misleading zero-count labels.
+Counts apply only to actual formatted paragraph numbers, not chunk indices.
+Stored paragraph-labelled lists and inclusive ranges map to those actual
+numbers; page pinpoints, malformed/reversed ranges, and out-of-range numbers
+do not fabricate paragraphs. A stored scalar pinpoint wins a conflicting text
+pinpoint; a matching stored list/range adds its other usable paragraph numbers.
+A matching list/range can still map actual numbers when its first stored
+number is absent from the formatted decision.
+Citation text is used first, with normalized-citation fallback when it has no
+paragraph label. No statute interpretation or citation-treatment inference occurs.
+
+Coverage reports both decisions with any usable pinpoint out of **all later
+citing decisions**, and stored citation occurrences lacking a usable pinpoint
+out of **all eligible incoming citation rows**. Duplicate stored rows remain
+in that occurrence denominator, but never inflate paragraph decision counts.
+A decision can have both usable and unusable occurrences. A partly out-of-range
+list is usable if at least one actual paragraph maps; paragraph counts may sum
+above the decision denominator because one decision can cite several paragraphs.
+Stronger shading means a larger count relative to the maximum in this decision;
+zero counts are unshaded. Chunk/plain modes keep their existing rendering.
+Changing or closing a case clears the mode; failures leave legacy shading intact,
+and late responses cannot annotate another case. Print retains source text,
+numbers, and anchors but omits count controls/labels and all paragraph shading.
+
 ### Reader Modes
 
 - **Chunk breakdown**: displays stored decision chunks as a continuous reading

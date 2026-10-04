@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .paragraph_citation_counts import router as paragraph_citation_counts_router
 
 try:
 	import yaml
@@ -299,6 +300,7 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(paragraph_citation_counts_router)
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:

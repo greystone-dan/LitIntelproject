@@ -131,6 +131,7 @@ test checks that these paths continue to exist.
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
+| `backend/cache_headers.py` | Cache policies and ETag helpers for static assets and HTML shells |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
@@ -169,6 +170,7 @@ test checks that these paths continue to exist.
 | `backend/embedding_providers.py` | Selects and configures embedding providers |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/gzip_middleware.py` | Selective gzip compression for eligible buffered HTTP responses |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
@@ -193,8 +195,6 @@ test checks that these paths continue to exist.
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |
-| `backend/pages/explorer_snapshots.css` | Styles for Explorer snapshot views |
-| `backend/pages/explorer_snapshots.js` | Browser behavior for Explorer snapshot views |
 | `backend/pages/fc_analytics.py` | Federal Court activity analytics page |
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
@@ -210,6 +210,8 @@ test checks that these paths continue to exist.
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
+| `backend/static/explorer_snapshots.css` | Styles for Explorer snapshot views |
+| `backend/static/explorer_snapshots.js` | Browser behavior for Explorer snapshot views |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |

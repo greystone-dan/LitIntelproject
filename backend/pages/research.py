@@ -17,6 +17,7 @@ def research_page_html() -> str:
 			--accent: #0d6a5f;
 			--accent-2: #b65d2e;
 			--line: #d8cebf;
+			--error: #a4412b;
 		}
 		* { box-sizing: border-box; }
 		body {
@@ -96,6 +97,46 @@ def research_page_html() -> str:
 			background: #f9f2e8;
 		}
 		.token-info { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+
+		/* Loading state */
+		.loading-spinner {
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			border: 2px solid rgba(13, 106, 95, 0.2);
+			border-top-color: var(--accent);
+			border-radius: 50%;
+			animation: spin 0.8s linear infinite;
+			margin-right: 6px;
+			vertical-align: middle;
+		}
+		@keyframes spin {
+			to { transform: rotate(360deg); }
+		}
+
+		/* Error state */
+		.error-box {
+			background: #ffe8e0;
+			border: 1px solid #e8b5a0;
+			border-radius: 8px;
+			padding: 12px;
+			margin-top: 10px;
+			color: var(--error);
+			font-size: 0.93rem;
+		}
+		.error-box strong { display: block; margin-bottom: 6px; }
+		.retry-button {
+			margin-top: 10px;
+			padding: 8px 12px;
+			background: var(--error);
+			color: white;
+			border: none;
+			border-radius: 6px;
+			font-size: 0.9rem;
+			cursor: pointer;
+		}
+		.retry-button:hover { opacity: 0.9; }
+
 		@media (max-width: 640px) {
 			.grid2, .grid3 { grid-template-columns: 1fr; }
 		}
@@ -135,6 +176,23 @@ def research_page_html() -> str:
 				</div>
 			</div>
 			<button id="submitBtn" onclick="runResearch()">Run Research</button>
+		</div>
+
+		<div id="loadingSection" role="status" aria-live="polite" style="display:none;">
+			<div class="card">
+				<h2><span class="loading-spinner"></span>Researching...</h2>
+				<p style="color: var(--muted); font-size: 0.93rem;">
+					Searching the corpus and generating insights. This may take a moment.
+				</p>
+			</div>
+		</div>
+
+		<div id="errorSection" role="alert" style="display:none;">
+			<div class="card">
+				<h2>Error</h2>
+				<div id="errorBox" class="error-box"></div>
+				<button class="retry-button" onclick="runResearch()">Retry Research</button>
+			</div>
 		</div>
 
 		<div id="resultSection" style="display:none;">
@@ -203,10 +261,13 @@ def research_page_html() -> str:
 				return;
 			}
 
+			// Show loading state, hide others
+			document.getElementById("loadingSection").style.display = "block";
+			document.getElementById("errorSection").style.display = "none";
+			document.getElementById("resultSection").style.display = "none";
+
 			const btn = document.getElementById("submitBtn");
 			btn.disabled = true;
-			btn.textContent = "Researching...";
-			document.getElementById("resultSection").style.display = "none";
 
 			const payload = {
 				query: question,
@@ -227,23 +288,35 @@ def research_page_html() -> str:
 				const body = await response.json().catch(() => ({ detail: "No JSON response body" }));
 
 				if (!response.ok) {
-					document.getElementById("answerBox").textContent =
-						`Error ${response.status}: ${body.detail || response.statusText}`;
-					document.getElementById("sourcesBox").innerHTML = "";
-					document.getElementById("tokenInfo").textContent = "";
-					document.getElementById("resultSection").style.display = "block";
+					// Show error state
+					const errorMsg = body.detail || response.statusText || "Unknown error";
+					document.getElementById("errorBox").innerHTML = `
+						<strong>Error ${response.status}</strong>
+						<p>${esc(errorMsg)}</p>
+					`;
+					document.getElementById("loadingSection").style.display = "none";
+					document.getElementById("errorSection").style.display = "block";
+					document.getElementById("resultSection").style.display = "none";
 					return;
 				}
 
+				// Show results
 				document.getElementById("answerBox").textContent = body.answer || "(No answer returned)";
 				document.getElementById("tokenInfo").textContent =
 					`Model: ${body.model_used} - Prompt tokens: ${body.prompt_tokens} - Completion tokens: ${body.completion_tokens}`;
 				renderSources(body.sources || []);
+				document.getElementById("loadingSection").style.display = "none";
+				document.getElementById("errorSection").style.display = "none";
 				document.getElementById("resultSection").style.display = "block";
 			} catch (err) {
-				document.getElementById("answerBox").textContent = `Request error: ${err.message}`;
-				document.getElementById("sourcesBox").innerHTML = "";
-				document.getElementById("resultSection").style.display = "block";
+				// Show error state
+				document.getElementById("errorBox").innerHTML = `
+					<strong>Request Error</strong>
+					<p>${esc(err.message || "Unknown network error")}</p>
+				`;
+				document.getElementById("loadingSection").style.display = "none";
+				document.getElementById("errorSection").style.display = "block";
+				document.getElementById("resultSection").style.display = "none";
 			} finally {
 				btn.disabled = false;
 				btn.textContent = "Run Research";

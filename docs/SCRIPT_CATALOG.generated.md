@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 158
+Active scripts documented: 159
 
 ## Catalog
 
@@ -118,6 +118,7 @@ Active scripts documented: 158
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `measure_page_weight.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_page_weight.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
 | `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
@@ -1679,6 +1680,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
+```
+
+## `scripts/measure_page_weight.py`
+
+**Purpose:** Measure every HTML page template offline and write a Markdown baseline.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_page_weight.py --help
 ```
 
 ## `scripts/measure_precision.py`

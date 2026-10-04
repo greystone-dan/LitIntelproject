@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.005395+00:00
+Generated: 2026-10-04T15:03:55.730579+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 109 across 106 paths
@@ -2178,6 +2178,10 @@ Handler: `backend.routes.citation_pass_page`
 
 Handler: `backend.routes.data_explorer_page`
 
+**Handler parameters**
+
+- `request` (Request; required)
+
 **Responses**
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
@@ -2396,6 +2400,10 @@ Handler: `backend.routes.quick_search_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.research_interface`
+
+**Handler parameters**
+
+- `request` (Request; required)
 
 **Responses**
 

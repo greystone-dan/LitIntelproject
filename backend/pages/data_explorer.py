@@ -328,6 +328,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 #advancedSearchOptions{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#fff}#advancedSearchOptions fieldset{border:1px solid #eceae0;border-radius:10px;padding:12px 14px;background:#fcfbf7}#advancedSearchOptions legend{padding:0 6px;color:#9a3412;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 #searchMeta.search-status{display:flex;align-items:center;gap:8px;margin:18px 0 4px;padding:0 2px;border:0!important;background:none!important;color:var(--text);font-size:13px;font-weight:600}
 #searchMeta[data-state="idle"]{display:none}#searchMeta[data-state="loading"]::before{content:"";width:12px;height:12px;border:2px solid #c9c5b6;border-top-color:#102038;border-radius:50%;animation:rc-spin .8s linear infinite}@keyframes rc-spin{to{transform:rotate(360deg)}}
+#retryCaseSearch[hidden]{display:none!important}#retryCaseSearch{margin:4px 0 8px;padding:6px 10px;border:1px solid #102038;border-radius:6px;background:#fff;color:#102038;font-weight:600;cursor:pointer}#retryCaseSearch:hover{background:#eef2f7}
 #searchResults.results-wrap{display:grid;gap:10px;margin-top:8px}
 .case-result.rc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;width:100%;padding:14px 16px 14px 18px;border:1px solid var(--border);border-left:5px solid #c9c5b6;border-radius:12px;background:#fff;text-align:left;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .15s}
 .case-result.rc:hover{border-color:#aab4c4;box-shadow:0 6px 18px rgba(16,32,56,.1);transform:translateY(-1px)}.case-result.rc.rc-win{border-left-color:#1e3a8a}.case-result.rc.rc-loss{border-left-color:#16a34a}
@@ -467,6 +468,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="saved-search-actions"><button id="saveCurrentSearch" type="button">Save current search</button><a href="/saved-searches-ui">Saved searches</a></div>
 <div id="cohortSearchPanel" class="cohort-search-panel" hidden><div class="eyebrow">Core 300 assessment search</div><form id="cohortSearchForm"><div class="search-query-row"><label class="primary-query" for="cohortQuery"><span>Find concepts in paragraph assessments</span><small>Experimental matching across topic, role, explanation, and paragraph text. Scope: Core 300 only.</small><input id="cohortQuery" placeholder="Try standard of review issues" autocomplete="off"></label><button type="submit">Search assessments</button></div></form><div class="search-status" id="cohortSearchMeta" role="status" aria-live="polite">Activate Core Cases to search the 300 assessment records.</div><div class="results-wrap" id="cohortSearchResults" aria-label="Core 300 assessment search results"></div><div class="search-status" id="cohortComparisonMeta" role="status" aria-live="polite"></div><div class="results-wrap" id="cohortComparisonResults" aria-label="Core 300 assessment comparison results"></div></div>
 <div class="search-status" id="searchMeta" role="status" aria-live="polite" data-state="idle">Search by case name or citation. Open Advanced options for filters or full-decision text.</div>
+<button id="retryCaseSearch" type="button" hidden>Retry search</button>
 <div class="search-query-echo" id="searchQueryEcho" role="status" aria-live="polite" hidden></div>
 <div class="results-wrap" id="searchResults" aria-label="Case search results"></div>
 </section>
@@ -783,8 +785,15 @@ function chooseSearchSuggestion(index){const item=suggestionState.items[index];i
 async function requestSearchSuggestions(query){suggestionState.controller?.abort();suggestionState.controller=new AbortController();try{const params=new URLSearchParams({query,limit:'5',sort_by:'relevance'}),response=await fetch(`/analytics/search/cases?${params}`,{signal:suggestionState.controller.signal});if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json();if(document.getElementById('searchQuery').value.trim()!==query)return;suggestionState.items=(data.results||[]).slice(0,5);suggestionState.active=-1;paintSearchSuggestions();}catch(error){if(error.name!=='AbortError')closeSearchSuggestions();}}
 function professionalResultCard(item){const context=[item.court,item.date,item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':item.decision_outcome||'',outcomeClass=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'neutral';return `<button class="case-result" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="result-identity"><div class="result-title">${esc(item.title||'Untitled decision')}</div><div class="result-citation">${esc(item.citation||'Citation unavailable')}</div><div class="result-context">${context.map(value=>`<span>${esc(value)}</span>`).join('')}</div>${outcome?`<div class="result-tags"><span class="tag ${outcomeClass}">${esc(outcome)}</span>${item.decision_outcome&&item.decision_outcome!==outcome?`<span class="tag neutral">${esc(item.decision_outcome)}</span>`:''}</div>`:''}</div><div class="result-side"><div class="result-metrics"><div class="result-metric"><strong>${num(item.citation_mentions)}</strong><span>mentions</span></div><div class="result-metric"><strong>${num(item.unique_cited_authorities)}</strong><span>authorities</span></div><div class="result-metric"><strong>${num(item.resolved_target_cases)}</strong><span>linked</span></div></div><span class="result-open">Open decision</span></div></button>`;}
 let professionalSearchGeneration=0;
+let professionalSearchPending=false;
 async function runProfessionalSearch(){
+ if(professionalSearchPending)return;
+ professionalSearchPending=true;
+ const submitButton=document.querySelector('#caseSearch button[type="submit"]');
+ if(submitButton)submitButton.disabled=true;
  const requestId=++professionalSearchGeneration;
+ const retryButton=document.getElementById('retryCaseSearch');
+ retryButton.hidden=true;
  closeSearchSuggestions();
  const values=searchValues(),params=new URLSearchParams();
  document.getElementById('searchQueryEcho').hidden=true;
@@ -808,10 +817,16 @@ async function runProfessionalSearch(){
   if(requestId!==professionalSearchGeneration)return;
   setSearchStatus(`Search unavailable: ${error.message}`,'error');
   document.getElementById('searchResults').innerHTML='<div class="empty">The search could not be completed. Your filters have been preserved so you can try again.</div>';
+  retryButton.hidden=false;
+ }finally{
+  professionalSearchPending=false;
+  if(submitButton)submitButton.disabled=false;
  }
 }
 function bindProfessionalSearch(){const form=document.getElementById('caseSearch'),input=document.getElementById('searchQuery'),clear=document.getElementById('clearSearch');form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();runProfessionalSearch();},true);input.addEventListener('input',()=>{clearTimeout(suggestionState.timer);const query=input.value.trim();if(query.length<2){suggestionState.controller?.abort();closeSearchSuggestions();return;}suggestionState.timer=setTimeout(()=>requestSearchSuggestions(query),280);});input.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSearchSuggestions();return;}if(!suggestionState.items.length)return;if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const step=event.key==='ArrowDown'?1:-1;suggestionState.active=(suggestionState.active+step+suggestionState.items.length)%suggestionState.items.length;paintSearchSuggestions();}else if(event.key==='Enter'&&suggestionState.active>=0){event.preventDefault();event.stopImmediatePropagation();chooseSearchSuggestion(suggestionState.active);}});clear.addEventListener('click',()=>{suggestionState.controller?.abort();closeSearchSuggestions();setSearchStatus('Search by case name or citation. Open Advanced options for filters or full-decision text.');});document.addEventListener('click',event=>{if(!event.target.closest?.('.case-finder'))closeSearchSuggestions();});document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();input.focus();input.select();}});}
 bindProfessionalSearch();
+document.getElementById('retryCaseSearch').addEventListener('click',runProfessionalSearch);
+document.getElementById('clearSearch').addEventListener('click',()=>{document.getElementById('retryCaseSearch').hidden=true;});
 async function saveCurrentSearch(){
  const values=searchValues(),query=values.query.trim(),filters={...values};
  delete filters.query;
@@ -885,7 +900,7 @@ function renderChunkedDecision(readerData){const chunks=Array.isArray(readerData
 const unifiedChunkRenderer=renderChunkedDecision;
 function setReaderMode(mode){const nextMode=mode==='chunks'?'chunks':'normalized';readerState.mode=nextMode;const toggle=document.getElementById('readerViewToggle');if(toggle){toggle.textContent=nextMode==='chunks'?'Back to formatted':'Chunk breakdown';toggle.setAttribute('aria-pressed',String(nextMode==='chunks'));toggle.title=nextMode==='chunks'?'Switch to formatted reader':'Switch to chunk breakdown';}const body=document.getElementById('decisionBody');if(!body||!readerState.payload)return;const {item,citations,readerData}=readerState.payload;const renderData={...(readerData||{}),citations:citations||readerData?.citations||[]};if(nextMode==='chunks'){body.innerHTML=unifiedChunkRenderer(renderData);}else{body.innerHTML=highlightedDecision(item.full_text,citations||[],renderData.tags||[]);}body.querySelectorAll('.citation-link').forEach((button)=>button.addEventListener('click',()=>openLinkedCase(Number(button.dataset.targetCaseId),button.dataset.targetTitle||'Linked case')));}
 function closeDecisionReader(){document.getElementById('caseReaderPanel').hidden=true;document.getElementById('searchPanel').hidden=false;document.getElementById('searchQuery').focus();readerState.caseId=null;readerState.payload=null;readerState.mode='normalized';const toggle=document.getElementById('readerViewToggle');if(toggle){toggle.textContent='Chunk breakdown';toggle.setAttribute('aria-pressed','false');toggle.title='Switch to chunk breakdown';}}
-async function openDecision(caseId){const readerPanel=document.getElementById('caseReaderPanel');const body=document.getElementById('decisionBody');document.getElementById('searchPanel').hidden=true;readerPanel.hidden=false;readerPanel.scrollIntoView({behavior:'smooth',block:'start'});body.innerHTML='<div class="reader-status">Loading full decision...</div>';document.getElementById('decisionTargetHeading').textContent='Case information';try{const [response,readerResponse]=await Promise.all([fetch(`/analytics/search/cases/${caseId}`),fetch(`/cases/${caseId}/reader-data`)]);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json(),readerData=readerResponse.ok?await readerResponse.json():null,item=data.case,metrics=data.citation_metrics;readerState.caseId=caseId;readerState.payload={item,citations:data.citations||[],readerData};document.getElementById('decisionTitle').textContent=item.title||'Untitled decision';const metaParts=[item.citation,item.court,item.date,item.judge,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':`${num(metrics.citation_mentions)} citation mentions`].filter(Boolean);const docket=extractDocketFromPayload(item);const fcHistoryMeta=docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open FC History</a>`:'';const sourceMeta=item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'';document.getElementById('decisionMeta').innerHTML=[...metaParts.map(value=>`<span class="meta-pill">${esc(value)}</span>`),sourceMeta,fcHistoryMeta].filter(Boolean).join('');if(docket){const fcInput=document.getElementById('fcImmInput');if(fcInput){fcInput.value=docket;fcInput.dataset.fcDocket=docket;}}if(readerData)renderCaseReaderPane(readerData);else document.getElementById('decisionTarget').innerHTML='<div class="reader-status">Case information is unavailable.</div>';setReaderMode(readerState.mode);}catch(error){readerState.payload=null;resetMostCitedParagraphs();body.innerHTML=`<div class="reader-status">${esc(error.message)}</div>`;}}
+async function openDecision(caseId){const readerPanel=document.getElementById('caseReaderPanel');const body=document.getElementById('decisionBody');document.getElementById('searchPanel').hidden=true;readerPanel.hidden=false;readerPanel.scrollIntoView({behavior:'smooth',block:'start'});body.innerHTML='<div class="reader-status">Loading full decision...</div>';document.getElementById('decisionTargetHeading').textContent='Case information';try{const [response,readerResponse]=await Promise.all([fetch(`/analytics/search/cases/${caseId}`),fetch(`/cases/${caseId}/reader-data`)]);if(!response.ok)throw new Error(`Request failed (${response.status})`);const data=await response.json(),readerData=readerResponse.ok?await readerResponse.json():null,item=data.case,metrics=data.citation_metrics;readerState.caseId=caseId;readerState.payload={item,citations:data.citations||[],readerData};document.getElementById('decisionTitle').textContent=item.title||'Untitled decision';const metaParts=[item.citation,item.court,item.date,item.judge,item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':`${num(metrics.citation_mentions)} citation mentions`].filter(Boolean);const docket=extractDocketFromPayload(item);const fcHistoryMeta=docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open FC History</a>`:'';const sourceMeta=item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'';document.getElementById('decisionMeta').innerHTML=[...metaParts.map(value=>`<span class="meta-pill">${esc(value)}</span>`),sourceMeta,fcHistoryMeta].filter(Boolean).join('');if(docket){const fcInput=document.getElementById('fcImmInput');if(fcInput){fcInput.value=docket;fcInput.dataset.fcDocket=docket;}}if(readerData)renderCaseReaderPane(readerData);else{const target=document.getElementById('decisionTarget');target.innerHTML='<div class="reader-status" role="alert">Case information is unavailable.</div><button type="button" data-reader-retry>Retry case details</button>';target.querySelector('[data-reader-retry]')?.addEventListener('click',()=>openDecision(caseId));}setReaderMode(readerState.mode);}catch(error){readerState.payload=null;resetMostCitedParagraphs();body.innerHTML=`<div class="reader-status">${esc(error.message)}</div>`;}}
 function renderJudge(data){document.getElementById('judgeSummary').innerHTML=`<span><strong>${num(data.judges.length)}</strong><br>judges with more than 100 decisions</span><span><strong>${num(data.totals.decisions)}</strong><br>decisions counted</span><span><strong>${num(data.totals.classified)}</strong><br>classified outcomes</span>`;document.getElementById('judgeRows').innerHTML=data.judges.map((item,index)=>{const classified=item.government_wins+item.individual_wins;const govWidth=classified?item.government_wins/classified*100:0;const individualWidth=classified?item.individual_wins/classified*100:0;const unknownWidth=item.decisions?item.unclassified/item.decisions*100:0;return `<tr><td class="rank">${index+1}</td><td class="group">${esc(item.judge)}</td><td class="number">${num(item.decisions)}</td><td><div class="bar"><span style="width:${govWidth}%;background:var(--blue)"></span><span style="width:${individualWidth}%;background:var(--red)"></span><span style="width:${unknownWidth}%;background:#cbd5e1"></span></div></td><td class="number">${num(item.government_wins)}</td><td class="number">${num(item.individual_wins)}</td><td class="number">${num(item.unclassified)}</td><td class="number">${classified?`${govWidth.toFixed(1)}%`:'--'}</td></tr>`}).join('')};
 async function loadJudge(){if(!document.getElementById('judgeRows'))return;try{const response=await fetch('/analytics/judge-outcomes?min_decisions=100');if(!response.ok)throw new Error(`Request failed (${response.status})`);renderJudge(await response.json())}catch(error){const rows=document.getElementById('judgeRows');if(rows)rows.innerHTML=`<tr><td colspan="8" class="empty">${esc(error.message)}</td></tr>`}}
 function options(selected){return fields.map(field=>`<option value="${field.key}" ${field.key===selected?'selected':''}>${esc(field.label)}</option>`).join('')};
@@ -1432,15 +1447,53 @@ window.addEventListener('afterprint',()=>{
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
-  here = Path(__file__).resolve().parent
-  snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
-  snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
-  html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
-  html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
+  html = html.replace(
+      '</head>',
+      '<link rel="stylesheet" href="/static/explorer_snapshots.css">\n</head>',
+      1,
+  )
+  html = html.replace(
+      '</body>',
+      '<script src="/static/explorer_snapshots.js"></script>\n</body>',
+      1,
+  )
   reader_tab_selection = "button.classList.toggle('active',button.dataset.readerTab===activeTab);"
   html = html.replace(
       reader_tab_selection,
       reader_tab_selection + "button.setAttribute('aria-pressed',String(button.dataset.readerTab===activeTab));",
   )
   html = inject_fc_analytics(html)
+  html = html.replace(
+      "body.innerHTML='<div class=\"reader-status\">Loading full decision...</div>';",
+      "body.innerHTML='<div class=\"reader-status\" role=\"status\" aria-live=\"polite\">Loading full decision...</div>';",
+  )
+  page_state_script = """<script>
+(function(){
+  const originalSearch=runProfessionalSearch;
+  let searchPending=false;
+  runProfessionalSearch=async function(){
+    if(searchPending)return;
+    searchPending=true;
+    const submit=document.querySelector('#caseSearch button[type="submit"]');
+    if(submit)submit.disabled=true;
+    try{return await originalSearch.apply(this,arguments);}
+    finally{searchPending=false;if(submit)submit.disabled=false;}
+  };
+  const originalOpenDecision=openDecision;
+  openDecision=async function(caseId){
+    await originalOpenDecision.apply(this,arguments);
+    if(readerState.payload&&String(readerState.caseId)===String(caseId))return;
+    const body=document.getElementById('decisionBody');
+    const status=body?.querySelector('.reader-status');
+    if(!status)return;
+    status.setAttribute('role','alert');
+    if(!body.querySelector('[data-reader-retry]')){
+      status.insertAdjacentHTML('afterend','<button type="button" data-reader-retry>Retry loading decision</button>');
+      body.querySelector('[data-reader-retry]')?.addEventListener('click',()=>openDecision(caseId));
+    }
+  };
+})();
+</script>
+"""
+  html = html.replace("</body>", page_state_script + "\n</body>", 1)
   return inject_case_quick_summary(inject_tag_analytics(html))

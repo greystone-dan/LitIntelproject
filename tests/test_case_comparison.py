@@ -321,7 +321,7 @@ def test_renderer_escaping_page_and_search_contract(db):
     assert 'min-width:0;overflow-wrap:anywhere' in html
     node = shutil.which("node")
     if node:
-        script = re.search(r"<script>(.*?)</script>", html, re.S).group(1)
+        script = re.search(r"<script>(.*?)</script>", html, re.I | re.S).group(1)
         checked = subprocess.run([node, "--check"], input=script, text=True, capture_output=True)
         assert checked.returncode == 0, checked.stderr
 

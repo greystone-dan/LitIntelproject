@@ -5,6 +5,18 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added negotiated selective gzip for eligible buffered responses while
+  bypassing downloads, no-store responses, and streams. Static Data Explorer,
+  Citation Map, and Research Bench shells now use public one-hour conditional
+  weak ETags with `Vary: Cookie`; dynamic and no-store responses are not cached.
+  Data Explorer snapshot CSS/JS are mounted as cacheable static assets with
+  validators. The offline page-weight report now inventories every page builder
+  with raw/gzip sizes, inline script/style bytes, and declared resource requests.
+  Case search, the inline reader, Citation Intelligence, the FC activity
+  dashboard, and the Research Bench have explicit loading/error/retry states. Search
+  prevents duplicate submits and retries with its current filters; FC dashboard
+  updates use a polite live status. Focused tests pass; generated references are
+  current. Browser and database-backed validation were not run.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

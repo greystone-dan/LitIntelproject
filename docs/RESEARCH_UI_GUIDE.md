@@ -268,6 +268,11 @@ button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
 
+Search exposes loading and failure feedback in the status area. While an
+ordinary or RAG search is pending, a second submit is ignored and the submit
+control is disabled. A failed request offers retry without resetting the query
+or filters.
+
 ### Saved Searches And Alerts
 
 Use **Save current search** below the Case Search controls to name and preserve
@@ -376,6 +381,10 @@ anchors, so either evidence link remains usable after switching reader modes.
 	the DOM and evidence payload. This is the evidence-oriented mode for
 	inspecting citation, statute, and green Tagging V2 spans.
 - **Full text**: uses stored normalized decision text with citation and green Tagging V2 occurrence highlights. Each green span corresponds to a persisted evidence row and source offsets.
+
+Opening a case shows an explicit loading status. Request failures expose a retry
+action; if the main decision loads but supporting case details are unavailable,
+the reader keeps the decision and offers a separate case-details retry.
 
 Tags are rendered as single-word, word-bounded occurrences in the decision
 text. Case citations and laws/regulations are span highlights with hover
@@ -565,6 +574,9 @@ workflow rather than a collection of disconnected cards. Loading, empty, and
 request-failure states are shown in the content area; a partial enrichment
 failure does not erase the authority summary or the evidence paths. The page
 also prevents duplicate neighborhood loading during tab activation.
+The selected-case workspace is embedded in `/data-explorer`; `/citation-pass`
+remains a separate extraction QA interface. A failed overview request provides
+a retry action without changing the selected authority.
 
 The Overview shows up to four distinctive cited authorities using the
 existing authority-signals route. Occurrence, section spread, and signal score
@@ -624,6 +636,11 @@ locations, recorded case classes, and filing tracks for the selected filing loca
 charts are bounded aggregations of structured activity-case fields; they are
 not a procedural Sankey, a measure of procedural success, or proof of judgment
 capture.
+
+The FC activity dashboard keeps a polite live status for loading, success, and
+failure, and exposes a retry action after a failed request. Retry retains its
+current filters and URL state. This dashboard reports activity records, not
+canonical judgment counts.
 
 ### Legal Themes & Statutes
 

@@ -8,7 +8,7 @@ Updated: 2026-10-03
 
 Task: Complete `GET /search/export.docx` and the active Data Explorer Download Word control using the actual analytics case-search contract.
 
-Why now: Issue #89's initial implementation does not preserve the active Data Explorer filters: the UI calls `/analytics/search/cases` with query parameters, while the export currently binds the unrelated `CaseSearchRequest` contract. There is no CSV export route in this codebase; do not add one.
+Why now: Issue #89's initial implementation did not preserve the active Data Explorer filters: the UI calls `/analytics/search/cases` with query parameters, while the export bound the unrelated `CaseSearchRequest` contract. PR #74 has since added the CSV export route and button.
 
 Owner surface: Active case-search API/UI in `backend/routes.py` and `backend/pages/data_explorer.py`, with focused API and UI contract tests.
 
@@ -18,7 +18,7 @@ Push allowed: yes
 
 Dependencies: Existing `/analytics/search/cases` and `fetch_analytics_search_cases` semantics; `backend/deidentify.py` DOCX support; no new dependency.
 
-Risk boundary: Preserve the active UI's `query,cites,government_outcome,decision_outcome,minister,judge,court,year,search_full_text,sort_by,limit` filters; paginate bounded offsets through the existing analytics service, whose per-call cap is 100; cap export at 200; do not change search behavior or invent a CSV endpoint.
+Risk boundary: Preserve the active UI's `query,cites,government_outcome,decision_outcome,minister,judge,court,year,search_full_text,sort_by,limit` filters; paginate bounded offsets through the existing analytics service, whose per-call cap is 100; cap export at 200; keep DOCX and CSV exports separate in the shared actions group.
 
 Smallest falsifiable check: focused DOCX API tests plus the Data Explorer UI contract assertion in `tests/test_api.py` and `tests/test_feature_tabs.py`.
 
@@ -28,8 +28,8 @@ Acceptance criteria:
 - DOCX contains query/filter/generated-date/count header information and a citation/title/court/date/outcome table.
 - Response uses a sanitized attachment filename and `Cache-Control: no-store`.
 - Focused route tests verify active filter forwarding, two-page 200-result cap, DOCX contents/headers/safe filename/no-store.
-- Data Explorer has a visible Download Word control next to result/status controls, builds a GET link from active search values, is handled appropriately before results, and ignores stale asynchronous search responses.
-- Do not create a CSV endpoint; none exists in this codebase.
+- Data Explorer has a visible Download Word control beside Download CSV in the shared search-actions group, builds a GET link from active search values, is handled appropriately before results, and ignores stale asynchronous search responses.
+- Preserve the existing CSV export endpoint and control from PR #74; do not conflate its behavior with the DOCX endpoint.
 - Canonical repository documentation and the relevant Swimm walkthrough are updated.
 
 Harness criteria: Focused DOCX route and UI contract checks pass; required docs paths and validation evidence are recorded.
@@ -38,12 +38,12 @@ Docs/generated references: `SYSTEM_REFERENCE.md`, `CHANGELOG.md`, `.swm/5.b49ftj
 
 Rollback/recovery: Revert only the new route, test, and associated docs/task changes; no persisted data or schema changes.
 
-Evidence: Manager reviewed the initial uncommitted implementation and confirmed both acceptance gaps: it bound `CaseSearchRequest`/`execute_search_cases` instead of the active analytics parameters/service, and no Download Word control existed. Recovery implementation accepts the active parameter names, pages offsets 0 and 100 with 100 rows per service call, caps at 200, and tests DOCX contents/response safety and UI contract. Manager review caught and corrected a status-marker mismatch that would have prevented control insertion. An independent read-only review found a stale-response race; the Data Explorer now ignores earlier asynchronous case-search results. Follow-up source verification found the control was being injected by the route wrapper rather than rendered by the owning page module; the anchor and controller now live in `backend/pages/data_explorer.py`, while the route helper delegates to that page builder. The UI test checks the rendered adjacent hidden anchor, exact `searchValues()` keys, visibility conditions, and generation guard. `python -m py_compile backend/routes.py backend/pages/data_explorer.py tests/test_api.py tests/test_feature_tabs.py`, `git diff --check`, and `node --check -` on the generated page's export-control script passed. The page HTML was rendered in memory and statically checked for the adjacent control. Compilation emitted a `SyntaxWarning` for an unchanged `\s` sequence at line 8 of the existing HTML literal. Focused pytest is blocked (`No module named pytest`); `python scripts/check_generated_docs.py` is blocked because FastAPI and SQLAlchemy are absent. Generated docs were not hand-edited. Task remains blocked because runtime tests and generated-doc CI validation could not run.
+Evidence: The route preserves active analytics filters, exports at most 200 cases, and has DOCX response-safety/content tests. The Word link is now statically rendered in the same case-search `.search-actions` group beside PR #74's CSV button, with distinct IDs and independent handlers. Latest `main` (`109a9f3`) was merged; conflict resolution retained both export controls and both routes. API, schema, and script-catalog references were regenerated with their generators, then `python scripts/check_generated_docs.py` passed. The three focused API/UI tests passed. The configured CI suite ran 1,038 passed, 3 failed, 1 skipped, 1 xfailed, and 3 intentionally deselected; the only failures require unavailable Hugging Face model downloads or OpenAI tokenizer network downloads. Python compilation passed with a pre-existing `SyntaxWarning` for `\s` in the page HTML literal. Generated references were not manually edited.
 
 Files changed: `backend/routes.py`, `backend/pages/data_explorer.py`, `tests/test_api.py`, `tests/test_feature_tabs.py`, `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/5.b49ftjal.sw.md`, `.github/project-manager/tasks/search-export-docx.md`, `.github/project-manager/tasks/issue-89-search-export-control-recovery.md`.
 Delegated work: Managed worker owned the bounded route/UI/test recovery slice. A read-only review flagged the late-response race; manager verified the current search-generation guard and RAG-mode hiding. Commit/push: `eadcfc5`.
-Focused validation: `python -m pytest -q tests/test_api.py::test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages tests/test_feature_tabs.py::test_data_explorer_word_export_uses_active_case_search_filters` — blocked (`No module named pytest`). `python -m py_compile backend/routes.py backend/pages/data_explorer.py tests/test_api.py tests/test_feature_tabs.py && git diff --check` — passed. The generated Data Explorer HTML was rendered in memory, its direct-page anchor adjacency was asserted, and the export-control script passed `node --check -`. `python scripts/check_generated_docs.py` — blocked (FastAPI and SQLAlchemy absent).
-Residual risk: Runtime route/test behavior, browser visibility, stale-response behavior, and generated API/schema docs are not verified in this dependency-free environment. The rendered source, status adjacency, state conditions, and filter-key contract are statically checked; no broad suite was run.
+Focused validation: `python -m pytest -q tests/test_api.py::test_case_search_ui_has_download_action_using_current_search_values tests/test_api.py::test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages tests/test_feature_tabs.py::test_data_explorer_word_export_shares_search_actions_with_csv` — 3 passed. The exact CI command reported 1,038 passed and 3 offline external-resource failures (plus 1 skipped, 1 xfailed, and 3 configured deselections). `python scripts/check_generated_docs.py` passed after running all three reference generators. `python -m py_compile backend/routes.py backend/pages/data_explorer.py tests/test_api.py tests/test_feature_tabs.py` passed.
+Residual risk: Three CI-suite tests still require Hugging Face or OpenAI tokenizer downloads that this environment cannot access; full CI therefore does not pass here. Browser behavior was not exercised.
 Next bounded task: Re-run the focused API/UI tests and documentation-sync CI check in a dependency-enabled project environment, then review any generated-reference diff.
 
 ## Hypothesis
@@ -81,4 +81,4 @@ Validation: `python -m py_compile backend/routes.py backend/pages/data_explorer.
 
 Residual risk: API/test runtime behavior, rendered/browser control behavior, and generated OpenAPI/schema output have not been verified. The changes are committed and pushed as `eadcfc5`.
 
-Next recommended task: Run the exact focused tests and documentation-sync CI check in a dependency-enabled environment; do not add a CSV endpoint.
+Next recommended task: Re-run the CI suite in a network-enabled environment to validate the three model/tokenizer-dependent tests.

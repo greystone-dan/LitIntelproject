@@ -9,6 +9,13 @@
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome
   columns and query/filter/date/count context; the response is no-store.
+- Added **Download CSV** to Case Search and `GET /search/export.csv`, carrying
+	the active query, filters, and sort order into a maximum 1,000-row export
+	with stable columns, UTF-8 BOM, spreadsheet formula escaping, and active
+	Data Explorer case links. Focused export tests (3) and feature-tab tests (51)
+	passed; generated documentation is current. The configured CI command ran
+	982 passed, 3 failed, and 3 intentionally deselected; the three failures
+	require unavailable Hugging Face/OpenAI tokenizer downloads.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

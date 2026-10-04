@@ -98,6 +98,15 @@ or the same pinpoint text already exposed in citation rows, and counts distinct
 other citing cases. This paragraph cue does not recompute citation offsets;
 without a pinpoint that matches a formatted paragraph, the paragraph remains
 unmarked.
+The source reader also offers a collapsed **Most cited paragraphs** panel,
+hidden when no formatted paragraphs have incoming pinpoint counts. It reuses
+the same shading data without another query, showing up to five paragraphs
+ranked by distinct other citing cases (numeric paragraph order breaks ties),
+with counts, short excerpts, and keyboard-operable jumps. Jumps switch to
+normalized formatted text and scroll/focus the source paragraph, not linked
+context; backend offsets remain unchanged. The panel and extracted case summary
+share formatter anchors keyed by backend block starts, so switching reader
+modes preserves both sets of evidence links without replacing their IDs.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph
@@ -246,9 +255,11 @@ evidence spans, latency/error monitoring, and browser coverage.
 
 Case Search supports query, title, court, jurisdiction, dates, source details, citation variants, party/minister presets, cited authority, legal tags, language, processing status, cited/citing data, decision outcome, government outcome, judge, and full-text opt-in matching. Court abbreviations `FC`, `FCA`, and `SCC` expand to canonical court names for filtering.
 
-`GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, within the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable; this change did not add a CSV export route.
+`GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, beside Download CSV in the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable.
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
+
+Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
 
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
 
@@ -1193,6 +1204,16 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Proposed ID/IAD Decision Coverage
+
+ID/IAD tribunal decisions are not currently described as an implemented
+collection here. A documentation-only proposal for CBSA-hearing research,
+including candidate sources and unverified licence/access status, ingestion and
+schema touchpoints, outcome/Minister analytics, affected filters, and a phased
+pilot, is in [docs/reports/id-iad-coverage-design.md](docs/reports/id-iad-coverage-design.md).
+No source access, reuse permission, or corpus completeness is assumed by that
+design.
+
 | Table | Purpose |
 | --- | --- |
 | `cases` | Canonical case record: identity, court/date/citation/docket, text, sanitized source HTML, metadata, provenance summary, hashes, status, case embedding |
@@ -1284,6 +1305,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 
 - `GET /analytics/search/cases`: filtered active Case Search API.
 - `GET /search/export.docx`: bounded DOCX export of the active Data Explorer search (up to 200 cases).
+- `GET /search/export.csv`: bounded (maximum 1,000 rows) CSV export using the active Case Search query and filters.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.

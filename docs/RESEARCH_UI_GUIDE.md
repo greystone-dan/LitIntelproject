@@ -246,6 +246,18 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
 
+Above the source decision, **Most cited paragraphs** is collapsed by default
+and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it
+with Enter or Space to see up to five paragraphs, ranked by distinct other
+citing cases in this library; ties use ascending paragraph number. Each entry
+shows the count, a short excerpt, and a jump link (Tab, then Enter). A jump
+switches from chunk/plain text to normalized formatted text and focuses the
+source paragraph, leaving linked context separate. These are the same counts
+as paragraph shading, not a second query or a finding about citation treatment.
+Opening another case, a failed load, or closing the reader clears the panel.
+The panel and **Extracted case summary** use the same backend block-start
+anchors, so either evidence link remains usable after switching reader modes.
+
 ### Reader Modes
 
 - **Chunk breakdown**: displays stored decision chunks as a continuous reading

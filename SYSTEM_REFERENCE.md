@@ -2089,11 +2089,12 @@ serves a restrictive `robots.txt`. Those measures reduce indexing signals; they
 do not create authentication or confidentiality.
 
 The code has a password/cookie access design using a timestamped HMAC signature,
-HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. However,
-the current middleware does not enforce that design. Treat this as a security
-gap, not a completed feature. Until enforced and tested, do not place sensitive
-or restricted research material behind the Cloudflare tunnel on the assumption
-that the login route protects it.
+HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. The gate
+is disabled when `CASELIBRARY_ACCESS_PASSWORD` is unset or empty; when enabled,
+the middleware enforces the cookie check for protected routes. No-index headers
+are not authentication. Before exposing restricted material, use a separate
+strong session secret and verify the surrounding network perimeter and deployment
+configuration.
 
 ### Deployment Rules
 
@@ -2227,6 +2228,7 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `SYSTEM_REFERENCE.md` | Canonical current system handbook |
 | `WORK_HISTORY.md` | Generated chronological work ledger and five-minute-capped session-time estimate |
 | `README.md` | Concise repository entrypoint and quick-start guide |
+| `docs/ARCHITECTURE.md` | Contributor-facing architecture diagram, backend file map, schema summary, and source boundaries |
 | `DOCS_INDEX.md` | Document authority map and documentation update checklist |
 | `docs/API_REFERENCE.generated.md` | Generated FastAPI route and contract appendix |
 | `docs/SCHEMA_REFERENCE.generated.md` | Generated ORM schema reference and entity relationship diagram |
@@ -6661,7 +6663,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | --- | --- | --- |
 | `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` or `DATABASE_URL` | Canonical database routes and write scripts | Prefer complete `POSTGRES_*` local configuration; see precedence above. |
 | `OPENAI_API_KEY` | OpenAI embedding, research-answer, and OpenAI audit/adjudication paths | Not required for deterministic extraction, tag, chunk, or most local read paths. |
-| `CASELIBRARY_ACCESS_PASSWORD` plus independent `CASELIBRARY_SESSION_SECRET` | Intended private-site login | Current middleware does not enforce this login design; do not treat merely setting these variables as access protection. |
+| `CASELIBRARY_ACCESS_PASSWORD` plus a separately configured `CASELIBRARY_SESSION_SECRET` | Optional private-site login | The gate is off by default and enforced when the password is set. Use a separate signing secret and a verified perimeter policy where needed. |
 
 ## Application And Database Settings
 
@@ -6681,8 +6683,8 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
-| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when it is unset. |
+| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 

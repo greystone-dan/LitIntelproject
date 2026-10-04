@@ -85,7 +85,8 @@ python -m pytest -q \
 ```
 
 Those three tests are deliberately deselected in CI: two require a local
-PostgreSQL service, and one depends on an Ollama-compatible client setup.
+PostgreSQL service, and one expects an Ollama client configuration that is not
+available in a clean test environment and remains under investigation.
 Generated API, schema, and script documentation is checked with:
 
 ```bash

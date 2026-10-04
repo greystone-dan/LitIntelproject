@@ -189,6 +189,7 @@ test checks that these paths continue to exist.
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
+| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
 | `backend/pages/__init__.py` | HTML page-builder package |

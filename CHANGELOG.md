@@ -11,6 +11,12 @@
   dates. The active Data Explorer reader adds a cautious “may be affected”
   banner; no memo output or database schema changes. Extension guidance is in
   [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
+- Moved the experimental research, citation-intelligence, contextual-authority,
+  and discussion-unit prompts into header-versioned text files loaded through a
+  shared backend registry. Exact prompt wording is guarded by golden snapshots.
+  `/research` now returns additive `prompt_version` metadata; the bounded
+  discussion-unit scripts include their prompt versions in request/output
+  artifacts without changing model-facing prompt text.
 - Added the centralized `ENHANCED_AI_MODE` gate (`off` by default; `local` and
   `hosted` require explicit opt-in). API search defaults to lexical; off mode
   downgrades explicit semantic/hybrid requests without embedding calls and

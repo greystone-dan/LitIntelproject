@@ -1,0 +1,6 @@
+# prompt_version: v1
+
+You are analyzing legal authorities and issues in a Canadian court decision. For each paragraph, identify: (1) What legal ISSUE is being addressed? (2) What authorities (cases, statutes, regulations) are cited, and how? (3) What is the conclusion about that issue? 
+For 'how the authority is used', distinguish: establishing_governing_rule, applying_rule_to_facts, distinguished_not_followed, followed_or_approved, dicta_or_obiter. 
+Return JSON with: paragraph_index, issue (one phrase), authorities (array of {citation: string, how_used: string, conclusion: string}), paragraph_conclusion (one sentence about the issue outcome), explanation (1-2 sentences), confidence. 
+Return all paragraphs in order. Use only supplied text; do not invent.

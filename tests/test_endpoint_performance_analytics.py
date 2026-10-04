@@ -2,6 +2,7 @@
 
 The active search statement is PostgreSQL text SQL. Its fixed SUBSTRING syntax
 and empty-query label are adapted for SQLite; no pagination/ranking is changed.
+The court:FC / NOT court:FC operator predicates execute without adaptation.
 
 BEFORE (5/50 related rows), measured before editing analytics_service:
 judge list 6/51; judge detail 8/53; inline detail 8/53; issue brief 2/2;
@@ -170,7 +171,8 @@ def cohort(request, monkeypatch):
 
     def sqlite_empty_label(query, **kwargs):
         # Empty-query branches are all false in PG, but SQLite cannot parse
-        # the unused regex operators. Nonempty queries are NOT simulated here.
+        # the unused regex operators. Nonempty queries are NOT simulated here;
+        # operator search replaces this label with its own bound value.
         return ("'Metadata'", {}) if not query else original_label(query, **kwargs)
 
     monkeypatch.setattr(service, "matched_on_sql", sqlite_empty_label)
@@ -363,8 +365,10 @@ def test_fc_null_year_and_missing_json(cohort):
     assert "Unknown" in result["x_values"]
 
 
-def search_oracle(data, limit, offset):
-    rows = sorted(data["cases"], key=lambda row: (row["date"], row["id"]), reverse=True)
+def search_oracle(data, limit, offset, *, court=None,
+                  query_echo="(empty query)", matched_on="Metadata"):
+    rows = [row for row in data["cases"] if court is None or row["court"] == court]
+    rows.sort(key=lambda row: (row["date"], row["id"]), reverse=True)
     results = []
     for row in rows[offset:offset + limit]:
         citations = [c for c in data["citations"] if c["source_case_id"] == row["id"]]
@@ -381,9 +385,9 @@ def search_oracle(data, limit, offset):
             cited_by_cases=len({c["source_case_id"] for c in data["citations"]
                                if c["target_case_id"] == row["id"] and
                                c["source_case_id"] != row["id"]}),
-            matched_on="Metadata",
+            matched_on=matched_on,
         ))
-    return wire(dict(results=results, limit=limit, offset=offset))
+    return wire(dict(results=results, limit=limit, offset=offset, query_echo=query_echo))
 
 
 @pytest.mark.parametrize("limit,offset", [(3, 1), (100, 0)])
@@ -393,6 +397,22 @@ def test_active_search_already_bounded(cohort, limit, offset):
     assert result == search_oracle(cohort, limit, offset)
     assert counter.count == 1
     assert "LIMIT" in counter.statements[0] and "OFFSET" in counter.statements[0]
+    assert_narrow(counter)
+
+
+@pytest.mark.parametrize("query,court,echo", [
+    ("court:FC", "FC", "filters: court: FC"),
+    ("NOT court:FC", "FCA", 'meaning: NOT (court: "FC") | filters: court: FC'),
+])
+@pytest.mark.parametrize("limit,offset", [(3, 1), (100, 0)])
+def test_active_operator_search_already_bounded(cohort, query, court, echo, limit, offset):
+    result, counter = invoke(cohort, service.fetch_analytics_search_cases,
+                             query=query, limit=limit, offset=offset)
+    assert result == search_oracle(cohort, limit, offset, court=court,
+                                  query_echo=echo, matched_on="Query operators")
+    assert counter.count == 1
+    assert "LIMIT" in counter.statements[0] and "OFFSET" in counter.statements[0]
+    assert "UPPER(c.court) IN ('FC', 'FEDERAL COURT')" in counter.statements[0]
     assert_narrow(counter)
 
 

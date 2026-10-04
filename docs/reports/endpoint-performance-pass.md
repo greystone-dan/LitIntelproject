@@ -39,6 +39,21 @@ cache requests are measured independently of warm hits.
 The active analytics search uses PostgreSQL textual SQL: its **empty-query**
 fixture adapts SUBSTRING syntax and the empty-query label for SQLite. This
 checks limits/projection/JSON, not native PostgreSQL ranking or query plans.
+After merging PR #127's query syntax, the independent search oracle includes
+the real `query_echo` field (including `(empty query)`); it does not discard
+response fields. Empty search and `court:FC` / `NOT court:FC` still execute
+exactly **1 / 1** statements with 5 / 50 related rows, at both tested pages
+(`limit=3, offset=1` and `limit=100, offset=0`). These court predicates execute
+without adaptation; only the existing SUBSTRING adapter is needed for operator
+search, which supplies its own bound match label. Other PostgreSQL operators
+remain covered by SQL-contract tests, not claimed as native SQLite execution.
+The single SELECT retains its projected columns and real SQL LIMIT/OFFSET.
+Its correlated citation COUNT/COUNT(DISTINCT) subqueries are server-side work
+within that statement, not separate client round trips: mentions count all
+source occurrences, authorities deduplicate normalized text (falling back to
+citation text), resolved targets deduplicate non-null target IDs, and inbound
+cases deduplicate source IDs while excluding self-citations. Constant statement
+counts do not establish constant database work or latency.
 Other measured SQL executes natively on SQLite without PostgreSQL-function
 emulation. FC summary source was unchanged: its before=after numbers are a
 current-code measurement, not a historical speedup.
@@ -235,3 +250,21 @@ Parent-session automated validation: CodeQL analyzed Python and found **0 alerts
 The automated code-review service could not run because its configured model was
 unavailable; its empty comment list is not evidence of a completed review.
 The parent secret-scanning tool found no secrets in the delivered changed files.
+
+### PR #144 merged-main validation
+
+Merge `622d21d` retains both the performance branch and main `38f9e3b`.
+The four empty-search failures reproduced as an added `query_echo` field, not
+increased statement counts. Updating the independent oracle and adding eight
+court-operator cases gives **12 passed**; the analytics performance, parser and
+search-matching modules together give **365 passed, 2 warnings in 7.61s**.
+Regenerating the script catalog fixes merged drift; all **3 references current**.
+
+The guarded full suite used exactly the three CI deselections and CI coverage
+options: **1877 passed, 4 failed, 1 skipped, 3 deselected, 1 xfailed, 7 warnings
+in 374.96s**, backend coverage **79%**. The existing model/tokenizer tests listed
+above fail because Hugging Face and tokenizer assets are uncached and their
+download hosts cannot resolve. The additional failure is
+`tests/test_paragraph_similarity.py::test_active_reader_feature_and_mock_browser`:
+headless Chromium exceeds its 30-second timeout. No additional tests were
+deselected or unrelated failures repaired; full-suite acceptance remains blocked.

@@ -421,8 +421,16 @@ A bounded non-XML dry run now has reviewed source snapshots for the official Jus
 ### Live Analysis
 
 `/live-analysis` is a separate, ephemeral document-reading workflow. It accepts
-`.docx` and text-based `.pdf` files up to 10 MB, extracts text in memory, and
-returns source text plus deterministic case-citation and statute-reference rows.
+`.docx` and text-based `.pdf` files, extracts text in memory, and returns source
+text plus deterministic case-citation and statute-reference rows. Upload reads
+are bounded in chunks; shared defaults are 10 MiB per upload, 100 MiB of
+expanded DOCX members, 2,000 DOCX archive entries, 500 PDF pages, and 5,000,000
+extracted characters. De-identification also caps pasted text at 1,000,000
+characters. `backend/resource_limits.py` owns these defaults and their
+`LITINTEL_MAX_UPLOAD_BYTES`, `LITINTEL_MAX_DOCX_UNCOMPRESSED_BYTES`,
+`LITINTEL_MAX_DOCX_ARCHIVE_ENTRIES`, `LITINTEL_MAX_PDF_PAGES`,
+`LITINTEL_MAX_EXTRACTED_TEXT_CHARS`, and `LITINTEL_MAX_PASTED_TEXT_CHARS`
+positive-integer environment overrides.
 Rows retain character offsets, paragraph locations, and PDF page numbers where
 applicable, and resolved statute rows now include authority document and section
 details when the local match exists. The UI presents a temporary Case Reader
@@ -435,13 +443,16 @@ case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
 Local resolution intentionally does not call external services. Successful
 responses include the extracted source text and set `Cache-Control: no-store`
-and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
-after the multipart file is read, and no expanded-DOCX, PDF page-count, or
-pasted-text resource budget is enforced in these paths. Multipart temporary
-spooling and deployment-level request logging/retention are outside the
-application persistence boundary. Scanned PDFs are outside the prototype
-because they require OCR. The scoped privacy/security review, including
-de-identification routes and residual risks, is
+and `Pragma: no-cache`; this is not access control. Multipart parsing can still
+spool data before route-level chunked reads begin; application limits are not
+proxy/server request-body limits. Upload or parser-cap violations return HTTP
+413 with a limit-specific explanation; invalid or unsupported documents retain
+validation errors. Memo Citation Check uses the same upload and parser limits,
+as do de-identification uploads and pasted text. Deployment-level request
+logging/retention remains outside the application persistence boundary. Scanned
+PDFs are outside the prototype because they require OCR. Remaining boundaries
+and de-identification coverage are recorded in the scoped privacy/security
+review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
@@ -1356,6 +1367,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /live-analysis/analyze`: in-memory DOCX/text-PDF extraction.
 - `POST /live-analysis/resolve`: separate batched local resolution for neutral,
   named, and short-form case references.
+- `POST /memo-citation-check`: in-memory memo analysis with the same upload and
+  parser resource limits.
 
 ### Research And Analytics APIs
 

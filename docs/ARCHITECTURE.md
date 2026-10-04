@@ -184,6 +184,8 @@ test checks that these paths continue to exist.
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/outcome_alert_routes.py` | Read-only API and page routes for saved-search outcome alerts |
+| `backend/outcome_alerts.py` | Saved-search outcome and authority trend calculations |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
@@ -204,6 +206,7 @@ test checks that these paths continue to exist.
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
+| `backend/pages/saved_search_alerts.py` | Plain saved-search outcome-alert page |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |

@@ -5,6 +5,19 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added outcome-aware saved-search alerts: JSON and plain HTML routes expose
+  recorded matches since an optional timestamp with stored outcomes and
+  match-type reasons. Authority watches start from resolved case citations in
+  the matches and compare distinct citing decisions over calendar 12-month
+  windows, returning counts and denominators, suppressing proportions when
+  either denominator is below 8, and marking increases of at least 15 percentage
+  points. Added a database-free JSON builder and Windows
+  Task Scheduler guidance. Three fixture/CLI checks were directly invoked, and Python
+  compilation and CLI help passed. `pytest` is unavailable in this environment;
+  generated API/schema checks could not import `fastapi`/`sqlalchemy`, so the API
+  reference refresh remains blocked and is recorded in the task file.
+
+
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

@@ -420,6 +420,28 @@ number of saved searches in read-only mode by default; `--apply` explicitly
 stores newly matching case alerts. Empty saved-search storage does not change
 normal Case Search behavior.
 
+`GET /saved-searches/{search_id}/alerts?since=<ISO datetime>` returns saved
+matches discovered after the optional timestamp with their stored outcome and
+a one-line reason based on `SearchAlert.match_type` (and its relevance score
+when present). The route does not advance the saved search's check timestamp.
+`GET /saved-searches/{search_id}/alerts-ui` is a plain HTML view of the same
+JSON response. The authority watch starts from resolved case targets cited by
+those matches, then counts distinct corpus decisions citing each target in the
+latest and preceding calendar 12-month windows. A decision is classified
+"against the Minister" when its stored `CaseOutcome.government_outcome` is
+`lost`; each period returns that count and its all-citing-decisions denominator.
+Proportions are descriptive, not causal, and are omitted if either denominator
+is below 8. For adequately sized windows the response also includes the signed
+percentage-point change and marks `declining` when the Minister-loss share rose
+by at least 15 points.
+
+`scripts/build_outcome_alerts.py` applies the same pure calculation offline to
+a JSON input containing a saved search and its recorded alert rows, case
+records with resolved citation targets, and outcomes. It reads no database or
+credentials. `docs/operators/schedule_outcome_alerts.md` documents Windows Task
+Scheduler setup; the scheduled input must be prepared separately, and this
+script does not discover or export live search results.
+
 ### Citation, Statute, And Metadata Processing
 
 `backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.

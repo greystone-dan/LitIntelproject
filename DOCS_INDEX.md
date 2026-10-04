@@ -35,6 +35,9 @@ Primary explainer docs:
 7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
    review for live document analysis and de-identification; current route
    behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
+8. `docs/BACKGROUND_JOBS.md` documents the separate, disabled-by-default interval
+   runner, JSON config, DB-free locks, scheduling, cleanup and exit codes. It
+   does not change web startup or replace the overnight runbook.
 
 ## Active Vs Legacy Locations
 
@@ -108,6 +111,12 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/overruling-risk.md` documents the provisional, seed-based
+  overruling-risk indicator, assignment semantics, limits, and extension steps.
+- `docs/reports/local-query-embeddings.md` documents the opt-in query embedding
+  provider, query-data locality signal, and vector-dimension compatibility
+  boundary; current behavior remains authoritative in code and
+  `SYSTEM_REFERENCE.md`.
 
 Historical context (read with caution):
 

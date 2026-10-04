@@ -214,6 +214,14 @@ source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
+The base requirements include sentence-transformers because the application
+test suite exercises local semantic search. Automatic spaCy name detection is
+optional; install its package and model only when using that feature:
+
+```bash
+pip install -r requirements.txt -r requirements-ml.txt
+```
+
 ### Optional request audit log
 
 Auditing is **off by default**. To enable it, set `CASELIBRARY_AUDIT_LOG` to

@@ -15,6 +15,7 @@ from fastapi.testclient import TestClient
 from backend import analytics_service, routes, search_service
 from backend.models import CaseSearchRequest
 from backend.search_matching import citation_query, identity_sql, identity_tier, match_details, matched_on
+from backend.query_syntax import parse_query
 
 
 def case(title="Baker v. Canada", **overrides):
@@ -99,6 +100,12 @@ class SearchDB:
 		return self.rows
 
 
+@pytest.fixture(autouse=True)
+def _enable_hosted_search_mode(monkeypatch):
+	"""Keep retrieval-mode characterization tests explicit about opt-in."""
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+
+
 def test_case_search_ranks_identity_before_score_and_then_paginates():
 	# Party > title > body > fallback, even with opposing legacy scores.
 	rows = [(case("Bakery v Canada", id=3, citation="2020 SCC 3"), 1.0),
@@ -141,7 +148,8 @@ def test_topic_phrase_keeps_existing_python_score_order():
 
 
 @pytest.mark.parametrize("mode", ["semantic", "hybrid", "metadata"])
-def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode):
+def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, monkeypatch):
+	monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
 	party = case(id=1, citation="2020 SCC 1")
 	other = case("Bakery v Canada", id=2, citation="2020 SCC 2")
 	rows = [(other, .01, 1), (party, .9, .01)] if mode != "metadata" else [(other, 1), (party, .01)]
@@ -206,6 +214,61 @@ def test_active_http_api_exposes_label_and_preserves_paging():
 	assert response.json()["results"][0]["matched_on"] == "Party name"
 	assert (response.json()["limit"], response.json()["offset"]) == (1, 2)
 	assert db.params["match_tokens"] == "baker"
+
+
+@pytest.mark.parametrize("year_range", ["2020..2024", "2020-2024"])
+def test_operator_search_builds_parameterized_boolean_filters_and_echo(year_range):
+	query = (
+		f'Vavilov AND court:SCC AND year:{year_range} AND '
+		'judge:"Justice Zinn" AND cites:"2019 SCC 65" AND outcome:allowed'
+	)
+	db = AnalyticsDB()
+	result = analytics_service.fetch_analytics_search_cases(db, query=query)
+
+	assert query not in db.sql
+	assert "c.court ILIKE" in db.sql
+	assert "reader_extracted'->>'judge' ILIKE" in db.sql
+	assert "SUBSTRING(COALESCE" in db.sql and "BETWEEN" in db.sql
+	assert "EXISTS (SELECT 1 FROM citations cited" in db.sql
+	assert "decision outcome" in db.sql and "LOWER(:operator_query_" in db.sql
+	assert " AND " in db.sql
+	assert ":query_match_label AS matched_on" in db.sql
+	assert db.params["query_match_label"] == "Query operators"
+	assert "%Vavilov%" in db.params.values()
+	assert "%SCC%" in db.params.values()
+	assert "%Justice Zinn%" in db.params.values()
+	assert "%2019 SCC 65%" in db.params.values()
+	assert 2020 in db.params.values() and 2024 in db.params.values()
+	assert "allowed" in db.params.values()
+	assert "court: SCC" in result["query_echo"]
+
+
+def test_operator_sql_keeps_hostile_values_in_bind_parameters():
+	query = 'cites:"%\' OR TRUE --"'
+	db = AnalyticsDB()
+
+	analytics_service.fetch_analytics_search_cases(db, query=query)
+
+	assert query not in db.sql
+	assert "%%' OR TRUE --%" in db.params.values()
+	assert "OR TRUE" not in db.sql
+
+
+@pytest.mark.parametrize(
+	("query", "uses_operators"),
+	[
+		("procedural fairness", False),
+		("O'Connor", False),
+		("custom:value", False),
+		('"procedural fairness"', True),
+		("fairness AND delay", True),
+		("-delay", True),
+		("court:SCC", True),
+		("year:invalid", True),
+	],
+)
+def test_plain_query_detection_preserves_legacy_multiword_search(query, uses_operators):
+	assert analytics_service._query_uses_operators(parse_query(query)) is uses_operators
 
 
 @pytest.mark.parametrize("query", ["[1999] 2 SCR 817", "[1999] 2 S.C.R. 817", "2019 SCC 65", "Baker%' OR TRUE --"])

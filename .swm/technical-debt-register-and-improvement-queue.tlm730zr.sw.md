@@ -36,6 +36,7 @@ is measured again and the acceptance check passes.
 | P1 | Documentation authority is distributed across overlapping Markdown | Documentation / governance | Root docs, `docs/`, `.swm/`, tasks, and history have different freshness and roles | Complete the authority map before retiring duplicates |
 | P1 | Core subset HTML reacquisition required iframe content handling | Ingestion / source acquisition | **Initial canary addressed:** five core cases now have validated snapshots; two fell back below mapping confidence threshold | Expand only with bounded preflight and confidence reporting |
 | P1 | FCA/SCC HTML structure differs from FC | Ingestion / structural mapping | Cross-court canary found FCA clean, FC variable, and SCC lower whole-document confidence despite strong body block mapping | Add source-aware body scoping and paragraph rules |
+| P2 | Minimal offline test setup can be mistaken for an irrecoverable validation blocker | Project-manager validation | Base environment omitted pinned pytest/runtime dependencies; an isolated lightweight environment later passed focused fake-only tests and generated-doc checks | Revisit automation only if repeated; see [the isolated test-environment recommendation](../.github/project-manager/improvements/2026-10-04-isolated-focused-test-environment.md) |
 
 ## Deferred Opportunities
 

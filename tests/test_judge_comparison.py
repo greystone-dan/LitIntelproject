@@ -4,15 +4,25 @@ import json
 
 import pytest
 from sqlalchemy import create_engine, event, text
+from sqlalchemy.pool import StaticPool
 from sqlalchemy.orm import Session
 
-from backend.analytics_service import fetch_judge_comparison, fetch_judge_profile_by_slug
+from backend import analytics_service, judge_issue_record
+from backend.analytics_service import (
+	fetch_judge_comparison,
+	fetch_judge_profile_by_slug,
+	fetch_judge_profile_issues,
+)
 from backend.database import JudgeProfile
 
 
 @pytest.fixture
 def db():
-	engine = create_engine("sqlite://")
+	engine = create_engine(
+		"sqlite://",
+		connect_args={"check_same_thread": False},
+		poolclass=StaticPool,
+	)
 	with engine.begin() as connection:
 		for ddl in (
 			"CREATE TABLE judge_profiles (id INTEGER PRIMARY KEY, slug TEXT, display_name TEXT, "
@@ -191,6 +201,124 @@ def test_pending_changes_are_not_autoflushed(db):
 	}
 	assert pending in db.new
 	assert pending.id is None
+
+
+def test_judge_issue_aggregation_remains_reexported_from_analytics_service():
+	assert analytics_service.fetch_judge_profile_issues is judge_issue_record.fetch_judge_profile_issues
+	assert analytics_service._stored_issue_labels is judge_issue_record._stored_issue_labels
+	assert analytics_service._issue_outcome_category is judge_issue_record._issue_outcome_category
+	assert analytics_service._issue_outcome_summary is judge_issue_record._issue_outcome_summary
+	assert analytics_service._JUDGE_ISSUE_MINIMUM_DECISIONS == judge_issue_record._JUDGE_ISSUE_MINIMUM_DECISIONS
+	assert analytics_service.fetch_judge_profile_issues.__module__ == "backend.judge_issue_record"
+
+
+def test_judge_issue_outcomes_threshold_mapping_and_federal_court_baseline(db):
+	db.execute(text("UPDATE cases SET issues = '[]'"))
+	outcomes = {
+		1: "won", 2: "lost", 3: "mixed", 4: None, 5: "undetermined",
+		6: "unexpected", 7: "won",
+	}
+	for case_id, outcome in outcomes.items():
+		db.execute(text(
+			"UPDATE cases SET issues = :issues, metadata_json = :metadata WHERE id = :id"
+		), {
+			"id": case_id,
+			"issues": json.dumps(["  Procedural   FAIRNESS ", "procedural fairness"]),
+			"metadata": json.dumps({"reader_extracted": {
+				"government outcome": outcome,
+				"decision outcome": "allowed",
+			}}),
+		})
+	for case_id, outcome in ((15, "lost"), (16, "mixed"), (17, None)):
+		db.execute(text(
+			"INSERT INTO cases VALUES (:id, '2022-01-01', :issues, :metadata, :citation, :title, 'FC')"
+		), {
+			"id": case_id,
+			"issues": json.dumps(["procedural fairness"]),
+			"metadata": json.dumps({"reader_extracted": {"government outcome": outcome}}),
+			"citation": f"2022 FC {case_id}",
+			"title": f"Linked decision {case_id}",
+		})
+		db.execute(text(
+			"INSERT INTO case_judge_profiles (case_id, judge_profile_id, raw_name) "
+			"VALUES (:id, 1, 'Judge A')"
+		), {"id": case_id})
+
+	# Nine distinct decisions remain hidden, including duplicate issue occurrences.
+	for case_id in range(40, 49):
+		db.execute(text(
+			"INSERT INTO cases VALUES (:id, '2022-01-01', :issues, '{}', :citation, :title, 'FC')"
+		), {
+			"id": case_id,
+			"issues": json.dumps(["hidden issue", "hidden issue"]),
+			"citation": f"2022 FC {case_id}",
+			"title": f"Hidden decision {case_id}",
+		})
+		db.execute(text(
+			"INSERT INTO case_judge_profiles (case_id, judge_profile_id, raw_name) "
+			"VALUES (:id, 1, 'Judge A')"
+		), {"id": case_id})
+
+	for case_id in range(20, 30):
+		db.execute(text(
+			"INSERT INTO cases VALUES (:id, '2022-01-01', :issues, :metadata, :citation, :title, 'Federal Court')"
+		), {
+			"id": case_id,
+			"issues": json.dumps(["PROCEDURAL FAIRNESS"]),
+			"metadata": json.dumps({"reader_extracted": {
+				"government outcome": ("won", "lost", "mixed", None, "undetermined")[case_id % 5],
+			}}),
+			"citation": f"2022 FC {case_id}",
+			"title": f"Baseline decision {case_id}",
+		})
+	db.execute(text(
+		"INSERT INTO cases VALUES (101, '2022-01-01', :issues, :metadata, '2022 FCA 1', 'Appeal', "
+		"'Federal Court of Appeal')"
+	), {
+		"issues": json.dumps(["procedural fairness"]),
+		"metadata": json.dumps({"reader_extracted": {"government outcome": "won"}}),
+	})
+
+	result = fetch_judge_profile_issues(db, " judge-a ")
+	assert result["status"] == "ok"
+	assert result["profile"]["slug"] == "judge-a"
+	assert result["hidden_issue_count"] == 1
+	assert [row["issue"] for row in result["issues"]] == ["procedural fairness"]
+	row = result["issues"][0]
+	assert row["judge"]["decisions"] == {"count": 10, "denominator": 19}
+	assert row["judge"]["outcomes"] == {
+		"minister_win": {"count": 2, "denominator": 10, "percent": 20.0},
+		"applicant_win": {"count": 2, "denominator": 10, "percent": 20.0},
+		"other": {"count": 2, "denominator": 10, "percent": 20.0},
+		"unclassified": {"count": 4, "denominator": 10, "percent": 40.0},
+	}
+	baseline = row["federal_court_baseline"]
+	assert baseline["decisions"] == {"count": 20, "denominator": 36}
+	assert baseline["outcomes"] == {
+		"minister_win": {"count": 4, "denominator": 20, "percent": 20.0},
+		"applicant_win": {"count": 4, "denominator": 20, "percent": 20.0},
+		"other": {"count": 4, "denominator": 20, "percent": 20.0},
+		"unclassified": {"count": 8, "denominator": 20, "percent": 40.0},
+	}
+	assert result["metadata"]["outcome_source"] == (
+		"cases.metadata_json.reader_extracted.government outcome"
+	)
+	assert "ranking" in result["metadata"]["interpretation"]
+
+
+def test_judge_issue_route_unknown_canonical_judge_contract(db):
+	from fastapi import FastAPI
+	from fastapi.testclient import TestClient
+	from backend import routes
+
+	app = FastAPI()
+	app.include_router(routes.router)
+	app.dependency_overrides[routes.get_db] = lambda: db
+	with TestClient(app) as client:
+		unknown = client.get("/api/judge-profiles/not-a-canonical-judge/issues")
+		assert unknown.status_code == 404
+		assert unknown.json()["detail"]["code"] == "unknown_judge"
+		assert client.get("/api/judge-profiles/judge-a/issues").status_code == 200
 
 
 def test_undated_and_malformed_outcome_metadata_remain_in_denominator(db):

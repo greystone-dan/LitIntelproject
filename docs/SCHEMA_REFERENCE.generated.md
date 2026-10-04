@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:38:16.787366+00:00
-Tables: 32
+Generated: 2026-10-04T20:25:09.154598+00:00
+Tables: 34
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -372,6 +372,23 @@ erDiagram
         TEXT text
         Integer display_order
     }
+    paragraph_citation_edges {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer target_case_id  FK
+        Integer target_paragraph
+        Integer mentions
+        String(20) purpose
+        JSON purpose_counts
+        String(60) signal
+        Integer algo_version
+    }
+    paragraph_citation_status {
+        Integer source_case_id PK FK
+        Integer algo_version
+        Integer edges
+        DATETIME computed_at
+    }
     recent_case_chunk_embeddings {
         Integer chunk_id PK FK
         Integer case_id  FK
@@ -487,6 +504,9 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
+    cases ||--o{ paragraph_citation_edges : "source_case_id"
+    cases ||--o{ paragraph_citation_edges : "target_case_id"
+    cases ||--o{ paragraph_citation_status : "source_case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     cases ||--o{ search_alerts : "case_id"
@@ -528,6 +548,8 @@ erDiagram
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
+| `paragraph_citation_edges` | 9 | `id` |
+| `paragraph_citation_status` | 4 | `source_case_id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
@@ -1314,6 +1336,50 @@ erDiagram
 ### Foreign Keys
 
 - `document_id` -> `legislation_documents.id`; on delete `CASCADE`
+
+## `paragraph_citation_edges`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_paragraph` | `Integer` | no | NOT NULL |
+| `mentions` | `Integer` | no | NOT NULL; default=1 |
+| `purpose` | `String(20)` | no | NOT NULL; default=mentioned |
+| `purpose_counts` | `JSON` | yes | - |
+| `signal` | `String(60)` | yes | - |
+| `algo_version` | `Integer` | no | NOT NULL; default=1 |
+
+### Indexes
+
+- `ix_paragraph_citation_target`: index on `target_case_id`, `target_paragraph`
+
+### Unique Constraints
+
+- `uq_paragraph_citation_edge`: `source_case_id`, `target_case_id`, `target_paragraph`
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_citation_status`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; FK -> cases.id; NOT NULL |
+| `algo_version` | `Integer` | no | NOT NULL |
+| `edges` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `recent_case_chunk_embeddings`
 

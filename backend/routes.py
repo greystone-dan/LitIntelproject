@@ -12,7 +12,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from docx import Document
@@ -23,6 +23,21 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .precedent_finder import (
+	MAX_BODY_BYTES as PRECEDENT_BODY_BYTES,
+	MAX_CHARACTERS as PRECEDENT_CHARACTERS,
+	NO_STORE as PRECEDENT_NO_STORE,
+	find_precedents,
+)
+from .pages.precedent_finder import precedent_finder_page_html
+from .markup_export import Comment as MarkupComment, build_markup_docx
+from .alert_digest import (
+	build_alert_digest,
+	partition_matches,
+	render_digest_html,
+)
+from .prompt_registry import get_prompt
+from .case_summary import router as case_summary_router
 
 try:
 	import yaml
@@ -70,12 +85,15 @@ from .text_generation_providers import (
 	TextGenerationConfigurationError,
 	get_text_generation_provider,
 )
+from .ai_mode import AI_DISABLED_MESSAGE, enhanced_mode, mode_status, search_downgrade_reason
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
+from .pages.case_compare import case_compare_page_html
+from .case_comparison import fetch_case_comparison
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -89,6 +107,7 @@ from .deidentify import deidentify_text, reidentify_text, text_from_upload, text
 from . import resource_limits
 from .pages.testing import testing_page_html
 from .pages.statute_viewer import statute_viewer_page_html
+from .statute_consideration import router as statute_consideration_router
 from .statute_versioning import find_statute_version_at_date, get_statute_version_label
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
@@ -156,6 +175,7 @@ from .analytics_service import (
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
+	fetch_judge_profile_issues,
 	fetch_judge_comparison,
 	fetch_judge_profiles,
 	fetch_issue_brief,
@@ -221,7 +241,9 @@ from .search_service import (
 	_party_filter_terms,
 	_validate_search_ranges,
 )
+from .query_embedding_providers import embed_case_summary, get_search_embedding_status
 from .models import (
+	MarkupExportRequest,
 	DiscoveredThemeResponse,
 	ThemeDiscoveryResponse,
 	ThemeOccurrenceResponse,
@@ -298,6 +320,13 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(statute_consideration_router)
+router.include_router(case_summary_router)
+
+
+@router.get("/api/search-embedding-status")
+def search_embedding_status() -> dict[str, str | int | bool | None]:
+	return get_search_embedding_status()
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:
@@ -576,6 +605,15 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 	extracted_citations = _extract_legal_citations(case_data.full_text or case_data.summary)
 	if extracted_citations:
 		metadata["extracted_citations"] = extracted_citations
+	case_embedding = (
+		embed_case_summary(case_data.summary)
+		if (
+			case_data.summary
+			and AI_ROLLOUT["embed_on_ingest_enabled"]
+			and enhanced_mode() != "off"
+		)
+		else None
+	)
 
 	case = Case(
 		title=case_data.title,
@@ -598,17 +636,11 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 		scraped_at=case_data.scraped_at,
 		language=case_data.language,
 		full_text_hash=(sha256(case_data.full_text.encode("utf-8")).hexdigest() if case_data.full_text else None),
-		processing_status=(
-			"embedded" if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"]) else "raw"
-		),
+		processing_status="embedded" if case_embedding is not None else "raw",
 		cases_cited=case_data.cases_cited or (extracted_citations or None),
 		cases_citing=case_data.cases_citing,
 		citing_cases_count=case_data.citing_cases_count,
-		embedding=(
-			_embed(case_data.summary)
-			if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"])
-			else None
-		),
+		embedding=case_embedding,
 	)
 	db.add(case)
 	try:
@@ -712,6 +744,47 @@ def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
 	)
 
 
+@router.get(
+	"/cases/compare",
+	response_model=dict[str, Any],
+	summary="Compare two decisions using distinct stored research signals",
+	description=(
+		"Returns side-by-side case facts and stored outcome assignment provenance, "
+		"preserving unclassified outcomes and raw labels. Active legal tags, statute "
+		"references and case authorities have distinct shared/unique counts; repeated "
+		"mentions count once. Read-only; no classification or resolution is performed. "
+		"Unknown IDs return 404 with detail.code=unknown_case and unknown_ids."
+	),
+	responses={404: {"description": "Unknown canonical case ID(s)."}},
+)
+def case_comparison(
+	a: int = Query(gt=0),
+	b: int = Query(gt=0),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	result = fetch_case_comparison(db, a, b)
+	if result["status"] == "unknown_case":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_case", "message": "Unknown canonical case ID.",
+			"unknown_ids": result["unknown_ids"],
+		})
+	return result
+
+
+@router.get("/case-compare", response_class=HTMLResponse, include_in_schema=False)
+def case_compare_page(
+	a: str = "",
+	b: str = "",
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	# Empty query parameters are the picker page, not invalid integer inputs.
+	for value in (a, b):
+		if value and (not value.isascii() or not value.isdigit() or len(value) > 18 or int(value) <= 0):
+			raise HTTPException(status_code=422, detail="Case IDs must be positive integers.")
+	result = case_comparison(int(a), int(b), db) if a and b else None
+	return HTMLResponse(case_compare_page_html(result, a, b))
+
+
 @router.get("/cases/{case_id}", response_model=CaseResponse)
 def get_case(case_id: int, db: Session = Depends(get_db)) -> Case:
 	case = db.scalar(select(Case).where(Case.id == case_id))
@@ -801,6 +874,26 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.post("/cases/{case_id}/markup-export")
+def export_case_markup_docx(case_id: int, payload: MarkupExportRequest, db: Session = Depends(get_db)) -> Response:
+	"""Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored."""
+	case = db.get(Case, case_id)
+	if case is None or not case.full_text:
+		raise HTTPException(status_code=404, detail="Case not found or has no text")
+	content = build_markup_docx(
+		title=case.title or f"Case {case_id}",
+		subtitle=" · ".join(part for part in (case.citation, case.court, case.date.isoformat() if case.date else None) if part),
+		full_text=case.full_text,
+		comments=[MarkupComment(c.block, c.label, c.text, c.quote, c.author) for c in payload.comments],
+		highlights=payload.highlights,
+	)
+	return Response(
+		content=content,
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={"Content-Disposition": f'attachment; filename="ilit-case-{case_id}-markup.docx"'},
+	)
 
 
 @router.get("/cases/{case_id}/paragraphs/{n}/similar", response_model=ParagraphSimilarityResponse)
@@ -987,6 +1080,62 @@ def get_citation_map_summary(db: Session = Depends(get_db)) -> dict[str, int]:
 @router.get("/citation-map", response_class=HTMLResponse)
 def citation_map_page() -> str:
 	return citation_map_html()
+
+
+@router.get("/precedent-finder", response_class=HTMLResponse, include_in_schema=False)
+def precedent_finder_page() -> HTMLResponse:
+	return HTMLResponse(precedent_finder_page_html(), headers=PRECEDENT_NO_STORE)
+
+
+@router.post(
+	"/precedent-finder",
+	responses={
+		413: {"description": "Proposition or JSON body exceeds the input limit; input is never echoed."},
+		422: {"description": "Invalid JSON proposition; input is never echoed."},
+		500: {"description": "Research unavailable; input is never echoed."},
+	},
+	openapi_extra={"requestBody": {"required": True, "content": {
+		"application/json": {"schema": {
+			"type": "object", "required": ["proposition"], "additionalProperties": False,
+			"properties": {"proposition": {"type": "string", "maxLength": PRECEDENT_CHARACTERS}},
+		}},
+	}}},
+)
+async def precedent_finder_analyze(request: Request, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+	Rank by distinct matching citing decisions, distinct matched tags, authority
+	date descending, then citation ascending. Statutes do not influence ranking.
+	All responses are no-store; no raw proposition is returned or persisted.
+	"""
+	# Do not bind a Pydantic body: default validation errors can echo submitted
+	# input. All errors here are fixed text, including malformed JSON and 500s.
+	def error(code: int, detail: str) -> JSONResponse:
+		return JSONResponse({"detail": detail}, status_code=code, headers=PRECEDENT_NO_STORE)
+
+	if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
+		return error(422, "Submit a JSON object containing a text proposition.")
+	body = bytearray()
+	async for chunk in request.stream():
+		if len(body) + len(chunk) > PRECEDENT_BODY_BYTES:
+			return error(413, "Proposition must be at most 3000 characters.")
+		body.extend(chunk)
+	try:
+		value = json.loads(body)
+	except (ValueError, UnicodeError, RecursionError):
+		return error(422, "Submit a valid JSON object containing a text proposition.")
+	finally:
+		body.clear()
+	if not isinstance(value, dict) or set(value) != {"proposition"} or not isinstance(value["proposition"], str):
+		return error(422, "Submit a JSON object containing a text proposition.")
+	proposition = value["proposition"]
+	if len(proposition) > PRECEDENT_CHARACTERS:
+		return error(413, "Proposition must be at most 3000 characters.")
+	try:
+		payload = await run_in_threadpool(find_precedents, proposition, db)
+	except Exception:
+		return error(500, "Precedent research is unavailable. Please try again.")
+	return JSONResponse(payload, headers=PRECEDENT_NO_STORE)
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
@@ -1637,6 +1786,21 @@ def judge_profile(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_judge_profile_by_slug(db, slug, ministers=minister)
+
+
+@router.get(
+	"/api/judge-profiles/{slug}/issues",
+	response_model=dict[str, Any],
+	responses={404: {"description": "Unknown canonical judge slug (detail.code: unknown_judge)"}},
+)
+def judge_profile_issues(slug: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	result = fetch_judge_profile_issues(db, slug)
+	if result["status"] == "unknown_judge":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_judge",
+			"message": "Unknown canonical judge slug. Choose a judge from Judge Profile.",
+		})
+	return result
 
 
 @router.get("/about", include_in_schema=False)
@@ -3447,7 +3611,22 @@ def prototype_graph(
 def search_cases(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
-	return execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
+
+
+def _ai_disabled_reason(requested_mode: str, effective_mode: str) -> str | None:
+	return search_downgrade_reason(requested_mode, effective_mode)
+
+
+@router.get("/api/ai-mode", response_model=dict[str, str])
+def get_ai_mode() -> dict[str, str]:
+	return mode_status()
 
 
 @router.get("/search/export.docx")
@@ -3544,14 +3723,26 @@ def export_search_docx(
 def search_chunks(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/paragraphs", response_model=list[ChunkSearchResponse])
 def search_paragraphs(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode("semantic", rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason("semantic", effective_mode)
+	results = execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/local", response_model=list[ChunkSearchResponse])
@@ -3579,10 +3770,6 @@ def search_chunks_grouped(
 _CONTEXT_CHAR_LIMIT = 12_000
 _LOCAL_CONTEXT_CHAR_LIMIT = 4_000
 _LOCAL_RAG_MAX_TOKENS = 256
-_RESEARCH_DISCLAIMER = (
-	"Research aid only � not legal advice. "
-	"Sources are unofficial copies; verify against authoritative records."
-)
 
 
 def _research_page_html() -> str:
@@ -3669,6 +3856,68 @@ def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchRespon
 		)
 		for search in searches
 	]
+
+
+def _saved_search_digest(db: Session, since: datetime | None) -> dict[str, Any]:
+	"""Read recorded alerts only; never discover matches or advance checkpoints."""
+	searches = db.query(SavedSearch).order_by(SavedSearch.id.asc()).all()
+	search_records = [
+		{"id": search.id, "name": search.name, "last_alert_check": search.last_alert_check}
+		for search in searches
+	]
+	if not searches:
+		return build_alert_digest([], [], [])
+	alerts = (
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id.in_([search.id for search in searches]))
+		.order_by(SearchAlert.discovered_at.asc(), SearchAlert.id.asc())
+		.all()
+	)
+	case_ids = sorted({alert.case_id for alert in alerts})
+	# Select metadata columns only, not judgment text, chunks or embeddings.
+	cases = {
+		case.id: case for case in db.query(
+			Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json,
+		).filter(Case.id.in_(case_ids)).all()
+	} if case_ids else {}
+	matches = []
+	for alert in alerts:
+		case = cases.get(alert.case_id)
+		if case is None:
+			continue
+		metadata = case.metadata_json if isinstance(case.metadata_json, dict) else {}
+		reader = metadata.get("reader_extracted")
+		reader = reader if isinstance(reader, dict) else {}
+		# Use the same Canada (Minister) title convention as saved-search analytics.
+		minister = re.search(r"Canada \(([^)]+)\)", case.title or "")
+		matches.append({
+			"search_id": alert.search_id, "case_id": alert.case_id,
+			"title": case.title, "citation": case.citation, "court": case.court,
+			"date": case.date, "discovered_at": alert.discovered_at,
+			"minister": minister.group(1) if minister else None,
+			"decision_outcome": reader.get("decision outcome"),
+			"government_outcome": reader.get("government outcome"),
+		})
+	new, earlier = partition_matches(search_records, matches, since=since)
+	return build_alert_digest(search_records, new, earlier)
+
+
+@router.get("/saved-searches/digest", response_model=dict[str, Any])
+def saved_search_digest(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Build a read-only digest of recorded case alerts, not live search results."""
+	return _saved_search_digest(db, since)
+
+
+@router.get("/saved-searches/digest.html", response_class=HTMLResponse)
+def saved_search_digest_html(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	"""Render the same read-only digest as self-contained inline-CSS HTML."""
+	return HTMLResponse(render_digest_html(_saved_search_digest(db, since)))
 
 
 @router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)
@@ -3833,6 +4082,11 @@ def theme_explorer_page() -> HTMLResponse:
 
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
+	if enhanced_mode() == "off":
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail=AI_DISABLED_MESSAGE,
+		)
 	result = _grouped_chunk_search(search, db)
 
 	top_cases = result.cases[: search.max_cases]
@@ -3853,19 +4107,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 	if len(context) > context_limit:
 		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
 
-	system_prompt = (
-		"You are a Canadian legal research assistant helping lawyers and researchers find relevant case law. "
-		"Base your answer ONLY on the case excerpts provided below. "
-		"Use the evidence labels such as [S1P2] as inline citations for every material proposition. "
-		"CRITICAL: Only cite cases and propositions that are explicitly supported by the provided excerpts. "
-		"Do NOT draw on your training knowledge to add cases, statutes, or legal tests that are not in the excerpts. "
-		"Synthesize across authorities: identify the common rule, explain how each authority applies it, distinguish tensions or limits, and do not treat repeated language as independent confirmation. "
-		"Prefer a structured answer with: short conclusion, governing principles, application or limits, and an evidence-based caveat where the excerpts are incomplete. "
-		"If the excerpts discuss a different but related legal provision (e.g., s. 96 when s. 34 was asked), "
-		"say so explicitly and describe only what those cases actually say. "
-		"If the excerpts are genuinely insufficient to address the question, say so and suggest the user try a broader or rephrased query. "
-		f"{_RESEARCH_DISCLAIMER}"
-	)
+	system_prompt, prompt_version = get_prompt("research_system")
 
 	try:
 		provider = get_text_generation_provider()
@@ -3912,6 +4154,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		answer=answer,
 		sources=sources,
 		model_used=provider.model_name,
+		prompt_version=prompt_version,
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)

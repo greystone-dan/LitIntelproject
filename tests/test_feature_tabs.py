@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 from html.parser import HTMLParser
 import json
+from pathlib import Path
 import re
 import shutil
 import subprocess
@@ -177,6 +178,10 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     ) in export_actions
     assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
     assert '<div class="search-status" id="searchMeta"' in html
+    assert 'id="searchTipsPopover" popover role="dialog"' in html
+    assert 'id="searchTipsToggle" popovertarget="searchTipsPopover"' in html
+    assert 'id="searchQueryEcho" role="status"' in html
+    assert "data.query_echo" in html
     assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
     assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
     search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)
@@ -883,6 +888,76 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
+def test_reader_has_additive_cautious_overruling_risk_banner():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerOverrulingRisk"' in html
+    assert 'aria-live="polite"' in html
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" in html
+    assert "may be affected" in html
+    assert "How assigned" in html
+    assert "addRiskDetail(item, 'Review notice', flag.notice)" in html
+
+
+def test_reader_overruling_risk_banner_renders_only_returned_flags():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(...nodes){this.children.push(...nodes)}};
+const document={
+  getElementById(id){assert.equal(id,'readerOverrulingRisk');return banner},
+  createElement(tag){return {tag,textContent:'',children:[],append(...nodes){this.children.push(...nodes)}}},
+  createTextNode(text){return {tag:'text',textContent:String(text),children:[]}}
+};
+const readerState={caseId:null,payload:null};
+let payload={flags:[{
+  assignment:'indirect',event:'Framework update',event_date:'2019-12-19',
+  decision_date:'2018-04-03',rationale:'<img src=x onerror=alert(1)>',
+  source:'Primary source',how_assigned:'Stored resolved citation relationship',
+  notice:'seed list, needs lawyer review.'
+}],assessment:'This case may be affected by the listed development.'};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{readerState.payload=null};
+const fetch=async url=>{assert.equal(url,'/api/overruling-risk/7');return {ok:true,json:async()=>payload}};
+const controller = __CONTROLLER__;
+function text(node){return String(node.textContent||'')+(node.children||[]).map(text).join('')}
+(async()=>{
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,false);
+  const rendered=text(banner);
+  assert.match(rendered,/this case may be affected/);
+  assert.match(rendered,/How assigned/);
+  assert.match(rendered,/seed list, needs lawyer review\./);
+  assert.match(rendered,/<img src=x onerror=alert\(1\)>/);
+  assert.equal(banner.innerHTML,undefined);
+  payload={flags:[],assessment:'No seeded indicator matched.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,true);
+  payload={flags:[{
+    assignment:'direct',event:'Framework update',event_date:'2019-12-19',
+    decision_date:'2019-12-19',rationale:'Listed development authority',
+    source:'Primary source',how_assigned:'Direct seed match',
+    notice:'seed list, needs lawyer review.'
+  }],assessment:'This case is itself a listed development authority; other cases may be affected by this development.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.match(text(banner),/This case is itself a listed legal-development authority/);
+  assert.match(text(banner),/other cases may be affected/);
+  await openDecision(7);
+  closeDecisionReader();
+  assert.equal(banner.hidden,true);
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    script = script.replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):
@@ -903,6 +978,32 @@ def test_judge_profiles_default_to_most_linked_profiles():
     result = routes.judge_profiles("", 10, Database())
 
     assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
+
+
+def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
+    html = routes._data_explorer_page_html()
+
+    assert "Outcome patterns by issue" in html
+    assert (
+        "Outcome method: government outcome “won” = Minister win, “lost” = applicant win, "
+        "“mixed” = other; undetermined, unrecognized, and missing values are unclassified, "
+        "and percentages use all issue decisions, including unclassified."
+    ) in html
+    assert "At least " in html
+    assert "${N(hidden)} issue${hidden===1?'':'s'} hidden (each has fewer than ${minimum} decisions)." in html
+    assert "including unclassified" in html
+    assert "undetermined, unrecognized, and missing values are unclassified" in html
+    assert "Federal Court issue outcomes" in html
+    assert "data-jp-issues" in html
+    assert "/api/judge-profiles/${encodeURIComponent(slug)}/issues" in html
+    profile_loader = html.split("async function jpSelect", 1)[1].split("function tally", 1)[0]
+    assert "/issues" not in profile_loader
+    issue_loader = html.split("async function jpLoadIssues", 1)[1].split("function jpMainClick", 1)[0]
+    assert "getJSON(`/api/judge-profiles/${encodeURIComponent(slug)}/issues`)" in issue_loader
+    click_handler = html.split("function jpMainClick", 1)[1].split("/* ---------------- Citation intelligence", 1)[0]
+    assert "closest('[data-jp-issues]')" in click_handler
+    assert "jpLoadIssues()" in click_handler
+    assert "jpIssueCategories" in html
 
 
 def test_rendered_shell_exposes_original_source_link_action():

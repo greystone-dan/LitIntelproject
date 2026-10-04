@@ -473,6 +473,51 @@ class Citation(Base):
 	)
 
 
+class ParagraphCitationEdge(Base):
+	"""Who cites which paragraph of a decision, how often, and the signal phrase used.
+
+	Written by scripts/build_paragraph_cited_by.py from stored citation occurrences; one row per
+	(citing case, cited case, cited paragraph). Rewritten as a unit per citing case.
+	"""
+
+	__tablename__ = "paragraph_citation_edges"
+	__table_args__ = (
+		UniqueConstraint(
+			"source_case_id", "target_case_id", "target_paragraph", name="uq_paragraph_citation_edge"
+		),
+		Index("ix_paragraph_citation_target", "target_case_id", "target_paragraph"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False
+	)
+	target_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False
+	)
+	target_paragraph: Mapped[int] = mapped_column(Integer, nullable=False)
+	mentions: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+	purpose: Mapped[str] = mapped_column(String(20), nullable=False, server_default="mentioned")
+	purpose_counts: Mapped[dict[str, int] | None] = mapped_column(JSON, nullable=True)
+	signal: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	algo_version: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+
+
+class ParagraphCitationStatus(Base):
+	"""Marks a citing case as processed by the paragraph cited-by batch (the resume point)."""
+
+	__tablename__ = "paragraph_citation_status"
+
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), primary_key=True
+	)
+	algo_version: Mapped[int] = mapped_column(Integer, nullable=False)
+	edges: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	computed_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+
 class CitationMetrics(Base):
 	__tablename__ = "citation_metrics"
 

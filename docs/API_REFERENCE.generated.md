@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:38:19.916027+00:00
+Generated: 2026-10-04T20:25:09.150146+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 106 across 103 paths
-Hidden operations: 61 excluded from OpenAPI
+OpenAPI operations: 119 across 116 paths
+Hidden operations: 64 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -221,6 +221,41 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/ai-mode`
+
+Get Ai Mode
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/cases/{case_id}/summary`
+
+Get Case Summary
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/legislation/cases`
 
 Get Legislation Cases
@@ -253,6 +288,45 @@ Return local authoritative section text and cases citing the pinpoint.
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /api/overruling-risk/{case_id}`
+
+Get Overruling Risk
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/search-embedding-status`
+
+Search Embedding Status
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statutes/{act}/{section}/consideration`
+
+Statute Consideration Analytics
+
+Return descriptive, distinct-decision statistics for stored section references.
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/statutes/{statute_code}`
 
 Get Statute By Code
@@ -283,6 +357,23 @@ Get sections for a specific statute version.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/compare`
+
+Compare two decisions using distinct stored research signals
+
+Returns side-by-side case facts and stored outcome assignment provenance, preserving unclassified outcomes and raw labels. Active legal tags, statute references and case authorities have distinct shared/unique counts; repeated mentions count once. Read-only; no classification or resolution is performed. Unknown IDs return 404 with detail.code=unknown_case and unknown_ids.
+
+**Parameters**
+
+- `a` (query, required; integer)
+- `b` (query, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical case ID(s).
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -391,6 +482,25 @@ Get Case Contextual Anchors
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /cases/{case_id}/markup-export`
+
+Export Case Markup Docx
+
+Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `MarkupExportRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/paragraph-assessments`
@@ -1151,6 +1261,23 @@ Health
 
 - `200`: Successful Response; `application/json`: `unspecified`
 
+### `GET /health/live`
+
+Health Live
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/ready`
+
+Health Ready
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `503`: A required dependency is unavailable
+
 ### `POST /ingest`
 
 Ingest Case
@@ -1260,6 +1387,27 @@ Memo Citation Check Analyze
 - `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /precedent-finder`
+
+Precedent Finder Analyze
+
+Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+Rank by distinct matching citing decisions, distinct matched tags, authority
+date descending, then citation ascending. Statutes do not influence ranking.
+All responses are no-store; no raw proposition is returned or persisted.
+
+**Request body (required)**
+
+- `application/json`: `object`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `413`: Proposition or JSON body exceeds the input limit; input is never echoed.
+- `422`: Invalid JSON proposition; input is never echoed.
+- `500`: Research unavailable; input is never echoed.
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -1330,6 +1478,36 @@ Create Saved Search
 **Responses**
 
 - `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest`
+
+Saved Search Digest
+
+Build a read-only digest of recorded case alerts, not live search results.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest.html`
+
+Saved Search Digest Html
+
+Render the same read-only digest as self-contained inline-CSS HTML.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `text/html`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `DELETE /saved-searches/{search_id}`
@@ -2033,6 +2211,22 @@ Handler: `backend.routes.reidentify_api`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_compare_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader`
 
 **Hidden from OpenAPI.**
@@ -2311,6 +2505,16 @@ Handler: `backend.routes.memo_citation_check_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /precedent-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.precedent_finder_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /prototype`
 
 **Hidden from OpenAPI.**
@@ -2356,6 +2560,16 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-consideration`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_consideration.statute_consideration_page`
 
 **Responses**
 

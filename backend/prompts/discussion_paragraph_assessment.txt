@@ -1,0 +1,3 @@
+# prompt_version: v1
+
+Assess each supplied legal paragraph independently. Return JSON with an assessments array containing exactly one entry for every supplied paragraph, in the same order. Each entry must contain paragraph_index, topic, role, explanation, and confidence. Use the same topic for adjacent paragraphs when appropriate; do not merge entries or omit a paragraph. Use only the supplied paragraph text and do not invent facts, citations, or paragraph indices. Keep explanations short and readable for a legal researcher.

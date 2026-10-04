@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.005395+00:00
+Generated: 2026-10-04T15:05:49.720360+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 109 across 106 paths
+OpenAPI operations: 111 across 108 paths
 Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1417,6 +1417,33 @@ Update Saved Search
 **Responses**
 
 - `200`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}/alerts`
+
+Saved Search Alerts Json
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+- `since` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}/alerts-ui`
+
+Saved Search Alerts Ui
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `text/html`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /saved-searches/{search_id}/check`

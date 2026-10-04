@@ -116,7 +116,7 @@ separately, and statute references and unresolved citations are excluded.
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
-The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Keyboard shortcuts move among formatted paragraphs (`j`/`n` next; `k`/`p` previous), visibly mark and focus the current paragraph, and expose a `?` shortcut list; typing fields are excluded. Print mode presents the decision title and citation with numbered paragraphs, hides navigation and side panels, and avoids splitting paragraphs across pages. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 The source pane begins with a short **Extracted case summary** only when
 verified stored-text facts exist. Every item has its own evidence link:
 court/date/judge link to an explicit matching source-header block; up to three
@@ -2089,11 +2089,12 @@ serves a restrictive `robots.txt`. Those measures reduce indexing signals; they
 do not create authentication or confidentiality.
 
 The code has a password/cookie access design using a timestamped HMAC signature,
-HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. However,
-the current middleware does not enforce that design. Treat this as a security
-gap, not a completed feature. Until enforced and tested, do not place sensitive
-or restricted research material behind the Cloudflare tunnel on the assumption
-that the login route protects it.
+HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. The gate
+is disabled when `CASELIBRARY_ACCESS_PASSWORD` is unset or empty; when enabled,
+the middleware enforces the cookie check for protected routes. No-index headers
+are not authentication. Before exposing restricted material, use a separate
+strong session secret and verify the surrounding network perimeter and deployment
+configuration.
 
 ### Deployment Rules
 
@@ -2227,6 +2228,7 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `SYSTEM_REFERENCE.md` | Canonical current system handbook |
 | `WORK_HISTORY.md` | Generated chronological work ledger and five-minute-capped session-time estimate |
 | `README.md` | Concise repository entrypoint and quick-start guide |
+| `docs/ARCHITECTURE.md` | Contributor-facing architecture diagram, backend file map, schema summary, and source boundaries |
 | `DOCS_INDEX.md` | Document authority map and documentation update checklist |
 | `docs/API_REFERENCE.generated.md` | Generated FastAPI route and contract appendix |
 | `docs/SCHEMA_REFERENCE.generated.md` | Generated ORM schema reference and entity relationship diagram |
@@ -6676,7 +6678,7 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `config.yaml` is currently a checked-in static reference template. No active runtime module loads it, so changing it alone does not reconfigure FastAPI, SQLAlchemy, embedding providers, logging, or security behavior.
+5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -6686,7 +6688,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | --- | --- | --- |
 | `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` or `DATABASE_URL` | Canonical database routes and write scripts | Prefer complete `POSTGRES_*` local configuration; see precedence above. |
 | `OPENAI_API_KEY` | OpenAI embedding, research-answer, and OpenAI audit/adjudication paths | Not required for deterministic extraction, tag, chunk, or most local read paths. |
-| `CASELIBRARY_ACCESS_PASSWORD` plus independent `CASELIBRARY_SESSION_SECRET` | Intended private-site login | Current middleware does not enforce this login design; do not treat merely setting these variables as access protection. |
+| `CASELIBRARY_ACCESS_PASSWORD` and preferably a separate `CASELIBRARY_SESSION_SECRET` | Optional private-site login | The gate is off by default and enforced when the password is non-empty. Use a separate strong signing secret and a verified perimeter policy where needed. |
 
 ## Application And Database Settings
 
@@ -6700,14 +6702,14 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
 
 ## Access, Session, And Indexing Settings
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
-| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
+| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
@@ -6797,11 +6799,18 @@ Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validate
 
 The CanLII API client enforces an in-process default ceiling of two requests per second and 1,000 requests per UTC day. Those values are currently dataclass defaults, not environment variables.
 
-## Static Template Settings
+## Partially Consumed Template Settings
 
-`config.yaml` records non-secret aspirational/default settings for app identity, server, database pool, pgvector, AI behavior, logging, security, Copilot indexing, and common paths. It is not currently loaded by active application code.
+`config.yaml` records defaults for application, server, database, vector, AI,
+logging, security, and path settings. Only the four `ai.rollout` flags read by
+`backend/search_service.py` currently affect application behavior.
 
-Treat it as a planning template until a configuration loader is implemented. In particular, changing `server.host`, `server.port`, `database.pool_size`, `pgvector.index_type`, `ai.rollout`, `logging`, `security`, or `paths` in that file will not alter runtime behavior today. Use explicit Uvicorn flags, runtime environment variables, or code changes instead.
+Changing `server.host`, `server.port`, database-pool, vector, logging, security,
+or path values in that file does not alter runtime behavior. The four rollout
+flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
+`embed_on_ingest_enabled`; matching `CASELIBRARY_*_ENABLED` environment values
+override them. Use the consuming module's environment settings or explicit
+server flags for other runtime configuration.
 
 ## Example Local Development Setup
 
@@ -6834,8 +6843,8 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 
 ## Known Configuration Gaps
 
-1. `config.yaml` is not a live configuration source and can drift from code.
-2. The private-access variables are not enforced by current middleware.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
 3. The `.env.example` includes several legacy/aspirational names not read by active code.
 4. There is no central typed settings object or startup validation report for all required configuration.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.

@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:08.925159+00:00
+Generated: 2026-10-04T13:38:19.916027+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 104 across 101 paths
-Hidden operations: 59 excluded from OpenAPI
+OpenAPI operations: 106 across 103 paths
+Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -251,6 +251,38 @@ Return local authoritative section text and cases citing the pinpoint.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}`
+
+Get Statute By Code
+
+Get statute details, optionally as of a specific date.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `as_of` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}/versions/{version_id}/sections`
+
+Get Statute Sections
+
+Get sections for a specific statute version.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `version_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -2015,6 +2047,21 @@ Handler: `backend.routes.case_reader_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader/cases`
 
 **Hidden from OpenAPI.**
@@ -2309,6 +2356,16 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_viewer_page_route`
 
 **Responses**
 

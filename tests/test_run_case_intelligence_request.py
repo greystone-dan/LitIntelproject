@@ -8,21 +8,22 @@ from scripts import run_case_intelligence_request as runner
 def test_build_client_uses_ollama_openai_compatible_endpoint(monkeypatch):
     captured = {}
 
-    class FakeOpenAI:
-        def __init__(self, **kwargs):
-            captured.update(kwargs)
+    class FakeOllamaChatProvider:
+        def __init__(self, base_url=None, model_name=None):
+            captured.update({"base_url": base_url, "model_name": model_name})
 
-    monkeypatch.setattr(runner, "OpenAI", FakeOpenAI)
+    monkeypatch.setattr(runner, "OllamaChatProvider", FakeOllamaChatProvider)
 
-    runner.build_client(
+    result = runner.build_client(
         "local",
         ollama_base_url="http://localhost:11434/v1",
         ollama_model="qwen2.5:7b",
     )
 
+    assert isinstance(result, FakeOllamaChatProvider)
     assert captured == {
         "base_url": "http://localhost:11434/v1",
-        "api_key": "ollama-local",
+        "model_name": "qwen2.5:7b",
     }
 
 

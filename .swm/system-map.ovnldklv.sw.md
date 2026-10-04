@@ -38,6 +38,12 @@ identity, offsets, and uncertainty reviewable. Selecting a graph node expands
 the box in place and reveals its inputs, outputs, live signal, and connected
 child boxes inside the same canvas.
 
+The live application and PostgreSQL/pgvector database run together on one
+workstation; there is no cloud-hosted production database. The concise setup
+and current-feature entry point is `README.md`, while
+`docs/ARCHITECTURE.md` provides the complete backend file inventory, plain
+language table guide, and source/licence boundary summary.
+
 ## Case-Level Pipeline Graphic
 
 The About surface places a second interactive canvas below the system map. This

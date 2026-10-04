@@ -1462,4 +1462,7 @@ window.addEventListener('afterprint',()=>{
   markup_js = (here / 'markup_mode.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + markup_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + markup_js + '</script>\n</body>', 1)
+  # Phone layout goes last so it wins over every earlier rule at narrow widths.
+  mobile_css = (here / 'mobile_layout.css').read_text(encoding='utf-8')
+  html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)
   return html

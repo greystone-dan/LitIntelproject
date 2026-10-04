@@ -352,7 +352,16 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
   provider/model/output dimensions, indexed dimensions, whether query text
   leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
-  Search rejects query vectors that do not match its 1536-dimensional
+  Search and case ingestion use the shared `EmbeddingProvider` interface in
+  `backend/embedding_providers.py`: the default is `NoneEmbeddingProvider`,
+  OpenAI client creation is lazy, and local SentenceTransformer models are
+  shared by model/device within the process. `backend/query_embedding_providers.py`
+  applies `backend/ai_mode.py` before constructing or invoking a provider.
+  Therefore `off` makes no embedding calls and constructs no model; local mode
+  cannot select hosted embedding providers; hosted mode permits the configured
+  provider. Ingestion only embeds a summary when its rollout flag and enhanced
+  mode are enabled and a provider is configured. Search rejects query vectors
+  that do not match its 1536-dimensional
   indexed-vector contract. The default local BGE-M3 model is 1024-dimensional,
   so it requires a compatible indexed-vector family before it can be used by
   that search path. See [the local query embedding report](docs/reports/local-query-embeddings.md)
@@ -924,7 +933,8 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
-| `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `backend/embedding_providers.py` | Shared embedding-provider interface and lazy disabled, OpenAI, and SentenceTransformer implementations |
+| `backend/query_embedding_providers.py` | Policy-gated query and case-ingestion provider configuration, dimensions, and API error mapping |
 | `backend/text_generation_providers.py` | Opt-in hosted or Ollama chat-generation provider selection for experimental `/research` |
 | `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
@@ -1905,6 +1915,11 @@ than an untrusted complete source page.
 New records begin with `processing_status="raw"`. Embedding status is a result of
 actual processing, not a claim an importer can make. A record can be readable and
 searchable through lexical/metadata paths while it remains unembedded.
+The optional API-ingestion summary embedding runs only when
+`ai_rollout.embed_on_ingest_enabled` and `ENHANCED_AI_MODE` are both enabled and
+`CASE_EMBEDDING_PROVIDER` (or the query-provider fallback) selects a provider.
+The shared provider layer leaves the embedding absent in off mode; an embedding
+is never implied merely by a summary being present.
 
 ### Text, Chunk, And Offset Semantics
 
@@ -7267,8 +7282,11 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings; OpenAI additionally requires `ENHANCED_AI_MODE=hosted`. |
 | `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
 | `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
+| `CASE_EMBEDDING_PROVIDER` | `QUERY_EMBEDDING_PROVIDER` (default `none`) | `backend/query_embedding_providers.py` | Optional provider override for API-ingestion case summaries; embedding also requires `ai_rollout.embed_on_ingest_enabled` and enhanced mode. |
+| `CASE_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional model override for API-ingestion case summaries. |
+| `CASE_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local output size. The current stored case-vector contract remains 1536 dimensions. |
 | `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
-| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
+| `OPENAI_API_KEY` | none | `backend/embedding_providers.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce HTTP 503 from embedding APIs rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
@@ -7303,7 +7321,7 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors, local queries, and case ingestion when selected. The model is lazy-loaded and cached by model/device within the process. |
 | `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |

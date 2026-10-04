@@ -14,6 +14,7 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "docs" / "SCRIPT_CATALOG.generated.md"
 def classify(name: str, text: str) -> tuple[str, str, str]:
 	value = f"{name} {text}".lower()
 	explicit = {
+		"check_site_links.py": ("Served HTML integrity audit", "offline, read-only, no database/network access", f".\\venv\\Scripts\\python.exe scripts\\{name}"),
 		"adjudicate_fc_metadata.py": ("Metadata adjudication", "OpenAI and database writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"download_reference_library.py": ("Reference acquisition", "network and filesystem writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"fc_portal_collector.py": ("Federal Court source acquisition", "network and filesystem writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),

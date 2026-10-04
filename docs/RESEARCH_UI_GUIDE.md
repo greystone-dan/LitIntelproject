@@ -6,6 +6,31 @@ This guide explains the active iLIT research interfaces, their controls, and how
 
 New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
 
+## Local served-HTML URL audit
+
+The reusable checker is [`scripts/check_site_links.py`](../scripts/check_site_links.py);
+its focused regression tests are
+[`tests/test_check_site_links.py`](../tests/test_check_site_links.py). Run it
+offline from the repository root with `python scripts/check_site_links.py`.
+It renders registered HTML pages (including FastAPI docs) without app startup,
+`.env`/database credentials, or database access, then checks local `href`, form
+`action`, and statically literal inline `fetch`/XHR URLs against registered
+routes and methods, including parameterized paths and normal trailing-slash
+redirects. Findings name the page and source attribute/call and suggest
+correcting the URL or registering the intended route.
+
+External/protocol URLs, fragments, recognized assets, and dynamically computed
+URLs are treated as intentional or outside static resolution. The audit is
+read-only and makes no network or database calls; it does not verify fetched
+external JavaScript, values generated only at runtime, database-backed page
+content, or browser navigation behavior. A clean result is a static local-route
+check, not an end-to-end UI guarantee.
+
+Browser requests accepting HTML receive generic, safe HTML 404/500 responses;
+API requests retain their existing non-HTML behavior. See the
+[Issue #142 audit report](reports/dead-ends-audit.md) for findings and any
+environment-related validation limits.
+
 ## Experimental RAG Research
 
 In the `/data-explorer` formatted reader, select **Similar paragraphs** beside

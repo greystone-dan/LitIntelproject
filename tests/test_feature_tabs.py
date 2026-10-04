@@ -78,6 +78,7 @@ def test_compatibility_routes_select_tabs():
     assert routes.citation_intelligence_page().headers["location"] == "/data-explorer?tab=citation-intelligence"
     assert routes.judges_page().headers["location"] == "/data-explorer?tab=judge-profile"
     assert routes.fc_history_page().headers["location"] == "/data-explorer?tab=fc-history"
+    assert routes.data_explorer_page("judge-outcomes").headers["location"] == "/data-explorer?tab=judge-profile"
 
 
 def test_fc_activity_flow_route_delegates_to_live_aggregation(monkeypatch):
@@ -163,6 +164,7 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="aboutOutcomeChart"' not in html
     assert 'data-tab="judge">Judge outcomes</button>' not in html
     assert 'id="judgePanel"' not in html
+    assert "/analytics/judge-outcomes" not in html
 
 
 def test_data_explorer_word_export_shares_search_actions_with_csv():

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 158
+Active scripts documented: 159
 
 ## Catalog
 
@@ -56,6 +56,7 @@ Active scripts documented: 158
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
+| `check_site_links.py` | Served HTML integrity audit | offline, read-only, no database/network access | `.\venv\Scripts\python.exe scripts\check_site_links.py` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
@@ -811,6 +812,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_saved_searches.py --help
+```
+
+## `scripts/check_site_links.py`
+
+**Purpose:** Offline audit of local URLs emitted by the application's served HTML pages.
+
+**Operational class:** Served HTML integrity audit
+
+**Write/network risk:** offline, read-only, no database/network access
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_site_links.py
 ```
 
 ## `scripts/chunk_cases.py`

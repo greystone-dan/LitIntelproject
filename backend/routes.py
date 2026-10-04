@@ -1222,7 +1222,12 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
-def data_explorer_page() -> HTMLResponse:
+def data_explorer_page(tab: str = "") -> Response:
+	if tab == "judge-outcomes":
+		return RedirectResponse(
+			url="/data-explorer?tab=judge-profile",
+			status_code=status.HTTP_307_TEMPORARY_REDIRECT,
+		)
 	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 

@@ -18,8 +18,9 @@ offline fixtures and current cache code, not another branch. New fixtures use
 SQLAlchemy SQLite `:memory:` engines with 5 and 50 related rows/distinct targets
 and fresh Sessions. `tests/performance_helpers.py` attaches a reusable
 `before_cursor_execute` listener only around each request; setup is excluded and
-the listener is removed in `finally`. Counts include every executed statement,
-not just SELECTs, and are exact assertions rather than elapsed-time thresholds.
+the listener is removed in `finally`. The counter records every executed
+statement, not just SELECTs. Regressions enforce fixed statement ceilings
+(some assert exact equality), rather than elapsed-time thresholds.
 
 Workers recorded counts before editing their owned services, then used complete
 decoded JSON equality against pre-edit/independent fixture oracles. Edge coverage
@@ -209,6 +210,12 @@ the available substitutes, not claims that those tools ran.
   secret-pattern scan: **26 staged files, 0 flagged files** (values never printed;
   not an exhaustive security audit). Final delivery carries the independent
   postcommit check, which cannot be measured before commit.
+
+Independent postcommit validation of `6a9f304`: **338 passed, 2 warnings in
+45.85s**, all **3 generated references current**, clean worktree and commit
+whitespace check passed. The validator found an overstatement that every budget
+assertion was exact equality; this report now distinguishes measured counts
+from ceiling assertions. No backend regression finding was reported.
 
 **PR acceptance blocker:** full-suite green cannot be claimed in this
 environment. Safe follow-up is to repair the embedding test's provider mock and

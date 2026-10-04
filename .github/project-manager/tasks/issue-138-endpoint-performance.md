@@ -41,6 +41,7 @@ Batching repeated read lookups and narrowing unused selected columns will preser
 - Improvement loop: Added evidence-backed offline-preflight recommendation to the existing improvements/README.md; no extra planning document or instruction edit. Whole-document link review found two pre-existing canonical links; introduced-link validation required before commit.
 - Commit decision: Local qualified implementation/report commit allowed; no push. Precommit fresh validation and scoped secret scan required. Independent postcommit results returned to caller.
 - Precommit scan/link evidence: 26 staged files, zero secret-pattern flags; 18 introduced local links, zero missing. Final edit followed by fresh focused/generated/whitespace validation and repeat scan before commit.
+- Independent postcommit validation: managed-worker postcommit-performance-validation verified 6a9f304, 338 tests passed with 2 warnings in 45.85s, all 3 generated references current, clean worktree and commit whitespace passed. Corrected report wording: measured exact counts versus tests asserting fixed ceilings. Full-suite status remains blocked.
 - Status: blocked, not claimed complete.
 
 ## Completion

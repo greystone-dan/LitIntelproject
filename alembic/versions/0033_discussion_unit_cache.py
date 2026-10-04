@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 revision = "0033_discussion_unit_cache"
-down_revision = "0031_saved_search_migration"
+down_revision = "0031_saved_searches_alerts"
 branch_labels = None
 depends_on = None
 

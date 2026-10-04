@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added **Markup mode**, a third case-reader view (button beside Formatted/Chunk
+  breakdown). The decision runs full width with notes in a right margin: case
+  citations with pinpoint text, discussion units and sub-themes, verified
+  outcome (labelled unverified when no disposition passage is stored), judge,
+  a cited-by gutter, soft tags, topic bands, outline, find-in-case, per-layer
+  Off/Markers/Open controls with expand/collapse all, and annotated print. It
+  only reads the already-loaded reader payload: no AI, no network calls, no
+  schema changes. Existing readers are unchanged.
 - Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
   editable, lawyer-review seed list, with direct matches and stored resolved
   citation links, source/rationale/assignment details, counts, and chronology

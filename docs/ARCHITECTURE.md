@@ -210,6 +210,8 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
+| `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |

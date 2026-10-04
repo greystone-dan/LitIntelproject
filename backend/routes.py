@@ -99,6 +99,7 @@ from .deidentify import deidentify_text, reidentify_text, text_from_upload, text
 from . import resource_limits
 from .pages.testing import testing_page_html
 from .pages.statute_viewer import statute_viewer_page_html
+from .statute_consideration import router as statute_consideration_router
 from .statute_versioning import find_statute_version_at_date, get_statute_version_label
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
@@ -310,6 +311,7 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(statute_consideration_router)
 router.include_router(case_summary_router)
 
 

@@ -21,10 +21,10 @@ retrieval. Chunks beyond that context cap or with ambiguous numbering are omitte
 Unresolved authority labels use separate ordered equality seeks, in sorted label
 order, sharing one total postings budget and one lookahead per signal. Candidate
 IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
-partial. Migration
-`0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
-must review/apply it separately.
-The offline migration graph test expects `0031_paragraph_similarity` as its
+partial. Migration `0031_paragraph_similarity` supplies the ORM-mirrored posting
+indexes; deployment must review/apply it separately. Revision `0037_cases_docket_number`
+adds the nullable docket field and its declared index when either is missing.
+The offline migration graph test expects `0037_cases_docket_number` as its
 single head; it does not apply migrations to a database.
 
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
@@ -1568,7 +1568,7 @@ design.
 
 ## Migrations
 
-Alembic migrations currently have one head, `0030_full_paragraph_ivfflat`.
+Alembic migrations currently have one head, `0037_cases_docket_number`.
 The table below summarizes the early revisions; the complete graph remains
 authoritative in `alembic/versions/`.
 
@@ -1585,13 +1585,19 @@ stamped beyond them and do not reconcile unrelated schema drift.
 
 `tests/test_migrations.py` covers missing-table guards, existing-table
 preservation, compatibility with the real `0027` upgrade, the actual sole head,
-and synthetic multiple-head rejection. The independent `migrations` job in
-`.github/workflows/tests.yml` uses disposable PostgreSQL 16 with pgvector,
-refuses dotenv overrides, verifies/enables the vector extension, upgrades an
-empty database, displays its current revision, checks exactly one graph head
-and current-at-head, and repeats the upgrade. The existing pytest job remains
-unchanged. This is an empty-database deployment check, not proof of production
-schema equivalence or authorization to upgrade production.
+and synthetic multiple-head rejection. `tests/test_cases_docket_number_migration.py`
+covers mocked idempotent addition/preservation and, only with the explicit
+`CASELIBRARY_PGVECTOR_TESTS=1` opt-in and PostgreSQL settings, migrates an isolated
+empty schema from zero and compares case columns and model indexes. It refuses
+dotenv overrides and skips when PostgreSQL is unavailable. The independent
+`migrations` job in `.github/workflows/tests.yml` uses disposable PostgreSQL 16
+with pgvector, refuses dotenv overrides, verifies/enables the vector extension,
+upgrades an empty database, displays its current revision, checks exactly one
+graph head and current-at-head, and repeats the upgrade. The separate
+`.github/workflows/pgvector-tests.yml` job runs the PostgreSQL vector and
+previously deselected tests against its disposable service. These checks are
+not proof of production schema equivalence or authorization to upgrade
+production.
 
 | Revision | Main change |
 | --- | --- |

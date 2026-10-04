@@ -16,6 +16,10 @@
   hundreds of pixels from their paragraphs on first open because the reader adds
   content after first paint; they now re-place themselves when the text height
   changes. No AI, no schema change.
+- Added Alembic revision `0037_cases_docket_number`, which idempotently adds
+  nullable `cases.docket_number` (`String(255)`) and its model-declared index.
+  Added mocked preservation/idempotency coverage and an explicitly gated
+  PostgreSQL migration-from-zero schema comparison test.
 - Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
   scroll inside their panel, the judge comparison form and the statute viewer form fit
   and stack on phones. CSS only.

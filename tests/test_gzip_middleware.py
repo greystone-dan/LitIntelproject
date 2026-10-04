@@ -104,17 +104,19 @@ def test_etag_is_stable_and_content_sensitive() -> None:
     assert compute_etag("same") != compute_etag("different")
 
 
-def test_static_html_is_private_and_supports_conditional_revalidation() -> None:
+def test_static_html_is_public_for_one_hour_and_supports_conditional_revalidation() -> None:
     response = static_html_response("<main>Page</main>")
     assert response.status_code == 200
-    assert response.headers["cache-control"] == "private, no-cache"
+    assert response.headers["cache-control"] == "public, max-age=3600"
     assert response.headers["etag"] == compute_etag("<main>Page</main>")
+    assert response.headers["vary"] == "Cookie"
 
     unchanged = static_html_response(
         "<main>Page</main>",
         if_none_match=response.headers["etag"],
     )
     assert unchanged.status_code == 304
+    assert unchanged.headers["cache-control"] == "public, max-age=3600"
     assert unchanged.headers["etag"] == response.headers["etag"]
     assert unchanged.body == b""
 
@@ -149,8 +151,18 @@ def test_static_page_routes_revalidate_and_deidentify_remains_no_store() -> None
 
     page = client.get("/data-explorer", headers={"accept-encoding": "identity"})
     assert page.status_code == 200
-    assert page.headers["cache-control"] == "private, no-cache"
+    assert page.headers["cache-control"] == "public, max-age=3600"
+    assert page.headers["vary"] == "Cookie"
     etag = page.headers["etag"]
+
+    compressed = client.get("/data-explorer", headers={"accept-encoding": "gzip"})
+    assert compressed.status_code == 200
+    assert compressed.headers["content-encoding"] == "gzip"
+    assert compressed.headers["cache-control"] == "public, max-age=3600"
+    assert {value.strip().lower() for value in compressed.headers["vary"].split(",")} == {
+        "cookie",
+        "accept-encoding",
+    }
 
     unchanged = client.get(
         "/data-explorer",

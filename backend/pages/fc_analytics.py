@@ -70,7 +70,8 @@ FC_ANALYTICS_PANEL = r"""
 <div><label>&nbsp;</label><button type="button" class="fcx-clear" id="fcxClear">Clear all</button></div>
 </div>
 <div class="fcx-chips" id="fcxChips" aria-live="polite"></div>
-<div class="fcx-status" id="fcxStatus">Loading the dashboard...</div>
+<div class="fcx-status" id="fcxStatus" role="status" aria-live="polite" data-state="loading">Loading the dashboard...</div>
+<button class="fcx-retry" id="fcxRetry" type="button" hidden>Retry dashboard</button>
 <div class="fcx-body" id="fcxBody">
 <div class="fcx-kpis" id="fcxKpis"></div>
 <div class="fcx-grid">
@@ -180,16 +181,17 @@ function renderChips(){const box=$('fcxChips');box.replaceChildren();for(const [
 function syncUrl(){const url=new URL(location.href);['year_from','year_to','city','decision_body','application_type','representation','language','office','judge','counsel','year'].forEach(k=>url.searchParams.delete(k));if(url.searchParams.get('tab')==='fc-analytics'){const q=query();for(const [k,v] of q)url.searchParams.set(k,v);history.replaceState(null,'',url.pathname+url.search)}}
 function fillOptions(d){if(state.options)return;state.options=true;state.years=d.by_year.map(r=>r.year);for(const id of ['fcxYearFrom','fcxYearTo']){const s=$(id);state.years.forEach(y=>s.appendChild(el('option',{value:y},String(y))))}d.by_city.filter(r=>r.value!=='unknown').forEach(r=>$('fcxCity').appendChild(el('option',{value:r.value},r.value)));d.by_decision_body.filter(r=>r.value!=='unknown').forEach(r=>$('fcxBody').appendChild(el('option',{value:r.value},label(r.value))));['leave_and_judicial_review','leave_and_judicial_review_extension_of_time','leave_judicial_review_and_mandamus','direct_judicial_review'].forEach(v=>$('fcxType').appendChild(el('option',{value:v},label(v))));for(const [k,v] of Object.entries(state.filters)){const s=document.querySelector(`#fcAnalyticsPanel [data-filter="${k}"]`);if(s)s.value=v}}
 let seq=0;
-async function load(){const mine=++seq;renderChips();$('fcxBody').classList.add('is-loading');$('fcxStatus').textContent='Updating...';const q=query();syncUrl();
+async function load(){const mine=++seq;renderChips();$('fcxBody').classList.add('is-loading');$('fcxStatus').dataset.state='loading';$('fcxStatus').textContent='Updating...';$('fcxRetry').hidden=true;const q=query();syncUrl();
  const judgeQ=new URLSearchParams();for(const k of ['year_from','year_to','decision_body'])if(q.get(k))judgeQ.set(k,q.get(k));judgeQ.set('min_decisions','25');const counselQ=new URLSearchParams(judgeQ);counselQ.delete('min_decisions');counselQ.set('min_files','15');if(q.get('city'))counselQ.set('city',q.get('city'));
  try{const [d,j,c]=await Promise.all([fetch(`/api/fc-activity/dashboard?${q}`).then(r=>{if(!r.ok)throw new Error(`Dashboard request failed (${r.status})`);return r.json()}),fetch(`/api/fc-activity/judges?${judgeQ}`).then(r=>r.ok?r.json():{judges:[]}),fetch(`/api/fc-activity/counsel?${counselQ}`).then(r=>r.ok?r.json():{counsel:[]})]);if(mine!==seq)return;
- state.data=d;state.judges=j.judges||[];state.counsel=c.counsel||[];fillOptions(d);renderAll();$('fcxStatus').textContent=`${num(d.kpis.files)} files in this view.`+(Object.keys(state.chips).length||Object.values(state.filters).some(Boolean)?' Clear all to return to every file.':'')}
- catch(error){if(mine!==seq)return;$('fcxStatus').textContent=`Dashboard unavailable: ${error.message}`}finally{if(mine===seq)$('fcxBody').classList.remove('is-loading')}}
+ state.data=d;state.judges=j.judges||[];state.counsel=c.counsel||[];fillOptions(d);renderAll();$('fcxStatus').dataset.state='success';$('fcxStatus').textContent=`${num(d.kpis.files)} files in this view.`+(Object.keys(state.chips).length||Object.values(state.filters).some(Boolean)?' Clear all to return to every file.':'')}
+ catch(error){if(mine!==seq)return;$('fcxStatus').dataset.state='error';$('fcxStatus').textContent=`Dashboard unavailable: ${error.message}`;$('fcxRetry').hidden=false}finally{if(mine===seq)$('fcxBody').classList.remove('is-loading')}}
 function preset(kind){document.querySelectorAll('#fcxPresets button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.preset===kind)));const last=state.years.length?Math.max(...state.years):new Date().getFullYear();state.filters.year_from=kind==='all'?'':String(last-Number(kind)+1);state.filters.year_to='';$('fcxYearFrom').value=state.filters.year_from;$('fcxYearTo').value='';load()}
 document.querySelectorAll('#fcAnalyticsPanel [data-filter]').forEach(s=>s.addEventListener('change',()=>{state.filters[s.dataset.filter]=s.value;if(s.dataset.filter.startsWith('year'))document.querySelectorAll('#fcxPresets button').forEach(b=>b.setAttribute('aria-pressed','false'));load()}));
 document.querySelectorAll('#fcxPresets button').forEach(b=>b.addEventListener('click',()=>preset(b.dataset.preset)));
 $('fcxClear').addEventListener('click',()=>{state.filters={};state.chips={};document.querySelectorAll('#fcAnalyticsPanel [data-filter]').forEach(s=>s.value='');document.querySelectorAll('#fcxPresets button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.preset==='all')));load()});
 document.querySelectorAll('#fcAnalyticsPanel [data-table]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.table;state.tables[k]=!state.tables[k];renderView(k)}));
+$('fcxRetry').addEventListener('click',load);
 window.fcxLoadDashboard=function(){if(state.loaded)return;state.loaded=true;const params=new URLSearchParams(location.search);for(const k of ['year_from','year_to','city','decision_body','application_type','representation','language'])if(params.get(k))state.filters[k]=params.get(k);for(const k of ['office','judge','counsel'])if(params.get(k))state.chips[k]={value:params.get(k),text:params.get(k)};load()};
 if(new URLSearchParams(location.search).get('tab')==='fc-analytics')window.fcxLoadDashboard();
 })();

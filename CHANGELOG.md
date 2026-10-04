@@ -7,11 +7,14 @@
 
 - Added negotiated selective gzip for eligible buffered responses while
   bypassing downloads, no-store responses, and streams. Static Data Explorer,
-  Citation Map, and Research Bench shells now use private conditional weak ETags;
-  no-store routes are unchanged. Added an offline HTML/gzip page-weight script
-  and baseline, plus explicit Research Bench loading/error/retry and Data
-  Explorer search retry states. Focused tests passed (20); generated references
-  are current. Browser and database-backed validation were not run.
+  Citation Map, and Research Bench shells now use public one-hour conditional
+  weak ETags with `Vary: Cookie`; dynamic and no-store responses are not cached.
+  Added an offline HTML/gzip page-weight script and baseline, plus explicit
+  loading/error/retry states for case search, the inline reader, Citation
+  Intelligence, the FC activity dashboard, and the Research Bench. Search
+  prevents duplicate submits and retries with its current filters; FC dashboard
+  updates use a polite live status. Focused tests pass; generated references are
+  current. Browser and database-backed validation were not run.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

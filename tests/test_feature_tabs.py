@@ -794,6 +794,10 @@ def test_citation_neighborhood_exposes_direct_relationships():
 def test_citation_intelligence_overview_has_stable_context_and_result_states():
     html = routes._data_explorer_page_html()
 
+    assert 'data-tab="citation-intelligence" aria-pressed="false" aria-controls="citationIntelligencePanel"' in html
+    assert 'id="citationIntelligencePanel"' in html
+    assert 'id="citationIntelligenceContent"' in html
+    assert "new URLSearchParams(location.search).get('case_id')" in html
     assert "Selected authority" in html
     assert "Research paths" in html
     assert "Stored citation evidence is shown separately from derived research signals." in html
@@ -805,6 +809,19 @@ def test_citation_intelligence_overview_has_stable_context_and_result_states():
     assert "Citation Intelligence unavailable:" in html
     assert "data-ci-retry" in html
     assert "originalLoadCitationIntelligence" in html
+    assert "loadCitationOverview" in html
+    assert 'data-tab="citation-intelligence"' in html
+    assert 'href="/citation-pass"' in html  # Separate QA route, not the selected-case workspace.
+
+
+def test_case_reader_load_error_has_retry_action():
+    html = routes._data_explorer_page_html()
+
+    assert 'role="status" aria-live="polite">Loading full decision...' in html
+    assert 'status.setAttribute(\'role\',\'alert\')' in html
+    assert 'data-reader-retry' in html
+    assert 'Retry loading decision' in html
+    assert 'Retry case details' in html
 
 
 def test_case_search_has_clear_primary_query_and_filter_state():
@@ -824,6 +841,10 @@ def test_case_search_has_clear_primary_query_and_filter_state():
     assert "limit:'5'" in html
     assert "sort_by:'relevance'" in html
     assert 'function professionalResultCard(item)' in html
+    assert 'if(searchPending)return' in html
+    assert 'submit.disabled=true' in html
+    assert 'finally{searchPending=false;if(submit)submit.disabled=false;}' in html
+    assert 'Your filters have been preserved so you can try again.' in html
 
 
 def test_case_search_can_save_current_query_and_filters():
@@ -970,5 +991,10 @@ def test_fc_analytics_tab_is_wired_into_research_navigation():
     assert "'fc-analytics','fc-history'" in html
     assert "window.fcxLoadDashboard" in html
     assert "/api/fc-activity/dashboard" in html
+    assert 'id="fcxStatus" role="status" aria-live="polite" data-state="loading"' in html
+    assert 'id="fcxRetry" type="button" hidden>Retry dashboard' in html
+    assert "$('fcxStatus').dataset.state='error'" in html
+    assert "$('fcxRetry').hidden=false" in html
+    assert "$('fcxRetry').addEventListener('click',load)" in html
     for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
         assert f'id="{chart}"' in html

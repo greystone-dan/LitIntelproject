@@ -1,4 +1,4 @@
-"""Response helpers for revalidatable static HTML pages."""
+"""Response helpers for cacheable, non-personalized HTML page shells."""
 
 from hashlib import sha256
 
@@ -33,16 +33,19 @@ def static_html_response(
     if_none_match: str | None = None,
     status_code: int = 200,
 ) -> Response:
-    """Build a privately cached HTML response with conditional ETag support.
+    """Build a publicly cached, non-personalized HTML response with ETag support.
 
-    ``private, no-cache`` allows a browser to retain the page but requires
-    revalidation before reuse. Sensitive routes must continue to set their
-    explicit no-store headers instead of using this helper.
+    The one-hour freshness lifetime applies only to static page shells. Dynamic
+    API responses and sensitive routes must continue to set their explicit
+    no-store headers instead of using this helper. Varying on Cookie keeps
+    optional authenticated deployments from sharing a cached shell across
+    distinct access-cookie states.
     """
     etag = compute_etag(content)
     headers = {
-        "Cache-Control": "private, no-cache",
+        "Cache-Control": "public, max-age=3600",
         "ETag": etag,
+        "Vary": "Cookie",
     }
     if _if_none_match_matches(if_none_match, etag):
         return Response(status_code=304, headers=headers)

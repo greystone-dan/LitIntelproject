@@ -1,6 +1,6 @@
 # Task: Improve page delivery performance and resilience
 
-Status: blocked
+Status: complete
 Created: 2026-10-04
 Updated: 2026-10-04
 
@@ -8,15 +8,15 @@ Updated: 2026-10-04
 
 Task: Implement issue #140's focused page-delivery, caching/compression, page-weight measurement, and loading/error/retry improvements.
 
-Why now: Improve research-page responsiveness and resilience while retaining download, stream, and no-store behavior.
+Why now: User confirmed issue #140's exact targets: case search, case reader, Citation Intelligence, and FC dashboard; the previously unresolved target list no longer blocks completion.
 
-Owner surface: FastAPI middleware and generated research pages under `backend/`, with page-delivery tests and a bounded page-weight tool/report.
+Owner surface: FastAPI page delivery and the four specified research-page states, with focused tests.
 
 Commit allowed: yes
 
 Push allowed: yes
 
-Dependencies: Existing route response/cache contracts and installed runtime dependencies; issue requirements are limited to the user-provided prompt because GitHub issue lookup is unavailable.
+Dependencies: Existing route response/cache contracts and installed runtime dependencies; exact page list confirmed by the user.
 
 Risk boundary: Do not touch database, deployment, or `.env`; preserve download/stream response bodies and headers, existing no-store routes, page behavior, and unrelated worktree changes.
 
@@ -25,9 +25,9 @@ Smallest falsifiable check: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noco
 Acceptance criteria:
 
 - Add GZipMiddleware with explicit exceptions for downloads and streams.
-- Apply cache headers and static ETags where appropriate without weakening no-store routes.
+- Apply public `max-age=3600` and ETag/If-None-Match to non-personalized static page shells without caching dynamic or no-store responses; no standalone static-file mount currently exists.
 - Add a page-weight script and checked-in baseline report.
-- Make only safe lightweight page changes; add loading, error, and retry states to the specified pages. Current scoped changes cover Data Explorer case search and the Research Bench `/research` prototype.
+- Add loading/error/retry states to case search, case reader, Citation Intelligence, and FC dashboard; prevent duplicate searches and preserve filters; make FC dashboard status `aria-live="polite"`.
 - Add relevant tests; generated-doc checks pass; update Swimm and canonical documentation.
 - Record validation, blockers, and the requested Before/After PR description.
 
@@ -41,29 +41,29 @@ Docs/generated references: `SYSTEM_REFERENCE.md`; active UI Swimm walkthrough un
 
 Rollback/recovery: Revert only the issue #140 changes; no database or deployment actions are in scope.
 
-Evidence: Implementation, documentation, and focused checks are complete for the prompt-confirmed requirements. Full task remains blocked because no page list was supplied and the issue body could not be retrieved; see the blocker below.
+Evidence: The continuation completed all four confirmed page-state targets, public one-hour shell caching with conditional ETags, focused regression tests, canonical docs, and Swimm updates. Validation commands and residual browser limitation are recorded below.
 
-Files changed: `backend/main.py`; `backend/gzip_middleware.py`; `backend/cache_headers.py`; `backend/routes.py`; `backend/pages/data_explorer.py`; `backend/pages/research.py`; `scripts/measure_page_weight.py`; `docs/page_weight_baseline.json`; `tests/test_gzip_middleware.py`; `tests/test_page_weight.py`; generated `docs/API_REFERENCE.generated.md` and `docs/SCRIPT_CATALOG.generated.md`; `SYSTEM_REFERENCE.md`; `CHANGELOG.md`; `.swm/1.oi7rhqp2.sw.md`; `.swm/6.maiixtsw.sw.md`; this task record.
-Delegated work: Managed worker `issue-140-implementation` returned a structured report for its runtime/UI slice. Manager review found its original response-header exclusion ineffective and cache helpers unwired; manager repaired the middleware, wired route ETags, added Data Explorer search retry, strengthened tests, and retained the offline-only report scope.
-Focused validation: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noconftest tests/test_gzip_middleware.py tests/test_page_weight.py tests/test_feature_tabs.py` — 71 passed, 1 skipped; generated-doc check passed; changed Python sources compiled; tracked and new-file whitespace checks passed.
-Residual risk: Exact target pages in issue #140 could not be confirmed; browser interaction and database-backed suites were not run. A whole-page Node syntax scan found one pre-existing Tag Analytics script syntax error, while both modified scripts pass targeted syntax checks. No database, deployment, or `.env` access was performed.
-Next bounded task: Confirm the exact page list for issue #140, then add or adjust loading/error/retry states only on those pages.
+Files changed: `.github/project-manager/tasks/issue-140-page-performance.md`; `.swm/1.oi7rhqp2.sw.md`; `.swm/6.maiixtsw.sw.md`; `CHANGELOG.md`; `SYSTEM_REFERENCE.md`; `docs/RESEARCH_UI_GUIDE.md`; `backend/cache_headers.py`; `backend/gzip_middleware.py`; `backend/main.py`; `backend/routes.py`; `backend/pages/data_explorer.py`; `backend/pages/fc_analytics.py`; `backend/pages/research.py`; `scripts/measure_page_weight.py`; `docs/page_weight_baseline.json`; `tests/test_feature_tabs.py`; `tests/test_gzip_middleware.py`; `tests/test_page_weight.py`; generated `docs/API_REFERENCE.generated.md` and `docs/SCRIPT_CATALOG.generated.md`.
+Delegated work: Managed worker `issue-140-ui-states` inspected `backend/routes.py`, `backend/pages/data_explorer.py`, `backend/pages/fc_analytics.py`, and focused tests; changed the two page builders and `tests/test_feature_tabs.py`. It reported four focused UI tests passed, Python compilation and `git diff --check` passed, and no database/browser run. Manager reviewed the diff, added retry for the partial supporting-reader-data failure, adjusted static-shell cache policy, and performed final acceptance.
+Focused validation: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noconftest tests/test_gzip_middleware.py tests/test_page_weight.py tests/test_feature_tabs.py` — 72 passed, 1 skipped. `PYTHON_DOTENV_DISABLED=1 python scripts/check_generated_docs.py` — all 3 references current. `python -m py_compile backend/cache_headers.py backend/pages/data_explorer.py backend/pages/fc_analytics.py tests/test_gzip_middleware.py tests/test_feature_tabs.py` — passed. `node --check -` on the generated Data Explorer wrapper and FC dashboard script — passed. `git diff --check` — passed.
+Residual risk: No browser interaction or database-backed suite was run; Playwright and Selenium are not installed, and this task explicitly forbids database access. No deployment or `.env` access occurred.
+Next bounded task: Add browser smoke coverage for the four page-state transitions when a DB-independent browser fixture is available.
 
 ## Hypothesis
 
-If the delivery changes preserve route-specific behavior, focused API/UI tests will demonstrate compression and caching only for eligible responses and stable loading/error/retry states on the selected pages.
+If the delivery changes cache only static non-personalized shells and preserve route-specific behavior, focused API/UI tests will demonstrate conditional one-hour responses, no-store preservation, and stable loading/error/retry states on all four selected pages.
 
 ## Plan
 
-1. Delegate implementation and focused test discovery within the backend delivery/UI surface.
-2. Review the diff and worker evidence; repair or narrow the same slice if needed.
-3. Update the system reference and active UI/API Swimm walkthroughs, then run focused and documentation checks.
+1. Delegate the four-page UI state and focused-test implementation.
+2. Review the worker diff and complete the public static-shell cache policy.
+3. Update canonical repository docs and relevant Swimm walkthroughs, then run focused tests and generated-doc checks.
 
 ## Execution Checkpoints
 
-- Delegation: Managed worker returned a structured report; manager corrected an ineffective gzip bypass and unwired caching helpers.
-- Implementation: Compression, download/stream/no-store bypass, static shell ETags, offline baseline, and two page-state scopes implemented.
-- Documentation: `SYSTEM_REFERENCE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md` updated; generated references regenerated from source.
+- Delegation: Managed worker returned a structured report for case reader, duplicate search submit, and FC dashboard states; manager validated Citation Intelligence's embedded page and retry behavior.
+- Implementation: Static page shells now use public one-hour caching with ETag/If-None-Match and Cookie variance. Search disables duplicates and preserves filters; reader covers full and partial failure retry; Citation Intelligence retains selected-case loading/error/retry states; FC dashboard has polite live status and retry. No standalone static-file mount exists.
+- Documentation: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md` updated. Generated references checked, not hand-edited.
 - Recovery: No long operation, database writes, or deployment involved.
 
 ## Decision Log
@@ -71,29 +71,29 @@ If the delivery changes preserve route-specific behavior, focused API/UI tests w
 | Date | Decision | Reason | Evidence |
 | --- | --- | --- | --- |
 | 2026-10-04 | Task created | Issue #140 requirements supplied in prompt; GitHub issue body inaccessible in this environment. | `gh issue view 140` failed because `GH_TOKEN` is not configured; worktree initially clean. |
-| 2026-10-04 | Keep work blocked on unlisted page targets | Active `/data-explorer` is the primary surface; `/research` is the Research Bench prototype. Do not infer a broader page list. | `SYSTEM_REFERENCE.md` UI ownership; `gh` issue lookup failed for missing token and local issue API returned HTTP 410. |
+| 2026-10-04 | Clarify the page-state target list | Continue only on the user's specified case search, case reader, Citation Intelligence, and FC dashboard surfaces. | User continuation prompt. |
+| 2026-10-04 | Apply public caching to static HTML shells, not dynamic APIs | The app has no separately mounted static-file directory; only non-personalized HTML shell routes use the cache helper. Keep explicit no-store paths unchanged. | Route-helper tests for public max-age, ETag/304, and no-store response behavior. |
 
 ## Completion
 
-Completion recorded: yes (blocked pending target-page clarification)
+Completion recorded: yes
 
-Summary: Prompt-confirmed runtime, cache, measurement, page-state, tests, and documentation work is implemented. The precise issue page list remains unverified.
+Summary: Issue #140's confirmed page-state targets and cache policy are implemented and focused checks pass.
 
-Validation: Focused tests passed: 71 passed, 1 skipped. `PYTHON_DOTENV_DISABLED=1 python scripts/check_generated_docs.py` passed (3 generated references current). `python -m py_compile` passed for modified Python files; `git diff --check` and a new-file whitespace check passed. `node --check` passed for the changed Research and Data Explorer scripts.
+Validation: 72 focused tests passed, 1 skipped; generated-doc check, Python compilation, targeted Node syntax checks, and diff hygiene passed. See Final Evidence for exact commands and documentation paths.
 
-Residual risk: No browser test or database-backed suite was run. Tests used `--noconftest` to avoid the repository conftest's PostgreSQL availability probe.
+Residual risk: Browser interaction and database-backed suites were not run; Playwright and Selenium are unavailable in the environment. The pytest command used `--noconftest` to avoid the repository conftest's PostgreSQL availability probe.
 
-Next recommended task: Confirm issue #140's exact loading/error/retry page targets.
-
-## Blocker
-
-The prompt says “specified pages” but does not name them. `gh issue view 140` could not authenticate (`GH_TOKEN` unavailable), and the configured local issue API returned HTTP 410. The implemented page-state work covers `/data-explorer` case search and the `/research` prototype based on repository UI ownership. Required decision: confirm those are the intended targets or provide the exact route list.
+Next recommended task: Add browser smoke coverage for all four page-state transitions using a DB-independent fixture.
 
 ## Final Evidence
 
-- Focused tests: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noconftest tests/test_gzip_middleware.py tests/test_page_weight.py tests/test_feature_tabs.py` — 71 passed, 1 skipped, 2 dependency deprecation warnings.
-- Page baseline: `python scripts/measure_page_weight.py` — passed; offline HTML-only measurements written to `docs/page_weight_baseline.json`.
+- Focused tests: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noconftest tests/test_gzip_middleware.py tests/test_page_weight.py tests/test_feature_tabs.py` — 72 passed, 1 skipped.
+- Page baseline: prior commit ran `python scripts/measure_page_weight.py`; the existing offline-only baseline remains unchanged in `docs/page_weight_baseline.json`.
 - Generated references: `PYTHON_DOTENV_DISABLED=1 python scripts/check_generated_docs.py` — passed; all three generated references current.
-- Documentation checkpoint: canonical `SYSTEM_REFERENCE.md` and Swimm walkthroughs `.swm/1.oi7rhqp2.sw.md`, `.swm/6.maiixtsw.sw.md` updated.
-- Changed UI JavaScript: targeted `node --check` — 2 scripts passed. A whole-page check found one unrelated pre-existing Tag Analytics syntax error, also documented by the existing UI walkthrough.
-- Diff check: `git diff --check` — passed after whitespace cleanup.
+- Python compile: `python -m py_compile backend/cache_headers.py backend/pages/data_explorer.py backend/pages/fc_analytics.py tests/test_gzip_middleware.py tests/test_feature_tabs.py` — passed.
+- UI JavaScript: script-only `node --check -` for the appended Data Explorer wrapper and FC dashboard — passed. Playwright/Selenium browser checks were not available.
+- Documentation checkpoint: canonical `SYSTEM_REFERENCE.md`, detailed UI guide `docs/RESEARCH_UI_GUIDE.md`, and Swimm walkthroughs `.swm/1.oi7rhqp2.sw.md` and `.swm/6.maiixtsw.sw.md` updated.
+- Diff check: `git diff --check` — passed.
+- Before: Reader and FC dashboard failures had no retry; search submits could overlap; static shells revalidated privately; Citation Intelligence and FC states lacked finalized coverage.
+- After: Four requested surfaces expose their defined loading/error/retry behavior, search suppresses duplicate submits while retaining filters, FC status is announced politely, and non-personalized static shells use public one-hour conditional ETags. Dynamic APIs and existing no-store responses remain outside that cache helper.

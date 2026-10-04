@@ -9,7 +9,8 @@ times, and its process-local cache could grow without an entry limit.
 After: batched reads preserve successful response JSON, sorting and evidence
 offsets; FC insights performs one duration scan and uses a 256-entry LRU bound.
 The existing PR108 analytics cache keys, TTL policy and `X-Cache` behavior are
-retained. No database, migration, deployment or push operation was performed.
+retained. Only disposable test databases were used; no application database,
+migration or deployment operation was performed.
 
 ## Method and measurement boundary
 
@@ -179,11 +180,11 @@ staging URI. Remaining failures concern an unrelated unmocked local model and
 uncached tokenizer data. They must not be hidden with extra deselects.
 
 No live/external database, dotenv file, credential, deployment script, other
-branch, migration or push was accessed. GitHub issue retrieval was unavailable
+branch or migration was accessed. GitHub issue retrieval was unavailable
 without authentication; scope comes from the user's detailed request.
-`report_progress` and `parallel_validation` are not exposed tools in this
-environment; checklist chat updates and independent postcommit validation are
-the available substitutes, not claims that those tools ran.
+The delegated implementation used independent postcommit validation. The parent
+session also scans changed files for secrets, publishes progress, and requests
+automated PR review and security validation with the available tools.
 
 ### Final precommit acceptance
 
@@ -220,8 +221,8 @@ from ceiling assertions. No backend regression finding was reported.
 **PR acceptance blocker:** full-suite green cannot be claimed in this
 environment. Safe follow-up is to repair the embedding test's provider mock and
 provide a verified offline tokenizer fixture/cache in that test owner surface,
-then rerun the exact same three CI deselects. No PR was opened: changes are local,
-GitHub CLI authentication is unavailable, and pushing was explicitly forbidden.
+then rerun the exact same three CI deselects. Changes are published through the
+PR progress tool, not GitHub CLI authentication or direct pushes.
 
 Acceptance status: **blocked on full-suite validation**, with the implementation
 and focused checks delivered. No production latency,

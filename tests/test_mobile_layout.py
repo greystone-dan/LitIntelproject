@@ -103,3 +103,16 @@ const controller = __CONTROLLER__;
 """.replace("__CONTROLLER__", RISK_JS)
     result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_other_tabs_have_phone_rules():
+    assert ".about-story{grid-template-columns:minmax(0,1fr)!important}" in MOBILE_CSS
+    assert ".panel-card table{display:block;max-width:100%;overflow-x:auto" in MOBILE_CSS
+    assert "#judgeComparisonForm input{display:block;width:100%" in MOBILE_CSS
+
+
+def test_statute_viewer_form_wraps_on_phones():
+    from backend.case_reader_ui import statute_viewer_page_html
+
+    html = statute_viewer_page_html()
+    assert "@media (max-width: 600px)" in html and ".search-form { flex-wrap: wrap; }" in html

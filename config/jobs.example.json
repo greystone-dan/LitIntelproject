@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "name": "ingest",
+      "overlap_policy": "skip",
+      "command": ["{python}", "scripts/ingest_a2aj_api.py", "--limit", "10", "--max-pages", "1", "--dry-run"],
+      "interval_seconds": 86400,
+      "enabled": false,
+      "max_runtime_seconds": 600
+    },
+    {
+      "name": "embedding",
+      "overlap_policy": "skip",
+      "command": ["{python}", "scripts/embed_local_chunks.py", "--limit", "10", "--dry-run"],
+      "interval_seconds": 86400,
+      "enabled": false,
+      "max_runtime_seconds": 600
+    },
+    {
+      "name": "tagging",
+      "overlap_policy": "skip",
+      "command": ["{python}", "scripts/tag_cases_v3.py", "--limit", "10", "--dry-run"],
+      "interval_seconds": 86400,
+      "enabled": false,
+      "max_runtime_seconds": 600
+    }
+  ]
+}

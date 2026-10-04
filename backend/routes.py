@@ -226,6 +226,7 @@ from .search_service import (
 	_party_filter_terms,
 	_validate_search_ranges,
 )
+from .query_embedding_providers import embed_case_summary, get_search_embedding_status
 from .models import (
 	DiscoveredThemeResponse,
 	ThemeDiscoveryResponse,
@@ -305,6 +306,11 @@ def _data_explorer_page_html() -> str:
 router = APIRouter(tags=["cases"])
 router.include_router(statute_consideration_router)
 router.include_router(case_summary_router)
+
+
+@router.get("/api/search-embedding-status")
+def search_embedding_status() -> dict[str, str | int | bool | None]:
+	return get_search_embedding_status()
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:
@@ -612,7 +618,7 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 		cases_citing=case_data.cases_citing,
 		citing_cases_count=case_data.citing_cases_count,
 		embedding=(
-			_embed(case_data.summary)
+			embed_case_summary(case_data.summary)
 			if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"])
 			else None
 		),

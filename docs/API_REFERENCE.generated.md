@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.005395+00:00
+Generated: 2026-10-04T15:05:39.602489+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 109 across 106 paths
+OpenAPI operations: 110 across 107 paths
 Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -279,6 +279,14 @@ Return local authoritative section text and cases citing the pinpoint.
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/search-embedding-status`
+
+Search Embedding Status
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `GET /api/statutes/{statute_code}`
 

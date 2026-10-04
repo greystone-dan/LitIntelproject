@@ -71,6 +71,7 @@ from .text_generation_providers import (
 	get_text_generation_provider,
 )
 from .pages.citation_map import citation_map_html
+from .deployment_profile import get_deployment_profile, require_analysis_allowed
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
@@ -299,6 +300,45 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+
+
+def _with_deployment_profile_notice(page_html: str) -> str:
+	"""Make the additive deployment profile available to analysis page scripts."""
+	script = """<script>
+(async function () {
+	try {
+		const response = await fetch("/api/deployment-profile", { credentials: "same-origin" });
+		if (!response.ok) return;
+		const profile = await response.json();
+		window.CASELIBRARY_DEPLOYMENT_PROFILE = Object.freeze(profile);
+		if (!profile.public_data_only) return;
+		const notice = document.createElement("aside");
+		notice.setAttribute("role", "status");
+		notice.style.cssText = "margin:16px;padding:12px;border:1px solid #9a6b18;background:#fff4d6;color:#392900";
+		notice.textContent = "Public-data-only mode is active. Document and free-text analysis is disabled; public case browsing, search, reading, and statute lookup remain available.";
+		const content = document.querySelector("main, .wrap") || document.body;
+		content.prepend(notice);
+		document.querySelector("#drop")?.setAttribute("hidden", "");
+		document.querySelectorAll("input, textarea, select, button").forEach((control) => {
+			control.disabled = true;
+		});
+		document.querySelectorAll("form").forEach((form) => {
+			form.addEventListener("submit", (event) => event.preventDefault());
+		});
+	} catch (_) {
+		// The server-side route guard remains authoritative if profile discovery fails.
+	}
+})();
+</script>"""
+	if "</body>" in page_html:
+		return page_html.replace("</body>", f"{script}</body>", 1)
+	return f"{page_html}{script}"
+
+
+@router.get("/api/deployment-profile")
+def get_deployment_profile_api() -> dict[str, object]:
+    """Return the active deployment profile summary."""
+    return get_deployment_profile()
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:
@@ -572,7 +612,11 @@ def _build_ingestion_run(case_data: CaseIngestRequest, *, records_seen: int = 1,
 
 
 @router.post("/ingest", response_model=CaseResponse, status_code=status.HTTP_201_CREATED)
-def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> Case:
+def ingest_case(
+	case_data: CaseIngestRequest,
+	_analysis_allowed: None = Depends(require_analysis_allowed),
+	db: Session = Depends(get_db),
+) -> Case:
 	metadata: dict[str, Any] = dict(case_data.metadata_json or {})
 	extracted_citations = _extract_legal_citations(case_data.full_text or case_data.summary)
 	if extracted_citations:
@@ -632,6 +676,7 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 @router.post("/ingest/merge", response_model=CaseMergeResponse)
 def merge_ingest_case(
 	case_data: CaseIngestRequest,
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 	db: Session = Depends(get_db),
 ) -> CaseMergeResponse:
 	if not case_data.cases_cited:
@@ -992,13 +1037,17 @@ def citation_map_page() -> str:
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
 def live_analysis_page() -> HTMLResponse:
-	return HTMLResponse(content=live_analysis_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(
+		content=_with_deployment_profile_notice(live_analysis_page_html()),
+		status_code=status.HTTP_200_OK,
+	)
 
 
 @router.post("/live-analysis/analyze", response_model=LiveAnalysisResponse)
 async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 	db: Session = Depends(get_db),
 ) -> JSONResponse:
 	content = await _read_upload_bounded(file)
@@ -1017,6 +1066,7 @@ async def live_analysis_analyze(
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 	db: Session = Depends(get_db),
 ) -> JSONResponse:
 	content = await _read_upload_bounded(file)
@@ -1034,12 +1084,16 @@ async def live_analysis_resolve(
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
 def memo_citation_check_page() -> HTMLResponse:
-	return HTMLResponse(content=memo_citation_check_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(
+		content=_with_deployment_profile_notice(memo_citation_check_page_html()),
+		status_code=status.HTTP_200_OK,
+	)
 
 
 @router.post("/memo-citation-check", response_model=MemoCitationCheckResponse)
 async def memo_citation_check_analyze(
 	file: UploadFile = File(...),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 	db: Session = Depends(get_db),
 ) -> MemoCitationCheckResponse:
 	content = await _read_upload_bounded(file)
@@ -1061,7 +1115,11 @@ _NO_STORE = {"Cache-Control": "no-store", "Pragma": "no-cache"}
 
 @router.get("/deidentify", response_class=HTMLResponse, include_in_schema=False)
 def deidentify_page() -> HTMLResponse:
-	return HTMLResponse(content=deidentify_page_html(), status_code=status.HTTP_200_OK, headers=_NO_STORE)
+	return HTMLResponse(
+		content=_with_deployment_profile_notice(deidentify_page_html()),
+		status_code=status.HTTP_200_OK,
+		headers=_NO_STORE,
+	)
 
 
 async def _deidentify_input_text(file: UploadFile | None, text: str) -> tuple[str, str]:
@@ -1088,6 +1146,7 @@ async def deidentify_api(
 	categories: str = Form(""),
 	auto_names: bool = Form(True),
 	never_hide: str = Form(""),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 ) -> JSONResponse:
 	try:
 		source, filename = await _deidentify_input_text(file, text)
@@ -1115,6 +1174,7 @@ async def reidentify_api(
 	file: UploadFile | None = File(None),
 	text: str = Form(""),
 	key: str = Form(...),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
 ) -> JSONResponse:
 	try:
 		source, _ = await _deidentify_input_text(file, text)
@@ -1129,7 +1189,11 @@ async def reidentify_api(
 
 
 @router.post("/api/deidentify/docx", include_in_schema=False)
-def deidentify_docx_api(text: str = Form(...), filename: str = Form("document.docx")) -> Response:
+def deidentify_docx_api(
+	text: str = Form(...),
+	filename: str = Form("document.docx"),
+	_analysis_allowed: None = Depends(require_analysis_allowed),
+) -> Response:
 	try:
 		resource_limits.validate_pasted_text_length(len(text))
 	except resource_limits.ResourceLimitError as exc:
@@ -3607,7 +3671,10 @@ def _research_page_html() -> str:
 
 @router.get("/research", response_class=HTMLResponse, include_in_schema=False)
 def research_interface() -> HTMLResponse:
-	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(
+		content=_with_deployment_profile_notice(research_page_html()),
+		status_code=status.HTTP_200_OK,
+	)
 
 
 def _saved_search_alert_response(db: Session, alert: SearchAlert) -> SearchAlertResponse:
@@ -3848,7 +3915,11 @@ def theme_explorer_page() -> HTMLResponse:
 
 
 @router.post("/research", response_model=ResearchResponse)
-def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
+def research(
+	search: ResearchRequest,
+	_analysis_allowed: None = Depends(require_analysis_allowed),
+	db: Session = Depends(get_db),
+) -> ResearchResponse:
 	result = _grouped_chunk_search(search, db)
 
 	top_cases = result.cases[: search.max_cases]

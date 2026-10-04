@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Add opt-in `CASELIBRARY_PUBLIC_DATA_ONLY` enforcement for document/free-text
+  analysis inputs (`/ingest`, `/ingest/merge`, `/live-analysis/analyze`,
+  `/live-analysis/resolve`, `/memo-citation-check`, `/api/deidentify`,
+  `/api/reidentify`, `/api/deidentify/docx`, and `/research`). Preserve public
+  search/read/statute paths, explain disabled analysis controls in the affected
+  UI pages, and report the profile through `/health` and
+  `GET /api/deployment-profile`.
+
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

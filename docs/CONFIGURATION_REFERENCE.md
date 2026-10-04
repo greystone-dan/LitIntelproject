@@ -1,6 +1,6 @@
 # Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
@@ -40,12 +40,16 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
+| `CASELIBRARY_PUBLIC_DATA_ONLY` | `off` | `backend/deployment_profile.py` | When `on`, rejects document-upload, file, and free-text analysis POST paths; public search/read/statute paths remain available. Profile status is available from `/health` and `GET /api/deployment-profile`. This is not authentication or a data-redaction control. |
 | `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
 | `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+See [`PUBLIC_DATA_ONLY_MODE.md`](PUBLIC_DATA_ONLY_MODE.md) for the exact paths
+blocked by the opt-in public-data-only profile and the profile response shape.
 
 ## Optional Request Audit Log
 

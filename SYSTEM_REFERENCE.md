@@ -337,11 +337,15 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
   provider/model/output dimensions, indexed dimensions, whether query text
   leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
-  Search rejects query vectors that do not match its 1536-dimensional
-  indexed-vector contract. The default local BGE-M3 model is 1024-dimensional,
-  so it requires a compatible indexed-vector family before it can be used by
-  that search path. See [the local query embedding report](docs/reports/local-query-embeddings.md)
-  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
+  Model IDs and output dimensions come from the registry under
+  `ai.embeddings.registry` in `config.yaml`; hosted and local defaults are
+  configured separately. Search rejects query vectors that do not match its
+  current 1536-dimensional indexed-vector contract. The default local BGE-M3
+  model is 1024-dimensional, so it still requires a compatible indexed-vector
+  family before it can be used by that search path. Registry selection does not
+  migrate or re-embed stored vectors. See [the local query embedding
+  report](docs/reports/local-query-embeddings.md) and [configuration
+  reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -868,7 +872,8 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
-| `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `backend/embedding_registry.py` | Configuration-loaded embedding model IDs, provider types, defaults, and output-dimension metadata |
+| `backend/embedding_providers.py` | Local embedding provider wiring and registered-dimension validation |
 | `backend/text_generation_providers.py` | Opt-in hosted or Ollama chat-generation provider selection for experimental `/research` |
 | `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |

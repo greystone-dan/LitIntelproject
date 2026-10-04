@@ -28,6 +28,7 @@ from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .query_embedding_providers import (
 	embed_query,
+	get_indexed_embedding_model,
 	query_embedding_provider,
 	query_embeddings_enabled,
 )
@@ -45,8 +46,9 @@ from .models import (
 	LocalChunkSearchRequest,
 )
 
-EMBEDDING_DIMENSIONS = 1536
-EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
+_INDEXED_EMBEDDING_MODEL = get_indexed_embedding_model()
+EMBEDDING_DIMENSIONS = _INDEXED_EMBEDDING_MODEL.output_dimensions
+EMBEDDING_MODEL = _INDEXED_EMBEDDING_MODEL.model_id
 RECENT_5000_IVFFLAT_LISTS = 200
 RECENT_5000_IVFFLAT_PROBES_DEFAULT = 12
 

@@ -41,6 +41,17 @@ ai:
 
   embeddings:
     model: text-embedding-3-small
+    local_model: "BAAI/bge-m3"
+    registry:
+      "text-embedding-3-small":
+        provider: openai
+        output_dimensions: 1536
+      "BAAI/bge-m3":
+        provider: local
+        output_dimensions: 1024
+      "sentence-transformers/all-MiniLM-L6-v2":
+        provider: local
+        output_dimensions: 384
     batch_size: 100     # Number of texts embedded per API call
     cache_enabled: true
 

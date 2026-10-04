@@ -89,6 +89,7 @@ whole project map.
 | Source-to-canonical flow | `backend/ingestion.py` | Staging, provenance, merge priority, and canonical writes | Ingestion |
 | Citation evidence | `backend/citations.py` | Extraction, offsets, resolution, metrics, and QA boundaries | Citation QA |
 | Database map | `backend/database.py` and `alembic/` | ORM entities, migrations, and pgvector responsibilities | Data/platform |
+| Embedding model configuration | `config.yaml` and `backend/embedding_registry.py` | Registered model metadata, hosted/local defaults, and vector-width compatibility | Retrieval |
 | Operational run | `scripts/run_overnight.py` and `OVERNIGHT.md` | Locks, bounded jobs, resume behavior, and recovery | Operations |
 | CI quality workflow | `.github/workflows/quality.yml` | Non-blocking PR/weekly Ruff and dependency-audit checks, result artifacts, and baseline scope | Quality/platform |
 | Active UI | `backend/routes.py` and `docs/RESEARCH_UI_GUIDE.md` | Data Explorer, inline reader, Citation Map, and legacy boundaries | Research UI |
@@ -237,8 +238,9 @@ walkthrough becomes stale, label the gap and point to the authoritative source;
 do not preserve a visually complete but inaccurate diagram.
 
 The current Swimm set includes the system, active UI, ingestion, citation,
-database, operations, CI quality workflow, Federal Court, CanLaw, future-state,
-technical-debt, architecture-decision, and evaluation walkthroughs.
+database, embedding model configuration, operations, CI quality workflow,
+Federal Court, CanLaw, future-state, technical-debt, architecture-decision, and
+evaluation walkthroughs.
 Use the P0 queue to drive cleanup through the implemented manager framework.
 Add a walkthrough when a new owner surface appears, rather than allowing the
 agent to infer an undocumented boundary.

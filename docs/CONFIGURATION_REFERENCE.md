@@ -107,10 +107,10 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
 | `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
 | `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
-| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
+| `QUERY_EMBEDDING_DIMENSIONS` | Registered model's output width | `backend/query_embedding_providers.py` | Optional local query-vector assertion. If set, it must equal the selected model's configured `output_dimensions`; indexed-vector compatibility is checked separately. |
 | `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
-| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
+| `OPENAI_EMBEDDING_MODEL` | Runtime: `ai.embeddings.model` in `config.yaml`; standalone scripts may use their own defaults | `backend/query_embedding_providers.py`, `backend/routes.py`, embedding scripts | Runtime provider/query selection resolves the model ID and width through `ai.embeddings.registry`. Existing hosted embedding scripts retain their explicit model/schema guards; do not infer that changing runtime configuration changes their fixed contract. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
@@ -156,18 +156,30 @@ rather than submitting it. Local model inference may fetch model artifacts on
 first use if they are not already cached; this is separate from whether query
 text leaves the machine. See `docs/reports/local-query-embeddings.md`.
 
+The configuration-driven registry lives at `ai.embeddings.registry` in
+`config.yaml`. Each entry declares a provider and `output_dimensions`; defaults
+are selected by `ai.embeddings.model` (hosted) and
+`ai.embeddings.local_model` (local). Query selection rejects unknown model IDs,
+provider mismatches, and local dimension overrides that disagree with the
+registered width. The default hosted indexed-vector schema remains
+1536-dimensional; selecting a different model does not migrate or re-embed
+stored vectors.
+
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
 ## Local Embedding Settings
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_MODEL` | `ai.embeddings.local_model` in `config.yaml` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Registered local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
 | `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 
-Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validates returned dimension shape before storage. Do not point a 768- or 1536-dimensional model at the local chunk embedding workflow without an explicit schema/model change.
+Local model dimensions come from the registry and returned vectors are checked
+against that metadata before use. The configured BGE-M3 entry is 1024-dimensional.
+Do not use a query model whose width differs from the indexed vectors without an
+explicit schema/model change and compatible index.
 
 ## Citation, Cohort, And Source Settings
 

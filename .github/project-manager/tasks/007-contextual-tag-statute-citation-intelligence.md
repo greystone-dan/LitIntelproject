@@ -1,45 +1,5 @@
 # Task: Contextual Tag-Statute-Citation Intelligence Engine & Analytics
 
-## Issue 117 bounded follow-up
-
-Task: Add an ephemeral proposition-to-authority finder.
-Why now: Expose existing V3 tags and resolved citation postings without new intelligence infrastructure.
-Owner surface: `backend/precedent_finder.py`, its page, and route integration.
-Dependencies: Existing V3 tagger, statute extractor, canonical models and posting indexes.
-Risk boundary: No actual database, dotenv, credentials, external analysis, migrations, dependencies, deployment, or branch merges. Fixture SQLite only.
-Smallest falsifiable check: `python -m pytest tests/test_precedent_finder.py -q` (offline guarded runner).
-Hypothesis: Bounded V3 tag postings and resolved outgoing citation postings can rank distinct matching citing decisions without persisting or echoing the proposition.
-Acceptance criteria: Deterministic lexicographic ranking; duplicate/exclusion fixtures; explicit outcome denominator/unclassified; privacy-safe length/validation errors; usable empty/tagless page; focused and CI-deselected suite validation.
-Docs/generated references: `SYSTEM_REFERENCE.md`, `.swm/6.maiixtsw.sw.md`, regenerated API reference.
-Rollback/recovery: Remove only finder modules, routes and tests; preserve all existing research surfaces.
-Evidence: Read-only worker inventory established bounded posting patterns. CI dependency memory is supported: workflow installs requirements-dev.txt; pytest-cov==5.0.0 is development-only; coverage has three explicit deselects. Progress/memory tools unavailable; attempted `engine-tools-report_progress --help` returned command not found before implementation.
-Status: blocked (implementation complete; full-suite baseline/environment failures).
-Commit allowed: yes
-Push allowed: no (leave final branch delivery to caller).
-
-Plan checklist:
-- [x] Establish owner, hypothesis, privacy boundary and posting-query pattern.
-- [x] Implement bounded service, POST/GET page and fixtures.
-- [x] Run focused tests, exact CI-deselected full suite, generated docs and offline browser validation.
-- [x] Update existing documentation and review scoped diff; modified-file secret scan passed for all eight changed files.
-
-Before: No short-proposition authority finder exists.
-After: Read-only ephemeral input yields an explained, bounded authority ranking.
-
-Validation checkpoint (2026-10-04):
-- All Python validation used prefix `PYTHONPATH=/tmp/precedent-offline-guard:$PWD /tmp/precedent-finder-venv/bin/python`. The temporary guard suppresses repository dotenv loading, clears inherited database configuration, and rejects non-SQLite connections. Only existing project-pinned tooling was installed in a temporary venv; dependency manifests are unchanged.
-- `-m pytest tests/test_precedent_finder.py -q`: 26 passed before two final audit/OpenAPI fixtures were added.
-- `-m pytest tests/test_precedent_finder.py tests/test_paragraph_similarity.py tests/test_feature_tabs.py tests/test_citations.py -q`: final 297 passed, 1 skipped, 1 xfailed.
-- `-m pytest -q --tb=short --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint --cov=backend --cov-report=term-missing:skip-covered`: 1279 passed, 3 failed, 2 skipped, 3 deselected, 1 xfailed; 75% backend coverage.
-- Full-suite blockers: unchanged `test_local_chunk_search_uses_requested_model` patches the routes provider rather than the delegated search-service provider and tries to load missing sentence-transformers; two unchanged token-count fixtures cannot resolve the public tokenizer table host. The search handler is byte-identical to HEAD. No unrelated tests/code were changed or additionally deselected; no model/embedding/API operation was performed.
-- `scripts/generate_api_reference.py` regenerated the API appendix; `scripts/check_generated_docs.py` passed all three references. Updated canonical `SYSTEM_REFERENCE.md` and Swimm `.swm/6.maiixtsw.sw.md` in this checkpoint.
-- `-m py_compile backend/precedent_finder.py backend/pages/precedent_finder.py backend/routes.py`, focused `ruff check`, and `git diff --check` passed.
-- Local high-confidence credential/private-key pattern scan passed on all eight changed files before commit. No protected files or live operations were accessed; no branch merge or push.
-- `node /tmp/precedent-finder-browser-check.mjs`: Chromium desktop 1280x900 and mobile 390x844 passed ranking keys, outcomes/unclassified/denominator, literal malicious excerpt, reader link, clear, empty/tagless/error/413, no JavaScript exceptions or horizontal overflow. Local fixture server used real routes/page with mocked research and no database; server stopped afterwards.
-- Initial failures were a mistaken tagless IRPA fixture (IRPA is a real V3 tag) and absent existing test dependencies; corrected locally before final focused validation.
-- Residual risk: bounded/non-exhaustive posting coverage; tags are decision-level retrieval, not paragraph/treatment verification. Production data/query plans and infrastructure logging were not accessed or validated.
-- Safe next step: repair the existing local-embedding fixture at its owning search-service boundary and provision/cache tokenizer test data in CI; caller may run its requested parallel validation in its normal test environment.
-
 Status: in-progress
 Created: 2026-09-03
 Updated: 2026-09-03

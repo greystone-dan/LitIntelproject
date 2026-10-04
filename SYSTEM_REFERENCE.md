@@ -141,8 +141,24 @@ Authorities sort lexicographically by distinct matching citing decisions,
 distinct matched tags across those decisions, authority date descending, then
 citation ascending (case ID breaks identical-label ties). The three displayed
 numbers are citing-decision count, tag count and date key `YYYYMMDD`, not a
-weighted relevance score. Court, date, matching tags, a bounded authority-text
-excerpt when available and an active-reader link accompany each authority.
+weighted relevance score. Court, date, matching tags and an authority reader
+link accompany each result. An excerpt is available only from a verified
+numbered paragraph of a **matching citing source decision** containing an exact
+stored citation span to that authority. It is never an authority header or a
+cited target pinpoint. Existing paragraph formatter/chunk and citation-span
+verification supply canonical locations, including chunk-relative occurrences
+and document-relative short-form anchors. Missing, invalid, repeated, ambiguous,
+oversized or mixed structured paragraph chunks are omitted, without fallback.
+Excerpt selection uses descending distinct matched-tag count of the source
+decision, then source citation label ascending, source case ID, source paragraph
+number and citation row ID. This is a decision-level retrieval basis, not a
+paragraph-tag or legal-treatment score. `excerpt_source` exposes those source
+identifiers, matched tags/count and basis; the page labels and links the citing
+source paragraph separately from the authority. Verification runs only for
+returned authorities within the discovery citation IDs, with 64 paragraph rows
+per source and 512 total (rejected rows also count); projected paragraph text
+and canonical formatter context are bounded by the existing 12,000-character
+verification limit. Coverage reports these limits and rows checked.
 Outcome mixes use stored `reader_extracted` government outcomes of the
 **matching citing decisions**, not the authority's outcome; won/lost/mixed and
 unclassified counts share an explicit distinct-decision denominator.

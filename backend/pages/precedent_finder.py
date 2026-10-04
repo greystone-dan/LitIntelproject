@@ -43,7 +43,7 @@ function render(data) {
   status.textContent=data.message || 'Authorities ranked by citing decisions, matched tags, then recency.';
   text(results,'p','Recognized V3 tags: '+(data.tags.join(', ') || 'none'));
   text(results,'p','Separate statute references: '+(data.statutes.join(', ') || 'none'));
-  text(results,'p',data.coverage.note+(data.coverage.partial ? ' Posting budgets reached: partial coverage.' : ''));
+  text(results,'p',data.coverage.note+(data.coverage.partial ? ' Search budgets reached: partial coverage.' : ''));
   for (const row of data.authorities) {
     const card=document.createElement('article'); results.appendChild(card);
     const heading=document.createElement('h2'); card.appendChild(heading);
@@ -52,7 +52,17 @@ function render(data) {
     text(card,'p','Court: '+row.court+' · Date: '+(row.date || 'not recorded'));
     text(card,'p',row.explanation);
     text(card,'p','Tags in matching citing decisions: '+row.matched_tags.join(', '));
-    if (row.excerpt) text(card,'blockquote',row.excerpt);
+    if (row.excerpt && row.excerpt_source) {
+      const source=row.excerpt_source;
+      const sourceLink=text(card,'a','Citing source paragraph: '+
+        (source.source_citation || 'Case '+source.source_case_id)+
+        ' · paragraph '+source.paragraph_number);
+      sourceLink.href='/data-explorer?tab=search&case_id='+
+        encodeURIComponent(source.source_case_id)+'&paragraph='+
+        encodeURIComponent(source.paragraph_number);
+      text(card,'blockquote',row.excerpt);
+      text(card,'p',source.basis);
+    }
     const mix=row.outcome_mix;
     text(card,'p','Outcome mix among matching citing decisions: government won '+mix.government_won+
       ', government lost '+mix.government_lost+', mixed '+mix.mixed+

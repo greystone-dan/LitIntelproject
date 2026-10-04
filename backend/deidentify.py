@@ -23,9 +23,10 @@ from typing import Any, Iterable
 
 from docx import Document
 from docx.oxml.ns import qn
-from pypdf import PdfReader
 
-MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+from . import resource_limits
+
+MAX_UPLOAD_BYTES = resource_limits.MAX_UPLOAD_BYTES
 KEY_FORMAT = "ilit-deidentify-key"
 KEY_VERSION = 1
 
@@ -432,31 +433,44 @@ def _docx_block_text(element: Any) -> Iterable[str]:
 
 
 def _text_from_docx(content: bytes) -> str:
+	resource_limits.validate_docx_archive(content)
 	document = Document(BytesIO(content))
 	blocks: list[str] = []
+	text_length = 0
 	seen_parts: set[int] = set()
+
+	def append_block_text(element: Any) -> None:
+		nonlocal text_length
+		for block in _docx_block_text(element):
+			if not block.strip():
+				continue
+			resource_limits.validate_extracted_text_length(
+				text_length + len(block) + (2 if blocks else 0)
+			)
+			blocks.append(block)
+			text_length += len(block) + (2 if len(blocks) > 1 else 0)
+
 	for section in document.sections:
 		for part in (section.header, section.first_page_header):
 			if part.is_linked_to_previous or id(part._element) in seen_parts:
 				continue
 			seen_parts.add(id(part._element))
 			for element in part._element.iterchildren():
-				blocks.extend(_docx_block_text(element))
+				append_block_text(element)
 	for element in document.element.body.iterchildren():
-		blocks.extend(_docx_block_text(element))
+		append_block_text(element)
 	for section in document.sections:
 		for part in (section.footer, section.first_page_footer):
 			if part.is_linked_to_previous or id(part._element) in seen_parts:
 				continue
 			seen_parts.add(id(part._element))
 			for element in part._element.iterchildren():
-				blocks.extend(_docx_block_text(element))
-	return "\n\n".join(block for block in blocks if block.strip())
+				append_block_text(element)
+	return "\n\n".join(blocks)
 
 
 def _text_from_pdf(content: bytes) -> str:
-	reader = PdfReader(BytesIO(content))
-	pages = [(page.extract_text() or "").strip() for page in reader.pages]
+	pages = [page.strip() for page in resource_limits.extract_pdf_pages(content)]
 	if pages and sum(len(page) for page in pages) < 40 * len(pages):
 		raise ValueError(
 			"This PDF looks scanned (it has little or no selectable text). Scanned PDFs are not supported yet."
@@ -468,14 +482,16 @@ def text_from_upload(filename: str | None, content: bytes) -> str:
 	name = (filename or "").lower()
 	if not content:
 		raise ValueError("The uploaded file is empty.")
-	if len(content) > MAX_UPLOAD_BYTES:
-		raise ValueError("The uploaded file is over the 10 MB limit.")
+	if len(content) > resource_limits.MAX_UPLOAD_BYTES:
+		raise resource_limits.ResourceLimitError(resource_limits.upload_limit_message())
 	if name.endswith(".docx"):
 		return _text_from_docx(content)
 	if name.endswith(".pdf"):
 		return _text_from_pdf(content)
 	if name.endswith((".txt", ".md")):
-		return content.decode("utf-8-sig", errors="replace")
+		text = content.decode("utf-8-sig", errors="replace")
+		resource_limits.validate_extracted_text_length(len(text))
+		return text
 	raise ValueError("Only .docx, .pdf and .txt files are supported.")
 
 

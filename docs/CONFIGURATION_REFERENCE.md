@@ -34,7 +34,97 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search and `/research`.
+The SQLAlchemy engine uses `pool_pre_ping=True`. The optional environment
+settings below are consumed by `backend/db_limits.py`; pool size, timeout,
+recycle, and SQL echo values in `config.yaml` are still not consumed by
+`create_engine()`. `backend/search_service.py` loads the four AI rollout flags
+from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment
+overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search
+and `/research`.
+
+### Opt-in Database Limits
+
+With all six variables unset, `engine_kwargs()` returns exactly `{}`:
+SQLAlchemy's dialect-specific defaults remain unchanged, with the existing
+`pool_pre_ping=True`. No statement or lock timeout is added by the application.
+For PostgreSQL QueuePool, SQLAlchemy defaults are size 5, overflow 10, checkout
+wait 30 seconds, and recycle -1. These are library defaults, not new app defaults.
+
+| Variable | Unset behavior | Accepted values | Suggested small-server starting value |
+| --- | --- | --- | --- |
+| `DB_STATEMENT_TIMEOUT_MS` | No application statement limit | Integer `0..2147483647` milliseconds; `0` explicitly disables PostgreSQL's statement timeout for this connection | `30000` |
+| `DB_LOCK_TIMEOUT_MS` | No application lock-wait limit | Integer `0..2147483647` milliseconds; `0` explicitly disables PostgreSQL's lock timeout for this connection | `5000` (keep below statement timeout) |
+| `DB_POOL_SIZE` | Omit `pool_size` | Integer `>=0`; `0` means unlimited pool size, **not** no pooling | `5` |
+| `DB_MAX_OVERFLOW` | Omit `max_overflow` | Integer `>=-1`; `-1` means unlimited overflow; `0` forbids overflow; ignored by QueuePool when size is `0` | `2` |
+| `DB_POOL_TIMEOUT_SECONDS` | Omit `pool_timeout` | Finite number `>=0` seconds; fractional seconds allowed; `0` means do not wait for a pool slot | `5` |
+| `DB_POOL_RECYCLE_SECONDS` | Omit `pool_recycle` | Integer `>=-1` seconds; `-1` disables recycling; `0` recycles on every checkout | `1800` |
+
+These are recommendations to tune against workload, not values applied by
+default. Unlimited size/overflow can exhaust a small server; prefer bounded
+values and account for each worker process's separate pool. Empty, malformed,
+fractional integer, out-of-range, NaN and infinite values raise a startup
+`ValueError` naming the setting without echoing its value. Ignored SQLite
+settings and omitted helper query limits are still validated.
+
+PostgreSQL receives only configured settings in
+`connect_args={"options": "-c statement_timeout=30000 -c lock_timeout=5000"}`
+(example values). Options apply to new physical connections, not as global
+database changes. SQLite omits both PostgreSQL options and all QueuePool-only
+kwargs (`pool_size`, `max_overflow`, `pool_timeout`), including for in-memory
+URLs; `pool_recycle` remains supported. No replacement pool class is forced.
+
+Configuration is evaluated when each engine is constructed, after the existing
+dotenv precedence for the application's engine. Restart the process after
+changing its configuration. Environment is per process (and may be inherited
+from its launching shell); application timeout settings do not affect other
+processes' database connections unless those processes also set/load them and
+use the configured engine. Unset application variables do not disable any
+PostgreSQL server/role defaults.
+
+Long-running offline scripts can explicitly create a separate engine:
+
+```python
+from backend.db_limits import engine_without_timeout
+from sqlalchemy.orm import Session
+
+engine = engine_without_timeout(database_url)  # caller supplies its configured URL
+try:
+    with Session(engine) as session:
+        # Perform the script's separately authorized, bounded work.
+        pass
+finally:
+    engine.dispose()
+```
+
+The helper omits **both** statement and lock options while retaining configured
+pool settings and pre-ping. It does not reset server/role timeouts, mutate the
+application engine, or automatically reroute existing `SessionLocal` sessions.
+Passing a URL avoids importing database configuration; omitting it lazily imports
+`backend.database.DATABASE_URL` (and initializes that module's shared engine).
+Importing `backend.db_limits` alone loads no dotenv files or engines. Callers
+must close sessions, roll back failed transactions, and dispose their engine.
+
+### Request Timeout Responses
+
+`backend/main.py` registers handlers from `backend/db_limits.py` for SQLAlchemy
+`OperationalError` and the separate pool `TimeoutError`. Only PostgreSQL
+SQLSTATE `57014` with diagnostic primary message
+`canceling statement due to statement timeout`, SQLSTATE `55P03` with
+`canceling statement due to lock timeout`, or SQLAlchemy's canonical QueuePool
+exhaustion diagnostic yields HTTP **503** with **Retry-After: 5**. User
+cancellation, NOWAIT lock errors, connection timeouts, and other operational or
+timeout failures retain existing handlers or are reraised. Classification
+intentionally requires the exact English PostgreSQL diagnostic; localized or
+missing diagnostics are not guessed.
+
+Responses contain only “The database is busy. Please try again in a few
+seconds.” JSON uses `{"detail": ...}`. Page requests accepting `text/html` get a
+small HTML explanation, but `/api` and `/api/...` always get JSON. Routes
+declared with a JSON response class (including default `/cases` API routes)
+also remain JSON even with HTML Accept headers. SQL, parameters, driver
+messages, connection strings and credentials are never included in these
+responses. This does not retry queries or repair transactions; normal session
+cleanup remains required. Focused mocked coverage: `tests/test_db_limits.py`.
 
 ## Access, Session, And Indexing Settings
 

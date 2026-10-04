@@ -4,6 +4,12 @@ Last updated: 2026-10-04
 
 ## Purpose And Authority
 
+Database limits are opt-in through `backend/db_limits.py`: unset variables
+preserve SQLAlchemy defaults. Precisely diagnosed statement/lock timeouts and
+QueuePool exhaustion return safe HTTP 503 responses with `Retry-After: 5`;
+other failures retain existing handling. See
+[configuration, ranges and script engine lifecycle](docs/CONFIGURATION_REFERENCE.md#opt-in-database-limits).
+
 The active `/data-explorer` formatted reader offers **Similar paragraphs** for
 numbered paragraphs. `GET /cases/{case_id}/paragraphs/{n}/similar?limit=10`
 ranks other cases by one point per shared stored active V3 tag and two per

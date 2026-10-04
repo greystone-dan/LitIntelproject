@@ -3,8 +3,10 @@ from pathlib import Path
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
 from .case_quick_summary import inject_case_quick_summary
+from .skip_link import with_skip_link
 
 
+@with_skip_link
 def data_explorer_page_html() -> str:
   html = """<!doctype html>
 <html lang="en">

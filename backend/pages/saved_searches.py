@@ -1,6 +1,10 @@
 """Standalone saved-search and recorded-alert page."""
 
 
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def saved_searches_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">

@@ -5,6 +5,19 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added the plain-language `GET /accessibility` page and About-footer link, a
+  shared skip-link helper and rendered-output checks for 22 complete page
+  builders (document shell, skip-link target, and image-alt attribute), and a
+  Citation Map SVG description plus a “View as table” listing of current nodes
+  and citation links. Added a manual keyboard,
+  screen-reader, zoom, and contrast test plan; the statement makes no
+  conformance claim and marks its feedback contact as an owner-set placeholder.
+  PR #136 has exact helper/alt overlap, documented for later convergence; none
+  of its unrelated enhancements were copied. Direct page/shell/graph
+  assertions, Python compilation, and `node --check` of generated Citation Map
+  JavaScript passed; pytest and generated-doc checks could not run because
+  `pytest`, `fastapi`, and `sqlalchemy` are unavailable. No screen-reader or
+  200% zoom testing was performed.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

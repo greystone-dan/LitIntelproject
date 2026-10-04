@@ -1,3 +1,7 @@
+from .skip_link import with_skip_link
+
+
+@with_skip_link
 def judge_outcomes_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">

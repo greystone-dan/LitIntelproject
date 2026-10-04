@@ -5,10 +5,13 @@ from __future__ import annotations
 from html import escape
 from typing import Any
 
+from .skip_link import with_skip_link
+
 
 MAX_PRINT_DECISIONS = 12
 
 
+@with_skip_link
 def issue_brief_page_html(brief: dict[str, Any]) -> str:
 	"""Render a compact printable view of an issue brief JSON payload."""
 	tag = escape(str(brief.get("tag") or ""))

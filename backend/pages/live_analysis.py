@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from .skip_link import with_skip_link
 
+
+@with_skip_link
 def live_analysis_page_html() -> str:
 	return r'''<!doctype html>
 <html lang="en">

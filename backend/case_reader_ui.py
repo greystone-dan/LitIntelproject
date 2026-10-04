@@ -1,6 +1,9 @@
 """HTML UI for case reader with statute reference integration."""
 
+from .pages.skip_link import with_skip_link
 
+
+@with_skip_link
 def case_reader_with_statutes_html(
     case_id: int,
     case_title: str,
@@ -205,7 +208,7 @@ def case_reader_with_statutes_html(
                 </div>
                 <div class="panel-content">
                     <div style="margin-bottom: 20px;">
-                        <h3 style="font-size: 16px; margin-bottom: 8px;">{case_title}</h3>
+                        <h1 style="font-size: 16px; margin-top: 1em; margin-bottom: 8px;">{case_title}</h1>
                     </div>
 
                     <div class="case-summary">
@@ -396,6 +399,7 @@ def case_reader_with_statutes_html(
     """
 
 
+@with_skip_link
 def statute_viewer_page_html() -> str:
     """Standalone statute viewer page."""
     return """

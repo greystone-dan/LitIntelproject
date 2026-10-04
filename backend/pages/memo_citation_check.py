@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from .memo_authority_suggestions import SUGGESTION_SECTION, SUGGESTION_SCRIPT
+from .skip_link import with_skip_link
 
 
+@with_skip_link
 def memo_citation_check_page_html() -> str:
 	html = r'''<!doctype html>
 <html lang="en">

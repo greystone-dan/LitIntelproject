@@ -1,6 +1,9 @@
 from datetime import date
+from io import BytesIO
+import re
 
 import pytest
+from docx import Document
 from fastapi.testclient import TestClient
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import create_engine
@@ -182,3 +185,54 @@ def test_issue_brief_empty_tag(issue_brief_client):
     ui = issue_brief_client.get("/issue-brief-ui", params={"tag": ""})
     assert ui.status_code == 200
     assert "Enter a tag in category:value form" in ui.text
+
+
+def test_issue_brief_docx_route_content_links_and_headers(issue_brief_client):
+    response = issue_brief_client.get(
+        "/issue-brief.docx", params={"tag": "issue:fairness"}
+    )
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith(
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
+    assert response.headers["content-disposition"] == (
+        'attachment; filename="issue-brief-issue-fairness.docx"'
+    )
+    assert response.headers["cache-control"] == "no-store"
+    assert response.headers["pragma"] == "no-cache"
+
+    document = Document(BytesIO(response.content))
+    text = "\n".join(document._element.xpath(".//w:t/text()"))
+    assert "Legal issue brief: issue:fairness" in text
+    assert "3 tagged decisions" in text
+    assert "Decisions by year and outcome" in text
+    assert "denominator 2" in text
+    assert "Federal Court of Appeal" in text
+    assert "Top cited authorities" in text
+    assert "2020 FC 1" in text
+    assert "Citation occurrences" in text
+    assert "Tagged decisions" in text
+    assert "2024 FC 2" in text
+    assert "Outcome source:" in text
+    assert "Citation scope:" in text
+    assert "Tag matching:" in text
+    footer = document.sections[0].footer.paragraphs[0].text
+    assert re.fullmatch(r"Generated from iLit data on \d{4}-\d{2}-\d{2}", footer)
+    targets = {rel.target_ref for rel in document.part.rels.values() if rel.is_external}
+    assert "/case-reader?case_id=1" in targets
+    assert "/case-reader?case_id=2" in targets
+
+
+def test_issue_brief_docx_empty_state_and_tag_bounds(issue_brief_client):
+    response = issue_brief_client.get("/issue-brief.docx", params={"tag": ""})
+    assert response.status_code == 200
+    document = Document(BytesIO(response.content))
+    text = "\n".join(document._element.xpath(".//w:t/text()"))
+    assert "0 tagged decisions" in text
+    assert "Enter a tag in category:value form" in text
+
+    oversized_tag = issue_brief_client.get(
+        "/issue-brief.docx", params={"tag": "x" * 357}
+    )
+    assert oversized_tag.status_code == 422

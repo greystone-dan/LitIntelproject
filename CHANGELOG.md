@@ -5,6 +5,11 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added `GET /issue-brief.docx?tag=category:value` using the existing issue-brief
+  data, with the page's displayed facts and traceable links plus a generated-date
+  footer. Added focused populated/empty-route coverage; pytest and generated API
+  reference checks could not run because pytest and FastAPI are absent from this
+  environment. Touched Python files compile successfully.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

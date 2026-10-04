@@ -75,7 +75,7 @@ from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
-from .pages.issue_brief import issue_brief_page_html
+from .pages.issue_brief import issue_brief_docx, issue_brief_page_html
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -1928,6 +1928,23 @@ def get_issue_brief_ui(
 	db: Session = Depends(get_db),
 ) -> str:
 	return issue_brief_page_html(fetch_issue_brief(db, tag))
+
+
+@router.get("/issue-brief.docx")
+def export_issue_brief_docx(
+	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form; empty is supported."),
+	db: Session = Depends(get_db),
+) -> Response:
+	brief = fetch_issue_brief(db, tag)
+	slug = re.sub(r"[^A-Za-z0-9]+", "-", tag).strip("-")[:60] or "issue"
+	return Response(
+		content=issue_brief_docx(brief),
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={
+			**_NO_STORE,
+			"Content-Disposition": f'attachment; filename="issue-brief-{slug}.docx"',
+		},
+	)
 
 
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:

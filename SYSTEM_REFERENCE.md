@@ -102,16 +102,21 @@ The embedded information and research views are:
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
-tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
-tagged decisions by year, outcome, and court, lists up to ten resolved case
-authorities, and links up to 12 tagged decisions and each authority to the case
-reader; the JSON response retains the complete decision list. An empty tag
-returns a valid empty brief. Outcomes come from `reader_extracted` decision
-metadata; each outcome percentage uses all decisions in that year, including
-unclassified records, and is accompanied by the unclassified count and
-denominator. Authority counts are stored citation occurrences with a resolved
-case target from tagged decisions; distinct citing decisions are counted
-separately, and statute references and unresolved citations are excluded.
+tag-focused brief, backed by `GET /issue-brief?tag=category:value`. The matching
+`GET /issue-brief.docx?tag=category:value` download uses the same issue-brief
+data and tag bound. Its Word document carries the page's displayed summaries,
+semantic notes, and up to 12 linked decisions and ten linked authorities, with a
+footer beginning `Generated from iLit data on` followed by the UTC date. Both
+page and DOCX accept an empty tag and show the empty-tag guidance. The brief
+summarizes tagged decisions by year, outcome, and court, lists up to ten resolved
+case authorities, and links up to 12 tagged decisions and each authority to the
+case reader; the JSON response retains the complete decision list. Outcomes come
+from `reader_extracted` decision metadata; each outcome percentage uses all
+decisions in that year, including unclassified records, and is accompanied by
+the unclassified count and denominator. Authority counts are stored citation
+occurrences with a resolved case target from tagged decisions; distinct citing
+decisions are counted separately, and statute references and unresolved
+citations are excluded.
 
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
@@ -9705,9 +9710,13 @@ Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
 summary of decisions carrying an exact active-taxonomy tag. The page reports
 decision counts by year and court, per-year outcome splits, the ten most cited
 resolved case authorities, and links up to 12 tagged decisions and the
-authorities in the case reader. The page discloses the shown/total decision-link
-count; `/issue-brief?tag=category:value` retains the complete decision list and
-provides the data as JSON. An empty tag returns a valid empty brief.
+authorities in the case reader. `GET /issue-brief.docx?tag=category:value`
+exports the same displayed facts and links through the shared
+`fetch_issue_brief` payload, with a footer beginning `Generated from iLit data
+on` followed by the UTC generation date. The page discloses the shown/total
+decision-link count; `/issue-brief?tag=category:value` retains the complete
+decision list and provides the data as JSON. The page and DOCX accept an empty
+tag and show tag-entry guidance.
 
 Outcome labels come from `reader_extracted` decision metadata. Percentages use
 all tagged decisions in that year as the denominator, including records with no

@@ -61,8 +61,34 @@ The embedded information and research views are:
 3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
+   The embedded comparison calls read-only `GET /judges/compare?a=<slug>&b=<slug>`.
+   Exact canonical slugs are required; unknown judges return HTTP 404 with
+   `detail.code=unknown_judge`. Shared recorded issues/outcomes lead, without
+   rankings or harshness inference. Overall outcomes and per-judge coverage
+   use two columns on wide screens and one on mobile, with comparison-scoped CSS.
+   Issues use only stored `Case.issues` string
+   lists (case/whitespace normalized, no metadata fallback); each shared issue
+   needs at least five distinct decisions for **each** judge. Counts for years,
+   issues, top-ten tags and authorities use all canonical linked decisions as
+   explicit denominators. Outcomes include unclassified decisions; issue
+   outcomes use the issue set, and API percentages use classified outcomes only.
+   Tag/citation occurrences are deduplicated per source decision. Authorities
+   use resolved target identity, otherwise the stored citation label. Comparison
+   is independent of profile Minister filters and does not imply corpus completeness.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The standalone `/issue-brief-ui?tag=category:value` page provides a printable
+tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
+tagged decisions by year, outcome, and court, lists up to ten resolved case
+authorities, and links up to 12 tagged decisions and each authority to the case
+reader; the JSON response retains the complete decision list. An empty tag
+returns a valid empty brief. Outcomes come from `reader_extracted` decision
+metadata; each outcome percentage uses all decisions in that year, including
+unclassified records, and is accompanied by the unclassified count and
+denominator. Authority counts are stored citation occurrences with a resolved
+case target from tagged decisions; distinct citing decisions are counted
+separately, and statute references and unresolved citations are excluded.
 
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
@@ -676,6 +702,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | Component | Responsibility |
 | --- | --- |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
@@ -720,6 +747,16 @@ opinion.
 ### Startup And Configuration
 
 The application loads `.env` from the repository root and then `backend/.env`, both with `override=True`: dotenv values override shell settings, and backend dotenv values win over root dotenv values. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`. Disposable migration checks must refuse either dotenv path (including symlinks) before importing the database module, then set all five `POSTGRES_*` connection settings. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+
+Request auditing is disabled unless `CASELIBRARY_AUDIT_LOG` names a file.
+`backend/audit.py` records allowlisted metadata only: UTC time, generated request
+ID, method, route template, status, elapsed milliseconds, and a process-keyed
+client-address hash. Unknown paths become `<unmatched>`; bodies, uploaded
+filenames, and query strings are never recorded. Raw addresses require the
+separate `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS=true` opt-in. Files rotate at 5 MiB
+with three backups; all audit write failures are fail-open. See
+[SETUP.md](SETUP.md#optional-request-audit-log) for permissions, restart,
+single-process rotation, and separate access-log considerations.
 
 `init_db()` is called during FastAPI startup. Alembic remains the authoritative schema migration path for reproducible environments:
 
@@ -1517,11 +1554,11 @@ Focused active-interface and citation rebuild checks passed (`18 passed`). Edito
 
 ## Code Review Findings: 2026-09-01
 
-### High: Configured Private Access Is Not Enforced
+### Resolved: Optional Private Access Enforcement
 
-`backend/main.py` contains password/cookie generation and login routes, but `private_access_and_noindex()` only calls the next handler and adds no-index headers. It does not check `CASELIBRARY_ACCESS_PASSWORD`, validate the access cookie, or redirect unauthenticated public requests. A Cloudflare-exposed instance is therefore publicly reachable unless Cloudflare or another external layer enforces access.
+`backend/main.py` enforces signed access cookies only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty. The gate remains off by default; without that setting, routes remain publicly reachable unless an external layer enforces access.
 
-Required remediation: add an explicit allowlist for health/login/static routes, require a valid cookie for non-local requests when a password is configured, and test both anonymous denial and authenticated access. Until this is done, treat the tunnel as public.
+When enabled, only `/access`, `/access/login`, `/health`, and mounted static assets are exempt. All other routes, including local requests, require a valid cookie. HTML requests redirect to `/access`; API requests receive `401`. `POST /access/logout` clears the browser cookie. No-index headers remain indexing controls, not authentication.
 
 ### Medium: Large Generated UI Module Is Fragile
 
@@ -5372,12 +5409,32 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate off) | `backend/main.py` | A non-empty value enables signed-cookie enforcement for all routes except login, health, and mounted static assets. Missing or empty leaves access unchanged and makes `/access` return `503`. |
 | `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
-The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+To opt in, set `CASELIBRARY_ACCESS_PASSWORD` in the server process environment and restart the application. Set `CASELIBRARY_SESSION_SECRET` to a separate strong random secret. No password is configured by this change; leave the password unset or empty to keep the gate off. Login cookies are HttpOnly, SameSite=Lax, and Secure on HTTPS. `POST /access/logout` deletes the browser cookie but does not revoke copied cookies; those remain valid until expiry or signing-secret rotation.
+
+The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt` (behind the gate when enabled). This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
 
 ## OpenAI And External Model Settings
 

@@ -90,6 +90,25 @@ The embedded research and information views retain these data responsibilities:
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
 
+## Printable Legal Issue Brief
+
+Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
+summary of decisions carrying an exact active-taxonomy tag. The page reports
+decision counts by year and court, per-year outcome splits, the ten most cited
+resolved case authorities, and links up to 12 tagged decisions and the
+authorities in the case reader. The page discloses the shown/total decision-link
+count; `/issue-brief?tag=category:value` retains the complete decision list and
+provides the data as JSON. An empty tag returns a valid empty brief.
+
+Outcome labels come from `reader_extracted` decision metadata. Percentages use
+all tagged decisions in that year as the denominator, including records with no
+classified outcome; each percentage is shown alongside the unclassified count
+and denominator. Authority counts mean stored citation occurrences from tagged
+source decisions with a resolved case target, with distinct citing decisions
+reported separately. Unresolved citations and the separate statute-reference
+layer are not included. The print stylesheet is intended to keep the summary
+compact, but no browser/physical-page behavior is certified here.
+
 ## Discussion Units Sandbox
 
 Open `/discussion-units-sandbox` to inspect the experimental Discussion Units
@@ -486,6 +505,26 @@ government actor; it does not calculate an individual Minister's performance.
 Use profiles to reduce name variation, not to claim a complete judicial record
 or infer individual bias. Source and classification gaps matter when comparing
 rates.
+
+**Compare judges** within Judge Profile accepts two canonical slugs, with
+name-search suggestions and the open profile prefilled as the first judge.
+It compares all linked decisions, independently of the profile's Minister filter.
+Shared recorded issues and their outcome splits appear first; an issue must
+occur in at least five distinct decisions for **both** judges. Issues come only
+from stored case issue lists, normalized for case/whitespace, with no inferred
+or metadata fallback. No qualifying issues is a coverage result, not proof
+that the judges address different legal questions.
+
+Overall outcomes retain government won, government lost and unclassified
+decisions. Every displayed count is `count / denominator`: issue outcome
+denominators are issue decisions; year, issue-coverage, tag and authority counts
+use all linked decisions for that judge. Undated decisions remain visible.
+Most-used tags and most-cited authorities show up to ten entries, counting
+distinct source decisions rather than repeated occurrences; overlapping counts
+must not be added. Resolved authority labels come from the target case, otherwise
+the stored citation label. Unknown slugs produce an explicit message. This is
+research coverage, not a ranking, a measure of harshness, or a causal inference.
+The read-only endpoint is `GET /judges/compare?a=<slug>&b=<slug>`.
 
 ## Data Explorer And FC History
 

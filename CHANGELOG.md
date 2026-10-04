@@ -9,6 +9,10 @@
   memo citation checks, Live Analysis, and de-identification. Upload reads stop
   at the configured limit; DOCX expansion/entry count, PDF pages, extracted
   text, and de-identification pasted text are capped with HTTP 413 limit errors.
+- Added read-only `/issue-brief?tag=category:value` analytics and a standalone
+  printable `/issue-brief-ui` with yearly outcomes, courts, resolved cited
+  authorities, and reader links. Outcome percentages disclose the unclassified
+  count and all-decision denominator; empty tags return an explicit empty brief.
 - Added saved-search persistence and CRUD/alert routes, a standalone saved
   searches page, a Case Search action to save the current query and filters,
   and a bounded read-only-by-default alert checker. The new schema revision is

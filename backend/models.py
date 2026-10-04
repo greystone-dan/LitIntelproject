@@ -423,6 +423,19 @@ class CaseReaderDataResponse(BaseModel):
 	paragraph_cited_by: dict | None = None
 
 
+class MarkupExportComment(BaseModel):
+	block: int | None = None
+	label: str = Field(default="", max_length=120)
+	text: str = Field(default="", max_length=4000)
+	quote: str | None = Field(default=None, max_length=400)
+	author: str = Field(default="iLit Markup", max_length=40)
+
+
+class MarkupExportRequest(BaseModel):
+	comments: list[MarkupExportComment] = Field(default_factory=list, max_length=3000)
+	highlights: list[int] = Field(default_factory=list, max_length=3000)
+
+
 class InventoryCaseResponse(BaseModel):
 	id: int
 	title: str

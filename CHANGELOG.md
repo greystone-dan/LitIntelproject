@@ -5,6 +5,17 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode: Export to Word and private notes. "Export to Word" downloads the
+  decision with every margin note that is switched on (citations anchored on the
+  citation itself, discussion units, outcome, judge, cited-by, my notes) as real
+  Word comments, with highlighted paragraphs kept. Private notes and highlights:
+  click a paragraph number to write a note or highlight the paragraph; they are
+  saved in this browser only, show in the margin (inline under the paragraph on
+  phones) and travel into the Word file. New route `POST /cases/{id}/markup-export`
+  typesets what the browser sends and stores nothing. Also fixed: notes could sit
+  hundreds of pixels from their paragraphs on first open because the reader adds
+  content after first paint; they now re-place themselves when the text height
+  changes. No AI, no schema change.
 - Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
   scroll inside their panel, the judge comparison form and the statute viewer form fit
   and stack on phones. CSS only.

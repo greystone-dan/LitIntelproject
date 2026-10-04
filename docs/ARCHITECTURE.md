@@ -210,6 +210,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |

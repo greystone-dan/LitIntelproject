@@ -148,8 +148,11 @@ def test_script_is_valid_javascript():
 
 def test_script_has_no_network_or_ai_calls():
     src = JS.read_text(encoding="utf-8")
-    for banned in ("fetch(", "XMLHttpRequest", "openai", "WebSocket", "sendBeacon"):
+    for banned in ("XMLHttpRequest", "openai", "WebSocket", "sendBeacon"):
         assert banned.lower() not in src.lower(), banned
+    # The only request is the user-clicked Word export to this site's own route; it sends no query text.
+    assert src.count("fetch(") == 1
+    assert "fetch(`/cases/${encodeURIComponent(cid)}/markup-export`" in src
 
 
 def test_page_wires_markup_mode():
@@ -228,3 +231,76 @@ def test_cited_by_gutter_uses_stored_rows_and_falls_back_without_them():
     assert "2020 FC 1 ×2 · Followed (\"applied in\")" in note["body"] and "+ 1 more" in note["body"]
     assert [f["arg"] for f in note["foot"]] == [11, 12]
     assert out["peeks"][0]["citedBy"] == "Cited by 2 cases · Quoted 1"
+
+
+def _node(script, arg=None):
+    if NODE is None:
+        pytest.fail("node is required for markup mode tests")
+    res = subprocess.run([NODE, "-e", "const m = require(process.argv[1]); const a = JSON.parse(process.argv[2] || 'null');\n" + script,
+                          str(JS), json.dumps(arg)], capture_output=True, text=True, check=True)
+    return json.loads(res.stdout)
+
+
+@needs_node
+def test_private_notes_add_replace_delete_and_caps():
+    out = _node("""
+let l = [];
+l = m.mineUpsert(l, 5, 'first', false);
+l = m.mineUpsert(l, 2, 'second', true);
+l = m.mineUpsert(l, 5, 'first edited', false);
+const afterEdit = JSON.parse(JSON.stringify(l));
+const highlightOnly = m.mineUpsert([], 9, '   ', true);
+const removed = m.mineUpsert(l, 5, '', false);
+let many = [];
+for (let i = 1; i <= 250; i++) many = m.mineUpsert(many, i, 'n' + i, false);
+const long = m.mineUpsert([], 1, 'x'.repeat(5000), false)[0].text.length;
+console.log(JSON.stringify({afterEdit, highlightOnly, removed, many: many.length, long,
+  notes: m.mineToNotes(afterEdit.concat(highlightOnly))}));
+""")
+    assert [n["para"] for n in out["afterEdit"]] == [2, 5] and out["afterEdit"][1]["text"] == "first edited"
+    assert out["highlightOnly"][0]["hl"] is True  # a highlight with no text is kept
+    assert [n["para"] for n in out["removed"]] == [2]
+    assert out["many"] == 200 and out["long"] == 2000
+    ids = [n["id"] for n in out["notes"]]
+    assert ids == ["mine-2", "mine-5"]  # the highlight-only paragraph gets no margin card
+    assert out["notes"][0]["anchor"] == {"kind": "para", "num": 2} and out["notes"][0]["foot"][0]["action"] == "mine-edit"
+
+
+@needs_node
+def test_my_notes_layer_defaults_and_old_saved_layers_still_load():
+    out = _node("console.log(JSON.stringify({d: m.defaultLayers(), s: m.sanitizeLayers({cite: 'off', tags: 'soft'}), st: m.noteState({id: 'mine-1', type: 'mine'}, m.defaultLayers(), {})}))")
+    assert out["d"]["mine"] == "open" and out["s"]["mine"] == "open" and out["s"]["cite"] == "off"
+    assert out["st"] == "open"
+
+
+@needs_node
+def test_export_plan_uses_visible_layers_and_keeps_anchor_text():
+    payload = _payload()
+    payload["readerData"]["citations"][0]["citation_text"] = "2019 SCC 65 at para 7"
+    out = _node("""
+const notes = m.buildNotes(a).concat(m.mineToNotes([{para: 2, text: 'check this', hl: false}]));
+const layers = m.defaultLayers();
+const blockOf = n => n.anchor.kind === 'top' ? null : (n.anchor.num || 0) * 10;
+const on = m.exportPlan(notes, layers, blockOf);
+layers.unit = 'off'; layers.cite = 'off'; layers.citedby = 'off';
+const off = m.exportPlan(notes, layers, blockOf);
+console.log(JSON.stringify({on, off, mine: m.commentFor(notes.find(n => n.type === 'mine'))}));
+""", payload)
+    kinds = {c["label"].split(":")[0] for c in out["on"]}
+    assert {"Citation", "Discussion unit", "Outcome", "Judge", "Cited by others", "My note"} <= kinds
+    cite = next(c for c in out["on"] if c["label"].startswith("Citation"))
+    assert cite["quote"] == "2019 SCC 65 at para 7" and "Quoted text" in cite["text"]
+    judge = next(c for c in out["on"] if c["label"].startswith("Judge"))
+    assert judge["block"] is None  # case-level notes go on the header
+    assert next(c for c in out["on"] if c["author"] == "My note")["block"] == 20
+    assert {c["label"].split(":")[0] for c in out["off"]} == {"Outcome", "Judge", "My note"}  # hidden layers are not exported
+    assert out["mine"]["text"] == "check this"  # no "private, saved in this browser" boilerplate in Word
+
+
+def test_notes_and_export_are_wired_into_the_page():
+    html = data_explorer_page_html()
+    js = JS.read_text(encoding="utf-8")
+    assert 'data-mk-act="export"' in js and "/markup-export" in js and "mkEditor" in js
+    assert "ilit.markup.notes.v1" in js and "ResizeObserver" in js
+    assert "#mkEditor" in CSS.read_text(encoding="utf-8")
+    assert "markup-export" in html

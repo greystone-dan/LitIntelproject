@@ -126,3 +126,24 @@ body.markup-mode-on .reader-hover-tooltip{display:none!important}
 }
 .mk-card.citedby .mk-body{white-space:pre-line;font-size:12px;line-height:1.5}
 .mk-cb{margin-top:6px;padding:4px 8px;border-radius:6px;background:#e6f4f1;color:#0f5f58;font:600 11px/1.4 Inter,"Segoe UI",Arial,sans-serif}
+.mk-card.mine .mk-body{white-space:pre-line}
+#decisionBody .fmt-para-num.mk-num{cursor:pointer;border-radius:3px}
+#decisionBody .fmt-para-num.mk-num:hover,#decisionBody .fmt-para-num.mk-num:focus-visible{background:#ede9fe;outline:2px solid #7c3aed;outline-offset:1px}
+#caseReaderPanel.markup-on #decisionBody .fmt-para.mk-mine-hl{background:#fff6bf!important;box-shadow:-6px 0 0 #fff6bf,6px 0 0 #fff6bf;border-radius:3px}
+.mk-mine-inline{display:none;margin:2px 0 10px 1.6rem;padding:8px 10px;border-left:3px solid #7c3aed;background:#f5f3ff;border-radius:0 6px 6px 0;font:13px/1.45 Inter,"Segoe UI",Arial,sans-serif;color:#2b2650;white-space:pre-line}
+.mk-mine-inline b{display:block;font-size:11px;color:#5b21b6;margin-bottom:2px}
+.mk-mine-inline .mk-link{margin-left:8px;min-height:32px}
+#mkEditor{position:fixed;z-index:70;width:320px;max-width:calc(100vw - 16px);padding:10px 12px;background:#fff;border:1px solid #c4b5fd;border-radius:10px;box-shadow:0 12px 32px rgba(16,32,56,.22);font:13px/1.4 Inter,"Segoe UI",Arial,sans-serif;color:#102038}
+#mkEditor textarea{width:100%;box-sizing:border-box;margin:6px 0;padding:8px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;resize:vertical;min-height:84px}
+#mkEditor .mk-hlbox{display:flex;align-items:center;gap:6px;margin-bottom:6px;min-height:28px}
+#mkEditor .mk-foot{display:flex;gap:6px;flex-wrap:wrap}
+#mkEditor .mk-primary{background:#7c3aed;color:#fff;border-color:#7c3aed}
+#mkEditor .mk-hint{margin-top:6px;font-size:11px;color:#5b6d83}
+@media(max-width:760px){
+ .mk-mine-inline{display:block}
+ #mkEditor{left:8px!important;right:8px!important;top:auto!important;bottom:8px!important;width:auto;max-height:70vh}
+ #mkEditor textarea{font-size:16px}
+ #mkEditor .mk-btn{min-height:40px}
+ #decisionBody .fmt-para-num.mk-num{min-width:32px;min-height:32px;display:inline-block}
+}
+@media print{#mkEditor{display:none!important}.mk-mine-inline{display:block}}

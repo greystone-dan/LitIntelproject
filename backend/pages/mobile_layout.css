@@ -1,0 +1,85 @@
+/* Phone layout (loaded last): search page, case reader header and toolbars. Desktop is untouched. */
+@media(max-width:760px){
+ html,body{overflow-x:hidden}
+ /* page header: keep the first screen for the work, not the banner */
+ .topbar{padding:8px 12px!important;gap:6px!important}
+ .research-nav button{min-height:44px}
+ .center-pane{padding:8px!important}
+ .page-header{padding:12px 14px 0!important}
+ .page-header h1{font-size:1.45rem!important;line-height:1.15!important;margin:2px 0 4px!important}
+ .page-header p{font-size:12.5px!important;margin:0 0 6px!important}
+ .page-header .eyebrow{font-size:10px!important}
+ .view-tabs{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:2px;margin-top:6px!important}
+ .view-tabs .tab{flex:0 0 auto!important;min-height:44px;white-space:nowrap;padding:0 14px!important}
+
+ /* search form: stack the field and the buttons, 16px text so iOS does not zoom */
+ #searchPanel.search-layout{padding:14px 12px!important}
+ #searchPanel .search-intro{margin-bottom:10px;padding-bottom:8px}
+ #searchPanel .search-intro h2{font-size:1.25rem}
+ #searchPanel .search-query-row{flex-direction:column!important;align-items:stretch!important;gap:10px!important}
+ #searchPanel .primary-query{width:100%;flex:none}
+ #searchPanel .primary-query input#searchQuery{height:50px!important;font-size:16px!important;padding:0 14px!important}
+ #searchPanel .query-shortcut{display:none}
+ #searchPanel .query-hint{white-space:normal;margin-top:6px}
+ #searchPanel .search-actions{margin-top:0!important;align-self:stretch!important;width:100%;flex-wrap:wrap;gap:8px}
+ #searchPanel .search-actions button,#searchPanel .sq-go{flex:1 1 140px;min-height:48px;height:auto!important;padding:0 14px!important;letter-spacing:.04em}
+ #searchPanel .search-actions .secondary,#searchPanel .search-actions a{flex:1 1 140px}
+ #searchPanel .search-examples{margin-top:8px}
+ #searchPanel .search-examples button{min-height:36px}
+ /* quick filters: one scrolling row per group instead of a tall wrapped block */
+ .quick-filters{display:block!important;padding:8px 10px!important}
+ .quick-filters .qf-group{display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;padding:4px 0}
+ .quick-filters .qf-group>*{flex:0 0 auto}
+ .qf-chip{min-height:40px;padding:0 14px!important}
+ .qf-tools{display:flex!important;flex-wrap:wrap;gap:4px 14px!important;margin:6px 0 0!important}
+ .qf-link{min-height:40px}
+ .advanced-actions button{min-height:44px}
+ #advancedSearchOptions{padding:10px!important}
+ #advancedSearchOptions .search-form,#advancedSearchOptions fieldset{grid-template-columns:1fr!important}
+ #advancedSearchOptions input,#advancedSearchOptions select{height:46px!important;font-size:16px!important}
+ /* results */
+ .case-result.rc{padding:12px!important;gap:8px!important}
+ .rc-title{font-size:16px!important}
+ .rc-side,.result-side{align-items:stretch!important;width:100%}
+ .rc-metrics{flex-wrap:wrap;gap:6px 16px}
+ .rc-metric{display:flex;align-items:baseline;gap:6px;text-align:left!important}
+ .rc-metric b{display:inline!important}
+ .rc-open{min-height:32px;display:inline-flex;align-items:center}
+
+ /* case reader: normal page flow, nothing fixed-height or overlapping */
+ .inline-case-reader{height:auto!important;min-height:0!important;overflow:visible!important}
+ .inline-case-reader .reader-shell,.inline-case-reader .reader-layout{height:auto!important;min-height:0!important;overflow:visible!important}
+ .reader-head{padding:12px 12px 10px!important}
+ .reader-head h2{font-size:1.25rem!important;line-height:1.2!important;margin:0 0 8px!important}
+ .reader-head .return-to-results{min-height:40px;margin-bottom:8px!important}
+ .reader-toolbar{position:static!important;display:flex!important;flex-wrap:wrap;align-items:center;gap:8px!important;margin-top:10px!important}
+ .reader-toolbar{width:100%}
+ .reader-view-toggle{width:100%;flex-wrap:nowrap;border-radius:14px!important}
+ .reader-view-button{flex:1 1 0;min-height:44px;padding:0 6px!important;font-size:11px!important;line-height:1.15;white-space:normal;text-align:center;border-radius:12px!important}
+ .reader-keyboard-help-toggle{display:none!important}
+ .reader-pane.source{min-height:0!important;order:1}
+ .reader-pane.target{order:2}
+ .reader-pane.linked{order:3}
+ .reader-pane.source>.reader-pane-header{display:none}
+ .reader-evidence-bar{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px!important;padding:6px 10px!important}
+ .reader-evidence-bar>*{flex:0 0 auto}
+ .reader-evidence-bar .reader-layer-legend{display:flex;flex-wrap:nowrap;gap:6px}
+ .reader-evidence-toggle{white-space:nowrap}
+ .reader-quick-summary{margin:8px 0!important}
+ .reader-quick-summary>summary{min-height:40px}
+ .reader-evidence-bar button,.reader-evidence-bar .layer-toggle{min-height:40px}
+ .reader-text{padding:12px 12px 24px!important;font-size:16px!important;line-height:1.65!important}
+ #decisionBody .fmt-para-num{min-width:0}
+ #decisionBody .fmt-para>button[data-paragraph-similar]{display:inline-flex;align-items:center;position:static;left:auto;top:auto;right:auto;bottom:auto;transform:none;width:auto;height:auto;white-space:nowrap;margin:6px 0 12px 0;padding:6px 12px;min-height:36px}
+ #readerOverrulingRisk{margin-top:8px;padding:8px 10px}
+ #readerOverrulingRisk summary{min-height:36px;font-size:13px;display:flex;align-items:center;cursor:pointer;font-weight:700}
+ #readerOverrulingRisk summary::after{content:'\25BE';margin-left:8px}
+ #readerOverrulingRisk details[open] summary::after{content:'\25B4'}
+ #readerOverrulingRisk>strong{margin-bottom:2px;font-size:13px}
+ /* tapping a citation must never leave a floating tip over the text */
+ .reader-hover-tooltip{display:none!important}
+}
+@media(max-width:380px){
+ .reader-view-button{padding:0 9px!important;font-size:11px!important}
+ #searchPanel .search-actions button,#searchPanel .sq-go{flex-basis:100%}
+}

@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Phone layout fixes: the search page stacks its field and buttons with 16px text and
+  scrolling filter chips; the case reader header no longer sits under its view
+  buttons and the reader scrolls as one page; the yellow overruling-risk notice
+  folds behind one tappable line on phones so it cannot push the decision off
+  screen; Markup mode's toolbar is one row (Find, Topics and More open on tap),
+  the Peek panel is a bottom sheet, and the hover card is off on touch screens.
+  CSS and display logic only: no AI calls, new endpoints or schema changes.
 - Paragraph "cited by" batch job (not run on production): `scripts/build_paragraph_cited_by.py`
   reads stored citation occurrences and, for each cited paragraph, stores which
   cases cite it, how often, and the signal phrase beside the citation (followed,

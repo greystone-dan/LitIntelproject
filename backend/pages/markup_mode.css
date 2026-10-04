@@ -91,7 +91,32 @@ body.markup-mode-on .reader-hover-tooltip{display:none!important}
 #caseReaderPanel.markup-docked #markupStage{padding-bottom:320px}
 
 @media(max-width:1100px){#markupMargin{width:300px}.mk-note{width:300px}#markupOutline{width:200px}}
-@media(max-width:760px){#markupStage{display:block;padding-left:12px}#markupMargin,#markupBands,#markupOutline{display:none}#markupBar{padding:6px 10px}.mk-panel.float{left:8px!important;right:8px;width:auto;bottom:8px;top:auto!important}.mk-pop{width:auto;right:16px}#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{width:auto;right:16px}}
+.mk-more{display:none}
+@media(max-width:760px){
+ #markupStage{display:block;padding:10px 10px 28px}
+ #markupMargin,#markupBands,#markupOutline{display:none}
+ #markupOutline:not([hidden]){display:block;position:static;width:auto;max-height:40vh;margin:0 0 10px}
+ #markupBar{position:static;padding:6px 10px}
+ .mk-row{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+ .mk-row>*{flex:0 0 auto}.mk-row .mk-sp{display:none}
+ .mk-row2{margin-top:6px}
+ .mk-more{display:inline-block}
+ #markupBar:not(.is-open) .mk-chip,#markupBar:not(.is-open) .mk-row2,#markupBar:not(.is-open) [data-mk-act="expand"],#markupBar:not(.is-open) [data-mk-act="collapse"]{display:none}
+ .mk-btn,.mk-chip,.mk-topic{min-height:40px}
+ .mk-find{flex:1 0 220px}.mk-find input{width:100%;font-size:16px;min-height:34px}
+ .mk-pop{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:70vh;overflow:auto}
+ .mk-lr b{width:auto;flex:1}
+ #caseReaderPanel.markup-on.markup-info-open .reader-pane.target{position:fixed;left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:70vh;z-index:55}
+ #caseReaderPanel.markup-on .reader-pane.source{overflow:visible}
+ .mk-panel.float,.mk-panel.dock{position:fixed;left:8px!important;right:8px!important;top:auto!important;bottom:8px!important;width:auto;max-height:45vh;border-radius:10px}
+ .mk-panel.dock .mk-panel-b{flex-direction:column}.mk-panel.dock .mk-peek{flex:none}
+ .mk-panel-h{cursor:default;flex-wrap:wrap}
+ .mk-panel-h [data-mk-act="dock"]{display:none}
+ #caseReaderPanel.markup-peeking #markupStage{padding-bottom:48vh}
+ #mkHover{display:none!important}
+ mark.markup-find{padding:0}
+}
+@media(hover:none){#mkHover{display:none!important}}
 @media print{
  #caseReaderPanel.markup-on #markupBar,#caseReaderPanel.markup-on .mk-pop,#caseReaderPanel.markup-on .mk-x{display:none!important}
  #caseReaderPanel.markup-on #markupStage{display:flex!important;padding:0}

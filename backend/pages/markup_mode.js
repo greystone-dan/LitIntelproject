@@ -208,7 +208,7 @@ function setOn(on){
   }else{
     state.on=false;document.body.classList.remove('markup-mode-on');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
     hideHover(true);clearFold();
-    removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked');
+    removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked','markup-peeking');
     const pn=$('mkPanel');if(pn)pn.remove();
     document.querySelectorAll('mark.markup-find').forEach(unwrap);
   }
@@ -252,7 +252,8 @@ function renderBar(){
   }).join('')+(tagsN?`<button type="button" class="mk-chip${L.tags==='off'?' is-off':''}" data-mk-chip="tags" aria-pressed="${L.tags!=='off'}"><i style="background:#2d8a50"></i>Tags <b>${tagsN}</b></button>`:'');
   const rows=LAYER_DEFS.map(d=>`<div class="mk-lr"><b>${E(d.label)}</b><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button" data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
   const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
-  bar.innerHTML=`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
+  bar.classList.toggle('is-open',!!state.barOpen);
+  bar.innerHTML=`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾</button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
   `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
   `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="reset">Reset layers</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
   if(keep){const f=bar.querySelector(keep.sel);if(f){f.focus({preventScroll:true});if(keep.s!=null){try{f.setSelectionRange(keep.s,keep.e)}catch(e){}}}}
@@ -393,14 +394,14 @@ function pinNote(id){
 }
 function renderPanel(){
   let el=$('mkPanel');const p=panel();
-  if(!state.on||!state.pins.length){if(el)el.remove();if(p)p.classList.remove('markup-docked');return}
+  if(!state.on||!state.pins.length){if(el)el.remove();if(p)p.classList.remove('markup-docked','markup-peeking');return}
   const cards=state.pins.map(id=>peekFor(state.notes.find(n=>n.id===id))).filter(Boolean);
-  if(!cards.length){state.pins=[];if(el)el.remove();return}
+  if(!cards.length){state.pins=[];if(el)el.remove();if(p)p.classList.remove('markup-peeking');return}
   if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
   el.className='mk-panel '+state.dock;
   el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">Go to citation</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
   if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
-  if(p)p.classList.toggle('markup-docked',state.dock==='dock');
+  if(p){p.classList.toggle('markup-docked',state.dock==='dock');p.classList.add('markup-peeking')}
 }
 
 /* ---------- hover card ---------- */
@@ -421,7 +422,7 @@ function showHover(span){
   let top=r.bottom+6;if(top+hh>window.innerHeight-8)top=Math.max(8,r.top-hh-6);
   h.style.left=left+'px';h.style.top=top+'px';
 }
-function scheduleHover(span){clearTimeout(hideT);clearTimeout(showT);showT=setTimeout(()=>showHover(span),180)}
+function scheduleHover(span){if(window.matchMedia&&window.matchMedia('(hover: none)').matches)return;clearTimeout(hideT);clearTimeout(showT);showT=setTimeout(()=>showHover(span),180)}
 
 /* ---------- find in case ---------- */
 function runFind(term){
@@ -479,6 +480,7 @@ document.addEventListener('click',ev=>{
     else if(a==='collapse'){for(const d of LAYER_DEFS)if(d.states.includes('open'))state.layers[d.key]='markers';state.overrides={};persist();render()}
     else if(a==='reset'){state.layers=defaultLayers();state.overrides={};persist();render()}
     else if(a==='info'){state.infoOpen=!state.infoOpen;render();if(state.infoOpen){const d=$('decisionTarget');if(d)d.scrollTop=0}}
+    else if(a==='more'){state.barOpen=!state.barOpen;render()}
     else if(a==='outline'){state.outlineOpen=!state.outlineOpen;render()}
     else if(a==='print'){window.print()}
     else if(a==='fold'){state.foldOthers=!state.foldOthers;state.unfolded=[];render()}

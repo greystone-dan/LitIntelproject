@@ -12,6 +12,16 @@
   stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
   to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
   is a thin wrapper. No schema change, no AI.
+- Corrected **request observability** (`backend/request_context.py`): ContextVar-backed
+  middleware validates/preserves bounded incoming request IDs and adds `X-Request-ID`
+  to success, access-gate, 404, and 500 responses. Optional `SLOW_REQUEST_LOG_MS`
+  emits one-line JSON only above its threshold, containing request ID, method,
+  route template, status, and `duration_ms`; no request text, raw path/query, host,
+  or secret is logged. `/health/ready` and documented `GET /api/version` return
+  sanitized `commit`, process `started_at`, and `python_version`. A sanitized
+  `APP_COMMIT` is preferred; Git is queried only when the repository `.git`
+  directory exists. Existing password-gate
+  behavior is unchanged. No schema changes or migrations.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real

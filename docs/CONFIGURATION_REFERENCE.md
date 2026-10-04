@@ -65,6 +65,19 @@ unready; configured services that fail their endpoint check do. The database
 and vector requirements remain readiness dependencies regardless of optional
 model configuration.
 
+## Request Observability Settings
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `SLOW_REQUEST_LOG_MS` | none (disabled) | `backend/request_context.py` | Optional positive-integer threshold in milliseconds. Requests strictly exceeding it log a one-line JSON record containing request ID, method, route template, status, and `duration_ms`. |
+| `APP_COMMIT` | none (computed from `.git`) | `backend/request_context.py` | Optional sanitized 7-40-character hexadecimal commit override for `/api/version` and `/health/ready`. Invalid values are ignored; otherwise Git is queried only when the repository `.git` directory exists, or the field is `unknown`. |
+
+The slow-log threshold is read when the middleware is initialized; restart the
+server after changing it. A sane incoming request ID is preserved; malformed or
+oversized IDs are replaced, and every HTTP response carries the resulting
+`X-Request-ID`. See `docs/OPERATIONS_LOGGING.md` for version fields and logging
+details.
+
 ## Optional Security Response Headers
 
 | Variable | Default | Consumer | Purpose and safety notes |

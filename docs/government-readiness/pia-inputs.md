@@ -18,7 +18,7 @@ required, which law or policy applies, or whether any use is approved.
 | Data or person | Repository fact | Assessment input still needed |
 | --- | --- | --- |
 | People named or described in decisions | Stored decisions can include full text, source HTML, docket number, summaries, and metadata. [backend/database.py:85-109](../../backend/database.py#L85-L109) | Identify the categories of personal information actually present in the corpus, whether minors or vulnerable persons occur, and whether records are redacted or restricted at source. |
-| People whose matters are searched | Search queries can contain names, case details, or matter context; the code sends semantic query text to an embedding provider by default. [backend/models.py:115-117](../../backend/models.py#L115-L117) [backend/search_service.py:101-129](../../backend/search_service.py#L101-L129) | Determine what users are instructed to enter, whether queries can identify clients or third parties, and whether a department-specific prohibition or notice is needed. |
+| People whose matters are searched | Search queries can contain names, case details, or matter context. Query embeddings default to disabled; OpenAI receives search query text only when an operator explicitly enables that provider. [backend/query_embedding_providers.py](../../backend/query_embedding_providers.py) [backend/search_service.py](../../backend/search_service.py) | Determine what users are instructed to enter, whether queries can identify clients or third parties, and whether a department-specific prohibition or notice is needed. |
 | People mentioned in uploaded memos | The memo-check endpoint accepts a document and analyzes citations; the upload is not written as an application-managed record by the inspected handler. [backend/routes.py:1040-1054](../../backend/routes.py#L1040-L1054) | Determine whether the service will receive client, employee, witness, or other personal information and whether the route is in scope for departmental use. |
 | User/request information | Optional audit events contain request metadata and a client-address hash; raw address is opt-in. [backend/audit.py:64-83](../../backend/audit.py#L64-L83) | Identify the live log configuration, access, purposes, and any linkability across other operational records. |
 
@@ -27,10 +27,11 @@ required, which law or policy applies, or whether any use is approved.
 - Decision and statute content is ingested through separate source workflows and
   persisted in the configured database. [backend/database.py:85-119](../../backend/database.py#L85-L119)
   [backend/database.py:489-515](../../backend/database.py#L489-L515)
-- Users provide search text to application routes. Semantic queries are
-  embedded by OpenAI unless a different search mode or rollout configuration is
-  used. [backend/search_service.py:101-129](../../backend/search_service.py#L101-L129)
-  [backend/search_service.py:424-441](../../backend/search_service.py#L424-L441)
+- Users provide search text to application routes. Query embeddings are disabled
+  by default, so semantic/hybrid requests use lexical ranking. OpenAI query
+  embeddings require explicit provider configuration.
+  [backend/query_embedding_providers.py](../../backend/query_embedding_providers.py)
+  [backend/search_service.py](../../backend/search_service.py)
 - The memo-check page submits a selected DOCX/PDF file to the application's
   `/memo-citation-check` endpoint. [backend/pages/memo_citation_check.py:17-19](../../backend/pages/memo_citation_check.py#L17-L19)
   [backend/routes.py:1040-1047](../../backend/routes.py#L1040-L1047)
@@ -73,10 +74,11 @@ restore procedures in the actual deployment.
 
 ## Disclosure and external processing
 
-- OpenAI receives semantic search query text for embeddings by default.
-  Optional `/research` generation sends the question and retrieved excerpts to
-  the configured provider, which defaults to OpenAI.
-  [backend/search_service.py:101-129](../../backend/search_service.py#L101-L129)
+- OpenAI receives query text for embeddings only when the operator explicitly
+  sets `QUERY_EMBEDDING_PROVIDER=openai`. Optional `/research` generation sends
+  the question and retrieved excerpts to the configured provider, which
+  defaults to OpenAI.
+  [backend/query_embedding_providers.py](../../backend/query_embedding_providers.py)
   [backend/routes.py:3851-3903](../../backend/routes.py#L3851-L3903)
 - Build-time paragraph assessment sends selected decision paragraph text to
   OpenAI only when the script is invoked in send mode.

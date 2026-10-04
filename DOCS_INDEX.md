@@ -108,6 +108,10 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/local-query-embeddings.md` documents the opt-in query embedding
+  provider, query-data locality signal, and vector-dimension compatibility
+  boundary; current behavior remains authoritative in code and
+  `SYSTEM_REFERENCE.md`.
 
 Historical context (read with caution):
 

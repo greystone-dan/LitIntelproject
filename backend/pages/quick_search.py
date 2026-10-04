@@ -147,9 +147,9 @@ def quick_search_page_html() -> str:
 				<div>
 					<label for="mode">Mode</label>
 					<select id="mode">
-						<option value="semantic" selected>semantic</option>
+						<option value="semantic">semantic</option>
 						<option value="hybrid">hybrid</option>
-						<option value="lexical">lexical</option>
+						<option value="lexical" selected>lexical</option>
 						<option value="metadata">metadata</option>
 					</select>
 				</div>

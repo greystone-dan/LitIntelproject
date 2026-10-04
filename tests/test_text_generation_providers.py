@@ -7,6 +7,7 @@ from backend.models import ResearchRequest
 
 
 def test_local_provider_uses_ollama_openai_compatible_settings(monkeypatch):
+	monkeypatch.setenv("ENHANCED_AI_MODE", "local")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "local")
 	monkeypatch.setenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 	monkeypatch.setenv("OLLAMA_MODEL", "qwen2.5:7b")
@@ -34,6 +35,7 @@ def test_local_provider_forwards_chat_completion(monkeypatch):
 		return FakeResponse()
 
 	monkeypatch.setattr(providers.httpx, "post", fake_post)
+	monkeypatch.setenv("ENHANCED_AI_MODE", "local")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "local")
 	monkeypatch.delenv("OLLAMA_MODEL", raising=False)
 
@@ -61,6 +63,7 @@ def test_local_provider_disables_qwen_thinking_for_text_output(monkeypatch):
 		return FakeResponse()
 
 	monkeypatch.setattr(providers.httpx, "post", fake_post)
+	monkeypatch.setenv("ENHANCED_AI_MODE", "local")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "local")
 
 	provider = providers.get_text_generation_provider()
@@ -73,6 +76,7 @@ def test_local_provider_disables_qwen_thinking_for_text_output(monkeypatch):
 
 
 def test_openai_remains_default_and_requires_key(monkeypatch):
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
 	monkeypatch.delenv("TEXT_GENERATION_PROVIDER", raising=False)
 	monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 
@@ -81,6 +85,7 @@ def test_openai_remains_default_and_requires_key(monkeypatch):
 
 
 def test_unknown_provider_is_rejected(monkeypatch):
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "unknown")
 
 	with pytest.raises(providers.TextGenerationConfigurationError, match="openai.*local"):
@@ -88,6 +93,7 @@ def test_unknown_provider_is_rejected(monkeypatch):
 
 
 def test_research_route_uses_selected_provider(monkeypatch):
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
 	search_result = SimpleNamespace(
 		cases=[
 			SimpleNamespace(

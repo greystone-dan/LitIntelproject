@@ -11,6 +11,18 @@
   dates. The active Data Explorer reader adds a cautious “may be affected”
   banner; no memo output or database schema changes. Extension guidance is in
   [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
+- Added the centralized `ENHANCED_AI_MODE` gate (`off` by default; `local` and
+  `hosted` require explicit opt-in). API search defaults to lexical; off mode
+  downgrades explicit semantic/hybrid requests without embedding calls and
+  exposes effective-mode metadata at the response. `GET /api/ai-mode` reports
+  the setting, while `/research` returns HTTP 503 when enhanced mode is off.
+  Local mode uses Ollama for generation and allows only local query embeddings;
+  hosted query embeddings additionally require `QUERY_EMBEDDING_PROVIDER=openai`.
+  Query embeddings remain disabled by default (`none`). The analytics Case
+  Search UI and its SQL-backed CSV/Word exports remain unchanged. Focused
+  AI-mode/API tests passed (76 total), and generated-document checks passed. The
+  full CI pytest command completed with 1,631 passed, 4 skipped, 3 deselected,
+  1 xfailed, and 2 tokenizer-cache tests blocked by unavailable network access.
 - Added public `GET /health/live` and `GET /health/ready` probes while preserving
   the legacy `GET /health` response. Readiness reports database, vector
   extension, required-table, and configured-model endpoint status, and returns

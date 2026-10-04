@@ -1191,6 +1191,16 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Proposed ID/IAD Decision Coverage
+
+ID/IAD tribunal decisions are not currently described as an implemented
+collection here. A documentation-only proposal for CBSA-hearing research,
+including candidate sources and unverified licence/access status, ingestion and
+schema touchpoints, outcome/Minister analytics, affected filters, and a phased
+pilot, is in [docs/reports/id-iad-coverage-design.md](docs/reports/id-iad-coverage-design.md).
+No source access, reuse permission, or corpus completeness is assumed by that
+design.
+
 | Table | Purpose |
 | --- | --- |
 | `cases` | Canonical case record: identity, court/date/citation/docket, text, sanitized source HTML, metadata, provenance summary, hashes, status, case embedding |

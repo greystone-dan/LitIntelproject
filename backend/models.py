@@ -2,6 +2,7 @@ from datetime import date, datetime
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+from .memo_suggestion_models import MemoAuthoritySuggestions
 
 
 class SimilarParagraphResponse(BaseModel):
@@ -939,6 +940,7 @@ class MemoCitationCheckResponse(BaseModel):
 	statute_references: list[Any]  # LiveAnalysisReferenceResponse
 	missing_authorities: list[Any]  # MissingAuthorityResponse
 	memo_analysis: MemoCitationAnalysis
+	suggestions: MemoAuthoritySuggestions = Field(default_factory=MemoAuthoritySuggestions)
 
 
 class SavedSearchCreateRequest(BaseModel):

@@ -13,6 +13,13 @@
   prefilled “Compare with…” link. The pre-existing `/case-compare` page and
   `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
   or data writes.
+- Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
+  priority (including on Windows), uses one database connection with server-side statement, lock and
+  idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as
+  long as it worked, can watch the site (`--health-url`) and back off when it is slow, has a CPU budget, a
+  stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
+  to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
+  is a thin wrapper. No schema change, no AI.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real

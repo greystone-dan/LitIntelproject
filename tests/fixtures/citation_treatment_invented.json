@@ -1,5 +1,59 @@
 [
   {
+    "id": "governs_neither",
+    "text": "2099 FC 1 governs neither this proceeding nor the remedy.",
+    "citations": [{"citation_id": "governs_neither", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9}],
+    "expected": [{"citation_id": "governs_neither", "classes": ["unknown"]}]
+  },
+  {
+    "id": "governs_nothing",
+    "text": "2099 FC 1 governs nothing in this proceeding.",
+    "citations": [{"citation_id": "governs_nothing", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9}],
+    "expected": [{"citation_id": "governs_nothing", "classes": ["unknown"]}]
+  },
+  {
+    "id": "governs_no_issue",
+    "text": "2099 FC 1 governs no issue in this proceeding.",
+    "citations": [{"citation_id": "governs_no_issue", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9}],
+    "expected": [{"citation_id": "governs_no_issue", "classes": ["unknown"]}]
+  },
+  {
+    "id": "follow_neither",
+    "text": "I follow 2099 FC 1 neither on liability nor on remedy.",
+    "citations": [{"citation_id": "follow_neither", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 9, "end": 18}],
+    "expected": [{"citation_id": "follow_neither", "classes": ["unknown"]}]
+  },
+  {
+    "id": "governs_affirmative",
+    "text": "2099 FC 1 governs this proceeding and the remedy.",
+    "citations": [{"citation_id": "governs_affirmative", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9}],
+    "expected": [{"citation_id": "governs_affirmative", "classes": ["followed_applied"], "events": [{"matched_phrase": "governs", "phrase_start": 10, "phrase_end": 17}]}]
+  },
+  {
+    "id": "post_trigger_negation_independent_clause",
+    "text": "2099 FC 1 governs neither this proceeding nor the remedy; I follow 2099 FC 2.",
+    "citations": [
+      {"citation_id": "post_trigger_negation_independent_clause_a", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9},
+      {"citation_id": "post_trigger_negation_independent_clause_b", "target_case_id": 2, "citation_text": "2099 FC 2", "start": 67, "end": 76}
+    ],
+    "expected": [
+      {"citation_id": "post_trigger_negation_independent_clause_a", "classes": ["unknown"]},
+      {"citation_id": "post_trigger_negation_independent_clause_b", "classes": ["followed_applied"], "events": [{"matched_phrase": "follow", "phrase_start": 60, "phrase_end": 66}]}
+    ]
+  },
+  {
+    "id": "governs_before_independent_negation",
+    "text": "2099 FC 1 governs this proceeding; I did not follow 2099 FC 2.",
+    "citations": [
+      {"citation_id": "governs_before_independent_negation_a", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 0, "end": 9},
+      {"citation_id": "governs_before_independent_negation_b", "target_case_id": 2, "citation_text": "2099 FC 2", "start": 52, "end": 61}
+    ],
+    "expected": [
+      {"citation_id": "governs_before_independent_negation_a", "classes": ["followed_applied"], "events": [{"matched_phrase": "governs", "phrase_start": 10, "phrase_end": 17}]},
+      {"citation_id": "governs_before_independent_negation_b", "classes": ["criticised_not_followed"], "events": [{"matched_phrase": "did not follow", "phrase_start": 37, "phrase_end": 51}]}
+    ]
+  },
+  {
     "id": "para_1",
     "text": "I apply 2099 FC 1 to the present facts.",
     "citations": [

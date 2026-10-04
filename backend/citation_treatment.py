@@ -52,6 +52,7 @@ _ATTRIBUTION = re.compile(
 )
 _HYPOTHETICAL = re.compile(r"\b(?:if|would|could|might|may|can be|should|were to)\b", re.IGNORECASE)
 _NEGATION = re.compile(r"\b(?:not|never|no|neither|without|cannot|can't|don't|doesn't|didn't)\b", re.IGNORECASE)
+_POST_CUE_NEGATION = re.compile(r"\b(?:not|never|no|neither|nothing)\b", re.IGNORECASE)
 _CLAUSE = re.compile(
     r";|\b(?:but|whereas|while|however|yet|unlike)\b|"
     r"\band\s+(?=(?:I\s+|we\s+)?(?:apply|follow|distinguish|consider|decline|refuse|criticise|question)\b)",
@@ -193,6 +194,11 @@ def classify_paragraph(text: str, citations: list[dict[str, Any]]) -> list[dict[
                         if len(negations) != required:
                             continue
                     elif negations:
+                        continue
+                    # A predicate may deny applicability after its cue (e.g.
+                    # "A governs neither ..."). Keep this within the clause;
+                    # supported negation inside a rule phrase stays intact.
+                    if _POST_CUE_NEGATION.search(clause[b:]):
                         continue
                     if rule_id.startswith("past-") and not re.search(
                         r"\b(?:I|we|this court|the court)\s*$", clause[:a], re.IGNORECASE

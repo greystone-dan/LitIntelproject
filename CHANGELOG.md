@@ -13,7 +13,9 @@
   characters fail closed before ID or citation parsing. The reader adds a
   prefilled “Compare with…” link. The pre-existing `/case-compare` page and
   `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
-  or data writes.
+  or data writes. Also removed a redundant whitespace quantifier from reported
+  citation-year parsing; parenthesized reporter-year citations retain their
+  normalized form with repeated whitespace.
 - Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
   priority (including on Windows), uses one database connection with server-side statement, lock and
   idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as

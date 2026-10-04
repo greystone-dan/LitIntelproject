@@ -41,7 +41,7 @@ FORMAL_CIT_RE = re.compile(
 	re.IGNORECASE,
 )
 REPORTED_CIT_RE = re.compile(
-	r"(?<![A-Za-z0-9])(?:\[((?:19|20)\d{2})\]|\(((?:19|20)\d{2})\)\s*|((?:19|20)\d{2}))\s+"
+	r"(?<![A-Za-z0-9])(?:\[((?:19|20)\d{2})\]|\(((?:19|20)\d{2})\)|((?:19|20)\d{2}))\s+"
 	r"(\d{1,3})\s+([A-Z](?:[A-Z.]|\s){1,14}?)\s+(\d{1,7})\b",
 	re.IGNORECASE,
 )
@@ -2978,4 +2978,3 @@ def convert_a2aj_edges_to_local(session: Session, dedupe: bool = True) -> int:
 		inserted += 1
 	session.commit()
 	return inserted
-

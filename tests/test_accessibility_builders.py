@@ -1,6 +1,11 @@
 from html.parser import HTMLParser
+import importlib
+import inspect
 import re
+from pathlib import Path
+import pkgutil
 
+from backend import pages
 from backend.pages.citation_map import citation_map_html
 from backend.pages.data_explorer import data_explorer_page_html
 from backend.pages.deidentify import deidentify_page_html
@@ -10,6 +15,31 @@ from backend.pages.prototype import prototype_page_html
 from backend.pages.research import research_page_html
 from backend.pages.saved_searches import saved_searches_page_html
 from backend.pages.tag_finder import tag_finder_page_html
+
+
+class _PageMarkupParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.images = []
+        self.tables = []
+        self.table_stack = []
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        if tag == "img":
+            self.images.append(attributes)
+        elif tag == "table":
+            table = {"headers": 0, "caption": False}
+            self.tables.append(table)
+            self.table_stack.append(table)
+        elif tag == "th" and self.table_stack:
+            self.table_stack[-1]["headers"] += 1
+        elif tag == "caption" and self.table_stack:
+            self.table_stack[-1]["caption"] = True
+
+    def handle_endtag(self, tag):
+        if tag == "table" and self.table_stack:
+            self.table_stack.pop()
 
 
 class _ControlNameParser(HTMLParser):
@@ -93,6 +123,21 @@ def _unnamed_controls(html):
         if not name.strip():
             unnamed.append(control)
     return unnamed
+
+
+def _all_page_builder_html():
+    page_directory = Path(pages.__file__).parent
+    for module_info in pkgutil.iter_modules([str(page_directory)]):
+        module = importlib.import_module(f"{pages.__name__}.{module_info.name}")
+        builders = [
+            function
+            for name, function in inspect.getmembers(module, inspect.isfunction)
+            if function.__module__ == module.__name__
+            and (name.endswith("_page_html") or name == "citation_map_html")
+        ]
+        for builder in builders:
+            html = builder({}) if builder.__name__ == "issue_brief_page_html" else builder()
+            yield f"{module_info.name}.{builder.__name__}", html
 
 
 def _css_variables(css):
@@ -201,3 +246,29 @@ def test_deidentify_paste_textareas_are_programmatically_named_and_file_inputs_f
     assert '<label class="or" for="restoreText">or paste text</label>' in html
     assert ".drop input{position:absolute" in html
     assert ".drop:focus-within{outline:3px solid var(--teal)" in html
+
+
+def test_all_page_builders_have_accessible_static_images_controls_and_tables():
+    pages_html = list(_all_page_builder_html())
+    assert pages_html
+
+    findings = []
+    for page_name, html in pages_html:
+        parser = _PageMarkupParser()
+        parser.feed(html)
+        missing_alt = [image for image in parser.images if "alt" not in image]
+        missing_headers = [
+            index for index, table in enumerate(parser.tables, start=1) if not table["headers"]
+        ]
+        missing_captions = [
+            index for index, table in enumerate(parser.tables, start=1) if not table["caption"]
+        ]
+        unnamed = _unnamed_controls(html)
+        if missing_alt or missing_headers or missing_captions or unnamed:
+            findings.append(
+                f"{page_name}: images without alt={missing_alt}, "
+                f"unnamed controls={unnamed}, tables without headers={missing_headers}, "
+                f"tables without captions={missing_captions}"
+            )
+
+    assert not findings, "\n".join(findings)

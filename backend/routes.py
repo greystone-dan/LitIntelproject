@@ -5,7 +5,6 @@ import csv
 import io
 import re
 import httpx
-from datetime import datetime
 from functools import lru_cache
 from hashlib import sha256
 from pathlib import Path
@@ -71,16 +70,11 @@ from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
-from .pages.issue_brief import issue_brief_page_html
-from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
-from .pages.saved_searches import saved_searches_page_html
-from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
-from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
@@ -110,8 +104,6 @@ from .database import (
 	IngestionRun,
 	LegislationDocument,
 	LegislationSection,
-	SavedSearch,
-	SearchAlert,
 	StatuteReference,
 	get_db,
 )
@@ -135,7 +127,6 @@ from .analytics_service import (
 	_judge_outcome_counts,
 	_profile_reader_metadata,
 	fetch_about_stats,
-	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
 	fetch_analytics_search_ministers,
@@ -147,7 +138,6 @@ from .analytics_service import (
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
 	fetch_judge_profiles,
-	fetch_issue_brief,
 	fetch_outcomes_by_year,
 )
 from .fc_activity_insights import (
@@ -207,9 +197,6 @@ from .search_service import (
 	_validate_search_ranges,
 )
 from .models import (
-	DiscoveredThemeResponse,
-	ThemeDiscoveryResponse,
-	ThemeOccurrenceResponse,
 	CaseIngestRequest,
 	CaseMergeResponse,
 	CaseReaderChunkResponse,
@@ -266,16 +253,16 @@ from .models import (
 	ChunkSearchResponse,
 	GroupedChunkCaseResponse,
 	GroupedChunkSearchResponse,
-	MemoCitationCheckResponse,
 	ResearchRequest,
 	ResearchResponse,
 	ResearchSource,
-	SavedSearchCreateRequest,
-	SavedSearchDetailResponse,
-	SavedSearchResponse,
-	SavedSearchUpdateRequest,
-	SearchAlertResponse,
-	SearchDigestResponse,
+	UnitSearchResponse,
+	UnitSearchResultResponse,
+	JudgeAnalyticsResponse,
+	ThemeWithJudgeAnalyticsResponse,
+	ThemeOccurrenceResponse,
+	DiscoveredThemeResponse,
+	ThemeDiscoveryResponse,
 )
 
 _data_explorer_page_html = data_explorer_page_html
@@ -954,7 +941,7 @@ async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
-) -> JSONResponse:
+) -> LiveAnalysisResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
@@ -962,15 +949,14 @@ async def live_analysis_analyze(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed as DOCX") from exc
-	response = LiveAnalysisResponse.model_validate(payload)
-	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
+	return LiveAnalysisResponse.model_validate(payload)
 
 
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
-) -> JSONResponse:
+) -> LiveAnalysisResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
@@ -978,28 +964,7 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
-	response = LiveAnalysisResponse.model_validate(payload)
-	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
-
-
-@router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
-def memo_citation_check_page() -> HTMLResponse:
-	return HTMLResponse(content=memo_citation_check_page_html(), status_code=status.HTTP_200_OK)
-
-
-@router.post("/memo-citation-check", response_model=MemoCitationCheckResponse)
-async def memo_citation_check_analyze(
-	file: UploadFile = File(...),
-	db: Session = Depends(get_db),
-) -> MemoCitationCheckResponse:
-	content = await file.read()
-	try:
-		payload = analyze_memo_citations(content, file.filename or "document.docx", file.content_type, db)
-	except ValueError as exc:
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
-	except Exception as exc:
-		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed") from exc
-	return MemoCitationCheckResponse.model_validate(payload)
+	return LiveAnalysisResponse.model_validate(payload)
 
 
 # De-identify tool: works entirely in memory. These endpoints never touch the
@@ -1120,9 +1085,9 @@ def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
-@router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
-def saved_searches_page() -> HTMLResponse:
-	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)
+@router.get("/themes", response_class=HTMLResponse, include_in_schema=False)
+def theme_explorer_page() -> HTMLResponse:
+	return HTMLResponse(content=theme_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
@@ -1532,89 +1497,6 @@ def search_analytics_cases(
 	)
 
 
-def _csv_safe_cell(value: Any) -> str:
-	text_value = "" if value is None else str(value)
-	if text_value.startswith(("=", "+", "-", "@")):
-		return "'" + text_value
-	return text_value
-
-
-@router.get(
-	"/search/export.csv",
-	response_class=Response,
-	responses={200: {"content": {"text/csv": {"schema": {"type": "string"}}}}},
-)
-def export_search_analytics_cases(
-	query: str = "",
-	cites: str = "",
-	government_outcome: str = "",
-	decision_outcome: str = "",
-	minister: str = "",
-	judge: str = "",
-	court: str = "",
-	year: str = "",
-	search_full_text: bool = False,
-	sort_by: str = "relevance",
-	cohort_id: str = "",
-	db: Session = Depends(get_db),
-) -> Response:
-	cohort_ids = None
-	if cohort_id:
-		if cohort_id != "discussion_units_core_300":
-			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
-		cohort_ids = list(load_discussion_unit_cohort())
-
-	rows: list[dict[str, Any]] = []
-	while len(rows) < 1000:
-		page = fetch_analytics_search_cases(
-			db,
-			query=query,
-			cites=cites,
-			government_outcome=government_outcome,
-			decision_outcome=decision_outcome,
-			minister=minister,
-			judge=judge,
-			court=court,
-			year=year,
-			search_full_text=search_full_text,
-			sort_by=sort_by,
-			limit=min(100, 1000 - len(rows)),
-			offset=len(rows),
-			cohort_ids=cohort_ids,
-		)
-		page_rows = page.get("results", [])
-		rows.extend(page_rows[: 1000 - len(rows)])
-		if len(page_rows) < 100 or not page_rows:
-			break
-
-	output = io.StringIO(newline="")
-	writer = csv.writer(output)
-	writer.writerow(["citation", "title", "court", "date", "judge", "outcome", "iLit URL"])
-	for row in rows:
-		government_outcome = row.get("government_outcome")
-		outcome = (
-			government_outcome
-			if government_outcome in {"won", "lost"}
-			else row.get("decision_outcome")
-		)
-		writer.writerow(
-			[
-				_csv_safe_cell(row.get("citation")),
-				_csv_safe_cell(row.get("title")),
-				_csv_safe_cell(row.get("court")),
-				_csv_safe_cell(row.get("date")),
-				_csv_safe_cell(row.get("judge")),
-				_csv_safe_cell(outcome),
-				_csv_safe_cell(f"/data-explorer?case_id={row['case_id']}"),
-			]
-		)
-	return Response(
-		content="\ufeff" + output.getvalue(),
-		media_type="text/csv",
-		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
-	)
-
-
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])
 def get_case_paragraph_assessments(case_id: int) -> dict[str, Any]:
 	return load_paragraph_assessments(case_id, enforce_cohort=False)
@@ -1704,37 +1586,6 @@ def get_case_thematic_cluster(
 		case_id,
 		limit=max(1, min(50, limit)),
 	)
-
-
-@router.get("/analytics/tags", response_model=dict[str, Any])
-def get_tag_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
-	return fetch_all_tag_analytics(db)
-
-
-@router.get(
-	"/issue-brief",
-	response_model=dict[str, Any],
-	summary="Build a legal issue brief for a tag",
-	description=(
-		"Summarizes active-taxonomy tagged decisions by year, outcome, and court, "
-		"with resolved case authorities and traceable decision links. Outcome percentages "
-		"use all decisions in the year as denominator and each split includes the "
-		"unclassified count and denominator. An empty tag returns an empty brief."
-	),
-)
-def get_issue_brief(
-	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form; empty is supported."),
-	db: Session = Depends(get_db),
-) -> dict[str, Any]:
-	return fetch_issue_brief(db, tag)
-
-
-@router.get("/issue-brief-ui", response_class=HTMLResponse, include_in_schema=False)
-def get_issue_brief_ui(
-	tag: str = Query("", max_length=356, description="Exact legal tag in category:value form."),
-	db: Session = Depends(get_db),
-) -> str:
-	return issue_brief_page_html(fetch_issue_brief(db, tag))
 
 
 def get_case_metadata_pass(case_id: int, db: Session) -> dict[str, object]:
@@ -1846,20 +1697,10 @@ def get_case_authority_map(
 def get_citation_map_case_tags(
 	case_id: int,
 	limit: int = 100,
-	display_limit: int | None = None,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	_get_case_or_404(case_id, db)
-	# Apply display ranking by default, capping at 8-10 tags
-	# Can be disabled by passing display_limit=-1
-	if display_limit is None:
-		display_limit = 10  # Default: show top 10 tags ranked by rarity
-	elif display_limit < 0:
-		display_limit = None  # Disable ranking/capping
-
-	return _case_legal_tags(
-		db, case_id, limit=max(1, min(250, limit)), display_limit=display_limit
-	)
+	return _case_legal_tags(db, case_id, limit=max(1, min(250, limit)))
 
 
 @router.get("/citation-map/common-citers", response_model=list[CitationMapCommonCiterResponse])
@@ -3311,243 +3152,6 @@ def research_interface() -> HTMLResponse:
 	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
 
 
-def _saved_search_alert_response(db: Session, alert: SearchAlert) -> SearchAlertResponse:
-	case = db.query(Case).filter(Case.id == alert.case_id).first()
-	chunk = (
-		db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()
-		if alert.chunk_id is not None
-		else None
-	)
-	return SearchAlertResponse(
-		id=alert.id,
-		search_id=alert.search_id,
-		case_id=alert.case_id,
-		chunk_id=alert.chunk_id,
-		match_type=alert.match_type,
-		relevance_score=alert.relevance_score,
-		discovered_at=alert.discovered_at,
-		case_title=case.title if case else None,
-		case_citation=case.citation if case else None,
-		case_date=case.date if case else None,
-		chunk_text=chunk.text[:200] if chunk else None,
-	)
-
-
-@router.post(
-	"/saved-searches",
-	response_model=SavedSearchResponse,
-	status_code=status.HTTP_201_CREATED,
-)
-def create_saved_search(
-	req: SavedSearchCreateRequest,
-	db: Session = Depends(get_db),
-) -> SavedSearchResponse:
-	search = SavedSearch(
-		name=req.name,
-		description=req.description,
-		query=req.query,
-		search_mode=req.search_mode,
-		filters=req.filters,
-	)
-	db.add(search)
-	db.commit()
-	db.refresh(search)
-	return SavedSearchResponse(
-		id=search.id,
-		name=search.name,
-		description=search.description,
-		query=search.query,
-		search_mode=search.search_mode,
-		filters=search.filters,
-		created_at=search.created_at,
-		updated_at=search.updated_at,
-		last_alert_check=search.last_alert_check,
-		alert_count=0,
-	)
-
-
-@router.get("/saved-searches", response_model=list[SavedSearchResponse])
-def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchResponse]:
-	searches = db.query(SavedSearch).order_by(SavedSearch.created_at.desc()).all()
-	return [
-		SavedSearchResponse(
-			id=search.id,
-			name=search.name,
-			description=search.description,
-			query=search.query,
-			search_mode=search.search_mode,
-			filters=search.filters,
-			created_at=search.created_at,
-			updated_at=search.updated_at,
-			last_alert_check=search.last_alert_check,
-			alert_count=db.query(SearchAlert)
-			.filter(SearchAlert.search_id == search.id)
-			.count(),
-		)
-		for search in searches
-	]
-
-
-@router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)
-def get_saved_search(
-	search_id: int,
-	db: Session = Depends(get_db),
-) -> SavedSearchDetailResponse:
-	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
-	if search is None:
-		raise HTTPException(status_code=404, detail="Saved search not found")
-	alerts = (
-		db.query(SearchAlert)
-		.filter(SearchAlert.search_id == search_id)
-		.order_by(SearchAlert.discovered_at.desc())
-		.all()
-	)
-	return SavedSearchDetailResponse(
-		id=search.id,
-		name=search.name,
-		description=search.description,
-		query=search.query,
-		search_mode=search.search_mode,
-		filters=search.filters,
-		created_at=search.created_at,
-		updated_at=search.updated_at,
-		last_alert_check=search.last_alert_check,
-		alert_count=len(alerts),
-		alerts=[_saved_search_alert_response(db, alert) for alert in alerts],
-	)
-
-
-@router.put("/saved-searches/{search_id}", response_model=SavedSearchResponse)
-def update_saved_search(
-	search_id: int,
-	req: SavedSearchUpdateRequest,
-	db: Session = Depends(get_db),
-) -> SavedSearchResponse:
-	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
-	if search is None:
-		raise HTTPException(status_code=404, detail="Saved search not found")
-	for field in ("name", "description", "query", "search_mode", "filters"):
-		value = getattr(req, field)
-		if value is not None:
-			setattr(search, field, value)
-	search.updated_at = datetime.now().astimezone()
-	db.commit()
-	db.refresh(search)
-	alert_count = (
-		db.query(SearchAlert).filter(SearchAlert.search_id == search_id).count()
-	)
-	return SavedSearchResponse(
-		id=search.id,
-		name=search.name,
-		description=search.description,
-		query=search.query,
-		search_mode=search.search_mode,
-		filters=search.filters,
-		created_at=search.created_at,
-		updated_at=search.updated_at,
-		last_alert_check=search.last_alert_check,
-		alert_count=alert_count,
-	)
-
-
-@router.delete("/saved-searches/{search_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_saved_search(search_id: int, db: Session = Depends(get_db)) -> None:
-	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
-	if search is None:
-		raise HTTPException(status_code=404, detail="Saved search not found")
-	db.delete(search)
-	db.commit()
-
-
-@router.post("/saved-searches/{search_id}/check", response_model=SearchDigestResponse)
-def check_saved_search(
-	search_id: int,
-	db: Session = Depends(get_db),
-) -> SearchDigestResponse:
-	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
-	if search is None:
-		raise HTTPException(status_code=404, detail="Saved search not found")
-	alerts = (
-		db.query(SearchAlert)
-		.filter(SearchAlert.search_id == search_id)
-		.order_by(SearchAlert.discovered_at.desc())
-		.limit(100)
-		.all()
-	)
-	search.last_alert_check = datetime.now().astimezone()
-	db.commit()
-	db.refresh(search)
-	alert_responses = [
-		_saved_search_alert_response(db, alert) for alert in alerts
-	]
-	return SearchDigestResponse(
-		search_id=search_id,
-		search_name=search.name,
-		generated_at=datetime.now().astimezone(),
-		new_case_matches=alert_responses,
-		total_new_results=len(alert_responses),
-	)
-
-
-@router.get("/tag-finder", response_class=HTMLResponse, include_in_schema=False)
-def tag_finder_interface() -> HTMLResponse:
-	return HTMLResponse(content=tag_finder_page_html(), status_code=status.HTTP_200_OK)
-
-
-@router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
-def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:
-	"""Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms."""
-	from .theme_discovery import discover_themes, get_core_300_themes
-	from .reader_service import build_case_reader_data
-
-	# Load reader data for Core-300 cases to get evidence summaries
-	core_300_ids = range(1, 301)  # Core-300 case IDs
-	case_evidence_summaries = {}
-
-	for case_id in core_300_ids:
-		try:
-			reader_data = build_case_reader_data(case_id, db)
-			if reader_data.evidence_summary:
-				case_evidence_summaries[case_id] = reader_data.evidence_summary
-		except Exception:
-			continue
-
-	# Discover themes
-	discovered_themes = discover_themes(case_evidence_summaries)
-
-	# Convert to response objects
-	theme_responses = []
-	for theme in discovered_themes:
-		occurrence_responses = [
-			ThemeOccurrenceResponse(
-				case_id=occ.case_id,
-				unit_index=occ.unit_index,
-				subtheme_id=occ.subtheme_id,
-			)
-			for occ in theme.occurrences
-		]
-		theme_responses.append(
-			DiscoveredThemeResponse(
-				theme_id=theme.theme_id,
-				theme_name=theme.theme_name,
-				top_key_terms=theme.top_key_terms,
-				top_argument_roles=theme.top_argument_roles,
-				occurrence_count=theme.occurrence_count,
-				occurrences=occurrence_responses,
-			)
-		)
-
-	return ThemeDiscoveryResponse(
-		total_themes=len(theme_responses),
-		themes=theme_responses,
-	)
-
-
-@router.get("/themes", response_class=HTMLResponse, include_in_schema=False)
-def theme_explorer_page() -> HTMLResponse:
-	return HTMLResponse(content=theme_explorer_page_html(), status_code=status.HTTP_200_OK)
-
-
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
 	result = _grouped_chunk_search(search, db)
@@ -3634,87 +3238,157 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 	)
 
 
-@router.get("/search/tags/similar")
-def find_similar_cases_by_tags(
-	case_id: int = Query(...),
-	limit: int = Query(10, ge=1, le=50),
+@router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
+def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:
+	"""
+	Discover recurring legal themes by grouping discussion unit subthemes
+	with shared key terms across the Core-300 case collection.
+
+	Returns themes with their occurrences across cases and judges.
+	"""
+	from .theme_discovery import discover_themes
+	from .reader_service import build_case_reader_data
+
+	# Load evidence summaries for Core-300 cases
+	case_evidence_summaries = {}
+	for case_id in range(1, 301):
+		try:
+			reader_data = build_case_reader_data(case_id, db)
+			if reader_data.evidence_summary:
+				case_evidence_summaries[case_id] = reader_data.evidence_summary
+		except Exception:
+			continue
+
+	# Discover themes
+	discovered_themes = discover_themes(case_evidence_summaries)
+
+	# Convert to response objects
+	theme_responses = []
+	for theme in discovered_themes:
+		occurrence_responses = [
+			ThemeOccurrenceResponse(
+				case_id=occ.case_id,
+				unit_index=occ.unit_index,
+				subtheme_id=occ.subtheme_id,
+			)
+			for occ in theme.occurrences
+		]
+		theme_responses.append(
+			DiscoveredThemeResponse(
+				theme_id=theme.theme_id,
+				theme_name=theme.theme_name,
+				top_key_terms=theme.top_key_terms,
+				top_argument_roles=theme.top_argument_roles,
+				occurrence_count=theme.occurrence_count,
+				occurrences=occurrence_responses,
+			)
+		)
+
+	return ThemeDiscoveryResponse(
+		total_themes=len(theme_responses),
+		themes=theme_responses,
+	)
+
+
+@router.get("/units/search", response_model=UnitSearchResponse)
+def search_units(
+	q: str = Query(..., min_length=2, max_length=500),
+	limit: int = Query(20, ge=5, le=100),
 	db: Session = Depends(get_db),
-) -> dict[str, Any]:
-	"""Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs."""
-	source_case = db.query(Case).filter(Case.id == case_id).first()
-	if not source_case:
-		raise HTTPException(status_code=404, detail="Case not found")
+) -> UnitSearchResponse:
+	"""
+	Search discussion units across the case corpus.
 
-	source_tags = db.query(CaseTag).filter(
-		CaseTag.case_id == case_id,
-		CaseTag.taxonomy_version == "ca_legal_v3_core",
-	).all()
+	Uses semantic embeddings (PR 30's bge-m3) with keyword fallback.
+	Returns matching units with judge and outcome information.
 
-	if not source_tags:
-		return {
-			"source_case": {"id": case_id, "title": source_case.title, "tag_count": 0},
-			"similar_cases": [],
-			"note": "Source case has no V3 core tags to match against."
+	Args:
+		q: Search query
+		limit: Maximum results to return
+		db: Database session
+
+	Returns:
+		List of matching units with analytics
+	"""
+	from .unit_search import search_units_by_embedding
+
+	results = search_units_by_embedding(q, db, limit=limit)
+
+	return UnitSearchResponse(
+		query=q,
+		total_results=len(results),
+		results=[
+			UnitSearchResultResponse(
+				case_id=r.case_id,
+				unit_index=r.unit_index,
+				start_paragraph=r.start_paragraph,
+				end_paragraph=r.end_paragraph,
+				subtheme_id=r.subtheme_id,
+				key_terms=r.key_terms,
+				judges=r.judges,
+				disposition=r.disposition,
+				score=r.score,
+				match_type=r.match_type,
+			)
+			for r in results
+		],
+	)
+
+
+@router.get("/themes/discovery/with-judge-analytics", response_model=dict[str, Any])
+def get_themes_with_judge_analytics(db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""
+	Get theme discovery results enriched with judge and outcome analytics.
+
+	Shows how different judges handle each discovered theme,
+	including their citation patterns and disposition outcomes.
+
+	Args:
+		db: Database session
+
+	Returns:
+		Theme discovery data with judge analytics for each occurrence
+	"""
+	from .theme_discovery import discover_themes
+	from .reader_service import build_case_reader_data
+	from .unit_search import enrich_theme_with_judge_analytics
+
+	# Get evidence summaries for Core-300 cases (using cached data)
+	case_evidence_summaries = {}
+
+	for case_id in range(1, 301):
+		try:
+			reader_data = build_case_reader_data(case_id, db)
+			if reader_data.evidence_summary:
+				case_evidence_summaries[case_id] = reader_data.evidence_summary.model_dump()
+		except Exception:
+			continue
+
+	# Discover themes
+	themes = discover_themes(case_evidence_summaries)
+
+	# Enrich with judge analytics
+	enhanced_themes = []
+	for theme in themes:
+		theme_dict = {
+			"theme_id": theme.theme_id,
+			"theme_name": theme.theme_name,
+			"occurrence_count": theme.occurrence_count,
+			"top_key_terms": theme.top_key_terms,
+			"top_argument_roles": theme.top_argument_roles,
+			"occurrences": [
+				{
+					"case_id": occ.case_id,
+					"unit_index": occ.unit_index,
+					"subtheme_id": occ.subtheme_id,
+				}
+				for occ in theme.occurrences
+			],
 		}
-
-	source_tag_set = frozenset((t.category, t.value) for t in source_tags)
-
-	all_tags = db.query(CaseTag, Case).join(Case).filter(
-		CaseTag.case_id != case_id,
-		CaseTag.taxonomy_version == "ca_legal_v3_core",
-	).all()
-
-	case_tag_map = {}
-	case_metadata = {}
-	for tag, case in all_tags:
-		if case.id not in case_tag_map:
-			case_tag_map[case.id] = []
-			case_metadata[case.id] = case
-		case_tag_map[case.id].append((tag.category, tag.value))
-
-	scored_cases = []
-	for case_id_other, tags_list in case_tag_map.items():
-		case_tag_set = frozenset(tags_list)
-		intersection = len(source_tag_set & case_tag_set)
-		union = len(source_tag_set | case_tag_set)
-		jaccard = intersection / union if union > 0 else 0.0
-
-		if jaccard > 0:
-			shared_tags = sorted(list(source_tag_set & case_tag_set))
-			scored_cases.append({
-				"case_id": case_id_other,
-				"case": case_metadata[case_id_other],
-				"jaccard_similarity": jaccard,
-				"shared_tag_count": intersection,
-				"shared_tags": shared_tags,
-				"total_tags": len(tags_list),
-			})
-
-	scored_cases.sort(key=lambda x: (-x["jaccard_similarity"], -x["shared_tag_count"]))
-	top_cases = scored_cases[:limit]
+		enhanced_theme = enrich_theme_with_judge_analytics(theme_dict, db)
+		enhanced_themes.append(enhanced_theme)
 
 	return {
-		"source_case": {
-			"id": source_case.id,
-			"title": source_case.title,
-			"citation": source_case.citation,
-			"date": source_case.date,
-			"tag_count": len(source_tags),
-			"tags": sorted(list(source_tag_set)),
-		},
-		"similar_cases": [
-			{
-				"case_id": item["case_id"],
-				"title": item["case"].title,
-				"citation": item["case"].citation,
-				"court": item["case"].court,
-				"date": item["case"].date,
-				"similarity": round(item["jaccard_similarity"], 4),
-				"shared_tag_count": item["shared_tag_count"],
-				"shared_tags": item["shared_tags"],
-				"total_tags": item["total_tags"],
-			}
-			for item in top_cases
-		],
-		"total_similar": len(scored_cases),
+		"total_themes": len(enhanced_themes),
+		"themes": enhanced_themes,
 	}

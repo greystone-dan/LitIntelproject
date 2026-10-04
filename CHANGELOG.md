@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added an independent non-blocking pull-request and weekly workflow for
+  pinned Ruff (`E,F401`) and pip-audit checks, with a separate artifact for each
+  result. The first baseline is recorded in
+  [`docs/reports/baseline-lint-and-audit.md`](docs/reports/baseline-lint-and-audit.md).
+  The required CI pytest command ran 1,032 tests successfully; three other tests
+  failed while attempting to download external Hugging Face/OpenAI tokenizer
+  resources, one was skipped, one xfailed, and three configured tests were
+  deselected.
 - Added saved-search persistence and CRUD/alert routes, a standalone saved
   searches page, a Case Search action to save the current query and filters,
   and a bounded read-only-by-default alert checker. The new schema revision is

@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-22
+Last updated: 2026-10-04
 
 ## Purpose And Authority
 
@@ -7986,6 +7986,23 @@ Source collectors and importers are tested against controlled HTML, mock respons
 ### Operational Tests
 
 The overnight runner tests locks, job selection, state transitions, and command construction. They do not run full corpus writes. A full operational run needs preflight, bounded canary, state/log review, before/after counts, and sampled QA.
+
+### Independent CI quality checks
+
+`.github/workflows/quality.yml` runs separately from the required test
+workflow on pull requests and weekly (Sunday at 00:00 UTC). It applies Ruff's
+minimal `E` error and `F401` unused-import rules and audits dependencies resolved
+from `requirements.txt` with pip-audit. Ruff and pip-audit are pinned in
+`requirements-dev.txt`.
+
+Each tool has its own non-blocking job and artifact containing its output,
+version, and exit status. Findings and tool-install errors therefore remain
+available for review without changing the existing test gate. The first
+observed baseline, including its scope and limitations, is recorded in
+[`docs/reports/baseline-lint-and-audit.md`](docs/reports/baseline-lint-and-audit.md).
+An audit result describes the checked-in requirements and advisory feed at run
+time; it does not by itself establish that a dependency is reachable or
+exploitable in production.
 
 ## Required Validation By Change Type
 

@@ -12,7 +12,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from docx import Document
@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .cache_headers import static_html_response
 
 try:
 	import yaml
@@ -985,8 +986,11 @@ def get_citation_map_summary(db: Session = Depends(get_db)) -> dict[str, int]:
 
 
 @router.get("/citation-map", response_class=HTMLResponse)
-def citation_map_page() -> str:
-	return citation_map_html()
+def citation_map_page(request: Request) -> Response:
+	return static_html_response(
+		citation_map_html(),
+		if_none_match=request.headers.get("if-none-match"),
+	)
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
@@ -1176,8 +1180,11 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
-def data_explorer_page() -> HTMLResponse:
-	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
+def data_explorer_page(request: Request) -> Response:
+	return static_html_response(
+		_data_explorer_page_html(),
+		if_none_match=request.headers.get("if-none-match"),
+	)
 
 
 @router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
@@ -3590,8 +3597,11 @@ def _research_page_html() -> str:
 
 
 @router.get("/research", response_class=HTMLResponse, include_in_schema=False)
-def research_interface() -> HTMLResponse:
-	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
+def research_interface(request: Request) -> Response:
+	return static_html_response(
+		research_page_html(),
+		if_none_match=request.headers.get("if-none-match"),
+	)
 
 
 def _saved_search_alert_response(db: Session, alert: SearchAlert) -> SearchAlertResponse:

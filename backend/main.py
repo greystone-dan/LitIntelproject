@@ -14,6 +14,7 @@ from starlette.staticfiles import StaticFiles
 from .audit import RequestAuditMiddleware
 from .database import init_db
 from .routes import router
+from .gzip_middleware import SelectiveGZipMiddleware
 
 
 @asynccontextmanager
@@ -105,6 +106,9 @@ async def private_access_and_noindex(request: Request, call_next):
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response
 
+
+# Request auditing wraps the selectively-compressed response.
+app.add_middleware(SelectiveGZipMiddleware, minimum_size=500)
 
 app.add_middleware(RequestAuditMiddleware)
 

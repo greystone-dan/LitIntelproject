@@ -320,6 +320,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 #advancedSearchOptions{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#fff}#advancedSearchOptions fieldset{border:1px solid #eceae0;border-radius:10px;padding:12px 14px;background:#fcfbf7}#advancedSearchOptions legend{padding:0 6px;color:#9a3412;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 #searchMeta.search-status{display:flex;align-items:center;gap:8px;margin:18px 0 4px;padding:0 2px;border:0!important;background:none!important;color:var(--text);font-size:13px;font-weight:600}
 #searchMeta[data-state="idle"]{display:none}#searchMeta[data-state="loading"]::before{content:"";width:12px;height:12px;border:2px solid #c9c5b6;border-top-color:#102038;border-radius:50%;animation:rc-spin .8s linear infinite}@keyframes rc-spin{to{transform:rotate(360deg)}}
+#retryCaseSearch[hidden]{display:none!important}#retryCaseSearch{margin:4px 0 8px;padding:6px 10px;border:1px solid #102038;border-radius:6px;background:#fff;color:#102038;font-weight:600;cursor:pointer}#retryCaseSearch:hover{background:#eef2f7}
 #searchResults.results-wrap{display:grid;gap:10px;margin-top:8px}
 .case-result.rc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;width:100%;padding:14px 16px 14px 18px;border:1px solid var(--border);border-left:5px solid #c9c5b6;border-radius:12px;background:#fff;text-align:left;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .15s}
 .case-result.rc:hover{border-color:#aab4c4;box-shadow:0 6px 18px rgba(16,32,56,.1);transform:translateY(-1px)}.case-result.rc.rc-win{border-left-color:#1e3a8a}.case-result.rc.rc-loss{border-left-color:#16a34a}
@@ -458,6 +459,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="saved-search-actions"><button id="saveCurrentSearch" type="button">Save current search</button><a href="/saved-searches-ui">Saved searches</a></div>
 <div id="cohortSearchPanel" class="cohort-search-panel" hidden><div class="eyebrow">Core 300 assessment search</div><form id="cohortSearchForm"><div class="search-query-row"><label class="primary-query" for="cohortQuery"><span>Find concepts in paragraph assessments</span><small>Experimental matching across topic, role, explanation, and paragraph text. Scope: Core 300 only.</small><input id="cohortQuery" placeholder="Try standard of review issues" autocomplete="off"></label><button type="submit">Search assessments</button></div></form><div class="search-status" id="cohortSearchMeta" role="status" aria-live="polite">Activate Core Cases to search the 300 assessment records.</div><div class="results-wrap" id="cohortSearchResults" aria-label="Core 300 assessment search results"></div><div class="search-status" id="cohortComparisonMeta" role="status" aria-live="polite"></div><div class="results-wrap" id="cohortComparisonResults" aria-label="Core 300 assessment comparison results"></div></div>
 <div class="search-status" id="searchMeta" role="status" aria-live="polite" data-state="idle">Search by case name or citation. Open Advanced options for filters or full-decision text.</div>
+<button id="retryCaseSearch" type="button" hidden>Retry search</button>
 <div class="results-wrap" id="searchResults" aria-label="Case search results"></div>
 </section>
 <section id="caseReaderPanel" class="panel-card inline-case-reader" hidden>
@@ -737,6 +739,8 @@ function professionalResultCard(item){const context=[item.court,item.date,item.j
 let professionalSearchGeneration=0;
 async function runProfessionalSearch(){
  const requestId=++professionalSearchGeneration;
+ const retryButton=document.getElementById('retryCaseSearch');
+ retryButton.hidden=true;
  closeSearchSuggestions();
  const values=searchValues(),params=new URLSearchParams();
  Object.entries(values).forEach(([key,value])=>{if(value)params.set(key,value)});
@@ -756,10 +760,13 @@ async function runProfessionalSearch(){
   if(requestId!==professionalSearchGeneration)return;
   setSearchStatus(`Search unavailable: ${error.message}`,'error');
   document.getElementById('searchResults').innerHTML='<div class="empty">The search could not be completed. Your filters have been preserved so you can try again.</div>';
+  retryButton.hidden=false;
  }
 }
 function bindProfessionalSearch(){const form=document.getElementById('caseSearch'),input=document.getElementById('searchQuery'),clear=document.getElementById('clearSearch');form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();runProfessionalSearch();},true);input.addEventListener('input',()=>{clearTimeout(suggestionState.timer);const query=input.value.trim();if(query.length<2){suggestionState.controller?.abort();closeSearchSuggestions();return;}suggestionState.timer=setTimeout(()=>requestSearchSuggestions(query),280);});input.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSearchSuggestions();return;}if(!suggestionState.items.length)return;if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const step=event.key==='ArrowDown'?1:-1;suggestionState.active=(suggestionState.active+step+suggestionState.items.length)%suggestionState.items.length;paintSearchSuggestions();}else if(event.key==='Enter'&&suggestionState.active>=0){event.preventDefault();event.stopImmediatePropagation();chooseSearchSuggestion(suggestionState.active);}});clear.addEventListener('click',()=>{suggestionState.controller?.abort();closeSearchSuggestions();setSearchStatus('Search by case name or citation. Open Advanced options for filters or full-decision text.');});document.addEventListener('click',event=>{if(!event.target.closest?.('.case-finder'))closeSearchSuggestions();});document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();input.focus();input.select();}});}
 bindProfessionalSearch();
+document.getElementById('retryCaseSearch').addEventListener('click',runProfessionalSearch);
+document.getElementById('clearSearch').addEventListener('click',()=>{document.getElementById('retryCaseSearch').hidden=true;});
 async function saveCurrentSearch(){
  const values=searchValues(),query=values.query.trim(),filters={...values};
  delete filters.query;

@@ -1,6 +1,6 @@
 # Task: Add OpenAI-compatible chat provider
 
-Status: complete
+Status: blocked
 Created: 2026-10-04
 Updated: 2026-10-04
 
@@ -30,6 +30,7 @@ Acceptance criteria:
 - Tests cover a mocked compatible endpoint and enhanced-mode gating.
 - Update `docs/CONFIGURATION_REFERENCE.md`, the canonical system/architecture inventory, relevant Swimm walkthrough, and generated documentation from its generator.
 - Focused tests, `scripts/check_generated_docs.py`, changed-file secret scan, and final validation pass.
+- Apply the issue #112 CI-deselected full-suite check without accessing PostgreSQL or dotenv; record its result or exact environment blocker.
 
 Harness criteria:
 
@@ -39,13 +40,14 @@ Docs/generated references: `docs/CONFIGURATION_REFERENCE.md`, `SYSTEM_REFERENCE.
 
 Rollback/recovery: Revert only this issue's code, tests, docs, and task record; no data or schema changes are permitted.
 
-Evidence: Fetched/merged `origin/main` before edits (`ab0b6f5`, #201) and again before final validation (`ed83bb7`, #213); both merges completed without conflict. Issue #112 Rules block evidence from `.github/project-manager/tasks/issue-171-dependency-audit-task.md`: no database, deploy-script, `.env`, feature-deletion, added-dependency, or password-gate changes. `gh issue view 112` could not authenticate in this environment; use the recorded Rules block and supplied issue #204 requirements. Requested `engine-tools-report_progress` and `parallel_validation` tools are unavailable; checklist/progress were reported in chat and final checks were run concurrently. Initial system Python lacked test dependencies; used a temporary `/tmp/caselibrary-issue204-venv` with dotenv loading disabled (`PYTHON_DOTENV_DISABLED=1`) and no database connections.
+Evidence: Fetched/merged `origin/main` before edits (`ab0b6f5`, #201) and again before final validation (`ed83bb7`, #213); both merges completed without conflict. Issue #112 Rules block evidence from `.github/project-manager/tasks/issue-171-dependency-audit-task.md`: no database, deploy-script, `.env`, feature-deletion, added-dependency, or password-gate changes. `gh issue view 112` could not authenticate in this environment; use the recorded Rules block and supplied issue #204 requirements. Requested `engine-tools-report_progress` and `parallel_validation` tools are unavailable; progress was reported in chat and final checks were run concurrently. Full-suite validation used a temporary `/tmp/caselibrary-issue204-venv`, `PYTHON_DOTENV_DISABLED=1`, and a process-local SQLAlchemy guard blocking non-SQLite connections because `tests/conftest.py` otherwise probes PostgreSQL at collection. No DB was accessed and no `.env` was read. Only packages already pinned in repository requirements were installed in `/tmp`; project dependency files were unchanged.
 
-Files changed: `.github/project-manager/tasks/issue-204-openai-compatible-chat-provider.md`, `backend/text_generation_providers.py`, `backend/routes.py`, `tests/test_text_generation_providers.py`, `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE.md`, `SYSTEM_REFERENCE.md`, `.swm/5.b49ftjal.sw.md`, `.swm/architecture-decisions-and-design-rationale.gwtegcrn.sw.md`, `docs/government-readiness/ai-use-statement.md`, `docs/government-readiness/data-flow.md`, `docs/government-readiness/subprocessors.md`, `CHANGELOG.md`.
+Files changed: `.github/project-manager/tasks/issue-204-openai-compatible-chat-provider.md`, `.github/project-manager/improvements/2026-10-04-guard-database-probes-in-pytest.md`, `backend/text_generation_providers.py`, `backend/routes.py`, `tests/test_text_generation_providers.py`, `docs/CONFIGURATION_REFERENCE.md`, `docs/ARCHITECTURE.md`, `SYSTEM_REFERENCE.md`, `.swm/5.b49ftjal.sw.md`, `.swm/architecture-decisions-and-design-rationale.gwtegcrn.sw.md`, `docs/government-readiness/ai-use-statement.md`, `docs/government-readiness/data-flow.md`, `docs/government-readiness/subprocessors.md`, `CHANGELOG.md`.
 Delegated work: `managed-worker` implemented only the provider/route/test slice and returned the required structured report. It added the compatible SDK provider, endpoint mode classification, route capability limits, and mocked HTTP/mode tests. Its initial compile/diff checks passed; its initial pytest attempt was blocked by missing system dependencies. Manager reviewed the diff and independently ran the focused tests.
-Focused validation: `PYTHON_DOTENV_DISABLED=1 /tmp/caselibrary-issue204-venv/bin/python -m pytest -q tests/test_text_generation_providers.py tests/test_ai_mode.py tests/test_documentation_contracts.py tests/test_government_readiness_docs.py` — 22 passed, 1 third-party deprecation warning. `PYTHON_DOTENV_DISABLED=1 /tmp/caselibrary-issue204-venv/bin/python scripts/check_generated_docs.py` — passed; 3 references current. `python -m compileall -q backend/text_generation_providers.py backend/routes.py tests/test_text_generation_providers.py`, route/provider contract assertions, changed-line Markdown link scan, changed-file secret scan, and `git diff --check` passed. An unrestricted local-link scan found four pre-existing unresolved links in `SYSTEM_REFERENCE.md` outside this change; no added links are broken.
-Residual risk: The configured compatible service's retention, processing location, and API behavior are provider-specific and remain unverified; no full suite or browser test was run. Live issue #112 could not be queried because `GH_TOKEN` is unavailable; its recorded Rules block was followed. Commit/push validation is the remaining checkpoint.
-Next bounded task: Add retrieval/context-grounding evaluation for experimental `/research` before treating it as production-facing.
+Focused validation: The final focused run used a process-local SQLAlchemy guard rejecting non-SQLite connections, with `PYTHON_DOTENV_DISABLED=1`: 22 tests passed, 1 third-party deprecation warning. `PYTHON_DOTENV_DISABLED=1 /tmp/caselibrary-issue204-venv/bin/python scripts/check_generated_docs.py` — passed; 3 references current. Compilation, route/provider static contract, changed-line Markdown links, changed-file secret scan, and `git diff --check` passed. Earlier focused pytest invocations occurred before discovering the conftest behavior below; `tests/conftest.py` attempted its import-time localhost `SELECT 1` probe. That probe is read-only by source, but its connection outcome was not captured, so I cannot certify those earlier invocations made no DB connection. All later test runs used the connection guard.
+Full-suite validation: CI's three `--deselect` filters and coverage flags were run under the process-local non-SQLite DB guard. Result: 1,651 passed, 4 failed, 4 skipped, 3 deselected, 1 xfailed. Two Chromium timeout failures passed when retried alone. The two remaining failures are tokenizer tests: `tiktoken` cannot download `cl100k_base.tiktoken` because `openaipublic.blob.core.windows.net` does not resolve. No project dependency files were changed to work around this.
+Residual risk: Full CI-deselected suite is not green in this environment because tokenizer data is unavailable; initial browser subprocess timeouts passed on isolated retry. The configured compatible service's retention/processing location remain unverified. Live issue #112 could not be queried because `GH_TOKEN` is unavailable; the recorded Rules block was followed. A process recommendation was recorded to prevent pytest's import-time database probe from violating no-DB validation boundaries.
+Next bounded task: Re-run the full CI-deselected suite with the `cl100k_base` asset available locally or in network-enabled CI, retaining the non-SQLite connection guard; then continue `/research` grounding evaluation.
 
 ## Hypothesis
 
@@ -72,12 +74,12 @@ If `/research` selects providers only after its off-mode check, uses provider co
 
 ## Completion
 
-Completion recorded: yes
+Completion recorded: no
 
-Summary: Added the OpenAI-SDK compatible chat provider and capability-driven `/research` limits, preserved OpenAI/Ollama and mode gates, and updated configuration, architecture, privacy/data-flow, Swimm, and changelog documentation.
+Summary: Implementation and focused acceptance checks are complete. The requested additional CI-deselected suite ran with non-SQLite DB connections blocked and dotenv disabled, but cannot be green here because the offline environment lacks the tokenizer vocabulary asset. Earlier unguarded focused pytest runs invoked conftest's read-only PostgreSQL availability probe; whether it connected is not known.
 
-Validation: 22 focused tests passed; generated-doc, documentation-contract, changed-link, secret, compilation, static-contract, and diff checks passed after merging latest `origin/main`.
+Validation: 22 focused tests passed; generated-doc, documentation-contract, changed-link, secret, compilation, static-contract, and diff checks passed. Guarded full suite: 1,651 passed, 4 failed, 4 skipped, 3 deselected, 1 xfailed. Two browser failures passed alone; two tokenizer tests fail on unavailable external vocabulary asset.
 
-Residual risk: External compatible endpoint behavior and retention remain operator/provider-specific; full-suite and browser validation were not run.
+Residual risk: CI-deselected suite is not green in this network-restricted environment. The earlier unguarded conftest probe's connection outcome is unknown; all later tests blocked non-SQLite connections, and dotenv loading was disabled. External compatible endpoint behavior and retention remain operator/provider-specific.
 
 Next recommended task: Add retrieval/context-grounding evaluation for experimental `/research` before treating it as production-facing.

@@ -9840,6 +9840,8 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
+The separate `backend/unit_search.py` semantic helper is deprecated and is not
+called by these routes; its default and stored-vector filter use `BAAI/bge-m3`.
 
 The active Data Explorer also provides a Core Cases proof of concept. `Display
 core cases` loads the first 100 ordinary case results while retaining the full

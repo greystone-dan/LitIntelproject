@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:16:47.956316+00:00
+Generated: 2026-10-04T14:23:03.772040+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 107 across 104 paths
+OpenAPI operations: 108 across 105 paths
 Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -238,6 +238,20 @@ treatment inference, source-text reparsing, or statute interpretation.
 
 - `200`: Successful Response; `application/json`: `ParagraphCitationCountsResponse`
 - `404`: Case not found
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/legislation/cases`

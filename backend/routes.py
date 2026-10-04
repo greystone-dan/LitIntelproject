@@ -157,6 +157,7 @@ from .analytics_service import (
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
+	fetch_judge_profile_issues,
 	fetch_judge_comparison,
 	fetch_judge_profiles,
 	fetch_issue_brief,
@@ -1639,6 +1640,21 @@ def judge_profile(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_judge_profile_by_slug(db, slug, ministers=minister)
+
+
+@router.get(
+	"/api/judge-profiles/{slug}/issues",
+	response_model=dict[str, Any],
+	responses={404: {"description": "Unknown canonical judge slug (detail.code: unknown_judge)"}},
+)
+def judge_profile_issues(slug: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	result = fetch_judge_profile_issues(db, slug)
+	if result["status"] == "unknown_judge":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_judge",
+			"message": "Unknown canonical judge slug. Choose a judge from Judge Profile.",
+		})
+	return result
 
 
 @router.get("/about", include_in_schema=False)

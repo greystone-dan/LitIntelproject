@@ -31,6 +31,7 @@ from backend.citation_intelligence_prompts import (
     build_issue_focused_assessment_request,
     build_citation_aware_assessment_request,
     build_lightweight_issue_extraction_request,
+    build_unit_context_assessment_request,
 )
 from backend.database import Case, CaseChunk, get_session
 from backend.package_discussion_units_llm import (
@@ -140,8 +141,9 @@ def main() -> int:
     )
     parser.add_argument(
         "--variants",
-        default="current,issue_focused,citation_aware,lightweight",
-        help="Comma-separated variant names to test",
+        default="current,issue_focused,citation_aware,lightweight,unit_context,unit_with_metadata",
+        help="Comma-separated variant names to test. Options: current, issue_focused, citation_aware, "
+             "lightweight, unit_context (full unit), unit_with_metadata (unit + case metadata)",
     )
     args = parser.parse_args()
 
@@ -236,6 +238,33 @@ def main() -> int:
                 request = build_lightweight_issue_extraction_request(
                     case_id,
                     paragraphs,
+                    model="gpt-4o-mini",
+                    budget_usd=args.budget_usd - spent_usd,
+                )
+            elif variant == "unit_context":
+                # Simulate unit assessment: use first few paragraphs as a "unit"
+                unit_text = " ".join([p["text"] for p in paragraphs[:min(10, len(paragraphs))]])
+                request = build_unit_context_assessment_request(
+                    case_id,
+                    unit_text,
+                    model="gpt-4o-mini",
+                    budget_usd=args.budget_usd - spent_usd,
+                )
+            elif variant == "unit_with_metadata":
+                # Unit with metadata: include case info as structured context
+                unit_text = " ".join([p["text"] for p in paragraphs[:min(10, len(paragraphs))]])
+                metadata = {
+                    "case_name": case.title,
+                    "court": case.court if hasattr(case, "court") else "Unknown",
+                    "year": case.date_year if hasattr(case, "date_year") else "Unknown",
+                    "tags": [],  # Would be populated from real tags in production
+                    "statute_refs": [],  # Would be populated from real statute refs
+                    "cited_authorities": [],  # Would be populated from real citations
+                }
+                request = build_unit_context_assessment_request(
+                    case_id,
+                    unit_text,
+                    case_metadata=metadata,
                     model="gpt-4o-mini",
                     budget_usd=args.budget_usd - spent_usd,
                 )

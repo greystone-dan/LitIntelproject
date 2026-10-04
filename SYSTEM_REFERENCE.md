@@ -118,6 +118,29 @@ The embedded information and research views are:
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
 
+The standalone `/case-compare?a=<case_id>&b=<case_id>` page compares two
+canonical decisions side by side, backed by read-only
+`GET /cases/compare?a=<case_id>&b=<case_id>`. Two citation/name search pickers
+reuse the existing case-search endpoint; empty parameters open the picker page.
+Each decision displays citation, court, date, stored reader-extracted judge,
+decision outcome and assignment provenance, with links to `/data-explorer`.
+Latest dedicated `case_outcomes` assignments take precedence (updated time,
+then ID); only absent assignments use explicitly labelled reader-metadata
+fallback. Missing or unknown outcomes remain **unclassified**, preserving raw
+labels and available source, classifier, confidence and disposition evidence.
+Comparison displays stored evidence without re-verifying offsets or assigning
+new outcomes. Active-taxonomy tags, statute references and case authorities
+remain separate layers, highlighted as shared or unique with distinct totals.
+Authorities use resolved target IDs or stored unresolved neutral/reporter
+identifiers (including stored short-form anchors); explicit trailing pinpoints
+do not create additional authorities. Otherwise normalized labels are used.
+Unresolved identities remain separate from resolved targets; neutral/reporter
+equivalence is not inferred. Statutes use stored instrument/normalized provision
+identity or normalized unresolved labels; ranges and lists are retained.
+Repeated mentions count once; stored coverage does not imply legal equivalence
+or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
+and the missing IDs. No data is written and no new resolution is attempted.
+
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
 tagged decisions by year, outcome, and court, lists up to ten resolved case

@@ -20,6 +20,9 @@ all backend modules, data boundaries, and schema summary are in
   embedding-backed retrieval where vectors exist, and grouped passage results.
 - **Citation Map** — explore citation relationships, authorities, paths, and
   related graph analytics.
+- **Statute Library** — browse imported federal statute text and sections, with
+  point-in-time versions available for decision dates when that version data is
+  present.
 - **Citation Pass** — inspect deterministic citation and statute extraction
   and source offsets; this is a QA tool, not the normal research workflow.
 - **Live Analysis** — inspect DOCX or text-based PDF content in memory and
@@ -38,6 +41,7 @@ checked against the generated [API reference](docs/API_REFERENCE.generated.md).
 | `GET /data-explorer` | Primary research interface and case reader |
 | `GET /case-reader` | Compatibility redirect into Data Explorer |
 | `GET /citation-map` | Citation graph workbench |
+| `GET /statutes` | Statute Library |
 | `GET /citation-pass` | Extraction and offset QA |
 | `GET /live-analysis` | In-memory document review |
 | `POST /live-analysis/analyze` | Analyze a supplied document |

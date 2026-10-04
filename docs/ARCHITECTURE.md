@@ -16,7 +16,7 @@ flowchart LR
     DB[("PostgreSQL + pgvector<br/>canonical and derived tables")]
     Process["Deterministic processing<br/>chunks · metadata · citations · statutes · tags"]
     Services["Search and analytics services"]
-    Pages["Research pages<br/>Data Explorer · Citation Map · QA tools"]
+    Pages["Research pages<br/>Data Explorer · Citation Map · Statute Library · QA tools"]
     Vectors["Optional embeddings"]
     Uploads["Live Analysis upload<br/>memory only"]
     Reference["Separate reference library"]
@@ -36,8 +36,10 @@ Collectors acquire or stage source material; validated case records enter
 canonical ingestion and merge policy. PostgreSQL stores cases, source history,
 and separate derived products. Deterministic processing creates chunks,
 metadata, case citations, statute references, tags, and outcomes. Search and
-analytics services read those records for API responses and pages. Embeddings
-are an optional retrieval aid, not a replacement for source text or evidence.
+analytics services read those records for API responses and pages. The Statute
+Library serves imported legislation sections and point-in-time statute versions
+where the versioned source data is available. Embeddings are an optional
+retrieval aid, not a replacement for source text or evidence.
 
 Live Analysis is a distinct path: the supplied DOCX or text-based PDF is read
 in memory for analysis and is not written to the case database. Legislation and
@@ -72,6 +74,7 @@ column, index, and relationship. These are the main groups in plain language:
 | `case_chunk_embeddings`, `recent_case_chunk_embeddings` | Optional vector representations used for similarity retrieval |
 | `citations`, `citation_metrics` | Case-citation occurrences, their evidence locations and resolution state, plus case-level metrics |
 | `statute_references` | Separate statute or instrument mentions and their evidence locations |
+| `statutes`, `statute_versions`, `statute_sections` | Imported federal statutes, their in-force versions, and the sections for each version |
 | `legislation_documents`, `legislation_sections` | Separate reference-library authorities and indexed sections |
 | `case_tags`, `case_tagging_status` | Evidence-backed legal tags and the processing status for tag layers |
 | `case_outcomes` | Versioned outcome classifications with confidence and source evidence |
@@ -130,6 +133,7 @@ test checks that these paths continue to exist.
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
+| `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
 | `backend/citation_pipeline/canlii.py` | CanLII source adapter for citation extraction |
@@ -192,6 +196,7 @@ test checks that these paths continue to exist.
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
+| `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
@@ -202,9 +207,11 @@ test checks that these paths continue to exist.
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
+| `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
+| `backend/unit_search.py` | Searches discussion units with semantic and keyword matching |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

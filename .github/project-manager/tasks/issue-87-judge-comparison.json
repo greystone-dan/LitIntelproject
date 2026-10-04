@@ -1,0 +1,46 @@
+{
+  "Task": "Issue #87: read-only canonical judge comparison in active Judge Profile",
+  "Why now": "Expose shared recorded issues and outcome coverage without ranking judges.",
+  "Owner surface": "Judge Profile analytics, route and active Data Explorer integration",
+  "Dependencies": "Canonical CaseJudgeProfile links and stored issue/outcome/tag/citation data",
+  "Risk boundary": "No writes, migrations, retired-view changes, new repository dependencies, commit or push",
+  "Smallest falsifiable check": "python -m pytest tests/test_judge_comparison.py tests/test_judge_influence.py tests/test_feature_tabs.py -q",
+  "Hypothesis": "Distinct canonical linked decisions can produce denominator-explicit comparisons with shared issues only when each judge has at least five decisions, without changing existing profile tables.",
+  "Acceptance criteria": "GET /judges/compare precedes slug redirect; explicit unknown 404; fixture tests; active profile UI leads with shared issues/outcomes; exact workflow CI and feasible browser verification",
+  "Docs/generated references": "SYSTEM_REFERENCE.md; docs/RESEARCH_UI_GUIDE.md; .swm/6.maiixtsw.sw.md; regenerate docs/API_REFERENCE.generated.md",
+  "Rollback/recovery": "Remove comparison service, route, sibling UI and focused tests; no data changes",
+  "Evidence": {
+    "delegation": "managed-worker owned analytics service and initial SQLite fixtures; manager owned route/UI/docs/tests acceptance",
+    "environment": "Isolated /tmp/judge87-venv, existing requirements subset only; no repository dependency changes",
+    "focused_passed": "python -m pytest tests/test_judge_comparison.py tests/test_judge_influence.py -q: 15 passed",
+    "feature_tabs": "python -m pytest tests/test_judge_comparison.py tests/test_judge_influence.py tests/test_feature_tabs.py -q: 65 passed, 1 failed (existing navigation expectation for tag-analytics, reproduced against HEAD builder)",
+    "ci_command": "python -m pytest -q --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint",
+    "ci_result": "977 passed, 8 failed, 1 skipped, 3 deselected. Failures: local sentence-transformers missing (1), tokenizer DNS unavailable (2), unrelated navigation expectation (1) and tagging-v3 config/alias checks (4). Initial collection blocked by missing pyarrow, repaired with existing pinned dependency.",
+    "browser": "node /tmp/judge87_browser_check.mjs: Chromium/CDP fixture-backed checks passed at 1440x1000 and 390x844 for canonical profile prefill, suggestions, submit, shared issues first, year/tag/authority/outcome denominators, unknown judge, no qualifying shared issues, unchanged two legacy tables and no page overflow. Existing Tag Analytics inline syntax error reproduced with HEAD builder; no clean-console claim. Production data/DB not exercised.",
+    "docs_updated": ["SYSTEM_REFERENCE.md", "docs/RESEARCH_UI_GUIDE.md", ".swm/6.maiixtsw.sw.md"],
+    "generated": "python scripts/generate_api_reference.py; python scripts/check_generated_docs.py passed (3 references)",
+    "other": "Python compilation and git diff --check passed; heuristic changed-content secret scan: zero matches (not a comprehensive security audit)"
+  },
+  "Refinement": {
+    "Task": "Render overall outcomes and per-judge coverage side by side on desktop, stacked on mobile",
+    "Owner surface": "backend/pages/data_explorer.py comparison-only renderer/CSS and tests/test_judge_comparison.py",
+    "Hypothesis": "Scoped responsive grids can align both judge outcome and coverage sections at desktop widths without changing issue-first order, denominators or legacy profile table selectors.",
+    "Focused validation": "/tmp/judge87-venv/bin/python -m pytest tests/test_judge_comparison.py tests/test_judge_influence.py tests/test_feature_tabs.py -q; node /tmp/judge87_browser_check.mjs",
+    "Acceptance criteria": "Fixture render assertions and browser geometry show two columns at 1440x1000 and one at 390x844; existing behavior and unrelated failures unchanged.",
+    "Delegation": "managed-worker owns bounded UI/render-test refinement and fixture browser checks; manager owns task/docs and final acceptance.",
+    "Rollback/recovery": "Revert only refinement grid wrappers, scoped CSS and added assertions; preserve initial issue #87 implementation.",
+    "Files changed": ["backend/pages/data_explorer.py", "tests/test_judge_comparison.py", "SYSTEM_REFERENCE.md", ".swm/6.maiixtsw.sw.md", ".github/project-manager/tasks/issue-87-judge-comparison.json", "/tmp/judge87_browser_check.mjs"],
+    "Evidence": {
+      "manager_validation": "PYTHONDONTWRITEBYTECODE=1 /tmp/judge87-venv/bin/python -m pytest -p no:cacheprovider -q tests/test_judge_comparison.py tests/test_judge_influence.py tests/test_feature_tabs.py: 65 passed, 1 unchanged tag-analytics navigation failure.",
+      "browser": "node /tmp/judge87_browser_check.mjs passed: both grids have two 638.5px-wide side-by-side children at 1440x1000 and stacked 298px-wide children at 390x844; mobile page width/scrollWidth both 390px. Issue-first order, denominators, unknown/empty results and two legacy tables preserved.",
+      "residual_risk": "Fixture-only; no production database. Existing Tag Analytics syntax error remains. Full CI not rerun.",
+      "docs_updated": ["SYSTEM_REFERENCE.md", ".swm/6.maiixtsw.sw.md"],
+      "final_acceptance": "After final UI/docs edits: focused comparison/influence tests 15 passed; Python compilation, scripts/check_generated_docs.py (3 references), JSON parsing and git diff --check passed.",
+      "next_recommended_task": "Separately repair the existing navigation assertion and Tag Analytics script failure."
+    }
+  },
+  "Status": "complete",
+  "Residual risk": "Implementation focused checks pass; full CI remains non-green for unrelated baseline/environment failures, including known injected Tag Analytics syntax error. Stored Case.issues coverage may be sparse.",
+  "Commit allowed": "no",
+  "Push allowed": "no"
+}

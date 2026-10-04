@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T00:31:25.850513+00:00
+Generated: 2026-10-04T00:45:26.424195+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 99 across 96 paths
+OpenAPI operations: 100 across 97 paths
 Hidden operations: 56 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1137,6 +1137,23 @@ Get Inventory
 **Responses**
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
+
+### `GET /judges/compare`
+
+Judge Comparison
+
+Compare stored research coverage, shared issues and outcomes; not a ranking.
+
+**Parameters**
+
+- `a` (query, required; string): Canonical judge slug
+- `b` (query, required; string): Canonical judge slug
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/analyze`
 

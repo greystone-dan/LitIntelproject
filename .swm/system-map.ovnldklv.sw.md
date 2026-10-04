@@ -14,6 +14,9 @@ ownership boundaries that must remain visible during refactoring.
 flowchart TD
 	 Main[backend/main.py] --> Startup[FastAPI startup]
 	 Startup --> Init[database initialization]
+	 Main --> Health[backend/health.py]
+	 Health --> PostgreSQL[(PostgreSQL + pgvector)]
+	 Health --> ModelEndpoints[Configured model endpoints]
 	 Main --> Routes[backend/routes.py]
 	 Routes --> Models[backend/models.py]
 	 Routes --> Database[backend/database.py]
@@ -58,7 +61,8 @@ overstate pipeline completeness.
 
 | Component | Role | Refactoring constraint |
 | --- | --- | --- |
-| `backend/main.py` | Creates the FastAPI application, registers routes, handles startup and health behavior | Keep startup concerns separate from route implementation |
+| `backend/main.py` | Creates the FastAPI application, registers routes, handles startup, access, and health route registration | Keep startup concerns separate from route implementation |
+| `backend/health.py` | Implements public liveness and bounded readiness checks | Keep dependency probes separate from route registration; never return endpoint addresses or credentials |
 | `backend/routes.py` | Owns the public API contract, query orchestration, and generated HTML/CSS/JavaScript research interfaces | Treat API and embedded UI as a coupled artifact until browser coverage exists |
 | `backend/models.py` | Defines Pydantic request and response contracts | Change external contracts with route tests and generated API documentation |
 | `backend/database.py` | Loads environment configuration, creates SQLAlchemy sessions, and declares ORM models | Preserve database precedence, provenance fields, and vector dimensions |
@@ -71,16 +75,24 @@ overstate pipeline completeness.
 ## Request And Data Flow
 
 1. `backend/main.py` creates the application and invokes database startup behavior.
-2. A client calls a route registered by `backend/routes.py`.
-3. Request data is validated using contracts from `backend/models.py`.
-4. The route selects database reads or delegates to processing and extraction helpers.
-5. SQLAlchemy reads or writes the canonical PostgreSQL database through
+2. Health handlers registered in `backend/main.py` delegate to `backend/health.py`: `/health/live` checks process liveness only, while `/health/ready` checks database connectivity, pgvector, required tables, and configured model endpoints with short timeouts.
+3. A client calls a route registered by `backend/routes.py` or one of the direct health handlers.
+4. Request data is validated using contracts from `backend/models.py`.
+5. The route selects database reads or delegates to processing and extraction helpers.
+6. SQLAlchemy reads or writes the canonical PostgreSQL database through
 	`backend/database.py`.
-6. Processing writes derived layers in order: metadata, overall chunks, heading
+7. Processing writes derived layers in order: metadata, overall chunks, heading
 	chunks, case citations, statutes, and V3 tag occurrences.
-7. The route returns API data or renders the active research UI.
-8. The UI displays backend-owned text, citations, statutes, tags, provenance,
+8. The route returns API data or renders the active research UI.
+9. The UI displays backend-owned text, citations, statutes, tags, provenance,
 	and offsets without calculating substitute evidence locations.
+
+The legacy `GET /health` response is unchanged. `/health`, `/health/live`, and
+`/health/ready` remain public when the optional password gate is enabled.
+Readiness returns HTTP 503 when a required dependency check fails; unconfigured
+optional model endpoints are reported without making readiness fail. Probe
+responses do not expose hostnames, endpoint URLs, credentials, or connection
+strings.
 
 ## Processing Contract
 

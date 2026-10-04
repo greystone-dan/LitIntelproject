@@ -439,6 +439,12 @@ def statute_viewer_page_html() -> str:
                 border-radius: 4px;
             }
 
+            @media (max-width: 600px) {
+                .search-form { flex-wrap: wrap; }
+                .search-form input { flex: 1 1 100%; min-width: 0; min-height: 44px; font-size: 16px; }
+                .search-form button { flex: 1 1 100%; min-height: 44px; }
+            }
+
             .search-form button {
                 padding: 10px 20px;
                 background: white;

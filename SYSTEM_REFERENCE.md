@@ -21,10 +21,10 @@ retrieval. Chunks beyond that context cap or with ambiguous numbering are omitte
 Unresolved authority labels use separate ordered equality seeks, in sorted label
 order, sharing one total postings budget and one lookahead per signal. Candidate
 IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
-partial. Migration
-`0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
-must review/apply it separately.
-The offline migration graph test expects `0031_paragraph_similarity` as its
+partial. Migration `0031_paragraph_similarity` supplies the ORM-mirrored posting
+indexes; deployment must review/apply it separately. Revision `0037_cases_docket_number`
+adds the nullable docket field and its declared index when either is missing.
+The offline migration graph test expects `0037_cases_docket_number` as its
 single head; it does not apply migrations to a database.
 
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
@@ -167,6 +167,11 @@ does not use browser storage and clears text on exit. Infrastructure outside
 the application may have separate logging policies. There are no embeddings,
 external analysis calls, new dependencies, migrations, or writes.
 
+The finder remains available when `ENHANCED_AI_MODE=off`: its deterministic
+tag/statute extraction is separate from optional semantic search and generation.
+It coexists with the stored-evidence reader enhancements, Statute Library,
+health probes, and versioned prompts without changing their contracts.
+
 `backend/precedent_finder.py` follows the paragraph-similarity ID-first posting
 pattern, reusing existing tag/source-citation indexes. Sorted active V3 tag
 equality seeks and outgoing resolved case-citation rows have explicit row,
@@ -210,6 +215,21 @@ Fixture contracts live in `tests/test_precedent_finder.py`; connected explanatio
 and ownership are in `.swm/6.maiixtsw.sw.md`.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Keyboard shortcuts move among formatted paragraphs (`j`/`n` next; `k`/`p` previous), visibly mark and focus the current paragraph, and expose a `?` shortcut list; typing fields are excluded. Print mode presents the decision title and citation with numbered paragraphs, hides navigation and side panels, and avoids splitting paragraphs across pages. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The reader also displays a cautious, additive overruling-risk banner when
+`GET /api/overruling-risk/{case_id}` returns a seeded direct match or a stored,
+resolved citation to a seeded authority. The editable list currently contains
+the Vavilov standard-of-review framework event (Canada (MCI) v. Vavilov, 2019
+SCC 65, dated 2019-12-19) and states that it displaced the pre-Vavilov
+framework. Direct and indirect flags include the source, rationale, event and
+decision dates, count, and how-assigned explanation. An indirect match documents
+a citation edge, not proof of reliance or legal effect. Every entry and flag
+says “seed list, needs lawyer review.” For an indirect flag, the banner says
+the case “may be affected”; when the case itself is the listed development
+authority, the banner identifies it as that authority and says other cases
+“may be affected.” The dates help identify decisions predating the event, but
+do not determine which framework applies. This is a research indicator, not a
+legal conclusion; see
+[the extension and limits report](docs/reports/overruling-risk.md).
 The source pane begins with a short **Extracted case summary** only when
 verified stored-text facts exist. Every item has its own evidence link:
 court/date/judge link to an explicit matching source-header block; up to three
@@ -351,8 +371,10 @@ its legacy title-before-body ranking after citation/party promotion; filters,
 paging and explicit date/minister sorts remain intact. Results expose a short
 `matched_on` label, displayed in Case Search, without inventing evidence offsets.
 
-- `semantic` search uses stored vectors when available.
-- `lexical` search avoids embedding generation and searches text/metadata predicates.
+- `semantic` search uses stored vectors when available and is available through
+  the API only when enhanced AI mode is explicitly enabled.
+- `lexical` search avoids embedding generation and searches text/metadata predicates;
+  it is the default for API search and for the SQL-backed Case Search exports.
 - `hybrid` search combines semantic and lexical scores with validated weights.
 - `metadata` search emphasizes structured filters and text predicates.
 - Chunk search can group passages under their parent case.
@@ -366,22 +388,41 @@ paging and explicit date/minister sorts remain intact. Results expose a short
 - The full hosted paragraph corpus also has a partial IVFFlat cosine index on
   non-null `text-embedding-3-small` vectors. It is approximately 15 GB and
   uses per-session `ivfflat.probes`; exact retrieval remains the fallback.
-- `/research` now defaults to paragraph retrieval against this full hosted
-  vector corpus, then sends the bounded grouped excerpts to the configured
-  generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
-  generation; retrieval and generation models remain separate.
+- Enhanced API search and `/research` are governed by the single
+  `ENHANCED_AI_MODE` setting (`off` by default; accepted values are `off`,
+  `local`, and `hosted`). In off mode, `/search` and chunk search default to
+  lexical retrieval; explicit semantic/hybrid requests are downgraded to
+  lexical with effective-mode metadata and no embedding/provider call. The
+  `/api/ai-mode` endpoint reports the configured mode. Hosted retrieval/generation
+  remains available only after explicit `hosted` opt-in; local mode uses its
+  local provider path.
+- `/research` is disabled in off mode and returns HTTP 503 with the message
+  `AI answers are disabled in this deployment` before retrieval or generation.
+- The CSV and Word exports use the existing SQL analytics Case Search rather
+  than vector retrieval; their behavior and `/analytics/search/cases` remain
+  unchanged and do not construct an AI provider.
 - Query embedding selection is independent of generation and disabled by
   default. Semantic/hybrid requests use lexical ranking unless the operator
-  explicitly enables `QUERY_EMBEDDING_PROVIDER=openai` or `local`. The OpenAI
-  provider is an explicit opt-in; the local SentenceTransformer option keeps
-  query text on-device. `GET /api/search-embedding-status` reports
-  the selected query provider/model/output dimensions, indexed dimensions,
-  whether query text leaves the machine, and `TEXT_GENERATION_PROVIDER` without
-  loading a model. Search
-  rejects query vectors that do not match its 1536-dimensional indexed-vector
-  contract. The default local BGE-M3 model is 1024-dimensional, so it requires
-  a compatible indexed-vector family before it can be used by that search path.
-  See [the local query embedding report](docs/reports/local-query-embeddings.md)
+  explicitly selects a query provider and enables enhanced mode. The OpenAI
+  provider requires `ENHANCED_AI_MODE=hosted` and
+  `QUERY_EMBEDDING_PROVIDER=openai`; the local SentenceTransformer option keeps
+  query text on-device and requires `QUERY_EMBEDDING_PROVIDER=local` in
+  `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
+  provider/model/output dimensions, indexed dimensions, whether query text
+  leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
+  Search and case ingestion use the shared `EmbeddingProvider` interface in
+  `backend/embedding_providers.py`: the default is `NoneEmbeddingProvider`,
+  OpenAI client creation is lazy, and local SentenceTransformer models are
+  shared by model/device within the process. `backend/query_embedding_providers.py`
+  applies `backend/ai_mode.py` before constructing or invoking a provider.
+  Therefore `off` makes no embedding calls and constructs no model; local mode
+  cannot select hosted embedding providers; hosted mode permits the configured
+  provider. Ingestion only embeds a summary when its rollout flag and enhanced
+  mode are enabled and a provider is configured. Search rejects query vectors
+  that do not match its 1536-dimensional
+  indexed-vector contract. The default local BGE-M3 model is 1024-dimensional,
+  so it requires a compatible indexed-vector family before it can be used by
+  that search path. See [the local query embedding report](docs/reports/local-query-embeddings.md)
   and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
@@ -431,21 +472,33 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   maintained in `OVERNIGHT.md`; the recovery task record owns active status and
   launch evidence rather than duplicating changing progress totals here.
 
-The experimental `/research` route is the current retrieval-augmented
-generation (RAG) path. It retrieves grouped case chunks first, keeps the top
-requested cases and their passages, assembles a bounded context of 12,000
-characters, and sends that context to the selected text-generation provider.
+The experimental `/research` route is an opt-in retrieval-augmented generation
+(RAG) path (`ENHANCED_AI_MODE=local` or `hosted`). When enabled, it retrieves
+grouped case chunks first, keeps the top requested cases and their passages,
+assembles a bounded context of 12,000 characters, and sends that context to the
+selected text-generation provider.
 The prompt requires the provider to answer only from the supplied excerpts and
 to name when the excerpts are insufficient. The response returns the answer
 alongside the retrieved case sources; it does not create canonical summaries,
 citation rows, statute rows, embeddings, or source offsets.
 
-For local-only operation, set `TEXT_GENERATION_PROVIDER=local` and configure
-an Ollama model with `OLLAMA_MODEL` and `OLLAMA_BASE_URL`. Local semantic
-retrieval uses the separate 1024-dimensional BGE-M3 chunk-vector path when its
-rollout flag is enabled. These are two independent choices: local generation
-does not automatically create or backfill embeddings, and changing an
-embedding model requires a coordinated model/dimension/schema change.
+System prompts used by `/research`, citation-intelligence builders, the
+contextual-authority teacher, and the bounded discussion-unit scripts are stored
+as versioned text under `backend/prompts/` and loaded by
+`backend/prompt_registry.py`. Prompt wording is preserved in those files; each
+file declares its version in its header. `/research` adds `prompt_version` to
+its response beside `model_used`. The two bounded scripts record prompt versions
+in their JSON artifacts and rendered Markdown; the model-paragraph experiment
+records its segmentation and discussion-unit versions separately. Exact prompt
+snapshots and the additive API field are covered by focused tests.
+
+For local-only API operation, set `ENHANCED_AI_MODE=local` and configure an
+Ollama model with `OLLAMA_MODEL` and `OLLAMA_BASE_URL`; this does not construct
+an OpenAI generation client. Local semantic retrieval uses the separate
+1024-dimensional BGE-M3 chunk-vector path when its rollout flag is enabled.
+Local generation does not automatically create or backfill embeddings, and
+changing an embedding model requires a coordinated model/dimension/schema
+change.
 
 The route is intentionally experimental. A retrieved passage is evidence to
 review, not a verified legal conclusion; researchers must open the cited case
@@ -485,6 +538,35 @@ their recorded alerts. `scripts/check_saved_searches.py` checks a bounded
 number of saved searches in read-only mode by default; `--apply` explicitly
 stores newly matching case alerts. Empty saved-search storage does not change
 normal Case Search behavior.
+
+`GET /saved-searches/digest` and `/saved-searches/digest.html` provide read-only
+JSON and self-contained inline-CSS HTML summaries of recorded case alerts.
+They do not search for new matches, send notifications, or advance checkpoints.
+Alerts discovered strictly after each search's `last_alert_check` are new;
+an optional ISO `since` overrides all cutoffs. Never-checked searches treat
+all alerts as new. Duplicate chunk alerts count once per decision; decisions
+already in the earlier cohort cannot count as new.
+
+The pure `backend/alert_digest.py` builder accepts enriched saved-search,
+new-match and earlier-match records and renders JSON, HTML, or plain text.
+Each decision retains citation, court, date, outcome and a Minister-loss flag.
+A loss requires a named Minister and explicit `government_outcome="lost"`;
+the routes use the existing analytics title convention `Canada (Minister)`
+and reader-extracted metadata, not a new classifier. Unknown outcomes remain
+in the decision denominator. **Possible shift** appears only when both cohorts
+contain at least five decisions and the new Minister-loss share is at least
+20 percentage points higher. Both cohorts' decision/loss counts are displayed.
+This descriptive flag is not statistical significance or a legal conclusion.
+
+`scripts/build_alert_digest.py --since <ISO> --out <path> --format html|text|json`
+is offline only: it reads an enriched JSON snapshot from stdin or `--input`,
+with `saved_searches` (id, name, optional last_alert_check) and `matches`
+(search_id, case_id, discovered_at, optional title/citation/court/date,
+decision_outcome, government_outcome, minister). Discovery timestamps are
+required; naive timestamps are UTC. No database, dotenv, network, delivery,
+new dependencies or migrations are involved in this CLI. Omit `--out` for
+stdout. Saved-search GET adapters read existing storage only when served by
+the application; implementation checks use mocks, never a live database.
 
 ### Citation, Statute, And Metadata Processing
 
@@ -577,6 +659,20 @@ classification; its `9,130` pure right-edge rows are only one directly
 recoverable class within that second backfill.
 
 Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. Nested provision identity is canonicalized case-insensitively for section-letter variants, so `34(1)(A)` and a later `section 34(1)(a)` retain their original spans while sharing normalized identity when the existing bounded anchor rules permit it. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision. The raw `statute_references.pinpoint` remains a lossless opaque string, while additive structured fields expose section, subsection, paragraph, nesting depth, and range/list status. Read-only legislation resolution now returns explicit status and stored document/section metadata in live analysis and the stored reader when an indexed instrument and base section match; lists/ranges and missing sources remain explicitly unresolved. Further recall work should target additional shorthand and list/range forms across sentence boundaries with positive and negative precision fixtures.
+
+The `/statute-consideration` page and `GET /api/statutes/{act}/{section}/consideration` provide
+read-only, descriptive analysis for a stored Act and base section, using only
+`statute_references`, the statute catalog, the latest stored `CaseOutcome` per
+decision, and the point-in-time statute version for each displayed decision
+date. Summary, court, year, and outcome counts are distinct decisions,
+while a separate occurrence total and each case's within-decision reference
+count retain reference density. The outcome distribution includes
+`unclassified`, and every distribution reports its all-decision denominator.
+Cases are ranked by matching references within the decision, then recency;
+page size is capped at 50. Unknown acts or sections return a 404 with a hint.
+This is descriptive coverage only, not evidence of legal effect, interpretation,
+or causation. The statute viewer links to the new page; result rows open the
+existing case reader.
 
 A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
 
@@ -887,14 +983,18 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 | Component | Responsibility |
 | --- | --- |
+| `backend/health.py` | Bounded liveness and dependency-readiness probes for database, pgvector, required tables, and configured model endpoints |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
+| `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/security_headers.py` | Optional pure-ASGI response security headers; preserves route headers and streams |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
+| `backend/overruling_risk.py` | Editable, source-backed seed list and deterministic direct/indirect risk-indicator response shaping |
+| `backend/overruling_risk_routes.py` | Read-only overruling-risk endpoint using direct case matches and stored resolved citations |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
 | `backend/analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines |
-| `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
+| `backend/pages/` | Modular HTML page builders and reader scripts (`data_explorer.py`, `overruling_risk_reader.js`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
 | `backend/database.py` | Environment loading, SQLAlchemy engine/session, ORM models, database initialization |
 | `backend/models.py` | Pydantic request/response contracts |
 | `backend/ingestion.py` | Canonical ingest, deduplication, source precedence, source HTML sanitization, provenance writes |
@@ -905,7 +1005,8 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
-| `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `backend/embedding_providers.py` | Shared embedding-provider interface and lazy disabled, OpenAI, and SentenceTransformer implementations |
+| `backend/query_embedding_providers.py` | Policy-gated query and case-ingestion provider configuration, dimensions, and API error mapping |
 | `backend/text_generation_providers.py` | Opt-in hosted or Ollama chat-generation provider selection for experimental `/research` |
 | `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |
@@ -950,6 +1051,15 @@ single-process rotation, and separate access-log considerations.
 ```powershell
 .\venv\Scripts\python.exe -m alembic upgrade head
 ```
+
+The public `GET /health` response remains the legacy process message.
+`GET /health/live` reports process liveness without dependency calls;
+`GET /health/ready` separately checks database connectivity, the pgvector
+extension, ORM-required tables, and configured model endpoints. Database and
+HTTP probes have short timeouts. Readiness returns HTTP 503 when a required
+check fails and emits status-only endpoint details rather than secrets,
+hostnames, or connection strings. All three health paths remain exempt from the
+optional application password gate.
 
 The local application is commonly served at `http://127.0.0.1:8000`. To start
 or refresh the website, run the canonical command from the repository root:
@@ -1516,7 +1626,7 @@ design.
 
 ## Migrations
 
-Alembic migrations currently have one head, `0030_full_paragraph_ivfflat`.
+Alembic migrations currently have one head, `0037_cases_docket_number`.
 The table below summarizes the early revisions; the complete graph remains
 authoritative in `alembic/versions/`.
 
@@ -1533,13 +1643,19 @@ stamped beyond them and do not reconcile unrelated schema drift.
 
 `tests/test_migrations.py` covers missing-table guards, existing-table
 preservation, compatibility with the real `0027` upgrade, the actual sole head,
-and synthetic multiple-head rejection. The independent `migrations` job in
-`.github/workflows/tests.yml` uses disposable PostgreSQL 16 with pgvector,
-refuses dotenv overrides, verifies/enables the vector extension, upgrades an
-empty database, displays its current revision, checks exactly one graph head
-and current-at-head, and repeats the upgrade. The existing pytest job remains
-unchanged. This is an empty-database deployment check, not proof of production
-schema equivalence or authorization to upgrade production.
+and synthetic multiple-head rejection. `tests/test_cases_docket_number_migration.py`
+covers mocked idempotent addition/preservation and, only with the explicit
+`CASELIBRARY_PGVECTOR_TESTS=1` opt-in and PostgreSQL settings, migrates an isolated
+empty schema from zero and compares case columns and model indexes. It refuses
+dotenv overrides and skips when PostgreSQL is unavailable. The independent
+`migrations` job in `.github/workflows/tests.yml` uses disposable PostgreSQL 16
+with pgvector, refuses dotenv overrides, verifies/enables the vector extension,
+upgrades an empty database, displays its current revision, checks exactly one
+graph head and current-at-head, and repeats the upgrade. The separate
+`.github/workflows/pgvector-tests.yml` job runs the PostgreSQL vector and
+previously deselected tests against its disposable service. These checks are
+not proof of production schema equivalence or authorization to upgrade
+production.
 
 | Revision | Main change |
 | --- | --- |
@@ -1573,6 +1689,12 @@ The checked-in, reproducible endpoint appendix is [docs/API_REFERENCE.generated.
 ```
 
 The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes intentionally hidden from OpenAPI. It describes every exposed operation's method, path, parameters, request body, response statuses, and schema references where declared. Hidden routes include handler signatures and an explicit note that their response contract is not in OpenAPI. It is intentionally generated rather than manually maintained so that the reference follows active route declarations.
+
+### Health APIs
+
+- `GET /health`: legacy process response, unchanged.
+- `GET /health/live`: process liveness without dependency checks.
+- `GET /health/ready`: database, vector extension, required tables, and configured model endpoint status; returns HTTP 503 when any required dependency is unhealthy. Probe output omits endpoint addresses and credentials.
 
 ### Core Case APIs
 
@@ -1871,6 +1993,11 @@ than an untrusted complete source page.
 New records begin with `processing_status="raw"`. Embedding status is a result of
 actual processing, not a claim an importer can make. A record can be readable and
 searchable through lexical/metadata paths while it remains unembedded.
+The optional API-ingestion summary embedding runs only when
+`ai_rollout.embed_on_ingest_enabled` and `ENHANCED_AI_MODE` are both enabled and
+`CASE_EMBEDDING_PROVIDER` (or the query-provider fallback) selects a provider.
+The shared provider layer leaves the embedding absent in off mode; an embedding
+is never implied merely by a summary being present.
 
 ### Text, Chunk, And Offset Semantics
 
@@ -3157,11 +3284,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:08.925159+00:00
+Generated: 2026-10-04T14:33:17.005395+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 104 across 101 paths
-Hidden operations: 59 excluded from OpenAPI
+OpenAPI operations: 109 across 106 paths
+Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3376,6 +3503,33 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/cases/{case_id}/summary`
+
+Get Case Summary
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/legislation/cases`
 
 Get Legislation Cases
@@ -3406,6 +3560,55 @@ Return local authoritative section text and cases citing the pinpoint.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}`
+
+Get Statute By Code
+
+Get statute details, optionally as of a specific date.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `as_of` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}/versions/{version_id}/sections`
+
+Get Statute Sections
+
+Get sections for a specific statute version.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `version_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/compare`
+
+Compare two decisions using distinct stored research signals
+
+Returns side-by-side case facts and stored outcome assignment provenance, preserving unclassified outcomes and raw labels. Active legal tags, statute references and case authorities have distinct shared/unique counts; repeated mentions count once. Read-only; no classification or resolution is performed. Unknown IDs return 404 with detail.code=unknown_case and unknown_ids.
+
+**Parameters**
+
+- `a` (query, required; integer)
+- `b` (query, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical case ID(s).
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -5156,6 +5359,22 @@ Handler: `backend.routes.reidentify_api`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_compare_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader`
 
 **Hidden from OpenAPI.**
@@ -5165,6 +5384,21 @@ Handler: `backend.routes.case_reader_page`
 **Handler parameters**
 
 - `case_id` (int | None; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 
@@ -5469,6 +5703,16 @@ Handler: `backend.routes.saved_searches_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_viewer_page_route`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /tag-finder`
 
 **Hidden from OpenAPI.**
@@ -5507,8 +5751,8 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:09.454176+00:00
-Tables: 28
+Generated: 2026-10-04T14:33:17.743454+00:00
+Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -5680,6 +5924,16 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
     }
     fc_activity_alerts {
         Integer id PK
@@ -5904,6 +6158,7 @@ erDiagram
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -5916,7 +6171,46 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
+    }
+    statute_sections {
+        Integer id PK
+        Integer statute_version_id  FK
+        String(50) section_number
+        String(50) subsection
+        String(50) paragraph
+        TEXT heading
+        TEXT text
+        Integer offset_start
+        Integer offset_end
+        DATETIME created_at
+    }
+    statute_versions {
+        Integer id PK
+        Integer statute_id  FK
+        String(50) version_number
+        DATE in_force_date
+        DATE end_date
+        TEXT full_text
+        BLOB text_compressed
+        TEXT source_url
+        DATETIME fetched_at
+        DATETIME created_at
+    }
+    statutes {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        String(255) short_title
+        String(100) jurisdiction
+        String(50) statute_type
+        Integer consolidated_year
+        String(100) source
+        TEXT source_url
+        String(100) license
+        DATETIME created_at
+        DATETIME updated_at
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
@@ -5934,6 +6228,7 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
@@ -5948,6 +6243,9 @@ erDiagram
     saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
+    statute_versions ||--o{ statute_sections : "statute_version_id"
+    statutes ||--o{ statute_versions : "statute_id"
 ```
 
 ## Table Summary
@@ -5967,6 +6265,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
@@ -5981,7 +6280,10 @@ erDiagram
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
-| `statute_references` | 16 | `id` |
+| `statute_references` | 18 | `id` |
+| `statute_sections` | 10 | `id` |
+| `statute_versions` | 10 | `id` |
+| `statutes` | 12 | `id` |
 
 ## `a2aj_case_map`
 
@@ -6374,6 +6676,34 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `fc_activity_alerts`
 
@@ -6818,6 +7148,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -6830,6 +7161,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -6844,11 +7176,93 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_version_id` | `Integer` | no | FK -> statute_versions.id; NOT NULL |
+| `section_number` | `String(50)` | no | NOT NULL |
+| `subsection` | `String(50)` | yes | - |
+| `paragraph` | `String(50)` | yes | - |
+| `heading` | `TEXT` | yes | - |
+| `text` | `TEXT` | yes | - |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_sections_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `statute_version_id` -> `statute_versions.id`; on delete `CASCADE`
+
+## `statute_versions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_id` | `Integer` | no | FK -> statutes.id; NOT NULL |
+| `version_number` | `String(50)` | no | NOT NULL |
+| `in_force_date` | `DATE` | no | NOT NULL |
+| `end_date` | `DATE` | yes | - |
+| `full_text` | `TEXT` | yes | - |
+| `text_compressed` | `BLOB` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `fetched_at` | `DATETIME` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_versions_in_force_date`: index on `in_force_date`
+- `ix_statute_versions_statute_id`: index on `statute_id`
+
+### Unique Constraints
+
+- `uq_statute_version_date`: `statute_id`, `in_force_date`
+
+### Foreign Keys
+
+- `statute_id` -> `statutes.id`; on delete `CASCADE`
+
+## `statutes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `short_title` | `String(255)` | yes | - |
+| `jurisdiction` | `String(100)` | no | NOT NULL |
+| `statute_type` | `String(50)` | no | NOT NULL |
+| `consolidated_year` | `Integer` | yes | - |
+| `source` | `String(100)` | no | NOT NULL |
+| `source_url` | `TEXT` | yes | - |
+| `license` | `String(100)` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statutes_instrument_key`: unique index on `instrument_key`
+- `ix_statutes_jurisdiction`: index on `jurisdiction`
+- `ix_statutes_source`: index on `source`
 
 ### Appendix Source: `docs/CONFIGURATION_REFERENCE.md`
 
@@ -6856,7 +7270,7 @@ erDiagram
 
 ### Appendix: Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
@@ -6866,7 +7280,7 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
+5. `backend/ai_mode.py` reads `ENHANCED_AI_MODE` at runtime (after the database module has loaded the repository and backend `.env` files). The mode defaults to `off`; only `off`, `local`, and `hosted` are accepted. The four search rollout flags under `ai.rollout` are separate controls.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -6890,7 +7304,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search and `/research`.
 
 ## Access, Session, And Indexing Settings
 
@@ -6902,6 +7316,23 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Security Response Headers
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_SECURITY_HEADERS` | `0` (disabled) | `backend/main.py`, `backend/security_headers.py` | Enable response security headers only when set to `1`. |
+| `CASELIBRARY_HSTS_MAX_AGE` | `31536000` seconds | `backend/security_headers.py` | HSTS max age; invalid values fall back to the default and negative values are clamped to zero. |
+| `CASELIBRARY_HSTS_SUBDOMAINS` | `0` | `backend/security_headers.py` | Adds `includeSubDomains` only when set to `1`; enable only if all subdomains support HTTPS. |
+| `CASELIBRARY_CSP_ENFORCE` | `0` | `backend/security_headers.py` | Selects enforcing CSP only when set to `1`; report-only is the default, and enforcement is untested. |
+
+Configuration is read when the application/middleware is initialized; restart
+the server after changing these settings. HSTS is emitted only for HTTPS requests
+according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
+forwarded-protocol headers when a trusted proxy overwrites them. The middleware
+preserves existing response headers and does not consume response bodies. See
+[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+report-only review, CSP policy scope, and limitations.
 
 ## Optional Request Audit Log
 
@@ -6925,8 +7356,15 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
-| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only explicitly selected local query embeddings. Hosted permits configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings; OpenAI additionally requires `ENHANCED_AI_MODE=hosted`. |
+| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
+| `CASE_EMBEDDING_PROVIDER` | `QUERY_EMBEDDING_PROVIDER` (default `none`) | `backend/query_embedding_providers.py` | Optional provider override for API-ingestion case summaries; embedding also requires `ai_rollout.embed_on_ingest_enabled` and enhanced mode. |
+| `CASE_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional model override for API-ingestion case summaries. |
+| `CASE_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local output size. The current stored case-vector contract remains 1536 dimensions. |
+| `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
+| `OPENAI_API_KEY` | none | `backend/embedding_providers.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce HTTP 503 from embedding APIs rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
@@ -6945,10 +7383,15 @@ The case-intelligence runner defaults to the hosted OpenAI provider. Use
 machine through Ollama. Local generation is optional enrichment; deterministic
 citations, statutes, offsets, and source provenance remain authoritative.
 
-The experimental `/research` route uses the same provider boundary. Set
-`TEXT_GENERATION_PROVIDER=local` to call Ollama; its code default model is
-`qwen3:4b`. The route reports a controlled `503` when the selected provider
-is not configured or reachable. This setting does not download a model.
+The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
+explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
+`AI answers are disabled in this deployment` before retrieval or generation.
+Use `ENHANCED_AI_MODE=local` for Ollama; this mode does not construct an OpenAI
+generation client. Use `ENHANCED_AI_MODE=hosted` to opt into the existing
+provider selection; `TEXT_GENERATION_PROVIDER` may still select Ollama there.
+The local provider's code-default model is `qwen3:4b`. An enabled route reports
+a controlled `503` when the selected provider is not configured or reachable.
+Setting these values does not download a model.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
@@ -6956,7 +7399,7 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors, local queries, and case ingestion when selected. The model is lazy-loaded and cached by model/device within the process. |
 | `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
@@ -7346,12 +7789,14 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 150
+Active scripts documented: 161
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
+| `a2aj_case_importer.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help` |
+| `a2aj_diagnostic.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -7373,6 +7818,7 @@ Active scripts documented: 150
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
+| `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
@@ -7405,6 +7851,7 @@ Active scripts documented: 150
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
@@ -7437,9 +7884,13 @@ Active scripts documented: 150
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
 | `generate_work_history.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_work_history.py` |
+| `import_a2aj_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help` |
+| `import_a2aj_full.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help` |
 | `import_canlaw_staging.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_canlaw_staging.py --help` |
 | `import_fc_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_fc_decisions.py --help` |
+| `import_historical_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help` |
 | `import_seed_cases_from_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help` |
+| `import_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_statutes.py --help` |
 | `index_legislation.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\index_legislation.py --help` |
 | `ingest_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_api.py --help` |
 | `ingest_a2aj_citation_network.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_citation_network.py --help` |
@@ -7484,8 +7935,10 @@ Active scripts documented: 150
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
+| `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
+| `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
@@ -7499,9 +7952,38 @@ Active scripts documented: 150
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
+
+## `scripts/a2aj_case_importer.py`
+
+**Purpose:** A2AJ case law importer for Federal courts (FC, FCA, SCC, RAD, RPD). Loads A2AJ Canadian case law dataset, deduplicates against existing iLit cases, and reports how many new decisions per court would be added. This enables expansion of case database with 100k+ academic dataset cases.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help
+```
+
+## `scripts/a2aj_diagnostic.py`
+
+**Purpose:** Diagnostic tool to understand why A2AJ parsing is failing. Samples rows and reports what's missing/invalid.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help
+```
 
 ## `scripts/acquire_case_html.py`
 
@@ -7795,6 +8277,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\browser_smoke.py --help
+```
+
+## `scripts/build_alert_digest.py`
+
+**Purpose:** Build an offline saved-search digest from enriched JSON on stdin or --input.
+
+**Operational class:** Saved-search digest rendering
+
+**Write/network risk:** offline JSON input; filesystem output only; no database, network or sending
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_alert_digest.py --help
 ```
 
 ## `scripts/build_citation_sample_candidate.py`
@@ -8245,6 +8741,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
 ```
 
+## `scripts/deduplicate_a2aj.py`
+
+**Purpose:** Deduplication logic for A2AJ decisions against existing iLit corpus. Matches A2AJ decisions to existing decisions using: 1. Neutral citation (normalized) + decision date 2. Case name + date (fallback) This prevents duplicate storage and enables citation linking. Note: This is a dry-run proof-of-concept showing dedup logic. Actual implementation requires database access and citation normalization rules.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help
+```
+
 ## `scripts/discover_recent_case_themes.py`
 
 **Purpose:** No module docstring; inspect this script before use.
@@ -8693,6 +9203,34 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\generate_work_history.py
 ```
 
+## `scripts/import_a2aj_decisions.py`
+
+**Purpose:** Dry-run importer for A2AJ Canadian case law decisions. Demonstrates mapping from A2AJ HuggingFace dataset to iLit decision schema. Supports: RPD (Refugee Protection Division), RAD (Refugee Appeal Division), FC (Federal Court), FCA (Federal Court of Appeal), and other Canadian courts. Note: This is a dry-run proof-of-concept. Actual import would require: 1. Database write permissions 2. Deduplication against existing iLit decisions 3. Citation linking setup 4. Embedding generation
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help
+```
+
+## `scripts/import_a2aj_full.py`
+
+**Purpose:** Full A2AJ Canadian case law importer with deduplication and database writes. Loads A2AJ dataset (226,147 decisions from 29 courts), deduplicates against existing iLit corpus, and imports non-duplicate cases from target courts: - Federal Court (FC): 35,990 decisions - Federal Court of Appeal (FCA): 7,813 decisions - Supreme Court of Canada (SCC): 10,893 decisions - Refugee Appeal Division (RAD): 14,216 decisions - Refugee Protection Division (RPD): 6,729 decisions Total target: 75,641 new cases available for import.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help
+```
+
 ## `scripts/import_canlaw_staging.py`
 
 **Purpose:** Import Hugging Face staging records into the primary CaseLibrary database.
@@ -8721,6 +9259,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\import_fc_decisions.py --help
 ```
 
+## `scripts/import_historical_statutes.py`
+
+**Purpose:** Importer for historical point-in-time statute versions from justice.gc.ca. Fetches statute versions from PITIndex.html and extracts text from point-in-time HTML pages. Stores multiple versions with their in-force dates to enable decision-date matching (core of Phase 1 requirement). Example: IRPA had 12+ versions between 2017-2026; this importer stores them with their effective dates so a decision from 2019-06-15 can be matched to the IRPA version that was in force on that date.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help
+```
+
 ## `scripts/import_seed_cases_from_a2aj_api.py`
 
 **Purpose:** Import missing seed cases via A2AJ REST API /fetch. Designed for targeted backfill of known citations (not bulk scraping).
@@ -8733,6 +9285,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help
+```
+
+## `scripts/import_statutes.py`
+
+**Purpose:** Importer for Canadian federal statutes from Justice Laws XML (justice.gc.ca). Imports statute text with versioning information (in-force dates) for: - Immigration and Refugee Protection Act (IRPA) - Immigration and Refugee Protection Regulations (IRPR) - Citizenship Act - Customs Act - Federal Courts Act - Federal Courts Rules - Canadian Charter of Rights and Freedoms Uses: justice.gc.ca REST API for statute versions and text. License: Open Government License (Canada)
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_statutes.py --help
 ```
 
 ## `scripts/index_legislation.py`
@@ -9351,6 +9917,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help
 ```
 
+## `scripts/run_jobs.py`
+
+**Purpose:** Run opt-in interval jobs in a separate process, without database or dotenv imports.
+
+**Operational class:** Standalone interval orchestration
+
+**Write/network risk:** DB-free scheduler; opt-in child commands may write or use network; defaults disabled
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_jobs.py --list
+```
+
 ## `scripts/run_local_paragraph_summary_baseline.py`
 
 **Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
@@ -9377,6 +9957,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
+## `scripts/run_outcome_checker.py`
+
+**Purpose:** Second-opinion outcome reader for cases the rules leave "unclear" (advisory data, never overwrites). Dry run by default: counts the cases, estimates tokens and cost, calls nothing. A real run needs --confirm-spend and OPENAI_API_KEY, stops at --max-usd (never above 1.00), and writes JSONL files to --out. Only open case law is sent. Use --source gold to measure the checker against the hand-read gold set (class-by-class agreement).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help
 ```
 
 ## `scripts/run_overnight.py`
@@ -9559,6 +10153,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/test_citation_intelligence_prompts.py`
+
+**Purpose:** Test improved citation intelligence assessment prompts against real database cases. This script fetches real cases from the database, runs both current and improved paragraph assessment prompts, and compares output quality and cost. Run on: PC thread (has live database access) Usage: python scripts/test_citation_intelligence_prompts.py --case-ids 123,456,789 --max-paragraphs 300 --budget-usd 20.0 --output-dir /path/to/output
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
 ```
 
 ## `scripts/validate_precision.py`
@@ -9788,8 +10396,12 @@ legal conclusion: no embeddings, live-inferred tags or statute references are
 scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
 an empty result does not establish that no similar passages exist.
 
-The `/research` page is the current, experimental RAG workflow. It has four
-steps:
+The `/research` page is an experimental RAG workflow, disabled by default.
+`ENHANCED_AI_MODE=off` returns HTTP 503 with the message
+`AI answers are disabled in this deployment` before retrieval or generation.
+The page displays this server error inline and restores its submit control.
+Setting `ENHANCED_AI_MODE=local` or `hosted` explicitly enables the workflow.
+When enabled, it has four steps:
 
 1. Retrieve relevant stored case passages with grouped chunk search.
 2. Assemble a bounded excerpt context from the retrieved cases.
@@ -9801,13 +10413,16 @@ To use a local model during development, run Ollama locally, pull an instruct
 model, and set these values in the ignored `.env` file:
 
 ```dotenv
-TEXT_GENERATION_PROVIDER=local
+ENHANCED_AI_MODE=local
 OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
 OLLAMA_MODEL=qwen3:4b
 ```
 
-The model is not downloaded by the application. `OLLAMA_MODEL` must name a
-model already available to Ollama. Local generation and local semantic
+Local mode selects Ollama and does not construct an OpenAI generation client.
+For the existing hosted-provider behavior, set `ENHANCED_AI_MODE=hosted`;
+`TEXT_GENERATION_PROVIDER` then selects the configured generator. The model is
+not downloaded by the application. `OLLAMA_MODEL` must name a model already
+available to Ollama. Local generation and local semantic
 retrieval are separate settings: the former selects the answer provider, while
 the latter uses model-versioned BGE-M3 chunk embeddings when enabled and when
 matching stored vectors exist. Hosted corpus backfill uses
@@ -10012,6 +10627,29 @@ Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
 
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
@@ -10076,6 +10714,35 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+The formatted reader starts with a default-open **Quick summary** disclosure.
+It preserves the existing **Extracted case summary** and technical **Show case
+summary** controls. Collapse it to read; switching modes preserves its state,
+while reopening a decision defaults open. It is hidden in chunk/plain modes.
+Identity and outcome fields are stored values, not newly inferred conclusions;
+missing outcomes read **unclassified**, and missing extraction sources
+**unknown**. A stored outcome may remain visible without verified evidence.
+Unavailable identity rows and disposition/issue sections, plus empty statute/tag
+sections, are omitted without placeholders; outcome/source remain visible.
+Disposition quotations reproduce the complete verified numbered source
+paragraph. Issue or standard-of-review quotations contain one or two verbatim
+sentences from explicit English openings/headings, with issues preferred.
+Ambiguous abbreviations, quotes, incomplete sentences or invalid spans are
+omitted, not rewritten. Use each source link to focus its exact backend
+paragraph block, including when paragraph numbers repeat.
+
+Top statutes list up to five stored statute/instrument occurrence counts,
+not unique decisions or case-law citations. Source links appear only for exact
+document-relative evidence; chunk-relative references still count but are not
+linked. Top tags list up to five distinct active-taxonomy labels with verified
+source evidence; invalid evidence omits the tag rather than showing a placeholder.
+Valid tags retain their stored scores and sources. Neither score nor frequency
+establishes legal importance. No generated prose or new classifications are
+created by this card. If its read-only request fails, other reader tools remain
+available. See [`backend/case_summary.py`](../backend/case_summary.py) for
+extraction rules and `GET /api/cases/{case_id}/summary` for the typed contract.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
 
 Above the source decision, **Most cited paragraphs** is collapsed by default
 and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it

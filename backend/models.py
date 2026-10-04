@@ -114,7 +114,7 @@ class LiveAnalysisResponse(BaseModel):
 
 class CaseSearchRequest(BaseModel):
 	query: str = Field(min_length=1)
-	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "lexical"
 	semantic_weight: float = Field(default=0.7, ge=0.0, le=1.0)
 	lexical_weight: float = Field(default=0.3, ge=0.0, le=1.0)
 	candidate_pool: int = Field(default=100, ge=10, le=500)
@@ -261,6 +261,8 @@ class CaseReaderCitationResponse(BaseModel):
 	unresolved: bool = False
 	layer_spans: dict[str, dict[str, int | None]] | None = None
 	statute_version_label: str | None = None
+	# Stored paragraph cited-by summary for the cited paragraph (batch job; None until it has run).
+	target_cited_by: dict | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):
@@ -417,6 +419,21 @@ class CaseReaderDataResponse(BaseModel):
 	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
+	# Stored per-paragraph "cited by" from the batch job (None until it has run for this case).
+	paragraph_cited_by: dict | None = None
+
+
+class MarkupExportComment(BaseModel):
+	block: int | None = None
+	label: str = Field(default="", max_length=120)
+	text: str = Field(default="", max_length=4000)
+	quote: str | None = Field(default=None, max_length=400)
+	author: str = Field(default="iLit Markup", max_length=40)
+
+
+class MarkupExportRequest(BaseModel):
+	comments: list[MarkupExportComment] = Field(default_factory=list, max_length=3000)
+	highlights: list[int] = Field(default_factory=list, max_length=3000)
 
 
 class InventoryCaseResponse(BaseModel):
@@ -448,12 +465,16 @@ class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
 	matched_on: str | None = None
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):
 	chunk_index: int
 	chunk_text: str
 	similarity: float
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class LocalChunkSearchRequest(CaseSearchRequest):
@@ -484,6 +505,8 @@ class GroupedChunkSearchResponse(BaseModel):
 	total_chunks: int
 	max_chunks_per_case: int
 	cases: list[GroupedChunkCaseResponse]
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class CitationResponse(BaseModel):
@@ -804,6 +827,7 @@ class A2AJCaseMapResponse(BaseModel):
 
 
 class ResearchRequest(ChunkGroupSearchRequest):
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "hybrid"
 	max_cases: int = Field(default=8, ge=1, le=10)
 	temperature: float = Field(default=0.3, ge=0.0, le=1.0)
 	chunk_set: Literal["paragraph"] = "paragraph"
@@ -845,6 +869,7 @@ class ResearchResponse(BaseModel):
 	answer: str
 	sources: list[ResearchSource]
 	model_used: str
+	prompt_version: str
 	prompt_tokens: int
 	completion_tokens: int
 

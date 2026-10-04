@@ -12,7 +12,7 @@ def statute_viewer_page_html() -> str:
 </head>
 <body>
 	<main class="shell">
-		<header class="masthead"><div><div class="eyebrow">Legislation Library</div><h1>Federal Statutes</h1></div><p class="subhead">Browse Canadian federal laws with point-in-time versions matched to decision dates. Find the text of statutes that were in force when cases were decided.</p></header>
+		<header class="masthead"><div><div class="eyebrow">Legislation Library</div><h1>Federal Statutes</h1></div><p class="subhead">Browse Canadian federal laws with point-in-time versions matched to decision dates. Find the text of statutes that were in force when cases were decided. <a href="/statute-consideration">Explore decisions citing a section →</a></p></header>
 
 		<div id="statute-browser">
 			<div class="search-controls">

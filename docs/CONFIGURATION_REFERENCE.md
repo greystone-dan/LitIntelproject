@@ -10,7 +10,7 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
+5. `backend/ai_mode.py` reads `ENHANCED_AI_MODE` at runtime (after the database module has loaded the repository and backend `.env` files). The mode defaults to `off`; only `off`, `local`, and `hosted` are accepted. The four search rollout flags under `ai.rollout` are separate controls.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -34,7 +34,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search and `/research`.
 
 ## Access, Session, And Indexing Settings
 
@@ -46,6 +46,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Public Health Probes
+
+The app keeps three health routes public, including when
+`CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
+
+| Route | Purpose | Failure behavior |
+| --- | --- | --- |
+| `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
+| `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
+| `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
+
+Readiness uses short per-probe timeouts and does not return credentials,
+hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
+model services are reported as `not_configured` and do not make the service
+unready; configured services that fail their endpoint check do. The database
+and vector requirements remain readiness dependencies regardless of optional
+model configuration.
 
 ## Optional Security Response Headers
 
@@ -86,12 +104,16 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
-| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly opt into `openai` or `local` query embeddings. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
 | `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
 | `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
-| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
-| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
+| `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
+| `OPENAI_API_KEY` | none | `backend/embedding_providers.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce HTTP 503 from the API rather than a silent fallback. |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/embedding_providers.py`, embedding scripts, cohort builders | Hosted case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
+| `CASE_EMBEDDING_PROVIDER` | `QUERY_EMBEDDING_PROVIDER` (default `none`) | `backend/query_embedding_providers.py` | Optional provider override for case-summary embeddings during API ingestion. `none`, `openai`, or `local`; the enhanced-mode policy still applies. |
+| `CASE_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional case-summary model override. Local vectors must satisfy the existing 1536-dimensional case-vector storage contract. |
+| `CASE_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected output size for local case-summary embeddings. The selected model must emit this size and case storage still requires 1536 dimensions. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
@@ -109,17 +131,24 @@ The case-intelligence runner defaults to the hosted OpenAI provider. Use
 machine through Ollama. Local generation is optional enrichment; deterministic
 citations, statutes, offsets, and source provenance remain authoritative.
 
-The experimental `/research` route uses the same provider boundary. Set
-`TEXT_GENERATION_PROVIDER=local` to call Ollama; its code default model is
-`qwen3:4b`. The route reports a controlled `503` when the selected provider
-is not configured or reachable. This setting does not download a model.
+The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
+explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
+`AI answers are disabled in this deployment` before retrieval or generation.
+Use `ENHANCED_AI_MODE=local` for Ollama; this mode does not construct an OpenAI
+generation client. Use `ENHANCED_AI_MODE=hosted` to opt into the existing
+provider selection; `TEXT_GENERATION_PROVIDER` may still select Ollama there.
+The local provider's code-default model is `qwen3:4b`. An enabled route reports
+a controlled `503` when the selected provider is not configured or reachable.
+Setting these values does not download a model.
 
 Query embedding is a separate provider decision and is disabled by default.
 Semantic/hybrid search uses lexical ranking until an operator explicitly sets
-`QUERY_EMBEDDING_PROVIDER=openai` or `local`. Only the OpenAI setting sends query
-text off-machine; local and disabled settings keep it local. Generation can
-remain hosted independently. Case-ingestion summary embeddings retain their
-existing, separately controlled provider path. The read-only
+`QUERY_EMBEDDING_PROVIDER=openai` or `local` and enables enhanced AI mode. OpenAI
+query inference additionally requires `ENHANCED_AI_MODE=hosted`; local query
+inference is permitted in `local` or `hosted` mode. The default off mode never
+constructs a query embedding provider. Only the OpenAI setting sends query text
+off-machine. Case-ingestion summary embeddings retain their existing,
+separately controlled provider path. The read-only
 `GET /api/search-embedding-status` endpoint reports both selected providers,
 the query model and dimensions (`null` when embeddings are disabled), the
 indexed-vector dimension, and whether query text is sent off-machine. It does
@@ -136,12 +165,12 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors, local queries, and case ingestion when selected. Constructed lazily and shared per model/device within the process. |
 | `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 
-Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validates returned dimension shape before storage. Do not point a 768- or 1536-dimensional model at the local chunk embedding workflow without an explicit schema/model change.
+Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validates returned dimension shape before storage. Do not point a 768- or 1536-dimensional model at the local chunk embedding workflow without an explicit schema/model change. `ENHANCED_AI_MODE=off` is the default and constructs no embedding model or client; local mode never sends query or case text to a hosted embedding provider. SentenceTransformer may download its model artifact on first enabled use if it is not already available locally; tests must use fake models and never download artifacts.
 
 ## Citation, Cohort, And Source Settings
 

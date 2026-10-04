@@ -31,6 +31,7 @@ from backend.models import (
 
 @pytest.fixture(autouse=True)
 def _enable_ai_rollout_defaults(monkeypatch):
+    monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
     monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
     monkeypatch.setitem(routes.AI_ROLLOUT, "semantic_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "hybrid_enabled", True)
@@ -1204,6 +1205,7 @@ def test_grouped_chunk_search_groups_by_case(monkeypatch):
     )
     request = ChunkGroupSearchRequest(
         query="risk",
+        search_mode="semantic",
         source_type="a2aj_curated",
         page=1,
         page_size=5,
@@ -1243,7 +1245,10 @@ def test_grouped_chunk_search_supports_recent_case_cohort(monkeypatch):
     database = FakeDatabase(rows=[(case, chunk, 0.1, 0.5)])
 
     result = routes.search_chunks_grouped(
-        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
     )
 
     assert result.total_cases == 1
@@ -1297,7 +1302,10 @@ def test_grouped_chunk_search_recent_cohort_uses_ivfflat_artifact(monkeypatch):
     database = FakeDatabase(rows=[(case, artifact_chunk, 0.1, 0.5)])
 
     result = routes.search_chunks_grouped(
-        ChunkGroupSearchRequest(query="risk", case_cohort="recent_5000"), database
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
     )
 
     assert result.total_cases == 1
@@ -1404,7 +1412,7 @@ def test_paragraph_search_forces_semantic_openai_paragraph_filter(monkeypatch):
 
 def test_local_chunk_search_uses_requested_model(monkeypatch):
     provider = SimpleNamespace(embed_query=lambda text: [0.3] * 1024)
-    monkeypatch.setattr(routes, "_local_embedding_provider", lambda model_name: provider)
+    monkeypatch.setattr(search_service, "_local_embedding_provider", lambda model_name: provider)
     case = SimpleNamespace(
         id=701,
         title="Local vector case",

@@ -230,3 +230,8 @@ PostgreSQL plans, browser validation or complete citation-map-family measurement
 is claimed. The best next task is full-suite model/tokenizer test isolation in
 its owner surface; authorized PostgreSQL plan validation follows that acceptance
 repair.
+
+Parent-session automated validation: CodeQL analyzed Python and found **0 alerts**.
+The automated code-review service could not run because its configured model was
+unavailable; its empty comment list is not evidence of a completed review.
+The parent secret-scanning tool found no secrets in the delivered changed files.

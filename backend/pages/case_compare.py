@@ -79,9 +79,9 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere}dd{margin:0 0 .6rem}dt{font-weig
 .badge{display:inline-block;font-weight:bold}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #315d86}
 @media(max-width:760px){.pair,form{grid-template-columns:1fr}}@media print{form{display:none}}
-</style></head><body><a href="/data-explorer">Back to case search</a><h1>Case comparison</h1>
+</style></head><body><a href="/data-explorer">Back to case search</a><main><h1>Case comparison</h1>
 <p>Research aid only. No records are changed.</p><form action="/case-compare" method="get">""" + pickers + """
-<button type="submit">Compare cases</button></form><main>""" + content + """</main>
+<button type="submit">Compare cases</button></form>""" + content + """</main>
 <script>
 for (const side of ['a','b']) {
   const input = document.getElementById('search-' + side);

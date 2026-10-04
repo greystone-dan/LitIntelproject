@@ -121,6 +121,35 @@ class _DocumentShell(HTMLParser):
             self.title_parts.append(data)
 
 
+class _CaseComparisonLandmark(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.main_depth = 0
+        self.heading_inside_main = False
+        self.explanation_inside_main = False
+        self.form_inside_main = False
+        self.back_link_inside_main = None
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        if tag == "main":
+            self.main_depth += 1
+        elif tag == "h1" and self.main_depth:
+            self.heading_inside_main = True
+        elif tag == "form" and attributes.get("action") == "/case-compare":
+            self.form_inside_main = bool(self.main_depth)
+        elif tag == "a" and attributes.get("href") == "/data-explorer":
+            self.back_link_inside_main = bool(self.main_depth)
+
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.main_depth -= 1
+
+    def handle_data(self, data):
+        if self.main_depth and "Research aid only. No records are changed." in data:
+            self.explanation_inside_main = True
+
+
 def test_standalone_page_builders_have_document_shell_metadata():
     for name, builder in PAGE_BUILDERS:
         shell = _DocumentShell()
@@ -143,6 +172,17 @@ def test_standalone_page_builders_have_document_shell_metadata():
         assert shell.images_missing_alt == 0, (
             f"{name}: {shell.images_missing_alt} image(s) missing alt"
         )
+
+
+def test_case_comparison_primary_workflow_is_inside_main():
+    html = dict(PAGE_BUILDERS)["case_compare_page_html"]()
+    page = _CaseComparisonLandmark()
+    page.feed(html)
+
+    assert page.heading_inside_main
+    assert page.explanation_inside_main
+    assert page.form_inside_main
+    assert page.back_link_inside_main is False
 
 
 def test_skip_link_helper_is_idempotent():

@@ -1,6 +1,6 @@
 # Research UI Guide
 
-Last reviewed: 2026-10-03
+Last reviewed: 2026-10-04
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
@@ -95,12 +95,44 @@ reader's information-view buttons and Citation Map mode/detail controls. Cited
 paragraph shading and linked-case pinpoint shading use high-contrast text
 (14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
 remains a separate accessible control.
-The audit and remaining limitations are in
-`docs/reports/accessibility-audit.md`.
 
-This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
-announcements, responsive/touch behavior, and assistive-technology use still
-need manual verification.
+The `/accessibility` page names WCAG 2.1 Level AA as the project target and
+explicitly does not claim conformance. Its plain-language statement identifies
+the static checks and known gaps, and marks the feedback contact as a
+site-owner placeholder.
+
+The Citation Map retains its visual graph and adds an SVG title and description
+plus a “View as table” listing of displayed cases and directed citation links.
+One shared helper in `backend/pages/skip_link.py` adds a keyboard-visible skip
+link with a focusable target to every complete generated page. The static
+rendered-output contract in `tests/test_page_builder_shell.py` inventories 23
+complete page builders and checks `lang`, title, viewport, exactly one `h1`,
+the skip-link target, and image `alt` presence. It does not assess description
+quality; there is no image-alt allow-list. `fc_analytics` and `tag_analytics`
+are fragments included in the Data Explorer output rather than independent
+documents.
+
+On Case Comparison, the main landmark contains the heading, explanation, and
+primary search form while the Back link remains outside it, so the skip link
+reaches the primary workflow.
+
+Open draft PR #136 overlaps the shared skip-link and image-alt checks; if it
+lands, consolidate the helper and all-builder regression without importing its
+unrelated live-region, table, focus, or ARIA enhancements. PR #146 changes
+responsive layout/tests only. If #136 lands, reconcile the shared helper and
+all-builder check with the access-gate, case-comparison, accessibility, and
+Discussion Units page builders in this branch.
+
+The repeatable keyboard, NVDA, VoiceOver, 200% zoom, and contrast procedure is
+the [accessibility manual test plan](
+https://github.com/greystone-dan/LitIntelproject/blob/main/docs/reports/accessibility-manual-test-plan.md).
+No screen-reader or 200% zoom test has been performed. These static checks do
+not measure image-description quality or interaction, and keyboard operation,
+rendered contrast, responsive behavior, and assistive-technology use still
+require manual verification. This is not a WCAG conformance claim. The audit
+history and limitations are in `docs/reports/accessibility-audit.md`.
+The About title and case-reader title use corrected heading levels without
+changing their prior visible typography or spacing.
 
 The embedded research and information views retain these data responsibilities:
 

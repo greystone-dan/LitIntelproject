@@ -69,6 +69,27 @@ The system intentionally separates three kinds of derived information:
 
 ### Primary Research Workflows
 
+`/` is a research-tool directory with analyst-oriented descriptions and examples
+from [docs/ANALYST_QUICK_START.md](docs/ANALYST_QUICK_START.md); it no longer
+redirects to the workspace. Successful finite HTML pages share navigation for
+Home, Search, Case Reader, Judges, Citation Intelligence, FC Activity, Memo Check,
+Issue Briefs, Saved Searches and About, with query-aware current-page labels
+and breadcrumbs for reader, judge, issue and citation deep links.
+`backend/pages/site_nav.py` owns this presentation and its route table.
+Its labelled GET quick-search form opens
+`/data-explorer?tab=search&query=…`; the injected initializer submits the existing
+case-search handler. `/` focuses quick search outside editable controls. The
+responsive menu exposes its expanded state and closes with Escape.
+`backend/main.py` registers the pure ASGI decorator inside the access/noindex
+gate: it only modifies HTTP 200, UTF-8 HTML sent in one final body message, up to
+4 MiB. Streams, non-200 responses, health/API/login/export/download paths,
+attachments and non-HTML payloads are untouched. `X-No-Site-Nav` on the response
+or `<meta name="x-no-site-nav" content="true">` opts out; an existing
+`data-site-nav` element prevents duplicate decoration. Original body attributes
+are retained byte-for-byte, and modified response lengths are recalculated.
+Static route-inventory and password-gate checks live in `tests/test_site_nav.py`
+and require neither a database nor application startup.
+
 `/data-explorer` is the main research surface. Its top-left primary navigation
 is **Info**, **Research**, **Workbench**, and **Testing**, with Research / Case
 Search as the default. Info groups About and Site Architecture; Research groups

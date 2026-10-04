@@ -13,6 +13,7 @@ from starlette.staticfiles import StaticFiles
 
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .pages.site_nav import SiteNavMiddleware, home_html
 from .routes import router
 
 
@@ -23,6 +24,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+# Keep presentation inside the access/noindex gate. It sees finite route responses
+# before BaseHTTPMiddleware turns them into a streaming call_next response.
+app.add_middleware(SiteNavMiddleware)
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -112,9 +116,9 @@ app.add_middleware(RequestAuditMiddleware)
 app.include_router(router)
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def root():
-    return RedirectResponse(url="/data-explorer", status_code=307)
+    return HTMLResponse(home_html())
 
 
 @app.get("/health")

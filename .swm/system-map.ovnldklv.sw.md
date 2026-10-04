@@ -50,6 +50,40 @@ overstate pipeline completeness.
 
 ## Component Roles
 
+### Shared HTML navigation boundary
+
+[`backend/pages/site_nav.py`](../backend/pages/site_nav.py) owns the site-wide
+navigation shell, route-aware breadcrumbs, finite-HTML insertion and the home
+tool directory. [`backend/main.py`](../backend/main.py) registers its pure ASGI
+middleware **inside** the existing password/noindex gate and outside the route
+handlers. This order lets it distinguish a finite response from a stream before
+the access middleware's `call_next` wraps the response. It does not authenticate
+requests or replace `/data-explorer` as the active research workspace.
+
+Navigation links use the existing explorer tabs and reader redirect. The GET
+quick-search form carries a URL-encoded query to the explorer; its initializer
+submits the existing search form rather than introducing a second search API.
+Current-page state follows explorer tabs and inline reader visibility. Reader,
+judge, issue-tag and citation deep links use route-table context, not database
+lookups, to construct escaped breadcrumbs.
+
+The decorator locates an actual body start with `HTMLParser` source offsets and
+inserts bytes without rebuilding attributes or changing evidence/source text.
+It bypasses streams, non-200 responses, health/API/login/export routes,
+attachments, encoded responses and non-HTML media. Pages may explicitly opt out
+with `X-No-Site-Nav` or the documented meta tag; existing `data-site-nav` prevents
+duplicates. See the exact limits and contracts in the implementation and
+[`SYSTEM_REFERENCE.md`](../SYSTEM_REFERENCE.md), and the analyst-facing examples
+in [`docs/ANALYST_QUICK_START.md`](../docs/ANALYST_QUICK_START.md).
+
+[`tests/test_site_nav.py`](../tests/test_site_nav.py) compares its HTML inventory
+against actual registered routes, calls only static page builders, and uses
+finite fixtures for DB-dependent pages. Gate checks use TestClient without
+lifespan startup; ASGI and isolated JavaScript doubles cover bypass behavior,
+body-attribute preservation, GET search initialization and keyboard/menu state.
+For this issue browser validation was explicitly waived; these checks do not
+establish real-browser layout quality.
+
 | Component | Role | Refactoring constraint |
 | --- | --- | --- |
 | `backend/main.py` | Creates the FastAPI application, registers routes, handles startup and health behavior | Keep startup concerns separate from route implementation |

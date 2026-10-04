@@ -1,6 +1,9 @@
 """Standalone saved-search and recorded-alert page."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def saved_searches_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -15,6 +18,7 @@ header,.saved-search-head,.saved-search-actions{display:flex;align-items:center;
 header{margin-bottom:22px}h1,h2,p{margin-top:0}h1{font:600 30px/1.15 Georgia,serif}
 a{color:#1e3a8a;font-weight:650}button{padding:8px 11px;border:1px solid #cbd5e1;border-radius:5px;background:#fff;color:#102038;font:inherit;cursor:pointer}
 button:hover{border-color:#2563eb}button.danger{color:#991b1b}
+:root{--focus:#2563eb}button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .saved-search{margin:12px 0;padding:16px;border:1px solid #d8dee8;border-radius:8px;background:#fff}
 .saved-search h2{margin:0;font-size:18px}.saved-search p{margin:6px 0;color:#526276}
 .saved-search pre{max-height:150px;overflow:auto;padding:10px;background:#f8fafc;font-size:12px;white-space:pre-wrap}

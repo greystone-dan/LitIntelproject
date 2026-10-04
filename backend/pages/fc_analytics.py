@@ -40,7 +40,7 @@ FC_ANALYTICS_CSS = r"""
 .fcx svg{display:block;width:100%;height:auto;overflow:visible}
 .fcx .fcx-axis{font-size:11px;fill:var(--fcx-ink-2);font-variant-numeric:tabular-nums}.fcx .fcx-gridline{stroke:var(--fcx-grid);stroke-width:1}
 .fcx .fcx-label{font-size:11px;fill:var(--fcx-ink)}.fcx .fcx-value{font-size:11px;fill:var(--fcx-ink-2);font-variant-numeric:tabular-nums}
-.fcx .fcx-hit{cursor:pointer}.fcx .fcx-hit:hover .fcx-mark,.fcx .fcx-hit:focus .fcx-mark{filter:brightness(1.12)}.fcx .fcx-hit:focus{outline:none}.fcx .fcx-hit:focus .fcx-mark{stroke:var(--fcx-ink);stroke-width:1.5}
+.fcx .fcx-hit{cursor:pointer}.fcx .fcx-hit:hover .fcx-mark,.fcx .fcx-hit:focus .fcx-mark{filter:brightness(1.12)}.fcx button:focus-visible,.fcx select:focus-visible,.fcx .fcx-hit:focus-visible{outline:3px solid var(--fcx-ink);outline-offset:2px}.fcx .fcx-hit:focus .fcx-mark{stroke:var(--fcx-ink);stroke-width:1.5}
 .fcx .fcx-legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 2px;font-size:11px;color:var(--fcx-ink-2)}
 .fcx .fcx-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}.fcx .fcx-legend i.line{height:2px;width:14px;border-radius:1px;vertical-align:3px}
 .fcx table{width:100%;border-collapse:collapse;font-size:12px}.fcx th,.fcx td{padding:6px 8px;border-bottom:1px solid var(--fcx-grid);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}

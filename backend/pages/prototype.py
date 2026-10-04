@@ -1,3 +1,7 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def prototype_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -53,6 +57,10 @@ def prototype_page_html() -> str:
 		.pill {
 			border: 1px solid var(--line); border-radius: 999px;
 			padding: 3px 9px; font-size: 0.78rem; color: var(--muted);
+		}
+		button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
+			outline: 3px solid var(--accent);
+			outline-offset: 2px;
 		}
 		.graph-canvas {
 			width: 100%;

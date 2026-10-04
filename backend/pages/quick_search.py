@@ -1,6 +1,9 @@
 """Quick search HTML page builder."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def quick_search_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">

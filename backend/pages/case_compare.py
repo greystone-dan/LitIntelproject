@@ -1,9 +1,12 @@
 """Standalone, read-only case comparison and existing-endpoint case pickers."""
 
-from html import escape
 import json
+from html import escape
+
+from .accessibility import accessible_page
 
 
+@accessible_page
 def case_compare_page_html(comparison: dict | None = None, a: str = "", b: str = "") -> str:
     def esc(value):
         return escape(str(value if value is not None else "Not recorded"), quote=True)

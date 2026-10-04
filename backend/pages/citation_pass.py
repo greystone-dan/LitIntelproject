@@ -1,5 +1,9 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def citation_pass_page_html() -> str:
-	return r"""<!doctype html>
+	html = r"""<!doctype html>
 <html lang=\"en\">
 <head>
 	<meta charset=\"utf-8\">
@@ -191,5 +195,4 @@ def citation_pass_page_html() -> str:
 	</script>
 </body>
 </html>"""
-
-
+	return html.replace(r'\"', '"')

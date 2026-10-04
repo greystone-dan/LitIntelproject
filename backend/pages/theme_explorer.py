@@ -1,6 +1,9 @@
 """Theme Discovery explorer page - browse recurring legal themes across case library."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def theme_explorer_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -53,11 +56,11 @@ def theme_explorer_page_html() -> str:
 		.occ-case-link { color: #1967d2; text-decoration: none; }
 		.occ-case-link:hover { text-decoration: underline; }
 
-		.loading { text-align: center; padding: 40px; color: #999; }
+		.loading { text-align: center; padding: 40px; color: #5f6f7a; }
 		.loading::after { content: " …"; animation: dots 1.5s steps(3, end) infinite; }
 		@keyframes dots { 0%, 20% { content: " ."; } 40% { content: " .."; } 60% { content: " ..."; } }
 
-		.empty { text-align: center; padding: 40px; color: #999; }
+		.empty { text-align: center; padding: 40px; color: #5f6f7a; }
 	</style>
 </head>
 <body>
@@ -70,7 +73,7 @@ def theme_explorer_page_html() -> str:
 		<div style="background: white; margin: 24px 24px 0; padding: 20px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
 			<h2 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 12px;">Unit-Level Search</h2>
 			<div style="display: grid; grid-template-columns: 1fr auto; gap: 8px;">
-				<input type="text" id="unitSearchInput" placeholder="Search for specific legal topics within discussion units (e.g., credibility assessment, procedural fairness)" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+				<input type="text" id="unitSearchInput" aria-label="Search discussion units" placeholder="Search for specific legal topics within discussion units (e.g., credibility assessment, procedural fairness)" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
 				<button id="unitSearchBtn" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Search Units</button>
 			</div>
 			<div id="unitSearchResults" style="margin-top: 12px; display: none;">
@@ -82,7 +85,7 @@ def theme_explorer_page_html() -> str:
 			<div class="sidebar">
 				<h2>Themes</h2>
 				<div class="sidebar-section">
-					<label class="sidebar-label">Search themes</label>
+					<label class="sidebar-label" for="themeFilter">Search themes</label>
 					<input type="text" id="themeFilter" class="filter-input" placeholder="e.g., credibility">
 				</div>
 				<div class="theme-list" id="themeList">

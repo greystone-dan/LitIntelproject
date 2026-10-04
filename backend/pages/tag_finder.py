@@ -1,6 +1,9 @@
 """Tag-based case similarity finder page."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def tag_finder_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">
@@ -78,6 +81,10 @@ def tag_finder_page_html() -> str:
 		}
 		button:hover {
 			opacity: 0.9;
+		}
+		input:focus-visible, select:focus-visible, button:focus-visible {
+			outline: 3px solid var(--accent-2);
+			outline-offset: 2px;
 		}
 		.status {
 			margin-top: 12px;

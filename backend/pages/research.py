@@ -1,6 +1,9 @@
 """Research experiment HTML page builder."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def research_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">
@@ -54,6 +57,10 @@ def research_page_html() -> str:
 			background: linear-gradient(135deg, var(--accent), #14867a); color: #fff;
 		}
 		button:disabled { opacity: 0.55; cursor: not-allowed; }
+		button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible {
+			outline: 3px solid var(--accent);
+			outline-offset: 2px;
+		}
 		.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
 		.grid3 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 1fr; }
 		.answer-box {

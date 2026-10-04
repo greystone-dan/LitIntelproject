@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def deidentify_page_html() -> str:
 	return r'''<!doctype html>
 <html lang="en">
@@ -10,7 +13,7 @@ def deidentify_page_html() -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#182421;--muted:#66756f;--paper:#e8eee9;--surface:#fbfdf9;--line:#cbd8d0;--teal:#087f73;--rust:#bd5638;--gold:#c18a25;--mark:#fdeccc}
+:root{--ink:#182421;--muted:#5c6a64;--paper:#e8eee9;--surface:#fbfdf9;--line:#cbd8d0;--teal:#087f73;--rust:#bd5638;--gold:#c18a25;--mark:#fdeccc}
 *{box-sizing:border-box}
 body{margin:0;color:var(--ink);font-family:Manrope,sans-serif;background:linear-gradient(135deg,#eef3ed,#e5ece8);min-height:100vh}
 header{min-height:72px;padding:12px 5vw;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(251,253,249,.84)}
@@ -31,9 +34,12 @@ label.field{display:block;margin:0 0 6px;font-size:12px;font-weight:700}
 .hint{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
 textarea{width:100%;min-height:110px;padding:10px;border:1px solid var(--line);border-radius:4px;background:white;font:13px/1.5 Manrope,sans-serif;resize:vertical}
 textarea.big{min-height:150px}
-.drop{display:grid;place-items:center;min-height:120px;padding:18px;border:1px dashed #8da89b;background:#f4f8f4;text-align:center;cursor:pointer;border-radius:4px}
-.drop:hover,.drop.drag{border-color:var(--teal);background:#eaf5f0}.drop strong{display:block;font-size:15px}.drop span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.drop input{display:none}
-.or{margin:10px 0;color:var(--muted);font-size:11px;text-align:center}
+.drop{position:relative;display:grid;place-items:center;min-height:120px;padding:18px;border:1px dashed #8da89b;background:#f4f8f4;text-align:center;cursor:pointer;border-radius:4px}
+.drop:hover,.drop.drag{border-color:var(--teal);background:#eaf5f0}.drop strong{display:block;font-size:15px}.drop span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.drop:focus-within{outline:3px solid var(--teal);outline-offset:2px}
+button:focus-visible,a:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.or{display:block;margin:10px 0;color:var(--muted);font-size:11px;text-align:center}
 .block,label.field.block{margin-top:18px}
 details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;font-weight:700}
 .checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;margin-top:10px}.checks label{display:flex;gap:6px;align-items:center}
@@ -52,7 +58,7 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 .chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:5px 9px;border-radius:999px;background:#dce9e2;font-size:11px}.chip strong{margin-right:4px}
 .preview{margin-top:14px;max-height:520px;overflow:auto;padding:16px;border:1px solid var(--line);background:white;font:13px/1.65 Manrope,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}
 .preview mark{padding:0 2px;border-radius:3px;background:var(--mark);color:#6b4708;font:500 12px "DM Mono",monospace}
-.keytable{width:100%;margin-top:10px;border-collapse:collapse;font-size:12px}.keytable td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}.keytable td:first-child{font-family:"DM Mono",monospace;white-space:nowrap;color:#6b4708}
+.keytable{width:100%;margin-top:10px;border-collapse:collapse;font-size:12px}.keytable td,.keytable th{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere;text-align:left}.keytable th:first-child{font-family:"DM Mono",monospace;white-space:nowrap;color:#6b4708}
 .toggle{display:flex;gap:8px;align-items:center;font-size:13px}
 textarea.small{min-height:70px}
 .names-box{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:4px;background:#f7faf7;font-size:12px}
@@ -81,9 +87,9 @@ textarea.small{min-height:70px}
 <div class="cols">
 <div>
 <label class="field">Document</label>
-<label class="drop" id="deidDrop"><input type="file" id="deidFile" accept=".docx,.pdf,.txt"><div><strong id="deidFileName">Choose or drop a file</strong><span>Word (.docx), PDF with selectable text, or .txt · up to 10 MB</span></div></label>
-<div class="or">or paste text</div>
-<textarea id="deidText" class="big" placeholder="Paste text here"></textarea>
+<label class="drop" id="deidDrop"><input type="file" id="deidFile" aria-describedby="deidError" accept=".docx,.pdf,.txt"><div><strong id="deidFileName">Choose or drop a file</strong><span>Word (.docx), PDF with selectable text, or .txt · up to 10 MB</span></div></label>
+<label class="or" for="deidText">or paste text</label>
+<textarea id="deidText" class="big" aria-describedby="deidError" placeholder="Paste text here"></textarea>
 </div>
 <div>
 <label class="toggle"><input type="checkbox" id="autoNames" checked> <strong>Find names automatically</strong></label>
@@ -99,8 +105,8 @@ textarea.small{min-height:70px}
 </div>
 </div>
 <details class="opts"><summary>What gets hidden automatically</summary><div class="checks" id="categoryChecks"></div></details>
-<div class="actions"><button class="button" id="runDeid" type="button">De-identify</button><span class="status" id="deidStatus"></span></div>
-<div class="error hidden" id="deidError"></div>
+<div class="actions"><button class="button" id="runDeid" type="button">De-identify</button><span class="status" id="deidStatus" role="status" aria-live="polite"></span></div>
+<div class="error hidden" id="deidError" role="alert" aria-live="assertive"></div>
 
 <div class="result hidden" id="deidResult">
 <h2>De-identified text</h2>
@@ -118,7 +124,7 @@ textarea.small{min-height:70px}
 </div>
 <p class="keynote">Download the key file before leaving this page. Without it the details cannot be put back.</p>
 <div class="preview" id="deidPreview"></div>
-<details class="opts"><summary>Review what was hidden (<span id="keyCount">0</span> placeholders)</summary><table class="keytable" id="keyTable"></table></details>
+<details class="opts"><summary>Review what was hidden (<span id="keyCount">0</span> placeholders)</summary><table class="keytable"><caption class="a11y-visually-hidden">De-identification key</caption><thead><tr><th class="a11y-visually-hidden" scope="col">Placeholder</th><th class="a11y-visually-hidden" scope="col">Original value</th></tr></thead><tbody id="keyTable"></tbody></table></details>
 </div>
 </section>
 
@@ -126,18 +132,18 @@ textarea.small{min-height:70px}
 <div class="cols">
 <div>
 <label class="field">Processed document (with placeholders)</label>
-<label class="drop" id="restoreDrop"><input type="file" id="restoreFile" accept=".docx,.pdf,.txt"><div><strong id="restoreFileName">Choose or drop a file</strong><span>.docx, .pdf or .txt</span></div></label>
-<div class="or">or paste text</div>
-<textarea id="restoreText" class="big" placeholder="Paste the text that contains [PERSON_1] style placeholders"></textarea>
+<label class="drop" id="restoreDrop"><input type="file" id="restoreFile" aria-describedby="restoreError" accept=".docx,.pdf,.txt"><div><strong id="restoreFileName">Choose or drop a file</strong><span>.docx, .pdf or .txt</span></div></label>
+<label class="or" for="restoreText">or paste text</label>
+<textarea id="restoreText" class="big" aria-describedby="restoreError" placeholder="Paste the text that contains [PERSON_1] style placeholders"></textarea>
 </div>
 <div>
 <label class="field">Key file</label>
-<label class="drop" id="keyDrop"><input type="file" id="keyFile" accept=".json,application/json"><div><strong id="keyFileName">Choose or drop the key file</strong><span>The .json file saved in step 1</span></div></label>
+<label class="drop" id="keyDrop"><input type="file" id="keyFile" aria-describedby="restoreError" accept=".json,application/json"><div><strong id="keyFileName">Choose or drop the key file</strong><span>The .json file saved in step 1</span></div></label>
 <p class="hint" id="sessionKeyHint"></p>
 </div>
 </div>
-<div class="actions"><button class="button" id="runRestore" type="button">Restore details</button><span class="status" id="restoreStatus"></span></div>
-<div class="error hidden" id="restoreError"></div>
+<div class="actions"><button class="button" id="runRestore" type="button">Restore details</button><span class="status" id="restoreStatus" role="status" aria-live="polite"></span></div>
+<div class="error hidden" id="restoreError" role="alert" aria-live="assertive"></div>
 <div class="result hidden" id="restoreResult">
 <h2>Restored text</h2>
 <div class="chips" id="restoreChips"></div>
@@ -198,7 +204,7 @@ function renderDeid(){const r=deidResult;
   renderNames(r);
   $('deidPreview').innerHTML=esc(r.text).replace(/\[[A-Z][A-Z_]*_\d+(?:_[A-Z0-9]+)*\]/g,m=>`<mark>${m}</mark>`);
   const entries=Object.entries(r.key.entries);$('keyCount').textContent=entries.length;
-  $('keyTable').innerHTML=entries.map(([k,v])=>`<tr><td>[${esc(k)}]</td><td>${esc(v)}</td></tr>`).join('');
+  $('keyTable').innerHTML=entries.map(([k,v])=>`<tr><th scope="row">[${esc(k)}]</th><td>${esc(v)}</td></tr>`).join('');
   $('deidResult').classList.remove('hidden');$('deidResult').scrollIntoView({behavior:'smooth'})}
 function addLine(id,value){const box=$(id);const lines=box.value.split('\n').map(l=>l.trim()).filter(Boolean);if(!lines.some(l=>l.toLowerCase()===value.toLowerCase()))lines.push(value);box.value=lines.join('\n');$('rerunNote').classList.remove('hidden')}
 function renderNames(r){const found=r.detected_names||[],kept=r.kept_names||[];

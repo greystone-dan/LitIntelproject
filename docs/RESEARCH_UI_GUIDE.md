@@ -1,6 +1,6 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-30
+Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
@@ -76,6 +76,23 @@ arrow-key focus and Enter activation, and non-overlapping group buttons with
 no horizontal overflow or uncaught page errors. These checks do not certify
 research-result accuracy or every standalone tool workflow.
 
+## Accessibility review
+
+The 2026-10-03 static review covered Case Search, the inline case reader, Judge
+Profile, Citation Map, and citation-oriented standalone page builders. It added
+keyboard-visible focus rings to the audited search/reader controls, a
+programmatic name to Citation Map search, and pressed state to the inline
+reader's information-view buttons and Citation Map mode/detail controls. Cited
+paragraph shading and linked-case pinpoint shading use high-contrast text
+(14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
+remains a separate accessible control.
+The audit and remaining limitations are in
+`docs/reports/accessibility-audit.md`.
+
+This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
+announcements, responsive/touch behavior, and assistive-technology use still
+need manual verification.
+
 The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
@@ -134,7 +151,7 @@ that path is in place, address accessibility and responsive behavior:
 - Review reader tabset selection and keyboard semantics; primary groups and
 	secondary view buttons already expose pressed state and focus navigation.
 - Give reader pane separators visible focus treatment and keyboard resizing.
-- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Verify strengthened search/input focus visibility at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
 - Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
 

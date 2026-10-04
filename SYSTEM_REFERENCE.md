@@ -89,6 +89,29 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The source pane begins with a short **Extracted case summary** only when
+verified stored-text facts exist. Every item has its own evidence link:
+court/date/judge link to an explicit matching source-header block; up to three
+highest-scoring distinct verified stored tags link to their source paragraphs
+(category/value break score ties). Unsupported court abbreviations, dates
+outside supported labelled header forms, judges without matching stored
+extraction/header evidence, and tags without exact document evidence offsets
+are omitted rather than linked to incidental mentions in the reasons.
+Labelled judge headers may contain only the prefixes supported by the metadata
+judge normalizer; the evidence span and offsets still capture the exact stored
+name alone, excluding those prefixes.
+The latest stored outcome and its displayed extraction source share the same
+verified disposition paragraph link. A verbatim disposition can still appear
+without an outcome label. Outcome evidence must match stored full text at its
+stored offsets inside one numbered formatter paragraph, including continuation
+blocks; unverifiable, unnumbered, or cross-paragraph evidence is omitted.
+Links use backend formatter block starts (plus paragraph identity), not
+paragraph numbers alone, and switch to formatted mode to focus that exact
+source block. Header blocks may be unnumbered and are labelled **Source header**.
+The additive reader `extracted_summary` projection has no unverified UI
+fallback. Empty summaries are hidden; no generated prose, classification,
+stored-data changes, or browser-created offsets are involved. This surface is
+separate from the optional technical **Show case summary** control.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
@@ -96,6 +119,15 @@ or the same pinpoint text already exposed in citation rows, and counts distinct
 other citing cases. This paragraph cue does not recompute citation offsets;
 without a pinpoint that matches a formatted paragraph, the paragraph remains
 unmarked.
+The source reader also offers a collapsed **Most cited paragraphs** panel,
+hidden when no formatted paragraphs have incoming pinpoint counts. It reuses
+the same shading data without another query, showing up to five paragraphs
+ranked by distinct other citing cases (numeric paragraph order breaks ties),
+with counts, short excerpts, and keyboard-operable jumps. Jumps switch to
+normalized formatted text and scroll/focus the source paragraph, not linked
+context; backend offsets remain unchanged. The panel and extracted case summary
+share formatter anchors keyed by backend block starts, so switching reader
+modes preserves both sets of evidence links without replacing their IDs.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph
@@ -246,6 +278,8 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
 
+Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
+
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
 
 ### Citation, Statute, And Metadata Processing
@@ -385,8 +419,16 @@ only. A separate `POST /live-analysis/resolve` request performs a batched,
 read-only lookup of neutral, named, and short-form references against existing
 case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
-Local resolution intentionally does not call external services. Scanned PDFs are
-outside the prototype because they require OCR.
+Local resolution intentionally does not call external services. Successful
+responses include the extracted source text and set `Cache-Control: no-store`
+and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
+after the multipart file is read, and no expanded-DOCX, PDF page-count, or
+pasted-text resource budget is enforced in these paths. Multipart temporary
+spooling and deployment-level request logging/retention are outside the
+application persistence boundary. Scanned PDFs are outside the prototype
+because they require OCR. The scoped privacy/security review, including
+de-identification routes and residual risks, is
+[`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
@@ -1181,6 +1223,16 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Proposed ID/IAD Decision Coverage
+
+ID/IAD tribunal decisions are not currently described as an implemented
+collection here. A documentation-only proposal for CBSA-hearing research,
+including candidate sources and unverified licence/access status, ingestion and
+schema touchpoints, outcome/Minister analytics, affected filters, and a phased
+pilot, is in [docs/reports/id-iad-coverage-design.md](docs/reports/id-iad-coverage-design.md).
+No source access, reuse permission, or corpus completeness is assumed by that
+design.
+
 | Table | Purpose |
 | --- | --- |
 | `cases` | Canonical case record: identity, court/date/citation/docket, text, sanitized source HTML, metadata, provenance summary, hashes, status, case embedding |
@@ -1271,6 +1323,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 ### Research And Analytics APIs
 
 - `GET /analytics/search/cases`: filtered active Case Search API.
+- `GET /search/export.csv`: bounded (maximum 1,000 rows) CSV export using the active Case Search query and filters.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
@@ -2042,7 +2095,7 @@ Before calling a change stable for the active research workflow:
 7. Confirm migrations, large-file handling, and deployment configuration if the
     change touches any of those surfaces.
 
-The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
+The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md); the measured, risk-ranked pytest statement-coverage report is at [docs/reports/test-coverage.md](docs/reports/test-coverage.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
 
 ## Documentation Map
 

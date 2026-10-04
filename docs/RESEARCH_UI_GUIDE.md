@@ -4,6 +4,8 @@ Last reviewed: 2026-09-30
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+
 ## Experimental RAG Research
 
 In the `/data-explorer` formatted reader, select **Similar paragraphs** beside
@@ -244,6 +246,18 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
 
+Above the source decision, **Most cited paragraphs** is collapsed by default
+and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it
+with Enter or Space to see up to five paragraphs, ranked by distinct other
+citing cases in this library; ties use ascending paragraph number. Each entry
+shows the count, a short excerpt, and a jump link (Tab, then Enter). A jump
+switches from chunk/plain text to normalized formatted text and focuses the
+source paragraph, leaving linked context separate. These are the same counts
+as paragraph shading, not a second query or a finding about citation treatment.
+Opening another case, a failed load, or closing the reader clears the panel.
+The panel and **Extracted case summary** use the same backend block-start
+anchors, so either evidence link remains usable after switching reader modes.
+
 ### Reader Modes
 
 - **Chunk breakdown**: displays stored decision chunks as a continuous reading
@@ -455,11 +469,19 @@ citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Outcomes And Profiles
+## Judge Profile
 
-Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
-
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+Judge Profile is the sole active judge workflow; the standalone Judge Outcomes
+view is retired. It resolves a canonical judge identity, aliases, primary
+court, linked cases, and available outcome/year information. The profile
+summary shows government wins, classified decisions, all linked decisions,
+and government win rate. The rate is government wins divided by classified
+decisions; unclassified decisions are excluded from the denominator. Its
+optional Minister filter narrows linked decisions associated with the selected
+government actor; it does not calculate an individual Minister's performance.
+Use profiles to reduce name variation, not to claim a complete judicial record
+or infer individual bias. Source and classification gaps matter when comparing
+rates.
 
 ## Data Explorer And FC History
 

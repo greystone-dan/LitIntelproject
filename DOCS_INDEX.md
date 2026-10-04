@@ -32,6 +32,9 @@ Primary explainer docs:
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
     agent, durable task records, status, and escalation rules.
+7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
+   review for live document analysis and de-identification; current route
+   behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
 
 ## Active Vs Legacy Locations
 
@@ -91,6 +94,17 @@ Current operational sources of truth:
 
 12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
+
+13. `docs/reports/id-iad-coverage-design.md`
+- Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
+
+## Task-Specific Review Reports
+
+- `docs/reports/open-pr-review.md` records the read-only, point-in-time review
+  of PRs #28, #29, #32, and #34, including immutable source citations,
+  migration/route interactions, untested paths, and review limitations. It is
+  evidence for that review only; it does not replace current GitHub checks or
+  the authoritative source code and migrations.
 
 Historical context (read with caution):
 

@@ -950,7 +950,7 @@ async def live_analysis_analyze(
 	file: UploadFile = File(...),
 	resolve: bool = Query(False),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db if resolve else None)
@@ -958,14 +958,15 @@ async def live_analysis_analyze(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be parsed as DOCX") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.post("/live-analysis/resolve", response_model=LiveAnalysisResponse)
 async def live_analysis_resolve(
 	file: UploadFile = File(...),
 	db: Session = Depends(get_db),
-) -> LiveAnalysisResponse:
+) -> JSONResponse:
 	content = await file.read()
 	try:
 		payload = analyze_document(content, file.filename or "document.docx", file.content_type, db)
@@ -973,7 +974,8 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	except Exception as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
-	return LiveAnalysisResponse.model_validate(payload)
+	response = LiveAnalysisResponse.model_validate(payload)
+	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
 
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
@@ -1521,6 +1523,89 @@ def search_analytics_cases(
 	)
 
 
+def _csv_safe_cell(value: Any) -> str:
+	text_value = "" if value is None else str(value)
+	if text_value.startswith(("=", "+", "-", "@")):
+		return "'" + text_value
+	return text_value
+
+
+@router.get(
+	"/search/export.csv",
+	response_class=Response,
+	responses={200: {"content": {"text/csv": {"schema": {"type": "string"}}}}},
+)
+def export_search_analytics_cases(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> Response:
+	cohort_ids = None
+	if cohort_id:
+		if cohort_id != "discussion_units_core_300":
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+		cohort_ids = list(load_discussion_unit_cohort())
+
+	rows: list[dict[str, Any]] = []
+	while len(rows) < 1000:
+		page = fetch_analytics_search_cases(
+			db,
+			query=query,
+			cites=cites,
+			government_outcome=government_outcome,
+			decision_outcome=decision_outcome,
+			minister=minister,
+			judge=judge,
+			court=court,
+			year=year,
+			search_full_text=search_full_text,
+			sort_by=sort_by,
+			limit=min(100, 1000 - len(rows)),
+			offset=len(rows),
+			cohort_ids=cohort_ids,
+		)
+		page_rows = page.get("results", [])
+		rows.extend(page_rows[: 1000 - len(rows)])
+		if len(page_rows) < 100 or not page_rows:
+			break
+
+	output = io.StringIO(newline="")
+	writer = csv.writer(output)
+	writer.writerow(["citation", "title", "court", "date", "judge", "outcome", "iLit URL"])
+	for row in rows:
+		government_outcome = row.get("government_outcome")
+		outcome = (
+			government_outcome
+			if government_outcome in {"won", "lost"}
+			else row.get("decision_outcome")
+		)
+		writer.writerow(
+			[
+				_csv_safe_cell(row.get("citation")),
+				_csv_safe_cell(row.get("title")),
+				_csv_safe_cell(row.get("court")),
+				_csv_safe_cell(row.get("date")),
+				_csv_safe_cell(row.get("judge")),
+				_csv_safe_cell(outcome),
+				_csv_safe_cell(f"/data-explorer?case_id={row['case_id']}"),
+			]
+		)
+	return Response(
+		content="\ufeff" + output.getvalue(),
+		media_type="text/csv",
+		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
+	)
+
+
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])
 def get_case_paragraph_assessments(case_id: int) -> dict[str, Any]:
 	return load_paragraph_assessments(case_id, enforce_cohort=False)
@@ -1726,10 +1811,20 @@ def get_case_authority_map(
 def get_citation_map_case_tags(
 	case_id: int,
 	limit: int = 100,
+	display_limit: int | None = None,
 	db: Session = Depends(get_db),
 ) -> list[dict[str, Any]]:
 	_get_case_or_404(case_id, db)
-	return _case_legal_tags(db, case_id, limit=max(1, min(250, limit)))
+	# Apply display ranking by default, capping at 8-10 tags
+	# Can be disabled by passing display_limit=-1
+	if display_limit is None:
+		display_limit = 10  # Default: show top 10 tags ranked by rarity
+	elif display_limit < 0:
+		display_limit = None  # Disable ranking/capping
+
+	return _case_legal_tags(
+		db, case_id, limit=max(1, min(250, limit)), display_limit=display_limit
+	)
 
 
 @router.get("/citation-map/common-citers", response_model=list[CitationMapCommonCiterResponse])

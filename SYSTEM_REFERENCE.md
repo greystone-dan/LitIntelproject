@@ -180,6 +180,37 @@ The additive reader `extracted_summary` projection has no unverified UI
 fallback. Empty summaries are hidden; no generated prose, classification,
 stored-data changes, or browser-created offsets are involved. This surface is
 separate from the optional technical **Show case summary** control.
+The formatted reader also begins with a collapsible, default-open **Quick
+summary**, fetched from read-only `GET /api/cases/{case_id}/summary`. This
+additive card preserves the existing Extracted case summary and optional
+technical summary. [`backend/case_summary.py`](backend/case_summary.py)
+projects stored title/citation/court/date and the latest stored outcome/source
+(unclassified/unknown when absent); those labels are stored metadata, not new
+classification or independently verified header facts. Verified disposition
+evidence selects its complete verbatim numbered paragraph, including continuation
+blocks. One or two complete verbatim sentences come from an explicit issue
+opening or issue/standard-of-review heading; issue candidates take precedence
+over review candidates. Ambiguous abbreviations, quotations, incomplete
+sentences, unnumbered and cross-paragraph evidence are omitted, not guessed.
+Issue openings and headings currently support explicit English forms only.
+Up to five statute/instrument keys show stored occurrence counts, with
+alphabetical tie-breaks. Chunk-linked statute offsets are not rebased by this
+projection and therefore have no source link; counts remain visible. Up to five
+distinct active-taxonomy tags require exact numbered-paragraph evidence and
+finite stored scores, ordered by score then category/value. Sources and scores
+are displayed as provenance, not legal conclusions.
+Unavailable identity rows, disposition/issue excerpts and empty statute/tag
+sections are omitted without placeholder prose. Outcome/source always remain
+visible with unclassified/unknown fallbacks; statute counts can remain without
+verified excerpts, while tags with invalid browser-verified evidence are omitted.
+[`backend/pages/case_quick_summary.py`](backend/pages/case_quick_summary.py)
+escapes all stored display values, verifies excerpts with Unicode code points
+rather than JavaScript UTF-16 indices, and focuses backend block-start anchors
+with paragraph identity even when paragraph numbers repeat. Stale requests are
+discarded, failures leave existing reader tools available, and collapse state
+survives mode changes (reopening a decision defaults open). Quick summary is
+hidden in chunk/plain modes. No generated prose, source mutation, new
+dependencies, or extraction/resolution pipeline runs are involved.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values

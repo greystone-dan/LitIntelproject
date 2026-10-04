@@ -205,6 +205,7 @@ test checks that these paths continue to exist.
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
 | `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |
+| `backend/memo_gap_check.py` | Bounded per-tag missing and possible-contrary authority suggestions for ephemeral memos |
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
@@ -216,6 +217,7 @@ test checks that these paths continue to exist.
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
+| `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
@@ -228,6 +230,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/pages/memo_gap_check.py` | Escaped renderer for rule-based memo gap suggestions |
 | `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |

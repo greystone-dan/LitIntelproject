@@ -966,6 +966,9 @@ class MemoCitationCheckResponse(BaseModel):
 	missing_authorities: list[Any]  # MissingAuthorityResponse
 	memo_analysis: MemoCitationAnalysis
 	suggestions: MemoAuthoritySuggestions = Field(default_factory=MemoAuthoritySuggestions)
+	gap_suggestions: dict[str, Any] = Field(
+		default_factory=dict
+	)
 
 
 class SavedSearchCreateRequest(BaseModel):

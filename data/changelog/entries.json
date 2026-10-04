@@ -1,0 +1,847 @@
+[
+ {
+  "date": "2026-07-31",
+  "theme": "library",
+  "title": "First version of the case library",
+  "text": "A database of Canadian court decisions that could be searched by keyword and by meaning, with the original text kept untouched alongside what was read from it.",
+  "refs": [
+   "work-history:2026-07-31",
+   "cacfd2c"
+  ]
+ },
+ {
+  "date": "2026-08-01",
+  "theme": "library",
+  "title": "Overnight processing that can stop and resume",
+  "text": "Large batches of decisions can now be processed overnight, stopped, and picked up again where they left off, with a lock so two runs never collide. A first legal-topic tag list and a separate library of statutes and guidance were added.",
+  "refs": [
+   "work-history:2026-08-01"
+  ]
+ },
+ {
+  "date": "2026-08-02",
+  "theme": "library",
+  "title": "Federal Court decisions brought in directly",
+  "text": "Federal Court decisions can be collected from their source with the original page address and details preserved.",
+  "refs": [
+   "work-history:2026-08-02"
+  ]
+ },
+ {
+  "date": "2026-08-03",
+  "theme": "citations",
+  "title": "Citation analytics: shifts, gaps and bridges",
+  "text": "Early analysis of how authorities are used: which doctrines are shifting, which cases are cited together, and which authorities a decision does not mention that similar decisions do. The first stand-alone case reader and a citation map arrived too.",
+  "refs": [
+   "work-history:2026-08-03",
+   "e76f2ab"
+  ]
+ },
+ {
+  "date": "2026-08-05",
+  "theme": "library",
+  "title": "Decisions split into sections and paragraphs",
+  "text": "Every decision is now divided by headings and numbered paragraphs, so a result can point to the exact passage. Federal Court details such as judge and dates got confidence checks.",
+  "refs": [
+   "work-history:2026-08-05"
+  ]
+ },
+ {
+  "date": "2026-08-07",
+  "theme": "citations",
+  "title": "Citation Pass QA page",
+  "text": "A review page that compares the citations and statute references the system stored against what it finds live in the text, colour-coded, so mistakes are easy to spot.",
+  "refs": [
+   "work-history:2026-08-07"
+  ]
+ },
+ {
+  "date": "2026-08-10",
+  "theme": "citations",
+  "title": "Pinpoints and “paragraph 34(1)(f) of IRPA” forms recognised",
+  "text": "Citations now keep their pinpoint (for example, “at para 99”). Statute references written in different orders, such as “34(1)(f) of IRPA”, are all recognised.",
+  "refs": [
+   "work-history:2026-08-10",
+   "7e76773",
+   "9c7bd9f"
+  ]
+ },
+ {
+  "date": "2026-08-12",
+  "theme": "search",
+  "title": "Data Explorer: advanced filters",
+  "text": "The main research page gained filters for court, year, judge, outcome and Minister, with several sort modes. A large pass linked citations to the cases they name inside the library.",
+  "refs": [
+   "work-history:2026-08-12",
+   "2dfc489",
+   "9dadd5c"
+  ]
+ },
+ {
+  "date": "2026-08-13",
+  "theme": "citations",
+  "title": "Citation Intelligence page and the first About page",
+  "text": "Pick a case and see who cites it, when, and how. The site also got a shared header and an About page that showed live library counts.",
+  "refs": [
+   "e8e746c",
+   "3a9e747",
+   "b089046"
+  ]
+ },
+ {
+  "date": "2026-08-17",
+  "theme": "search",
+  "title": "One tabbed research page",
+  "text": "Search, Citation Intelligence, Judge Profile and the other tools were brought together on one page with tabs. Judge and citation sub-tab searches were fixed.",
+  "refs": [
+   "6c224ef",
+   "4a6bf14",
+   "e16e85b"
+  ]
+ },
+ {
+  "date": "2026-08-18",
+  "theme": "search",
+  "title": "Case search matches titles and citations first",
+  "text": "Searching now looks at case names and citations by default, and only reads the full text when you ask it to, which is faster and less noisy.",
+  "refs": [
+   "work-history:2026-08-18"
+  ]
+ },
+ {
+  "date": "2026-08-19",
+  "theme": "federal-court",
+  "title": "Docket numbers and the Federal Court activity layer",
+  "text": "Cases gained a docket number (filled in for nearly all of them), and a separate layer began holding the day-by-day docket of Federal Court immigration files.",
+  "refs": [
+   "e59db9e",
+   "work-history:2026-08-19"
+  ]
+ },
+ {
+  "date": "2026-08-20",
+  "theme": "federal-court",
+  "title": "Federal Court docket entries get classified",
+  "text": "Rules were added to recognise what each docket line means (filing, leave decision, hearing, judgment) and to review samples by hand.",
+  "refs": [
+   "47eaa6b",
+   "work-history:2026-08-20"
+  ]
+ },
+ {
+  "date": "2026-09-02",
+  "theme": "statutes",
+  "title": "Laws and regulations linked to the cases that cite them",
+  "text": "A reference system for legislation was added, so citations to sections of the Act and Regulations connect to the provisions themselves.",
+  "refs": [
+   "155a57c"
+  ]
+ },
+ {
+  "date": "2026-09-03",
+  "theme": "citations",
+  "title": "Live analysis and wider citation matching",
+  "text": "A live analysis page that works on text you give it without saving anything, and a much broader pass at matching short-form citations to the right case.",
+  "refs": [
+   "1169cff"
+  ]
+ },
+ {
+  "date": "2026-09-03",
+  "theme": "tagging",
+  "title": "Tags highlighted where they occur",
+  "text": "Legal-topic tags can now be shown at the exact place in the decision where they are found, and a watchdog keeps long tagging runs on track.",
+  "refs": [
+   "71825b9",
+   "24b7d6f",
+   "e98327f"
+  ]
+ },
+ {
+  "date": "2026-09-04",
+  "theme": "tagging",
+  "title": "Second-generation legal tagging goes live",
+  "text": "A larger, evidence-based set of legal-topic tags replaced the first one, with each tag tied to the text that triggered it.",
+  "refs": [
+   "96d938f",
+   "5a33fe6"
+  ]
+ },
+ {
+  "date": "2026-09-04",
+  "theme": "search",
+  "title": "Legal Themes tab",
+  "text": "A tab for exploring which legal themes and statute sections show up across decisions and how they cluster.",
+  "refs": [
+   "97f7a57"
+  ]
+ },
+ {
+  "date": "2026-09-04",
+  "theme": "citations",
+  "title": "Composite citations and pinpoint accuracy",
+  "text": "Citations written together, such as a case with attached pinpoints, are now read as one unit. Pinpoint reading was improved and tested against a hand-checked five-case sample.",
+  "refs": [
+   "dc8792f",
+   "3b716b0",
+   "647cd08",
+   "1455a13"
+  ]
+ },
+ {
+  "date": "2026-09-04",
+  "theme": "statutes",
+  "title": "Foundation for statute authority linking",
+  "text": "The groundwork for tying each statute reference to the real provision it names was laid, along with a plan for what to build next.",
+  "refs": [
+   "7cc804f"
+  ]
+ },
+ {
+  "date": "2026-09-06",
+  "theme": "library",
+  "title": "Supreme Court decisions brought in from 1970 on",
+  "text": "A resumable run read Supreme Court of Canada decisions (text only) from 1970 forward, with safeguards that set aside any decision that stalls.",
+  "refs": [
+   "06ffba1",
+   "b50ea12",
+   "767d177"
+  ]
+ },
+ {
+  "date": "2026-09-07",
+  "theme": "citations",
+  "title": "Citation extraction rebuilt and checked",
+  "text": "The citation reader was hardened and re-run across the library, with a recorded checkpoint of how many citations were found and linked.",
+  "refs": [
+   "329586e",
+   "fdb39c2"
+  ]
+ },
+ {
+  "date": "2026-09-14",
+  "theme": "reader",
+  "title": "Reader fixes: highlights, keyboard and speed",
+  "text": "The decision reader now loads statute references only when needed, highlights overlapping citations and laws more clearly, and can be used from the keyboard. A visual accessibility review was recorded.",
+  "refs": [
+   "c1f9e0e",
+   "3987ee7",
+   "04c90f3",
+   "faa3271",
+   "a39e02a"
+  ]
+ },
+ {
+  "date": "2026-09-18",
+  "theme": "reader",
+  "title": "Case information and advanced views split",
+  "text": "The reader’s side area separates basic case information from the advanced layers, and a new evidence layer shows how the decision’s own statute and case references line up.",
+  "refs": [
+   "5c81825",
+   "3665353"
+  ]
+ },
+ {
+  "date": "2026-09-19",
+  "theme": "reader",
+  "title": "Case summary layer",
+  "text": "A switchable summary built by fixed rules from what is stored, with no AI involved.",
+  "refs": [
+   "e967865",
+   "0a40257"
+  ]
+ },
+ {
+  "date": "2026-09-22",
+  "theme": "search",
+  "title": "Case search made clearer",
+  "text": "The search page was reorganised for clarity and a more compact chunk view was added to the reader.",
+  "refs": [
+   "5060288",
+   "33d6cd3",
+   "e549493"
+  ]
+ },
+ {
+  "date": "2026-09-23",
+  "theme": "reader",
+  "title": "Discussion units on a core set of decisions",
+  "text": "A resumable run began splitting decisions into discussion units (stretches of reasoning on one issue) for a core set of 300 decisions.",
+  "refs": [
+   "a6a9487",
+   "cf00ac5",
+   "c19a9b5"
+  ]
+ },
+ {
+  "date": "2026-09-24",
+  "theme": "docs",
+  "title": "Interactive map of how the site works",
+  "text": "The About page gained a clickable map showing how decisions flow from source to research tools. Site architecture details moved to their own tab.",
+  "refs": [
+   "3e49dae",
+   "8b536a6",
+   "a6278d0",
+   "8c8f53d"
+  ]
+ },
+ {
+  "date": "2026-09-25",
+  "theme": "citations",
+  "title": "Paragraph meaning linked to citations",
+  "text": "Paragraphs in the core decisions were linked to the citations inside them, and the About page gained a per-case pipeline diagram.",
+  "refs": [
+   "683a433",
+   "9224208",
+   "f33599c"
+  ]
+ },
+ {
+  "date": "2026-09-28",
+  "theme": "federal-court",
+  "title": "Federal Court files tracked by stage",
+  "text": "Docket reading now knows which steps apply at each stage of a file, so a file refused leave is no longer shown as missing a hearing. Motion types were classified and linked to the docket entries they came from, and the decision being challenged is identified for a sample of files.",
+  "refs": [
+   "c4c26b0",
+   "a98e79d",
+   "abe1df5",
+   "1d2ed4e",
+   "7fca9a2"
+  ]
+ },
+ {
+  "date": "2026-09-28",
+  "theme": "docs",
+  "title": "Project time and cost records",
+  "text": "Records of recorded work time and spending were refreshed and added to the project’s documentation.",
+  "refs": [
+   "90169f2",
+   "e2d45f6"
+  ]
+ },
+ {
+  "date": "2026-09-29",
+  "theme": "docs",
+  "title": "About page rewritten as a status overview",
+  "text": "The About page was restructured into a plain status overview with site architecture on its own tab. A Research Bench prototype tab for saving decisions and notes was added.",
+  "refs": [
+   "9d7f48b",
+   "327e616",
+   "d694902"
+  ]
+ },
+ {
+  "date": "2026-10-01",
+  "theme": "library",
+  "title": "Ingestion and embedding workflow improvements",
+  "text": "Updates to how new decisions are brought in and indexed, ahead of the site moving to its own always-on service.",
+  "refs": [
+   "4884e9b"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "reader",
+  "title": "New formatted case reader",
+  "text": "Decisions now open in a clean formatted view with headings, numbered paragraphs, block quotes and signatures set properly, made by fixed rules rather than AI. It became the default way to read a case.",
+  "refs": [
+   "#1",
+   "#2",
+   "#4",
+   "#5",
+   "#6"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "reader",
+  "title": "Citations highlighted inline in the reader",
+  "text": "Citations sit inside their paragraphs as flat highlights, and clicking a linked case in the reader works as expected.",
+  "refs": [
+   "#12"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "reader",
+  "title": "Reader sidebar, header and context pane redesigned",
+  "text": "A new reader layout with a case summary sidebar, a clearer header and toolbar, and a context pane for linked cases.",
+  "refs": [
+   "#13"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "search",
+  "title": "Case search redesigned",
+  "text": "Quick filters, new result cards and a cited-by count on every result. The unused RAG option was removed.",
+  "refs": [
+   "#14"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "infrastructure",
+  "title": "The site now runs as a background service",
+  "text": "The site and its secure tunnel start themselves when the computer logs in, run out of sight, and restart if they stop. Tests also began running automatically on every proposed change.",
+  "refs": [
+   "#8",
+   "#9",
+   "#10"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "citations",
+  "title": "Second-pass checks on citations and statutes",
+  "text": "Extra refinement layers re-check each case citation and statute reference for correctness.",
+  "refs": [
+   "#16",
+   "#17"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "security",
+  "title": "De-identify tool",
+  "text": "A page that finds names in a document and swaps them for placeholders, then restores them, all in memory with nothing stored.",
+  "refs": [
+   "#15"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "federal-court",
+  "title": "Federal Court activity expansion and FC Analytics tab",
+  "text": "Many more docket outcomes are read, including consent settlements. Judges at each stage, hearings, appeals, stays of removal, counsel and deadlines appear in the data, and a new FC Analytics tab shows interactive charts over it.",
+  "refs": [
+   "#18"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "judges",
+  "title": "Citation Intelligence and Judge Profiles redesigned",
+  "text": "Both pages were rebuilt with clearer layouts and faster navigation from a case to its authorities and from a judge to their decisions.",
+  "refs": [
+   "#19"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "theme": "outcomes",
+  "title": "Better outcome detection",
+  "text": "The rules that decide whether a decision allowed or dismissed an application were improved.",
+  "refs": [
+   "#20"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "tagging",
+  "title": "Tagging improved and widened",
+  "text": "Detention grounds and decision-maker actions are now tagged, country-name false positives were fixed, and the tag set grew to 323 common legal concepts, about 3.6 times the earlier coverage.",
+  "refs": [
+   "#21",
+   "#24",
+   "#36"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "tagging",
+  "title": "Tag-based case finder and tag ranking",
+  "text": "Find cases similar to the one you are reading by the legal tags they share, and see the most distinctive tags first.",
+  "refs": [
+   "#27",
+   "#83"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "citations",
+  "title": "Memo citation check",
+  "text": "Upload a Word or PDF memo and see the cases and statute sections in it matched and linked to the library. It works in memory and saves nothing.",
+  "refs": [
+   "#35"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "reader",
+  "title": "Paragraphs shaded when other cases cite them",
+  "text": "The reader shades paragraphs that other cases in the library have cited.",
+  "refs": [
+   "#42"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "reader",
+  "title": "Extractive summary in the reader",
+  "text": "A summary made only of sentences taken directly from the decision, each linked back to its paragraph.",
+  "refs": [
+   "#73"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "reader",
+  "title": "Discussion units and outline navigator",
+  "text": "Decisions are split into discussion units with an outline you can jump around, plus a Citation Context pane showing which sub-topic cites a linked case.",
+  "refs": [
+   "#22",
+   "#31"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "search",
+  "title": "Case search exports to CSV",
+  "text": "Download the current search results as a spreadsheet.",
+  "refs": [
+   "#74"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "reader",
+  "title": "Most-cited paragraphs panel",
+  "text": "A collapsible panel lists the five paragraphs of a decision that the most other cases cite.",
+  "refs": [
+   "#93"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "search",
+  "title": "Exact citations and party names match first",
+  "text": "Typing a neutral citation or a party name now puts that case at the top of the results.",
+  "refs": [
+   "#96"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "search",
+  "title": "Saved searches and alerts return",
+  "text": "Saved searches and alerts were rebuilt inside the redesigned case search.",
+  "refs": [
+   "#80"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "tagging",
+  "title": "Theme Discovery groups sub-themes",
+  "text": "Related sub-themes in the Legal Themes tab are grouped by shared key terms.",
+  "refs": [
+   "#32"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "search",
+  "title": "Printable legal issue briefs",
+  "text": "A printable page for a legal issue with yearly outcomes, courts and the key authorities. Outcome percentages show how many cases were unclassified.",
+  "refs": [
+   "#92"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "docs",
+  "title": "Analyst quick-start guide",
+  "text": "A plain guide to using the tool, written for litigation analysts.",
+  "refs": [
+   "#77"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "docs",
+  "title": "Readiness and review documents",
+  "text": "Written checks of privacy and security for the document tools, an accessibility audit, a documentation fact-check against the code, a readiness checklist for government use, performance findings, and designs for ID and IAD decision coverage and for citation-treatment signals.",
+  "refs": [
+   "#61",
+   "#62",
+   "#64",
+   "#65",
+   "#41",
+   "#52",
+   "#72"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "statutes",
+  "title": "Statute library with point-in-time versions",
+  "text": "Federal laws relevant to immigration and CBSA work (22 of them) can be imported with their history, so a decision links to the version of a section in force on its date. A statute viewer page and API were added.",
+  "refs": [
+   "#130"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "library",
+  "title": "Importer for a larger public case-law dataset",
+  "text": "A tool to bring decisions from the public A2AJ dataset into the library, with a check that skips cases already held. Dry runs and diagnostics come first.",
+  "refs": [
+   "#130"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "theme": "judges",
+  "title": "Unit search and judge analytics",
+  "text": "Search discovered legal themes and see how different judges handle them.",
+  "refs": [
+   "#34",
+   "#139"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "security",
+  "title": "Opt-in sign-in, audit log and safety limits",
+  "text": "A password gate and a privacy-safe request log exist but are off by default. Uploads are size-limited and extra security headers are available. Access stays open for now.",
+  "refs": [
+   "#105",
+   "#106",
+   "#107",
+   "#176"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "performance",
+  "title": "Faster analytics pages",
+  "text": "Slow analytics endpoints now keep their results for a short time instead of recalculating on every visit. Database indexes to speed up search were drafted.",
+  "refs": [
+   "#108",
+   "#109"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "reader",
+  "title": "Reader keyboard shortcuts and printing",
+  "text": "Move between paragraphs with the keyboard and print a decision cleanly.",
+  "refs": [
+   "#113"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "reader",
+  "title": "Explainable paragraph similarity",
+  "text": "Find similar paragraphs and see which shared tags and citations make them similar.",
+  "refs": [
+   "#94"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "judges",
+  "title": "Judge comparison and issue outcomes",
+  "text": "Compare two judges side by side by issue. Outcome shares always show how many decisions were left out, and unclear results are counted rather than hidden.",
+  "refs": [
+   "#95",
+   "#124"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "search",
+  "title": "Word export of search results",
+  "text": "Download search results as a Word document next to the CSV option.",
+  "refs": [
+   "#97"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "search",
+  "title": "Side-by-side case comparison",
+  "text": "Open two decisions next to each other to compare what they decided and cited.",
+  "refs": [
+   "#122"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "search",
+  "title": "Power-user search operators",
+  "text": "Quoted phrases, exclusions and field operators for people who want exact control.",
+  "refs": [
+   "#127"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "search",
+  "title": "Saved-search digests",
+  "text": "Digests of what is new on a saved search, with a flag when the Minister lost and a note when a trend shifts.",
+  "refs": [
+   "#129"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "citations",
+  "title": "Memo check suggests missing and contrary authorities",
+  "text": "After a memo is checked, the tool can suggest authorities that similar cases cite which the memo does not, and some that point the other way.",
+  "refs": [
+   "#159"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "reader",
+  "title": "Quick summary in the reader",
+  "text": "A short summary built only from sentences in the decision itself, shown in the reader sidebar.",
+  "refs": [
+   "#162"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "citations",
+  "title": "Cautious overruling-risk notice",
+  "text": "A yellow note appears on a decision when an authority it relies on may have been affected by later case law, with the source and reasoning shown. It draws on an editable list meant for lawyer review.",
+  "refs": [
+   "#160"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "statutes",
+  "title": "See how courts have considered a statute section",
+  "text": "For a section of a law, a view of the decisions that have considered it.",
+  "refs": [
+   "#161"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "search",
+  "title": "Search stays free of AI by default",
+  "text": "Searching through the API no longer sends the query to an outside AI service unless that mode is switched on. The Case Search page itself already ran on the database alone.",
+  "refs": [
+   "#201"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "infrastructure",
+  "title": "Groundwork for a local AI model",
+  "text": "Optional building blocks for running AI on a local machine: switchable embedding providers, versioned prompts, and tools to compare models offline. All are off by default.",
+  "refs": [
+   "#179",
+   "#193",
+   "#195",
+   "#208",
+   "#211",
+   "#212"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "infrastructure",
+  "title": "Easier to host and monitor",
+  "text": "Docker setup, health probes, a separate background job runner, a smaller set of required packages and automated dependency checks make the site easier to move and run elsewhere.",
+  "refs": [
+   "#177",
+   "#190",
+   "#191",
+   "#194",
+   "#198"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "docs",
+  "title": "Documentation refreshed for readiness",
+  "text": "The README and architecture overview were refreshed and an evidence-backed set of government-readiness documents was added.",
+  "refs": [
+   "#135",
+   "#180"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "outcomes",
+  "title": "Outcomes now say “unclear” instead of guessing",
+  "text": "Fixed wrong outcome patterns found in an accuracy audit. When the rules cannot tell, the case now shows as unclear. A second-opinion checker tool can only confirm an outcome or mark it unclear, and writes its answers separately from the main data.",
+  "refs": [
+   "#213",
+   "#214",
+   "#215"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "markup",
+  "title": "Markup mode: a third way to read a case",
+  "text": "The decision fills the page with notes in the margin: citations, discussion units, outcome, judge and who cites each paragraph. A switcher turns each layer off or on, case information sits in a drawer, and an outline and Find tool help navigate.",
+  "refs": [
+   "#216"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "markup",
+  "title": "Markup mode: hover card, Peek panel, topic view",
+  "text": "Hover a citation for a quick look, open floating Peek panels without leaving the case, show tags as tint or bubbles, and group the text by topic.",
+  "refs": [
+   "#219"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "markup",
+  "title": "Margin shows who cites each paragraph",
+  "text": "A batch job records which cases cite each paragraph and the signal beside the citation (followed, distinguished, quoted). The margin uses it once it has been run on the live data.",
+  "refs": [
+   "#220",
+   "#240"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "infrastructure",
+  "title": "Fixed script errors that could break pages",
+  "text": "Several syntax errors in the page scripts were fixed.",
+  "refs": [
+   "#218"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "mobile",
+  "title": "Phone layout fixes",
+  "text": "Search, the reader and Markup mode now fit narrow screens: stacked search fields, scrolling filter chips, a one-row Markup toolbar and bottom-sheet panels. A second pass fixed Site Architecture, wide tables, judge comparison and the statute viewer.",
+  "refs": [
+   "#221",
+   "#222"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "markup",
+  "title": "Markup mode: Word export and private notes",
+  "text": "Export the decision with its margin notes as real Word comments. Click a paragraph number to write a private note or highlight; these stay in your browser only and travel into the Word file.",
+  "refs": [
+   "#225"
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "theme": "library",
+  "title": "Docket number column made safe to add",
+  "text": "A database change to the docket number column was written so it can be applied repeatedly without harm.",
+  "refs": [
+   "#224"
+  ]
+ }
+]

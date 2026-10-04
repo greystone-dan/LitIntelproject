@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 164
+Active scripts documented: 165
 
 ## Catalog
 
@@ -34,6 +34,7 @@ Active scripts documented: 164
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
 | `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
+| `build_changelog.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_changelog.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
@@ -509,6 +510,20 @@ Active scripts documented: 164
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_alert_digest.py --help
+```
+
+## `scripts/build_changelog.py`
+
+**Purpose:** Build the About-page changelog from GitHub records plus hand-written entries. Inputs (all committed under data/changelog/): entries.json hand-written, plain-language entries. Each one lists the merged PRs ("#216"), commits (short sha) or work-history days it summarises. An entry that cites merged PRs takes the date of the latest one, so dates always match GitHub. skip.json merged PRs deliberately left out (docs-only, CI tweaks, reverts, scratch work), with a reason. github_records.json cache of merged PRs and commits, written by --refresh. Output: data/changelog/changelog.json, which the About page embeds. Nothing is fetched when the page is viewed. python scripts/build_changelog.py rebuild changelog.json from the committed inputs python scripts/build_changelog.py --refresh first pull merged PRs and commits from GitHub (GITHUB_TOKEN, or the gh CLI) python scripts/build_changelog.py --check exit 1 if changelog.json is out of date (used by tests) python scripts/build_changelog.py --uncovered list merged PRs that have no entry and are not skipped Merged PRs that have no entry and are not skipped still appear, as short "auto" entries built from the PR title, so a refresh never loses work; write a proper entry for them in entries.json when convenient.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_changelog.py --help
 ```
 
 ## `scripts/build_citation_sample_candidate.py`

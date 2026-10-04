@@ -43,6 +43,10 @@ def test_real_document_extraction_reused_and_exact_nested_spans(text, caplog):
     assert MemoAuthoritySuggestions.model_validate(payload["suggestions"]).disclaimer == (
         "Suggestions, not legal advice"
     )
+    assert payload["gap_suggestions"]["status"] == "session_unavailable"
+    assert payload["gap_suggestions"]["disclaimer"] == (
+        "Suggestions for review, not legal advice"
+    )
     assert text not in caplog.text
     # No-session legacy output has no enhanced fields; do not invent them.
     assert "missing_authorities" not in payload and "memo_analysis" not in payload
@@ -65,9 +69,14 @@ def test_no_session_preserves_every_existing_analysis_field(monkeypatch):
     }
     monkeypatch.setattr(memo, "analyze_document", lambda *args: original)
     payload = memo.analyze_memo_citations(b"invented", "invented.docx")
-    assert {key: value for key, value in payload.items() if key != "suggestions"} == original
+    assert {
+        key: value for key, value in payload.items()
+        if key not in {"suggestions", "gap_suggestions"}
+    } == original
     assert "suggestions" not in original
+    assert "gap_suggestions" not in original
     assert payload["suggestions"]["missing"] == payload["suggestions"]["contrary"] == []
+    assert payload["gap_suggestions"]["status"] == "empty_memo"
 
 
 def test_legacy_treatment_related_and_missing_outputs_unchanged(monkeypatch):
@@ -117,6 +126,7 @@ def test_legacy_treatment_related_and_missing_outputs_unchanged(monkeypatch):
         "total_authorities_cited": 1, "resolved_authorities": 1,
         "authorities_with_treatment": 1, "missing_authorities_found": 1,
     }
+    assert payload["gap_suggestions"]["status"] == "empty_memo"
     assert payload["summary"] == original["summary"]
     validated = MemoCitationCheckResponse.model_validate(payload).model_dump()
     assert validated["suggestions"]["status"] == "no_signals"
@@ -133,6 +143,7 @@ def test_existing_route_serializes_suggestions_without_route_change(monkeypatch)
         "memo_analysis": {"total_authorities_cited": 0, "resolved_authorities": 0,
                           "authorities_with_treatment": 0, "missing_authorities_found": 0},
         "suggestions": MemoAuthoritySuggestions(status="empty_cohort").model_dump(),
+        "gap_suggestions": {"disclaimer": "Suggestions for review, not legal advice"},
     }
     monkeypatch.setattr(routes, "analyze_memo_citations", lambda *args: payload)
     result = asyncio.run(routes.memo_citation_check_analyze(
@@ -140,15 +151,20 @@ def test_existing_route_serializes_suggestions_without_route_change(monkeypatch)
         db=SimpleNamespace(),
     ))
     assert result.model_dump()["suggestions"] == payload["suggestions"]
+    assert result.model_dump()["gap_suggestions"] == payload["gap_suggestions"]
 
 
 def test_page_keeps_old_sections_and_adds_safe_descriptive_renderer():
     html = memo_citation_check_page_html()
     for identifier in ("cited", "treatment", "missing", "suggestedMissing",
-                       "suggestedContrary", "suggestionCoverage", "contraryHidden"):
+                       "suggestedContrary", "suggestionCoverage", "contraryHidden",
+                       "memoGapSuggestions", "gapMissing", "gapContrary",
+                       "gapCoverage", "gapContraryHidden"):
         assert f'id="{identifier}"' in html
     assert "Suggestions, not legal advice" in html
+    assert "Suggestions for review, not legal advice" in html
     assert "renderAuthoritySuggestions(data.suggestions);" in html
+    assert "renderMemoGapSuggestions(data.gap_suggestions);" in html
     assert "data.missing_authorities||[]" in html
     assert "unclassified" in html and "denominator" in html
     assert "coverage.partial" in html and "contrary_hidden_below_threshold" in html

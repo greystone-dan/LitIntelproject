@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a visible Data Explorer **Download Word** control and the
+  `GET /search/export.docx` endpoint, which preserve active analytics search
+  filters and export up to 200 cases with citation/title/court/date/outcome
+  columns and query/filter/date/count context; the response is no-store.
 - Added a bounded in-process TTL cache for the About statistics, Federal Court
   activity analytics, and Judge Profile list reads. The cache defaults to ten
   minutes, supports `ANALYTICS_CACHE_TTL_SECONDS` configuration or disablement,

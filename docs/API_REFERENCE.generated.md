@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:21:12.735141+00:00
+Generated: 2026-10-04T12:36:08.925159+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 103 across 100 paths
+OpenAPI operations: 104 across 101 paths
 Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1442,6 +1442,31 @@ Export Search Analytics Cases
 **Responses**
 
 - `200`: Successful Response; `text/csv`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /search/export.docx`
+
+Export Search Docx
+
+Export up to 200 cases using the Data Explorer search filters.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /search/tags/similar`

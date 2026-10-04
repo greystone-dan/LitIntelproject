@@ -5,6 +5,7 @@ import csv
 import io
 import re
 import httpx
+from datetime import datetime
 from functools import lru_cache
 from hashlib import sha256
 from pathlib import Path
@@ -74,6 +75,7 @@ from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
+from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .memo_citation_check import analyze_memo_citations
@@ -106,6 +108,8 @@ from .database import (
 	IngestionRun,
 	LegislationDocument,
 	LegislationSection,
+	SavedSearch,
+	SearchAlert,
 	StatuteReference,
 	get_db,
 )
@@ -260,6 +264,12 @@ from .models import (
 	ResearchRequest,
 	ResearchResponse,
 	ResearchSource,
+	SavedSearchCreateRequest,
+	SavedSearchDetailResponse,
+	SavedSearchResponse,
+	SavedSearchUpdateRequest,
+	SearchAlertResponse,
+	SearchDigestResponse,
 )
 
 _data_explorer_page_html = data_explorer_page_html
@@ -1104,6 +1114,11 @@ def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
+def saved_searches_page() -> HTMLResponse:
+	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)
+
+
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
 def discussion_units_sandbox_page() -> HTMLResponse:
 	return HTMLResponse(content=discussion_units_sandbox_page_html(), status_code=status.HTTP_200_OK)
@@ -1508,6 +1523,89 @@ def search_analytics_cases(
 		limit=limit,
 		offset=offset,
 		cohort_ids=cohort_ids,
+	)
+
+
+def _csv_safe_cell(value: Any) -> str:
+	text_value = "" if value is None else str(value)
+	if text_value.startswith(("=", "+", "-", "@")):
+		return "'" + text_value
+	return text_value
+
+
+@router.get(
+	"/search/export.csv",
+	response_class=Response,
+	responses={200: {"content": {"text/csv": {"schema": {"type": "string"}}}}},
+)
+def export_search_analytics_cases(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> Response:
+	cohort_ids = None
+	if cohort_id:
+		if cohort_id != "discussion_units_core_300":
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+		cohort_ids = list(load_discussion_unit_cohort())
+
+	rows: list[dict[str, Any]] = []
+	while len(rows) < 1000:
+		page = fetch_analytics_search_cases(
+			db,
+			query=query,
+			cites=cites,
+			government_outcome=government_outcome,
+			decision_outcome=decision_outcome,
+			minister=minister,
+			judge=judge,
+			court=court,
+			year=year,
+			search_full_text=search_full_text,
+			sort_by=sort_by,
+			limit=min(100, 1000 - len(rows)),
+			offset=len(rows),
+			cohort_ids=cohort_ids,
+		)
+		page_rows = page.get("results", [])
+		rows.extend(page_rows[: 1000 - len(rows)])
+		if len(page_rows) < 100 or not page_rows:
+			break
+
+	output = io.StringIO(newline="")
+	writer = csv.writer(output)
+	writer.writerow(["citation", "title", "court", "date", "judge", "outcome", "iLit URL"])
+	for row in rows:
+		government_outcome = row.get("government_outcome")
+		outcome = (
+			government_outcome
+			if government_outcome in {"won", "lost"}
+			else row.get("decision_outcome")
+		)
+		writer.writerow(
+			[
+				_csv_safe_cell(row.get("citation")),
+				_csv_safe_cell(row.get("title")),
+				_csv_safe_cell(row.get("court")),
+				_csv_safe_cell(row.get("date")),
+				_csv_safe_cell(row.get("judge")),
+				_csv_safe_cell(outcome),
+				_csv_safe_cell(f"/data-explorer?case_id={row['case_id']}"),
+			]
+		)
+	return Response(
+		content="\ufeff" + output.getvalue(),
+		media_type="text/csv",
+		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
 	)
 
 
@@ -3179,6 +3277,184 @@ def _research_page_html() -> str:
 @router.get("/research", response_class=HTMLResponse, include_in_schema=False)
 def research_interface() -> HTMLResponse:
 	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
+
+
+def _saved_search_alert_response(db: Session, alert: SearchAlert) -> SearchAlertResponse:
+	case = db.query(Case).filter(Case.id == alert.case_id).first()
+	chunk = (
+		db.query(CaseChunk).filter(CaseChunk.id == alert.chunk_id).first()
+		if alert.chunk_id is not None
+		else None
+	)
+	return SearchAlertResponse(
+		id=alert.id,
+		search_id=alert.search_id,
+		case_id=alert.case_id,
+		chunk_id=alert.chunk_id,
+		match_type=alert.match_type,
+		relevance_score=alert.relevance_score,
+		discovered_at=alert.discovered_at,
+		case_title=case.title if case else None,
+		case_citation=case.citation if case else None,
+		case_date=case.date if case else None,
+		chunk_text=chunk.text[:200] if chunk else None,
+	)
+
+
+@router.post(
+	"/saved-searches",
+	response_model=SavedSearchResponse,
+	status_code=status.HTTP_201_CREATED,
+)
+def create_saved_search(
+	req: SavedSearchCreateRequest,
+	db: Session = Depends(get_db),
+) -> SavedSearchResponse:
+	search = SavedSearch(
+		name=req.name,
+		description=req.description,
+		query=req.query,
+		search_mode=req.search_mode,
+		filters=req.filters,
+	)
+	db.add(search)
+	db.commit()
+	db.refresh(search)
+	return SavedSearchResponse(
+		id=search.id,
+		name=search.name,
+		description=search.description,
+		query=search.query,
+		search_mode=search.search_mode,
+		filters=search.filters,
+		created_at=search.created_at,
+		updated_at=search.updated_at,
+		last_alert_check=search.last_alert_check,
+		alert_count=0,
+	)
+
+
+@router.get("/saved-searches", response_model=list[SavedSearchResponse])
+def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchResponse]:
+	searches = db.query(SavedSearch).order_by(SavedSearch.created_at.desc()).all()
+	return [
+		SavedSearchResponse(
+			id=search.id,
+			name=search.name,
+			description=search.description,
+			query=search.query,
+			search_mode=search.search_mode,
+			filters=search.filters,
+			created_at=search.created_at,
+			updated_at=search.updated_at,
+			last_alert_check=search.last_alert_check,
+			alert_count=db.query(SearchAlert)
+			.filter(SearchAlert.search_id == search.id)
+			.count(),
+		)
+		for search in searches
+	]
+
+
+@router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)
+def get_saved_search(
+	search_id: int,
+	db: Session = Depends(get_db),
+) -> SavedSearchDetailResponse:
+	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
+	if search is None:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+	alerts = (
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id == search_id)
+		.order_by(SearchAlert.discovered_at.desc())
+		.all()
+	)
+	return SavedSearchDetailResponse(
+		id=search.id,
+		name=search.name,
+		description=search.description,
+		query=search.query,
+		search_mode=search.search_mode,
+		filters=search.filters,
+		created_at=search.created_at,
+		updated_at=search.updated_at,
+		last_alert_check=search.last_alert_check,
+		alert_count=len(alerts),
+		alerts=[_saved_search_alert_response(db, alert) for alert in alerts],
+	)
+
+
+@router.put("/saved-searches/{search_id}", response_model=SavedSearchResponse)
+def update_saved_search(
+	search_id: int,
+	req: SavedSearchUpdateRequest,
+	db: Session = Depends(get_db),
+) -> SavedSearchResponse:
+	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
+	if search is None:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+	for field in ("name", "description", "query", "search_mode", "filters"):
+		value = getattr(req, field)
+		if value is not None:
+			setattr(search, field, value)
+	search.updated_at = datetime.now().astimezone()
+	db.commit()
+	db.refresh(search)
+	alert_count = (
+		db.query(SearchAlert).filter(SearchAlert.search_id == search_id).count()
+	)
+	return SavedSearchResponse(
+		id=search.id,
+		name=search.name,
+		description=search.description,
+		query=search.query,
+		search_mode=search.search_mode,
+		filters=search.filters,
+		created_at=search.created_at,
+		updated_at=search.updated_at,
+		last_alert_check=search.last_alert_check,
+		alert_count=alert_count,
+	)
+
+
+@router.delete("/saved-searches/{search_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_saved_search(search_id: int, db: Session = Depends(get_db)) -> None:
+	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
+	if search is None:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+	db.delete(search)
+	db.commit()
+
+
+@router.post("/saved-searches/{search_id}/check", response_model=SearchDigestResponse)
+def check_saved_search(
+	search_id: int,
+	db: Session = Depends(get_db),
+) -> SearchDigestResponse:
+	search = db.query(SavedSearch).filter(SavedSearch.id == search_id).first()
+	if search is None:
+		raise HTTPException(status_code=404, detail="Saved search not found")
+	alerts = (
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id == search_id)
+		.order_by(SearchAlert.discovered_at.desc())
+		.limit(100)
+		.all()
+	)
+	search.last_alert_check = datetime.now().astimezone()
+	db.commit()
+	db.refresh(search)
+	alert_responses = [
+		_saved_search_alert_response(db, alert) for alert in alerts
+	]
+	return SearchDigestResponse(
+		search_id=search_id,
+		search_name=search.name,
+		generated_at=datetime.now().astimezone(),
+		new_case_matches=alert_responses,
+		total_new_results=len(alert_responses),
+	)
 
 
 @router.get("/tag-finder", response_class=HTMLResponse, include_in_schema=False)

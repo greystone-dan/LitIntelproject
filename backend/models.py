@@ -350,6 +350,26 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
 
 
+class ThemeOccurrenceResponse(BaseModel):
+	case_id: int
+	unit_index: int
+	subtheme_id: str
+
+
+class DiscoveredThemeResponse(BaseModel):
+	theme_id: str
+	theme_name: str
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrence_count: int
+	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
+
+
+class ThemeDiscoveryResponse(BaseModel):
+	total_themes: int
+	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
+
+
 class CaseSummarySectionItemResponse(BaseModel):
 	section_role: str
 	subtheme_id: str

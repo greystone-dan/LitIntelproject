@@ -1,6 +1,6 @@
 # Privacy and security review: live analysis and de-identification
 
-Reviewed: 2026-10-03  
+Reviewed: 2026-10-04
 Scope: `backend/live_analysis.py`, `backend/deidentify.py`,
 `backend/deidentify_names.py`, the directly related handlers in
 `backend/routes.py`, and their focused tests.
@@ -18,13 +18,12 @@ The two successful Live Analysis POST responses now set
 API. A focused API test covers both routes. This is a cache directive, not an
 access-control mechanism.
 
-The 10 MB upload check is not a complete hostile-file resource limit: both
-upload paths read the multipart file before checking its length; DOCX expanded
-ZIP size, PDF page count, extraction time, and pasted-text length are not
-bounded in the reviewed application code. Large multipart uploads may also be
-spooled by Starlette's multipart parser before the route handles them. No
-application-managed persistence does not prove that request bytes never touch
-temporary storage or that a deployment proxy does not retain request data.
+Application upload reads and parser work now have explicit configured caps.
+Starlette's multipart parser may still spool data before a route begins its
+bounded reads, and deployment-level request-body limits, logging, and retention
+were not inspected. No application-managed persistence does not prove that
+request bytes never touch temporary storage or that a deployment proxy does
+not retain request data.
 
 Most importantly, `backend/main.py`'s `private_access_and_noindex` middleware
 adds `X-Robots-Tag` but does not validate the access cookie or protect routes.
@@ -42,8 +41,8 @@ finding is deployment-dependent.
 | Severity | File and lines | Finding | Suggested fix / status |
 | --- | --- | --- | --- |
 | High (deployment-dependent) | `backend/main.py:78–82`; sensitive handlers in `backend/routes.py:931–1042` | The middleware only adds a search-engine exclusion header; it does not authenticate requests. The sensitive upload and de-identification routes therefore rely on an unverified external access boundary. | Verify and enforce authentication at the deployment gateway before exposure. The repository owner has deliberately left the optional password gate off; this review does not enable it. |
-| Medium | `backend/routes.py:937,953,976`; `backend/live_analysis.py:79–87`; `backend/deidentify.py:467–479` | Each upload is fully read before the 10 MiB validation, so that check does not bound bytes read or multipart temporary spooling. Pasted text also has no application-level size check. | Enforce request-body limits before buffering and bound pasted text; retain the parser-level checks as defense in depth. |
-| Medium | `backend/live_analysis.py:38–65,263–286`; `backend/deidentify.py:434–464` | DOCX/PDF parsing has no explicit expanded-ZIP, page-count, extracted-text, CPU, or memory budget. A small compressed DOCX or a PDF with many/complex pages could consume disproportionate resources. | Add bounded decompressed-size/page/output limits and time/resource controls with hostile-file tests before broadening parser support. |
+| Medium (partially mitigated) | `backend/routes.py` upload handlers; `backend/resource_limits.py` | Route handlers now stop upload reads after the configured cap plus one byte and reject oversized uploads with HTTP 413. Starlette multipart parsing may still spool the request before route handling; the deployment request-body limit remains unverified. | Configure and verify an upstream body-size limit; inspect deployment logging and temporary-storage retention before exposure. |
+| Medium (mitigated within configured budgets) | `backend/resource_limits.py`, `backend/live_analysis.py`, `backend/deidentify.py` | DOCX expanded member size/count, PDF page count, extracted text, and de-identification pasted text now have configurable limits and clear HTTP 413 errors. Parsing CPU time, process memory, and malformed-file behavior are not comprehensively bounded or fuzz-tested. | Keep limits conservative and add parser time/resource isolation and adversarial fuzzing before broadening parser support. |
 | Low (fixed here) | `backend/routes.py:944–945,960–961` | Live Analysis responses contain the complete extracted document text and previously had no explicit cache directives. | Both successful POST routes now set `Cache-Control: no-store` and `Pragma: no-cache`; focused tests assert both headers. |
 | Medium (coverage limitation) | `backend/deidentify.py:67–105,269–371,434–479`; `backend/deidentify_names.py:92–110,208–316` | Pattern and optional model-based name detection are heuristic and extraction is incomplete; identifiers, names, indirect identifiers, and text outside supported document parts can remain. | Keep the warning that output is not guaranteed anonymous; require human review and consider adversarial recall testing before relying on it for disclosure. |
 
@@ -106,30 +105,35 @@ deployment-level request logging.
 ## Hostile files and resource limits
 
 The application validates supported filename suffixes, selected MIME types,
-empty content, and a maximum compressed/request file length of 10 MiB before
-document parsing. The analysis parsers are `python-docx` and `pypdf`; DOCX uses
-the OOXML package reader and PDFs are read from in-memory bytes.
+empty content, and configured upload/parser limits before document analysis.
+Defaults and environment-variable names are defined in
+`backend/resource_limits.py`: 10 MiB upload bytes, 100 MiB total expanded DOCX
+members, 2,000 DOCX entries, 500 PDF pages, 5,000,000 extracted characters,
+and 1,000,000 pasted characters. The analysis parsers are `python-docx` and
+`pypdf`; DOCX uses the OOXML package reader and PDFs are read from in-memory
+bytes.
 
 The limit and parser behavior have important boundaries:
 
-1. In both Live Analysis routes, `await file.read()` happens before
-   `validate_live_analysis_upload` checks the 10 MiB length. De-identification
-   similarly reads the whole file before `text_from_upload` checks its limit.
-   Thus the application-level limit does not cap bytes read by the handler, and
-   this review did not verify a proxy/server request-body cap.
-2. The DOCX byte check limits the compressed upload, not the expanded ZIP
-   member sizes, count, or total extracted text. No explicit zip-bomb
-   expansion, nesting, or parser-time budget was found in the reviewed code.
-3. No explicit PDF page-count, text-output, CPU, or memory budget was found.
-   Live Analysis extracts selectable page text; scanned/image-only PDFs have
-   no OCR and can yield little or no useful text. The de-identification PDF
-   path rejects documents with very little selectable text per page.
-4. The de-identification text-form input has no application-level character
-   limit in the reviewed route. DOCX/PDF/TXT/MD upload bytes use the 10 MiB
-   check, but that check also occurs after the file is read.
-5. Malformed or unsupported inputs are rejected or mapped to 422 responses;
-   hostile malformed/oversized/zip-bomb fixture testing was not part of the
-   focused suite and no claim of comprehensive parser hardening is made.
+1. Route handlers read uploaded bytes in chunks and stop after at most the
+   configured upload limit plus one detection byte. Starlette multipart parsing
+   occurs earlier and may spool bytes; this application-level bound is not an
+   upstream request-body limit.
+2. DOCX parsing rejects archives over the configured expanded-member byte sum
+   or entry count before `python-docx` opens them. ZIP directory parsing and
+   document parsing still consume CPU/memory within those limits; no wall-clock
+   timeout or process isolation is implemented.
+3. PDF parsing checks the configured page count before extracting page text and
+   stops when aggregate extracted text exceeds its configured character cap.
+   Live Analysis extracts selectable page text; scanned/image-only PDFs have no
+   OCR and can yield little or no useful text. The de-identification PDF path
+   rejects documents with very little selectable text per page.
+4. De-identification pasted text and DOCX-output text have an application-level
+   character limit. DOCX/PDF/TXT/MD uploads use the shared byte and
+   extracted-text limits.
+5. Oversized-upload, generated compressed-DOCX, many-page-PDF, and normal-path
+   cases have focused tests. These fixtures do not establish comprehensive
+   malformed-file, parser-time, memory, or fuzz coverage.
 6. The parsers extract document text, not arbitrary embedded content.
    Live-analysis DOCX extraction iterates document paragraphs; it does not
    enumerate every Word table, header/footer, text box, comment, attachment, or
@@ -139,10 +143,9 @@ The limit and parser behavior have important boundaries:
    fetch embedded links or attachments. External hyperlink targets are not
    followed by the reviewed server code.
 
-These limits mean the byte threshold is a useful input check, not a promise
-against memory/CPU exhaustion. Enforcing streaming request limits and
-decompressed/page/output budgets should be a separate, tested hardening task;
-no parser or limit redesign was included here.
+These limits reduce bounded handler and parser input work; they are not a
+promise against memory/CPU exhaustion or a substitute for an upstream request
+body limit and deployment controls.
 
 ## De-identification coverage and known misses
 
@@ -181,22 +184,26 @@ address, identifier, OCR, or layout benchmark.
 
 ## Changed issue and evidence
 
-The clear, small issue fixed for this review was missing cache-control headers
-on the two Live Analysis success responses. They now use the same
-`Cache-Control: no-store` and `Pragma: no-cache` values as de-identification
-responses, while retaining `LiveAnalysisResponse` validation and response
-payload shape.
+The original review fixed missing cache-control headers on the two Live
+Analysis success responses. A subsequent 2026-10-04 hardening change added
+centralized upload and parser limits, bounded route reads, and HTTP 413
+responses while retaining normal response payload behavior. Focused runtime
+tests were not available in the hardening environment because pytest was not
+installed; the test cases were added but require execution in CI.
 
-Focused validation:
+Baseline validation for the earlier cache-header change (before the upload and
+parser hardening):
 
 ```text
 python -m pytest -q tests/test_live_analysis.py tests/test_deidentify.py
 22 passed, 1 warning
 ```
 
-The warning is an upstream Starlette `BlockingPortal` deprecation. This review
-did not run hostile-file fuzzing, a browser/proxy retention audit, a deployment
-access-control test, or the full test suite.
+The warning was an upstream Starlette `BlockingPortal` deprecation. The current
+hardening tests were added but could not run in the implementation environment
+because pytest was unavailable; the full suite and generated-document check
+also remain unverified there. This review did not run hostile-file fuzzing, a
+browser/proxy retention audit, or a deployment access-control test.
 
 ## Follow-up boundaries
 
@@ -204,15 +211,17 @@ access-control test, or the full test suite.
    deployment-level authentication/access control before exposing the app. The
    current app middleware's no-index behavior is not route authentication; see
    `docs/CONFIGURATION_REFERENCE.md`.
-2. Consider a separate bounded upload-hardening task for request-body limits
-   before full reads, DOCX expanded-size limits, PDF page/output limits, and
-   adversarial parser fixtures.
+2. Verify a deployment/server request-body limit and temporary-file/logging
+   retention policy; add process isolation or parser time/resource controls and
+   broader adversarial fixtures if the deployment threat model requires them.
 3. Continue manual review of de-identified output and keep the restoration key
    separate from any redacted document intended for sharing.
 
 ## Evidence sources
 
-- `backend/live_analysis.py`: accepted types, 10 MiB check, DOCX/PDF extraction,
+- `backend/resource_limits.py`: centralized upload and parser limits, environment overrides,
+  and DOCX/PDF checks.
+- `backend/live_analysis.py`: accepted types, upload validation, DOCX/PDF extraction,
   returned full text, and local resolution.
 - `backend/deidentify.py`: redaction patterns, overlap handling, warnings,
   restoration key, supported formats, and upload byte check.
@@ -222,5 +231,6 @@ access-control test, or the full test suite.
   response headers, error handling, and upload reads.
 - `backend/main.py` and `docs/CONFIGURATION_REFERENCE.md`: no-index middleware
   and documented access-control limitation.
-- `tests/test_live_analysis.py` and `tests/test_deidentify.py`: focused route,
-  extraction, redaction, and restoration evidence.
+- `tests/test_live_analysis.py`, `tests/test_deidentify.py`, and
+  `tests/test_memo_citation_check.py`: focused route, parser-limit, extraction,
+  redaction, and restoration evidence.

@@ -204,6 +204,7 @@ test checks that these paths continue to exist.
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
+| `backend/pages/research_folders.py` | Browser-local research folders and additive Data Explorer controls |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
@@ -212,6 +213,7 @@ test checks that these paths continue to exist.
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
+| `backend/research_folders.py` | Stateless CSV/DOCX exports for selected browser-local folder cases |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
 | `backend/routes.py` | API contracts, request orchestration, and page integration |

@@ -5,6 +5,11 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added browser-local **Research folders** with visible blocked-storage fallback,
+  folder CRUD, per-case notes, JSON backup/import, and additive Case Search and
+  inline-reader controls. `POST /api/research-folders/export` returns selected
+  case citation/name/court/date/outcome/note fields as capped (500-case), no-store
+  CSV or DOCX; no folder data is persisted or logged server-side.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

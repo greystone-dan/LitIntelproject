@@ -117,6 +117,21 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Keyboard shortcuts move among formatted paragraphs (`j`/`n` next; `k`/`p` previous), visibly mark and focus the current paragraph, and expose a `?` shortcut list; typing fields are excluded. Print mode presents the decision title and citation with numbered paragraphs, hides navigation and side panels, and avoids splitting paragraphs across pages. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The reader also displays a cautious, additive overruling-risk banner when
+`GET /api/overruling-risk/{case_id}` returns a seeded direct match or a stored,
+resolved citation to a seeded authority. The editable list currently contains
+the Vavilov standard-of-review framework event (Canada (MCI) v. Vavilov, 2019
+SCC 65, dated 2019-12-19) and states that it displaced the pre-Vavilov
+framework. Direct and indirect flags include the source, rationale, event and
+decision dates, count, and how-assigned explanation. An indirect match documents
+a citation edge, not proof of reliance or legal effect. Every entry and flag
+says “seed list, needs lawyer review.” For an indirect flag, the banner says
+the case “may be affected”; when the case itself is the listed development
+authority, the banner identifies it as that authority and says other cases
+“may be affected.” The dates help identify decisions predating the event, but
+do not determine which framework applies. This is a research indicator, not a
+legal conclusion; see
+[the extension and limits report](docs/reports/overruling-risk.md).
 The source pane begins with a short **Extracted case summary** only when
 verified stored-text facts exist. Every item has its own evidence link:
 court/date/judge link to an explicit matching source-header block; up to three
@@ -729,10 +744,12 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
+| `backend/overruling_risk.py` | Editable, source-backed seed list and deterministic direct/indirect risk-indicator response shaping |
+| `backend/overruling_risk_routes.py` | Read-only overruling-risk endpoint using direct case matches and stored resolved citations |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
 | `backend/analytics_service.py` | SQL aggregations for judge outcomes, yearly trends, data explorer cross-tabulations, judge profiles, and FC activity timelines |
-| `backend/pages/` | Modular HTML page builders (`data_explorer.py`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
+| `backend/pages/` | Modular HTML page builders and reader scripts (`data_explorer.py`, `overruling_risk_reader.js`, `quick_search.py`, `research.py`, `citation_map.py`, `citation_pass.py`, `live_analysis.py`, `judge_outcomes.py`, `testing.py`, `prototype.py`) |
 | `backend/database.py` | Environment loading, SQLAlchemy engine/session, ORM models, database initialization |
 | `backend/models.py` | Pydantic request/response contracts |
 | `backend/ingestion.py` | Canonical ingest, deduplication, source precedence, source HTML sanitization, provenance writes |

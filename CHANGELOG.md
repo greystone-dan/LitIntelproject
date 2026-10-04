@@ -5,6 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
+  editable, lawyer-review seed list, with direct matches and stored resolved
+  citation links, source/rationale/assignment details, counts, and chronology
+  dates. The active Data Explorer reader adds a cautious “may be affected”
+  banner; no memo output or database schema changes. Extension guidance is in
+  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

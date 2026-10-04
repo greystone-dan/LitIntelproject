@@ -111,6 +111,8 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/overruling-risk.md` documents the provisional, seed-based
+  overruling-risk indicator, assignment semantics, limits, and extension steps.
 - `docs/reports/local-query-embeddings.md` documents the opt-in query embedding
   provider, query-data locality signal, and vector-dimension compatibility
   boundary; current behavior remains authoritative in code and
@@ -138,6 +140,7 @@ or reproducibility requires a source-controlled artifact.
 | Architecture rationale and design decisions | Swimm: Architecture Decisions and Design Rationale | Linkable decision context; implementation remains in code/migrations |
 | Technical debt and improvement opportunities | Swimm: Technical Debt Register and Improvement Queue | Connected prioritization register; execution lives in task records |
 | Evaluation definitions and quality metrics | Swimm: Evaluation Framework and Quality Metrics | Metric semantics and gates; reports remain under `data/eval/` |
+| Offline model-evaluation workflow and artifact contract | `docs/OFFLINE_MODEL_EVALUATION.md` | Reproducible CLI commands, frozen dataset/result formats, metric interpretation, and no-live-database boundary; Swimm links the workflow rationale |
 | API and schema contracts | Generated references and their source code/migrations | Never hand-edit generated outputs |
 | Operational procedures | `OVERNIGHT.md` and focused `docs/` runbooks | Executable operational guidance |
 | Feature research guidance | `docs/RESEARCH_UI_GUIDE.md` and linked Swimm UI walkthrough | User-facing workflow and implementation map |

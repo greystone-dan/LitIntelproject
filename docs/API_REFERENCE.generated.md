@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T16:25:33.768011+00:00
+Generated: 2026-10-04T20:30:11.412379+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 113 across 110 paths
-Hidden operations: 62 excluded from OpenAPI
+OpenAPI operations: 118 across 115 paths
+Hidden operations: 63 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -288,6 +288,19 @@ Return local authoritative section text and cases citing the pinpoint.
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /api/overruling-risk/{case_id}`
+
+Get Overruling Risk
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/search-embedding-status`
 
 Search Embedding Status
@@ -295,6 +308,24 @@ Search Embedding Status
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statutes/{act}/{section}/consideration`
+
+Statute Consideration Analytics
+
+Return descriptive, distinct-decision statistics for stored section references.
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/statutes/{statute_code}`
 
@@ -451,6 +482,25 @@ Get Case Contextual Anchors
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /cases/{case_id}/markup-export`
+
+Export Case Markup Docx
+
+Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `MarkupExportRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/paragraph-assessments`
@@ -1407,6 +1457,36 @@ Create Saved Search
 **Responses**
 
 - `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest`
+
+Saved Search Digest
+
+Build a read-only digest of recorded case alerts, not live search results.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest.html`
+
+Saved Search Digest Html
+
+Render the same read-only digest as self-contained inline-CSS HTML.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `text/html`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `DELETE /saved-searches/{search_id}`
@@ -2449,6 +2529,16 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-consideration`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_consideration.statute_consideration_page`
 
 **Responses**
 

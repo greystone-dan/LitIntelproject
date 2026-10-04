@@ -26,7 +26,11 @@ except Exception:  # pragma: no cover
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
-from .embedding_registry import DEFAULT_LOCAL_EMBEDDING_MODEL, get_embedding_model
+from .embedding_registry import (
+	DEFAULT_LOCAL_EMBEDDING_MODEL,
+	DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
+	get_embedding_model,
+)
 from .query_embedding_providers import (
 	embed_query,
 	get_indexed_embedding_model,
@@ -119,6 +123,14 @@ def _selected_embedding_model_id(request_model: str | None = None) -> str:
 	configured_model = os.getenv("EMBEDDING_MODEL")
 	if configured_model:
 		return configured_model
+	query_model = os.getenv("QUERY_EMBEDDING_MODEL")
+	if query_model:
+		return query_model
+	query_provider = os.getenv("QUERY_EMBEDDING_PROVIDER", "").strip().lower()
+	if query_provider == "local":
+		return os.getenv("LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL)
+	if query_provider == "openai":
+		return os.getenv("OPENAI_EMBEDDING_MODEL", EMBEDDING_MODEL)
 	if enhanced_mode() == "local":
 		return DEFAULT_LOCAL_EMBEDDING_MODEL
 	return EMBEDDING_MODEL
@@ -130,7 +142,7 @@ def _embed(text: str, model_id: str | None = None) -> list[float]:
 	)
 	embedding = embed_query(
 		text,
-		indexed_dimensions=model_config.dimensions,
+		indexed_dimensions=DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
 		model_id=model_config.name,
 	)
 	if len(embedding) != model_config.dimensions:

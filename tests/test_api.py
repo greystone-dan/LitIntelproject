@@ -1442,6 +1442,9 @@ def test_local_chunk_search_uses_requested_model(monkeypatch):
 
 
 def test_search_embedding_status_reports_no_embedding_default(monkeypatch):
+    # The registry's enabled-mode hosted default is opt-in only after the
+    # enhanced-mode gate; verify that off mode reports no selected provider.
+    monkeypatch.setenv("ENHANCED_AI_MODE", "off")
     monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
     monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
     monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)

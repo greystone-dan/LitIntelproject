@@ -132,6 +132,7 @@ test checks that these paths continue to exist.
 
 | File | Responsibility |
 | --- | --- |
+| `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
@@ -172,7 +173,9 @@ test checks that these paths continue to exist.
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
 | `backend/document_structure.py` | Maps source HTML structure to plain text |
-| `backend/embedding_providers.py` | Selects and configures embedding providers |
+| `backend/embedding_providers.py` | Shared `EmbeddingProvider` interface; disabled, lazy OpenAI, and process-cached SentenceTransformer implementations |
+| `backend/embedding_registry.py` | Configuration-loaded embedding model metadata, provider selection, defaults, dimensions, prefixes, and retrieval-table routing |
+| `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
@@ -189,8 +192,11 @@ test checks that these paths continue to exist.
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
+| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
+| `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
@@ -206,8 +212,15 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
+| `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
+| `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
+| `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
+| `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
+| `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
@@ -218,6 +231,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
 | `backend/prompts/citation_issue_focused_assessment.txt` | Issue-focused paragraph-assessment prompt |
@@ -228,7 +242,6 @@ test checks that these paths continue to exist.
 | `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
 | `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
 | `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
-| `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
@@ -236,6 +249,7 @@ test checks that these paths continue to exist.
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
+| `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
@@ -245,3 +259,19 @@ test checks that these paths continue to exist.
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and
 must not be edited by hand.
+
+Query and case-ingestion embeddings share the provider interface but retain
+separate configuration and vector contracts. `backend/ai_mode.py` gates use
+before provider construction: `off` makes no embedding call, `local` permits
+only local inference, and `hosted` permits the selected provider. The default
+provider is disabled; OpenAI clients and SentenceTransformer models are created
+lazily, and local models are cached across provider instances by model and
+device. Search query dimensions are checked against the indexed-vector contract;
+case embeddings must also match the existing stored-vector dimension.
+
+The vector-table helper is design scaffolding only: the embedding registry does
+not yet exist, no runtime path calls the helper, and no table is created. Its
+exact `chunk_embeddings_<slug>` naming rule, per-row model identity columns,
+proposed schema, future registry-based search and bulk-load flow, and out-of-chain
+migration template are under
+[`docs/proposed-migrations/`](proposed-migrations/embedding-per-model-tables.md).

@@ -19,6 +19,8 @@ from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
+from .models import ParagraphSimilarityResponse
+from .paragraph_similarity import similar_paragraphs
 
 try:
 	import yaml
@@ -786,6 +788,16 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.get("/cases/{case_id}/paragraphs/{n}/similar", response_model=ParagraphSimilarityResponse)
+def get_similar_paragraphs(
+	case_id: int, n: int, limit: int = Query(default=10, ge=1, le=50),
+	db: Session = Depends(get_db),
+) -> ParagraphSimilarityResponse:
+	if case_id < 1 or n < 1:
+		raise HTTPException(status_code=422, detail="Case and paragraph numbers must be positive")
+	return similar_paragraphs(case_id, n, limit, db)
 
 
 @router.get("/cases/{case_id}/statute-references", response_model=list[CaseReaderCitationResponse])

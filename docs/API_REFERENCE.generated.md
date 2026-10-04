@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T11:51:50.963404+00:00
+Generated: 2026-10-04T12:04:09.817973+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 102 across 99 paths
+OpenAPI operations: 103 across 100 paths
 Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -372,6 +372,21 @@ Get Case Paragraph Assessments
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraphs/{n}/similar`
+
+Get Similar Paragraphs
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `n` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ParagraphSimilarityResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/reader-data`

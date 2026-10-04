@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T11:51:48.914463+00:00
+Generated: 2026-10-04T12:04:10.433359+00:00
 Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -585,6 +585,7 @@ erDiagram
 - `ix_case_chunks_case_id`: index on `case_id`
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
+- `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
 
 ### Foreign Keys
 
@@ -750,6 +751,8 @@ erDiagram
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
+- `ix_similarity_tag_posting`: index on `taxonomy_version`, `category`, `value`, `case_id`, `id`
+- `ix_similarity_tag_source`: index on `case_id`, `taxonomy_version`, `id`
 
 ### Unique Constraints
 
@@ -856,6 +859,9 @@ erDiagram
 - `ix_citations_target_case_id`: index on `target_case_id`
 - `ix_citations_target_chunk_id`: index on `target_chunk_id`
 - `ix_citations_target_paragraph`: index on `target_paragraph`
+- `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
+- `ix_similarity_citation_source`: index on `source_case_id`, `id`
+- `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
 
 ### Foreign Keys
 

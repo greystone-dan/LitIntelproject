@@ -11,6 +11,7 @@ from sqlalchemy import (
 	DateTime,
 	Float,
 	Integer,
+	Index,
 	JSON,
 	ForeignKey,
 	String,
@@ -211,6 +212,7 @@ class CaseSource(Base):
 
 class CaseChunk(Base):
 	__tablename__ = "case_chunks"
+	__table_args__ = (Index("ix_similarity_paragraph", "case_id", "chunk_set", "paragraph_start", "id"),)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	case_id: Mapped[int] = mapped_column(
@@ -296,6 +298,8 @@ class RecentCaseChunkEmbedding(Base):
 class CaseTag(Base):
 	__tablename__ = "case_tags"
 	__table_args__ = (
+		Index("ix_similarity_tag_posting", "taxonomy_version", "category", "value", "case_id", "id"),
+		Index("ix_similarity_tag_source", "case_id", "taxonomy_version", "id"),
 		UniqueConstraint(
 			"case_id",
 			"category",
@@ -402,6 +406,11 @@ class IngestionRun(Base):
 
 class Citation(Base):
 	__tablename__ = "citations"
+	__table_args__ = (
+		Index("ix_similarity_authority_posting", "target_case_id", "source_case_id", "id"),
+		Index("ix_similarity_unresolved_posting", "normalized_citation", "source_case_id", "id"),
+		Index("ix_similarity_citation_source", "source_case_id", "id"),
+	)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	source_case_id: Mapped[int] = mapped_column(

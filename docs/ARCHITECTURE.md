@@ -123,6 +123,10 @@ propositions against authoritative records and follow upstream terms.
 
 ## Backend file inventory
 
+Optional [background jobs](BACKGROUND_JOBS.md) run only through
+`scripts/run_jobs.py` in a separate process. Their standard-library scheduler
+does not import database configuration or start with the web application.
+
 Each file currently under `backend/` is listed once. The documentation contract
 test checks that these paths continue to exist.
 
@@ -131,6 +135,7 @@ test checks that these paths continue to exist.
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
+| `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |

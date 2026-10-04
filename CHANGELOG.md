@@ -5,139 +5,15 @@
 	demo-safety fixes.
 # Unreleased
 
-- Added stored-data-only decision comparison at `GET /compare` and
-  `GET /api/compare`, accepting case IDs or stored citations. It displays fact
-  and outcome provenance, separate tags/statutes/authorities, shared and unique
-  signals, stored authority pinpoints, and directional cross-citations; unknown
-  decisions and self-comparison receive clear errors. Inputs above 512
-  characters fail closed before ID or citation parsing. The reader adds a
-  prefilled “Compare with…” link. The pre-existing `/case-compare` page and
-  `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
-  or data writes. Also removed a redundant whitespace quantifier from reported
-  citation-year parsing; parenthesized reporter-year citations retain their
-  normalized form with repeated whitespace.
-- Added an additive read-only `GET /api/cases/{case_id}/summary-card` projection
-  and collapsed formatted-reader card. It shows stored case/outcome facts,
-  separate statute and active-tag layers, and up to three exact numbered
-  passages selected by disposition evidence, later stored pinpoint counts, and
-  an explicit standard-of-review statement. Missing fields are omitted; long
-  passages retain sentence boundaries and link to their source paragraph. No
-  AI, writes, schema changes, or live-data access. Focused summary-card,
-  reader-keyboard/print, JavaScript syntax, documentation-inventory, and
-  generated-reference checks passed.
-- Markup mode now follows the mockups more closely. New Acts / statutes layer (margin notes with the Act, pinpoint, stored provision text or an honest “not stored”, and a link to the Act); header pills for outcome, judge and file number; short margin pill names (“Vavilov 2019 SCC 65”); citation cards with a paragraph badge, “also cited at” and Open / Pin; judge card with Open judge profile; outcome card with Show paragraph; unit pills named from the section heading; Layers popup with counts, “N of M”, Show all layers and Reset; a By-topic grouped view (Reading order / By topic, Fold all / Unfold all); a right-edge minimap; annotated print with numbered markers and numbered margin comments. Read-only on data already loaded, no AI, no schema change.
-- About page refresh and a Changelog view. The About overview was audited against the repository: counts at the top
-  now read live from `/api/about/stats`, unverifiable figures (sample percentages, AI paragraph counts, test scores,
-  old test and line counts) were removed or restated, the AI wording now says the site runs without AI, and a
-  “What has been added recently” section was added. A new Overview / Changelog switch in the About tab shows a
-  timeline (newest first, date headings, theme filter) built from `data/changelog/changelog.json`, which
-  `scripts/build_changelog.py` generates from hand-written entries plus GitHub merged PRs and commits
-  (`--refresh` pulls them; `--uncovered` lists merged PRs with no entry). No network or AI at view time.
-- Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
-  priority (including on Windows), uses one database connection with server-side statement, lock and
-  idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as
-  long as it worked, can watch the site (`--health-url`) and back off when it is slow, has a CPU budget, a
-  stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
-  to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
-  is a thin wrapper. No schema change, no AI.
-- Corrected **request observability** (`backend/request_context.py`): ContextVar-backed
-  middleware validates/preserves bounded incoming request IDs and adds `X-Request-ID`
-  to success, access-gate, 404, and 500 responses. Optional `SLOW_REQUEST_LOG_MS`
-  emits one-line JSON only above its threshold, containing request ID, method,
-  route template, status, and `duration_ms`; no request text, raw path/query, host,
-  or secret is logged. `/health/ready` and documented `GET /api/version` return
-  sanitized `commit`, process `started_at`, and `python_version`. A sanitized
-  `APP_COMMIT` is preferred; Git is queried only when the repository `.git`
-  directory exists. Existing password-gate
-  behavior is unchanged. No schema changes or migrations.
-- Markup mode: Export to Word and private notes. "Export to Word" downloads the
-  decision with every margin note that is switched on (citations anchored on the
-  citation itself, discussion units, outcome, judge, cited-by, my notes) as real
-  Word comments, with highlighted paragraphs kept. Private notes and highlights:
-  click a paragraph number to write a note or highlight the paragraph; they are
-  saved in this browser only, show in the margin (inline under the paragraph on
-  phones) and travel into the Word file. New route `POST /cases/{id}/markup-export`
-  typesets what the browser sends and stores nothing. Also fixed: notes could sit
-  hundreds of pixels from their paragraphs on first open because the reader adds
-  content after first paint; they now re-place themselves when the text height
-  changes. No AI, no schema change.
-- Added Alembic revision `0037_cases_docket_number`, which idempotently adds
-  nullable `cases.docket_number` (`String(255)`) and its model-declared index.
-  Added mocked preservation/idempotency coverage and an explicitly gated
-  PostgreSQL migration-from-zero schema comparison test.
-- Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
-  scroll inside their panel, the judge comparison form and the statute viewer form fit
-  and stack on phones. CSS only.
-- Phone layout fixes: the search page stacks its field and buttons with 16px text and
-  scrolling filter chips; the case reader header no longer sits under its view
-  buttons and the reader scrolls as one page; the yellow overruling-risk notice
-  folds behind one tappable line on phones so it cannot push the decision off
-  screen; Markup mode's toolbar is one row (Find, Topics and More open on tap),
-  the Peek panel is a bottom sheet, and the hover card is off on touch screens.
-  CSS and display logic only: no AI calls, new endpoints or schema changes.
-- Paragraph "cited by" batch job (not run on production): `scripts/build_paragraph_cited_by.py`
-  reads stored citation occurrences and, for each cited paragraph, stores which
-  cases cite it, how often, and the signal phrase beside the citation (followed,
-  distinguished, see, quoted, ...). Two additive tables (migration 0036). It is
-  resumable, runs at low priority, and writes nothing without `--apply`. The
-  Markup margin and Peek read the stored rows when they exist and fall back to
-  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`.
-- Markup mode second build, using only stored data: hover card on citations;
-  Peek panel (floating or docked, stackable, shows the cited paragraph when the
-  authority is in the library and says so when it is not); tag display modes
-  (Off, Underline, Tint, Bubbles); topic chips from sub-theme key terms with a
-  "show only selected" fold view; case-info drawer polish; keyboard use for
-  citations and the toolbar; print re-layout; and a find-box focus fix. No AI,
-  new endpoints or schema changes.
-- Added **Markup mode**, a third case-reader view (button beside Formatted/Chunk
-  breakdown). The decision runs full width with notes in a right margin: case
-  citations with pinpoint text, discussion units and sub-themes, verified
-  outcome (labelled unverified when no disposition passage is stored), judge,
-  a cited-by gutter, soft tags, topic bands, outline, find-in-case, per-layer
-  Off/Markers/Open controls with expand/collapse all, and annotated print. It
-  only reads the already-loaded reader payload: no AI, no network calls, no
-  schema changes. Existing readers are unchanged.
-- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
-  editable, lawyer-review seed list, with direct matches and stored resolved
-  citation links, source/rationale/assignment details, counts, and chronology
-  dates. The active Data Explorer reader adds a cautious “may be affected”
-  banner; no memo output or database schema changes. Extension guidance is in
-  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
-- Added a shared embedding-provider interface with a disabled default, lazy
-  OpenAI client wrapper, and cached local SentenceTransformer implementation.
-  Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:
-  off makes no model/client calls, local mode rejects hosted embeddings, and
-  hosted mode uses the selected provider. Provider dimensions and the 503
-  missing-key / 502 provider-failure API contracts are preserved. Added
-  fake-client/model tests and updated the architecture inventory, configuration,
-  system reference, and Swimm maps. Python compilation and `git diff --check`
-  passed; seven provider tests and nine targeted API/search/ingestion tests passed
-  in an isolated dependency environment. All three generated references were
-  current. No model downloads or database operations were performed.
-- Moved the experimental research, citation-intelligence, contextual-authority,
-  and discussion-unit prompts into header-versioned text files loaded through a
-  shared backend registry. Exact prompt wording is guarded by golden snapshots.
-  `/research` now returns additive `prompt_version` metadata; the bounded
-  discussion-unit scripts include their prompt versions in request/output
-  artifacts without changing model-facing prompt text.
-- Added the centralized `ENHANCED_AI_MODE` gate (`off` by default; `local` and
-  `hosted` require explicit opt-in). API search defaults to lexical; off mode
-  downgrades explicit semantic/hybrid requests without embedding calls and
-  exposes effective-mode metadata at the response. `GET /api/ai-mode` reports
-  the setting, while `/research` returns HTTP 503 when enhanced mode is off.
-  Local mode uses Ollama for generation and allows only local query embeddings;
-  hosted query embeddings additionally require `QUERY_EMBEDDING_PROVIDER=openai`.
-  Query embeddings remain disabled by default (`none`). The analytics Case
-  Search UI and its SQL-backed CSV/Word exports remain unchanged. Focused
-  AI-mode/API tests passed (76 total), and generated-document checks passed. The
-  full CI pytest command completed with 1,631 passed, 4 skipped, 3 deselected,
-  1 xfailed, and 2 tokenizer-cache tests blocked by unavailable network access.
-- Added public `GET /health/live` and `GET /health/ready` probes while preserving
-  the legacy `GET /health` response. Readiness reports database, vector
-  extension, required-table, and configured-model endpoint status, and returns
-  HTTP 503 when a required check fails. Probe results omit endpoint addresses
-  and credentials. The 12 focused mocked health tests and generated-document
-  check passed; no database or `.env` was accessed.
+- Added stdlib grouped settings in `backend/settings.py` and migrated database
+  URL selection plus active AI embedding/chat consumers. Exported environment
+  values now outrank dotenv while `backend/.env` keeps its prior precedence
+  over the repository-root file. The env example and configuration reference
+  now use active names; `config.yaml` app-name/reload fields are marked as
+  informational. Access, audit, rollout, citation, source, security, and
+  resource-limit reads remain unmigrated and are inventoried in
+  `docs/CONFIGURATION_REFERENCE.md`. Focused settings checks passed (14 tests);
+  documentation checks are recorded in the issue task record.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

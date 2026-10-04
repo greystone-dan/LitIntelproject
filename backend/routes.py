@@ -83,6 +83,7 @@ from .citation_map import (
 	similar_cases_by_authority as _similar_cases_by_authority,
 	top_authorities as _top_authorities,
 )
+from .settings import settings
 from .text_generation_providers import (
 	TextGenerationConfigurationError,
 	get_text_generation_provider,
@@ -4178,7 +4179,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		context_parts.append(f"{header}\n" + "\n".join(passages))
 
 	context = "\n\n---\n\n".join(context_parts)
-	context_limit = _LOCAL_CONTEXT_CHAR_LIMIT if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else _CONTEXT_CHAR_LIMIT
+	context_limit = _LOCAL_CONTEXT_CHAR_LIMIT if settings.chat.provider.strip().lower() == "local" else _CONTEXT_CHAR_LIMIT
 	if len(context) > context_limit:
 		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
 
@@ -4196,7 +4197,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		completion = provider.create_chat_completion(
 			model=provider.model_name,
 			temperature=search.temperature,
-			max_tokens=_LOCAL_RAG_MAX_TOKENS if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else None,
+			max_tokens=_LOCAL_RAG_MAX_TOKENS if settings.chat.provider.strip().lower() == "local" else None,
 			messages=[
 				{"role": "system", "content": system_prompt},
 				{"role": "user", "content": f"Question: {search.query}\n\nCase excerpts:\n{context}"},

@@ -206,6 +206,62 @@ def _is_issue_marker(text: str) -> bool:
     return any(re.search(pattern, text_upper) for pattern in issue_patterns)
 
 
+def _detect_discourse_cue(text: str) -> bool:
+    """Detect explicit discourse markers indicating section transitions.
+
+    Looks for phrases that signal a shift in discussion: new issues, conclusions,
+    specific analysis markers. These are independent of citation signals and work
+    even in low-signal passages like mega-blob paragraphs.
+    """
+    text_upper = text.upper()
+
+    # Issue/question markers
+    issue_cues = (
+        "THE FIRST ISSUE", "THE SECOND ISSUE", "THE THIRD ISSUE",
+        "FIRST ISSUE", "SECOND ISSUE", "THIRD ISSUE",
+        "THE ISSUE IS", "THIS ISSUE", "THE MAIN ISSUE",
+    )
+
+    # Transition markers
+    transition_cues = (
+        "TURNING TO", "TURNING NOW TO", "MOVING TO", "MOVING NOW TO",
+        "WE NOW TURN", "I NOW TURN", "THE COURT NOW TURNS",
+        "WE NOW CONSIDER", "I NOW CONSIDER",
+    )
+
+    # Analysis/perspective markers
+    analysis_cues = (
+        "IN MY VIEW", "IN OUR VIEW", "IN THE COURT'S VIEW",
+        "IT IS MY VIEW", "IT IS OUR VIEW",
+        "I CONCLUDE", "WE CONCLUDE", "THE COURT CONCLUDES",
+        "IN CONCLUSION", "ACCORDINGLY", "FOR THESE REASONS",
+        "THEREFORE", "THUS,", "HENCE,",
+    )
+
+    all_cues = issue_cues + transition_cues + analysis_cues
+    return any(cue in text_upper for cue in all_cues)
+
+
+def _lexical_topic_shift_score(left: ParagraphFeatures, right: ParagraphFeatures) -> float:
+    """Calculate topic shift based on word overlap between consecutive paragraphs.
+
+    Returns a score from 0.0 (high similarity) to 1.0 (low similarity) indicating
+    how much the topic/vocabulary has changed. Uses simple word overlap (Jaccard)
+    on content words, independent of citations.
+    """
+    left_words = _content_words(left.text)
+    right_words = _content_words(right.text)
+
+    # If either paragraph is very short, it's not informative
+    if len(left_words) < 3 or len(right_words) < 3:
+        return 0.5  # Neutral score
+
+    # Jaccard similarity on content words
+    overlap = _jaccard(left_words, right_words)
+    # Convert to dissimilarity: high overlap (0.7) → low shift (0.3)
+    return 1.0 - overlap
+
+
 def _detect_strong_argument_transition(left_text: str, right_text: str) -> bool:
     """Detect strong argumentative role transitions between consecutive paragraphs.
 
@@ -347,6 +403,29 @@ def segment_discussion_units(
 
         # Issue marker boundary - separates multiple legal issues
         if _is_issue_marker(right.text):
+            boundaries.add(index)
+
+        # Discourse cue boundary - explicit transition markers in right paragraph
+        # Only strongest cues trigger independently; weak ones need support from continuity
+        strong_cues = ("THE FIRST ISSUE", "THE SECOND ISSUE", "THE THIRD ISSUE",
+                       "TURNING TO", "TURNING NOW TO", "IN CONCLUSION")
+        weak_cues = ("ACCORDINGLY", "THEREFORE", "THUS,", "HENCE,")
+
+        right_upper = right.text.upper()
+        has_strong_cue = any(cue in right_upper for cue in strong_cues)
+        has_weak_cue = any(cue in right_upper for cue in weak_cues)
+
+        if has_strong_cue and index > 2:
+            boundaries.add(index)
+        elif has_weak_cue and component.continuity_score < 0.45 and index > 2:
+            # Weak cues only trigger with low continuity (strong signal agreement)
+            boundaries.add(index)
+
+        # Lexical topic shift boundary - significant vocabulary change PLUS low continuity
+        # Only combine high topic shift (>0.70) with very low continuity (<0.40)
+        # This avoids false positives from stylistic variation
+        topic_shift_score = _lexical_topic_shift_score(left, right)
+        if topic_shift_score > 0.70 and component.continuity_score < 0.40 and index > 2:
             boundaries.add(index)
 
         # Strong argumentative role transition (major section boundary)

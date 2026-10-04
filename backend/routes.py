@@ -38,6 +38,7 @@ from .alert_digest import (
 )
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
+from .citation_treatment_service import citation_treatment_summary
 
 try:
 	import yaml
@@ -1124,6 +1125,18 @@ def get_case_citation_metrics(case_id: int, db: Session = Depends(get_db)) -> Ci
 	if metrics is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Citation metrics not found")
 	return CitationMetricsResponse.model_validate(metrics, from_attributes=True)
+
+
+@router.get("/api/citation-treatment/{case_id}", response_model=dict[str, Any])
+def get_citation_treatment(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Experimental read-only paragraph evidence, not permanent authority labels.
+
+	Counts use distinct citing decisions including unknown as their denominator.
+	Classes overlap for mixed evidence; unknown means no classifiable evidence.
+	No UI, citation metrics, stored data or source offsets are changed.
+	"""
+	_get_case_or_404(case_id, db)
+	return citation_treatment_summary(db, case_id)
 
 
 @router.post("/citation-metrics/recompute", response_model=dict[str, int])

@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
@@ -98,7 +99,7 @@ button,input,select{font:inherit}
 .summaryRows span strong{display:block;color:var(--text);font-size:20px;letter-spacing:-0.04em ;}
 .legend .key{display:inline-flex;align-items:center;gap:6px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-.table-wrap{overflow:auto;margin-top:12px;padding:0 10px 10px}
+.table-wrap{overflow-x:auto;margin-top:12px;padding:0 10px 10px}
 table{width:100%;border-collapse:collapse;min-width:720px}
 thead th{padding:10px 12px;background:#f8fafc;border-bottom:1px solid var(--border);text-align:left;color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 tbody td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text)}
@@ -1294,11 +1295,22 @@ qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',(
   about_end = html.index('<section id="searchPanel"', about_start)
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
+  about_fragment = re.sub(
+      r'(<div class="compare"[^>]*>\s*)(<table\b.*?</table>)',
+      r'\1<div class="table-wrap">\2</div>',
+      about_fragment,
+      flags=re.DOTALL,
+  )
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
+  html = html.replace(
+      '</head>',
+      '<style>.reader-info-section,.reader-target-decision,#fcBodyTable,#fcCounselTable,#fcMotionTable,#fcJudgeTable{max-width:100%;overflow-x:auto}</style>\n</head>',
+      1,
+  )
   html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
   reader_tab_selection = "button.classList.toggle('active',button.dataset.readerTab===activeTab);"
   html = html.replace(

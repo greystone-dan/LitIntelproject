@@ -126,6 +126,7 @@ def quick_search_page_html() -> str:
 			margin-bottom: 4px;
 		}
 		@media (max-width: 860px) {
+			.wrap { padding: 18px; }
 			.row,
 			.filters {
 				grid-template-columns: 1fr;

@@ -23,6 +23,7 @@ TAG_ANALYTICS_CSS = r"""
 .tga .tga-card p{margin:0 0 10px;font-size:11px;color:var(--tga-ink-2);line-height:1.4}
 .tga svg{display:block;width:100%;height:auto}
 .tga table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+.tga .table-wrap{max-width:100%;overflow-x:auto}
 .tga th,.tga td{padding:6px 8px;border-bottom:1px solid var(--tga-grid);text-align:right}
 .tga th:first-child,.tga td:first-child{text-align:left}
 .tga th{color:var(--tga-ink-2);font-weight:600;background:#fff}
@@ -88,19 +89,19 @@ box.replaceChildren(svg,legend);
 
 function renderFrequency(data){const box=$('tgaFrequency');
 if(!data.frequency||!data.frequency.length)return box.replaceChildren(el('div',{class:'tga-empty'},'No frequency data'));
-const t=el('table');const thead=el('thead');const tr=el('tr');
+const t=el('table');const wrap=el('div',{class:'table-wrap'});wrap.appendChild(t);const thead=el('thead');const tr=el('tr');
 [['Tag','Cases'],['Mentions']].forEach(h=>tr.appendChild(el('th',{},h[0])));thead.appendChild(tr);t.appendChild(thead);
 const body=el('tbody');
 data.frequency.slice(0,15).forEach(tag=>{const tr=el('tr');
 tr.appendChild(el('td',{style:'max-width:200px;white-space:normal'},`${tag.category} · ${tag.value}`));
 tr.appendChild(el('td',{},num(tag.case_count)));
 tr.appendChild(el('td',{},num(tag.tag_mentions)));
-body.appendChild(tr)});t.appendChild(body);box.replaceChildren(t);
+body.appendChild(tr)});t.appendChild(body);box.replaceChildren(wrap);
 }
 
 function renderJudges(data){const box=$('tgaJudges');
 if(!data.judge_tags||Object.keys(data.judge_tags).length===0)return box.replaceChildren(el('div',{class:'tga-empty'},'No judge data'));
-const t=el('table');const thead=el('thead');const tr=el('tr');
+const t=el('table');const wrap=el('div',{class:'table-wrap'});wrap.appendChild(t);const thead=el('thead');const tr=el('tr');
 [['Judge','Tag','Cases']].forEach(h=>tr.appendChild(el('th',{},h[0])));thead.appendChild(tr);t.appendChild(thead);
 const body=el('tbody');let count=0;
 for(const[judge,tags] of Object.entries(data.judge_tags)){
@@ -108,7 +109,7 @@ for(const tag of tags.slice(0,2)){if(count>=10)break;
 const tr=el('tr');tr.appendChild(el('td',{},judge.substring(0,30)));
 tr.appendChild(el('td',{style:'max-width:150px;white-space:normal'},`${tag.category}·${tag.value}`));
 tr.appendChild(el('td',{},num(tag.case_count)));body.appendChild(tr);count++;}
-if(count>=10)break;}t.appendChild(body);box.replaceChildren(t);
+if(count>=10)break;}t.appendChild(body);box.replaceChildren(wrap);
 }
 
 function renderAll(data){

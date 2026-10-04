@@ -53,6 +53,7 @@ details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;
 .preview{margin-top:14px;max-height:520px;overflow:auto;padding:16px;border:1px solid var(--line);background:white;font:13px/1.65 Manrope,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}
 .preview mark{padding:0 2px;border-radius:3px;background:var(--mark);color:#6b4708;font:500 12px "DM Mono",monospace}
 .keytable{width:100%;margin-top:10px;border-collapse:collapse;font-size:12px}.keytable td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}.keytable td:first-child{font-family:"DM Mono",monospace;white-space:nowrap;color:#6b4708}
+.table-wrap{max-width:100%;overflow-x:auto}
 .toggle{display:flex;gap:8px;align-items:center;font-size:13px}
 textarea.small{min-height:70px}
 .names-box{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:4px;background:#f7faf7;font-size:12px}
@@ -118,7 +119,7 @@ textarea.small{min-height:70px}
 </div>
 <p class="keynote">Download the key file before leaving this page. Without it the details cannot be put back.</p>
 <div class="preview" id="deidPreview"></div>
-<details class="opts"><summary>Review what was hidden (<span id="keyCount">0</span> placeholders)</summary><table class="keytable" id="keyTable"></table></details>
+<details class="opts"><summary>Review what was hidden (<span id="keyCount">0</span> placeholders)</summary><div class="table-wrap"><table class="keytable" id="keyTable"></table></div></details>
 </div>
 </section>
 

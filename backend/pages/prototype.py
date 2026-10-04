@@ -69,6 +69,7 @@ def prototype_page_html() -> str:
 			flex-wrap: wrap;
 			margin-top: 8px;
 		}
+		.table-wrap { max-width: 100%; overflow-x: auto; }
 		table {
 			width: 100%; border-collapse: collapse; margin-top: 12px; background: var(--panel);
 			border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
@@ -384,14 +385,14 @@ def prototype_page_html() -> str:
 				</tr>
 			`).join('');
 			document.getElementById('tableWrap').innerHTML = `
-				<table>
+				<div class="table-wrap"><table>
 					<thead>
 						<tr>
 							<th>ID</th><th>Citation</th><th>Title</th><th>Court</th><th>Date</th><th>Topics</th><th>Chunks</th>
 						</tr>
 					</thead>
 					<tbody>${rows}</tbody>
-				</table>
+				</table></div>
 			`;
 		}
 

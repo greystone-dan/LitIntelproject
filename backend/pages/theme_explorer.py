@@ -58,6 +58,14 @@ def theme_explorer_page_html() -> str:
 		@keyframes dots { 0%, 20% { content: " ."; } 40% { content: " .."; } 60% { content: " ..."; } }
 
 		.empty { text-align: center; padding: 40px; color: #999; }
+		@media (max-width: 800px) {
+			.header { padding: 24px 16px; }
+			.header h1 { font-size: 24px; }
+			.main { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; }
+			.sidebar { padding: 16px; }
+			.content { padding: 20px; }
+			.theme-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+		}
 	</style>
 </head>
 <body>

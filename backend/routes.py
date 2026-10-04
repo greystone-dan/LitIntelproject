@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .case_summary import router as case_summary_router
 
 try:
 	import yaml
@@ -301,6 +302,7 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(case_summary_router)
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:

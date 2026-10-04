@@ -239,6 +239,29 @@ Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
 
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
@@ -303,6 +326,35 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+The formatted reader starts with a default-open **Quick summary** disclosure.
+It preserves the existing **Extracted case summary** and technical **Show case
+summary** controls. Collapse it to read; switching modes preserves its state,
+while reopening a decision defaults open. It is hidden in chunk/plain modes.
+Identity and outcome fields are stored values, not newly inferred conclusions;
+missing outcomes read **unclassified**, and missing extraction sources
+**unknown**. A stored outcome may remain visible without verified evidence.
+Unavailable identity rows and disposition/issue sections, plus empty statute/tag
+sections, are omitted without placeholders; outcome/source remain visible.
+Disposition quotations reproduce the complete verified numbered source
+paragraph. Issue or standard-of-review quotations contain one or two verbatim
+sentences from explicit English openings/headings, with issues preferred.
+Ambiguous abbreviations, quotes, incomplete sentences or invalid spans are
+omitted, not rewritten. Use each source link to focus its exact backend
+paragraph block, including when paragraph numbers repeat.
+
+Top statutes list up to five stored statute/instrument occurrence counts,
+not unique decisions or case-law citations. Source links appear only for exact
+document-relative evidence; chunk-relative references still count but are not
+linked. Top tags list up to five distinct active-taxonomy labels with verified
+source evidence; invalid evidence omits the tag rather than showing a placeholder.
+Valid tags retain their stored scores and sources. Neither score nor frequency
+establishes legal importance. No generated prose or new classifications are
+created by this card. If its read-only request fails, other reader tools remain
+available. See [`backend/case_summary.py`](../backend/case_summary.py) for
+extraction rules and `GET /api/cases/{case_id}/summary` for the typed contract.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
 
 Above the source decision, **Most cited paragraphs** is collapsed by default
 and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it

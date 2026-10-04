@@ -92,7 +92,9 @@ three deselects both stopped because pytest is not installed.
 missing FastAPI and SQLAlchemy. The changed-Markdown local-link scan found two
 pre-existing broken links in `SYSTEM_REFERENCE.md` (`ANALYST_QUICK_START.md`
 and `reports/test-coverage.md`), confirmed present in HEAD; all new Swimm links
-resolve. Common secret-pattern scan found no matches.
+resolve. Common secret-pattern scan found no matches. Refreshed and merged
+`origin/main` at `fdecc46`, preserving both the upstream and issue #153
+Unreleased changelog entries.
 Residual risk: Issue #112 Rules block contents remain unknown; Python tests,
 generated-doc regeneration/check, and live browser validation remain blocked.
 The requested `report_progress` and `parallel_validation` integrations are not

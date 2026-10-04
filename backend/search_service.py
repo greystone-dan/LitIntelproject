@@ -24,8 +24,13 @@ except Exception:  # pragma: no cover
 	yaml = None
 
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
+from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
-from .query_embedding_providers import embed_query, query_embeddings_enabled
+from .query_embedding_providers import (
+	embed_query,
+	query_embedding_provider,
+	query_embeddings_enabled,
+)
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import citation_query, match_details
 from .models import (
@@ -88,6 +93,11 @@ AI_ROLLOUT = _load_ai_rollout_flags()
 
 
 def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None = None) -> str:
+	mode = enhanced_mode()
+	if requested_mode in {"semantic", "hybrid"} and (
+		mode == "off" or (mode == "local" and query_embedding_provider() != "local")
+	):
+		return "lexical"
 	flags = rollout or AI_ROLLOUT
 	if requested_mode == "semantic" and not flags.get("semantic_enabled", True):
 		return "metadata"
@@ -617,6 +627,11 @@ def execute_search_chunks_local(
 	*,
 	rollout: dict[str, bool] | None = None,
 ) -> list[ChunkSearchResponse]:
+	if enhanced_mode() == "off":
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail="AI-powered search is disabled in this deployment",
+		)
 	flags = rollout or AI_ROLLOUT
 	if not flags.get("local_semantic_enabled", True):
 		raise HTTPException(
@@ -824,4 +839,6 @@ def execute_grouped_chunk_search(
 		total_chunks=len(raw_rows),
 		max_chunks_per_case=search.max_chunks_per_case,
 		cases=paged_cases,
+		search_mode_effective=effective_mode,
+		ai_disabled_reason=search_downgrade_reason(search.search_mode, effective_mode),
 	)

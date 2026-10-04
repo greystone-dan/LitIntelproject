@@ -113,8 +113,10 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 	generative model authoritative for citations, statutes, offsets, or source
 	provenance.
 - **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
-	path; `TEXT_GENERATION_PROVIDER=local` selects it for the experimental
-	`/research` route; users must install Ollama and pull an instruct model
+	path; `ENHANCED_AI_MODE=local` opts the experimental `/research` route into
+	local generation without constructing an OpenAI client, while
+	`ENHANCED_AI_MODE=off` keeps enhanced API search/research disabled by default.
+	Users must install Ollama and pull an instruct model
 	separately. The script runner and API share the same OpenAI-compatible
 	contract.
 - **Revisit trigger:** A local model passes bounded accuracy, latency,

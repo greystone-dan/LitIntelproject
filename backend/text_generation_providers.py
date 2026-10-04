@@ -7,6 +7,7 @@ from typing import Any
 import httpx
 from openai import OpenAI
 
+from .ai_mode import enhanced_mode
 
 DEFAULT_OLLAMA_BASE_URL = "http://127.0.0.1:11434/v1"
 DEFAULT_OLLAMA_MODEL = "qwen3:4b"
@@ -75,6 +76,14 @@ class OllamaChatProvider(ChatGenerationProvider):
 
 
 def get_text_generation_provider() -> ChatGenerationProvider:
+	mode = enhanced_mode()
+	if mode == "off":
+		raise TextGenerationConfigurationError("AI answers are disabled in this deployment")
+	if mode == "local":
+		return OllamaChatProvider(
+			base_url=os.getenv("OLLAMA_BASE_URL", DEFAULT_OLLAMA_BASE_URL),
+			model_name=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL),
+		)
 	provider_name = os.getenv("TEXT_GENERATION_PROVIDER", "openai").strip().lower()
 	if provider_name == "local":
 		return OllamaChatProvider(

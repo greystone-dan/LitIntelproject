@@ -18,6 +18,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.database import Case, SessionLocal
+from backend.prompt_registry import get_prompt
 from scripts.chunk_cases import case_text
 from scripts.discussion_units_ledger import record_case, should_skip
 from scripts.package_discussion_units_llm import _parse_response, build_request
@@ -29,17 +30,7 @@ REQUEST_TIMEOUT_SECONDS = 180.0
 
 
 def build_segmentation_request(case_id: int, source_text: str, *, model: str, budget_usd: float) -> dict[str, Any]:
-    system = (
-        "Segment the supplied Canadian legal decision into source-faithful reading spans. "
-        "Identify any introductory metadata, every numbered legal paragraph, and any outro "
-        "or footer text. Return JSON with a segments array. Each segment must contain kind "
-        "(intro, paragraph, or outro), paragraph_number when kind is paragraph, start_offset, "
-        "and end_offset. Offsets are zero-based and end-exclusive. Do not return segment text: "
-        "the caller will derive it from the source after validating offsets. Preserve source "
-        "order. Do not summarize, normalize, omit, or invent text. Paragraph segments must "
-        "cover the decision body in order; use intro/outro only for text outside that body. "
-        "Before responding, verify offsets are within the source and segments do not overlap."
-    )
+    system, prompt_version = get_prompt("model_paragraph_segmentation")
     payload = {
         "request_id": f"model-paragraphs-case-{case_id}",
         "contract_version": "model_paragraphs_v1",
@@ -49,6 +40,7 @@ def build_segmentation_request(case_id: int, source_text: str, *, model: str, bu
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True)},
@@ -143,11 +135,19 @@ def build_model_report(case_id: int, source_text: str, segments: list[dict[str, 
     }
 
 
-def render_experiment_markdown(report: dict[str, Any], result: dict[str, Any], *, usage: dict[str, Any], model: str) -> str:
+def render_experiment_markdown(
+    report: dict[str, Any],
+    result: dict[str, Any],
+    *,
+    usage: dict[str, Any],
+    model: str,
+    prompt_versions: dict[str, str],
+) -> str:
     lines = [
         f"# Model-paragraph Discussion Units: case {report['case_id']}",
         "",
         f"Model: `{model}`",
+        f"Prompt versions: segmentation `{prompt_versions['segmentation']}`; discussion units `{prompt_versions['discussion_units']}`",
         f"Model paragraphs: `{report['paragraph_count']}`",
         f"Source characters: `{report['source_text_length']}`",
         f"Paragraph-label prompt tokens: `{usage['segmentation']['prompt_tokens']}`",
@@ -204,6 +204,10 @@ def run_case(case_id: int, output_dir: Path, *, model: str, budget_usd: float, s
         text_only=True,
         normalize_legal_paragraphs=False,
     )
+    prompt_versions = {
+        "segmentation": segmentation_request["prompt_version"],
+        "discussion_units": discussion_request["prompt_version"],
+    }
     discussion_content, discussion_usage = _call(client, discussion_request)
     result = _parse_response(discussion_content, report["paragraphs"])
     usage = {
@@ -216,10 +220,14 @@ def run_case(case_id: int, output_dir: Path, *, model: str, budget_usd: float, s
     }
     report["discussion_result"] = result
     report["usage"] = usage
+    report["prompt_version"] = prompt_versions
     report["created_at"] = datetime.now(timezone.utc).isoformat()
-    request_path.write_text(json.dumps({"segmentation_request": segmentation_request, "discussion_request": discussion_request, "response": {"segments": segments, "result": result, "usage": usage}}, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+    request_path.write_text(json.dumps({"prompt_version": prompt_versions, "segmentation_request": segmentation_request, "discussion_request": discussion_request, "response": {"segments": segments, "result": result, "usage": usage}}, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
-    markdown_path.write_text(render_experiment_markdown(report, result, usage=usage, model=model), encoding="utf-8")
+    markdown_path.write_text(
+        render_experiment_markdown(report, result, usage=usage, model=model, prompt_versions=prompt_versions),
+        encoding="utf-8",
+    )
     record_case(ledger_path, case_id, "complete", mode="network", unit_count=len(result["units"]), usage=usage, spent_usd=usage["estimated_cost_usd"])
 
 

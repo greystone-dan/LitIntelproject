@@ -84,15 +84,15 @@ def citation_map_html() -> str:
 		html = html.replace(old, new, 1)
 	html = html.replace(
 		"b.classList.toggle('active',b.dataset.mode===state.mode)",
-		"b.classList.toggle('active',b.dataset.mode===state.mode);b.setAttribute('aria-pressed',String(b.dataset.mode===state.mode))",
+		"{b.classList.toggle('active',b.dataset.mode===state.mode);b.setAttribute('aria-pressed',String(b.dataset.mode===state.mode))}",
 	)
 	html = html.replace(
 		"t.classList.toggle('active',t.dataset.tab==='common')",
-		"t.classList.toggle('active',t.dataset.tab==='common');t.setAttribute('aria-pressed',String(t.dataset.tab==='common'))",
+		"{t.classList.toggle('active',t.dataset.tab==='common');t.setAttribute('aria-pressed',String(t.dataset.tab==='common'))}",
 	)
 	html = html.replace(
 		"x.classList.toggle('active',x===t)",
-		"x.classList.toggle('active',x===t);x.setAttribute('aria-pressed',String(x===t))",
+		"{x.classList.toggle('active',x===t);x.setAttribute('aria-pressed',String(x===t))}",
 	)
 	for tab in ("context", "tags", "related", "common"):
 		old = f'<button class="tab" data-tab="{tab}">'

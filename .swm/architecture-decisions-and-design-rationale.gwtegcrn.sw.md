@@ -123,6 +123,33 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.
 
+### Share embedding adapters behind the enhanced-mode policy
+
+- **Decision:** Use one `EmbeddingProvider` contract for query and case-ingestion
+  embeddings, with explicit disabled, lazy OpenAI, and cached local
+  SentenceTransformer implementations. Apply the central `backend/ai_mode.py`
+  policy before provider construction or invocation.
+- **Options considered:** Separate wrappers at each call site duplicate lifecycle
+  and dimension behavior; a generic adapter registry owned by the query module
+  gives ingestion the wrong owner dependency; a shared provider module keeps
+  provider mechanics common while retaining separate query and case-vector
+  configuration.
+- **Why:** The default-off behavior must be auditable as no model construction and
+  no outbound call. Local mode must keep user text on-device, while hosted mode
+  remains explicit. A common boundary also makes provider failures and
+  dimensions consistently testable without real clients or model downloads.
+- **Consequence:** Provider implementations live in
+  `backend/embedding_providers.py`; policy-aware configuration and API error
+  mapping live in `backend/query_embedding_providers.py`. Search and API
+  ingestion keep separate configuration/vector contracts. Local model instances
+  are shared by model/device within the process. Existing stored vector dimensions
+  remain authoritative; selecting a provider does not migrate or re-embed them.
+- **Evidence:** Focused fake-client/model tests cover provider adapters, mode
+  gating, ingestion no-call behavior, missing-key 503, and provider-failure 502.
+- **Revisit trigger:** A second independent consumer needs different lifecycle,
+  provider, or dimension semantics that cannot be represented by the common
+  contract without coupling owners.
+
 ### Keep RAG retrieval evidence-first and read-only
 
 - **Decision:** Build the experimental `/research` workflow as retrieval first,

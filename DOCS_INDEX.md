@@ -111,6 +111,8 @@ Current operational sources of truth:
   migration/route interactions, untested paths, and review limitations. It is
   evidence for that review only; it does not replace current GitHub checks or
   the authoritative source code and migrations.
+- `docs/reports/overruling-risk.md` documents the provisional, seed-based
+  overruling-risk indicator, assignment semantics, limits, and extension steps.
 - `docs/reports/local-query-embeddings.md` documents the opt-in query embedding
   provider, query-data locality signal, and vector-dimension compatibility
   boundary; current behavior remains authoritative in code and

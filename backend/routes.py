@@ -77,6 +77,7 @@ from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
+from .pages.theme_explorer import theme_explorer_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
@@ -204,6 +205,9 @@ from .search_service import (
 	_validate_search_ranges,
 )
 from .models import (
+	DiscoveredThemeResponse,
+	ThemeDiscoveryResponse,
+	ThemeOccurrenceResponse,
 	CaseIngestRequest,
 	CaseMergeResponse,
 	CaseReaderChunkResponse,
@@ -3460,6 +3464,60 @@ def check_saved_search(
 @router.get("/tag-finder", response_class=HTMLResponse, include_in_schema=False)
 def tag_finder_interface() -> HTMLResponse:
 	return HTMLResponse(content=tag_finder_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/themes/discovery", response_model=ThemeDiscoveryResponse)
+def get_theme_discovery(db: Session = Depends(get_db)) -> ThemeDiscoveryResponse:
+	"""Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms."""
+	from .theme_discovery import discover_themes, get_core_300_themes
+	from .reader_service import build_case_reader_data
+
+	# Load reader data for Core-300 cases to get evidence summaries
+	core_300_ids = range(1, 301)  # Core-300 case IDs
+	case_evidence_summaries = {}
+
+	for case_id in core_300_ids:
+		try:
+			reader_data = build_case_reader_data(case_id, db)
+			if reader_data.evidence_summary:
+				case_evidence_summaries[case_id] = reader_data.evidence_summary
+		except Exception:
+			continue
+
+	# Discover themes
+	discovered_themes = discover_themes(case_evidence_summaries)
+
+	# Convert to response objects
+	theme_responses = []
+	for theme in discovered_themes:
+		occurrence_responses = [
+			ThemeOccurrenceResponse(
+				case_id=occ.case_id,
+				unit_index=occ.unit_index,
+				subtheme_id=occ.subtheme_id,
+			)
+			for occ in theme.occurrences
+		]
+		theme_responses.append(
+			DiscoveredThemeResponse(
+				theme_id=theme.theme_id,
+				theme_name=theme.theme_name,
+				top_key_terms=theme.top_key_terms,
+				top_argument_roles=theme.top_argument_roles,
+				occurrence_count=theme.occurrence_count,
+				occurrences=occurrence_responses,
+			)
+		)
+
+	return ThemeDiscoveryResponse(
+		total_themes=len(theme_responses),
+		themes=theme_responses,
+	)
+
+
+@router.get("/themes", response_class=HTMLResponse, include_in_schema=False)
+def theme_explorer_page() -> HTMLResponse:
+	return HTMLResponse(content=theme_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.post("/research", response_model=ResearchResponse)

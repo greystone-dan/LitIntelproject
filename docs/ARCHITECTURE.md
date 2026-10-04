@@ -158,6 +158,7 @@ test checks that these paths continue to exist.
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
+| `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
@@ -223,6 +224,7 @@ test checks that these paths continue to exist.
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page for `/case-compare` and `/compare` |
 | `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
+| `backend/pages/case_summary_card.py` | Conditional formatted-reader card for exact selected passages and source-paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |

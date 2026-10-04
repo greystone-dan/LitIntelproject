@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a bounded in-process TTL cache for the About statistics, Federal Court
+  activity analytics, and Judge Profile list reads. The cache defaults to ten
+  minutes, supports `ANALYTICS_CACHE_TTL_SECONDS` configuration or disablement,
+  keys by all parsed filters, and reports `X-Cache: hit|miss`.
 - Added saved-search persistence and CRUD/alert routes, a standalone saved
   searches page, a Case Search action to save the current query and filters,
   and a bounded read-only-by-default alert checker. The new schema revision is

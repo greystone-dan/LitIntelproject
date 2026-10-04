@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T00:31:25.850513+00:00
+Generated: 2026-10-04T00:46:41.831723+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 99 across 96 paths
@@ -1459,6 +1459,7 @@ Handler: `backend.routes.about_stats`
 **Handler parameters**
 
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -1676,6 +1677,7 @@ Handler: `backend.routes.fc_activity_analytics`
 - `city` (str; default `''`)
 - `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -1865,6 +1867,7 @@ Handler: `backend.routes.judge_profiles`
 - `q` (str; default `''`)
 - `limit` (int; default `50`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 

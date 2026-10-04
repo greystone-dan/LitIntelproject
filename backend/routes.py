@@ -1220,8 +1220,11 @@ def get_data_explorer(
 
 
 @router.get("/api/about/stats", response_model=dict[str, int], include_in_schema=False)
-def about_stats(db: Session = Depends(get_db)) -> dict[str, int]:
-	return fetch_about_stats(db)
+def about_stats(db: Session = Depends(get_db), response: Response = None) -> dict[str, int]:  # type: ignore[assignment]
+	result, was_hit = fetch_about_stats(db)
+	if response is not None:
+		response.headers["X-Cache"] = "hit" if was_hit else "miss"
+	return result
 
 
 @router.get("/api/fc-history", response_model=dict[str, Any], include_in_schema=False)
@@ -1259,8 +1262,9 @@ def fc_activity_analytics(
 	city: str = "",
 	source_type: str = "",
 	db: Session = Depends(get_db),
+	response: Response = None,  # type: ignore[assignment]
 ) -> dict[str, Any]:
-	return fetch_fc_activity_analytics(
+	result, was_hit = fetch_fc_activity_analytics(
 		db,
 		x=x,
 		group_by=group_by,
@@ -1269,6 +1273,9 @@ def fc_activity_analytics(
 		city=city,
 		source_type=source_type,
 	)
+	if response is not None:
+		response.headers["X-Cache"] = "hit" if was_hit else "miss"
+	return result
 
 
 @router.get("/api/fc-activity/insights", response_model=dict[str, Any], include_in_schema=False)
@@ -1448,8 +1455,16 @@ def citation_intelligence_table(
 
 
 @router.get("/api/judge-profiles", response_model=list[dict[str, Any]], include_in_schema=False)
-def judge_profiles(q: str = "", limit: int = 50, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
-	return fetch_judge_profiles(db, q=q, limit=limit)
+def judge_profiles(
+	q: str = "",
+	limit: int = 50,
+	db: Session = Depends(get_db),
+	response: Response = None,  # type: ignore[assignment]
+) -> list[dict[str, Any]]:
+	result, was_hit = fetch_judge_profiles(db, q=q, limit=limit)
+	if response is not None:
+		response.headers["X-Cache"] = "hit" if was_hit else "miss"
+	return result
 
 
 @router.get("/api/judge-profiles/{slug}", response_model=dict[str, Any], include_in_schema=False)

@@ -40,13 +40,13 @@ Docs/generated references: `SYSTEM_REFERENCE.md`, relevant `.swm/` embedding wal
 
 Rollback/recovery: Revert the isolated provider/config/tests/docs change; no persisted vectors or schema are modified.
 
-Evidence: Initial `main` fetch was `ab0b6f59ad228b8de1007d4a32bc48ab27362d33` (#201). Final fetch is `144efa172615b3061e27db49db00b8aa1460900e` (#195); a clean `git merge-tree --write-tree HEAD FETCH_HEAD` preview produced tree `f9a861b5c6a6f1aa37c31f9173847191c66dba79`. The merge attempt safely aborted because uncommitted changes overlap `SYSTEM_REFERENCE.md` and `backend/models.py`; no files were overwritten. The issue #112 Rules block was verified from `.github/project-manager/tasks/issue-171-dependency-audit-task.md`: no database/deploy-script/`.env` changes, feature deletion, added dependencies, or password-gate activation. Focused tests passed: `python -m pytest -q tests/test_embedding_registry.py tests/test_local_embeddings.py tests/test_canlaw_embeddings.py` (27 passed). Python compilation, `git diff --check`, changed-file credential-pattern scan, and the focused Swimm link check passed. `python scripts/check_generated_docs.py` is blocked by missing `httpx`; all reference generators were attempted, but the API generator's output omitted 58 hidden routes in this environment and was not retained. A wider link scan found four pre-existing unresolved links elsewhere in `SYSTEM_REFERENCE.md`; no new walkthrough links are broken.
+Evidence: Initial `main` fetch was `ab0b6f59ad228b8de1007d4a32bc48ab27362d33` (#201). Final fetch was `144efa172615b3061e27db49db00b8aa1460900e` (#195), merged by `999be64`; implementation commit is `db71b5e`. A clean `git merge-tree --write-tree` preview preceded integration. The issue #112 Rules block was verified from `.github/project-manager/tasks/issue-171-dependency-audit-task.md`: no database/deploy-script/`.env` changes, feature deletion, added dependencies, or password-gate activation. Post-merge focused tests passed: `python -m pytest -q tests/test_embedding_registry.py tests/test_local_embeddings.py tests/test_canlaw_embeddings.py` (27 passed). Python compilation, `git diff --check`, changed-file credential-pattern scan, and the focused Swimm link check passed. `python scripts/check_generated_docs.py` is blocked by missing `httpx`; the API generator's output omitted 58 hidden routes in this environment and was not retained. Post-merge AI/API test collection is likewise blocked by missing `httpx`. A wider link scan found four pre-existing unresolved links elsewhere in `SYSTEM_REFERENCE.md`; no new walkthrough links are broken.
 
 Files changed: `.github/project-manager/tasks/embedding-model-registry-issue-205.md`; `.swm/embedding-registry-205.sw.md`; `SYSTEM_REFERENCE.md`; `docs/CONFIGURATION_REFERENCE.md`; `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`; `config.yaml`; `backend/embedding_registry.py`; `backend/embedding_providers.py`; `backend/query_embedding_providers.py`; `backend/search_service.py`; `backend/models.py`; `backend/unit_search.py`; `tests/test_embedding_registry.py`; `tests/test_local_embeddings.py`; `tests/test_ai_mode.py`; `tests/test_api.py`.
 Delegated work: `managed-worker` implemented an initial registry/provider/test/doc slice. Manager review found and corrected remaining Python defaults, missing enhanced-mode assertions, a noncanonical standalone guide, and runtime search literals. Manager validated final claims independently.
 Focused validation: `python -m pytest -q tests/test_embedding_registry.py tests/test_local_embeddings.py tests/test_canlaw_embeddings.py` passed (27 tests); `python -m py_compile backend/embedding_registry.py backend/embedding_providers.py backend/query_embedding_providers.py backend/search_service.py backend/models.py backend/unit_search.py tests/test_embedding_registry.py tests/test_local_embeddings.py tests/test_ai_mode.py tests/test_api.py`, `git diff --check`, credential scan, and focused Swimm local-link check passed. `python scripts/check_generated_docs.py` and focused `tests/test_api.py` collection failed because `httpx` is not installed.
 Residual risk: Issue #205 full text remains inaccessible. API/generated-document verification needs an environment with the existing `httpx` dependency. The standard fixed case-vector schema remains 1536-dimensional; configuration does not migrate or re-embed vectors. The full documentation-link scan found four pre-existing broken links outside the new walkthrough.
-Next bounded task: Commit the validated slice, merge the fetched main tip, and rerun acceptance; then use a dependency-complete environment to rerun API/generated-doc checks and compare acceptance against issue #205's full owner text.
+Next bounded task: Use a dependency-complete environment to rerun API/generated-doc checks and compare acceptance against issue #205's full owner text.
 
 ## Hypothesis
 
@@ -63,7 +63,7 @@ If embedding model identity and output width are supplied by a registry-backed c
 - Delegation: Managed worker implemented initial provider/registry/tests and proposed docs; manager corrected the slice after acceptance review.
 - Implementation: Registry loaded from `config.yaml`; runtime selection/status and provider dimensions use registered metadata.
 - Documentation: Updated `SYSTEM_REFERENCE.md`, `docs/CONFIGURATION_REFERENCE.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, and `.swm/embedding-registry-205.sw.md`.
-- Main integration: Final fetch advanced beyond the initial #201 tip; non-mutating preview was clean. Merge is pending because the overlapping implementation/docs edits are not yet committed.
+- Main integration: Committed the validated slice as `db71b5e`; merged fetched #195 (`144efa1`) as `999be64`. Auto-merge completed without conflicts.
 - Recovery: No database or persistent run artifacts involved.
 
 ## Decision Log
@@ -75,15 +75,16 @@ If embedding model identity and output width are supplied by a registry-backed c
 | 2026-10-04 | Use repository-local issue #112 Rules evidence | Public issue access returned 403, but the completed issue #171 record preserves the exact Rules block | `.github/project-manager/tasks/issue-171-dependency-audit-task.md` |
 | 2026-10-04 | Keep generated/API output unchanged after unsafe drift | The missing-`httpx` environment's API generator output removed 58 hidden routes; schema/script generator changes were timestamp-only | `python scripts/check_generated_docs.py`; generated API diff review |
 | 2026-10-04 | Preserve latest-main integration safely | Merge preview is conflict-free; Git refused because local edits overlap two main-updated files | `git merge-tree --write-tree HEAD FETCH_HEAD`; `git merge --no-edit FETCH_HEAD` |
+| 2026-10-04 | Integrate fetched main after preserving local work | Committed the validated slice, then merged #195 cleanly; no push | `db71b5e`; `999be64`; post-merge focused validation |
 
 ## Completion
 
 Completion recorded: no
 
-Summary: Implementation and canonical/Swimm documentation are in place; main integration and dependency-complete generated/API validation remain blocked.
+Summary: Implementation and canonical/Swimm documentation are in place and latest fetched main is merged; task remains blocked on dependency-complete generated/API validation.
 
 Validation: Focused registry/local/CanLaw tests passed (27); compilation, diff, secret, and focused Swimm link checks passed. Generated-doc/API validation could not complete because `httpx` is not installed.
 
-Residual risk: Issue #205 full text remains unavailable. Latest main tip is fetched but not merged yet. No generated reference output with unrelated route omissions was retained.
+Residual risk: Issue #205 full text remains unavailable. No generated reference output with unrelated route omissions was retained.
 
-Next recommended task: Commit the validated local slice and merge the fetched main tip; then rerun focused validation.
+Next recommended task: Rerun generated-doc/API validation in a dependency-complete environment and compare against the full issue #205 owner text.

@@ -34,6 +34,27 @@ class Links(HTMLParser):
             self.links.append(dict(attrs).get("href"))
 
 
+class Scripts(HTMLParser):
+    def __init__(self, html):
+        super().__init__()
+        self.scripts = []
+        self.current = None
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "script":
+            self.current = []
+
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "script" and self.current is not None:
+            self.scripts.append("".join(self.current))
+            self.current = None
+
+
 def test_onboarding_start_cards_routes_examples_and_shared_help():
     assert [task[0] for task in TASKS] == [
         "Find a case", "See how the Federal Court ruled on an issue",
@@ -64,6 +85,7 @@ def test_onboarding_start_cards_routes_examples_and_shared_help():
 
 
 def test_onboarding_tour_generated_contract_and_wrapper_order():
+    assert Scripts("<SCRIPT>const example = 1;</SCRIPT >").scripts == ["const example = 1;"]
     html = data_explorer_page_html()
     assert html.index("const mostCitedOpenDecision") < html.index("const seenThisSession")
     assert html.index("Citation Intelligence and Judge Profile snapshot views") < html.index("const seenThisSession")
@@ -81,7 +103,7 @@ def test_onboarding_tour_generated_contract_and_wrapper_order():
     assert "params.get('judge_query')" in html
     assert "Read the available decision text in full" in html
     assert "Source offsets remain owned by the backend" not in html
-    for script in re.findall(r"<script[^>]*>(.*?)</script>", html, re.S | re.I):
+    for script in Scripts(html).scripts:
         node = shutil.which("node")
         if node:
             result = subprocess.run([node, "--check"], input=script, text=True, capture_output=True)

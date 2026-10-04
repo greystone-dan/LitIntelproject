@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added an independent non-blocking pull-request and weekly workflow for
+  pinned Ruff (`E,F401`) and pip-audit checks, with a separate artifact for each
+  result. The first baseline is recorded in
+  [`docs/reports/baseline-lint-and-audit.md`](docs/reports/baseline-lint-and-audit.md).
+  The required CI pytest command ran 1,032 tests successfully; three other tests
+  failed while attempting to download external Hugging Face/OpenAI tokenizer
+  resources, one was skipped, one xfailed, and three configured tests were
+  deselected.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

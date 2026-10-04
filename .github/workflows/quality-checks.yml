@@ -1,0 +1,95 @@
+name: Quality Checks
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ruff:
+    name: Ruff (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install and run Ruff
+        id: ruff
+        continue-on-error: true
+        run: |
+          set +e
+          python -m pip install "ruff==0.16.10" > ruff-install.log 2>&1
+          install_status=$?
+          if [ "$install_status" -eq 0 ]; then
+            ruff --version > ruff-version.txt 2>&1
+            ruff check . --select E,F401 --output-format json \
+              > ruff-output.json 2>&1
+            check_status=$?
+          else
+            printf '{"error":"install failed","exit_code":%s}\n' \
+              "$install_status" > ruff-output.json
+            check_status=$install_status
+          fi
+          printf 'exit_code=%s\n' "$check_status" > ruff-status.txt
+          cat ruff-output.json
+          exit "$check_status"
+      - name: Upload Ruff results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruff-results
+          path: |
+            ruff-install.log
+            ruff-version.txt
+            ruff-output.json
+            ruff-status.txt
+          if-no-files-found: ignore
+          retention-days: 30
+
+  pip-audit:
+    name: pip-audit (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install and run pip-audit
+        id: pip-audit
+        continue-on-error: true
+        run: |
+          set +e
+          python -m pip install "pip-audit==2.10.1" > pip-audit-install.log 2>&1
+          install_status=$?
+          if [ "$install_status" -eq 0 ]; then
+            pip-audit --version > pip-audit-version.txt 2>&1
+            pip-audit --desc --format json -r requirements.txt \
+              > pip-audit-output.json 2>&1
+            check_status=$?
+          else
+            printf '{"error":"install failed","exit_code":%s}\n' \
+              "$install_status" > pip-audit-output.json
+            check_status=$install_status
+          fi
+          printf 'exit_code=%s\n' "$check_status" > pip-audit-status.txt
+          cat pip-audit-output.json
+          exit "$check_status"
+      - name: Upload pip-audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pip-audit-results
+          path: |
+            pip-audit-install.log
+            pip-audit-version.txt
+            pip-audit-output.json
+            pip-audit-status.txt
+          if-no-files-found: ignore
+          retention-days: 30

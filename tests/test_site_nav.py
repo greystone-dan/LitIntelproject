@@ -13,8 +13,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.testclient import TestClient
 
 from backend import main, routes
+from backend.pages.case_compare import case_compare_page_html
 from backend.pages.site_nav import (
-    LINKS, SCRIPT, SiteNavMiddleware, home_html, inject_html, route_context,
+    LINKS, SCRIPT, SiteNavMiddleware, home_html, inject_html, navigation, route_context,
 )
 
 
@@ -181,9 +182,49 @@ HTML_ROUTES = {
     "/case-reader", "/data-explorer", "/saved-searches-ui", "/statutes",
     "/case-reader-ui/{case_id}", "/discussion-units-sandbox", "/issue-brief-ui",
     "/citation-pass", "/quick-search", "/testing", "/prototype", "/research",
-    "/tag-finder", "/themes",
+    "/tag-finder", "/themes", "/case-compare",
 }
-DB_HTML_ROUTES = {"/case-reader-ui/{case_id}", "/issue-brief-ui"}
+DB_HTML_ROUTES = {"/case-reader-ui/{case_id}", "/issue-brief-ui", "/case-compare"}
+
+
+def test_case_compare_receives_navigation_without_changing_page_content():
+    # Exercise the real builder and ASGI decorator, not the DB-dependent route.
+    body = case_compare_page_html(a="17", b="23").encode("utf-8")
+    _, messages = exchange(path="/case-compare", body=body, query=b"a=17&b=23")
+    result = messages[1]["body"]
+    shell = navigation("/case-compare", {"a": ["17"], "b": ["23"]}).encode("utf-8")
+    assert result.count(shell) == 1
+    assert result.replace(shell, b"", 1) == body
+    assert int(dict(messages[0]["headers"])[b"content-length"]) == len(result)
+
+
+def test_explorer_operator_tips_and_search_handlers_survive_navigation():
+    response = routes.data_explorer_page()
+    body = response.body
+    _, messages = exchange(body=body, query=b"tab=search")
+    result = messages[1]["body"]
+    shell = navigation("/data-explorer", {"tab": ["search"]}).encode("utf-8")
+    assert result.count(shell) == 1
+    assert result.replace(shell, b"", 1) == body
+    elements = Elements(result.decode()).tags
+    tips = next(attrs for _, attrs in elements if attrs.get("id") == "searchTipsToggle")
+    assert tips["popovertarget"] == tips["aria-controls"] == "searchTipsPopover"
+    assert sum(attrs.get("id") == "caseSearch" for _, attrs in elements) == 1
+    for preserved in (
+        b"Vavilov AND fairness -delay",
+        b"court:SCC year:2018..2022",
+        b"year:2018-2022",
+        b"judge:Zinn",
+        b'cites:"2019 SCC 65"',
+        b"outcome:allowed",
+        b"function searchValues()",
+        b"async function runProfessionalSearch()",
+        b"fetch(`/analytics/search/cases?${params}`)",
+        b"Search interpreted as: ${data.query_echo}",
+        b"event.stopImmediatePropagation();runProfessionalSearch();",
+        b"bindProfessionalSearch();",
+    ):
+        assert preserved in body and preserved in result
 
 
 def test_actual_router_html_inventory_without_invoking_db():

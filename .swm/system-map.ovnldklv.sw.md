@@ -38,6 +38,12 @@ identity, offsets, and uncertainty reviewable. Selecting a graph node expands
 the box in place and reveals its inputs, outputs, live signal, and connected
 child boxes inside the same canvas.
 
+The live application and PostgreSQL/pgvector database run together on one
+workstation; there is no cloud-hosted production database. The concise setup
+and current-feature entry point is `README.md`, while
+`docs/ARCHITECTURE.md` provides the complete backend file inventory, plain
+language table guide, and source/licence boundary summary.
+
 ## Case-Level Pipeline Graphic
 
 The About surface places a second interactive canvas below the system map. This
@@ -87,6 +93,12 @@ finite fixtures for DB-dependent pages. Gate checks use TestClient without
 lifespan startup; ASGI and isolated JavaScript doubles cover bypass behavior,
 body-attribute preservation, GET search initialization and keyboard/menu state.
 Static card checks cover every tool's description and example destination.
+The merged `/case-compare` route stays database-dependent in the HTML inventory.
+Its builder is decorated directly in static tests; removing the inserted shell
+must recover all original bytes. The same regression protects Data Explorer's
+operator tips, query echo, and existing submit handlers from navigation changes.
+The complete merged module inventory is maintained in
+[`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
 For this issue browser validation was explicitly waived; these checks do not
 establish real-browser layout quality.
 

@@ -178,6 +178,10 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     ) in export_actions
     assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
     assert '<div class="search-status" id="searchMeta"' in html
+    assert 'id="searchTipsPopover" popover role="dialog"' in html
+    assert 'id="searchTipsToggle" popovertarget="searchTipsPopover"' in html
+    assert 'id="searchQueryEcho" role="status"' in html
+    assert "data.query_echo" in html
     assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
     assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
     search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)

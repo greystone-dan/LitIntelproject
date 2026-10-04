@@ -442,6 +442,17 @@ Generated API, schema, script, and work-history documents are outputs of their g
 | Evaluation/gold data | data-source register and producing script | bounded generation, fixture/evaluation tests, provenance review |
 | Documentation/Swimm | `DOCS_INDEX.md` and owning walkthrough | link review, structural check, `git diff --check` |
 
+## Saved Search Alert Checker
+
+`scripts/check_saved_searches.py` evaluates stored case-search criteria through
+the existing analytics search service. Its default mode is read-only and limits
+each invocation to at most 25 saved searches and 100 results per search. Start
+with `python scripts/check_saved_searches.py --help`; a bounded check can target
+one saved search with `--search-id <id>`. Add `--apply` only when approved to
+persist unseen case matches and update last-check timestamps. The script does
+not schedule itself, poll external sources, or alter canonical case records.
+Do not run concurrent PostgreSQL writers.
+
 ## Overnight Runner
 
 The runner in `scripts/run_overnight.py` executes selected jobs sequentially, holds an exclusive lock, writes one combined log per job, and atomically writes `state.json` after transitions. It deliberately excludes CanLII and hosted-AI embedding jobs from the safe profile. Never run another PostgreSQL writer beside an active run.

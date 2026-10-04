@@ -219,6 +219,19 @@ button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
 
+### Saved Searches And Alerts
+
+Use **Save current search** below the Case Search controls to name and preserve
+the current query and filter values. **Saved searches** opens `/saved-searches-ui`,
+where saved criteria and recorded case alerts can be reviewed, checked, or
+deleted. No saved search is loaded or applied automatically, so the existing
+search workflow is unchanged when the collection is empty.
+
+The `scripts/check_saved_searches.py` checker evaluates a bounded number of
+stored searches. It is read-only unless invoked with `--apply`; apply mode
+records only previously unseen case matches. The checker does not poll external
+sources or schedule itself, and does not change the active search API.
+
 Choose a result count and sort order:
 
 - **Newest decision**: date-first ordering.

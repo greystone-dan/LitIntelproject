@@ -9,6 +9,13 @@
   printable `/issue-brief-ui` with yearly outcomes, courts, resolved cited
   authorities, and reader links. Outcome percentages disclose the unclassified
   count and all-decision denominator; empty tags return an explicit empty brief.
+- Added saved-search persistence and CRUD/alert routes, a standalone saved
+  searches page, a Case Search action to save the current query and filters,
+  and a bounded read-only-by-default alert checker. The new schema revision is
+  chained from the latest existing Alembic head; standard search behavior is
+  unchanged when no saved searches exist. Focused checks passed (63); the full
+  CI-deselected suite had 991 passes and 3 unrelated failures because uncached
+  Hugging Face and OpenAI tokenizer assets could not be downloaded.
 - Added **Download CSV** to Case Search and `GET /search/export.csv`, carrying
 	the active query, filters, and sort order into a maximum 1,000-row export
 	with stable columns, UTF-8 BOM, spreadsheet formula escaping, and active

@@ -220,3 +220,4 @@ def test_unlisted_and_light_routes_remain_unlimited():
     assert classify_route("/static/app.css", "GET") == (False, None)
     assert classify_route("/search", "POST") == (True, None)
     assert classify_route("/prototype/cases", "GET") == (True, None)
+    assert classify_route("/precedent-finder", "POST") == (True, "bulk_search")

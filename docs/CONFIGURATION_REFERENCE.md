@@ -160,7 +160,7 @@ model configuration.
 
 | Variable | Default | Consumer | Purpose and validation |
 | --- | --- | --- | --- |
-| `HEAVY_ENDPOINT_MAX_CONCURRENCY` | unset (disabled) | `backend/load_shedding.py` | Enables per-process concurrency limits for live analysis, exports, citation map/intelligence, analytics, and bulk search. Must be a positive integer when set. |
+| `HEAVY_ENDPOINT_MAX_CONCURRENCY` | unset (disabled) | `backend/load_shedding.py` | Enables per-process concurrency limits for live analysis, exports, citation map/intelligence, analytics, bulk search, and precedent finding. Must be a positive integer when set. |
 | `HEAVY_BUCKET_<NAME>_MAX` | `HEAVY_ENDPOINT_MAX_CONCURRENCY` | `backend/load_shedding.py` | Optional positive-integer override for `LIVE_ANALYSIS`, `EXPORTS`, `CITATION_MAP`, `ANALYTICS`, or `BULK_SEARCH`. Overrides apply only when the global setting enables limiting. |
 | `HEAVY_ENDPOINT_QUEUE_SECONDS` | `0` | `backend/load_shedding.py` | Maximum time a request waits for a bucket slot before receiving HTTP 503 with `Retry-After`; must be finite and non-negative. |
 | `CASELIBRARY_DEBUG_ENDPOINTS` | unset (disabled) | `backend/load_shedding.py` | Set to `1` to expose read-only counts at `GET /health/limits`; otherwise that endpoint returns 404. |

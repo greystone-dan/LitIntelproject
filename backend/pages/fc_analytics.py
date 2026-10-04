@@ -45,7 +45,7 @@ FC_ANALYTICS_CSS = r"""
 .fcx .fcx-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}.fcx .fcx-legend i.line{height:2px;width:14px;border-radius:1px;vertical-align:3px}
 .fcx table{width:100%;border-collapse:collapse;font-size:12px}.fcx th,.fcx td{padding:6px 8px;border-bottom:1px solid var(--fcx-grid);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .fcx th:first-child,.fcx td:first-child{text-align:left;white-space:normal}.fcx th{color:var(--fcx-ink-2);font-weight:600;cursor:pointer;position:sticky;top:0;background:#fff}
-.fcx .fcx-scroll{max-height:440px;overflow:auto}.fcx tr.fcx-row{cursor:pointer}.fcx tr.fcx-row:hover td{background:#f6f4ee}
+.fcx .fcx-scroll{max-height:440px;overflow-x:auto;overflow-y:auto}.fcx tr.fcx-row{cursor:pointer}.fcx tr.fcx-row:hover td{background:#f6f4ee}
 .fcx .fcx-note{font-size:11px;color:var(--fcx-muted);margin-top:6px;line-height:1.45}
 .fcx .fcx-empty{padding:28px 0;text-align:center;font-size:12px;color:var(--fcx-ink-2)}
 #fcxTooltip{position:fixed;z-index:50;pointer-events:none;background:#fff;border:1px solid var(--border,#d8d5ca);box-shadow:0 4px 14px rgba(0,0,0,.12);padding:8px 10px;font-size:12px;max-width:280px;display:none}

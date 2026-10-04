@@ -102,6 +102,26 @@ This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-read
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.
 
+### Responsive page coverage
+
+Issue #141 adds a browser-independent contract test for the generated page
+builders. It extracts inline CSS and checks viewport metadata, a width-based
+media rule for each page's primary layout, non-table minimum widths no greater
+than 360px, and horizontally scrollable wrappers for rendered tables. The
+active Data Explorer's dynamically assembled analytics tables are checked
+separately. Wide data tables may keep a larger intrinsic minimum width when
+their own wrapper provides horizontal scrolling; print-oriented Legal Issue
+Brief styles retain visible table overflow for printing.
+
+When `/opt/pw-browsers` contains an executable Chromium and Playwright is
+installed, the optional browser test writes page screenshots at 360, 768, and
+1280 CSS pixels to `docs/reports/responsive/`. It skips when either local browser
+support is unavailable and does not add a dependency. The page-by-page findings,
+fixes, and deferred visual checks are recorded in
+`docs/reports/responsive-audit.md`. CSS contract checks are not a claim of
+rendered-browser or touch-target conformance; use the optional screenshots or
+manual browser review for those checks.
+
 The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |

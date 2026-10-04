@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+from .memo_authority_suggestions import SUGGESTION_SECTION, SUGGESTION_SCRIPT
+
 
 def memo_citation_check_page_html() -> str:
-	return r'''<!doctype html>
+	html = r'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,3 +30,10 @@ function missingRow(authority){const reason=authority.reason || 'Commonly cited 
 function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const m=data.memo_analysis||{};document.getElementById('summary').innerHTML=`<div class="metric"><strong>${m.total_authorities_cited||0}</strong><span>Authorities cited</span></div><div class="metric"><strong>${m.resolved_authorities||0}</strong><span>Resolved in iLit</span></div><div class="metric"><strong>${m.authorities_with_treatment||0}</strong><span>With treatment data</span></div><div class="metric"><strong>${m.missing_authorities_found||0}</strong><span>Missing authorities</span></div>`;const cited=data.case_citations||[];const missing=data.missing_authorities||[];document.getElementById('cited').innerHTML=cited.length>0?cited.map(authorityRow).join(''):'<div class="empty">No case citations found in document.</div>';const treatedCitations=cited.filter(c=>c.resolved_case_id);document.getElementById('treatment').innerHTML=treatedCitations.length>0?treatedCitations.map(treatmentRow).join(''):'<div class="empty">Analyze document to see treatment status of cited authorities.</div>';document.getElementById('missing').innerHTML=missing.length>0?missing.map(missingRow).join(''):'<div class="empty">No commonly cited authorities found on same issues. Your citation coverage looks thorough.</div>';results.classList.remove('hidden');}
 fileInput.onchange=()=>choose(fileInput.files[0]);['dragenter','dragover'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>choose(e.dataTransfer.files[0]));analyze.onclick=async()=>{if(!selected)return;analyze.disabled=true;status.textContent='Analyzing document…';showError('');const body=new FormData();body.append('file',selected);try{const response=await fetch('/memo-citation-check',{method:'POST',body});const data=await response.json();if(!response.ok)throw new Error(data.detail||`Request failed (${response.status})`);render(data);status.textContent='Analysis complete';}catch(e){showError(e.message);status.textContent='Analysis failed';}finally{analyze.disabled=false}};clear.onclick=()=>{selected=null;fileInput.value='';choose(null);results.classList.add('hidden');};
 </script></body></html>'''
+	# Keep the existing legacy sections and renderer unchanged.
+	html = html.replace("</section></main>", SUGGESTION_SECTION + "</section></main>")
+	html = html.replace(
+		"results.classList.remove('hidden');}",
+		"renderAuthoritySuggestions(data.suggestions);results.classList.remove('hidden');}",
+	)
+	return html.replace("</script></body>", SUGGESTION_SCRIPT + "</script></body>")

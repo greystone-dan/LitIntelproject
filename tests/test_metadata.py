@@ -678,7 +678,7 @@ def test_outcome_rad_panel_is_the_rpd_not_the_decision_maker():
 
 def test_outcome_costs_only_order_with_trailer_is_procedural():
 	text = (
-		"[13] The Court earlier said the judicial review was denied.\n[14] I am satisfied that special reasons exist which justify an award of costs.\n"
+		"[13] Judicial review denied on the merits earlier by another judge.\n[14] I am satisfied that special reasons exist which justify an award of costs.\n"
 		"ORDER in IMM-2733-22\nTHIS COURT ORDERS that costs in the amount of $3,000.00 be paid forthwith by the Respondent to the Applicant.\n"
 		"Judge\nFEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET:\nIMM-2733-22\nORDER and REASONS :\nBELL J.\n"
 	)

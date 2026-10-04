@@ -8,6 +8,8 @@ from hashlib import sha256
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
+from starlette.routing import Match, Mount
+from starlette.staticfiles import StaticFiles
 
 from .database import init_db
 from .routes import router
@@ -43,8 +45,12 @@ def _valid_access_cookie(value: str | None, secret: str, lifetime: int) -> bool:
     if not value or "." not in value:
         return False
     issued_at, supplied_signature = value.split(".", 1)
-    if not issued_at.isdigit() or not hmac.compare_digest(
-        supplied_signature, _access_signature(issued_at, secret)
+    if (
+        not issued_at.isascii()
+        or not issued_at.isdigit()
+        or len(issued_at) > 20
+        or not supplied_signature.isascii()
+        or not hmac.compare_digest(supplied_signature, _access_signature(issued_at, secret))
     ):
         return False
     return 0 <= int(time.time()) - int(issued_at) <= lifetime
@@ -77,7 +83,24 @@ def _login_page(error: str = "") -> HTMLResponse:
 
 @app.middleware("http")
 async def private_access_and_noindex(request: Request, call_next):
-    response = await call_next(request)
+    password, secret, lifetime = _private_access_config()
+    public_path = request.url.path in {"/access", "/access/login", "/health"}
+    matched_route = next(
+        (route for route in app.routes if route.matches(request.scope)[0] == Match.FULL),
+        None,
+    ) if password else None
+    static_asset = isinstance(matched_route, Mount) and isinstance(matched_route.app, StaticFiles)
+    if password and not public_path and not static_asset and not _valid_access_cookie(
+        request.cookies.get(ACCESS_COOKIE), secret, lifetime
+    ):
+        if "text/html" in request.headers.get("accept", "") and not (
+            request.url.path == "/api" or request.url.path.startswith("/api/")
+        ):
+            response = RedirectResponse(url="/access", status_code=303)
+        else:
+            response = JSONResponse({"detail": "Authentication required."}, status_code=401)
+    else:
+        response = await call_next(request)
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response
 
@@ -111,7 +134,9 @@ def access_page() -> HTMLResponse:
 @app.post("/access/login", response_class=HTMLResponse, include_in_schema=False)
 def access_login(request: Request, password: str = Form(...)) -> Response:
     configured_password, secret, lifetime = _private_access_config()
-    if not configured_password or not hmac.compare_digest(password, configured_password):
+    if not configured_password or not hmac.compare_digest(
+        password.encode("utf-8"), configured_password.encode("utf-8")
+    ):
         return _login_page("That password was not accepted.")
     issued_at = str(int(time.time()))
     response = RedirectResponse(url="/data-explorer", status_code=303)
@@ -119,6 +144,19 @@ def access_login(request: Request, password: str = Form(...)) -> Response:
         ACCESS_COOKIE,
         f"{issued_at}.{_access_signature(issued_at, secret)}",
         max_age=lifetime,
+        httponly=True,
+        samesite="lax",
+        secure=request.url.scheme == "https",
+    )
+    return response
+
+
+@app.post("/access/logout", include_in_schema=False)
+def access_logout(request: Request) -> Response:
+    password, _, _ = _private_access_config()
+    response = RedirectResponse(url="/access" if password else "/data-explorer", status_code=303)
+    response.delete_cookie(
+        ACCESS_COOKIE,
         httponly=True,
         samesite="lax",
         secure=request.url.scheme == "https",

@@ -1504,11 +1504,11 @@ Focused active-interface and citation rebuild checks passed (`18 passed`). Edito
 
 ## Code Review Findings: 2026-09-01
 
-### High: Configured Private Access Is Not Enforced
+### Resolved: Optional Private Access Enforcement
 
-`backend/main.py` contains password/cookie generation and login routes, but `private_access_and_noindex()` only calls the next handler and adds no-index headers. It does not check `CASELIBRARY_ACCESS_PASSWORD`, validate the access cookie, or redirect unauthenticated public requests. A Cloudflare-exposed instance is therefore publicly reachable unless Cloudflare or another external layer enforces access.
+`backend/main.py` enforces signed access cookies only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty. The gate remains off by default; without that setting, routes remain publicly reachable unless an external layer enforces access.
 
-Required remediation: add an explicit allowlist for health/login/static routes, require a valid cookie for non-local requests when a password is configured, and test both anonymous denial and authenticated access. Until this is done, treat the tunnel as public.
+When enabled, only `/access`, `/access/login`, `/health`, and mounted static assets are exempt. All other routes, including local requests, require a valid cookie. HTML requests redirect to `/access`; API requests receive `401`. `POST /access/logout` clears the browser cookie. No-index headers remain indexing controls, not authentication.
 
 ### Medium: Large Generated UI Module Is Fragile
 
@@ -5359,12 +5359,14 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate off) | `backend/main.py` | A non-empty value enables signed-cookie enforcement for all routes except login, health, and mounted static assets. Missing or empty leaves access unchanged and makes `/access` return `503`. |
 | `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
-The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+To opt in, set `CASELIBRARY_ACCESS_PASSWORD` in the server process environment and restart the application. Set `CASELIBRARY_SESSION_SECRET` to a separate strong random secret. No password is configured by this change; leave the password unset or empty to keep the gate off. Login cookies are HttpOnly, SameSite=Lax, and Secure on HTTPS. `POST /access/logout` deletes the browser cookie but does not revoke copied cookies; those remain valid until expiry or signing-secret rotation.
+
+The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt` (behind the gate when enabled). This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
 ## OpenAI And External Model Settings
 

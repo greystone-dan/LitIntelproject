@@ -50,6 +50,7 @@ from .judge_issue_record import (
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import identity_sql, matched_on_sql
+from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
 
@@ -1011,6 +1012,121 @@ def fetch_judge_profile_by_slug(
 	}
 
 
+def _query_uses_operators(parsed_query: dict[str, Any]) -> bool:
+	"""Return whether the raw query requests syntax beyond legacy plain search."""
+	if any(parsed_query["filters"].values()) or any(parsed_query["boolean_ops"].values()):
+		return True
+
+	def contains_syntax(node: dict[str, Any] | None) -> bool:
+		if not isinstance(node, dict):
+			return False
+		if node.get("kind") == "field":
+			return True
+		return any(contains_syntax(child) for child in node.get("operands", [])) or contains_syntax(
+			node.get("operand")
+		)
+
+	if contains_syntax(parsed_query.get("expression")):
+		return True
+	raw_query = parsed_query["raw_query"]
+	if any(issue.startswith("Unbalanced quote") for issue in parsed_query["issues"]):
+		return False
+	return bool(
+		'"' in raw_query
+		or re.search(r"(?<!\w)'[^']*'(?!\w)", raw_query)
+	)
+
+
+def _query_expression_sql(
+	expression: dict[str, Any] | None,
+	params: dict[str, Any],
+	*,
+	search_full_text: bool,
+) -> str:
+	"""Compile the parser's fixed-shape Boolean AST into SQL and bound values."""
+	parameter_index = 0
+	node_count = 0
+
+	def bind(value: Any) -> str:
+		nonlocal parameter_index
+		name = f"operator_query_{parameter_index}"
+		parameter_index += 1
+		params[name] = value
+		return f":{name}"
+
+	def compile_node(node: dict[str, Any] | None) -> str:
+		nonlocal node_count
+		node_count += 1
+		if node_count > 100 or not isinstance(node, dict):
+			return "FALSE"
+		node_type = node.get("type")
+		if node_type in {"and", "or"}:
+			operands = node.get("operands")
+			if not isinstance(operands, list) or not operands:
+				return "FALSE"
+			joiner = " AND " if node_type == "and" else " OR "
+			return "(" + joiner.join(compile_node(operand) for operand in operands) + ")"
+		if node_type == "not":
+			return f"(NOT {compile_node(node.get('operand'))})"
+		if node_type != "atom":
+			return "FALSE"
+
+		value = node.get("value")
+		if not isinstance(value, str) or not value:
+			return "FALSE"
+		field_name = node.get("field_name")
+		if node.get("kind") == "term":
+			search_columns = ["c.title", "c.citation", "c.secondary_citation"]
+			if search_full_text:
+				search_columns.extend(["c.full_text", "c.summary"])
+			value_param = bind(f"%{value}%")
+			return "(" + " OR ".join(f"{column} ILIKE {value_param}" for column in search_columns) + ")"
+		if field_name == "court":
+			if value.strip().upper() == "FC":
+				return "UPPER(c.court) IN ('FC', 'FEDERAL COURT')"
+			return f"c.court ILIKE {bind(f'%{value}%')}"
+		if field_name == "judge":
+			return (
+				"c.metadata_json->'reader_extracted'->>'judge' "
+				f"ILIKE {bind(f'%{value}%')}"
+			)
+		if field_name == "cites":
+			value_param = bind(f"%{value}%")
+			return (
+				"EXISTS (SELECT 1 FROM citations cited WHERE cited.source_case_id = c.id "
+				f"AND (cited.citation_text ILIKE {value_param} "
+				f"OR cited.normalized_citation ILIKE {value_param}))"
+			)
+		if field_name == "outcome":
+			if value.lower() not in OUTCOME_ALLOWLIST:
+				return "FALSE"
+			return (
+				"LOWER(COALESCE(c.metadata_json->'reader_extracted'->>'decision outcome', '')) "
+				f"= LOWER({bind(value)})"
+			)
+		if field_name == "year":
+			year_expression = (
+				"NULLIF(SUBSTRING(COALESCE(c.metadata_json->'reader_extracted'->>'date', '') "
+				"FROM '^([0-9]{4})'), '')::INTEGER"
+			)
+			if re.fullmatch(r"\d{4}", value):
+				year_value = int(value)
+				return (
+					f"{year_expression} = {bind(year_value)}"
+					if 1000 <= year_value <= 9999
+					else "FALSE"
+				)
+			range_match = re.fullmatch(r"(\d{4})(?:\.\.|-)(\d{4})", value)
+			if range_match:
+				start_year, end_year = (int(year_part) for year_part in range_match.groups())
+				if 1000 <= start_year <= end_year <= 9999:
+					return f"{year_expression} BETWEEN {bind(start_year)} AND {bind(end_year)}"
+			return "FALSE"
+		return "FALSE"
+
+	return compile_node(expression) if expression is not None else "FALSE"
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1041,12 +1157,24 @@ def fetch_analytics_search_cases(
 	judge = " ".join(judge.split())
 	court = " ".join(court.split())
 	year = "".join(character for character in year if character.isdigit())[:4]
+	parsed_query = parse_query(query)
+	query_uses_operators = _query_uses_operators(parsed_query)
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
 	citation_match, party_match, match_params = identity_sql(query)
 	params.update(match_params)
 	match_label, label_params = matched_on_sql(query, search_full_text=search_full_text)
 	params.update(label_params)
-	if query:
+	if query_uses_operators:
+		params["query_match_label"] = "Query operators"
+		match_label = ":query_match_label"
+		expression_sql = _query_expression_sql(
+			parsed_query["expression"],
+			params,
+			search_full_text=search_full_text,
+		)
+		if expression_sql:
+			filters.append(expression_sql)
+	elif query:
 		params["query"] = f"%{query}%"
 		query_fields = f"c.title ILIKE :query OR c.citation ILIKE :query OR {citation_match} OR {party_match}"
 		if search_full_text:
@@ -1110,7 +1238,7 @@ def fetch_analytics_search_cases(
 		"oldest": "c.date ASC NULLS LAST, c.id ASC",
 		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
 	}.get(sort_by, default_sort)
-	if query and sort_by == "relevance":
+	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
 			sort_by,
@@ -1161,10 +1289,12 @@ def fetch_analytics_search_cases(
 				"cited_by_cases": int(row["cited_by_cases"] or 0),
 				"matched_on": row.get("matched_on", "Metadata"),
 			}
+
 			for row in rows
 		],
 		"limit": limit,
 		"offset": offset,
+		"query_echo": parsed_query["echo"],
 	}
 
 

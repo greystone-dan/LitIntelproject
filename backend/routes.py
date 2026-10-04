@@ -77,6 +77,8 @@ from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
+from .pages.case_compare import case_compare_page_html
+from .case_comparison import fetch_case_comparison
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -756,6 +758,47 @@ def get_inventory(db: Session = Depends(get_db)) -> InventoryResponse:
 		source_breakdown=[InventorySourceSummary.model_validate(item) for item in source_breakdown],
 		cases=[InventoryCaseResponse.model_validate(item) for item in cases],
 	)
+
+
+@router.get(
+	"/cases/compare",
+	response_model=dict[str, Any],
+	summary="Compare two decisions using distinct stored research signals",
+	description=(
+		"Returns side-by-side case facts and stored outcome assignment provenance, "
+		"preserving unclassified outcomes and raw labels. Active legal tags, statute "
+		"references and case authorities have distinct shared/unique counts; repeated "
+		"mentions count once. Read-only; no classification or resolution is performed. "
+		"Unknown IDs return 404 with detail.code=unknown_case and unknown_ids."
+	),
+	responses={404: {"description": "Unknown canonical case ID(s)."}},
+)
+def case_comparison(
+	a: int = Query(gt=0),
+	b: int = Query(gt=0),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	result = fetch_case_comparison(db, a, b)
+	if result["status"] == "unknown_case":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_case", "message": "Unknown canonical case ID.",
+			"unknown_ids": result["unknown_ids"],
+		})
+	return result
+
+
+@router.get("/case-compare", response_class=HTMLResponse, include_in_schema=False)
+def case_compare_page(
+	a: str = "",
+	b: str = "",
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	# Empty query parameters are the picker page, not invalid integer inputs.
+	for value in (a, b):
+		if value and (not value.isascii() or not value.isdigit() or len(value) > 18 or int(value) <= 0):
+			raise HTTPException(status_code=422, detail="Case IDs must be positive integers.")
+	result = case_comparison(int(a), int(b), db) if a and b else None
+	return HTMLResponse(case_compare_page_html(result, a, b))
 
 
 @router.get("/cases/{case_id}", response_model=CaseResponse)

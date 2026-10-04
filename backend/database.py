@@ -143,6 +143,9 @@ class Case(Base):
 		"CaseTaggingStatus", back_populates="case", cascade="all, delete-orphan"
 	)
 	outcomes = relationship("CaseOutcome", back_populates="case", cascade="all, delete-orphan")
+	discussion_unit_caches = relationship(
+		"DiscussionUnitCache", back_populates="case", cascade="all, delete-orphan"
+	)
 
 
 class JudgeProfile(Base):
@@ -386,6 +389,28 @@ class CaseOutcome(Base):
 	)
 
 	case = relationship("Case", back_populates="outcomes")
+
+
+class DiscussionUnitCache(Base):
+	__tablename__ = "discussion_unit_cache"
+	__table_args__ = (
+		UniqueConstraint("case_id", "method_version", name="uq_discussion_unit_cache_version"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	method_version: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	units_json: Mapped[str] = mapped_column(Text, nullable=False)
+	total_units: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	total_subthemes: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	case = relationship("Case", back_populates="discussion_unit_caches")
 
 
 class IngestionRun(Base):

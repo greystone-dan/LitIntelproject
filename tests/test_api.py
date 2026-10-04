@@ -140,6 +140,20 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
     ]
 
 
+def test_case_search_csv_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    routes.export_search_analytics_cases(query=query, db=object())
+
+    assert calls[0]["query"] == query
+
+
 def test_case_search_csv_export_caps_results_at_1000(monkeypatch):
     calls = []
 
@@ -444,6 +458,22 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
         for _, kwargs in calls
     )
     assert all(database_arg is database for database_arg, _ in calls)
+
+
+def test_search_docx_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    response = routes.export_search_docx(query=query, db=object())
+
+    document = Document(BytesIO(response.body))
+    assert f"Query: {query}" in document.paragraphs[0].text
+    assert calls[0]["query"] == query
 
 
 def test_analytics_search_relevance_prefers_exact_case_name_matches():

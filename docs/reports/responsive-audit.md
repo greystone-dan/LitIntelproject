@@ -17,11 +17,12 @@ their data/API behavior was not changed.
 
 The browser screenshot test is optional. This environment has neither
 `/opt/pw-browsers` nor the Playwright Python package, so no screenshots were
-produced. The test runner also lacks `pytest`, preventing execution of the
-optional skip path. When run under pytest, the test checks for the browser
-directory/binary and Playwright and calls `pytest.skip` if either is absent.
-The CSS contract passes are structural evidence at the requested target widths,
-not measurements of rendered geometry or live content.
+produced; the optional test skipped cleanly. Responsive and documentation
+contract tests passed (4 passed, 1 skipped). The CSS contract passes are
+structural evidence at the requested target widths, not measurements of
+rendered geometry or live content. The full suite passed 1,534 tests but had
+three failures caused by unavailable DNS for Hugging Face and the OpenAI
+tokenizer download; see the merge validation record for the exact test names.
 
 ## Page-by-page findings
 

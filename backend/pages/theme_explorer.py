@@ -75,6 +75,17 @@ def theme_explorer_page_html() -> str:
 	</div>
 
 	<div class="container">
+		<div style="background: white; margin: 24px 24px 0; padding: 20px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+			<h2 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 12px;">Unit-Level Search</h2>
+			<div style="display: grid; grid-template-columns: 1fr auto; gap: 8px;">
+				<input type="text" id="unitSearchInput" placeholder="Search for specific legal topics within discussion units (e.g., credibility assessment, procedural fairness)" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+				<button id="unitSearchBtn" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Search Units</button>
+			</div>
+			<div id="unitSearchResults" style="margin-top: 12px; display: none;">
+				<!-- Unit search results will be displayed here -->
+			</div>
+		</div>
+
 		<div class="main">
 			<div class="sidebar">
 				<h2>Themes</h2>
@@ -98,6 +109,7 @@ def theme_explorer_page_html() -> str:
 	<script>
 		let allThemes = [];
 		let currentTheme = null;
+		let unitSearchResults = [];
 
 		async function loadThemes() {
 			try {
@@ -109,6 +121,56 @@ def theme_explorer_page_html() -> str:
 				console.error('Failed to load themes:', err);
 				document.getElementById('themeList').innerHTML = '<div class="empty">Failed to load themes</div>';
 			}
+		}
+
+		async function searchUnits(query) {
+			if (query.length < 2) {
+				document.getElementById('unitSearchResults').style.display = 'none';
+				return;
+			}
+
+			try {
+				const response = await fetch(\`/units/search?q=\${encodeURIComponent(query)}&limit=15\`);
+				const data = await response.json();
+				unitSearchResults = data.results || [];
+				renderUnitSearchResults(data);
+			} catch (err) {
+				console.error('Failed to search units:', err);
+				document.getElementById('unitSearchResults').innerHTML = '<div class="empty">Error searching units</div>';
+				document.getElementById('unitSearchResults').style.display = 'block';
+			}
+		}
+
+		function renderUnitSearchResults(data) {
+			const container = document.getElementById('unitSearchResults');
+			if (!data.results || !data.results.length) {
+				container.innerHTML = '<div class="empty">No matching units found</div>';
+				container.style.display = 'block';
+				return;
+			}
+
+			const html = \`
+				<div style="padding: 12px 0; border-top: 1px solid #eee;">
+					<p style="font-size: 12px; color: #666; margin-bottom: 12px;"><strong>\${data.total_results}</strong> matching units found (\${data.results[0].match_type === 'semantic' ? 'semantic search' : 'keyword match'})</p>
+					<div style="display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto;">
+						\${data.results.slice(0, 10).map(result => \`
+							<div style="background: #f8f9fa; padding: 10px; border-left: 3px solid #667eea; border-radius: 3px; font-size: 12px;">
+								<div style="font-weight: 600; margin-bottom: 4px;">Case \${result.case_id} · Unit \${result.unit_index}</div>
+								<div style="color: #666; margin-bottom: 4px;">
+									Judges: <strong>\${result.judges.join(', ') || 'Not recorded'}</strong>
+									· Outcome: <strong>\${result.disposition || 'Unknown'}</strong>
+								</div>
+								<div style="color: #999; font-size: 11px;">
+									Key terms: \${result.key_terms.join(', ')} · Score: \${(result.score * 100).toFixed(0)}%
+								</div>
+							</div>
+						\`).join('')}
+					</div>
+				</div>
+			\`;
+
+			container.innerHTML = html;
+			container.style.display = 'block';
 		}
 
 		function renderThemeList(themes) {
@@ -204,6 +266,24 @@ def theme_explorer_page_html() -> str:
 			div.textContent = text;
 			return div.innerHTML;
 		}
+
+		// Unit search
+		document.getElementById('unitSearchBtn').addEventListener('click', (e) => {
+			const query = document.getElementById('unitSearchInput').value.trim();
+			if (query.length >= 2) {
+				searchUnits(query);
+			}
+		});
+
+		// Unit search on Enter key
+		document.getElementById('unitSearchInput').addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				const query = document.getElementById('unitSearchInput').value.trim();
+				if (query.length >= 2) {
+					searchUnits(query);
+				}
+			}
+		});
 
 		// Filter themes
 		document.getElementById('themeFilter').addEventListener('input', (e) => {

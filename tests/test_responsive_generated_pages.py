@@ -20,7 +20,7 @@ from backend.pages.research import research_page_html
 from backend.pages.saved_searches import saved_searches_page_html
 from backend.pages.statute_viewer import statute_viewer_page_html
 from backend.pages.tag_finder import tag_finder_page_html
-from backend.pages.testing import testing_page_html
+from backend.pages.testing import testing_page_html as build_testing_page_html
 from backend.pages.theme_explorer import theme_explorer_page_html
 
 
@@ -54,7 +54,7 @@ PAGES = {
     "saved_searches": (saved_searches_page_html, ".saved-search-head"),
     "statute_viewer": (statute_viewer_page_html, ".shell"),
     "tag_finder": (tag_finder_page_html, ".input-row"),
-    "testing": (testing_page_html, ".search-layout"),
+    "testing": (build_testing_page_html, ".search-layout"),
     "theme_explorer": (theme_explorer_page_html, ".main"),
 }
 

@@ -103,6 +103,13 @@
 .jp-alias{margin-top:10px;font-size:12px;color:var(--muted)}
 .jp-alias summary{cursor:pointer;font-weight:600}
 .ix-note-strip{margin-top:12px;padding:9px 12px;border-radius:6px;background:var(--amber-soft);border:1px solid #ead9aa;color:#6f5114;font-size:12px;line-height:1.45}
+.jp-issue-scope{margin-top:10px!important}
+.jp-issue-table-wrap{max-width:100%;overflow:auto;border:1px solid var(--border);margin:10px 0}
+.jp-issue-table{min-width:1260px;width:100%;border-collapse:collapse;font-size:11px}
+.jp-issue-table th,.jp-issue-table td{padding:7px 8px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.jp-issue-table thead th{position:sticky;top:0;background:var(--surface-alt);color:var(--muted);font-size:10px}
+.jp-issue-table th:first-child,.jp-issue-table tbody th{text-align:left}
+.jp-issue-table tbody th{font-weight:600;color:var(--text)}
 .ix-split.rate{height:22px;border-radius:6px}
 .ix-split.rate i{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700}
 @media(max-width:900px){.ix-grid{grid-template-columns:1fr}.jp-layout{grid-template-columns:1fr}.jp-rail{position:static;max-height:360px}}

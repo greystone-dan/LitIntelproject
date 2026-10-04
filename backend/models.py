@@ -2,6 +2,7 @@ from datetime import date, datetime
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+from .memo_suggestion_models import MemoAuthoritySuggestions
 
 
 class SimilarParagraphResponse(BaseModel):
@@ -376,27 +377,6 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
-	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
-
-
-class ThemeOccurrenceResponse(BaseModel):
-	case_id: int
-	unit_index: int
-	subtheme_id: str
-
-
-class DiscoveredThemeResponse(BaseModel):
-	theme_id: str
-	theme_name: str
-	top_key_terms: list[str]
-	top_argument_roles: list[str]
-	occurrence_count: int
-	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
-
-
-class ThemeDiscoveryResponse(BaseModel):
-	total_themes: int
-	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
 
 
 class CaseSummarySectionItemResponse(BaseModel):
@@ -431,12 +411,12 @@ class CaseReaderDataResponse(BaseModel):
 	citations: list[CaseReaderCitationResponse]
 	tags: list[CaseReaderTagResponse]
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
+	extracted_summary: list[CaseReaderExtractedSummaryItemResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
 	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
-	extracted_summary: list[CaseReaderExtractedSummaryItemResponse] = Field(default_factory=list)
 
 
 class InventoryCaseResponse(BaseModel):
@@ -869,36 +849,79 @@ class ResearchResponse(BaseModel):
 	completion_tokens: int
 
 
-class TreatmentInfo(BaseModel):
-	has_treatment: bool
-	treatment_flags: list[str]
-	citing_cases_count: int
+class JudgeAnalyticsResponse(BaseModel):
+	"""Judge and outcome information for a unit."""
+	judges: list[str]
+	disposition: str | None
+	outcome_status: str | None
+	winner_side: str | None
 
 
-class RelatedAuthorityResponse(BaseModel):
-	id: int
-	title: str
-	citation: str | None
-	court: str
-	date: str | None
-	citing_count: int
-	issues: list[str]
+class UnitSearchResultResponse(BaseModel):
+	"""Result from unit-level search."""
+	case_id: int
+	unit_index: int
+	start_paragraph: int
+	end_paragraph: int
+	subtheme_id: str
+	key_terms: list[str]
+	judges: list[str]
+	disposition: str | None
+	score: float
+	match_type: str
 
 
-class EnhancedCitationResponse(LiveAnalysisReferenceResponse):
-	treatment: TreatmentInfo | None = None
-	related_authorities: list[RelatedAuthorityResponse] = []
+class UnitSearchResponse(BaseModel):
+	"""Response from unit search endpoint."""
+	query: str
+	total_results: int
+	results: list[UnitSearchResultResponse]
 
 
-class MissingAuthorityResponse(BaseModel):
-	id: int
-	title: str
-	citation: str | None
-	court: str
-	date: str | None
-	citing_count: int
-	issues: list[str]
-	reason: str
+class ThemeJudgePattern(BaseModel):
+	"""Judge pattern for a theme."""
+	judge_name: str
+	occurrence_count: int
+
+
+class ThemeDispositionSplit(BaseModel):
+	"""Disposition outcomes for a theme."""
+	disposition: str
+	count: int
+
+
+class ThemeWithJudgeAnalyticsResponse(BaseModel):
+	"""Enhanced theme with judge analytics."""
+	theme_id: str
+	theme_name: str
+	occurrence_count: int
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrences: list[dict[str, Any]]  # Includes judge/outcome/disposition info
+	judge_patterns: dict[str, Any] = Field(default_factory=dict)
+
+
+class ThemeOccurrenceResponse(BaseModel):
+	"""One occurrence of a theme in a case's discussion unit."""
+	case_id: int
+	unit_index: int
+	subtheme_id: str
+
+
+class DiscoveredThemeResponse(BaseModel):
+	"""A discovered recurring theme across the case corpus."""
+	theme_id: str
+	theme_name: str
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrence_count: int
+	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
+
+
+class ThemeDiscoveryResponse(BaseModel):
+	"""Response from theme discovery endpoint."""
+	total_themes: int
+	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
 
 
 class MemoCitationAnalysis(BaseModel):
@@ -913,10 +936,11 @@ class MemoCitationCheckResponse(BaseModel):
 	text: str
 	text_length: int
 	paragraph_count: int
-	case_citations: list[EnhancedCitationResponse]
-	statute_references: list[LiveAnalysisReferenceResponse]
-	missing_authorities: list[MissingAuthorityResponse]
+	case_citations: list[Any]  # EnhancedCitationResponse
+	statute_references: list[Any]  # LiveAnalysisReferenceResponse
+	missing_authorities: list[Any]  # MissingAuthorityResponse
 	memo_analysis: MemoCitationAnalysis
+	suggestions: MemoAuthoritySuggestions = Field(default_factory=MemoAuthoritySuggestions)
 
 
 class SavedSearchCreateRequest(BaseModel):

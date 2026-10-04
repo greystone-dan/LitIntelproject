@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import os
 from typing import Any
 
 import numpy as np
+
+from .settings import settings
 
 DEFAULT_LOCAL_EMBEDDING_MODEL = "BAAI/bge-m3"
 DEFAULT_LOCAL_EMBEDDING_DIMENSIONS = 1024
@@ -20,7 +21,7 @@ class SentenceTransformerEmbeddingProvider:
     ) -> None:
         self.model_name = model_name
         self.dimensions = dimensions
-        self.device = device or os.getenv("LOCAL_EMBEDDING_DEVICE", "cpu")
+        self.device = device or settings.embedding.device
         self._model = model
 
     def _get_model(self):

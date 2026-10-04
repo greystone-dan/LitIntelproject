@@ -27,6 +27,7 @@ except Exception:  # pragma: no cover
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .embedding_providers import SentenceTransformerEmbeddingProvider
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .settings import settings
 from .search_matching import citation_query, match_details
 from .models import (
 	CaseResponse,
@@ -40,8 +41,8 @@ from .models import (
 	LocalChunkSearchRequest,
 )
 
-EMBEDDING_DIMENSIONS = 1536
-EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
+EMBEDDING_DIMENSIONS = settings.embedding.dimensions
+EMBEDDING_MODEL = settings.embedding.model
 RECENT_5000_IVFFLAT_LISTS = 200
 RECENT_5000_IVFFLAT_PROBES_DEFAULT = 12
 
@@ -99,26 +100,29 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 
 
 def _embed(text: str) -> list[float]:
-	api_key = os.getenv("OPENAI_API_KEY")
+	api_key = settings.embedding.api_key
 	if not api_key:
 		raise HTTPException(
 			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
 			detail="OPENAI_API_KEY is not configured",
 		)
 
+	organization = settings.embedding.organization
+	previous_org_id = os.environ.pop("OPENAI_ORG_ID", None) if organization is not None else None
 	try:
-		organization = os.environ.pop("OPENAI_ORG_ID", None)
-		try:
-			client = OpenAI(api_key=api_key)
-		finally:
-			if organization is not None:
-				os.environ["OPENAI_ORG_ID"] = organization
+		client = OpenAI(api_key=api_key)
 		response = client.embeddings.create(input=text, model=EMBEDDING_MODEL)
 	except OpenAIError as exc:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
 			detail="The embedding service is unavailable",
 		) from exc
+	finally:
+		if organization is not None:
+			if previous_org_id is None:
+				os.environ.pop("OPENAI_ORG_ID", None)
+			else:
+				os.environ["OPENAI_ORG_ID"] = previous_org_id
 
 	embedding = response.data[0].embedding
 	if len(embedding) != EMBEDDING_DIMENSIONS:

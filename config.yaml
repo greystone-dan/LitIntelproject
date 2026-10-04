@@ -1,11 +1,12 @@
 # ============================================================
-# config.yaml — AI-Friendly Dev Environment
-# Static, non-secret configuration. Loaded at startup.
+# config.yaml — non-secret project configuration reference
+# Only the ai.rollout values are currently consumed by backend/search_service.py;
+# other values are retained as informational template settings.
 # Secret values belong in .env — never put them here.
 # ============================================================
 
 app:
-  name: "MyAIProject"
+  name: "AI CaseLibrary"
   version: "0.1.0"
   description: "AI-powered application with pgvector semantic search"
 
@@ -13,7 +14,7 @@ server:
   host: "0.0.0.0"
   port: 8000
   workers: 1          # Increase for production
-  reload: true        # Hot-reload in development; set false in production
+  reload: false       # Not consumed by the active application
   timeout: 60
 
 database:

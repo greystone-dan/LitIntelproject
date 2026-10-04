@@ -1,3 +1,4 @@
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -103,21 +104,32 @@ def test_research_route_uses_selected_provider(monkeypatch):
 	)
 	calls = {}
 
-	class FakeProvider:
-		model_name = "qwen2.5:7b"
+	class FakeResponse:
+		def raise_for_status(self):
+			return None
 
-		def create_chat_completion(self, **kwargs):
-			calls.update(kwargs)
-			return SimpleNamespace(
-				choices=[SimpleNamespace(message=SimpleNamespace(content="local answer"))],
-				usage=SimpleNamespace(prompt_tokens=3, completion_tokens=2),
-			)
+		def json(self):
+			return {"message": {"content": "local answer"}, "prompt_eval_count": 3, "eval_count": 2}
 
+	def fake_post(url, **kwargs):
+		calls["url"] = url
+		calls.update(kwargs["json"])
+		return FakeResponse()
+
+	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "local")
+	monkeypatch.setenv("OLLAMA_MODEL", "qwen2.5:7b")
 	monkeypatch.setattr(routes, "_grouped_chunk_search", lambda search, db: search_result)
-	monkeypatch.setattr(routes, "get_text_generation_provider", lambda: FakeProvider())
+	monkeypatch.setattr(providers.httpx, "post", fake_post)
 
 	response = routes.research(ResearchRequest(query="reasonableness"), db=object())
 
 	assert response.model_used == "qwen2.5:7b"
 	assert response.answer == "local answer"
 	assert calls["model"] == "qwen2.5:7b"
+	assert calls["think"] is False
+
+
+def test_research_route_uses_grouped_chat_provider_setting():
+	source = Path("backend/routes.py").read_text()
+
+	assert 'settings.chat.provider.strip().lower() == "local"' in source

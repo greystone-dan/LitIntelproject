@@ -1,9 +1,5 @@
-import os
 from collections.abc import Generator
 from datetime import date as date_type, datetime
-from pathlib import Path
-
-from dotenv import load_dotenv
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
 	Boolean,
@@ -26,50 +22,11 @@ from sqlalchemy import (
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm import relationship
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-# Prefer project-local settings over inherited shell variables.
-load_dotenv(PROJECT_ROOT / ".env", override=True)
-load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
+from .settings import settings
+
 
 def _database_url() -> str | URL:
-	postgres_user = os.getenv("POSTGRES_USER")
-	postgres_password = os.getenv("POSTGRES_PASSWORD")
-	postgres_host = os.getenv("POSTGRES_HOST")
-	postgres_port = os.getenv("POSTGRES_PORT")
-	postgres_db = os.getenv("POSTGRES_DB")
-
-	# Prefer explicit POSTGRES_* settings when present so stale inherited
-	# DATABASE_URL values do not override project-local database settings.
-	if any(
-		[
-			postgres_user,
-			postgres_password,
-			postgres_host,
-			postgres_port,
-			postgres_db,
-		]
-	):
-		return URL.create(
-			drivername="postgresql+psycopg2",
-			username=postgres_user or "postgres",
-			password=postgres_password or "postgres",
-			host=postgres_host or "localhost",
-			port=int(postgres_port or "5432"),
-			database=postgres_db or "caselibrary",
-		)
-
-	configured_url = (os.getenv("DATABASE_URL") or "").strip()
-	if configured_url:
-		return configured_url
-
-	return URL.create(
-		drivername="postgresql+psycopg2",
-		username=os.getenv("POSTGRES_USER", "postgres"),
-		password=os.getenv("POSTGRES_PASSWORD", "postgres"),
-		host=os.getenv("POSTGRES_HOST", "localhost"),
-		port=int(os.getenv("POSTGRES_PORT", "5432")),
-		database=os.getenv("POSTGRES_DB", "caselibrary"),
-	)
+	return settings.database.url
 
 
 DATABASE_URL = _database_url()

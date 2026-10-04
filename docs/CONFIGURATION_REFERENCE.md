@@ -6,8 +6,8 @@ This document describes configuration discovered from active Python environment-
 
 ## Configuration Sources And Precedence
 
-1. `backend/database.py` loads repository-root `.env` and then `backend/.env`, both with `override=True`. Values in the latter file therefore win when both exist.
-2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
+1. `backend/settings.py` loads `backend/.env` and then repository-root `.env`, both with `override=False`. This preserves the existing precedence between dotenv files (`backend/.env` wins when both define a value).
+2. Process environment variables are never overwritten by either dotenv file; exported environment values win over both files.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
 5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
@@ -26,15 +26,19 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 
 | Variable | Default | Consumer | Purpose and validation |
 | --- | --- | --- | --- |
-| `POSTGRES_HOST` | `localhost` | `backend/database.py` | PostgreSQL host when building a connection URL. |
-| `POSTGRES_PORT` | `5432` | `backend/database.py` | PostgreSQL TCP port; must parse as an integer. |
-| `POSTGRES_DB` | `caselibrary` | `backend/database.py` | PostgreSQL database name. |
-| `POSTGRES_USER` | `postgres` | `backend/database.py` | PostgreSQL user. |
-| `POSTGRES_PASSWORD` | `postgres` fallback in URL construction | `backend/database.py` | PostgreSQL password. Use a real secret outside local throwaway environments. |
-| `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
+| `POSTGRES_HOST` | `localhost` | `backend/settings.py`, `backend/database.py` | PostgreSQL host when building a connection URL. |
+| `POSTGRES_PORT` | `5432` | `backend/settings.py`, `backend/database.py` | PostgreSQL TCP port; must parse as an integer. |
+| `POSTGRES_DB` | `caselibrary` | `backend/settings.py`, `backend/database.py` | PostgreSQL database name. |
+| `POSTGRES_USER` | `postgres` | `backend/settings.py`, `backend/database.py` | PostgreSQL user. |
+| `POSTGRES_PASSWORD` | `postgres` fallback in URL construction | `backend/settings.py`, `backend/database.py` | PostgreSQL password. Use a real secret outside local throwaway environments. |
+| `DATABASE_URL` | none | `backend/settings.py`, `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+`backend/settings.py` groups app, database, embedding, chat, audit, and access settings without adding a dependency. Database URL selection and the active AI model/provider consumers use this object; unrelated environment consumers remain on their existing modules. The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+
+The grouped app values are `APP_NAME` (`MyAIProject`), `APP_ENV` (`development`), `APP_PORT` (`8000`), and `DEBUG` (`false`). They are exposed through `settings.app`; application startup does not currently consume them. `config.yaml` app name and server reload fields are also informational, not runtime inputs.
+
+The grouped `settings.audit` and `settings.access` values expose the existing audit and access names/defaults, but `backend/audit.py` and `backend/main.py` remain the current consumers. Their callsites were not migrated in this incremental change.
 
 ## Access, Session, And Indexing Settings
 
@@ -86,10 +90,11 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
-| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
-| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
-| `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/settings.py`, `backend/routes.py`, `backend/text_generation_providers.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
+| `OPENAI_API_KEY` | none | `backend/settings.py`, `backend/search_service.py`, `backend/text_generation_providers.py`, embedding/audit scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
+| `OPENAI_ORG_ID` | none | `backend/settings.py`, `backend/search_service.py` | Retained for compatibility; the hosted embedding call deliberately suppresses the SDK's automatic organization selection and restores the environment value afterward. |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/settings.py`, `backend/search_service.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
+| `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/settings.py`, `backend/text_generation_providers.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
 | `OPENAI_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/verify_citation_extraction.py` | Model for optional citation audit sampling. |
@@ -98,8 +103,9 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
-| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
-| `OLLAMA_MODEL` | `qwen3:4b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/settings.py`, `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
+| `OLLAMA_MODEL` | `qwen3:4b` | `backend/settings.py`, `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/settings.py`, `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | Device for local SentenceTransformer embedding. |
 
 The case-intelligence runner defaults to the hosted OpenAI provider. Use
 `--provider local` to keep prompts and JSON result artifacts on the local
@@ -111,7 +117,7 @@ The experimental `/research` route uses the same provider boundary. Set
 `qwen3:4b`. The route reports a controlled `503` when the selected provider
 is not configured or reachable. This setting does not download a model.
 
-The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
+The checked-in template uses `OPENAI_CHAT_MODEL`, the name read by the active chat provider; the former template-only `OPENAI_MODEL` has been removed. `OPENAI_ORG_ID` is retained as a compatibility name but is not forwarded to the hosted embedding client.
 
 ## Local Embedding Settings
 
@@ -161,6 +167,10 @@ flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
 override them. Use the consuming module's environment settings or explicit
 server flags for other runtime configuration.
 
+The `app.name` and `server.reload` values were verified to have no active reader.
+The project name is now specific to AI CaseLibrary; `reload` is set false and
+marked informational. Other template settings remain unconsumed.
+
 ## Example Local Development Setup
 
 Create a local ignored `.env` with placeholders replaced by actual local values:
@@ -190,10 +200,27 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 6. When changing database settings, test both explicit `POSTGRES_*` and `DATABASE_URL` precedence.
 7. When changing access settings, test anonymous, authenticated, local, HTTPS, and tunnel/reverse-proxy paths.
 
+## Remaining Direct Backend Environment Consumers
+
+This issue migrates database selection and active AI model/provider settings only.
+The following direct environment reads remain intentionally outside this slice:
+
+| Owner | Remaining settings |
+| --- | --- |
+| `backend/main.py` | `CASELIBRARY_ACCESS_PASSWORD`, `CASELIBRARY_SESSION_SECRET`, `SECRET_KEY`, `CASELIBRARY_SESSION_SECONDS`, `CASELIBRARY_SECURITY_HEADERS` |
+| `backend/audit.py` | `CASELIBRARY_AUDIT_LOG`, `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` |
+| `backend/search_service.py` | `CASELIBRARY_SEMANTIC_ENABLED`, `CASELIBRARY_HYBRID_ENABLED`, `CASELIBRARY_LOCAL_SEMANTIC_ENABLED`, `CASELIBRARY_EMBED_ON_INGEST_ENABLED`, `CASELIBRARY_RECENT_5000_IVFFLAT_PROBES` |
+| `backend/security_headers.py` | `CASELIBRARY_HSTS_MAX_AGE` |
+| `backend/citation_map.py` | `CASELIBRARY_FOCUS_MASTER_300` |
+| `backend/citations.py`, `backend/citation_refine/__init__.py` | `CASELIBRARY_CITATION_PIPELINE`, `STEPS_ENV` |
+| `backend/citation_pipeline/canlii.py` | `CANLII_API_KEY`, `CANLII_API_BASE_URL`, `CANLII_API_USER_AGENT` |
+| `backend/deidentify_names.py` | `DEIDENTIFY_SPACY_MODEL` |
+| `backend/resource_limits.py` | `LITINTEL_MAX_UPLOAD_BYTES`, `LITINTEL_MAX_DOCX_UNCOMPRESSED_BYTES`, `LITINTEL_MAX_DOCX_ARCHIVE_ENTRIES`, `LITINTEL_MAX_PDF_PAGES`, `LITINTEL_MAX_EXTRACTED_TEXT_CHARS`, `LITINTEL_MAX_PASTED_TEXT_CHARS` |
+
 ## Known Configuration Gaps
 
-1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values remain informational.
 2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
-3. The `.env.example` includes several legacy/aspirational names not read by active code.
-4. There is no central typed settings object or startup validation report for all required configuration.
+3. The `.env.example` now uses active names, but optional examples are not a complete configuration validator.
+4. The grouped settings object is intentionally partial: access, audit, rollout, citation, source, security, and resource-limit consumers are not yet migrated.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.

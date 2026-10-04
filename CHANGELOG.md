@@ -5,6 +5,15 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added stdlib grouped settings in `backend/settings.py` and migrated database
+  URL selection plus active AI embedding/chat consumers. Exported environment
+  values now outrank dotenv while `backend/.env` keeps its prior precedence
+  over the repository-root file. The env example and configuration reference
+  now use active names; `config.yaml` app-name/reload fields are marked as
+  informational. Access, audit, rollout, citation, source, security, and
+  resource-limit reads remain unmigrated and are inventoried in
+  `docs/CONFIGURATION_REFERENCE.md`. Focused settings checks passed (14 tests);
+  documentation checks are recorded in the issue task record.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

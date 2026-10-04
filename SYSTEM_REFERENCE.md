@@ -867,7 +867,17 @@ opinion.
 
 ### Startup And Configuration
 
-The application loads `.env` from the repository root and then `backend/.env`, both with `override=True`: dotenv values override shell settings, and backend dotenv values win over root dotenv values. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`. Disposable migration checks must refuse either dotenv path (including symlinks) before importing the database module, then set all five `POSTGRES_*` connection settings. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+`backend/settings.py` loads `backend/.env` and then repository-root `.env` with
+`override=False`: exported process values win over both dotenv files, while
+`backend/.env` keeps its former precedence if both files define the same key.
+Explicit `POSTGRES_*` settings still take precedence over `DATABASE_URL`.
+Database selection and active AI model/provider reads use grouped settings;
+access, audit, rollout, citation, source, and resource-limit consumers remain
+incrementally unmigrated. Disposable migration checks must refuse either dotenv
+path (including symlinks) before importing database settings, then set all five
+`POSTGRES_*` connection settings. See
+[`docs/CONFIGURATION_REFERENCE.md`](docs/CONFIGURATION_REFERENCE.md) for the
+full precedence and remaining-consumer inventory.
 
 Request auditing is disabled unless `CASELIBRARY_AUDIT_LOG` names a file.
 `backend/audit.py` records allowlisted metadata only: UTC time, generated request
@@ -896,7 +906,7 @@ It stops existing local Uvicorn/cloudflared processes and starts the configured
 local server/tunnel workflow. Keep that terminal open; closing it stops the
 tunnel and app it owns. The public site is normally `https://www.ilit.ca`.
 
-The complete environment-variable, precedence, security, local-model, source-integration, and static-template reference is [docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md). It distinguishes settings actively consumed at runtime from legacy or aspirational values in `config.yaml` and `.env.example`.
+The complete environment-variable, precedence, security, local-model, source-integration, and static-template reference is [docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md). It distinguishes settings actively consumed at runtime from informational values in `config.yaml` and `.env.example`.
 
 Managed agent execution uses the repo-local control plane in
 `scripts/agent_harness.py` and `scripts/agent_policy.py`. Runs persist atomic
@@ -3080,11 +3090,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:08.925159+00:00
+Generated: 2026-10-04T15:29:31.800111+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 104 across 101 paths
-Hidden operations: 59 excluded from OpenAPI
+OpenAPI operations: 109 across 106 paths
+Hidden operations: 4 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3299,6 +3309,33 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/cases/{case_id}/summary`
+
+Get Case Summary
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/legislation/cases`
 
 Get Legislation Cases
@@ -3329,6 +3366,55 @@ Return local authoritative section text and cases citing the pinpoint.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}`
+
+Get Statute By Code
+
+Get statute details, optionally as of a specific date.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `as_of` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}/versions/{version_id}/sections`
+
+Get Statute Sections
+
+Get sections for a specific statute version.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `version_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/compare`
+
+Compare two decisions using distinct stored research signals
+
+Returns side-by-side case facts and stored outcome assignment provenance, preserving unclassified outcomes and raw labels. Active legal tags, statute references and case authorities have distinct shared/unique counts; repeated mentions count once. Read-only; no classification or resolution is performed. Unknown IDs return 404 with detail.code=unknown_case and unknown_ids.
+
+**Parameters**
+
+- `a` (query, required; integer)
+- `b` (query, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical case ID(s).
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -4575,16 +4661,6 @@ Discover recurring legal themes across Core-300 by grouping subthemes with share
 
 ## Hidden Operations
 
-### `GET /about`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.about_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
 ### `GET /access`
 
 **Hidden from OpenAPI.**
@@ -4624,799 +4700,11 @@ Handler: `backend.main.access_logout`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
-### `GET /api/about/stats`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.about_stats`
-
-**Handler parameters**
-
-- `db` (Session; default `Depends(get_db)`)
-- `response` (Response; default `None`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/cases`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_cases`
-
-**Handler parameters**
-
-- `title` (str; default `''`)
-- `limit` (int; default `12`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/search`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_search`
-
-**Handler parameters**
-
-- `q` (str; default `''`)
-- `limit` (int; default `12`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/companions`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_companions`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `limit` (int; default `20`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/courts`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_courts`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/judges`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_judges`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `limit` (int; default `30`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/outcomes`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_outcomes`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/overview`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_overview`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/statutes`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_statutes`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `limit` (int; default `25`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/table`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_table`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `page` (int; default `1`)
-- `page_size` (int; default `50`)
-- `year` (int | None; default `None`)
-- `court` (str | None; default `None`)
-- `judge` (str | None; default `None`)
-- `gov_outcome` (str | None; default `None`)
-- `min_mentions` (int; default `1`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/citation-intelligence/{case_id}/timeline`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_timeline`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `POST /api/deidentify`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.deidentify_api`
-
-**Handler parameters**
-
-- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
-- `text` (str; default `Form()`)
-- `names` (str; default `Form()`)
-- `details` (str; default `Form()`)
-- `categories` (str; default `Form()`)
-- `auto_names` (bool; default `Form(True)`)
-- `never_hide` (str; default `Form()`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `POST /api/deidentify/docx`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.deidentify_docx_api`
-
-**Handler parameters**
-
-- `text` (str; default `Form(PydanticUndefined)`)
-- `filename` (str; default `Form(document.docx)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/analytics`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_analytics`
-
-**Handler parameters**
-
-- `x` (str; default `'year'`)
-- `group_by` (str; default `'full_history_resolution'`)
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `city` (str; default `''`)
-- `source_type` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-- `response` (Response; default `None`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/breakdowns`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_breakdowns`
-
-**Handler parameters**
-
-- `city` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/case`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_case`
-
-**Handler parameters**
-
-- `imm` (str; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/counsel`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_counsel`
-
-**Handler parameters**
-
-- `min_files` (int; default `20`)
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `decision_body` (str; default `''`)
-- `city` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/dashboard`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_dashboard`
-
-**Handler parameters**
-
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `city` (str; default `''`)
-- `decision_body` (str; default `''`)
-- `application_type` (str; default `''`)
-- `representation` (str; default `''`)
-- `language` (str; default `''`)
-- `office` (str; default `''`)
-- `resolution` (str; default `''`)
-- `judge` (str; default `''`)
-- `counsel` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/flow`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_flow`
-
-**Handler parameters**
-
-- `city` (str; default `''`)
-- `source_type` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/insights`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_insights`
-
-**Handler parameters**
-
-- `city` (str; default `''`)
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `decision_body` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/judges`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_judges`
-
-**Handler parameters**
-
-- `min_decisions` (int; default `25`)
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `decision_body` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/motions`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_motions`
-
-**Handler parameters**
-
-- `city` (str; default `''`)
-- `year_from` (int | None; default `None`)
-- `year_to` (int | None; default `None`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-activity/timeline`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_activity_timeline`
-
-**Handler parameters**
-
-- `city` (str; default `''`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/fc-history`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fetch_fc_history`
-
-**Handler parameters**
-
-- `imm` (str; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/judge-profiles`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.judge_profiles`
-
-**Handler parameters**
-
-- `q` (str; default `''`)
-- `limit` (int; default `50`)
-- `db` (Session; default `Depends(get_db)`)
-- `response` (Response; default `None`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /api/judge-profiles/{slug}`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.judge_profile`
-
-**Handler parameters**
-
-- `slug` (str; required)
-- `minister` (list[str] | None; default `Query(None)`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `POST /api/reidentify`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.reidentify_api`
-
-**Handler parameters**
-
-- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
-- `text` (str; default `Form()`)
-- `key` (str; default `Form(PydanticUndefined)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /case-reader`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.case_reader_page`
-
-**Handler parameters**
-
-- `case_id` (int | None; default `None`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /case-reader/cases`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.case_reader_cases`
-
-**Handler parameters**
-
-- `limit` (int; default `300`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /cases/{case_id}/activity`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.get_case_activity`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /citation-intelligence`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_intelligence_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /citation-pass`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.citation_pass_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /data-explorer`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.data_explorer_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /deidentify`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.deidentify_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/cases/{case_id}`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_case`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/cases/{case_id}/activity`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_activity`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/cases/{case_id}/paragraph-assessments`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_paragraph_assessments`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/cases/{case_id}/reader-data`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_reader_data`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/cases/{case_id}/statute-references`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_statute_references`
-
-**Handler parameters**
-
-- `case_id` (int; required)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /discussion-units-sandbox/search`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.discussion_units_sandbox_search`
-
-**Handler parameters**
-
-- `query` (str; default `''`)
-- `cites` (str; default `''`)
-- `government_outcome` (str; default `''`)
-- `decision_outcome` (str; default `''`)
-- `minister` (str; default `''`)
-- `judge` (str; default `''`)
-- `court` (str; default `''`)
-- `year` (str; default `''`)
-- `search_full_text` (bool; default `False`)
-- `sort_by` (str; default `'relevance'`)
-- `limit` (int; default `50`)
-- `offset` (int; default `0`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /fc-history`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.fc_history_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /issue-brief-ui`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.get_issue_brief_ui`
-
-**Handler parameters**
-
-- `tag` (str; default `Query()`)
-- `db` (Session; default `Depends(get_db)`)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /judges`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.judges_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /judges/{slug}`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.judge_profile_page`
-
-**Handler parameters**
-
-- `slug` (str; required)
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /live-analysis`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.live_analysis_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /memo-citation-check`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.memo_citation_check_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /prototype`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.prototype_interface`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /quick-search`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.quick_search_interface`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /research`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.research_interface`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
 ### `GET /robots.txt`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.main.robots`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /saved-searches-ui`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.saved_searches_page`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /tag-finder`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.tag_finder_interface`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /testing`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.testing_interface`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
-### `GET /themes`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.theme_explorer_page`
 
 **Responses**
 
@@ -5430,8 +4718,8 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:09.454176+00:00
-Tables: 28
+Generated: 2026-10-04T14:33:17.743454+00:00
+Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -5603,6 +4891,16 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
     }
     fc_activity_alerts {
         Integer id PK
@@ -5827,6 +5125,7 @@ erDiagram
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -5839,7 +5138,46 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
+    }
+    statute_sections {
+        Integer id PK
+        Integer statute_version_id  FK
+        String(50) section_number
+        String(50) subsection
+        String(50) paragraph
+        TEXT heading
+        TEXT text
+        Integer offset_start
+        Integer offset_end
+        DATETIME created_at
+    }
+    statute_versions {
+        Integer id PK
+        Integer statute_id  FK
+        String(50) version_number
+        DATE in_force_date
+        DATE end_date
+        TEXT full_text
+        BLOB text_compressed
+        TEXT source_url
+        DATETIME fetched_at
+        DATETIME created_at
+    }
+    statutes {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        String(255) short_title
+        String(100) jurisdiction
+        String(50) statute_type
+        Integer consolidated_year
+        String(100) source
+        TEXT source_url
+        String(100) license
+        DATETIME created_at
+        DATETIME updated_at
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
@@ -5857,6 +5195,7 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
@@ -5871,6 +5210,9 @@ erDiagram
     saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
+    statute_versions ||--o{ statute_sections : "statute_version_id"
+    statutes ||--o{ statute_versions : "statute_id"
 ```
 
 ## Table Summary
@@ -5890,6 +5232,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
@@ -5904,7 +5247,10 @@ erDiagram
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
-| `statute_references` | 16 | `id` |
+| `statute_references` | 18 | `id` |
+| `statute_sections` | 10 | `id` |
+| `statute_versions` | 10 | `id` |
+| `statutes` | 12 | `id` |
 
 ## `a2aj_case_map`
 
@@ -6297,6 +5643,34 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `fc_activity_alerts`
 
@@ -6741,6 +6115,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -6753,6 +6128,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -6767,11 +6143,93 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_version_id` | `Integer` | no | FK -> statute_versions.id; NOT NULL |
+| `section_number` | `String(50)` | no | NOT NULL |
+| `subsection` | `String(50)` | yes | - |
+| `paragraph` | `String(50)` | yes | - |
+| `heading` | `TEXT` | yes | - |
+| `text` | `TEXT` | yes | - |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_sections_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `statute_version_id` -> `statute_versions.id`; on delete `CASCADE`
+
+## `statute_versions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_id` | `Integer` | no | FK -> statutes.id; NOT NULL |
+| `version_number` | `String(50)` | no | NOT NULL |
+| `in_force_date` | `DATE` | no | NOT NULL |
+| `end_date` | `DATE` | yes | - |
+| `full_text` | `TEXT` | yes | - |
+| `text_compressed` | `BLOB` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `fetched_at` | `DATETIME` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_versions_in_force_date`: index on `in_force_date`
+- `ix_statute_versions_statute_id`: index on `statute_id`
+
+### Unique Constraints
+
+- `uq_statute_version_date`: `statute_id`, `in_force_date`
+
+### Foreign Keys
+
+- `statute_id` -> `statutes.id`; on delete `CASCADE`
+
+## `statutes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `short_title` | `String(255)` | yes | - |
+| `jurisdiction` | `String(100)` | no | NOT NULL |
+| `statute_type` | `String(50)` | no | NOT NULL |
+| `consolidated_year` | `Integer` | yes | - |
+| `source` | `String(100)` | no | NOT NULL |
+| `source_url` | `TEXT` | yes | - |
+| `license` | `String(100)` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statutes_instrument_key`: unique index on `instrument_key`
+- `ix_statutes_jurisdiction`: index on `jurisdiction`
+- `ix_statutes_source`: index on `source`
 
 ### Appendix Source: `docs/CONFIGURATION_REFERENCE.md`
 
@@ -6779,14 +6237,14 @@ erDiagram
 
 ### Appendix: Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
 ## Configuration Sources And Precedence
 
-1. `backend/database.py` loads repository-root `.env` and then `backend/.env`, both with `override=True`. Values in the latter file therefore win when both exist.
-2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
+1. `backend/settings.py` loads `backend/.env` and then repository-root `.env`, both with `override=False`. This preserves the existing precedence between dotenv files (`backend/.env` wins when both define a value).
+2. Process environment variables are never overwritten by either dotenv file; exported environment values win over both files.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
 5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
@@ -6805,15 +6263,19 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 
 | Variable | Default | Consumer | Purpose and validation |
 | --- | --- | --- | --- |
-| `POSTGRES_HOST` | `localhost` | `backend/database.py` | PostgreSQL host when building a connection URL. |
-| `POSTGRES_PORT` | `5432` | `backend/database.py` | PostgreSQL TCP port; must parse as an integer. |
-| `POSTGRES_DB` | `caselibrary` | `backend/database.py` | PostgreSQL database name. |
-| `POSTGRES_USER` | `postgres` | `backend/database.py` | PostgreSQL user. |
-| `POSTGRES_PASSWORD` | `postgres` fallback in URL construction | `backend/database.py` | PostgreSQL password. Use a real secret outside local throwaway environments. |
-| `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
+| `POSTGRES_HOST` | `localhost` | `backend/settings.py`, `backend/database.py` | PostgreSQL host when building a connection URL. |
+| `POSTGRES_PORT` | `5432` | `backend/settings.py`, `backend/database.py` | PostgreSQL TCP port; must parse as an integer. |
+| `POSTGRES_DB` | `caselibrary` | `backend/settings.py`, `backend/database.py` | PostgreSQL database name. |
+| `POSTGRES_USER` | `postgres` | `backend/settings.py`, `backend/database.py` | PostgreSQL user. |
+| `POSTGRES_PASSWORD` | `postgres` fallback in URL construction | `backend/settings.py`, `backend/database.py` | PostgreSQL password. Use a real secret outside local throwaway environments. |
+| `DATABASE_URL` | none | `backend/settings.py`, `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+`backend/settings.py` groups app, database, embedding, chat, audit, and access settings without adding a dependency. Database URL selection and the active AI model/provider consumers use this object; unrelated environment consumers remain on their existing modules. The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
+
+The grouped app values are `APP_NAME` (`MyAIProject`), `APP_ENV` (`development`), `APP_PORT` (`8000`), and `DEBUG` (`false`). They are exposed through `settings.app`; application startup does not currently consume them. `config.yaml` app name and server reload fields are also informational, not runtime inputs.
+
+The grouped `settings.audit` and `settings.access` values expose the existing audit and access names/defaults, but `backend/audit.py` and `backend/main.py` remain the current consumers. Their callsites were not migrated in this incremental change.
 
 ## Access, Session, And Indexing Settings
 
@@ -6825,6 +6287,23 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Security Response Headers
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_SECURITY_HEADERS` | `0` (disabled) | `backend/main.py`, `backend/security_headers.py` | Enable response security headers only when set to `1`. |
+| `CASELIBRARY_HSTS_MAX_AGE` | `31536000` seconds | `backend/security_headers.py` | HSTS max age; invalid values fall back to the default and negative values are clamped to zero. |
+| `CASELIBRARY_HSTS_SUBDOMAINS` | `0` | `backend/security_headers.py` | Adds `includeSubDomains` only when set to `1`; enable only if all subdomains support HTTPS. |
+| `CASELIBRARY_CSP_ENFORCE` | `0` | `backend/security_headers.py` | Selects enforcing CSP only when set to `1`; report-only is the default, and enforcement is untested. |
+
+Configuration is read when the application/middleware is initialized; restart
+the server after changing these settings. HSTS is emitted only for HTTPS requests
+according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
+forwarded-protocol headers when a trusted proxy overwrites them. The middleware
+preserves existing response headers and does not consume response bodies. See
+[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+report-only review, CSP policy scope, and limitations.
 
 ## Optional Request Audit Log
 
@@ -6848,10 +6327,11 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
-| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
-| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
-| `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/settings.py`, `backend/routes.py`, `backend/text_generation_providers.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
+| `OPENAI_API_KEY` | none | `backend/settings.py`, `backend/search_service.py`, `backend/text_generation_providers.py`, embedding/audit scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
+| `OPENAI_ORG_ID` | none | `backend/settings.py`, `backend/search_service.py` | Retained for compatibility; the hosted embedding call deliberately suppresses the SDK's automatic organization selection and restores the environment value afterward. |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/settings.py`, `backend/search_service.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
+| `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/settings.py`, `backend/text_generation_providers.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
 | `OPENAI_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/verify_citation_extraction.py` | Model for optional citation audit sampling. |
@@ -6860,8 +6340,9 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
-| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
-| `OLLAMA_MODEL` | `qwen3:4b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/settings.py`, `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
+| `OLLAMA_MODEL` | `qwen3:4b` | `backend/settings.py`, `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/settings.py`, `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | Device for local SentenceTransformer embedding. |
 
 The case-intelligence runner defaults to the hosted OpenAI provider. Use
 `--provider local` to keep prompts and JSON result artifacts on the local
@@ -6873,7 +6354,7 @@ The experimental `/research` route uses the same provider boundary. Set
 `qwen3:4b`. The route reports a controlled `503` when the selected provider
 is not configured or reachable. This setting does not download a model.
 
-The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
+The checked-in template uses `OPENAI_CHAT_MODEL`, the name read by the active chat provider; the former template-only `OPENAI_MODEL` has been removed. `OPENAI_ORG_ID` is retained as a compatibility name but is not forwarded to the hosted embedding client.
 
 ## Local Embedding Settings
 
@@ -6923,6 +6404,10 @@ flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
 override them. Use the consuming module's environment settings or explicit
 server flags for other runtime configuration.
 
+The `app.name` and `server.reload` values were verified to have no active reader.
+The project name is now specific to AI CaseLibrary; `reload` is set false and
+marked informational. Other template settings remain unconsumed.
+
 ## Example Local Development Setup
 
 Create a local ignored `.env` with placeholders replaced by actual local values:
@@ -6952,12 +6437,29 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 6. When changing database settings, test both explicit `POSTGRES_*` and `DATABASE_URL` precedence.
 7. When changing access settings, test anonymous, authenticated, local, HTTPS, and tunnel/reverse-proxy paths.
 
+## Remaining Direct Backend Environment Consumers
+
+This issue migrates database selection and active AI model/provider settings only.
+The following direct environment reads remain intentionally outside this slice:
+
+| Owner | Remaining settings |
+| --- | --- |
+| `backend/main.py` | `CASELIBRARY_ACCESS_PASSWORD`, `CASELIBRARY_SESSION_SECRET`, `SECRET_KEY`, `CASELIBRARY_SESSION_SECONDS`, `CASELIBRARY_SECURITY_HEADERS` |
+| `backend/audit.py` | `CASELIBRARY_AUDIT_LOG`, `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` |
+| `backend/search_service.py` | `CASELIBRARY_SEMANTIC_ENABLED`, `CASELIBRARY_HYBRID_ENABLED`, `CASELIBRARY_LOCAL_SEMANTIC_ENABLED`, `CASELIBRARY_EMBED_ON_INGEST_ENABLED`, `CASELIBRARY_RECENT_5000_IVFFLAT_PROBES` |
+| `backend/security_headers.py` | `CASELIBRARY_HSTS_MAX_AGE` |
+| `backend/citation_map.py` | `CASELIBRARY_FOCUS_MASTER_300` |
+| `backend/citations.py`, `backend/citation_refine/__init__.py` | `CASELIBRARY_CITATION_PIPELINE`, `STEPS_ENV` |
+| `backend/citation_pipeline/canlii.py` | `CANLII_API_KEY`, `CANLII_API_BASE_URL`, `CANLII_API_USER_AGENT` |
+| `backend/deidentify_names.py` | `DEIDENTIFY_SPACY_MODEL` |
+| `backend/resource_limits.py` | `LITINTEL_MAX_UPLOAD_BYTES`, `LITINTEL_MAX_DOCX_UNCOMPRESSED_BYTES`, `LITINTEL_MAX_DOCX_ARCHIVE_ENTRIES`, `LITINTEL_MAX_PDF_PAGES`, `LITINTEL_MAX_EXTRACTED_TEXT_CHARS`, `LITINTEL_MAX_PASTED_TEXT_CHARS` |
+
 ## Known Configuration Gaps
 
-1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values remain informational.
 2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
-3. The `.env.example` includes several legacy/aspirational names not read by active code.
-4. There is no central typed settings object or startup validation report for all required configuration.
+3. The `.env.example` now uses active names, but optional examples are not a complete configuration validator.
+4. The grouped settings object is intentionally partial: access, audit, rollout, citation, source, security, and resource-limit consumers are not yet migrated.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.
 
 ### Appendix Source: `docs/DATA_SOURCE_REGISTER.md`
@@ -7269,12 +6771,14 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 150
+Active scripts documented: 158
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
+| `a2aj_case_importer.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help` |
+| `a2aj_diagnostic.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -7328,6 +6832,7 @@ Active scripts documented: 150
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
@@ -7360,9 +6865,13 @@ Active scripts documented: 150
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
 | `generate_work_history.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_work_history.py` |
+| `import_a2aj_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help` |
+| `import_a2aj_full.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help` |
 | `import_canlaw_staging.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_canlaw_staging.py --help` |
 | `import_fc_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_fc_decisions.py --help` |
+| `import_historical_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help` |
 | `import_seed_cases_from_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help` |
+| `import_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_statutes.py --help` |
 | `index_legislation.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\index_legislation.py --help` |
 | `ingest_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_api.py --help` |
 | `ingest_a2aj_citation_network.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_citation_network.py --help` |
@@ -7422,9 +6931,38 @@ Active scripts documented: 150
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
+
+## `scripts/a2aj_case_importer.py`
+
+**Purpose:** A2AJ case law importer for Federal courts (FC, FCA, SCC, RAD, RPD). Loads A2AJ Canadian case law dataset, deduplicates against existing iLit cases, and reports how many new decisions per court would be added. This enables expansion of case database with 100k+ academic dataset cases.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help
+```
+
+## `scripts/a2aj_diagnostic.py`
+
+**Purpose:** Diagnostic tool to understand why A2AJ parsing is failing. Samples rows and reports what's missing/invalid.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help
+```
 
 ## `scripts/acquire_case_html.py`
 
@@ -8168,6 +7706,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
 ```
 
+## `scripts/deduplicate_a2aj.py`
+
+**Purpose:** Deduplication logic for A2AJ decisions against existing iLit corpus. Matches A2AJ decisions to existing decisions using: 1. Neutral citation (normalized) + decision date 2. Case name + date (fallback) This prevents duplicate storage and enables citation linking. Note: This is a dry-run proof-of-concept showing dedup logic. Actual implementation requires database access and citation normalization rules.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help
+```
+
 ## `scripts/discover_recent_case_themes.py`
 
 **Purpose:** No module docstring; inspect this script before use.
@@ -8616,6 +8168,34 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\generate_work_history.py
 ```
 
+## `scripts/import_a2aj_decisions.py`
+
+**Purpose:** Dry-run importer for A2AJ Canadian case law decisions. Demonstrates mapping from A2AJ HuggingFace dataset to iLit decision schema. Supports: RPD (Refugee Protection Division), RAD (Refugee Appeal Division), FC (Federal Court), FCA (Federal Court of Appeal), and other Canadian courts. Note: This is a dry-run proof-of-concept. Actual import would require: 1. Database write permissions 2. Deduplication against existing iLit decisions 3. Citation linking setup 4. Embedding generation
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help
+```
+
+## `scripts/import_a2aj_full.py`
+
+**Purpose:** Full A2AJ Canadian case law importer with deduplication and database writes. Loads A2AJ dataset (226,147 decisions from 29 courts), deduplicates against existing iLit corpus, and imports non-duplicate cases from target courts: - Federal Court (FC): 35,990 decisions - Federal Court of Appeal (FCA): 7,813 decisions - Supreme Court of Canada (SCC): 10,893 decisions - Refugee Appeal Division (RAD): 14,216 decisions - Refugee Protection Division (RPD): 6,729 decisions Total target: 75,641 new cases available for import.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help
+```
+
 ## `scripts/import_canlaw_staging.py`
 
 **Purpose:** Import Hugging Face staging records into the primary CaseLibrary database.
@@ -8644,6 +8224,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\import_fc_decisions.py --help
 ```
 
+## `scripts/import_historical_statutes.py`
+
+**Purpose:** Importer for historical point-in-time statute versions from justice.gc.ca. Fetches statute versions from PITIndex.html and extracts text from point-in-time HTML pages. Stores multiple versions with their in-force dates to enable decision-date matching (core of Phase 1 requirement). Example: IRPA had 12+ versions between 2017-2026; this importer stores them with their effective dates so a decision from 2019-06-15 can be matched to the IRPA version that was in force on that date.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help
+```
+
 ## `scripts/import_seed_cases_from_a2aj_api.py`
 
 **Purpose:** Import missing seed cases via A2AJ REST API /fetch. Designed for targeted backfill of known citations (not bulk scraping).
@@ -8656,6 +8250,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help
+```
+
+## `scripts/import_statutes.py`
+
+**Purpose:** Importer for Canadian federal statutes from Justice Laws XML (justice.gc.ca). Imports statute text with versioning information (in-force dates) for: - Immigration and Refugee Protection Act (IRPA) - Immigration and Refugee Protection Regulations (IRPR) - Citizenship Act - Customs Act - Federal Courts Act - Federal Courts Rules - Canadian Charter of Rights and Freedoms Uses: justice.gc.ca REST API for statute versions and text. License: Open Government License (Canada)
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_statutes.py --help
 ```
 
 ## `scripts/index_legislation.py`
@@ -9484,6 +9092,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
 ```
 
+## `scripts/test_citation_intelligence_prompts.py`
+
+**Purpose:** Test improved citation intelligence assessment prompts against real database cases. This script fetches real cases from the database, runs both current and improved paragraph assessment prompts, and compares output quality and cost. Run on: PC thread (has live database access) Usage: python scripts/test_citation_intelligence_prompts.py --case-ids 123,456,789 --max-paragraphs 300 --budget-usd 20.0 --output-dir /path/to/output
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
 ## `scripts/validate_precision.py`
 
 **Purpose:** Validate precision of V3 expansion on representative case law text. Uses representative FC and RAD case law snippets to measure precision.
@@ -9933,6 +9555,29 @@ Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
 
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
@@ -9997,6 +9642,35 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+The formatted reader starts with a default-open **Quick summary** disclosure.
+It preserves the existing **Extracted case summary** and technical **Show case
+summary** controls. Collapse it to read; switching modes preserves its state,
+while reopening a decision defaults open. It is hidden in chunk/plain modes.
+Identity and outcome fields are stored values, not newly inferred conclusions;
+missing outcomes read **unclassified**, and missing extraction sources
+**unknown**. A stored outcome may remain visible without verified evidence.
+Unavailable identity rows and disposition/issue sections, plus empty statute/tag
+sections, are omitted without placeholders; outcome/source remain visible.
+Disposition quotations reproduce the complete verified numbered source
+paragraph. Issue or standard-of-review quotations contain one or two verbatim
+sentences from explicit English openings/headings, with issues preferred.
+Ambiguous abbreviations, quotes, incomplete sentences or invalid spans are
+omitted, not rewritten. Use each source link to focus its exact backend
+paragraph block, including when paragraph numbers repeat.
+
+Top statutes list up to five stored statute/instrument occurrence counts,
+not unique decisions or case-law citations. Source links appear only for exact
+document-relative evidence; chunk-relative references still count but are not
+linked. Top tags list up to five distinct active-taxonomy labels with verified
+source evidence; invalid evidence omits the tag rather than showing a placeholder.
+Valid tags retain their stored scores and sources. Neither score nor frequency
+establishes legal importance. No generated prose or new classifications are
+created by this card. If its read-only request fails, other reader tools remain
+available. See [`backend/case_summary.py`](../backend/case_summary.py) for
+extraction rules and `GET /api/cases/{case_id}/summary` for the typed contract.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
 
 Above the source decision, **Most cited paragraphs** is collapsed by default
 and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it

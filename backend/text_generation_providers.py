@@ -7,6 +7,7 @@ from typing import Any
 import httpx
 from openai import OpenAI
 
+from .settings import settings
 
 DEFAULT_OLLAMA_BASE_URL = "http://127.0.0.1:11434/v1"
 DEFAULT_OLLAMA_MODEL = "qwen3:4b"
@@ -75,21 +76,21 @@ class OllamaChatProvider(ChatGenerationProvider):
 
 
 def get_text_generation_provider() -> ChatGenerationProvider:
-	provider_name = os.getenv("TEXT_GENERATION_PROVIDER", "openai").strip().lower()
+	provider_name = settings.chat.provider.strip().lower()
 	if provider_name == "local":
 		return OllamaChatProvider(
-			base_url=os.getenv("OLLAMA_BASE_URL", DEFAULT_OLLAMA_BASE_URL),
-			model_name=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL),
+			base_url=settings.chat.ollama_base_url or DEFAULT_OLLAMA_BASE_URL,
+			model_name=settings.chat.ollama_model or DEFAULT_OLLAMA_MODEL,
 		)
 	if provider_name != "openai":
 		raise TextGenerationConfigurationError(
 			"TEXT_GENERATION_PROVIDER must be 'openai' or 'local'"
 		)
 
-	api_key = os.getenv("OPENAI_API_KEY")
+	api_key = settings.chat.api_key
 	if not api_key:
 		raise TextGenerationConfigurationError("OPENAI_API_KEY is not configured")
 	return OpenAIChatProvider(
 		api_key=api_key,
-		model_name=os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
+		model_name=settings.chat.openai_model,
 	)

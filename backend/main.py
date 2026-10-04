@@ -15,6 +15,7 @@ from .audit import RequestAuditMiddleware
 from .database import init_db
 from .health import liveness, readiness
 from .routes import router
+from .security_headers import SecurityHeadersMiddleware
 
 
 @asynccontextmanager
@@ -114,6 +115,8 @@ async def private_access_and_noindex(request: Request, call_next):
 
 
 app.add_middleware(RequestAuditMiddleware)
+if os.getenv("CASELIBRARY_SECURITY_HEADERS") == "1":
+    app.add_middleware(SecurityHeadersMiddleware)
 
 
 app.include_router(router)

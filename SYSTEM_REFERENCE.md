@@ -176,6 +176,38 @@ enforce this minimum. Empty coverage returns zero counts and null statistics;
 it never fabricates a zero-day median. Coverage remains selection-biased toward
 records with both dates; no completeness or causal inference is made.
 
+The 2026-10-04 merge preserves timing injection alongside incoming search
+operators/tips/query echo and the separate two-decision comparison surface.
+Post-merge timing/UI/documentation tests and desktop/mobile fixture interactions
+passed; generated references were rebuilt from merged sources. Live date
+coverage and database performance are not validated, and the existing
+Tag Analytics browser syntax error remains outside this checkpoint.
+
+### Two-decision comparison
+
+The standalone `/case-compare?a=<case_id>&b=<case_id>` page compares two
+canonical decisions side by side, backed by read-only
+`GET /cases/compare?a=<case_id>&b=<case_id>`. Two citation/name search pickers
+reuse the existing case-search endpoint; empty parameters open the picker page.
+Each decision displays citation, court, date, stored reader-extracted judge,
+decision outcome and assignment provenance, with links to `/data-explorer`.
+Latest dedicated `case_outcomes` assignments take precedence (updated time,
+then ID); only absent assignments use explicitly labelled reader-metadata
+fallback. Missing or unknown outcomes remain **unclassified**, preserving raw
+labels and available source, classifier, confidence and disposition evidence.
+Comparison displays stored evidence without re-verifying offsets or assigning
+new outcomes. Active-taxonomy tags, statute references and case authorities
+remain separate layers, highlighted as shared or unique with distinct totals.
+Authorities use resolved target IDs or stored unresolved neutral/reporter
+identifiers (including stored short-form anchors); explicit trailing pinpoints
+do not create additional authorities. Otherwise normalized labels are used.
+Unresolved identities remain separate from resolved targets; neutral/reporter
+equivalence is not inferred. Statutes use stored instrument/normalized provision
+identity or normalized unresolved labels; ranges and lists are retained.
+Repeated mentions count once; stored coverage does not imply legal equivalence
+or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
+and the missing IDs. No data is written and no new resolution is attempted.
+
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
 tagged decisions by year, outcome, and court, lists up to ten resolved case
@@ -396,6 +428,8 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 `GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, beside Download CSV in the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable.
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
+
+The Case Search query accepts quoted phrases; `AND`, `OR`, and `NOT`; leading-minus exclusions; and `court:`, `year:YYYY`, inclusive `year:YYYY..YYYY` (also `year:YYYY-YYYY`), `judge:`, `cites:`, and `outcome:allowed` fields. `backend/query_syntax.py` is a pure parser that returns a Boolean expression tree and a plain-language echo; year ranges are echoed as “YYYY through YYYY (inclusive).” The analytics search compiler translates that tree into fixed SQL fragments with bound values; malformed quotes degrade to a searchable phrase with a warning, and unknown field names remain literal query words and are identified in the echo. Queries without operator syntax keep the established title/citation-first matching path. The UI displays the interpretation above results and provides a **Search tips** popover. CSV and Word exports forward the same raw query to the same bounded analytics search, so operator behavior is consistent.
 
 Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
 

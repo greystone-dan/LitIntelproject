@@ -5,6 +5,15 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added descriptive Timing panels via `GET /api/fc-activity/timing` and
+  `GET /api/judge-profiles/{slug}/timing`: staged
+  `classification_json.timeline.judicial_review_heard/judicial_review_decided`
+  dates remain separate from canonical `metadata_json.reader_extracted["date of hearing"]`
+  and `Case.date`. Statistics below n=10 and tiny group labels are suppressed.
+  Post-merge checks passed (86 timing/UI/doc tests, 193 query/search tests,
+  2 operator-export tests; 1 browser-tooling skip); desktop/mobile fixture
+  interactions and generated checks passed. Live date coverage and database
+  performance remain unvalidated; an existing Tag Analytics syntax error persists.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

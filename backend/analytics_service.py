@@ -1267,3 +1267,140 @@ def fetch_all_tag_analytics(db: Session) -> dict[str, Any]:
 			'unique_categories': unique_categories,
 		}
 	}
+
+
+def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
+	"""Build an issue brief from active-taxonomy tags and stored case outcomes/citations."""
+	category, separator, value = tag.partition(":")
+	if not separator or not category.strip() or not value.strip():
+		return _empty_issue_brief(tag)
+
+	tagged_case_ids = (
+		select(CaseTag.case_id)
+		.where(
+			CaseTag.category == category.strip(),
+			CaseTag.value == value.strip(),
+			CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+		)
+		.distinct()
+		.subquery()
+	)
+	cases = db.scalars(
+		select(Case)
+		.where(Case.id.in_(select(tagged_case_ids.c.case_id)))
+		.order_by(Case.date, Case.id)
+	).all()
+
+	year_data: dict[int | None, dict[str, Any]] = {}
+	court_counts: dict[str, int] = {}
+	decision_links: list[dict[str, Any]] = []
+	for case in cases:
+		year = case.date.year if case.date else None
+		group = year_data.setdefault(year, {"decision_count": 0, "outcomes": {}})
+		group["decision_count"] += 1
+		metadata = case.metadata_json if isinstance(case.metadata_json, dict) else {}
+		reader_metadata = metadata.get("reader_extracted")
+		reader_metadata = reader_metadata if isinstance(reader_metadata, dict) else {}
+		outcome = reader_metadata.get("decision outcome")
+		outcome = str(outcome).strip() if outcome else "unclassified"
+		if not outcome:
+			outcome = "unclassified"
+		group["outcomes"][outcome] = group["outcomes"].get(outcome, 0) + 1
+		court = (case.court or "").strip() or "Unspecified"
+		court_counts[court] = court_counts.get(court, 0) + 1
+		decision_links.append(
+			{
+				"case_id": case.id,
+				"title": case.title,
+				"citation": case.citation,
+				"date": case.date.isoformat() if case.date else None,
+				"year": year,
+				"court": court,
+				"outcome": outcome,
+				"url": f"/case-reader?case_id={case.id}",
+			}
+		)
+
+	years: list[dict[str, Any]] = []
+	for year in sorted(year_data, key=lambda item: (item is None, item or 0)):
+		group = year_data[year]
+		denominator = group["decision_count"]
+		unclassified = group["outcomes"].get("unclassified", 0)
+		outcomes = [
+			{
+				"outcome": outcome,
+				"count": count,
+				"percentage": round(count / denominator * 100, 1) if denominator else 0.0,
+				"unclassified_count": unclassified,
+				"denominator": denominator,
+			}
+			for outcome, count in sorted(group["outcomes"].items())
+		]
+		years.append(
+			{
+				"year": year,
+				"decision_count": denominator,
+				"unclassified_count": unclassified,
+				"outcome_splits": outcomes,
+			}
+		)
+
+	authority_rows = db.execute(
+		select(
+			Case.id,
+			Case.title,
+			Case.citation,
+			func.count(Citation.id).label("citation_occurrences"),
+			func.count(func.distinct(Citation.source_case_id)).label("citing_decisions"),
+		)
+		.join(Citation, Citation.target_case_id == Case.id)
+		.where(
+			Citation.source_case_id.in_(select(tagged_case_ids.c.case_id)),
+			Citation.target_case_id.is_not(None),
+		)
+		.group_by(Case.id, Case.title, Case.citation)
+		.order_by(func.count(Citation.id).desc(), Case.id)
+		.limit(10)
+	).all()
+	return {
+		"tag": tag,
+		"decision_count": len(cases),
+		"semantics": {
+			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
+			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
+		},
+		"years": years,
+		"courts": [
+			{"court": court, "decision_count": count}
+			for court, count in sorted(court_counts.items(), key=lambda item: (-item[1], item[0]))
+		],
+		"top_authorities": [
+			{
+				"case_id": row.id,
+				"title": row.title,
+				"citation": row.citation,
+				"citation_occurrences": int(row.citation_occurrences),
+				"citing_decisions": int(row.citing_decisions),
+				"url": f"/case-reader?case_id={row.id}",
+			}
+			for row in authority_rows
+		],
+		"decisions": decision_links,
+	}
+
+
+def _empty_issue_brief(tag: str) -> dict[str, Any]:
+	return {
+		"tag": tag,
+		"decision_count": 0,
+		"semantics": {
+			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
+			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
+		},
+		"years": [],
+		"courts": [],
+		"top_authorities": [],
+		"decisions": [],
+	}

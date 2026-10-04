@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T00:45:26.424195+00:00
+Generated: 2026-10-04T10:46:53.509283+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 100 across 97 paths
-Hidden operations: 56 excluded from OpenAPI
+OpenAPI operations: 102 across 99 paths
+Hidden operations: 58 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1138,6 +1138,21 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `GET /issue-brief`
+
+Build a legal issue brief for a tag
+
+Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. An empty tag returns an empty brief.
+
+**Parameters**
+
+- `tag` (query, optional; string, default `""`): Exact legal tag in category:value form; empty is supported.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /judges/compare`
 
 Judge Comparison
@@ -1429,6 +1444,16 @@ Find cases with overlapping tags. Score by Jaccard similarity of tag (category, 
 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /themes/discovery`
+
+Get Theme Discovery
+
+Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ThemeDiscoveryResponse`
 
 ## Hidden Operations
 
@@ -2123,6 +2148,21 @@ Handler: `backend.routes.fc_history_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /issue-brief-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_issue_brief_ui`
+
+**Handler parameters**
+
+- `tag` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /judges`
 
 **Hidden from OpenAPI.**
@@ -2232,6 +2272,16 @@ Handler: `backend.routes.tag_finder_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.testing_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /themes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.theme_explorer_page`
 
 **Responses**
 

@@ -6,8 +6,14 @@ judge profile resolution and filtering, and Federal Court activity timelines.
 
 from __future__ import annotations
 
+import hashlib
+import json
+import os
 import re
-from typing import Any
+import time
+from collections import OrderedDict
+from threading import RLock
+from typing import Any, Callable, Optional
 
 import httpx
 from fastapi import HTTPException, status
@@ -37,6 +43,125 @@ from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import identity_sql, matched_on_sql
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
+
+# Set ANALYTICS_CACHE_TTL_SECONDS to a positive number of seconds to configure
+# freshness, or to 0 (or less) to disable the cache. No dotenv file is read.
+ANALYTICS_CACHE_TTL_ENV = "ANALYTICS_CACHE_TTL_SECONDS"
+
+
+def _configured_analytics_cache_ttl() -> int:
+	return int(os.environ.get(ANALYTICS_CACHE_TTL_ENV, "600"))
+
+
+class TTLCache:
+	"""In-process time-to-live cache for analytics endpoints."""
+
+	def __init__(
+		self,
+		ttl_seconds: int | None = None,
+		enabled: bool = True,
+		clock: Optional[Callable[[], float]] = None,
+		max_entries: int = 128,
+	):
+		"""Initialize cache.
+
+		Args:
+			ttl_seconds: Time-to-live in seconds (default 600; env-configurable)
+			enabled: Whether caching is enabled (default True)
+			clock: Optional clock function for testing (default: time.monotonic)
+			max_entries: Maximum number of parameterized results retained.
+		"""
+		self.ttl_seconds = ttl_seconds if ttl_seconds is not None else _configured_analytics_cache_ttl()
+		self.enabled = enabled and self.ttl_seconds > 0
+		self.clock = clock or time.monotonic
+		self.max_entries = max(1, max_entries)
+		self._cache: OrderedDict[str, tuple[Any, float]] = OrderedDict()
+		self._lock = RLock()
+
+	def _make_key(self, endpoint: str, **params: Any) -> str:
+		"""Create a deterministic key from the endpoint and every parsed parameter."""
+		key_str = f"{endpoint}:{json.dumps(params, sort_keys=True, separators=(',', ':'), default=str)}"
+		return hashlib.sha256(key_str.encode()).hexdigest()
+
+	def get(self, endpoint: str, **params: Any) -> tuple[Any, bool]:
+		"""Get cached value if present and not expired.
+
+		Returns:
+			Tuple of (value, was_hit) where was_hit is True if cache was hit
+		"""
+		if not self.enabled:
+			return None, False
+
+		key = self._make_key(endpoint, **params)
+		with self._lock:
+			entry = self._cache.get(key)
+			if entry is None:
+				return None, False
+
+			value, timestamp = entry
+			if self.clock() - timestamp >= self.ttl_seconds:
+				del self._cache[key]
+				return None, False
+
+			self._cache.move_to_end(key)
+			return value, True
+
+	def set(self, endpoint: str, value: Any, **params: Any) -> None:
+		"""Set cached value (only if enabled)."""
+		if not self.enabled:
+			return
+
+		key = self._make_key(endpoint, **params)
+		with self._lock:
+			self._cache[key] = (value, self.clock())
+			self._cache.move_to_end(key)
+			while len(self._cache) > self.max_entries:
+				self._cache.popitem(last=False)
+
+	def clear(self) -> None:
+		"""Clear all cached entries (used by tests and administrative maintenance)."""
+		with self._lock:
+			self._cache.clear()
+
+	def set_enabled(self, enabled: bool) -> None:
+		"""Enable or disable caching."""
+		self.enabled = enabled and self.ttl_seconds > 0
+
+	def is_enabled(self) -> bool:
+		"""Check if caching is enabled."""
+		return self.enabled
+
+
+# Global cache instance
+_analytics_cache = TTLCache()
+
+
+def get_analytics_cache() -> TTLCache:
+	"""Get the global analytics cache instance."""
+	return _analytics_cache
+
+
+def clear_analytics_cache() -> None:
+	"""Clear entire analytics cache.
+
+	For testing and admin purposes. Clears all cached entries.
+	"""
+	_analytics_cache.clear()
+
+
+def set_analytics_cache_enabled(enabled: bool) -> None:
+	"""Enable/disable analytics cache for testing."""
+	_analytics_cache.set_enabled(enabled)
+
+
+def get_analytics_cache_status() -> dict[str, Any]:
+	"""Get cache status for debugging."""
+	return {
+		"enabled": _analytics_cache.enabled,
+		"ttl_seconds": _analytics_cache.ttl_seconds,
+		"cached_entries": len(_analytics_cache._cache),
+	}
+
 
 FC_CITY_PROVINCE = {
 	"Calgary": "Alberta",
@@ -256,7 +381,7 @@ def fetch_data_explorer_analytics(
 	}
 
 
-def fetch_about_stats(db: Session) -> dict[str, int]:
+def _fetch_about_stats_impl(db: Session) -> dict[str, int]:
 	return {
 		"cases": int(db.scalar(select(func.count(Case.id))) or 0),
 		"case_chunks": int(db.scalar(select(func.count(CaseChunk.id))) or 0),
@@ -483,7 +608,7 @@ def fetch_fc_activity_flow(
 	}
 
 
-def fetch_fc_activity_analytics(
+def _fetch_fc_activity_analytics_impl(
 	db: Session,
 	*,
 	x: str = "year",
@@ -587,7 +712,7 @@ def fetch_fc_activity_analytics(
 	}
 
 
-def fetch_judge_profiles(
+def _fetch_judge_profiles_impl(
 	db: Session,
 	*,
 	q: str = "",
@@ -643,6 +768,171 @@ def _case_influence(case_ids: list[int], db: Session) -> dict[int, tuple[int, in
 	).bindparams(bindparam("case_ids", expanding=True))
 	rows = db.execute(statement, {"case_ids": case_ids}).all()
 	return {int(row.case_id): (int(row.cited_by or 0), int(row.appeal_cited_by or 0)) for row in rows}
+
+
+def fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
+	"""Read-only comparison of two exact canonical JudgeProfile slugs.
+
+	Returns status='unknown_judge' and unknown_slugs (route may map to HTTP 404),
+	or status='ok' with shared_issues/outcomes first, then judges a/b.
+	Every count/rate carries its denominator; counts are distinct source decisions,
+	not tag/citation occurrences. Rates exclude unclassified outcomes explicitly.
+	Issues use ONLY the stored Case.issues JSON list: whitespace/case normalized,
+	deduplicated per decision, with no inferred issues or metadata fallback. These
+	are recorded issue labels, not findings of dispositiveness. Shared issues need
+	at least five decisions for EACH judge, independently of outcome coverage.
+	Authorities group by resolved target Case ID, otherwise stored normalized
+	citation (citation_text fallback); resolved Case citation/title labels prevail.
+	No writes, judge ranking, bias or harshness inference. Caller order is retained.
+	"""
+	with db.no_autoflush:
+		return _fetch_judge_comparison(db, a.strip(), b.strip())
+
+
+def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
+	profiles = {
+		row.slug: row
+		for row in db.execute(
+			select(JudgeProfile.id, JudgeProfile.slug, JudgeProfile.display_name, JudgeProfile.primary_court)
+			.where(JudgeProfile.slug.in_([a, b]))
+		)
+	}
+	unknown = list(dict.fromkeys(slug for slug in (a, b) if slug not in profiles))
+	if unknown:
+		return {"status": "unknown_judge", "unknown_slugs": unknown}
+
+	def statistic(count: int, denominator: int) -> dict[str, int]:
+		return {"count": count, "denominator": denominator}
+
+	def outcomes(rows: list[Any]) -> dict[str, Any]:
+		counts = _judge_outcome_counts(rows)
+		total = len(rows)
+		classified = int(counts["classified"])
+		return {
+			"government_won": statistic(int(counts["government_wins"]), total),
+			"government_lost": statistic(int(counts["individual_wins"]), total),
+			"unclassified": statistic(int(counts["unclassified"]), total),
+			"classified": statistic(classified, total),
+			"government_win_rate": {
+				"percent": counts["government_win_rate"], "denominator": classified,
+			},
+		}
+
+	judges: dict[str, Any] = {}
+	issue_cases: dict[str, dict[str, list[Any]]] = {}
+	for side, slug in (("a", a), ("b", b)):
+		profile = profiles[slug]
+		linked_ids = select(CaseJudgeProfile.case_id).where(
+			CaseJudgeProfile.judge_profile_id == profile.id
+		)
+		rows = list(db.execute(
+			select(Case.id, Case.date, Case.issues, Case.metadata_json)
+			.where(Case.id.in_(linked_ids)).order_by(Case.id)
+		))
+		total = len(rows)
+		years: dict[str, int] = {}
+		issues: dict[str, list[Any]] = {}
+		for row in rows:
+			if row.date:
+				year = str(row.date)[:4]
+				years[year] = years.get(year, 0) + 1
+			labels = {
+				" ".join(label.split()).casefold()
+				for label in (row.issues if isinstance(row.issues, list) else [])
+				if isinstance(label, str) and label.strip()
+			}
+			for label in labels:
+				issues.setdefault(label, []).append(row)
+		issue_cases[side] = issues
+		tag_rows = db.execute(
+			select(CaseTag.category, CaseTag.value, func.count(func.distinct(CaseTag.case_id)).label("decisions"))
+			.where(CaseTag.case_id.in_(linked_ids))
+			.group_by(CaseTag.category, CaseTag.value)
+			.order_by(func.count(func.distinct(CaseTag.case_id)).desc(), CaseTag.category, CaseTag.value)
+			.limit(10)
+		)
+		tags = [
+			{"category": row.category, "value": row.value, "decisions": statistic(row.decisions, total)}
+			for row in tag_rows
+		]
+		authority_cases: dict[tuple[str, Any], set[int]] = {}
+		authority_labels: dict[tuple[str, Any], tuple[str, str | None]] = {}
+		for citation in db.execute(
+			select(Citation.source_case_id, Citation.target_case_id, Citation.normalized_citation,
+				Citation.citation_text, Case.citation.label("target_citation"), Case.title.label("target_title"))
+			.outerjoin(Case, Case.id == Citation.target_case_id)
+			.where(Citation.source_case_id.in_(linked_ids))
+			.order_by(Citation.id)
+		):
+			label = (citation.target_citation or citation.normalized_citation or citation.citation_text or "").strip()
+			if citation.target_case_id is not None:
+				key = ("case", citation.target_case_id)
+				label = citation.target_citation or citation.target_title or label or str(citation.target_case_id)
+			elif label:
+				label = " ".join(label.split())
+				key = ("citation", label.casefold())
+			else:
+				continue
+			authority_cases.setdefault(key, set()).add(citation.source_case_id)
+			authority_labels.setdefault(key, (label, citation.target_title))
+		authority_keys = sorted(authority_cases, key=lambda key: (
+			-len(authority_cases[key]), authority_labels[key][0].casefold(), str(key),
+		))[:10]
+		judges[side] = {
+			"profile": {"slug": slug, "display_name": profile.display_name, "primary_court": profile.primary_court},
+			"decisions": statistic(total, total),
+			"outcomes": outcomes(rows),
+			"yearly_decisions": [
+				{"year": year, "decisions": statistic(count, total)} for year, count in sorted(years.items())
+			],
+			"undated_decisions": statistic(total - sum(years.values()), total),
+			"top_tags": tags,
+			"top_authorities": [
+				{
+					"target_case_id": key[1] if key[0] == "case" else None,
+					"citation": authority_labels[key][0], "title": authority_labels[key][1],
+					"decisions": statistic(len(authority_cases[key]), total),
+				}
+				for key in authority_keys
+			],
+			"issues": [
+				{"issue": label, "decisions": statistic(len(cases), total)}
+				for label, cases in sorted(issues.items())
+			],
+			"decisions_with_issues": statistic(len({row.id for cases in issues.values() for row in cases}), total),
+		}
+	shared = [
+		{
+			"issue": label,
+			**{
+				side: {
+					"decisions": statistic(len(issue_cases[side][label]), judges[side]["decisions"]["count"]),
+					"outcomes": outcomes(issue_cases[side][label]),
+				}
+				for side in ("a", "b")
+			},
+		}
+		for label in sorted(issue_cases["a"].keys() & issue_cases["b"].keys())
+		if all(len(issue_cases[side][label]) >= 5 for side in ("a", "b"))
+	]
+	return {
+		"status": "ok",
+		"shared_issues": shared,
+		"outcomes": {side: judges[side]["outcomes"] for side in ("a", "b")},
+		"judges": judges,
+		"metadata": {
+			"issue_source": "cases.issues",
+			"issue_normalization": "whitespace collapsed and casefolded; distinct per decision; no fallback",
+			"shared_issue_minimum_decisions_per_judge": 5,
+			"count_unit": "distinct source decisions",
+			"count_denominator": "all linked decisions for that judge; issue outcomes use issue decisions",
+			"rate_denominator": "classified government outcomes only",
+			"outcome_source": "cases.metadata_json.reader_extracted.government outcome",
+			"tag_source": "case_tags; all stored taxonomy versions deduplicated by case/category/value",
+			"authority_source": "citations; resolved target Case ID or unresolved stored citation label",
+			"interpretation": "Stored research signals, not a complete judicial record or a ranking.",
+		},
+	}
 
 
 def fetch_judge_profile_by_slug(
@@ -1101,4 +1391,241 @@ def fetch_all_tag_analytics(db: Session) -> dict[str, Any]:
 			'unique_cases_tagged': unique_cases_tagged,
 			'unique_categories': unique_categories,
 		}
+	}
+
+
+# Cached wrapper functions for analytics endpoints
+
+def fetch_about_stats(db: Session) -> tuple[dict[str, int], bool]:
+	"""Fetch about-page statistics with TTL caching.
+
+	Returns tuple of (result, was_hit) where was_hit is True for cache hit.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get("about_stats")
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_about_stats_impl(db)
+	cache.set("about_stats", result)
+	return result, False
+
+
+def fetch_fc_activity_analytics(
+	db: Session,
+	*,
+	x: str = "year",
+	group_by: str = "full_history_resolution",
+	year_from: int | None = None,
+	year_to: int | None = None,
+	city: str = "",
+	source_type: str = "",
+) -> tuple[dict[str, Any], bool]:
+	"""Fetch FC activity analytics with TTL caching.
+
+	Returns tuple of (result, was_hit). Cache key includes all normalized parameters.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get(
+		"fc_activity_analytics",
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_fc_activity_analytics_impl(
+		db,
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+	cache.set(
+		"fc_activity_analytics",
+		result,
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+	return result, False
+
+
+def fetch_judge_profiles(
+	db: Session,
+	*,
+	q: str = "",
+	limit: int = 50,
+) -> tuple[list[dict[str, Any]], bool]:
+	"""Fetch judge profiles list with TTL caching.
+
+	Returns tuple of (result, was_hit). Cache key includes all normalized parameters.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get(
+		"judge_profiles",
+		q=q,
+		limit=limit,
+	)
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_judge_profiles_impl(
+		db,
+		q=q,
+		limit=limit,
+	)
+	cache.set(
+		"judge_profiles",
+		result,
+		q=q,
+		limit=limit,
+	)
+	return result, False
+def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
+	"""Build an issue brief from active-taxonomy tags and stored case outcomes/citations."""
+	category, separator, value = tag.partition(":")
+	if not separator or not category.strip() or not value.strip():
+		return _empty_issue_brief(tag)
+
+	tagged_case_ids = (
+		select(CaseTag.case_id)
+		.where(
+			CaseTag.category == category.strip(),
+			CaseTag.value == value.strip(),
+			CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+		)
+		.distinct()
+		.subquery()
+	)
+	cases = db.scalars(
+		select(Case)
+		.where(Case.id.in_(select(tagged_case_ids.c.case_id)))
+		.order_by(Case.date, Case.id)
+	).all()
+
+	year_data: dict[int | None, dict[str, Any]] = {}
+	court_counts: dict[str, int] = {}
+	decision_links: list[dict[str, Any]] = []
+	for case in cases:
+		year = case.date.year if case.date else None
+		group = year_data.setdefault(year, {"decision_count": 0, "outcomes": {}})
+		group["decision_count"] += 1
+		metadata = case.metadata_json if isinstance(case.metadata_json, dict) else {}
+		reader_metadata = metadata.get("reader_extracted")
+		reader_metadata = reader_metadata if isinstance(reader_metadata, dict) else {}
+		outcome = reader_metadata.get("decision outcome")
+		outcome = str(outcome).strip() if outcome else "unclassified"
+		if not outcome:
+			outcome = "unclassified"
+		group["outcomes"][outcome] = group["outcomes"].get(outcome, 0) + 1
+		court = (case.court or "").strip() or "Unspecified"
+		court_counts[court] = court_counts.get(court, 0) + 1
+		decision_links.append(
+			{
+				"case_id": case.id,
+				"title": case.title,
+				"citation": case.citation,
+				"date": case.date.isoformat() if case.date else None,
+				"year": year,
+				"court": court,
+				"outcome": outcome,
+				"url": f"/case-reader?case_id={case.id}",
+			}
+		)
+
+	years: list[dict[str, Any]] = []
+	for year in sorted(year_data, key=lambda item: (item is None, item or 0)):
+		group = year_data[year]
+		denominator = group["decision_count"]
+		unclassified = group["outcomes"].get("unclassified", 0)
+		outcomes = [
+			{
+				"outcome": outcome,
+				"count": count,
+				"percentage": round(count / denominator * 100, 1) if denominator else 0.0,
+				"unclassified_count": unclassified,
+				"denominator": denominator,
+			}
+			for outcome, count in sorted(group["outcomes"].items())
+		]
+		years.append(
+			{
+				"year": year,
+				"decision_count": denominator,
+				"unclassified_count": unclassified,
+				"outcome_splits": outcomes,
+			}
+		)
+
+	authority_rows = db.execute(
+		select(
+			Case.id,
+			Case.title,
+			Case.citation,
+			func.count(Citation.id).label("citation_occurrences"),
+			func.count(func.distinct(Citation.source_case_id)).label("citing_decisions"),
+		)
+		.join(Citation, Citation.target_case_id == Case.id)
+		.where(
+			Citation.source_case_id.in_(select(tagged_case_ids.c.case_id)),
+			Citation.target_case_id.is_not(None),
+		)
+		.group_by(Case.id, Case.title, Case.citation)
+		.order_by(func.count(Citation.id).desc(), Case.id)
+		.limit(10)
+	).all()
+	return {
+		"tag": tag,
+		"decision_count": len(cases),
+		"semantics": {
+			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
+			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
+		},
+		"years": years,
+		"courts": [
+			{"court": court, "decision_count": count}
+			for court, count in sorted(court_counts.items(), key=lambda item: (-item[1], item[0]))
+		],
+		"top_authorities": [
+			{
+				"case_id": row.id,
+				"title": row.title,
+				"citation": row.citation,
+				"citation_occurrences": int(row.citation_occurrences),
+				"citing_decisions": int(row.citing_decisions),
+				"url": f"/case-reader?case_id={row.id}",
+			}
+			for row in authority_rows
+		],
+		"decisions": decision_links,
+	}
+
+
+def _empty_issue_brief(tag: str) -> dict[str, Any]:
+	return {
+		"tag": tag,
+		"decision_count": 0,
+		"semantics": {
+			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
+			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
+		},
+		"years": [],
+		"courts": [],
+		"top_authorities": [],
+		"decisions": [],
 	}

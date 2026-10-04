@@ -1,6 +1,6 @@
 # AI CaseLibrary System Reference
 
-Last updated: 2026-09-22
+Last updated: 2026-10-04
 
 ## Purpose And Authority
 
@@ -84,8 +84,34 @@ The embedded information and research views are:
 3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
+   The embedded comparison calls read-only `GET /judges/compare?a=<slug>&b=<slug>`.
+   Exact canonical slugs are required; unknown judges return HTTP 404 with
+   `detail.code=unknown_judge`. Shared recorded issues/outcomes lead, without
+   rankings or harshness inference. Overall outcomes and per-judge coverage
+   use two columns on wide screens and one on mobile, with comparison-scoped CSS.
+   Issues use only stored `Case.issues` string
+   lists (case/whitespace normalized, no metadata fallback); each shared issue
+   needs at least five distinct decisions for **each** judge. Counts for years,
+   issues, top-ten tags and authorities use all canonical linked decisions as
+   explicit denominators. Outcomes include unclassified decisions; issue
+   outcomes use the issue set, and API percentages use classified outcomes only.
+   Tag/citation occurrences are deduplicated per source decision. Authorities
+   use resolved target identity, otherwise the stored citation label. Comparison
+   is independent of profile Minister filters and does not imply corpus completeness.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The standalone `/issue-brief-ui?tag=category:value` page provides a printable
+tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
+tagged decisions by year, outcome, and court, lists up to ten resolved case
+authorities, and links up to 12 tagged decisions and each authority to the case
+reader; the JSON response retains the complete decision list. An empty tag
+returns a valid empty brief. Outcomes come from `reader_extracted` decision
+metadata; each outcome percentage uses all decisions in that year, including
+unclassified records, and is accompanied by the unclassified count and
+denominator. Authority counts are stored citation occurrences with a resolved
+case target from tagged decisions; distinct citing decisions are counted
+separately, and statute references and unresolved citations are excluded.
 
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
@@ -298,6 +324,27 @@ Case Search includes **Download CSV**, which carries the current search query, f
 
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
 
+### Saved Searches And Alerts
+
+Saved-search persistence is separate from the existing case-search contract.
+`POST` and `GET /saved-searches` create and list saved queries;
+`GET`, `PUT`, and `DELETE /saved-searches/{id}` retrieve, update, or remove
+one saved query. `POST /saved-searches/{id}/check` returns up to 100 recent
+recorded alerts and advances the saved search's last-check timestamp. An empty
+saved-search collection returns `[]`. Saved requests retain a search query,
+search mode, and filter object; the existing `/search` behavior is unchanged.
+
+The ORM and Alembic schema define `saved_searches`, `search_alerts`, and
+`fc_activity_alerts`. Alert rows reference their saved search and corresponding
+case/chunk records with cascading foreign keys. The check route reports
+persisted alert rows; it is not a scheduler, source poller, or automatic alert
+discovery process. Case Search's **Save current search** action stores its
+current query and filters, and `/saved-searches-ui` lists saved searches and
+their recorded alerts. `scripts/check_saved_searches.py` checks a bounded
+number of saved searches in read-only mode by default; `--apply` explicitly
+stores newly matching case alerts. Empty saved-search storage does not change
+normal Case Search behavior.
+
 ### Citation, Statute, And Metadata Processing
 
 `backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
@@ -423,8 +470,16 @@ A bounded non-XML dry run now has reviewed source snapshots for the official Jus
 ### Live Analysis
 
 `/live-analysis` is a separate, ephemeral document-reading workflow. It accepts
-`.docx` and text-based `.pdf` files up to 10 MB, extracts text in memory, and
-returns source text plus deterministic case-citation and statute-reference rows.
+`.docx` and text-based `.pdf` files, extracts text in memory, and returns source
+text plus deterministic case-citation and statute-reference rows. Upload reads
+are bounded in chunks; shared defaults are 10 MiB per upload, 100 MiB of
+expanded DOCX members, 2,000 DOCX archive entries, 500 PDF pages, and 5,000,000
+extracted characters. De-identification also caps pasted text at 1,000,000
+characters. `backend/resource_limits.py` owns these defaults and their
+`LITINTEL_MAX_UPLOAD_BYTES`, `LITINTEL_MAX_DOCX_UNCOMPRESSED_BYTES`,
+`LITINTEL_MAX_DOCX_ARCHIVE_ENTRIES`, `LITINTEL_MAX_PDF_PAGES`,
+`LITINTEL_MAX_EXTRACTED_TEXT_CHARS`, and `LITINTEL_MAX_PASTED_TEXT_CHARS`
+positive-integer environment overrides.
 Rows retain character offsets, paragraph locations, and PDF page numbers where
 applicable, and resolved statute rows now include authority document and section
 details when the local match exists. The UI presents a temporary Case Reader
@@ -437,13 +492,16 @@ case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
 Local resolution intentionally does not call external services. Successful
 responses include the extracted source text and set `Cache-Control: no-store`
-and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
-after the multipart file is read, and no expanded-DOCX, PDF page-count, or
-pasted-text resource budget is enforced in these paths. Multipart temporary
-spooling and deployment-level request logging/retention are outside the
-application persistence boundary. Scanned PDFs are outside the prototype
-because they require OCR. The scoped privacy/security review, including
-de-identification routes and residual risks, is
+and `Pragma: no-cache`; this is not access control. Multipart parsing can still
+spool data before route-level chunked reads begin; application limits are not
+proxy/server request-body limits. Upload or parser-cap violations return HTTP
+413 with a limit-specific explanation; invalid or unsupported documents retain
+validation errors. Memo Citation Check uses the same upload and parser limits,
+as do de-identification uploads and pasted text. Deployment-level request
+logging/retention remains outside the application persistence boundary. Scanned
+PDFs are outside the prototype because they require OCR. Remaining boundaries
+and de-identification coverage are recorded in the scoped privacy/security
+review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
@@ -667,6 +725,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | Component | Responsibility |
 | --- | --- |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
@@ -711,6 +770,16 @@ opinion.
 ### Startup And Configuration
 
 The application loads `.env` from the repository root and then `backend/.env`, both with `override=True`: dotenv values override shell settings, and backend dotenv values win over root dotenv values. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`. Disposable migration checks must refuse either dotenv path (including symlinks) before importing the database module, then set all five `POSTGRES_*` connection settings. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+
+Request auditing is disabled unless `CASELIBRARY_AUDIT_LOG` names a file.
+`backend/audit.py` records allowlisted metadata only: UTC time, generated request
+ID, method, route template, status, elapsed milliseconds, and a process-keyed
+client-address hash. Unknown paths become `<unmatched>`; bodies, uploaded
+filenames, and query strings are never recorded. Raw addresses require the
+separate `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS=true` opt-in. Files rotate at 5 MiB
+with three backups; all audit write failures are fail-open. See
+[SETUP.md](SETUP.md#optional-request-audit-log) for permissions, restart,
+single-process rotation, and separate access-log considerations.
 
 `init_db()` is called during FastAPI startup. Alembic remains the authoritative schema migration path for reproducible environments:
 
@@ -1358,6 +1427,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /live-analysis/analyze`: in-memory DOCX/text-PDF extraction.
 - `POST /live-analysis/resolve`: separate batched local resolution for neutral,
   named, and short-form case references.
+- `POST /memo-citation-check`: in-memory memo analysis with the same upload and
+  parser resource limits.
 
 ### Research And Analytics APIs
 
@@ -1367,8 +1438,18 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
+- `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
+
+The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
+`/api/judge-profiles` endpoints use a bounded, in-process TTL cache for
+successful results. `X-Cache` is `hit` only when the current worker serves a
+cached result; uncached and disabled-cache requests report `miss`. Each endpoint
+keys the result on its complete parsed query-parameter set. The cache is local
+to each application process, is not shared across workers, and does not replace
+the underlying database as the source of truth. Configure freshness and
+disablement with `ANALYTICS_CACHE_TTL_SECONDS` below.
 
 ### Citation Intelligence APIs
 
@@ -1506,11 +1587,11 @@ Focused active-interface and citation rebuild checks passed (`18 passed`). Edito
 
 ## Code Review Findings: 2026-09-01
 
-### High: Configured Private Access Is Not Enforced
+### Resolved: Optional Private Access Enforcement
 
-`backend/main.py` contains password/cookie generation and login routes, but `private_access_and_noindex()` only calls the next handler and adds no-index headers. It does not check `CASELIBRARY_ACCESS_PASSWORD`, validate the access cookie, or redirect unauthenticated public requests. A Cloudflare-exposed instance is therefore publicly reachable unless Cloudflare or another external layer enforces access.
+`backend/main.py` enforces signed access cookies only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty. The gate remains off by default; without that setting, routes remain publicly reachable unless an external layer enforces access.
 
-Required remediation: add an explicit allowlist for health/login/static routes, require a valid cookie for non-local requests when a password is configured, and test both anonymous denial and authenticated access. Until this is done, treat the tunnel as public.
+When enabled, only `/access`, `/access/login`, `/health`, and mounted static assets are exempt. All other routes, including local requests, require a valid cookie. HTML requests redirect to `/access`; API requests receive `401`. `POST /access/logout` clears the browser cookie. No-index headers remain indexing controls, not authentication.
 
 ### Medium: Large Generated UI Module Is Fragile
 
@@ -4082,6 +4163,7 @@ Handler: `backend.routes.fc_activity_analytics`
 - `year_from` (int | None; default `None`)
 - `year_to` (int | None; default `None`)
 - `city` (str; default `''`)
+- `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -5361,12 +5443,43 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate off) | `backend/main.py` | A non-empty value enables signed-cookie enforcement for all routes except login, health, and mounted static assets. Missing or empty leaves access unchanged and makes `/access` return `503`. |
 | `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
-The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+To opt in, set `CASELIBRARY_ACCESS_PASSWORD` in the server process environment and restart the application. Set `CASELIBRARY_SESSION_SECRET` to a separate strong random secret. No password is configured by this change; leave the password unset or empty to keep the gate off. Login cookies are HttpOnly, SameSite=Lax, and Secure on HTTPS. `POST /access/logout` deletes the browser cookie but does not revoke copied cookies; those remain valid until expiry or signing-secret rotation.
+
+The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt` (behind the gate when enabled). This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
+
+## Analytics Cache Settings
+
+| Variable | Default | Consumer | Purpose |
+| --- | --- | --- | --- |
+| `ANALYTICS_CACHE_TTL_SECONDS` | `600` | `backend/analytics_service.py` | Positive values set the in-process TTL in seconds; `0` or a negative value disables caching. No cache dependency or `.env`-specific setting is required. |
+
+The TTL is a freshness/performance tradeoff: changes in underlying records may
+not appear in a cached analytics response until expiry. Each process has its
+own bounded cache; `clear_analytics_cache()` clears it in tests or
+administrative maintenance.
 
 ## OpenAI And External Model Settings
 
@@ -7988,6 +8101,23 @@ Source collectors and importers are tested against controlled HTML, mock respons
 ### Operational Tests
 
 The overnight runner tests locks, job selection, state transitions, and command construction. They do not run full corpus writes. A full operational run needs preflight, bounded canary, state/log review, before/after counts, and sampled QA.
+
+### Independent CI quality checks
+
+`.github/workflows/quality.yml` runs separately from the required test
+workflow on pull requests and weekly (Sunday at 00:00 UTC). It applies Ruff's
+minimal `E` error and `F401` unused-import rules and audits dependencies resolved
+from `requirements.txt` with pip-audit. Ruff and pip-audit are pinned in
+`requirements-dev.txt`.
+
+Each tool has its own non-blocking job and artifact containing its output,
+version, and exit status. Findings and tool-install errors therefore remain
+available for review without changing the existing test gate. The first
+observed baseline, including its scope and limitations, is recorded in
+[`docs/reports/baseline-lint-and-audit.md`](docs/reports/baseline-lint-and-audit.md).
+An audit result describes the checked-in requirements and advisory feed at run
+time; it does not by itself establish that a dependency is reachable or
+exploitable in production.
 
 ## Required Validation By Change Type
 

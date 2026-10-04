@@ -122,7 +122,7 @@ def theme_explorer_page_html() -> str:
 			}
 
 			try {
-				const response = await fetch(\`/units/search?q=\${encodeURIComponent(query)}&limit=15\`);
+				const response = await fetch(`/units/search?q=${encodeURIComponent(query)}&limit=15`);
 				const data = await response.json();
 				unitSearchResults = data.results || [];
 				renderUnitSearchResults(data);
@@ -141,25 +141,25 @@ def theme_explorer_page_html() -> str:
 				return;
 			}
 
-			const html = \`
+			const html = `
 				<div style="padding: 12px 0; border-top: 1px solid #eee;">
-					<p style="font-size: 12px; color: #666; margin-bottom: 12px;"><strong>\${data.total_results}</strong> matching units found (\${data.results[0].match_type === 'semantic' ? 'semantic search' : 'keyword match'})</p>
+					<p style="font-size: 12px; color: #666; margin-bottom: 12px;"><strong>${data.total_results}</strong> matching units found (${data.results[0].match_type === 'semantic' ? 'semantic search' : 'keyword match'})</p>
 					<div style="display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto;">
-						\${data.results.slice(0, 10).map(result => \`
+						${data.results.slice(0, 10).map(result => `
 							<div style="background: #f8f9fa; padding: 10px; border-left: 3px solid #667eea; border-radius: 3px; font-size: 12px;">
-								<div style="font-weight: 600; margin-bottom: 4px;">Case \${result.case_id} · Unit \${result.unit_index}</div>
+								<div style="font-weight: 600; margin-bottom: 4px;">Case ${result.case_id} · Unit ${result.unit_index}</div>
 								<div style="color: #666; margin-bottom: 4px;">
-									Judges: <strong>\${result.judges.join(', ') || 'Not recorded'}</strong>
-									· Outcome: <strong>\${result.disposition || 'Unknown'}</strong>
+									Judges: <strong>${result.judges.join(', ') || 'Not recorded'}</strong>
+									· Outcome: <strong>${result.disposition || 'Unknown'}</strong>
 								</div>
 								<div style="color: #999; font-size: 11px;">
-									Key terms: \${result.key_terms.join(', ')} · Score: \${(result.score * 100).toFixed(0)}%
+									Key terms: ${result.key_terms.join(', ')} · Score: ${(result.score * 100).toFixed(0)}%
 								</div>
 							</div>
-						\`).join('')}
+						`).join('')}
 					</div>
 				</div>
-			\`;
+			`;
 
 			container.innerHTML = html;
 			container.style.display = 'block';
@@ -216,7 +216,7 @@ def theme_explorer_page_html() -> str:
 					<div class="section-title">Key Terms</div>
 					<div class="tags">
 						${currentTheme.top_key_terms.map(term =>
-							\`<span class="tag">\${escapeHtml(term)}</span>\`
+							`<span class="tag">${escapeHtml(term)}</span>`
 						).join('')}
 					</div>
 				</div>
@@ -225,7 +225,7 @@ def theme_explorer_page_html() -> str:
 					<div class="section-title">Argument Roles</div>
 					<div class="tags">
 						${currentTheme.top_argument_roles.map(role =>
-							\`<span class="tag role">\${escapeHtml(role)}</span>\`
+							`<span class="tag role">${escapeHtml(role)}</span>`
 						).join('')}
 					</div>
 				</div>
@@ -233,15 +233,15 @@ def theme_explorer_page_html() -> str:
 				<div class="content-section">
 					<div class="section-title">Case Occurrences</div>
 					<div class="occurrence-list">
-						${currentTheme.occurrences.slice(0, 20).map(occ => \`
-							<div class="occurrence" onclick="openCase(\${occ.case_id})">
+						${currentTheme.occurrences.slice(0, 20).map(occ => `
+							<div class="occurrence" onclick="openCase(${occ.case_id})">
 								<div class="occ-case">
-									<a href="/data-explorer?case=\${occ.case_id}" class="occ-case-link">Case \${occ.case_id}</a>
-									· Unit \${occ.unit_index}, \${escapeHtml(occ.subtheme_id)}
+									<a href="/data-explorer?case=${occ.case_id}" class="occ-case-link">Case ${occ.case_id}</a>
+									· Unit ${occ.unit_index}, ${escapeHtml(occ.subtheme_id)}
 								</div>
 								<div class="occ-unit">Click to view in case reader</div>
 							</div>
-						\`).join('')}
+						`).join('')}
 					</div>
 				</div>
 			`;
@@ -250,7 +250,7 @@ def theme_explorer_page_html() -> str:
 		}
 
 		function openCase(caseId) {
-			window.location.href = \`/data-explorer?case=\${caseId}\`;
+			window.location.href = `/data-explorer?case=${caseId}`;
 		}
 
 		function escapeHtml(text) {

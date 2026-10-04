@@ -24,7 +24,7 @@ from backend.pages.saved_searches import saved_searches_page_html
 from backend.pages.statute_viewer import statute_viewer_page_html
 from backend.pages.tag_analytics import inject_tag_analytics
 from backend.pages.tag_finder import tag_finder_page_html
-from backend.pages.testing import testing_page_html
+from backend.pages.testing import testing_page_html as render_testing_page_html
 from backend.pages.theme_explorer import theme_explorer_page_html
 
 
@@ -49,7 +49,7 @@ PAGE_RENDERERS = [
     ("statute_viewer", statute_viewer_page_html),
     ("tag_analytics", lambda: inject_tag_analytics("<section id='fcAnalyticsPanel'></section>")),
     ("tag_finder", tag_finder_page_html),
-    ("testing", testing_page_html),
+    ("testing", render_testing_page_html),
     ("theme_explorer", theme_explorer_page_html),
 ]
 

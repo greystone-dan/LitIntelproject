@@ -42,7 +42,7 @@ function quickSummaryHtml(data,payload){
     const disposition=quickSummaryEvidenceHtml(data.disposition,payload);
     const issue=quickSummaryEvidenceHtml(data.issue,payload);
     return `<p>Stored research aid, not a generated legal conclusion. Verify against the decision.</p>`+
-        `<dl class="rs-facts">${facts}<dt>Decision outcome</dt><dd>${esc(data.decision_outcome||'unclassified')} · source: ${esc(data.outcome_source||'unknown')}</dd></dl>`+
+        `<dl class="rs-facts">${facts}<dt>Decision outcome</dt><dd>${esc(data.decision_outcome&&data.decision_outcome!=='unclear'?data.decision_outcome:'unclassified')} · source: ${esc(data.outcome_source||'unknown')}</dd></dl>`+
         (disposition?`<h4>Disposition · verbatim</h4>${disposition}`:'')+
         (issue?`<h4>${issueLabel} · verbatim</h4>${issue}`:'')+
         (statutes?`<h4>Top statutes · stored occurrences</h4><ul>${statutes}</ul>`:'')+

@@ -5,6 +5,70 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode: Export to Word and private notes. "Export to Word" downloads the
+  decision with every margin note that is switched on (citations anchored on the
+  citation itself, discussion units, outcome, judge, cited-by, my notes) as real
+  Word comments, with highlighted paragraphs kept. Private notes and highlights:
+  click a paragraph number to write a note or highlight the paragraph; they are
+  saved in this browser only, show in the margin (inline under the paragraph on
+  phones) and travel into the Word file. New route `POST /cases/{id}/markup-export`
+  typesets what the browser sends and stores nothing. Also fixed: notes could sit
+  hundreds of pixels from their paragraphs on first open because the reader adds
+  content after first paint; they now re-place themselves when the text height
+  changes. No AI, no schema change.
+- Added Alembic revision `0037_cases_docket_number`, which idempotently adds
+  nullable `cases.docket_number` (`String(255)`) and its model-declared index.
+  Added mocked preservation/idempotency coverage and an explicitly gated
+  PostgreSQL migration-from-zero schema comparison test.
+- Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
+  scroll inside their panel, the judge comparison form and the statute viewer form fit
+  and stack on phones. CSS only.
+- Phone layout fixes: the search page stacks its field and buttons with 16px text and
+  scrolling filter chips; the case reader header no longer sits under its view
+  buttons and the reader scrolls as one page; the yellow overruling-risk notice
+  folds behind one tappable line on phones so it cannot push the decision off
+  screen; Markup mode's toolbar is one row (Find, Topics and More open on tap),
+  the Peek panel is a bottom sheet, and the hover card is off on touch screens.
+  CSS and display logic only: no AI calls, new endpoints or schema changes.
+- Paragraph "cited by" batch job (not run on production): `scripts/build_paragraph_cited_by.py`
+  reads stored citation occurrences and, for each cited paragraph, stores which
+  cases cite it, how often, and the signal phrase beside the citation (followed,
+  distinguished, see, quoted, ...). Two additive tables (migration 0036). It is
+  resumable, runs at low priority, and writes nothing without `--apply`. The
+  Markup margin and Peek read the stored rows when they exist and fall back to
+  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`.
+- Markup mode second build, using only stored data: hover card on citations;
+  Peek panel (floating or docked, stackable, shows the cited paragraph when the
+  authority is in the library and says so when it is not); tag display modes
+  (Off, Underline, Tint, Bubbles); topic chips from sub-theme key terms with a
+  "show only selected" fold view; case-info drawer polish; keyboard use for
+  citations and the toolbar; print re-layout; and a find-box focus fix. No AI,
+  new endpoints or schema changes.
+- Added **Markup mode**, a third case-reader view (button beside Formatted/Chunk
+  breakdown). The decision runs full width with notes in a right margin: case
+  citations with pinpoint text, discussion units and sub-themes, verified
+  outcome (labelled unverified when no disposition passage is stored), judge,
+  a cited-by gutter, soft tags, topic bands, outline, find-in-case, per-layer
+  Off/Markers/Open controls with expand/collapse all, and annotated print. It
+  only reads the already-loaded reader payload: no AI, no network calls, no
+  schema changes. Existing readers are unchanged.
+- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
+  editable, lawyer-review seed list, with direct matches and stored resolved
+  citation links, source/rationale/assignment details, counts, and chronology
+  dates. The active Data Explorer reader adds a cautious “may be affected”
+  banner; no memo output or database schema changes. Extension guidance is in
+  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
+- Added a shared embedding-provider interface with a disabled default, lazy
+  OpenAI client wrapper, and cached local SentenceTransformer implementation.
+  Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:
+  off makes no model/client calls, local mode rejects hosted embeddings, and
+  hosted mode uses the selected provider. Provider dimensions and the 503
+  missing-key / 502 provider-failure API contracts are preserved. Added
+  fake-client/model tests and updated the architecture inventory, configuration,
+  system reference, and Swimm maps. Python compilation and `git diff --check`
+  passed; seven provider tests and nine targeted API/search/ingestion tests passed
+  in an isolated dependency environment. All three generated references were
+  current. No model downloads or database operations were performed.
 - Moved the experimental research, citation-intelligence, contextual-authority,
   and discussion-unit prompts into header-versioned text files loaded through a
   shared backend registry. Exact prompt wording is guarded by golden snapshots.

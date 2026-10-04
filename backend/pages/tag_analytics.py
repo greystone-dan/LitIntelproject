@@ -67,7 +67,7 @@ items.forEach(([label,_,value])=>{const kpi=el('div',{class:'tga-kpi'});kpi.appe
 function renderTrends(data){const box=$('tgaTrends');
 if(!data.trends||Object.keys(data.trends).length===0)return box.replaceChildren(el('div',{class:'tga-empty'},'No trend data available'));
 const years=Object.keys(data.trends).sort().reverse().slice(0,5);
-if(!years.length)return box.replaceChildren(el('tga-empty'},'No data'));
+if(!years.length)return box.replaceChildren(el('div',{class:'tga-empty'},'No data'));
 const allTags=new Set();years.forEach(y=>data.trends[y].forEach(t=>allTags.add(t.category+':'+t.value)));
 const topTags=Array.from(allTags).slice(0,5);
 const W=1100,H=250,L=150,R=50,T=20,B=30;

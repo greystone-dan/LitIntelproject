@@ -34,7 +34,7 @@ not part of the base `requirements.txt`.
 | System surface | Primary tests | Coverage focus | Main gaps |
 | --- | --- | --- | --- |
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
-| Active Data Explorer UI contract | `test_feature_tabs.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup | No browser interaction/screenshot test |
+| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | No browser interaction/screenshot test |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
 | Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
@@ -73,7 +73,7 @@ The overnight runner tests locks, job selection, state transitions, and command 
 | Change | Minimum test/check |
 | --- | --- |
 | Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms, mixed-case provision identity, and negative shorthand cases when touched |
-| Reader/UI markup or behavior | `test_feature_tabs.py`, route/compile check, and manual browser interaction |
+| Reader/UI markup or behavior | `test_feature_tabs.py`, `test_inline_js_syntax.py`, route/compile check, and manual browser interaction |
 | Search/ranking/filter | Relevant `test_api.py` slice; inspect query semantics and result ordering |
 | Metadata/outcome/docket logic | `test_metadata.py` plus relevant `test_api.py` cases |
 | Tag taxonomy | `test_legal_tagger.py` with focused new rule fixture |

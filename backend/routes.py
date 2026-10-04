@@ -23,6 +23,12 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .markup_export import Comment as MarkupComment, build_markup_docx
+from .alert_digest import (
+	build_alert_digest,
+	partition_matches,
+	render_digest_html,
+)
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
 
@@ -94,6 +100,7 @@ from .deidentify import deidentify_text, reidentify_text, text_from_upload, text
 from . import resource_limits
 from .pages.testing import testing_page_html
 from .pages.statute_viewer import statute_viewer_page_html
+from .statute_consideration import router as statute_consideration_router
 from .statute_versioning import find_statute_version_at_date, get_statute_version_label
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
@@ -229,6 +236,7 @@ from .search_service import (
 )
 from .query_embedding_providers import embed_case_summary, get_search_embedding_status
 from .models import (
+	MarkupExportRequest,
 	DiscoveredThemeResponse,
 	ThemeDiscoveryResponse,
 	ThemeOccurrenceResponse,
@@ -305,6 +313,7 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(statute_consideration_router)
 router.include_router(case_summary_router)
 
 
@@ -589,6 +598,15 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 	extracted_citations = _extract_legal_citations(case_data.full_text or case_data.summary)
 	if extracted_citations:
 		metadata["extracted_citations"] = extracted_citations
+	case_embedding = (
+		embed_case_summary(case_data.summary)
+		if (
+			case_data.summary
+			and AI_ROLLOUT["embed_on_ingest_enabled"]
+			and enhanced_mode() != "off"
+		)
+		else None
+	)
 
 	case = Case(
 		title=case_data.title,
@@ -611,17 +629,11 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 		scraped_at=case_data.scraped_at,
 		language=case_data.language,
 		full_text_hash=(sha256(case_data.full_text.encode("utf-8")).hexdigest() if case_data.full_text else None),
-		processing_status=(
-			"embedded" if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"]) else "raw"
-		),
+		processing_status="embedded" if case_embedding is not None else "raw",
 		cases_cited=case_data.cases_cited or (extracted_citations or None),
 		cases_citing=case_data.cases_citing,
 		citing_cases_count=case_data.citing_cases_count,
-		embedding=(
-			embed_case_summary(case_data.summary)
-			if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"])
-			else None
-		),
+		embedding=case_embedding,
 	)
 	db.add(case)
 	try:
@@ -855,6 +867,26 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.post("/cases/{case_id}/markup-export")
+def export_case_markup_docx(case_id: int, payload: MarkupExportRequest, db: Session = Depends(get_db)) -> Response:
+	"""Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored."""
+	case = db.get(Case, case_id)
+	if case is None or not case.full_text:
+		raise HTTPException(status_code=404, detail="Case not found or has no text")
+	content = build_markup_docx(
+		title=case.title or f"Case {case_id}",
+		subtitle=" · ".join(part for part in (case.citation, case.court, case.date.isoformat() if case.date else None) if part),
+		full_text=case.full_text,
+		comments=[MarkupComment(c.block, c.label, c.text, c.quote, c.author) for c in payload.comments],
+		highlights=payload.highlights,
+	)
+	return Response(
+		content=content,
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={"Content-Disposition": f'attachment; filename="ilit-case-{case_id}-markup.docx"'},
+	)
 
 
 @router.get("/cases/{case_id}/paragraphs/{n}/similar", response_model=ParagraphSimilarityResponse)
@@ -3761,6 +3793,68 @@ def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchRespon
 		)
 		for search in searches
 	]
+
+
+def _saved_search_digest(db: Session, since: datetime | None) -> dict[str, Any]:
+	"""Read recorded alerts only; never discover matches or advance checkpoints."""
+	searches = db.query(SavedSearch).order_by(SavedSearch.id.asc()).all()
+	search_records = [
+		{"id": search.id, "name": search.name, "last_alert_check": search.last_alert_check}
+		for search in searches
+	]
+	if not searches:
+		return build_alert_digest([], [], [])
+	alerts = (
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id.in_([search.id for search in searches]))
+		.order_by(SearchAlert.discovered_at.asc(), SearchAlert.id.asc())
+		.all()
+	)
+	case_ids = sorted({alert.case_id for alert in alerts})
+	# Select metadata columns only, not judgment text, chunks or embeddings.
+	cases = {
+		case.id: case for case in db.query(
+			Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json,
+		).filter(Case.id.in_(case_ids)).all()
+	} if case_ids else {}
+	matches = []
+	for alert in alerts:
+		case = cases.get(alert.case_id)
+		if case is None:
+			continue
+		metadata = case.metadata_json if isinstance(case.metadata_json, dict) else {}
+		reader = metadata.get("reader_extracted")
+		reader = reader if isinstance(reader, dict) else {}
+		# Use the same Canada (Minister) title convention as saved-search analytics.
+		minister = re.search(r"Canada \(([^)]+)\)", case.title or "")
+		matches.append({
+			"search_id": alert.search_id, "case_id": alert.case_id,
+			"title": case.title, "citation": case.citation, "court": case.court,
+			"date": case.date, "discovered_at": alert.discovered_at,
+			"minister": minister.group(1) if minister else None,
+			"decision_outcome": reader.get("decision outcome"),
+			"government_outcome": reader.get("government outcome"),
+		})
+	new, earlier = partition_matches(search_records, matches, since=since)
+	return build_alert_digest(search_records, new, earlier)
+
+
+@router.get("/saved-searches/digest", response_model=dict[str, Any])
+def saved_search_digest(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Build a read-only digest of recorded case alerts, not live search results."""
+	return _saved_search_digest(db, since)
+
+
+@router.get("/saved-searches/digest.html", response_class=HTMLResponse)
+def saved_search_digest_html(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	"""Render the same read-only digest as self-contained inline-CSS HTML."""
+	return HTMLResponse(render_digest_html(_saved_search_digest(db, since)))
 
 
 @router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)

@@ -174,6 +174,116 @@ def test_reader_renders_backend_cited_paragraph_metadata():
     assert 'data-para="${b.num}"' in html
 
 
+def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required to execute the reader controls')
+    html = routes._data_explorer_page_html()
+    panel = html.split('<details id="readerMostCited"', 1)[1].split('</details>', 1)[0]
+    assert 'hidden' in panel.split('>', 1)[0]
+    assert 'open' not in panel.split('>', 1)[0]
+    assert '<summary>Most cited paragraphs</summary>' in panel
+    controller = html.split('/* Most cited paragraphs: reader-only controls. */', 1)[1].split('</script>', 1)[0]
+    summary_controller = html[html.index('function extractedReaderSummaryHtml('):].split('</script>', 1)[0]
+    formatter = html.split('function formattedDecision(', 1)[1].split('\n', 1)[0]
+    loader = html.split('async function openDecision(', 1)[1].split('\n', 1)[0]
+    assert html.index('const sidePreviousSetReaderMode=') < html.index('const mostCitedSetReaderMode=')
+    assert html.index('const extractedSummaryPreviousMode=') < html.index('const mostCitedSetReaderMode=')
+    assert html.index('const citationWorkspaceOpenDecision=') < html.index('const mostCitedOpenDecision=')
+    script = r"""
+const assert=require('node:assert/strict');
+const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const readerState={caseId:7,mode:'chunks',formatted:false,payload:null};
+const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(selector){return selector==='.reader-extracted-summary'?[]:[target,duplicate]},querySelector(selector){assert.equal(selector,`[id="decision-source-${block.start}"]`);return target},insertAdjacentHTML(where,html){assert.equal(where,'afterbegin');this.summaryHtml=html},addEventListener(name,handler){this[name]=handler}}};
+const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options},closest(){return null}};
+const duplicate={dataset:{para:'2'},setAttribute(){throw Error('Duplicate paragraph received an anchor')}};
+const document={getElementById(id){return nodes[id]??={scrollIntoView(){}}},addEventListener(name,handler){this[name]=handler}};
+let reducedMotion=false;
+const window={matchMedia(query){assert.equal(query,'(prefers-reduced-motion: reduce)');return {matches:reducedMotion}}};
+let fail=false,closed=false,modeCalls=0;
+let openDecision=async function(id){assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');if(fail)return;readerState.caseId=id;readerState.payload=payload;setReaderMode('normalized');};
+let closeDecisionReader=function(){closed=true;readerState.payload=null};
+let setReaderMode=function(mode){modeCalls++;readerState.mode=mode;if(mode==='normalized'&&readerState.formatted)target.id=`decision-source-${block.start}`;else delete target.id};
+function highlightedDecision(text,citations,tags,start,end,chars){return esc(chars.slice(start,end).join(''))}
+function formattedDecision(FORMATTER
+CONTROLLER
+const actualOpenDecision=async function(BASE_LOADER
+const num=Number,extractDocketFromPayload=()=>null;
+let renderFailure=false;
+function renderCaseReaderPane(){if(renderFailure)throw Error('Rendering failed')}
+const fetch=async()=>({ok:true,json:async()=>({case:{full_text:text},citation_metrics:{},format_blocks:[block]})});
+const text='😀 prefix [2] <script>& "quoted" 😀 body';
+const chars=Array.from(text),start=chars.join('').indexOf('[2]')-1;
+const block={type:'para',num:2,start,mark_end:start+3,end:chars.length,cited_by_count:4};
+const payload={item:{full_text:text},readerData:{format_blocks:[block],extracted_summary:[{key:'disposition',label:'Disposition',value:'stored disposition',evidence:'stored disposition',block_start:start,block_type:'para',paragraph_number:2}]}};
+const rows=[{...block,num:10,cited_by_count:4},{...block,num:1,cited_by_count:0},{...block,num:3,cited_by_count:9},{...block,num:9,cited_by_count:4},{...block,num:4,cited_by_count:4},{...block,num:5,cited_by_count:4},block,{...block,type:'heading',num:6,cited_by_count:99}];
+assert.deepEqual(mostCitedParagraphs(rows).map(b=>b.num),[3,2,4,5,9]);
+const duplicateBlock={...block,num:'2',start:block.start+1,cited_by_count:99};
+assert.deepEqual(mostCitedParagraphs([...rows,duplicateBlock]).map(b=>b.num),[3,2,4,5,9]);
+assert.equal(mostCitedParagraphs([block,duplicateBlock])[0],block);
+assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:0},duplicateBlock]),[]);
+assert.deepEqual(mostCitedParagraphs([]),[]);
+assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:-1}]),[]);
+for(const count of [1.5,Infinity,NaN,'not a count'])assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:count}]),[]);
+for(const num of [0,-1,1.5,'not a paragraph'])assert.deepEqual(mostCitedParagraphs([{...block,num}]),[]);
+assert.ok(!formattedDecision(text,[],[],[block]).includes('id="reader-source-para-'));
+assert.ok(formattedDecision(text,[],[],[block]).includes(`id="decision-source-${block.start}"`));
+(async()=>{
+await openDecision(7);
+assert.equal(target.id,undefined);
+assert.equal(nodes.readerMostCited.hidden,false);
+assert.equal(nodes.readerMostCited.open,false);
+assert.match(nodes.decisionBody.summaryHtml,/stored disposition/);
+assert.ok(nodes.decisionBody.summaryHtml.includes(`href="#decision-source-${block.start}"`));
+assert.match(nodes.readerMostCitedList.innerHTML,/4 other cases/);
+assert.ok(nodes.readerMostCitedList.innerHTML.includes(`<a href="#decision-source-${block.start}" class="reader-evidence-toggle" data-reader-para-jump="2">Jump to paragraph 2</a>`));
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<button'));
+assert.match(nodes.readerMostCitedList.innerHTML,/&lt;script&gt;&amp; &quot;quoted&quot; 😀 body/);
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<script>'));
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('[2]'));
+readerState.mode='chunks';readerState.formatted=false;
+let prevented=false;
+document.click({preventDefault(){prevented=true;assert.equal(readerState.mode,'chunks')},target:{closest(selector){assert.equal(selector,'#readerMostCited a[data-reader-para-jump]');return {dataset:{readerParaJump:'2'}}}}});
+assert.equal(prevented,true);
+document.click({preventDefault(){throw Error('Unrelated click prevented')},target:{closest(){return null}}});
+assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.tabindex,'-1');assert.equal(duplicate.id,undefined);
+assert.equal(target.scrolled.block,'center');assert.equal(target.scrolled.behavior,'smooth');assert.equal(target.focused.preventScroll,true);
+readerState.mode='chunks';readerState.formatted=false;
+nodes.decisionBody.click({preventDefault(){},target:{closest(){return {dataset:{summarySource:String(block.start)}}}}});
+assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.focused.preventScroll,true);
+assert.equal(nodes.readerMostCited.hidden,false);
+reducedMotion=true;jumpToReaderParagraph(2);assert.equal(target.scrolled.behavior,'auto');
+readerState.mode='normalized';readerState.formatted=false;jumpToReaderParagraph(2);
+assert.equal(readerState.formatted,true);assert.equal(readerState.mode,'normalized');
+const calls=modeCalls;jumpToReaderParagraph('999');assert.equal(modeCalls,calls);
+nodes.readerMostCited.open=true;await openDecision(8);assert.equal(nodes.readerMostCited.open,false);
+nodes.readerMostCited.open=true;fail=true;await openDecision(9);
+assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCitedList.innerHTML,'');
+assert.equal(readerState.payload,null);
+fail=false;await openDecision(10);closeDecisionReader();
+assert.equal(closed,true);assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCited.open,false);
+assert.equal(nodes.readerMostCitedList.innerHTML,'');
+readerState.payload={item:{full_text:text},readerData:{format_blocks:[]}};renderMostCitedParagraphs();
+assert.equal(nodes.readerMostCited.hidden,true);
+const longText='x'.repeat(219)+'😀tail';
+readerState.payload={item:{full_text:longText},readerData:{format_blocks:[{...block,start:0,mark_end:0,end:224,cited_by_count:1}]}};
+renderMostCitedParagraphs();assert.match(nodes.readerMostCitedList.innerHTML,/1 other case</);
+assert.ok(nodes.readerMostCitedList.innerHTML.includes('x'.repeat(219)+'😀…'));
+readerState.payload=payload;payload.readerData.format_blocks=[block,duplicateBlock];renderMostCitedParagraphs();
+assert.equal((nodes.readerMostCitedList.innerHTML.match(/data-reader-para-jump="2"/g)||[]).length,1);
+assert.match(nodes.readerMostCitedList.innerHTML,/4 other cases/);
+nodes.readerMostCited.open=true;renderFailure=true;await actualOpenDecision(11);
+assert.equal(readerState.payload,null);assert.equal(nodes.readerMostCited.hidden,true);
+assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    script = script.replace('FORMATTER', formatter).replace('CONTROLLER', summary_controller + '\n' + controller).replace('BASE_LOADER', loader)
+    result = subprocess.run([node, '-'], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
 def test_extracted_reader_summary_omits_missing_fields_and_escapes_source_quote():
     node = shutil.which("node")
     if not node:

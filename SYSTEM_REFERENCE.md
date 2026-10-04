@@ -751,6 +751,19 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 The active frontend pages are built by modular templates in `backend/pages/` and served via `backend/routes.py`. This ensures CSS, HTML, and JavaScript changes are cleanly separated from API route definitions while maintaining full contract compatibility.
 
+`scripts/check_site_links.py` is the offline local-dead-end audit for the
+registered HTML pages, including the built-in API documentation pages. It checks
+local `href`, form `action`, and statically literal inline `fetch`/XHR URLs
+against registered route paths and methods, including parameterized paths and
+normal trailing-slash redirects. Its snapshot rendering does not start app
+lifespan or load `.env` configuration or database credentials. Dynamically
+computed URLs, fetched external scripts, database-backed page content, and
+browser execution are outside its static scope. Browser requests that accept
+HTML receive safe HTML 404/500 pages; non-HTML HTTP exceptions retain FastAPI's
+JSON response and non-HTML server failures remain generic plain text. Findings
+and validation limits for the Issue #142 audit are in
+[`docs/reports/dead-ends-audit.md`](docs/reports/dead-ends-audit.md).
+
 The researcher-facing guide to tabs, filters, reader controls, highlights, linked authorities, analytics, and interpretation limits is [docs/RESEARCH_UI_GUIDE.md](docs/RESEARCH_UI_GUIDE.md).
 
 The active Data Explorer reader provides a persistent evidence-layer legend for

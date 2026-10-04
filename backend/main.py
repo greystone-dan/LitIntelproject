@@ -8,11 +8,13 @@ from hashlib import sha256
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.routing import Match, Mount
 from starlette.staticfiles import StaticFiles
 
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .html_errors import handle_http_exception, handle_unhandled_exception
 from .routes import router
 
 
@@ -23,6 +25,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.add_exception_handler(StarletteHTTPException, handle_http_exception)
+app.add_exception_handler(Exception, handle_unhandled_exception)
 
 
 ACCESS_COOKIE = "caselibrary_access"

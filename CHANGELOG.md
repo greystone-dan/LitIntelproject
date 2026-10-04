@@ -5,6 +5,14 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added an offline route-aware audit for local URLs in registered HTML pages,
+  including links, form actions, and literal inline fetch/XHR calls, with
+  parameterized-route and HTTP-method checks. Browser requests that accept HTML
+  now receive safe 404/500 pages while API response behavior is preserved.
+  See [`docs/reports/dead-ends-audit.md`](docs/reports/dead-ends-audit.md);
+  full page rendering and pytest validation are pending because this workspace
+  lacks the repository's `python-dotenv`, FastAPI, SQLAlchemy, and pytest
+  dependencies.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

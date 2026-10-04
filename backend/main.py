@@ -14,6 +14,7 @@ from starlette.staticfiles import StaticFiles
 from .audit import RequestAuditMiddleware
 from .database import init_db
 from .routes import router
+from .deployment_profile import get_deployment_profile
 
 
 @asynccontextmanager
@@ -119,7 +120,10 @@ def root():
 
 @app.get("/health")
 def health():
-    return {"message": "AI CaseLibrary backend is running"}
+    return {
+        "message": "AI CaseLibrary backend is running",
+        "deployment_profile": get_deployment_profile(),
+    }
 
 
 @app.get("/robots.txt", response_class=Response, include_in_schema=False)

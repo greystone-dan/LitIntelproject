@@ -541,7 +541,20 @@ spool data before route-level chunked reads begin; application limits are not
 proxy/server request-body limits. Upload or parser-cap violations return HTTP
 413 with a limit-specific explanation; invalid or unsupported documents retain
 validation errors. Memo Citation Check uses the same upload and parser limits,
-as do de-identification uploads and pasted text. Deployment-level request
+as do de-identification uploads and pasted text.
+
+The opt-in `CASELIBRARY_PUBLIC_DATA_ONLY` deployment profile blocks document
+and free-text analysis POST routes without disabling public case search, reading,
+or statute lookup. It protects `/ingest`, `/ingest/merge`,
+`/live-analysis/analyze`, `/live-analysis/resolve`, `/memo-citation-check`,
+`/api/deidentify`, `/api/reidentify`, `/api/deidentify/docx`, and `/research`.
+The affected analysis pages remain available with disabled controls and an
+explanation. `/health` reports the profile under `deployment_profile`, and
+`GET /api/deployment-profile` exposes the same status. This is not
+authentication; see [`docs/PUBLIC_DATA_ONLY_MODE.md`](docs/PUBLIC_DATA_ONLY_MODE.md)
+for accepted values and the complete boundary.
+
+Deployment-level request
 logging/retention remains outside the application persistence boundary. Scanned
 PDFs are outside the prototype because they require OCR. Remaining boundaries
 and de-identification coverage are recorded in the scoped privacy/security
@@ -4127,9 +4140,22 @@ Recompute Citation Metrics
 
 Health
 
+The JSON response preserves `message` and adds `deployment_profile`, containing
+`public_data_only` and the `public_data_only_env` variable name. The dedicated
+`GET /api/deployment-profile` endpoint returns that profile object.
+
 **Responses**
 
 - `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /api/deployment-profile`
+
+Returns the active deployment profile, including whether public-data-only mode
+is enabled. See [Public-data-only deployment mode](docs/PUBLIC_DATA_ONLY_MODE.md).
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `POST /ingest`
 
@@ -6753,6 +6779,7 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
+| `CASELIBRARY_PUBLIC_DATA_ONLY` | `off` | `backend/deployment_profile.py` | Blocks the documented document/file/free-text analysis POST paths when enabled; public search, reading, and statute lookup remain available. Not authentication. |
 | `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
 | `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |

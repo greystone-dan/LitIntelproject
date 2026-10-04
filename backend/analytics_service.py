@@ -6,8 +6,14 @@ judge profile resolution and filtering, and Federal Court activity timelines.
 
 from __future__ import annotations
 
+import hashlib
+import json
+import os
 import re
-from typing import Any
+import time
+from collections import OrderedDict
+from threading import RLock
+from typing import Any, Callable, Optional
 
 import httpx
 from fastapi import HTTPException, status
@@ -37,6 +43,125 @@ from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import identity_sql, matched_on_sql
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
+
+# Set ANALYTICS_CACHE_TTL_SECONDS to a positive number of seconds to configure
+# freshness, or to 0 (or less) to disable the cache. No dotenv file is read.
+ANALYTICS_CACHE_TTL_ENV = "ANALYTICS_CACHE_TTL_SECONDS"
+
+
+def _configured_analytics_cache_ttl() -> int:
+	return int(os.environ.get(ANALYTICS_CACHE_TTL_ENV, "600"))
+
+
+class TTLCache:
+	"""In-process time-to-live cache for analytics endpoints."""
+
+	def __init__(
+		self,
+		ttl_seconds: int | None = None,
+		enabled: bool = True,
+		clock: Optional[Callable[[], float]] = None,
+		max_entries: int = 128,
+	):
+		"""Initialize cache.
+
+		Args:
+			ttl_seconds: Time-to-live in seconds (default 600; env-configurable)
+			enabled: Whether caching is enabled (default True)
+			clock: Optional clock function for testing (default: time.monotonic)
+			max_entries: Maximum number of parameterized results retained.
+		"""
+		self.ttl_seconds = ttl_seconds if ttl_seconds is not None else _configured_analytics_cache_ttl()
+		self.enabled = enabled and self.ttl_seconds > 0
+		self.clock = clock or time.monotonic
+		self.max_entries = max(1, max_entries)
+		self._cache: OrderedDict[str, tuple[Any, float]] = OrderedDict()
+		self._lock = RLock()
+
+	def _make_key(self, endpoint: str, **params: Any) -> str:
+		"""Create a deterministic key from the endpoint and every parsed parameter."""
+		key_str = f"{endpoint}:{json.dumps(params, sort_keys=True, separators=(',', ':'), default=str)}"
+		return hashlib.sha256(key_str.encode()).hexdigest()
+
+	def get(self, endpoint: str, **params: Any) -> tuple[Any, bool]:
+		"""Get cached value if present and not expired.
+
+		Returns:
+			Tuple of (value, was_hit) where was_hit is True if cache was hit
+		"""
+		if not self.enabled:
+			return None, False
+
+		key = self._make_key(endpoint, **params)
+		with self._lock:
+			entry = self._cache.get(key)
+			if entry is None:
+				return None, False
+
+			value, timestamp = entry
+			if self.clock() - timestamp >= self.ttl_seconds:
+				del self._cache[key]
+				return None, False
+
+			self._cache.move_to_end(key)
+			return value, True
+
+	def set(self, endpoint: str, value: Any, **params: Any) -> None:
+		"""Set cached value (only if enabled)."""
+		if not self.enabled:
+			return
+
+		key = self._make_key(endpoint, **params)
+		with self._lock:
+			self._cache[key] = (value, self.clock())
+			self._cache.move_to_end(key)
+			while len(self._cache) > self.max_entries:
+				self._cache.popitem(last=False)
+
+	def clear(self) -> None:
+		"""Clear all cached entries (used by tests and administrative maintenance)."""
+		with self._lock:
+			self._cache.clear()
+
+	def set_enabled(self, enabled: bool) -> None:
+		"""Enable or disable caching."""
+		self.enabled = enabled and self.ttl_seconds > 0
+
+	def is_enabled(self) -> bool:
+		"""Check if caching is enabled."""
+		return self.enabled
+
+
+# Global cache instance
+_analytics_cache = TTLCache()
+
+
+def get_analytics_cache() -> TTLCache:
+	"""Get the global analytics cache instance."""
+	return _analytics_cache
+
+
+def clear_analytics_cache() -> None:
+	"""Clear entire analytics cache.
+
+	For testing and admin purposes. Clears all cached entries.
+	"""
+	_analytics_cache.clear()
+
+
+def set_analytics_cache_enabled(enabled: bool) -> None:
+	"""Enable/disable analytics cache for testing."""
+	_analytics_cache.set_enabled(enabled)
+
+
+def get_analytics_cache_status() -> dict[str, Any]:
+	"""Get cache status for debugging."""
+	return {
+		"enabled": _analytics_cache.enabled,
+		"ttl_seconds": _analytics_cache.ttl_seconds,
+		"cached_entries": len(_analytics_cache._cache),
+	}
+
 
 FC_CITY_PROVINCE = {
 	"Calgary": "Alberta",
@@ -256,7 +381,7 @@ def fetch_data_explorer_analytics(
 	}
 
 
-def fetch_about_stats(db: Session) -> dict[str, int]:
+def _fetch_about_stats_impl(db: Session) -> dict[str, int]:
 	return {
 		"cases": int(db.scalar(select(func.count(Case.id))) or 0),
 		"case_chunks": int(db.scalar(select(func.count(CaseChunk.id))) or 0),
@@ -483,7 +608,7 @@ def fetch_fc_activity_flow(
 	}
 
 
-def fetch_fc_activity_analytics(
+def _fetch_fc_activity_analytics_impl(
 	db: Session,
 	*,
 	x: str = "year",
@@ -587,7 +712,7 @@ def fetch_fc_activity_analytics(
 	}
 
 
-def fetch_judge_profiles(
+def _fetch_judge_profiles_impl(
 	db: Session,
 	*,
 	q: str = "",
@@ -1269,6 +1394,106 @@ def fetch_all_tag_analytics(db: Session) -> dict[str, Any]:
 	}
 
 
+# Cached wrapper functions for analytics endpoints
+
+def fetch_about_stats(db: Session) -> tuple[dict[str, int], bool]:
+	"""Fetch about-page statistics with TTL caching.
+
+	Returns tuple of (result, was_hit) where was_hit is True for cache hit.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get("about_stats")
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_about_stats_impl(db)
+	cache.set("about_stats", result)
+	return result, False
+
+
+def fetch_fc_activity_analytics(
+	db: Session,
+	*,
+	x: str = "year",
+	group_by: str = "full_history_resolution",
+	year_from: int | None = None,
+	year_to: int | None = None,
+	city: str = "",
+	source_type: str = "",
+) -> tuple[dict[str, Any], bool]:
+	"""Fetch FC activity analytics with TTL caching.
+
+	Returns tuple of (result, was_hit). Cache key includes all normalized parameters.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get(
+		"fc_activity_analytics",
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_fc_activity_analytics_impl(
+		db,
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+	cache.set(
+		"fc_activity_analytics",
+		result,
+		x=x,
+		group_by=group_by,
+		year_from=year_from,
+		year_to=year_to,
+		city=city,
+		source_type=source_type,
+	)
+	return result, False
+
+
+def fetch_judge_profiles(
+	db: Session,
+	*,
+	q: str = "",
+	limit: int = 50,
+) -> tuple[list[dict[str, Any]], bool]:
+	"""Fetch judge profiles list with TTL caching.
+
+	Returns tuple of (result, was_hit). Cache key includes all normalized parameters.
+	"""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get(
+		"judge_profiles",
+		q=q,
+		limit=limit,
+	)
+
+	if was_hit:
+		return cached_value, True
+
+	result = _fetch_judge_profiles_impl(
+		db,
+		q=q,
+		limit=limit,
+	)
+	cache.set(
+		"judge_profiles",
+		result,
+		q=q,
+		limit=limit,
+	)
+	return result, False
 def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
 	"""Build an issue brief from active-taxonomy tags and stored case outcomes/citations."""
 	category, separator, value = tag.partition(":")

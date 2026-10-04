@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a bounded in-process TTL cache for the About statistics, Federal Court
+  activity analytics, and Judge Profile list reads. The cache defaults to ten
+  minutes, supports `ANALYTICS_CACHE_TTL_SECONDS` configuration or disablement,
+  keys by all parsed filters, and reports `X-Cache: hit|miss`.
 - Added an independent non-blocking pull-request and weekly workflow for
   pinned Ruff (`E,F401`) and pip-audit checks, with a separate artifact for each
   result. The first baseline is recorded in

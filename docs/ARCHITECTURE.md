@@ -174,6 +174,7 @@ test checks that these paths continue to exist.
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
 | `backend/document_structure.py` | Maps source HTML structure to plain text |
 | `backend/embedding_providers.py` | Shared `EmbeddingProvider` interface; disabled, lazy OpenAI, and process-cached SentenceTransformer implementations |
+| `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
@@ -266,3 +267,10 @@ provider is disabled; OpenAI clients and SentenceTransformer models are created
 lazily, and local models are cached across provider instances by model and
 device. Search query dimensions are checked against the indexed-vector contract;
 case embeddings must also match the existing stored-vector dimension.
+
+The vector-table helper is design scaffolding only: the embedding registry does
+not yet exist, no runtime path calls the helper, and no table is created. Its
+exact `chunk_embeddings_<slug>` naming rule, per-row model identity columns,
+proposed schema, future registry-based search and bulk-load flow, and out-of-chain
+migration template are under
+[`docs/proposed-migrations/`](proposed-migrations/embedding-per-model-tables.md).

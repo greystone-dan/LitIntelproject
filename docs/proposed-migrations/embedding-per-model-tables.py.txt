@@ -1,0 +1,51 @@
+"""ILLUSTRATIVE ONLY — OUTSIDE alembic/versions/; do not execute or copy as-is.
+
+Before any future migration is authored, review the registered model, immutable
+table name, exact vector dimensions, foreign-key target, index settings, current
+single Alembic head, build/rollback plan, and representative database-copy
+measurements. Replace both revision placeholders and the example model/table.
+This scaffold performs no action unless deliberately converted into a real,
+reviewed Alembic revision in a separately authorized change.
+"""
+
+from alembic import op
+import sqlalchemy as sa
+from pgvector.sqlalchemy import Vector
+
+revision = "REPLACE_WITH_REVIEWED_UNIQUE_REVISION"
+down_revision = "REVIEW_THEN_CURRENT_SINGLE_HEAD"
+branch_labels = None
+depends_on = None
+
+
+def upgrade() -> None:
+    # Illustrative 1024-dimensional model only; freeze actual values from the
+    # reviewed registry entry in any future migration.
+    op.create_table(
+        "chunk_embeddings_example_v1",
+        sa.Column(
+            "chunk_id",
+            sa.Integer(),
+            sa.ForeignKey("case_chunks.id", ondelete="CASCADE"),
+            primary_key=True,
+        ),
+        sa.Column("embedding", Vector(1024), nullable=False),
+        sa.Column("model_name", sa.String(), nullable=False),
+        sa.Column("model_version", sa.String(), nullable=False),
+    )
+    op.create_index(
+        "ix_example_v1_embedding_hnsw",
+        "chunk_embeddings_example_v1",
+        ["embedding"],
+        postgresql_using="hnsw",
+        postgresql_ops={"embedding": "vector_cosine_ops"},
+        postgresql_with={"m": 16, "ef_construction": 64},
+    )
+
+
+def downgrade() -> None:
+    op.drop_index(
+        "ix_example_v1_embedding_hnsw",
+        table_name="chunk_embeddings_example_v1",
+    )
+    op.drop_table("chunk_embeddings_example_v1")

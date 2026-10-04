@@ -200,6 +200,19 @@ button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
 
+### Saved Searches And Alerts
+
+Use **Save current search** below the Case Search controls to name and preserve
+the current query and filter values. **Saved searches** opens `/saved-searches-ui`,
+where saved criteria and recorded case alerts can be reviewed, checked, or
+deleted. No saved search is loaded or applied automatically, so the existing
+search workflow is unchanged when the collection is empty.
+
+The `scripts/check_saved_searches.py` checker evaluates a bounded number of
+stored searches. It is read-only unless invoked with `--apply`; apply mode
+records only previously unseen case matches. The checker does not poll external
+sources or schedule itself, and does not change the active search API.
+
 Choose a result count and sort order:
 
 - **Newest decision**: date-first ordering.
@@ -236,6 +249,18 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+Above the source decision, **Most cited paragraphs** is collapsed by default
+and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it
+with Enter or Space to see up to five paragraphs, ranked by distinct other
+citing cases in this library; ties use ascending paragraph number. Each entry
+shows the count, a short excerpt, and a jump link (Tab, then Enter). A jump
+switches from chunk/plain text to normalized formatted text and focuses the
+source paragraph, leaving linked context separate. These are the same counts
+as paragraph shading, not a second query or a finding about citation treatment.
+Opening another case, a failed load, or closing the reader clears the panel.
+The panel and **Extracted case summary** use the same backend block-start
+anchors, so either evidence link remains usable after switching reader modes.
 
 ### Reader Modes
 

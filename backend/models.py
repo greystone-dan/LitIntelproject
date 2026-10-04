@@ -347,6 +347,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+	citation_mappings: dict[int, dict[str, Any]] = Field(default_factory=dict)
 
 
 class CaseSummarySectionItemResponse(BaseModel):
@@ -417,6 +418,7 @@ class InventoryResponse(BaseModel):
 class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
+	matched_on: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):
@@ -866,3 +868,68 @@ class MemoCitationCheckResponse(BaseModel):
 	statute_references: list[LiveAnalysisReferenceResponse]
 	missing_authorities: list[MissingAuthorityResponse]
 	memo_analysis: MemoCitationAnalysis
+
+
+class SavedSearchCreateRequest(BaseModel):
+	name: str = Field(min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str = ""
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	filters: dict[str, Any] = Field(default_factory=dict)
+
+
+class SavedSearchUpdateRequest(BaseModel):
+	name: str | None = Field(default=None, min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str | None = None
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] | None = None
+	filters: dict[str, Any] | None = None
+
+
+class SearchAlertResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	search_id: int
+	case_id: int
+	chunk_id: int | None = None
+	match_type: str
+	relevance_score: float | None = None
+	discovered_at: datetime
+	case_title: str | None = None
+	case_citation: str | None = None
+	case_date: date | None = None
+	chunk_text: str | None = None
+
+
+class SavedSearchResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	name: str
+	description: str | None = None
+	query: str
+	search_mode: str
+	filters: dict[str, Any]
+	created_at: datetime
+	updated_at: datetime
+	last_alert_check: datetime | None = None
+	alert_count: int = 0
+
+
+class SavedSearchDetailResponse(SavedSearchResponse):
+	alerts: list[SearchAlertResponse] = Field(default_factory=list)
+
+
+class SearchDigestRequest(BaseModel):
+	search_id: int
+	include_fc_activity: bool = True
+
+
+class SearchDigestResponse(BaseModel):
+	search_id: int
+	search_name: str
+	generated_at: datetime
+	new_case_matches: list[SearchAlertResponse]
+	new_fc_activity: list[dict[str, Any]] = Field(default_factory=list)
+	total_new_results: int

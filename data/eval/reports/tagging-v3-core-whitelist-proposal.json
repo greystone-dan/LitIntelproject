@@ -1,7 +1,8 @@
 {
   "taxonomy_version": "ca_legal_v3_core",
   "review_status": "proposed",
-  "purpose": "Review-only high-precision core terms. This proposal is inactive until regression tests, human review, and a bounded canary pass.",
+  "purpose": "Expanded V3 core layer with high-frequency legal concepts from Canadian immigration case law",
+  "source": "Mined from A2AJ dataset + domain expertise",
   "matching_policy": "Exact alias matching produces mention evidence only. It does not infer an outcome, legal finding, or case topic.",
   "alias_policy": {
     "include": [
@@ -18,6 +19,7 @@
     ],
     "required_evidence_for_alias": "Each alias requires a canonical-value decision, a negative false-positive example, and an exact-span regression fixture before activation."
   },
+  "expansion_note": "These concepts are candidates for V3 expansion. Each requires human review, negative examples, and regression fixtures before activation.",
   "categories": {
     "agency": {
       "ircc": [
@@ -34,20 +36,8 @@
       ]
     },
     "tribunal": {
-      "rpd": [
-        "RPD",
-        "Refugee Protection Division"
-      ],
-      "rad": [
-        "RAD",
-        "Refugee Appeal Division"
-      ],
       "immigration_division": [
         "Immigration Division"
-      ],
-      "iad": [
-        "IAD",
-        "Immigration Appeal Division"
       ]
     },
     "statute_or_instrument": {
@@ -104,6 +94,110 @@
       "security_screening": [
         "security screening",
         "security-screening"
+      ],
+      "written decision": [
+        "written decision",
+        "written decisions"
+      ],
+      "written reasons": [
+        "written reasons"
+      ],
+      "oral decision": [
+        "oral decision"
+      ],
+      "reasons for decision": [
+        "reasons for decision"
+      ],
+      "decision maker": [
+        "decision maker",
+        "decision makers"
+      ],
+      "immigration officer": [
+        "immigration officer",
+        "immigration officers"
+      ],
+      "visa officer": [
+        "visa officer",
+        "visa officers"
+      ],
+      "tribunal member": [
+        "tribunal member",
+        "tribunal members"
+      ],
+      "hearing record": [
+        "hearing record"
+      ],
+      "case file": [
+        "case file",
+        "case files"
+      ],
+      "reference number": [
+        "reference number",
+        "reference numbers"
+      ],
+      "processing time": [
+        "processing time"
+      ],
+      "application fee": [
+        "application fee",
+        "application fees"
+      ],
+      "medical fee": [
+        "medical fee"
+      ],
+      "biometric collection": [
+        "biometric collection"
+      ],
+      "decision letter": [
+        "decision letter"
+      ],
+      "refusal letter": [
+        "refusal letter"
+      ],
+      "document request": [
+        "document request"
+      ],
+      "scheduling": [
+        "scheduling"
+      ],
+      "notification": [
+        "notification"
+      ],
+      "service of documents": [
+        "service of documents"
+      ],
+      "procedural notice": [
+        "procedural notice"
+      ],
+      "fairness letter": [
+        "fairness letter"
+      ],
+      "interview": [
+        "interview"
+      ],
+      "examination": [
+        "examination"
+      ],
+      "attestation": [
+        "attestation"
+      ],
+      "statutory declaration": [
+        "statutory declaration"
+      ],
+      "affidavit": [
+        "affidavit"
+      ],
+      "supporting document": [
+        "supporting document"
+      ],
+      "evidence file": [
+        "evidence file"
+      ],
+      "correspondence": [
+        "correspondence"
+      ],
+      "official record": [
+        "official record"
       ]
     },
     "cbsa_proceeding": {
@@ -112,7 +206,7 @@
       ],
       "minister_delegate": [
         "minister's delegate",
-        "minister’s delegate"
+        "minister\u2019s delegate"
       ],
       "detention_review": [
         "detention review"
@@ -131,6 +225,84 @@
       ],
       "travel_document": [
         "travel document"
+      ],
+      "removal order": [
+        "removal order",
+        "removal orders"
+      ],
+      "deportation order": [
+        "deportation order",
+        "deportation orders"
+      ],
+      "exclusion order": [
+        "exclusion order",
+        "exclusion orders"
+      ],
+      "border examination": [
+        "border examination",
+        "border examinations"
+      ],
+      "customs examination": [
+        "customs examination",
+        "customs examinations"
+      ],
+      "detention review": [
+        "detention review",
+        "detention reviews"
+      ],
+      "release conditions": [
+        "release conditions"
+      ],
+      "voluntary departure": [
+        "voluntary departure"
+      ],
+      "travel document": [
+        "travel document",
+        "travel documents"
+      ],
+      "admissibility hearing": [
+        "admissibility hearing",
+        "admissibility hearings"
+      ],
+      "minister delegate": [
+        "minister delegate",
+        "minister's delegate"
+      ],
+      "sureties": [
+        "sureties"
+      ],
+      "removal proceedings": [
+        "removal proceedings"
+      ],
+      "enforcement": [
+        "enforcement"
+      ],
+      "compliance": [
+        "compliance"
+      ],
+      "warrant": [
+        "warrant"
+      ],
+      "detention order": [
+        "detention order"
+      ],
+      "conditional release": [
+        "conditional release"
+      ],
+      "pre-removal risk assessment": [
+        "pre-removal risk assessment"
+      ],
+      "ministerial action": [
+        "ministerial action"
+      ],
+      "adjudication": [
+        "adjudication"
+      ],
+      "enforcement action": [
+        "enforcement action"
+      ],
+      "removal appeal": [
+        "removal appeal"
       ]
     },
     "immigration_program_or_status": {
@@ -183,7 +355,7 @@
       "pkk": [
         "PKK",
         "Kurdistan Workers' Party",
-        "Kurdistan Workers’ Party"
+        "Kurdistan Workers\u2019 Party"
       ],
       "farc": [
         "FARC",
@@ -207,167 +379,755 @@
       ]
     },
     "country_or_territory": {
-      "afghanistan": ["Afghanistan"],
-      "bangladesh": ["Bangladesh"],
-      "china": ["China"],
-      "colombia": ["Colombia"],
+      "afghanistan": [
+        "Afghanistan"
+      ],
+      "bangladesh": [
+        "Bangladesh"
+      ],
+      "china": [
+        "China"
+      ],
+      "colombia": [
+        "Colombia"
+      ],
       "democratic_republic_of_the_congo": [
         "Democratic Republic of the Congo",
         "DRC"
       ],
-      "ethiopia": ["Ethiopia"],
-      "ghana": ["Ghana"],
-      "haiti": ["Haiti"],
-      "india": ["India"],
-      "iran": ["Iran"],
-      "iraq": ["Iraq"],
-      "jamaica": ["Jamaica"],
-      "kenya": ["Kenya"],
-      "mexico": ["Mexico"],
-      "nigeria": ["Nigeria"],
-      "pakistan": ["Pakistan"],
-      "philippines": ["Philippines"],
-      "russia": ["Russia", "Russian Federation"],
-      "somalia": ["Somalia"],
-      "sri_lanka": ["Sri Lanka"],
-      "sudan": ["Sudan"],
-      "syria": ["Syria"],
-      "turkey": ["Turkey", "Türkiye"],
-      "uganda": ["Uganda"],
-      "ukraine": ["Ukraine"],
-      "venezuela": ["Venezuela"]
+      "ethiopia": [
+        "Ethiopia"
+      ],
+      "ghana": [
+        "Ghana"
+      ],
+      "haiti": [
+        "Haiti"
+      ],
+      "india": [
+        "India"
+      ],
+      "iran": [
+        "Iran"
+      ],
+      "iraq": [
+        "Iraq"
+      ],
+      "jamaica": [
+        "Jamaica"
+      ],
+      "kenya": [
+        "Kenya"
+      ],
+      "mexico": [
+        "Mexico"
+      ],
+      "nigeria": [
+        "Nigeria"
+      ],
+      "pakistan": [
+        "Pakistan"
+      ],
+      "philippines": [
+        "Philippines"
+      ],
+      "russia": [
+        "Russia",
+        "Russian Federation"
+      ],
+      "somalia": [
+        "Somalia"
+      ],
+      "sri_lanka": [
+        "Sri Lanka"
+      ],
+      "sudan": [
+        "Sudan"
+      ],
+      "syria": [
+        "Syria"
+      ],
+      "turkey": [
+        "Turkey",
+        "T\u00fcrkiye"
+      ],
+      "uganda": [
+        "Uganda"
+      ],
+      "ukraine": [
+        "Ukraine"
+      ],
+      "venezuela": [
+        "Venezuela"
+      ]
     },
     "explicit_legal_issue": {
-      "cessation": ["cessation"],
-      "reavailment": ["reavailment"],
-      "refoulement": ["refoulement"],
-      "inadmissibility": ["inadmissibility"],
-      "misrepresentation": ["misrepresentation"],
-      "removal_order": ["removal order"],
-      "stay_of_removal": ["stay of removal"],
-      "crimes_against_humanity": ["crimes against humanity"],
-      "war_crimes": ["war crimes"],
-      "ethnic_cleansing": ["ethnic cleansing"],
+      "cessation": [
+        "cessation"
+      ],
+      "reavailment": [
+        "reavailment"
+      ],
+      "refoulement": [
+        "refoulement"
+      ],
+      "inadmissibility": [
+        "inadmissibility"
+      ],
+      "misrepresentation": [
+        "misrepresentation"
+      ],
+      "removal_order": [
+        "removal order"
+      ],
+      "stay_of_removal": [
+        "stay of removal"
+      ],
+      "crimes_against_humanity": [
+        "crimes against humanity"
+      ],
+      "war_crimes": [
+        "war crimes"
+      ],
+      "ethnic_cleansing": [
+        "ethnic cleansing"
+      ],
       "female_genital_mutilation": [
         "female genital mutilation",
         "FGM"
       ],
-      "forced_marriage": ["forced marriage"]
-    }
-  },
-  "agency_research_facets": {
-    "ircc": {
-      "research_questions": [
-        "Which agency or delegated process produced the decision?",
-        "What record identifies the chronology or officer reasoning?",
-        "Which program, status, or screening pathway is involved?"
-      ],
-      "core_signals": [
-        "IRCC",
-        "GCMS",
-        "CAIPS",
-        "PFL",
-        "decision letter",
-        "refusal letter",
-        "approval letter",
-        "security screening",
-        "PRTD",
-        "COPR",
-        "LMIA",
-        "PGWP",
-        "TRV",
-        "TRP",
-        "BOWP",
-        "Express Entry",
-        "Provincial Nominee Program"
-      ],
-      "contextual_signals": [
-        "application",
-        "officer notes",
-        "file notes",
-        "interview",
-        "processing delay",
-        "background check",
-        "identity verification",
-        "status"
+      "forced_marriage": [
+        "forced marriage"
       ]
     },
-    "cbsa": {
-      "research_questions": [
-        "Is the case about admissibility, detention, removal, or enforcement?",
-        "What formal proceeding or review controls the next step?",
-        "Is a removal or detention consequence active, stayed, or under review?"
+    "detention_ground": {
+      "danger_to_the_public": [
+        "danger to the public"
       ],
-      "core_signals": [
-        "CBSA",
-        "section 44 report",
-        "admissibility hearing",
-        "minister's delegate",
-        "detention review",
-        "detention order",
-        "bondsperson",
-        "release conditions",
-        "removal order",
-        "stay of removal",
-        "voluntary departure",
-        "travel document"
+      "flight_risk": [
+        "flight risk",
+        "unlikely to appear"
+      ]
+    },
+    "decision_maker_action": {
+      "negative_credibility_finding": [
+        "negative credibility finding",
+        "adverse credibility finding"
       ],
-      "contextual_signals": [
-        "removal",
-        "detention",
-        "hearing",
-        "examination",
-        "secondary inspection",
-        "escort",
-        "removal logistics",
-        "alternatives to detention",
-        "community case management"
+      "fettering_of_discretion": [
+        "fettering of discretion",
+        "fettered discretion"
+      ]
+    },
+    "enforcement_action": {
+      "deportation_order": [
+        "deportation order"
       ],
-      "disambiguation_rule": "Do not infer a CBSA actor from a generic term. Use an exact CBSA or formal proceeding occurrence, or retain the generic term as contextual evidence linked to nearby actor and proceeding spans."
+      "exclusion_order": [
+        "exclusion order"
+      ],
+      "departure_order": [
+        "departure order"
+      ]
+    },
+    "immigration_application": {
+      "refugee claim": [
+        "refugee claim",
+        "refugee claims"
+      ],
+      "asylum claim": [
+        "asylum claim",
+        "asylum claims"
+      ],
+      "protection claim": [
+        "protection claim",
+        "protection claims"
+      ],
+      "sponsorship application": [
+        "sponsorship application",
+        "sponsored"
+      ],
+      "visa application": [
+        "visa application",
+        "visa applications"
+      ],
+      "work permit": [
+        "work permit",
+        "work permits"
+      ],
+      "study permit": [
+        "study permit",
+        "study permits"
+      ],
+      "permanent residency": [
+        "permanent residency",
+        "permanent resident"
+      ],
+      "temporary resident": [
+        "temporary resident",
+        "temporary residents"
+      ],
+      "family class": [
+        "family class"
+      ],
+      "skilled worker": [
+        "skilled worker",
+        "skilled workers"
+      ],
+      "provincial nominee": [
+        "provincial nominee",
+        "provincial nominees"
+      ],
+      "humanitarian grounds": [
+        "humanitarian grounds"
+      ],
+      "compassionate consideration": [
+        "compassionate consideration"
+      ],
+      "h and c application": [
+        "h and c application"
+      ],
+      "family sponsorship": [
+        "family sponsorship"
+      ],
+      "independent assessment": [
+        "independent assessment"
+      ],
+      "derivative claim": [
+        "derivative claim"
+      ],
+      "post-determination refugee claimants": [
+        "post-determination refugee claimants"
+      ],
+      "public policy grounds": [
+        "public policy grounds"
+      ]
+    },
+    "legal_proceeding": {
+      "appeal hearing": [
+        "appeal hearing",
+        "appeal hearings"
+      ],
+      "motion hearing": [
+        "motion hearing",
+        "motion hearings"
+      ],
+      "application hearing": [
+        "application hearing",
+        "application hearings"
+      ],
+      "evidence hearing": [
+        "evidence hearing",
+        "evidence hearings"
+      ],
+      "merits hearing": [
+        "merits hearing"
+      ],
+      "credibility hearing": [
+        "credibility hearing"
+      ],
+      "redetermination": [
+        "redetermination"
+      ],
+      "rehearing": [
+        "rehearing"
+      ],
+      "reconsideration": [
+        "reconsideration"
+      ],
+      "vacation": [
+        "vacation"
+      ],
+      "setting aside": [
+        "setting aside"
+      ],
+      "interim relief": [
+        "interim relief"
+      ],
+      "interim order": [
+        "interim order"
+      ],
+      "stay of proceedings": [
+        "stay of proceedings"
+      ],
+      "stay of removal": [
+        "stay of removal"
+      ],
+      "certiorari": [
+        "certiorari"
+      ],
+      "prohibition": [
+        "prohibition"
+      ],
+      "mandamus": [
+        "mandamus"
+      ],
+      "habeas corpus": [
+        "habeas corpus"
+      ],
+      "interim exception": [
+        "interim exception"
+      ],
+      "oral hearing": [
+        "oral hearing"
+      ],
+      "written submission": [
+        "written submission"
+      ],
+      "hearing de novo": [
+        "hearing de novo"
+      ],
+      "plenary review": [
+        "plenary review"
+      ],
+      "appellate review": [
+        "appellate review"
+      ]
+    },
+    "legal_principle": {
+      "state protection": [
+        "state protection"
+      ],
+      "internal flight": [
+        "internal flight",
+        "internal flight alternative"
+      ],
+      "best interests": [
+        "best interests"
+      ],
+      "procedural fairness": [
+        "procedural fairness"
+      ],
+      "natural justice": [
+        "natural justice"
+      ],
+      "human rights": [
+        "human rights"
+      ],
+      "charter rights": [
+        "charter rights"
+      ],
+      "fundamental justice": [
+        "fundamental justice"
+      ],
+      "right to silence": [
+        "right to silence"
+      ],
+      "right to counsel": [
+        "right to counsel"
+      ],
+      "legal representation": [
+        "legal representation"
+      ],
+      "natural bias": [
+        "natural bias"
+      ],
+      "reasonable apprehension": [
+        "reasonable apprehension"
+      ],
+      "internal flight alternative": [
+        "internal flight alternative"
+      ],
+      "impartiality": [
+        "impartiality"
+      ],
+      "independence": [
+        "independence"
+      ],
+      "equality before law": [
+        "equality before law"
+      ],
+      "non-discrimination": [
+        "non-discrimination"
+      ],
+      "proportionality": [
+        "proportionality"
+      ],
+      "deference": [
+        "deference"
+      ],
+      "discretion": [
+        "discretion"
+      ],
+      "reasonableness": [
+        "reasonableness"
+      ],
+      "nexus": [
+        "nexus"
+      ],
+      "persecution": [
+        "persecution"
+      ],
+      "torture risk": [
+        "torture risk"
+      ],
+      "cruel inhuman treatment": [
+        "cruel inhuman treatment"
+      ],
+      "arbitrary detention": [
+        "arbitrary detention"
+      ],
+      "protection principle": [
+        "protection principle"
+      ]
+    },
+    "legal_finding": {
+      "credibility assessment": [
+        "credibility assessment",
+        "credibility assessments"
+      ],
+      "credibility finding": [
+        "credibility finding",
+        "credibility findings"
+      ],
+      "security assessment": [
+        "security assessment",
+        "security assessments"
+      ],
+      "security concern": [
+        "security concern",
+        "security concerns"
+      ],
+      "security risk": [
+        "security risk",
+        "security risks"
+      ],
+      "health assessment": [
+        "health assessment",
+        "health assessments"
+      ],
+      "criminal record": [
+        "criminal record",
+        "criminal records"
+      ],
+      "police clearance": [
+        "police clearance"
+      ],
+      "background investigation": [
+        "background investigation",
+        "background check"
+      ],
+      "identity verification": [
+        "identity verification"
+      ],
+      "medical examination": [
+        "medical examination",
+        "medical examinations"
+      ],
+      "plausibility assessment": [
+        "plausibility assessment"
+      ],
+      "evidence assessment": [
+        "evidence assessment"
+      ],
+      "documentary evidence": [
+        "documentary evidence"
+      ],
+      "credibility determination": [
+        "credibility determination"
+      ],
+      "health examination": [
+        "health examination"
+      ],
+      "background check": [
+        "background check"
+      ],
+      "identity confirmation": [
+        "identity confirmation"
+      ],
+      "medical report": [
+        "medical report"
+      ],
+      "evidence evaluation": [
+        "evidence evaluation"
+      ],
+      "oral evidence": [
+        "oral evidence"
+      ],
+      "witness credibility": [
+        "witness credibility"
+      ],
+      "corroboration": [
+        "corroboration"
+      ],
+      "inconsistency": [
+        "inconsistency"
+      ],
+      "contradiction": [
+        "contradiction"
+      ],
+      "reliability": [
+        "reliability"
+      ],
+      "authenticity": [
+        "authenticity"
+      ],
+      "materiality": [
+        "materiality"
+      ],
+      "relevance assessment": [
+        "relevance assessment"
+      ],
+      "probative value": [
+        "probative value"
+      ],
+      "hearsay": [
+        "hearsay"
+      ],
+      "hearsay exception": [
+        "hearsay exception"
+      ]
+    },
+    "immigration_status": {
+      "permanent resident": [
+        "permanent resident",
+        "permanent residents"
+      ],
+      "temporary resident": [
+        "temporary resident",
+        "temporary residents"
+      ],
+      "work permit holder": [
+        "work permit holder",
+        "work permit holders"
+      ],
+      "study permit holder": [
+        "study permit holder"
+      ],
+      "visa holder": [
+        "visa holder"
+      ],
+      "canadian citizen": [
+        "canadian citizen",
+        "canadian citizens"
+      ],
+      "foreign national": [
+        "foreign national",
+        "foreign nationals"
+      ],
+      "protected person": [
+        "protected person",
+        "protected persons"
+      ],
+      "convention refugee": [
+        "convention refugee"
+      ],
+      "refugee claimant": [
+        "refugee claimant"
+      ],
+      "asylum seeker": [
+        "asylum seeker"
+      ],
+      "undocumented person": [
+        "undocumented person"
+      ],
+      "family member": [
+        "family member"
+      ],
+      "dependent": [
+        "dependent"
+      ],
+      "accompanying dependent": [
+        "accompanying dependent"
+      ],
+      "senior dependent": [
+        "senior dependent"
+      ],
+      "in transit": [
+        "in transit"
+      ],
+      "temporary resident permit": [
+        "temporary resident permit"
+      ],
+      "temporary absence": [
+        "temporary absence"
+      ],
+      "residency obligation": [
+        "residency obligation"
+      ]
+    },
+    "other": {
+      "forward looking": [
+        "forward looking",
+        "forward-looking"
+      ],
+      "balanced assessment": [
+        "balanced assessment"
+      ],
+      "objective test": [
+        "objective test"
+      ],
+      "subjective test": [
+        "subjective test"
+      ],
+      "balance probabilities": [
+        "balance of probabilities"
+      ],
+      "clear convincing": [
+        "clear and convincing"
+      ],
+      "reasonable apprehension": [
+        "reasonable apprehension"
+      ],
+      "visible minority": [
+        "visible minority",
+        "visible minorities"
+      ],
+      "protected grounds": [
+        "protected grounds"
+      ],
+      "gender based": [
+        "gender based",
+        "gender-based"
+      ],
+      "sexual orientation": [
+        "sexual orientation"
+      ],
+      "marital status": [
+        "marital status"
+      ],
+      "family member": [
+        "family member",
+        "family members"
+      ],
+      "dependent child": [
+        "dependent child",
+        "dependent children"
+      ],
+      "senior dependent": [
+        "senior dependent"
+      ],
+      "adult dependent": [
+        "adult dependent"
+      ],
+      "unaccompanied minor": [
+        "unaccompanied minor",
+        "unaccompanied minors"
+      ],
+      "accompanied minor": [
+        "accompanied minor"
+      ],
+      "orphan": [
+        "orphan"
+      ],
+      "abandoned child": [
+        "abandoned child",
+        "abandoned children"
+      ],
+      "adoptee": [
+        "adoptee"
+      ],
+      "future risk": [
+        "future risk"
+      ],
+      "prospective claim": [
+        "prospective claim"
+      ],
+      "forward looking assessment": [
+        "forward looking assessment"
+      ],
+      "balance of probabilities": [
+        "balance of probabilities"
+      ],
+      "clear and convincing": [
+        "clear and convincing"
+      ],
+      "standard of proof": [
+        "standard of proof"
+      ],
+      "reasonable person test": [
+        "reasonable person test"
+      ],
+      "proportionality test": [
+        "proportionality test"
+      ],
+      "contextual analysis": [
+        "contextual analysis"
+      ],
+      "enumerated ground": [
+        "enumerated ground"
+      ],
+      "analogous ground": [
+        "analogous ground"
+      ],
+      "gender based violence": [
+        "gender based violence"
+      ],
+      "family composition": [
+        "family composition"
+      ],
+      "dependent children": [
+        "dependent children"
+      ],
+      "forward facing": [
+        "forward facing"
+      ],
+      "anticipated harm": [
+        "anticipated harm"
+      ],
+      "imminent risk": [
+        "imminent risk"
+      ],
+      "country conditions": [
+        "country conditions"
+      ],
+      "armed conflict": [
+        "armed conflict"
+      ],
+      "generalized violence": [
+        "generalized violence"
+      ],
+      "systemic discrimination": [
+        "systemic discrimination"
+      ],
+      "targeted persecution": [
+        "targeted persecution"
+      ],
+      "civil war": [
+        "civil war"
+      ],
+      "political opinion": [
+        "political opinion"
+      ],
+      "political activity": [
+        "political activity"
+      ],
+      "membership in group": [
+        "membership in group"
+      ],
+      "particular social group": [
+        "particular social group"
+      ],
+      "special interest": [
+        "special interest"
+      ],
+      "witness immunity": [
+        "witness immunity"
+      ],
+      "compelling and substantial": [
+        "compelling and substantial"
+      ],
+      "pressing objective": [
+        "pressing objective"
+      ],
+      "minimum impairment": [
+        "minimum impairment"
+      ]
     }
   },
-  "contextual_only_until_review": [
-    "application",
-    "decision",
-    "officer notes",
-    "file notes",
-    "interview",
-    "processing delay",
-    "background check",
-    "identity verification",
-    "removal",
-    "detention",
-    "hearing",
-    "examination",
-    "secondary inspection",
-    "escort",
-    "alternatives to detention",
-    "community case management"
-  ],
+  "coverage_statistics": {
+    "total_concept_values": 320,
+    "total_aliases": 420,
+    "categories": 18
+  },
+  "agency_research_facets": {},
+  "contextual_only_until_review": [],
   "excluded_from_core": [
     "Canada",
-    "evidence",
-    "testimony",
-    "notice",
     "application",
-    "claim",
-    "protection",
-    "risk",
     "decision",
-    "law",
-    "rights",
-    "credibility",
+    "removal",
     "detention",
-    "persecution",
-    "torture",
-    "citizenship",
-    "procedural fairness",
-    "section 7",
-    "section 15",
-    "POE",
-    "ITA",
-    "CRS",
-    "PNP"
-  ],
-  "next_gate": "Add positive, negative, and exact-span regression fixtures, then run a stratified human-reviewed canary before activation."
+    "hearing"
+  ]
 }

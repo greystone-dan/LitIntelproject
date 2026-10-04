@@ -185,12 +185,12 @@ function setOn(on){
   if(on){
     const rd=readerState&&readerState.payload&&readerState.payload.readerData;
     if(!rd||!(rd.format_blocks||[]).length){toggle&&toggle.setAttribute('title','Markup mode needs the formatted reader, which is unavailable for this case');return}
-    state.on=true;
+    state.on=true;document.body.classList.add('markup-mode-on');
     readerState.formatted=true;
     readerState.mode='normalized';
     setReaderMode('normalized');
   }else{
-    state.on=false;state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
+    state.on=false;document.body.classList.remove('markup-mode-on');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
     hideHover(true);clearFold();
     removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked');
     const pn=$('mkPanel');if(pn)pn.remove();
@@ -493,6 +493,10 @@ document.addEventListener('click',ev=>{
   ev.stopPropagation();
   citeActivate(c,ev);
 },true);
+document.addEventListener('mousedown',ev=>{
+  /* Shift-click on a citation pins it; stop the browser extending a text selection instead */
+  if(state.on&&ev.shiftKey&&ev.target.closest&&ev.target.closest('#decisionBody [data-cite-id]'))ev.preventDefault();
+},true);
 document.addEventListener('mouseover',ev=>{
   if(!state.on||!ev.target.closest)return;
   const c=ev.target.closest('#decisionBody [data-cite-id]');
@@ -531,6 +535,10 @@ document.addEventListener('pointerdown',ev=>{
   document.addEventListener('pointermove',move);document.addEventListener('pointerup',up);ev.preventDefault();
 });
 window.addEventListener('resize',schedule);
+/* Print hides the toolbar and re-flows the page, so lay the notes out again for the print layout and back. */
+window.addEventListener('beforeprint',()=>{if(state.on)render()});
+window.addEventListener('afterprint',()=>{if(state.on)render()});
+try{const mq=window.matchMedia('print');const onPrint=()=>{if(state.on)render()};mq.addEventListener?mq.addEventListener('change',onPrint):mq.addListener(onPrint)}catch(e){}
 const prevSet=setReaderMode;
 setReaderMode=function(mode){prevSet(mode);if(state.on)afterRender();};
 const prevClose=closeDecisionReader;

@@ -62,6 +62,7 @@ mark.markup-find{background:#ffe38a;padding:0 1px;border-radius:2px}mark.markup-
 #caseReaderPanel.markup-on #decisionBody.mk-tags-bubbles .tag-highlight::after{content:attr(data-authority);display:inline-block;margin-left:3px;padding:0 6px;border-radius:9px;background:#e3f3e8;color:#155c32;font:700 10px/16px Inter,"Segoe UI",Arial,sans-serif;vertical-align:1px;white-space:nowrap}
 /* the page's own hover tooltip is replaced by the markup hover card */
 #caseReaderPanel.markup-on .citation-link[data-authority]::after,#caseReaderPanel.markup-on .citation-link[data-authority]::before,#caseReaderPanel.markup-on mark.chunk-citation[data-authority]::after,#caseReaderPanel.markup-on mark.primary[data-authority]::after{display:none!important}
+body.markup-mode-on .reader-hover-tooltip{display:none!important}
 #markupBar .mk-lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted,#5b6d83)}
 .mk-btn[disabled]{opacity:.45;cursor:default}.mk-btn[aria-pressed="true"]{background:#102038;color:#fff;border-color:#102038}
 .mk-topic{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid var(--border,#e2e8f0);border-radius:999px;background:#fff;color:var(--text,#102038);font:600 11px Inter,"Segoe UI",Arial,sans-serif;cursor:pointer}
@@ -90,7 +91,7 @@ mark.markup-find{background:#ffe38a;padding:0 1px;border-radius:2px}mark.markup-
 #caseReaderPanel.markup-docked #markupStage{padding-bottom:320px}
 
 @media(max-width:1100px){#markupMargin{width:300px}.mk-note{width:300px}#markupOutline{width:200px}}
-@media(max-width:760px){#markupStage{display:block;padding-left:12px}#markupMargin,#markupBands,#markupOutline{display:none}#markupBar{position:static}.mk-panel.float{left:8px!important;right:8px;width:auto;bottom:8px;top:auto!important}.mk-pop{width:auto;right:16px}#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{width:auto;right:16px}}
+@media(max-width:760px){#markupStage{display:block;padding-left:12px}#markupMargin,#markupBands,#markupOutline{display:none}#markupBar{padding:6px 10px}.mk-panel.float{left:8px!important;right:8px;width:auto;bottom:8px;top:auto!important}.mk-pop{width:auto;right:16px}#caseReaderPanel.markup-on.markup-info-open .reader-pane.target{width:auto;right:16px}}
 @media print{
  #caseReaderPanel.markup-on #markupBar,#caseReaderPanel.markup-on .mk-pop,#caseReaderPanel.markup-on .mk-x{display:none!important}
  #caseReaderPanel.markup-on #markupStage{display:flex!important;padding:0}

@@ -27,6 +27,10 @@ out.layout = m.layoutNotes(p.items, 8);
 out.layers = m.sanitizeLayers(p.rawLayers);
 out.states = p.stateCases.map(c => m.noteState(c.note, c.layers, c.over));
 out.ranges = m.subthemeRanges(p.payload);
+out.topics = m.topicIndex(p.payload, 10);
+out.topicParas = Array.from(m.topicParas(out.topics, p.selected || [])).sort((a, b) => a - b);
+out.runs = m.foldRuns(p.visible || []);
+out.peeks = out.notes.filter(n => n.cite).map(n => m.peekFor(n));
 console.log(JSON.stringify(out));
 """
 
@@ -116,7 +120,10 @@ def test_layout_never_overlaps():
 @needs_node
 def test_layers_sanitised_and_note_state():
     layers = _run(rawLayers={"cite": "open", "tags": "bogus", "zzz": "open"})["layers"]
-    assert layers["cite"] == "open" and layers["tags"] == "soft"
+    assert layers["cite"] == "open" and layers["tags"] == "underline"
+    assert _run(rawLayers={"tags": "soft"})["layers"]["tags"] == "underline"  # saved before tag modes existed
+    for mode in ("off", "underline", "tint", "bubbles"):
+        assert _run(rawLayers={"tags": mode})["layers"]["tags"] == mode
     cases = [
         dict(note={"type": "cite", "id": "a"}, layers={"cite": "off"}, over={"a": True}),
         dict(note={"type": "cite", "id": "a"}, layers={"cite": "markers"}, over={"a": True}),
@@ -154,3 +161,49 @@ def test_page_wires_markup_mode():
     assert html.count("markup-on") > 3
     assert re.search(r"<style>[^<]*markup-on", html)
     assert CSS.read_text(encoding="utf-8")[:20] in html
+
+
+@needs_node
+def test_topics_ranked_by_paragraph_coverage_and_select_paragraphs():
+    payload = _payload()
+    payload["readerData"]["evidence_summary"]["units"][0]["subthemes"].append(
+        {"subtheme_id": "s2", "paragraph_indices": [4], "key_terms": ["Reasonableness", "credibility"],
+         "argument_roles": []})
+    res = _run(payload=payload, selected=["credibility"])
+    topics = res["topics"]
+    by_key = {t["key"]: t for t in topics}
+    assert by_key["reasonableness"]["paras"] == 3  # ¶2-3 plus ¶4; "Reasonableness" and "reasonableness" are one topic
+    assert by_key["reasonableness"]["label"] == "reasonableness"  # first spelling seen
+    assert topics[0]["key"] == "reasonableness"
+    assert res["topicParas"] == [4]
+    assert all(t["color"] for t in topics)
+
+
+@needs_node
+def test_fold_runs_groups_consecutive_hidden_entries():
+    runs = _run(visible=[True, False, False, True, False, True, False, False])["runs"]
+    assert runs == [{"start": 1, "end": 2}, {"start": 4, "end": 4}, {"start": 6, "end": 7}]
+    assert _run(visible=[True, True])["runs"] == []
+    assert _run(visible=[False, False])["runs"] == [{"start": 0, "end": 1}]
+
+
+@needs_node
+def test_peek_uses_stored_data_and_says_when_not_in_library():
+    payload = _payload()
+    payload["readerData"]["citations"].append(
+        {"id": 8, "citation_kind": "neutral", "citation_text": "2015 FC 1", "normalized_citation": "2015 FC 1"})
+    peeks = {p["id"]: p for p in _run(payload=payload)["peeks"]}
+    lib = peeks["cite-1"]
+    assert lib["inLibrary"] and lib["caseId"] == 9 and lib["paragraph"] == 7
+    assert lib["text"] == "Quoted text" and "[7]" in lib["label"] and lib["missing"] == ""
+    gone = peeks["cite-8"]
+    assert not gone["inLibrary"] and gone["text"] == ""
+    assert "Not in the library" in gone["missing"]
+
+
+def test_follow_up_features_are_wired_into_the_page():
+    html = data_explorer_page_html()
+    for needle in ("mkPanel", "mkHover", "markup-mode-on", "data-mk-topic", "mk-foldbar", "mk-tags-bubbles"):
+        assert needle in html, needle
+    css = CSS.read_text(encoding="utf-8")
+    assert "reader-hover-tooltip" in css  # the page's own tooltip is replaced in markup mode

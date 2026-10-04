@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode second build, using only stored data: hover card on citations;
+  Peek panel (floating or docked, stackable, shows the cited paragraph when the
+  authority is in the library and says so when it is not); tag display modes
+  (Off, Underline, Tint, Bubbles); topic chips from sub-theme key terms with a
+  "show only selected" fold view; case-info drawer polish; keyboard use for
+  citations and the toolbar; print re-layout; and a find-box focus fix. No AI,
+  new endpoints or schema changes.
 - Added **Markup mode**, a third case-reader view (button beside Formatted/Chunk
   breakdown). The decision runs full width with notes in a right margin: case
   citations with pinpoint text, discussion units and sub-themes, verified

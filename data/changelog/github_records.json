@@ -1,0 +1,2238 @@
+{
+ "repo": "greystone-dan/LitIntelproject",
+ "prs": [
+  {
+   "number": 1,
+   "title": "Case reader: rule-based formatted decision view",
+   "merged_at": "2026-10-02T10:49:17Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 2,
+   "title": "Fix full-text reader crash (duplicate #cites id)",
+   "merged_at": "2026-10-02T11:06:48Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 3,
+   "title": "Fix failing docs check by regenerating reference docs",
+   "merged_at": "2026-10-02T11:12:42Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 4,
+   "title": "Case reader: tune formatter on larger sample, align highlights",
+   "merged_at": "2026-10-02T11:38:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 5,
+   "title": "Fix misaligned citation highlights in full-text view",
+   "merged_at": "2026-10-02T11:54:26Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 6,
+   "title": "Make the formatted reader the default view",
+   "merged_at": "2026-10-02T12:01:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 7,
+   "title": "Add CLAUDE.md project guide and deploy skill",
+   "merged_at": "2026-10-02T12:08:38Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 8,
+   "title": "Run the test suite on every PR",
+   "merged_at": "2026-10-02T12:08:36Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 9,
+   "title": "Run the site and tunnel as a background service",
+   "merged_at": "2026-10-02T12:08:41Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 10,
+   "title": "Fix background service for folders with spaces in the path",
+   "merged_at": "2026-10-02T12:17:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 11,
+   "title": "Docs: deploy by restarting the iLitSite task",
+   "merged_at": "2026-10-02T12:18:26Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 12,
+   "title": "Flat inline citation highlights in the reader",
+   "merged_at": "2026-10-02T12:28:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 13,
+   "title": "Redesign the reader sidebar, header and case context pane",
+   "merged_at": "2026-10-02T12:49:19Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 14,
+   "title": "Redesign the case search page",
+   "merged_at": "2026-10-02T13:06:25Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 15,
+   "title": "Add in-memory de-identify and restore tool with automatic name detection (/deidentify)",
+   "merged_at": "2026-10-02T17:22:39Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 16,
+   "title": "Add step-2 refinement layers for case citations and statute references",
+   "merged_at": "2026-10-02T17:07:19Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 17,
+   "title": "Fix legacy citation crash and stale search-page test",
+   "merged_at": "2026-10-02T17:04:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 18,
+   "title": "FC activity expansion: classifier v6, motion register, judges, deadlines, FC Analytics tab",
+   "merged_at": "2026-10-02T17:44:23Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 19,
+   "title": "Redesign Citation Intelligence and Judge Profiles",
+   "merged_at": "2026-10-02T17:53:56Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 20,
+   "title": "Improve deterministic case outcome detection (v2)",
+   "merged_at": "2026-10-02T18:04:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 21,
+   "title": "Improve tagging system with detention grounds and decision-maker actions",
+   "merged_at": "2026-10-03T23:01:57Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 22,
+   "title": "Discussion units v1.4: improved segmentation + case reader outline navigator",
+   "merged_at": "2026-10-04T00:08:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 23,
+   "title": "Cleanup: remove stray files, a throwaway script and old run logs",
+   "merged_at": "2026-10-03T18:29:05Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 24,
+   "title": "Fix false positives in country-name tagging",
+   "merged_at": "2026-10-03T19:05:13Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 25,
+   "title": "Cleanup: remove seven backend functions nothing calls",
+   "merged_at": "2026-10-03T18:29:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 26,
+   "title": "Docs: archive three historical root documents",
+   "merged_at": "2026-10-03T18:29:14Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 27,
+   "title": "Add tag-based case finder: Jaccard similarity matching",
+   "merged_at": "2026-10-03T23:03:21Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 31,
+   "title": "Citation Context: show which subtheme cites each case",
+   "merged_at": "2026-10-04T00:12:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 32,
+   "title": "Theme Discovery: group subthemes by shared key terms",
+   "merged_at": "2026-10-04T01:05:06Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 34,
+   "title": "Unit search and judge analytics: Show how different judges handle discovered themes",
+   "merged_at": "2026-10-04T13:31:13Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 35,
+   "title": "Add memo citation check feature",
+   "merged_at": "2026-10-03T18:29:27Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 36,
+   "title": "Expand V3 tagging to 323 high-frequency legal concepts (3.6x coverage)",
+   "merged_at": "2026-10-03T23:07:01Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 41,
+   "title": "Audit documentation claims against current code",
+   "merged_at": "2026-10-03T18:29:31Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 42,
+   "title": "Shade paragraphs cited by other cases",
+   "merged_at": "2026-10-03T18:29:34Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 48,
+   "title": "Refresh Copilot instructions to match current project rules",
+   "merged_at": "2026-10-03T23:47:38Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 51,
+   "title": "Map unused backend code and duplicate logic",
+   "merged_at": "2026-10-03T23:47:40Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 52,
+   "title": "Audit accessibility of search, reader, judge, and citation pages",
+   "merged_at": "2026-10-04T12:32:10Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 60,
+   "title": "Add cross-PR review for open PRs #28, #29, #32, and #34",
+   "merged_at": "2026-10-03T23:47:43Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 61,
+   "title": "Review privacy and security of document-analysis tools",
+   "merged_at": "2026-10-03T23:46:13Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 62,
+   "title": "Document search and reader query performance findings",
+   "merged_at": "2026-10-03T23:47:45Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 63,
+   "title": "Harden citation extraction regression tests",
+   "merged_at": "2026-10-03T23:47:48Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 64,
+   "title": "Add CBSA readiness checklist",
+   "merged_at": "2026-10-03T23:47:51Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 65,
+   "title": "Document ID/IAD decision coverage design",
+   "merged_at": "2026-10-04T00:24:13Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 72,
+   "title": "Document a design for citation-treatment signals",
+   "merged_at": "2026-10-03T23:47:54Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 73,
+   "title": "Add source-linked extractive summary to the case reader",
+   "merged_at": "2026-10-03T23:46:08Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 74,
+   "title": "Add filtered CSV export for Case Search",
+   "merged_at": "2026-10-04T00:24:42Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 75,
+   "title": "Add evidence-backed review of five feature PRs",
+   "merged_at": "2026-10-03T23:47:56Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 76,
+   "title": "Measure backend test coverage and add focused pure-logic tests",
+   "merged_at": "2026-10-03T23:46:10Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 77,
+   "title": "Add an analyst quick-start guide for iLit",
+   "merged_at": "2026-10-03T23:47:59Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 80,
+   "title": "Port saved searches and alerts to the redesigned Case Search",
+   "merged_at": "2026-10-04T00:37:57Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 83,
+   "title": "Add tag display ranking by rarity and mention frequency",
+   "merged_at": "2026-10-03T23:39:07Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 91,
+   "title": "Repair empty-database Alembic bootstrap and add PostgreSQL CI",
+   "merged_at": "2026-10-04T00:36:18Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 92,
+   "title": "Add printable legal issue briefs with denominator-safe outcomes",
+   "merged_at": "2026-10-04T01:12:53Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 93,
+   "title": "Add collapsible most-cited paragraphs panel to case reader",
+   "merged_at": "2026-10-04T00:24:44Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 94,
+   "title": "Add explainable paragraph similarity using shared tags and citations",
+   "merged_at": "2026-10-04T12:16:42Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 95,
+   "title": "Add issue-first, side-by-side judge comparison",
+   "merged_at": "2026-10-04T10:58:08Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 96,
+   "title": "Prioritize exact citation and party-name search matches",
+   "merged_at": "2026-10-04T00:36:15Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 97,
+   "title": "Add filtered DOCX export to case search",
+   "merged_at": "2026-10-04T12:46:55Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 98,
+   "title": "Add backfill script for V3 case tags",
+   "merged_at": "2026-10-04T00:00:28Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 105,
+   "title": "Bound upload size and document parsing work",
+   "merged_at": "2026-10-04T11:29:16Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 106,
+   "title": "Add opt-in password enforcement; keep access open by default",
+   "merged_at": "2026-10-04T11:11:40Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 107,
+   "title": "Add opt-in, privacy-safe request audit logging",
+   "merged_at": "2026-10-04T10:42:28Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 108,
+   "title": "Cache slow analytics endpoints with a configurable TTL",
+   "merged_at": "2026-10-04T12:00:43Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 109,
+   "title": "Draft proposed concurrent trigram indexes",
+   "merged_at": "2026-10-04T10:42:42Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 110,
+   "title": "Add non-blocking CI lint and dependency audit checks",
+   "merged_at": "2026-10-04T11:47:05Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 111,
+   "title": "Fix red main: migration test pinned the head to 0030",
+   "merged_at": "2026-10-04T00:59:58Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 113,
+   "title": "Add keyboard navigation and print support to the case reader",
+   "merged_at": "2026-10-04T13:33:06Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 122,
+   "title": "Add side-by-side case comparison",
+   "merged_at": "2026-10-04T14:32:22Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 124,
+   "title": "Add denominator-safe issue outcomes to judge profiles",
+   "merged_at": "2026-10-04T14:04:18Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 127,
+   "title": "Add power-user operators to Case Search",
+   "merged_at": "2026-10-04T14:33:41Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 129,
+   "title": "Add saved-search digests with Minister-loss flags and shift notes",
+   "merged_at": "2026-10-04T17:54:50Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 130,
+   "title": "Add Phase 1 statute library schema with point-in-time versioning",
+   "merged_at": "2026-10-04T13:15:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 135,
+   "title": "Refresh README and architecture overview",
+   "merged_at": "2026-10-04T13:49:20Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 139,
+   "title": "Unit search and judge analytics: Show how different judges handle discovered themes",
+   "merged_at": "2026-10-04T13:31:12Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 159,
+   "title": "Add missing and contrary authority suggestions to memo citation checks",
+   "merged_at": "2026-10-04T14:48:46Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 160,
+   "title": "Add cautious overruling-risk indicators for authorities",
+   "merged_at": "2026-10-04T17:36:18Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 161,
+   "title": "Add judicial consideration views for statute sections",
+   "merged_at": "2026-10-04T19:33:34Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 162,
+   "title": "Add extraction-only Quick summary to the case reader",
+   "merged_at": "2026-10-04T14:49:00Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 169,
+   "title": "WIP: Citation Intelligence Prompts & Testing Framework",
+   "merged_at": "2026-10-04T14:20:55Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 176,
+   "title": "Add opt-in security response headers",
+   "merged_at": "2026-10-04T15:12:46Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 177,
+   "title": "Add non-blocking dependency audit and SBOM workflow",
+   "merged_at": "2026-10-04T14:53:57Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 179,
+   "title": "Add opt-in local query embeddings with dimension safeguards",
+   "merged_at": "2026-10-04T15:43:46Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 180,
+   "title": "Add evidence-cited government-readiness documentation",
+   "merged_at": "2026-10-04T15:01:52Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 190,
+   "title": "Add public liveness and readiness probes",
+   "merged_at": "2026-10-04T16:03:04Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 191,
+   "title": "Add reproducible Docker run configuration",
+   "merged_at": "2026-10-04T15:43:54Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 193,
+   "title": "Align discussion-unit search with stored embedding model",
+   "merged_at": "2026-10-04T15:44:03Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 194,
+   "title": "Reduce the required dependency footprint",
+   "merged_at": "2026-10-04T15:44:07Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 195,
+   "title": "Version prompts and record prompt versions",
+   "merged_at": "2026-10-04T16:36:18Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 198,
+   "title": "Add an opt-in background job runner separate from the web process",
+   "merged_at": "2026-10-04T15:44:15Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 199,
+   "title": "Add non-blocking pgvector integration CI",
+   "merged_at": "2026-10-04T15:44:19Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 201,
+   "title": "Make API search non-AI by default",
+   "merged_at": "2026-10-04T16:21:15Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 208,
+   "title": "Add policy-gated embedding provider interface",
+   "merged_at": "2026-10-04T18:15:34Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 211,
+   "title": "Scaffold per-model vector tables",
+   "merged_at": "2026-10-04T19:49:11Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 212,
+   "title": "Add offline model evaluation and paired comparison",
+   "merged_at": "2026-10-04T19:06:13Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 213,
+   "title": "Fix outcome detection errors found by the accuracy audit",
+   "merged_at": "2026-10-04T16:29:26Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 214,
+   "title": "Outcomes: say \"unclear\" instead of guessing, and fix the remaining wrong-outcome patterns",
+   "merged_at": "2026-10-04T17:17:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 215,
+   "title": "Outcome checker: a cheap second reader for cases the rules leave unclear",
+   "merged_at": "2026-10-04T17:29:49Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 216,
+   "title": "Add Markup mode, a third case-reader view",
+   "merged_at": "2026-10-04T18:32:10Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 218,
+   "title": "Fix inline JavaScript syntax errors in page builders",
+   "merged_at": "2026-10-04T18:44:21Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 219,
+   "title": "Markup mode second build: hover card, Peek panel, tag modes, topic fold",
+   "merged_at": "2026-10-04T18:38:12Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 220,
+   "title": "Paragraph cited-by batch job, shown in Markup mode",
+   "merged_at": "2026-10-04T18:56:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 221,
+   "title": "Fix phone layout: search page, case reader, Markup mode, overruling-risk notice",
+   "merged_at": "2026-10-04T19:18:10Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 222,
+   "title": "Phone layout second pass: Site Architecture, tables, judge compare, statute viewer",
+   "merged_at": "2026-10-04T19:27:11Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 224,
+   "title": "Add idempotent migration for cases.docket_number",
+   "merged_at": "2026-10-04T20:03:52Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 225,
+   "title": "Markup mode: Export to Word with comments, private notes and highlights",
+   "merged_at": "2026-10-04T20:16:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 240,
+   "title": "Make the paragraph cited-by job safe beside the live site",
+   "merged_at": "2026-10-04T20:29:09Z",
+   "author": "greystone-dan"
+  }
+ ],
+ "commits": [
+  {
+   "sha": "96054ba",
+   "date": "2026-08-03",
+   "subject": "chore: clean repo layout and archive historical docs"
+  },
+  {
+   "sha": "967a2d9",
+   "date": "2026-08-03",
+   "subject": "docs: add history archive guide"
+  },
+  {
+   "sha": "c725577",
+   "date": "2026-08-03",
+   "subject": "docs: add forward roadmap and QA plan"
+  },
+  {
+   "sha": "cacfd2c",
+   "date": "2026-08-03",
+   "subject": "Initial commit: AI CaseLibrary with semantic search (without large backup zip)"
+  },
+  {
+   "sha": "1638261",
+   "date": "2026-08-10",
+   "subject": "Create legacy archive zone and clarify active workflow"
+  },
+  {
+   "sha": "7e76773",
+   "date": "2026-08-10",
+   "subject": "Preserve citation pinpoints and split unresolved linkability"
+  },
+  {
+   "sha": "9c7bd9f",
+   "date": "2026-08-10",
+   "subject": "Add citation pinpoint status badges to Citation Pass UI"
+  },
+  {
+   "sha": "c17d010",
+   "date": "2026-08-10",
+   "subject": "Archive non-runtime helper scripts under legacy/scripts"
+  },
+  {
+   "sha": "e76f2ab",
+   "date": "2026-08-10",
+   "subject": "Consolidate citation workflow docs and checkpoint extraction work"
+  },
+  {
+   "sha": "2dfc489",
+   "date": "2026-08-12",
+   "subject": "Stabilize search, citation resolution, and docs"
+  },
+  {
+   "sha": "9dadd5c",
+   "date": "2026-08-12",
+   "subject": "Wave 4: Improve citation legibility and decision text formatting"
+  },
+  {
+   "sha": "ff4b069",
+   "date": "2026-08-12",
+   "subject": "Fix: Restore lexical case name ranking - only apply authority boost in hybrid mode"
+  },
+  {
+   "sha": "3a9e747",
+   "date": "2026-08-13",
+   "subject": "Feature: Global site header + About page"
+  },
+  {
+   "sha": "93954ae",
+   "date": "2026-08-13",
+   "subject": "Fix: Restore raw string for Citation Intelligence page JS"
+  },
+  {
+   "sha": "b089046",
+   "date": "2026-08-13",
+   "subject": "Fix CI full-corpus behavior and live About stats"
+  },
+  {
+   "sha": "b49c64a",
+   "date": "2026-08-13",
+   "subject": "Trigger production redeploy for citation intelligence fixes"
+  },
+  {
+   "sha": "cc93b0b",
+   "date": "2026-08-13",
+   "subject": "Fix: Remove nested aggregate in citation_intelligence_overview"
+  },
+  {
+   "sha": "e8e746c",
+   "date": "2026-08-13",
+   "subject": "Feature: Citation Intelligence page"
+  },
+  {
+   "sha": "027d3d4",
+   "date": "2026-08-17",
+   "subject": "Fix: Resolve all Pylance type errors in routes.py"
+  },
+  {
+   "sha": "47a26dd",
+   "date": "2026-08-17",
+   "subject": "Fix: Add raw string prefix to citation pass JavaScript template"
+  },
+  {
+   "sha": "4a6bf14",
+   "date": "2026-08-17",
+   "subject": "Add focused searches for intelligence tabs"
+  },
+  {
+   "sha": "6c224ef",
+   "date": "2026-08-17",
+   "subject": "Restore intelligence features in unified tab UI"
+  },
+  {
+   "sha": "ce3f5ac",
+   "date": "2026-08-17",
+   "subject": "Prepare project baseline for local development"
+  },
+  {
+   "sha": "e16e85b",
+   "date": "2026-08-17",
+   "subject": "Fix judge profile search and restore citation subtabs"
+  },
+  {
+   "sha": "e59db9e",
+   "date": "2026-08-19",
+   "subject": "Add docket_number field to canonical cases with 98.74% backfill coverage"
+  },
+  {
+   "sha": "47eaa6b",
+   "date": "2026-08-20",
+   "subject": "Expand case intelligence and ingestion workflows"
+  },
+  {
+   "sha": "2c2bf63",
+   "date": "2026-09-01",
+   "subject": "Consolidate case intelligence workflows"
+  },
+  {
+   "sha": "155a57c",
+   "date": "2026-09-02",
+   "subject": "Add legislation reference system, citation authority linking, and repo cleanup"
+  },
+  {
+   "sha": "c3ba545",
+   "date": "2026-09-02",
+   "subject": "Remove committed secret placeholder from .env.example"
+  },
+  {
+   "sha": "1169cff",
+   "date": "2026-09-03",
+   "subject": "Add ephemeral live analysis and broad citation resolution"
+  },
+  {
+   "sha": "24b7d6f",
+   "date": "2026-09-03",
+   "subject": "Expand Tagging V2 and add batch watchdog"
+  },
+  {
+   "sha": "276c4cd",
+   "date": "2026-09-03",
+   "subject": "Document repository atlas and source workflows"
+  },
+  {
+   "sha": "48c4573",
+   "date": "2026-09-03",
+   "subject": "Document project architecture and manager workflow"
+  },
+  {
+   "sha": "57e5cfb",
+   "date": "2026-09-03",
+   "subject": "Expand institutional product north star"
+  },
+  {
+   "sha": "71825b9",
+   "date": "2026-09-03",
+   "subject": "Add Tagging V2 occurrence highlights"
+  },
+  {
+   "sha": "ed08f49",
+   "date": "2026-09-03",
+   "subject": "Expand Swimm documentation for modularization"
+  },
+  {
+   "sha": "1455a13",
+   "date": "2026-09-04",
+   "subject": "Improve citation resolution and pinpoint metrics"
+  },
+  {
+   "sha": "37798d5",
+   "date": "2026-09-04",
+   "subject": "Improve multiword citation alias extraction"
+  },
+  {
+   "sha": "3b716b0",
+   "date": "2026-09-04",
+   "subject": "Model composite citations with attached pinpoints"
+  },
+  {
+   "sha": "63d6298",
+   "date": "2026-09-04",
+   "subject": "Complete modularization architecture review and document domain service boundaries"
+  },
+  {
+   "sha": "647cd08",
+   "date": "2026-09-04",
+   "subject": "Add five-case citation gold candidate"
+  },
+  {
+   "sha": "67eb51a",
+   "date": "2026-09-04",
+   "subject": "Harden metadata validation and manager workflow"
+  },
+  {
+   "sha": "6ed3ae4",
+   "date": "2026-09-04",
+   "subject": "Modernize FastAPI lifespan, harden nested IRPA/IRPR extraction tests, and add automated data quality evaluation tool"
+  },
+  {
+   "sha": "70f0aa6",
+   "date": "2026-09-04",
+   "subject": "Modularize backend services, extract UI page builders, and add project manager framework"
+  },
+  {
+   "sha": "7cc804f",
+   "date": "2026-09-04",
+   "subject": "Build statute authority foundation and rebuild roadmap"
+  },
+  {
+   "sha": "96d938f",
+   "date": "2026-09-04",
+   "subject": "Activate V3 tagging and automate documentation checks"
+  },
+  {
+   "sha": "97f7a57",
+   "date": "2026-09-04",
+   "subject": "Add thematic intelligence to data explorer"
+  },
+  {
+   "sha": "c48dcf4",
+   "date": "2026-09-04",
+   "subject": "Add bounded AI citation triage"
+  },
+  {
+   "sha": "dc8792f",
+   "date": "2026-09-04",
+   "subject": "Preserve citation pinpoints and anchor provenance"
+  },
+  {
+   "sha": "e98327f",
+   "date": "2026-09-04",
+   "subject": "Implement contextual tag-statute-citation intelligence framework, proximity anchors, and case clustering"
+  },
+  {
+   "sha": "f814b1b",
+   "date": "2026-09-04",
+   "subject": "Reliable metadata extraction, intelligence-layer split, and post-chunking pipeline order"
+  },
+  {
+   "sha": "5a33fe6",
+   "date": "2026-09-05",
+   "subject": "Prepare and launch guarded V2 pipeline"
+  },
+  {
+   "sha": "06ffba1",
+   "date": "2026-09-06",
+   "subject": "Validate 50-case SCC text-only canary"
+  },
+  {
+   "sha": "135bc04",
+   "date": "2026-09-06",
+   "subject": "Bound SCC HTML acquisition and record access blocker"
+  },
+  {
+   "sha": "273ff9c",
+   "date": "2026-09-06",
+   "subject": "Prepare SCC text-only enrichment path"
+  },
+  {
+   "sha": "5e5e643",
+   "date": "2026-09-06",
+   "subject": "Fix SCC run default limit and resume"
+  },
+  {
+   "sha": "767d177",
+   "date": "2026-09-06",
+   "subject": "Add SCC per-case watchdog quarantine"
+  },
+  {
+   "sha": "a40c8eb",
+   "date": "2026-09-06",
+   "subject": "Record SCC date boundary dry run"
+  },
+  {
+   "sha": "a5ef28d",
+   "date": "2026-09-06",
+   "subject": "Complete V2 enrichment review and game harness"
+  },
+  {
+   "sha": "b50ea12",
+   "date": "2026-09-06",
+   "subject": "Start resumable SCC 1970-present run"
+  },
+  {
+   "sha": "bea7bea",
+   "date": "2026-09-06",
+   "subject": "Optimize SCC citation extraction hot path"
+  },
+  {
+   "sha": "d825a77",
+   "date": "2026-09-06",
+   "subject": "Record SCC HTML probe dispositions"
+  },
+  {
+   "sha": "f2f9ca7",
+   "date": "2026-09-06",
+   "subject": "Add managed worker and evidence gate"
+  },
+  {
+   "sha": "329586e",
+   "date": "2026-09-07",
+   "subject": "Harden citation extraction and rebuild workflow"
+  },
+  {
+   "sha": "fdb39c2",
+   "date": "2026-09-08",
+   "subject": "Complete citation extraction and resolution checkpoint"
+  },
+  {
+   "sha": "04c90f3",
+   "date": "2026-09-14",
+   "subject": "Clean up reader highlighting layers"
+  },
+  {
+   "sha": "15871df",
+   "date": "2026-09-14",
+   "subject": "Simplify reader highlight styling"
+  },
+  {
+   "sha": "184c030",
+   "date": "2026-09-14",
+   "subject": "Remove default Data Explorer search"
+  },
+  {
+   "sha": "2098870",
+   "date": "2026-09-14",
+   "subject": "Refresh generated API reference"
+  },
+  {
+   "sha": "3987ee7",
+   "date": "2026-09-14",
+   "subject": "Lazy-load reader statute references"
+  },
+  {
+   "sha": "a39e02a",
+   "date": "2026-09-14",
+   "subject": "Fix reader citations and law highlights"
+  },
+  {
+   "sha": "c1f9e0e",
+   "date": "2026-09-14",
+   "subject": "Fix persisted website reader and manager workflow"
+  },
+  {
+   "sha": "c831e03",
+   "date": "2026-09-14",
+   "subject": "Remove stale reader render listener"
+  },
+  {
+   "sha": "e46d4d4",
+   "date": "2026-09-14",
+   "subject": "Add explicit reader tab dispatcher"
+  },
+  {
+   "sha": "e91f7da",
+   "date": "2026-09-14",
+   "subject": "Clarify reader highlight overlap priority"
+  },
+  {
+   "sha": "faa3271",
+   "date": "2026-09-14",
+   "subject": "Improve reader keyboard accessibility"
+  },
+  {
+   "sha": "ff077f1",
+   "date": "2026-09-14",
+   "subject": "Record Data Explorer visual accessibility review"
+  },
+  {
+   "sha": "30d7afc",
+   "date": "2026-09-18",
+   "subject": "docs: record authority resolution measurement"
+  },
+  {
+   "sha": "3665353",
+   "date": "2026-09-18",
+   "subject": "Add contextual authority evidence layer"
+  },
+  {
+   "sha": "5c81825",
+   "date": "2026-09-18",
+   "subject": "Split reader info and advanced tabs"
+  },
+  {
+   "sha": "794c500",
+   "date": "2026-09-18",
+   "subject": "test: add Criminal Code authority fixtures"
+  },
+  {
+   "sha": "93fa903",
+   "date": "2026-09-18",
+   "subject": "docs: record repository cleanup completion"
+  },
+  {
+   "sha": "a48ee7b",
+   "date": "2026-09-18",
+   "subject": "chore: align active system and cleanup documentation"
+  },
+  {
+   "sha": "dd3da20",
+   "date": "2026-09-18",
+   "subject": "docs: record statute authority coverage inventory"
+  },
+  {
+   "sha": "0a40257",
+   "date": "2026-09-19",
+   "subject": "Add deterministic case summary layer"
+  },
+  {
+   "sha": "5f6f130",
+   "date": "2026-09-19",
+   "subject": "Record evidence summary checkpoint"
+  },
+  {
+   "sha": "b0dddb3",
+   "date": "2026-09-19",
+   "subject": "Fix duplicate reader markup"
+  },
+  {
+   "sha": "e967865",
+   "date": "2026-09-19",
+   "subject": "Add toggleable evidence summary layer"
+  },
+  {
+   "sha": "33d6cd3",
+   "date": "2026-09-22",
+   "subject": "Upgrade case search experience"
+  },
+  {
+   "sha": "4ee261d",
+   "date": "2026-09-22",
+   "subject": "Reconcile current system documentation"
+  },
+  {
+   "sha": "5060288",
+   "date": "2026-09-22",
+   "subject": "Improve search interface clarity"
+  },
+  {
+   "sha": "d3d5e86",
+   "date": "2026-09-22",
+   "subject": "Save current project work"
+  },
+  {
+   "sha": "d5ab11e",
+   "date": "2026-09-22",
+   "subject": "Improve judge extraction evaluation and documentation"
+  },
+  {
+   "sha": "e549493",
+   "date": "2026-09-22",
+   "subject": "Compact chunk reader presentation"
+  },
+  {
+   "sha": "a6a9487",
+   "date": "2026-09-23",
+   "subject": "Add resumable Discussion Unit cohort runner"
+  },
+  {
+   "sha": "ab81347",
+   "date": "2026-09-23",
+   "subject": "Finalize case intelligence validation updates"
+  },
+  {
+   "sha": "caa217c",
+   "date": "2026-09-23",
+   "subject": "Document Mason case intelligence review findings"
+  },
+  {
+   "sha": "3e49dae",
+   "date": "2026-09-24",
+   "subject": "Move About content to Site Architecture"
+  },
+  {
+   "sha": "5df3afd",
+   "date": "2026-09-24",
+   "subject": "Expand About graph nodes in place"
+  },
+  {
+   "sha": "8b536a6",
+   "date": "2026-09-24",
+   "subject": "Add interactive About system map"
+  },
+  {
+   "sha": "8c8f53d",
+   "date": "2026-09-24",
+   "subject": "Make About an interactive architecture graph"
+  },
+  {
+   "sha": "a6278d0",
+   "date": "2026-09-24",
+   "subject": "Redesign About system map as visual canvas"
+  },
+  {
+   "sha": "c19a9b5",
+   "date": "2026-09-24",
+   "subject": "Retain 300-case paragraph assessment run"
+  },
+  {
+   "sha": "cf00ac5",
+   "date": "2026-09-24",
+   "subject": "Complete Discussion Unit core 300 preflight"
+  },
+  {
+   "sha": "683a433",
+   "date": "2026-09-25",
+   "subject": "Link paragraph assessments to citation evidence"
+  },
+  {
+   "sha": "9224208",
+   "date": "2026-09-25",
+   "subject": "Add interactive case pipeline graphic"
+  },
+  {
+   "sha": "f33599c",
+   "date": "2026-09-25",
+   "subject": "Stabilize citation intelligence UI"
+  },
+  {
+   "sha": "08d415d",
+   "date": "2026-09-28",
+   "subject": "Complete FC motion subtype advisory enrichment"
+  },
+  {
+   "sha": "0a9165c",
+   "date": "2026-09-28",
+   "subject": "Clarify leave refusal applicability"
+  },
+  {
+   "sha": "12615f9",
+   "date": "2026-09-28",
+   "subject": "Improve FC motion classification from advisory review"
+  },
+  {
+   "sha": "1d2ed4e",
+   "date": "2026-09-28",
+   "subject": "Anchor challenged decision analysis"
+  },
+  {
+   "sha": "2ce016f",
+   "date": "2026-09-28",
+   "subject": "End perfection pending after leave refusal"
+  },
+  {
+   "sha": "56b1ce1",
+   "date": "2026-09-28",
+   "subject": "Report unknown FC activity motion patterns"
+  },
+  {
+   "sha": "6606fe9",
+   "date": "2026-09-28",
+   "subject": "Finalize checkpoint artifact policy"
+  },
+  {
+   "sha": "7af9fb8",
+   "date": "2026-09-28",
+   "subject": "Bound IMM suffix coverage evaluation"
+  },
+  {
+   "sha": "7fca9a2",
+   "date": "2026-09-28",
+   "subject": "Expand FC Activity deterministic evaluation pipeline"
+  },
+  {
+   "sha": "8ae11da",
+   "date": "2026-09-28",
+   "subject": "Add grouped FC motion coverage metrics"
+  },
+  {
+   "sha": "8fe3c7a",
+   "date": "2026-09-28",
+   "subject": "Record FC activity corpus motion patterns"
+  },
+  {
+   "sha": "90169f2",
+   "date": "2026-09-28",
+   "subject": "Refresh project time and evaluation cost ledgers"
+  },
+  {
+   "sha": "a31807d",
+   "date": "2026-09-28",
+   "subject": "Save documented project checkpoint"
+  },
+  {
+   "sha": "a98e79d",
+   "date": "2026-09-28",
+   "subject": "Link FC motion filings by source references"
+  },
+  {
+   "sha": "aa8290a",
+   "date": "2026-09-28",
+   "subject": "Explain FC leave non-applicability"
+  },
+  {
+   "sha": "abe1df5",
+   "date": "2026-09-28",
+   "subject": "Model FC field applicability by progression"
+  },
+  {
+   "sha": "ad56dbc",
+   "date": "2026-09-28",
+   "subject": "Correct recorded API spend accounting"
+  },
+  {
+   "sha": "c2053cd",
+   "date": "2026-09-28",
+   "subject": "Extend FC applicability to perfection and hearings"
+  },
+  {
+   "sha": "c2d8a6c",
+   "date": "2026-09-28",
+   "subject": "Measure FC activity motion coverage"
+  },
+  {
+   "sha": "c4c26b0",
+   "date": "2026-09-28",
+   "subject": "Add Beta-informed FC activity motion taxonomy"
+  },
+  {
+   "sha": "cb99add",
+   "date": "2026-09-28",
+   "subject": "Record pending FC applicability review"
+  },
+  {
+   "sha": "d1543e1",
+   "date": "2026-09-28",
+   "subject": "Document FC Activity Beta VBA comparison"
+  },
+  {
+   "sha": "e2d45f6",
+   "date": "2026-09-28",
+   "subject": "Add project cost context to work metrics"
+  },
+  {
+   "sha": "2b8d9c8",
+   "date": "2026-09-29",
+   "subject": "Fix data explorer tab state"
+  },
+  {
+   "sha": "327e616",
+   "date": "2026-09-29",
+   "subject": "Add project status About page"
+  },
+  {
+   "sha": "9d7f48b",
+   "date": "2026-09-29",
+   "subject": "Restructure About and Site Architecture tabs"
+  },
+  {
+   "sha": "d694902",
+   "date": "2026-09-29",
+   "subject": "Add Research Bench prototype tab"
+  },
+  {
+   "sha": "fcf334a",
+   "date": "2026-09-29",
+   "subject": "Refine Research Bench visual workspace"
+  },
+  {
+   "sha": "708a329",
+   "date": "2026-09-30",
+   "subject": "Integrate research UI and activity quality improvements"
+  },
+  {
+   "sha": "4884e9b",
+   "date": "2026-10-01",
+   "subject": "Improve ingestion, embedding, and research workflows"
+  },
+  {
+   "sha": "00979a9",
+   "date": "2026-10-02",
+   "subject": "Redesign reader sidebar, header, toolbar and case context pane (#13)"
+  },
+  {
+   "sha": "08752ce",
+   "date": "2026-10-02",
+   "subject": "Add deterministic case reader formatter with offset-preserving typed blocks"
+  },
+  {
+   "sha": "0a56daa",
+   "date": "2026-10-02",
+   "subject": "Fix full-text reader crash from duplicate #cites element"
+  },
+  {
+   "sha": "0ae95e5",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #18 from greystone-dan/claude/fc-activity-expansion"
+  },
+  {
+   "sha": "0c2a917",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #10 from greystone-dan/claude/service-quote-paths"
+  },
+  {
+   "sha": "146230e",
+   "date": "2026-10-02",
+   "subject": "Add CLAUDE.md project guide and deploy skill"
+  },
+  {
+   "sha": "1464e71",
+   "date": "2026-10-02",
+   "subject": "FC activity: decision body, judge roles and cleaner judge names"
+  },
+  {
+   "sha": "1885844",
+   "date": "2026-10-02",
+   "subject": "Add step-2 refinement layers for case citations and statute references (#16)"
+  },
+  {
+   "sha": "1ac696c",
+   "date": "2026-10-02",
+   "subject": "Checkpoint local RAG and site updates"
+  },
+  {
+   "sha": "2dd7092",
+   "date": "2026-10-02",
+   "subject": "Docs: deploy by restarting the iLitSite task"
+  },
+  {
+   "sha": "2fc8a5a",
+   "date": "2026-10-02",
+   "subject": "Tune case formatter on 153-case sample; keep highlights aligned across blocks"
+  },
+  {
+   "sha": "31eff5a",
+   "date": "2026-10-02",
+   "subject": "Fix legacy citation crash and stale search-page test (#17)"
+  },
+  {
+   "sha": "3317a05",
+   "date": "2026-10-02",
+   "subject": "FC activity: hearings, appeals, stays, counsel, timeline and more"
+  },
+  {
+   "sha": "349ca79",
+   "date": "2026-10-02",
+   "subject": "Add in-memory de-identify and restore tool with automatic name detection (#15)"
+  },
+  {
+   "sha": "364606a",
+   "date": "2026-10-02",
+   "subject": "Quote tunnel config path in site service supervisor"
+  },
+  {
+   "sha": "3996126",
+   "date": "2026-10-02",
+   "subject": "Flat inline citation highlights; make linked-case clicks work in formatted view (#12)"
+  },
+  {
+   "sha": "3d90376",
+   "date": "2026-10-02",
+   "subject": "Improve deterministic case outcome detection (v2) (#20)"
+  },
+  {
+   "sha": "3e1b887",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #7 from greystone-dan/claude/project-thread-ino0bx"
+  },
+  {
+   "sha": "3f0b34b",
+   "date": "2026-10-02",
+   "subject": "Regenerate API, schema and script catalog docs so the docs check passes"
+  },
+  {
+   "sha": "4e7a848",
+   "date": "2026-10-02",
+   "subject": "Redesign case search: quick filters, new result cards, cited-by count; remove RAG option (#14)"
+  },
+  {
+   "sha": "53793b4",
+   "date": "2026-10-02",
+   "subject": "FC activity: summary table and insights, judges and case APIs"
+  },
+  {
+   "sha": "5781951",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #3 from greystone-dan/claude/project-thread-japmpg"
+  },
+  {
+   "sha": "5c6bd84",
+   "date": "2026-10-02",
+   "subject": "Add background service scripts for the site and tunnel"
+  },
+  {
+   "sha": "5ef3dce",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #11 from greystone-dan/claude/project-thread-ino0bx-docs"
+  },
+  {
+   "sha": "628794c",
+   "date": "2026-10-02",
+   "subject": "Make formatted view the default reader; add paragraph assessments and tooltips to it (#6)"
+  },
+  {
+   "sha": "637cd05",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #4 from greystone-dan/claude/project-thread-8wtga7"
+  },
+  {
+   "sha": "6619fe2",
+   "date": "2026-10-02",
+   "subject": "FC activity round 2: more outcomes, new fields, counsel and trend views"
+  },
+  {
+   "sha": "6efebf8",
+   "date": "2026-10-02",
+   "subject": "FC Analytics tab: interactive dashboard over the FC activity data"
+  },
+  {
+   "sha": "71bd1fb",
+   "date": "2026-10-02",
+   "subject": "FC activity motions: party sides, stays of release, scored linking"
+  },
+  {
+   "sha": "751e034",
+   "date": "2026-10-02",
+   "subject": "Redesign Citation Intelligence and Judge Profiles (#19)"
+  },
+  {
+   "sha": "813009c",
+   "date": "2026-10-02",
+   "subject": "Keep citations inline inside formatted paragraphs"
+  },
+  {
+   "sha": "84ce7fd",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #2 from greystone-dan/claude/project-thread-8wtga7"
+  },
+  {
+   "sha": "9b21ae6",
+   "date": "2026-10-02",
+   "subject": "FC activity classifier v6: read more outcomes, consent settlements, parallel runs"
+  },
+  {
+   "sha": "a3de70d",
+   "date": "2026-10-02",
+   "subject": "Use full-text offsets for citation highlights in full-text view"
+  },
+  {
+   "sha": "ad954e6",
+   "date": "2026-10-02",
+   "subject": "FC activity: motion register, judges at every stage, accuracy fixes"
+  },
+  {
+   "sha": "b54b4c1",
+   "date": "2026-10-02",
+   "subject": "Run the test suite on every PR and on main"
+  },
+  {
+   "sha": "bc2467b",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #9 from greystone-dan/claude/project-thread-ino0bx-service"
+  },
+  {
+   "sha": "c018329",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #8 from greystone-dan/claude/project-thread-ino0bx-ci"
+  },
+  {
+   "sha": "c423412",
+   "date": "2026-10-02",
+   "subject": "FC activity: procedure-aware motion linking, unruled reasons, deadlines"
+  },
+  {
+   "sha": "cbc8c35",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #1 from greystone-dan/claude/project-thread-8wtga7"
+  },
+  {
+   "sha": "de3b005",
+   "date": "2026-10-02",
+   "subject": "FC activity: procedural insights section on the FC History tab"
+  },
+  {
+   "sha": "e0c397f",
+   "date": "2026-10-02",
+   "subject": "Merge remote-tracking branch 'origin/main'"
+  },
+  {
+   "sha": "f759a3b",
+   "date": "2026-10-02",
+   "subject": "Merge main into fc-activity-expansion; regenerate API reference"
+  },
+  {
+   "sha": "fe5b466",
+   "date": "2026-10-02",
+   "subject": "Merge pull request #5 from greystone-dan/claude/project-thread-8wtga7"
+  },
+  {
+   "sha": "0378055",
+   "date": "2026-10-03",
+   "subject": "Fix A2AJ court mapping to use dataset short codes (FC, FCA, SCC, RAD, RPD)"
+  },
+  {
+   "sha": "0942a6f",
+   "date": "2026-10-03",
+   "subject": "Fix database migrations, tagging proposal, and test fixtures for tag display ranking"
+  },
+  {
+   "sha": "0a77d77",
+   "date": "2026-10-03",
+   "subject": "Implement semantic search for units using PR 30 embeddings"
+  },
+  {
+   "sha": "129e80b",
+   "date": "2026-10-03",
+   "subject": "Add tag-based case finder: Jaccard similarity matching (#27)"
+  },
+  {
+   "sha": "28e9256",
+   "date": "2026-10-03",
+   "subject": "Add statute viewer page and regenerate documentation"
+  },
+  {
+   "sha": "2a4ee94",
+   "date": "2026-10-03",
+   "subject": "Fix judge_name attribute error and add comprehensive unit search tests"
+  },
+  {
+   "sha": "2ac8eb0",
+   "date": "2026-10-03",
+   "subject": "Add statute library integration test"
+  },
+  {
+   "sha": "2c54c3f",
+   "date": "2026-10-03",
+   "subject": "Add chunk-to-unit mapping using discussion_unit_cache"
+  },
+  {
+   "sha": "2d7b481",
+   "date": "2026-10-03",
+   "subject": "Add judge analytics and unit-level search infrastructure"
+  },
+  {
+   "sha": "35296d8",
+   "date": "2026-10-03",
+   "subject": "Remove seven backend functions that nothing calls (#25)"
+  },
+  {
+   "sha": "408b483",
+   "date": "2026-10-03",
+   "subject": "Add statute viewer API endpoints and version tracking"
+  },
+  {
+   "sha": "42c1013",
+   "date": "2026-10-03",
+   "subject": "Fix migration 0001 table existence check"
+  },
+  {
+   "sha": "42f1626",
+   "date": "2026-10-03",
+   "subject": "Document a design for citation-treatment signals (#72)"
+  },
+  {
+   "sha": "464b8bc",
+   "date": "2026-10-03",
+   "subject": "Handle missing pgvector extension gracefully for test environments"
+  },
+  {
+   "sha": "4bee232",
+   "date": "2026-10-03",
+   "subject": "Fix unit search to use correct CaseChunk column names"
+  },
+  {
+   "sha": "4ca2fdd",
+   "date": "2026-10-03",
+   "subject": "Add tag display ranking by rarity and mention frequency (#83)"
+  },
+  {
+   "sha": "4e14822",
+   "date": "2026-10-03",
+   "subject": "Add CBSA readiness checklist (#64)"
+  },
+  {
+   "sha": "541205f",
+   "date": "2026-10-03",
+   "subject": "Fix statute URLs and add skip handling"
+  },
+  {
+   "sha": "55b3dba",
+   "date": "2026-10-03",
+   "subject": "Review privacy and security of document-analysis tools (#61)"
+  },
+  {
+   "sha": "571ff64",
+   "date": "2026-10-03",
+   "subject": "Add evidence-backed review of five feature PRs (#75)"
+  },
+  {
+   "sha": "5923daa",
+   "date": "2026-10-03",
+   "subject": "Refresh Copilot instructions to match current project rules (#48)"
+  },
+  {
+   "sha": "6b9f245",
+   "date": "2026-10-03",
+   "subject": "Move three historical root docs into docs/history and fix links (#26)"
+  },
+  {
+   "sha": "711d493",
+   "date": "2026-10-03",
+   "subject": "Regenerate API reference for tag display ranking"
+  },
+  {
+   "sha": "73bb3ae",
+   "date": "2026-10-03",
+   "subject": "Implement decision-to-statute-version linking with historical version support"
+  },
+  {
+   "sha": "75b9513",
+   "date": "2026-10-03",
+   "subject": "Integrate theme discovery and unit search with judge analytics"
+  },
+  {
+   "sha": "7acf227",
+   "date": "2026-10-03",
+   "subject": "Add an analyst quick-start guide for iLit (#77)"
+  },
+  {
+   "sha": "7bc1fba",
+   "date": "2026-10-03",
+   "subject": "Build A2AJ import pipeline with deduplication and diagnostic tools"
+  },
+  {
+   "sha": "7bec8bb",
+   "date": "2026-10-03",
+   "subject": "Build case reader UI with statute reference integration and decision-date matching"
+  },
+  {
+   "sha": "85840eb",
+   "date": "2026-10-03",
+   "subject": "Add historical statute version parser for point-in-time matching"
+  },
+  {
+   "sha": "85e1aea",
+   "date": "2026-10-03",
+   "subject": "Cleanup: remove stray files, a throwaway script and old run logs (#23)"
+  },
+  {
+   "sha": "870c419",
+   "date": "2026-10-03",
+   "subject": "Shade paragraphs cited by other cases (#42)"
+  },
+  {
+   "sha": "89ebbc6",
+   "date": "2026-10-03",
+   "subject": "Fix false positives in country-name tagging (#24)"
+  },
+  {
+   "sha": "a0c758e",
+   "date": "2026-10-03",
+   "subject": "Implement tag display ranking by rarity and mention frequency"
+  },
+  {
+   "sha": "a44ad68",
+   "date": "2026-10-03",
+   "subject": "Expand V3 tagging to 323 high-frequency legal concepts (3.6x coverage) (#36)"
+  },
+  {
+   "sha": "a54426a",
+   "date": "2026-10-03",
+   "subject": "Regenerate script catalog documentation"
+  },
+  {
+   "sha": "abb4a21",
+   "date": "2026-10-03",
+   "subject": "Add plain-language daily review for statute and case library expansion work"
+  },
+  {
+   "sha": "af44b23",
+   "date": "2026-10-03",
+   "subject": "Add Immigration Division Rules and fix Charter XML URL override"
+  },
+  {
+   "sha": "b9a8e5e",
+   "date": "2026-10-03",
+   "subject": "Measure backend test coverage and add focused pure-logic tests (#76)"
+  },
+  {
+   "sha": "bc4af33",
+   "date": "2026-10-03",
+   "subject": "Harden citation extraction regression tests (#63)"
+  },
+  {
+   "sha": "bc8381c",
+   "date": "2026-10-03",
+   "subject": "Fix tagging proposal and feature tabs tests on main"
+  },
+  {
+   "sha": "c483782",
+   "date": "2026-10-03",
+   "subject": "Audit documentation claims against current code (#41)"
+  },
+  {
+   "sha": "c5acc41",
+   "date": "2026-10-03",
+   "subject": "Add local deployment session setup and documentation"
+  },
+  {
+   "sha": "c68e076",
+   "date": "2026-10-03",
+   "subject": "Merge main into claude/tag-display-ranking"
+  },
+  {
+   "sha": "d3af03b",
+   "date": "2026-10-03",
+   "subject": "Fix test failures: rename conflicting function and handle missing statute_version attribute"
+  },
+  {
+   "sha": "d4e045e",
+   "date": "2026-10-03",
+   "subject": "Regenerate API reference for tag display_limit parameter"
+  },
+  {
+   "sha": "d571b8d",
+   "date": "2026-10-03",
+   "subject": "Expand statute importer to cover 22 CBSA and immigration-relevant federal laws"
+  },
+  {
+   "sha": "db5035b",
+   "date": "2026-10-03",
+   "subject": "Fix test failures: handle DB-dependent tests gracefully"
+  },
+  {
+   "sha": "dd92109",
+   "date": "2026-10-03",
+   "subject": "Enhance semantic search with judge enrichment and key term extraction"
+  },
+  {
+   "sha": "e3d817d",
+   "date": "2026-10-03",
+   "subject": "Add cross-PR review for open PRs #28, #29, #32, and #34 (#60)"
+  },
+  {
+   "sha": "e71f246",
+   "date": "2026-10-03",
+   "subject": "Improve tagging system with detention grounds and decision-maker actions (#21)"
+  },
+  {
+   "sha": "e90b095",
+   "date": "2026-10-03",
+   "subject": "Add Phase 1 statute library schema and importer skeleton"
+  },
+  {
+   "sha": "e9c0cb5",
+   "date": "2026-10-03",
+   "subject": "Map unused backend code and duplicate logic (#51)"
+  },
+  {
+   "sha": "eac0a8a",
+   "date": "2026-10-03",
+   "subject": "Document search and reader query performance findings (#62)"
+  },
+  {
+   "sha": "eae9f80",
+   "date": "2026-10-03",
+   "subject": "Add A2AJ deduplication logic against iLit corpus"
+  },
+  {
+   "sha": "ed3df7a",
+   "date": "2026-10-03",
+   "subject": "Add dry-run importer for A2AJ Canadian case law dataset"
+  },
+  {
+   "sha": "efc6f98",
+   "date": "2026-10-03",
+   "subject": "Add memo citation check feature (#35)"
+  },
+  {
+   "sha": "f14a0d5",
+   "date": "2026-10-03",
+   "subject": "Add backfill script for V3 case tags"
+  },
+  {
+   "sha": "f298cd6",
+   "date": "2026-10-03",
+   "subject": "Add Phase 1b: Justice Laws XML importer, statute viewer, and HF dataset survey"
+  },
+  {
+   "sha": "f6bfe26",
+   "date": "2026-10-03",
+   "subject": "Update statute importer to use XML directly and verify IRPA/IRPR parsing"
+  },
+  {
+   "sha": "fa018b7",
+   "date": "2026-10-03",
+   "subject": "Add source-linked extractive summary to the case reader (#73)"
+  },
+  {
+   "sha": "0006c3b",
+   "date": "2026-10-04",
+   "subject": "Audit accessibility of search, reader, judge, and citation pages (#52)"
+  },
+  {
+   "sha": "02b24eb",
+   "date": "2026-10-04",
+   "subject": "Add printable legal issue briefs with denominator-safe outcomes (#92)"
+  },
+  {
+   "sha": "079fb54",
+   "date": "2026-10-04",
+   "subject": "Add Citation Context: show which subtheme cites each case in linked case pane (#31)"
+  },
+  {
+   "sha": "07dcc4d",
+   "date": "2026-10-04",
+   "subject": "(#216)"
+  },
+  {
+   "sha": "0802d28",
+   "date": "2026-10-04",
+   "subject": "Add opt-in, privacy-safe request audit logging (#107)"
+  },
+  {
+   "sha": "08843bb",
+   "date": "2026-10-04",
+   "subject": "Refresh README and architecture overview (#135)"
+  },
+  {
+   "sha": "109a9f3",
+   "date": "2026-10-04",
+   "subject": "Add collapsible most-cited paragraphs panel to case reader (#93)"
+  },
+  {
+   "sha": "114f63d",
+   "date": "2026-10-04",
+   "subject": "Prioritize exact citation and party-name search matches (#96)"
+  },
+  {
+   "sha": "144efa1",
+   "date": "2026-10-04",
+   "subject": "(#195)"
+  },
+  {
+   "sha": "15ed597",
+   "date": "2026-10-04",
+   "subject": "Renumber migration from 0031 to 0035 with updated down_revision"
+  },
+  {
+   "sha": "1ca3c22",
+   "date": "2026-10-04",
+   "subject": "Regenerate API and schema documentation"
+  },
+  {
+   "sha": "277a838",
+   "date": "2026-10-04",
+   "subject": "Add non-blocking CI lint and dependency audit checks (#110)"
+  },
+  {
+   "sha": "296bc6d",
+   "date": "2026-10-04",
+   "subject": "Update migration head expectation to 0033_discussion_unit_cache"
+  },
+  {
+   "sha": "29c2e05",
+   "date": "2026-10-04",
+   "subject": "Restore main routes and add unit search/judge analytics endpoints"
+  },
+  {
+   "sha": "2c448bc",
+   "date": "2026-10-04",
+   "subject": "Fix migration reference in 0035_statute_library_phase1"
+  },
+  {
+   "sha": "307fb57",
+   "date": "2026-10-04",
+   "subject": "Bound upload size and document parsing work (#105)"
+  },
+  {
+   "sha": "3216fa1",
+   "date": "2026-10-04",
+   "subject": "(#191)"
+  },
+  {
+   "sha": "36f94fb",
+   "date": "2026-10-04",
+   "subject": "Re-add CaseReaderExtractedSummaryItemResponse and regenerate docs"
+  },
+  {
+   "sha": "3720556",
+   "date": "2026-10-04",
+   "subject": "(#180)"
+  },
+  {
+   "sha": "37b1958",
+   "date": "2026-10-04",
+   "subject": "Regenerate documentation files with DiscussionUnitCache table"
+  },
+  {
+   "sha": "38f9e3b",
+   "date": "2026-10-04",
+   "subject": "(#177)"
+  },
+  {
+   "sha": "3ce31fb",
+   "date": "2026-10-04",
+   "subject": "(#198)"
+  },
+  {
+   "sha": "3f1135f",
+   "date": "2026-10-04",
+   "subject": "(#194)"
+  },
+  {
+   "sha": "3faa00d",
+   "date": "2026-10-04",
+   "subject": "(#199)"
+  },
+  {
+   "sha": "441e6d0",
+   "date": "2026-10-04",
+   "subject": "(#160)"
+  },
+  {
+   "sha": "4735088",
+   "date": "2026-10-04",
+   "subject": "#225"
+  },
+  {
+   "sha": "4df8016",
+   "date": "2026-10-04",
+   "subject": "(#215)"
+  },
+  {
+   "sha": "4ea20ff",
+   "date": "2026-10-04",
+   "subject": "Port saved searches and alerts to the redesigned Case Search (#80)"
+  },
+  {
+   "sha": "5864d9a",
+   "date": "2026-10-04",
+   "subject": "(#193)"
+  },
+  {
+   "sha": "5877a30",
+   "date": "2026-10-04",
+   "subject": "(#221)"
+  },
+  {
+   "sha": "5f9e411",
+   "date": "2026-10-04",
+   "subject": "Regenerate documentation files for PR 29"
+  },
+  {
+   "sha": "60d8d39",
+   "date": "2026-10-04",
+   "subject": "Draft proposed concurrent trigram indexes (#109)"
+  },
+  {
+   "sha": "61cee62",
+   "date": "2026-10-04",
+   "subject": "Add saved search models to models.py"
+  },
+  {
+   "sha": "67f9893",
+   "date": "2026-10-04",
+   "subject": "Merge pull request #139 from greystone-dan/claude/unit-search-judge-analytics-v2"
+  },
+  {
+   "sha": "680409e",
+   "date": "2026-10-04",
+   "subject": "Add filtered CSV export for Case Search (#74)"
+  },
+  {
+   "sha": "70fc18d",
+   "date": "2026-10-04",
+   "subject": "Fix missing model fields in CaseReaderExtractedSummaryItemResponse and CaseSearchResponse"
+  },
+  {
+   "sha": "71ec45a",
+   "date": "2026-10-04",
+   "subject": "(#162)"
+  },
+  {
+   "sha": "72eb46c",
+   "date": "2026-10-04",
+   "subject": "Add memo citation models to models.py"
+  },
+  {
+   "sha": "74abe39",
+   "date": "2026-10-04",
+   "subject": "Regenerate documentation files for PR 34"
+  },
+  {
+   "sha": "760efa8",
+   "date": "2026-10-04",
+   "subject": "Add keyboard navigation and print support to the case reader (#113)"
+  },
+  {
+   "sha": "76387c3",
+   "date": "2026-10-04",
+   "subject": "Add filtered DOCX export to case search (#97)"
+  },
+  {
+   "sha": "76ec648",
+   "date": "2026-10-04",
+   "subject": "Cache slow analytics endpoints with a configurable TTL (#108)"
+  },
+  {
+   "sha": "85ec0b0",
+   "date": "2026-10-04",
+   "subject": "Merge unit search and judge analytics"
+  },
+  {
+   "sha": "86ecec0",
+   "date": "2026-10-04",
+   "subject": "(#214)"
+  },
+  {
+   "sha": "8cb4145",
+   "date": "2026-10-04",
+   "subject": "Migration test: require one head instead of a hard-coded head name (#111)"
+  },
+  {
+   "sha": "8d0c512",
+   "date": "2026-10-04",
+   "subject": "Theme Discovery: group subthemes by shared key terms (#32)"
+  },
+  {
+   "sha": "8e116f0",
+   "date": "2026-10-04",
+   "subject": "#161"
+  },
+  {
+   "sha": "915991a",
+   "date": "2026-10-04",
+   "subject": "(#219)"
+  },
+  {
+   "sha": "95dd903",
+   "date": "2026-10-04",
+   "subject": "WIP: Citation Intelligence Prompts & Testing Framework (#169)"
+  },
+  {
+   "sha": "96b907b",
+   "date": "2026-10-04",
+   "subject": "Update test_migrations head expectation to 0031_saved_searches_alerts"
+  },
+  {
+   "sha": "9b3e795",
+   "date": "2026-10-04",
+   "subject": "#222"
+  },
+  {
+   "sha": "9cdaf93",
+   "date": "2026-10-04",
+   "subject": "Add explainable paragraph similarity using shared tags and citations (#94)"
+  },
+  {
+   "sha": "9d0350a",
+   "date": "2026-10-04",
+   "subject": "(#212)"
+  },
+  {
+   "sha": "a2ca692",
+   "date": "2026-10-04",
+   "subject": "(#190)"
+  },
+  {
+   "sha": "a352567",
+   "date": "2026-10-04",
+   "subject": "Restore export_search_analytics_cases function to routes.py"
+  },
+  {
+   "sha": "a54adb6",
+   "date": "2026-10-04",
+   "subject": "#224"
+  },
+  {
+   "sha": "a5850e3",
+   "date": "2026-10-04",
+   "subject": "Discussion units v1.4: improved segmentation + case reader outline navigator (#22)"
+  },
+  {
+   "sha": "a9a4446",
+   "date": "2026-10-04",
+   "subject": "(#208)"
+  },
+  {
+   "sha": "ab0b6f5",
+   "date": "2026-10-04",
+   "subject": "(#201)"
+  },
+  {
+   "sha": "aedd69a",
+   "date": "2026-10-04",
+   "subject": "Repair empty-database Alembic bootstrap and add PostgreSQL CI (#91)"
+  },
+  {
+   "sha": "af96760",
+   "date": "2026-10-04",
+   "subject": "Merge pull request #98 from greystone-dan/claude/backfill-tags-script"
+  },
+  {
+   "sha": "b520d9f",
+   "date": "2026-10-04",
+   "subject": "(#220)"
+  },
+  {
+   "sha": "ba9e8c3",
+   "date": "2026-10-04",
+   "subject": "(#129)"
+  },
+  {
+   "sha": "c46edd1",
+   "date": "2026-10-04",
+   "subject": "Document ID/IAD decision coverage design (#65)"
+  },
+  {
+   "sha": "c5892bb",
+   "date": "2026-10-04",
+   "subject": "Add DiscussionUnitCache model and fix migration test"
+  },
+  {
+   "sha": "d008476",
+   "date": "2026-10-04",
+   "subject": "Add side-by-side case comparison (#122)"
+  },
+  {
+   "sha": "d48d641",
+   "date": "2026-10-04",
+   "subject": "(#218)"
+  },
+  {
+   "sha": "d5af241",
+   "date": "2026-10-04",
+   "subject": "(#179)"
+  },
+  {
+   "sha": "d5efc31",
+   "date": "2026-10-04",
+   "subject": "(#176)"
+  },
+  {
+   "sha": "d76bd32",
+   "date": "2026-10-04",
+   "subject": "Add opt-in password enforcement; keep access open by default (#106)"
+  },
+  {
+   "sha": "dae5891",
+   "date": "2026-10-04",
+   "subject": "Trigger CI re-run"
+  },
+  {
+   "sha": "ded7069",
+   "date": "2026-10-04",
+   "subject": "Add issue-first, side-by-side judge comparison (#95)"
+  },
+  {
+   "sha": "e561d31",
+   "date": "2026-10-04",
+   "subject": "#211"
+  },
+  {
+   "sha": "ed83bb7",
+   "date": "2026-10-04",
+   "subject": "(#213)"
+  },
+  {
+   "sha": "ef9939b",
+   "date": "2026-10-04",
+   "subject": "#240"
+  },
+  {
+   "sha": "f24203f",
+   "date": "2026-10-04",
+   "subject": "(#159)"
+  },
+  {
+   "sha": "fc90009",
+   "date": "2026-10-04",
+   "subject": "Add power-user operators to Case Search (#127)"
+  },
+  {
+   "sha": "fdecc46",
+   "date": "2026-10-04",
+   "subject": "Add denominator-safe issue outcomes to judge profiles (#124)"
+  }
+ ]
+}

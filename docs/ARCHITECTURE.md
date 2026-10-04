@@ -199,6 +199,7 @@ test checks that these paths continue to exist.
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
+| `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |

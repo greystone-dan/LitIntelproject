@@ -27,16 +27,16 @@ touch-target test was run.
 | Page | Issue / audit result | WCAG 2.1 AA item | File and line | Fix size |
 | --- | --- | --- | --- | --- |
 | Data Explorer — Case Search and Judge Profile | Search inputs already have programmatic labels; search and result controls now have explicit visible keyboard focus. | 1.3.1 Info and Relationships; 2.4.7 Focus Visible | `backend/pages/data_explorer.py:208-209, 440, 559` | Small — focus fixed; labels already present |
-| Data Explorer — inline case reader | Information-view controls now expose their active state with `aria-pressed`; their keyboard focus is visible. Evidence tabs expose tab roles and selected state. | 2.1.1 Keyboard; 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/data_explorer.py:209, 1057-1061` | Small — fixed |
+| Data Explorer — inline case reader | Information-view controls expose their active state with `aria-pressed`; keyboard focus is visible. Cited-paragraph shading pairs `#fff9e8` with `#202522` text (14.8:1); linked-case pinpoint shading pairs `#fff4c2` with `#202522` paragraph-number text (14.06:1). | 1.4.3 Contrast (Minimum); 2.1.1 Keyboard; 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/data_explorer.py:167, 209, 287, 722, 1057-1061` | Small — fixed |
 | Citation Map — case search | Search previously relied on its placeholder for its accessible name; it now has an explicit `aria-label` and visible focus. | 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/citation_map.py:27, 34` | Small — fixed |
 | Citation Map — mode and detail controls | Active state was conveyed only by a CSS class; controls now initialize and synchronize `aria-pressed`. Buttons, links, and selects have explicit focus styles. | 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | `backend/pages/citation_map.py:28, 69-100` | Small — fixed |
 | Citation Map — graph | SVG has a generic accessible name, but an equivalent description of the changing graph and its relationships was not verified. | 1.1.1 Non-text Content; 1.3.1 Info and Relationships | `backend/pages/citation_map.py:35` | Larger — defer pending browser/assistive-technology review |
-| Search, reader, judge, and citation views | No clear static defect was identified for heading hierarchy, link text, or table headers. Narrow-screen CSS exists, but rendered reflow and usable keyboard order were not verified. Shading/tag contrast was not measured. | 1.3.1 Info and Relationships; 1.4.3 Contrast (Minimum); 1.4.10 Reflow; 2.4.3 Focus Order; 2.4.4 Link Purpose; 2.4.6 Headings and Labels | `backend/pages/data_explorer.py:1-1062`; `backend/pages/citation_map.py:4-101`; `backend/pages/citation_pass.py:1-195`; `backend/pages/live_analysis.py:4-48`; `backend/pages/quick_search.py:4-272` | Not sized — manual browser review needed |
+| Search, reader, judge, and citation views | No clear static defect was identified for heading hierarchy, link text, or table headers. Narrow-screen CSS exists, but rendered reflow and usable keyboard order were not verified. Other shading and tag color combinations were not measured. | 1.3.1 Info and Relationships; 1.4.3 Contrast (Minimum); 1.4.10 Reflow; 2.4.3 Focus Order; 2.4.4 Link Purpose; 2.4.6 Headings and Labels | `backend/pages/data_explorer.py:1-1062`; `backend/pages/citation_map.py:4-101`; `backend/pages/citation_pass.py:1-195`; `backend/pages/live_analysis.py:4-48`; `backend/pages/quick_search.py:4-272` | Not sized — manual browser review needed |
 
 The explicit control-name inventory found no unnamed exposed form controls in
 the inspected standalone Citation Map, Citation Pass, Live Analysis, and Quick
-Search builders. Color contrast of shading and tag colors was not measured, so
-no contrast pass is claimed.
+Search builders. The two cited-paragraph text/shading pairs above exceed 4.5:1;
+this does not verify all tag colors or rendered states.
 
 ## Positive observations
 

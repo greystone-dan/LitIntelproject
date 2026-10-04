@@ -68,6 +68,36 @@ The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
 The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The source pane begins with a short **Extracted case summary** only when
+verified stored-text facts exist. Every item has its own evidence link:
+court/date/judge link to an explicit matching source-header block; up to three
+highest-scoring distinct verified stored tags link to their source paragraphs
+(category/value break score ties). Unsupported court abbreviations, dates
+outside supported labelled header forms, judges without matching stored
+extraction/header evidence, and tags without exact document evidence offsets
+are omitted rather than linked to incidental mentions in the reasons.
+Labelled judge headers may contain only the prefixes supported by the metadata
+judge normalizer; the evidence span and offsets still capture the exact stored
+name alone, excluding those prefixes.
+The latest stored outcome and its displayed extraction source share the same
+verified disposition paragraph link. A verbatim disposition can still appear
+without an outcome label. Outcome evidence must match stored full text at its
+stored offsets inside one numbered formatter paragraph, including continuation
+blocks; unverifiable, unnumbered, or cross-paragraph evidence is omitted.
+Links use backend formatter block starts (plus paragraph identity), not
+paragraph numbers alone, and switch to formatted mode to focus that exact
+source block. Header blocks may be unnumbered and are labelled **Source header**.
+The additive reader `extracted_summary` projection has no unverified UI
+fallback. Empty summaries are hidden; no generated prose, classification,
+stored-data changes, or browser-created offsets are involved. This surface is
+separate from the optional technical **Show case summary** control.
+Incoming case citations with an available pinpoint also mark the matching
+numbered paragraph in the full-text reader with a subtle shade and a
+“Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
+or the same pinpoint text already exposed in citation rows, and counts distinct
+other citing cases. This paragraph cue does not recompute citation offsets;
+without a pinpoint that matches a formatted paragraph, the paragraph remains
+unmarked.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph
@@ -357,8 +387,16 @@ only. A separate `POST /live-analysis/resolve` request performs a batched,
 read-only lookup of neutral, named, and short-form references against existing
 case title, citation, and secondary-citation fields. Neither request creates
 cases, citation rows, chunks, embeddings, workspaces, or uploaded-file records.
-Local resolution intentionally does not call external services. Scanned PDFs are
-outside the prototype because they require OCR.
+Local resolution intentionally does not call external services. Successful
+responses include the extracted source text and set `Cache-Control: no-store`
+and `Pragma: no-cache`; this is not access control. The 10 MB file check occurs
+after the multipart file is read, and no expanded-DOCX, PDF page-count, or
+pasted-text resource budget is enforced in these paths. Multipart temporary
+spooling and deployment-level request logging/retention are outside the
+application persistence boundary. Scanned PDFs are outside the prototype
+because they require OCR. The scoped privacy/security review, including
+de-identification routes and residual risks, is
+[`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
@@ -2014,7 +2052,7 @@ Before calling a change stable for the active research workflow:
 7. Confirm migrations, large-file handling, and deployment configuration if the
     change touches any of those surfaces.
 
-The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
+The complete module-to-test coverage matrix, known gaps, and minimum validation by change type are in [docs/TESTING_MATRIX.md](docs/TESTING_MATRIX.md); the measured, risk-ranked pytest statement-coverage report is at [docs/reports/test-coverage.md](docs/reports/test-coverage.md). The required engineering process for schema, source, extractor, API, UI, operational, security, documentation, artifact, and release changes is in [docs/CHANGE_MANAGEMENT.md](docs/CHANGE_MANAGEMENT.md).
 
 ## Documentation Map
 
@@ -2041,9 +2079,9 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `LEGAL_TAGGING.md` | Taxonomy guidance and legal-source hierarchy |
 | `ROADMAP.md` | Prioritized forward plan and quality gates |
 | `MASTER_IDEAS.md` | Broader product ideas/backlog |
-| `SYSTEM_OVERVIEW.txt` | Supplemental plain-language snapshot; some figures are historical |
+| `docs/history/SYSTEM_OVERVIEW_2026-08-12.txt` | Archived plain-language snapshot; some figures are historical |
 | `GUIDANCE.md` | Long-term product/architecture direction |
-| `AI_HANDOFF.md` | Time-bound working context for a developer/agent |
+| `docs/history/AI_HANDOFF_2026-09-02_root.md` | Archived time-bound working context for a developer/agent |
 | `docs/history/` | Archived historical snapshots only |
 
 ## Glossary
@@ -2076,7 +2114,7 @@ This section makes this file self-contained. The companion files remain the main
 
 ### Appendix: AI CaseLibrary Work History
 
-Last generated: 2026-09-01T14:30:33.997660+00:00
+Last generated: 2026-09-28T16:38:40.422022+00:00
 
 This is the project work ledger derived from retained local VS Code session history. It complements `CHANGELOG.md`: the changelog records repository changes, while this document records the larger work narrative and an estimated Copilot-assisted effort timeline.
 
@@ -2090,26 +2128,36 @@ This is the project work ledger derived from retained local VS Code session hist
 
 ## Coverage
 
-- Retained period: 2026-07-31 through 2026-09-01
-- Retained sessions: 22
-- Retained active dates: 18
-- Recorded turns: 1528
-- Five-minute-capped active time: 57.7 h (3463.7 minutes)
-- Session-level cross-check: 57.7 h (3460.8 minutes across 1527 turns)
+- Retained period: 2026-07-31 through 2026-09-28
+- Retained sessions: 34
+- Retained active dates: 36
+- Recorded turns: 2982
+- Five-minute-capped active time: 123.1 h (7387.9 minutes)
+- Session-level cross-check: 123.1 h (7388.0 minutes across 2982 turns)
 - The small difference between daily and session totals comes from sessions that crossed midnight; the daily total is the primary calendar-day estimate.
+
+## Project Cost Context
+
+- Period represented: 2 months
+- Claude Code subscription: $300.00 (150.00/month)
+- Claude Code overage: $50.00
+- OpenAI credit: $25.00
+- Website hosting: $12.00
+- Estimated project cost for this period: $387.00
+- These user-provided figures are separate from the incomplete artifact-based API ledger in `docs/EVALUATION_COSTS.md`.
 
 ## Workstream Breakdown
 
 | Workstream | Sessions | Turns | Estimated active time |
 | --- | ---: | ---: | ---: |
-| Citation extraction and research intelligence | 3 | 489 | 19.9 h |
-| Federal Court activity intelligence | 4 | 486 | 16.8 h |
-| Documentation and architecture | 2 | 258 | 9.8 h |
-| Research UI and search | 2 | 72 | 3.2 h |
+| Citation extraction and research intelligence | 7 | 930 | 37.7 h |
+| Federal Court activity intelligence | 7 | 910 | 36.4 h |
+| Documentation and architecture | 3 | 465 | 18.9 h |
+| Research UI and search | 3 | 225 | 12.3 h |
+| Research UI and documentation | 1 | 295 | 12.2 h |
 | Foundation | 2 | 76 | 2.7 h |
-| Research UI and documentation | 1 | 73 | 2.5 h |
-| Reliability and deployment | 2 | 36 | 1.6 h |
-| Project operations | 5 | 35 | 1.2 h |
+| Reliability and deployment | 3 | 40 | 1.7 h |
+| Project operations | 7 | 39 | 1.2 h |
 | Citation intelligence | 1 | 2 | 0.0 h |
 
 ## Day-By-Day Delivery Ledger
@@ -2477,19 +2525,16 @@ This is the project work ledger derived from retained local VS Code session hist
 
 ### 2026-09-01
 
-- Recorded activity: 74 turns; estimated active time: 2.6 h
+- Recorded activity: 87 turns; estimated active time: 3.1 h
 - Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`
 
 **Major milestones**
 
-- Inline reader UX, code review, system documentation, and reproducible reference generation completed.
+- Inline reader UX, code review, system documentation, and reproducible reference generation continued.
 
 **Feature and system work**
 
-- Improved reader scrolling, idle scrollbar behavior, viewport-safe hover previews, source formatting, linked-case context, and live About data.
-- Ran a broad code review and repaired high-confidence court-filter, reader-metadata, and citation-rebuild defects.
-- Created the canonical `SYSTEM_REFERENCE.md`, generated API reference, generated schema/ERD reference, and this work-history ledger.
-- Captured the local repository checkpoint/LFS synchronization status and documented the pending remote transfer.
+- Continued reader, repository review, system-reference, and documentation work.
 
 **Verified deliverables and artifacts**
 
@@ -2499,6 +2544,240 @@ This is the project work ledger derived from retained local VS Code session hist
   Artifacts: `backend/routes.py`, `backend/citations.py`, `tests/test_api.py`, `tests/test_citations.py`.
 - **Documentation system**: Created the canonical system handbook, generated OpenAPI appendix, generated schema/ERD appendix, and this retained-session work ledger.
   Artifacts: `SYSTEM_REFERENCE.md`, `WORK_HISTORY.md`, `docs/API_REFERENCE.generated.md`, `docs/SCHEMA_REFERENCE.generated.md`.
+
+### 2026-09-02
+
+- Recorded activity: 93 turns; estimated active time: 4.4 h
+- Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`
+
+**Major milestones**
+
+- Repository documentation and implementation review continued.
+
+**Feature and system work**
+
+- Continued the September project checkpoint and related validation work.
+
+### 2026-09-03
+
+- Recorded activity: 165 turns; estimated active time: 6.0 h
+- Supporting sessions: `27f5c3f9-0e10-4898-993f-926258f2b42f`, `18494b2e-af5d-4ccd-9d0d-1be9042e6fca`
+
+**Major milestones**
+
+- Project-manager workflow and model/documentation direction were reviewed.
+
+**Feature and system work**
+
+- Completed the prior repository checkpoint and began the project-manager/model review.
+
+### 2026-09-04
+
+- Recorded activity: 205 turns; estimated active time: 9.4 h
+- Supporting sessions: `5e86480e-8358-4b5c-832b-bad9923e1403`, `18494b2e-af5d-4ccd-9d0d-1be9042e6fca`, `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Batch-output and local/AI-assisted citation workflow behavior were investigated.
+
+**Feature and system work**
+
+- Reviewed generated result availability and batch folder/output organization.
+
+### 2026-09-05
+
+- Recorded activity: 45 turns; estimated active time: 2.1 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Bounded citation processing investigation continued.
+
+**Feature and system work**
+
+- Reviewed batch processing behavior and output organization.
+
+### 2026-09-06
+
+- Recorded activity: 52 turns; estimated active time: 2.4 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`
+
+**Major milestones**
+
+- Local processing workflow review continued.
+
+**Feature and system work**
+
+- Continued bounded investigation of citation extraction execution.
+
+### 2026-09-07
+
+- Recorded activity: 175 turns; estimated active time: 5.9 h
+- Supporting sessions: `e0ae6437-1afe-4fc8-ba80-9010cc136080`, `8c763647-06c3-4d6a-a5ec-1d8638503cf9`, `d0081c4e-0537-4eef-a21d-7aefc0578277`, `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`
+
+**Major milestones**
+
+- Citation-run recovery, resource investigation, and pinpoint resolution were addressed.
+
+**Feature and system work**
+
+- Reviewed safe restart paths, local processing load, and exact citation pinpoint behavior.
+
+### 2026-09-08
+
+- Recorded activity: 29 turns; estimated active time: 1.2 h
+- Supporting sessions: `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`
+
+**Major milestones**
+
+- Citation pinpoint resolution continued.
+
+**Feature and system work**
+
+- Continued deterministic citation and pinpoint QA.
+
+### 2026-09-14
+
+- Recorded activity: 75 turns; estimated active time: 3.2 h
+- Supporting sessions: `1c5f63a8-9ab5-4423-b442-a5ec-1d8638503cf9`, `11a1adf3-fb58-4edf-b101-854935eebf95`
+
+**Major milestones**
+
+- Citation-intelligence source coverage expanded.
+
+**Feature and system work**
+
+- Added coverage for additional high-frequency sources.
+
+### 2026-09-15
+
+- Recorded activity: 24 turns; estimated active time: 1.5 h
+- Supporting sessions: `11a1adf3-fb58-4edf-b101-854935eebf95`
+
+**Major milestones**
+
+- Citation-intelligence source coverage work continued.
+
+**Feature and system work**
+
+- Continued source prioritization and citation coverage.
+
+### 2026-09-18
+
+- Recorded activity: 93 turns; estimated active time: 5.5 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI chunk presentation and statute-reference styling were refined.
+
+**Feature and system work**
+
+- Reduced chunk density and corrected statute-reference typography.
+
+### 2026-09-19
+
+- Recorded activity: 11 turns; estimated active time: 0.6 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI refinement continued.
+
+**Feature and system work**
+
+- Continued chunk and reference presentation work.
+
+### 2026-09-22
+
+- Recorded activity: 49 turns; estimated active time: 3.0 h
+- Supporting sessions: `fb146860-76bd-453a-9a4d-37dd11893245`
+
+**Major milestones**
+
+- Research UI refinement checkpoint completed.
+
+**Feature and system work**
+
+- Completed the bounded chunk-view and statute-reference styling pass.
+
+### 2026-09-23
+
+- Recorded activity: 81 turns; estimated active time: 3.5 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `2699332c-60e1-41cb-b9d7-7d979a9f4d9f`
+
+**Major milestones**
+
+- Federal Court activity acquisition/evaluation work resumed and local LLM options were reviewed.
+
+**Feature and system work**
+
+- Reviewed current activity coverage and bounded local-model possibilities.
+
+### 2026-09-24
+
+- Recorded activity: 92 turns; estimated active time: 4.1 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity evaluation continued.
+
+**Feature and system work**
+
+- Continued deterministic activity analysis and acquisition planning.
+
+### 2026-09-25
+
+- Recorded activity: 129 turns; estimated active time: 5.0 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `61fe0538-b7ff-499e-8a20-fb30e6028384`
+
+**Major milestones**
+
+- Small-model output limits and case-processing behavior were reviewed.
+
+**Feature and system work**
+
+- Investigated case naming and paragraph/chunk limits.
+
+### 2026-09-26
+
+- Recorded activity: 21 turns; estimated active time: 1.2 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity work continued.
+
+**Feature and system work**
+
+- Continued bounded evaluation and pipeline review.
+
+### 2026-09-27
+
+- Recorded activity: 36 turns; estimated active time: 2.2 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`
+
+**Major milestones**
+
+- Federal Court activity pipeline work continued.
+
+**Feature and system work**
+
+- Continued deterministic classifier and evaluation preparation.
+
+### 2026-09-28
+
+- Recorded activity: 66 turns; estimated active time: 3.7 h
+- Supporting sessions: `95debcba-0c6c-4275-b98e-43af99ab44d2`, `1a71fa20-ca3b-49aa-a25c-7ace9d3e6ab7`
+
+**Major milestones**
+
+- FC Activity persistence verification was documented, committed, and pushed.
+
+**Feature and system work**
+
+- Completed the case-level write verification checkpoint and Git publication.
 
 ## Refresh Procedure
 
@@ -2522,11 +2801,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-22T16:59:40.996193+00:00
+Generated: 2026-10-03T23:15:47.591200+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 85 across 85 paths
-Hidden operations: 34 excluded from OpenAPI
+OpenAPI operations: 92 across 92 paths
+Hidden operations: 55 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -2650,6 +2929,7 @@ Search Analytics Cases
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
 - `offset` (query, optional; integer, default `0`)
+- `cohort_id` (query, optional; string, default `""`)
 
 **Responses**
 
@@ -2663,6 +2943,38 @@ Get Analytics Search Case
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/cohort-assessments`
+
+Search Cohort Assessment Records
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cohort_id` (query, optional; string, default `"discussion_units_core_300"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/cohort-assessments/compare`
+
+Compare Cohort Assessment Records
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `topic` (query, optional; string, default `""`)
+- `role` (query, optional; string, default `""`)
+- `limit` (query, optional; integer, default `25`)
+- `cohort_id` (query, optional; string, default `"discussion_units_core_300"`)
 
 **Responses**
 
@@ -2691,6 +3003,14 @@ Get Statute Tag Matrix
 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/tags`
+
+Get Tag Analytics
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `GET /analytics/themes`
 
@@ -2838,6 +3158,19 @@ Get Case Contextual Anchors
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-assessments`
+
+Get Case Paragraph Assessments
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/reader-data`
@@ -3240,6 +3573,7 @@ Get Citation Map Case Tags
 
 - `case_id` (path, required; integer)
 - `limit` (query, optional; integer, default `100`)
+- `display_limit` (query, optional; integer | null)
 
 **Responses**
 
@@ -3633,6 +3967,19 @@ Live Analysis Resolve
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /memo-citation-check`
+
+Memo Citation Check Analyze
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_memo_citation_check_analyze_memo_citation_check_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -3734,6 +4081,35 @@ Search Chunks Local
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /search/chunks/paragraphs`
+
+Search Paragraphs
+
+**Request body (required)**
+
+- `application/json`: `CaseSearchRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /search/tags/similar`
+
+Find Similar Cases By Tags
+
+Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs.
+
+**Parameters**
+
+- `case_id` (query, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ## Hidden Operations
@@ -3949,6 +4325,41 @@ Handler: `backend.routes.citation_intelligence_timeline`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /api/deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `names` (str; default `Form()`)
+- `details` (str; default `Form()`)
+- `categories` (str; default `Form()`)
+- `auto_names` (bool; default `Form(True)`)
+- `never_hide` (str; default `Form()`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/deidentify/docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_docx_api`
+
+**Handler parameters**
+
+- `text` (str; default `Form(PydanticUndefined)`)
+- `filename` (str; default `Form(document.docx)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/fc-activity/analytics`
 
 **Hidden from OpenAPI.**
@@ -3962,6 +4373,150 @@ Handler: `backend.routes.fc_activity_analytics`
 - `year_from` (int | None; default `None`)
 - `year_to` (int | None; default `None`)
 - `city` (str; default `''`)
+- `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/breakdowns`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_breakdowns`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/case`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_case`
+
+**Handler parameters**
+
+- `imm` (str; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/counsel`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_counsel`
+
+**Handler parameters**
+
+- `min_files` (int; default `20`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/dashboard`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_dashboard`
+
+**Handler parameters**
+
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `city` (str; default `''`)
+- `decision_body` (str; default `''`)
+- `application_type` (str; default `''`)
+- `representation` (str; default `''`)
+- `language` (str; default `''`)
+- `office` (str; default `''`)
+- `resolution` (str; default `''`)
+- `judge` (str; default `''`)
+- `counsel` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/flow`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_flow`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/insights`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_insights`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_judges`
+
+**Handler parameters**
+
+- `min_decisions` (int; default `25`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/motions`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_motions`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -4025,6 +4580,22 @@ Handler: `backend.routes.judge_profile`
 - `slug` (str; required)
 - `minister` (list[str] | None; default `Query(None)`)
 - `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/reidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.reidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `key` (str; default `Form(PydanticUndefined)`)
 
 **Responses**
 
@@ -4104,6 +4675,126 @@ Handler: `backend.routes.data_explorer_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/activity`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_activity`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/paragraph-assessments`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_paragraph_assessments`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/reader-data`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_reader_data`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/statute-references`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_statute_references`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_search`
+
+**Handler parameters**
+
+- `query` (str; default `''`)
+- `cites` (str; default `''`)
+- `government_outcome` (str; default `''`)
+- `decision_outcome` (str; default `''`)
+- `minister` (str; default `''`)
+- `judge` (str; default `''`)
+- `court` (str; default `''`)
+- `year` (str; default `''`)
+- `search_full_text` (bool; default `False`)
+- `sort_by` (str; default `'relevance'`)
+- `limit` (int; default `50`)
+- `offset` (int; default `0`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /fc-history`
 
 **Hidden from OpenAPI.**
@@ -4143,6 +4834,16 @@ Handler: `backend.routes.judge_profile_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.live_analysis_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /memo-citation-check`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.memo_citation_check_page`
 
 **Responses**
 
@@ -4188,6 +4889,16 @@ Handler: `backend.main.robots`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /tag-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.tag_finder_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /testing`
 
 **Hidden from OpenAPI.**
@@ -4206,8 +4917,8 @@ Handler: `backend.routes.testing_interface`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-18T02:22:41.199201+00:00
-Tables: 22
+Generated: 2026-10-02T17:42:51.362741+00:00
+Tables: 25
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -4392,6 +5103,9 @@ erDiagram
         String(120) case_class
         String(120) track
         String(2048) source_url
+        String(100) source_type
+        String(255) source_name
+        String(255) source_id
         DATETIME scraped_timestamp
         JSON raw_payload
         DATETIME created_at
@@ -4410,6 +5124,9 @@ erDiagram
         String(120) case_class
         String(120) track
         String(2048) source_url
+        String(100) source_type
+        String(255) source_name
+        String(255) source_id
         DATETIME scraped_timestamp
         JSON classification_json
         String(80) classifier_version
@@ -4426,6 +5143,74 @@ erDiagram
         String(64) entry_hash
         JSON raw_document
         DATETIME created_at
+    }
+    fc_activity_motions {
+        Integer id PK
+        Integer source_case_id  FK
+        String(255) imm_number
+        Integer year
+        String(255) city_filed
+        Integer position
+        String(60) motion_type
+        String(40) filer
+        String(60) outcome
+        String(60) link
+        String(120) judge_key
+        String(255) judge_name
+        DATE filed_date
+        DATE decision_date
+        Integer days_to_decision
+        BOOLEAN in_writing
+        TEXT relief
+    }
+    fc_activity_summaries {
+        Integer source_case_id PK FK
+        String(255) imm_number
+        String(80) classifier_version
+        Integer year
+        String(255) city_filed
+        String(80) resolution
+        String(40) lifecycle
+        String(40) leave_result
+        String(40) review_result
+        String(40) decision_body
+        String(120) leave_judge_key
+        String(255) leave_judge_name
+        String(120) merits_judge_key
+        String(255) merits_judge_name
+        String(160) applicant_counsel_key
+        String(255) applicant_counsel_name
+        String(40) representation
+        String(40) respondent_position
+        String(40) leave_refusal_reason
+        String(40) stay_status
+        String(40) hearing_mode
+        Integer hearing_minutes
+        String(40) appeal_status
+        String(60) certified_question
+        String(40) consent_status
+        String(40) reasons_at_filing
+        String(20) proceeding_language
+        String(40) lead_file
+        String(80) lead_resolution
+        String(80) application_type
+        String(80) office_location
+        BOOLEAN joint_applicants
+        Integer motions_filed
+        String(40) extension_of_time
+        BOOLEAN dormant
+        Integer days_decision_to_filing
+        String(40) filing_timeliness
+        String(40) record_timeliness
+        String(40) memorandum_timeliness
+        String(40) hearing_window
+        Integer days_filing_to_perfection
+        Integer days_filing_to_leave_decision
+        Integer days_leave_grant_to_hearing
+        Integer days_hearing_to_judgment
+        Integer days_filing_to_final_disposition
+        BOOLEAN judgment_from_bench
+        DATETIME updated_at
     }
     fc_procedural_history {
         Integer id PK
@@ -4484,6 +5269,18 @@ erDiagram
         TEXT text
         Integer display_order
     }
+    recent_case_chunk_embeddings {
+        Integer chunk_id PK FK
+        Integer case_id  FK
+        Integer chunk_index
+        Integer paragraph_start
+        Integer paragraph_end
+        String(50) chunk_set
+        TEXT text
+        VECTOR(1536) embedding
+        String(100) embedding_model
+        DATETIME refreshed_at
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
@@ -4520,7 +5317,11 @@ erDiagram
     case_chunks ||--o{ citations : "target_chunk_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
+    fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
+    fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
+    cases ||--o{ recent_case_chunk_embeddings : "case_id"
+    case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
 ```
@@ -4542,14 +5343,17 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
-| `fc_activity_cases` | 15 | `id` |
-| `fc_activity_classifications` | 17 | `id` |
+| `fc_activity_cases` | 18 | `id` |
+| `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
+| `fc_activity_motions` | 17 | `id` |
+| `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
+| `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `statute_references` | 16 | `id` |
 
 ## `a2aj_case_map`
@@ -4955,6 +5759,9 @@ erDiagram
 | `case_class` | `String(120)` | yes | - |
 | `track` | `String(120)` | yes | - |
 | `source_url` | `String(2048)` | yes | - |
+| `source_type` | `String(100)` | yes | - |
+| `source_name` | `String(255)` | yes | - |
+| `source_id` | `String(255)` | yes | - |
 | `scraped_timestamp` | `DATETIME` | yes | - |
 | `raw_payload` | `JSON` | yes | - |
 | `created_at` | `DATETIME` | no | NOT NULL; default=now() |
@@ -4964,7 +5771,10 @@ erDiagram
 
 - `ix_fc_activity_cases_citation`: index on `citation`
 - `ix_fc_activity_cases_date_filed`: index on `date_filed`
+- `ix_fc_activity_cases_source_id`: index on `source_id`
 - `ix_fc_activity_cases_source_key`: unique index on `source_key`
+- `ix_fc_activity_cases_source_name`: index on `source_name`
+- `ix_fc_activity_cases_source_type`: index on `source_type`
 - `ix_fc_activity_cases_year`: index on `year`
 
 ### Unique Constraints
@@ -4990,6 +5800,9 @@ erDiagram
 | `case_class` | `String(120)` | yes | - |
 | `track` | `String(120)` | yes | - |
 | `source_url` | `String(2048)` | yes | - |
+| `source_type` | `String(100)` | yes | - |
+| `source_name` | `String(255)` | yes | - |
+| `source_id` | `String(255)` | yes | - |
 | `scraped_timestamp` | `DATETIME` | yes | - |
 | `classification_json` | `JSON` | no | NOT NULL |
 | `classifier_version` | `String(80)` | no | NOT NULL |
@@ -5001,7 +5814,10 @@ erDiagram
 - `ix_fc_activity_classifications_date_filed`: index on `date_filed`
 - `ix_fc_activity_classifications_imm_number`: index on `imm_number`
 - `ix_fc_activity_classifications_source_case_id`: unique index on `source_case_id`
+- `ix_fc_activity_classifications_source_id`: index on `source_id`
 - `ix_fc_activity_classifications_source_key`: index on `source_key`
+- `ix_fc_activity_classifications_source_name`: index on `source_name`
+- `ix_fc_activity_classifications_source_type`: index on `source_type`
 - `ix_fc_activity_classifications_year`: index on `year`
 
 ### Foreign Keys
@@ -5040,6 +5856,113 @@ erDiagram
 ### Foreign Keys
 
 - `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+
+## `fc_activity_motions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `imm_number` | `String(255)` | yes | - |
+| `year` | `Integer` | yes | - |
+| `city_filed` | `String(255)` | yes | - |
+| `position` | `Integer` | no | NOT NULL |
+| `motion_type` | `String(60)` | no | NOT NULL |
+| `filer` | `String(40)` | yes | - |
+| `outcome` | `String(60)` | no | NOT NULL |
+| `link` | `String(60)` | yes | - |
+| `judge_key` | `String(120)` | yes | - |
+| `judge_name` | `String(255)` | yes | - |
+| `filed_date` | `DATE` | yes | - |
+| `decision_date` | `DATE` | yes | - |
+| `days_to_decision` | `Integer` | yes | - |
+| `in_writing` | `BOOLEAN` | yes | - |
+| `relief` | `TEXT` | yes | - |
+
+### Indexes
+
+- `ix_fc_activity_motions_imm_number`: index on `imm_number`
+- `ix_fc_activity_motions_judge_key`: index on `judge_key`
+- `ix_fc_activity_motions_motion_type`: index on `motion_type`
+- `ix_fc_activity_motions_outcome`: index on `outcome`
+- `ix_fc_activity_motions_source_case_id`: index on `source_case_id`
+- `ix_fc_activity_motions_year`: index on `year`
+
+### Foreign Keys
+
+- `source_case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+
+## `fc_activity_summaries`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; FK -> fc_activity_cases.id; NOT NULL |
+| `imm_number` | `String(255)` | yes | - |
+| `classifier_version` | `String(80)` | no | NOT NULL |
+| `year` | `Integer` | yes | - |
+| `city_filed` | `String(255)` | yes | - |
+| `resolution` | `String(80)` | yes | - |
+| `lifecycle` | `String(40)` | yes | - |
+| `leave_result` | `String(40)` | yes | - |
+| `review_result` | `String(40)` | yes | - |
+| `decision_body` | `String(40)` | yes | - |
+| `leave_judge_key` | `String(120)` | yes | - |
+| `leave_judge_name` | `String(255)` | yes | - |
+| `merits_judge_key` | `String(120)` | yes | - |
+| `merits_judge_name` | `String(255)` | yes | - |
+| `applicant_counsel_key` | `String(160)` | yes | - |
+| `applicant_counsel_name` | `String(255)` | yes | - |
+| `representation` | `String(40)` | yes | - |
+| `respondent_position` | `String(40)` | yes | - |
+| `leave_refusal_reason` | `String(40)` | yes | - |
+| `stay_status` | `String(40)` | yes | - |
+| `hearing_mode` | `String(40)` | yes | - |
+| `hearing_minutes` | `Integer` | yes | - |
+| `appeal_status` | `String(40)` | yes | - |
+| `certified_question` | `String(60)` | yes | - |
+| `consent_status` | `String(40)` | yes | - |
+| `reasons_at_filing` | `String(40)` | yes | - |
+| `proceeding_language` | `String(20)` | yes | - |
+| `lead_file` | `String(40)` | yes | - |
+| `lead_resolution` | `String(80)` | yes | - |
+| `application_type` | `String(80)` | yes | - |
+| `office_location` | `String(80)` | yes | - |
+| `joint_applicants` | `BOOLEAN` | yes | - |
+| `motions_filed` | `Integer` | yes | - |
+| `extension_of_time` | `String(40)` | yes | - |
+| `dormant` | `BOOLEAN` | yes | - |
+| `days_decision_to_filing` | `Integer` | yes | - |
+| `filing_timeliness` | `String(40)` | yes | - |
+| `record_timeliness` | `String(40)` | yes | - |
+| `memorandum_timeliness` | `String(40)` | yes | - |
+| `hearing_window` | `String(40)` | yes | - |
+| `days_filing_to_perfection` | `Integer` | yes | - |
+| `days_filing_to_leave_decision` | `Integer` | yes | - |
+| `days_leave_grant_to_hearing` | `Integer` | yes | - |
+| `days_hearing_to_judgment` | `Integer` | yes | - |
+| `days_filing_to_final_disposition` | `Integer` | yes | - |
+| `judgment_from_bench` | `BOOLEAN` | yes | - |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_fc_activity_summaries_applicant_counsel_key`: index on `applicant_counsel_key`
+- `ix_fc_activity_summaries_city_filed`: index on `city_filed`
+- `ix_fc_activity_summaries_decision_body`: index on `decision_body`
+- `ix_fc_activity_summaries_imm_number`: index on `imm_number`
+- `ix_fc_activity_summaries_leave_judge_key`: index on `leave_judge_key`
+- `ix_fc_activity_summaries_merits_judge_key`: index on `merits_judge_key`
+- `ix_fc_activity_summaries_office_location`: index on `office_location`
+- `ix_fc_activity_summaries_resolution`: index on `resolution`
+- `ix_fc_activity_summaries_year`: index on `year`
+
+### Foreign Keys
+
+- `source_case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
 
 ## `fc_procedural_history`
 
@@ -5154,6 +6077,33 @@ erDiagram
 
 - `document_id` -> `legislation_documents.id`; on delete `CASCADE`
 
+## `recent_case_chunk_embeddings`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `chunk_id` | `Integer` | no | PK; FK -> case_chunks.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_index` | `Integer` | no | NOT NULL |
+| `paragraph_start` | `Integer` | yes | - |
+| `paragraph_end` | `Integer` | yes | - |
+| `chunk_set` | `String(50)` | no | NOT NULL; default=paragraph |
+| `text` | `TEXT` | no | NOT NULL |
+| `embedding` | `VECTOR(1536)` | no | NOT NULL |
+| `embedding_model` | `String(100)` | no | NOT NULL |
+| `refreshed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_recent_case_chunk_embeddings_case_id`: index on `case_id`
+- `ix_recent_case_chunk_embeddings_embedding_model`: index on `embedding_model`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+
 ## `statute_references`
 
 ### Columns
@@ -5264,22 +6214,20 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 | `OPENAI_AUDIT_OUTPUT_COST_PER_1M` | `0.40` | `scripts/verify_citation_extraction.py` | Output-token cost estimate used for budget calculation. |
 | `OPENAI_AUDIT_MAX_OUTPUT_TOKENS` | `300` | `scripts/verify_citation_extraction.py` | Maximum requested completion tokens per audit call. |
 | `OPENAI_AUDIT_MAX_CHARS` | `5000` | `scripts/verify_citation_extraction.py` | Maximum source characters included in an audit prompt. |
-| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | OpenAI-compatible local Ollama endpoint used when the local provider is selected. |
-| `OLLAMA_MODEL` | `qwen2.5:7b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected; it must be pulled separately. |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434/v1` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local Ollama endpoint base used when the local provider is selected. The application provider uses Ollama's native `/api/chat` endpoint; the bounded script runner uses the compatible `/v1` endpoint. |
+| `OLLAMA_MODEL` | `qwen3:4b` | `backend/text_generation_providers.py`, `scripts/run_case_intelligence_request.py` | Local instruct model used when the local provider is selected. The model must be pulled into Ollama separately; set this explicitly if using another pulled model such as `qwen2.5:7b`. |
+
+The case-intelligence runner defaults to the hosted OpenAI provider. Use
+`--provider local` to keep prompts and JSON result artifacts on the local
+machine through Ollama. Local generation is optional enrichment; deterministic
+citations, statutes, offsets, and source provenance remain authoritative.
+
+The experimental `/research` route uses the same provider boundary. Set
+`TEXT_GENERATION_PROVIDER=local` to call Ollama; its code default model is
+`qwen3:4b`. The route reports a controlled `503` when the selected provider
+is not configured or reachable. This setting does not download a model.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
-
-The experimental `/research` route uses the same provider boundary as the
-bounded case-intelligence runner. Set `TEXT_GENERATION_PROVIDER=local` to call
-Ollama; the application provider uses Ollama's native `/api/chat` endpoint and
-disables Qwen3 thinking mode so bounded summaries are returned as content. The
-route does not download models and returns a controlled `503` when the selected
-provider is not configured or reachable. Deterministic citations, statutes,
-offsets, and source provenance remain authoritative.
-
-The first bounded Qwen3 paragraph-summary baseline is report-only: `scripts/run_local_paragraph_summary_baseline.py` reconstructs text from read-only `CaseChunk` offsets, validates source hashes, and records one result per paragraph. Case 1093 paragraphs 0-9 produced 3 valid summaries and 7 explicit structured-output failures; this is an evaluation artifact, not persistent enrichment.
-
-A matched diagnostic replay of the existing Case 35868 OpenAI discussion-unit request is also report-only. The full 71-paragraph local replay timed out after 120 seconds; a first-10-paragraph replay completed in 106.995 seconds but returned a different case-summary schema and conflicting case identity (`R. v. Febles`, 2013 SCC 5 instead of 2014 SCC 68). The comparison remains diagnostic and is not suitable for enrichment.
 
 ## Local Embedding Settings
 
@@ -5334,6 +6282,8 @@ POSTGRES_USER=your_local_user
 POSTGRES_PASSWORD=your_local_password
 OPENAI_API_KEY=your_key_only_if_openai_workflows_are_required
 LOCAL_EMBEDDING_DEVICE=cpu
+OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
+OLLAMA_MODEL=qwen2.5:7b
 CASELIBRARY_FOCUS_MASTER_300=false
 ```
 
@@ -5437,14 +6387,22 @@ that canonical text cannot recover; those differences remain review signals.
 | --- | --- |
 | Class | Dataset/staging intelligence layer |
 | Source shape | A2AJ/Hugging Face Federal Court activity rows and document-level docket entries |
-| Adapters | `backend/fc_activity.py`, `scripts/ingest_hf_fc_activity.py`, `scripts/classify_fc_activity.py`, `scripts/backfill_case_metadata_outcomes.py` |
+| Adapters | `backend/fc_activity.py`, `scripts/fetch_fc_procedural_history.py` (`--write-activity`), `scripts/ingest_hf_fc_activity.py`, `scripts/classify_fc_activity.py`, `scripts/backfill_case_metadata_outcomes.py` |
 | Tables | `fc_activity_cases`, `fc_activity_documents`, `fc_activity_classifications` |
-| Identity | Stable source key, optional citation, date/year, case name, source URL, plus deduplicated document entries |
+| Identity | Stable source key, optional citation, date/year, case name, source URL, plus deduplicated document entries; endpoint additions use stable IMM-based keys and preserve source payloads |
 | Canonical relationship | Separate from canonical `cases`; can provide activity context or verified docket correlation |
 | Classification | Deterministic classification JSON/version is stored separately from source activity data |
 | Constraint | Activity records and classifications are research signals, not judicial reasons, outcomes, or canonical decision capture |
 
 The dataset is particularly useful for IMM-focused procedural/activity analysis but has source-period and coverage limits. Keep date scope and correlation logic visible when presenting results.
+
+Independent collection preparation and the approval boundary for a future
+worker are documented in
+`docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md`. The worker may stage discovery,
+procedural history, and activity classifications without the public website;
+canonical PostgreSQL import remains a separate, exclusive, explicitly approved
+operation. Oracle Always Free is not an approved hosting decision or a source
+of access control.
 
 ### A2AJ Canadian Case Law
 
@@ -5458,6 +6416,66 @@ The dataset is particularly useful for IMM-focused procedural/activity analysis 
 | Canonical path | `CaseIngestRequest` to `/ingest`; citation/hash deduplication and source provenance apply |
 | Stored source fields | Bilingual citations/names/text where available, URLs, scrape timestamps, cited/citing lists, source licence metadata, and source identity |
 | Trust status | Unofficial copy. Verify critical propositions, dates, citations, and dispositions against authoritative material. |
+
+#### Current coverage assessment (2026-09-30)
+
+The live canonical database currently reports `60,849` cases with source type
+`a2aj_parquet`, with the newest dated decision at `2026-07-24`. The smaller
+`a2aj_api_seed`, `a2aj_curated`, and `a2aj_immigration_core` populations are
+targeted subsets rather than a complete refresh. The local `canlaw.db` staging
+archive is approximately 6.7 GB and was last modified in August 2026; its
+documented snapshot is not proof of present-day A2AJ coverage.
+
+The repository has both a bounded paginated API importer and a Hugging Face
+staging bridge, but the public API contract still needs a current, non-mutating
+probe. A single unauthenticated request to the documented A2AJ search endpoint
+on 2026-09-30 returned HTTP 400 for the attempted query shape, so newer records
+are not yet confirmed. Do not infer that the endpoint is unavailable or change
+the importer based on that one response; first reconcile the current A2AJ API
+request/response contract.
+
+The next safe step is a read-only, one-page source probe or refreshed staging
+metadata check, followed by a bounded dry-run comparison against the canonical
+date/citation baseline. Any bulk acquisition, source-terms decision, or
+canonical PostgreSQL write requires a separate approval and must retain the
+existing provenance, hash, source-priority, conflict, checkpoint, and
+single-writer safeguards.
+
+The scoped FC/FCA/SCC probe confirmed that the live A2AJ Hugging Face dataset
+exposes all three target Parquet partitions. Remote HEAD metadata reported
+approximately 850 MB for FC, 145 MB for FCA, and 365 MB for SCC; the remote FC
+object differs from the local 844 MB, 35,814-row file. Local staging contains
+FC/FCA/SCC rows from the older snapshot, but only the FC Parquet file is
+present under `data/raw/a2aj/`; FCA and SCC must be acquired from the current
+upstream partitions before they can be dry-run through the Parquet importer.
+This establishes a viable refresh source, not the date coverage or permission
+to download and import it.
+
+The bounded refresh acquisition completed on 2026-09-30 in
+`data/raw/a2aj/refresh-20260930/`. FC contains 35,990 rows through
+2026-09-25, FCA contains 7,813 rows through 2026-09-24, and SCC contains
+10,893 rows through 2026-09-18. Court-filtered dry-runs found 206 FC, 33 FCA,
+and 4 SCC candidates; 168 FC, 28 FCA, and 4 SCC are dated after the canonical
+2026-07-24 baseline. The files matched their upstream linked SHA-256 values.
+These are staging candidates only. Review of source terms, citation/hash
+conflicts, and canonical import remains approval-gated.
+
+SCC HTML acquisition was canaried on 2026-09-30 using
+`scripts/acquire_case_html.py --court SCC --missing-html-only`. Five official
+pages were inspected: one validated and was stored as a sanitized
+`source_html` snapshot with a dedicated provenance row; four were quarantined
+because the returned page did not contain the expected citation. The validated
+case mapped to canonical text at `0.6828`, below the SCC structural threshold
+of `0.85`, so broader SCC HTML acquisition is paused for source-structure
+review. The canary did not replace canonical text or rebuild chunks.
+
+The approved post-baseline import completed on 2026-09-30. It added 168 FC, 28
+FCA, and 4 SCC cases through the existing `/ingest` contract, increasing the
+canonical `a2aj_parquet` population from 60,849 to 61,049. The importer now
+supports `--after-date YYYY-MM-DD`, and the run used `--after-date 2026-07-24`
+with court filters for only FC, FCA, and SCC. Existing cases were not enriched
+or replaced; refreshed relationship metadata and HTML snapshots remain a
+separate task.
 
 Importers support bounded `--limit` and dry-run workflows. A2AJ data may be broader than immigration and should be filtered/curated rather than assumed IMM-specific.
 
@@ -5598,18 +6616,21 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 108
+Active scripts documented: 146
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
-| `_tmp_crosscourt_audit.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
+| `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
+| `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
+| `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
 | `audit_self_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_self_citations.py --help` |
 | `backfill_case_metadata_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help` |
@@ -5621,12 +6642,19 @@ Active scripts documented: 108
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
+| `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
+| `build_expansion_proposal.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_expansion_proposal.py --help` |
+| `build_fc_activity_audit_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_audit_report.py --help` |
 | `build_fc_activity_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_activity_gold_template.py --help` |
 | `build_fc_batch_from_party.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_batch_from_party.py --help` |
 | `build_fc_citation_gold_template.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_gold_template.py --help` |
 | `build_fc_citation_seed.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_citation_seed.py --help` |
 | `build_fc_metadata_gold_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help` |
+| `build_final_expansion.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_final_expansion.py --help` |
 | `build_five_case_citation_gold_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help` |
+| `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
+| `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
+| `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
@@ -5644,24 +6672,31 @@ Active scripts documented: 108
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
+| `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
+| `dry_run_paragraph_evidence_bridge.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\dry_run_paragraph_evidence_bridge.py --help` |
 | `embed_a2aj_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_a2aj_cases.py --help` |
 | `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
+| `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
+| `evaluate_fc_activity_deterministic.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_activity_deterministic.py --help` |
 | `evaluate_fc_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_citation_extraction.py --help` |
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
+| `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
+| `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
 | `extract_seed_cases_from_transcript.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help` |
+| `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
@@ -5684,48 +6719,55 @@ Active scripts documented: 108
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
+| `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
+| `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
+| `mine_a2aj_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help` |
+| `mine_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help` |
+| `monitor_vector_index.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help` |
+| `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
+| `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
+| `prepare_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help` |
 | `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
+| `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
+| `report_fc_activity_coverage.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help` |
+| `report_fc_activity_motion_unknowns.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help` |
 | `report_incomplete_short_form_anchors.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_incomplete_short_form_anchors.py --help` |
 | `report_unresolved_citation_shapes.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_unresolved_citation_shapes.py --help` |
 | `resolve_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_citation_targets.py --help` |
 | `resolve_short_citation_targets.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help` |
+| `review_fc_activity_local.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_fc_activity_local.py --help` |
 | `review_tag_candidates.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\review_tag_candidates.py --help` |
+| `run_case_intelligence_request.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_case_intelligence_request.py --help` |
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
+| `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
+| `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
+| `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
+| `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
+| `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
 | `run_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_treatment_teacher_batch.py --help` |
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
+| `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
-
-## `scripts/_tmp_crosscourt_audit.py`
-
-**Purpose:** THROWAWAY cross-court metadata-extraction audit (read-only). Patterns on scripts/audit_fc_metadata_extraction.py but audits a court selected via --court (FCA | SCC | both). Reuses fc_ingest.document_scraper._extract_metadata_with_quality and backend.database. Purpose: measure whether the recent FC metadata-extraction fixes generalize to FCA and SCC without court-specific handling. Usage: & ".\venv\Scripts\python.exe" scripts\_tmp_crosscourt_audit.py --court both
-
-**Operational class:** Utility
-
-**Write/network risk:** inspect implementation before execution
-
-**Safe first command**
-
-```powershell
-.\venv\Scripts\python.exe scripts\_tmp_crosscourt_audit.py --help
-```
 
 ## `scripts/acquire_case_html.py`
 
@@ -5783,6 +6825,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\agent_policy.py --help
 ```
 
+## `scripts/aggregate_recorded_costs.py`
+
+**Purpose:** Aggregate report-level estimated costs from evaluation artifacts.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs
+```
+
 ## `scripts/ai_triage_citation_candidate.py`
 
 **Purpose:** Bounded AI triage for proposed case-citation review candidates. This script produces suggestions only. It never modifies the candidate fixture, database rows, or confirmed gold data. Use --dry-run first.
@@ -5795,6 +6851,48 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/audit_discussion_unit_structure.py`
+
+**Purpose:** Audit retained Discussion Unit reports for review-only structural risks.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help
+```
+
+## `scripts/audit_fc_activity_motion_unknowns_openai.py`
+
+**Purpose:** Send all unknown FC Activity motions for bounded OpenAI subtype suggestions.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help
+```
+
+## `scripts/audit_fc_activity_openai.py`
+
+**Purpose:** Audit deterministic FC Activity events with a bounded OpenAI sample.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help
 ```
 
 ## `scripts/audit_fc_metadata_extraction.py`
@@ -5951,6 +7049,48 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help
 ```
 
+## `scripts/build_discussion_unit_priority_lists.py`
+
+**Purpose:** Build the bounded Discussion Unit priority lists without database writes.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help
+```
+
+## `scripts/build_expansion_proposal.py`
+
+**Purpose:** Build comprehensive V3 expansion proposal with categorized legal terms. Mines 1-2 word legal concepts from immigration case law and organizes them into V3 taxonomy categories for deterministic tagging expansion.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_expansion_proposal.py --help
+```
+
+## `scripts/build_fc_activity_audit_report.py`
+
+**Purpose:** Build a readable, source-backed audit report from an FC Activity package.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_fc_activity_audit_report.py --help
+```
+
 ## `scripts/build_fc_activity_gold_template.py`
 
 **Purpose:** Build a stratified manual-adjudication template from an FC classification report.
@@ -6021,6 +7161,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help
 ```
 
+## `scripts/build_final_expansion.py`
+
+**Purpose:** Build final V3 expansion proposal with measured coverage. Takes mined concepts, combines with existing proposal, and generates a comprehensive expansion JSON and coverage report.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_final_expansion.py --help
+```
+
 ## `scripts/build_five_case_citation_gold_candidate.py`
 
 **Purpose:** Build a deterministic, proposed five-case citation review fixture.
@@ -6033,6 +7187,48 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help
+```
+
+## `scripts/build_mason_argument_citation_fixture.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help
+```
+
+## `scripts/build_mason_case_intelligence_request.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help
+```
+
+## `scripts/build_mason_citation_review_ledger.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`
@@ -6273,6 +7469,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help
 ```
 
+## `scripts/discussion_units_ledger.py`
+
+**Purpose:** Atomic, report-only ledger for resumable Discussion Unit runs.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help
+```
+
 ## `scripts/download_reference_library.py`
 
 **Purpose:** Download a provenance-preserving reference corpus kept separate from cases.
@@ -6285,6 +7495,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\download_reference_library.py --help
+```
+
+## `scripts/dry_run_paragraph_evidence_bridge.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\dry_run_paragraph_evidence_bridge.py --help
 ```
 
 ## `scripts/embed_a2aj_cases.py`
@@ -6357,6 +7581,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help
 ```
 
+## `scripts/evaluate_citation_refinement.py`
+
+**Purpose:** Shadow-mode comparison of pass-one citation extraction and the step-2 refinement layers. Never writes to the database. Two input modes: --text-file PATH a decision as .txt or .html (no database needed) --case-id N / --limit N decisions from the database (read-only) With --resolve (database mode) it also links rows to cases, paragraphs and statute provisions, and reports how many more reach each level than pass one. Outputs go to --output-dir (default data/eval/reports/citation_refinement): rows.csv every refined/dropped row with its step, action and notes summary.json counts by step/action and, with --resolve, linking statuses
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help
+```
+
 ## `scripts/evaluate_data_quality.py`
 
 **Purpose:** Automated data quality and corpus integrity evaluation script. Audits canonical cases, chunk distributions, citation resolution, statute references, metadata completeness, and graph consistency. Emits structured JSON reports and console markdown summaries.
@@ -6369,6 +7607,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help
+```
+
+## `scripts/evaluate_fc_activity_deterministic.py`
+
+**Purpose:** Build a seeded, read-only evaluation report for FC Activity extraction.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_fc_activity_deterministic.py --help
 ```
 
 ## `scripts/evaluate_fc_citation_extraction.py`
@@ -6439,6 +7691,34 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evidence_gate.py --help
+```
+
+## `scripts/expand_legal_concepts.py`
+
+**Purpose:** Expand legal concept list to several hundred through domain analysis. Uses legal domain patterns, procedure names, and common case findings to expand the concept vocabulary comprehensively.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help
+```
+
+## `scripts/export_fc_activity_package.py`
+
+**Purpose:** Export reproducible Federal Court Activity source and derived cohorts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help
 ```
 
 ## `scripts/export_tagging_v3_canary_review.py`
@@ -6525,6 +7805,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help
 ```
 
+## `scripts/fc_activity_extractors.py`
+
+**Purpose:** Additional evidence-backed fields extracted from Federal Court docket entries. Each extractor reads the docket entries of one IMM file (``ActivityEvent`` objects from ``scripts.classify_fc_activity``) and returns a JSON-ready dict. Every value carries the entry it came from so a reviewer can check it, and a field is left ``unknown`` rather than guessed when the registry text does not say.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help
+```
+
 ## `scripts/fc_portal_collector.py`
 
 **Purpose:** No module docstring; inspect this script before use.
@@ -6541,7 +7835,7 @@ Active scripts documented: 108
 
 ## `scripts/fetch_fc_procedural_history.py`
 
-**Purpose:** Fetch Federal Court procedural history for a list of IMM numbers. Hits two FC API endpoints per IMM number: - proceedingQueriesCourtNumberList → style of cause - proceedingQueriesRE → all DOC_DT / RECORDED_ENTRY events Parses leave decision, JR decision, case status, judge, and full activity text using the same priority-based logic as the VBA original. Results are upserted into the fc_procedural_history table, tagged by IMM number. Input sources (choose one or more): --imm-numbers IMM-1234-19 IMM-5678-20 (space-separated on command line) --imm-file FILE CSV/text file, one IMM per line or 'imm_number' column --from-prototype Pull IMM numbers from prototype cohort (source_id field) Options: --update Re-fetch and overwrite entries that already exist --delay-ms Milliseconds between requests (default 1000) --dry-run Parse and print without writing to DB
+**Purpose:** Fetch Federal Court procedural history for a list of IMM numbers. Hits two FC API endpoints per IMM number: - proceedingQueriesCourtNumberList → style of cause - proceedingQueriesRE → all DOC_DT / RECORDED_ENTRY events Parses leave decision, JR decision, case status, judge, and full activity text using the same priority-based logic as the VBA original. Results are upserted into the fc_procedural_history table, tagged by IMM number. Input sources (choose one or more): --imm-numbers IMM-1234-19 IMM-5678-20 (space-separated on command line) --imm-file FILE CSV/text file, one IMM per line or 'imm_number' column --from-prototype Pull IMM numbers from prototype cohort (source_id field) Options: --update Re-fetch and overwrite entries that already exist --delay-ms Milliseconds between requests (default 2000) --diagnostic-allow-sub-2000ms-delay Explicitly allow a faster diagnostic probe; never use for routine collection --dry-run Parse and print without writing to DB
 
 **Operational class:** Source acquisition or canonical import
 
@@ -6833,6 +8127,118 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
 ```
 
+## `scripts/measure_precision.py`
+
+**Purpose:** Measure precision of V3 expansion concepts on real case data. Tags a sample of real cases, checks for false positives, and adjusts concept definitions as needed.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_precision.py --help
+```
+
+## `scripts/measure_real_coverage.py`
+
+**Purpose:** Measure real coverage on A2AJ dataset with precision validation. Loads 200+ real FC/RAD decisions, tags them before and after expansion, and reports actual precision on new concept matches.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help
+```
+
+## `scripts/measure_tagging_coverage.py`
+
+**Purpose:** Measure V3 tagging coverage before and after expansion. Uses the CoreLegalTaggerV3 to tag a sample of real cases and computes: - Percentage of cases with at least one tag - Tag frequency distribution - Coverage improvement from expansion
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help
+```
+
+## `scripts/mine_a2aj_concepts.py`
+
+**Purpose:** Mine 1-2 word legal concepts from A2AJ Canadian case law dataset. Downloads FC and RAD decisions from Hugging Face A2AJ dataset, extracts high-frequency legal concepts, and measures coverage impact.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help
+```
+
+## `scripts/mine_legal_concepts.py`
+
+**Purpose:** Mine 1-2 word legal concepts from case text for V3 tagging expansion. Sources: - A2AJ dataset (Hugging Face, MIT-licensed) - Local case samples - Statute references and headings Outputs: - Candidate terms grouped by category - Frequency and document frequency metrics - Coverage analysis (before/after)
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help
+```
+
+## `scripts/monitor_vector_index.py`
+
+**Purpose:** Report PostgreSQL progress for the hosted paragraph vector index build.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help
+```
+
+## `scripts/normalize_fc_activity_openai_outputs.py`
+
+**Purpose:** Normalize open-ended FC Activity model outputs for evaluation only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help
+```
+
+## `scripts/package_discussion_units_llm.py`
+
+**Purpose:** Prepare and optionally run a bounded LLM Discussion Unit review.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help
+```
+
 ## `scripts/plan_self_citation_cleanup.py`
 
 **Purpose:** Plan self-citation cleanup candidates without modifying the database.
@@ -6859,6 +8265,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help
+```
+
+## `scripts/prepare_discussion_units_cohort.py`
+
+**Purpose:** Prepare deterministic reports and no-network requests for a Discussion Unit cohort.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help
 ```
 
 ## `scripts/prepare_treatment_teacher_batch.py`
@@ -6917,6 +8337,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
 ```
 
+## `scripts/refresh_recent_5000_artifact.py`
+
+**Purpose:** Refresh the derived recent-5000 paragraph retrieval artifact.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help
+```
+
 ## `scripts/remove_self_case_citations.py`
 
 **Purpose:** Remove false-positive self-case short-form citation rows. Dry-run is the default. Use --apply only after reviewing the reported count.
@@ -6957,6 +8391,34 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help
+```
+
+## `scripts/report_fc_activity_coverage.py`
+
+**Purpose:** Produce counts-only coverage metrics for the Federal Court Activity tables.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help
+```
+
+## `scripts/report_fc_activity_motion_unknowns.py`
+
+**Purpose:** Report recurring evidence patterns among unknown FC Activity motions.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help
 ```
 
 ## `scripts/report_incomplete_short_form_anchors.py`
@@ -7015,6 +8477,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\resolve_short_citation_targets.py --help
 ```
 
+## `scripts/review_fc_activity_local.py`
+
+**Purpose:** Run one bounded, evidence-constrained FC Activity review through the local provider.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\review_fc_activity_local.py --help
+```
+
 ## `scripts/review_tag_candidates.py`
 
 **Purpose:** Review candidate tags mined from stored decision text without writing to the database.
@@ -7027,6 +8503,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\review_tag_candidates.py --help
+```
+
+## `scripts/run_case_intelligence_request.py`
+
+**Purpose:** No module docstring; inspect this script before use.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_case_intelligence_request.py --help
 ```
 
 ## `scripts/run_citation_rebuild_progress.py`
@@ -7043,6 +8533,62 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs
 ```
 
+## `scripts/run_discussion_units_cohort.py`
+
+**Purpose:** Run a manifest of Discussion Unit cases with durable skip/retry state.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help
+```
+
+## `scripts/run_fc_activity_openai_structured_pilot.py`
+
+**Purpose:** Run a bounded, review-only structured FC Activity extraction pilot.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help
+```
+
+## `scripts/run_local_paragraph_summary_baseline.py`
+
+**Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help
+```
+
+## `scripts/run_model_paragraph_experiment.py`
+
+**Purpose:** Run a bounded model-paragraph versus deterministic-paragraph experiment.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
 ## `scripts/run_overnight.py`
 
 **Purpose:** Run resumable case acquisition and corpus maintenance jobs overnight.
@@ -7055,6 +8601,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs
+```
+
+## `scripts/run_paragraph_assessment_batches.py`
+
+**Purpose:** Run paragraph-level assessments in visible, resumable batches.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help
 ```
 
 ## `scripts/run_scc_text_only.py`
@@ -7127,6 +8687,20 @@ Active scripts documented: 108
 .\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help
 ```
 
+## `scripts/select_discussion_unit_cohort.py`
+
+**Purpose:** Select a bounded, report-only cohort for Discussion Unit labeling.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help
+```
+
 ## `scripts/snapshot_v2_pipeline_baseline.py`
 
 **Purpose:** Create a compact before-snapshot for every canonical case.
@@ -7195,6 +8769,20 @@ Active scripts documented: 108
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/validate_precision.py`
+
+**Purpose:** Validate precision of V3 expansion on representative case law text. Uses representative FC and RAD case law snippets to measure precision.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\validate_precision.py --help
 ```
 
 ## `scripts/verify_citation_extraction.py`
@@ -7397,6 +8985,8 @@ Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+
 ## Experimental RAG Research
 
 The `/research` page is the current, experimental RAG workflow. It has four
@@ -7473,8 +9063,11 @@ The 2026-10-03 static review covered Case Search, the inline case reader, Judge
 Profile, Citation Map, and citation-oriented standalone page builders. It added
 keyboard-visible focus rings to the audited search/reader controls, a
 programmatic name to Citation Map search, and pressed state to the inline
-reader's information-view buttons and Citation Map mode/detail controls. The
-audit and remaining limitations are in
+reader's information-view buttons and Citation Map mode/detail controls. Cited
+paragraph shading and linked-case pinpoint shading use high-contrast text
+(14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
+remains a separate accessible control.
+The audit and remaining limitations are in
 `docs/reports/accessibility-audit.md`.
 
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
@@ -7853,11 +9446,19 @@ citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Outcomes And Profiles
+## Judge Profile
 
-Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
-
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+Judge Profile is the sole active judge workflow; the standalone Judge Outcomes
+view is retired. It resolves a canonical judge identity, aliases, primary
+court, linked cases, and available outcome/year information. The profile
+summary shows government wins, classified decisions, all linked decisions,
+and government win rate. The rate is government wins divided by classified
+decisions; unclassified decisions are excluded from the denominator. Its
+optional Minister filter narrows linked decisions associated with the selected
+government actor; it does not calculate an individual Minister's performance.
+Use profiles to reduce name variation, not to claim a complete judicial record
+or infer individual bias. Source and classification gaps matter when comparing
+rates.
 
 ## Data Explorer And FC History
 
@@ -8026,13 +9627,13 @@ This dictionary defines the research metrics shown or computed by the active sys
 
 ### Appendix: Testing Matrix
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-03
 
 This matrix maps current automated coverage to active system surfaces. It distinguishes deterministic unit-style tests from route, source-pipeline, and operational tests. It does not claim browser end-to-end coverage where none exists.
 
-## Current Baseline
+## Historical Baseline
 
-Latest broad run: `268 passed, 2 failed`.
+The 2026-09-01 broad run had `268 passed, 2 failed`.
 
 The two failures are stale expectation mismatches, not known active-path defects:
 
@@ -8041,6 +9642,20 @@ The two failures are stale expectation mismatches, not known active-path defects
 
 Focused active UI/citation regression checks most recently passed with `18 passed`. Always rerun the relevant slice after a change; do not treat this historical count as a substitute for current validation.
 
+## Measured Coverage Baseline
+
+The 2026-10-03 pytest-cov run measured **77.5% backend statement coverage**
+(8,413 / 10,859 statements) with the exact three intentional CI deselects.
+It completed with `987 passed, 3 failed, 3 deselected`; the failures were
+network-fetch failures for uncached Hugging Face and OpenAI tokenizer assets.
+Coverage is a measured snapshot, not a green-suite claim or a legal-quality
+metric. The risk-ranked module results, full module matrix, reproduction command,
+and failure details are in [the test-coverage report](reports/test-coverage.md).
+
+Development and CI coverage tooling is installed with
+`python -m pip install -r requirements-dev.txt`; `pytest-cov` is intentionally
+not part of the base `requirements.txt`.
+
 ## Coverage Matrix
 
 | System surface | Primary tests | Coverage focus | Main gaps |
@@ -8048,10 +9663,11 @@ Focused active UI/citation regression checks most recently passed with `18 passe
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
 | Active Data Explorer UI contract | `test_feature_tabs.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup | No browser interaction/screenshot test |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
+| Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
 | Metadata/outcomes/dockets | `test_metadata.py`, `test_api.py`, `test_fc_document_scraper.py` | Exact spans, outcome derivation, reader fields, scraper metadata | Limited real-world multilingual/format gold coverage |
 | Legal tags | `test_legal_tagger.py` | Immigration/refugee, CBSA, IRPA/IRPR, French rules, metadata tags | Taxonomy recall/precision not continuously benchmarked by humans |
-| Chunking | `test_chunk_cases.py` | Overlap, progress safety, section/paragraph chunks, fallback text | Large corpus timing and reconciliation tests absent |
+| Chunking | `test_chunk_cases.py` | Overlap, progress safety, standalone main-heading chunks, section/paragraph layers, fallback text | Large corpus timing and reconciliation tests absent |
 | Ingestion/provenance merge | `test_ingestion_merge.py`, `test_ingest_a2aj_parquet.py`, `test_import_fc_decisions.py` | Source priority, conflicts, hashes, rich source metadata, import mapping | No concurrent-writer integration test |
 | A2AJ/Canlaw staging | `test_a2aj_citation_network.py`, `test_canlaw_*.py`, `test_import_canlaw_staging.py`, `test_curate_a2aj_immigration_cases.py` | Staging identity, multi-court handling, embeddings, bridge/resume, curation | Live upstream API/dataset availability intentionally not tested |
 | Federal Court ingestion | `test_fc_ingest_db.py`, `test_fc_ingest_pipeline.py`, `test_fc_portal_collector.py`, `test_fetch_fc_procedural_history_cli.py` | Page parsing, month bounds, resumability, direct mode, CLI no-op | Live anti-bot/source behavior intentionally excluded |

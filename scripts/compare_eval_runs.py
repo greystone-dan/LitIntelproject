@@ -11,7 +11,12 @@ from typing import Any
 
 METRICS_BY_MODE = {
     "retrieval": ("recall_at_k", "mrr", "ndcg_at_10"),
-    "json_task": ("json_valid", "field_agreement", "cohen_kappa", "exact_span_validity"),
+    "json_task": (
+        "json_valid",
+        "field_agreement",
+        "cohen_kappa",
+        "exact_span_validity",
+    ),
 }
 
 
@@ -21,7 +26,10 @@ def _canonical_label(value: Any) -> str:
 
 def _kappa(rows: list[dict[str, Any]]) -> float:
     pairs = [
-        (_canonical_label(value), _canonical_label(row["predicted_labels"].get(field, '"__missing__"')))
+        (
+            _canonical_label(value),
+            _canonical_label(row["predicted_labels"].get(field, '"__missing__"')),
+        )
         for row in rows
         for field, value in row["reference_labels"].items()
     ]
@@ -73,10 +81,12 @@ def compare_runs(
     baseline_rows = baseline.get("items")
     candidate_rows = candidate.get("items")
     if not isinstance(baseline_rows, list) or not isinstance(candidate_rows, list):
-        raise ValueError("Evaluation runs must contain item arrays")
+        raise TypeError("Evaluation runs must contain item arrays")
     baseline_by_id = {row["id"]: row for row in baseline_rows}
     candidate_by_id = {row["id"]: row for row in candidate_rows}
-    if len(baseline_by_id) != len(baseline_rows) or len(candidate_by_id) != len(candidate_rows):
+    if len(baseline_by_id) != len(baseline_rows) or len(candidate_by_id) != len(
+        candidate_rows
+    ):
         raise ValueError("Evaluation run item ids must be unique")
     if not baseline_by_id or baseline_by_id.keys() != candidate_by_id.keys():
         raise ValueError("Evaluation runs must contain the same non-empty item ids")
@@ -92,7 +102,9 @@ def compare_runs(
     ):
         raise ValueError("Evaluation runs must use the same reference labels")
     if samples <= 0 or not 0 < confidence < 1:
-        raise ValueError("samples must be positive and confidence must be between 0 and 1")
+        raise ValueError(
+            "samples must be positive and confidence must be between 0 and 1"
+        )
     baseline_score = _score(paired_baseline, mode, metric)
     candidate_score = _score(paired_candidate, mode, metric)
     point_delta = candidate_score - baseline_score
@@ -130,7 +142,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--baseline", required=True, type=Path)
     parser.add_argument("--candidate", required=True, type=Path)
-    parser.add_argument("--metric", required=True, choices=sorted(set(sum(METRICS_BY_MODE.values(), ()))))
+    parser.add_argument(
+        "--metric",
+        required=True,
+        choices=sorted(set(sum(METRICS_BY_MODE.values(), ()))),
+    )
     parser.add_argument("--samples", type=int, default=10_000)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--confidence", type=float, default=0.95)

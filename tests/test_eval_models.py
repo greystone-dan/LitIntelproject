@@ -20,7 +20,11 @@ class FakeEmbeddings:
 
     @staticmethod
     def _vector(text):
-        return [1.0, 0.0] if any(word in text for word in ("family", "employment")) else [0.0, 1.0]
+        return (
+            [1.0, 0.0]
+            if any(word in text for word in ("family", "employment"))
+            else [0.0, 1.0]
+        )
 
 
 class FakeChat:
@@ -31,31 +35,45 @@ class FakeChat:
         start = source.index(label)
         output = {
             "labels": {"disposition": label},
-            "spans": [{"field": "disposition", "start": start, "end": start + len(label), "text": label}],
+            "spans": [
+                {
+                    "field": "disposition",
+                    "start": start,
+                    "end": start + len(label),
+                    "text": label,
+                }
+            ],
         }
         return SimpleNamespace(
-            choices=[SimpleNamespace(message=SimpleNamespace(content=json.dumps(output)))],
+            choices=[
+                SimpleNamespace(message=SimpleNamespace(content=json.dumps(output)))
+            ],
             usage=SimpleNamespace(prompt_tokens=12, completion_tokens=8),
         )
 
 
 def test_retrieval_cli_runs_fixture_with_fake_provider(monkeypatch, tmp_path):
-    monkeypatch.setattr(eval_models, "create_embedding_provider", lambda *_: FakeEmbeddings())
+    monkeypatch.setattr(
+        eval_models, "create_embedding_provider", lambda *_: FakeEmbeddings()
+    )
     output = tmp_path / "retrieval-result.json"
 
-    assert eval_models.main(
-        [
-            "retrieval",
-            "--dataset",
-            str(FIXTURES / "retrieval.json"),
-            "--provider",
-            "local",
-            "--model",
-            "fake-embedder",
-            "--output",
-            str(output),
-        ]
-    ) == 0
+    assert (
+        eval_models.main(
+            [
+                "retrieval",
+                "--dataset",
+                str(FIXTURES / "retrieval.json"),
+                "--provider",
+                "local",
+                "--model",
+                "fake-embedder",
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
 
     result = json.loads(output.read_text())
     assert result["metrics"] == {"recall_at_k": 1.0, "mrr": 1.0, "ndcg_at_10": 1.0}
@@ -64,22 +82,27 @@ def test_retrieval_cli_runs_fixture_with_fake_provider(monkeypatch, tmp_path):
 
 
 def test_json_task_cli_runs_fixture_with_fake_provider(monkeypatch, tmp_path):
-    monkeypatch.setattr(eval_models, "create_generation_provider", lambda *_: FakeChat())
+    monkeypatch.setattr(
+        eval_models, "create_generation_provider", lambda *_: FakeChat()
+    )
     output = tmp_path / "json-result.json"
 
-    assert eval_models.main(
-        [
-            "json_task",
-            "--dataset",
-            str(FIXTURES / "json_task.json"),
-            "--provider",
-            "local",
-            "--model",
-            "fake-generator",
-            "--output",
-            str(output),
-        ]
-    ) == 0
+    assert (
+        eval_models.main(
+            [
+                "json_task",
+                "--dataset",
+                str(FIXTURES / "json_task.json"),
+                "--provider",
+                "local",
+                "--model",
+                "fake-generator",
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
 
     result = json.loads(output.read_text())
     assert result["metrics"] == {
@@ -165,8 +188,12 @@ def test_paired_bootstrap_is_seeded_and_pairs_by_item_id():
         ],
     }
 
-    first = compare_eval_runs.compare_runs(baseline, candidate, "mrr", samples=200, seed=17)
-    second = compare_eval_runs.compare_runs(baseline, candidate, "mrr", samples=200, seed=17)
+    first = compare_eval_runs.compare_runs(
+        baseline, candidate, "mrr", samples=200, seed=17
+    )
+    second = compare_eval_runs.compare_runs(
+        baseline, candidate, "mrr", samples=200, seed=17
+    )
 
     assert first == second
     assert first["difference"]["estimate"] == 0.5
@@ -187,20 +214,23 @@ def test_comparison_cli_writes_result_file(tmp_path):
     baseline.write_text(json.dumps(run))
     candidate.write_text(json.dumps(run))
 
-    assert compare_eval_runs.main(
-        [
-            "--baseline",
-            str(baseline),
-            "--candidate",
-            str(candidate),
-            "--metric",
-            "mrr",
-            "--samples",
-            "20",
-            "--output",
-            str(output),
-        ]
-    ) == 0
+    assert (
+        compare_eval_runs.main(
+            [
+                "--baseline",
+                str(baseline),
+                "--candidate",
+                str(candidate),
+                "--metric",
+                "mrr",
+                "--samples",
+                "20",
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
     assert json.loads(output.read_text())["difference"]["estimate"] == 0.0
 
 

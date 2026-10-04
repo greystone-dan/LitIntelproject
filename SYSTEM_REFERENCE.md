@@ -71,7 +71,11 @@ The system intentionally separates three kinds of derived information:
 
 `/` is a research-tool directory with analyst-oriented descriptions and examples
 from [docs/ANALYST_QUICK_START.md](docs/ANALYST_QUICK_START.md); it no longer
-redirects to the workspace. Successful finite HTML pages share navigation for
+redirects to the workspace. Every tool card has a one-line plain description
+and a labelled example link using existing route/query contracts. Reader and
+citation examples start with a citation/name search so no local case ID is
+assumed; judge, upload and saved-search examples enter their existing workflows.
+Successful finite HTML pages share navigation for
 Home, Search, Case Reader, Judges, Citation Intelligence, FC Activity, Memo Check,
 Issue Briefs, Saved Searches and About, with query-aware current-page labels
 and breadcrumbs for reader, judge, issue and citation deep links.

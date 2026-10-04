@@ -237,18 +237,43 @@ class SiteNavMiddleware:
 
 def home_html() -> str:
     descriptions = {
-        "search": "Find names or citations: try Vavilov or 2019 SCC 65. Title/citation matching is the default; full-text search is optional.",
-        "reader": "Open a Search result to read full text or chunk breakdown, then check its source, identity and highlighted authorities.",
-        "judges": "Find a judge by name, review aliases and linked decisions. Government win rates exclude unclassified decisions; they are not evidence of bias.",
-        "citations": "Select a case to review stored citing decisions, mentions and timeline evidence. Read the passages; counts do not establish good law.",
-        "fc": "Try IMM-1234-19 for recorded leave/judicial-review history and bounded activity summaries, not official court records.",
-        "memo": "Check authorities in a DOCX or text-based PDF (up to 10 MB). Verify matches and suggested context against the decisions.",
-        "briefs": "Review source-linked decisions for an exact legal tag in category:value form. Issue summaries are research leads, not advice.",
+        "search": "Find decisions by case name or citation.",
+        "reader": "Read a decision's text, source details and highlighted authorities.",
+        "judges": "Review a judge's aliases, linked decisions and classified outcomes.",
+        "citations": "Explore a selected case's stored citing decisions and citation evidence.",
+        "fc": "Look up recorded Federal Court history and activity summaries.",
+        "memo": "Check citations in a DOCX or text-based PDF up to 10 MB.",
+        "briefs": "Review source-linked decisions for an exact legal tag.",
         "saved": "Return to saved research queries and continue investigating their results.",
-        "about": "Understand library coverage, research limitations and the active processing pipeline.",
+        "about": "Understand library coverage, limitations and the processing pipeline.",
+    }
+    # Case IDs and judge slugs belong to the local library, not a portable demo.
+    # Start case examples with a real citation search rather than inventing IDs.
+    examples = {
+        "search": ("Example: search Vavilov", "/data-explorer?tab=search&query=Vavilov"),
+        "reader": ("Example: find 2019 SCC 65, then open a result",
+                   "/data-explorer?tab=search&query=2019+SCC+65"),
+        "judges": ("Example: open Judge Profile, then search a judge's name",
+                   "/data-explorer?tab=judge-profile"),
+        "citations": ("Example: find Vavilov, then select Citation Intelligence",
+                      "/data-explorer?tab=search&query=Vavilov"),
+        "fc": ("Example: look up IMM-1234-19",
+               "/data-explorer?tab=fc-history&imm=IMM-1234-19"),
+        "memo": ("Example workflow: upload a memo and analyze its citations",
+                 "/memo-citation-check"),
+        "briefs": ("Example: review the topic:fairness brief",
+                   "/issue-brief-ui?tag=topic%3Afairness"),
+        "saved": ("Example workflow: open a saved search",
+                  "/saved-searches-ui"),
+        "about": ("Example: explore the system architecture",
+                  "/data-explorer?tab=site-architecture"),
     }
     cards = "".join(
-        f'<section><h2><a href="{escape(url, quote=True)}">{label}</a></h2><p>{descriptions[key]}</p></section>'
+        f'<section data-tool-card="{key}">'
+        f'<h2><a href="{escape(url, quote=True)}">{label}</a></h2>'
+        f'<p data-tool-description>{escape(descriptions[key])}</p>'
+        f'<a data-tool-example href="{escape(examples[key][1], quote=True)}">'
+        f'{escape(examples[key][0])}</a></section>'
         for key, label, url in LINKS if key != "home"
     )
     return """<!doctype html><html lang="en"><head><meta charset="utf-8">

@@ -66,6 +66,9 @@ submits the existing search form rather than introducing a second search API.
 Current-page state follows explorer tabs and inline reader visibility. Reader,
 judge, issue-tag and citation deep links use route-table context, not database
 lookups, to construct escaped breadcrumbs.
+Each home tool card includes a short plain description and an example link.
+Examples use existing search, tab, IMM and exact-tag contracts or workflow
+entries; case examples do not assume portable local case IDs.
 
 The decorator locates an actual body start with `HTMLParser` source offsets and
 inserts bytes without rebuilding attributes or changing evidence/source text.
@@ -81,6 +84,7 @@ against actual registered routes, calls only static page builders, and uses
 finite fixtures for DB-dependent pages. Gate checks use TestClient without
 lifespan startup; ASGI and isolated JavaScript doubles cover bypass behavior,
 body-attribute preservation, GET search initialization and keyboard/menu state.
+Static card checks cover every tool's description and example destination.
 For this issue browser validation was explicitly waived; these checks do not
 establish real-browser layout quality.
 

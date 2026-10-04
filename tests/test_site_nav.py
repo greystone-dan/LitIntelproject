@@ -5,7 +5,7 @@ import inspect
 import shutil
 import subprocess
 from html.parser import HTMLParser
-from urllib.parse import parse_qs, urlencode
+from urllib.parse import parse_qs, urlencode, urlsplit
 
 import pytest
 from fastapi.responses import HTMLResponse
@@ -13,7 +13,7 @@ from fastapi.testclient import TestClient
 
 from backend import main, routes
 from backend.pages.site_nav import (
-    LINKS, SCRIPT, SiteNavMiddleware, inject_html, route_context,
+    LINKS, SCRIPT, SiteNavMiddleware, home_html, inject_html, route_context,
 )
 
 
@@ -210,6 +210,83 @@ def test_navigation_targets_match_routes_and_redirect_contracts():
     assert routes.citation_intelligence_page().headers["location"] == "/data-explorer?tab=citation-intelligence"
     assert routes.fc_history_page().headers["location"] == "/data-explorer?tab=fc-history"
     assert routes.judge_profile_page("smith").headers["location"] == "/data-explorer?tab=judge-profile&judge=smith"
+
+
+class HomeCards(HTMLParser):
+    """Collect each card's own description and example, not the shared nav."""
+
+    def __init__(self):
+        super().__init__()
+        self.cards = {}
+        self.card = None
+        self.field = None
+        self.feed(home_html())
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if "data-tool-card" in attrs:
+            key = attrs["data-tool-card"]
+            assert key not in self.cards
+            self.card = self.cards[key] = {"descriptions": [], "examples": []}
+        if self.card is not None and "data-tool-description" in attrs:
+            self.card["descriptions"].append("")
+            self.field = "descriptions"
+        if self.card is not None and "data-tool-example" in attrs:
+            assert tag == "a"
+            self.card["examples"].append({"href": attrs["href"], "text": ""})
+            self.field = "examples"
+
+    def handle_data(self, data):
+        if self.field == "descriptions":
+            self.card["descriptions"][-1] += data
+        elif self.field == "examples":
+            self.card["examples"][-1]["text"] += data
+
+    def handle_endtag(self, tag):
+        if tag in {"p", "a"}:
+            self.field = None
+        if tag == "section":
+            self.card = None
+
+
+def test_every_home_tool_has_one_plain_description_and_meaningful_example():
+    cards = HomeCards().cards
+    assert set(cards) == {key for key, _, _ in LINKS if key != "home"}
+    for card in cards.values():
+        assert len(card["descriptions"]) == len(card["examples"]) == 1
+        description = card["descriptions"][0]
+        assert description.strip() == description
+        assert 5 <= len(description.split()) <= 15
+        assert "\n" not in description
+        assert card["examples"][0]["text"].startswith("Example")
+        assert len(card["examples"][0]["text"].split()) >= 3
+
+
+@pytest.mark.parametrize("key,path,query,label", [
+    ("search", "/data-explorer", {"tab": ["search"], "query": ["Vavilov"]}, "Vavilov"),
+    ("reader", "/data-explorer", {"tab": ["search"], "query": ["2019 SCC 65"]}, "open a result"),
+    ("judges", "/data-explorer", {"tab": ["judge-profile"]}, "search a judge"),
+    ("citations", "/data-explorer", {"tab": ["search"], "query": ["Vavilov"]}, "select Citation Intelligence"),
+    ("fc", "/data-explorer", {"tab": ["fc-history"], "imm": ["IMM-1234-19"]}, "IMM-1234-19"),
+    ("memo", "/memo-citation-check", {}, "upload a memo"),
+    ("briefs", "/issue-brief-ui", {"tag": ["topic:fairness"]}, "topic:fairness"),
+    ("saved", "/saved-searches-ui", {}, "open a saved search"),
+    ("about", "/data-explorer", {"tab": ["site-architecture"]}, "system architecture"),
+])
+def test_home_example_links_use_existing_route_and_query_contracts(key, path, query, label):
+    example = HomeCards().cards[key]["examples"][0]
+    url = urlsplit(example["href"])
+    assert not url.scheme and not url.netloc and not url.fragment
+    assert url.path == path
+    assert path in {route.path for route in main.app.routes}
+    assert parse_qs(url.query) == query
+    assert label in example["text"]
+    if "tab" in query:
+        assert f"data-tab=\"{query['tab'][0]}\"" in routes._data_explorer_page_html()
+    if key == "fc":
+        assert ".get('imm')" in routes._data_explorer_page_html()
+    if key == "briefs":
+        assert "tag" in inspect.signature(routes.get_issue_brief_ui).parameters
 
 
 def test_home_and_gate_without_lifespan(monkeypatch):

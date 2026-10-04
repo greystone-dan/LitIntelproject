@@ -7909,11 +7909,11 @@ The overnight runner tests locks, job selection, state transitions, and command 
 
 ### Independent CI quality checks
 
-`.github/workflows/quality-checks.yml` runs separately from the required test
+`.github/workflows/quality.yml` runs separately from the required test
 workflow on pull requests and weekly (Sunday at 00:00 UTC). It applies Ruff's
 minimal `E` error and `F401` unused-import rules and audits dependencies resolved
-from `requirements.txt` with pip-audit. Ruff and pip-audit are pinned in the
-workflow because neither has a pin in `requirements-dev.txt` on `main`.
+from `requirements.txt` with pip-audit. Ruff and pip-audit are pinned in
+`requirements-dev.txt`.
 
 Each tool has its own non-blocking job and artifact containing its output,
 version, and exit status. Findings and tool-install errors therefore remain

@@ -90,7 +90,7 @@ whole project map.
 | Citation evidence | `backend/citations.py` | Extraction, offsets, resolution, metrics, and QA boundaries | Citation QA |
 | Database map | `backend/database.py` and `alembic/` | ORM entities, migrations, and pgvector responsibilities | Data/platform |
 | Operational run | `scripts/run_overnight.py` and `OVERNIGHT.md` | Locks, bounded jobs, resume behavior, and recovery | Operations |
-| CI quality workflow | `.github/workflows/quality-checks.yml` | Non-blocking PR/weekly Ruff and dependency-audit checks, result artifacts, and baseline scope | Quality/platform |
+| CI quality workflow | `.github/workflows/quality.yml` | Non-blocking PR/weekly Ruff and dependency-audit checks, result artifacts, and baseline scope | Quality/platform |
 | Active UI | `backend/routes.py` and `docs/RESEARCH_UI_GUIDE.md` | Data Explorer, inline reader, Citation Map, and legacy boundaries | Research UI |
 | Technical debt register | Swimm: Technical Debt Register and Improvement Queue | Evidence-backed debt, opportunities, owners, and revisit triggers | Governance |
 | Architecture decisions | Swimm: Architecture Decisions and Design Rationale | Durable rationale, options, consequences, and open decisions | Architecture |

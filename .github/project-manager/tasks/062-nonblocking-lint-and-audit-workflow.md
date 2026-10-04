@@ -36,15 +36,15 @@ One criterion per line: both independent lint and audit results are artifact-bac
 One criterion per line: first-results report and linked canonical/Swimm docs are coherent
 One criterion per line: tests workflow remains unchanged and validation evidence is recorded
 
-Docs/generated references: `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `.swm/11.nf15c1hd.sw.md`, `docs/reports/baseline-lint-and-audit.md`; no generated references.
+Docs/generated references: `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `.swm/12.ci-quality-workflow.sw.md`, `docs/reports/baseline-lint-and-audit.md`; no generated references.
 
 Rollback/recovery: Revert only the new quality workflow and associated report/documentation/task changes; existing test workflow and other work remain untouched.
 
 Evidence: The managed worker added the workflow; manager reviewed and narrowed its Ruff policy, pinned tools, and verified `FETCH_HEAD` at `079fb5451381be6108a829f8317b9104440bd90b` has no Ruff or pip-audit pins in `requirements-dev.txt`. Ruff 0.16.10 found 8,039 findings in 341 files; pip-audit 2.10.1 reported 242 advisory matches in 18 of 188 resolved packages. The required CI pytest command ran: 1,032 passed, 3 failed, 1 skipped, 1 xfailed, and 3 configured deselections. The three failures involved external Hugging Face model and OpenAI tokenizer downloads; the existing tests/call path were inspected and no tests or runtime files were changed. Focused workflow/YAML/shell validation passed; `python scripts/check_generated_docs.py`, `git diff --check`, local-link checks, changed-file secret-pattern scan, and the final parallel validation passed. `.github/workflows/tests.yml` remained unchanged (SHA-256 `e4c4f882e3127285570d8ace8ca19500bbc27f9e91d95fc60adc4e02c2c32426`). Canonical doc: `SYSTEM_REFERENCE.md`; report: `docs/reports/baseline-lint-and-audit.md`; Swimm walkthrough: `.swm/12.ci-quality-workflow.sw.md`.
 
-Files changed: `.github/workflows/quality-checks.yml`, `docs/reports/baseline-lint-and-audit.md`, `.swm/12.ci-quality-workflow.sw.md`, `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `CHANGELOG.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, this task record.
+Files changed: `.github/workflows/quality.yml`, `requirements-dev.txt`, `docs/reports/baseline-lint-and-audit.md`, `.swm/12.ci-quality-workflow.sw.md`, `SYSTEM_REFERENCE.md`, `DOCS_INDEX.md`, `CHANGELOG.md`, `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md`, this task record.
 Delegated work: `managed-worker` implemented only the new workflow and returned structured evidence; a second `managed-worker` ran the exact CI pytest command without modifying files.
-Focused validation: `ruff check . --select E,F401 --output-format json` — 8,039 baseline findings (expected non-zero); `pip-audit --desc --format json -r requirements.txt` — 242 advisory matches (expected non-zero); YAML and embedded shell syntax validation plus `yamllint -d relaxed .github/workflows/quality-checks.yml` — passed; exact workflow artifact/job contracts — passed.
+Focused validation: `ruff check . --select E,F401 --output-format json` — 8,039 baseline findings (expected non-zero); `pip-audit --desc --format json -r requirements.txt` — 242 advisory matches (expected non-zero); YAML and embedded shell syntax validation plus `yamllint -d relaxed .github/workflows/quality.yml` — passed; exact workflow artifact/job contracts — passed.
 Residual risk: Existing Ruff baseline is large; dependency audit findings need separate compatibility and reachability triage. Three unrelated CI tests require external downloads and failed in this network-restricted environment.
 Next bounded task: Triage the 18 dependency packages flagged by pip-audit and prioritize compatible remediation.
 

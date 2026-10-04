@@ -13,11 +13,9 @@ upgrade or otherwise alter dependencies.
 ## Tools and scope
 
 The independent workflow is
-[`.github/workflows/quality-checks.yml`](../../.github/workflows/quality-checks.yml).
-It runs on pull requests and weekly. `requirements-dev.txt` on `main` at
-`079fb5451381be6108a829f8317b9104440bd90b` had no Ruff or pip-audit pins, so
-the workflow pins the versions used for this baseline: Ruff 0.16.10 and
-pip-audit 2.10.1.
+[`.github/workflows/quality.yml`](../../.github/workflows/quality.yml).
+It runs on pull requests and weekly. The tools are pinned in
+`requirements-dev.txt`: Ruff 0.16.10 and pip-audit 2.10.1.
 
 Commands, run against the current repository files:
 

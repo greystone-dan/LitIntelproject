@@ -55,8 +55,8 @@ _MARKER_RE = re.compile(
 	re.MULTILINE,
 )
 _SUBJECT = (
-	r"(?:application|appeal|cross-appeal|judicial\s+review|petition|proceeding|claim|complaint|action|"
-	r"request|motion|stay|leave(?:\s+to\s+\w+)?)"
+	r"(?:applications?|appeals?|cross-appeals?|judicial\s+reviews?|petitions?|proceedings?|claims?|complaints?|actions?|"
+	r"requests?|motions?|stay|leave(?:\s+to\s+\w+)?)"
 )
 _DISMISS_WORDS = r"(?:dismissed|denied|refused|rejected)"
 _ALLOW_WORDS = r"(?:allowed|granted|upheld)"
@@ -65,8 +65,9 @@ _SUBJECT_VERB_RE = re.compile(
 	re.IGNORECASE,
 )
 _ACTOR_VERB_RE = re.compile(
-	r"\b(?P<actor>court|tribunal|panel|I\s+would|we\s+would|I\s+hereby)\s+(?:hereby\s+)?"
-	r"(?P<verb>allows?|dismisses|dismiss|grants?|denies|deny|refuses|refuse)\b(?P<object>[^\n\.;]{0,100})",
+	r"\b(?P<actor>court|tribunal|panel|board|division|RAD|RPD|I\s+would|we\s+would|I\s+hereby|"
+	r"(?:I|we)\s+(?:will|shall)|I)(?:,?\s+(?:hereby|therefore|accordingly|now),?)?\s+"
+	r"(?P<verb>allows?|dismisses|dismiss|grants?|denies|deny|refuses|refuse|rejects?)\b(?P<object>[^\n\.;]{0,100})",
 	re.IGNORECASE,
 )
 _BARE_VERDICT_RE = re.compile(
@@ -77,11 +78,44 @@ _BARE_VERDICT_RE = re.compile(
 _CONSEQUENCE_RE = re.compile(
 	r"\b(?:set aside|quashed|annulled|vacated|remitted|referred back|sent back)\b", re.IGNORECASE
 )
+# Headline dispositions printed in the headnote/judgment line, e.g. "Appeal allowed with costs, X J. dissenting."
+_HEADLINE_RE = re.compile(
+	r"^[ \t]*(?:Cross-)?(?:Appeals?|Applications?|Motions?|Petitions?)[ \t]+(?P<verb>allowed|dismissed|granted|denied)\b"
+	r"(?:[ \t]+in[ \t]+part)?[^\n]{0,120}$",
+	re.IGNORECASE | re.MULTILINE,
+)
+# Concluding sentences: "I would dismiss the appeal", "The appeal should therefore be allowed", "we will allow the application".
+_CONCLUDING_FIRST_PERSON_RE = re.compile(
+	r"\b(?:I|we)\s+(?:would|will|shall|propose\s+that\s+we)\s+(?:therefore\s+|accordingly\s+)?"
+	r"(?P<verb>dismiss|allow|grant|deny)\b[^\n\.;]{0,60}?\b(?:appeals?|applications?|motions?|petitions?)\b",
+	re.IGNORECASE,
+)
+_CONCLUDING_COMPOUND_RE = re.compile(
+	r"\b(?:I|we)\s+(?:would|will|shall)\s+[^\n\.;]{0,60}?\band\s+(?P<verb>dismiss|allow)\s+(?:the\s+|this\s+)?(?:appeals?|applications?)\b",
+	re.IGNORECASE,
+)
+_CONCLUDING_PASSIVE_RE = re.compile(
+	r"\b(?:the\s+)?(?:appeals?|applications?|cross-appeals?|petitions?)\b[^\n\.;]{0,60}?"
+	r"\b(?:should|must|will|shall)\s+(?:therefore\s+|accordingly\s+|also\s+)?be\s+(?P<verb>dismissed|allowed|granted|denied)\b",
+	re.IGNORECASE,
+)
+# Refugee Protection/Appeal Division reasons end with a finding rather than "dismissed"/"allowed".
+_TRIBUNAL_DOC_RE = re.compile(r"\b(?:RPD|RAD|SPR|SAR)\s+File\s+No", re.IGNORECASE)
+_TRIBUNAL_FINDING_RE = re.compile(
+	r"\b(?:is|are)\s+(?:neither|not)\s+(?:a\s+|an\s+)?[\"'“‘]?Convention\s+refugees?\b",
+	re.IGNORECASE,
+)
+# Subsequent-history citations such as "..., leave to appeal refused, [2002] S.C.C.A. No. 505" are not dispositions.
+_LEAVE_HISTORY_RE = re.compile(
+	r"(?<=[;,(])\s*leave\s+to\s+appeal\s+(?:to\s+[^,;)\n]{0,40}\s+)?(?:refused|dismissed|denied|granted)\b",
+	re.IGNORECASE,
+)
 _NEGATION_BEFORE_VERB_RE = re.compile(
 	r"(?:\bnot\b|n't|\bcannot\b|\bnever\b|\bunless\b|\bif\b|\bwhether\b|\bshould\b|\bwould\b|\bmust\b)"
 	r"\s*(?:[\w-]+\s+){0,2}$",
 	re.IGNORECASE,
 )
+_CLAIM_ACCEPTED_RE = re.compile(r"\bclaims?\b[^\n\.;]{0,60}?\b(?:is|are)\s+accepted\b", re.IGNORECASE)
 _PARTIAL_RE = re.compile(r"\b(?:in\s+part|partly|partially)\b", re.IGNORECASE)
 _SIDE_ORDER_RE = re.compile(r"\b(?:leave|stay|extension|motion|request)\b", re.IGNORECASE)
 _VERB_LABELS = {
@@ -90,6 +124,7 @@ _VERB_LABELS = {
 	"dismissed": "dismissed", "dismiss": "dismissed", "dismisses": "dismissed",
 	"denied": "dismissed", "deny": "dismissed", "denies": "dismissed",
 	"refused": "dismissed", "refuse": "dismissed", "refuses": "dismissed", "rejected": "dismissed",
+	"reject": "dismissed", "rejects": "dismissed", "accepted": "allowed",
 	"withdrawn": "withdrawn", "discontinued": "withdrawn",
 }
 
@@ -102,7 +137,7 @@ def _sentence_bounds(text: str, start: int, end: int) -> tuple[int, int]:
 	return left + 1, right
 
 
-def _disposition_candidates(tail: str) -> list[tuple[int, int, str, re.Match[str]]]:
+def _disposition_candidates(tail: str, is_tribunal: bool = False) -> list[tuple[int, int, str, re.Match[str]]]:
 	"""Every disposition cue in `tail` as (rank, start, label, match).
 
 	Rank 3 is a ruling on the proceeding itself, 2 is a consequence of it (set
@@ -126,6 +161,25 @@ def _disposition_candidates(tail: str) -> list[tuple[int, int, str, re.Match[str
 		conditional = match.group("actor").lower().endswith("would")
 		rank = 1 if conditional or _SIDE_ORDER_RE.search(match.group("object")) else 3
 		found.append((rank, match.start(), label, match))
+	for match in _HEADLINE_RE.finditer(tail):
+		found.append((4, match.start(), _VERB_LABELS[match.group("verb").lower()], match))
+	for pattern in (_CONCLUDING_FIRST_PERSON_RE, _CONCLUDING_COMPOUND_RE, _CONCLUDING_PASSIVE_RE):
+		for match in pattern.finditer(tail):
+			prefix = tail[max(0, match.start() - 40) : match.start()]
+			if re.search(r"\b(?:not|if|whether|unless|submits?|argues?|asks?|suggests?)\W*(?:[\w-]+\W+){0,2}$", prefix, re.IGNORECASE):
+				continue
+			ancillary = pattern is _CONCLUDING_FIRST_PERSON_RE and re.search(r"\bmotions?\b", match.group(0), re.IGNORECASE)
+			passive_application = pattern is _CONCLUDING_PASSIVE_RE and not re.match(
+				r"(?:the\s+)?appeals?\b", match.group(0), re.IGNORECASE
+			)
+			rank = 1 if ancillary else 2 if passive_application else 3
+			found.append((rank, match.start(), _VERB_LABELS[match.group("verb").lower()], match))
+	for match in _TRIBUNAL_FINDING_RE.finditer(tail if is_tribunal else ""):
+		if not _NEGATION_BEFORE_VERB_RE.search(tail[max(0, match.start() - 25) : match.start()]):
+			found.append((2, match.start(), "dismissed", match))
+	for match in _CLAIM_ACCEPTED_RE.finditer(tail):
+		if not _NEGATION_BEFORE_VERB_RE.search(tail[max(0, match.start() - 20) : match.start()]):
+			found.append((3, match.start(), "allowed", match))
 	for match in _BARE_VERDICT_RE.finditer(tail):
 		found.append((2, match.start(), _VERB_LABELS[match.group("verb").lower()], match))
 	for match in _CONSEQUENCE_RE.finditer(tail):
@@ -137,17 +191,23 @@ def _disposition_candidates(tail: str) -> list[tuple[int, int, str, re.Match[str
 	return found
 
 
+def _mask_history(text: str) -> str:
+	"""Blank subsequent-history "leave to appeal refused" cues, keeping offsets stable."""
+	return _LEAVE_HISTORY_RE.sub(lambda m: " " * len(m.group(0)), text)
+
+
 def _best_outcome(content: str) -> tuple[str, re.Match[str], int, str] | None:
 	"""Pick the operative disposition: (label, match, tail_offset, tail_text)."""
 	if not content:
 		return None
 	offset = max(0, len(content) - _TAIL_CHARS)
 	tail = content[offset:]
-	candidates = _disposition_candidates(tail)
+	is_tribunal = bool(_TRIBUNAL_DOC_RE.search(content[:2500]))
+	candidates = _disposition_candidates(_mask_history(tail), is_tribunal)
 	if not candidates:
 		# Long trailing annexes can push the ruling out of the tail; fall back to the whole text.
 		offset, tail = 0, content
-		candidates = _disposition_candidates(tail)
+		candidates = _disposition_candidates(_mask_history(tail), is_tribunal)
 	if not candidates:
 		return None
 	operative_start = 0
@@ -162,18 +222,21 @@ def _best_outcome(content: str) -> tuple[str, re.Match[str], int, str] | None:
 
 def _is_partial(tail: str, match: re.Match[str]) -> bool:
 	left, right = _sentence_bounds(tail, match.start(), match.end())
-	return bool(_PARTIAL_RE.search(tail[left:right]))
+	sentence = re.sub(r"\b(?:dissenting|concurring|dissent|concurs?)\s+in\s+part\b", " ", tail[left:right], flags=re.IGNORECASE)
+	return bool(_PARTIAL_RE.search(sentence))
 
 
 def _government_role(style_or_between: str) -> str | None:
 	if not style_or_between:
 		return None
 	text = " ".join(style_or_between.split())
+	# Tribunal captions list "Counsel for the Minister"; that line names a representative, not a party.
+	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|conseil\s+du\s+ministre", " ", text, flags=re.IGNORECASE)
 	lower = text.lower()
 	if not _GOVERNMENT_PARTY_RE.search(lower):
 		return None
 
-	applicant_matches = list(re.finditer(r"\bapplicants?\b", lower))
+	applicant_matches = list(re.finditer(r"\b(?:applicants?|appellants?)\b", lower))
 	respondent_matches = list(re.finditer(r"\brespondents?\b", lower))
 	gov_matches = list(_GOVERNMENT_PARTY_RE.finditer(lower))
 	if not gov_matches:
@@ -220,6 +283,29 @@ def _government_role(style_or_between: str) -> str | None:
 	return None
 
 
+def _role_from_style(style: str) -> str | None:
+	"""Side of the government party in a "X v. Y" style of cause (left = applicant/appellant)."""
+	parts = re.split(r"\s+v\.?\s+", " ".join(style.split()), maxsplit=1, flags=re.IGNORECASE)
+	if len(parts) != 2:
+		return None
+	left, right = parts
+	if _GOVERNMENT_PARTY_RE.search(left):
+		return "applicant"
+	if _GOVERNMENT_PARTY_RE.search(right):
+		return "respondent"
+	return None
+
+
+def _resolve_government_role(content: str, metadata: dict[str, object]) -> str | None:
+	"""Prefer the style of cause; fall back to caption role labels near the government party."""
+	style_text = str(metadata.get("style of cause") or "").strip()
+	between_text = str(metadata.get("between") or "").strip()
+	role = _role_from_style(style_text) if style_text else None
+	if role:
+		return role
+	return _government_role("\n".join(part for part in (style_text, between_text, content[:1200]) if part))
+
+
 def _derive_outcome_fields(content: str, metadata: dict[str, object]) -> dict[str, tuple[str, float]]:
 	derived: dict[str, tuple[str, float]] = {}
 	best = _best_outcome(content)
@@ -228,10 +314,7 @@ def _derive_outcome_fields(content: str, metadata: dict[str, object]) -> dict[st
 	if outcome:
 		derived["decision outcome"] = ("mixed" if partial else outcome, 0.70 if partial else 0.78)
 
-	style_text = str(metadata.get("style of cause") or "").strip()
-	between_text = str(metadata.get("between") or "").strip()
-	role_source_text = "\n".join(part for part in (style_text, between_text, content[:1200]) if part)
-	gov_role = _government_role(role_source_text)
+	gov_role = _resolve_government_role(content, metadata)
 	if gov_role:
 		derived["government role"] = (gov_role, 0.74)
 
@@ -271,18 +354,7 @@ def derive_outcome_detail(content: str, metadata: dict[str, object]) -> dict[str
 		"offset_end": tail_offset + match.end(),
 	}
 	partial = _is_partial(tail, match)
-	role = _government_role(
-		"\n".join(
-			[
-				*(
-					str(metadata.get(key) or "").strip()
-					for key in ("style of cause", "between")
-					if metadata.get(key)
-				),
-				content[:1200],
-			]
-		)
-	)
+	role = _resolve_government_role(content, metadata)
 	status = "mixed" if partial else "undetermined"
 	winner = loser = None
 	if role and not partial:

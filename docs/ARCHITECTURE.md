@@ -173,7 +173,7 @@ test checks that these paths continue to exist.
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
 | `backend/document_structure.py` | Maps source HTML structure to plain text |
-| `backend/embedding_providers.py` | Selects and configures embedding providers |
+| `backend/embedding_providers.py` | Shared `EmbeddingProvider` interface; disabled, lazy OpenAI, and process-cached SentenceTransformer implementations |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
@@ -223,6 +223,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
 | `backend/prompts/citation_issue_focused_assessment.txt` | Issue-focused paragraph-assessment prompt |
@@ -233,7 +234,6 @@ test checks that these paths continue to exist.
 | `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
 | `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
 | `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
-| `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
@@ -250,3 +250,12 @@ test checks that these paths continue to exist.
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and
 must not be edited by hand.
+
+Query and case-ingestion embeddings share the provider interface but retain
+separate configuration and vector contracts. `backend/ai_mode.py` gates use
+before provider construction: `off` makes no embedding call, `local` permits
+only local inference, and `hosted` permits the selected provider. The default
+provider is disabled; OpenAI clients and SentenceTransformer models are created
+lazily, and local models are cached across provider instances by model and
+device. Search query dimensions are checked against the indexed-vector contract;
+case embeddings must also match the existing stored-vector dimension.

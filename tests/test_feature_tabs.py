@@ -184,16 +184,18 @@ def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
     assert 'open' not in panel.split('>', 1)[0]
     assert '<summary>Most cited paragraphs</summary>' in panel
     controller = html.split('/* Most cited paragraphs: reader-only controls. */', 1)[1].split('</script>', 1)[0]
+    summary_controller = html[html.index('function extractedReaderSummaryHtml('):].split('</script>', 1)[0]
     formatter = html.split('function formattedDecision(', 1)[1].split('\n', 1)[0]
     loader = html.split('async function openDecision(', 1)[1].split('\n', 1)[0]
     assert html.index('const sidePreviousSetReaderMode=') < html.index('const mostCitedSetReaderMode=')
+    assert html.index('const extractedSummaryPreviousMode=') < html.index('const mostCitedSetReaderMode=')
     assert html.index('const citationWorkspaceOpenDecision=') < html.index('const mostCitedOpenDecision=')
     script = r"""
 const assert=require('node:assert/strict');
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const readerState={caseId:7,mode:'chunks',formatted:false,payload:null};
-const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(){return [target,duplicate]},querySelector(selector){assert.equal(selector,'#reader-source-para-2');return target}}};
-const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options}};
+const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(selector){return selector==='.reader-extracted-summary'?[]:[target,duplicate]},querySelector(selector){assert.equal(selector,`[id="decision-source-${block.start}"]`);return target},insertAdjacentHTML(where,html){assert.equal(where,'afterbegin');this.summaryHtml=html},addEventListener(name,handler){this[name]=handler}}};
+const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options},closest(){return null}};
 const duplicate={dataset:{para:'2'},setAttribute(){throw Error('Duplicate paragraph received an anchor')}};
 const document={getElementById(id){return nodes[id]??={scrollIntoView(){}}},addEventListener(name,handler){this[name]=handler}};
 let reducedMotion=false;
@@ -201,7 +203,7 @@ const window={matchMedia(query){assert.equal(query,'(prefers-reduced-motion: red
 let fail=false,closed=false,modeCalls=0;
 let openDecision=async function(id){assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');if(fail)return;readerState.caseId=id;readerState.payload=payload;setReaderMode('normalized');};
 let closeDecisionReader=function(){closed=true;readerState.payload=null};
-let setReaderMode=function(mode){modeCalls++;readerState.mode=mode};
+let setReaderMode=function(mode){modeCalls++;readerState.mode=mode;if(mode==='normalized'&&readerState.formatted)target.id=`decision-source-${block.start}`;else delete target.id};
 function highlightedDecision(text,citations,tags,start,end,chars){return esc(chars.slice(start,end).join(''))}
 function formattedDecision(FORMATTER
 CONTROLLER
@@ -213,7 +215,7 @@ const fetch=async()=>({ok:true,json:async()=>({case:{full_text:text},citation_me
 const text='😀 prefix [2] <script>& "quoted" 😀 body';
 const chars=Array.from(text),start=chars.join('').indexOf('[2]')-1;
 const block={type:'para',num:2,start,mark_end:start+3,end:chars.length,cited_by_count:4};
-const payload={item:{full_text:text},readerData:{format_blocks:[block]}};
+const payload={item:{full_text:text},readerData:{format_blocks:[block],extracted_summary:[{key:'disposition',label:'Disposition',value:'stored disposition',evidence:'stored disposition',block_start:start,block_type:'para',paragraph_number:2}]}};
 const rows=[{...block,num:10,cited_by_count:4},{...block,num:1,cited_by_count:0},{...block,num:3,cited_by_count:9},{...block,num:9,cited_by_count:4},{...block,num:4,cited_by_count:4},{...block,num:5,cited_by_count:4},block,{...block,type:'heading',num:6,cited_by_count:99}];
 assert.deepEqual(mostCitedParagraphs(rows).map(b=>b.num),[3,2,4,5,9]);
 const duplicateBlock={...block,num:'2',start:block.start+1,cited_by_count:99};
@@ -225,13 +227,16 @@ assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:-1}]),[]);
 for(const count of [1.5,Infinity,NaN,'not a count'])assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:count}]),[]);
 for(const num of [0,-1,1.5,'not a paragraph'])assert.deepEqual(mostCitedParagraphs([{...block,num}]),[]);
 assert.ok(!formattedDecision(text,[],[],[block]).includes('id="reader-source-para-'));
+assert.ok(formattedDecision(text,[],[],[block]).includes(`id="decision-source-${block.start}"`));
 (async()=>{
 await openDecision(7);
 assert.equal(target.id,undefined);
 assert.equal(nodes.readerMostCited.hidden,false);
 assert.equal(nodes.readerMostCited.open,false);
+assert.match(nodes.decisionBody.summaryHtml,/stored disposition/);
+assert.ok(nodes.decisionBody.summaryHtml.includes(`href="#decision-source-${block.start}"`));
 assert.match(nodes.readerMostCitedList.innerHTML,/4 other cases/);
-assert.match(nodes.readerMostCitedList.innerHTML,/<a href="#reader-source-para-2" class="reader-evidence-toggle" data-reader-para-jump="2">Jump to paragraph 2<\/a>/);
+assert.ok(nodes.readerMostCitedList.innerHTML.includes(`<a href="#decision-source-${block.start}" class="reader-evidence-toggle" data-reader-para-jump="2">Jump to paragraph 2</a>`));
 assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<button'));
 assert.match(nodes.readerMostCitedList.innerHTML,/&lt;script&gt;&amp; &quot;quoted&quot; 😀 body/);
 assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<script>'));
@@ -242,8 +247,13 @@ document.click({preventDefault(){prevented=true;assert.equal(readerState.mode,'c
 assert.equal(prevented,true);
 document.click({preventDefault(){throw Error('Unrelated click prevented')},target:{closest(){return null}}});
 assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
-assert.equal(target.id,'reader-source-para-2');assert.equal(target.tabindex,'-1');assert.equal(duplicate.id,undefined);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.tabindex,'-1');assert.equal(duplicate.id,undefined);
 assert.equal(target.scrolled.block,'center');assert.equal(target.scrolled.behavior,'smooth');assert.equal(target.focused.preventScroll,true);
+readerState.mode='chunks';readerState.formatted=false;
+nodes.decisionBody.click({preventDefault(){},target:{closest(){return {dataset:{summarySource:String(block.start)}}}}});
+assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.focused.preventScroll,true);
+assert.equal(nodes.readerMostCited.hidden,false);
 reducedMotion=true;jumpToReaderParagraph(2);assert.equal(target.scrolled.behavior,'auto');
 readerState.mode='normalized';readerState.formatted=false;jumpToReaderParagraph(2);
 assert.equal(readerState.formatted,true);assert.equal(readerState.mode,'normalized');
@@ -269,9 +279,192 @@ assert.equal(readerState.payload,null);assert.equal(nodes.readerMostCited.hidden
 assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');
 })().catch(error=>{console.error(error);process.exitCode=1});
 """
-    script = script.replace('FORMATTER', formatter).replace('CONTROLLER', controller).replace('BASE_LOADER', loader)
+    script = script.replace('FORMATTER', formatter).replace('CONTROLLER', summary_controller + '\n' + controller).replace('BASE_LOADER', loader)
     result = subprocess.run([node, '-'], input=script, text=True, capture_output=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_extracted_reader_summary_omits_missing_fields_and_escapes_source_quote():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the extracted reader summary")
+    html = routes._data_explorer_page_html()
+    helpers = "\n".join([
+        html.split("const esc=", 1)[1].split("\n", 1)[0],
+    ])
+    helpers = "const esc=" + helpers
+    helpers += "\n" + html[html.index("function sideFact("):].split("\n", 1)[0]
+    helpers += "\n" + html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1
+    )[0]
+    script = helpers + """
+const assert=require('node:assert/strict');
+assert.equal(extractedReaderSummaryHtml({}), '');
+assert.equal(extractedReaderSummaryHtml(null), '');
+const sparse=extractedReaderSummaryHtml({case:{court:'Federal Court'}});
+assert.equal(sparse,'');
+const quote='[42] The application is dismissed.\\n<script>alert("x")</script> & costs.';
+const data={
+  case:{court:'Federal Court',date:'2026-10-03'},
+  format_blocks:[{type:'meta',start:0},{type:'para',num:42,start:100}],
+  extracted_summary:[
+    {key:'court',label:'Court',value:'Federal Court',evidence:'Federal Court',block_start:0,block_type:'meta',paragraph_number:null},
+    {key:'judge',label:'Judge',value:'Justice "Smith"',evidence:'Justice "Smith"',block_start:0,block_type:'meta',paragraph_number:null},
+    ...[['outcome','Outcome','dismissed'],['outcome_source','Outcome source','stored <rule>'],['disposition','Disposition',quote]].map(([key,label,value])=>({key,label,value,evidence:quote,block_start:100,block_type:'para',paragraph_number:42}))
+  ],
+  tags:[{category:'issue',value:'unverified tag',score:1}]
+};
+const rendered=extractedReaderSummaryHtml(data);
+assert.ok(rendered.includes('dismissed'));
+assert.ok(rendered.includes('stored &lt;rule&gt;'));
+assert.ok(rendered.includes('Justice &quot;Smith&quot;'));
+assert.ok(rendered.includes(esc(quote)));
+assert.ok(!rendered.includes('<script>'));
+assert.equal((rendered.match(/href="#decision-source-100"/g)||[]).length,3);
+assert.equal((rendered.match(/href="#decision-source-0"/g)||[]).length,2);
+assert.ok(rendered.includes('data-summary-source="100"'));
+assert.ok(!rendered.includes('unverified tag'));
+assert.ok(!rendered.includes('2026-10-03'));
+delete data.format_blocks;
+assert.equal(extractedReaderSummaryHtml(data),'');
+data.extracted_summary=data.extracted_summary.filter(row=>!row.key.startsWith('outcome'));
+data.format_blocks=[{type:'para',num:42,start:100}];
+const noOutcome=extractedReaderSummaryHtml(data);
+assert.ok(noOutcome.includes('Disposition'));
+assert.ok(!noOutcome.includes('Outcome source'));
+data.format_blocks=[{type:'para',num:42,start:200}];
+assert.equal(extractedReaderSummaryHtml(data),''); // same number is not the same source block
+console.log('Extracted summary rendering assertions passed');
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+    assert "Extracted summary rendering assertions passed" in result.stdout
+
+
+def test_extracted_reader_summary_mounts_in_active_reader_and_links_formatter_paragraphs():
+    html = routes._data_explorer_page_html()
+    assert "body.insertAdjacentHTML('afterbegin',extractedReaderSummaryHtml(readerState.payload.readerData))" in html
+    assert 'const anchor=`id="decision-source-${b.start}"`' in html
+    assert "const start=link.dataset.summarySource;readerState.formatted=true;setReaderMode('normalized')" in html
+    assert "target.focus({preventScroll:true})" in html
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the active reader summary mount")
+    mount = html[html.index("const extractedSummaryPreviousMode="):].split(
+        "document.getElementById('decisionBody')?.addEventListener('click',event=>{", 1
+    )[0]
+    script = """
+const assert=require('node:assert/strict');
+const readerState={payload:{readerData:{marker:'stored reader data'}}};
+let modeCalls=[],insertions=[],removed=0;
+const paragraph={dataset:{para:'42'}};
+const body={
+  querySelectorAll:selector=>selector==='.reader-extracted-summary'?[{remove:()=>removed++}]:[paragraph],
+  insertAdjacentHTML:(where,html)=>insertions.push([where,html])
+};
+const document={getElementById:id=>id==='decisionBody'?body:null};
+let setReaderMode=mode=>modeCalls.push(mode);
+const extractedReaderSummaryHtml=data=>{assert.equal(data.marker,'stored reader data');return '<section>quote</section>';};
+""" + mount + """
+setReaderMode('normalized');setReaderMode('chunks');setReaderMode('normalized');
+assert.deepEqual(modeCalls,['normalized','chunks','normalized']);
+assert.equal(removed,3);
+assert.deepEqual(insertions,Array(3).fill(['afterbegin','<section>quote</section>']));
+readerState.payload=null;
+setReaderMode('normalized');
+assert.equal(insertions.length,3);
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+
+
+def test_extracted_summary_browser_source_links():
+    """Optional local Chromium acceptance; no browser dependency for CI."""
+    playwright = pytest.importorskip("playwright.sync_api")
+    chromium = shutil.which("chromium")
+    if not chromium:
+        pytest.skip("Chromium is required for local browser acceptance")
+    from datetime import date
+    from backend.case_formatter import format_decision
+    from backend.reader_service import _build_reader_extracted_summary
+    from backend.models import CaseReaderMetadataFieldResponse
+
+    text = ("Federal Court\nDate: 20250102\nJudge: Justice Smith\nDecision Content\n"
+            "[1] Refugee evidence 😀.\n[2] The application is dismissed.")
+    case = SimpleNamespace(full_text=text, court="Federal Court",
+                           date=date(2025, 1, 2), metadata_json={})
+    start = text.index("application is dismissed")
+    outcome = SimpleNamespace(
+        decision_outcome="dismissed", source="stored_rule",
+        disposition_evidence="application is dismissed",
+        evidence_offset_start=start, evidence_offset_end=start + len("application is dismissed"),
+    )
+    start = text.index("Refugee evidence")
+    tag = SimpleNamespace(
+        category="issue", value="refugee", score=1, source="stored_tag",
+        evidence="Refugee evidence", offset_start=start, offset_end=start + len("Refugee evidence"),
+    )
+    judge = CaseReaderMetadataFieldResponse(
+        key="judge", value="Justice Smith", source="reader_extracted", evidence="Justice Smith",
+    )
+    blocks = format_decision(text)
+
+    def payload(stored_outcome):
+        return {
+            "format_blocks": blocks,
+            "extracted_summary": [
+                row.model_dump() for row in _build_reader_extracted_summary(
+                    case, stored_outcome, blocks, [tag], [judge],
+                )
+            ],
+        }
+
+    html = routes._data_explorer_page_html()
+    helpers = "const esc=" + html.split("const esc=", 1)[1].split("\n", 1)[0] + "\n"
+    for name in ["highlightedDecision", "formattedDecision"]:
+        helpers += html[html.index("function " + name + "("):].split("\n", 1)[0] + "\n"
+    helpers += html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1,
+    )[0]
+    hooks = html[html.index("const extractedSummaryPreviousMode="):].split("</script>", 1)[0]
+    setup = (
+        "const readerState={formatted:false,payload:{readerData:" + json.dumps(payload(outcome)) +
+        "}};const storedText=" + json.dumps(text) + ";"
+        "let setReaderMode=mode=>{document.getElementById('decisionBody').innerHTML="
+        "mode==='chunks'?'<div>Chunks</div>':"
+        "formattedDecision(storedText,[],[],readerState.payload.readerData.format_blocks);};"
+    )
+    with playwright.sync_playwright() as browser_driver:
+        browser = browser_driver.chromium.launch(
+            executable_path=chromium, headless=True, args=["--no-sandbox"],
+        )
+        page = browser.new_page()
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.set_content("<div id=decisionBody></div>")
+        page.add_script_tag(content=helpers + setup + hooks)
+        for size in [{"width": 1280, "height": 900}, {"width": 390, "height": 844}]:
+            page.set_viewport_size(size)
+            page.evaluate("setReaderMode('chunks')")
+            assert page.locator(".reader-extracted-summary").count() == 1
+            assert page.locator(".reader-extracted-summary a").count() == 7
+            for index in range(7):
+                page.evaluate("setReaderMode('chunks')")
+                link = page.locator(".reader-extracted-summary a").nth(index)
+                href = link.get_attribute("href")
+                link.click()
+                assert page.locator("#decisionBody " + href).count() == 1
+                assert page.evaluate("document.activeElement.id") == href[1:]
+            assert page.locator("blockquote").inner_text() == "[2] The application is dismissed."
+        update = "data=>{readerState.payload.readerData=data;setReaderMode('normalized')}"
+        for stored_outcome in [None, SimpleNamespace(**(vars(outcome) | {"evidence_offset_start": -1}))]:
+            page.evaluate(update, payload(stored_outcome))
+            assert page.locator(".reader-extracted-summary a").count() == 4
+            assert "Outcome" not in page.locator(".reader-extracted-summary").inner_text()
+        page.evaluate(update, {"case": {"court": "unverified"}, "format_blocks": [], "extracted_summary": []})
+        assert page.locator(".reader-extracted-summary").count() == 0
+        assert not errors
+        browser.close()
 
 
 class NavigationParser(HTMLParser):
@@ -307,7 +500,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert views == {
         'about': 'info', 'site-architecture': 'info', 'search': 'research',
         'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'research-bench': 'testing',
+        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'tag-analytics': 'research', 'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {

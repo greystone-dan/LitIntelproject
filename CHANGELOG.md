@@ -19,6 +19,17 @@
   dates. The active Data Explorer reader adds a cautious “may be affected”
   banner; no memo output or database schema changes. Extension guidance is in
   [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
+- Added a shared embedding-provider interface with a disabled default, lazy
+  OpenAI client wrapper, and cached local SentenceTransformer implementation.
+  Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:
+  off makes no model/client calls, local mode rejects hosted embeddings, and
+  hosted mode uses the selected provider. Provider dimensions and the 503
+  missing-key / 502 provider-failure API contracts are preserved. Added
+  fake-client/model tests and updated the architecture inventory, configuration,
+  system reference, and Swimm maps. Python compilation and `git diff --check`
+  passed; seven provider tests and nine targeted API/search/ingestion tests passed
+  in an isolated dependency environment. All three generated references were
+  current. No model downloads or database operations were performed.
 - Moved the experimental research, citation-intelligence, contextual-authority,
   and discussion-unit prompts into header-versioned text files loaded through a
   shared backend registry. Exact prompt wording is guarded by golden snapshots.

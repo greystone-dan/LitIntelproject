@@ -98,6 +98,15 @@ or the same pinpoint text already exposed in citation rows, and counts distinct
 other citing cases. This paragraph cue does not recompute citation offsets;
 without a pinpoint that matches a formatted paragraph, the paragraph remains
 unmarked.
+The source reader also offers a collapsed **Most cited paragraphs** panel,
+hidden when no formatted paragraphs have incoming pinpoint counts. It reuses
+the same shading data without another query, showing up to five paragraphs
+ranked by distinct other citing cases (numeric paragraph order breaks ties),
+with counts, short excerpts, and keyboard-operable jumps. Jumps switch to
+normalized formatted text and scroll/focus the source paragraph, not linked
+context; backend offsets remain unchanged. The panel and extracted case summary
+share formatter anchors keyed by backend block starts, so switching reader
+modes preserves both sets of evidence links without replacing their IDs.
 The Case Search controls also include `Display core cases`, which runs the
 ordinary result renderer against the allowlisted `discussion_units_core_300`
 cohort. The inline reader separately offers an off-by-default `Show paragraph
@@ -154,6 +163,20 @@ Compatibility redirects such as `/about`, `/citation-intelligence`, and `/judges
 ### Search And Retrieval
 
 The API supports case-level, chunk-level, and grouped-chunk retrieval.
+
+Case-level relevance search and `/analytics/search/cases` first promote exact
+neutral/reported citations, then contiguous whole-token party names from captions
+(`v`, `v.`, `vs`, `versus`) or stored reader party metadata. Case/spacing/bracket
+variants are normalized; `Baker` is not a party match for `Bakery`. Citation fields
+may contain multiple citations, including reported citations alongside neutral
+citations, with dotted `S.C.R.` normalized consistently. Body mentions are not
+identity matches. Case-level identity queries (citation-shaped queries or any
+candidate citation/party hit) rank Citation > Party name > Title > Full text >
+fallback, preserving legacy scores within each bucket. Ordinary topic queries
+without identity hits retain exactly their legacy score order. Analytics retains
+its legacy title-before-body ranking after citation/party promotion; filters,
+paging and explicit date/minister sorts remain intact. Results expose a short
+`matched_on` label, displayed in Case Search, without inventing evidence offsets.
 
 - `semantic` search uses stored vectors when available.
 - `lexical` search avoids embedding generation and searches text/metadata predicates.
@@ -248,7 +271,30 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
 
+Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
+
 By default, active Case Search uses title/citation matching. Full decision text and summary matching are added only when the explicit full-text search control is enabled.
+
+### Saved Searches And Alerts
+
+Saved-search persistence is separate from the existing case-search contract.
+`POST` and `GET /saved-searches` create and list saved queries;
+`GET`, `PUT`, and `DELETE /saved-searches/{id}` retrieve, update, or remove
+one saved query. `POST /saved-searches/{id}/check` returns up to 100 recent
+recorded alerts and advances the saved search's last-check timestamp. An empty
+saved-search collection returns `[]`. Saved requests retain a search query,
+search mode, and filter object; the existing `/search` behavior is unchanged.
+
+The ORM and Alembic schema define `saved_searches`, `search_alerts`, and
+`fc_activity_alerts`. Alert rows reference their saved search and corresponding
+case/chunk records with cascading foreign keys. The check route reports
+persisted alert rows; it is not a scheduler, source poller, or automatic alert
+discovery process. Case Search's **Save current search** action stores its
+current query and filters, and `/saved-searches-ui` lists saved searches and
+their recorded alerts. `scripts/check_saved_searches.py` checks a bounded
+number of saved searches in read-only mode by default; `--apply` explicitly
+stores newly matching case alerts. Empty saved-search storage does not change
+normal Case Search behavior.
 
 ### Citation, Statute, And Metadata Processing
 
@@ -662,7 +708,7 @@ opinion.
 
 ### Startup And Configuration
 
-The application loads `.env` from the repository root and `backend/.env`. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`, avoiding accidental connection to a stale shell database. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+The application loads `.env` from the repository root and then `backend/.env`, both with `override=True`: dotenv values override shell settings, and backend dotenv values win over root dotenv values. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`. Disposable migration checks must refuse either dotenv path (including symlinks) before importing the database module, then set all five `POSTGRES_*` connection settings. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
 
 `init_db()` is called during FastAPI startup. Alembic remains the authoritative schema migration path for reproducible environments:
 
@@ -1191,6 +1237,16 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Proposed ID/IAD Decision Coverage
+
+ID/IAD tribunal decisions are not currently described as an implemented
+collection here. A documentation-only proposal for CBSA-hearing research,
+including candidate sources and unverified licence/access status, ingestion and
+schema touchpoints, outcome/Minister analytics, affected filters, and a phased
+pilot, is in [docs/reports/id-iad-coverage-design.md](docs/reports/id-iad-coverage-design.md).
+No source access, reuse permission, or corpus completeness is assumed by that
+design.
+
 | Table | Purpose |
 | --- | --- |
 | `cases` | Canonical case record: identity, court/date/citation/docket, text, sanitized source HTML, metadata, provenance summary, hashes, status, case embedding |
@@ -1225,7 +1281,30 @@ The appendix is generated from `backend.database.Base.metadata`. Alembic remains
 
 ## Migrations
 
-Alembic migrations currently run from `0001_case_metadata` through `0016_case_source_html`.
+Alembic migrations currently have one head, `0030_full_paragraph_ivfflat`.
+The table below summarizes the early revisions; the complete graph remains
+authoritative in `alembic/versions/`.
+
+The empty-database path checks that `cases` exists before inspecting its
+columns in `0001`. Revision `0015` creates `fc_activity_cases` only when absent,
+using a frozen pre-`0027` schema before creating its classification child.
+The fresh `0001` branch also creates the cosine HNSW index before returning.
+The `0015` downgrade preserves the activity parent, including bootstrap-created
+parents, and removes only its classification child.
+Existing activity parents are not altered or replaced; `0027` still owns
+nullable source provenance additions. Revision identities and ordering are
+unchanged. These historical repairs do not run again on databases already
+stamped beyond them and do not reconcile unrelated schema drift.
+
+`tests/test_migrations.py` covers missing-table guards, existing-table
+preservation, compatibility with the real `0027` upgrade, the actual sole head,
+and synthetic multiple-head rejection. The independent `migrations` job in
+`.github/workflows/tests.yml` uses disposable PostgreSQL 16 with pgvector,
+refuses dotenv overrides, verifies/enables the vector extension, upgrades an
+empty database, displays its current revision, checks exactly one graph head
+and current-at-head, and repeats the upgrade. The existing pytest job remains
+unchanged. This is an empty-database deployment check, not proof of production
+schema equivalence or authorization to upgrade production.
 
 | Revision | Main change |
 | --- | --- |
@@ -1281,6 +1360,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 ### Research And Analytics APIs
 
 - `GET /analytics/search/cases`: filtered active Case Search API.
+- `GET /search/export.csv`: bounded (maximum 1,000 rows) CSV export using the active Case Search query and filters.
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.

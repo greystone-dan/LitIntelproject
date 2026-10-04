@@ -113,6 +113,9 @@ def parse_submission(text: str) -> list[ParsedCitation]:
         if _positive_case_id(line) is not None:
             continue
         matches = extract_case_citation_matches(line)
+        if not matches:
+            parsed.append(ParsedCitation(line, tuple(_paragraph_refs(line))))
+            continue
         for index, match in enumerate(matches):
             next_start = matches[index + 1].offset_start if index + 1 < len(matches) else len(line)
             tail = line[match.offset_end:next_start]

@@ -6,8 +6,8 @@ Updated: 2026-10-04
 
 ## Task Record
 
-Task: Implement issue #115’s Table of Authorities builder, including the JSON
-POST contract, case-ID and citation resolution, and preserved form UI.
+Task: Close the acceptance gap where nonblank, unrecognized paste lines were
+silently omitted from the Table of Authorities DOCX.
 
 Why now: Let researchers turn draft legal submissions into a traceable,
 court-grouped authority list without adding private draft text to the case
@@ -38,6 +38,8 @@ Acceptance criteria:
   `POST /table-of-authorities/build` form contract remain unchanged.
 - Numeric case-ID lines resolve against local records; citation lines continue
   to resolve independently, and missing IDs/citations remain explicit.
+- Every nonblank line that is neither a positive case ID nor an extracted
+  citation appears as an unresolved item; blank lines are ignored.
 - Parser extracts citations and paragraph references, groups by court in a
   documented order, and alphabetizes authorities within each court.
 - Resolver reports unmatched authorities explicitly and provides CanLII-style
@@ -47,21 +49,24 @@ Acceptance criteria:
 - Focused parser/resolver/API/DOCX tests and requested repository validations
   pass, or limitations are recorded with evidence.
 
-Harness criteria: JSON with numeric IDs and citations returns grouped DOCX
-entries; unresolved identifiers remain in the not-found section; 201 nonblank
-lines return a clear validation error without storing input.
+Harness criteria: `Unparseable authority text` appears in the DOCX not-found
+section; blank-only lines do not create entries; existing ID/citation and
+200-line behavior remains.
 
 Docs/generated references: Updated `SYSTEM_REFERENCE.md`, `CHANGELOG.md`, and
-`.swm/6.maiixtsw.sw.md`; regenerated `docs/API_REFERENCE.generated.md` with
-`scripts/generate_api_reference.py`. OpenAPI documents JSON `text` input and a
-binary DOCX response.
+`.swm/6.maiixtsw.sw.md` to clarify that unrecognized nonblank lines are retained;
+`scripts/check_generated_docs.py` confirms no API/schema regeneration was needed.
 
 Rollback/recovery: Revert the feature module, route/page integration, tests, and
 the two documentation updates together; no stored data or migration requires
 recovery.
 
-Evidence: Managed worker added the parser/resolver, GET page, POST DOCX route, and
-fixture-backed tests. Manager verification found and fixed a CanLII URL path
+Evidence: Original JSON/ID implementation and this follow-up are complete. The
+parser now retains any nonblank line with no extracted case citation or positive
+case ID, so the existing resolver places it in the DOCX not-found section.
+Blank-only input creates no item. The prior implementation added the
+parser/resolver, GET page, POST DOCX route, and fixture-backed tests. Manager
+verification found and fixed a CanLII URL path
 pattern mismatch, then made the route query citation-matched metadata instead of
 loading every case row. The focused suite passed 10 tests; UI feature-tab tests
 passed 56 with one skipped. Headless Chromium confirmed that a 201-line paste is
@@ -81,7 +86,7 @@ compatibility tests. Both returned the required structured reports; neither
 accessed a database or edited documentation. Manager review added an explicit
 binary DOCX OpenAPI response and contract assertion, and normalized indentation
 in the parser module.
-Focused validation: `/tmp/caselibrary-issue115-venv/bin/python -m pytest tests/test_table_of_authorities.py -q` — 16 passed. `/tmp/caselibrary-issue115-venv/bin/python -m pytest tests/test_feature_tabs.py -q` — 56 passed, 1 skipped. `scripts/check_generated_docs.py` — 3 references current. Python compilation, `git diff --check`, changed-document link check, and the modified-file secret-pattern scan passed. Earlier Chromium smoke confirmed the 201-line UI rejection.
+Focused validation: `/tmp/caselibrary-issue115-venv/bin/python -m pytest tests/test_table_of_authorities.py -q` — 17 passed. The focused DOCX regression confirms `Unparseable authority text` is under the not-found heading and blank lines are ignored. `scripts/check_generated_docs.py` — 3 references current. Python compilation, `git diff --check`, and modified-file secret-pattern scan passed. The local-link scan found only the two previously recorded, unchanged broken links in `SYSTEM_REFERENCE.md`; the updated Swimm/changelog links passed. Earlier Chromium smoke confirmed the 201-line UI rejection.
 Residual risk: The CI-deselected full suite collected and ran but ended with
 1,261 passed, 3 failed, 2 skipped, 1 xfailed, and 3 deselected. Failures were
 `tests/test_api.py::test_local_chunk_search_uses_requested_model` (missing
@@ -99,27 +104,25 @@ environment.
 
 ## Hypothesis
 
-If mixed JSON lines containing case IDs and citations are handled correctly, the
-focused API/DOCX tests will show local ID and citation resolution, explicit
-unmatched items, and no change to the existing UI form contract.
+If an unrecognized nonblank line is preserved, the focused DOCX test will find
+its exact text in the not-found section while blank-only input creates no
+not-found entry.
 
 ## Plan
 
-1. Add a JSON request model and `POST /table-of-authorities`, keeping the current
-   GET page and form-based POST intact.
-2. Parse numeric case-ID lines separately from citations and resolve both
-   against local metadata using fixtures/mocks only.
-3. Add API, case-ID, and compatibility tests; update canonical docs and Swimm;
-   regenerate API docs and run focused validation.
+1. Preserve original text as an unresolved citation-like row when a nonblank
+   line yields no citation and is not a positive case ID.
+2. Add a fixture-backed DOCX test for unknown text and blank-line handling.
+3. Update canonical docs and Swimm, then rerun the focused tests and safety checks.
 
 ## Execution Checkpoints
 
 - Delegation: Managed-workers `toa-backend` and `toa-json-ids` returned required
   structured reports.
-- Implementation: Complete; JSON route and numeric local case-ID resolution
-  tested while retaining the form route.
-- Documentation: Updated `SYSTEM_REFERENCE.md`, `CHANGELOG.md`,
-  `.swm/6.maiixtsw.sw.md`, and regenerated API reference.
+- Implementation: Complete; unrecognized nonblank lines are retained in the
+  not-found section and blank lines are ignored.
+- Documentation: Updated `SYSTEM_REFERENCE.md`, `CHANGELOG.md`, and
+  `.swm/6.maiixtsw.sw.md`; generated-reference check passed.
 - Recovery: None required; no database or long-running operation.
 
 ## Decision Log
@@ -133,15 +136,16 @@ unmatched items, and no change to the existing UI form contract.
 Completion recorded: yes
 
 Summary: Shipped ephemeral form and JSON DOCX builders. Inputs accept one
-positive local case ID or citation per line; resolved authorities are grouped
-and alphabetized, with unresolved entries, citations, paragraph references, and
-validated CanLII links represented in the DOCX.
+positive local case ID or citation per line; all unrecognized nonblank lines are
+preserved in the not-found section. Resolved authorities are grouped and
+alphabetized, with citations, paragraph references, and validated CanLII links
+represented in the DOCX.
 
-Validation: Focused TOA tests (16 passed), UI regression tests (56 passed, 1
-skipped), generated-doc check, Python compilation, diff/local-link checks, and
-modified-file secret scan passed. OpenAPI tests confirm JSON input and DOCX
-response media types. Full-suite limitations from the initial checkpoint are
-recorded above; the full suite was not rerun for this review addition.
+Validation: Focused TOA tests (17 passed), UI regression tests (56 passed, 1
+skipped), generated-doc check, Python compilation, diff check, and modified-file
+secret scan passed. OpenAPI tests confirm JSON input and DOCX response media
+types. Full-suite limitations from the initial checkpoint are recorded above;
+the full suite was not rerun for the review follow-ups.
 
 Residual risk: Full-suite failures from the earlier run are attributable to
 declared embedding packages missing from the isolated environment. No live

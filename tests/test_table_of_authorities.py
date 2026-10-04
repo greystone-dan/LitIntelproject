@@ -74,6 +74,19 @@ def test_parser_captures_case_citations_and_paragraph_references():
     assert parsed[1].paragraph_refs == ("7",)
 
 
+def test_unrecognized_nonblank_lines_are_retained_in_docx_not_found_section():
+    parsed = parse_submission("\n \t\nUnparseable authority text\n \n")
+    assert [item.citation for item in parsed] == ["Unparseable authority text"]
+
+    groups, not_found = resolve_authorities(parsed, CASES)
+    paragraphs, _ = _document_text(build_docx(groups, not_found))
+    assert paragraphs.index("Not found in local case metadata") < paragraphs.index(
+        "Unparseable authority text"
+    )
+
+    assert parse_submission("\n \t \n") == []
+
+
 def test_nonblank_line_limit_includes_200_and_rejects_201():
     accepted = "\n\n".join(f"2020 SCC {index + 1}" for index in range(200))
     assert len(parse_submission(accepted)) == 200
@@ -82,11 +95,15 @@ def test_nonblank_line_limit_includes_200_and_rejects_201():
         parse_submission(accepted + "\n2026 SCC 999")
 
 
-def test_positive_numeric_lines_are_case_ids_and_other_lines_are_citations():
+def test_positive_numeric_lines_are_case_ids_and_nonpositive_lines_are_retained():
     text = "1\n001\n0\n-2\n2020 FC 10"
 
     assert case_id_lookup_values(text) == [1]
-    assert [item.citation for item in parse_submission(text)] == ["2020 FC 10"]
+    assert [item.citation for item in parse_submission(text)] == [
+        "0",
+        "-2",
+        "2020 FC 10",
+    ]
 
 
 def test_citation_lookup_values_are_normalized_and_support_fc_aliases():

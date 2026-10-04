@@ -68,6 +68,10 @@ def query_embeddings_enabled() -> bool:
     return _query_embedding_settings()[0] != "none"
 
 
+def query_embedding_provider() -> str:
+    return _query_embedding_settings()[0]
+
+
 @lru_cache(maxsize=2)
 def _local_provider(model_name: str, dimensions: int) -> SentenceTransformerEmbeddingProvider:
     return SentenceTransformerEmbeddingProvider(model_name=model_name, dimensions=dimensions)

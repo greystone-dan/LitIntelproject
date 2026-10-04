@@ -286,6 +286,16 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   vector corpus, then sends the bounded grouped excerpts to the configured
   generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
   generation; retrieval and generation models remain separate.
+- Query embedding selection is independent of generation. OpenAI remains the
+  default; `QUERY_EMBEDDING_PROVIDER=local` opts into a local
+  SentenceTransformer query model. `GET /api/search-embedding-status` reports
+  the selected query provider/model/dimensions, whether query text leaves the
+  machine, and `TEXT_GENERATION_PROVIDER` without loading a model. Search
+  rejects query vectors that do not match its 1536-dimensional indexed-vector
+  contract. The default local BGE-M3 model is 1024-dimensional, so it requires
+  a compatible indexed-vector family before it can be used by that search path.
+  See [the local query embedding report](docs/reports/local-query-embeddings.md)
+  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -1464,6 +1474,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /search/chunks`: chunk-level search.
 - `POST /search/chunks/grouped`: grouped matching passages per case.
 - `POST /search/local-chunks`: local embedding-backed chunk search where populated.
+- `GET /api/search-embedding-status`: configured query and generation provider
+  metadata; does not load an embedding model or perform retrieval.
 
 ### Ephemeral Document Analysis APIs
 

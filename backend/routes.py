@@ -224,6 +224,7 @@ from .search_service import (
 	_party_filter_terms,
 	_validate_search_ranges,
 )
+from .query_embedding_providers import get_search_embedding_status
 from .models import (
 	DiscoveredThemeResponse,
 	ThemeDiscoveryResponse,
@@ -301,6 +302,11 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+
+
+@router.get("/api/search-embedding-status")
+def search_embedding_status() -> dict[str, str | int | bool]:
+	return get_search_embedding_status()
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:

@@ -7,10 +7,12 @@ from types import SimpleNamespace
 
 import pytest
 from docx import Document
-from fastapi import HTTPException
+from fastapi import FastAPI, HTTPException
+from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
 from backend import routes
+from backend import query_embedding_providers
 from backend import search_service
 from backend.reader_service import (
     _build_reader_inferred_tags,
@@ -1424,6 +1426,89 @@ def test_local_chunk_search_uses_requested_model(monkeypatch):
     assert result[0].chunk_text == "Relevant local passage"
     assert result[0].similarity == pytest.approx(0.88)
     assert "BAAI/bge-m3" in database.statement.compile().params.values()
+
+
+def test_search_embedding_status_reports_default_openai_provider(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("TEXT_GENERATION_PROVIDER", raising=False)
+    app = FastAPI()
+    app.include_router(routes.router)
+
+    with TestClient(app) as client:
+        response = client.get("/api/search-embedding-status")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "query_provider": "openai",
+        "model": "text-embedding-3-small",
+        "dimensions": 1536,
+        "query_data_leaves_machine": True,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_local_query_embedding_with_matching_indexed_dimensions(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.setenv("QUERY_EMBEDDING_MODEL", "test-1536-local")
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
+    provider = SimpleNamespace(embed_query=lambda text: [0.25] * 1536)
+    monkeypatch.setattr(query_embedding_providers, "_local_provider", lambda model, dims: provider)
+
+    assert len(search_service._embed("local query")) == 1536
+    assert query_embedding_providers.get_search_embedding_status() == {
+        "query_provider": "local",
+        "model": "test-1536-local",
+        "dimensions": 1536,
+        "query_data_leaves_machine": False,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_local_query_embedding_mismatch_fails_before_provider_use(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_DIMENSIONS", raising=False)
+    provider_calls = []
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_local_provider",
+        lambda model, dims: provider_calls.append((model, dims)),
+    )
+
+    with pytest.raises(HTTPException) as exc:
+        search_service._embed("local query")
+    assert exc.value.status_code == 503
+    assert "1024" in exc.value.detail
+    assert "1536" in exc.value.detail
+    assert "re-embedding" in exc.value.detail
+    assert provider_calls == []
+
+
+def test_query_embedding_provider_preserves_openai_default_without_live_client(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    created = {}
+
+    class FakeOpenAI:
+        def __init__(self, **kwargs):
+            created.update(kwargs)
+            self.embeddings = SimpleNamespace(
+                create=lambda **params: SimpleNamespace(
+                    data=[SimpleNamespace(embedding=[0.5] * 1536)]
+                )
+            )
+
+    monkeypatch.setattr(query_embedding_providers, "OpenAI", FakeOpenAI)
+    vector = query_embedding_providers.embed_query("outbound query")
+
+    assert len(vector) == 1536
+    assert created == {"api_key": "test-key"}
 
 
 def test_search_lexical_mode_skips_embedding_call(monkeypatch):

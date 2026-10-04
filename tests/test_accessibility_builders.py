@@ -1,16 +1,16 @@
-from html.parser import HTMLParser
 import importlib
 import inspect
-import re
-from pathlib import Path
 import pkgutil
+import re
+from html.parser import HTMLParser
+from pathlib import Path
 
 from backend import pages
 from backend.pages.citation_map import citation_map_html
 from backend.pages.citation_pass import citation_pass_page_html
-from backend.pages.discussion_units_sandbox import discussion_units_sandbox_page_html
 from backend.pages.data_explorer import data_explorer_page_html
 from backend.pages.deidentify import deidentify_page_html
+from backend.pages.discussion_units_sandbox import discussion_units_sandbox_page_html
 from backend.pages.fc_analytics import FC_ANALYTICS_CSS, FC_ANALYTICS_PANEL
 from backend.pages.judge_outcomes import judge_outcomes_page_html
 from backend.pages.live_analysis import live_analysis_page_html
@@ -33,12 +33,18 @@ class _PageMarkupParser(HTMLParser):
         self.main_landmarks = 0
         self.skip_targets = []
         self.ids = set()
+        self.described_by = []
+        self.heading_levels = []
         self.live_status_regions = 0
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
         if attributes.get("id"):
             self.ids.add(attributes["id"])
+        if attributes.get("aria-describedby"):
+            self.described_by.extend(attributes["aria-describedby"].split())
+        if len(tag) == 2 and tag[0] == "h" and tag[1].isdigit():
+            self.heading_levels.append(int(tag[1]))
         if tag == "main" or attributes.get("role") == "main":
             self.main_landmarks += 1
         if tag == "a" and "skip-link" in attributes.get("class", "").split():
@@ -396,6 +402,15 @@ def test_all_page_builders_have_accessible_static_images_controls_and_tables():
         parser = _PageMarkupParser()
         parser.feed(html)
         assert parser.main_landmarks, f"{page_name} has no main landmark"
+        assert all(
+            reference in parser.ids for reference in parser.described_by
+        ), f"{page_name} has an unresolved aria-describedby reference"
+        assert all(
+            following <= current + 1
+            for current, following in zip(
+                parser.heading_levels, parser.heading_levels[1:]
+            )
+        ), f"{page_name} skips a heading level"
         assert parser.skip_targets, f"{page_name} has no skip-to-content link"
         assert all(
             target and target.startswith("#") and target[1:] in parser.ids
@@ -424,6 +439,18 @@ def test_all_page_builders_have_accessible_static_images_controls_and_tables():
             )
 
     assert not findings, "\n".join(findings)
+
+
+def test_case_search_suggestions_support_keyboard_navigation():
+    html = data_explorer_page_html()
+    assert 'id="searchQuery" placeholder=' in html
+    assert 'role="combobox"' in html
+    assert 'role="listbox"' in html
+    assert 'role="option"' in html
+    assert "aria-activedescendant" in html
+    assert "event.key==='Escape'" in html
+    assert "event.key==='ArrowDown'||event.key==='ArrowUp'" in html
+    assert "event.key==='Enter'&&suggestionState.active>=0" in html
 
 
 def test_async_result_pages_announce_status_updates():

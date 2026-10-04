@@ -180,6 +180,7 @@ test checks that these paths continue to exist.
 | `backend/models.py` | Pydantic request and response contracts |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
+| `backend/pages/accessibility.py` | Shared static-page accessibility enhancements |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |

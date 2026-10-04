@@ -2969,11 +2969,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:08.925159+00:00
+Generated: 2026-10-04T13:38:19.916027+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 104 across 101 paths
-Hidden operations: 59 excluded from OpenAPI
+OpenAPI operations: 106 across 103 paths
+Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3218,6 +3218,38 @@ Return local authoritative section text and cases citing the pinpoint.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}`
+
+Get Statute By Code
+
+Get statute details, optionally as of a specific date.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `as_of` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}/versions/{version_id}/sections`
+
+Get Statute Sections
+
+Get sections for a specific statute version.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `version_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -4982,6 +5014,21 @@ Handler: `backend.routes.case_reader_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader/cases`
 
 **Hidden from OpenAPI.**
@@ -5281,6 +5328,16 @@ Handler: `backend.routes.saved_searches_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_viewer_page_route`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /tag-finder`
 
 **Hidden from OpenAPI.**
@@ -5319,8 +5376,8 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:09.454176+00:00
-Tables: 28
+Generated: 2026-10-04T13:38:16.787366+00:00
+Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -5492,6 +5549,16 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
     }
     fc_activity_alerts {
         Integer id PK
@@ -5716,6 +5783,7 @@ erDiagram
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -5728,7 +5796,46 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
+    }
+    statute_sections {
+        Integer id PK
+        Integer statute_version_id  FK
+        String(50) section_number
+        String(50) subsection
+        String(50) paragraph
+        TEXT heading
+        TEXT text
+        Integer offset_start
+        Integer offset_end
+        DATETIME created_at
+    }
+    statute_versions {
+        Integer id PK
+        Integer statute_id  FK
+        String(50) version_number
+        DATE in_force_date
+        DATE end_date
+        TEXT full_text
+        BLOB text_compressed
+        TEXT source_url
+        DATETIME fetched_at
+        DATETIME created_at
+    }
+    statutes {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        String(255) short_title
+        String(100) jurisdiction
+        String(50) statute_type
+        Integer consolidated_year
+        String(100) source
+        TEXT source_url
+        String(100) license
+        DATETIME created_at
+        DATETIME updated_at
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
@@ -5746,6 +5853,7 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
@@ -5760,6 +5868,9 @@ erDiagram
     saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
+    statute_versions ||--o{ statute_sections : "statute_version_id"
+    statutes ||--o{ statute_versions : "statute_id"
 ```
 
 ## Table Summary
@@ -5779,6 +5890,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
@@ -5793,7 +5905,10 @@ erDiagram
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
-| `statute_references` | 16 | `id` |
+| `statute_references` | 18 | `id` |
+| `statute_sections` | 10 | `id` |
+| `statute_versions` | 10 | `id` |
+| `statutes` | 12 | `id` |
 
 ## `a2aj_case_map`
 
@@ -6186,6 +6301,34 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `fc_activity_alerts`
 
@@ -6630,6 +6773,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -6642,6 +6786,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -6656,11 +6801,93 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_version_id` | `Integer` | no | FK -> statute_versions.id; NOT NULL |
+| `section_number` | `String(50)` | no | NOT NULL |
+| `subsection` | `String(50)` | yes | - |
+| `paragraph` | `String(50)` | yes | - |
+| `heading` | `TEXT` | yes | - |
+| `text` | `TEXT` | yes | - |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_sections_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `statute_version_id` -> `statute_versions.id`; on delete `CASCADE`
+
+## `statute_versions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_id` | `Integer` | no | FK -> statutes.id; NOT NULL |
+| `version_number` | `String(50)` | no | NOT NULL |
+| `in_force_date` | `DATE` | no | NOT NULL |
+| `end_date` | `DATE` | yes | - |
+| `full_text` | `TEXT` | yes | - |
+| `text_compressed` | `BLOB` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `fetched_at` | `DATETIME` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_versions_in_force_date`: index on `in_force_date`
+- `ix_statute_versions_statute_id`: index on `statute_id`
+
+### Unique Constraints
+
+- `uq_statute_version_date`: `statute_id`, `in_force_date`
+
+### Foreign Keys
+
+- `statute_id` -> `statutes.id`; on delete `CASCADE`
+
+## `statutes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `short_title` | `String(255)` | yes | - |
+| `jurisdiction` | `String(100)` | no | NOT NULL |
+| `statute_type` | `String(50)` | no | NOT NULL |
+| `consolidated_year` | `Integer` | yes | - |
+| `source` | `String(100)` | no | NOT NULL |
+| `source_url` | `TEXT` | yes | - |
+| `license` | `String(100)` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statutes_instrument_key`: unique index on `instrument_key`
+- `ix_statutes_jurisdiction`: index on `jurisdiction`
+- `ix_statutes_source`: index on `source`
 
 ### Appendix Source: `docs/CONFIGURATION_REFERENCE.md`
 
@@ -7158,12 +7385,14 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 150
+Active scripts documented: 157
 
 ## Catalog
 
 | Script | Class | Risk | Safe first command |
 | --- | --- | --- | --- |
+| `a2aj_case_importer.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help` |
+| `a2aj_diagnostic.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help` |
 | `acquire_case_html.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\acquire_case_html.py --list-jobs` |
 | `adjudicate_fc_metadata.py` | Metadata adjudication | OpenAI and database writer | `.\venv\Scripts\python.exe scripts\adjudicate_fc_metadata.py --help` |
 | `agent_harness.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_harness.py --help` |
@@ -7217,6 +7446,7 @@ Active scripts documented: 150
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
 | `download_reference_library.py` | Reference acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\download_reference_library.py --help` |
@@ -7249,9 +7479,13 @@ Active scripts documented: 150
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
 | `generate_work_history.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_work_history.py` |
+| `import_a2aj_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help` |
+| `import_a2aj_full.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help` |
 | `import_canlaw_staging.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_canlaw_staging.py --help` |
 | `import_fc_decisions.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_fc_decisions.py --help` |
+| `import_historical_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help` |
 | `import_seed_cases_from_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help` |
+| `import_statutes.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\import_statutes.py --help` |
 | `index_legislation.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\index_legislation.py --help` |
 | `ingest_a2aj_api.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_api.py --help` |
 | `ingest_a2aj_citation_network.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_a2aj_citation_network.py --help` |
@@ -7314,6 +7548,34 @@ Active scripts documented: 150
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
+
+## `scripts/a2aj_case_importer.py`
+
+**Purpose:** A2AJ case law importer for Federal courts (FC, FCA, SCC, RAD, RPD). Loads A2AJ Canadian case law dataset, deduplicates against existing iLit cases, and reports how many new decisions per court would be added. This enables expansion of case database with 100k+ academic dataset cases.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_case_importer.py --help
+```
+
+## `scripts/a2aj_diagnostic.py`
+
+**Purpose:** Diagnostic tool to understand why A2AJ parsing is failing. Samples rows and reports what's missing/invalid.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\a2aj_diagnostic.py --help
+```
 
 ## `scripts/acquire_case_html.py`
 
@@ -8057,6 +8319,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
 ```
 
+## `scripts/deduplicate_a2aj.py`
+
+**Purpose:** Deduplication logic for A2AJ decisions against existing iLit corpus. Matches A2AJ decisions to existing decisions using: 1. Neutral citation (normalized) + decision date 2. Case name + date (fallback) This prevents duplicate storage and enables citation linking. Note: This is a dry-run proof-of-concept showing dedup logic. Actual implementation requires database access and citation normalization rules.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help
+```
+
 ## `scripts/discover_recent_case_themes.py`
 
 **Purpose:** No module docstring; inspect this script before use.
@@ -8505,6 +8781,34 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\generate_work_history.py
 ```
 
+## `scripts/import_a2aj_decisions.py`
+
+**Purpose:** Dry-run importer for A2AJ Canadian case law decisions. Demonstrates mapping from A2AJ HuggingFace dataset to iLit decision schema. Supports: RPD (Refugee Protection Division), RAD (Refugee Appeal Division), FC (Federal Court), FCA (Federal Court of Appeal), and other Canadian courts. Note: This is a dry-run proof-of-concept. Actual import would require: 1. Database write permissions 2. Deduplication against existing iLit decisions 3. Citation linking setup 4. Embedding generation
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_decisions.py --help
+```
+
+## `scripts/import_a2aj_full.py`
+
+**Purpose:** Full A2AJ Canadian case law importer with deduplication and database writes. Loads A2AJ dataset (226,147 decisions from 29 courts), deduplicates against existing iLit corpus, and imports non-duplicate cases from target courts: - Federal Court (FC): 35,990 decisions - Federal Court of Appeal (FCA): 7,813 decisions - Supreme Court of Canada (SCC): 10,893 decisions - Refugee Appeal Division (RAD): 14,216 decisions - Refugee Protection Division (RPD): 6,729 decisions Total target: 75,641 new cases available for import.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_a2aj_full.py --help
+```
+
 ## `scripts/import_canlaw_staging.py`
 
 **Purpose:** Import Hugging Face staging records into the primary CaseLibrary database.
@@ -8533,6 +8837,20 @@ Active scripts documented: 150
 .\venv\Scripts\python.exe scripts\import_fc_decisions.py --help
 ```
 
+## `scripts/import_historical_statutes.py`
+
+**Purpose:** Importer for historical point-in-time statute versions from justice.gc.ca. Fetches statute versions from PITIndex.html and extracts text from point-in-time HTML pages. Stores multiple versions with their in-force dates to enable decision-date matching (core of Phase 1 requirement). Example: IRPA had 12+ versions between 2017-2026; this importer stores them with their effective dates so a decision from 2019-06-15 can be matched to the IRPA version that was in force on that date.
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_historical_statutes.py --help
+```
+
 ## `scripts/import_seed_cases_from_a2aj_api.py`
 
 **Purpose:** Import missing seed cases via A2AJ REST API /fetch. Designed for targeted backfill of known citations (not bulk scraping).
@@ -8545,6 +8863,20 @@ Active scripts documented: 150
 
 ```powershell
 .\venv\Scripts\python.exe scripts\import_seed_cases_from_a2aj_api.py --help
+```
+
+## `scripts/import_statutes.py`
+
+**Purpose:** Importer for Canadian federal statutes from Justice Laws XML (justice.gc.ca). Imports statute text with versioning information (in-force dates) for: - Immigration and Refugee Protection Act (IRPA) - Immigration and Refugee Protection Regulations (IRPR) - Citizenship Act - Customs Act - Federal Courts Act - Federal Courts Rules - Canadian Charter of Rights and Freedoms Uses: justice.gc.ca REST API for statute versions and text. License: Open Government License (Canada)
+
+**Operational class:** Source acquisition or canonical import
+
+**Write/network risk:** network and/or database writer
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\import_statutes.py --help
 ```
 
 ## `scripts/index_legislation.py`
@@ -9690,6 +10022,17 @@ contrast from the emitted CSS variables. These builder checks do not cover
 JavaScript-created controls, chart alternatives, browser behavior, or assistive
 technology.
 
+The third pass discovers every page builder under `backend/pages/`, including
+Statute Viewer and the Issue Brief, and statically checks input names, image alt
+text, and table headers/captions. Shared page markup adds a skip link, main
+landmark, visible focus treatment, reduced-motion support, and status/error
+roles; generated tables receive captions when they enter the page. CSS-variable
+tests enforce at least 4.5:1 for the covered text tokens and 3:1 for focus
+indicators. Text colors changed only where those ratios failed. PR #113's reader
+keyboard shortcuts are merged and covered by the existing reader contract test.
+Exact findings and browser-review limits are in
+`docs/reports/accessibility-audit.md`.
+
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.
@@ -9895,6 +10238,8 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
 
 Above the source decision, **Most cited paragraphs** is collapsed by default
 and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it

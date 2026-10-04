@@ -2,7 +2,7 @@
 
 **Audit dates:** 2026-10-03 and 2026-10-04
 **Target:** WCAG 2.1 AA
-**Status:** Two static review passes with surgical fixes; not a conformance certification.
+**Status:** Three static review passes with surgical fixes; not a conformance certification.
 
 ## Scope and method
 
@@ -128,3 +128,54 @@ Second-pass focused verification:
   download the Hugging Face model or the tokenizer encoding file because network
   name resolution is unavailable in this sandbox; no production code failure
   was reported.
+
+## Third pass: every page builder and merged reader controls (2026-10-04)
+
+GitHub PR #113, “Add keyboard navigation and print support to the case reader,”
+was merged to `main` before this pass. The active reader includes its `j`/`n`,
+`k`/`p`, and `?` shortcuts and accessible shortcut-help toggle; the existing
+keyboard/print contract test covers that behavior.
+
+The static page inventory now discovers and renders every local function named
+`*_page_html` (and `citation_map_html`) under `backend/pages/`, including the
+post-merge Statute Viewer. The issue-brief builder is exercised with a populated
+sample so its data tables are included. It also checks the injected FC Analytics
+panel through the Data Explorer output.
+
+| Area | Finding and disposition | WCAG 2.1 AA item | Verification |
+| --- | --- | --- | --- |
+| All 17 page builders | Pages without a main landmark now receive one on their content root; all builders include a hidden-until-focused skip link, a shared visible keyboard-focus outline, and a reduced-motion override. | 1.3.1 Info and Relationships; 2.4.1 Bypass Blocks; 2.4.7 Focus Visible; 2.3.3 Animation from Interactions | All-builder contract test checks a main landmark, a working skip target, the focus token, and `prefers-reduced-motion`. |
+| Static images, controls, tables, and form descriptions | The reusable HTML parser scans every builder for images without `alt`, unnamed exposed controls, unresolved `aria-describedby` references, and data tables without `<th>` headers or captions. Verified failures were fixed, including the Citation Map range, testing year, theme search, statute filters, dynamic de-identification key table, and analytics/table captions. | 1.1.1 Non-text Content; 1.3.1 Info and Relationships; 1.3.5 Identify Input Purpose; 3.3.1 Error Identification; 4.1.2 Name, Role, Value | All-builder HTML contract tests |
+| Dynamic tables | The shared page wrapper captions tables inserted after initial render from their nearby heading or column labels, and assigns column/row scope to existing headers. Templates retain their data and sorting behavior. | 1.3.1 Info and Relationships | All-builder assertion verifies the runtime table-labeling code; manual browser review remains necessary for rendered, data-dependent table output. |
+| Form errors and asynchronous counts | De-identification inputs reference their error regions with `aria-describedby`; upload errors are alerts. Upload/search status elements expose polite status roles and result counts; the reader’s similar-paragraph panel remains politely live. | 3.3.1 Error Identification; 3.3.2 Labels or Instructions; 4.1.3 Status Messages | Builder assertions check error associations and live status regions; Data Explorer and its similar-paragraph panel are source-reviewed. |
+| Judge comparison, Issue Brief, Similar paragraphs, Saved Searches | Judge comparison remains an in-page Data Explorer workflow; its results already use a polite status region. Issue Brief data tables now have hidden captions and scoped headers. Similar-paragraph output is live and keeps its existing bounded/evidence wording. Saved Searches already exposes `role="status"` for async updates. | 1.3.1 Info and Relationships; 4.1.3 Status Messages | Static output/source assertions and existing paragraph-similarity tests; rendered dynamic state still needs browser review. |
+| Contrast | CSS-variable checks calculate body-token contrast at 4.5:1 and focus-token contrast at 3:1. Text tokens that failed were darkened; Theme Explorer’s low-contrast loading/empty text was also darkened. The shared focus token is `--a11y-focus`. | 1.4.3 Contrast (Minimum); 1.4.11 Non-text Contrast | Contrast ratios are computed from emitted CSS variables in `tests/test_accessibility_builders.py`. |
+| Heading order and case-search suggestion dropdown | Static heading sequences are checked for skipped levels. The custom case-search combobox exposes listbox/option state and handles Escape, Arrow Up/Down, and Enter; actual browser and screen-reader behavior still needs manual review. | 1.3.1; 2.1.1; 2.4.3; 4.1.2 | Static assertions pass; keyboard/screen-reader behavior needs manual review. |
+| Dynamic headings, charts, and browser behavior | No conformance claim is made for headings in hidden/dynamic panels, focus order at different viewport sizes, screen-reader output, graph alternatives, zoom/reflow, or runtime table contents. These need manual browser and assistive-technology review. | 1.1.1; 1.3.1; 1.4.3; 1.4.10; 2.4.3; 2.4.6; 4.1.2 | Needs manual browser/screen-reader review; not verifiable by the static helper. |
+
+Color values changed only where the computed body-text ratios failed: Data
+Explorer `--muted` and `--muted-2`; the About/Citation Map muted token; the
+De-identify/Live Analysis/Memo Citation Check muted token; Discussion Units
+muted text; and Theme Explorer’s loading/empty text. The visual palette and page
+layout were otherwise retained.
+
+Third-pass verification:
+
+- `python -m pytest -q tests/test_accessibility_builders.py
+  tests/test_case_formatter.py
+  tests/test_documentation_contracts.py::test_architecture_backend_inventory_matches_files_on_disk`
+  — 21 passed.
+- CI-equivalent full suite with the three documented deselections — 1,282
+  passed, 1 skipped, 1 xfailed, 3 deselected, and 4 failed. Three failures
+  could not download model/tokenizer resources from Hugging Face and the
+  OpenAI tokenizer host. The fourth identified the new shared helper as
+  undocumented; `docs/ARCHITECTURE.md` now lists it, and the focused inventory
+  contract passes.
+- `python -m ruff check backend/pages/citation_pass.py
+  tests/test_accessibility_builders.py` — passed.
+- `python scripts/check_generated_docs.py` — generated references current
+  (3 checked); local-link and `git diff --check` reviews passed.
+
+The attempted manual browser check did not complete because the Playwright
+connection closed. Browser, keyboard-only, screen-reader, zoom/reflow, and
+runtime visual checks remain needs-manual-review items.

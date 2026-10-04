@@ -107,6 +107,17 @@ contrast from the emitted CSS variables. These builder checks do not cover
 JavaScript-created controls, chart alternatives, browser behavior, or assistive
 technology.
 
+The third pass discovers every page builder under `backend/pages/`, including
+Statute Viewer and the Issue Brief, and statically checks input names, image alt
+text, and table headers/captions. Shared page markup adds a skip link, main
+landmark, visible focus treatment, reduced-motion support, and status/error
+roles; generated tables receive captions when they enter the page. CSS-variable
+tests enforce at least 4.5:1 for the covered text tokens and 3:1 for focus
+indicators. Text colors changed only where those ratios failed. PR #113's reader
+keyboard shortcuts are merged and covered by the existing reader contract test.
+Exact findings and browser-review limits are in
+`docs/reports/accessibility-audit.md`.
+
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.

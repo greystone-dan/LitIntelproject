@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 146
+Active scripts documented: 148
 
 ## Catalog
 
@@ -23,6 +23,7 @@ Active scripts documented: 146
 | `audit_self_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_self_citations.py --help` |
 | `backfill_case_metadata_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_metadata_outcomes.py --help` |
 | `backfill_case_outcomes.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help` |
+| `backfill_case_tags_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_tags_v3.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
@@ -50,6 +51,7 @@ Active scripts documented: 146
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
+| `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
@@ -337,6 +339,20 @@ Active scripts documented: 146
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_case_outcomes.py --help
+```
+
+## `scripts/backfill_case_tags_v3.py`
+
+**Purpose:** Backfill all cases with V3 legal tags. Resumable and idempotent.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_case_tags_v3.py --help
 ```
 
 ## `scripts/backfill_fc_case_metadata.py`
@@ -715,6 +731,20 @@ Active scripts documented: 146
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_generated_docs.py --help
+```
+
+## `scripts/check_saved_searches.py`
+
+**Purpose:** Check saved case searches and optionally persist previously unseen matches.
+
+**Operational class:** Saved-search alert check
+
+**Write/network risk:** bounded database reader; --apply writes unseen case alerts; dry-run is default
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_saved_searches.py --help
 ```
 
 ## `scripts/chunk_cases.py`

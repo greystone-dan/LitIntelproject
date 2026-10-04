@@ -40,6 +40,7 @@ from .database import (
 	StatuteReference,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .search_matching import identity_sql, matched_on_sql
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
 
@@ -244,7 +245,7 @@ def _analytics_case_order_sql(
 ) -> tuple[str, dict[str, Any]]:
 	query = " ".join(query.split())
 	params: dict[str, Any] = {}
-	if query:
+	if query and sort_by == "relevance":
 		params["query_exact"] = query
 		params["query_like"] = f"%{query}%"
 		params["query_exact_like"] = f"%{query}%"
@@ -266,7 +267,9 @@ def _analytics_case_order_sql(
 			c.date DESC NULLS LAST,
 			c.id DESC
 			"""
-		return ranking, params
+		citation, party, match_params = identity_sql(query)
+		params.update(match_params)
+		return f"CASE WHEN {citation} THEN 2 WHEN {party} THEN 1 ELSE 0 END DESC, " + ranking, params
 	if sort_by == "newest":
 		return ("c.date DESC NULLS LAST, c.id DESC", params)
 	if sort_by == "oldest":
@@ -865,9 +868,13 @@ def fetch_analytics_search_cases(
 	court = " ".join(court.split())
 	year = "".join(character for character in year if character.isdigit())[:4]
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
+	citation_match, party_match, match_params = identity_sql(query)
+	params.update(match_params)
+	match_label, label_params = matched_on_sql(query, search_full_text=search_full_text)
+	params.update(label_params)
 	if query:
 		params["query"] = f"%{query}%"
-		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
+		query_fields = f"c.title ILIKE :query OR c.citation ILIKE :query OR {citation_match} OR {party_match}"
 		if search_full_text:
 			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 		filters.append(f"({query_fields})")
@@ -951,6 +958,7 @@ def fetch_analytics_search_cases(
 				,{unique_cited_authorities} AS unique_cited_authorities
 				,{resolved_target_cases} AS resolved_target_cases
 				,{cited_by_cases} AS cited_by_cases
+				,{match_label} AS matched_on
 			FROM cases c
 			WHERE {where_clause}
 			ORDER BY {sort_order}
@@ -977,6 +985,7 @@ def fetch_analytics_search_cases(
 				"unique_cited_authorities": int(row["unique_cited_authorities"] or 0),
 				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
 				"cited_by_cases": int(row["cited_by_cases"] or 0),
+				"matched_on": row.get("matched_on", "Metadata"),
 			}
 			for row in rows
 		],

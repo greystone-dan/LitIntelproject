@@ -138,13 +138,13 @@ keyboard/print contract test covers that behavior.
 
 The static page inventory now discovers and renders every local function named
 `*_page_html` (and `citation_map_html`) under `backend/pages/`, including the
-post-merge Statute Viewer. The issue-brief builder is exercised with a populated
-sample so its data tables are included. It also checks the injected FC Analytics
-panel through the Data Explorer output.
+post-merge Statute Viewer and the newly merged Case Comparison builder. The
+issue-brief builder is exercised with a populated sample so its data tables are
+included. It also checks the injected FC Analytics panel through Data Explorer.
 
 | Area | Finding and disposition | WCAG 2.1 AA item | Verification |
 | --- | --- | --- | --- |
-| All 17 page builders | Pages without a main landmark now receive one on their content root; all builders include a hidden-until-focused skip link, a shared visible keyboard-focus outline, and a reduced-motion override. | 1.3.1 Info and Relationships; 2.4.1 Bypass Blocks; 2.4.7 Focus Visible; 2.3.3 Animation from Interactions | All-builder contract test checks a main landmark, a working skip target, the focus token, and `prefers-reduced-motion`. |
+| All 18 page builders | Pages without a main landmark now receive one on their content root; all builders, including Case Comparison, use the shared decorator for a hidden-until-focused skip link, visible keyboard-focus outline, and reduced-motion override. | 1.3.1 Info and Relationships; 2.4.1 Bypass Blocks; 2.4.7 Focus Visible; 2.3.3 Animation from Interactions | All-builder contract test checks a main landmark, a working skip target, the focus token, and `prefers-reduced-motion`. |
 | Static images, controls, tables, and form descriptions | The reusable HTML parser scans every builder for images without `alt`, unnamed exposed controls, unresolved `aria-describedby` references, and data tables without `<th>` headers or captions. Verified failures were fixed, including the Citation Map range, testing year, theme search, statute filters, dynamic de-identification key table, and analytics/table captions. | 1.1.1 Non-text Content; 1.3.1 Info and Relationships; 1.3.5 Identify Input Purpose; 3.3.1 Error Identification; 4.1.2 Name, Role, Value | All-builder HTML contract tests |
 | Dynamic tables | The shared page wrapper captions tables inserted after initial render from their nearby heading or column labels, and assigns column/row scope to existing headers. Templates retain their data and sorting behavior. | 1.3.1 Info and Relationships | All-builder assertion verifies the runtime table-labeling code; manual browser review remains necessary for rendered, data-dependent table output. |
 | Form errors and asynchronous counts | De-identification inputs reference their error regions with `aria-describedby`; upload errors are alerts. Upload/search status elements expose polite status roles and result counts; the reader’s similar-paragraph panel remains politely live. | 3.3.1 Error Identification; 3.3.2 Labels or Instructions; 4.1.3 Status Messages | Builder assertions check error associations and live status regions; Data Explorer and its similar-paragraph panel are source-reviewed. |
@@ -165,6 +165,10 @@ Third-pass verification:
   tests/test_case_formatter.py
   tests/test_documentation_contracts.py::test_architecture_backend_inventory_matches_files_on_disk`
   — 21 passed.
+- After merging `main` at `fc90009`, the focused all-builder and
+  case-comparison tests pass: 45 passed. Case Comparison now uses the shared
+  decorator, and the architecture inventory retains both accessibility and
+  comparison entries.
 - CI-equivalent full suite with the three documented deselections — 1,282
   passed, 1 skipped, 1 xfailed, 3 deselected, and 4 failed. Three failures
   could not download model/tokenizer resources from Hugging Face and the
@@ -179,3 +183,16 @@ Third-pass verification:
 The attempted manual browser check did not complete because the Playwright
 connection closed. Browser, keyboard-only, screen-reader, zoom/reflow, and
 runtime visual checks remain needs-manual-review items.
+
+Post-merge verification (2026-10-04):
+
+- After merging `main` at `fc90009`, the focused accessibility, formatter,
+  comparison, judge, feature-tab, and architecture inventory tests passed:
+  122 passed, 1 skipped.
+- The full CI-equivalent suite completed with 1,461 passed, 1 skipped,
+  1 xfailed, and 3 deselected. Three tokenizer/model tests failed because this
+  environment could not download resources from Hugging Face or the OpenAI
+  tokenizer host; no failure was attributed to the accessibility changes.
+- The all-builder static contract passed with the new Case Comparison page, and
+  the architecture inventory includes both the accessibility helper and
+  Case Comparison page-builder entries.

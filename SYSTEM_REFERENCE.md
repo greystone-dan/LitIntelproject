@@ -98,8 +98,48 @@ The embedded information and research views are:
    Tag/citation occurrences are deduplicated per source decision. Authorities
    use resolved target identity, otherwise the stored citation label. Comparison
    is independent of profile Minister filters and does not imply corpus completeness.
+   **Outcome patterns by issue** is a separate, explicitly lazy-loaded profile
+   section backed by `GET /api/judge-profiles/{slug}/issues`, with aggregation
+   owned by `backend/judge_issue_record.py`; it uses canonical profile links and
+   stored `Case.issues` only, whitespace/case-normalized and
+   deduplicated per decision. An issue appears only at 10 or more distinct
+   judge-linked decisions; the response/UI disclose the number of issues hidden
+   and that each has fewer than 10 decisions, without revealing their labels.
+   Each visible issue has a
+   Federal Court baseline from decisions whose stored court is `FC`, `Federal
+   Court`, or `Federal Court of Canada`. Outcome categories are Minister win
+   (`government outcome=won`), applicant win (`lost`), other (`mixed`), and
+   unclassified (undetermined, missing, or unrecognized). Category counts and
+   percentages use the complete issue-decision denominator, including
+   unclassified outcomes; issue decision counts also report their all-linked
+   judge or Federal Court denominator. The table is independent of profile
+   Minister filters and is descriptive coverage, not issue causation, a ranking,
+   or a harshness measure.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The standalone `/case-compare?a=<case_id>&b=<case_id>` page compares two
+canonical decisions side by side, backed by read-only
+`GET /cases/compare?a=<case_id>&b=<case_id>`. Two citation/name search pickers
+reuse the existing case-search endpoint; empty parameters open the picker page.
+Each decision displays citation, court, date, stored reader-extracted judge,
+decision outcome and assignment provenance, with links to `/data-explorer`.
+Latest dedicated `case_outcomes` assignments take precedence (updated time,
+then ID); only absent assignments use explicitly labelled reader-metadata
+fallback. Missing or unknown outcomes remain **unclassified**, preserving raw
+labels and available source, classifier, confidence and disposition evidence.
+Comparison displays stored evidence without re-verifying offsets or assigning
+new outcomes. Active-taxonomy tags, statute references and case authorities
+remain separate layers, highlighted as shared or unique with distinct totals.
+Authorities use resolved target IDs or stored unresolved neutral/reporter
+identifiers (including stored short-form anchors); explicit trailing pinpoints
+do not create additional authorities. Otherwise normalized labels are used.
+Unresolved identities remain separate from resolved targets; neutral/reporter
+equivalence is not inferred. Statutes use stored instrument/normalized provision
+identity or normalized unresolved labels; ranges and lists are retained.
+Repeated mentions count once; stored coverage does not imply legal equivalence
+or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
+and the missing IDs. No data is written and no new resolution is attempted.
 
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
@@ -321,6 +361,8 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 `GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, beside Download CSV in the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable.
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
+
+The Case Search query accepts quoted phrases; `AND`, `OR`, and `NOT`; leading-minus exclusions; and `court:`, `year:YYYY`, inclusive `year:YYYY..YYYY` (also `year:YYYY-YYYY`), `judge:`, `cites:`, and `outcome:allowed` fields. `backend/query_syntax.py` is a pure parser that returns a Boolean expression tree and a plain-language echo; year ranges are echoed as “YYYY through YYYY (inclusive).” The analytics search compiler translates that tree into fixed SQL fragments with bound values; malformed quotes degrade to a searchable phrase with a warning, and unknown field names remain literal query words and are identified in the echo. Queries without operator syntax keep the established title/citation-first matching path. The UI displays the interpretation above results and provides a **Search tips** popover. CSV and Word exports forward the same raw query to the same bounded analytics search, so operator behavior is consistent.
 
 Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
 
@@ -1443,6 +1485,9 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
 - `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
+- `GET /api/judge-profiles/{slug}/issues`: issue-first judge outcome counts and
+  percentages plus a matching Federal Court baseline; requires an exact
+  canonical slug and returns HTTP 404 (`detail.code=unknown_judge`) when absent.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
 
 The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
@@ -2969,11 +3014,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:38:19.916027+00:00
+Generated: 2026-10-04T14:09:53.735110+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 106 across 103 paths
-Hidden operations: 61 excluded from OpenAPI
+OpenAPI operations: 108 across 105 paths
+Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3188,6 +3233,20 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/legislation/cases`
 
 Get Legislation Cases
@@ -3250,6 +3309,23 @@ Get sections for a specific statute version.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/compare`
+
+Compare two decisions using distinct stored research signals
+
+Returns side-by-side case facts and stored outcome assignment provenance, preserving unclassified outcomes and raw labels. Active legal tags, statute references and case authorities have distinct shared/unique counts; repeated mentions count once. Read-only; no classification or resolution is performed. Unknown IDs return 404 with detail.code=unknown_case and unknown_ids.
+
+**Parameters**
+
+- `a` (query, required; integer)
+- `b` (query, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical case ID(s).
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -5000,6 +5076,22 @@ Handler: `backend.routes.reidentify_api`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /case-compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_compare_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader`
 
 **Hidden from OpenAPI.**
@@ -5376,7 +5468,7 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:38:16.787366+00:00
+Generated: 2026-10-04T14:09:54.451987+00:00
 Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -7385,7 +7477,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 157
+Active scripts documented: 158
 
 ## Catalog
 
@@ -7545,6 +7637,7 @@ Active scripts documented: 157
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -9705,6 +9798,20 @@ Active scripts documented: 157
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
 ```
 
+## `scripts/test_citation_intelligence_prompts.py`
+
+**Purpose:** Test improved citation intelligence assessment prompts against real database cases. This script fetches real cases from the database, runs both current and improved paragraph assessment prompts, and compares output quality and cost. Run on: PC thread (has live database access) Usage: python scripts/test_citation_intelligence_prompts.py --case-ids 123,456,789 --max-paragraphs 300 --budget-usd 20.0 --output-dir /path/to/output
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
+```
+
 ## `scripts/validate_precision.py`
 
 **Purpose:** Validate precision of V3 expansion on representative case law text. Uses representative FC and RAD case law snippets to measure precision.
@@ -10023,13 +10130,14 @@ JavaScript-created controls, chart alternatives, browser behavior, or assistive
 technology.
 
 The third pass discovers every page builder under `backend/pages/`, including
-Statute Viewer and the Issue Brief, and statically checks input names, image alt
-text, and table headers/captions. Shared page markup adds a skip link, main
-landmark, visible focus treatment, reduced-motion support, and status/error
-roles; generated tables receive captions when they enter the page. CSS-variable
-tests enforce at least 4.5:1 for the covered text tokens and 3:1 for focus
-indicators. Text colors changed only where those ratios failed. PR #113's reader
-keyboard shortcuts are merged and covered by the existing reader contract test.
+Statute Viewer, Issue Brief, and Case Comparison, and statically checks input
+names, image alt text, and table headers/captions. Shared page markup adds a
+skip link, main landmark, visible focus treatment, reduced-motion support, and
+status/error roles; generated tables receive captions when they enter the page.
+CSS-variable tests enforce at least 4.5:1 for the covered text tokens and 3:1
+for focus indicators. Text colors changed only where those ratios failed. PR
+#113's reader keyboard shortcuts are merged and covered by the existing reader
+contract test.
 Exact findings and browser-review limits are in
 `docs/reports/accessibility-audit.md`.
 
@@ -10173,6 +10281,29 @@ on full-text matching. Use the arrow keys and Enter to select a suggestion,
 Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
+
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
 
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The

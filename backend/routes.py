@@ -90,6 +90,8 @@ from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from . import resource_limits
 from .pages.testing import testing_page_html
+from .pages.statute_viewer import statute_viewer_page_html
+from .statute_versioning import find_statute_version_at_date, get_statute_version_label
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
 from .citations import compute_citation_metrics as _compute_citation_metrics
 from .citations import convert_a2aj_edges_to_local as _convert_a2aj_edges_to_local
@@ -120,6 +122,9 @@ from .database import (
 	SavedSearch,
 	SearchAlert,
 	StatuteReference,
+	Statute,
+	StatuteVersion,
+	StatuteSection,
 	get_db,
 )
 from .embedding_providers import SentenceTransformerEmbeddingProvider
@@ -153,6 +158,7 @@ from .analytics_service import (
 	fetch_fc_activity_timeline,
 	fetch_fc_history_imm,
 	fetch_judge_profile_by_slug,
+	fetch_judge_profile_issues,
 	fetch_judge_comparison,
 	fetch_judge_profiles,
 	fetch_issue_brief,
@@ -181,6 +187,10 @@ from .reader_service import (
 	_legislation_url_for_reference,
 	_stored_case_citation_details,
 	_stored_statute_reference_details,
+)
+from .case_reader_ui import (
+	case_reader_with_statutes_html,
+	statute_viewer_page_html,
 )
 from .discussion_units_sandbox import (
 	discussion_units_sandbox_page_html,
@@ -1219,6 +1229,103 @@ def saved_searches_page() -> HTMLResponse:
 	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)
 
 
+@router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)
+def statute_viewer_page_route() -> HTMLResponse:
+	return HTMLResponse(content=statute_viewer_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/case-reader-ui/{case_id}", response_class=HTMLResponse, include_in_schema=False)
+def case_reader_ui_page(case_id: int, db: Session = Depends(get_db)) -> HTMLResponse:
+	"""Display case reader with statute reference integration."""
+	case = db.query(Case).filter(Case.id == case_id).first()
+	if not case:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
+
+	html_content = case_reader_with_statutes_html(
+		case_id=case.id,
+		case_title=case.title or "",
+		case_citation=case.citation or "",
+		case_date=case.date.isoformat() if case.date else "",
+		case_court=case.court or "",
+		case_summary=case.summary or case.full_text[:500] if case.full_text else "",
+	)
+	return HTMLResponse(content=html_content, status_code=status.HTTP_200_OK)
+
+
+@router.get("/api/statutes/{statute_code}")
+def get_statute_by_code(statute_code: str, as_of: str | None = Query(None), db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Get statute details, optionally as of a specific date."""
+	statute = db.query(Statute).filter(Statute.instrument_key == statute_code).first()
+	if not statute:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute not found")
+
+	# Determine which version to return
+	version = None
+	if as_of:
+		from datetime import datetime
+		try:
+			decision_date = datetime.strptime(as_of, "%Y-%m-%d").date()
+			version = find_statute_version_at_date(db, statute_code, decision_date)
+		except ValueError:
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid date format. Use YYYY-MM-DD")
+
+	# If no version found for the date, get the latest version
+	if not version:
+		version = (
+			db.query(StatuteVersion)
+			.filter(StatuteVersion.statute_id == statute.id)
+			.order_by(StatuteVersion.in_force_date.desc())
+			.first()
+		)
+
+	if not version:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No statute versions found")
+
+	return {
+		"title": statute.title,
+		"short_title": statute.short_title or "",
+		"statute_type": statute.statute_type,
+		"jurisdiction": statute.jurisdiction,
+		"current_version": version.version_number,
+		"in_force_date": version.in_force_date.strftime("%Y-%m-%d"),
+		"license": statute.license or "Open Government License",
+		"version_id": version.id,
+	}
+
+
+@router.get("/api/statutes/{statute_code}/versions/{version_id}/sections")
+def get_statute_sections(statute_code: str, version_id: int, db: Session = Depends(get_db)) -> list[dict[str, Any]]:
+	"""Get sections for a specific statute version."""
+	statute = db.query(Statute).filter(Statute.instrument_key == statute_code).first()
+	if not statute:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute not found")
+
+	version = db.query(StatuteVersion).filter(
+		StatuteVersion.id == version_id,
+		StatuteVersion.statute_id == statute.id,
+	).first()
+	if not version:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Statute version not found")
+
+	sections = db.query(StatuteSection).filter(
+		StatuteSection.statute_version_id == version.id
+	).order_by(
+		StatuteSection.section_number,
+		StatuteSection.subsection,
+		StatuteSection.paragraph,
+	).all()
+
+	return [
+		{
+			"section_number": sec.section_number,
+			"subsection": sec.subsection,
+			"heading": sec.heading,
+			"text": sec.text,
+		}
+		for sec in sections
+	]
+
+
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
 def discussion_units_sandbox_page() -> HTMLResponse:
 	return HTMLResponse(content=discussion_units_sandbox_page_html(), status_code=status.HTTP_200_OK)
@@ -1574,6 +1681,21 @@ def judge_profile(
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return fetch_judge_profile_by_slug(db, slug, ministers=minister)
+
+
+@router.get(
+	"/api/judge-profiles/{slug}/issues",
+	response_model=dict[str, Any],
+	responses={404: {"description": "Unknown canonical judge slug (detail.code: unknown_judge)"}},
+)
+def judge_profile_issues(slug: str, db: Session = Depends(get_db)) -> dict[str, Any]:
+	result = fetch_judge_profile_issues(db, slug)
+	if result["status"] == "unknown_judge":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_judge",
+			"message": "Unknown canonical judge slug. Choose a judge from Judge Profile.",
+		})
+	return result
 
 
 @router.get("/about", include_in_schema=False)

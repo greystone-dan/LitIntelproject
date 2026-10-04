@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:22:41.410700+00:00
-Tables: 28
+Generated: 2026-10-04T14:09:54.451987+00:00
+Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -175,6 +175,16 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
     }
     fc_activity_alerts {
         Integer id PK
@@ -399,6 +409,7 @@ erDiagram
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -411,7 +422,46 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
+    }
+    statute_sections {
+        Integer id PK
+        Integer statute_version_id  FK
+        String(50) section_number
+        String(50) subsection
+        String(50) paragraph
+        TEXT heading
+        TEXT text
+        Integer offset_start
+        Integer offset_end
+        DATETIME created_at
+    }
+    statute_versions {
+        Integer id PK
+        Integer statute_id  FK
+        String(50) version_number
+        DATE in_force_date
+        DATE end_date
+        TEXT full_text
+        BLOB text_compressed
+        TEXT source_url
+        DATETIME fetched_at
+        DATETIME created_at
+    }
+    statutes {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        String(255) short_title
+        String(100) jurisdiction
+        String(50) statute_type
+        Integer consolidated_year
+        String(100) source
+        TEXT source_url
+        String(100) license
+        DATETIME created_at
+        DATETIME updated_at
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
@@ -429,6 +479,7 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
@@ -443,6 +494,9 @@ erDiagram
     saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
+    statute_versions ||--o{ statute_sections : "statute_version_id"
+    statutes ||--o{ statute_versions : "statute_id"
 ```
 
 ## Table Summary
@@ -462,6 +516,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
@@ -476,7 +531,10 @@ erDiagram
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
-| `statute_references` | 16 | `id` |
+| `statute_references` | 18 | `id` |
+| `statute_sections` | 10 | `id` |
+| `statute_versions` | 10 | `id` |
+| `statutes` | 12 | `id` |
 
 ## `a2aj_case_map`
 
@@ -869,6 +927,34 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `fc_activity_alerts`
 
@@ -1313,6 +1399,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -1325,6 +1412,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -1339,8 +1427,90 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_version_id` | `Integer` | no | FK -> statute_versions.id; NOT NULL |
+| `section_number` | `String(50)` | no | NOT NULL |
+| `subsection` | `String(50)` | yes | - |
+| `paragraph` | `String(50)` | yes | - |
+| `heading` | `TEXT` | yes | - |
+| `text` | `TEXT` | yes | - |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_sections_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `statute_version_id` -> `statute_versions.id`; on delete `CASCADE`
+
+## `statute_versions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_id` | `Integer` | no | FK -> statutes.id; NOT NULL |
+| `version_number` | `String(50)` | no | NOT NULL |
+| `in_force_date` | `DATE` | no | NOT NULL |
+| `end_date` | `DATE` | yes | - |
+| `full_text` | `TEXT` | yes | - |
+| `text_compressed` | `BLOB` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `fetched_at` | `DATETIME` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_versions_in_force_date`: index on `in_force_date`
+- `ix_statute_versions_statute_id`: index on `statute_id`
+
+### Unique Constraints
+
+- `uq_statute_version_date`: `statute_id`, `in_force_date`
+
+### Foreign Keys
+
+- `statute_id` -> `statutes.id`; on delete `CASCADE`
+
+## `statutes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `short_title` | `String(255)` | yes | - |
+| `jurisdiction` | `String(100)` | no | NOT NULL |
+| `statute_type` | `String(50)` | no | NOT NULL |
+| `consolidated_year` | `Integer` | yes | - |
+| `source` | `String(100)` | no | NOT NULL |
+| `source_url` | `TEXT` | yes | - |
+| `license` | `String(100)` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statutes_instrument_key`: unique index on `instrument_key`
+- `ix_statutes_jurisdiction`: index on `jurisdiction`
+- `ix_statutes_source`: index on `source`

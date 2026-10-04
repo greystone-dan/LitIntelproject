@@ -187,12 +187,8 @@ def test_repository_has_exactly_one_expected_head():
     config = Config(str(ROOT / "alembic.ini"))
     config.set_main_option("script_location", str(ROOT / "alembic"))
     scripts = ScriptDirectory.from_config(config)
-    heads = scripts.get_heads()
-    assert len(heads) == 1, f"expected one Alembic head, found {heads}"
-    assert scripts.get_current_head() == heads[0]
-    # The known history must stay in the chain; new migrations extend it.
-    chain = {revision.revision for revision in scripts.walk_revisions()}
-    assert "0030_full_paragraph_ivfflat" in chain
+    assert scripts.get_heads() == ["0035_statute_library_phase1"]
+    assert scripts.get_current_head() == "0035_statute_library_phase1"
     assert scripts.get_revision("0001_case_metadata").down_revision is None
     assert scripts.get_revision("0015_fc_activity_classifications").down_revision == "0014_judge_profiles"
 

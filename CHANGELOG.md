@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode now follows the mockups more closely. New Acts / statutes layer (margin notes with the Act, pinpoint, stored provision text or an honest "not stored", and a link to the Act); header pills for outcome, judge and file number; short margin pill names ("Vavilov 2019 SCC 65"); citation cards with a paragraph badge, "also cited at" and Open / Pin; judge card with Open judge profile; outcome card with Show paragraph; unit pills named from the section heading; Layers popup with counts, "N of M", Show all layers and Reset; a By-topic grouped view (Reading order / By topic, Fold all / Unfold all); a right-edge minimap; annotated print with numbered markers and numbered margin comments. Read-only on data already loaded, no AI, no schema change.
 - Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
   priority (including on Windows), uses one database connection with server-side statement, lock and
   idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as

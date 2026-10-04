@@ -108,7 +108,7 @@ function citedByLine(s){
 /* What the Peek panel shows for a citation note: only stored data, never fetched. */
 function peekFor(note){
   const c=note&&note.cite;if(!c)return null;
-  return {id:note.id,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
+  return {id:note.id,loc:note.loc==null?null:note.loc,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
     text:c.inLibrary?(note.quote||''):'',label:c.inLibrary?(c.paragraph!=null?'Paragraph ['+c.paragraph+'] of the cited case':(note.quote?'Cited text':'')):'',
     missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
     citedBy:c.inLibrary?citedByLine(c.citedBy):''};
@@ -131,15 +131,6 @@ function citePill(row,title){
   if(name&&/\s(v\.?|c\.)\s/i.test(text))return (name+' '+neutral).trim();
   return clip(row.target_citation||row.citation_text||title,26);
 }
-/* Which numbered paragraph a character offset falls in, from the formatter's blocks. */
-function paraAtOffset(blocks,offset){
-  let hit=null;
-  for(const b of blocks||[]){
-    if(!b||b.type!=='para'||b.num==null)continue;
-    if(Number(b.start)<=offset)hit=b.num;else break;
-  }
-  return hit;
-}
 /* Heading of the section a paragraph sits in ("Analysis"), from heading blocks and the decision text. */
 function sectionHeading(blocks,fullText,paraNum,nearest){
   if(paraNum==null||!blocks||!fullText)return '';
@@ -150,7 +141,7 @@ function sectionHeading(blocks,fullText,paraNum,nearest){
     if(b.type==='heading'){near=b;if(b.level==null||b.level<=1)top=b;}
   }
   const h=nearest?near:(top||near);if(!h)return '';
-  return String(fullText).slice(h.start,h.end).replace(/^[\s\dIVXLC.()A-Za-z]{0,6}?(?=\b[A-Z][a-z])/,m=>/^[IVXLC\d]+[.)]\s*$/.test(m.trim())?'':m).replace(/\s+/g,' ').trim();
+  return String(fullText).slice(h.start,h.end).replace(/\s+/g,' ').trim();
 }
 /* Case-level facts for the header pills: outcome, judge, file number. */
 function headerInfo(payload){
@@ -195,19 +186,14 @@ function buildNotes(payload){
     sseen.add(row.id);notes.push(sn);
   }
   /* citations: resolved or unresolved case citations that have a position in the text */
-  const seen=new Set(),citedAt={};
-  for(const row of rd.citations||[]){
-    if(!row||!row.target_case_id||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
-    const pn=paraAtOffset(rd.format_blocks,Number(row.offset_start));if(pn==null)continue;
-    (citedAt[row.target_case_id]=citedAt[row.target_case_id]||[]).push({id:row.id,para:pn});
-  }
+  const seen=new Set();
   for(const row of rd.citations||[]){
     if(!row||row.id==null||seen.has(row.id)||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
     if(!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name'))continue;
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,loc:paraAtOffset(rd.format_blocks,Number(row.offset_start)),alsoAt:(citedAt[row.target_case_id]||[]).filter(x=>x.id!==row.id).map(x=>x.para).filter((v,i,a)=>a.indexOf(v)===i),meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -216,7 +202,7 @@ function buildNotes(payload){
     if(!r)continue;
     const head=sectionHeading(rd.format_blocks,item.full_text,r.first);
     const subs=subthemeRanges({readerData:{chunks:chunks,evidence_summary:{units:[u]}}});
-    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit · '+(head?clip(head,18)+' ':u.unit_index+' · ')+'¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+(head?': '+clip(head,40):'')+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
+    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit · '+(head?clip(head.replace(/^(?:[IVXLC]+|\d+|[A-Z])[.)]\s+/,''),18)+' ':u.unit_index+' · ')+'¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+(head?': '+clip(head,40):'')+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
   }
   /* cited-by counts per paragraph come from the formatter's blocks; the batch job's stored rows add who and why */
   const stored=rd.paragraph_cited_by||null,storedBy={};
@@ -285,7 +271,7 @@ function exportPlan(notes,layers,blockOf){
   }
   return out;
 }
-const api={mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,paraAtOffset,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+const api={mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -314,7 +300,7 @@ function ensureStage(){
   if(!body||!source)return null;
   const bar=document.createElement('div');bar.id='markupBar';
   stage=document.createElement('div');stage.id='markupStage';
-  stage.innerHTML='<div id="markupOutline" hidden></div><div id="markupBands" aria-hidden="true"></div><div id="markupTopicView" hidden></div><div id="markupBodySlot"></div><div id="markupMargin"><svg id="markupConn" aria-hidden="true"></svg></div>';
+  stage.innerHTML='<div id="markupOutline" hidden></div><div id="markupBands" aria-hidden="true"></div><div id="markupTopicView" hidden></div><div id="markupBodySlot"></div><div id="markupMargin"><svg id="markupConn" aria-hidden="true"></svg></div><div id="markupMini" aria-hidden="true"><div class="mk-mini-in"></div><i class="mk-mini-vp"></i></div>';
   const head=document.createElement('div');head.id='markupPrintHead';
   source.insertBefore(bar,body);source.insertBefore(head,body);source.insertBefore(stage,body);
   $('markupBodySlot').appendChild(body);
@@ -472,6 +458,15 @@ function render(){
   body.classList.remove('mk-tags-off','mk-tags-underline','mk-tags-tint','mk-tags-bubbles');
   body.classList.add('mk-tags-'+state.layers.tags);
   body.querySelectorAll('.mk-pn').forEach(e=>e.remove());
+  /* where each citation sits in this decision (the stored offsets are per chunk, so read the placed paragraph) and where else the same case is cited */
+  const placed={};
+  for(const n of state.notes){
+    if(!n.cite)continue;
+    const el=anchorEl(n),p=el&&el.closest&&el.closest('.fmt-para');
+    n.loc=p&&p.dataset.para!=null?Number(p.dataset.para):null;
+    if(n.cite.caseId&&n.loc!=null)(placed[n.cite.caseId]=placed[n.cite.caseId]||[]).push({id:n.id,para:n.loc});
+  }
+  for(const n of state.notes)if(n.cite)n.alsoAt=n.cite.caseId?(placed[n.cite.caseId]||[]).filter(x=>x.id!==n.id).map(x=>x.para).filter((v,i,a)=>a.indexOf(v)===i):[];
   const stateOf=n=>{const st=noteState(n,state.layers,state.overrides);return state.printing&&n.type!=='citedby'&&st!=='off'?'open':st};
   const wanted=state.notes.filter(n=>{const st=stateOf(n);return n.type==='citedby'?st==='open':st!=='off'});
   [...margin.querySelectorAll('.mk-note')].forEach(e=>e.remove());
@@ -499,7 +494,9 @@ function render(){
     /* numbered markers in the text and matching numbers on the margin comments, in reading order */
     lay.forEach((l,i)=>{const o=els[l.index],n=i+1;o.el.dataset.n=n;
       const sup=document.createElement('span');sup.className='mk-pn';sup.textContent=n;sup.style.setProperty('--c',TYPE[o.n.type].color);
-      if(o.n.anchor.kind==='cite')o.a.insertAdjacentElement('afterend',sup);else if(o.a.firstChild)o.a.insertBefore(sup,o.a.firstChild.nextSibling||null);});
+      /* inside the anchor itself, never as a new sibling: some blocks lay their children out in a grid */
+      const host=o.n.anchor.kind==='cite'?o.a:(o.n.anchor.kind==='para'?o.a.querySelector('.fmt-para-num'):null);
+      if(host)host.appendChild(sup);});
   }
   const ph=$('markupPrintHead');
   if(ph){const hi=headerInfo(readerState.payload),it=(readerState.payload&&readerState.payload.item)||{},on=LAYER_DEFS.filter(d=>state.layers[d.key]!=='off'&&(d.key==='tags'?tagCount():countFor(d.key))).map(d=>d.label);
@@ -508,6 +505,7 @@ function render(){
   svg.setAttribute('width',Math.max(margin.offsetWidth,1));svg.setAttribute('height',Math.max(bottom+24,body.offsetHeight));
   svg.style.left=0;svg.innerHTML=g;
   renderBands(stage,base);
+  renderMini();
   renderOutline();
   renderPanel();
   const p=panel();
@@ -591,6 +589,22 @@ async function exportWord(btn){
   exportBusy=false;
   if(btn){btn.disabled=false;btn.textContent=msg;if(msg!==label)setTimeout(()=>{if(btn.isConnected)btn.textContent=label},3500)}
 }
+/* Right-edge overview: the sub-theme colours at document scale, a window for what is on screen, click to jump. */
+function renderMini(){
+  const mini=$('markupMini'),body=$('decisionBody');if(!mini||!body)return;
+  const inner=mini.firstElementChild,subs=state.layers.unit!=='off'?subthemeRanges(readerState.payload):[];
+  const br=body.getBoundingClientRect(),H=Math.max(1,br.height);
+  const rects=new Map();body.querySelectorAll('.fmt-para').forEach(e=>{if(isShown(e))rects.set(Number(e.dataset.para),e.getBoundingClientRect())});
+  inner.innerHTML=subs.map(s=>{const a=rects.get(s.first),b=rects.get(s.last);if(!a||!b)return '';return `<b style="top:${((a.top-br.top)/H*100).toFixed(2)}%;height:${Math.max(.4,(b.bottom-a.top)/H*100).toFixed(2)}%;background:${s.color}"></b>`}).join('');
+  mini.hidden=!subs.length;
+  updateMini();
+}
+function updateMini(){
+  const mini=$('markupMini'),body=$('decisionBody');if(!mini||mini.hidden||!body)return;
+  const vp=mini.querySelector('.mk-mini-vp'),br=body.getBoundingClientRect(),H=Math.max(1,br.height);
+  const top=Math.max(0,-br.top)/H*100,h=Math.min(100-top,window.innerHeight/H*100);
+  vp.style.top=top.toFixed(2)+'%';vp.style.height=Math.max(1,h).toFixed(2)+'%';
+}
 function renderBands(stage,base){
   const bands=$('markupBands');if(!bands)return;
   bands.innerHTML='';
@@ -646,7 +660,7 @@ function renderPanel(){
   if(!cards.length){state.pins=[];if(el)el.remove();if(p)p.classList.remove('markup-peeking');return}
   if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
   el.className='mk-panel '+state.dock;
-  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">Go to citation</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
+  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">${c.loc!=null?`Back to ¶[${E(c.loc)}]`:'Go to citation'}</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
   if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
   if(p){p.classList.toggle('markup-docked',state.dock==='dock');p.classList.add('markup-peeking')}
 }
@@ -825,6 +839,8 @@ document.addEventListener('pointerdown',ev=>{
   document.addEventListener('pointermove',move);document.addEventListener('pointerup',up);ev.preventDefault();
 });
 window.addEventListener('resize',schedule);
+window.addEventListener('scroll',()=>{if(state.on)updateMini()},{passive:true});
+document.addEventListener('click',ev=>{const mini=ev.target.closest&&ev.target.closest('#markupMini');if(!mini||mini.hidden)return;const body=$('decisionBody'),r=mini.getBoundingClientRect(),f=Math.min(1,Math.max(0,(ev.clientY-r.top)/Math.max(1,r.height))),b=body.getBoundingClientRect();window.scrollTo({top:Math.max(0,scrollY+b.top+f*b.height-window.innerHeight/3),behavior:'smooth'})});
 /* Print hides the toolbar and re-flows the page, so lay the notes out again for the print layout and back. */
 const setPrinting=v=>{if(!state.on||state.printing===v)return;state.printing=v;render()};
 window.addEventListener('beforeprint',()=>setPrinting(true));

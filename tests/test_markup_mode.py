@@ -326,3 +326,63 @@ def test_statute_notes_group_by_act_with_stored_text_only():
     assert full["foot"] == [{"label": "Open the Act", "action": "open-url", "arg": "https://laws-lois.justice.gc.ca/eng/acts/I-2.5/"}]
     assert bare["quote"] == "" and "not stored" in bare["body"] and bare["foot"] == []  # no invented text, no unsafe link
     assert full["anchor"] == {"kind": "cite", "id": -1}
+
+
+@needs_node
+def test_short_names_and_pills_follow_the_mockups():
+    out = _node("""
+const r = {
+  vavilov: m.shortCaseName('Canada (Citizenship and Immigration) v Vavilov'),
+  valtchev: m.shortCaseName('Valtchev v. Canada (Minister of Citizenship and Immigration)'),
+  french: m.shortCaseName('Baker c. Canada (Ministre de la Citoyenneté)'),
+  short: m.shortCaseName('R v Oakes'),
+  resolved: m.citePill({target_title: 'Canada (Citizenship and Immigration) v Vavilov', target_citation: '2019 SCC 65', citation_text: 'Vavilov, 2019 SCC 65'}, 't'),
+  raw: m.citePill({citation_text: 'Strachn v Canada (Citizenship and Immigration), 2012 FC 984 at para 34'}, 't'),
+  bare: m.citePill({citation_text: '2018 FC 147'}, 't'),
+};
+console.log(JSON.stringify(r));
+""")
+    assert out == {"vavilov": "Vavilov", "valtchev": "Valtchev", "french": "Baker", "short": "Oakes",
+                   "resolved": "Vavilov 2019 SCC 65", "raw": "Strachn 2012 FC 984", "bare": "2018 FC 147"}
+
+
+@needs_node
+def test_header_info_and_judge_fall_back_to_extracted_metadata():
+    payload = _payload()
+    payload["item"] = {"title": "X v Canada", "court": "FC"}
+    payload["readerData"]["case"] = {"docket_number": None}
+    payload["readerData"]["extracted_metadata"] = [
+        {"key": "judge", "value": "Justice Phelan"}, {"key": "decision_outcome", "value": "application_granted"},
+        {"key": "imm_number", "value": "IMM-1-19"}]
+    out = _node("console.log(JSON.stringify({h: m.headerInfo(a), j: m.buildNotes(a).filter(n => n.type === 'judge').map(n => n.title)}));", payload)
+    assert out == {"h": {"outcome": "Application granted", "judge": "Justice Phelan", "file": "IMM-1-19"}, "j": ["Justice Phelan"]}
+
+
+@needs_node
+def test_by_topic_groups_use_section_headings_and_lead_sentences():
+    text = "Intro line.\nII. ANALYSIS\n[1] The standard is reasonableness. It applies to everything here. [2] A second paragraph without end"
+    s1, s2 = text.index("[1]"), text.index("[2]")
+    payload = {
+        "item": {"full_text": text},
+        "readerData": {
+            "chunks": [{"text": "[1] one"}, {"text": "[2] two"}],
+            "format_blocks": [
+                {"type": "heading", "start": text.index("II."), "end": text.index("[1]") - 1, "level": 1},
+                {"type": "para", "start": s1, "end": s2 - 1, "num": 1},
+                {"type": "para", "start": s2, "end": len(text), "num": 2},
+            ],
+            "evidence_summary": {"units": [{"unit_index": 1, "start_paragraph": 1, "end_paragraph": 2, "subthemes": [
+                {"subtheme_id": 7, "paragraph_indices": [0, 1], "key_terms": ["standard", "review"], "argument_roles": ["governing_rule"]}]}]},
+        },
+    }
+    out = _node("console.log(JSON.stringify(m.topicGroups(a)));", payload)
+    assert len(out) == 1 and out[0]["title"] == "II. ANALYSIS"
+    assert [p["num"] for p in out[0]["paras"]] == [1, 2]
+    assert out[0]["paras"][0]["lead"] == "The standard is reasonableness."
+    assert out[0]["paras"][0]["text"].endswith("everything here.") and out[0]["roles"] == ["Governing rule"]
+
+
+@needs_node
+def test_statute_layer_is_in_the_layer_list_and_old_saved_layers_load():
+    out = _node("console.log(JSON.stringify({keys: m.LAYER_DEFS.map(d => d.key), s: m.sanitizeLayers({cite: 'off'})}));")
+    assert "statute" in out["keys"] and out["s"]["statute"] == "markers" and out["s"]["cite"] == "off"

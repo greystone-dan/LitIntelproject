@@ -189,3 +189,11 @@ body.markup-mode-on .reader-hover-tooltip{display:none!important}
  .mk-note .mk-card blockquote small,.mk-note .mk-card .mk-foot,.mk-note .mk-card .mk-subs,.mk-note .mk-card .mk-hint{display:none}
  .mk-note .mk-card .mk-meta,.mk-note .mk-card .mk-body{font-size:10px}
 }
+
+/* minimap */
+#markupMini{position:sticky;top:calc(var(--mk-bar-h,120px) + 12px);align-self:flex-start;flex:none;width:12px;height:calc(100vh - var(--mk-bar-h,120px) - 40px);margin-left:6px;border-radius:6px;background:#eef1f6;cursor:pointer}
+#markupMini[hidden]{display:none}
+.mk-mini-in{position:absolute;inset:0;overflow:hidden;border-radius:6px}.mk-mini-in b{position:absolute;left:2px;right:2px;border-radius:2px;opacity:.9}
+.mk-mini-vp{position:absolute;left:-2px;right:-2px;border:1.5px solid #102038;border-radius:3px;background:rgba(16,32,56,.08);pointer-events:none}
+#markupStage.is-topic #markupMini{display:none}
+@media(max-width:760px),print{#markupMini{display:none!important}}

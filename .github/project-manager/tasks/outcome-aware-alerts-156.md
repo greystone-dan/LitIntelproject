@@ -26,6 +26,7 @@ Acceptance criteria:
 
 - A new `backend/outcome_alerts.py` computes saved-search matches since a caller-supplied date with stored outcome and a concise, evidence-based match reason.
 - The authority watch aggregates cited authorities represented in saved-search results; compares Minister outcomes in consecutive 12-month windows, returns both counts and denominators, and suppresses comparisons when either denominator is below 8.
+- Adequately sized windows report signed percentage-point movement and mark `declining` when the Minister-loss share rises by at least 15 points.
 - `GET /saved-searches/{id}/alerts` returns the computed JSON; a plain page exposes the same information without changing existing saved-search behavior.
 - `scripts/build_outcome_alerts.py` supports bounded, offline use of the shared alert logic.
 - Fixture tests cover matching, outcome/reason, both authority windows and denominators, minimum-count suppression, and route/page contract as feasible without database access.
@@ -43,7 +44,7 @@ Evidence: The managed worker inspected the current-main `SavedSearch`, `SearchAl
 
 Files changed: `.github/project-manager/tasks/outcome-aware-alerts-156.md`, `.swm/1.oi7rhqp2.sw.md`, `CHANGELOG.md`, `DOCS_INDEX.md`, `SYSTEM_REFERENCE.md`, `backend/outcome_alert_routes.py`, `backend/outcome_alerts.py`, `backend/pages/saved_search_alerts.py`, `backend/routes.py`, `docs/SCRIPT_CATALOG.generated.md`, `docs/operators/schedule_outcome_alerts.md`, `docs/outcome_alerts.md`, `scripts/build_outcome_alerts.py`, and `tests/test_outcome_alerts.py`. `backend/main.py` was not changed because it already registers the parent router.
 Delegated work: Managed worker completed two bounded passes over current-main contracts, feature implementation, and fixture tests. Manager review corrected the authority cohort/date semantics, kept result decisions in the citing cohorts, moved handlers behind a registered router, completed the Swimm/canonical documentation checkpoint, and performed final validation.
-Focused validation: `python -m py_compile backend/outcome_alerts.py backend/outcome_alert_routes.py backend/routes.py scripts/build_outcome_alerts.py tests/test_outcome_alerts.py` passed; three fixture/calendar/CLI checks directly invoked from `tests/test_outcome_alerts.py` passed; `python scripts/build_outcome_alerts.py --help`, `python scripts/generate_script_catalog.py`, focused new-doc link review, `git diff HEAD --check`, and changed-file secret-pattern scan passed. `python -m pytest -q tests/test_outcome_alerts.py` could not run (`No module named pytest`). `python scripts/check_generated_docs.py` failed because `fastapi` and `sqlalchemy` are unavailable, so the generated API reference could not be refreshed.
+Focused validation before the review corrections: `python -m py_compile backend/outcome_alerts.py backend/outcome_alert_routes.py backend/routes.py scripts/build_outcome_alerts.py tests/test_outcome_alerts.py` passed; three fixture/calendar/CLI checks directly invoked from `tests/test_outcome_alerts.py` passed; `python scripts/build_outcome_alerts.py --help`, `python scripts/generate_script_catalog.py`, focused new-doc link review, `git diff HEAD --check`, and changed-file secret-pattern scan passed. Review corrections then added the 15-point signal and aligned fixture outcome/timestamp fields; those corrections were inspected but tests were not rerun. `python -m pytest -q tests/test_outcome_alerts.py` could not run (`No module named pytest`). `python scripts/check_generated_docs.py` failed because `fastapi` and `sqlalchemy` are unavailable, so the generated API reference could not be refreshed.
 Residual risk: The feature routes have not received pytest/FastAPI or database-backed integration validation (database access was explicitly prohibited). `docs/API_REFERENCE.generated.md` remains unrefreshed until the generator can run. Authority comparisons are descriptive; all citing decisions form the denominator, including those without stored outcomes.
 Next bounded task: In an existing project environment with the declared dependencies, run the focused pytest and generated-doc checks, regenerate `docs/API_REFERENCE.generated.md`, and review the generated diff; do not connect to a database or deploy.
 
@@ -73,9 +74,11 @@ If the shared alert calculation consumes existing saved-search and decision evid
 | Persist periodic authority-watch snapshots with new tables | Can make later reads fast, but adds freshness/version questions and another derived layer | Requires a migration and scheduled writer | Higher operational ownership and rollback burden; prohibited for this issue | Rejected |
 
 The smallest disconfirming experiment is a fixture with independent 8-decision
-boundaries and distinct authorities, followed by the shared offline CLI. It
-passed by direct invocation; route integration remains unverified because the
-runtime/test packages are unavailable.
+boundaries, both sides of the 15-point decline threshold, and distinct
+authorities, followed by the shared offline CLI. The original fixture passed by
+direct invocation; the review-correction fixture was inspected but not rerun
+because pytest is unavailable and completed managed-agent changes are not
+retested.
 
 ## Decision Log
 
@@ -93,7 +96,7 @@ Completion recorded: no; blocked pending dependency-enabled test and generated A
 
 Summary: Feature code and canonical/Swimm documentation are implemented, but required pytest and generated API-reference validation could not run in this environment.
 
-Validation: Three focused fixture/calendar/CLI checks passed by direct invocation; changed Python compiled; offline CLI help worked; script catalog generated; focused new-document links, secret-pattern scan, and combined diff check passed. Pytest and generated-doc checks failed only because the runtime packages are unavailable.
+Validation: Three focused fixture/calendar/CLI checks passed by direct invocation before review corrections; changed Python compiled; offline CLI help worked; script catalog generated; focused new-document links, secret-pattern scan, and combined diff check passed. The 15-point threshold and API/offline parity corrections were inspected but not tested. Pytest and generated-doc checks could not run because the runtime packages are unavailable.
 
 Residual risk: No FastAPI route integration or database-backed execution was tested, and the generated API reference is not refreshed. No database or deployment was used.
 

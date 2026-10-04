@@ -42,6 +42,7 @@ def test_compute_alerts_from_fixture_uses_alerts_and_cited_decision_windows():
                 {"target_case_id": 300},
                 {"target_case_id": 400},
                 {"target_case_id": 500},
+                {"target_case_id": 600},
                 {"target_case_id": None},
                 {"target_case_id": 999, "citation_kind": "statute"},
             ],
@@ -55,6 +56,7 @@ def test_compute_alerts_from_fixture_uses_alerts_and_cited_decision_windows():
     ]
 
     outcomes = [
+        {"case_id": 100, "government_outcome": "lost", "source": "deterministic_outcome", "created_at": (now - timedelta(days=900)).isoformat()},
         {"case_id": 100, "government_outcome": "won", "disposition_evidence": "Minister won.", "source": "deterministic_outcome", "created_at": (now - timedelta(days=9)).isoformat()},
     ]
 
@@ -81,6 +83,31 @@ def test_compute_alerts_from_fixture_uses_alerts_and_cited_decision_windows():
         gov = "lost" if i in (211, 212) else "won"
         prev_cases.append({"id": i, "title": f"Cite{i}", "date": d, "citations": [{"target_case_id": 200}]})
         outcomes.append({"case_id": i, "government_outcome": gov, "disposition_evidence": None, "source": "deterministic_outcome", "created_at": (now - timedelta(days=399)).isoformat()})
+
+    for i in range(270, 278):
+        latest_cases.append({
+            "id": i,
+            "title": f"CiteAuth600_{i}",
+            "date": (now - timedelta(days=30)).date().isoformat(),
+            "citations": [{"target_case_id": 600}],
+        })
+        outcomes.append({
+            "case_id": i,
+            "government_outcome": "lost" if i < 274 else "won",
+            "source": "deterministic_outcome",
+        })
+    for i in range(280, 288):
+        prev_cases.append({
+            "id": i,
+            "title": f"CiteAuth600_{i}",
+            "date": (now - timedelta(days=400)).date().isoformat(),
+            "citations": [{"target_case_id": 600}],
+        })
+        outcomes.append({
+            "case_id": i,
+            "government_outcome": "lost" if i < 282 else "won",
+            "source": "deterministic_outcome",
+        })
 
     # Authority 300 has too few recent decisions and no previous decisions.
     for i in range(220, 223):
@@ -125,6 +152,8 @@ def test_compute_alerts_from_fixture_uses_alerts_and_cited_decision_windows():
     assert a200['previous']['numerator'] == 2
     assert a200['latest']['proportion'] == 4 / 11
     assert a200["authority_id"] == 200
+    assert a200["change_percentage_points"] == 14.14
+    assert a200["declining"] is False
 
     assert '300' in aw
     assert aw['300']['comparison_suppressed'] is True
@@ -139,6 +168,10 @@ def test_compute_alerts_from_fixture_uses_alerts_and_cited_decision_windows():
     assert aw["500"]["latest"]["denominator"] == 7
     assert aw["500"]["previous"]["denominator"] == 8
     assert aw["500"]["comparison_suppressed"] is True
+    assert aw["600"]["latest"]["denominator"] == 10
+    assert aw["600"]["previous"]["denominator"] == 8
+    assert aw["600"]["change_percentage_points"] == 15.0
+    assert aw["600"]["declining"] is True
 
 
 def test_offline_builder_writes_json_without_database_import(tmp_path):
@@ -191,3 +224,4 @@ def test_offline_builder_writes_json_without_database_import(tmp_path):
     payload = json.loads(output_path.read_text(encoding="utf-8"))
     assert payload["search_id"] == 9
     assert payload["new_case_matches"][0]["reason"] == "lexical"
+    assert payload["new_case_matches"][0]["discovered_at"] == "2025-01-02T00:00:00+00:00"

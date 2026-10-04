@@ -245,8 +245,16 @@ def compute_alerts_for_search(db_session, search_id: int, since: Optional[dateti
                 "comparison_suppressed": bool(suppressed),
             }
             if not suppressed:
-                entry['latest']['proportion'] = (latest_n / latest_d) if latest_d else None
-                entry['previous']['proportion'] = (prev_n / prev_d) if prev_d else None
+                latest_proportion = latest_n / latest_d
+                previous_proportion = prev_n / prev_d
+                change_points = (latest_proportion - previous_proportion) * 100
+                entry['latest']['proportion'] = latest_proportion
+                entry['previous']['proportion'] = previous_proportion
+                entry['change_percentage_points'] = round(change_points, 2)
+                entry['declining'] = (
+                    (latest_n * prev_d - prev_n * latest_d) * 100
+                    >= 15 * latest_d * prev_d
+                )
             authority_watch[str(auth)] = entry
 
     return {"search_id": search_id, "new_case_matches": new_case_matches, "authority_watch": authority_watch}
@@ -301,10 +309,7 @@ def compute_alerts_from_fixture(saved_search: Dict[str, Any], cases: List[Dict[s
     for alert in unique_alerts:
         c = cases_by_id.get(alert['case_id'])
         outs = outcomes_by_case.get(alert['case_id'], [])
-        chosen = None
-        if outs:
-            det = [o for o in outs if (o.get('source') or '').startswith('deterministic')]
-            chosen = det[0] if det else sorted(outs, key=lambda x: x.get('updated_at') or x.get('created_at') or '', reverse=True)[0]
+        chosen = _pick_outcome(outs)
         reason = _resolve_reason_from_alert(alert)
         matched.append({
             'case_id': alert['case_id'],
@@ -313,7 +318,7 @@ def compute_alerts_from_fixture(saved_search: Dict[str, Any], cases: List[Dict[s
             'case_date': c.get('date') if c else None,
             'outcome': chosen,
             'reason': reason,
-            'created_at': alert.get('discovered_at')
+            'discovered_at': alert.get('discovered_at')
         })
 
     # Authority trends use all citing decisions in the corpus, including result cases.
@@ -362,8 +367,16 @@ def compute_alerts_from_fixture(saved_search: Dict[str, Any], cases: List[Dict[s
             'comparison_suppressed': bool(suppressed),
         }
         if not suppressed:
-            entry['latest']['proportion'] = (latest_n / latest_d) if latest_d else None
-            entry['previous']['proportion'] = (prev_n / prev_d) if prev_d else None
+            latest_proportion = latest_n / latest_d
+            previous_proportion = prev_n / prev_d
+            change_points = (latest_proportion - previous_proportion) * 100
+            entry['latest']['proportion'] = latest_proportion
+            entry['previous']['proportion'] = previous_proportion
+            entry['change_percentage_points'] = round(change_points, 2)
+            entry['declining'] = (
+                (latest_n * prev_d - prev_n * latest_d) * 100
+                >= 15 * latest_d * prev_d
+            )
         authority_watch[str(auth)] = entry
 
     return {'search_id': saved_search.get('id'), 'new_case_matches': matched, 'authority_watch': authority_watch}

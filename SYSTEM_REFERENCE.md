@@ -375,7 +375,9 @@ latest and preceding calendar 12-month windows. A decision is classified
 "against the Minister" when its stored `CaseOutcome.government_outcome` is
 `lost`; each period returns that count and its all-citing-decisions denominator.
 Proportions are descriptive, not causal, and are omitted if either denominator
-is below 8.
+is below 8. For adequately sized windows the response also includes the signed
+percentage-point change and marks `declining` when the Minister-loss share rose
+by at least 15 points.
 
 `scripts/build_outcome_alerts.py` applies the same pure calculation offline to
 a JSON input containing a saved search and its recorded alert rows, case

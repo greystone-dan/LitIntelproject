@@ -9,8 +9,9 @@
   recorded matches since an optional timestamp with stored outcomes and
   match-type reasons. Authority watches start from resolved case citations in
   the matches and compare distinct citing decisions over calendar 12-month
-  windows, returning counts and denominators and suppressing proportions when
-  either denominator is below 8. Added a database-free JSON builder and Windows
+  windows, returning counts and denominators, suppressing proportions when
+  either denominator is below 8, and marking increases of at least 15 percentage
+  points. Added a database-free JSON builder and Windows
   Task Scheduler guidance. Three fixture/CLI checks were directly invoked, and Python
   compilation and CLI help passed. `pytest` is unavailable in this environment;
   generated API/schema checks could not import `fastapi`/`sqlalchemy`, so the API

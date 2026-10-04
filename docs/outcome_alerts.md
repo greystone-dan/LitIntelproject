@@ -17,6 +17,9 @@ decisions without a stored outcome. Both counts and denominators are returned.
 If either denominator is under 8, `comparison_suppressed` is true and
 proportions are omitted. These descriptive comparisons do not establish
 causation or corpus completeness.
+When both windows meet the minimum, `change_percentage_points` is the signed
+change in Minister-loss share and `declining` is true when that share increased
+by at least 15 percentage points.
 
 `GET /saved-searches/{search_id}/alerts-ui` is a plain HTML page that fetches
 and displays the JSON response.

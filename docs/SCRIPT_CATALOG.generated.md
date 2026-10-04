@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 161
+Active scripts documented: 164
 
 ## Catalog
 
@@ -49,6 +49,7 @@ Active scripts documented: 161
 | `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
+| `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
@@ -61,6 +62,7 @@ Active scripts documented: 161
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
 | `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
+| `compare_eval_runs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help` |
 | `compare_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_pipeline_case.py --help` |
 | `crawl_canlii.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\crawl_canlii.py --help` |
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
@@ -75,6 +77,7 @@ Active scripts documented: 161
 | `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
+| `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
@@ -718,6 +721,20 @@ Active scripts documented: 161
 .\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help
 ```
 
+## `scripts/build_paragraph_cited_by.py`
+
+**Purpose:** Build the paragraph-level "cited by" tables from stored citation occurrences. For every case that cites another library case by paragraph, store which paragraph it cites, how often, and the signal phrase written next to the citation ("see also", "followed in", "distinguished", ...). The reader's Markup view reads these rows. Safe by default: with no flags it only reports what it would do. Nothing is written without --apply. No AI and no network. It only reads the citing case's own text. python scripts/build_paragraph_cited_by.py # plan only python scripts/build_paragraph_cited_by.py --apply --max-minutes 60 python scripts/build_paragraph_cited_by.py --apply --case-ids 12 34 56 python scripts/build_paragraph_cited_by.py --report-cited 1292 # show what is stored for a case Resumable: a citing case counts as done once its status row is written, so stopping with Ctrl+C (or --max-minutes) and running the same command again carries on. Each citing case is rewritten in one transaction, so re-running is harmless. To redo everything after changing the classifier, raise ALGO_VERSION in backend/paragraph_cited_by.py. Light on the machine: small batches, a pause between them, lower process priority, and a per-statement time limit. Run it off-battery and off-peak (see docs/PARAGRAPH_CITED_BY.md).
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -884,6 +901,20 @@ Active scripts documented: 161
 
 ```powershell
 .\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help
+```
+
+## `scripts/compare_eval_runs.py`
+
+**Purpose:** Compare two model-evaluation runs using paired bootstrap confidence intervals.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help
 ```
 
 ## `scripts/compare_pipeline_case.py`
@@ -1080,6 +1111,20 @@ Active scripts documented: 161
 
 ```powershell
 .\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help
+```
+
+## `scripts/eval_models.py`
+
+**Purpose:** Evaluate local embedding and JSON-generation models on frozen datasets.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
 ## `scripts/evaluate_chunk_parity.py`

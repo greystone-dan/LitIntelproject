@@ -35,6 +35,7 @@ from .database import (
 	StatuteReference,
 )
 from .statute_versioning import get_statute_version_label
+from .paragraph_cited_by_db import load_paragraph_cited_by, load_target_cited_by
 from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
@@ -1013,6 +1014,16 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	)
 
 	format_blocks = format_decision(case.full_text, cited_paragraph_counts)
+	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
+	try:
+		with db.begin_nested():
+			paragraph_cited_by = load_paragraph_cited_by(db, case_id)
+			target_cited_by = load_target_cited_by(db, target_pinpoints)
+	except Exception:  # noqa: BLE001
+		paragraph_cited_by, target_cited_by = None, {}
+	for row in citation_responses:
+		if row.target_case_id is not None and row.target_paragraph is not None:
+			row.target_cited_by = target_cited_by.get((row.target_case_id, row.target_paragraph))
 	outcome = db.scalar(
 		select(CaseOutcome).where(CaseOutcome.case_id == case_id)
 		.order_by(CaseOutcome.updated_at.desc(), CaseOutcome.id.desc()).limit(1)
@@ -1021,6 +1032,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
+		paragraph_cited_by=paragraph_cited_by,
 		format_blocks=format_blocks,
 		extracted_summary=_build_reader_extracted_summary(
 			case, outcome, format_blocks, tags, extracted_metadata,

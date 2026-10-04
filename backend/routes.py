@@ -596,6 +596,15 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 	extracted_citations = _extract_legal_citations(case_data.full_text or case_data.summary)
 	if extracted_citations:
 		metadata["extracted_citations"] = extracted_citations
+	case_embedding = (
+		embed_case_summary(case_data.summary)
+		if (
+			case_data.summary
+			and AI_ROLLOUT["embed_on_ingest_enabled"]
+			and enhanced_mode() != "off"
+		)
+		else None
+	)
 
 	case = Case(
 		title=case_data.title,
@@ -618,17 +627,11 @@ def ingest_case(case_data: CaseIngestRequest, db: Session = Depends(get_db)) -> 
 		scraped_at=case_data.scraped_at,
 		language=case_data.language,
 		full_text_hash=(sha256(case_data.full_text.encode("utf-8")).hexdigest() if case_data.full_text else None),
-		processing_status=(
-			"embedded" if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"]) else "raw"
-		),
+		processing_status="embedded" if case_embedding is not None else "raw",
 		cases_cited=case_data.cases_cited or (extracted_citations or None),
 		cases_citing=case_data.cases_citing,
 		citing_cases_count=case_data.citing_cases_count,
-		embedding=(
-			embed_case_summary(case_data.summary)
-			if (case_data.summary and AI_ROLLOUT["embed_on_ingest_enabled"])
-			else None
-		),
+		embedding=case_embedding,
 	)
 	db.add(case)
 	try:

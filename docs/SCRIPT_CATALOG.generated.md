@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 157
+Active scripts documented: 158
 
 ## Catalog
 
@@ -164,6 +164,7 @@ Active scripts documented: 157
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
 | `tag_prototype_topics.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help` |
+| `test_citation_intelligence_prompts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help` |
 | `validate_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\validate_precision.py --help` |
 | `verify_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\verify_citation_extraction.py --help` |
 | `verify_fc_case_existence.py` | Source verification | network and filesystem output | `.\venv\Scripts\python.exe scripts\verify_fc_case_existence.py --help` |
@@ -2322,6 +2323,20 @@ Active scripts documented: 157
 
 ```powershell
 .\venv\Scripts\python.exe scripts\tag_prototype_topics.py --help
+```
+
+## `scripts/test_citation_intelligence_prompts.py`
+
+**Purpose:** Test improved citation intelligence assessment prompts against real database cases. This script fetches real cases from the database, runs both current and improved paragraph assessment prompts, and compares output quality and cost. Run on: PC thread (has live database access) Usage: python scripts/test_citation_intelligence_prompts.py --case-ids 123,456,789 --max-paragraphs 300 --budget-usd 20.0 --output-dir /path/to/output
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\test_citation_intelligence_prompts.py --help
 ```
 
 ## `scripts/validate_precision.py`

@@ -207,3 +207,24 @@ def test_follow_up_features_are_wired_into_the_page():
         assert needle in html, needle
     css = CSS.read_text(encoding="utf-8")
     assert "reader-hover-tooltip" in css  # the page's own tooltip is replaced in markup mode
+
+
+@needs_node
+def test_cited_by_gutter_uses_stored_rows_and_falls_back_without_them():
+    plain = next(n for n in _run()["notes"] if n["type"] == "citedby")
+    assert plain["meta"].startswith("Distinct cases") and plain["foot"] == []
+    payload = _payload()
+    payload["readerData"]["paragraph_cited_by"] = {
+        "coverage": {"sources_total": 4, "sources_processed": 2, "complete": False},
+        "paragraphs": [{"paragraph": 2, "citer_count": 3, "mention_count": 4,
+                        "purposes": {"followed": 2, "see": 1},
+                        "citers": [{"case_id": 11, "citation": "2020 FC 1", "mentions": 2, "purpose": "followed", "signal": "applied in"},
+                                   {"case_id": 12, "citation": "2021 FC 5", "mentions": 1, "purpose": "see", "signal": "see"}]}],
+    }
+    payload["readerData"]["citations"][0]["target_cited_by"] = {"citer_count": 2, "purposes": {"quoted": 1}}
+    out = _run(payload=payload)
+    note = next(n for n in out["notes"] if n["type"] == "citedby")
+    assert "Partial: 2 of 4" in note["meta"] and "Cited by 3 cases · Followed 2, See 1" in note["meta"]
+    assert "2020 FC 1 ×2 · Followed (\"applied in\")" in note["body"] and "+ 1 more" in note["body"]
+    assert [f["arg"] for f in note["foot"]] == [11, 12]
+    assert out["peeks"][0]["citedBy"] == "Cited by 2 cases · Quoted 1"

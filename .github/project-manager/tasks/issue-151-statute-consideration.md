@@ -1,6 +1,6 @@
 # Task: Add statute consideration analytics
 
-Status: planned
+Status: blocked
 Created: 2026-10-04
 Updated: 2026-10-04
 
@@ -31,17 +31,17 @@ Acceptance criteria:
 
 Harness criteria: API analytics and pagination fixtures pass; UI/form/link fixtures pass; generated docs are current; CI-configured full suite passes.
 
-Docs/generated references: `SYSTEM_REFERENCE.md`; `.swm/4.9nn3id9f.sw.md` (statute evidence layer) and `.swm/1.oi7rhqp2.sw.md` (API/UI ownership); generated API/schema/script references via documented generators.
+Docs/generated references: `SYSTEM_REFERENCE.md`; `.swm/6.maiixtsw.sw.md` (active UI); generated API/schema/script references via documented generators.
 
 Rollback/recovery: Revert the isolated new service/page and minimal route/viewer registrations; no persisted data or schema changes require recovery.
 
-Evidence: Pending. Record delegated work, commands, observed results, artifacts, known failures, canonical documentation path, and Swimm walkthrough paths.
+Evidence: Managed-worker implemented the feature, fixtures, and docs; manager review corrected the endpoint path to `/api/statutes/{act}/{section}/consideration`. The focused command `PYTHON_DOTENV_DISABLED=1 DATABASE_URL=sqlite:///:memory: /tmp/caselibrary-validation-venv/bin/python -m pytest -q --noconftest tests/test_statute_consideration.py` passed (5 tests) without loading repository conftest or connecting to a database. In the same isolated environment, the API, schema, and script-catalog generators ran; `PYTHON_DOTENV_DISABLED=1 DATABASE_URL=sqlite:///:memory: /tmp/caselibrary-validation-venv/bin/python scripts/check_generated_docs.py` passed (3 references). Python compilation, endpoint/UI path and page-cap source assertions, and `git diff --check` passed. CI-configured full pytest was not run: `tests/conftest.py` probes the configured database at collection, outside the issue's no-database boundary. Canonical docs updated at `SYSTEM_REFERENCE.md`; Swimm walkthrough updated at `.swm/6.maiixtsw.sw.md`. `origin/main` was refreshed and verified as an ancestor of feature HEAD (`2c89913`).
 
-Files changed: None yet.
-Delegated work: Pending assignment to managed-worker for bounded feature implementation, fixture tests, and feature documentation; manager retains task record, decision, and final validation.
-Focused validation: Pending.
-Residual risk: Existing reference/outcome data completeness may constrain descriptive counts.
-Next bounded task: None until focused implementation check.
+Files changed: `backend/statute_consideration.py`; `backend/routes.py`; `backend/pages/statute_viewer.py`; `tests/test_statute_consideration.py`; `SYSTEM_REFERENCE.md`; `.swm/6.maiixtsw.sw.md`; generated `docs/API_REFERENCE.generated.md` and `docs/SCHEMA_REFERENCE.generated.md`; this task record.
+Delegated work: Managed-worker inspected its assigned code/docs, implemented the service/router, viewer link, fixtures, and documentation, and returned a structured report. Bounded manager recovery fixed the specified API route mismatch after review; delegated agent handle was unavailable for follow-up.
+Focused validation: `PYTHON_DOTENV_DISABLED=1 DATABASE_URL=sqlite:///:memory: /tmp/caselibrary-validation-venv/bin/python -m pytest -q --noconftest tests/test_statute_consideration.py` passed (5 tests). Python compilation, endpoint/UI path and page-cap assertions, and `git diff --check` passed. API/schema/script-catalog generators ran; the generated-doc check passed.
+Residual risk: The CI-configured full suite was not run because its `tests/conftest.py` performs a database availability probe, disallowed by this task's boundary. Database population completeness was not assessed. No application database was accessed.
+Next bounded task: Obtain an approved no-database strategy for the CI-configured full suite, then run it with the specified CI deselections.
 
 ## Hypothesis
 
@@ -49,15 +49,15 @@ If decision-level aggregation is correctly derived from stored statute reference
 
 ## Plan
 
-1. Assign the bounded implementation and focused fixture checks to a managed worker.
+1. Assign bounded implementation and focused fixture checks to a managed worker.
 2. Review the returned change against the API/UI and descriptive-statistics requirements.
 3. Regenerate generated references, run focused and CI-configured full tests, and update canonical and Swimm documentation.
 
 ## Execution Checkpoints
 
-- Delegation: Pending managed-worker assignment and structured return.
-- Implementation: Pending worker changes and focused check.
-- Documentation: `SYSTEM_REFERENCE.md`; `.swm/4.9nn3id9f.sw.md` and `.swm/1.oi7rhqp2.sw.md`.
+- Delegation: Managed-worker returned a structured implementation report; endpoint path mismatch required bounded manager recovery.
+- Implementation: Worker implementation reviewed; manager corrected API path.
+- Documentation: `SYSTEM_REFERENCE.md`; `.swm/6.maiixtsw.sw.md`.
 - Recovery: No database or long-running operation.
 
 ## Decision Log
@@ -70,10 +70,10 @@ If decision-level aggregation is correctly derived from stored statute reference
 
 Completion recorded: no
 
-Summary: Pending implementation.
+Summary: Implementation, focused fixtures, and documentation are present; task remains blocked because the requested full-suite run would probe a database, outside the explicit boundary.
 
-Validation: Not run.
+Validation: Isolated focused pytest passed (5 tests); compilation/source assertions and `git diff --check` passed; all three generators ran and generated-doc check passed. Full pytest was not run because the repository conftest probes the database.
 
-Residual risk: Pending.
+Residual risk: Full-suite compatibility remains unverified; no live or test database was accessed.
 
-Next recommended task: Pending.
+Next recommended task: Agree on a safe no-database method for the CI-configured full suite.

@@ -439,6 +439,20 @@ recoverable class within that second backfill.
 
 Statute and instrument extraction is independent. It supports IRPA and IRPR names and abbreviations, nested provisions including forms such as `34(1)(f)`, plural provision syntax, Charter and Criminal Code references, selected international instruments, and bounded generic statute forms. Nested provision identity is canonicalized case-insensitively for section-letter variants, so `34(1)(A)` and a later `section 34(1)(a)` retain their original spans while sharing normalized identity when the existing bounded anchor rules permit it. The current priority is clean IRPA/IRPR extraction; broadening statute coverage should not reduce precision. The raw `statute_references.pinpoint` remains a lossless opaque string, while additive structured fields expose section, subsection, paragraph, nesting depth, and range/list status. Read-only legislation resolution now returns explicit status and stored document/section metadata in live analysis and the stored reader when an indexed instrument and base section match; lists/ranges and missing sources remain explicitly unresolved. Further recall work should target additional shorthand and list/range forms across sentence boundaries with positive and negative precision fixtures.
 
+The `/statute-consideration` page and `GET /api/statutes/{act}/{section}/consideration` provide
+read-only, descriptive analysis for a stored Act and base section, using only
+`statute_references`, the statute catalog, the latest stored `CaseOutcome` per
+decision, and the point-in-time statute version for each displayed decision
+date. Summary, court, year, and outcome counts are distinct decisions,
+while a separate occurrence total and each case's within-decision reference
+count retain reference density. The outcome distribution includes
+`unclassified`, and every distribution reports its all-decision denominator.
+Cases are ranked by matching references within the decision, then recency;
+page size is capped at 50. Unknown acts or sections return a 404 with a hint.
+This is descriptive coverage only, not evidence of legal effect, interpretation,
+or causation. The statute viewer links to the new page; result rows open the
+existing case reader.
+
 A read-only demand diagnosis on 2026-09-15 found `440,266` statute-reference rows without an `instrument_key`, across `33,460` cases. The largest repeated unidentified forms were Indian Act, Constitution Act, Civil Code, Patent Act, Federal Court Rules, and NOC Regulations. The population is mixed: `21,961` rows have IRPA-shaped text, `4,777` have Federal Court Rules-shaped text, and `34` have IRPR-shaped text, indicating an identity-recovery opportunity before adding new source XML. `374,028` rows remain other-unidentified and require sampled citation-shape classification. No backfill or source acquisition was run.
 
 The 2026-09-17 read-only coverage inventory found `751,944` statute-reference

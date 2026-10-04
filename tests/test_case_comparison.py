@@ -431,6 +431,9 @@ def test_http_route_precedence_validation_unknowns_and_empty_page(db, monkeypatc
         assert unresolved.status_code == 404
         assert "case ID or citation" in unresolved.json()["detail"]["message"]
         assert client.get("/compare?a=not-a-case&b=2024%20FCA%202").status_code == 404
+        overlong = "2000 S.C.R. 1 " * 64
+        assert client.get("/api/compare", params={"a": overlong, "b": "2"}).status_code == 422
+        assert client.get("/compare", params={"a": overlong, "b": "2"}).status_code == 404
         same = client.get("/api/compare?a=1&b=2024%20FC%201")
         assert same.status_code == 400
         assert same.json()["detail"]["message"] == "Choose two different decisions to compare."
@@ -492,6 +495,24 @@ def test_compare_resolution_distinct_tags_cross_citation_and_stored_pinpoints(db
     )
     assert "Stored cited-decision paragraph pinpoints: 12" in html
     assert "source occurrence paragraphs are taken from the citing decision" in html
+
+
+def test_overlong_pathological_compare_input_fails_before_citation_regex(db, monkeypatch):
+    from backend import case_compare
+
+    parsed_inputs = []
+    original = case_compare._citation_variants
+
+    def record_variants(value):
+        parsed_inputs.append(value)
+        return original(value)
+
+    monkeypatch.setattr(case_compare, "_citation_variants", record_variants)
+    pathological = "2000 S.C.R. 1 " * 64
+    assert len(pathological) > case_compare.MAX_CASE_INPUT_CHARS
+    assert case_compare.resolve_case_input(db, pathological) is None
+    assert case_compare.resolve_case_input(db, "9" * 513) is None
+    assert parsed_inputs == []
 
 
 def test_comparison_page_progressive_enhancement_and_reader_features_preserved(db):

@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T20:31:54.411915+00:00
+Generated: 2026-10-04T20:42:48.953863+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 119 across 116 paths
@@ -248,8 +248,8 @@ Compare Cases By Id Or Citation
 
 **Parameters**
 
-- `a` (query, required; string)
-- `b` (query, required; string)
+- `a` (query, required; string): Case ID or stored citation (maximum 512 characters).
+- `b` (query, required; string): Case ID or stored citation (maximum 512 characters).
 
 **Responses**
 

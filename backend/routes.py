@@ -87,7 +87,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
 from .pages.case_compare import case_compare_page_html
 from .case_comparison import fetch_case_comparison
-from .case_compare import compare_case_inputs, resolve_case_input
+from .case_compare import MAX_CASE_INPUT_CHARS, compare_case_inputs, resolve_case_input
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -781,8 +781,16 @@ def case_compare_page(
 
 @router.get("/api/compare", response_model=dict[str, Any])
 def compare_cases_by_id_or_citation(
-	a: str = Query(min_length=1),
-	b: str = Query(min_length=1),
+	a: str = Query(
+		min_length=1,
+		max_length=MAX_CASE_INPUT_CHARS,
+		description=f"Case ID or stored citation (maximum {MAX_CASE_INPUT_CHARS} characters).",
+	),
+	b: str = Query(
+		min_length=1,
+		max_length=MAX_CASE_INPUT_CHARS,
+		description=f"Case ID or stored citation (maximum {MAX_CASE_INPUT_CHARS} characters).",
+	),
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	result = compare_case_inputs(db, a, b)

@@ -9,7 +9,8 @@
   `GET /api/compare`, accepting case IDs or stored citations. It displays fact
   and outcome provenance, separate tags/statutes/authorities, shared and unique
   signals, stored authority pinpoints, and directional cross-citations; unknown
-  decisions and self-comparison receive clear errors. The reader adds a
+  decisions and self-comparison receive clear errors. Inputs above 512
+  characters fail closed before ID or citation parsing. The reader adds a
   prefilled “Compare with…” link. The pre-existing `/case-compare` page and
   `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
   or data writes.

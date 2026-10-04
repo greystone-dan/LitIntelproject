@@ -145,7 +145,9 @@ and the missing IDs. No data is written and no new resolution is attempted.
 side-by-side comparison page, backed by `GET /api/compare?a=...&b=...` for JSON.
 Both inputs accept a canonical case ID or stored formal citation. The new
 `backend/case_compare.py` helper uses the existing local citation identity
-resolver; it performs no external lookup, extraction, or write. The page adds
+resolver; inputs above 512 characters fail closed before trimming, numeric
+conversion, or citation normalization. The API also declares a 512-character
+query bound. It performs no external lookup, extraction, or write. The page adds
 `Citation.target_paragraph` as the cited decision's paragraph pinpoint, while
 source occurrence paragraphs come from the citing decision's stored chunk.
 Cross-citations are shown only when stored `Citation.target_case_id` exactly

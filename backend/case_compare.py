@@ -11,9 +11,13 @@ from .case_comparison import fetch_case_comparison
 from .citations import _citation_variants, build_local_case_resolution_index
 from .database import Case, CaseChunk, Citation
 
+MAX_CASE_INPUT_CHARS = 512
+
 
 def resolve_case_input(db: Session, value: str) -> int | None:
-    """Resolve a positive case ID or stored formal citation, without external lookups."""
+    """Resolve a stored ID/citation; reject input over 512 chars before parsing."""
+    if len(value) > MAX_CASE_INPUT_CHARS:
+        return None
     value = value.strip()
     if not value:
         return None

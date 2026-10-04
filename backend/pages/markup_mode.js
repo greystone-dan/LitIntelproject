@@ -10,15 +10,17 @@ const clip=(s,n)=>{s=String(s==null?'':s).replace(/\s+/g,' ').trim();return s.le
 const ROLE_LABELS={evidence_fact:'Evidence / fact',governing_rule:'Governing rule',reasoning_application:'Reasoning application',counterargument_limitation:'Counterargument',issue:'Issue',disposition:'Disposition',party_position:'Party position'};
 const roleLabel=r=>ROLE_LABELS[r]||String(r||'').replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
 const BAND_COLORS=['#a78bfa','#0f766e','#d97706','#2563eb','#db2777','#65a30d','#0891b2','#9333ea','#dc2626','#0d9488','#ca8a04','#4f46e5'];
-const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'}};
+const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},mine:{label:'My note',color:'#7c3aed'}};
 const LAYER_DEFS=[
  {key:'cite',label:'Citations',states:['off','markers','open'],def:'markers'},
  {key:'unit',label:'Discussion units',states:['off','markers','open'],def:'markers'},
  {key:'outcome',label:'Outcome',states:['off','markers','open'],def:'open'},
  {key:'judge',label:'Judge',states:['off','markers','open'],def:'markers'},
  {key:'tags',label:'Tags',states:['off','underline','tint','bubbles'],def:'underline'},
- {key:'citedby',label:'Cited by others',states:['off','gutter'],def:'gutter'}
+ {key:'citedby',label:'Cited by others',states:['off','gutter'],def:'gutter'},
+ {key:'mine',label:'My notes',states:['off','markers','open'],def:'open'}
 ];
+const MINE_MAX=200,MINE_TEXT=2000;
 const STATE_LABEL={off:'Off',markers:'Markers',open:'Open',underline:'Underline',tint:'Tint',bubbles:'Bubbles',gutter:'Gutter'};
 
 /* ---------- pure data helpers (no DOM) ---------- */
@@ -115,7 +117,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -161,7 +163,38 @@ function noteState(note,layers,overrides){
   if(overrides&&overrides[note.id]===false)return 'markers';
   return layer==='open'?'open':'markers';
 }
-const api={E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+/* ---------- private notes (this browser only) and Word export plan: pure ---------- */
+function mineToNotes(list){
+  return (list||[]).filter(m=>m&&m.para!=null&&String(m.text||'').trim()).map(m=>({id:'mine-'+m.para,type:'mine',anchor:{kind:'para',num:Number(m.para)},pill:'My note · ¶'+m.para+': '+clip(m.text,18),title:'My note on ¶['+m.para+']',meta:'Private: saved in this browser only',body:String(m.text),foot:[{label:'Edit',action:'mine-edit',arg:m.para}]}));
+}
+function mineUpsert(list,para,text,hl){
+  const rest=(list||[]).filter(m=>Number(m.para)!==Number(para));
+  text=String(text||'').slice(0,MINE_TEXT);
+  if(!text.trim()&&!hl)return rest;
+  return rest.concat([{para:Number(para),text:text,hl:!!hl,ts:Date.now()}]).sort((a,b)=>a.para-b.para).slice(0,MINE_MAX);
+}
+/* What one note says in a Word comment: a bold first line (label), then plain lines. */
+function commentFor(n){
+  const t=TYPE[n.type]||{label:'Note'};
+  const lines=[];
+  if(n.meta&&n.type!=='mine')lines.push(String(n.meta));
+  if(n.quote)lines.push((n.quoteLabel?n.quoteLabel+': ':'')+'“'+String(n.quote).replace(/\s+/g,' ').trim()+'”');
+  if(n.body)lines.push(String(n.body));
+  for(const s of n.subs||[])lines.push('¶['+s.first+']'+(s.last!==s.first?'–['+s.last+']':'')+': '+(s.terms||[]).join(', ')+(s.roles&&s.roles.length?' ('+s.roles.join(', ')+')':''));
+  return {label:t.label+(n.title&&n.type!=='mine'?': '+clip(n.title,90):''),text:lines.join('\n'),quote:n.cite&&n.cite.text?String(n.cite.text):null};
+}
+/* Comments for the Word file: every note whose layer is on, anchored by blockOf(note) (a block start, or null for the case header). Tags are left out: they are too many to read as comments. */
+function exportPlan(notes,layers,blockOf){
+  const out=[];
+  for(const n of notes||[]){
+    if(n.type==='tags')continue;
+    const st=layers&&layers[n.type];if(st===undefined||st==='off')continue;
+    const c=commentFor(n),b=blockOf?blockOf(n):null;
+    out.push({block:b==null?null:Number(b),label:c.label,text:c.text,quote:c.quote,author:n.type==='mine'?'My note':'iLit Markup'});
+  }
+  return out;
+}
+const api={mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -169,13 +202,20 @@ window.__markupMode=api;
 /* ---------- browser behaviour ---------- */
 const $=id=>document.getElementById(id);
 const state={on:false,layers:defaultLayers(),overrides:{},notes:[],infoOpen:false,outlineOpen:false,layersOpen:false,findTerm:'',findHits:[],findAt:-1,
-  caseId:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[]};
+  caseId:null,mine:[],editing:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[]};
 const store={get(){try{return JSON.parse(localStorage.getItem('ilit.markup.layers')||'null')}catch(e){return null}},set(v){try{localStorage.setItem('ilit.markup.layers',JSON.stringify(v))}catch(e){}}};
 state.layers=sanitizeLayers(store.get());
+const MINE_KEY='ilit.markup.notes.v1';
+const mineStore={
+  all(){try{const r=JSON.parse(localStorage.getItem(MINE_KEY)||'{}');return r&&typeof r==='object'&&!Array.isArray(r)?r:{}}catch(e){return {}}},
+  get(cid){const a=cid==null?null:this.all()[cid];return Array.isArray(a)?a:[]},
+  set(cid,list){if(cid==null)return;try{const all=this.all();if(list.length)all[cid]=list;else delete all[cid];localStorage.setItem(MINE_KEY,JSON.stringify(all))}catch(e){}}
+};
 let rafPending=false;
 const schedule=()=>{if(rafPending)return;rafPending=true;requestAnimationFrame(()=>{rafPending=false;if(state.on)render()})};
 
 function panel(){return $('caseReaderPanel')}
+let bodyObserver=null;
 function ensureStage(){
   let stage=$('markupStage');
   if(stage)return stage;
@@ -186,9 +226,12 @@ function ensureStage(){
   stage.innerHTML='<div id="markupOutline" hidden></div><div id="markupBands" aria-hidden="true"></div><div id="markupBodySlot"></div><div id="markupMargin"><svg id="markupConn" aria-hidden="true"></svg></div>';
   source.insertBefore(bar,body);source.insertBefore(stage,body);
   $('markupBodySlot').appendChild(body);
+  /* the reader adds things to paragraphs after first paint (similar-paragraph buttons, fonts); re-place the notes whenever the text's height changes */
+  if(typeof ResizeObserver==='function'){bodyObserver=new ResizeObserver(()=>schedule());bodyObserver.observe(body)}
   return stage;
 }
 function removeStage(){
+  if(bodyObserver){bodyObserver.disconnect();bodyObserver=null}
   const stage=$('markupStage');if(!stage)return;
   const body=$('decisionBody'),source=stage.parentElement;
   if(body)source.insertBefore(body,stage);
@@ -207,7 +250,7 @@ function setOn(on){
     setReaderMode('normalized');
   }else{
     state.on=false;document.body.classList.remove('markup-mode-on');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
-    hideHover(true);clearFold();
+    hideHover(true);clearFold();cleanMine();decorateNums(false);closeEditor();
     removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked','markup-peeking');
     const pn=$('mkPanel');if(pn)pn.remove();
     document.querySelectorAll('mark.markup-find').forEach(unwrap);
@@ -222,8 +265,9 @@ function afterRender(){
   p.classList.add('markup-on');
   ensureStage();
   const cid=(payload.item&&payload.item.id)||(payload.readerData&&payload.readerData.case&&payload.readerData.case.id)||null;
-  if(cid!==state.caseId){state.caseId=cid;state.pins=[];state.topicSel=[];state.foldOthers=false;state.unfolded=[];}
-  state.notes=buildNotes(payload);
+  if(cid!==state.caseId){state.caseId=cid;state.pins=[];state.topicSel=[];state.foldOthers=false;state.unfolded=[];closeEditor()}
+  state.mine=mineStore.get(cid);
+  state.notes=buildNotes(payload).concat(mineToNotes(state.mine));
   state.topics=topicIndex(payload,10);
   state.topicSel=state.topicSel.filter(k=>state.topics.some(t=>t.key===k));
   state.overrides={};
@@ -254,7 +298,7 @@ function renderBar(){
   const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
   bar.classList.toggle('is-open',!!state.barOpen);
   bar.innerHTML=`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾</button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
-  `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
+  `<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="export" title="Word file of this case with the margin notes as comments">Export to Word</button><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
   `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="reset">Reset layers</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
   if(keep){const f=bar.querySelector(keep.sel);if(f){f.focus({preventScroll:true});if(keep.s!=null){try{f.setSelectionRange(keep.s,keep.e)}catch(e){}}}}
   updateFindCount();
@@ -308,8 +352,12 @@ function applyFold(){
 function render(){
   const stage=$('markupStage');if(!stage)return;
   applyFold();
+  applyMine();
   renderBar();
   const body=$('decisionBody'),margin=$('markupMargin'),svg=$('markupConn');
+  /* tag style changes line wrapping, so it must be applied before anything is measured */
+  body.classList.remove('mk-tags-off','mk-tags-underline','mk-tags-tint','mk-tags-bubbles');
+  body.classList.add('mk-tags-'+state.layers.tags);
   const wanted=state.notes.filter(n=>{const st=noteState(n,state.layers,state.overrides);return n.type==='citedby'?st==='open':st!=='off'});
   [...margin.querySelectorAll('.mk-note')].forEach(e=>e.remove());
   const frag=document.createDocumentFragment(),els=[];
@@ -335,14 +383,89 @@ function render(){
   stage.style.minHeight=Math.max(bottom+24,body.offsetHeight)+'px';
   svg.setAttribute('width',Math.max(margin.offsetWidth,1));svg.setAttribute('height',Math.max(bottom+24,body.offsetHeight));
   svg.style.left=0;svg.innerHTML=g;
-  body.classList.remove('mk-tags-off','mk-tags-underline','mk-tags-tint','mk-tags-bubbles');
-  body.classList.add('mk-tags-'+state.layers.tags);
   renderBands(stage,base);
   renderOutline();
   renderPanel();
   const p=panel();
   p.classList.toggle('markup-info-open',state.infoOpen);
   const ob=$('markupOutline');if(ob)ob.hidden=!state.outlineOpen;
+}
+/* ---------- private notes: paragraph highlight, inline copy on narrow screens, editor ---------- */
+function cleanMine(){
+  const d=$('decisionBody');if(!d)return;
+  d.querySelectorAll('.mk-mine-hl').forEach(e=>e.classList.remove('mk-mine-hl'));
+  d.querySelectorAll('.mk-mine-inline').forEach(e=>e.remove());
+}
+function decorateNums(on){
+  const d=$('decisionBody');if(!d)return;
+  d.querySelectorAll('.fmt-para-num').forEach(e=>{
+    const p=e.closest('.fmt-para'),n=p&&p.dataset.para;
+    if(on&&n){e.classList.add('mk-num');e.tabIndex=0;e.setAttribute('role','button');e.setAttribute('aria-label','Add or edit my note on paragraph '+n);e.title='Add a private note to ¶'+n}
+    else{e.classList.remove('mk-num');e.removeAttribute('tabindex');e.removeAttribute('role');e.removeAttribute('aria-label');e.removeAttribute('title')}
+  });
+}
+function applyMine(){
+  cleanMine();decorateNums(true);
+  const d=$('decisionBody');if(!d||state.layers.mine==='off')return;
+  for(const m of state.mine){
+    const p=d.querySelector(`.fmt-para[data-para="${m.para}"]`);if(!p)continue;
+    if(m.hl)p.classList.add('mk-mine-hl');
+    if(String(m.text||'').trim()){
+      const el=document.createElement('div');el.className='mk-mine-inline';
+      el.innerHTML=`<b>My note · ¶[${E(m.para)}]</b>${E(m.text)}<button type="button" class="mk-link" data-mk-foot="mine-edit" data-mk-arg="${E(m.para)}">Edit</button>`;
+      p.insertAdjacentElement('afterend',el);
+    }
+  }
+}
+function closeEditor(){const e=$('mkEditor');if(e)e.remove();state.editing=null}
+function openEditor(num){
+  num=Number(num);if(!(num>0))return;
+  const had=state.mine.find(x=>Number(x.para)===num),m=had||{text:'',hl:false};
+  closeEditor();state.editing={para:num,existing:!!had};
+  const ed=document.createElement('div');ed.id='mkEditor';ed.setAttribute('role','dialog');ed.setAttribute('aria-label','My note on paragraph '+num);
+  ed.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.mine.color}"></i>My note · ¶[${num}]<button type="button" class="mk-x" data-mk-ed="cancel" aria-label="Close">✕</button></div><textarea id="mkEditorText" maxlength="${MINE_TEXT}" rows="4" placeholder="Private note" aria-label="Note text"></textarea><label class="mk-hlbox"><input type="checkbox" id="mkEditorHl"> Highlight this paragraph</label><div class="mk-foot"><button type="button" class="mk-btn mk-primary" data-mk-ed="save">Save</button><button type="button" class="mk-btn" data-mk-ed="cancel">Cancel</button>${had?'<button type="button" class="mk-btn" data-mk-ed="delete">Delete</button>':''}</div><div class="mk-hint">Saved on this computer only. Not shared. Ctrl+Enter saves.</div>`;
+  document.body.appendChild(ed);
+  $('mkEditorText').value=m.text||'';$('mkEditorHl').checked=!!m.hl;
+  const a=document.querySelector(`#decisionBody .fmt-para[data-para="${num}"] .fmt-para-num`);
+  if(a){const r=a.getBoundingClientRect(),w=ed.offsetWidth,h=ed.offsetHeight;
+    ed.style.left=Math.max(8,Math.min(r.left,window.innerWidth-w-8))+'px';
+    ed.style.top=Math.max(8,Math.min(r.bottom+6,window.innerHeight-h-8))+'px'}
+  $('mkEditorText').focus();
+}
+function saveEditor(del){
+  if(!state.editing)return;
+  const para=state.editing.para,t=$('mkEditorText'),h=$('mkEditorHl');
+  state.mine=del?mineUpsert(state.mine,para,'',false):mineUpsert(state.mine,para,t?t.value:'',h&&h.checked);
+  mineStore.set(state.caseId,state.mine);
+  closeEditor();
+  state.notes=state.notes.filter(n=>n.type!=='mine').concat(mineToNotes(state.mine));
+  render();
+}
+/* Word export: the notes whose layers are on, as comments, sent to the server only to be typeset. Nothing is stored there. */
+let exportBusy=false;
+async function exportWord(btn){
+  const rd=readerState&&readerState.payload&&readerState.payload.readerData,cid=state.caseId;
+  if(exportBusy||!rd||cid==null)return;
+  exportBusy=true;const label=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Preparing…'}
+  const byNum={};for(const b of rd.format_blocks||[])if(b&&b.type==='para'&&b.num!=null)byNum[b.num]=b.start;
+  const blockOf=n=>{
+    const a=n.anchor;if(a.kind==='top')return null;
+    if(a.kind==='cite'){const el=document.querySelector(`#decisionBody [data-cite-id="${a.id}"]`),p=el&&el.closest('.fmt-para'),m=p&&/decision-source-(\d+)/.exec(p.id||'');return m?Number(m[1]):null}
+    if(a.blockStart!=null)return a.blockStart;
+    return byNum[a.num]!=null?byNum[a.num]:null;
+  };
+  const comments=exportPlan(state.notes,state.layers,blockOf).slice(0,3000);
+  const highlights=state.mine.filter(m=>m.hl&&byNum[m.para]!=null).map(m=>byNum[m.para]);
+  let msg=label;
+  try{
+    const res=await fetch(`/cases/${encodeURIComponent(cid)}/markup-export`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({comments,highlights})});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const blob=await res.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='ilit-case-'+cid+'-markup.docx';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),4000);
+  }catch(e){msg='Export failed, try again'}
+  exportBusy=false;
+  if(btn){btn.disabled=false;btn.textContent=msg;if(msg!==label)setTimeout(()=>{if(btn.isConnected)btn.textContent=label},3500)}
 }
 function renderBands(stage,base){
   const bands=$('markupBands');if(!bands)return;
@@ -472,6 +595,11 @@ document.addEventListener('click',ev=>{
   const ls=t.closest('[data-mk-layer]');if(ls){setLayer(ls.dataset.mkLayer,ls.dataset.mkState);return}
   const tp=t.closest('[data-mk-topic]');
   if(tp){const k=tp.dataset.mkTopic,i=state.topicSel.indexOf(k);if(i>=0)state.topicSel.splice(i,1);else state.topicSel.push(k);if(!state.topicSel.length)state.foldOthers=false;state.unfolded=[];render();return}
+  const ed=t.closest('[data-mk-ed]');
+  if(ed){const k=ed.dataset.mkEd;if(k==='save')saveEditor(false);else if(k==='delete')saveEditor(true);else closeEditor();return}
+  const num=t.closest('#decisionBody .fmt-para-num.mk-num');
+  if(num){openEditor(num.closest('.fmt-para').dataset.para);return}
+  if(state.editing&&!t.closest('#mkEditor'))closeEditor();
   const act=t.closest('[data-mk-act]');
   if(act){
     const a=act.dataset.mkAct;
@@ -483,6 +611,7 @@ document.addEventListener('click',ev=>{
     else if(a==='more'){state.barOpen=!state.barOpen;render()}
     else if(a==='outline'){state.outlineOpen=!state.outlineOpen;render()}
     else if(a==='print'){window.print()}
+    else if(a==='export'){exportWord(act)}
     else if(a==='fold'){state.foldOthers=!state.foldOthers;state.unfolded=[];render()}
     else if(a==='topics-clear'){state.topicSel=[];state.foldOthers=false;state.unfolded=[];render()}
     else if(a==='dock'){state.dock=state.dock==='dock'?'float':'dock';render()}
@@ -498,6 +627,7 @@ document.addEventListener('click',ev=>{
   const foot=t.closest('[data-mk-foot]');
   if(foot){
     if(foot.dataset.mkFoot==='pin'){pinNote(foot.dataset.mkArg);return}
+    if(foot.dataset.mkFoot==='mine-edit'){openEditor(foot.dataset.mkArg);return}
     if(foot.dataset.mkFoot==='open-case'&&typeof openDecision==='function'){setOn(false);openDecision(Number(foot.dataset.mkArg))}return}
   const go=t.closest('[data-mk-goto]');if(go){goto($('decisionBody').querySelector(`[id="decision-source-${go.dataset.mkGoto}"]`));return}
   const gp=t.closest('[data-mk-para]');if(gp){goto($('decisionBody').querySelector(`.fmt-para[data-para="${gp.dataset.mkPara}"]`));return}
@@ -533,6 +663,12 @@ document.addEventListener('focusin',ev=>{
 document.addEventListener('input',ev=>{if(ev.target&&ev.target.id==='markupFind')runFind(ev.target.value)});
 document.addEventListener('keydown',ev=>{
   if(!state.on)return;
+  if(ev.target.closest&&ev.target.closest('#mkEditor')){
+    if(ev.key==='Escape')closeEditor();else if(ev.key==='Enter'&&(ev.ctrlKey||ev.metaKey)){ev.preventDefault();saveEditor(false)}
+    ev.stopPropagation();return;
+  }
+  const nb=ev.target.closest&&ev.target.closest('#decisionBody .fmt-para-num.mk-num');
+  if(nb&&(ev.key==='Enter'||ev.key===' ')&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey){ev.preventDefault();ev.stopPropagation();openEditor(nb.closest('.fmt-para').dataset.para);return}
   const c=ev.target.closest&&ev.target.closest('#decisionBody [data-cite-id]');
   if(c&&(ev.key==='Enter'||ev.key===' ')&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey){ev.preventDefault();ev.stopPropagation();citeActivate(c,ev);return}
   if((ev.metaKey||ev.ctrlKey)&&ev.key.toLowerCase()==='k'){ev.preventDefault();const f=$('markupFind');if(f)f.focus();return}

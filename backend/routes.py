@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .markup_export import Comment as MarkupComment, build_markup_docx
 from .alert_digest import (
 	build_alert_digest,
 	partition_matches,
@@ -235,6 +236,7 @@ from .search_service import (
 )
 from .query_embedding_providers import embed_case_summary, get_search_embedding_status
 from .models import (
+	MarkupExportRequest,
 	DiscoveredThemeResponse,
 	ThemeDiscoveryResponse,
 	ThemeOccurrenceResponse,
@@ -865,6 +867,26 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
 def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
 	return build_case_reader_data(case_id, db)
+
+
+@router.post("/cases/{case_id}/markup-export")
+def export_case_markup_docx(case_id: int, payload: MarkupExportRequest, db: Session = Depends(get_db)) -> Response:
+	"""Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored."""
+	case = db.get(Case, case_id)
+	if case is None or not case.full_text:
+		raise HTTPException(status_code=404, detail="Case not found or has no text")
+	content = build_markup_docx(
+		title=case.title or f"Case {case_id}",
+		subtitle=" · ".join(part for part in (case.citation, case.court, case.date.isoformat() if case.date else None) if part),
+		full_text=case.full_text,
+		comments=[MarkupComment(c.block, c.label, c.text, c.quote, c.author) for c in payload.comments],
+		highlights=payload.highlights,
+	)
+	return Response(
+		content=content,
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={"Content-Disposition": f'attachment; filename="ilit-case-{case_id}-markup.docx"'},
+	)
 
 
 @router.get("/cases/{case_id}/paragraphs/{n}/similar", response_model=ParagraphSimilarityResponse)

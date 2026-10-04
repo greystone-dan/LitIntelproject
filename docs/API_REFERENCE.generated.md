@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T19:52:55.159478+00:00
+Generated: 2026-10-04T20:08:58.266719+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 117 across 114 paths
+OpenAPI operations: 118 across 115 paths
 Hidden operations: 63 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -482,6 +482,25 @@ Get Case Contextual Anchors
 **Responses**
 
 - `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /cases/{case_id}/markup-export`
+
+Export Case Markup Docx
+
+Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `MarkupExportRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}/paragraph-assessments`

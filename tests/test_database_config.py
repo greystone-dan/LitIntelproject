@@ -1,31 +1,8 @@
 import os
-import subprocess
-import sys
 
-import pytest
 from sqlalchemy import URL
 
 from backend import database
-
-
-@pytest.mark.parametrize(
-    ("disabled", "expected_calls"),
-    [("1", 0), ("true", 0), ("T", 0), ("YES", 0), ("y", 0), ("0", 2), ("", 2)],
-)
-def test_database_import_honors_dotenv_disable(disabled, expected_calls):
-    # Mock the loader in a fresh interpreter: no dotenv contents or DB connection.
-    code = (
-        "from unittest.mock import patch\n"
-        "with patch('dotenv.load_dotenv') as loader:\n"
-        "    import backend.database\n"
-        f"    assert loader.call_count == {expected_calls}\n"
-    )
-    result = subprocess.run(
-        [sys.executable, "-c", code],
-        env={**os.environ, "PYTHON_DOTENV_DISABLED": disabled},
-        capture_output=True, text=True, timeout=30,
-    )
-    assert result.returncode == 0, result.stderr
 
 
 def test_database_url_prefers_postgres_parts(monkeypatch):

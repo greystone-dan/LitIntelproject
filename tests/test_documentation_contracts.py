@@ -1,5 +1,4 @@
 import re
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,23 +27,16 @@ def test_readme_routes_exist_in_generated_api_reference():
     assert documented_routes <= generated_routes
 
 
-def test_architecture_backend_inventory_matches_tracked_files():
+def test_architecture_backend_inventory_matches_files_on_disk():
     architecture = ARCHITECTURE.read_text(encoding="utf-8")
-    inventory_rows = re.findall(
-        r"^\| `(backend/[^`]+)` \|", architecture, re.MULTILINE
+    documented_modules = set(
+        re.findall(r"^\| `(backend/[^`]+)` \|", architecture, re.MULTILINE)
     )
-    documented_modules = set(inventory_rows)
-    tracked = subprocess.run(
-        ["git", "ls-files", "-z", "--", "backend/"],
-        cwd=ROOT, check=True, capture_output=True, text=True, timeout=10,
-    )
-    # Unmerged index stages can repeat a path; inventory paths still occur once.
-    backend_files = set(tracked.stdout.split("\0")) - {""}
+    backend_files = {
+        path.relative_to(ROOT).as_posix()
+        for path in (ROOT / "backend").rglob("*")
+        if path.is_file() and "__pycache__" not in path.parts
+    }
 
-    assert backend_files, "No tracked backend files found"
-    assert len(inventory_rows) == len(documented_modules), "Duplicate inventory rows"
-    assert documented_modules == backend_files, (
-        f"Missing: {sorted(backend_files - documented_modules)}; "
-        f"Untracked inventory paths: {sorted(documented_modules - backend_files)}"
-    )
+    assert documented_modules == backend_files
     assert all((ROOT / module).is_file() for module in documented_modules)

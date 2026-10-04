@@ -28,11 +28,8 @@ from sqlalchemy.orm import relationship
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # Prefer project-local settings over inherited shell variables.
-# The pinned dotenv version predates its standard disabling environment flag.
-# Honor it here as well so offline imports never read local configuration.
-if os.getenv("PYTHON_DOTENV_DISABLED", "").lower() not in {"1", "true", "t", "yes", "y"}:
-	load_dotenv(PROJECT_ROOT / ".env", override=True)
-	load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
+load_dotenv(PROJECT_ROOT / ".env", override=True)
+load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
 
 def _database_url() -> str | URL:
 	postgres_user = os.getenv("POSTGRES_USER")

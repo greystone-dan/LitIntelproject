@@ -44,15 +44,6 @@ and current-feature entry point is `README.md`, while
 `docs/ARCHITECTURE.md` provides the complete backend file inventory, plain
 language table guide, and source/licence boundary summary.
 
-Offline imports set `PYTHON_DOTENV_DISABLED=1` before loading the application.
-`backend/database.py` honors the standard flag independently of dotenv's pinned
-version, without changing normal local configuration precedence. This is not a
-database access barrier: importing the engine does not connect, but lifespan
-and database queries must still be avoided. See
-[`docs/CONFIGURATION_REFERENCE.md`](../docs/CONFIGURATION_REFERENCE.md) and the
-mock-loader regressions in
-[`tests/test_database_config.py`](../tests/test_database_config.py).
-
 ## Case-Level Pipeline Graphic
 
 The About surface places a second interactive canvas below the system map. This

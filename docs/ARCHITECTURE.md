@@ -123,10 +123,9 @@ propositions against authoritative records and follow upstream terms.
 
 ## Backend file inventory
 
-Each tracked file under `backend/` is listed once, including browser assets and
+Each file under `backend/` is listed once, including browser assets and
 onboarding page builders. The documentation contract test compares this inventory
-with Git's tracked paths and checks that each file exists; local caches and
-untracked runtime artifacts are not part of the inventory.
+with files on disk, excluding Python caches, and checks that each file exists.
 
 | File | Responsibility |
 | --- | --- |

@@ -12,12 +12,6 @@ This document describes configuration discovered from active Python environment-
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
 5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
 
-For offline imports, set `PYTHON_DOTENV_DISABLED=1`. The database module honors
-this standard flag even with the pinned older dotenv version; `true`, `t`,
-`yes`, and `y` also disable loading (case-insensitive). It does not disable
-database operations or application startup: callers must still avoid lifespan
-and database routes. Normal local loading and precedence are unchanged.
-
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
 ## Required Baseline

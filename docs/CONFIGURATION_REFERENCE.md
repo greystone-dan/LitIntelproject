@@ -47,6 +47,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
+## Public Health Probes
+
+The app keeps three health routes public, including when
+`CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
+
+| Route | Purpose | Failure behavior |
+| --- | --- | --- |
+| `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
+| `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
+| `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
+
+Readiness uses short per-probe timeouts and does not return credentials,
+hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
+model services are reported as `not_configured` and do not make the service
+unready; configured services that fail their endpoint check do. The database
+and vector requirements remain readiness dependencies regardless of optional
+model configuration.
+
 ## Optional Request Audit Log
 
 | Variable | Default | Consumer | Purpose and safety notes |

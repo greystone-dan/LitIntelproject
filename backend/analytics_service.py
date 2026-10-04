@@ -1020,10 +1020,11 @@ def _query_uses_operators(parsed_query: dict[str, Any]) -> bool:
 	if contains_syntax(parsed_query.get("expression")):
 		return True
 	raw_query = parsed_query["raw_query"]
+	if any(issue.startswith("Unbalanced quote") for issue in parsed_query["issues"]):
+		return False
 	return bool(
 		'"' in raw_query
 		or re.search(r"(?<!\w)'[^']*'(?!\w)", raw_query)
-		or re.search(r"(?i)(?:^|\s)-\S|(?:^|\s)(?:AND|OR|NOT)(?:\s|$)", raw_query)
 	)
 
 

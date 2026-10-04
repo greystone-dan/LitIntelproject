@@ -202,6 +202,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
 | `backend/routes.py` | API contracts, request orchestration, and page integration |

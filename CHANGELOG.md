@@ -5,6 +5,18 @@
 	demo-safety fixes.
 # Unreleased
 
+- Completed issue #158: the issue brief adds per-year Minister win rates with
+  total/classified denominators and unclassified counts, without changing the
+  existing outcome splits or authorities. The printable page and
+  `GET /issue-brief.docx?tag=category:value` expose the same facts; the DOCX
+  footer includes the requested date and denominator caveat. DOCX bootstrap,
+  hyperlink, and serialization helpers are shared with `/search/export.docx`.
+  Focused brief and search-export tests passed (7); API-reference generation and
+  the generated-doc check passed. The CI-deselected full suite reported 1,265
+  passed, 3 failed, 2 skipped, 1 xfailed, and 3 deselected. The remaining
+  failures require the unavailable local sentence-transformers package or an
+  offline-blocked tiktoken download. No database or deployment operation was
+  used.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

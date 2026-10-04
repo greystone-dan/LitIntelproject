@@ -5,6 +5,8 @@ from __future__ import annotations
 from html import escape
 from typing import Any
 
+from ..issue_brief_analytics import minister_win_rate_label
+
 
 MAX_PRINT_DECISIONS = 12
 
@@ -25,6 +27,7 @@ def issue_brief_page_html(brief: dict[str, Any]) -> str:
 			f"<td>{escape(str(row.get('year') if row.get('year') is not None else 'Unknown'))}</td>"
 			f"<td>{int(row.get('decision_count') or 0)}</td>"
 			f"<td>Unclassified: {int(row.get('unclassified_count') or 0)}</td>"
+			f"<td>{escape(minister_win_rate_label(row.get('minister_win_rate')))}</td>"
 			"</tr>"
 			+ "".join(
 				"<tr class=\"split\">"
@@ -33,7 +36,7 @@ def issue_brief_page_html(brief: dict[str, Any]) -> str:
 				f"<td>{float(outcome.get('percentage') or 0):.1f}%"
 				f" (unclassified {int(outcome.get('unclassified_count') or 0)};"
 				f" denominator {int(outcome.get('denominator') or 0)})</td>"
-				"</tr>"
+				"<td></td></tr>"
 				for outcome in row.get("outcome_splits", [])
 			)
 			for row in brief.get("years", [])
@@ -92,11 +95,12 @@ a{{color:inherit;text-decoration:none}}a[href]::after{{content:""}}.meta,.note{{
 {('<p class="empty">Enter a tag in category:value form, for example <code>issue:procedural_fairness</code>, then reload <code>/issue-brief-ui?tag=…</code>.</p>' if not tag else '')}
 {('<p class="empty">No decisions are tagged with this issue.</p>' if empty_state and tag else '')}
 {'' if empty_state else f'''<div class="grid">
-<section><h2>Decisions by year and outcome</h2><table><thead><tr><th>Year / outcome</th><th>Decisions</th><th>Unclassified / outcome share</th></tr></thead><tbody>{year_rows}</tbody></table>
-<p class="note">Each outcome percentage uses all tagged decisions in its year as the denominator, including unclassified decisions; unclassified count and denominator are printed beside every percentage.</p></section>
+<section><h2>Decisions by year and outcome</h2><table><thead><tr><th>Year / outcome</th><th>Decisions</th><th>Unclassified / outcome share</th><th>Minister win rate</th></tr></thead><tbody>{year_rows}</tbody></table>
+<p class="note">Outcome percentages use all tagged decisions in the year. Minister win rates use classified government outcomes only; total n and unclassified counts are shown for every year.</p></section>
 <section><h2>Courts</h2><table><thead><tr><th>Court</th><th>Decisions</th></tr></thead><tbody>{court_rows}</tbody></table>
 <h2>Top cited authorities</h2><table><thead><tr><th>Authority</th><th>Citation occurrences</th><th>Tagged citing decisions</th></tr></thead><tbody>{authority_rows}</tbody></table></section>
 </div><h2>Tagged decisions</h2>{decision_disclosure}<ul>{decision_rows}</ul>'''}
 <p class="note">Outcome source: {escape(str(semantics.get("outcomes") or ""))}</p>
 <p class="note">Citation scope: {escape(str(semantics.get("citations") or ""))}</p>
+<p class="note">Minister outcomes: {escape(str(semantics.get("minister_outcomes") or ""))}</p>
 </main></body></html>"""

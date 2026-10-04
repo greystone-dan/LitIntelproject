@@ -48,6 +48,7 @@ from .judge_issue_record import (
 	_stored_issue_labels,
 	fetch_judge_profile_issues,
 )
+from .issue_brief_analytics import minister_win_rates_by_year
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import identity_sql, matched_on_sql
 
@@ -1556,6 +1557,7 @@ def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
 		)
 
 	years: list[dict[str, Any]] = []
+	minister_years = minister_win_rates_by_year(cases)
 	for year in sorted(year_data, key=lambda item: (item is None, item or 0)):
 		group = year_data[year]
 		denominator = group["decision_count"]
@@ -1576,6 +1578,7 @@ def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
 				"decision_count": denominator,
 				"unclassified_count": unclassified,
 				"outcome_splits": outcomes,
+				"minister_win_rate": minister_years[year],
 			}
 		)
 
@@ -1602,6 +1605,7 @@ def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
 		"semantics": {
 			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
 			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"minister_outcomes": "Minister win means reader_extracted government outcome=won. Rate is Minister wins divided by classified government outcomes (won/lost/mixed); n is all tagged decisions in the year, with classified n and unclassified count shown separately.",
 			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
 		},
 		"years": years,
@@ -1631,6 +1635,7 @@ def _empty_issue_brief(tag: str) -> dict[str, Any]:
 		"semantics": {
 			"tag_matching": "Exact category:value match in the active legal-tag taxonomy; decisions are counted once.",
 			"outcomes": "Decision outcome from reader_extracted metadata; missing/blank values are unclassified. Percentages use all tagged decisions in that year, including unclassified outcomes.",
+			"minister_outcomes": "Minister win means reader_extracted government outcome=won. Rate is Minister wins divided by classified government outcomes (won/lost/mixed); n is all tagged decisions in the year, with classified n and unclassified count shown separately.",
 			"citations": "Top authorities count stored citation occurrences with a resolved target_case_id from tagged source decisions; citing_decisions counts distinct tagged source cases. Unresolved citations and statute references are excluded.",
 		},
 		"years": [],

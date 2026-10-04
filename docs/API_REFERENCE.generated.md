@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:53:24.873212+00:00
+Generated: 2026-10-04T14:20:39.578416+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 107 across 104 paths
+OpenAPI operations: 108 across 105 paths
 Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1203,7 +1203,7 @@ Get Inventory
 
 Build a legal issue brief for a tag
 
-Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. An empty tag returns an empty brief.
+Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. Minister win rates use classified government outcomes and disclose total n, classified n, and unclassified counts. An empty tag returns an empty brief.
 
 **Parameters**
 
@@ -1212,6 +1212,19 @@ Summarizes active-taxonomy tagged decisions by year, outcome, and court, with re
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /issue-brief.docx`
+
+Export Issue Brief Docx
+
+**Parameters**
+
+- `tag` (query, optional; string, default `""`): Exact legal tag in category:value form; empty is supported.
+
+**Responses**
+
+- `200`: DOCX issue brief; `application/vnd.openxmlformats-officedocument.wordprocessingml.document`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /judges/compare`

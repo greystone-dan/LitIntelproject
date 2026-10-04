@@ -164,11 +164,14 @@ test checks that these paths continue to exist.
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
 | `backend/document_structure.py` | Maps source HTML structure to plain text |
+| `backend/docx_export.py` | Shared DOCX document bootstrap, hyperlink, and serialization helpers |
 | `backend/embedding_providers.py` | Selects and configures embedding providers |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
+| `backend/issue_brief_analytics.py` | Additive Minister-win-by-year summaries and denominator labels for issue briefs |
+| `backend/issue_brief_docx.py` | Source-linked DOCX serializer for the legal issue brief |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |

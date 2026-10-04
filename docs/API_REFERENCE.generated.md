@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T00:29:02.646849+00:00
+Generated: 2026-10-04T00:45:26.424195+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 94 across 94 paths
-Hidden operations: 55 excluded from OpenAPI
+OpenAPI operations: 100 across 97 paths
+Hidden operations: 56 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1249,6 +1249,83 @@ Research
 - `200`: Successful Response; `application/json`: `ResearchResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /saved-searches`
+
+List Saved Searches
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `POST /saved-searches`
+
+Create Saved Search
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchCreateRequest`
+
+**Responses**
+
+- `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `DELETE /saved-searches/{search_id}`
+
+Delete Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `204`: Successful Response
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}`
+
+Get Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchDetailResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `PUT /saved-searches/{search_id}`
+
+Update Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchUpdateRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /saved-searches/{search_id}/check`
+
+Check Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SearchDigestResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /search`
 
 Search Cases
@@ -2125,6 +2202,16 @@ Handler: `backend.routes.research_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.main.robots`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /saved-searches-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.saved_searches_page`
 
 **Responses**
 

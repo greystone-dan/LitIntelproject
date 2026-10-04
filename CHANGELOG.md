@@ -5,6 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
+  editable, lawyer-review seed list, with direct matches and stored resolved
+  citation links, source/rationale/assignment details, counts, and chronology
+  dates. The active Data Explorer reader adds a cautious “may be affected”
+  banner; no memo output or database schema changes. Extension guidance is in
+  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
 - Moved the experimental research, citation-intelligence, contextual-authority,
   and discussion-unit prompts into header-versioned text files loaded through a
   shared backend registry. Exact prompt wording is guarded by golden snapshots.

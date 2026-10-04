@@ -848,6 +848,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 | Component | Responsibility |
 | --- | --- |
+| `backend/health.py` | Bounded liveness and dependency-readiness probes for database, pgvector, required tables, and configured model endpoints |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
@@ -912,6 +913,15 @@ single-process rotation, and separate access-log considerations.
 ```powershell
 .\venv\Scripts\python.exe -m alembic upgrade head
 ```
+
+The public `GET /health` response remains the legacy process message.
+`GET /health/live` reports process liveness without dependency calls;
+`GET /health/ready` separately checks database connectivity, the pgvector
+extension, ORM-required tables, and configured model endpoints. Database and
+HTTP probes have short timeouts. Readiness returns HTTP 503 when a required
+check fails and emits status-only endpoint details rather than secrets,
+hostnames, or connection strings. All three health paths remain exempt from the
+optional application password gate.
 
 The local application is commonly served at `http://127.0.0.1:8000`. To start
 or refresh the website, run the canonical command from the repository root:
@@ -1535,6 +1545,12 @@ The checked-in, reproducible endpoint appendix is [docs/API_REFERENCE.generated.
 ```
 
 The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes intentionally hidden from OpenAPI. It describes every exposed operation's method, path, parameters, request body, response statuses, and schema references where declared. Hidden routes include handler signatures and an explicit note that their response contract is not in OpenAPI. It is intentionally generated rather than manually maintained so that the reference follows active route declarations.
+
+### Health APIs
+
+- `GET /health`: legacy process response, unchanged.
+- `GET /health/live`: process liveness without dependency checks.
+- `GET /health/ready`: database, vector extension, required tables, and configured model endpoint status; returns HTTP 503 when any required dependency is unhealthy. Probe output omits endpoint addresses and credentials.
 
 ### Core Case APIs
 

@@ -78,6 +78,23 @@ takes precedence over a conflicting `?group=` parameter. Group-only links
 select the group's default view on a fresh load; browser history restores the
 selection. Search and reader IDs and handlers remain unchanged.
 
+`/start` is not a registered route. `/about` remains a compatibility redirect
+to `/data-explorer?tab=about`. About has an English-default French
+internationalization proof of concept: the language buttons translate the
+overview summary and its section links only. The rest of About and every other
+page remain English. This is a manually authored demonstration, not machine
+translation or app-wide French support.
+
+The reproducible [static UI string inventory](UI_STRING_INVENTORY.generated.md)
+and [JSON data](UI_STRING_INVENTORY.generated.json) are generated with
+`python scripts/generate_ui_string_inventory.py`; verify them with
+`python scripts/generate_ui_string_inventory.py --check`. The inventory
+captures literal HTML text and selected literal accessibility/form attributes
+from application page-source files. It does not claim runtime completeness:
+dynamically generated JavaScript text, API/data-derived labels, strings
+assembled from runtime values, and out-of-scope sources are excluded, and
+conditional or superseded source markup may still be listed.
+
 The 2026-09-30 navigation checkpoint passed the 48 feature-tab tests, builder
 compilation, and live Playwright checks at 1440x1000 and 390x844. Browser checks
 covered group visibility, legacy Research Bench and Site Architecture links,
@@ -106,9 +123,9 @@ The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Interactive architecture graph and live inventory | `/api/about/stats` |
+| About | Project/status overview, architecture graph, and per-case pipeline; limited French proof of concept | Static overview and `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
-| Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
+| Site Architecture | Live inventory and data-layer/feature-to-table explanation | `/api/about/stats` |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
@@ -189,34 +206,29 @@ misleading or untraceable output.
 
 ## About
 
-About contains an interactive architecture graph and live inventory shell. The
-graph is organized around the actual system: official sources, staging,
-canonical ingestion, the case library, the seven ordered processing stages,
-citation extraction, separate target resolution, live FastAPI services, the
-active Data Explorer workflow, Live Analysis, and evidence rules. Branches make
-the citation-resolution loop and separate statute/evidence layers visible
-instead of presenting the site as a linear six-category checklist.
+About is the project/status overview assembled from
+`backend/pages/about_content.html`. Its English-default French proof of concept
+translates the overview heading, lead, summary labels, and section links; the
+remaining About content stays English. The translations are hand-authored and
+do not signal machine translation or app-wide French support.
 
-Selecting a node expands that box inside the diagram itself. The expanded box
-shows what the node does and the layers it connects; adjacent child boxes appear
-in the same canvas and can be opened in turn. There is no separate explanatory
-strip below the graphic. The route animation is disabled for reduced-motion
-preferences. The former detailed overview of cases, chunks, citations, judge
-profiles, Federal Court activity, and coverage status remains in Site
-Architecture alongside the full data model.
+About also contains the interactive architecture graph and per-case pipeline
+graphic. The graph is organized around the actual system: official sources,
+staging, canonical ingestion, the case library, the seven ordered processing
+stages, citation extraction, separate target resolution, live FastAPI
+services, the active Data Explorer workflow, Live Analysis, and evidence
+rules. Selecting a node expands its connected detail in the diagram; reduced-
+motion preferences disable its route animation.
 
-Immediately below the architecture graph, the case pipeline graphic follows one
-decision through `full_case`, `heading_chunks`, `metadata`, `outcome`,
-`case_citations`, `statutes`, and `tags_v3`. Its side branches keep derived
-layers distinct and show target resolution as a separate local pass. Deferred
-anchor review, incomplete statute source indexing, and experimental Discussion
-Units are deliberately marked as unfinished; selecting any stage expands its
-detail inside the same canvas.
+The per-case pipeline follows one decision through `full_case`,
+`heading_chunks`, `metadata`, `outcome`, `case_citations`, `statutes`, and
+`tags_v3`. Its side branches keep derived layers distinct and show target
+resolution as a separate local pass.
 
 ## Site Architecture
 
 Site Architecture is the consolidated explanation of the live tables, derived
-views, provenance layers, and the overview formerly shown in About. Its live
+views, provenance layers, and feature-to-table relationships. Its live
 inventory still reads from the current database; it does not imply that every
 layer is complete or that derived fields are legal conclusions.
 

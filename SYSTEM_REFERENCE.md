@@ -79,9 +79,9 @@ Pass QA as work-in-progress/support surfaces. Group state controls secondary
 views; existing `?tab=` deep links and reader/search handlers remain supported.
 The embedded information and research views are:
 
-1. **About**: interactive architecture graph connecting source/staging, canonical ingestion, the seven-stage processing pipeline, citation extraction and separate target resolution, live services, research surfaces, and evidence rules, with live inventory from `/api/about/stats`.
+1. **About**: project/status overview, interactive architecture graph, and per-case pipeline graphic. Its English-default French proof of concept translates the overview summary and section links only; the rest of this page and the application remain English.
 2. **Case Search**: filtered research search with an inline decision reader.
-3. **Site Architecture**: consolidated live data-layer, feature-to-table, and former About explanation.
+3. **Site Architecture**: live data-layer inventory, feature-to-table explanation, and former About data-model material.
 4. **Citation Intelligence**: citation-network summaries for a selected case.
 5. **Judge Profile**: canonical judge profiles, linked cases, and profile-level outcome summaries.
    The embedded comparison calls read-only `GET /judges/compare?a=<slug>&b=<slug>`.
@@ -100,6 +100,22 @@ The embedded information and research views are:
    is independent of profile Minister filters and does not imply corpus completeness.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+There is no registered `/start` route. `/about` is a compatibility redirect to
+`/data-explorer?tab=about`. The About page contains an English-default French
+proof of concept for its overview summary and section links; the rest of About
+and all other pages remain English. Its French text is a manually authored
+demonstration, not machine translation or an app-wide localization claim.
+
+The generated [static UI string inventory](docs/UI_STRING_INVENTORY.generated.md)
+and [JSON inventory](docs/UI_STRING_INVENTORY.generated.json) are reproduced
+with `python scripts/generate_ui_string_inventory.py` and checked with
+`python scripts/generate_ui_string_inventory.py --check`. They cover literal
+HTML text nodes and selected literal accessibility/form attributes in the
+declared backend page sources. They exclude dynamically generated JavaScript
+text, data/API-derived labels, strings assembled from runtime values, and other
+sources; source markup can include conditional or superseded text and is not a
+runtime-complete catalog.
 
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
@@ -1200,7 +1216,7 @@ corpus annotations, train models, or alter canonical evidence.
 6. `statutes`: rebuild statute/instrument references.
 7. `tags_v3`: replace only the case's V3 occurrence rows and tagging status.
 
-The active About surface also includes a case-level pipeline graphic beneath the
+The active About surface also includes a case-level pipeline graphic beneath its
 architecture graph. It visualizes this order for one decision, keeps chunks,
 metadata, outcomes, citations, statutes, tags, and embeddings as distinct
 branches, and labels target resolution as a separate local pass. It also marks
@@ -1440,7 +1456,7 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /analytics/search/cases/{case_id}`: inline reader/search case payload.
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
-- `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
+- `GET /api/about/stats`: live aggregate counts for About and Site Architecture inventory views. Use this endpoint instead of documentation numbers for current inventory.
 - `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
@@ -9655,9 +9671,9 @@ The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
 | --- | --- | --- |
-| About | Interactive architecture graph and live inventory | `/api/about/stats` |
+| About | Project/status overview, architecture graph, and per-case pipeline; limited French proof of concept | Static overview and `/api/about/stats` |
 | Case search | Find and read decisions | `cases`, citations, chunks, metadata |
-| Site Architecture | Explain live tables, derived views, and the former About overview | Documentation/UI explanation |
+| Site Architecture | Live inventory and data-layer/feature-to-table explanation | `/api/about/stats` |
 | Citation Intelligence | Examine authority use for a selected case | citations, metrics, tags |
 | Judge Profile | Inspect canonical judge identity and linked decisions | judge profiles/links |
 | FC History | Look up procedural/activity context by IMM number | FC procedural/activity tables |
@@ -9738,36 +9754,29 @@ misleading or untraceable output.
 
 ## About
 
-About contains an interactive architecture graph and live inventory shell. The
-graph is organized around the actual system: official sources, staging,
-canonical ingestion, the case library, the seven ordered processing stages,
-citation extraction, separate target resolution, live FastAPI services, the
-active Data Explorer workflow, Live Analysis, and evidence rules. Branches make
-the citation-resolution loop and separate statute/evidence layers visible
-instead of presenting the site as a linear six-category checklist.
+About is the project/status overview in `backend/pages/about_content.html`. Its
+English-default French proof of concept translates the overview summary,
+summary labels, and section links only; remaining About content and other pages
+stay English. Its manually authored translations do not claim machine
+translation or app-wide French support.
 
-Selecting a node expands that box inside the diagram itself. The expanded box
-shows what the node does and the layers it connects; adjacent child boxes appear
-in the same canvas and can be opened in turn. There is no separate explanatory
-strip below the graphic. The route animation is disabled for reduced-motion
-preferences. The former detailed overview of cases, chunks, citations, judge
-profiles, Federal Court activity, and coverage status remains in Site
-Architecture alongside the full data model.
-
-Immediately below the architecture graph, the case pipeline graphic follows one
-decision through `full_case`, `heading_chunks`, `metadata`, `outcome`,
-`case_citations`, `statutes`, and `tags_v3`. Its side branches keep derived
-layers distinct and show target resolution as a separate local pass. Deferred
-anchor review, incomplete statute source indexing, and experimental Discussion
-Units are deliberately marked as unfinished; selecting any stage expands its
-detail inside the same canvas.
+About also contains the interactive architecture graph and per-case pipeline
+graphic. The graph is organized around the actual system: official sources,
+staging, canonical ingestion, the case library, the seven ordered processing
+stages, citation extraction, separate target resolution, live FastAPI
+services, the active Data Explorer workflow, Live Analysis, and evidence
+rules. Selecting a node expands connected detail in the same canvas;
+reduced-motion preferences disable the route animation. The pipeline graphic
+follows one decision through `full_case`, `heading_chunks`, `metadata`,
+`outcome`, `case_citations`, `statutes`, and `tags_v3`, retaining separate
+evidence layers and unfinished work labels.
 
 ## Site Architecture
 
-Site Architecture is the consolidated explanation of the live tables, derived
-views, provenance layers, and the overview formerly shown in About. Its live
-inventory still reads from the current database; it does not imply that every
-layer is complete or that derived fields are legal conclusions.
+Site Architecture is the consolidated explanation of live tables, derived
+views, provenance layers, and feature-to-table relationships. Its live
+inventory reads from the current database; it does not imply that every layer
+is complete or that derived fields are legal conclusions.
 
 Use it to understand available inventory, not legal relevance. A populated layer means records exist; it does not establish extraction precision, source authority, or complete corpus coverage. The outcome chart uses classified decisions only. Hover a point to see the classified count behind a rate before comparing years.
 

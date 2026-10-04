@@ -23,6 +23,11 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .alert_digest import (
+	build_alert_digest,
+	partition_matches,
+	render_digest_html,
+)
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
 
@@ -3761,6 +3766,68 @@ def list_saved_searches(db: Session = Depends(get_db)) -> list[SavedSearchRespon
 		)
 		for search in searches
 	]
+
+
+def _saved_search_digest(db: Session, since: datetime | None) -> dict[str, Any]:
+	"""Read recorded alerts only; never discover matches or advance checkpoints."""
+	searches = db.query(SavedSearch).order_by(SavedSearch.id.asc()).all()
+	search_records = [
+		{"id": search.id, "name": search.name, "last_alert_check": search.last_alert_check}
+		for search in searches
+	]
+	if not searches:
+		return build_alert_digest([], [], [])
+	alerts = (
+		db.query(SearchAlert)
+		.filter(SearchAlert.search_id.in_([search.id for search in searches]))
+		.order_by(SearchAlert.discovered_at.asc(), SearchAlert.id.asc())
+		.all()
+	)
+	case_ids = sorted({alert.case_id for alert in alerts})
+	# Select metadata columns only, not judgment text, chunks or embeddings.
+	cases = {
+		case.id: case for case in db.query(
+			Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json,
+		).filter(Case.id.in_(case_ids)).all()
+	} if case_ids else {}
+	matches = []
+	for alert in alerts:
+		case = cases.get(alert.case_id)
+		if case is None:
+			continue
+		metadata = case.metadata_json if isinstance(case.metadata_json, dict) else {}
+		reader = metadata.get("reader_extracted")
+		reader = reader if isinstance(reader, dict) else {}
+		# Use the same Canada (Minister) title convention as saved-search analytics.
+		minister = re.search(r"Canada \(([^)]+)\)", case.title or "")
+		matches.append({
+			"search_id": alert.search_id, "case_id": alert.case_id,
+			"title": case.title, "citation": case.citation, "court": case.court,
+			"date": case.date, "discovered_at": alert.discovered_at,
+			"minister": minister.group(1) if minister else None,
+			"decision_outcome": reader.get("decision outcome"),
+			"government_outcome": reader.get("government outcome"),
+		})
+	new, earlier = partition_matches(search_records, matches, since=since)
+	return build_alert_digest(search_records, new, earlier)
+
+
+@router.get("/saved-searches/digest", response_model=dict[str, Any])
+def saved_search_digest(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Build a read-only digest of recorded case alerts, not live search results."""
+	return _saved_search_digest(db, since)
+
+
+@router.get("/saved-searches/digest.html", response_class=HTMLResponse)
+def saved_search_digest_html(
+	since: datetime | None = Query(default=None, description="Override last checks with an ISO timestamp"),
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	"""Render the same read-only digest as self-contained inline-CSS HTML."""
+	return HTMLResponse(render_digest_html(_saved_search_digest(db, since)))
 
 
 @router.get("/saved-searches/{search_id}", response_model=SavedSearchDetailResponse)

@@ -132,6 +132,7 @@ test checks that these paths continue to exist.
 
 | File | Responsibility |
 | --- | --- |
+| `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |

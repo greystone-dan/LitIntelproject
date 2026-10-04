@@ -197,3 +197,9 @@ body.markup-mode-on .reader-hover-tooltip{display:none!important}
 .mk-mini-vp{position:absolute;left:-2px;right:-2px;border:1.5px solid #102038;border-radius:3px;background:rgba(16,32,56,.08);pointer-events:none}
 #markupStage.is-topic #markupMini{display:none}
 @media(max-width:760px),print{#markupMini{display:none!important}}
+
+/* collapsed pinned peeks */
+.mk-peek.is-collapsed{display:flex;align-items:center;gap:6px;padding:5px 8px}
+.mk-peek-row{flex:1;display:flex;align-items:center;gap:7px;border:0;background:none;font:inherit;cursor:pointer;text-align:left;padding:0;min-width:0}
+.mk-peek-row i{width:10px;height:10px;border-radius:3px;flex:none}.mk-peek-row b{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mk-peek-row small{margin-left:auto;color:var(--muted,#5b6d83);font-size:10px}
+.mk-peek .mk-card-t[data-mk-peek-toggle]{cursor:pointer}

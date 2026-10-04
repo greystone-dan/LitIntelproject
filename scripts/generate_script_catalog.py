@@ -22,6 +22,7 @@ def classify(name: str, text: str) -> tuple[str, str, str]:
 		"extract_a2aj_case_citations_resumable.py": ("Citation extraction maintenance", "database writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"rebuild_citations_controlled.py": ("Citation-only rebuild", "database writer; dry-run is default and --apply requires explicit confirmation", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"check_saved_searches.py": ("Saved-search alert check", "bounded database reader; --apply writes unseen case alerts; dry-run is default", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
+		"build_alert_digest.py": ("Saved-search digest rendering", "offline JSON input; filesystem output only; no database, network or sending", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"populate_fc_gold_case_ids.py": ("Evaluation artifact maintenance", "filesystem writer", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 		"verify_fc_case_existence.py": ("Source verification", "network and filesystem output", f".\\venv\\Scripts\\python.exe scripts\\{name} --help"),
 	}

@@ -270,12 +270,18 @@ profiles, and legacy combined tag/citation jobs stay outside the active V2 path.
 
 ## Deployment And Access Boundary
 
-`backend/main.py` issues a signed access cookie at the login endpoint, but its
-HTTP middleware currently adds no-index headers without checking that cookie or
-denying unauthenticated requests. No-index controls are not authentication. The
-setup guide and `SYSTEM_REFERENCE.md` should be read with that runtime behavior
-in mind; a separately verified perimeter gate is required before exposing
-restricted material.
+`backend/main.py` keeps access enforcement off when `CASELIBRARY_ACCESS_PASSWORD`
+is unset or empty. Setting a non-empty password in the server process environment
+and restarting enables signed-cookie checks before route handlers, including for
+localhost. Only `/access`, `/access/login`, `/health`, and mounted `StaticFiles`
+assets are exempt; a path prefix alone does not exempt a route. Unauthenticated
+HTML requests redirect to `/access`; API requests receive `401`. Login uses a
+constant-time password comparison and sets an HttpOnly, SameSite=Lax cookie
+(Secure on HTTPS). `POST /access/logout` deletes the browser cookie; copied tokens
+remain valid until expiry or signing-secret rotation. Set a separate strong
+`CASELIBRARY_SESSION_SECRET` when opting in. No setting is enabled by default.
+No-index controls are not authentication; a separately verified perimeter gate
+is still required before exposing restricted material.
 
 The local deployment and tunnel documents describe possible hosting and
 administration paths, not proof of the currently deployed region, provider

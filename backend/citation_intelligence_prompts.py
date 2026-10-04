@@ -1,7 +1,7 @@
 """Improved prompts for citation intelligence analysis.
 
-These prompts target legal issue identification and citation context,
-rather than generic paragraph classification.
+These prompts operate at the discussion unit level (not per-paragraph),
+to leverage unit boundaries and reduce LLM cost while improving quality.
 """
 
 from __future__ import annotations

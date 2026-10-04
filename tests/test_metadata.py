@@ -683,3 +683,12 @@ def test_outcome_costs_only_order_with_trailer_is_procedural():
 		"Judge\nFEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET:\nIMM-2733-22\nORDER and REASONS :\nBELL J.\n"
 	)
 	assert _disposition(text) == "procedural"
+
+
+def test_judge_is_read_from_reasons_for_order_and_order_by_heading():
+	text = (
+		"Date: 20050503\nDocket: IMM-4657-04\nCitation: 2005 FC 606\nBETWEEN:\nATTILA KACO\nApplicant\n- and -\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\nREASONS FOR ORDER AND ORDER\n[1] Reasons.\n"
+		"FEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET: IMM-4657-04\nREASONS FOR ORDER\nAND ORDER BY: MACTAVISH, J.\nDATED: MAY 3, 2005\n"
+	)
+	assert "Mactavish" in (extract_case_metadata(text).get("judge") or "").title()

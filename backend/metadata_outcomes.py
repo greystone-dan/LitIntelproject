@@ -145,6 +145,12 @@ _CLAIM_ACCEPTED_RE = re.compile(
 	r"|\b(?:is|are)\s+(?:a\s+)?Convention\s+refugees?\s+as\s+defined\b",
 	re.IGNORECASE,
 )
+# "I set the decision aside and refer the matter back" / "the RAD refers this matter to the RPD".
+_SET_ASIDE_SPLIT_RE = re.compile(
+	r"\bI\s+(?:hereby\s+)?set\s+(?:the|this|that)\s+(?:decision|determination|order|judgment)\s+aside\b"
+	r"|\bthe\s+RAD\s+refers\s+(?:this|the)\s+matter\b",
+	re.IGNORECASE,
+)
 _PARTIAL_RE = re.compile(r"\b(?:in\s+part|partly|partially)\b", re.IGNORECASE)
 _SIDE_ORDER_RE = re.compile(r"\b(?:leave|stay|extension|motion|request)\b", re.IGNORECASE)
 _VERB_LABELS = {
@@ -219,6 +225,9 @@ def _disposition_candidates(tail: str, is_tribunal: bool = False) -> list[tuple[
 		found.append((3, match.start(), "dismissed", match, "tribunal_confirms"))
 	for match in _COMPOUND_ACTOR_RE.finditer(tail):
 		found.append((3, match.start(), _VERB_LABELS[match.group("verb").lower()], match, "actor"))
+	for match in _SET_ASIDE_SPLIT_RE.finditer(tail):
+		if not _NEGATION_BEFORE_VERB_RE.search(tail[max(0, match.start() - 25) : match.start()]):
+			found.append((3, match.start(), "allowed", match, "actor"))
 	for match in _PAST_FIRST_PERSON_RE.finditer(tail):
 		found.append((3, match.start(), _VERB_LABELS[match.group("verb").lower()], match, "actor"))
 	for match in _CLAIM_ACCEPTED_RE.finditer(tail):

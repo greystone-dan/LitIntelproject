@@ -1,6 +1,6 @@
 """Regression guard: the outcome reader against hand-read decisions.
 
-tests/fixtures/outcome_gold.json.gz holds 471 decisions (FC, FCA, SCC, RAD, RPD) whose outcome was read by hand from the
+tests/fixtures/outcome_gold.json.gz holds 587 decisions (FC, FCA, SCC, RAD, RPD) whose outcome was read by hand from the
 ruling itself: A = allowed/granted, D = dismissed/rejected, M = mixed, P = procedural order. Each entry has the citation,
 the (trimmed) decision text and, where the reader agrees with the hand label, the quoted disposition sentence. The set
 includes the landmark and tricky patterns found in the outcome audit. It was used while tuning the rules, so treat it as
@@ -33,7 +33,7 @@ def results():
 
 
 def test_gold_set_is_large_and_covers_every_court(results):
-	assert len(results) >= 450
+	assert len(results) >= 580
 	assert {case["court"] for case, _ in results} == {"FC", "FCA", "SCC", "RAD", "RPD"}
 
 

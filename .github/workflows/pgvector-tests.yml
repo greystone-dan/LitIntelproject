@@ -1,0 +1,116 @@
+name: PostgreSQL Vector Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A human must approve the first workflow run on this Copilot pull request.
+# Promotion: resolve failures (including migration/ORM drift), require passing
+# tests with no skips, remove continue-on-error, then add "pgvector" as a required
+# status check in the main branch protection rule/ruleset.
+# Keep tests.yml and its existing deselections unchanged.
+jobs:
+  pgvector:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    continue-on-error: true
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: pgvector_ci
+          POSTGRES_PASSWORD: disposable_ci_only
+          POSTGRES_DB: pgvector_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U pgvector_ci -d pgvector_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      POSTGRES_USER: pgvector_ci
+      POSTGRES_PASSWORD: disposable_ci_only
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: pgvector_ci
+      CASELIBRARY_PGVECTOR_TESTS: "1"
+      PGCONNECT_TIMEOUT: "3"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Refuse dotenv database overrides
+        shell: bash
+        run: |
+          if [[ -e .env || -L .env || -e backend/.env || -L backend/.env ]]; then
+            echo "::error::pgvector CI refuses root or backend dotenv files."
+            exit 1
+          fi
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Enable pgvector before migrations
+        run: |
+          python - <<'PY'
+          from sqlalchemy import text
+          from backend.database import engine
+          with engine.begin() as connection:
+              connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+          PY
+      - name: Upgrade empty disposable database
+        run: python -m alembic upgrade head
+      - name: Seed a synthetic case for the pipeline dry run
+        id: seed
+        # No source download: the existing test uses dry_run=True.
+        # Use migrated columns, not create_all(), so ORM/schema drift stays visible.
+        # Known gap: Case.docket_number has no migration; the restored pipeline
+        # test may fail until a separate schema fix is approved.
+        run: |
+          python - <<'PY'
+          from sqlalchemy import text
+          from backend.database import engine
+          with engine.begin() as connection:
+              connection.execute(text("""
+                  INSERT INTO cases (title, court, date, full_text, source_url)
+                  VALUES ('Synthetic pgvector CI fixture', 'FC', '2020-01-01',
+                          'Synthetic text for a dry run; not a judgment.',
+                          'https://decisions.fct-cf.gc.ca/synthetic-ci-fixture')
+              """))
+          PY
+      - name: Run real vector ordering tests
+        run: python -m pytest -q tests/test_pgvector_integration.py --junitxml=pgvector-results.xml
+      - name: Run previously deselected PostgreSQL tests
+        # requires_postgres has exactly these two consumers; no database marker
+        # exists. The third deselection is Ollama configuration, not PostgreSQL.
+        # The root test_statute_integration.py catches errors and returns False
+        # instead of asserting; it is not a reliable additional database gate.
+        if: ${{ !cancelled() && steps.seed.outcome == 'success' }}
+        run: >
+          python -m pytest -q
+          tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence
+          tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes
+          --junitxml=postgres-results.xml
+      - name: Reject silently skipped database tests
+        if: always()
+        run: |
+          python - <<'PY'
+          from xml.etree import ElementTree
+          for filename, expected in (("pgvector-results.xml", 2), ("postgres-results.xml", 2)):
+              cases = ElementTree.parse(filename).findall(".//testcase")
+              assert len(cases) == expected, f"{filename}: expected {expected} tests"
+              assert all(
+                  case.find("skipped") is None
+                  and case.find("failure") is None
+                  and case.find("error") is None
+                  for case in cases
+              ), f"{filename}: database tests must pass, not skip"
+          PY

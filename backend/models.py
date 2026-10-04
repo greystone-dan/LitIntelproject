@@ -887,6 +887,24 @@ class ThemeDiscoveryResponse(BaseModel):
 	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
 
 
+class MemoCitationAnalysis(BaseModel):
+	total_authorities_cited: int
+	resolved_authorities: int
+	authorities_with_treatment: int
+	missing_authorities_found: int
+
+
+class MemoCitationCheckResponse(BaseModel):
+	filename: str
+	text: str
+	text_length: int
+	paragraph_count: int
+	case_citations: list[Any]  # EnhancedCitationResponse
+	statute_references: list[Any]  # LiveAnalysisReferenceResponse
+	missing_authorities: list[Any]  # MissingAuthorityResponse
+	memo_analysis: MemoCitationAnalysis
+
+
 class SavedSearchCreateRequest(BaseModel):
 	name: str = Field(min_length=1, max_length=255)
 	description: str | None = Field(default=None, max_length=1000)

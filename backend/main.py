@@ -11,15 +11,17 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Resp
 from starlette.routing import Match, Mount
 from starlette.staticfiles import StaticFiles
 
+from . import load_shedding
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .db_limits import register_timeout_handlers
 from .health import liveness, readiness
 from .request_context import (
     RequestContextMiddleware,
     get_version_info,
 )
-from .routes import router
 from .overruling_risk_routes import router as overruling_risk_router
+from .routes import router
 from .security_headers import SecurityHeadersMiddleware
 
 
@@ -30,6 +32,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+register_timeout_handlers(app)
+load_shedding.register(app)
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -98,6 +102,7 @@ async def private_access_and_noindex(request: Request, call_next):
         "/health",
         "/health/live",
         "/health/ready",
+        "/health/limits",
     }
     matched_route = next(
         (route for route in app.routes if route.matches(request.scope)[0] == Match.FULL),

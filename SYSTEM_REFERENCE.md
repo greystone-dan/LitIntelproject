@@ -1626,6 +1626,15 @@ pip install -r requirements.txt
 .\venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 ```
 
+The base install supports application startup and the CI test suite; it includes
+sentence-transformers because a CI test exercises local semantic search.
+Automatic spaCy name detection is optional; install `requirements-ml.txt`
+alongside the base requirements only when using that feature:
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-ml.txt
+```
+
 Set secrets only in ignored environment files or secure environment configuration. Do not put API keys, database passwords, tunnel credentials, or access passwords in documentation, tests, exports, or commits.
 
 ### Scheduled/Long Jobs

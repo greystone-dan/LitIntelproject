@@ -1,4 +1,8 @@
+import ast
 import asyncio
+import inspect
+import textwrap
+from types import SimpleNamespace
 
 import httpx
 from fastapi import FastAPI
@@ -182,6 +186,30 @@ def _has_free_text_body(route) -> bool:
     return False
 
 
+def _reads_raw_request_body(route) -> bool:
+    try:
+        tree = ast.parse(textwrap.dedent(inspect.getsource(route.endpoint)))
+    except (OSError, TypeError, IndentationError, SyntaxError):
+        return False
+    body_methods = {"body", "form", "json", "stream"}
+    return any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Attribute)
+        and node.func.attr in body_methods
+        and isinstance(node.func.value, ast.Name)
+        and node.func.value.id == "request"
+        for node in ast.walk(tree)
+    )
+
+
+def test_route_guard_detects_raw_streamed_request_bodies():
+    async def raw_body_route(request):
+        async for _chunk in request.stream():
+            pass
+
+    assert _reads_raw_request_body(SimpleNamespace(endpoint=raw_body_route))
+
+
 def _has_free_text_query(route) -> bool:
     text_names = {"text", "query", "q", "search", "content", "memo", "document"}
     return any(
@@ -208,7 +236,11 @@ def test_upload_and_free_text_routes_are_classified():
     for route in app.routes:
         if not hasattr(route, "dependant"):
             continue
-        if not (_has_free_text_body(route) or _has_free_text_query(route)):
+        if not (
+            _has_free_text_body(route)
+            or _has_free_text_query(route)
+            or _reads_raw_request_body(route)
+        ):
             continue
         for method in route.methods or ():
             classified, _bucket = classify_route(route.path, method)

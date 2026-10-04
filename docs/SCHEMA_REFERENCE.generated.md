@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:03:22.299462+00:00
-Tables: 31
+Generated: 2026-10-04T15:03:42.650217+00:00
+Tables: 32
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -175,6 +175,16 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
     }
     fc_activity_alerts {
         Integer id PK
@@ -469,6 +479,7 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
@@ -505,6 +516,7 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
@@ -915,6 +927,34 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `fc_activity_alerts`
 

@@ -26,6 +26,7 @@ from backend.discussion_units_sandbox import (  # noqa: E402
     discussion_units_sandbox_page_html as sandbox_page_html,
 )
 from backend.main import _login_page  # noqa: E402
+from backend.pages.case_compare import case_compare_page_html  # noqa: E402
 from backend.pages.citation_map import citation_map_html  # noqa: E402
 from backend.pages.citation_pass import citation_pass_page_html  # noqa: E402
 from backend.pages.data_explorer import data_explorer_page_html  # noqa: E402
@@ -182,6 +183,7 @@ def _builders() -> list[tuple[str, str, Callable[[], str]]]:
     empty_brief: dict[str, Any] = {"tag": "fixture", "decision_count": 0, "decisions": []}
     return [
         ("access_login", "backend.main._login_page", lambda: _login_page().body.decode("utf-8")),
+        ("case_compare", "backend.pages.case_compare.case_compare_page_html", case_compare_page_html),
         ("case_reader", "backend.case_reader_ui.case_reader_with_statutes_html", lambda: case_reader_with_statutes_html(
             case_id=1,
             case_title="Fixture Case",

@@ -2,6 +2,7 @@ from types import SimpleNamespace
 from html.parser import HTMLParser
 import json
 import re
+from pathlib import Path
 import shutil
 import subprocess
 
@@ -177,6 +178,10 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     ) in export_actions
     assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
     assert '<div class="search-status" id="searchMeta"' in html
+    assert 'id="searchTipsPopover" popover role="dialog"' in html
+    assert 'id="searchTipsToggle" popovertarget="searchTipsPopover"' in html
+    assert 'id="searchQueryEcho" role="status"' in html
+    assert "data.query_echo" in html
     assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
     assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
     search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)
@@ -233,6 +238,30 @@ def test_reader_renders_backend_cited_paragraph_metadata():
     assert ".rs-context-text .fmt-para.is-cited .fmt-para-num{color:#202522}" in html
     assert contrast_ratio("fff4c2", "202522") >= 4.5
     assert 'data-para="${b.num}"' in html
+
+
+def test_inline_reader_keyboard_navigation_and_print_contract():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerKeyboardHelpToggle"' in html
+    assert 'id="readerKeyboardHelp"' in html
+    assert '<kbd>j</kbd> / <kbd>n</kbd> Next paragraph' in html
+    assert '<kbd>k</kbd> / <kbd>p</kbd> Previous paragraph' in html
+    assert 'id="readerPrintCitation"' in html
+    assert '#decisionBody .fmt-para.is-reader-current' in html
+    assert '@media print' in html
+    assert '#decisionBody .fmt-para{break-inside:avoid!important;page-break-inside:avoid!important' in html
+    assert '#caseReaderPanel .reader-pane.target' in html
+    assert '#caseReaderPanel .reader-pane.linked' in html
+    controller = html.split('/* Inline reader keyboard navigation and print behavior. */', 1)[1]
+    controller = controller.split('</script>', 1)[0]
+    assert "key==='j'||key==='n'?1:key==='k'||key==='p'?-1:0" in controller
+    assert "readerTypingTarget(event.target)" in controller
+    assert "target.setAttribute('aria-current','location')" in controller
+    assert "target.classList.add('is-reader-current')" in controller
+    assert "readerState.formatted=true" in controller
+    assert "window.addEventListener('beforeprint'" in controller
+    assert "window.addEventListener('afterprint'" in controller
 
 
 def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
@@ -900,6 +929,34 @@ def test_judge_profiles_default_to_most_linked_profiles():
     result = routes.judge_profiles("", 10, Database())
 
     assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
+
+
+def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
+    html = routes._data_explorer_page_html() + (
+        Path(__file__).resolve().parents[1] / "backend" / "static" / "explorer_snapshots.js"
+    ).read_text(encoding="utf-8")
+
+    assert "Outcome patterns by issue" in html
+    assert (
+        "Outcome method: government outcome “won” = Minister win, “lost” = applicant win, "
+        "“mixed” = other; undetermined, unrecognized, and missing values are unclassified, "
+        "and percentages use all issue decisions, including unclassified."
+    ) in html
+    assert "At least " in html
+    assert "${N(hidden)} issue${hidden===1?'':'s'} hidden (each has fewer than ${minimum} decisions)." in html
+    assert "including unclassified" in html
+    assert "undetermined, unrecognized, and missing values are unclassified" in html
+    assert "Federal Court issue outcomes" in html
+    assert "data-jp-issues" in html
+    assert "/api/judge-profiles/${encodeURIComponent(slug)}/issues" in html
+    profile_loader = html.split("async function jpSelect", 1)[1].split("function tally", 1)[0]
+    assert "/issues" not in profile_loader
+    issue_loader = html.split("async function jpLoadIssues", 1)[1].split("function jpMainClick", 1)[0]
+    assert "getJSON(`/api/judge-profiles/${encodeURIComponent(slug)}/issues`)" in issue_loader
+    click_handler = html.split("function jpMainClick", 1)[1].split("/* ---------------- Citation intelligence", 1)[0]
+    assert "closest('[data-jp-issues]')" in click_handler
+    assert "jpLoadIssues()" in click_handler
+    assert "jpIssueCategories" in html
 
 
 def test_rendered_shell_exposes_original_source_link_action():

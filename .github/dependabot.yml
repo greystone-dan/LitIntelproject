@@ -1,0 +1,36 @@
+---
+version: 2
+updates:
+  # Pip dependencies: weekly grouped updates, max 5 open PRs
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+    open-pull-requests-limit: 5
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
+    pull-request-branch-name:
+      separator: "/"
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    rebase-strategy: "auto"
+
+  # GitHub Actions: weekly grouped updates, max 5 open PRs
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:30"
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    pull-request-branch-name:
+      separator: "/"

@@ -62,7 +62,7 @@ If the delivery changes cache only static non-personalized shells and preserve r
 ## Execution Checkpoints
 
 - Delegation: Managed worker returned a structured report for case reader, duplicate search submit, and FC dashboard states; manager validated Citation Intelligence's embedded page and retry behavior.
-- Implementation: Static page shells now use public one-hour caching with ETag/If-None-Match and Cookie variance. Search disables duplicates and preserves filters; reader covers full and partial failure retry; Citation Intelligence retains selected-case loading/error/retry states; FC dashboard has polite live status and retry. No standalone static-file mount exists.
+- Implementation: Static page shells now use public one-hour caching with ETag/If-None-Match and Cookie variance. Search disables duplicates and preserves filters; reader covers full and partial failure retry; Citation Intelligence retains selected-case loading/error/retry states; FC dashboard has polite live status and retry. Explorer CSS/JS are served from the `/static/` mount with cache validators.
 - Documentation: `SYSTEM_REFERENCE.md`, `docs/RESEARCH_UI_GUIDE.md`, `CHANGELOG.md`, `.swm/1.oi7rhqp2.sw.md`, and `.swm/6.maiixtsw.sw.md` updated. Generated references checked, not hand-edited.
 - Recovery: No long operation, database writes, or deployment involved.
 
@@ -72,7 +72,7 @@ If the delivery changes cache only static non-personalized shells and preserve r
 | --- | --- | --- | --- |
 | 2026-10-04 | Task created | Issue #140 requirements supplied in prompt; GitHub issue body inaccessible in this environment. | `gh issue view 140` failed because `GH_TOKEN` is not configured; worktree initially clean. |
 | 2026-10-04 | Clarify the page-state target list | Continue only on the user's specified case search, case reader, Citation Intelligence, and FC dashboard surfaces. | User continuation prompt. |
-| 2026-10-04 | Apply public caching to static HTML shells, not dynamic APIs | The app has no separately mounted static-file directory; only non-personalized HTML shell routes use the cache helper. Keep explicit no-store paths unchanged. | Route-helper tests for public max-age, ETag/304, and no-store response behavior. |
+| 2026-10-04 | Apply public caching to static HTML shells and Explorer assets, not dynamic APIs | Cache only non-personalized shells and static assets; keep explicit no-store paths unchanged. | Route-helper and mounted-asset tests for public max-age, ETag/304, and no-store response behavior. |
 
 ## Completion
 
@@ -89,11 +89,28 @@ Next recommended task: Add browser smoke coverage for all four page-state transi
 ## Final Evidence
 
 - Focused tests: `PYTHON_DOTENV_DISABLED=1 python -m pytest -q --noconftest tests/test_gzip_middleware.py tests/test_page_weight.py tests/test_feature_tabs.py` — 72 passed, 1 skipped.
-- Page baseline: prior commit ran `python scripts/measure_page_weight.py`; the existing offline-only baseline remains unchanged in `docs/page_weight_baseline.json`.
+- Page baseline: `PYTHON_DOTENV_DISABLED=1 python scripts/measure_page_weight.py` measured all 25 current HTML builders with deterministic fixtures and wrote `docs/reports/page-weight-baseline.md`.
 - Generated references: `PYTHON_DOTENV_DISABLED=1 python scripts/check_generated_docs.py` — passed; all three generated references current.
 - Python compile: `python -m py_compile backend/cache_headers.py backend/pages/data_explorer.py backend/pages/fc_analytics.py tests/test_gzip_middleware.py tests/test_feature_tabs.py` — passed.
 - UI JavaScript: script-only `node --check -` for the appended Data Explorer wrapper and FC dashboard — passed. Playwright/Selenium browser checks were not available.
 - Documentation checkpoint: canonical `SYSTEM_REFERENCE.md`, detailed UI guide `docs/RESEARCH_UI_GUIDE.md`, and Swimm walkthroughs `.swm/1.oi7rhqp2.sw.md` and `.swm/6.maiixtsw.sw.md` updated.
 - Diff check: `git diff --check` — passed.
 - Before: Reader and FC dashboard failures had no retry; search submits could overlap; static shells revalidated privately; Citation Intelligence and FC states lacked finalized coverage.
-- After: Four requested surfaces expose their defined loading/error/retry behavior, search suppresses duplicate submits while retaining filters, FC status is announced politely, and non-personalized static shells use public one-hour conditional ETags. Dynamic APIs and existing no-store responses remain outside that cache helper.
+- After: Four requested surfaces expose their defined loading/error/retry behavior, search suppresses duplicate submits while retaining filters, FC status is announced politely, and non-personalized static shells and Explorer assets use public one-hour caching with validators. Dynamic APIs and existing no-store responses remain outside those cache policies.
+
+## Main merge follow-up
+
+Merged refreshed `main` after commit `fc90009`. Kept both branches' changelog,
+system-reference, and Swimm documentation; regenerated the API, schema, and
+script references. Added `backend/cache_headers.py`, `backend/gzip_middleware.py`,
+and the moved Explorer static assets to `docs/ARCHITECTURE.md`. The merged main
+branch adds the standalone case-comparison page builder, so the offline baseline
+now measures 25 builders rather than the original 24. The main-added lazy-loaded
+Judge Profile UI remains in the external Explorer asset and its tests now inspect
+that asset as well as the HTML shell.
+
+Merge validation: 284 focused, database-independent tests passed and 1 skipped.
+`scripts/check_generated_docs.py`, Python compilation, `git diff --check`, and
+the architecture inventory contract passed. The full suite remains unrun
+because `tests/conftest.py` probes PostgreSQL (`SELECT 1`), prohibited by the
+task's no-database boundary.

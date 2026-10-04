@@ -34,7 +34,7 @@ def test_data_explorer_page_is_bounded_and_valid_html() -> None:
 
 def test_every_page_builder_has_offline_fixture_measurements() -> None:
     builders = _builders()
-    assert len(builders) == 24
+    assert len(builders) == 25
     assert len({name for name, _, _ in builders}) == len(builders)
 
     for name, source, build_html in builders:
@@ -99,7 +99,7 @@ def test_markdown_baseline_contains_measured_builder_inventory() -> None:
     assert "Inline script (bytes)" in baseline
     assert "Inline style (bytes)" in baseline
     assert "External requests" in baseline
-    assert "Measured builders: 24; skipped: 0." in baseline
+    assert "Measured builders: 25; skipped: 0." in baseline
     for name, _, _ in _builders():
         assert f"| {name} |" in baseline
     explorer = next(page for page in _builders() if page[0] == "data_explorer")

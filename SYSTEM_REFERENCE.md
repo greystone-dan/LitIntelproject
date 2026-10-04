@@ -98,8 +98,48 @@ The embedded information and research views are:
    Tag/citation occurrences are deduplicated per source decision. Authorities
    use resolved target identity, otherwise the stored citation label. Comparison
    is independent of profile Minister filters and does not imply corpus completeness.
+   **Outcome patterns by issue** is a separate, explicitly lazy-loaded profile
+   section backed by `GET /api/judge-profiles/{slug}/issues`, with aggregation
+   owned by `backend/judge_issue_record.py`; it uses canonical profile links and
+   stored `Case.issues` only, whitespace/case-normalized and
+   deduplicated per decision. An issue appears only at 10 or more distinct
+   judge-linked decisions; the response/UI disclose the number of issues hidden
+   and that each has fewer than 10 decisions, without revealing their labels.
+   Each visible issue has a
+   Federal Court baseline from decisions whose stored court is `FC`, `Federal
+   Court`, or `Federal Court of Canada`. Outcome categories are Minister win
+   (`government outcome=won`), applicant win (`lost`), other (`mixed`), and
+   unclassified (undetermined, missing, or unrecognized). Category counts and
+   percentages use the complete issue-decision denominator, including
+   unclassified outcomes; issue decision counts also report their all-linked
+   judge or Federal Court denominator. The table is independent of profile
+   Minister filters and is descriptive coverage, not issue causation, a ranking,
+   or a harshness measure.
 6. **FC History**: Federal Court procedural/activity lookup by IMM or other docket context where available.
 7. **Legal Themes & Statutes**: live theme catalog, statute-tag affinity matrix, and thematic precedent clustering.
+
+The standalone `/case-compare?a=<case_id>&b=<case_id>` page compares two
+canonical decisions side by side, backed by read-only
+`GET /cases/compare?a=<case_id>&b=<case_id>`. Two citation/name search pickers
+reuse the existing case-search endpoint; empty parameters open the picker page.
+Each decision displays citation, court, date, stored reader-extracted judge,
+decision outcome and assignment provenance, with links to `/data-explorer`.
+Latest dedicated `case_outcomes` assignments take precedence (updated time,
+then ID); only absent assignments use explicitly labelled reader-metadata
+fallback. Missing or unknown outcomes remain **unclassified**, preserving raw
+labels and available source, classifier, confidence and disposition evidence.
+Comparison displays stored evidence without re-verifying offsets or assigning
+new outcomes. Active-taxonomy tags, statute references and case authorities
+remain separate layers, highlighted as shared or unique with distinct totals.
+Authorities use resolved target IDs or stored unresolved neutral/reporter
+identifiers (including stored short-form anchors); explicit trailing pinpoints
+do not create additional authorities. Otherwise normalized labels are used.
+Unresolved identities remain separate from resolved targets; neutral/reporter
+equivalence is not inferred. Statutes use stored instrument/normalized provision
+identity or normalized unresolved labels; ranges and lists are retained.
+Repeated mentions count once; stored coverage does not imply legal equivalence
+or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
+and the missing IDs. No data is written and no new resolution is attempted.
 
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
@@ -116,7 +156,7 @@ separately, and statute references and unresolved citations are excluded.
 The former visible Data Explorer inventory tab and standalone Judge Outcomes
 surface are retired. Judge Profile is the active judge workflow.
 
-The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
+The case reader embedded in Case Search supports full decision text, source-preserved HTML where available, chunk breakdown, citation and statute highlighting, linked-authority navigation, compact panes, independently scrollable linked context, and hover previews for linked authority text. Chunk mode preserves structural chunk elements and evidence offsets while presenting them as a continuous judgment with subtle separators; implementation labels, ordinal numbers, and character counts are hidden. Inline case and statute references inherit the surrounding text size and line height. Keyboard shortcuts move among formatted paragraphs (`j`/`n` next; `k`/`p` previous), visibly mark and focus the current paragraph, and expose a `?` shortcut list; typing fields are excluded. Print mode presents the decision title and citation with numbered paragraphs, hides navigation and side panels, and avoids splitting paragraphs across pages. Its information surface separates a user-facing Info tab with normalized case facts from an Advanced tab containing raw metadata, provenance, processing, and record-level diagnostics; evidence tabs remain separate for Citations, Tags, Acts / Regs, and Precedents.
 The source pane begins with a short **Extracted case summary** only when
 verified stored-text facts exist. Every item has its own evidence link:
 court/date/judge link to an explicit matching source-header block; up to three
@@ -140,6 +180,37 @@ The additive reader `extracted_summary` projection has no unverified UI
 fallback. Empty summaries are hidden; no generated prose, classification,
 stored-data changes, or browser-created offsets are involved. This surface is
 separate from the optional technical **Show case summary** control.
+The formatted reader also begins with a collapsible, default-open **Quick
+summary**, fetched from read-only `GET /api/cases/{case_id}/summary`. This
+additive card preserves the existing Extracted case summary and optional
+technical summary. [`backend/case_summary.py`](backend/case_summary.py)
+projects stored title/citation/court/date and the latest stored outcome/source
+(unclassified/unknown when absent); those labels are stored metadata, not new
+classification or independently verified header facts. Verified disposition
+evidence selects its complete verbatim numbered paragraph, including continuation
+blocks. One or two complete verbatim sentences come from an explicit issue
+opening or issue/standard-of-review heading; issue candidates take precedence
+over review candidates. Ambiguous abbreviations, quotations, incomplete
+sentences, unnumbered and cross-paragraph evidence are omitted, not guessed.
+Issue openings and headings currently support explicit English forms only.
+Up to five statute/instrument keys show stored occurrence counts, with
+alphabetical tie-breaks. Chunk-linked statute offsets are not rebased by this
+projection and therefore have no source link; counts remain visible. Up to five
+distinct active-taxonomy tags require exact numbered-paragraph evidence and
+finite stored scores, ordered by score then category/value. Sources and scores
+are displayed as provenance, not legal conclusions.
+Unavailable identity rows, disposition/issue excerpts and empty statute/tag
+sections are omitted without placeholder prose. Outcome/source always remain
+visible with unclassified/unknown fallbacks; statute counts can remain without
+verified excerpts, while tags with invalid browser-verified evidence are omitted.
+[`backend/pages/case_quick_summary.py`](backend/pages/case_quick_summary.py)
+escapes all stored display values, verifies excerpts with Unicode code points
+rather than JavaScript UTF-16 indices, and focuses backend block-start anchors
+with paragraph identity even when paragraph numbers repeat. Stale requests are
+discarded, failures leave existing reader tools available, and collapse state
+survives mode changes (reopening a decision defaults open). Quick summary is
+hidden in chunk/plain modes. No generated prose, source mutation, new
+dependencies, or extraction/resolution pipeline runs are involved.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values
@@ -321,6 +392,8 @@ Case Search supports query, title, court, jurisdiction, dates, source details, c
 `GET /search/export.docx` follows the active Data Explorer case-search contract: `query`, `cites`, `government_outcome`, `decision_outcome`, `minister`, `judge`, `court`, `year`, `search_full_text`, `sort_by`, and `limit`. It uses `fetch_analytics_search_cases` with bounded offsets and at most two 100-result pages (200 cases total), preserving the active search filters and sort order. The **Download Word** anchor is part of the active page in `backend/pages/data_explorer.py`, beside Download CSV in the shared case-search `.search-actions` group, and appears only after a nonempty successful ordinary case search. It carries the current `searchValues()` into the GET link and is hidden while loading, after errors or empty results, in RAG mode, or when search fields change. Stale asynchronous case-search responses are ignored so they cannot replace current results or restore an outdated link. The DOCX includes the query, active filters, UTC generation date, result count, and a citation/title/court/date/outcome table. Its attachment filename is sanitized and the response is non-cacheable.
 
 The active Case Search interface presents the case name or citation query as the primary action, keeps Search and Clear together, and groups optional filters under a collapsed Advanced options disclosure. A debounced, cancellable combobox returns at most five title/citation suggestions through the existing bounded case-search contract, with keyboard selection and dismissal. Result rows prioritize title, citation, court, and date; outcome context and stored citation metrics remain separate. The interface reports the number of active optional filters and preserves the existing control IDs and search parameters across responsive layouts.
+
+The Case Search query accepts quoted phrases; `AND`, `OR`, and `NOT`; leading-minus exclusions; and `court:`, `year:YYYY`, inclusive `year:YYYY..YYYY` (also `year:YYYY-YYYY`), `judge:`, `cites:`, and `outcome:allowed` fields. `backend/query_syntax.py` is a pure parser that returns a Boolean expression tree and a plain-language echo; year ranges are echoed as “YYYY through YYYY (inclusive).” The analytics search compiler translates that tree into fixed SQL fragments with bound values; malformed quotes degrade to a searchable phrase with a warning, and unknown field names remain literal query words and are identified in the echo. Queries without operator syntax keep the established title/citation-first matching path. The UI displays the interpretation above results and provides a **Search tips** popover. CSV and Word exports forward the same raw query to the same bounded analytics search, so operator behavior is consistent.
 
 Case Search includes **Download CSV**, which carries the current search query, filters, and sort order to `GET /search/export.csv`. The export reuses the active search query, returns at most 1,000 matching rows, and uses the columns `citation`, `title`, `court`, `date`, `judge`, `outcome`, and `iLit URL`. It is UTF-8 with a BOM; values beginning with `=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety. Case links point to the active `/data-explorer?case_id=...` reader workflow.
 
@@ -505,6 +578,28 @@ PDFs are outside the prototype because they require OCR. Remaining boundaries
 and de-identification coverage are recorded in the scoped privacy/security
 review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
+
+Memo Citation Check also returns an additive `suggestions` object, including
+without a local session, while preserving its legacy treatment, related
+authorities, `missing_authorities`, and analysis counts. The page labels the new
+section **Suggestions, not legal advice**. The independent
+`backend/memo_authority_suggestions.py` uses deterministic V3 memo tags and exact
+normalized statute identities to select decisions sharing any signal. It ranks
+only resolved authorities actually cited by distinct decisions in that cohort,
+excluding authorities already identified in the memo. Each suggestion gives
+the distinct citing-decision numerator, checked-cohort denominator, and shared
+tags/statutes from its citing decisions. Duplicate citation occurrences do not
+inflate counts; nested statutes do not fall back to base sections, and visibly
+incomplete nested extraction is omitted from suggestion signals.
+Potential contrary suggestions require at least five distinct citing decisions
+and a strict majority of stored Minister-relative losses among all those
+decisions. Counts show won, lost, mixed and unclassified; unclassified never
+becomes win/loss. Outcomes use the stored reader-extracted government outcome,
+not applicant-relative outcome status or new text classification. Majority-lost
+candidates below five are counted as hidden. Cohort/edge caps and display
+truncation are explicit; results are descriptive, not treatment or legal advice.
+Definitions, offline validation and limitations are in
+[`docs/reports/memo-missing-authority.md`](docs/reports/memo-missing-authority.md).
 
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
@@ -1443,6 +1538,9 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
 - `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
+- `GET /api/judge-profiles/{slug}/issues`: issue-first judge outcome counts and
+  percentages plus a matching Federal Court baseline; requires an exact
+  canonical slug and returns HTTP 404 (`detail.code=unknown_judge`) when absent.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
 
 The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
@@ -2120,11 +2218,12 @@ serves a restrictive `robots.txt`. Those measures reduce indexing signals; they
 do not create authentication or confidentiality.
 
 The code has a password/cookie access design using a timestamped HMAC signature,
-HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. However,
-the current middleware does not enforce that design. Treat this as a security
-gap, not a completed feature. Until enforced and tested, do not place sensitive
-or restricted research material behind the Cloudflare tunnel on the assumption
-that the login route protects it.
+HTTP-only cookie, `SameSite=Lax`, and HTTPS-only secure-cookie behavior. The gate
+is disabled when `CASELIBRARY_ACCESS_PASSWORD` is unset or empty; when enabled,
+the middleware enforces the cookie check for protected routes. No-index headers
+are not authentication. Before exposing restricted material, use a separate
+strong session secret and verify the surrounding network perimeter and deployment
+configuration.
 
 ### Deployment Rules
 
@@ -2258,6 +2357,7 @@ The complete module-to-test coverage matrix, known gaps, and minimum validation 
 | `SYSTEM_REFERENCE.md` | Canonical current system handbook |
 | `WORK_HISTORY.md` | Generated chronological work ledger and five-minute-capped session-time estimate |
 | `README.md` | Concise repository entrypoint and quick-start guide |
+| `docs/ARCHITECTURE.md` | Contributor-facing architecture diagram, backend file map, schema summary, and source boundaries |
 | `DOCS_INDEX.md` | Document authority map and documentation update checklist |
 | `docs/API_REFERENCE.generated.md` | Generated FastAPI route and contract appendix |
 | `docs/SCHEMA_REFERENCE.generated.md` | Generated ORM schema reference and entity relationship diagram |
@@ -2998,10 +3098,10 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:21:12.735141+00:00
+Generated: 2026-10-04T12:36:08.925159+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 103 across 100 paths
+OpenAPI operations: 104 across 101 paths
 Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -4440,6 +4540,31 @@ Export Search Analytics Cases
 - `200`: Successful Response; `text/csv`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /search/export.docx`
+
+Export Search Docx
+
+Export up to 200 cases using the Data Explorer search filters.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /search/tags/similar`
 
 Find Similar Cases By Tags
@@ -5323,7 +5448,7 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:21:10.600717+00:00
+Generated: 2026-10-04T12:36:09.454176+00:00
 Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -6682,7 +6807,7 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `config.yaml` is currently a checked-in static reference template. No active runtime module loads it, so changing it alone does not reconfigure FastAPI, SQLAlchemy, embedding providers, logging, or security behavior.
+5. `backend/search_service.py` reads the four AI rollout flags under `ai.rollout` in `config.yaml` at import time. Matching `CASELIBRARY_*_ENABLED` environment variables override those values. Other settings in the file are not a general application configuration source.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -6692,7 +6817,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | --- | --- | --- |
 | `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` or `DATABASE_URL` | Canonical database routes and write scripts | Prefer complete `POSTGRES_*` local configuration; see precedence above. |
 | `OPENAI_API_KEY` | OpenAI embedding, research-answer, and OpenAI audit/adjudication paths | Not required for deterministic extraction, tag, chunk, or most local read paths. |
-| `CASELIBRARY_ACCESS_PASSWORD` plus independent `CASELIBRARY_SESSION_SECRET` | Intended private-site login | Current middleware does not enforce this login design; do not treat merely setting these variables as access protection. |
+| `CASELIBRARY_ACCESS_PASSWORD` and preferably a separate `CASELIBRARY_SESSION_SECRET` | Optional private-site login | The gate is off by default and enforced when the password is non-empty. Use a separate strong signing secret and a verified perimeter policy where needed. |
 
 ## Application And Database Settings
 
@@ -6706,14 +6831,14 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides.
 
 ## Access, Session, And Indexing Settings
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
-| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
+| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
@@ -6803,11 +6928,18 @@ Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validate
 
 The CanLII API client enforces an in-process default ceiling of two requests per second and 1,000 requests per UTC day. Those values are currently dataclass defaults, not environment variables.
 
-## Static Template Settings
+## Partially Consumed Template Settings
 
-`config.yaml` records non-secret aspirational/default settings for app identity, server, database pool, pgvector, AI behavior, logging, security, Copilot indexing, and common paths. It is not currently loaded by active application code.
+`config.yaml` records defaults for application, server, database, vector, AI,
+logging, security, and path settings. Only the four `ai.rollout` flags read by
+`backend/search_service.py` currently affect application behavior.
 
-Treat it as a planning template until a configuration loader is implemented. In particular, changing `server.host`, `server.port`, `database.pool_size`, `pgvector.index_type`, `ai.rollout`, `logging`, `security`, or `paths` in that file will not alter runtime behavior today. Use explicit Uvicorn flags, runtime environment variables, or code changes instead.
+Changing `server.host`, `server.port`, database-pool, vector, logging, security,
+or path values in that file does not alter runtime behavior. The four rollout
+flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
+`embed_on_ingest_enabled`; matching `CASELIBRARY_*_ENABLED` environment values
+override them. Use the consuming module's environment settings or explicit
+server flags for other runtime configuration.
 
 ## Example Local Development Setup
 
@@ -6840,8 +6972,8 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 
 ## Known Configuration Gaps
 
-1. `config.yaml` is not a live configuration source and can drift from code.
-2. The private-access variables are not enforced by current middleware.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
 3. The `.env.example` includes several legacy/aspirational names not read by active code.
 4. There is no central typed settings object or startup validation report for all required configuration.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.
@@ -9850,6 +9982,15 @@ Choose a result count and sort order:
 Open Advanced options to narrow the candidate set. Available filters include cited authority, government outcome, decision outcome, judge, court, date/year, minister/government party, source type, and other metadata-oriented constraints. Court abbreviations such as `FC`, `FCA`, and `SCC` expand to their canonical court names.
 
 Enable **Search full decision text** only when the research question requires text passages rather than named authorities. Full-text matching broadens results and can be slower or noisier than title/citation lookup.
+
+After a nonempty successful ordinary case search, **Download Word** appears
+in the shared search-actions group beside the search/export controls. It exports
+the current query and the same named filters used by `searchValues()` through
+`GET /search/export.docx`. The link is
+hidden before results, for empty/error/loading states, while RAG is selected,
+and after any search field is edited; submit the search again to export its
+current result set. Older asynchronous case-search responses cannot restore a
+stale link.
 
 ### Reading Result Metadata
 

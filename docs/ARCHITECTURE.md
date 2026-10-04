@@ -168,6 +168,7 @@ test checks that these paths continue to exist.
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
+| `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |

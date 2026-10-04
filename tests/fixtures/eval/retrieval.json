@@ -1,0 +1,24 @@
+{
+  "name": "tiny-retrieval",
+  "version": "1",
+  "items": [
+    {
+      "id": "family-status",
+      "query": "family status",
+      "chunks": [
+        {"id": "family-1", "text": "family status authority"},
+        {"id": "tax-1", "text": "tax refund policy"}
+      ],
+      "relevant_chunk_ids": ["family-1"]
+    },
+    {
+      "id": "employment",
+      "query": "employment permit",
+      "chunks": [
+        {"id": "employment-1", "text": "employment permit authority"},
+        {"id": "tax-2", "text": "tax refund policy"}
+      ],
+      "relevant_chunk_ids": ["employment-1"]
+    }
+  ]
+}

@@ -4,6 +4,27 @@ Last updated: 2026-09-22
 
 ## Purpose And Authority
 
+The active `/data-explorer` formatted reader offers **Similar paragraphs** for
+numbered paragraphs. `GET /cases/{case_id}/paragraphs/{n}/similar?limit=10`
+ranks other cases by one point per shared stored active V3 tag and two per
+shared cited case authority, then case ID and paragraph number. It verifies
+exact canonical spans (including tags without chunk IDs), not chunk indices
+or cited pinpoints. Citation occurrences are rebased from their containing chunk;
+short-form anchors remain document-relative and may precede that chunk, but must
+match canonical text and end before the absolute occurrence start.
+Indexed postings, source signals, candidate cases and
+paragraph rows are capped; coverage is explicitly non-exhaustive. Ambiguous
+or unverified chunks/spans and statutes are excluded. Bare-numbered SCC chunks
+require the actual canonical `Decision Content` marker and preceding numbering:
+only a bounded prefix plus chunk is formatted, never a full candidate decision
+retrieval. Chunks beyond that context cap or with ambiguous numbering are omitted.
+Unresolved authority labels use separate ordered equality seeks, in sorted label
+order, sharing one total postings budget and one lookahead per signal. Candidate
+IDs merge deterministically; exhausted budgets or unvisited labels mark coverage
+partial. Migration
+`0031_paragraph_similarity` supplies the ORM-mirrored posting indexes; deployment
+must review/apply it separately.
+
 This is the canonical description of the active AI CaseLibrary system. It consolidates the current-purpose material formerly spread across `README.md`, `SYSTEM_OVERVIEW.txt`, `AI_HANDOFF.md`, `GUIDANCE.md`, and related runbooks.
 
 Use this document for current architecture, functionality, data flow, repository ownership, operations, validation posture, and known limitations. `CHANGELOG.md` remains the chronological record; `ROADMAP.md` and `MASTER_IDEAS.md` remain forward-looking; `OVERNIGHT.md` is the repository atlas and bounded overnight operations guide; `docs/EXTRACTION_35K_RUNBOOK.md` remains a focused procedural runbook. Files under `docs/history/` are historical snapshots and must not be used for live counts or API contracts.

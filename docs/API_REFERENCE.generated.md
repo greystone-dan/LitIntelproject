@@ -374,6 +374,21 @@ Get Case Paragraph Assessments
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/paragraphs/{n}/similar`
+
+Get Similar Paragraphs
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `n` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ParagraphSimilarityResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/reader-data`
 
 Get Case Reader Data

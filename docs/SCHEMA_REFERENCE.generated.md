@@ -548,6 +548,7 @@ erDiagram
 - `ix_case_chunks_case_id`: index on `case_id`
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
+- `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
 
 ### Foreign Keys
 
@@ -713,6 +714,8 @@ erDiagram
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
+- `ix_similarity_tag_posting`: index on `taxonomy_version`, `category`, `value`, `case_id`, `id`
+- `ix_similarity_tag_source`: index on `case_id`, `taxonomy_version`, `id`
 
 ### Unique Constraints
 
@@ -819,6 +822,9 @@ erDiagram
 - `ix_citations_target_case_id`: index on `target_case_id`
 - `ix_citations_target_chunk_id`: index on `target_chunk_id`
 - `ix_citations_target_paragraph`: index on `target_paragraph`
+- `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
+- `ix_similarity_citation_source`: index on `source_case_id`, `id`
+- `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
 
 ### Foreign Keys
 

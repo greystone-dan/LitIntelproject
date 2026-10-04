@@ -506,6 +506,28 @@ and de-identification coverage are recorded in the scoped privacy/security
 review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
+Memo Citation Check also returns an additive `suggestions` object, including
+without a local session, while preserving its legacy treatment, related
+authorities, `missing_authorities`, and analysis counts. The page labels the new
+section **Suggestions, not legal advice**. The independent
+`backend/memo_authority_suggestions.py` uses deterministic V3 memo tags and exact
+normalized statute identities to select decisions sharing any signal. It ranks
+only resolved authorities actually cited by distinct decisions in that cohort,
+excluding authorities already identified in the memo. Each suggestion gives
+the distinct citing-decision numerator, checked-cohort denominator, and shared
+tags/statutes from its citing decisions. Duplicate citation occurrences do not
+inflate counts; nested statutes do not fall back to base sections, and visibly
+incomplete nested extraction is omitted from suggestion signals.
+Potential contrary suggestions require at least five distinct citing decisions
+and a strict majority of stored Minister-relative losses among all those
+decisions. Counts show won, lost, mixed and unclassified; unclassified never
+becomes win/loss. Outcomes use the stored reader-extracted government outcome,
+not applicant-relative outcome status or new text classification. Majority-lost
+candidates below five are counted as hidden. Cohort/edge caps and display
+truncation are explicit; results are descriptive, not treatment or legal advice.
+Definitions, offline validation and limitations are in
+[`docs/reports/memo-missing-authority.md`](docs/reports/memo-missing-authority.md).
+
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
 #### Judge identity audit (2026-09-22)

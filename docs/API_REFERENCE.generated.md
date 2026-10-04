@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T00:52:47.161821+00:00
+Generated: 2026-10-04T00:58:50.370098+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 98 across 95 paths
-Hidden operations: 56 excluded from OpenAPI
+OpenAPI operations: 100 across 97 paths
+Hidden operations: 57 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -204,6 +204,14 @@ Get Statute Tag Matrix
 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/tags`
+
+Get Tag Analytics
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `GET /analytics/themes`
 
@@ -766,6 +774,7 @@ Get Citation Map Case Tags
 
 - `case_id` (path, required; integer)
 - `limit` (query, optional; integer, default `100`)
+- `display_limit` (query, optional; integer | null)
 
 **Responses**
 
@@ -1386,6 +1395,22 @@ Export Search Analytics Cases
 **Responses**
 
 - `200`: Successful Response; `text/csv`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /search/tags/similar`
+
+Find Similar Cases By Tags
+
+Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs.
+
+**Parameters**
+
+- `case_id` (query, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /themes/discovery`
@@ -2180,6 +2205,16 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /tag-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.tag_finder_interface`
 
 **Responses**
 

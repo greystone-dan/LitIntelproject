@@ -245,6 +245,7 @@ def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> Con
     text_overlap = _text_overlap(left, right)
     heading_boundary_penalty = 1.0 if right.is_heading else 0.0
     signal_density_shift = _density_shift(left, right)
+
     continuity_score = (
         0.25 * (authority_overlap if left.citation_ids or right.citation_ids else 0.5)
         + 0.15 * (statute_overlap if left.statute_ids or right.statute_ids else 0.5)
@@ -346,6 +347,12 @@ def segment_discussion_units(
 
         # Issue marker boundary - separates multiple legal issues
         if _is_issue_marker(right.text):
+            boundaries.add(index)
+
+        # Strong argumentative role transition (major section boundary)
+        # Trigger at relatively low continuity threshold
+        if (_detect_strong_argument_transition(left.text, right.text) and
+            component.continuity_score < 0.65 and index > 2):
             boundaries.add(index)
 
         if is_signal_vacuum:

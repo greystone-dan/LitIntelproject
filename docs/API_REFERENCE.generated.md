@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T13:53:24.873212+00:00
+Generated: 2026-10-04T14:39:34.342654+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 107 across 104 paths
-Hidden operations: 61 excluded from OpenAPI
+OpenAPI operations: 108 across 105 paths
+Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -233,6 +233,22 @@ Judge Profile Issues
 
 - `200`: Successful Response; `application/json`: `object`
 - `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/language-analytics`
+
+Get Language Analytics
+
+Return bounded wording associations for one tag; associations are not causes.
+
+**Parameters**
+
+- `tag` (query, required; string)
+- `judge` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/legislation/cases`
@@ -2300,6 +2316,16 @@ Handler: `backend.routes.judge_profile_page`
 **Handler parameters**
 
 - `slug` (str; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /language-analytics`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.language_analytics_interface`
 
 **Responses**
 

@@ -246,6 +246,23 @@ sections, and 176 paragraphs with exact canonical-text containment.
 	 without implying unsupported legal conclusions.
 4. What quality and performance thresholds should block a release.
 
+### Proposed ID/IAD coverage for CBSA-hearing research
+
+- **Status:** Design proposal only; source availability, licence applicability,
+  publication completeness, and legal outcome taxonomy remain unverified.
+- **Proposal:** Evaluate provenance-preserving ID/IAD decision coverage using
+  an official-first source ledger, and add a secondary source only after
+  permitted use and record identity are confirmed.
+- **Boundary:** Keep tribunal identity separate from court, preserve source
+  terms and conflicts, and scope outcome analytics by reviewed proceeding
+  category and Minister role rather than treating every government-related
+  result as a Minister win/loss.
+- **Evidence and phased plan:** See
+  [the ID/IAD coverage design](../docs/reports/id-iad-coverage-design.md).
+- **Revisit trigger:** Authoritative source/terms review and a reviewed,
+  source-linked pilot confirm stable identity, permitted use, and outcome
+  labels precise enough for a bounded schema and analytics change.
+
 ## Governance Rule
 
 Architectural decisions should be updated when the implementation, evidence, or

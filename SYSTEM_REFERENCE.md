@@ -506,6 +506,26 @@ and de-identification coverage are recorded in the scoped privacy/security
 review:
 [`docs/reports/privacy-security-review.md`](docs/reports/privacy-security-review.md).
 
+### Table of Authorities Builder
+
+`GET /table-of-authorities` serves a standalone paste-based builder, and
+`POST /table-of-authorities` accepts JSON such as
+`{"text":"12345\n2020 FC 10"}` and returns a DOCX. Each nonblank line is
+interpreted independently: a positive integer is a local case ID, otherwise the
+line is processed for case citations and paragraph references.
+`POST /table-of-authorities/build` remains the form endpoint used by the page.
+All paths are stateless: pasted text is parsed in memory, is not stored or
+included in application logs, and responses disable browser/proxy caching. Both
+POST routes reject submissions above 200 nonblank lines with an explicit 422
+response. ID lookup filters by the supplied case IDs; citation lookup filters
+by extracted citation values. Neither writes data nor calls external services.
+Resolved authorities are grouped in the documented deterministic court
+precedence and alphabetized by title; unresolved IDs and citations appear in a
+separate “Not found in local case metadata” section. The DOCX retains citations
+and paragraph references and includes a CanLII link only when a resolved local
+record contains a validated CanLII URL. This is a citation organizer, not legal
+advice or proof of authority.
+
 `backend/metadata.py` and Federal Court scrapers derive the deterministic source metadata — case name, date, docket, court, judge, place/date of hearing, counsel, and parties. Extraction carries field confidence, source evidence, quality flags, and a review indicator. The derived intelligence fields (decision outcome, government role/result, case type/challenge/issue/topic) are owned by `backend/intelligence.py`, which composes the outcome helpers in `backend/metadata_outcomes.py` and the subject helpers in `backend/metadata_subjects.py`; `backend/metadata.py` composes that intelligence layer into the stored `metadata_json->'reader_extracted'` payload so downstream analytics and the reader read a single payload. Reader metadata adds display-oriented normalized fields such as tribunal, court type, docket/case number, style of cause, respondent, and language.
 
 #### Judge identity audit (2026-09-22)
@@ -1431,6 +1451,12 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
   named, and short-form case references.
 - `POST /memo-citation-check`: in-memory memo analysis with the same upload and
   parser resource limits.
+- `GET /table-of-authorities`: standalone paste-based authority-list builder.
+- `POST /table-of-authorities`: JSON `{ "text": "..." }` input with one local
+  case ID or citation per line; returns a no-store DOCX.
+- `POST /table-of-authorities/build`: parse and locally resolve at most 200
+  nonblank form input lines and return a no-store DOCX without retaining the
+  paste.
 
 ### Research And Analytics APIs
 

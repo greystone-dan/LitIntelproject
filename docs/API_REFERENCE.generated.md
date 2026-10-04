@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:36:08.925159+00:00
+Generated: 2026-10-04T13:29:53.815161+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 104 across 101 paths
-Hidden operations: 59 excluded from OpenAPI
+OpenAPI operations: 105 across 102 paths
+Hidden operations: 61 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1485,6 +1485,19 @@ Find cases with overlapping tags. Score by Jaccard similarity of tag (category, 
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /table-of-authorities`
+
+Build Table Of Authorities Docx Json
+
+**Request body (required)**
+
+- `application/json`: `TableOfAuthoritiesRequest`
+
+**Responses**
+
+- `200`: Generated Table of Authorities DOCX.; `application/vnd.openxmlformats-officedocument.wordprocessingml.document`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /themes/discovery`
 
 Get Theme Discovery
@@ -2309,6 +2322,31 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /table-of-authorities`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.table_of_authorities_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /table-of-authorities/build`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.build_table_of_authorities_docx`
+
+**Handler parameters**
+
+- `text` (str; default `Form(PydanticUndefined)`)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 

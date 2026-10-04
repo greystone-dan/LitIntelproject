@@ -66,6 +66,19 @@ class CaseIngestRequest(BaseModel):
 		return self
 
 
+class TableOfAuthoritiesRequest(BaseModel):
+	"""Request body for building a table of authorities.
+
+	Provide one citation or positive local case ID per line in ``text``.
+	"""
+
+	text: str = Field(
+		description=(
+			"Newline-separated authorities, one citation or positive local case ID per line."
+		)
+	)
+
+
 class LiveAnalysisReferenceResponse(BaseModel):
 	kind: str
 	reference_text: str

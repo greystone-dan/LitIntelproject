@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
-from .models import ParagraphSimilarityResponse
+from .models import ParagraphSimilarityResponse, TableOfAuthoritiesRequest
 from .paragraph_similarity import similar_paragraphs
 
 try:
@@ -81,11 +81,25 @@ from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
 from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
+from .pages.table_of_authorities import table_of_authorities_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
 from .live_analysis import MAX_DOCX_BYTES, analyze_document
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
+from .table_of_authorities import (
+	CaseMetadata as TableOfAuthoritiesCaseMetadata,
+	DOCX_MEDIA_TYPE as TABLE_OF_AUTHORITIES_DOCX_MEDIA_TYPE,
+	InputLineLimitError,
+	ParsedCitation as TableOfAuthoritiesParsedCitation,
+	build_docx as build_table_of_authorities_docx_content,
+	case_id_lookup_values as table_of_authorities_case_id_lookup_values,
+	citation_lookup_values as table_of_authorities_citation_lookup_values,
+	combine_authority_results as combine_table_of_authorities_results,
+	parse_submission as parse_table_of_authorities_submission,
+	resolve_case_ids as resolve_table_of_authorities_case_ids,
+	resolve_authorities as resolve_table_of_authorities,
+)
 from . import resource_limits
 from .pages.testing import testing_page_html
 from .citations import build_a2aj_case_map as _build_a2aj_case_map
@@ -1025,6 +1039,141 @@ async def live_analysis_resolve(
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)
 def memo_citation_check_page() -> HTMLResponse:
 	return HTMLResponse(content=memo_citation_check_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/table-of-authorities", response_class=HTMLResponse, include_in_schema=False)
+def table_of_authorities_page() -> HTMLResponse:
+	return HTMLResponse(
+		content=table_of_authorities_page_html(),
+		status_code=status.HTTP_200_OK,
+		headers=_NO_STORE,
+	)
+
+
+def _table_of_authorities_case_metadata(
+	db: Session, parsed_citations: list[TableOfAuthoritiesParsedCitation]
+) -> list[TableOfAuthoritiesCaseMetadata]:
+	lookup_values = table_of_authorities_citation_lookup_values(parsed_citations)
+	if not lookup_values:
+		return []
+	rows = db.execute(
+		select(
+			Case.id,
+			Case.title,
+			Case.court,
+			Case.citation,
+			Case.secondary_citation,
+			Case.source_url,
+		).where(
+			or_(
+				Case.citation.in_(lookup_values),
+				Case.secondary_citation.in_(lookup_values),
+			)
+		)
+	).all()
+	return [
+		TableOfAuthoritiesCaseMetadata(
+			case_id=row.id,
+			title=row.title,
+			court=row.court,
+			citation=row.citation,
+			secondary_citation=row.secondary_citation,
+			source_url=row.source_url,
+		)
+		for row in rows
+	]
+
+
+def _table_of_authorities_case_metadata_by_ids(
+	db: Session, case_ids: list[int]
+) -> list[TableOfAuthoritiesCaseMetadata]:
+	if not case_ids:
+		return []
+	rows = db.execute(
+		select(
+			Case.id,
+			Case.title,
+			Case.court,
+			Case.citation,
+			Case.secondary_citation,
+			Case.source_url,
+		).where(Case.id.in_(case_ids))
+	).all()
+	return [
+		TableOfAuthoritiesCaseMetadata(
+			case_id=row.id,
+			title=row.title,
+			court=row.court,
+			citation=row.citation,
+			secondary_citation=row.secondary_citation,
+			source_url=row.source_url,
+		)
+		for row in rows
+	]
+
+
+def _build_table_of_authorities_docx(text: str, db: Session) -> bytes:
+	parsed = parse_table_of_authorities_submission(text)
+	case_ids = table_of_authorities_case_id_lookup_values(text)
+	citation_metadata = _table_of_authorities_case_metadata(db, parsed)
+	id_metadata = _table_of_authorities_case_metadata_by_ids(db, case_ids)
+	return build_table_of_authorities_docx_content(
+		*combine_table_of_authorities_results(
+			resolve_table_of_authorities(parsed, citation_metadata),
+			resolve_table_of_authorities_case_ids(case_ids, id_metadata),
+		)
+	)
+
+
+@router.post(
+	"/table-of-authorities",
+	response_class=Response,
+	responses={
+		status.HTTP_200_OK: {
+			"description": "Generated Table of Authorities DOCX.",
+			"content": {
+				TABLE_OF_AUTHORITIES_DOCX_MEDIA_TYPE: {
+					"schema": {"type": "string", "format": "binary"}
+				}
+			},
+		}
+	},
+)
+def build_table_of_authorities_docx_json(
+	request: TableOfAuthoritiesRequest,
+	db: Session = Depends(get_db),
+) -> Response:
+	try:
+		docx = _build_table_of_authorities_docx(request.text, db)
+	except InputLineLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	return Response(
+		content=docx,
+		media_type=TABLE_OF_AUTHORITIES_DOCX_MEDIA_TYPE,
+		headers={
+			**_NO_STORE,
+			"Content-Disposition": 'attachment; filename="table-of-authorities.docx"',
+		},
+	)
+
+
+@router.post("/table-of-authorities/build", include_in_schema=False)
+def build_table_of_authorities_docx(
+	text: str = Form(...),
+	db: Session = Depends(get_db),
+) -> Response:
+	try:
+		docx = _build_table_of_authorities_docx(text, db)
+	except InputLineLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	return Response(
+		content=docx,
+		media_type=TABLE_OF_AUTHORITIES_DOCX_MEDIA_TYPE,
+		headers={
+			**_NO_STORE,
+			"Content-Disposition": 'attachment; filename="table-of-authorities.docx"',
+		},
+	)
 
 
 @router.post("/memo-citation-check", response_model=MemoCitationCheckResponse)

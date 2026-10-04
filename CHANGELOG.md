@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a stateless Table of Authorities builder at `GET /table-of-authorities`,
+  JSON `POST /table-of-authorities`, and the existing form
+  `POST /table-of-authorities/build`. Each of at most 200 nonblank lines may be
+  a local case ID or a case citation; resolved authorities are grouped and
+  alphabetized by court, with citations and paragraph references preserved and
+  unresolved entries placed in a not-found section. DOCX output includes
+  validated CanLII links when known; pasted text is not stored or logged.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

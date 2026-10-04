@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import re
 import time
+from collections import OrderedDict
 from statistics import median
+from threading import Lock
 from typing import Any
 
 from fastapi import HTTPException, status
@@ -17,8 +19,10 @@ from sqlalchemy.orm import Session
 
 from backend.database import FCActivityClassification, FCActivityMotion, FCActivitySummary
 
-_CACHE: dict[tuple[Any, ...], tuple[float, dict[str, Any]]] = {}
+_CACHE: OrderedDict[tuple[Any, ...], tuple[float, dict[str, Any]]] = OrderedDict()
 _CACHE_SECONDS = 1800
+_CACHE_MAX_ENTRIES = 256
+_CACHE_LOCK = Lock()
 
 DURATION_FIELDS = {
     "days_decision_to_filing": "Tribunal decision to filing",
@@ -55,11 +59,25 @@ BREAKDOWN_LIMITS = {"office_location": 15}
 
 def _cached(key: tuple[Any, ...], build) -> dict[str, Any]:
     now = time.monotonic()
-    hit = _CACHE.get(key)
-    if hit and now - hit[0] < _CACHE_SECONDS:
-        return hit[1]
+    with _CACHE_LOCK:
+        hit = _CACHE.get(key)
+        if hit and now - hit[0] < _CACHE_SECONDS:
+            _CACHE.move_to_end(key)
+            return hit[1]
+    # Do not serialize database work; as before, concurrent misses may build
+    # independently. Only the multi-step LRU bookkeeping needs protection.
     value = build()
-    _CACHE[key] = (now, value)
+    # Preserve the existing key and insertion-time TTL (hits do not refresh it).
+    # Prune expired entries and evict least recently used live results, never
+    # cache a failed build. The process-local cache bounds entries, not bytes.
+    with _CACHE_LOCK:
+        for old_key, (created, _) in list(_CACHE.items()):
+            if now - created >= _CACHE_SECONDS:
+                del _CACHE[old_key]
+        _CACHE[key] = (now, value)
+        _CACHE.move_to_end(key)
+        while len(_CACHE) > _CACHE_MAX_ENTRIES:
+            _CACHE.popitem(last=False)
     return value
 
 
@@ -121,10 +139,16 @@ def fetch_fc_activity_insights(
                 "rows": [{"value": value, "count": count} for value, count in sorted(merged.items(), key=lambda item: -item[1])][: BREAKDOWN_LIMITS.get(field, 50)],
             }
         durations: dict[str, Any] = {}
+        # Fetch only the six integer columns once rather than scanning the same
+        # filtered slice six times. Exact quantiles still require every value.
+        duration_values: dict[str, list[int]] = {field: [] for field in DURATION_FIELDS}
+        duration_columns = [getattr(FCActivitySummary, field) for field in DURATION_FIELDS]
+        for row in db.execute(_filtered(select(*duration_columns), **filters)):
+            for field, value in zip(DURATION_FIELDS, row):
+                if value is not None and value <= 3650:
+                    duration_values[field].append(int(value))
         for field, label in DURATION_FIELDS.items():
-            column = getattr(FCActivitySummary, field)
-            values = [int(value) for value in db.scalars(_filtered(select(column).where(column.is_not(None)), **filters)) if value is not None and value <= 3650]
-            durations[field] = {"label": label, **_quantiles(values)}
+            durations[field] = {"label": label, **_quantiles(duration_values[field])}
         by_year_rows = db.execute(
             _filtered(
                 select(
@@ -258,7 +282,7 @@ def fetch_fc_activity_judges(
                 ).where(FCActivitySummary.merits_judge_key.is_not(None)),
                 **filters,
             )
-        ).all()
+        )
         for row in merits_rows:
             if row.review_result in {"granted", "dismissed"}:
                 entry = bucket(row.merits_judge_key, row.merits_judge_name)
@@ -318,7 +342,17 @@ def fetch_fc_activity_case(db: Session, imm: str) -> dict[str, Any]:
     normalized = (imm or "").strip().upper()
     if not re.fullmatch(r"IMM-\d{1,6}-\d{2,4}", normalized):
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Provide an IMM number like IMM-1234-19.")
-    row = db.scalar(select(FCActivityClassification).where(FCActivityClassification.imm_number == normalized))
+    # Avoid loading unused source/provenance columns and ORM state. JSON is
+    # still required for the portable compact projection below.
+    row = db.execute(select(
+        FCActivityClassification.imm_number,
+        FCActivityClassification.case_name,
+        FCActivityClassification.year,
+        FCActivityClassification.city_filed,
+        FCActivityClassification.nature,
+        FCActivityClassification.classifier_version,
+        FCActivityClassification.classification_json,
+    ).where(FCActivityClassification.imm_number == normalized)).first()
     if row is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"{normalized} is not in the classified FC activity data.")
     classification = dict(row.classification_json or {})
@@ -458,7 +492,7 @@ def fetch_fc_activity_motions(
         if year_to is not None:
             statement = statement.where(FCActivityMotion.year <= year_to)
         types: dict[str, dict[str, Any]] = {}
-        for row in db.execute(statement).all():
+        for row in db.execute(statement):
             entry = types.setdefault(row.motion_type, {"motions": 0, "outcomes": {}, "by_filer": {}, "days": []})
             entry["motions"] += 1
             entry["outcomes"][row.outcome] = entry["outcomes"].get(row.outcome, 0) + 1
@@ -544,7 +578,6 @@ def fetch_fc_activity_dashboard(db: Session, **raw_filters: Any) -> dict[str, An
 
     def build() -> dict[str, Any]:
         columns = (
-            FCActivitySummary.source_case_id,
             FCActivitySummary.year,
             FCActivitySummary.city_filed,
             FCActivitySummary.resolution,
@@ -558,7 +591,6 @@ def fetch_fc_activity_dashboard(db: Session, **raw_filters: Any) -> dict[str, An
             FCActivitySummary.days_hearing_to_judgment,
             FCActivitySummary.days_filing_to_final_disposition,
             FCActivitySummary.days_decision_to_filing,
-            FCActivitySummary.stay_status,
             FCActivitySummary.filing_timeliness,
             FCActivitySummary.record_timeliness,
             FCActivitySummary.memorandum_timeliness,
@@ -639,13 +671,12 @@ def fetch_fc_activity_dashboard(db: Session, **raw_filters: Any) -> dict[str, An
             values = [getattr(row, field) for row in rows if getattr(row, field) is not None and 0 <= getattr(row, field) <= 3650]
             durations[field] = {"label": label, **_quantiles(values)}
 
-        case_ids = [row.source_case_id for row in rows]
         motion_types: dict[str, dict[str, Any]] = {}
-        if case_ids:
+        if rows:
             motion_statement = select(FCActivityMotion.motion_type, FCActivityMotion.outcome, FCActivityMotion.days_to_decision).where(
-                FCActivityMotion.source_case_id.in_(select(FCActivitySummary.source_case_id).where(FCActivitySummary.source_case_id.in_(_dashboard_where(select(FCActivitySummary.source_case_id), filters).scalar_subquery())))
+                FCActivityMotion.source_case_id.in_(_dashboard_where(select(FCActivitySummary.source_case_id), filters))
             )
-            for motion in db.execute(motion_statement).all():
+            for motion in db.execute(motion_statement):
                 bucket = motion_types.setdefault(motion.motion_type, {"type": motion.motion_type, "label": MOTION_TYPE_LABELS.get(motion.motion_type, motion.motion_type), "motions": 0, "granted": 0, "dismissed": 0, "withdrawn": 0, "not_ruled": 0, "_days": []})
                 bucket["motions"] += 1
                 if motion.outcome in {"granted", "granted_in_part"}:

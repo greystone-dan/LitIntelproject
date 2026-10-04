@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 158
+Active scripts documented: 159
 
 ## Catalog
 
@@ -151,6 +151,7 @@ Active scripts documented: 158
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
+| `run_offline_tests.py` | Offline test validation | disposable SQLite fixtures only | `python scripts/run_offline_tests.py -q` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
@@ -2141,6 +2142,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
+## `scripts/run_offline_tests.py`
+
+**Purpose:** Run pytest without dotenv access or application/external database connections. Only isolated SQLite fixtures may connect: in-memory engines or files within this run's disposable pytest temporary directory. Application engines and PostgreSQL DBAPI connections are forbidden, including raw connection paths.
+
+**Operational class:** Offline test validation
+
+**Write/network risk:** disposable SQLite fixtures only
+
+**Safe first command**
+
+```powershell
+python scripts/run_offline_tests.py -q
 ```
 
 ## `scripts/run_overnight.py`

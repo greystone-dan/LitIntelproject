@@ -19,7 +19,7 @@ from docx import Document
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, load_only
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
@@ -1579,6 +1579,7 @@ def citation_intelligence_cases(
 		return []
 	rows = db.scalars(
 		select(Case)
+		.options(load_only(Case.id, Case.title, Case.citation, Case.court, Case.date))
 		.where(Case.title.ilike(f"%{term}%"))
 		.order_by(Case.date.desc(), Case.id.desc())
 		.limit(max(1, min(50, limit)))

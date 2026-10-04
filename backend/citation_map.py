@@ -9,8 +9,8 @@ from math import log1p
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import case as sql_case, false, func, or_, select, union
-from sqlalchemy.orm import Session, aliased
+from sqlalchemy import case as sql_case, false, func, or_, select, tuple_, union
+from sqlalchemy.orm import Session, aliased, load_only
 
 from .database import Case, CaseChunk, CaseTag, Citation, CitationMetrics, StatuteReference
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
@@ -163,6 +163,7 @@ def search_citation_cases(session: Session, query: str, limit: int = 12) -> list
 		statement = statement.where(Case.id.in_(focus_ids))
 	rows = session.execute(
 		statement.where(or_(Case.citation.ilike(pattern), Case.title.ilike(pattern)))
+		.options(load_only(Case.id, Case.title, Case.citation, Case.court, Case.date))
 		.order_by(
 			(Case.citation == term).desc(),
 			Case.date.desc(),
@@ -280,6 +281,11 @@ def citation_contexts(
 		.join(CaseChunk, CaseChunk.id == Citation.chunk_id)
 		.join(Case, Case.id == Citation.source_case_id)
 		.join(target_case, target_case.id == Citation.target_case_id)
+		.options(
+			load_only(Case.id, Case.title, Case.citation),
+			load_only(target_case.id, target_case.title, target_case.citation),
+			load_only(CaseChunk.id, CaseChunk.chunk_index, CaseChunk.text),
+		)
 		.where(
 			Citation.source_case_id == source_case_id,
 			Citation.target_case_id == target_case_id,
@@ -289,6 +295,11 @@ def citation_contexts(
 		.order_by(CaseChunk.chunk_index, Citation.offset_start, Citation.id)
 		.limit(limit)
 	)
+	return _format_citation_contexts(rows)
+
+
+def _format_citation_contexts(rows) -> list[dict[str, Any]]:
+	"""Format ordered occurrences; the SQL limit is applied before deduplication."""
 	contexts: list[dict[str, Any]] = []
 	seen: set[tuple[str, str]] = set()
 	for citation, chunk, source_case, target_row in rows:
@@ -320,6 +331,50 @@ def citation_contexts(
 			}
 		)
 	return contexts
+
+
+def _authority_contexts(
+	session: Session, source_case_id: int, target_case_ids: list[int], limit: int,
+) -> dict[int, list[dict[str, Any]]]:
+	"""Read the original per-authority context windows in one statement."""
+	target_case = aliased(Case, name="target_case")
+	ranked = (
+		select(
+			Citation.id.label("citation_id"),
+			func.row_number().over(
+				partition_by=Citation.target_case_id,
+				order_by=(CaseChunk.chunk_index, Citation.offset_start, Citation.id),
+			).label("position"),
+		)
+		.join(CaseChunk, CaseChunk.id == Citation.chunk_id)
+		.join(Case, Case.id == Citation.source_case_id)
+		.join(target_case, target_case.id == Citation.target_case_id)
+		.where(
+			Citation.source_case_id == source_case_id,
+			Citation.target_case_id.in_(target_case_ids),
+			Citation.offset_start.is_not(None),
+			Citation.offset_end.is_not(None),
+		)
+		.cte("authority_context_windows")
+	)
+	rows = session.execute(
+		select(Citation, CaseChunk, Case, target_case)
+		.join(ranked, ranked.c.citation_id == Citation.id)
+		.join(CaseChunk, CaseChunk.id == Citation.chunk_id)
+		.join(Case, Case.id == Citation.source_case_id)
+		.join(target_case, target_case.id == Citation.target_case_id)
+		.options(
+			load_only(Case.id, Case.title, Case.citation),
+			load_only(target_case.id, target_case.title, target_case.citation),
+			load_only(CaseChunk.id, CaseChunk.chunk_index, CaseChunk.text),
+		)
+		.where(ranked.c.position <= limit)
+		.order_by(Citation.target_case_id, CaseChunk.chunk_index, Citation.offset_start, Citation.id)
+	)
+	by_target: dict[int, list] = defaultdict(list)
+	for row in rows:
+		by_target[row[0].target_case_id].append(row)
+	return {target_id: _format_citation_contexts(context_rows) for target_id, context_rows in by_target.items()}
 
 
 def case_legal_tags(
@@ -377,25 +432,26 @@ def _rank_tags_by_rarity_and_frequency(
 	Frequency is the count of tags with the same category and value for the case.
 	Returns tags sorted by (rarity * frequency) in descending order.
 	"""
-	from functools import lru_cache
-
 	# Count total cases for fire rate calculation
-	total_cases = session.query(func.count(distinct(CaseTag.case_id))).scalar() or 1
+	# Keep the original all-taxonomy denominator.
+	total_cases = session.query(func.count(func.distinct(CaseTag.case_id))).scalar() or 1
 
-	# Calculate fire rate for each tag type (category, value)
-	@lru_cache(maxsize=10000)
-	def get_fire_rate(category: str, value: str) -> float:
-		cases_with_tag = (
-			session.query(func.count(distinct(CaseTag.case_id)))
+	# Count active-taxonomy occurrences for all requested tag pairs at once.
+	tag_keys = {(tag.category, tag.value) for tag in tags}
+	fire_counts = {
+		(category, value): int(count)
+		for category, value, count in session.execute(
+			select(CaseTag.category, CaseTag.value, func.count(func.distinct(CaseTag.case_id)))
 			.where(
-				CaseTag.category == category,
-				CaseTag.value == value,
 				CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
+				tuple_(CaseTag.category, CaseTag.value).in_(sorted(tag_keys)),
 			)
-			.scalar()
-			or 0
+			.group_by(CaseTag.category, CaseTag.value)
 		)
-		return cases_with_tag / max(total_cases, 1)
+	} if tag_keys else {}
+
+	def get_fire_rate(category: str, value: str) -> float:
+		return fire_counts.get((category, value), 0) / max(total_cases, 1)
 
 	# Count mentions of each tag in this case
 	tag_counts: dict[tuple[str, str], int] = defaultdict(int)
@@ -735,11 +791,12 @@ def citation_authority_signals(
 	if not rows:
 		return []
 
-	total_occurrences = max(1, sum(int(occurrence_count) for _, _, occurrence_count, _ in rows))
-	results: list[dict[str, Any]] = []
-	for authority, metrics, occurrence_count, global_citing_cases in rows:
-		stats = session.execute(
+	authority_ids = [authority.id for authority, _, _, _ in rows]
+	stats_by_authority = {
+		int(target_id): stats
+		for target_id, *stats in session.execute(
 			select(
+				Citation.target_case_id,
 				func.count(Citation.id),
 				func.count(func.distinct(Citation.chunk_id)),
 				func.min(CaseChunk.chunk_index),
@@ -748,15 +805,22 @@ def citation_authority_signals(
 			.outerjoin(CaseChunk, CaseChunk.id == Citation.chunk_id)
 			.where(
 				Citation.source_case_id == case_id,
-				Citation.target_case_id == authority.id,
+				Citation.target_case_id.in_(authority_ids),
 			)
-		).first()
+			.group_by(Citation.target_case_id)
+		)
+	}
+	contexts_by_authority = _authority_contexts(session, case_id, authority_ids, max(1, context_limit))
+	total_occurrences = max(1, sum(int(occurrence_count) for _, _, occurrence_count, _ in rows))
+	results: list[dict[str, Any]] = []
+	for authority, metrics, occurrence_count, global_citing_cases in rows:
+		stats = stats_by_authority.get(authority.id)
 		occurrences = int(stats[0] or 0) if stats else int(occurrence_count)
 		distinct_chunks = int(stats[1] or 0) if stats else 0
 		first_chunk_index = int(stats[2]) if stats and stats[2] is not None else None
 		last_chunk_index = int(stats[3]) if stats and stats[3] is not None else None
 
-		contexts = citation_contexts(session, case_id, authority.id, limit=max(1, context_limit))
+		contexts = contexts_by_authority.get(authority.id, [])
 		boilerplate_hits = 0
 		for context in contexts:
 			lowered = context["context"].lower()
@@ -1131,6 +1195,11 @@ def citation_surprise_feed(
 		)
 	)
 
+	node_ids = {node.id for src, tgt, *_ in rows for node in (src, tgt)}
+	metrics_by_id = {
+		metrics.case_id: metrics
+		for metrics in session.scalars(select(CitationMetrics).where(CitationMetrics.case_id.in_(node_ids)))
+	} if node_ids else {}
 	results = []
 	for src, tgt, occurrences, global_citing_cases, source_occurrences in rows:
 		occ = int(occurrences or 0)
@@ -1140,8 +1209,8 @@ def citation_surprise_feed(
 		gravity_share = occ / source_total
 		results.append(
 			{
-				"source_case": _case_node(src, session.get(CitationMetrics, src.id)),
-				"authority": _case_node(tgt, session.get(CitationMetrics, tgt.id)),
+				"source_case": _case_node(src, metrics_by_id.get(src.id)),
+				"authority": _case_node(tgt, metrics_by_id.get(tgt.id)),
 				"occurrence_count": occ,
 				"global_citing_cases": global_count,
 				"gravity_share": gravity_share,
@@ -2317,6 +2386,10 @@ def citation_intelligence_table(
 		.outerjoin(CaseChunk, CaseChunk.id == Citation.chunk_id)
 		.join(per_case_counts, per_case_counts.c.source_case_id == Citation.source_case_id)
 		.where(Citation.target_case_id == case_id)
+		.options(
+			load_only(Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json),
+			load_only(CaseChunk.id, CaseChunk.chunk_index, CaseChunk.text),
+		)
 	)
 	if year:
 		base = base.where(func.extract("year", Case.date) == year)
@@ -2331,7 +2404,9 @@ def citation_intelligence_table(
 			func.lower(Case.metadata_json["reader_extracted"]["government outcome"].as_string()) == gov_outcome.lower()
 		)
 
-	total = session.scalar(select(func.count()).select_from(base.subquery())) or 0
+	total = session.scalar(select(func.count()).select_from(
+		base.with_only_columns(Citation.id, maintain_column_froms=True).subquery()
+	)) or 0
 	rows = session.execute(
 		base.order_by(Case.date.desc(), Citation.source_case_id, Citation.id)
 		.offset((page - 1) * page_size)

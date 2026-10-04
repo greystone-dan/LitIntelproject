@@ -78,12 +78,20 @@ function foldRuns(visible){
   }
   return runs;
 }
+const PURPOSE_SHORT={disagreed:'Disagreed',distinguished:'Distinguished',followed:'Followed',quoted:'Quoted',compared:'Compared',see:'See',mentioned:'Mentioned'};
+/* "Cited by 3 cases · Followed 1, See 2" from a stored paragraph cited-by summary. */
+function citedByLine(s){
+  if(!s||!(Number(s.citer_count)>0))return '';
+  const n=Number(s.citer_count),parts=Object.keys(s.purposes||{}).filter(k=>s.purposes[k]>0).map(k=>(PURPOSE_SHORT[k]||k)+' '+s.purposes[k]);
+  return 'Cited by '+n+' case'+(n===1?'':'s')+(parts.length?' · '+parts.join(', '):'');
+}
 /* What the Peek panel shows for a citation note: only stored data, never fetched. */
 function peekFor(note){
   const c=note&&note.cite;if(!c)return null;
   return {id:note.id,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
     text:c.inLibrary?(note.quote||''):'',label:c.inLibrary?(c.paragraph!=null?'Paragraph ['+c.paragraph+'] of the cited case':(note.quote?'Cited text':'')):'',
-    missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.'};
+    missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
+    citedBy:c.inLibrary?citedByLine(c.citedBy):''};
 }
 /* Notes the margin can show. anchor: {kind:'cite',id} | {kind:'para',num} | {kind:'top'}. */
 function buildNotes(payload){
@@ -107,7 +115,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||''},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:clip(row.target_citation||row.citation_text||title,26)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open case',action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Peek in panel',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -117,9 +125,17 @@ function buildNotes(payload){
     const subs=subthemeRanges({readerData:{chunks:chunks,evidence_summary:{units:[u]}}});
     notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit '+u.unit_index+' · ¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
   }
-  /* cited-by counts per paragraph come from the formatter's blocks */
+  /* cited-by counts per paragraph come from the formatter's blocks; the batch job's stored rows add who and why */
+  const stored=rd.paragraph_cited_by||null,storedBy={};
+  if(stored)for(const p of stored.paragraphs||[])storedBy[p.paragraph]=p;
+  const cov=stored&&stored.coverage;
   for(const b of rd.format_blocks||[]){
-    if(b&&b.type==='para'&&Number(b.cited_by_count)>0)notes.push({id:'citedby-'+b.start,type:'citedby',anchor:{kind:'para',num:b.num,blockStart:b.start},count:Number(b.cited_by_count),pill:'Cited by '+b.cited_by_count,title:'¶['+b.num+'] is cited by '+b.cited_by_count+' other case'+(Number(b.cited_by_count)===1?'':'s'),meta:'Distinct cases in the library that cite this paragraph',body:b.citation_tooltip||'',foot:[],gutter:true});
+    if(!(b&&b.type==='para'&&Number(b.cited_by_count)>0))continue;
+    const sp=storedBy[b.num],citers=sp?sp.citers||[]:[];
+    const meta=sp?(cov&&!cov.complete?'Partial: '+cov.sources_processed+' of '+cov.sources_total+' citing cases analysed so far · ':'')+citedByLine(sp):'Distinct cases in the library that cite this paragraph';
+    const body=sp?citers.map(c=>(c.citation||c.title||'Case '+c.case_id)+(c.mentions>1?' ×'+c.mentions:'')+' · '+(PURPOSE_SHORT[c.purpose]||c.purpose)+(c.signal&&c.purpose!=='mentioned'?' ("'+c.signal+'")':'')).join('\n')+(sp.citer_count>citers.length?'\n+ '+(sp.citer_count-citers.length)+' more':''):(b.citation_tooltip||'');
+    const foot=citers.filter(c=>c.case_id).slice(0,3).map(c=>({label:'Open '+clip(c.citation||c.title||'case',22),action:'open-case',arg:c.case_id}));
+    notes.push({id:'citedby-'+b.start,type:'citedby',anchor:{kind:'para',num:b.num,blockStart:b.start},count:Number(b.cited_by_count),pill:'Cited by '+b.cited_by_count,title:'¶['+b.num+'] is cited by '+b.cited_by_count+' other case'+(Number(b.cited_by_count)===1?'':'s'),meta:meta,body:body,foot:foot,gutter:true,stored:!!sp});
   }
   return notes;
 }
@@ -145,7 +161,7 @@ function noteState(note,layers,overrides){
   if(overrides&&overrides[note.id]===false)return 'markers';
   return layer==='open'?'open':'markers';
 }
-const api={E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,LAYER_DEFS,TYPE};
+const api={E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -382,7 +398,7 @@ function renderPanel(){
   if(!cards.length){state.pins=[];if(el)el.remove();return}
   if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
   el.className='mk-panel '+state.dock;
-  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">Go to citation</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
+  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map(c=>`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">Go to citation</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`).join('')}</div>`;
   if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
   if(p)p.classList.toggle('markup-docked',state.dock==='dock');
 }
@@ -398,7 +414,7 @@ function showHover(span){
   const n=state.notes.find(x=>x.id==='cite-'+span.dataset.citeId&&x.cite);if(!n)return;
   const c=peekFor(n);let h=$('mkHover');if(h)h.remove();
   h=document.createElement('div');h.id='mkHover';h.setAttribute('role','tooltip');
-  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}</small></blockquote>`:''):`<div class="mk-body">${E(c.missing)}</div>`}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
+  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}</small></blockquote>`:''):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
   document.body.appendChild(h);
   const r=span.getBoundingClientRect(),w=h.offsetWidth,hh=h.offsetHeight;
   const left=Math.max(8,Math.min(r.left,window.innerWidth-w-8));

@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Paragraph "cited by" batch job (not run on production): `scripts/build_paragraph_cited_by.py`
+  reads stored citation occurrences and, for each cited paragraph, stores which
+  cases cite it, how often, and the signal phrase beside the citation (followed,
+  distinguished, see, quoted, ...). Two additive tables (migration 0036). It is
+  resumable, runs at low priority, and writes nothing without `--apply`. The
+  Markup margin and Peek read the stored rows when they exist and fall back to
+  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`.
 - Markup mode second build, using only stored data: hover card on citations;
   Peek panel (floating or docked, stackable, shows the cited paragraph when the
   authority is in the library and says so when it is not); tag display modes

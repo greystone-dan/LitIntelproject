@@ -1,0 +1,3 @@
+# prompt_version: v1
+
+Segment the supplied Canadian legal decision into source-faithful reading spans. Identify any introductory metadata, every numbered legal paragraph, and any outro or footer text. Return JSON with a segments array. Each segment must contain kind (intro, paragraph, or outro), paragraph_number when kind is paragraph, start_offset, and end_offset. Offsets are zero-based and end-exclusive. Do not return segment text: the caller will derive it from the source after validating offsets. Preserve source order. Do not summarize, normalize, omit, or invent text. Paragraph segments must cover the decision body in order; use intro/outro only for text outside that body. Before responding, verify offsets are within the source and segments do not overlap.

@@ -1,0 +1,1967 @@
+[
+  {
+    "id": "para_1",
+    "text": "I apply 2099 FC 1 to the present facts.",
+    "citations": [
+      {
+        "citation_id": "cite_1",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 8,
+        "end": 17
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_1",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+          {
+            "id": "past_followed", "text": "I followed 2099 FC 1.",
+            "citations": [{"citation_id": "past_followed", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 11, "end": 20}],
+            "expected": [{"citation_id": "past_followed", "classes": ["followed_applied"], "events": [{"matched_phrase": "followed", "phrase_start": 2, "phrase_end": 10}]}]
+          },
+          {
+            "id": "past_applied", "text": "I applied 2099 FC 1.",
+            "citations": [{"citation_id": "past_applied", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 10, "end": 19}],
+            "expected": [{"citation_id": "past_applied", "classes": ["followed_applied"], "events": [{"matched_phrase": "applied", "phrase_start": 2, "phrase_end": 9}]}]
+          },
+          {
+            "id": "past_distinguished", "text": "I distinguished 2099 FC 1.",
+            "citations": [{"citation_id": "past_distinguished", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 16, "end": 25}],
+            "expected": [{"citation_id": "past_distinguished", "classes": ["distinguished"], "events": [{"matched_phrase": "distinguished", "phrase_start": 2, "phrase_end": 15}]}]
+          },
+          {
+            "id": "past_criticised", "text": "I criticised 2099 FC 1.",
+            "citations": [{"citation_id": "past_criticised", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 13, "end": 22}],
+            "expected": [{"citation_id": "past_criticised", "classes": ["criticised_not_followed"], "events": [{"matched_phrase": "criticised", "phrase_start": 2, "phrase_end": 12}]}]
+          },
+          {
+            "id": "past_declined", "text": "I declined to follow 2099 FC 1.",
+            "citations": [{"citation_id": "past_declined", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 21, "end": 30}],
+            "expected": [{"citation_id": "past_declined", "classes": ["criticised_not_followed"], "events": [{"matched_phrase": "declined to follow", "phrase_start": 2, "phrase_end": 20}]}]
+          },
+          {
+            "id": "party_past_followed", "text": "Counsel followed 2099 FC 1.",
+            "citations": [{"citation_id": "party_past_followed", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 17, "end": 26}],
+            "expected": [{"citation_id": "party_past_followed", "classes": ["unknown"]}]
+          },
+          {
+            "id": "party_past_applied", "text": "Counsel applied 2099 FC 1.",
+            "citations": [{"citation_id": "party_past_applied", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 16, "end": 25}],
+            "expected": [{"citation_id": "party_past_applied", "classes": ["unknown"]}]
+          },
+          {
+            "id": "party_past_distinguished", "text": "Counsel distinguished 2099 FC 1.",
+            "citations": [{"citation_id": "party_past_distinguished", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 22, "end": 31}],
+            "expected": [{"citation_id": "party_past_distinguished", "classes": ["unknown"]}]
+          },
+          {
+            "id": "party_past_criticised", "text": "Counsel criticised 2099 FC 1.",
+            "citations": [{"citation_id": "party_past_criticised", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 19, "end": 28}],
+            "expected": [{"citation_id": "party_past_criticised", "classes": ["unknown"]}]
+          },
+          {
+            "id": "party_past_declined", "text": "Counsel declined to follow 2099 FC 1.",
+            "citations": [{"citation_id": "party_past_declined", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 27, "end": 36}],
+            "expected": [{"citation_id": "party_past_declined", "classes": ["unknown"]}]
+          },
+          {
+            "id": "judge_past_followed", "text": "Another judge followed 2099 FC 1.",
+            "citations": [{"citation_id": "judge_past_followed", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 23, "end": 32}],
+            "expected": [{"citation_id": "judge_past_followed", "classes": ["unknown"]}]
+          },
+          {
+            "id": "judge_past_applied", "text": "Another judge applied 2099 FC 1.",
+            "citations": [{"citation_id": "judge_past_applied", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 22, "end": 31}],
+            "expected": [{"citation_id": "judge_past_applied", "classes": ["unknown"]}]
+          },
+          {
+            "id": "judge_past_distinguished", "text": "Another judge distinguished 2099 FC 1.",
+            "citations": [{"citation_id": "judge_past_distinguished", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 28, "end": 37}],
+            "expected": [{"citation_id": "judge_past_distinguished", "classes": ["unknown"]}]
+          },
+          {
+            "id": "judge_past_criticised", "text": "Another judge criticised 2099 FC 1.",
+            "citations": [{"citation_id": "judge_past_criticised", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 25, "end": 34}],
+            "expected": [{"citation_id": "judge_past_criticised", "classes": ["unknown"]}]
+          },
+          {
+            "id": "judge_past_declined", "text": "Another judge declined to follow 2099 FC 1.",
+            "citations": [{"citation_id": "judge_past_declined", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 33, "end": 42}],
+            "expected": [{"citation_id": "judge_past_declined", "classes": ["unknown"]}]
+          },
+          {
+            "id": "past_did_not_follow", "text": "I did not follow 2099 FC 1.",
+            "citations": [{"citation_id": "past_did_not_follow", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 17, "end": 26}],
+            "expected": [{"citation_id": "past_did_not_follow", "classes": ["criticised_not_followed"], "events": [{"matched_phrase": "did not follow", "phrase_start": 2, "phrase_end": 16}]}]
+          },
+          {
+            "id": "past_not_distinguishable", "text": "I find 2099 FC 1 not distinguishable.",
+            "citations": [{"citation_id": "past_not_distinguishable", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 7, "end": 16}],
+            "expected": [{"citation_id": "past_not_distinguishable", "classes": ["followed_applied"], "events": [{"matched_phrase": "not distinguishable", "phrase_start": 17, "phrase_end": 36}]}]
+          },
+          {
+            "id": "past_not_followed", "text": "I have not followed 2099 FC 1.",
+            "citations": [{"citation_id": "past_not_followed", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 20, "end": 29}],
+            "expected": [{"citation_id": "past_not_followed", "classes": ["unknown"]}]
+          },
+          {
+            "id": "past_quoted", "text": "\"I applied 2099 FC 1.\"",
+            "citations": [{"citation_id": "past_quoted", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 11, "end": 20}],
+            "expected": [{"citation_id": "past_quoted", "classes": ["unknown"]}]
+          },
+          {
+            "id": "past_historical", "text": "In an earlier decision, I distinguished 2099 FC 1.",
+            "citations": [{"citation_id": "past_historical", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 40, "end": 49}],
+            "expected": [{"citation_id": "past_historical", "classes": ["unknown"]}]
+          },
+          {
+            "id": "past_unbound", "text": "I followed the procedure when reviewing 2099 FC 1.",
+            "citations": [{"citation_id": "past_unbound", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 40, "end": 49}],
+            "expected": [{"citation_id": "past_unbound", "classes": ["unknown"]}]
+          },
+          {
+            "id": "past_modal", "text": "I would have criticised 2099 FC 1.",
+            "citations": [{"citation_id": "past_modal", "target_case_id": 1, "citation_text": "2099 FC 1", "start": 24, "end": 33}],
+            "expected": [{"citation_id": "past_modal", "classes": ["unknown"]}]
+          },
+  {
+    "id": "para_2",
+    "text": "This court follows 2099 FC 1 in this matter.",
+    "citations": [
+      {
+        "citation_id": "cite_2",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_2",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_3",
+    "text": "I adopt the reasoning in 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_3",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 25,
+        "end": 34
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_3",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_4",
+    "text": "We rely on 2099 FC 1 in reaching this conclusion.",
+    "citations": [
+      {
+        "citation_id": "cite_4",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 11,
+        "end": 20
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_4",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_5",
+    "text": "This court applies 2099 FC 2 to the circumstances.",
+    "citations": [
+      {
+        "citation_id": "cite_5",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_5",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_6",
+    "text": "Following 2099 FC 1, I conclude the law compels this result.",
+    "citations": [
+      {
+        "citation_id": "cite_6",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 10,
+        "end": 19
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_6",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_7",
+    "text": "I find 2099 FC 1 not distinguishable from the current facts.",
+    "citations": [
+      {
+        "citation_id": "cite_7",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 7,
+        "end": 16
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_7",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_8",
+    "text": "This court adopts the principle established in 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_8",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 47,
+        "end": 56
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_8",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_9",
+    "text": "I rely directly on 2099 FC 1 for this determination.",
+    "citations": [
+      {
+        "citation_id": "cite_9",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_9",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_10",
+    "text": "This precedent requires application of 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_10",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 39,
+        "end": 48
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_10",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_11",
+    "text": "I distinguish 2099 FC 1 on the facts before me.",
+    "citations": [
+      {
+        "citation_id": "cite_11",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 14,
+        "end": 23
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_11",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_12",
+    "text": "2099 FC 2 is distinguishable on this critical point.",
+    "citations": [
+      {
+        "citation_id": "cite_12",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_12",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_13",
+    "text": "I find 2099 FC 1 distinguishable from the present case.",
+    "citations": [
+      {
+        "citation_id": "cite_13",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 7,
+        "end": 16
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_13",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_14",
+    "text": "These circumstances distinguish 2099 FC 2 clearly.",
+    "citations": [
+      {
+        "citation_id": "cite_14",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 32,
+        "end": 41
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_14",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_15",
+    "text": "The case of 2099 FC 1 can be distinguished readily.",
+    "citations": [
+      {
+        "citation_id": "cite_15",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 12,
+        "end": 21
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_15",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_16",
+    "text": "This court distinguishes 2099 FC 2 on several grounds.",
+    "citations": [
+      {
+        "citation_id": "cite_16",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 25,
+        "end": 34
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_16",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_17",
+    "text": "2099 FC 1 is distinguishable because the facts differ materially.",
+    "citations": [
+      {
+        "citation_id": "cite_17",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_17",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_18",
+    "text": "I distinguish both 2099 FC 1 and assess each separately.",
+    "citations": [
+      {
+        "citation_id": "cite_18",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_18",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_19",
+    "text": "The authority 2099 FC 1 is distinguishable in principle.",
+    "citations": [
+      {
+        "citation_id": "cite_19",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 14,
+        "end": 23
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_19",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_20",
+    "text": "2099 FC 2 may be distinguished on procedural grounds.",
+    "citations": [
+      {
+        "citation_id": "cite_20",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_20",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_21",
+    "text": "I did not follow 2099 FC 1 in this circumstance.",
+    "citations": [
+      {
+        "citation_id": "cite_21",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 17,
+        "end": 26
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_21",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_22",
+    "text": "This court declines to follow 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_22",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 30,
+        "end": 39
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_22",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_23",
+    "text": "I criticise the reasoning in 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_23",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 29,
+        "end": 38
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_23",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_24",
+    "text": "I refuse to apply 2099 FC 2 to these facts.",
+    "citations": [
+      {
+        "citation_id": "cite_24",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 18,
+        "end": 27
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_24",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_25",
+    "text": "I question whether 2099 FC 1 remains good authority.",
+    "citations": [
+      {
+        "citation_id": "cite_25",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_25",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_26",
+    "text": "This court does not follow 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_26",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 27,
+        "end": 36
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_26",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_27",
+    "text": "I do not accept the principle laid down in 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_27",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 43,
+        "end": 52
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_27",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_28",
+    "text": "2099 FC 2 has been questioned in previous decisions.",
+    "citations": [
+      {
+        "citation_id": "cite_28",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_28",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_29",
+    "text": "The reasoning of 2099 FC 1 is problematic.",
+    "citations": [
+      {
+        "citation_id": "cite_29",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 17,
+        "end": 26
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_29",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_30",
+    "text": "I decline to follow the approach in 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_30",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 36,
+        "end": 45
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_30",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_31",
+    "text": "I consider 2099 FC 1 relevant to this analysis.",
+    "citations": [
+      {
+        "citation_id": "cite_31",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 11,
+        "end": 20
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_31",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_32",
+    "text": "This court discusses 2099 FC 2 in detail.",
+    "citations": [
+      {
+        "citation_id": "cite_32",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 21,
+        "end": 30
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_32",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_33",
+    "text": "I note the reasoning offered in 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_33",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 32,
+        "end": 41
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_33",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_34",
+    "text": "We refer to 2099 FC 1 for context and background.",
+    "citations": [
+      {
+        "citation_id": "cite_34",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 12,
+        "end": 21
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_34",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_35",
+    "text": "I mention 2099 FC 2 as potentially instructive authority.",
+    "citations": [
+      {
+        "citation_id": "cite_35",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 10,
+        "end": 19
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_35",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_36",
+    "text": "The court discusses the approach in 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_36",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 36,
+        "end": 45
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_36",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_37",
+    "text": "I consider the analysis in 2099 FC 2 informative.",
+    "citations": [
+      {
+        "citation_id": "cite_37",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 27,
+        "end": 36
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_37",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_38",
+    "text": "Reference is made to 2099 FC 1 in this connection.",
+    "citations": [
+      {
+        "citation_id": "cite_38",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 21,
+        "end": 30
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_38",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_39",
+    "text": "This case examines 2099 FC 2 without adopting it fully.",
+    "citations": [
+      {
+        "citation_id": "cite_39",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 19,
+        "end": 28
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_39",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_40",
+    "text": "I address the holding in 2099 FC 1 briefly.",
+    "citations": [
+      {
+        "citation_id": "cite_40",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 25,
+        "end": 34
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_40",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_41",
+    "text": "The citation 2099 FC 1 appears without clear judicial treatment.",
+    "citations": [
+      {
+        "citation_id": "cite_41",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 13,
+        "end": 22
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_41",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_42",
+    "text": "Counsel argued that 2099 FC 2 supported their position.",
+    "citations": [
+      {
+        "citation_id": "cite_42",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 20,
+        "end": 29
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_42",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_43",
+    "text": "As the prior court noted in 2099 FC 1, this principle applies.",
+    "citations": [
+      {
+        "citation_id": "cite_43",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 28,
+        "end": 37
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_43",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_44",
+    "text": "The appellant submits that 2099 FC 1 controls here.",
+    "citations": [
+      {
+        "citation_id": "cite_44",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 27,
+        "end": 36
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_44",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_45",
+    "text": "I follow 2099 FC 1 but distinguish 2099 FC 2 on scope.",
+    "citations": [
+      {
+        "citation_id": "cite_45",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 9,
+        "end": 18
+      },
+      {
+        "citation_id": "cite_45b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 35,
+        "end": 44
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_45",
+        "classes": [
+          "followed_applied"
+        ]
+      },
+      {
+        "citation_id": "cite_45b",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_47",
+    "text": "If one were to apply 2099 FC 1, different conclusions might follow.",
+    "citations": [
+      {
+        "citation_id": "cite_47",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 21,
+        "end": 30
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_47",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_48",
+    "text": "The Superior Court applied 2099 FC 2 differently.",
+    "citations": [
+      {
+        "citation_id": "cite_48",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 27,
+        "end": 36
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_48",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_49",
+    "text": "As noted in 2099 FC 1, the law continues to evolve.",
+    "citations": [
+      {
+        "citation_id": "cite_49",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 12,
+        "end": 21
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_49",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_50",
+    "text": "Court B's treatment of 2099 FC 2 does not bind us.",
+    "citations": [
+      {
+        "citation_id": "cite_50",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 23,
+        "end": 32
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_50",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_51",
+    "text": "Should the precedent in 2099 FC 1 apply, the outcome changes.",
+    "citations": [
+      {
+        "citation_id": "cite_51",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 24,
+        "end": 33
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_51",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_52",
+    "text": "The passage from 2099 FC 2 reads as follows: the law is settled.",
+    "citations": [
+      {
+        "citation_id": "cite_52",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 17,
+        "end": 26
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_52",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_53",
+    "text": "Historically, 2099 FC 1 represented the accepted rule.",
+    "citations": [
+      {
+        "citation_id": "cite_53",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 14,
+        "end": 23
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_53",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_54",
+    "text": "2099 FC 1 has been applied and reconsidered multiple times since.",
+    "citations": [
+      {
+        "citation_id": "cite_54",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_54",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_55",
+    "text": "My treatment of 2099 FC 2 differs from both cited positions.",
+    "citations": [
+      {
+        "citation_id": "cite_55",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 16,
+        "end": 25
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_55",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_56",
+    "text": "I am bound by 2099 FC 1 and therefore apply it.",
+    "citations": [
+      {
+        "citation_id": "cite_56",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 14,
+        "end": 23
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_56",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_57",
+    "text": "2099 FC 2 governs this precise situation.",
+    "citations": [
+      {
+        "citation_id": "cite_57",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_57",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_58",
+    "text": "I must follow the authority of 2099 FC 1.",
+    "citations": [
+      {
+        "citation_id": "cite_58",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 31,
+        "end": 40
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_58",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_59",
+    "text": "2099 FC 1 is distinguishable in critical respects.",
+    "citations": [
+      {
+        "citation_id": "cite_59",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_59",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_60",
+    "text": "The facts readily distinguish 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_60",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 30,
+        "end": 39
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_60",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_61",
+    "text": "I do not follow the principle in 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_61",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 33,
+        "end": 42
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_61",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_62",
+    "text": "I find the reasoning of 2099 FC 1 unsound.",
+    "citations": [
+      {
+        "citation_id": "cite_62",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 24,
+        "end": 33
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_62",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_63",
+    "text": "2099 FC 1 provides relevant context for analysis.",
+    "citations": [
+      {
+        "citation_id": "cite_63",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_63",
+        "classes": [
+          "considered_neutral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_64",
+    "text": "The court noted 2099 FC 2 without attribution.",
+    "citations": [
+      {
+        "citation_id": "cite_64",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 16,
+        "end": 25
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_64",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_65",
+    "text": "As counsel submits, \"I follow 2099 FC 1\" to their position.",
+    "citations": [
+      {
+        "citation_id": "cite_65",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 30,
+        "end": 39
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_65",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_66",
+    "text": "The lower court noted: \"I follow 2099 FC 2 for this principle.\"",
+    "citations": [
+      {
+        "citation_id": "cite_66",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 33,
+        "end": 42
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_66",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_67",
+    "text": "Prior court authority stated: 'I follow 2099 FC 1 exclusively.'",
+    "citations": [
+      {
+        "citation_id": "cite_67",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 40,
+        "end": 49
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_67",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_68",
+    "text": "I do not distinguish 2099 FC 1 on the merits.",
+    "citations": [
+      {
+        "citation_id": "cite_68",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 21,
+        "end": 30
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_68",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_69",
+    "text": "2099 FC 2 is not distinguishable upon careful examination.",
+    "citations": [
+      {
+        "citation_id": "cite_69",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_69",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_70",
+    "text": "I do not apply 2099 FC 1 because its reasoning is flawed.",
+    "citations": [
+      {
+        "citation_id": "cite_70",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 15,
+        "end": 24
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_70",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_71",
+    "text": "I do not consider 2099 FC 2 as binding authority here.",
+    "citations": [
+      {
+        "citation_id": "cite_71",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 18,
+        "end": 27
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_71",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_72",
+    "text": "I follow 2099 FC 1 and 2099 FC 2 as coordinating authorities.",
+    "citations": [
+      {
+        "citation_id": "cite_72a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 9,
+        "end": 18
+      },
+      {
+        "citation_id": "cite_72b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 23,
+        "end": 32
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_72a",
+        "classes": [
+          "unknown"
+        ]
+      },
+      {
+        "citation_id": "cite_72b",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_73",
+    "text": "I follow 2099 FC 1 but distinguish 2099 FC 2 on remedy.",
+    "citations": [
+      {
+        "citation_id": "cite_73a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 9,
+        "end": 18
+      },
+      {
+        "citation_id": "cite_73b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 35,
+        "end": 44
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_73a",
+        "classes": [
+          "followed_applied"
+        ]
+      },
+      {
+        "citation_id": "cite_73b",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_74",
+    "text": "I follow 2099 FC 1. I distinguish 2099 FC 1 on remedy.",
+    "citations": [
+      {
+        "citation_id": "cite_74a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 9,
+        "end": 18
+      },
+      {
+        "citation_id": "cite_74b",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 34,
+        "end": 43
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_74a",
+        "classes": [
+          "followed_applied"
+        ]
+      },
+      {
+        "citation_id": "cite_74b",
+        "classes": [
+          "distinguished"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_75",
+    "text": "The precedent holds that \"penalties are mandatory.\" I apply 2099 FC 1 here.",
+    "citations": [
+      {
+        "citation_id": "cite_75",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 60,
+        "end": 69
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_75",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_76",
+    "text": "2099 FC 1 was cited in argument. I follow 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_76a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "citation_id": "cite_76b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 42,
+        "end": 51
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_76a",
+        "classes": [
+          "unknown"
+        ]
+      },
+      {
+        "citation_id": "cite_76b",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_77",
+    "text": "The rule emerged from 2099 FC 1; however, 2099 FC 2 modifies it.",
+    "citations": [
+      {
+        "citation_id": "cite_77a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 22,
+        "end": 31
+      },
+      {
+        "citation_id": "cite_77b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 42,
+        "end": 51
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_77a",
+        "classes": [
+          "unknown"
+        ]
+      },
+      {
+        "citation_id": "cite_77b",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_78",
+    "text": "The lower court applied 2099 FC 1; yet we do not.",
+    "citations": [
+      {
+        "citation_id": "cite_78",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 24,
+        "end": 33
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_78",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_79",
+    "text": "We cannot possibly follow 2099 FC 1 given the statute.",
+    "citations": [
+      {
+        "citation_id": "cite_79",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 26,
+        "end": 35
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_79",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_80",
+    "text": "If we were to follow 2099 FC 2, the remedy would differ.",
+    "citations": [
+      {
+        "citation_id": "cite_80",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 21,
+        "end": 30
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_80",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_81",
+    "text": "The applicant argues 2099 FC 1 should be followed; I follow 2099 FC 2.",
+    "citations": [
+      {
+        "citation_id": "cite_81a",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 21,
+        "end": 30
+      },
+      {
+        "citation_id": "cite_81b",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 60,
+        "end": 69
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_81a",
+        "classes": [
+          "unknown"
+        ]
+      },
+      {
+        "citation_id": "cite_81b",
+        "classes": [
+          "followed_applied"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_82",
+    "text": "Double negation: It is not true that 2099 FC 1 is inapplicable.",
+    "citations": [
+      {
+        "citation_id": "cite_82",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 37,
+        "end": 46
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_82",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_83",
+    "text": "We are not at liberty to ignore 2099 FC 2 on this point.",
+    "citations": [
+      {
+        "citation_id": "cite_83",
+        "target_case_id": 2,
+        "citation_text": "2099 FC 2",
+        "start": 32,
+        "end": 41
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_83",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_84",
+    "text": "I cannot follow 2099 FC 1 consistent with legislative intent.",
+    "citations": [
+      {
+        "citation_id": "cite_84",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 16,
+        "end": 25
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_84",
+        "classes": [
+          "criticised_not_followed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "para_85",
+    "text": "Curly quote: 'I follow 2099 FC 1' does not constitute judicial opinion.",
+    "citations": [
+      {
+        "citation_id": "cite_85",
+        "target_case_id": 1,
+        "citation_text": "2099 FC 1",
+        "start": 23,
+        "end": 32
+      }
+    ],
+    "expected": [
+      {
+        "citation_id": "cite_85",
+        "classes": [
+          "unknown"
+        ]
+      }
+    ]
+  }
+]

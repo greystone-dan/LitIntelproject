@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T04:28:13.207489+00:00
+Generated: 2026-10-05T04:31:51.437252+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 123 across 120 paths
+OpenAPI operations: 124 across 121 paths
 Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -253,6 +253,25 @@ Get Case Summary Card
 **Responses**
 
 - `200`: Successful Response; `application/json`: `CaseSummaryCardResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/citation-treatment/{case_id}`
+
+Get Citation Treatment
+
+Experimental read-only paragraph evidence, not permanent authority labels.
+
+Counts use distinct citing decisions including unknown as their denominator.
+Classes overlap for mixed evidence; unknown means no classifiable evidence.
+No UI, citation metrics, stored data or source offsets are changed.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/compare`

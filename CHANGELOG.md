@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a visible Data Explorer **Download Word** control and the
+  `GET /search/export.docx` endpoint, which preserve active analytics search
+  filters and export up to 200 cases with citation/title/court/date/outcome
+  columns and query/filter/date/count context; the response is no-store.
 - Added **Download CSV** to Case Search and `GET /search/export.csv`, carrying
 	the active query, filters, and sort order into a maximum 1,000-row export
 	with stable columns, UTF-8 BOM, spreadsheet formula escaping, and active

@@ -165,6 +165,50 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="judgePanel"' not in html
 
 
+def test_data_explorer_word_export_shares_search_actions_with_csv():
+    html = routes._data_explorer_page_html()
+
+    search_actions = re.findall(r'<div class="search-actions">(.*?)</div>', html)
+    export_actions = next(actions for actions in search_actions if 'id="downloadSearchWord"' in actions)
+    assert 'type="submit" class="sq-go">Search cases</button>' in export_actions
+    assert (
+        '<a id="downloadSearchWord" class="qf-link" href="/search/export.docx" '
+        'hidden aria-hidden="true">Download Word</a>'
+    ) in export_actions
+    assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
+    assert '<div class="search-status" id="searchMeta"' in html
+    assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
+    assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
+    search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)
+    assert search_values is not None
+    assert re.findall(r"(?:^|,)([a-z_]+):", search_values.group(1)) == [
+        "query",
+        "cites",
+        "government_outcome",
+        "decision_outcome",
+        "minister",
+        "judge",
+        "court",
+        "year",
+        "search_full_text",
+        "sort_by",
+        "limit",
+    ]
+    assert "let filtersDirty=false" in html
+    assert "requestEditVersion=editVersion" in html
+    assert "filtersDirty=editVersion!==requestEditVersion" in html
+    assert "professionalSearchGeneration=0" in html
+    assert "if(requestId!==professionalSearchGeneration)return" in html
+    assert "document.addEventListener('input',markFiltersDirty)" in html
+    assert "document.addEventListener('change',markFiltersDirty)" in html
+    assert (
+        "!document.getElementById('searchUseRag')?.checked&&!filtersDirty"
+        "&&meta.dataset.state==='success'&&meta.textContent.includes('matching decision')"
+        "&&Boolean(results.querySelector('.case-result'))"
+    ) in html
+    assert "#downloadSearchWord[hidden]{display:none!important}" in html
+
+
 def test_reader_renders_backend_cited_paragraph_metadata():
     html = routes._data_explorer_page_html()
 

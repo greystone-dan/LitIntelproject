@@ -4,6 +4,7 @@ import math
 import csv
 import io
 import re
+from datetime import datetime, timezone
 import httpx
 from functools import lru_cache
 from hashlib import sha256
@@ -13,6 +14,7 @@ from typing import Any
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from docx import Document
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
@@ -262,7 +264,9 @@ from .models import (
 	ResearchSource,
 )
 
-_data_explorer_page_html = data_explorer_page_html
+def _data_explorer_page_html() -> str:
+	"""Render the active Data Explorer page."""
+	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
 PROTOTYPE_SET_NAME = "immigration_334_v1"
@@ -1101,7 +1105,7 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
-	return HTMLResponse(content=data_explorer_page_html(), status_code=status.HTTP_200_OK)
+	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/discussion-units-sandbox", response_class=HTMLResponse, include_in_schema=False)
@@ -3208,6 +3212,96 @@ def search_cases(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
 	return execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+
+
+@router.get("/search/export.docx")
+def export_search_docx(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	limit: int = Query(default=50, ge=1, le=100),
+	db: Session = Depends(get_db),
+) -> Response:
+	"""Export up to 200 cases using the Data Explorer search filters."""
+	filters = {
+		"cites": cites,
+		"government_outcome": government_outcome,
+		"decision_outcome": decision_outcome,
+		"minister": minister,
+		"judge": judge,
+		"court": court,
+		"year": year,
+		"search_full_text": search_full_text,
+		"sort_by": sort_by,
+		"limit": limit,
+	}
+	cases: list[dict[str, Any]] = []
+	for offset in (0, 100):
+		page = fetch_analytics_search_cases(
+			db,
+			query=query,
+			cites=cites,
+			government_outcome=government_outcome,
+			decision_outcome=decision_outcome,
+			minister=minister,
+			judge=judge,
+			court=court,
+			year=year,
+			search_full_text=search_full_text,
+			sort_by=sort_by,
+			limit=100,
+			offset=offset,
+		)
+		page_results = page.get("results", [])
+		cases.extend(page_results[: 200 - len(cases)])
+		if len(page_results) < 100 or len(cases) == 200:
+			break
+
+	filter_summary = ", ".join(
+		f"{name}={value}" for name, value in filters.items() if value not in ("", False)
+	) or "none"
+	header = (
+		f"Query: {query} | Filters: {filter_summary} | "
+		f"Generated: {datetime.now(timezone.utc).date().isoformat()} | Count: {len(cases)}"
+	)
+	document = Document(io.BytesIO(text_to_docx(header)))
+	table = document.add_table(rows=1, cols=5)
+	table.style = "Table Grid"
+	for cell, heading in zip(table.rows[0].cells, ("Citation", "Title", "Court", "Date", "Outcome")):
+		cell.text = heading
+	for case in cases:
+		row = table.add_row().cells
+		case_date = case.get("date")
+		for cell, value in zip(
+			row,
+			(
+				case.get("citation") or "",
+				case.get("title") or "",
+				case.get("court") or "",
+				case_date.isoformat() if hasattr(case_date, "isoformat") else case_date or "",
+				case.get("decision_outcome") or case.get("government_outcome") or "",
+			),
+		):
+			cell.text = str(value)
+	buffer = io.BytesIO()
+	document.save(buffer)
+
+	slug = re.sub(r"[^A-Za-z0-9]+", "-", query).strip("-")[:60] or "results"
+	return Response(
+		content=buffer.getvalue(),
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={
+			**_NO_STORE,
+			"Content-Disposition": f'attachment; filename="search-{slug}.docx"',
+		},
+	)
 
 
 @router.post("/search/chunks", response_model=list[ChunkSearchResponse])

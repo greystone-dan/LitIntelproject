@@ -1,3 +1,7 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def prototype_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">

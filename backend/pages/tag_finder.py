@@ -1,6 +1,9 @@
 """Tag-based case similarity finder page."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def tag_finder_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">

@@ -2,8 +2,10 @@ from pathlib import Path
 
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
+from .accessibility import accessible_page
 
 
+@accessible_page
 def data_explorer_page_html() -> str:
   html = """<!doctype html>
 <html lang="en">
@@ -19,8 +21,8 @@ def data_explorer_page_html() -> str:
 --surface-alt: #f1f5f9;
 --border: #e2e8f0;
 --text: #102038;
---muted: #5b6d83;
---muted-2: #8ca0b6;
+--muted: #506175;
+--muted-2: #536277;
 --navy: #1e3a8a;
 --blue: #2563eb;
 --blue-soft: #dbeafe;
@@ -198,7 +200,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 @media(max-width:760px){.reader-layout{display:flex;flex-direction:column;height:auto}.reader-pane-splitter{display:none}.reader-pane.target{order:1;max-height:none}.reader-pane.source{order:2;min-height:520px}.reader-pane.linked{order:3;min-height:180px}.reader-info-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.paragraph-assessment{grid-template-columns:1fr;margin-left:3px}.paragraph-assessment strong{grid-row:auto}.paragraph-assessment p{grid-column:auto}}
 
 /* Citation Map visual language: shared research-workbench foundation. */
-:root{--bg:#f1efe8;--surface:#fffef9;--surface-alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#69726d;--muted-2:#8b928d;--navy:#202522;--ink:#202522;--blue:#315d8d;--blue-soft:#e7eef6;--teal:#176c68;--green:#176c68;--green-soft:#edf5f3;--amber:#c28e2d;--amber-soft:#f8f0dc;--rust:#a4412b;--red:#a4412b;--red-soft:#f7e8e3;--purple:#62754d;--purple-soft:#edf1e7;--shadow:0 10px 28px rgba(32,37,34,.07);--shadow-soft:0 8px 20px rgba(32,37,34,.08)}
+:root{--bg:#f1efe8;--surface:#fffef9;--surface-alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#626b65;--muted-2:#626b65;--navy:#202522;--ink:#202522;--blue:#315d8d;--blue-soft:#e7eef6;--teal:#176c68;--green:#176c68;--green-soft:#edf5f3;--amber:#c28e2d;--amber-soft:#f8f0dc;--rust:#a4412b;--red:#a4412b;--red-soft:#f7e8e3;--purple:#62754d;--purple-soft:#edf1e7;--shadow:0 10px 28px rgba(32,37,34,.07);--shadow-soft:0 8px 20px rgba(32,37,34,.08)}
 html,body{height:auto;min-height:100%;background:var(--bg)}body{font-family:"IBM Plex Sans",sans-serif;letter-spacing:0;background-image:linear-gradient(rgba(32,37,34,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(32,37,34,.035) 1px,transparent 1px);background-size:26px 26px}
 .app-shell{background:transparent}.topbar{height:68px;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--border);background:rgba(255,254,249,.96)}.topbar .brand{align-items:baseline;gap:13px}.logo-mark{display:none}.brand-name{font:700 28px/1 "Newsreader",serif;letter-spacing:0}.brand-sub{font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}.research-nav{display:flex;align-items:center;gap:5px}.research-nav a{display:flex;align-items:center;gap:5px;padding:7px 9px;border-radius:5px;color:var(--muted);font-size:10px;text-decoration:none}.research-nav a.active{background:var(--ink);color:#fff}.research-nav a:hover{color:var(--teal)}
 .workspace{min-height:calc(100vh - 68px)}.center-pane{max-width:none;width:100%;padding:10px 32px 24px;gap:6px;overflow:visible}.page-header{padding:4px 0 2px}.eyebrow{color:var(--rust);letter-spacing:.08em}.page-header h1{font:700 31px/1.1 "Newsreader",serif;letter-spacing:0}.page-header p{font-size:12px;color:var(--muted)}.view-tabs{gap:0;margin-top:17px;border-bottom:1px solid var(--border)}.tab{border:0;border-radius:0;background:transparent;padding:10px 12px;color:var(--muted);font-size:10px;letter-spacing:.04em;text-transform:uppercase}.tab.active{background:transparent;color:var(--text);box-shadow:inset 0 -2px var(--rust)}
@@ -637,7 +639,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 </div>
 <div class="summaryRows" id="summary"><span>Loading results...</span></div>
 <div class="legend" id="legend"></div>
-<div class="table-wrap"><table><thead id="head"></thead><tbody id="rows"><tr><td class="empty">Loading analytics...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><caption class="a11y-visually-hidden">Grouped analysis results</caption><thead id="head"><tr><th scope="col">Analysis field</th></tr></thead><tbody id="rows"><tr><td class="empty">Loading analytics...</td></tr></tbody></table></div>
 <p class="search-meta">Missing values are shown as ?Unknown.? Counts use the metadata extracted from each decision and update from the current database state.</p>
 </section>
 <section id="fcHistoryPanel" class="panel-card search-layout" hidden>
@@ -1418,6 +1420,15 @@ window.addEventListener('afterprint',()=>{
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
   html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
+  html = html.replace(
+      '<table><thead><tr><th>Table</th><th>Purpose</th><th>Key fields</th><th>Relationship</th><th>Used by</th>',
+      '<table><caption class="a11y-visually-hidden">Entity detail matrix</caption><thead><tr><th>Table</th><th>Purpose</th><th>Key fields</th><th>Relationship</th><th>Used by</th>',
+      1,
+  )
+  html = html.replace(
+      '<table><thead><tr><th>Table</th><th>Purpose</th><th>Key fields</th><th>Outputs / consumers</th><th>Notes</th>',
+      '<table><caption class="a11y-visually-hidden">System schema inventory</caption><thead><tr><th>Table</th><th>Purpose</th><th>Key fields</th><th>Outputs / consumers</th><th>Notes</th>',
+  )
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')

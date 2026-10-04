@@ -1,3 +1,7 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def statute_viewer_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -16,6 +20,7 @@ def statute_viewer_page_html() -> str:
 
 		<div id="statute-browser">
 			<div class="search-controls">
+				<label class="a11y-visually-hidden" for="statute-select">Statute</label>
 				<select id="statute-select">
 					<option value="">Select a statute...</option>
 					<option value="IRPA">Immigration and Refugee Protection Act (IRPA)</option>
@@ -26,6 +31,7 @@ def statute_viewer_page_html() -> str:
 					<option value="FCR">Federal Courts Rules</option>
 					<option value="Charter">Canadian Charter of Rights and Freedoms</option>
 				</select>
+				<label class="a11y-visually-hidden" for="decision-date">Decision date (optional)</label>
 				<input type="date" id="decision-date" placeholder="Decision date (optional)">
 				<button onclick="loadStatute()">Load Statute</button>
 			</div>

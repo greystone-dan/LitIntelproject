@@ -1,3 +1,7 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def judge_outcomes_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -15,7 +19,7 @@ def judge_outcomes_page_html() -> str:
 		<header class="masthead"><div><div class="eyebrow">Decision Analytics</div><h1>How Top Judges Rule</h1></div><p class="subhead">The 50 judges with the most decisions, showing outcomes where the government and individual sides can be determined from the decision record.</p></header>
 		<section class="summary" id="summary"><div class="metric"><small>Loading</small><strong>...</strong></div></section>
 		<div class="legend"><span class="key"><i class="dot" style="background:var(--gov)"></i>Government wins</span><span class="key"><i class="dot" style="background:var(--ind)"></i>Individual wins</span><span class="key"><i class="dot" style="background:var(--unknown)"></i>Unclassified</span></div>
-		<div class="table-wrap"><table><thead><tr><th>#</th><th>Judge</th><th>Decisions</th><th>Outcome split</th><th>Government wins</th><th>Individual wins</th><th>Unclassified</th><th>Gov. win rate</th></tr></thead><tbody id="rows"><tr><td colspan="8" class="empty">Loading analytics...</td></tr></tbody></table></div>
+		<div class="table-wrap"><table><caption class="a11y-visually-hidden">Judge outcome rankings</caption><thead><tr><th scope="col">#</th><th scope="col">Judge</th><th scope="col">Decisions</th><th scope="col">Outcome split</th><th scope="col">Government wins</th><th scope="col">Individual wins</th><th scope="col">Unclassified</th><th scope="col">Gov. win rate</th></tr></thead><tbody id="rows"><tr><td colspan="8" class="empty">Loading analytics...</td></tr></tbody></table></div>
 		<p class="note">Win rate uses only classified decisions. Unclassified decisions are included in the decision total but excluded from the rate.</p>
 	</main>
 	<script>

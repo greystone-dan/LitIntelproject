@@ -1,6 +1,9 @@
 """Standalone saved-search and recorded-alert page."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def saved_searches_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">

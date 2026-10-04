@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from .accessibility import accessible_page
+
+
+@accessible_page
 def testing_page_html() -> str:
 	return """<!doctype html>
 <html lang="en">
@@ -384,6 +388,7 @@ def testing_page_html() -> str:
 								<div class="controls" style="grid-template-columns: 1fr 1fr 1fr 1fr; margin-top: 0;">
 									<div>
 										<label class="toggle" for="yearToggle"><input id="yearToggle" type="checkbox" /> Year filter</label>
+										<label class="a11y-visually-hidden" for="decisionYear">Decision year</label>
 										<input id="decisionYear" type="number" min="1900" max="2100" placeholder="2020" disabled />
 									</div>
 									<div>
@@ -1114,4 +1119,3 @@ def testing_page_html() -> str:
 </body>
 </html>
 """
-

@@ -1,3 +1,7 @@
+from .accessibility import accessible_page
+
+
+@accessible_page
 def citation_pass_page_html() -> str:
 	return r"""<!doctype html>
 <html lang=\"en\">
@@ -191,5 +195,4 @@ def citation_pass_page_html() -> str:
 	</script>
 </body>
 </html>"""
-
 

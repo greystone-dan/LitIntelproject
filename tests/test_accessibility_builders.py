@@ -7,14 +7,21 @@ import pkgutil
 
 from backend import pages
 from backend.pages.citation_map import citation_map_html
+from backend.pages.citation_pass import citation_pass_page_html
+from backend.pages.discussion_units_sandbox import discussion_units_sandbox_page_html
 from backend.pages.data_explorer import data_explorer_page_html
 from backend.pages.deidentify import deidentify_page_html
 from backend.pages.fc_analytics import FC_ANALYTICS_CSS, FC_ANALYTICS_PANEL
+from backend.pages.judge_outcomes import judge_outcomes_page_html
+from backend.pages.live_analysis import live_analysis_page_html
 from backend.pages.memo_citation_check import memo_citation_check_page_html
 from backend.pages.prototype import prototype_page_html
+from backend.pages.quick_search import quick_search_page_html
 from backend.pages.research import research_page_html
 from backend.pages.saved_searches import saved_searches_page_html
+from backend.pages.statute_viewer import statute_viewer_page_html
 from backend.pages.tag_finder import tag_finder_page_html
+from backend.pages.testing import testing_page_html as build_testing_page_html
 
 
 class _PageMarkupParser(HTMLParser):
@@ -23,9 +30,21 @@ class _PageMarkupParser(HTMLParser):
         self.images = []
         self.tables = []
         self.table_stack = []
+        self.main_landmarks = 0
+        self.skip_targets = []
+        self.ids = set()
+        self.live_status_regions = 0
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
+        if attributes.get("id"):
+            self.ids.add(attributes["id"])
+        if tag == "main" or attributes.get("role") == "main":
+            self.main_landmarks += 1
+        if tag == "a" and "skip-link" in attributes.get("class", "").split():
+            self.skip_targets.append(attributes.get("href"))
+        if attributes.get("role") == "status" and attributes.get("aria-live") == "polite":
+            self.live_status_regions += 1
         if tag == "img":
             self.images.append(attributes)
         elif tag == "table":
@@ -73,6 +92,7 @@ class _ControlNameParser(HTMLParser):
                     "aria-labelledby": attributes.get("aria-labelledby"),
                     "title": attributes.get("title"),
                     "value": attributes.get("value"),
+                    "hidden": "hidden" in attributes or attributes.get("aria-hidden") == "true",
                     "text": [],
                 }
             )
@@ -104,6 +124,8 @@ def _unnamed_controls(html):
     parser.feed(html)
     unnamed = []
     for control in parser.controls:
+        if control["hidden"]:
+            continue
         if control["tag"] == "input" and control["type"] == "hidden":
             continue
         label = parser.labels.get(control["id"], "") or control.get("nested-label", "")
@@ -136,7 +158,14 @@ def _all_page_builder_html():
             and (name.endswith("_page_html") or name == "citation_map_html")
         ]
         for builder in builders:
-            html = builder({}) if builder.__name__ == "issue_brief_page_html" else builder()
+            brief = {
+                "tag": "issue:test",
+                "decision_count": 1,
+                "years": [{"year": 2025, "decision_count": 1, "unclassified_count": 0}],
+                "courts": [{"court": "Federal Court", "decision_count": 1}],
+                "top_authorities": [],
+            }
+            html = builder(brief) if builder.__name__ == "issue_brief_page_html" else builder()
             yield f"{module_info.name}.{builder.__name__}", html
 
 
@@ -148,6 +177,12 @@ def _css_variables(css):
             css,
         )
     }
+
+
+def _css_scope_variables(css, selector=":root"):
+    block = re.search(rf"{re.escape(selector)}\s*\{{([^{{}}]*)\}}", css, re.IGNORECASE)
+    assert block, f"CSS scope {selector} was not found"
+    return _css_variables(block.group(1))
 
 
 def _relative_luminance(color):
@@ -240,12 +275,116 @@ def test_fc_analytics_focus_outline_contrasts_against_emitted_surface_token():
     assert _contrast_ratio(variables["fcx-ink"], variables["fcx-surface"]) >= 3.0
 
 
+def test_page_theme_text_and_focus_tokens_meet_contrast_thresholds():
+    themes = {
+        "Data Explorer": (
+            _css_scope_variables(data_explorer_page_html()),
+            [
+                ("text", "bg"),
+                ("text", "surface"),
+                ("text", "surface-alt"),
+                ("muted", "bg"),
+                ("muted", "surface"),
+                ("muted", "surface-alt"),
+                ("muted-2", "bg"),
+                ("muted-2", "surface"),
+                ("muted-2", "surface-alt"),
+            ],
+        ),
+        "Data Explorer About": (
+            _css_scope_variables(data_explorer_page_html(), ".ilit-about"),
+            [
+                ("text", "bg"),
+                ("text", "surface"),
+                ("muted", "bg"),
+                ("muted", "surface"),
+            ],
+        ),
+        "Citation Map": (
+            _css_scope_variables(citation_map_html()),
+            [("ink", "paper"), ("muted", "paper")],
+        ),
+        "De-identify": (
+            _css_scope_variables(deidentify_page_html()),
+            [("ink", "paper"), ("muted", "paper")],
+        ),
+        "Live Analysis": (
+            _css_scope_variables(live_analysis_page_html()),
+            [("ink", "paper"), ("muted", "paper")],
+        ),
+        "Memo Citation Check": (
+            _css_scope_variables(memo_citation_check_page_html()),
+            [("ink", "paper"), ("muted", "paper")],
+        ),
+        "Discussion Units": (
+            _css_scope_variables(discussion_units_sandbox_page_html()),
+            [("ink", "paper"), ("muted", "paper")],
+        ),
+        "Citation Pass": (
+            _css_scope_variables(citation_pass_page_html()),
+            [("text", "bg"), ("muted", "bg"), ("muted", "panel")],
+        ),
+        "Judge Outcomes": (
+            _css_scope_variables(judge_outcomes_page_html()),
+            [("ink", "paper"), ("muted", "paper"), ("muted", "panel")],
+        ),
+        "Statute Viewer": (
+            _css_scope_variables(statute_viewer_page_html()),
+            [("ink", "paper"), ("muted", "paper"), ("muted", "panel")],
+        ),
+        "Quick Search": (
+            _css_scope_variables(quick_search_page_html()),
+            [("ink", "bg"), ("muted", "bg"), ("muted", "card")],
+        ),
+        "Tag Finder": (
+            _css_scope_variables(tag_finder_page_html()),
+            [("ink", "bg"), ("muted", "bg"), ("muted", "card")],
+        ),
+        "Research": (
+            _css_scope_variables(research_page_html()),
+            [("ink", "bg"), ("muted", "bg"), ("muted", "panel")],
+        ),
+        "Prototype Explorer": (
+            _css_scope_variables(prototype_page_html()),
+            [("ink", "bg"), ("muted", "bg"), ("muted", "panel")],
+        ),
+        "API Tester": (
+            _css_scope_variables(build_testing_page_html()),
+            [("ink", "bg"), ("muted", "bg"), ("muted", "panel")],
+        ),
+    }
+    for page_name, (variables, pairs) in themes.items():
+        for foreground, background in pairs:
+            assert _contrast_ratio(
+                variables[foreground], variables[background]
+            ) >= 4.5, f"{page_name} {foreground} on {background} is below 4.5:1"
+
+    focus_pairs = [
+        (_css_scope_variables(data_explorer_page_html()), "blue", "surface"),
+        (_css_scope_variables(citation_map_html()), "blue", "paper"),
+        (_css_scope_variables(deidentify_page_html()), "teal", "surface"),
+    ]
+    for variables, foreground, background in focus_pairs:
+        assert _contrast_ratio(variables[foreground], variables[background]) >= 3.0
+    shared_focus_color = _css_variables(data_explorer_page_html())["a11y-focus"]
+    assert _contrast_ratio(shared_focus_color, "#ffffff") >= 3.0
+
+
 def test_deidentify_paste_textareas_are_programmatically_named_and_file_inputs_focusable():
     html = deidentify_page_html()
     assert '<label class="or" for="deidText">or paste text</label>' in html
     assert '<label class="or" for="restoreText">or paste text</label>' in html
     assert ".drop input{position:absolute" in html
     assert ".drop:focus-within{outline:3px solid var(--teal)" in html
+    assert 'aria-describedby="deidError"' in html
+    assert 'aria-describedby="restoreError"' in html
+    assert 'id="deidError" role="alert"' in html
+    assert 'id="restoreError" role="alert"' in html
+    for upload_page in (live_analysis_page_html(), memo_citation_check_page_html()):
+        assert re.search(
+            r'<input\b[^>]*id="file"[^>]*aria-describedby="error"', upload_page
+        )
+        assert 'id="error" role="alert" aria-live="assertive"' in upload_page
 
 
 def test_all_page_builders_have_accessible_static_images_controls_and_tables():
@@ -256,6 +395,19 @@ def test_all_page_builders_have_accessible_static_images_controls_and_tables():
     for page_name, html in pages_html:
         parser = _PageMarkupParser()
         parser.feed(html)
+        assert parser.main_landmarks, f"{page_name} has no main landmark"
+        assert parser.skip_targets, f"{page_name} has no skip-to-content link"
+        assert all(
+            target and target.startswith("#") and target[1:] in parser.ids
+            for target in parser.skip_targets
+        ), f"{page_name} has a broken skip-to-content target"
+        assert "prefers-reduced-motion:reduce" in html, (
+            f"{page_name} has no reduced-motion accommodation"
+        )
+        assert "data-accessibility-table-labels" in html, (
+            f"{page_name} does not label its dynamically rendered tables"
+        )
+        assert ":focus-visible{outline:3px solid var(--a11y-focus)" in html
         missing_alt = [image for image in parser.images if "alt" not in image]
         missing_headers = [
             index for index, table in enumerate(parser.tables, start=1) if not table["headers"]
@@ -272,3 +424,19 @@ def test_all_page_builders_have_accessible_static_images_controls_and_tables():
             )
 
     assert not findings, "\n".join(findings)
+
+
+def test_async_result_pages_announce_status_updates():
+    pages_html = dict(_all_page_builder_html())
+    for page_name in (
+        "data_explorer.data_explorer_page_html",
+        "discussion_units_sandbox.discussion_units_sandbox_page_html",
+        "live_analysis.live_analysis_page_html",
+        "memo_citation_check.memo_citation_check_page_html",
+        "quick_search.quick_search_page_html",
+        "saved_searches.saved_searches_page_html",
+        "tag_finder.tag_finder_page_html",
+    ):
+        parser = _PageMarkupParser()
+        parser.feed(pages_html[page_name])
+        assert parser.live_status_regions, f"{page_name} has no polite live status region"

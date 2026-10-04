@@ -1,6 +1,9 @@
 """Research experiment HTML page builder."""
 
+from .accessibility import accessible_page
 
+
+@accessible_page
 def research_page_html() -> str:
 	return r"""<!doctype html>
 <html lang="en">

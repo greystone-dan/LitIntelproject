@@ -5,10 +5,13 @@ from __future__ import annotations
 from html import escape
 from typing import Any
 
+from .accessibility import accessible_page
+
 
 MAX_PRINT_DECISIONS = 12
 
 
+@accessible_page
 def issue_brief_page_html(brief: dict[str, Any]) -> str:
 	"""Render a compact printable view of an issue brief JSON payload."""
 	tag = escape(str(brief.get("tag") or ""))
@@ -92,10 +95,10 @@ a{{color:inherit;text-decoration:none}}a[href]::after{{content:""}}.meta,.note{{
 {('<p class="empty">Enter a tag in category:value form, for example <code>issue:procedural_fairness</code>, then reload <code>/issue-brief-ui?tag=…</code>.</p>' if not tag else '')}
 {('<p class="empty">No decisions are tagged with this issue.</p>' if empty_state and tag else '')}
 {'' if empty_state else f'''<div class="grid">
-<section><h2>Decisions by year and outcome</h2><table><thead><tr><th>Year / outcome</th><th>Decisions</th><th>Unclassified / outcome share</th></tr></thead><tbody>{year_rows}</tbody></table>
+<section><h2>Decisions by year and outcome</h2><table><caption class="a11y-visually-hidden">Decisions by year and outcome</caption><thead><tr><th scope="col">Year / outcome</th><th scope="col">Decisions</th><th scope="col">Unclassified / outcome share</th></tr></thead><tbody>{year_rows}</tbody></table>
 <p class="note">Each outcome percentage uses all tagged decisions in its year as the denominator, including unclassified decisions; unclassified count and denominator are printed beside every percentage.</p></section>
-<section><h2>Courts</h2><table><thead><tr><th>Court</th><th>Decisions</th></tr></thead><tbody>{court_rows}</tbody></table>
-<h2>Top cited authorities</h2><table><thead><tr><th>Authority</th><th>Citation occurrences</th><th>Tagged citing decisions</th></tr></thead><tbody>{authority_rows}</tbody></table></section>
+<section><h2>Courts</h2><table><caption class="a11y-visually-hidden">Decisions by court</caption><thead><tr><th scope="col">Court</th><th scope="col">Decisions</th></tr></thead><tbody>{court_rows}</tbody></table>
+<h2>Top cited authorities</h2><table><caption class="a11y-visually-hidden">Top cited authorities</caption><thead><tr><th scope="col">Authority</th><th scope="col">Citation occurrences</th><th scope="col">Tagged citing decisions</th></tr></thead><tbody>{authority_rows}</tbody></table></section>
 </div><h2>Tagged decisions</h2>{decision_disclosure}<ul>{decision_rows}</ul>'''}
 <p class="note">Outcome source: {escape(str(semantics.get("outcomes") or ""))}</p>
 <p class="note">Citation scope: {escape(str(semantics.get("citations") or ""))}</p>

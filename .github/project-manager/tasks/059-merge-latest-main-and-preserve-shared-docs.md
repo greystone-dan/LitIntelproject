@@ -12,7 +12,7 @@ Why now: PR comment 5982763225 explicitly requests integration with current main
 
 Owner surface: Branch integration and documentation consistency.
 
-Commit allowed: yes
+Commit allowed: no
 
 Push allowed: no
 
@@ -63,6 +63,47 @@ If the latest fetched main commit and the current feature branch are integrated 
 4. Record documentation and evidence, then report progress without pushing.
 
 ## Execution Checkpoints
+
+- PR233 comment5985582226 follow-up: bounded merge of `origin/main` at
+  `63aba0295cea300f0370acaac66cc9603d8bdabe` into
+  `48a73aba19d9c431dedb87d29179c96dae8e9bcb`. Leave resolved merge staged
+  for the parent; no commit/push, dependencies, database or dotenv access.
+  Hypothesis: preserving both shared-document additions and regenerating
+  references yields no generated drift. Focused check: guarded in-memory
+  pytest for database limits, documentation contracts, and mocked precedent
+  finder, followed by guarded generated-reference validation and CI suite.
+- Latest follow-up result (supersedes earlier completion evidence below):
+  `git merge --no-commit --no-ff origin/main` left the true merge active.
+  Only `docs/API_REFERENCE.generated.md` and
+  `docs/SCHEMA_REFERENCE.generated.md` conflicted (timestamps). Do not stage
+  either until successful regeneration; no manual generated-file edits.
+  `SYSTEM_REFERENCE.md`, `docs/ARCHITECTURE.md`, and
+  `.swm/6.maiixtsw.sw.md` retain upstream Precedent Finder documentation and
+  branch database-limit descriptions/inventory. No synchronization-only
+  walkthrough edits were needed.
+- Delegated owner: `guarded-merge-tests`, managed-worker, read-only validation.
+  Returned structured evidence. Guarded focused/full pytest attempts could not
+  import pytest: zero collected/executed. No tests passed through pytest.
+  The full attempt included all three documented CI deselects. No database,
+  dotenv, deployment, or external service access occurred.
+- Environment blocker: system Python and all five existing hosted Python
+  runtimes lack pytest, FastAPI, SQLAlchemy, and dotenv; the earlier
+  `/tmp/litintel-ci-validation-20261004` environment no longer exists.
+  New dependencies are prohibited.
+- Generator evidence: existing script-catalog generator succeeded and produced
+  no content change. Guarded API/schema generators failed with
+  `ModuleNotFoundError: fastapi` / `ModuleNotFoundError: sqlalchemy`.
+  Existing `check_generated_docs.py`, with in-memory guarded child bootstraps,
+  exited 1 for those same two generator failures; script catalog matched.
+  No persistent safety scripts or helpers were created.
+- Focused static evidence: both existing documentation-contract functions ran
+  successfully via guarded `runpy` direct invocation (not pytest).
+  Cached diff whitespace check passed; worktree diff whitespace check reports
+  only the six remaining generated conflict-marker lines.
+- Status: blocked. The safe next action requires an existing dependency-complete
+  environment or permission to install dependencies, then guarded regeneration
+  and testing. Leave merge state active; no abort/reset/checkout, commit or push.
+  Parent must not commit this unresolved merge as ready for publication.
 
 - Delegation: Pending.
 - Implementation: `CHANGELOG.md` conflict resolved with both entries retained; `SYSTEM_REFERENCE.md` and `docs/ARCHITECTURE.md` auto-merged. Generated references refreshed from source.

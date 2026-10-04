@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T20:30:24.352687+00:00
+Generated: 2026-10-04T23:37:20.167913+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 118 across 115 paths
-Hidden operations: 63 excluded from OpenAPI
+OpenAPI operations: 119 across 116 paths
+Hidden operations: 64 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1387,6 +1387,27 @@ Memo Citation Check Analyze
 - `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /precedent-finder`
+
+Precedent Finder Analyze
+
+Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+Rank by distinct matching citing decisions, distinct matched tags, authority
+date descending, then citation ascending. Statutes do not influence ranking.
+All responses are no-store; no raw proposition is returned or persisted.
+
+**Request body (required)**
+
+- `application/json`: `object`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `413`: Proposition or JSON body exceeds the input limit; input is never echoed.
+- `422`: Invalid JSON proposition; input is never echoed.
+- `500`: Research unavailable; input is never echoed.
+
 ### `GET /prototype/cases`
 
 Prototype Cases
@@ -2479,6 +2500,16 @@ Handler: `backend.routes.live_analysis_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.memo_citation_check_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /precedent-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.precedent_finder_page`
 
 **Responses**
 

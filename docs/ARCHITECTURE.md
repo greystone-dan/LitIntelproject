@@ -238,6 +238,7 @@ test checks that these paths continue to exist.
 | `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
@@ -249,6 +250,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |

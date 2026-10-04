@@ -218,6 +218,16 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
+| `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
+| `backend/prompts/citation_issue_focused_assessment.txt` | Issue-focused paragraph-assessment prompt |
+| `backend/prompts/citation_lightweight_issue_extraction.txt` | Lightweight issue-extraction prompt |
+| `backend/prompts/citation_unit_context_assessment.txt` | Discussion-unit assessment prompt with optional context placeholders |
+| `backend/prompts/contextual_authority_teacher.txt` | Contextual-authority treatment teacher prompt |
+| `backend/prompts/discussion_paragraph_assessment.txt` | Paragraph-level discussion assessment prompt |
+| `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
+| `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
+| `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
 | `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |

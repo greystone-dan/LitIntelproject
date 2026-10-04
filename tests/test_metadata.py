@@ -552,3 +552,83 @@ def test_outcome_actor_and_bare_verdict_forms():
 def test_outcome_not_confused_by_in_order_to_text():
 	text = "In order to decide, the Court notes the application is allowed only if x.\nORDER\nThe appeal is dismissed."
 	assert _disposition(text) == "dismissed"
+
+
+# --- Outcome audit regressions (2026-10-04) ---------------------------------------------------------
+# Each case is a shortened real disposition pattern that the earlier rules got wrong.
+
+
+def test_outcome_rad_dismisses_appeal_despite_set_aside_in_footnote_text():
+	text = (
+		"CONCLUSION\n[53] The RAD dismisses the appeal and confirms the decision of the RPD that the Appellants are "
+		"neither Convention refugees nor persons in need of protection.\n"
+		"1 Huruglica v. Canada, 2016 FCA 93; the decision was set aside on judicial review."
+	)
+	assert _disposition(text) == "dismissed"
+
+
+def test_outcome_rpd_rejected_and_accepted_claims():
+	header = "RPD File No. / N° de dossier de la SPR : TB2-05345\nReasons and Decision\n"
+	assert _disposition(header + "[17] The panel finds that the claimant is neither a Convention refugee nor a person in need of protection. "
+		"The Refugee Protection Division, therefore, rejects her claim.") == "dismissed"
+	assert _disposition(header + "[21] For these reasons, the claim for refugee protection is rejected.") == "dismissed"
+	assert _disposition(header + "[25] The panel determines that the claimant, XXXX, is not a \"Convention refugee\" "
+		"nor a \"person in need of protection\".") == "dismissed"
+	assert _disposition(header + "The panel determines that the claimant is a person in need of protection; "
+		"consequently, his claim for refugee protection is accepted.") == "allowed"
+
+
+def test_outcome_appeal_court_concluding_sentences_without_judgment_block():
+	allowed = (
+		"[32] The appeal should therefore be allowed, the order of the judge should be set aside, the application "
+		"for judicial review should be dismissed and the decision of the officer restored."
+	)
+	assert _disposition(allowed) == "allowed"
+	assert _disposition("[11] Accordingly, we will dismiss the appeal. Costs are fixed at $4,000.") == "dismissed"
+	assert _disposition("[38] For these reasons, I would allow the appeal and set aside the decision.") == "allowed"
+	assert _disposition("[28] I would grant the motion and dismiss the appeal for mootness.") == "dismissed"
+
+
+def test_outcome_ignores_leave_to_appeal_in_subsequent_history_citations():
+	text = (
+		"The test is well settled (Doe v. Canada, [1996] 3 F.C. 83 (C.A.), leave to appeal refused, [1997] S.C.C.A. No. 1).\n"
+		"[9] For these reasons, the appeal is allowed."
+	)
+	assert _disposition(text) == "allowed"
+	assert _disposition("Reasons cite Roe v. Canada (2001), 1 Imm. L.R. 1; leave to appeal dismissed, [2002] 1 S.C.R. v.\n"
+		"[9] The appeal will be dismissed.") == "dismissed"
+
+
+def test_outcome_supreme_court_headline_beats_dissent_and_quoted_text():
+	text = (
+		"Held (Moldaver and Wagner JJ. dissenting in part): The appeal should be allowed.\n"
+		"Appeal allowed with costs, Moldaver and Wagner JJ. dissenting in part.\n"
+		"[200] In dissent: I would dismiss the appeal and affirm the Officer's decision.\n"
+		"Solicitors for the appellant: Counsel, Toronto."
+	)
+	assert _disposition(text) == "allowed"
+	assert build_case_outcome(text, {})["decision_outcome"] == "allowed"  # not "mixed": the "in part" is the dissent
+
+
+def test_government_role_follows_style_of_cause_for_minister_appeals():
+	text = (
+		"Appellant\nand\nAlexander Vavilov\nRespondent\nHeld: The appeal should be dismissed.\n"
+		"Appeal dismissed with costs throughout.\nSolicitors for the appellant: Attorney General of Canada, Ottawa."
+	)
+	record = build_case_outcome(text, {"style of cause": "Minister of Citizenship and Immigration v. Alexander Vavilov"})
+	assert record["decision_outcome"] == "dismissed"
+	assert record["government_role"] == "applicant"
+	assert record["government_outcome"] == "lost"
+	record = build_case_outcome(text, {"style of cause": "Alexander Vavilov v. Minister of Citizenship and Immigration"})
+	assert record["government_role"] == "respondent"
+	assert record["government_outcome"] == "won"
+
+
+def test_government_role_ignores_counsel_for_the_minister_caption_line():
+	text = (
+		"RAD File No. : MB9-02333\nPerson who is the subject of the appeal\nXXXX\nAppellant\n"
+		"Counsel for the Minister\nN/A\nREASONS FOR DECISION\n[18] I dismiss the appeal and confirm the RPD's determination."
+	)
+	record = build_case_outcome(text, {})
+	assert record["decision_outcome"] == "dismissed"
+	assert record["government_role"] is None

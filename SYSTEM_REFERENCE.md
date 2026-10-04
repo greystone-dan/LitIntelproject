@@ -404,6 +404,16 @@ to name when the excerpts are insufficient. The response returns the answer
 alongside the retrieved case sources; it does not create canonical summaries,
 citation rows, statute rows, embeddings, or source offsets.
 
+System prompts used by `/research`, citation-intelligence builders, the
+contextual-authority teacher, and the bounded discussion-unit scripts are stored
+as versioned text under `backend/prompts/` and loaded by
+`backend/prompt_registry.py`. Prompt wording is preserved in those files; each
+file declares its version in its header. `/research` adds `prompt_version` to
+its response beside `model_used`. The two bounded scripts record prompt versions
+in their JSON artifacts and rendered Markdown; the model-paragraph experiment
+records its segmentation and discussion-unit versions separately. Exact prompt
+snapshots and the additive API field are covered by focused tests.
+
 For local-only API operation, set `ENHANCED_AI_MODE=local` and configure an
 Ollama model with `OLLAMA_MODEL` and `OLLAMA_BASE_URL`; this does not construct
 an OpenAI generation client. Local semantic retrieval uses the separate

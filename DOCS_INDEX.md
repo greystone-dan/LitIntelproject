@@ -95,6 +95,9 @@ Current operational sources of truth:
 12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
 
+13. `docs/reports/id-iad-coverage-design.md`
+- Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
+
 ## Task-Specific Review Reports
 
 - `docs/reports/open-pr-review.md` records the read-only, point-in-time review

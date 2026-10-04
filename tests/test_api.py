@@ -1,3 +1,5 @@
+import csv
+import io
 from datetime import date
 from types import SimpleNamespace
 
@@ -60,6 +62,115 @@ def test_main_search_accepts_only_named_core_cohort(monkeypatch):
     assert calls["cohort_ids"] == [1, 2]
     with pytest.raises(HTTPException):
         routes.search_analytics_cases(cohort_id="arbitrary", db=object())
+
+
+def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypatch):
+    calls = []
+    monkeypatch.setattr(routes, "load_discussion_unit_cohort", lambda: {1: {}, 2: {}})
+
+    def fake_search(db, **kwargs):
+        calls.append(kwargs)
+        if kwargs["offset"] == 0:
+            return {
+                "results": [
+                    {
+                        "case_id": 42,
+                        "citation": "=SUM(A1:A2)",
+                        "title": "+unsafe title",
+                        "court": "-unsafe court",
+                        "date": "2024-01-02",
+                        "judge": "@unsafe judge",
+                        "government_outcome": "won",
+                        "decision_outcome": "dismissed",
+                    },
+                    {
+                        "case_id": 43,
+                        "citation": "Citation",
+                        "title": "Decision outcome case",
+                        "government_outcome": "unknown",
+                        "decision_outcome": "granted",
+                    },
+                ]
+            }
+        return {"results": []}
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    response = routes.export_search_analytics_cases(
+        query="Vavilov",
+        cites="2019 SCC 65",
+        government_outcome="won",
+        decision_outcome="dismissed",
+        minister="Minister",
+        judge="Zinn",
+        court="FC",
+        year="2024",
+        search_full_text=True,
+        sort_by="newest",
+        cohort_id="discussion_units_core_300",
+        db=object(),
+    )
+
+    assert response.body.startswith(b"\xef\xbb\xbf")
+    assert response.headers["content-disposition"] == 'attachment; filename="case-search.csv"'
+    rows = list(csv.reader(io.StringIO(response.body.decode("utf-8-sig"))))
+    assert rows == [
+        ["citation", "title", "court", "date", "judge", "outcome", "iLit URL"],
+        ["'=SUM(A1:A2)", "'+unsafe title", "'-unsafe court", "2024-01-02", "'@unsafe judge", "won", "/data-explorer?case_id=42"],
+        ["Citation", "Decision outcome case", "", "", "", "granted", "/data-explorer?case_id=43"],
+    ]
+    assert calls == [
+        {
+            "query": "Vavilov",
+            "cites": "2019 SCC 65",
+            "government_outcome": "won",
+            "decision_outcome": "dismissed",
+            "minister": "Minister",
+            "judge": "Zinn",
+            "court": "FC",
+            "year": "2024",
+            "search_full_text": True,
+            "sort_by": "newest",
+            "limit": 100,
+            "offset": 0,
+            "cohort_ids": [1, 2],
+        }
+    ]
+
+
+def test_case_search_csv_export_caps_results_at_1000(monkeypatch):
+    calls = []
+
+    def fake_search(db, **kwargs):
+        calls.append(kwargs)
+        return {
+            "results": [
+                {
+                    "case_id": case_id,
+                    "citation": f"Citation {case_id}",
+                    "title": f"Case {case_id}",
+                }
+                for case_id in range(kwargs["offset"], kwargs["offset"] + kwargs["limit"])
+            ]
+        }
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    response = routes.export_search_analytics_cases(db=object())
+
+    rows = list(csv.reader(io.StringIO(response.body.decode("utf-8-sig"))))
+    assert len(rows) == 1001
+    assert len(calls) == 10
+    assert [call["offset"] for call in calls] == list(range(0, 1000, 100))
+    assert all(call["limit"] == 100 for call in calls)
+
+
+def test_case_search_ui_has_download_action_using_current_search_values():
+    page = routes.data_explorer_page().body.decode("utf-8")
+
+    assert 'id="downloadSearchCsv">Download CSV' in page
+    assert '<div class="search-actions"><button type="submit" class="sq-go">Search cases</button><button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in page
+    assert "Object.entries(searchValues())" in page
+    assert "/search/export.csv?" in page
+    assert "searchActions.append(wordExport)" in page
 
 
 def test_cohort_assessment_search_requires_named_core_cohort(monkeypatch):

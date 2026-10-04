@@ -1511,6 +1511,89 @@ def search_analytics_cases(
 	)
 
 
+def _csv_safe_cell(value: Any) -> str:
+	text_value = "" if value is None else str(value)
+	if text_value.startswith(("=", "+", "-", "@")):
+		return "'" + text_value
+	return text_value
+
+
+@router.get(
+	"/search/export.csv",
+	response_class=Response,
+	responses={200: {"content": {"text/csv": {"schema": {"type": "string"}}}}},
+)
+def export_search_analytics_cases(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	sort_by: str = "relevance",
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> Response:
+	cohort_ids = None
+	if cohort_id:
+		if cohort_id != "discussion_units_core_300":
+			raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unknown case cohort")
+		cohort_ids = list(load_discussion_unit_cohort())
+
+	rows: list[dict[str, Any]] = []
+	while len(rows) < 1000:
+		page = fetch_analytics_search_cases(
+			db,
+			query=query,
+			cites=cites,
+			government_outcome=government_outcome,
+			decision_outcome=decision_outcome,
+			minister=minister,
+			judge=judge,
+			court=court,
+			year=year,
+			search_full_text=search_full_text,
+			sort_by=sort_by,
+			limit=min(100, 1000 - len(rows)),
+			offset=len(rows),
+			cohort_ids=cohort_ids,
+		)
+		page_rows = page.get("results", [])
+		rows.extend(page_rows[: 1000 - len(rows)])
+		if len(page_rows) < 100 or not page_rows:
+			break
+
+	output = io.StringIO(newline="")
+	writer = csv.writer(output)
+	writer.writerow(["citation", "title", "court", "date", "judge", "outcome", "iLit URL"])
+	for row in rows:
+		government_outcome = row.get("government_outcome")
+		outcome = (
+			government_outcome
+			if government_outcome in {"won", "lost"}
+			else row.get("decision_outcome")
+		)
+		writer.writerow(
+			[
+				_csv_safe_cell(row.get("citation")),
+				_csv_safe_cell(row.get("title")),
+				_csv_safe_cell(row.get("court")),
+				_csv_safe_cell(row.get("date")),
+				_csv_safe_cell(row.get("judge")),
+				_csv_safe_cell(outcome),
+				_csv_safe_cell(f"/data-explorer?case_id={row['case_id']}"),
+			]
+		)
+	return Response(
+		content="\ufeff" + output.getvalue(),
+		media_type="text/csv",
+		headers={"Content-Disposition": 'attachment; filename="case-search.csv"'},
+	)
+
+
 @router.get("/cases/{case_id}/paragraph-assessments", response_model=dict[str, Any])
 def get_case_paragraph_assessments(case_id: int) -> dict[str, Any]:
 	return load_paragraph_assessments(case_id, enforce_cohort=False)

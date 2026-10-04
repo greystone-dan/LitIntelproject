@@ -30,9 +30,10 @@ When enabled, these POST paths return HTTP 403 with an explanatory response:
 - `/research` (free-text research question)
 
 The `/live-analysis`, `/memo-citation-check`, `/deidentify`, and `/research`
-pages remain reachable, show a public-data-only explanation, and disable their
-analysis controls. Server-side route guards remain authoritative if client-side
-profile lookup fails. Page scripts can read the additive profile value from
+pages remain reachable, show `Disabled: this deployment is public case law only`,
+and disable their analysis controls. Server-side route guards remain
+authoritative if client-side profile lookup fails. Page scripts can read the
+additive profile value from
 `window.CASELIBRARY_DEPLOYMENT_PROFILE` after the profile request completes.
 
 Public research remains available, including `/data-explorer`, case browsing

@@ -7,42 +7,41 @@ from fastapi import HTTPException, status
 
 PUBLIC_ENV = "CASELIBRARY_PUBLIC_DATA_ONLY"
 
-# Path policy is explicit so new POST routes must be assigned a deployment
-# profile rather than silently inheriting the analysis policy.
-ANALYSIS_POST_PATHS = frozenset({
-    "/ingest",
-    "/ingest/merge",
-    "/live-analysis/analyze",
-    "/live-analysis/resolve",
-    "/memo-citation-check",
-    "/api/deidentify",
-    "/api/reidentify",
-    "/api/deidentify/docx",
-    "/research",
-})
+# New routes must be assigned a deployment profile rather than silently
+# inheriting the analysis policy.
+ROUTE_PATH_POLICY = {
+    ("POST", "/ingest"): "analysis",
+    ("POST", "/ingest/merge"): "analysis",
+    ("POST", "/live-analysis/analyze"): "analysis",
+    ("POST", "/live-analysis/resolve"): "analysis",
+    ("POST", "/memo-citation-check"): "analysis",
+    ("POST", "/api/deidentify"): "analysis",
+    ("POST", "/api/reidentify"): "analysis",
+    ("POST", "/api/deidentify/docx"): "analysis",
+    ("POST", "/research"): "analysis",
+    ("POST", "/access/login"): "public",
+    ("POST", "/access/logout"): "public",
+    ("POST", "/citation-metrics/recompute"): "public",
+    ("POST", "/a2aj/citation-network/build-map"): "public",
+    ("POST", "/a2aj/citation-network/convert"): "public",
+    ("POST", "/search"): "public",
+    ("POST", "/search/chunks"): "public",
+    ("POST", "/search/chunks/paragraphs"): "public",
+    ("POST", "/search/chunks/local"): "public",
+    ("POST", "/search/chunks/grouped"): "public",
+    ("POST", "/saved-searches"): "public",
+    ("POST", "/saved-searches/{search_id}/check"): "public",
+    ("GET", "/health"): "public-read",
+    ("GET", "/api/deployment-profile"): "public-read",
+    ("GET", "/data-explorer"): "public-read",
+    ("GET", "/cases/{case_id}"): "public-read",
+    ("GET", "/statutes"): "public-read",
+}
 
-PUBLIC_POST_PATHS = frozenset({
-    "/access/login",
-    "/access/logout",
-    "/citation-metrics/recompute",
-    "/a2aj/citation-network/build-map",
-    "/a2aj/citation-network/convert",
-    "/search",
-    "/search/chunks",
-    "/search/chunks/paragraphs",
-    "/search/chunks/local",
-    "/search/chunks/grouped",
-    "/saved-searches",
-    "/saved-searches/{search_id}/check",
-})
-
-PUBLIC_READ_PATHS = frozenset({
-    "/health",
-    "/api/deployment-profile",
-    "/data-explorer",
-    "/cases/{case_id}",
-    "/statutes",
-})
+ANALYSIS_POST_PATHS = frozenset(
+    path for (method, path), profile in ROUTE_PATH_POLICY.items()
+    if method == "POST" and profile == "analysis"
+)
 
 PathClassification = Literal["analysis", "public", "public-read", "unclassified"]
 
@@ -67,8 +66,7 @@ async def require_analysis_allowed() -> None:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=(
-                "This operation is disabled in public-data-only mode. "
-                "Contact the operator to enable analysis or use a non-public deployment."
+                "Disabled: this deployment is public case law only"
             ),
         )
 
@@ -76,11 +74,4 @@ async def require_analysis_allowed() -> None:
 def classify_path(path: str, method: str = "GET") -> PathClassification:
     """Classify a route path and method for public-data-only policy."""
     normalized_method = method.upper()
-    if normalized_method == "POST":
-        if path in ANALYSIS_POST_PATHS:
-            return "analysis"
-        if path in PUBLIC_POST_PATHS:
-            return "public"
-    elif normalized_method == "GET" and path in PUBLIC_READ_PATHS:
-        return "public-read"
-    return "unclassified"
+    return ROUTE_PATH_POLICY.get((normalized_method, path), "unclassified")

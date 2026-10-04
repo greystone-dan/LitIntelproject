@@ -315,7 +315,7 @@ def _with_deployment_profile_notice(page_html: str) -> str:
 		const notice = document.createElement("aside");
 		notice.setAttribute("role", "status");
 		notice.style.cssText = "margin:16px;padding:12px;border:1px solid #9a6b18;background:#fff4d6;color:#392900";
-		notice.textContent = "Public-data-only mode is active. Document and free-text analysis is disabled; public case browsing, search, reading, and statute lookup remain available.";
+		notice.textContent = "Disabled: this deployment is public case law only";
 		const content = document.querySelector("main, .wrap") || document.body;
 		content.prepend(notice);
 		document.querySelector("#drop")?.setAttribute("hidden", "");

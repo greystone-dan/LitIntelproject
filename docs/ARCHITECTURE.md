@@ -123,6 +123,10 @@ propositions against authoritative records and follow upstream terms.
 
 ## Backend file inventory
 
+Optional [background jobs](BACKGROUND_JOBS.md) run only through
+`scripts/run_jobs.py` in a separate process. Their standard-library scheduler
+does not import database configuration or start with the web application.
+
 Each file currently under `backend/` is listed once. The documentation contract
 test checks that these paths continue to exist.
 
@@ -131,6 +135,7 @@ test checks that these paths continue to exist.
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
+| `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
@@ -221,6 +226,7 @@ test checks that these paths continue to exist.
 | `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
 | `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
 | `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
+| `backend/query_embedding_providers.py` | Selects and validates the configured search-query embedding provider |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
@@ -232,7 +238,7 @@ test checks that these paths continue to exist.
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
-| `backend/unit_search.py` | Searches discussion units with semantic and keyword matching |
+| `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

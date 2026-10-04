@@ -11,6 +11,7 @@ from typing import Any
 from sqlalchemy import and_, select, text, func
 from sqlalchemy.orm import Session
 
+from .embedding_providers import DEFAULT_LOCAL_EMBEDDING_MODEL
 from .database import (
 	CaseChunk,
 	CaseChunkEmbedding,
@@ -39,11 +40,12 @@ class UnitSearchResult:
 	match_type: str  # 'semantic' or 'keyword'
 
 
+# Deprecated: retained for compatibility; no backend or script callers exist.
 def search_units_by_embedding(
 	query: str,
 	db: Session,
 	limit: int = 20,
-	embedding_model: str = "bge-m3",
+	embedding_model: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
 	similarity_threshold: float = 0.5,
 ) -> list[UnitSearchResult]:
 	"""
@@ -53,7 +55,7 @@ def search_units_by_embedding(
 		query: Search query text
 		db: Database session
 		limit: Maximum results to return
-		embedding_model: Embedding model name (default: bge-m3 from PR 30)
+		embedding_model: Embedding model name (default: BAAI/bge-m3)
 		similarity_threshold: Minimum similarity score (0-1)
 
 	Returns:

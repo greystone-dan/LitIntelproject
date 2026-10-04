@@ -93,3 +93,20 @@ including short and selective search strings. No such experiment was run.
 - Recommendations are review candidates, not proof of deployed index absence or
   a claim that a query currently violates a latency target.
 - Related Swimm walkthrough: [Search and Retrieval Architecture](../../.swm/5.b49ftjal.sw.md).
+
+## Issue #138 implementation follow-through (2026-10-04)
+
+The source-only observations above are historical, not current measurements.
+The [endpoint performance pass](endpoint-performance-pass.md) records isolated
+offline 5/50-row statement counts, response-parity coverage, implemented batching,
+and unresolved limits on the current main-derived checkout. PR108's existing
+analytics TTL cache is retained; no other branch was inspected.
+
+In particular, `/analytics/search/cases` is already SQL-limited and projected.
+The unbounded general-search finding above concerns `backend/search_service.py`,
+not that active endpoint. Reader-data already joins citation targets; the
+confirmed statute resolver N+1 belongs to the separate statute-reference route.
+Judge reads, authority signals and surprise metrics now avoid measured per-row
+queries. Draft-only additional index candidates are in
+[`docs/proposed-migrations/indexes.py.txt`](../proposed-migrations/indexes.py.txt);
+no migration or deployed-schema inspection was performed.

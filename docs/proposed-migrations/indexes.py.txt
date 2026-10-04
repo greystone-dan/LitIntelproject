@@ -68,3 +68,32 @@ def downgrade() -> None:
         op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_citation_trgm")
         op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_court_trgm")
         op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_title_trgm")
+
+
+# Issue #138: additional NON-DEPLOYABLE candidates, intentionally not added to
+# upgrade()/downgrade(). No schema or ORM index declarations were changed.
+#
+# Existing 0018 indexes cover each legislation_sections column independently;
+# the batched resolver seeks pairs, and duplicate pairs remain legal. Do NOT
+# make this candidate unique without a separate data/contract review.
+#
+# Existing FC summary indexes cover city/year individually; motions has a year
+# index, but not this city/year composite in inspected migration definitions.
+# Combined city equality + year range requests are the candidate workload.
+#
+# All sizes, selectivity, planner use and write overhead are UNKNOWN. On an
+# authorized representative snapshot compare EXPLAIN (ANALYZE, BUFFERS) with and
+# without each candidate, including year-only/unfiltered requests. Existing
+# indexes may already suffice; these are not claims about the deployed schema.
+#
+# CREATE INDEX CONCURRENTLY ix_legislation_sections_document_section
+#     ON legislation_sections (document_id, section_number);
+# CREATE INDEX CONCURRENTLY ix_fc_activity_summaries_city_year
+#     ON fc_activity_summaries (city_filed, year);
+# CREATE INDEX CONCURRENTLY ix_fc_activity_motions_city_year
+#     ON fc_activity_motions (city_filed, year);
+#
+# Recovery: inspect failed concurrent builds for invalid indexes before retry;
+# rollback only the approved candidate indexes with DROP INDEX CONCURRENTLY.
+# No duplicate citation target/source or tag-posting indexes proposed:
+# 0031_paragraph_similarity_postings.py already defines those posting indexes.

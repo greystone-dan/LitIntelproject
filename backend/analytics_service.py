@@ -18,7 +18,7 @@ from typing import Any, Callable, Optional
 import httpx
 from fastapi import HTTPException, status
 from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload, load_only, selectinload
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
@@ -634,13 +634,15 @@ def _fetch_fc_activity_analytics_impl(
 		if group_by == "application_type"
 		else FCActivityClassification.classification_json[group_by]["status"]
 	).as_string()
+	x_expression = getattr(FCActivityClassification, "city_filed" if x == "city" else x)
 	statement = select(
-		FCActivityClassification.year,
-		FCActivityClassification.city_filed,
-		FCActivityClassification.case_class,
-		FCActivityClassification.track,
+		x_expression.label("x_value"),
 		group_expression.label("group_value"),
-	).select_from(FCActivityClassification)
+		FCActivityClassification.source_type,
+		func.count().label("decisions"),
+	).select_from(FCActivityClassification).group_by(
+		x_expression, group_expression, FCActivityClassification.source_type,
+	)
 	if year_from is not None:
 		statement = statement.where(FCActivityClassification.year >= year_from)
 	if year_to is not None:
@@ -675,20 +677,20 @@ def _fetch_fc_activity_analytics_impl(
 		"track": "Track",
 	}
 	counts: dict[tuple[str, str], int] = {}
-	for row in rows:
-		value = getattr(row, x) if x != "year" else row.year
-		x_value = str(value if value is not None and str(value).strip() else "Unknown")
-		group_value = str(row.group_value or "Unknown")
-		counts[(x_value, group_value)] = counts.get((x_value, group_value), 0) + 1
-	x_values = sorted(
-		{key[0] for key in counts},
-		key=lambda value: (int(value) if value.isdigit() else value),
-	)[:60]
-	group_values = sorted({key[1] for key in counts})
 	source_counts: dict[str, int] = {}
 	for row in rows:
-		value = row.source_type or "unknown"
-		source_counts[value] = source_counts.get(value, 0) + 1
+		value = row.x_value
+		x_value = str(value if value is not None and str(value).strip() else "Unknown")
+		group_value = str(row.group_value or "Unknown")
+		decisions = int(row.decisions)
+		counts[(x_value, group_value)] = counts.get((x_value, group_value), 0) + decisions
+		source = row.source_type or "unknown"
+		source_counts[source] = source_counts.get(source, 0) + decisions
+	x_values = sorted(
+		{key[0] for key in counts},
+		key=lambda value: (0, int(value)) if value.isdigit() else (1, value),
+	)[:60]
+	group_values = sorted({key[1] for key in counts})
 	return {
 		"x": x,
 		"x_label": labels[x],
@@ -719,10 +721,14 @@ def _fetch_judge_profiles_impl(
 	limit: int = 50,
 ) -> list[dict[str, Any]]:
 	term = q.strip()
+	# Keep Python's stable sort/tie behavior, but fetch links in batches rather
+	# than triggering one lazy collection query per profile.
+	links_option = selectinload(JudgeProfile.case_links).load_only(CaseJudgeProfile.case_id)
 	if term:
 		pattern = f"%{term}%"
 		statement = (
 			select(JudgeProfile)
+			.options(links_option)
 			.where(
 				or_(
 					JudgeProfile.display_name.ilike(pattern),
@@ -736,7 +742,7 @@ def _fetch_judge_profiles_impl(
 			rows, key=lambda row: (-len(row.case_links), row.display_name.lower())
 		)[: max(1, min(100, limit))]
 	else:
-		rows = list(db.scalars(select(JudgeProfile)))
+		rows = list(db.scalars(select(JudgeProfile).options(links_option)))
 		ordered = sorted(
 			rows, key=lambda row: (-len(row.case_links), row.display_name.lower())
 		)[: max(1, min(100, limit))]
@@ -941,7 +947,15 @@ def fetch_judge_profile_by_slug(
 	*,
 	ministers: list[str] | None = None,
 ) -> dict[str, Any]:
-	profile = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == slug))
+	profile = db.scalar(
+		select(JudgeProfile)
+		.options(
+			selectinload(JudgeProfile.case_links)
+			.joinedload(CaseJudgeProfile.case)
+			.load_only(Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json)
+		)
+		.where(JudgeProfile.slug == slug)
+	)
 	if profile is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Judge profile not found")
 	all_cases = list(
@@ -1174,7 +1188,14 @@ def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:
 
 
 def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, Any]:
-	case = db.scalar(select(Case).where(Case.id == case_id))
+	case = db.scalar(
+		select(Case)
+		.options(load_only(
+			Case.id, Case.title, Case.citation, Case.court, Case.date,
+			Case.metadata_json, Case.full_text, Case.summary,
+		))
+		.where(Case.id == case_id)
+	)
 	if case is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
 	full_text = case.full_text or case.summary or ""
@@ -1183,6 +1204,7 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 	citation_rows = list(
 		db.scalars(
 			select(Citation)
+			.options(joinedload(Citation.target_case).load_only(Case.id, Case.title, Case.citation))
 			.where(Citation.source_case_id == case.id)
 			.order_by(Citation.id)
 		)
@@ -1192,6 +1214,7 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 		list(
 			db.scalars(
 				select(CaseChunk)
+				.options(load_only(CaseChunk.id, CaseChunk.chunk_index, CaseChunk.text))
 				.where(CaseChunk.id.in_(chunk_ids))
 				.order_by(CaseChunk.chunk_index, CaseChunk.id)
 			)
@@ -1512,6 +1535,7 @@ def fetch_issue_brief(db: Session, tag: str) -> dict[str, Any]:
 	)
 	cases = db.scalars(
 		select(Case)
+		.options(load_only(Case.id, Case.title, Case.citation, Case.court, Case.date, Case.metadata_json))
 		.where(Case.id.in_(select(tagged_case_ids.c.case_id)))
 		.order_by(Case.date, Case.id)
 	).all()

@@ -67,6 +67,30 @@ The system intentionally separates three kinds of derived information:
 
 ## What Is Implemented
 
+### Offline read-endpoint performance checks
+
+Research read services batch judge relationships, inline-reader citation targets,
+authority statistics/contexts, surprise metrics and legislation lookups.
+Unused body/HTML/vector columns are omitted from selected list/context queries;
+full decision/evidence payloads and backend offsets remain unchanged. FC
+classification analytics aggregates groups in SQL; FC insights reads its six
+duration columns once, preserving the existing exact quantile rules.
+
+The existing analytics TTL cache policy remains unchanged. The separate
+30-minute FC insights cache now has a synchronized 256-entry LRU bound; hits do
+not refresh expiry. Neither cache bounds response bytes or guarantees immediate
+freshness across workers.
+
+[`docs/reports/endpoint-performance-pass.md`](docs/reports/endpoint-performance-pass.md)
+owns measured offline counts, parity exceptions for pre-existing failures, and
+remaining unbounded reads. `python scripts/run_offline_tests.py -q` runs pytest
+without loading dotenv or connecting application/PostgreSQL databases. New
+performance fixtures use SQLite in memory; existing file fixtures are restricted
+to that run's disposable pytest directory. Generated-document checking likewise
+isolates its generator subprocess imports from dotenv/database connections.
+These are query-count regressions, not production latency or PostgreSQL-plan
+evidence; no index migration is included.
+
 ### Primary Research Workflows
 
 `/data-explorer` is the main research surface. Its top-left primary navigation

@@ -10,8 +10,8 @@ import re
 from typing import Any
 
 from fastapi import HTTPException, status
-from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy import select, tuple_
+from sqlalchemy.orm import Session, defer, selectinload
 
 from .citations import (
 	RawCitationMatch,
@@ -32,6 +32,8 @@ from .database import (
 	CaseTag,
 	Citation,
 	CitationMetrics,
+	LegislationDocument,
+	LegislationSection,
 	StatuteReference,
 )
 from .statute_versioning import get_statute_version_label
@@ -755,14 +757,75 @@ def get_case_metadata_pass(
 	}
 
 
+def _prefetch_legislation_resolver(db: Session, matches: list[RawCitationMatch]) -> Any:
+	"""Supply the existing resolver's two exact lookups from request-local rows.
+
+	Keep parsing, statuses and the complete resolver response in citations.py.
+	Batch only lookups it actually performs (not unidentified/missing/range refs).
+	Ambiguous duplicate sections use the original scalar query: their selection
+	has no defined ordering, so a batch must not pick a different first row.
+	"""
+	# Retain the original duck-typed scalar contract for lightweight callers.
+	# Real ORM Sessions (including subclasses) exercise the batched path.
+	if not isinstance(db, Session):
+		return db
+	keys = set()
+	for match in matches:
+		parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
+		if parsed is not None and parsed.section and not parsed.is_range_or_list:
+			keys.add((parsed.instrument_key, parsed.section))
+	documents = {}
+	instruments = sorted({instrument for instrument, _ in keys})
+	for start in range(0, len(instruments), 400):
+		for document in db.scalars(
+			select(LegislationDocument).where(
+				LegislationDocument.instrument_key.in_(instruments[start:start + 400])
+			)
+		):
+			documents[document.instrument_key] = document
+	section_keys = sorted({
+		(documents[instrument].id, section)
+		for instrument, section in keys if instrument in documents
+	})
+	sections = {}
+	ambiguous = set()
+	for start in range(0, len(section_keys), 400):
+		for section in db.scalars(
+			select(LegislationSection).where(
+				tuple_(LegislationSection.document_id, LegislationSection.section_number)
+				.in_(section_keys[start:start + 400])
+			)
+		):
+			key = (section.document_id, section.section_number)
+			if key in sections:
+				ambiguous.add(key)
+			sections[key] = section
+
+	class Lookups:
+		def scalar(self, statement):
+			# These are the two equality selects in resolve_legislation_reference.
+			entity = statement.column_descriptions[0]["entity"]
+			params = statement.compile().params
+			if entity is LegislationDocument:
+				return documents.get(params["instrument_key_1"])
+			if entity is LegislationSection:
+				key = (params["document_id_1"], params["section_number_1"])
+				if key not in ambiguous:
+					return sections.get(key)
+			return db.scalar(statement)
+
+	return Lookups()
+
+
 def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCitationResponse]:
 	if db.scalar(select(Case.id).where(Case.id == case_id)) is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
-	rows = db.scalars(
+	rows = list(db.scalars(
 		select(StatuteReference)
+		.options(selectinload(StatuteReference.statute_version))
 		.where(StatuteReference.source_case_id == case_id)
 		.order_by(StatuteReference.chunk_id, StatuteReference.offset_start, StatuteReference.id)
-	)
+	))
 
 	def build_raw_match(reference: StatuteReference) -> RawCitationMatch:
 		citation_text = reference.reference_text or reference.normalized_reference or ""
@@ -777,8 +840,10 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 			offset_end,
 		)
 
+	lookup = _prefetch_legislation_resolver(db, [build_raw_match(reference) for reference in rows])
+
 	def build_response(reference: StatuteReference) -> CaseReaderCitationResponse:
-		resolution = resolve_legislation_reference(db, build_raw_match(reference))
+		resolution = resolve_legislation_reference(lookup, build_raw_match(reference))
 		authority_document = resolution.document
 		authority_section = resolution.section
 		legislation_url = reference.legislation_url or (
@@ -899,6 +964,7 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		target_case_ids = {case_id for case_id, _ in target_pinpoints}
 		target_paragraph_chunks = db.scalars(
 			select(CaseChunk)
+			.options(defer(CaseChunk.embedding))
 			.where(
 				CaseChunk.case_id.in_(target_case_ids),
 				CaseChunk.chunk_set == "paragraph",

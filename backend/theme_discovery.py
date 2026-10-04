@@ -12,17 +12,6 @@ from sqlalchemy.orm import Session
 
 from .models import CaseEvidenceSummaryResponse, CaseSubThemeSummaryResponse
 
-# Procedural/boilerplate terms filtered from theme discovery
-# These are common in case headers and procedural sections but not meaningful themes
-THEME_STOPWORDS = {
-    "appearances", "applicant", "attorney", "order", "canada",
-    "dated", "style", "cause", "case", "court", "judge",
-    "federal", "decision", "reasons", "find", "hold", "conclude",
-    "agreement", "application", "motion", "petition", "request",
-    "pursuant", "section", "article", "act", "law", "regulation",
-    "citizenship", "immigration", "department", "minister",
-}
-
 
 @dataclass(frozen=True)
 class ThemeOccurrence:
@@ -144,15 +133,11 @@ def discover_themes(
             all_key_terms.extend(occurrence.key_terms)
             all_argument_roles.extend(occurrence.argument_roles)
 
-        term_counts = Counter(term.lower() for term in all_key_terms if term.lower() not in THEME_STOPWORDS)
+        term_counts = Counter(term.lower() for term in all_key_terms)
         role_counts = Counter(role for role in all_argument_roles)
 
         top_key_terms = [term for term, _ in term_counts.most_common(5)]
         top_argument_roles = [role for role, _ in role_counts.most_common(3)]
-
-        # Skip themes that have no meaningful terms after filtering
-        if not top_key_terms:
-            continue
 
         # Create theme name from top key terms
         theme_name = " + ".join(top_key_terms[:3]) if top_key_terms else "Unnamed Theme"

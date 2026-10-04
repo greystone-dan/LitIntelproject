@@ -10,6 +10,17 @@
   footer. Added focused populated/empty-route coverage; pytest and generated API
   reference checks could not run because pytest and FastAPI are absent from this
   environment. Touched Python files compile successfully.
+- Added issue-first outcome patterns to Judge Profile through lazy-loaded
+  `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
+  baseline, four explicit outcome categories, full denominators including
+  unclassified decisions, and a minimum of 10 judge-linked decisions per
+  displayed issue; lower-count issue labels stay hidden and their count is
+  disclosed. This descriptive view does not rank judges or infer harshness.
+  Focused judge/profile/UI checks passed (83 passed, 1 skipped), and a
+  fixture-only Chromium interaction check passed. The exact CI-deselected full
+  suite ran 1,254 passed, 2 skipped, 1 xfailed, and 3 deselected; 3 unrelated
+  tests failed because `sentence-transformers` and `tiktoken` were absent from
+  the temporary test environment. No model/tokenizer assets were downloaded.
 - Added a visible Data Explorer **Download Word** control and the
   `GET /search/export.docx` endpoint, which preserve active analytics search
   filters and export up to 200 cases with citation/title/court/date/outcome

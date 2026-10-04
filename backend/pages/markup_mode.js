@@ -179,6 +179,7 @@ function renderBar(){
   const L=state.layers;
   const chips=LAYER_DEFS.filter(d=>d.key!=='tags').map(d=>{
     const n=d.key==='citedby'?state.notes.filter(x=>x.type==='citedby').length:countFor(d.key);
+    if(!n)return '';
     return `<button type="button" class="mk-chip${L[d.key]==='off'?' is-off':''}" data-mk-chip="${d.key}" aria-pressed="${L[d.key]!=='off'}"><i style="background:${(TYPE[d.key]||{color:'#2d8a50'}).color}"></i>${E(d.label)} <b>${n}</b></button>`;
   }).join('')+`<button type="button" class="mk-chip${L.tags==='off'?' is-off':''}" data-mk-chip="tags" aria-pressed="${L.tags!=='off'}"><i style="background:#2d8a50"></i>Tags</button>`;
   const rows=LAYER_DEFS.map(d=>`<div class="mk-lr"><b>${E(d.label)}</b><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button" data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');

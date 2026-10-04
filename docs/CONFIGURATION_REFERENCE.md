@@ -47,6 +47,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
+
 ## OpenAI And External Model Settings
 
 | Variable | Default | Consumer | Purpose |

@@ -11,6 +11,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Resp
 from starlette.routing import Match, Mount
 from starlette.staticfiles import StaticFiles
 
+from .audit import RequestAuditMiddleware
 from .database import init_db
 from .routes import router
 
@@ -103,6 +104,9 @@ async def private_access_and_noindex(request: Request, call_next):
         response = await call_next(request)
     response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive"
     return response
+
+
+app.add_middleware(RequestAuditMiddleware)
 
 
 app.include_router(router)

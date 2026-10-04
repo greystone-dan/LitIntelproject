@@ -632,3 +632,63 @@ def test_government_role_ignores_counsel_for_the_minister_caption_line():
 	record = build_case_outcome(text, {})
 	assert record["decision_outcome"] == "dismissed"
 	assert record["government_role"] is None
+
+
+def test_outcome_abstains_instead_of_guessing():
+	assert _disposition("Some reasons that never state a ruling. The officer considered the file.") == "unclear"
+	# Only a weak consequence cue outside any operative block: say nothing rather than guess.
+	assert _disposition("The matter was discussed at length. The earlier order was set aside last year in another case.") == "unclear"
+
+
+def test_outcome_procedural_orders_are_not_merits_outcomes():
+	assert _disposition("Foo v. Canada\nJUDGMENT\nTHIS COURT ORDERS that the motion for an extension of time is granted.") == "procedural"
+	assert _disposition("STYLE OF CAUSE\nMOTION DEALT WITH IN WRITING WITHOUT APPEARANCE OF PARTIES\n[6] I would therefore dismiss the appeal.") == "procedural"
+
+
+def test_outcome_appendix_statutes_and_footnotes_do_not_decide():
+	statute = "\nAppeal allowed\nFondement de l'appel\n67 (1) To allow an appeal, the Division must be satisfied that\n"
+	assert _disposition("[33] For these reasons, I would dismiss the appeal without costs." + statute * 2 + "x" * 9000) == "dismissed"
+	rad = (
+		"Refugee Appeal Division\n[19] Pursuant to section 111(1)(a), I dismiss the appeal and confirm the decision of the RPD.\n"
+		"1 Statistics on the number of applications for relocation that are granted and refused.\n"
+	)
+	assert _disposition(rad) == "dismissed"
+
+
+def test_outcome_judgment_the_lower_court_should_have_given_follows_the_ruling():
+	text = (
+		"[31] For these reasons, I would allow the appeal and set aside the judgment of the Federal Court. "
+		"Pronouncing the judgment that the Federal Court ought to have pronounced, I would dismiss the application for judicial review."
+	)
+	assert _disposition(text) == "allowed"
+
+
+def test_outcome_rpd_positive_and_exclusion_findings():
+	assert _disposition("Refugee Protection Division\n[9] The panel determines that A and B are Convention refugees as defined in IRPA, section 96 and accepts their claims.") == "allowed"
+	assert _disposition("Refugee Protection Division\n[32] Accordingly, this claimant is excludable under article 1F(b) of the Refugee Convention.") == "dismissed"
+
+
+def test_outcome_rad_panel_is_the_rpd_not_the_decision_maker():
+	text = (
+		"Refugee Appeal Division\n[22] The panel dismisses just about everything the claimant said. The RAD finds this wrong.\n"
+		"[34] Pursuant to Section 111(1)(b) of the IRPA, the RAD sets aside the determination of the RPD and substitutes its own. The appeal is allowed."
+	)
+	assert _disposition(text) == "allowed"
+
+
+def test_outcome_costs_only_order_with_trailer_is_procedural():
+	text = (
+		"[13] Judicial review denied on the merits earlier by another judge.\n[14] I am satisfied that special reasons exist which justify an award of costs.\n"
+		"ORDER in IMM-2733-22\nTHIS COURT ORDERS that costs in the amount of $3,000.00 be paid forthwith by the Respondent to the Applicant.\n"
+		"Judge\nFEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET:\nIMM-2733-22\nORDER and REASONS :\nBELL J.\n"
+	)
+	assert _disposition(text) == "procedural"
+
+
+def test_judge_is_read_from_reasons_for_order_and_order_by_heading():
+	text = (
+		"Date: 20050503\nDocket: IMM-4657-04\nCitation: 2005 FC 606\nBETWEEN:\nATTILA KACO\nApplicant\n- and -\n"
+		"THE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\nREASONS FOR ORDER AND ORDER\n[1] Reasons.\n"
+		"FEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET: IMM-4657-04\nREASONS FOR ORDER\nAND ORDER BY: MACTAVISH, J.\nDATED: MAY 3, 2005\n"
+	)
+	assert "Mactavish" in (extract_case_metadata(text).get("judge") or "").title()

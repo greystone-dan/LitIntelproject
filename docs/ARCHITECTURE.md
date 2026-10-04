@@ -189,8 +189,11 @@ test checks that these paths continue to exist.
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
+| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
+| `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
@@ -208,6 +211,7 @@ test checks that these paths continue to exist.
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |

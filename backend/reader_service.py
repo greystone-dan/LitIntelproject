@@ -252,7 +252,7 @@ def _build_reader_outcome_metadata(
 		return []
 	rows = []
 	source = outcome.source or ""
-	if outcome.decision_outcome:
+	if outcome.decision_outcome and outcome.decision_outcome != "unclear":
 		rows.append(CaseReaderMetadataFieldResponse(
 			key="decision_outcome", value=outcome.decision_outcome, source=source,
 		))
@@ -395,7 +395,7 @@ def _build_reader_extracted_summary(
 			quote = text[block["start"]:end]
 			add("disposition", "Disposition · verbatim", quote, outcome.source or "",
 				quote, block["start"], end, paragraph_only=True)
-		if outcome.decision_outcome and add("outcome", "Outcome", outcome.decision_outcome, outcome.source or "",
+		if outcome.decision_outcome and outcome.decision_outcome != "unclear" and add("outcome", "Outcome", outcome.decision_outcome, outcome.source or "",
 			outcome.disposition_evidence, outcome.evidence_offset_start,
 			outcome.evidence_offset_end, paragraph_only=True):
 			if outcome.source:

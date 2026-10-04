@@ -5,6 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
+  editable, lawyer-review seed list, with direct matches and stored resolved
+  citation links, source/rationale/assignment details, counts, and chronology
+  dates. The active Data Explorer reader adds a cautious “may be affected”
+  banner; no memo output or database schema changes. Extension guidance is in
+  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
 - Added a shared embedding-provider interface with a disabled default, lazy
   OpenAI client wrapper, and cached local SentenceTransformer implementation.
   Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:

@@ -63,7 +63,9 @@ requests or replace `/data-explorer` as the active research workspace.
 Navigation links use the existing explorer tabs and reader redirect. The GET
 quick-search form carries a URL-encoded query to the explorer; its initializer
 submits the existing search form rather than introducing a second search API.
-Current-page state follows explorer tabs and inline reader visibility. Reader,
+Current-page state and breadcrumbs follow the explorer's selected tab and inline
+reader visibility without a reload, using case/judge URL parameters and safe DOM
+text content for details; other pages retain their server trails. Reader,
 judge, issue-tag and citation deep links use route-table context, not database
 lookups, to construct escaped breadcrumbs.
 Each home tool card includes a short plain description and an example link.

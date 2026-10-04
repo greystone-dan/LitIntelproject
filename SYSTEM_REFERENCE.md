@@ -79,6 +79,9 @@ Successful finite HTML pages share navigation for
 Home, Search, Case Reader, Judges, Citation Intelligence, FC Activity, Memo Check,
 Issue Briefs, Saved Searches and About, with query-aware current-page labels
 and breadcrumbs for reader, judge, issue and citation deep links.
+Explorer current-page labels and breadcrumbs stay synchronized with its selected
+tab, visible inline reader and case/judge URL parameters without a reload; dynamic
+breadcrumb details use DOM text content, while other pages retain server trails.
 `backend/pages/site_nav.py` owns this presentation and its route table.
 Its labelled GET quick-search form opens
 `/data-explorer?tab=search&query=…`; the injected initializer submits the existing

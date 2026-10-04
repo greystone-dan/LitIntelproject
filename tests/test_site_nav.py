@@ -2,6 +2,7 @@
 
 import asyncio
 import inspect
+import json
 import shutil
 import subprocess
 from html.parser import HTMLParser
@@ -160,9 +161,14 @@ def test_route_context_and_current(path, query, key, detail):
     assert current == ([key] if key else [])
 
 
-def test_breadcrumb_labels_are_escaped():
-    text = inject_html(b"<body>x</body>", "/issue-brief-ui",
-                       urlencode({"tag": '<img src=x onerror="bad()"> & issue'}).encode()).decode()
+@pytest.mark.parametrize("path,params", [
+    ("/issue-brief-ui", {"tag": '<img src=x onerror="bad()"> & issue'}),
+    ("/data-explorer", {"tab": "search", "case_id": '<img src=x onerror="bad()"> & issue'}),
+    ("/data-explorer", {"tab": "judge-profile", "judge": '<img src=x onerror="bad()"> & issue'}),
+    ("/data-explorer", {"tab": "citation-intelligence", "case_id": '<img src=x onerror="bad()"> & issue'}),
+])
+def test_breadcrumb_labels_are_escaped(path, params):
+    text = inject_html(b"<body>x</body>", path, urlencode(params).encode()).decode()
     assert '&lt;img src=x onerror=&quot;bad()&quot;&gt; &amp; issue' in text
     assert not any(tag == "img" for tag, _ in Elements(text).tags)
 
@@ -347,14 +353,14 @@ const listeners={};let focused=0,prevented=0,expanded='false';
 const input={focus(){focused++}};
 const button={getAttribute(){return expanded},setAttribute(k,v){expanded=v},addEventListener(k,fn){listeners.menu=fn},focus(){}};
 const links={dataset:{}};
-const shell={querySelector(s){return s==='.site-menu-toggle'?button:s==='.site-nav-links'?links:input},querySelectorAll(){return []}};
+const shell={querySelector(s){return s==='.site-menu-toggle'?button:s==='.site-nav-links'?links:s==='#site-quick-search'?input:null},querySelectorAll(){return []}};
 const searchText='A & B / 2019 SCC 65';let submitted=0;
 const field={value:''},form={requestSubmit(){if(field.value!==searchText)throw Error('query decode');submitted++}};
 global.location=new URL('http://localhost/data-explorer?'+new URLSearchParams({tab:'search',query:searchText}));
 class Element{constructor(editable=false,ancestor=false,control=false){this.isContentEditable=editable;this.ancestor=ancestor;this.control=control}
 closest(s){return s.includes('contenteditable')?this.ancestor:this.control}}
 global.Element=Element;
-global.document={querySelector(){return shell},querySelectorAll(){return []},
+global.document={querySelector(s){return s==='[data-site-nav]'?shell:null},querySelectorAll(){return []},
 getElementById(id){return id==='searchQuery'?field:id==='caseSearch'?form:null},
 addEventListener(k,fn){listeners[k]=fn}};
 global.window={addEventListener(){}};
@@ -373,3 +379,94 @@ listeners.DOMContentLoaded();if(submitted!==1)throw Error('quick search not subm
 """
     result = subprocess.run([node, "-e", harness + script + checks], capture_output=True, text=True, timeout=10)
     assert result.returncode == 0, result.stderr
+
+
+def run_nav_harness(checks):
+    """Run only the nav script against a safe, in-memory DOM double."""
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node unavailable for isolated JavaScript test")
+    harness = """
+const listeners={},windowListeners={};let observer;
+class Element{
+ constructor(tag='li'){this.tagName=tag;this.attrs={};this.dataset={};this.children=[];this.text=''}
+ setAttribute(k,v){this.attrs[k]=v}
+ getAttribute(k){return this.attrs[k]??null}
+ removeAttribute(k){delete this.attrs[k]}
+ set textContent(v){this.text=String(v);this.children=[]}
+ get textContent(){return this.text+this.children.map(c=>c.textContent).join('')}
+ set innerHTML(v){throw Error('unsafe HTML construction')}
+ append(child){this.children.push(child)}
+ replaceChildren(...children){this.text='';this.children=children}
+ addEventListener(){}
+ focus(){}
+}
+global.Element=Element;
+const primary=LINK_DATA.map(([key,label,href])=>{
+ const a=new Element('a');a.dataset.siteLink=key;a.textContent=label;a.setAttribute('href',href);return a;
+});
+const trail=new Element('ol'),button=new Element('button'),links=new Element('nav'),input=new Element('input');
+const shell={querySelector(s){return {'.site-menu-toggle':button,'.site-nav-links':links,'#site-quick-search':input,'.site-breadcrumbs ol':trail}[s]??null},
+ querySelectorAll(){return primary}};
+let selected=new Element('button');selected.dataset.tab='search';
+const reader={hidden:true};
+global.location=new URL('http://localhost/data-explorer?tab=search');
+global.document={querySelector(s){return s==='[data-site-nav]'?shell:selected},
+ querySelectorAll(){return [reader,selected]},
+ getElementById(id){return id==='caseReaderPanel'?reader:null},
+ createElement(tag){return new Element(tag)},
+ addEventListener(k,fn){listeners[k]=fn}};
+global.window={addEventListener(k,fn){windowListeners[k]=fn}};
+global.setTimeout=fn=>fn();
+global.MutationObserver=class{constructor(fn){observer=fn}observe(){}};
+function state(key,labels){
+ const current=primary.filter(a=>a.getAttribute('aria-current')==='page').map(a=>a.dataset.siteLink);
+ if(JSON.stringify(current)!==JSON.stringify(key?[key]:[]))throw Error('primary '+JSON.stringify(current));
+ if(JSON.stringify(trail.children.map(li=>li.textContent))!==JSON.stringify(labels))throw Error('crumbs '+trail.textContent);
+ const last=trail.children.at(-1);
+ if(labels.length>1&&last.getAttribute('aria-current')!=='page')throw Error('current crumb');
+ if(trail.children.filter(li=>li.getAttribute('aria-current')==='page').length>1)throw Error('multiple current crumbs');
+}
+function url(params){location.search=new URLSearchParams(params).toString()}
+""".replace("LINK_DATA", json.dumps(LINKS))
+    script = SCRIPT.removeprefix("<script>").removesuffix("</script>")
+    result = subprocess.run([node, "-e", harness + script + checks],
+                            capture_output=True, text=True, timeout=10)
+    assert result.returncode == 0, result.stderr
+
+
+def test_script_case_to_tab_and_reader_close_breadcrumbs():
+    run_nav_harness("""
+url({tab:'search',case_id:'17'});reader.hidden=false;
+listeners.DOMContentLoaded();state('reader',['Home','Case Reader','Case 17']);
+if(trail.children[1].children[0].getAttribute('href')!=='/case-reader')throw Error('reader link');
+// Selected tab wins even while the old deep-link URL remains.
+selected.dataset.tab='judge-profile';reader.hidden=true;observer();
+state('judges',['Home','Judges']);
+url({tab:'judge-profile',judge:'smith'});listeners.click();state('judges',['Home','Judges','smith']);
+selected.dataset.tab='search';url({tab:'search',case_id:'17'});reader.hidden=false;windowListeners.popstate();
+state('reader',['Home','Case Reader','Case 17']);
+// closeDecisionReader hides the panel without clearing the case_id URL.
+reader.hidden=true;observer();state('search',['Home','Search']);
+selected.dataset.tab='themes';observer();state(null,['Home']);
+""")
+
+
+def test_script_search_to_case_and_detail_text_safety():
+    run_nav_harness("""
+listeners.DOMContentLoaded();state('search',['Home','Search']);
+// openDecision pushes the case URL and makes the reader visible before fetch.
+url({tab:'search',group:'research',case_id:'42'});reader.hidden=false;observer();
+state('reader',['Home','Case Reader','Case 42']);
+url({tab:'search',case_id:'43'});listeners.click();state('reader',['Home','Case Reader','Case 43']);
+const unsafe='<img src=x onerror="bad()"> & judge';
+selected.dataset.tab='judge-profile';reader.hidden=true;
+url({tab:'judge-profile',judge:unsafe});listeners.click();state('judges',['Home','Judges',unsafe]);
+if(trail.children.at(-1).children.length)throw Error('parsed detail HTML');
+selected.dataset.tab='citation-intelligence';url({tab:'citation-intelligence',case_id:unsafe});observer();
+state('citations',['Home','Citation Intelligence','Case '+unsafe]);
+if(trail.children.at(-1).children.length)throw Error('parsed case HTML');
+// Non-explorer pages must retain their initial server trail.
+const original=trail.children;location.pathname='/issue-brief-ui';listeners.click();
+if(trail.children!==original)throw Error('changed static trail');
+""")

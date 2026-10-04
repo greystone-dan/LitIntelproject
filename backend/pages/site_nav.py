@@ -85,13 +85,30 @@ document.addEventListener('keydown',event=>{
  }
 });
 function sync(){
- const p=new URLSearchParams(location.search);let key;
  if(location.pathname==='/data-explorer'){
- const tab=p.get('tab')||({info:'about',research:'search',workbench:'workbench',testing:'research-bench'}[p.get('group')]||'search');
+ const p=new URLSearchParams(location.search),selected=document.querySelector('[data-tab][aria-pressed="true"]');
+ const tab=selected?selected.dataset.tab:p.get('tab')||({info:'about',research:'search',workbench:'workbench',testing:'research-bench'}[p.get('group')]||'search');
  const reader=document.getElementById('caseReaderPanel');
- key=tab==='search'&&(reader?!reader.hidden:p.get('case_id'))?'reader':
+ const key=tab==='search'&&(reader?!reader.hidden:p.get('case_id'))?'reader':
  ({search:'search','judge-profile':'judges','citation-intelligence':'citations','fc-history':'fc','fc-analytics':'fc',about:'about',info:'about','site-architecture':'about'})[tab];
+ const detail=(key==='reader'||key==='citations')&&p.get('case_id')?'Case '+p.get('case_id'):key==='judges'?p.get('judge'):null;
  shell.querySelectorAll('[data-site-link]').forEach(a=>{a.removeAttribute('aria-current');if(a.dataset.siteLink===key)a.setAttribute('aria-current','page')});
+ const trail=shell.querySelector('.site-breadcrumbs ol');
+ if(trail){
+ const crumbs=[];
+ function crumb(label,url,current=false){
+ const li=document.createElement('li');
+ if(url){const a=document.createElement('a');a.setAttribute('href',url);a.textContent=label;li.append(a)}
+ else li.textContent=label;
+ if(current)li.setAttribute('aria-current','page');
+ crumbs.push(li);
+ }
+ crumb('Home','/');
+ const active=Array.from(shell.querySelectorAll('[data-site-link]')).find(a=>a.dataset.siteLink===key);
+ if(active)crumb(active.textContent,detail?active.getAttribute('href'):null,!detail);
+ if(detail)crumb(detail,null,true);
+ trail.replaceChildren(...crumbs);
+ }
  }
 }
 window.addEventListener('popstate',()=>setTimeout(sync,0));
@@ -104,7 +121,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(field&&form){field.value=query;form.requestSubmit()}
  }
  sync();
- const panel=document.getElementById('caseReaderPanel');
  const panels=document.querySelectorAll('#researchViews ~ section, #caseReaderPanel, [data-tab], [data-group]');
  if(panels.length){const observer=new MutationObserver(sync);panels.forEach(panel=>observer.observe(panel,{attributes:true,attributeFilter:['hidden','aria-pressed']}))}
 });

@@ -76,6 +76,7 @@ from .pages.data_explorer import data_explorer_page_html
 from .pages.live_analysis import live_analysis_page_html
 from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
+from .outcome_alert_routes import router as outcome_alert_router
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -299,6 +300,8 @@ def _data_explorer_page_html() -> str:
 	return data_explorer_page_html()
 
 router = APIRouter(tags=["cases"])
+router.include_router(outcome_alert_router)
+
 
 
 async def _read_upload_bounded(file: UploadFile) -> bytes:

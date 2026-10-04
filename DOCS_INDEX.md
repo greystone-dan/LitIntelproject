@@ -35,6 +35,9 @@ Primary explainer docs:
 7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
    review for live document analysis and de-identification; current route
    behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
+8. [`docs/outcome_alerts.md`](docs/outcome_alerts.md) documents the saved-search
+   alert contract and offline JSON input; its Windows Task Scheduler procedure
+   is [`docs/operators/schedule_outcome_alerts.md`](docs/operators/schedule_outcome_alerts.md).
 
 ## Active Vs Legacy Locations
 

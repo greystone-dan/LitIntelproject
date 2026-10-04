@@ -81,7 +81,7 @@ def test_onboarding_tour_generated_contract_and_wrapper_order():
     assert "params.get('judge_query')" in html
     assert "Read the available decision text in full" in html
     assert "Source offsets remain owned by the backend" not in html
-    for script in re.findall(r"<script[^>]*>(.*?)</script>", html, re.S):
+    for script in re.findall(r"<script[^>]*>(.*?)</script>", html, re.S | re.I):
         node = shutil.which("node")
         if node:
             result = subprocess.run([node, "--check"], input=script, text=True, capture_output=True)

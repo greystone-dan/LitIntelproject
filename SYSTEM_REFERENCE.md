@@ -1285,8 +1285,18 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `GET /analytics/search/ministers`: active government-party filter data.
 - `GET /analytics/outcomes-by-year`: outcome time series for About/analytics display.
 - `GET /api/about/stats`: live aggregate counts for the About interface. Use this endpoint instead of documentation numbers for current inventory.
+- `GET /api/fc-activity/analytics`: filtered Federal Court activity aggregation.
 - `GET /api/judge-profiles` and `GET /api/judge-profiles/{slug}`: profile browse/detail.
 - `GET /cases/{case_id}/activity`: Federal Court activity/procedural context.
+
+The read-only `/api/about/stats`, `/api/fc-activity/analytics`, and
+`/api/judge-profiles` endpoints use a bounded, in-process TTL cache for
+successful results. `X-Cache` is `hit` only when the current worker serves a
+cached result; uncached and disabled-cache requests report `miss`. Each endpoint
+keys the result on its complete parsed query-parameter set. The cache is local
+to each application process, is not shared across workers, and does not replace
+the underlying database as the source of truth. Configure freshness and
+disablement with `ANALYTICS_CACHE_TTL_SECONDS` below.
 
 ### Citation Intelligence APIs
 
@@ -4000,6 +4010,7 @@ Handler: `backend.routes.fc_activity_analytics`
 - `year_from` (int | None; default `None`)
 - `year_to` (int | None; default `None`)
 - `city` (str; default `''`)
+- `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -5285,6 +5296,17 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Analytics Cache Settings
+
+| Variable | Default | Consumer | Purpose |
+| --- | --- | --- | --- |
+| `ANALYTICS_CACHE_TTL_SECONDS` | `600` | `backend/analytics_service.py` | Positive values set the in-process TTL in seconds; `0` or a negative value disables caching. No cache dependency or `.env`-specific setting is required. |
+
+The TTL is a freshness/performance tradeoff: changes in underlying records may
+not appear in a cached analytics response until expiry. Each process has its
+own bounded cache; `clear_analytics_cache()` clears it in tests or
+administrative maintenance.
 
 ## OpenAI And External Model Settings
 

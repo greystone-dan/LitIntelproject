@@ -5,6 +5,10 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a bounded in-process TTL cache for the About statistics, Federal Court
+  activity analytics, and Judge Profile list reads. The cache defaults to ten
+  minutes, supports `ANALYTICS_CACHE_TTL_SECONDS` configuration or disablement,
+  keys by all parsed filters, and reports `X-Cache: hit|miss`.
 - Simplified chunk-mode reading with continuous compact sections, hidden chunk
 	numbering and character metadata, and citation/statute highlights that retain
 	the surrounding judgment typography.

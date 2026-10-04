@@ -256,7 +256,7 @@ window.fetch=async url=>{
     html = data_explorer_page_html()
     # Known pre-existing Tag Analytics syntax error is outside the reader; do
     # not change it or execute that unrelated script in this reader fixture.
-    html = re.sub(r"<script>(.*?)</script>", lambda match: "" if "el('tga-empty'}" in match[1] else match[0], html, flags=re.S)
+    html = re.sub(r"<script>(.*?)</script>", lambda match: "" if "el('tga-empty'}" in match[1] else match[0], html, flags=re.S | re.I)
     html = html.replace("<head>", "<head><script>" + setup + "</script>", 1)
     result = subprocess.run(
         [node, "-e", CDP_RUNNER], input=json.dumps({

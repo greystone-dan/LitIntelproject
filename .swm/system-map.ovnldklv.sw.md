@@ -288,6 +288,24 @@ profiles, and legacy combined tag/citation jobs stay outside the active V2 path.
 
 ## Deployment And Access Boundary
 
+### Dependency outage boundary
+
+[`backend/degraded_mode.py`](../backend/degraded_mode.py) owns connectivity-only
+classification and safe HTML/JSON 503 rendering. Registration remains in
+[`backend/main.py`](../backend/main.py); audit middleware supplies request IDs
+through request state. This does not intercept pool/query/connect timeouts or
+unrelated database errors, alter access controls, or expose exception details.
+[`backend/health.py`](../backend/health.py) continues to own readiness probes.
+Offline response and readiness contracts live in
+[`tests/test_degraded_mode.py`](../tests/test_degraded_mode.py).
+
+The 2026-10-04 dependency-equipped offline validation passed these response
+contracts and `tests/test_health.py` without reading dotenv files or connecting
+to PostgreSQL. All three generated references passed regeneration and
+`python scripts/check_generated_docs.py`; the
+[canonical checkpoint](../SYSTEM_REFERENCE.md#runtime-components) records the
+full-suite result and remaining validation boundaries.
+
 `backend/main.py` keeps access enforcement off when `CASELIBRARY_ACCESS_PASSWORD`
 is unset or empty. Setting a non-empty password in the server process environment
 and restarting enables signed-cookie checks before route handlers, including for

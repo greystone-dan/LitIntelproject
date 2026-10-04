@@ -923,9 +923,46 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 ### Runtime Components
 
+Database connection outages are handled by `backend/degraded_mode.py`, registered
+in `backend/main.py`. Only driver connectivity failures qualify: pool, connect
+and query timeouts, programming errors, authentication errors and unrelated
+operational errors retain their existing exception behavior. The HTML/JSON 503
+message is “iLit cannot reach its database right now. Try again in a minute.”
+HTML includes Home and Search navigation; `/api` and `/api/*` always receive
+JSON. Responses never include driver errors, SQL or credentials. Request IDs
+come from audit middleware state (even with logging disabled) and are escaped
+in HTML. Existing `/health/ready` dependency-check statuses remain unchanged.
+
+The active Data Explorer includes the shared `fetchPanel` script once, before
+its callers. Case Search, inline reader side panels, judge profiles and FC
+activity panels use renderer-aware, panel-local loading and Retry states.
+Failures say “This section could not load.” Retry repeats the existing request
+and success renderer; requests are bounded per container and superseded
+selections cannot overwrite the latest result. FC dashboard, judge and counsel
+loads settle independently, so one failed panel cannot erase healthy siblings.
+No global fetch interception, endpoint contract or backend source-offset change
+is involved. Offline checks are `node tests/test_panel_helpers.js` and
+`node tests/test_panel_browser.js`; Python coverage is in
+`tests/test_degraded_mode.py`, `tests/test_health.py` and `tests/test_feature_tabs.py`.
+
+Validation checkpoint (2026-10-04): the outage, readiness, feature-tab and
+paragraph-similarity tests passed **240 tests**, with one existing Playwright
+test skipped because that optional package is unavailable. The full suite with
+exactly the three CI deselections passed **1,919 tests**, with five skips and
+one expected failure. Both new Node fixture checks run through pytest; the
+paragraph-similarity browser fixture also exercises the real shared helper and
+Retry renderer. All three documentation generators and
+`python scripts/check_generated_docs.py` passed. Validation disabled dotenv
+loading and denied PostgreSQL connections; database fixtures remained SQLite.
+Declared dependencies were installed without manifest or version changes.
+The tokenizer runtime cache was populated with its checksum-verified existing
+artifact, not a substitute tokenizer. These results do not establish live
+database recovery, deployment readiness or a full-application browser pass.
+
 | Component | Responsibility |
 | --- | --- |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes for database, pgvector, required tables, and configured model endpoints |
+| `backend/degraded_mode.py` | Safe connectivity-only outage responses and shared renderer-aware panel recovery |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |

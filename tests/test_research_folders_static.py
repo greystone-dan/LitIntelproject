@@ -3,6 +3,7 @@ import subprocess
 
 import pytest
 
+from backend import routes
 from backend.pages.research_folders import (
     RESEARCH_FOLDERS_SCRIPT,
     inject_research_folders,
@@ -25,10 +26,23 @@ def test_research_folder_page_and_data_explorer_controls_are_registered():
     assert 'id="researchFolderList"' in page
     assert 'href="/data-explorer"' in page
     assert 'id="researchFolderPicker"' in explorer
-    assert 'id="researchFoldersLink"' in RESEARCH_FOLDERS_SCRIPT
+    assert "link.id = 'researchFoldersLink'" in RESEARCH_FOLDERS_SCRIPT
     assert "Add to folder" in RESEARCH_FOLDERS_SCRIPT
     assert "new MutationObserver(mountSearchControls)" in RESEARCH_FOLDERS_SCRIPT
     assert "activeCaseId" in RESEARCH_FOLDERS_SCRIPT
+
+
+def test_research_folder_injection_preserves_current_search_and_summary_controls():
+    html = routes._data_explorer_page_html()
+
+    for marker in (
+        'id="researchFolderPicker"',
+        'id="searchTipsToggle"',
+        'id="searchQueryEcho"',
+        'id="readerCaseSummaryToggle"',
+        'id="readerCaseSummaryDetail"',
+    ):
+        assert marker in html
 
 
 def test_research_folder_storage_failure_and_user_actions_are_visible():

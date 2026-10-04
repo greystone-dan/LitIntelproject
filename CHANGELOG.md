@@ -5,6 +5,13 @@
 	demo-safety fixes.
 # Unreleased
 
+- Phone layout fixes: the search page stacks its field and buttons with 16px text and
+  scrolling filter chips; the case reader header no longer sits under its view
+  buttons and the reader scrolls as one page; the yellow overruling-risk notice
+  folds behind one tappable line on phones so it cannot push the decision off
+  screen; Markup mode's toolbar is one row (Find, Topics and More open on tap),
+  the Peek panel is a bottom sheet, and the hover card is off on touch screens.
+  CSS and display logic only: no AI calls, new endpoints or schema changes.
 - Markup mode second build, using only stored data: hover card on citations;
   Peek panel (floating or docked, stackable, shows the cited paragraph when the
   authority is in the library and says so when it is not); tag display modes

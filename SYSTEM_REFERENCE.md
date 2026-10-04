@@ -317,6 +317,19 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   vector corpus, then sends the bounded grouped excerpts to the configured
   generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
   generation; retrieval and generation models remain separate.
+- Query embedding selection is independent of generation and disabled by
+  default. Semantic/hybrid requests use lexical ranking unless the operator
+  explicitly enables `QUERY_EMBEDDING_PROVIDER=openai` or `local`. The OpenAI
+  provider is an explicit opt-in; the local SentenceTransformer option keeps
+  query text on-device. `GET /api/search-embedding-status` reports
+  the selected query provider/model/output dimensions, indexed dimensions,
+  whether query text leaves the machine, and `TEXT_GENERATION_PROVIDER` without
+  loading a model. Search
+  rejects query vectors that do not match its 1536-dimensional indexed-vector
+  contract. The default local BGE-M3 model is 1024-dimensional, so it requires
+  a compatible indexed-vector family before it can be used by that search path.
+  See [the local query embedding report](docs/reports/local-query-embeddings.md)
+  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -821,7 +834,6 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 
 | Component | Responsibility |
 | --- | --- |
-| `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes for database, pgvector, required tables, and configured model endpoints |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, optional middleware registration, startup initialization |
 | `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
@@ -1535,6 +1547,8 @@ The appendix is generated from `backend.main:app.openapi()` plus FastAPI routes 
 - `POST /search/chunks`: chunk-level search.
 - `POST /search/chunks/grouped`: grouped matching passages per case.
 - `POST /search/local-chunks`: local embedding-backed chunk search where populated.
+- `GET /api/search-embedding-status`: configured query and generation provider
+  metadata; does not load an embedding model or perform retrieval.
 
 ### Ephemeral Document Analysis APIs
 
@@ -1641,6 +1655,15 @@ python -m venv venv
 pip install -r requirements.txt
 .\venv\Scripts\python.exe -m alembic upgrade head
 .\venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+The base install supports application startup and the CI test suite; it includes
+sentence-transformers because a CI test exercises local semantic search.
+Automatic spaCy name detection is optional; install `requirements-ml.txt`
+alongside the base requirements only when using that feature:
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-ml.txt
 ```
 
 Set secrets only in ignored environment files or secure environment configuration. Do not put API keys, database passwords, tunnel credentials, or access passwords in documentation, tests, exports, or commits.
@@ -9857,6 +9880,8 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
+The separate `backend/unit_search.py` semantic helper is deprecated and is not
+called by these routes; its default and stored-vector filter use `BAAI/bge-m3`.
 
 The active Data Explorer also provides a Core Cases proof of concept. `Display
 core cases` loads the first 100 ordinary case results while retaining the full

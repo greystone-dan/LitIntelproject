@@ -4,14 +4,14 @@ from __future__ import annotations
 
 import argparse
 import ast
-from collections import Counter
-from html import unescape
-from html.parser import HTMLParser
 import io
 import json
 import re
 import sys
 import tokenize
+from collections import Counter
+from html import unescape
+from html.parser import HTMLParser
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -26,8 +26,7 @@ CODE_MARKERS = re.compile(
     r"\b(?:async|await)\s+[$A-Za-z_][\w$]*[.(])"
 )
 JS_UI_ASSIGNMENT = re.compile(
-    r"""(?:textContent|innerHTML|ariaLabel|title|placeholder)\s*=\s*(['"`])((?:\\.|.)*?)\1""",
-    re.DOTALL,
+    r"""\b(?:textContent|innerHTML|ariaLabel|title|placeholder)\s*=\s*(['"`])"""
 )
 
 SOURCE_FILES = [
@@ -139,6 +138,32 @@ def _relative_path(path: Path, root: Path) -> str:
         return path.name
 
 
+def _js_assigned_text(fragment: str, first_line: int) -> list[tuple[str, int]]:
+    found = []
+    cursor = 0
+    while match := JS_UI_ASSIGNMENT.search(fragment, cursor):
+        quote = match.group(1)
+        start = match.end()
+        index = start
+        value = []
+        while index < len(fragment):
+            character = fragment[index]
+            if character == "\\" and index + 1 < len(fragment):
+                value.extend((character, fragment[index + 1]))
+                index += 2
+            elif character == quote:
+                break
+            else:
+                value.append(character)
+                index += 1
+        if index >= len(fragment):
+            cursor = start
+            continue
+        found.append(("".join(value), first_line + fragment.count("\n", 0, match.start())))
+        cursor = index + 1
+    return found
+
+
 def _route_errors(source_path: Path, source_text: str, root: Path) -> list[dict[str, str | int | bool]]:
     if source_path.name != "routes.py":
         return []
@@ -240,9 +265,8 @@ def extract_source_strings(
                     str(item["file"]), int(item["line"]), str(item["string"]),
                     str(item["context_kind"]), bool(item["contains_placeholders"]),
                 ))
-        for match in JS_UI_ASSIGNMENT.finditer(fragment):
-            line = first_line + fragment.count("\n", 0, match.start())
-            text = _clean_candidate(match.group(2))
+        for assigned_text, line in _js_assigned_text(fragment, first_line):
+            text = _clean_candidate(assigned_text)
             if text:
                 results.add((
                     source_file, line, text, "label", bool(PLACEHOLDER.search(text)),
@@ -344,9 +368,11 @@ def render_report(inventory: dict[str, object]) -> str:
         f"- **Coverage:** {inventory['coverage']}",
         "- **Machine-readable output:** [`ui-strings.json`](ui-strings.json)",
         "",
-        "This is a reproducible static-source inventory, not a claim that runtime-generated "
-        "or API-provided content has been exhaustively translated. Review the listed sources "
-        "and test rendered pages before extending localization.",
+        (
+            "This is a reproducible static-source inventory, not a claim that runtime-generated "
+            "or API-provided content has been exhaustively translated. Review the listed sources "
+            "and test rendered pages before extending localization."
+        ),
         "",
         "## Occurrences by page/source",
         "",
@@ -358,9 +384,11 @@ def render_report(inventory: dict[str, object]) -> str:
         "",
         "## Strings assembled by concatenation",
         "",
-        f"Found **{len(concatenations)}** Python string-concatenation expression(s) in scanned "
-        "page/route sources. These require review because translators cannot safely reorder "
-        "fragments or adjust grammar across English-only code boundaries.",
+        (
+            f"Found **{len(concatenations)}** Python string-concatenation expression(s) in scanned "
+            "page/route sources. These require review because translators cannot safely reorder "
+            "fragments or adjust grammar across English-only code boundaries."
+        ),
         "",
         "| File | Line | Expression |",
         "| --- | ---: | --- |",
@@ -372,16 +400,20 @@ def render_report(inventory: dict[str, object]) -> str:
         "",
         "## Recommended implementation approach",
         "",
-        "Use a message catalog keyed by stable IDs, with English as the source language and "
-        "French values reviewed by a fluent Canadian French speaker. Resolve locale in this "
-        "order: an explicit `?lang=fr` URL override, then `Accept-Language`, then English; "
-        "include an accessible language toggle in the shared header. Keep placeholders named "
-        "and consistent between locales, escape inserted text, and test catalog parity and "
-        "English output compatibility.",
+        (
+            "Use a message catalog keyed by stable IDs, with English as the source language and "
+            "French values reviewed by a fluent Canadian French speaker. Resolve locale in this "
+            "order: an explicit `?lang=fr` URL override, then `Accept-Language`, then English; "
+            "include an accessible language toggle in the shared header. Keep placeholders named "
+            "and consistent between locales, escape inserted text, and test catalog parity and "
+            "English output compatibility."
+        ),
         "",
-        "The About-page proof of concept is intentionally limited. Its French values are "
-        "machine-drafted and require fluent-speaker review; no legal terminology is represented "
-        "as final.",
+        (
+            "The About-page proof of concept is intentionally limited. Its French values are "
+            "machine-drafted and require fluent-speaker review; no legal terminology is represented "
+            "as final."
+        ),
         "",
         "## Terminology glossary for human review",
         "",

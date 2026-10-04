@@ -48,7 +48,8 @@ def test_inventory_extracts_context_placeholders_and_literal_route_errors(tmp_pa
     fixture = tmp_path / "sample.html"
     fixture.write_text(
         '<h1>Overview</h1><button>Save</button><label>Case {case_id}</label>'
-        '<span title="More information" aria-label="Close panel">Text</span>',
+        '<span title="More information" aria-label="Close panel">Text</span>'
+        '<script>node.textContent = "Loading case";</script>',
         encoding="utf-8",
     )
     html_items = extract_source_strings(fixture, fixture.read_text(encoding="utf-8"), tmp_path)
@@ -58,6 +59,7 @@ def test_inventory_extracts_context_placeholders_and_literal_route_errors(tmp_pa
         ("Case {case_id}", "label"),
         ("More information", "tooltip"),
         ("Close panel", "aria-label"),
+        ("Loading case", "label"),
     }
     assert next(item for item in html_items if item["string"] == "Case {case_id}")[
         "contains_placeholders"

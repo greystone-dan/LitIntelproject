@@ -318,6 +318,9 @@ _MERITS_WORDS_RE = re.compile(
 )
 
 
+_TRAILER_RE = re.compile(r"\n\s*(?:SOLICITORS\s+OF\s+RECORD|NAMES?\s+OF\s+COUNSEL|APPEARANCES|DOCKET\s*:)", re.IGNORECASE)
+
+
 def _is_procedural(content: str, best, operative_start: int, tail: str, is_tribunal: bool) -> bool:
 	"""True when the order decides a motion, extension, costs or similar, not the case itself."""
 	if is_tribunal and _PROCEDURAL_TRIBUNAL_RE.search(content[:3000]):
@@ -335,7 +338,8 @@ def _is_procedural(content: str, best, operative_start: int, tail: str, is_tribu
 		subject = tail[max(left, best[3].start() - 60) : best[3].end()]
 	if best[4] != "headline" and _PROCEDURAL_SENTENCE_RE.search(subject):
 		return True
-	markers = list(_MARKER_RE.finditer(tail))
+	trailer = _TRAILER_RE.search(tail, max(0, len(tail) - 4000))
+	markers = list(_MARKER_RE.finditer(tail[: trailer.start()] if trailer else tail))
 	if markers:
 		last = markers[-1].start()
 		block = tail[last : last + 900]

@@ -31,9 +31,12 @@ label.field{display:block;margin:0 0 6px;font-size:12px;font-weight:700}
 .hint{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
 textarea{width:100%;min-height:110px;padding:10px;border:1px solid var(--line);border-radius:4px;background:white;font:13px/1.5 Manrope,sans-serif;resize:vertical}
 textarea.big{min-height:150px}
-.drop{display:grid;place-items:center;min-height:120px;padding:18px;border:1px dashed #8da89b;background:#f4f8f4;text-align:center;cursor:pointer;border-radius:4px}
-.drop:hover,.drop.drag{border-color:var(--teal);background:#eaf5f0}.drop strong{display:block;font-size:15px}.drop span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.drop input{display:none}
-.or{margin:10px 0;color:var(--muted);font-size:11px;text-align:center}
+.drop{position:relative;display:grid;place-items:center;min-height:120px;padding:18px;border:1px dashed #8da89b;background:#f4f8f4;text-align:center;cursor:pointer;border-radius:4px}
+.drop:hover,.drop.drag{border-color:var(--teal);background:#eaf5f0}.drop strong{display:block;font-size:15px}.drop span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.drop:focus-within{outline:3px solid var(--teal);outline-offset:2px}
+button:focus-visible,a:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.or{display:block;margin:10px 0;color:var(--muted);font-size:11px;text-align:center}
 .block,label.field.block{margin-top:18px}
 details.opts{margin-top:18px;font-size:12px}details.opts summary{cursor:pointer;font-weight:700}
 .checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;margin-top:10px}.checks label{display:flex;gap:6px;align-items:center}
@@ -82,7 +85,7 @@ textarea.small{min-height:70px}
 <div>
 <label class="field">Document</label>
 <label class="drop" id="deidDrop"><input type="file" id="deidFile" accept=".docx,.pdf,.txt"><div><strong id="deidFileName">Choose or drop a file</strong><span>Word (.docx), PDF with selectable text, or .txt · up to 10 MB</span></div></label>
-<div class="or">or paste text</div>
+<label class="or" for="deidText">or paste text</label>
 <textarea id="deidText" class="big" placeholder="Paste text here"></textarea>
 </div>
 <div>
@@ -127,7 +130,7 @@ textarea.small{min-height:70px}
 <div>
 <label class="field">Processed document (with placeholders)</label>
 <label class="drop" id="restoreDrop"><input type="file" id="restoreFile" accept=".docx,.pdf,.txt"><div><strong id="restoreFileName">Choose or drop a file</strong><span>.docx, .pdf or .txt</span></div></label>
-<div class="or">or paste text</div>
+<label class="or" for="restoreText">or paste text</label>
 <textarea id="restoreText" class="big" placeholder="Paste the text that contains [PERSON_1] style placeholders"></textarea>
 </div>
 <div>

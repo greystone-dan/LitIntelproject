@@ -1,8 +1,8 @@
 # Accessibility audit: research and citation HTML builders
 
-**Audit date:** 2026-10-03
+**Audit dates:** 2026-10-03 and 2026-10-04
 **Target:** WCAG 2.1 AA
-**Status:** Static review with surgical fixes; not a conformance certification.
+**Status:** Two static review passes with surgical fixes; not a conformance certification.
 
 ## Scope and method
 
@@ -83,3 +83,48 @@ across all views, color contrast in rendered states, zoom/reflow, mobile
 touch-target sizes, and screen-reader behavior remain unverified. The next
 bounded check is a browser keyboard and screen-reader review of Data Explorer
 search/reader and Citation Map at desktop and narrow viewports.
+
+## Second pass: newer builders and reusable checks (2026-10-04)
+
+The second static pass extended the source review to:
+
+- `backend/pages/deidentify.py`
+- `backend/pages/memo_citation_check.py`
+- `backend/pages/tag_finder.py`
+- `backend/pages/saved_searches.py`
+- `backend/pages/fc_analytics.py` (the injected Data Explorer panel)
+- `backend/pages/research.py` and `backend/pages/prototype.py`
+
+| Page | Static finding and disposition | WCAG 2.1 AA item | Verification |
+| --- | --- | --- | --- |
+| De-identify | The paste-text labels were not associated with their textareas; file inputs used `display:none`, which removes them from keyboard focus. Labels now target both textareas. File inputs remain visually hidden but focusable, and their drop labels show a focus-within outline. | 1.3.1 Info and Relationships; 2.1.1 Keyboard; 2.4.7 Focus Visible | Reusable control-name test and targeted markup assertions |
+| Memo Citation Check | The upload input was removed from keyboard focus by `display:none`. It is now visually clipped but focusable, with a visible focus-within outline; form controls receive explicit focus-visible styling. | 2.1.1 Keyboard; 2.4.7 Focus Visible | Reusable control-name and focus-style tests |
+| Tag Finder, Saved Searches, Research, Prototype Explorer | Static exposed controls have programmatic names; explicit theme-colored `:focus-visible` outlines were added to the interactive controls. | 2.4.7 Focus Visible; 4.1.2 Name, Role, Value | Reusable control-name and focus-style tests |
+| FC Analytics | The SVG focus target had an `outline:none` rule. A visible focus-visible outline now uses the ink token; the existing focused-mark stroke remains. Its outline color is checked against the emitted surface token. | 2.4.7 Focus Visible; 1.4.11 Non-text Contrast | CSS-variable contrast test asserts at least 3:1 |
+
+`tests/test_accessibility_builders.py` now has a reusable static HTML control-name
+check for these seven pages, focus-style coverage, and a contrast calculation
+that resolves `--fcx-ink` and `--fcx-surface` from `FC_ANALYTICS_CSS` rather than
+duplicating their current hex values. It also checks that the de-identification
+paste-textareas are explicitly labeled and that their file inputs are not
+`display:none`.
+
+The check covers initial builder HTML only. JavaScript-created controls and
+charts, live announcements, accessible alternatives for the citation/analytics
+graphs, browser focus order, and assistive-technology behavior remain outside
+this static pass. This work is not a WCAG conformance claim.
+
+Second-pass focused verification:
+
+- `python -m pytest -q tests/test_accessibility_builders.py tests/test_case_formatter.py`
+  — 16 passed.
+- `python -m pytest -q tests/test_feature_tabs.py` — 56 passed, 1 skipped.
+- `python -m compileall -q` over the seven changed page builders and
+  `tests/test_accessibility_builders.py` — passed.
+- `python scripts/check_generated_docs.py` — generated references current
+  (3 checked).
+- Full suite with the three documented CI deselects — 1,272 passed, 1 skipped,
+  1 xfailed, and 3 failed. The failures were external-resource tests unable to
+  download the Hugging Face model or the tokenizer encoding file because network
+  name resolution is unavailable in this sandbox; no production code failure
+  was reported.

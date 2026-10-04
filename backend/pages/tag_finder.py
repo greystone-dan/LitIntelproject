@@ -79,6 +79,10 @@ def tag_finder_page_html() -> str:
 		button:hover {
 			opacity: 0.9;
 		}
+		input:focus-visible, select:focus-visible, button:focus-visible {
+			outline: 3px solid var(--accent-2);
+			outline-offset: 2px;
+		}
 		.status {
 			margin-top: 12px;
 			font-size: 0.88rem;

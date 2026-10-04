@@ -2967,10 +2967,10 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:21:12.735141+00:00
+Generated: 2026-10-04T12:36:08.925159+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 103 across 100 paths
+OpenAPI operations: 104 across 101 paths
 Hidden operations: 59 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -4409,6 +4409,31 @@ Export Search Analytics Cases
 - `200`: Successful Response; `text/csv`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /search/export.docx`
+
+Export Search Docx
+
+Export up to 200 cases using the Data Explorer search filters.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /search/tags/similar`
 
 Find Similar Cases By Tags
@@ -5292,7 +5317,7 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T12:21:10.600717+00:00
+Generated: 2026-10-04T12:36:09.454176+00:00
 Tables: 28
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -9647,6 +9672,15 @@ remains a separate accessible control.
 The audit and remaining limitations are in
 `docs/reports/accessibility-audit.md`.
 
+The 2026-10-04 static second pass also covers De-identify, Memo Citation Check,
+Tag Finder, Saved Searches, FC Analytics, Research, and Prototype Explorer.
+It labels the de-identification paste-textareas, keeps upload inputs keyboard
+focusable while visually clipped, adds explicit focus-visible outlines to the
+reviewed controls, and checks static form-control names and FC Analytics focus
+contrast from the emitted CSS variables. These builder checks do not cover
+JavaScript-created controls, chart alternatives, browser behavior, or assistive
+technology.
+
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.
@@ -9819,6 +9853,15 @@ Choose a result count and sort order:
 Open Advanced options to narrow the candidate set. Available filters include cited authority, government outcome, decision outcome, judge, court, date/year, minister/government party, source type, and other metadata-oriented constraints. Court abbreviations such as `FC`, `FCA`, and `SCC` expand to their canonical court names.
 
 Enable **Search full decision text** only when the research question requires text passages rather than named authorities. Full-text matching broadens results and can be slower or noisier than title/citation lookup.
+
+After a nonempty successful ordinary case search, **Download Word** appears
+in the shared search-actions group beside the search/export controls. It exports
+the current query and the same named filters used by `searchValues()` through
+`GET /search/export.docx`. The link is
+hidden before results, for empty/error/loading states, while RAG is selected,
+and after any search field is edited; submit the search again to export its
+current result set. Older asynchronous case-search responses cannot restore a
+stale link.
 
 ### Reading Result Metadata
 

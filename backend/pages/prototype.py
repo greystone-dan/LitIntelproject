@@ -54,6 +54,10 @@ def prototype_page_html() -> str:
 			border: 1px solid var(--line); border-radius: 999px;
 			padding: 3px 9px; font-size: 0.78rem; color: var(--muted);
 		}
+		button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
+			outline: 3px solid var(--accent);
+			outline-offset: 2px;
+		}
 		.graph-canvas {
 			width: 100%;
 			height: 620px;

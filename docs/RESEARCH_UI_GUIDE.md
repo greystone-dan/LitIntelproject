@@ -98,6 +98,15 @@ remains a separate accessible control.
 The audit and remaining limitations are in
 `docs/reports/accessibility-audit.md`.
 
+The 2026-10-04 static second pass also covers De-identify, Memo Citation Check,
+Tag Finder, Saved Searches, FC Analytics, Research, and Prototype Explorer.
+It labels the de-identification paste-textareas, keeps upload inputs keyboard
+focusable while visually clipped, adds explicit focus-visible outlines to the
+reviewed controls, and checks static form-control names and FC Analytics focus
+contrast from the emitted CSS variables. These builder checks do not cover
+JavaScript-created controls, chart alternatives, browser behavior, or assistive
+technology.
+
 This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
 announcements, responsive/touch behavior, and assistive-technology use still
 need manual verification.

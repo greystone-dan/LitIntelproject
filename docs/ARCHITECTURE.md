@@ -174,6 +174,7 @@ test checks that these paths continue to exist.
 | `backend/embedding_providers.py` | Selects and configures embedding providers |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |

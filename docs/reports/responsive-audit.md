@@ -1,6 +1,6 @@
 # Generated Research UI Responsive Audit
 
-Date: 2026-10-04  
+Date: 2026-10-04
 Scope: generated pages under `backend/pages/`, with a focus on usability at
 360, 768, and 1280 CSS pixels. This is a static CSS/markup audit, not a live
 application or browser-rendering certification.

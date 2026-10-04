@@ -13,6 +13,7 @@ from starlette.staticfiles import StaticFiles
 
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .db_limits import register_timeout_handlers
 from .health import liveness, readiness
 from .routes import router
 from .overruling_risk_routes import router as overruling_risk_router
@@ -26,6 +27,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+register_timeout_handlers(app)
 
 
 ACCESS_COOKIE = "caselibrary_access"

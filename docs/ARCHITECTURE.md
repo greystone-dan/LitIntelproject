@@ -61,6 +61,22 @@ be adjusted with the `LITINTEL_MAX_*` environment variables. See
 [README.md](../README.md) for the short setup/test instructions and
 [SYSTEM_REFERENCE.md](../SYSTEM_REFERENCE.md) for configuration details.
 
+## Engine limits and request failure policy
+
+[`backend/db_limits.py`](../backend/db_limits.py) owns opt-in, validated engine
+kwargs and precise timeout classification. `database.py` keeps URL precedence,
+sessions and ORM ownership; `main.py` only registers the handlers. Unset limits
+preserve SQLAlchemy defaults. PostgreSQL timeout options apply per connection;
+SQLite keeps its dialect pool and ignores unsupported QueuePool kwargs.
+Diagnosed statement/lock timeouts and QueuePool exhaustion return a safe 503
+with `Retry-After: 5`; unrelated errors retain their previous handling.
+
+Scripts may opt into a separate `engine_without_timeout()` and must close their
+sessions and dispose it; application limits are neither global database changes
+nor implicit changes to other processes. This helper does not erase server/role
+defaults. See [configuration and accepted ranges](CONFIGURATION_REFERENCE.md#opt-in-database-limits)
+and the [database walkthrough](../.swm/2.40nypbay.sw.md#connection-rules).
+
 ## Main data tables
 
 The generated [schema reference](SCHEMA_REFERENCE.generated.md) lists every
@@ -169,6 +185,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
+| `backend/db_limits.py` | Opt-in engine limits, script engine helper, and precise safe timeout responses |
 | `backend/deidentify.py` | Reversible document de-identification |
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |

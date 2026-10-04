@@ -135,6 +135,7 @@ test checks that these paths continue to exist.
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
+| `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
 | `backend/citation_pipeline/canlii.py` | CanLII source adapter for citation extraction |
 | `backend/citation_pipeline/models.py` | Citation candidate and extraction data shapes |

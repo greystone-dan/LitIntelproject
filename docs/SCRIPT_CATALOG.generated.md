@@ -33,6 +33,7 @@ Active scripts documented: 161
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
+| `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
@@ -154,6 +155,7 @@ Active scripts documented: 161
 | `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
+| `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
@@ -492,6 +494,20 @@ Active scripts documented: 161
 
 ```powershell
 .\venv\Scripts\python.exe scripts\browser_smoke.py --help
+```
+
+## `scripts/build_alert_digest.py`
+
+**Purpose:** Build an offline saved-search digest from enriched JSON on stdin or --input.
+
+**Operational class:** Saved-search digest rendering
+
+**Write/network risk:** offline JSON input; filesystem output only; no database, network or sending
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_alert_digest.py --help
 ```
 
 ## `scripts/build_citation_sample_candidate.py`
@@ -2186,6 +2202,20 @@ Active scripts documented: 161
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
+## `scripts/run_outcome_checker.py`
+
+**Purpose:** Second-opinion outcome reader for cases the rules leave "unclear" (advisory data, never overwrites). Dry run by default: counts the cases, estimates tokens and cost, calls nothing. A real run needs --confirm-spend and OPENAI_API_KEY, stops at --max-usd (never above 1.00), and writes JSONL files to --out. Only open case law is sent. Use --source gold to measure the checker against the hand-read gold set (class-by-class agreement).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help
 ```
 
 ## `scripts/run_overnight.py`

@@ -5,6 +5,38 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode second build, using only stored data: hover card on citations;
+  Peek panel (floating or docked, stackable, shows the cited paragraph when the
+  authority is in the library and says so when it is not); tag display modes
+  (Off, Underline, Tint, Bubbles); topic chips from sub-theme key terms with a
+  "show only selected" fold view; case-info drawer polish; keyboard use for
+  citations and the toolbar; print re-layout; and a find-box focus fix. No AI,
+  new endpoints or schema changes.
+- Added **Markup mode**, a third case-reader view (button beside Formatted/Chunk
+  breakdown). The decision runs full width with notes in a right margin: case
+  citations with pinpoint text, discussion units and sub-themes, verified
+  outcome (labelled unverified when no disposition passage is stored), judge,
+  a cited-by gutter, soft tags, topic bands, outline, find-in-case, per-layer
+  Off/Markers/Open controls with expand/collapse all, and annotated print. It
+  only reads the already-loaded reader payload: no AI, no network calls, no
+  schema changes. Existing readers are unchanged.
+- Added a read-only `GET /api/overruling-risk/{case_id}` indicator using an
+  editable, lawyer-review seed list, with direct matches and stored resolved
+  citation links, source/rationale/assignment details, counts, and chronology
+  dates. The active Data Explorer reader adds a cautious “may be affected”
+  banner; no memo output or database schema changes. Extension guidance is in
+  [`docs/reports/overruling-risk.md`](docs/reports/overruling-risk.md).
+- Added a shared embedding-provider interface with a disabled default, lazy
+  OpenAI client wrapper, and cached local SentenceTransformer implementation.
+  Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:
+  off makes no model/client calls, local mode rejects hosted embeddings, and
+  hosted mode uses the selected provider. Provider dimensions and the 503
+  missing-key / 502 provider-failure API contracts are preserved. Added
+  fake-client/model tests and updated the architecture inventory, configuration,
+  system reference, and Swimm maps. Python compilation and `git diff --check`
+  passed; seven provider tests and nine targeted API/search/ingestion tests passed
+  in an isolated dependency environment. All three generated references were
+  current. No model downloads or database operations were performed.
 - Moved the experimental research, citation-intelligence, contextual-authority,
   and discussion-unit prompts into header-versioned text files loaded through a
   shared backend registry. Exact prompt wording is guarded by golden snapshots.

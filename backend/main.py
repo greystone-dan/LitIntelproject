@@ -15,6 +15,7 @@ from .audit import RequestAuditMiddleware
 from .database import init_db
 from .health import liveness, readiness
 from .routes import router
+from .overruling_risk_routes import router as overruling_risk_router
 from .security_headers import SecurityHeadersMiddleware
 
 
@@ -120,6 +121,7 @@ if os.getenv("CASELIBRARY_SECURITY_HEADERS") == "1":
 
 
 app.include_router(router)
+app.include_router(overruling_risk_router)
 
 
 @app.get("/")

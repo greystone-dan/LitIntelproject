@@ -139,7 +139,7 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 
 ## Public Health Probes
 
-The app keeps three health routes public, including when
+The app keeps its health routes public, including when
 `CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
 
 | Route | Purpose | Failure behavior |
@@ -147,6 +147,7 @@ The app keeps three health routes public, including when
 | `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
 | `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
 | `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
+| `GET /health/limits` | Reports opt-in heavy-request concurrency and waiter counts without secrets. | Returns HTTP 404 unless `CASELIBRARY_DEBUG_ENDPOINTS=1`. |
 
 Readiness uses short per-probe timeouts and does not return credentials,
 hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
@@ -154,6 +155,20 @@ model services are reported as `not_configured` and do not make the service
 unready; configured services that fail their endpoint check do. The database
 and vector requirements remain readiness dependencies regardless of optional
 model configuration.
+
+## Optional Heavy-Endpoint Concurrency Limits
+
+| Variable | Default | Consumer | Purpose and validation |
+| --- | --- | --- | --- |
+| `HEAVY_ENDPOINT_MAX_CONCURRENCY` | unset (disabled) | `backend/load_shedding.py` | Enables per-process concurrency limits for live analysis, exports, citation map/intelligence, analytics, and bulk search. Must be a positive integer when set. |
+| `HEAVY_BUCKET_<NAME>_MAX` | `HEAVY_ENDPOINT_MAX_CONCURRENCY` | `backend/load_shedding.py` | Optional positive-integer override for `LIVE_ANALYSIS`, `EXPORTS`, `CITATION_MAP`, `ANALYTICS`, or `BULK_SEARCH`. Overrides apply only when the global setting enables limiting. |
+| `HEAVY_ENDPOINT_QUEUE_SECONDS` | `0` | `backend/load_shedding.py` | Maximum time a request waits for a bucket slot before receiving HTTP 503 with `Retry-After`; must be finite and non-negative. |
+| `CASELIBRARY_DEBUG_ENDPOINTS` | unset (disabled) | `backend/load_shedding.py` | Set to `1` to expose read-only counts at `GET /health/limits`; otherwise that endpoint returns 404. |
+
+Limits are process-local and leave all routes outside the explicit heavy-route
+table unlimited, including health, readiness, static assets, and light search.
+Upload byte, parsed-text, PDF-page, and archive limits remain separate controls
+in `backend/resource_limits.py`.
 
 ## Optional Security Response Headers
 

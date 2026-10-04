@@ -5,6 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added public `GET /health/live` and `GET /health/ready` probes while preserving
+  the legacy `GET /health` response. Readiness reports database, vector
+  extension, required-table, and configured-model endpoint status, and returns
+  HTTP 503 when a required check fails. Probe results omit endpoint addresses
+  and credentials. The 12 focused mocked health tests and generated-document
+  check passed; no database or `.env` was accessed.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

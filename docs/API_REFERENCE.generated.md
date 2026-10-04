@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T15:50:22.837921+00:00
+Generated: 2026-10-04T16:06:10.814468+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 112 across 109 paths
+OpenAPI operations: 114 across 111 paths
 Hidden operations: 62 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1202,6 +1202,23 @@ Health
 **Responses**
 
 - `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/live`
+
+Health Live
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/ready`
+
+Health Ready
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `503`: A required dependency is unavailable
 
 ### `POST /ingest`
 

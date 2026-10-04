@@ -3,6 +3,12 @@ title: GOC Network principles/future considerations
 ---
 # Technical Readiness Report: Migrating an External Intelligence-Gathering Website into CBSA / Government of Canada Infrastructure
 
+For code-cited data classification, application data flows, providers,
+logging/retention, PIA inputs, and AI use, see the
+[government-readiness documentation pack](../docs/government-readiness/README.md).
+That pack distinguishes repository evidence from live-PC and departmental
+questions; it is not an approval or compliance determination.
+
 ## 1\. Executive determination and immediate blockers
 
 **The site is not presently ready for protected, personal, authenticated or transactional use.** Enterprise material associated with the project explicitly says that the current prototype has no authentication or application-level access control and is not ready for deployment involving protected or sensitive material; it also calls for formal security, privacy, information-management, legal, accessibility and technology reviews before broader use. The related deployment package describes a FastAPI/React/PostgreSQL/Azure-oriented implementation and CI/CD configuration, but that package is project evidence—not proof that those technologies are CBSA-approved standards.

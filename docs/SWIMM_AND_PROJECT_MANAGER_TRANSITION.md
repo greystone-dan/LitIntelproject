@@ -89,7 +89,7 @@ whole project map.
 | Source-to-canonical flow | `backend/ingestion.py` | Staging, provenance, merge priority, and canonical writes | Ingestion |
 | Citation evidence | `backend/citations.py` | Extraction, offsets, resolution, metrics, and QA boundaries | Citation QA |
 | Database map | `backend/database.py` and `alembic/` | ORM entities, migrations, and pgvector responsibilities | Data/platform |
-| Embedding model configuration | `config.yaml` and `backend/embedding_registry.py` | Registered model metadata, hosted/local defaults, and vector-width compatibility | Retrieval |
+| Embedding model configuration | `config.yaml` and `backend/embedding_registry.py` | Full model metadata, enabled-mode selection, exact table/tag routing, and vector-width boundaries | Retrieval |
 | Operational run | `scripts/run_overnight.py` and `OVERNIGHT.md` | Locks, bounded jobs, resume behavior, and recovery | Operations |
 | CI quality workflow | `.github/workflows/quality.yml` | Non-blocking PR/weekly Ruff and dependency-audit checks, result artifacts, and baseline scope | Quality/platform |
 | Active UI | `backend/routes.py` and `docs/RESEARCH_UI_GUIDE.md` | Data Explorer, inline reader, Citation Map, and legacy boundaries | Research UI |

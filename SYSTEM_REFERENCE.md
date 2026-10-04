@@ -328,22 +328,27 @@ paging and explicit date/minister sorts remain intact. Results expose a short
 - The CSV and Word exports use the existing SQL analytics Case Search rather
   than vector retrieval; their behavior and `/analytics/search/cases` remain
   unchanged and do not construct an AI provider.
-- Query embedding selection is independent of generation and disabled by
-  default. Semantic/hybrid requests use lexical ranking unless the operator
-  explicitly selects a query provider and enables enhanced mode. The OpenAI
-  provider requires `ENHANCED_AI_MODE=hosted` and
-  `QUERY_EMBEDDING_PROVIDER=openai`; the local SentenceTransformer option keeps
-  query text on-device and requires `QUERY_EMBEDDING_PROVIDER=local` in
-  `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
+- Query embedding selection is independent of generation and remains disabled
+  in the default `off` mode. In `local` or `hosted` mode, `EMBEDDING_MODEL`
+  selects the registered model for semantic/hybrid chunk retrieval; absent an
+  explicit selection, the hosted default remains `text-embedding-3-small`.
+  Optional `QUERY_EMBEDDING_PROVIDER` and `QUERY_EMBEDDING_MODEL` settings
+  continue to support explicit selection. OpenAI query inference requires
+  `ENHANCED_AI_MODE=hosted`; local SentenceTransformer inference keeps query
+  text on-device and is permitted in `local` or `hosted` mode.
+  `GET /api/search-embedding-status` reports the selected query
   provider/model/output dimensions, indexed dimensions, whether query text
   leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
-  Model IDs and output dimensions come from the registry under
-  `ai.embeddings.registry` in `config.yaml`; hosted and local defaults are
-  configured separately. Search rejects query vectors that do not match its
-  current 1536-dimensional indexed-vector contract. The default local BGE-M3
-  model is 1024-dimensional, so it still requires a compatible indexed-vector
-  family before it can be used by that search path. Registry selection does not
-  migrate or re-embed stored vectors. See [the local query embedding
+  Model IDs, provider, dimensions, normalization, query/document prefixes, and
+  retrieval table come from `ai.embeddings.registry` in `config.yaml`; hosted
+  and local defaults are configured separately. Hosted
+  `text-embedding-3-small` retrieval uses the existing 1536-dimensional chunk
+  tables. `BAAI/bge-m3` (also accepted as `bge-m3`) retrieves only from the
+  separately tagged 1024-dimensional `case_chunk_embeddings` table. The exact
+  canonical model tag and table are applied together, so vectors of different
+  widths are never compared. Case-level semantic search remains on the hosted
+  1536-dimensional schema. Registry selection does not migrate or re-embed
+  stored vectors. See [the local query embedding
   report](docs/reports/local-query-embeddings.md) and [configuration
   reference](docs/CONFIGURATION_REFERENCE.md).
 - The active Data Explorer keeps ordinary case search as the default. Its

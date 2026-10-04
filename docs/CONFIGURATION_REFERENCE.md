@@ -104,10 +104,11 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
-| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
-| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
-| `QUERY_EMBEDDING_DIMENSIONS` | Registered model's output width | `backend/query_embedding_providers.py` | Optional local query-vector assertion. If set, it must equal the selected model's configured `output_dimensions`; indexed-vector compatibility is checked separately. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. In `local` or `hosted` mode, semantic chunk retrieval selects the registry model; OpenAI inference remains hosted-only and local inference is permitted in either enabled mode. |
+| `EMBEDDING_MODEL` | `text-embedding-3-small` in hosted/off mode; configured local default in local mode | `backend/models.py`, `backend/query_embedding_providers.py`, `backend/search_service.py` | Optional registered model selection when enhanced mode is enabled. Registry metadata determines provider, width, prefixes, normalization, and vector table. `bge-m3` is accepted as an alias for canonical `BAAI/bge-m3`. Off mode retains lexical/no-provider behavior. |
+| `QUERY_EMBEDDING_PROVIDER` | Registry-selected provider in enabled mode; `none` in off mode | `backend/query_embedding_providers.py` | Optional explicit provider override (`openai` or `local`). It must match the selected registry model; OpenAI inference requires hosted mode. |
+| `QUERY_EMBEDDING_MODEL` | Registry-selected model | `backend/query_embedding_providers.py` | Optional legacy query-model override. It must agree with the selected provider and resolve through the registry. |
+| `QUERY_EMBEDDING_DIMENSIONS` | Registered model's output width | `backend/query_embedding_providers.py` | Optional local query-vector assertion. If set, it must equal the selected model's configured `dimensions`; selected-table compatibility is checked separately. |
 | `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | Runtime: `ai.embeddings.model` in `config.yaml`; standalone scripts may use their own defaults | `backend/query_embedding_providers.py`, `backend/routes.py`, embedding scripts | Runtime provider/query selection resolves the model ID and width through `ai.embeddings.registry`. Existing hosted embedding scripts retain their explicit model/schema guards; do not infer that changing runtime configuration changes their fixed contract. |
@@ -138,32 +139,35 @@ The local provider's code-default model is `qwen3:4b`. An enabled route reports
 a controlled `503` when the selected provider is not configured or reachable.
 Setting these values does not download a model.
 
-Query embedding is a separate provider decision and is disabled by default.
-Semantic/hybrid search uses lexical ranking until an operator explicitly sets
-`QUERY_EMBEDDING_PROVIDER=openai` or `local` and enables enhanced AI mode. OpenAI
-query inference additionally requires `ENHANCED_AI_MODE=hosted`; local query
-inference is permitted in `local` or `hosted` mode. The default off mode never
-constructs a query embedding provider. Only the OpenAI setting sends query text
-off-machine. Case-ingestion summary embeddings retain their existing,
-separately controlled provider path. The read-only
+Query embedding remains disabled in the default off mode. In enabled modes,
+semantic/hybrid chunk retrieval selects `EMBEDDING_MODEL` (or the same hosted
+default as before); `QUERY_EMBEDDING_PROVIDER` and `QUERY_EMBEDDING_MODEL` remain
+optional explicit overrides. The registry routes hosted
+`text-embedding-3-small` vectors to the existing 1536-dimensional hosted chunk
+tables and local `BAAI/bge-m3` vectors to the separately tagged
+1024-dimensional `case_chunk_embeddings` table. Retrieval filters by the
+canonical selected model name and never compares across vector tables or widths.
+OpenAI query inference requires hosted mode; local inference is permitted in
+`local` or `hosted` mode. Off mode never constructs a query embedding provider.
+Only OpenAI inference sends query text off-machine. Case-ingestion summary
+embeddings retain their existing, separately controlled provider path. The read-only
 `GET /api/search-embedding-status` endpoint reports both selected providers,
 the query model and dimensions (`null` when embeddings are disabled), the
 indexed-vector dimension, and whether query text is sent off-machine. It does
-not instantiate the embedding model. With the local BGE-M3 model,
-query vectors are 1024-dimensional while the standard hosted semantic index is
-1536-dimensional; the search dimension guard rejects that incompatible vector
-rather than submitting it. Local model inference may fetch model artifacts on
-first use if they are not already cached; this is separate from whether query
-text leaves the machine. See `docs/reports/local-query-embeddings.md`.
+not instantiate the embedding model. Case-level vectors remain in their fixed
+1536-dimensional hosted schema; local BGE-M3 is used only for chunk retrieval
+from its 1024-dimensional model-tagged table and is never compared against
+hosted vectors. Local model inference may fetch model artifacts on first use if
+they are not already cached; this is separate from whether query text leaves
+the machine. See `docs/reports/local-query-embeddings.md`.
 
 The configuration-driven registry lives at `ai.embeddings.registry` in
-`config.yaml`. Each entry declares a provider and `output_dimensions`; defaults
-are selected by `ai.embeddings.model` (hosted) and
-`ai.embeddings.local_model` (local). Query selection rejects unknown model IDs,
-provider mismatches, and local dimension overrides that disagree with the
-registered width. The default hosted indexed-vector schema remains
-1536-dimensional; selecting a different model does not migrate or re-embed
-stored vectors.
+`config.yaml`. Each entry declares `name`, `provider`, `dimensions`,
+`normalize`, `query_prefix`, `document_prefix`, and its retrieval `table`.
+Defaults are selected by `ai.embeddings.model` (hosted) and
+`ai.embeddings.local_model` (local). Request validation rejects unknown models
+and provider/table mismatches; retrieval uses the selected table and exact model
+tag. Model selection does not migrate or re-embed stored vectors.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 

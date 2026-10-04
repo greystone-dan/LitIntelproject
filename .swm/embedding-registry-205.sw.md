@@ -7,7 +7,7 @@ title: "Embedding model configuration and selection"
 ## Entry points and ownership
 
 - [`config.yaml`](../config.yaml) owns the configured model registry, provider
-  defaults, and each model's expected output width.
+  defaults, dimensions, normalization, prefixes, and retrieval-table metadata.
 - [`backend/embedding_registry.py`](../backend/embedding_registry.py) loads and
   validates that static configuration; it does not construct model clients.
 - [`backend/query_embedding_providers.py`](../backend/query_embedding_providers.py)
@@ -16,28 +16,36 @@ title: "Embedding model configuration and selection"
 - [`backend/embedding_providers.py`](../backend/embedding_providers.py) owns
   local SentenceTransformer execution and verifies output against registry
   metadata.
-- [`backend/search_service.py`](../backend/search_service.py) keeps the
-  indexed-vector compatibility gate. The existing database vector schema is
-  fixed; a registry change does not migrate or re-embed stored vectors.
+- [`backend/search_service.py`](../backend/search_service.py) uses each selected
+  model's table and canonical name for chunk retrieval. The existing database
+  vector schemas are fixed; a registry change does not migrate or re-embed
+  stored vectors.
 
 ## Request and data flow
 
 1. `ENHANCED_AI_MODE` remains the outer gate (`off`, `local`, or `hosted`).
-2. `QUERY_EMBEDDING_PROVIDER` explicitly selects `local` or `openai`; the
-   configured model ID is resolved to provider and output dimensions from the
-   registry.
+   Off mode downgrades semantic/hybrid search to lexical and makes no embedding
+   call.
+2. When enhanced mode is enabled, `EMBEDDING_MODEL` selects a registry entry;
+   absent an override, the current hosted model remains the default.
+   `QUERY_EMBEDDING_PROVIDER` and `QUERY_EMBEDDING_MODEL` remain optional
+   overrides and must agree with registered metadata.
 3. Search-status reporting reads metadata without loading a model or making a
    provider request.
-4. Only an enabled semantic/hybrid request reaches embedding execution. Local
-   generation remains separate from the query-embedding provider.
+4. Only an enabled semantic/hybrid request reaches embedding execution.
+   Hosted 1536-dimensional queries use the existing hosted chunk tables; BGE-M3
+   1024-dimensional queries use `case_chunk_embeddings` and filter by exact
+   canonical model tag. Local generation remains separate from query embedding.
 
 ## Invariants and failure modes
 
 - Unknown model IDs and provider/model mismatches fail configuration selection.
-- An explicit local dimension must equal that model's registry width.
-- The query vector must also match the width of the indexed vectors; the
-  configured local BGE-M3 width does not match the current hosted case-vector
-  schema.
+- Every registry entry declares its canonical name, provider, dimensions,
+  normalization, query/document prefixes, and retrieval table.
+- Request validation rejects unregistered models. Aliased `bge-m3` resolves to
+  `BAAI/bge-m3` before embedding and table filtering.
+- The 1024-dimensional local vector is never compared with 1536-dimensional
+  hosted vectors; case-level semantic search remains hosted-only.
 - Do not combine model selection with database schema changes, re-embedding,
   or stored-vector rewrites in this owner surface.
 - Offline tests replace provider construction; they must never contact OpenAI

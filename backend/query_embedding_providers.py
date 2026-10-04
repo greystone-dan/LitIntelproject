@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from functools import lru_cache
+from math import sqrt
 
 from fastapi import HTTPException, status
 from openai import OpenAI, OpenAIError
@@ -24,15 +25,40 @@ class QueryEmbeddingConfigurationError(ValueError):
     """Raised when the selected query-embedding configuration is invalid."""
 
 
+def _normalize_embedding(embedding: list[float], normalize: bool) -> list[float]:
+    if not normalize:
+        return embedding
+    norm = sqrt(sum(value * value for value in embedding))
+    return [value / norm for value in embedding] if norm else embedding
+
+
 def _query_embedding_settings() -> tuple[str, str | None, int | None]:
-    provider = os.getenv("QUERY_EMBEDDING_PROVIDER", DEFAULT_QUERY_EMBEDDING_PROVIDER)
-    provider = provider.strip().lower()
+    configured_provider = os.getenv("QUERY_EMBEDDING_PROVIDER")
+    selected_model = os.getenv("EMBEDDING_MODEL")
+    enhanced_mode = os.getenv("ENHANCED_AI_MODE", "off").strip().lower()
+    if configured_provider is None and enhanced_mode in {"hosted", "local"}:
+        if selected_model is None:
+            if enhanced_mode == "local":
+                selected_model = os.getenv(
+                    "LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL
+                )
+            else:
+                selected_model = os.getenv(
+                    "OPENAI_EMBEDDING_MODEL", DEFAULT_OPENAI_EMBEDDING_MODEL
+                )
+        configured_provider = (
+            "local"
+            if enhanced_mode == "local"
+            else get_embedding_model(selected_model).provider
+        )
+    provider = (configured_provider or DEFAULT_QUERY_EMBEDDING_PROVIDER).strip().lower()
     if provider == "none":
         return provider, None, None
     if provider == "openai":
         model_id = os.getenv(
             "QUERY_EMBEDDING_MODEL",
-            os.getenv("OPENAI_EMBEDDING_MODEL", DEFAULT_OPENAI_EMBEDDING_MODEL),
+            selected_model
+            or os.getenv("OPENAI_EMBEDDING_MODEL", DEFAULT_OPENAI_EMBEDDING_MODEL),
         )
         model_config = get_embedding_model(model_id)
         if model_config.provider != provider:
@@ -41,13 +67,14 @@ def _query_embedding_settings() -> tuple[str, str | None, int | None]:
             )
         return (
             provider,
-            model_id,
+            model_config.name,
             model_config.output_dimensions,
         )
     if provider == "local":
         model_id = os.getenv(
             "QUERY_EMBEDDING_MODEL",
-            os.getenv("LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL),
+            selected_model
+            or os.getenv("LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL),
         )
         model_config = get_embedding_model(model_id)
         if model_config.provider != provider:
@@ -70,7 +97,7 @@ def _query_embedding_settings() -> tuple[str, str | None, int | None]:
                 )
         return (
             provider,
-            model_id,
+            model_config.name,
             dimensions,
         )
     raise QueryEmbeddingConfigurationError(
@@ -87,14 +114,13 @@ def query_embedding_provider() -> str:
 
 
 def get_indexed_embedding_model():
-    """Return the configured hosted model used by the indexed-vector contract."""
-    model_id = os.getenv("OPENAI_EMBEDDING_MODEL", DEFAULT_OPENAI_EMBEDDING_MODEL)
-    model_config = get_embedding_model(model_id)
-    if model_config.provider != "openai":
-        raise QueryEmbeddingConfigurationError(
-            f"Indexed embedding model {model_id!r} must use provider 'openai'"
-        )
-    return model_config
+    """Return the model selected for indexed vectors, defaulting to hosted embeddings."""
+    model_id = os.getenv("EMBEDDING_MODEL")
+    if model_id is None and os.getenv("ENHANCED_AI_MODE", "off").strip().lower() == "local":
+        model_id = os.getenv("LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL)
+    if model_id is None:
+        model_id = os.getenv("OPENAI_EMBEDDING_MODEL", DEFAULT_OPENAI_EMBEDDING_MODEL)
+    return get_embedding_model(model_id)
 
 
 @lru_cache(maxsize=2)
@@ -102,14 +128,27 @@ def _local_provider(model_name: str, dimensions: int) -> SentenceTransformerEmbe
     return SentenceTransformerEmbeddingProvider(model_name=model_name, dimensions=dimensions)
 
 
-def embed_query(text: str, *, indexed_dimensions: int | None = None) -> list[float]:
+def embed_query(
+    text: str,
+    *,
+    indexed_dimensions: int | None = None,
+    model_id: str | None = None,
+) -> list[float]:
     provider, model_name, dimensions = _query_embedding_settings()
+    if model_id is not None:
+        model_config = get_embedding_model(model_id)
+        provider, model_name, dimensions = (
+            model_config.provider,
+            model_config.name,
+            model_config.dimensions,
+        )
     if provider == "none":
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="Query embeddings are disabled; use lexical search or enable a provider",
         )
     assert model_name is not None and dimensions is not None
+    model_config = get_embedding_model(model_name)
     if provider == "local":
         if indexed_dimensions is not None and dimensions != indexed_dimensions:
             raise HTTPException(
@@ -151,7 +190,10 @@ def embed_query(text: str, *, indexed_dimensions: int | None = None) -> list[flo
             finally:
                 if organization is not None:
                     os.environ["OPENAI_ORG_ID"] = organization
-            response = client.embeddings.create(input=text, model=model_name)
+            response = client.embeddings.create(
+                input=f"{model_config.query_prefix}{text}",
+                model=model_name,
+            )
         except OpenAIError as exc:
             raise HTTPException(
                 status_code=status.HTTP_502_BAD_GATEWAY,
@@ -167,7 +209,7 @@ def embed_query(text: str, *, indexed_dimensions: int | None = None) -> list[flo
                 f"configured query embeddings require {dimensions}."
             ),
         )
-    return embedding
+    return _normalize_embedding(embedding, model_config.normalize)
 
 
 def embed_case_summary(text: str) -> list[float]:
@@ -191,7 +233,10 @@ def embed_case_summary(text: str) -> list[float]:
         finally:
             if organization is not None:
                 os.environ["OPENAI_ORG_ID"] = organization
-        response = client.embeddings.create(input=text, model=model_name)
+        response = client.embeddings.create(
+            input=f"{model_config.document_prefix}{text}",
+            model=model_name,
+        )
     except OpenAIError as exc:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
@@ -203,7 +248,7 @@ def embed_case_summary(text: str) -> list[float]:
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="The embedding service returned an unexpected vector size",
         )
-    return embedding
+    return _normalize_embedding(embedding, model_config.normalize)
 
 
 def get_search_embedding_status() -> dict[str, str | int | bool | None]:

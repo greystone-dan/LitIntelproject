@@ -31,7 +31,8 @@ class SentenceTransformerEmbeddingProvider:
         model_config = get_embedding_model(model_name)
         if model_config.provider != "local":
             raise ValueError(f"Embedding model {model_name!r} is not a local model")
-        self.model_name = model_name
+        self.model_name = model_config.name
+        self.model_config = model_config
         self.dimensions = (
             model_config.output_dimensions if dimensions is None else dimensions
         )
@@ -54,12 +55,17 @@ class SentenceTransformerEmbeddingProvider:
             self._model = SentenceTransformer(self.model_name, device=self.device)
         return self._model
 
-    def _encode(self, texts: list[str]) -> list[list[float]]:
+    def _encode(self, texts: list[str], *, query: bool = False) -> list[list[float]]:
         if not texts:
             return []
+        prefix = (
+            self.model_config.query_prefix
+            if query
+            else self.model_config.document_prefix
+        )
         vectors = self._get_model().encode(
-            texts,
-            normalize_embeddings=True,
+            [f"{prefix}{text}" for text in texts],
+            normalize_embeddings=self.model_config.normalize,
             show_progress_bar=False,
             convert_to_numpy=True,
         )
@@ -78,4 +84,4 @@ class SentenceTransformerEmbeddingProvider:
         return self._encode(texts)
 
     def embed_query(self, text: str) -> list[float]:
-        return self._encode([text])[0]
+        return self._encode([text], query=True)[0]

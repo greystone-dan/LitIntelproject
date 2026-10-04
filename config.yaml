@@ -44,14 +44,21 @@ ai:
     local_model: "BAAI/bge-m3"
     registry:
       "text-embedding-3-small":
+        name: text-embedding-3-small
         provider: openai
-        output_dimensions: 1536
+        dimensions: 1536
+        normalize: true
+        query_prefix: ""
+        document_prefix: ""
+        table: case_chunks
       "BAAI/bge-m3":
+        name: "BAAI/bge-m3"
         provider: local
-        output_dimensions: 1024
-      "sentence-transformers/all-MiniLM-L6-v2":
-        provider: local
-        output_dimensions: 384
+        dimensions: 1024
+        normalize: true
+        query_prefix: ""
+        document_prefix: ""
+        table: case_chunk_embeddings
     batch_size: 100     # Number of texts embedded per API call
     cache_enabled: true
 

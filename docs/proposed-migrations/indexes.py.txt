@@ -1,0 +1,70 @@
+"""Proposed Alembic migration; review and fill in revision metadata before use.
+
+This is a source-review draft, not a deployed-schema recommendation. The review
+did not inspect a database, so numeric index sizes and performance gains are
+unknown. Qualitative size expectations below are planning assumptions only;
+measure each index on a representative database copy before adoption.
+
+Index                         Expected benefit                              Expected size
+ix_cases_title_trgm           May reduce scans for selective title           Unknown; one text field per case.
+                              substring ILIKE filters.                      Numeric size requires measurement.
+ix_cases_court_trgm           May reduce scans for selective court           Unknown; likely driven by repeated
+                              substring ILIKE filters.                      court names and corpus size.
+ix_cases_citation_trgm        May reduce scans for selective citation        Unknown; depends on citation data
+                              substring ILIKE filters.                      and corpus size.
+ix_cases_secondary_citation_trgm
+                              May reduce scans for selective secondary       Unknown; depends on population and
+                              citation substring ILIKE filters.             corpus size.
+
+Short search terms, selectivity, planner use, write overhead, and actual
+benefits are unmeasured. Confirm pg_trgm availability, extension privileges,
+the current Alembic head, and representative EXPLAIN (ANALYZE, BUFFERS) plans
+before deployment. CREATE INDEX CONCURRENTLY avoids blocking ordinary writes,
+but takes longer and uses additional I/O, CPU, and disk space. It cannot run
+inside a transaction block; Alembic's autocommit_block below commits any
+transaction already in progress. Long-running transactions can delay the build,
+and concurrent DDL/index builds can conflict. A failed concurrent build may
+leave an invalid index; inspect and remove it before retrying. IF NOT EXISTS
+checks the name only and does not validate an existing index definition.
+
+Rollback drops the four indexes concurrently and deliberately retains pg_trgm,
+which may be shared by other features. A failed or cancelled rollback can also
+leave an invalid index that should be inspected before retrying.
+"""
+
+from alembic import op
+
+revision = "REPLACE_WITH_UNIQUE_REVISION_ID"
+down_revision = "CONFIRM_CURRENT_ALEMBIC_HEAD"
+branch_labels = None
+depends_on = None
+
+
+def upgrade() -> None:
+    op.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm")
+    with op.get_context().autocommit_block():
+        op.execute(
+            "CREATE INDEX CONCURRENTLY IF NOT EXISTS ix_cases_title_trgm "
+            "ON cases USING gin (title gin_trgm_ops)"
+        )
+        op.execute(
+            "CREATE INDEX CONCURRENTLY IF NOT EXISTS ix_cases_court_trgm "
+            "ON cases USING gin (court gin_trgm_ops)"
+        )
+        op.execute(
+            "CREATE INDEX CONCURRENTLY IF NOT EXISTS ix_cases_citation_trgm "
+            "ON cases USING gin (citation gin_trgm_ops)"
+        )
+        op.execute(
+            "CREATE INDEX CONCURRENTLY IF NOT EXISTS "
+            "ix_cases_secondary_citation_trgm "
+            "ON cases USING gin (secondary_citation gin_trgm_ops)"
+        )
+
+
+def downgrade() -> None:
+    with op.get_context().autocommit_block():
+        op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_secondary_citation_trgm")
+        op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_citation_trgm")
+        op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_court_trgm")
+        op.execute("DROP INDEX CONCURRENTLY IF EXISTS ix_cases_title_trgm")

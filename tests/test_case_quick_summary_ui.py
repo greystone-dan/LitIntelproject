@@ -155,7 +155,7 @@ await openDecision(7);
 assert.equal(pending.length,1);assert.equal(pending[0].url,'/api/cases/7/summary');
 assert.equal(pending[0].options.method,'GET');assert.ok(body.html.includes('Loading stored quick summary'));
 pending[0].resolve({ok:true,json:async()=>DATA});await tick();
-assert.ok(body.html.includes('Quick summary'));assert.ok(body.html.includes(' open '));
+assert.ok(body.html.includes('Quick summary'));assert.ok(!body.html.includes(' open '));assert.equal(quickSummaryState.open,false);
 setReaderMode('chunks');assert.equal(body.html,'');
 setReaderMode('normalized');assert.ok(body.html.includes('Quick summary'));
 readerState.formatted=false;setReaderMode('normalized');assert.equal(body.html,'');

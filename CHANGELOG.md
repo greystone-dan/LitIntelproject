@@ -13,6 +13,47 @@
   compatible endpoints, hosted mode rejects local/private URLs, and off mode
   still stops before provider construction. OpenAI and native Ollama remain
   supported.
+- Case pages: the unfinished reader tools are hidden by default. The Quick summary and Extracted case summary cards, the case structure and case summary buttons, paragraph assessments and the "Similar paragraphs" buttons only appear after switching on "Show experimental" (at the top of the reader, and in the Markup toolbar); the choice is remembered in this browser. When shown, the two summary cards start closed (one line each, with an arrow) and keep their state while you switch between Formatted and Markup. No data or schema change.
+- About page refresh and a Changelog view. The About overview was audited against the repository: counts at the top
+  now read live from `/api/about/stats`, unverifiable figures (sample percentages, AI paragraph counts, test scores,
+  old test and line counts) were removed or restated, the AI wording now says the site runs without AI, and a
+  "What has been added recently" section was added. A new Overview / Changelog switch in the About tab shows a
+  timeline (newest first, date headings, theme filter) built from `data/changelog/changelog.json`, which
+  `scripts/build_changelog.py` generates from hand-written entries plus GitHub merged PRs and commits
+  (`--refresh` pulls them; `--uncovered` lists merged PRs with no entry). No network or AI at view time.
+
+- Paragraph cited-by batch job made safe to run next to the live site. It now lowers its own process
+  priority (including on Windows), uses one database connection with server-side statement, lock and
+  idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as
+  long as it worked, can watch the site (`--health-url`) and back off when it is slow, has a CPU budget, a
+  stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
+  to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
+  is a thin wrapper. No schema change, no AI.
+- Markup mode: Export to Word and private notes. "Export to Word" downloads the
+  decision with every margin note that is switched on (citations anchored on the
+  citation itself, discussion units, outcome, judge, cited-by, my notes) as real
+  Word comments, with highlighted paragraphs kept. Private notes and highlights:
+  click a paragraph number to write a note or highlight the paragraph; they are
+  saved in this browser only, show in the margin (inline under the paragraph on
+  phones) and travel into the Word file. New route `POST /cases/{id}/markup-export`
+  typesets what the browser sends and stores nothing. Also fixed: notes could sit
+  hundreds of pixels from their paragraphs on first open because the reader adds
+  content after first paint; they now re-place themselves when the text height
+  changes. No AI, no schema change.
+- Added Alembic revision `0037_cases_docket_number`, which idempotently adds
+  nullable `cases.docket_number` (`String(255)`) and its model-declared index.
+  Added mocked preservation/idempotency coverage and an explicitly gated
+  PostgreSQL migration-from-zero schema comparison test.
+- Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
+  scroll inside their panel, the judge comparison form and the statute viewer form fit
+  and stack on phones. CSS only.
+- Phone layout fixes: the search page stacks its field and buttons with 16px text and
+  scrolling filter chips; the case reader header no longer sits under its view
+  buttons and the reader scrolls as one page; the yellow overruling-risk notice
+  folds behind one tappable line on phones so it cannot push the decision off
+  screen; Markup mode's toolbar is one row (Find, Topics and More open on tap),
+  the Peek panel is a bottom sheet, and the hover card is off on touch screens.
+  CSS and display logic only: no AI calls, new endpoints or schema changes.
 - Paragraph "cited by" batch job (not run on production): `scripts/build_paragraph_cited_by.py`
   reads stored citation occurrences and, for each cited paragraph, stores which
   cases cite it, how often, and the signal phrase beside the citation (followed,

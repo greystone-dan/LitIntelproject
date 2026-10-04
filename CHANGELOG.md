@@ -5,6 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
+- Moved the experimental research, citation-intelligence, contextual-authority,
+  and discussion-unit prompts into header-versioned text files loaded through a
+  shared backend registry. Exact prompt wording is guarded by golden snapshots.
+  `/research` now returns additive `prompt_version` metadata; the bounded
+  discussion-unit scripts include their prompt versions in request/output
+  artifacts without changing model-facing prompt text.
 - Added issue-first outcome patterns to Judge Profile through lazy-loaded
   `GET /api/judge-profiles/{slug}/issues`, with a matching Federal Court-wide
   baseline, four explicit outcome categories, full denominators including

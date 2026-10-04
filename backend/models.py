@@ -845,6 +845,7 @@ class ResearchResponse(BaseModel):
 	answer: str
 	sources: list[ResearchSource]
 	model_used: str
+	prompt_version: str
 	prompt_tokens: int
 	completion_tokens: int
 

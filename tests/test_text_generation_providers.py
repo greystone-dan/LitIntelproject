@@ -119,5 +119,6 @@ def test_research_route_uses_selected_provider(monkeypatch):
 	response = routes.research(ResearchRequest(query="reasonableness"), db=object())
 
 	assert response.model_used == "qwen2.5:7b"
+	assert response.prompt_version == "v1"
 	assert response.answer == "local answer"
 	assert calls["model"] == "qwen2.5:7b"

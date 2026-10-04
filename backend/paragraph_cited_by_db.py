@@ -6,7 +6,7 @@ from collections import defaultdict
 from collections.abc import Iterable, Sequence
 from datetime import date
 
-from sqlalchemy import delete, func, select
+from sqlalchemy import delete, exists, func, select
 from sqlalchemy.orm import Session
 
 from backend.database import (
@@ -29,23 +29,51 @@ from backend.paragraph_cited_by import (
 TOP_CITERS_PER_PARAGRAPH = 8
 
 
-def pending_source_ids(db: Session, after_id: int = 0, limit: int = 50) -> list[int]:
-    """Citing cases that cite a resolved case and are not yet processed at the current version."""
-    done = select(ParagraphCitationStatus.source_case_id).where(
-        ParagraphCitationStatus.algo_version == ALGO_VERSION
+ID_WINDOW = 5000
+
+
+def pending_source_ids(db: Session, after_id: int = 0, limit: int = 50, window: int = ID_WINDOW) -> list[int]:
+    """Citing cases that cite a resolved case and are not yet processed at the current version.
+
+    Looks at a bounded range of case ids at a time (``window``), so no single query ever scans the whole
+    citations table, however sparse the remaining work is.
+    """
+    top = db.scalar(select(func.max(Case.id))) or 0
+    done = exists().where(
+        ParagraphCitationStatus.source_case_id == Citation.source_case_id,
+        ParagraphCitationStatus.algo_version == ALGO_VERSION,
     )
-    return list(
-        db.scalars(
-            select(Citation.source_case_id)
-            .where(
-                Citation.source_case_id > after_id,
-                Citation.target_case_id.is_not(None),
-                Citation.source_case_id.not_in(done),
+    found: list[int] = []
+    low = after_id
+    while low < top and len(found) < limit:
+        high = low + window
+        found.extend(
+            db.scalars(
+                select(Citation.source_case_id)
+                .where(
+                    Citation.source_case_id > low,
+                    Citation.source_case_id <= high,
+                    Citation.target_case_id.is_not(None),
+                    ~done,
+                )
+                .group_by(Citation.source_case_id)
+                .order_by(Citation.source_case_id)
+                .limit(limit - len(found))
             )
-            .group_by(Citation.source_case_id)
-            .order_by(Citation.source_case_id)
-            .limit(limit)
         )
+        low = high
+    return found
+
+
+def count_processed_sources(db: Session) -> int:
+    """Citing cases already processed at this version (a cheap count of the small status table)."""
+    return int(
+        db.scalar(
+            select(func.count()).select_from(ParagraphCitationStatus).where(
+                ParagraphCitationStatus.algo_version == ALGO_VERSION
+            )
+        )
+        or 0
     )
 
 
@@ -81,12 +109,16 @@ def compute_source_edges(db: Session, source_case_id: int):
     chunk_ids = {row.chunk_id for row in rows if row.chunk_id is not None}
     chunk_starts: dict[int, int] = {}
     if chunk_ids:
+        cursor = 0  # chunks come in reading order, so look forward from the last hit before searching the whole text
         for chunk_id, chunk_text in db.execute(
-            select(CaseChunk.id, CaseChunk.text).where(CaseChunk.id.in_(chunk_ids))
+            select(CaseChunk.id, CaseChunk.text).where(CaseChunk.id.in_(chunk_ids)).order_by(CaseChunk.chunk_index)
         ):
-            position = text.find(chunk_text)
+            position = text.find(chunk_text, cursor)
+            if position < 0:
+                position = text.find(chunk_text)
             if position >= 0:
                 chunk_starts[chunk_id] = position
+                cursor = position
     occurrences: list[Occurrence] = []
     spans: list[tuple[int, int]] = []
     for row in rows:

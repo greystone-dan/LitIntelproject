@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func, select, and_
 
 from .database import Case, Citation
+from .memo_authority_suggestions import build_authority_suggestions
 from .live_analysis import (
 	analyze_document,
 	LiveParagraph,
@@ -114,6 +115,10 @@ def analyze_memo_citations(
 	"""
 	# First, do the standard live analysis
 	analysis = analyze_document(content, filename, content_type, session)
+	analysis = {
+		**analysis,
+		"suggestions": build_authority_suggestions(analysis, session),
+	}
 
 	if not session:
 		return analysis

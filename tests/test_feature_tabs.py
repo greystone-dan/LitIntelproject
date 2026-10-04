@@ -905,6 +905,32 @@ def test_judge_profiles_default_to_most_linked_profiles():
     assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
 
 
+def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
+    html = routes._data_explorer_page_html()
+
+    assert "Outcome patterns by issue" in html
+    assert (
+        "Outcome method: government outcome “won” = Minister win, “lost” = applicant win, "
+        "“mixed” = other; undetermined, unrecognized, and missing values are unclassified, "
+        "and percentages use all issue decisions, including unclassified."
+    ) in html
+    assert "At least " in html
+    assert "${N(hidden)} issue${hidden===1?'':'s'} hidden (each has fewer than ${minimum} decisions)." in html
+    assert "including unclassified" in html
+    assert "undetermined, unrecognized, and missing values are unclassified" in html
+    assert "Federal Court issue outcomes" in html
+    assert "data-jp-issues" in html
+    assert "/api/judge-profiles/${encodeURIComponent(slug)}/issues" in html
+    profile_loader = html.split("async function jpSelect", 1)[1].split("function tally", 1)[0]
+    assert "/issues" not in profile_loader
+    issue_loader = html.split("async function jpLoadIssues", 1)[1].split("function jpMainClick", 1)[0]
+    assert "getJSON(`/api/judge-profiles/${encodeURIComponent(slug)}/issues`)" in issue_loader
+    click_handler = html.split("function jpMainClick", 1)[1].split("/* ---------------- Citation intelligence", 1)[0]
+    assert "closest('[data-jp-issues]')" in click_handler
+    assert "jpLoadIssues()" in click_handler
+    assert "jpIssueCategories" in html
+
+
 def test_rendered_shell_exposes_original_source_link_action():
     html = routes._data_explorer_page_html()
 

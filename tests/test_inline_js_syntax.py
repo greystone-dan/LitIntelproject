@@ -65,7 +65,7 @@ def node_binary():
 @pytest.mark.parametrize(("module_name", "render_html"), PAGE_RENDERERS)
 def test_inline_scripts_parse_with_node(module_name, render_html, node_binary, tmp_path):
     html = render_html()
-    scripts = re.finditer(r"<script\b([^>]*)>(.*?)</script\s*>", html, re.IGNORECASE | re.DOTALL)
+    scripts = re.finditer(r"<script\b([^>]*)>(.*?)</script\b[^>]*>", html, re.IGNORECASE | re.DOTALL)
 
     for index, match in enumerate(scripts, start=1):
         if re.search(r"\bsrc\s*=", match.group(1), re.IGNORECASE):

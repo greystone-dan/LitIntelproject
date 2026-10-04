@@ -619,6 +619,7 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | Component | Responsibility |
 | --- | --- |
 | `backend/main.py` | FastAPI application, root/health/access routes, response no-index headers, startup initialization |
+| `backend/audit.py` | Optional fail-open rotating request audit log; metadata only, no document content |
 | `backend/routes.py` | API contract, route dispatch, interface registration, and facade re-exports |
 | `backend/search_service.py` | Case and chunk search, lexical tsvector ranking, cosine distance semantic scoring, hybrid combinations, and grouped chunk search |
 | `backend/reader_service.py` | Unified reader data payload assembly, metadata pass formatting, HTML citation wrapping, and citation-pass details |
@@ -663,6 +664,16 @@ opinion.
 ### Startup And Configuration
 
 The application loads `.env` from the repository root and `backend/.env`. Explicit `POSTGRES_*` settings take precedence over an inherited `DATABASE_URL`, avoiding accidental connection to a stale shell database. Typical local configuration includes PostgreSQL credentials/database, optional OpenAI credentials for OpenAI-dependent workflows, and optional site-access settings.
+
+Request auditing is disabled unless `CASELIBRARY_AUDIT_LOG` names a file.
+`backend/audit.py` records allowlisted metadata only: UTC time, generated request
+ID, method, route template, status, elapsed milliseconds, and a process-keyed
+client-address hash. Unknown paths become `<unmatched>`; bodies, uploaded
+filenames, and query strings are never recorded. Raw addresses require the
+separate `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS=true` opt-in. Files rotate at 5 MiB
+with three backups; all audit write failures are fail-open. See
+[SETUP.md](SETUP.md#optional-request-audit-log) for permissions, restart,
+single-process rotation, and separate access-log considerations.
 
 `init_db()` is called during FastAPI startup. Alembic remains the authoritative schema migration path for reproducible environments:
 
@@ -5285,6 +5296,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
+
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
 
 ## OpenAI And External Model Settings
 

@@ -21,8 +21,9 @@ commands, fixture schemas, result fields, and metric definitions.
 
 Embedding models must be locally cached; Hugging Face offline mode prevents
 weight downloads. JSON generation is restricted to the local Ollama-compatible
-endpoint. The scripts are not part of web startup, do not access the database,
-and must only be given frozen evaluation examples, never user data.
+endpoint and ignores environment-configured proxies. The scripts are not part
+of web startup, do not access the database, and must only be given frozen
+evaluation examples, never user data.
 
 ## Interpretation
 

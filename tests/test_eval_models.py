@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -113,6 +114,49 @@ def test_json_task_cli_runs_fixture_with_fake_provider(monkeypatch, tmp_path):
     }
     assert result["items"][0]["token_counts"] == {"input": 12, "output": 8}
     assert result["model"]["prompt_version"] == eval_models.JSON_PROMPT_VERSION
+
+
+def test_local_chat_adapter_ignores_environment_proxies(monkeypatch):
+    captured = {}
+
+    class FakeResponse:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {
+                "message": {"content": '{"labels":{},"spans": []}'},
+                "prompt_eval_count": 4,
+                "eval_count": 2,
+            }
+
+    class FakeClient:
+        def __init__(self, **kwargs):
+            captured["client_options"] = kwargs
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+        def post(self, url, **kwargs):
+            captured["url"] = url
+            captured["request"] = kwargs
+            return FakeResponse()
+
+    monkeypatch.setitem(sys.modules, "httpx", SimpleNamespace(Client=FakeClient))
+    provider = eval_models.create_generation_provider("local", "local-model")
+
+    response = provider.create_chat_completion(
+        messages=[], response_format={"type": "json_object"}
+    )
+
+    assert captured["client_options"] == {"trust_env": False}
+    assert captured["url"] == "http://127.0.0.1:11434/api/chat"
+    assert captured["request"]["json"]["format"] == "json"
+    assert response.usage.prompt_tokens == 4
+    assert response.usage.completion_tokens == 2
 
 
 def test_json_task_invalid_json_and_invalid_span_are_scored():

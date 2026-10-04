@@ -389,9 +389,52 @@ def create_embedding_provider(provider: str, model_name: str) -> Any:
 def create_generation_provider(provider: str, model_name: str) -> Any:
     if provider != "local":
         raise ValueError("Only the local text-generation provider is supported")
-    from backend.text_generation_providers import OllamaChatProvider
+    return LocalOnlyChatProvider(model_name)
 
-    return OllamaChatProvider(base_url=DEFAULT_LOCAL_CHAT_URL, model_name=model_name)
+
+class LocalOnlyChatProvider:
+    def __init__(self, model_name: str) -> None:
+        self.model_name = model_name
+
+    def create_chat_completion(self, **kwargs: Any) -> Any:
+        from types import SimpleNamespace
+
+        import httpx
+
+        messages = kwargs.get("messages")
+        if isinstance(messages, list):
+            messages = [dict(message) for message in messages]
+        else:
+            messages = []
+        payload: dict[str, Any] = {
+            "model": kwargs.get("model", self.model_name),
+            "messages": messages,
+            "stream": False,
+            "think": False,
+            "options": {"temperature": kwargs.get("temperature", 0.0)},
+        }
+        if "max_tokens" in kwargs:
+            payload["options"]["num_predict"] = kwargs["max_tokens"]
+        if kwargs.get("response_format") == {"type": "json_object"}:
+            payload["format"] = "json"
+
+        api_url = DEFAULT_LOCAL_CHAT_URL.removesuffix("/v1") + "/api/chat"
+        with httpx.Client(trust_env=False) as client:
+            response = client.post(api_url, json=payload, timeout=120.0)
+        response.raise_for_status()
+        data = response.json()
+        message = data.get("message", {})
+        return SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=message.get("content", ""))
+                )
+            ],
+            usage=SimpleNamespace(
+                prompt_tokens=data.get("prompt_eval_count", 0),
+                completion_tokens=data.get("eval_count", 0),
+            ),
+        )
 
 
 def main(argv: list[str] | None = None) -> int:

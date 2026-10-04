@@ -20,7 +20,8 @@ exclusive end.
 Embedding models must already be available locally; model loading is forced
 into Hugging Face offline mode and will fail rather than download weights. JSON
 generation uses the local Ollama-compatible service at
-`http://127.0.0.1:11434/v1`. Only the provider `local` is currently supported.
+`http://127.0.0.1:11434/v1`; the client ignores proxy environment variables so
+the prompt stays on loopback. Only the provider `local` is currently supported.
 
 ```sh
 python scripts/eval_models.py retrieval \

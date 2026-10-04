@@ -317,11 +317,14 @@ paging and explicit date/minister sorts remain intact. Results expose a short
   vector corpus, then sends the bounded grouped excerpts to the configured
   generation provider. Set `TEXT_GENERATION_PROVIDER=local` for Ollama
   generation; retrieval and generation models remain separate.
-- Query embedding selection is independent of generation. OpenAI remains the
-  default; `QUERY_EMBEDDING_PROVIDER=local` opts into a local
-  SentenceTransformer query model. `GET /api/search-embedding-status` reports
-  the selected query provider/model/dimensions, whether query text leaves the
-  machine, and `TEXT_GENERATION_PROVIDER` without loading a model. Search
+- Query embedding selection is independent of generation and disabled by
+  default. Semantic/hybrid requests use lexical ranking unless the operator
+  explicitly enables `QUERY_EMBEDDING_PROVIDER=openai` or `local`. The OpenAI
+  provider is an explicit opt-in; the local SentenceTransformer option keeps
+  query text on-device. `GET /api/search-embedding-status` reports
+  the selected query provider/model/output dimensions, indexed dimensions,
+  whether query text leaves the machine, and `TEXT_GENERATION_PROVIDER` without
+  loading a model. Search
   rejects query vectors that do not match its 1536-dimensional indexed-vector
   contract. The default local BGE-M3 model is 1024-dimensional, so it requires
   a compatible indexed-vector family before it can be used by that search path.

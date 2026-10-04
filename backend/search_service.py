@@ -25,7 +25,7 @@ except Exception:  # pragma: no cover
 
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .embedding_providers import SentenceTransformerEmbeddingProvider
-from .query_embedding_providers import embed_query
+from .query_embedding_providers import embed_query, query_embeddings_enabled
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .search_matching import citation_query, match_details
 from .models import (
@@ -95,6 +95,8 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 		not flags.get("hybrid_enabled", True) or not flags.get("semantic_enabled", True)
 	):
 		return "metadata"
+	if requested_mode in {"semantic", "hybrid"} and not query_embeddings_enabled():
+		return "lexical"
 	return requested_mode
 
 

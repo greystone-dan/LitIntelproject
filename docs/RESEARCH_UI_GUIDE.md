@@ -17,8 +17,12 @@ legal conclusion: no embeddings, live-inferred tags or statute references are
 scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
 an empty result does not establish that no similar passages exist.
 
-The `/research` page is the current, experimental RAG workflow. It has four
-steps:
+The `/research` page is an experimental RAG workflow, disabled by default.
+`ENHANCED_AI_MODE=off` returns HTTP 503 with the message
+`AI answers are disabled in this deployment` before retrieval or generation.
+The page displays this server error inline and restores its submit control.
+Setting `ENHANCED_AI_MODE=local` or `hosted` explicitly enables the workflow.
+When enabled, it has four steps:
 
 1. Retrieve relevant stored case passages with grouped chunk search.
 2. Assemble a bounded excerpt context from the retrieved cases.
@@ -30,13 +34,16 @@ To use a local model during development, run Ollama locally, pull an instruct
 model, and set these values in the ignored `.env` file:
 
 ```dotenv
-TEXT_GENERATION_PROVIDER=local
+ENHANCED_AI_MODE=local
 OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
 OLLAMA_MODEL=qwen3:4b
 ```
 
-The model is not downloaded by the application. `OLLAMA_MODEL` must name a
-model already available to Ollama. Local generation and local semantic
+Local mode selects Ollama and does not construct an OpenAI generation client.
+For the existing hosted-provider behavior, set `ENHANCED_AI_MODE=hosted`;
+`TEXT_GENERATION_PROVIDER` then selects the configured generator. The model is
+not downloaded by the application. `OLLAMA_MODEL` must name a model already
+available to Ollama. Local generation and local semantic
 retrieval are separate settings: the former selects the answer provider, while
 the latter uses model-versioned BGE-M3 chunk embeddings when enabled and when
 matching stored vectors exist. Hosted corpus backfill uses

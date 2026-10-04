@@ -155,6 +155,11 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .reader-head h2{margin:0 0 6px;font-size:1.5rem;letter-spacing:-0.03em}
 .reader-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:var(--muted);font-size:12px}
 .reader-meta .meta-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--muted)}
+#readerOverrulingRisk{margin-top:12px;padding:12px 14px;border:1px solid #d6a64b;border-left:4px solid #9a5b00;border-radius:6px;background:#fff7df;color:#352500}
+#readerOverrulingRisk[hidden]{display:none}
+#readerOverrulingRisk>strong{display:block;margin-bottom:5px}
+#readerOverrulingRisk p{margin:4px 0;line-height:1.45}
+#readerOverrulingRisk .overruling-risk-flag{margin-top:9px;padding-top:8px;border-top:1px solid #e5d6b1}
 .reader-source-link{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--blue);font-size:10px;font-weight:700;text-decoration:none}
 .reader-toolbar{position:absolute;right:14px;top:18px;display:flex;justify-content:flex-end}
 .reader-view-toggle{display:inline-flex;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--surface);gap:3px}
@@ -510,6 +515,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <h2 id="decisionTitle">Decision</h2>
 <div id="readerPrintCitation" class="reader-print-citation" aria-label="Case citation"></div>
 <div class="reader-meta" id="decisionMeta"></div>
+<aside id="readerOverrulingRisk" class="reader-overruling-risk" role="note" aria-live="polite" hidden></aside>
 <div class="reader-toolbar">
 	<div class="reader-view-toggle" aria-label="Reader view mode">
 		<button type="button" class="reader-view-button" id="readerViewToggle" aria-pressed="false" title="Switch to chunk breakdown">Chunk breakdown</button>
@@ -1328,7 +1334,7 @@ document.addEventListener('change',event=>{if(event.target.closest?.('#advancedS
 document.addEventListener('input',event=>{if(event.target.closest?.('#advancedSearchOptions'))qfSync();});
 document.addEventListener('click',event=>{if(event.target.closest?.('#clearSearch'))setTimeout(qfSync,0);});
 document.getElementById('searchExamples')?.addEventListener('click',event=>{const chip=event.target.closest?.('[data-example]');if(!chip)return;const input=document.getElementById('searchQuery');input.value=chip.dataset.example;document.getElementById('caseSearch')?.requestSubmit();});
-professionalResultCard=function(item){const context=[item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':'',cls=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'';const tags=[outcome?`<span class="rc-tag ${cls}">${esc(outcome)}</span>`:'',item.decision_outcome?`<span class="rc-tag">${esc(item.decision_outcome)}</span>`:''].filter(Boolean).join('');return `<button type="button" class="case-result rc ${cls?'rc-'+cls:''}" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="rc-main"><div class="rc-top"><span class="rc-cite">${esc(item.citation||'No citation')}</span>${item.court?`<span class="rc-court">${esc(item.court)}</span>`:''}${item.date?`<span class="rc-date">${esc(item.date)}</span>`:''}</div><div class="rc-title">${esc(item.title||'Untitled decision')}</div>${context.length?`<div class="rc-meta">${context.map(esc).join('  ·  ')}</div>`:''}${tags?`<div class="rc-tags">${tags}</div>`:''}</div><div class="rc-side"><div class="rc-stats"><div class="rc-stat rc-stat-main" title="Other cases in the library that cite this decision"><b>${item.cited_by_cases===undefined||item.cited_by_cases===null?'-':num(item.cited_by_cases)}</b><span>cited by other cases</span></div><div class="rc-stat" title="Different cases, statutes and other authorities this decision cites"><b>${num(item.unique_cited_authorities)}</b><span>authorities cited</span></div><div class="rc-stat" title="Cited cases that are also in this library, so you can open them"><b>${num(item.resolved_target_cases)}</b><span>cases you can open</span></div></div><span class="rc-open">Open decision &rarr;</span></div></button>`;};
+professionalResultCard=function(item){const context=[item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':'',cls=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'';const tags=[outcome?`<span class="rc-tag ${cls}">${esc(outcome)}</span>`:'',item.decision_outcome&&item.decision_outcome!=='unclear'?`<span class="rc-tag">${esc(item.decision_outcome)}</span>`:''].filter(Boolean).join('');return `<button type="button" class="case-result rc ${cls?'rc-'+cls:''}" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="rc-main"><div class="rc-top"><span class="rc-cite">${esc(item.citation||'No citation')}</span>${item.court?`<span class="rc-court">${esc(item.court)}</span>`:''}${item.date?`<span class="rc-date">${esc(item.date)}</span>`:''}</div><div class="rc-title">${esc(item.title||'Untitled decision')}</div>${context.length?`<div class="rc-meta">${context.map(esc).join('  ·  ')}</div>`:''}${tags?`<div class="rc-tags">${tags}</div>`:''}</div><div class="rc-side"><div class="rc-stats"><div class="rc-stat rc-stat-main" title="Other cases in the library that cite this decision"><b>${item.cited_by_cases===undefined||item.cited_by_cases===null?'-':num(item.cited_by_cases)}</b><span>cited by other cases</span></div><div class="rc-stat" title="Different cases, statutes and other authorities this decision cites"><b>${num(item.unique_cited_authorities)}</b><span>authorities cited</span></div><div class="rc-stat" title="Cited cases that are also in this library, so you can open them"><b>${num(item.resolved_target_cases)}</b><span>cases you can open</span></div></div><span class="rc-open">Open decision &rarr;</span></div></button>`;};
 qfSync();document.getElementById('displayCoreCases')?.addEventListener('click',()=>setTimeout(()=>document.getElementById('cohortSearchPanel')?.scrollIntoView({behavior:'smooth',block:'start'}),400));
 </script>
 <script>
@@ -1437,6 +1443,12 @@ window.addEventListener('afterprint',()=>{
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
+  overruling_risk_js = (here / 'overruling_risk_reader.js').read_text(encoding='utf-8')
+  html = html.replace(
+      '</body>',
+      '<script>\n' + overruling_risk_js + '\n</script>\n</body>',
+      1,
+  )
   reader_tab_selection = "button.classList.toggle('active',button.dataset.readerTab===activeTab);"
   html = html.replace(
       reader_tab_selection,

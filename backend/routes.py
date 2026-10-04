@@ -28,6 +28,7 @@ from .alert_digest import (
 	partition_matches,
 	render_digest_html,
 )
+from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
 
 try:
@@ -76,6 +77,7 @@ from .text_generation_providers import (
 	TextGenerationConfigurationError,
 	get_text_generation_provider,
 )
+from .ai_mode import AI_DISABLED_MESSAGE, enhanced_mode, mode_status, search_downgrade_reason
 from .pages.citation_map import citation_map_html
 from .pages.citation_pass import citation_pass_page_html
 from .pages.data_explorer import data_explorer_page_html
@@ -3519,7 +3521,22 @@ def prototype_graph(
 def search_cases(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[CaseSearchResponse]:
-	return execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_cases(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
+
+
+def _ai_disabled_reason(requested_mode: str, effective_mode: str) -> str | None:
+	return search_downgrade_reason(requested_mode, effective_mode)
+
+
+@router.get("/api/ai-mode", response_model=dict[str, str])
+def get_ai_mode() -> dict[str, str]:
+	return mode_status()
 
 
 @router.get("/search/export.docx")
@@ -3616,14 +3633,26 @@ def export_search_docx(
 def search_chunks(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode(search.search_mode, rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason(search.search_mode, effective_mode)
+	results = execute_search_chunks(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/paragraphs", response_model=list[ChunkSearchResponse])
 def search_paragraphs(
 	search: CaseSearchRequest, db: Session = Depends(get_db)
 ) -> list[ChunkSearchResponse]:
-	return execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	effective_mode = _effective_search_mode("semantic", rollout=AI_ROLLOUT)
+	reason = _ai_disabled_reason("semantic", effective_mode)
+	results = execute_search_paragraphs(search, db, embed_fn=_embed, rollout=AI_ROLLOUT)
+	return [
+		result.model_copy(update={"search_mode_effective": effective_mode, "ai_disabled_reason": reason})
+		for result in results
+	]
 
 
 @router.post("/search/chunks/local", response_model=list[ChunkSearchResponse])
@@ -3651,10 +3680,6 @@ def search_chunks_grouped(
 _CONTEXT_CHAR_LIMIT = 12_000
 _LOCAL_CONTEXT_CHAR_LIMIT = 4_000
 _LOCAL_RAG_MAX_TOKENS = 256
-_RESEARCH_DISCLAIMER = (
-	"Research aid only � not legal advice. "
-	"Sources are unofficial copies; verify against authoritative records."
-)
 
 
 def _research_page_html() -> str:
@@ -3967,6 +3992,11 @@ def theme_explorer_page() -> HTMLResponse:
 
 @router.post("/research", response_model=ResearchResponse)
 def research(search: ResearchRequest, db: Session = Depends(get_db)) -> ResearchResponse:
+	if enhanced_mode() == "off":
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail=AI_DISABLED_MESSAGE,
+		)
 	result = _grouped_chunk_search(search, db)
 
 	top_cases = result.cases[: search.max_cases]
@@ -3987,19 +4017,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 	if len(context) > context_limit:
 		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
 
-	system_prompt = (
-		"You are a Canadian legal research assistant helping lawyers and researchers find relevant case law. "
-		"Base your answer ONLY on the case excerpts provided below. "
-		"Use the evidence labels such as [S1P2] as inline citations for every material proposition. "
-		"CRITICAL: Only cite cases and propositions that are explicitly supported by the provided excerpts. "
-		"Do NOT draw on your training knowledge to add cases, statutes, or legal tests that are not in the excerpts. "
-		"Synthesize across authorities: identify the common rule, explain how each authority applies it, distinguish tensions or limits, and do not treat repeated language as independent confirmation. "
-		"Prefer a structured answer with: short conclusion, governing principles, application or limits, and an evidence-based caveat where the excerpts are incomplete. "
-		"If the excerpts discuss a different but related legal provision (e.g., s. 96 when s. 34 was asked), "
-		"say so explicitly and describe only what those cases actually say. "
-		"If the excerpts are genuinely insufficient to address the question, say so and suggest the user try a broader or rephrased query. "
-		f"{_RESEARCH_DISCLAIMER}"
-	)
+	system_prompt, prompt_version = get_prompt("research_system")
 
 	try:
 		provider = get_text_generation_provider()
@@ -4046,6 +4064,7 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		answer=answer,
 		sources=sources,
 		model_used=provider.model_name,
+		prompt_version=prompt_version,
 		prompt_tokens=usage.prompt_tokens if usage else 0,
 		completion_tokens=usage.completion_tokens if usage else 0,
 	)

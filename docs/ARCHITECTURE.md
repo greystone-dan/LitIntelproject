@@ -214,6 +214,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
 | `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
+| `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |

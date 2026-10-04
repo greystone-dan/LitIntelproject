@@ -21,7 +21,9 @@ def vector_connection():
         pytest.skip("Real pgvector tests require explicit disposable-database opt-in")
     url = engine.url
     if url.database != "pgvector_ci" or url.host not in {"localhost", "127.0.0.1"}:
-        pytest.skip("Real pgvector tests only use the local disposable pgvector_ci database")
+        pytest.skip(
+            "Real pgvector tests only use the local disposable pgvector_ci database"
+        )
 
     test_engine = create_engine(url, connect_args={"connect_timeout": 3})
     try:

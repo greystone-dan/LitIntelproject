@@ -5,6 +5,17 @@
 	demo-safety fixes.
 # Unreleased
 
+- Added a shared embedding-provider interface with a disabled default, lazy
+  OpenAI client wrapper, and cached local SentenceTransformer implementation.
+  Search/query and case-ingestion embeddings now respect `ENHANCED_AI_MODE`:
+  off makes no model/client calls, local mode rejects hosted embeddings, and
+  hosted mode uses the selected provider. Provider dimensions and the 503
+  missing-key / 502 provider-failure API contracts are preserved. Added
+  fake-client/model tests and updated the architecture inventory, configuration,
+  system reference, and Swimm maps. Python compilation and `git diff --check`
+  passed; seven provider tests and nine targeted API/search/ingestion tests passed
+  in an isolated dependency environment. All three generated references were
+  current. No model downloads or database operations were performed.
 - Added the centralized `ENHANCED_AI_MODE` gate (`off` by default; `local` and
   `hosted` require explicit opt-in). API search defaults to lexical; off mode
   downgrades explicit semantic/hybrid requests without embedding calls and

@@ -5,6 +5,9 @@
 	demo-safety fixes.
 # Unreleased
 
+- Phone layout, second pass: Site Architecture no longer overflows the screen, wide tables
+  scroll inside their panel, the judge comparison form and the statute viewer form fit
+  and stack on phones. CSS only.
 - Phone layout fixes: the search page stacks its field and buttons with 16px text and
   scrolling filter chips; the case reader header no longer sits under its view
   buttons and the reader scrolls as one page; the yellow overruling-risk notice

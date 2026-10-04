@@ -83,3 +83,17 @@
  .reader-view-button{padding:0 9px!important;font-size:11px!important}
  #searchPanel .search-actions button,#searchPanel .sq-go{flex-basis:100%}
 }
+
+@media(max-width:760px){
+ /* second pass: other tabs */
+ .about-story{grid-template-columns:minmax(0,1fr)!important}
+ .about-section,.about-section>*{min-width:0;max-width:100%;overflow-wrap:anywhere}
+ .panel-card table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ #judgeComparisonForm input{display:block;width:100%;height:46px;margin:4px 0 12px;padding:0 12px;font-size:16px;border:1px solid var(--border);border-radius:8px;background:#fff}
+ #judgeComparisonForm label{display:block;font-weight:700;font-size:12px}
+ #judgeComparisonForm button{min-height:46px;width:100%}
+ .search-form input,.search-form select{font-size:16px!important;min-height:44px}
+ .search-form .search-actions button{min-height:44px}
+ .view-tabs .tab,.research-nav button{min-height:44px}
+ .fc-case-card dl{grid-template-columns:1fr}
+}

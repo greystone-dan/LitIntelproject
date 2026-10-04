@@ -202,6 +202,7 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
+| `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
 | `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |

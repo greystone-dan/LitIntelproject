@@ -30,6 +30,7 @@ from backend.paragraph_cited_by_db import (
     count_pending_sources,
     load_paragraph_cited_by,
     load_target_cited_by,
+    invalidate_source_edges,
     pending_source_ids,
     write_source_edges,
 )
@@ -108,7 +109,9 @@ def db():
 
 def test_batch_is_resumable_idempotent_and_covers_partially_then_fully(db):
     assert pending_source_ids(db, 0, 10) == [2, 3, 4]
+    assert pending_source_ids(db, 0, 10, include_all_cases=True) == [1, 2, 3, 4]
     assert count_pending_sources(db) == (3, 0)
+    assert count_pending_sources(db, include_all_cases=True) == (4, 0)
     assert load_paragraph_cited_by(db, 1) is None  # nothing processed yet
 
     edges, used = compute_source_edges(db, 2)
@@ -137,6 +140,19 @@ def test_batch_is_resumable_idempotent_and_covers_partially_then_fully(db):
     assert load_target_cited_by(db, [(1, 12), (1, 99)]) == {
         (1, 12): {"citer_count": 2, "mention_count": 2, "purposes": {"followed": 1, "see": 1}}
     }
+
+
+def test_invalidate_source_edges_clears_status_and_outgoing_rows(db):
+    edges, _ = compute_source_edges(db, 2)
+    write_source_edges(db, 2, edges)
+    db.commit()
+
+    with db.begin():
+        invalidate_source_edges(db, 2)
+
+    assert pending_source_ids(db, 0, 10) == [2, 3, 4]
+    assert db.scalar(select(func.count()).select_from(ParagraphCitationEdge).where(ParagraphCitationEdge.source_case_id == 2)) == 0
+    assert db.get(ParagraphCitationStatus, 2) is None
 
 
 def test_algo_version_bump_makes_everything_pending_again(db, monkeypatch):

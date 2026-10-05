@@ -54,8 +54,10 @@
   idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as
   long as it worked, can watch the site (`--health-url`) and back off when it is slow, has a CPU budget, a
   stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
-  to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
-  is a thin wrapper. No schema change, no AI.
+  to find pending work. It now also has bounded `--incremental` repairs (default limit 50 when omitted, non-positive
+  limits rejected) for canonical cases with or without outgoing citations, and the off-by-default canonical refresh
+  hook lives in `fc_ingest.ingest_pipeline.refresh_paragraph_cited_by`. New `backend/batch_safety.py` and
+  `backend/paragraph_cited_by_runner.py`; the script is a thin wrapper. No schema change, no AI.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real
@@ -87,7 +89,8 @@
   distinguished, see, quoted, ...). Two additive tables (migration 0036). It is
   resumable, runs at low priority, and writes nothing without `--apply`. The
   Markup margin and Peek read the stored rows when they exist and fall back to
-  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`.
+  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`. The same
+  job now has a bounded incremental one-case-at-a-time path for canonical refreshes.
 - Markup mode second build, using only stored data: hover card on citations;
   Peek panel (floating or docked, stackable, shows the cited paragraph when the
   authority is in the library and says so when it is not); tag display modes

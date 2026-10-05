@@ -20,7 +20,7 @@ Paragraph 0 is a boundary in every gold label and every prediction, so the
 
 Usage:
     python scripts/evaluate_discussion_unit_boundaries.py                  # working tree
-    python scripts/evaluate_discussion_unit_boundaries.py --rev main --rev ded7069
+    python scripts/evaluate_discussion_unit_boundaries.py --rev origin/main --rev ded7069
     python scripts/evaluate_discussion_unit_boundaries.py --stored         # units saved in the reports
 """
 
@@ -116,8 +116,15 @@ def pct(numerator: int, denominator: int) -> str:
 # --------------------------------------------------------------------------- gold
 
 
-def load_gold(gold_dir: Path) -> dict[int, list[int]]:
-    """Gold unit starts per case: 16 prior verified, 6 new verified, 2 legacy."""
+def load_gold(gold_dir: Path, version: str = "v2") -> dict[int, list[int]]:
+    """Gold unit starts per case.
+
+    v2 (default) is gold_boundaries_v2.json: the 22 verified cases with quote-checked
+    starts. v1 is the original files, plus the 2 legacy cases, for reproducing old figures.
+    """
+    if version == "v2":
+        cases = json.loads((gold_dir / "gold_boundaries_v2.json").read_text())["cases"]
+        return {int(case_id): sorted(set(case["starts"]) | {0}) for case_id, case in cases.items()}
     verified = json.loads((gold_dir / "gold_set_labels_verified.json").read_text())["gold_labels"]
     expanded = json.loads((gold_dir / "gold_set_labels_verified_22cases.json").read_text())["merged_gold_labels"]
     legacy = json.loads((gold_dir / "gold_set_labels.json").read_text())["gold_labels"]
@@ -238,6 +245,7 @@ SETS = {
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--gold-dir", type=Path, default=DEFAULT_GOLD_DIR)
+    parser.add_argument("--gold", choices=("v1", "v2"), default="v2", help="gold label version")
     parser.add_argument("--rev", action="append", default=[], help="git revision of discussion_units.py (repeatable)")
     parser.add_argument("--stored", action="store_true", help="score the units saved in the stored reports")
     parser.add_argument("--kwarg", action="append", default=[], help="segment kwarg as name=json, e.g. require_corroboration_for_signal_vacuum=true")
@@ -245,7 +253,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--json", type=Path, help="write per-case results here")
     args = parser.parse_args(argv)
 
-    gold = load_gold(args.gold_dir)
+    gold = load_gold(args.gold_dir, args.gold)
     kwargs = {k: json.loads(v) for k, v in (item.split("=", 1) for item in args.kwarg)}
     versions: list[tuple[str, Callable[[int], list[int]]]] = []
     if args.stored:

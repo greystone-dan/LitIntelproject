@@ -490,12 +490,18 @@ function render(){
   const items=els.map(o=>({y:o.a.getBoundingClientRect().top-base.top-2,h:o.el.offsetHeight}));
   const lay=layoutNotes(items,8);
   let bottom=0,g='';
+  const rowSeen={};
   for(const l of lay){
     const o=els[l.index];o.el.style.top=l.top+'px';bottom=Math.max(bottom,l.top+items[l.index].h);
     if(o.n.anchor.kind==='cite'){
-      const ar=o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
-      const ay=ar.top-base.top+Math.min(11,ar.height/2),ty=l.top+(o.st==='open'?16:12);
-      g+=`<path d="M${bodyR.right-base.left-2} ${ay} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${o.st==='open'?1.4:1}" opacity="${o.st==='open'?.85:.4}"/>`;
+      /* the line starts at this citation's own text: a dot at the end of its first line, a leader in the gap under that line to the margin, so two citations on one line never share a start point */
+      const rs=o.a.getClientRects(),r0=rs.length?rs[0]:o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
+      /* the leader runs in the gap under the text line, not through the words */
+      const ay=Math.round((r0.bottom+1-base.top)*10)/10,ax=r0.right-base.left,ty=l.top+(o.st==='open'?16:12);
+      const rowKey=Math.round(ay/8),k=rowSeen[rowKey]=(rowSeen[rowKey]||0)+1;
+      const elbow=Math.max(ax,bodyR.right-base.left-2)+(k-1)*5;
+      const op=o.st==='open'?.85:.4,sw=o.st==='open'?1.4:1;
+      g+=`<path d="M${ax} ${ay} H${elbow} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${sw}" opacity="${op}"/><circle cx="${ax}" cy="${ay}" r="2.4" fill="${col}" opacity="${Math.max(op,.6)}"/>`;
     }
   }
   if(state.printing){

@@ -13,18 +13,22 @@ import re
 
 # (key, name, plain explainer)
 COMING_SOON = [
-    ("themes", "Legal Themes & Statutes", "See which legal themes and statutory provisions come up most across decisions, and how their treatment changes over time."),
-    ("tag-analytics", "Tag Analytics", "Browse decisions by issue tags and compare how often each issue is raised, allowed or dismissed."),
-    ("fc-analytics", "Federal Court Analytics", "A dashboard of Federal Court leave and judicial review results by year, office, decision maker and counsel."),
-    ("citation-map", "Citation Map", "A visual map of which decisions cite which, so you can see the key authorities around any case at a glance."),
-    ("live-analysis", "Live Analysis", "Paste or upload a decision and see its citations, statutes and paragraphs checked against the library. Nothing you upload is stored."),
-    ("deidentify", "De-identify", "Remove names and personal details from a document before you share it."),
+    ("themes", "Legal Themes & Statutes", "Find the legal themes and arguments that recur across decisions, and see which statutory provisions each one leans on."),
+    ("tag-analytics", "Tag Analytics", "See how legal issue tags trend over time, which judges lean on which tags, and which tags come up most often."),
+    ("fc-analytics", "Federal Court Analytics", "A dashboard of Federal Court leave and judicial review results by year, office, judge and counsel."),
+    ("citation-map", "Citation Map", "Start from one case and follow what it cites and what cites it. Compare two cases to find the authorities they share."),
+    ("live-analysis", "Live Analysis", "Paste text or upload a Word or text PDF file to list its case citations and statute references with paragraph locations. The file is read in memory and not stored."),
+    ("deidentify", "De-identify", "Swap names, ID numbers, contact details and dates in a document for placeholders, then put them back later with a key file."),
     ("markup", "Markup Reader", "A fuller reading mode with margin notes, citation panels and a case drawer layered over the decision text."),
-    ("saved-searches", "Saved Searches & Alerts", "Save a search and get a digest when new decisions match it."),
-    ("precedent-finder", "Precedent Finder", "Describe your issue and get the leading decisions that deal with it."),
-    ("memo-citation-check", "Memo Citation Check", "Check the citations in your memo against the library and flag ones that have been overruled or distinguished."),
-    ("case-compare", "Case Compare", "Put two decisions side by side and compare their facts, reasoning and outcome."),
-    ("issue-brief", "Issue Briefs", "A short research brief on one legal issue, built from the decisions that address it."),
+    ("saved-searches", "Saved Searches & Alerts", "Save a search and review any new decisions that match it."),
+    ("precedent-finder", "Precedent Finder", "Describe the legal issue and get the authorities cited by decisions that carry matching issue tags."),
+    ("memo-citation-check", "Memo Citation Check", "Upload a memo or brief to list the authorities it cites, see how each has been treated, and discover commonly cited authorities on related issues."),
+    ("case-compare", "Case Compare", "Put two decisions side by side and compare their stored details, tags and citations."),
+    ("issue-brief", "Issue Briefs", "A short research brief on one legal issue tag, built from the decisions that address it."),
+    ("quick-search", "Quick Search", "Search the text of decisions by passage instead of by case, to find the paragraphs that say what you are looking for."),
+    ("tag-finder", "Tag Finder", "Pick a decision and find others that share its legal issue tags."),
+    ("statutes", "Federal Statutes", "Browse federal statutes, with the version that was in force when each decision was made."),
+    ("site-architecture", "Site Architecture", "A live map of how decisions move from official sources into the library and out to each research page."),
 ]
 
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">
@@ -54,7 +58,6 @@ def _subnav() -> str:
     rows += [_tab("soon", f"soon-{key}", "comingSoonPanel", name.replace("&", "&amp;")) for key, name, _ in COMING_SOON]
     rows += [
         _tab("testing", "research-bench", "researchBenchPanel", "Research Bench"),
-        _tab("testing", "site-architecture", "siteArchitecturePanel", "Site Architecture"),
         '<a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>',
         '<a class="tab" data-nav-group="testing" href="/citation-pass" hidden>Citation Pass QA</a>',
     ]
@@ -84,7 +87,7 @@ def _script() -> str:
         "const pitchLabels={info:'About',research:'Case search',intel:'Intelligence and statistics',soon:'Coming soon',testing:'Testing',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
-        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-history'],soon:['soon'],testing:['research-bench','site-architecture']});\n"
+        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-history'],soon:['soon'],testing:['research-bench']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
         "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',soon:'soon-'+Object.keys(pitchSoon)[0].slice(5),testing:'research-bench'});\n"

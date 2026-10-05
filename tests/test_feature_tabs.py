@@ -597,10 +597,12 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
     assert set(soon.values()) == {'soon'}
     assert {'soon-themes', 'soon-tag-analytics', 'soon-fc-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
+    assert len(soon) == 16
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
         'about': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-history': 'intel',
-        'research-bench': 'testing', 'site-architecture': 'testing',
+        'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {'/discussion-units-sandbox': 'testing', '/citation-pass': 'testing'}
@@ -609,7 +611,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
     ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
-    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'testing'),
+    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
     ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
     ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'intel'),

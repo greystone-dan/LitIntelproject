@@ -10,12 +10,13 @@ from datetime import datetime
 from functools import lru_cache
 from hashlib import sha256
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from docx import Document
+from pydantic import BaseModel, Field
 from openai import OpenAIError
 from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
@@ -104,7 +105,8 @@ from .pages.research import research_page_html
 from .pages.saved_searches import saved_searches_page_html
 from .pages.tag_finder import tag_finder_page_html
 from .pages.theme_explorer import theme_explorer_page_html
-from .live_analysis import MAX_DOCX_BYTES, analyze_document
+from .live_analysis import MAX_DOCX_BYTES, analyze_document, extract_document, paragraphs_from_pasted_text
+from .live_reader import build_live_reader_payload
 from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from . import resource_limits
@@ -1261,6 +1263,47 @@ async def live_analysis_resolve(
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be resolved") from exc
 	response = LiveAnalysisResponse.model_validate(payload)
 	return JSONResponse(content=response.model_dump(mode="json"), headers=_NO_STORE)
+
+
+class LiveReaderTextRequest(BaseModel):
+	text: str = Field(min_length=1)
+	title: str = Field(default="Pasted text", max_length=200)
+
+
+def _live_reader_response(build: Callable[[], dict[str, Any]]) -> JSONResponse:
+	try:
+		payload = build()
+	except resource_limits.ResourceLimitError as exc:
+		raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail=str(exc)) from exc
+	except ValueError as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+	except Exception as exc:
+		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="The document could not be read") from exc
+	return JSONResponse(content=payload, headers=_NO_STORE)
+
+
+@router.post("/live-analysis/reader")
+async def live_analysis_reader(file: UploadFile = File(...), db: Session = Depends(get_db)) -> JSONResponse:
+	"""Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called."""
+	content = await _read_upload_bounded(file)
+	name = file.filename or "document.docx"
+
+	def build() -> dict[str, Any]:
+		text, paragraphs = extract_document(content, name, file.content_type)
+		return build_live_reader_payload(text, paragraphs, name, db)
+
+	return _live_reader_response(build)
+
+
+@router.post("/live-analysis/reader-text")
+def live_analysis_reader_text(body: LiveReaderTextRequest, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Same as ``/live-analysis/reader`` for pasted text."""
+
+	def build() -> dict[str, Any]:
+		text, paragraphs = paragraphs_from_pasted_text(body.text)
+		return build_live_reader_payload(text, paragraphs, body.title.strip() or "Pasted text", db)
+
+	return _live_reader_response(build)
 
 
 @router.get("/memo-citation-check", response_class=HTMLResponse, include_in_schema=False)

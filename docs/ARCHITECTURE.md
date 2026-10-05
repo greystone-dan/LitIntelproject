@@ -176,6 +176,8 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
+| `backend/citation_treatment.py` | Experimental rule-based citation treatment evidence (abstains when unsure) |
+| `backend/citation_treatment_service.py` | Read-only service behind the experimental citation treatment endpoint |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |

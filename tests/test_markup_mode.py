@@ -478,3 +478,18 @@ console.log(JSON.stringify({
     assert "2 of 3" not in out["some"]["label"] and "text shown for 1 of 3 paragraphs" in out["some"]["label"]
     assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
     assert "later paragraphs not named" in out["ff"]["label"]
+
+
+@needs_node
+def test_back_reference_pinpoint_text_is_labelled_heuristic():
+    out = _node("""
+const base = {target_case_id: 9, target_title: 'Vavilov', target_paragraph: 99, target_chunk_text: '[99] Reasons must be justified.'};
+console.log(JSON.stringify({
+  plain: m.pinpointInfo(base),
+  back: m.pinpointInfo(Object.assign({heuristic_note: 'Back-reference (heuristic): earlier citation'}, base)),
+  noText: m.pinpointInfo({target_case_id: 9, target_paragraph: null, heuristic_note: 'Back-reference (heuristic): x'}),
+}));
+""")
+    assert "heuristic" not in out["plain"]["label"]
+    assert out["back"]["quote"].startswith("Reasons") and "Back-reference (heuristic)" in out["back"]["label"]
+    assert "Back-reference (heuristic)" in out["noText"]["body"]

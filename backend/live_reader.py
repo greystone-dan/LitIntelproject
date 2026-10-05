@@ -21,7 +21,9 @@ from sqlalchemy.orm import Session
 from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
 from .paragraph_cited_by_db import load_pinpoint_cited_by
+from .citation_refine import refine_case_citations
 from .citation_refine.pinpoints import target_paragraphs
+from .citations import extract_case_citation_matches
 from .reader_service import (
 	MAX_PINPOINT_TEXT_CASES,
 	MAX_PINPOINT_TEXT_PARAGRAPHS,
@@ -78,11 +80,52 @@ def _trim_lead_words(row: dict[str, Any]) -> dict[str, Any]:
 	return {**row, "reference_text": row["reference_text"][match.end():], "offset_start": row["offset_start"] + match.end()}
 
 
+def _add_back_references(text: str, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	"""Link "Vavilov, above at para 99" and "Ibid at para 20" to the earlier citation they point back to.
+
+	Uses only the back-reference step of ``citation_refine`` over this document, so the shared extractor and
+	stored data are untouched. Every such link is a guess about which earlier citation is meant, and is marked so.
+	"""
+	by_span = {(r["offset_start"], r["offset_end"]): r for r in rows if r["kind"] in {"case", "neutral"}}
+	refined = refine_case_citations(text, pass_one_rows=extract_case_citation_matches(text), steps=("C2_backrefs",))
+	out = list(rows)
+	for ref in refined.rows:
+		if ref.kind != "case_short" or ref.anchor_offset_start is None:
+			continue
+		target = by_span.get((ref.anchor_offset_start, ref.anchor_offset_end or 0))
+		if target is None:
+			continue
+		span = (ref.offset_start, ref.offset_end)
+		label = target.get("resolved_case_title") or target["reference_text"]
+		note = f"Back-reference (heuristic): taken to mean the earlier citation of {label[:60]}"
+		existing = next((r for r in out if (r["offset_start"], r["offset_end"]) == span), None)
+		for start, end, _ in ref.replaces:
+			out = [r for r in out if (r["offset_start"], r["offset_end"]) != (start, end)]
+		if existing is not None and existing.get("resolved_case_id") is not None:
+			continue
+		row = {
+			**(existing or {}),
+			"kind": "case_short",
+			"reference_text": text[ref.offset_start : ref.offset_end],
+			"normalized_reference": ref.normalized_citation,
+			"offset_start": ref.offset_start,
+			"offset_end": ref.offset_end,
+			"resolved_case_id": target.get("resolved_case_id"),
+			"resolved_case_title": target.get("resolved_case_title"),
+			"resolved_case_citation": target.get("resolved_case_citation"),
+			"heuristic_note": note,
+		}
+		out = [r for r in out if (r["offset_start"], r["offset_end"]) != span]
+		out.append(row)
+	return sorted(out, key=lambda r: (r["offset_start"], -r["offset_end"]))
+
+
 def _reader_citation(row: dict[str, Any], row_id: int, *, statute: bool) -> dict[str, Any]:
 	if not statute:
 		row = _trim_lead_words(row)
 	resolved = row.get("resolved_case_id")
 	out: dict[str, Any] = {
+		"heuristic_note": row.get("heuristic_note"),
 		"id": row_id,
 		"citation_kind": "statute" if statute else row["kind"],
 		"offset_start": row["offset_start"],
@@ -161,7 +204,8 @@ def build_live_reader_payload(
 	"""The reader payload for one document. ``session`` is read-only and optional (no library: nothing resolves)."""
 	analysis = analyze_extracted(text, paragraphs, filename, session)
 	rows: list[dict[str, Any]] = []
-	for source, statute in ((analysis["case_citations"], False), (analysis["statute_references"], True)):
+	case_rows = _add_back_references(text, analysis["case_citations"])
+	for source, statute in ((case_rows, False), (analysis["statute_references"], True)):
 		for row in source:
 			rows.append(_reader_citation(row, len(rows) + 1, statute=statute))
 	if session is not None:

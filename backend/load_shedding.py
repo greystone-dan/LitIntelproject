@@ -16,6 +16,8 @@ from fastapi.responses import JSONResponse, PlainTextResponse
 ROUTE_BUCKET_PREFIXES: tuple[tuple[tuple[str, ...] | None, str, str | None], ...] = (
 	(("POST",), "/live-analysis/analyze", "live_analysis"),
 	(("POST",), "/live-analysis/resolve", "live_analysis"),
+	(("POST",), "/live-analysis/reader-text", "live_analysis"),
+	(("POST",), "/live-analysis/reader", "live_analysis"),
 	(("POST",), "/memo-citation-check", "live_analysis"),
 	(("POST",), "/api/deidentify/docx", "live_analysis"),
 	(("POST",), "/api/deidentify", "live_analysis"),

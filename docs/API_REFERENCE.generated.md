@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T11:40:45.694473+00:00
+Generated: 2026-10-05T13:03:16.612881+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 127 across 124 paths
+OpenAPI operations: 129 across 126 paths
 Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -1483,6 +1483,36 @@ Live Analysis Analyze
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader`
+
+Live Analysis Reader
+
+Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called.
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_reader_live_analysis_reader_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader-text`
+
+Live Analysis Reader Text
+
+Same as ``/live-analysis/reader`` for pasted text.
+
+**Request body (required)**
+
+- `application/json`: `LiveReaderTextRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/resolve`

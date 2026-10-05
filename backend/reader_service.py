@@ -7,10 +7,13 @@ HTML source sanitization and citation markup wrapping, and citation-pass details
 from __future__ import annotations
 
 import re
+import time
+from collections import OrderedDict
+from threading import RLock
 from typing import Any
 
 from fastapi import HTTPException, status
-from sqlalchemy import select
+from sqlalchemy import and_, or_, select
 from sqlalchemy.orm import Session
 
 from .citations import (
@@ -82,6 +85,31 @@ def _is_irpa_irpr_reference(value: str | None) -> bool:
 	)
 
 
+_INSPECT_CACHE: "OrderedDict[tuple, tuple[float, dict[str, Any]]]" = OrderedDict()
+_INSPECT_CACHE_MAX = 64
+_INSPECT_CACHE_TTL_SECONDS = 3600
+_INSPECT_CACHE_LOCK = RLock()
+
+
+def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+	"""Discussion-unit segmentation is pure compute (seconds per case), so reuse it per case until its chunks change."""
+	key = None
+	if chunks is not None:
+		key = (case_id, tuple((chunk.id, chunk.text_hash) for chunk in chunks if (chunk.chunk_set or "") == "paragraph"))
+		with _INSPECT_CACHE_LOCK:
+			hit = _INSPECT_CACHE.get(key)
+			if hit is not None and time.monotonic() - hit[0] < _INSPECT_CACHE_TTL_SECONDS:
+				_INSPECT_CACHE.move_to_end(key)
+				return hit[1]
+	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
+	if key is not None:
+		with _INSPECT_CACHE_LOCK:
+			_INSPECT_CACHE[key] = (time.monotonic(), report)
+			while len(_INSPECT_CACHE) > _INSPECT_CACHE_MAX:
+				_INSPECT_CACHE.popitem(last=False)
+	return report
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -92,7 +120,7 @@ def _build_evidence_summary(
 ) -> CaseEvidenceSummaryResponse | None:
 	if not has_paragraph_chunks:
 		return None
-	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
+	report = _cached_inspect_case(db, case_id, chunks)
 	units = []
 	for unit in report["discussion_units"]:
 		subthemes = []
@@ -897,23 +925,32 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	}
 	target_chunks: dict[tuple[int, int], str] = {}
 	if target_pinpoints:
-		target_case_ids = {case_id for case_id, _ in target_pinpoints}
+		# Fetch only the paragraph chunks that cover a cited pinpoint (not every paragraph of every cited case).
+		pinpoints_by_case: dict[int, list[int]] = {}
+		for target_case_id, paragraph in target_pinpoints:
+			pinpoints_by_case.setdefault(target_case_id, []).append(paragraph)
 		target_paragraph_chunks = db.scalars(
 			select(CaseChunk)
 			.where(
-				CaseChunk.case_id.in_(target_case_ids),
 				CaseChunk.chunk_set == "paragraph",
 				CaseChunk.paragraph_start.is_not(None),
 				CaseChunk.paragraph_end.is_not(None),
+				or_(
+					*(
+						and_(
+							CaseChunk.case_id == target_case_id,
+							CaseChunk.paragraph_start <= max(paragraphs),
+							CaseChunk.paragraph_end >= min(paragraphs),
+						)
+						for target_case_id, paragraphs in pinpoints_by_case.items()
+					)
+				),
 			)
 		)
 		for chunk in target_paragraph_chunks:
-			for target_case_id, paragraph in target_pinpoints:
-				if (
-					chunk.case_id == target_case_id
-					and chunk.paragraph_start <= paragraph <= chunk.paragraph_end
-				):
-					target_chunks[(target_case_id, paragraph)] = chunk.text
+			for paragraph in pinpoints_by_case.get(chunk.case_id, ()):
+				if chunk.paragraph_start <= paragraph <= chunk.paragraph_end:
+					target_chunks[(chunk.case_id, paragraph)] = chunk.text
 
 	citation_responses = [
 		CaseReaderCitationResponse(

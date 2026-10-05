@@ -990,8 +990,9 @@ async function openDecision(caseId){
  document.getElementById('searchPanel').hidden=true;readerPanel.hidden=false;readerPanel.scrollIntoView({behavior:'smooth',block:'start'});
  document.getElementById('decisionTargetHeading').textContent='Case information';
  document.getElementById('decisionTarget').replaceChildren();
+ const readerRequest=fetch(`/cases/${caseId}/reader-data`);readerRequest.catch(()=>{});
  return fetchCurrentPanel(`/analytics/search/cases/${caseId}`,body,{isCurrent:()=>readerState.caseId===caseId&&!readerPanel.hidden,onError:()=>{readerState.payload=null;resetMostCitedParagraphs()},render:async(data,current)=>{
- const readerResponse=await fetch(`/cases/${caseId}/reader-data`);
+ const readerResponse=await readerRequest;
  if(!readerResponse.ok)throw new Error('Reader unavailable');
  const readerData=await readerResponse.json();
  if(!current())return;

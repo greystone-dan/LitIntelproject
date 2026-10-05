@@ -178,6 +178,8 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
+| `backend/citation_treatment.py` | Pure rules that label how a decision treats a cited authority |
+| `backend/citation_treatment_service.py` | Loads stored citations and verifies treatment labels against source text |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
 | `backend/contextual_authority/__init__.py` | Contextual-authority analysis package |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |

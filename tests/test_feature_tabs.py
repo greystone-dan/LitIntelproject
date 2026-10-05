@@ -1239,3 +1239,12 @@ def test_reader_splitters_and_search_results_have_valid_aria():
     for name in ("target", "linked"):
         assert f'data-reader-splitter="{name}" role="separator" aria-valuemin="220" aria-valuemax="520" aria-valuenow="300"' in html
     assert 'id="searchResults" role="region" aria-label="Case search results"' in html
+
+
+def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
+    html = routes._data_explorer_page_html()
+
+    hide_rule = 'body:not(.reader-experimental) :is([data-group="testing"],#displayCoreCases,#cohortSearchPanel){display:none!important}'
+    assert hide_rule in html
+    assert 'id="siteExperimentalToggle"' in html
+    assert "#readerExperimentalToggle,#siteExperimentalToggle" in html

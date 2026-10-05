@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 169
+Active scripts documented: 170
 
 ## Catalog
 
@@ -101,6 +101,7 @@ Active scripts documented: 169
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
+| `generate_qa_sample_v5.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_qa_sample_v5.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
 | `generate_work_history.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_work_history.py` |
@@ -1452,6 +1453,20 @@ Active scripts documented: 169
 
 ```powershell
 .\venv\Scripts\python.exe scripts\generate_api_reference.py
+```
+
+## `scripts/generate_qa_sample_v5.py`
+
+**Purpose:** Build citation QA sample v5 from an evaluator run, balanced across court x decision-date period. Read-only. Usage: python scripts/generate_qa_sample_v5.py
+
+**Operational class:** Documentation generation
+
+**Write/network risk:** read-only
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\generate_qa_sample_v5.py
 ```
 
 ## `scripts/generate_schema_reference.py`

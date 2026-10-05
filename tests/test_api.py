@@ -260,6 +260,9 @@ class QueuedReaderSession:
     def scalars(self, statement):
         return iter(self.rows)
 
+    def execute(self, statement):
+        return iter(())
+
 
 def test_ingest_stores_metadata_and_embedding(monkeypatch):
     monkeypatch.setattr(

@@ -2,6 +2,7 @@ from datetime import date
 import importlib.util
 from pathlib import Path
 import re
+import os
 import shutil
 import subprocess
 import tempfile
@@ -510,9 +511,16 @@ document.body.dataset.browserCheck='passed';
     with tempfile.TemporaryDirectory() as directory:
         path = Path(directory) / "mock-reader.html"
         path.write_text(document)
+        # Same isolation flags as the other headless-Chromium tests: private profile
+        # (no shared default profile between parallel workers), no /dev/shm use, no
+        # session D-Bus lookup (the stall seen in CI stderr).
         result = subprocess.run([browser, "--headless", "--no-sandbox", "--disable-gpu",
-                                 "--disable-background-networking", "--dump-dom",
-                                 "--virtual-time-budget=1000", path.as_uri()],
-                                capture_output=True, text=True, timeout=30)
+                                 "--disable-dev-shm-usage", "--disable-background-networking",
+                                 "--disable-extensions", "--no-first-run",
+                                 "--no-default-browser-check",
+                                 f"--user-data-dir={Path(directory) / 'profile'}",
+                                 "--dump-dom", "--virtual-time-budget=1000", path.as_uri()],
+                                capture_output=True, text=True, timeout=30,
+                                env={**os.environ, "DBUS_SESSION_BUS_ADDRESS": "disabled:"})
     assert result.returncode == 0, result.stderr
     assert 'data-browser-check="passed"' in result.stdout, result.stdout

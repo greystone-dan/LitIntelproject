@@ -1284,7 +1284,19 @@ _NO_STORE = {"Cache-Control": "no-store", "Pragma": "no-cache"}
 
 @router.get("/deidentify", response_class=HTMLResponse, include_in_schema=False)
 def deidentify_page() -> HTMLResponse:
-	return HTMLResponse(content=deidentify_page_html(), status_code=status.HTTP_200_OK, headers=_NO_STORE)
+	html = deidentify_page_html()
+	if enhanced_mode() == "off":
+		# Automatic name finding uses a trained language model; it stays off unless the deployment opts in.
+		html = html.replace(
+			'<input type="checkbox" id="autoNames" checked> <strong>Find names automatically</strong>',
+			'<input type="checkbox" id="autoNames" disabled> <strong>Find names automatically</strong> (off in this deployment)',
+			1,
+		).replace(
+			"A language model on the iLit server looks for people's names. Nothing is sent anywhere else.",
+			"Automatic name finding uses a language model and is switched off here. Type the names to hide below; IDs, contact details and dates are still found by fixed rules.",
+			1,
+		)
+	return HTMLResponse(content=html, status_code=status.HTTP_200_OK, headers=_NO_STORE)
 
 
 async def _deidentify_input_text(file: UploadFile | None, text: str) -> tuple[str, str]:
@@ -1319,6 +1331,8 @@ async def deidentify_api(
 	except ValueError as exc:
 		raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
 	enabled = [item.strip().upper() for item in categories.split(",") if item.strip()] if categories.strip() else None
+	# Automatic name finding runs a language model: only when the deployment has opted in to enhanced AI mode.
+	auto_names = auto_names and enhanced_mode() != "off"
 	# Name detection is CPU work: run it off the event loop so the rest of the site stays responsive.
 	result = await run_in_threadpool(
 		deidentify_text,
@@ -3851,8 +3865,21 @@ def _research_page_html() -> str:
 	return research_page_html()
 
 
+def _research_disabled_page_html() -> str:
+	return (
+		'<!doctype html><html lang="en"><head><meta charset="utf-8">'
+		'<meta name="viewport" content="width=device-width,initial-scale=1"><title>Research answers are off | iLit</title></head>'
+		'<body style="font-family:system-ui,sans-serif;max-width:640px;margin:48px auto;padding:0 16px;line-height:1.5">'
+		"<h1>Research answers are off</h1>"
+		f"<p>{AI_DISABLED_MESSAGE}. Questions you type are not sent to any model.</p>"
+		'<p><a href="/data-explorer">Back to Case Search</a></p></body></html>'
+	)
+
+
 @router.get("/research", response_class=HTMLResponse, include_in_schema=False)
 def research_interface() -> HTMLResponse:
+	if enhanced_mode() == "off":
+		return HTMLResponse(content=_research_disabled_page_html(), status_code=status.HTTP_200_OK)
 	return HTMLResponse(content=research_page_html(), status_code=status.HTTP_200_OK)
 
 

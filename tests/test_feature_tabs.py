@@ -1231,3 +1231,11 @@ def test_workbench_group_has_a_landing_panel_linking_its_tools():
     assert "workbench:'workbenchPanel'" in html
     for href in ("/citation-map", "/live-analysis", "/deidentify"):
         assert f'class="workbench-card" href="{href}"' in html
+
+
+def test_reader_splitters_and_search_results_have_valid_aria():
+    html = routes._data_explorer_page_html()
+
+    for name in ("target", "linked"):
+        assert f'data-reader-splitter="{name}" role="separator" aria-valuemin="220" aria-valuemax="520" aria-valuenow="300"' in html
+    assert 'id="searchResults" role="region" aria-label="Case search results"' in html

@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Navigation for the pitch: the top tabs are now About, Case search, Intelligence / Statistics (Judge Profiles, Citation Intelligence, FC Activity) and Coming soon. Coming soon has a page for every other feature with a short explainer and a black-and-yellow strip. The unfinished pages are still in the code and open by direct link (for example `/data-explorer?tab=themes`); Testing stays behind Show experimental.
 - Citation refinement: docket numbers that are the decision's own (or listed beside it in a consolidated header) are no longer added as case citations. `refine_document` and `refine_case_citations` take `source_dockets`; `evaluate_citation_refinement.py` passes each case's stored docket. No data or schema change.
 - Live Analysis: the library lookup is rewritten so cases are no longer all shown as "not in the library". It reads only the few columns it needs (not whole decisions), matches a stored citation that carries extra text after the neutral citation, accepts a case name only when exactly one decision matches, and a database error or timeout is now reported as "could not be checked" instead of "not in the library".
 - Reader: Markup is paused as a future deliverable. Its option in the view switcher is greyed out under a black-and-yellow "Coming soon" strip and cannot be opened; Formatted stays the default view. Live Analysis is paused the same way: its tab and Workbench card are greyed under the strip and no longer link to the page. The code for both is untouched.

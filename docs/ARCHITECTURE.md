@@ -148,23 +148,21 @@ test checks that these paths continue to exist.
 
 | File | Responsibility |
 | --- | --- |
-| `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
 | `backend/ai_mode.py` | Central off/local/hosted gate for enhanced API search and research |
+| `backend/alert_digest.py` | Pure saved-search digest construction and offline HTML/text rendering, with Minister-loss flags and counted shift notes |
 | `backend/analytics_service.py` | Analytics, judge profiles, and Federal Court activity service |
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
-| `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
-| `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
+| `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
+| `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
-| `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
-| `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
-| `backend/citation_map.py` | Citation graph and authority analytics |
-| `backend/citation_treatment.py` | Pure, conservative experimental rules over exact paragraph citation spans (unreviewed evidence, no persistence or model calls) |
-| `backend/citation_treatment_service.py` | Read-only source projection for the experimental treatment endpoint |
+| `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
+| `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
+| `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
 | `backend/citation_pipeline/canlii.py` | CanLII source adapter for citation extraction |
 | `backend/citation_pipeline/models.py` | Citation candidate and extraction data shapes |
@@ -176,8 +174,6 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
-| `backend/citation_treatment.py` | Experimental rule-based citation treatment evidence (abstains when unsure) |
-| `backend/citation_treatment_service.py` | Read-only service behind the experimental citation treatment endpoint |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
 | `backend/citation_treatment.py` | Pure rules that label how a decision treats a cited authority |
@@ -189,8 +185,8 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |
 | `backend/contextual_authority/observations.py` | Observation and evidence structures for contextual analysis |
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
-| `backend/contextual_authority/unit_roles.py` | Deterministic coarse role labels (facts, issues, analysis, disposition...) for discussion units |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |
+| `backend/contextual_authority/unit_roles.py` | Deterministic coarse role labels (facts, issues, analysis, disposition...) for discussion units |
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
@@ -201,13 +197,12 @@ test checks that these paths continue to exist.
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
 | `backend/document_structure.py` | Maps source HTML structure to plain text |
 | `backend/embedding_providers.py` | Shared `EmbeddingProvider` interface; disabled, lazy OpenAI, and process-cached SentenceTransformer implementations |
-| `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
-| `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
+| `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
@@ -216,23 +211,24 @@ test checks that these paths continue to exist.
 | `backend/live_reader.py` | Reader-shaped payload for an uploaded or pasted document (Live Analysis markup view); in memory, no model |
 | `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
+| `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
 | `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |
 | `backend/memo_gap_check.py` | Bounded per-tag missing and possible-contrary authority suggestions for ephemeral memos |
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
-| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/metadata_subjects.py` | Derives subject metadata |
 | `backend/models.py` | Pydantic request and response contracts |
+| `backend/outcome_checker.py` | Advisory second reader for rule-unclear outcomes (batch, open case law only) |
 | `backend/overruling_risk.py` | Editable source-backed seeds and cautious direct/indirect indicator response shaping |
 | `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page for `/case-compare` and `/compare` |
-| `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/case_summary_card.py` | Conditional formatted-reader card for exact selected passages and source-paragraph links |
+| `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
@@ -244,19 +240,15 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |
-| `backend/pages/memo_gap_check.py` | Escaped renderer for rule-based memo gap suggestions |
-| `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
-| `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
-| `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
-| `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
-| `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
 | `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
-| `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
-| `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
+| `backend/pages/memo_gap_check.py` | Escaped renderer for rule-based memo gap suggestions |
+| `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
+| `backend/pages/pitch_nav.py` | Pitch navigation: four top-level tabs on the main explorer page |
+| `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/research.py` | Experimental research page builder |
@@ -266,9 +258,11 @@ test checks that these paths continue to exist.
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
+| `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
+| `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
+| `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
-| `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
 | `backend/prompts/citation_issue_focused_assessment.txt` | Issue-focused paragraph-assessment prompt |
@@ -279,8 +273,10 @@ test checks that these paths continue to exist.
 | `backend/prompts/discussion_units.txt` | Discussion-unit grouping prompt |
 | `backend/prompts/model_paragraph_segmentation.txt` | Model paragraph segmentation prompt |
 | `backend/prompts/research_system.txt` | Experimental `/research` system prompt |
+| `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/query_syntax.py` | Parses Case Search query operators and builds the interpretation echo |
 | `backend/reader_service.py` | Case-reader, citation-pass, and metadata formatting services |
+| `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/resource_limits.py` | Upload and parsed-document size limits and validation |
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
@@ -292,6 +288,7 @@ test checks that these paths continue to exist.
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
+| `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

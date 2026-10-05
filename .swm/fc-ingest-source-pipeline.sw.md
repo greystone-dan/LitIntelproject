@@ -609,6 +609,26 @@ citation semantics into the source adapter.
 
 ## Validation
 
+### Research-panel outage boundary
+
+FC activity presentation uses the shared helper in
+[`backend/degraded_mode.py`](../backend/degraded_mode.py), adopted by
+[`backend/pages/data_explorer.py`](../backend/pages/data_explorer.py) and its
+injected [`backend/pages/fc_analytics.py`](../backend/pages/fc_analytics.py).
+Dashboard, judge and counsel requests settle independently; Retry reuses the
+same renderer without refetching healthy siblings. A dashboard response shared
+by charts has one recovery owner rather than identical requests per chart.
+This changes presentation only: no collector, staging, provenance, canonical
+judgment or activity endpoint contracts change. Offline owner-isolation and
+retry checks run with `node tests/test_panel_helpers.js`; see the
+[frontend walkthrough](6.maiixtsw.sw.md) for browser validation boundaries.
+
+The 2026-10-04 feature-tab pytest validation passed both new Node checks via
+pytest, including the fixture-only Chromium check. Full-suite acceptance and
+the no-live-database boundary are recorded in the
+[canonical checkpoint](../SYSTEM_REFERENCE.md#runtime-components); no collector
+or live FC integration was run for this presentation change.
+
 Start with the package help command and a bounded parser/database test. For the
 full source slice, run:
 

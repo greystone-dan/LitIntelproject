@@ -330,7 +330,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 #searchPanel .primary-query{display:block;width:100%;max-width:none}
 #searchPanel .primary-query>label{display:block;margin:0 0 6px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 #searchPanel .case-finder{position:relative;display:flex;align-items:center;gap:10px}
-#searchPanel .primary-query input#searchQuery{height:58px!important;padding:0 90px 0 20px!important;border:1.5px solid #c9c5b6!important;border-radius:14px!important;font-size:18px!important;background:#fff!important;box-shadow:0 2px 10px rgba(16,32,56,.06)!important}
+#searchPanel .primary-query input#searchQuery{height:58px!important;padding:0 90px 0 20px!important;border:1.5px solid #c9c5b6!important;border-radius:6px!important;font-size:18px!important;background:#fff!important;box-shadow:0 2px 10px rgba(16,32,56,.06)!important}
 #searchPanel .primary-query input#searchQuery:focus{outline:0;border-color:#102038!important;box-shadow:0 0 0 4px rgba(16,32,56,.08),0 2px 10px rgba(16,32,56,.08)!important}
 #searchPanel .query-shortcut{position:absolute;right:16px;top:50%;transform:translateY(-50%)}
 #searchPanel .query-hint{margin:8px 2px 0;color:var(--muted-2);font-size:12px}

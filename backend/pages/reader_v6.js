@@ -14,6 +14,7 @@
  const openFull=id=>{if(id)window.open(fullCaseUrl(id),'_blank','noopener');};
  const cap=value=>{const text=String(value||'').replace(/_/g,' ').trim();return text.charAt(0).toUpperCase()+text.slice(1);};
  const shortCourt=court=>{const text=String(court||'');if(/supreme court of canada/i.test(text))return 'SCC';if(/federal court of appeal/i.test(text))return 'FCA';if(/federal court/i.test(text))return 'FC';if(/refugee protection/i.test(text))return 'RPD';if(/refugee appeal/i.test(text))return 'RAD';return text;};
+ const benchNames=name=>String(name||'').split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const m=/^([^,]+),\s*(.+)$/.exec(x);return m?`${m[2].trim()} ${m[1].trim()}`:x;});
  const benchLabel=name=>{const n=String(name||'').split(';').map(x=>x.trim()).filter(Boolean).length;return n>2?`Bench of ${n}`:String(name||'');};
  const longCourt=court=>({SCC:'Supreme Court of Canada',FCA:'Federal Court of Appeal',FC:'Federal Court',RPD:'Refugee Protection Division',RAD:'Refugee Appeal Division'}[String(court||'').trim()]||court||'');
  const isFed=court=>/^(FC|FCA)$/.test(String(court||'').trim())||/federal court/i.test(String(court||''));
@@ -50,6 +51,8 @@
    v6.judges.set(name,getJson(`/api/judge-profiles?q=${encodeURIComponent(clean)}&limit=5`).then(list=>{const low=name.toLowerCase(),hit=(list||[]).find(p=>(p.aliases||[]).some(a=>String(a).toLowerCase()===low))||(list||[])[0];return hit?getJson(`/api/judge-profiles/${encodeURIComponent(hit.slug)}`):null;}).catch(()=>null));}
   return v6.judges.get(name);}
  async function fillJudge(box,name,court){
+  const bench=benchNames(name);
+  if(bench.length>1){box.innerHTML=`<div class="v6-who">Bench of ${bench.length}<small>Open a judge to see their profile.</small></div>${bench.map(n=>`<button type="button" class="v6-row" data-v6-judge="${E(n)}"><span><strong>${E(n)}</strong></span><span class="v6-chev">▸</span></button>`).join('')}`;return;}
   if(isScc(court)){box.innerHTML='<div class="v6-note">Judge profiles do not cover the Supreme Court of Canada yet.</div>';return;}
   if(!name){box.innerHTML='<div class="v6-note">The decision maker is not recorded for this case.</div>';return;}
   box.innerHTML='<div class="v6-note">Loading judge profile…</div>';const profile=await loadJudge(name);if(!box.isConnected)return;
@@ -62,7 +65,7 @@
  function aboutHtml(d){
   const cf=sideCaseFacts(d),outcome=sideOutcome(d.item),meta=d.meta,docket=extractDocketFromPayload(d.item)||cf.docket,tags=sideTagGroups(d.tags).flatMap(g=>g.values.map(v=>({...v,category:g.category}))).sort((a,b)=>b.count-a.count).slice(0,10),heads=headings(d);
   const disposition=[...heads].reverse().find(h=>/disposition|conclusion|judgment|order/i.test(h.title));
-  const judge=cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:'',bench=cf.judge&&String(cf.judge).includes(';')?`<small class="v6-small">${E(String(cf.judge).split(';').map(x=>x.trim().split(',')[0]).filter(Boolean).slice(0,3).join(', '))} and others</small>`:'';
+  const names=benchNames(cf.judge),link=n=>`<button type="button" class="v6-lk" data-v6-judge="${E(n)}">${E(n)}</button>`,judge=names.length>1?names.slice(0,3).map(link).join(', ')+(names.length>3?`, <button type="button" class="v6-lk" data-v6-go="judge">and ${names.length-3} more</button>`:''):(cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:''),bench='';
   return `<div class="v6-card out"><div class="v6-oh"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}</div><p>${outcome?'Recorded in the iLit data for this decision.':'No outcome is recorded for this decision yet.'}</p>${disposition?`<div class="v6-links"><button type="button" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)}</button></div>`:''}</div>
   <div class="v6-sec"><h4>Case details</h4>${facts([['Court',longCourt(cf.court)],['Decision maker',judge+(bench?'<br>'+bench:''),true],['Docket',docket],['Decided',cf.decided],['Heard',cf.hearing],['Minister or party',d.item.minister||meta.minister],['Language',d.item.language||meta.language],['Jurisdiction',d.item.jurisdiction]])}</div>
   ${tags.length?`<div class="v6-sec"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
@@ -76,7 +79,7 @@
   return cases.concat(acts);}
  function caseBody(g,d){
   const rows=g.rows.filter(r=>r.target_case_id&&r.target_paragraph!=null),seen=new Set(),pins=[];rows.forEach(r=>{const k=String(r.target_paragraph);if(!seen.has(k)&&pins.length<3){seen.add(k);pins.push(r);}});
-  const texts=pins.map(r=>{const info=hoverCitationInfo(r);if(info.fetch&&!r._hoverFetched)hoverFetchText(r).then(ok=>{if(ok)renderPanel();});return info.text?citedTextHtml(info.text):`<div class="v6-note">${E(info.note||'')}</div>`;}).join('');
+  const texts=pins.map(row=>{const r=hoverRow(row.id)||row,info=hoverCitationInfo(r);if(info.fetch&&!r._hoverFetched)hoverFetchText(r).then(ok=>{if(ok)renderPanel();});return info.text?citedTextHtml(info.text):`<div class="v6-note">${E(info.note||'')}</div>`;}).join('');
   const body=g.caseId?(texts||'<div class="v6-note">Cited without a paragraph number, so there is no pinpoint to show.</div>'):'<div class="v6-note">iLit has not matched this citation to a case in its library, so there is no case to open.</div>';
   return `<div class="v6-abody">${body}${g.caseId?`<div class="v6-links"><button type="button" class="pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Intelligence →</button><button type="button" data-v6-newtab="${g.caseId}">Open full case ↗</button></div><div class="v6-small">Double-click the citation in the text, or this row, to open the case in a new tab.</div>`:''}</div>`;}
  function actBody(g){return `<div class="v6-abody">${g.sections.map(s=>{const name=s.number?`Section ${s.number}${s.pinpoint&&s.pinpoint!==s.number?` (${s.pinpoint})`:''}`:(s.pinpoint?`Pinpoint ${s.pinpoint}`:'Whole Act or general reference');return `<div class="v6-sect"><div class="v6-sect-h"><strong>${E(name)}</strong><span class="v6-ct">${s.rows.length}</span>${s.url?`<a href="${E(s.url)}" target="_blank" rel="noopener noreferrer">Read ↗</a>`:''}</div>${s.text?citedTextHtml(s.text,true):''}</div>`;}).join('')}${g.url?`<div class="v6-links"><a href="${E(g.url)}" target="_blank" rel="noopener noreferrer">Open the Act on Justice Laws ↗</a></div>`:''}</div>`;}

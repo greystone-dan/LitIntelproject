@@ -77,7 +77,7 @@
  function caseBody(g,d){
   const rows=g.rows.filter(r=>r.target_case_id&&r.target_paragraph!=null),seen=new Set(),pins=[];rows.forEach(r=>{const k=String(r.target_paragraph);if(!seen.has(k)&&pins.length<3){seen.add(k);pins.push(r);}});
   const texts=pins.map(r=>{const info=hoverCitationInfo(r);if(info.fetch&&!r._hoverFetched)hoverFetchText(r).then(ok=>{if(ok)renderPanel();});return info.text?citedTextHtml(info.text):`<div class="v6-note">${E(info.note||'')}</div>`;}).join('');
-  const body=g.caseId?(texts||'<div class="v6-note">Cited without a paragraph number, so there is no pinpoint to show.</div>'):'<div class="v6-note">This case is not in the iLit library.</div>';
+  const body=g.caseId?(texts||'<div class="v6-note">Cited without a paragraph number, so there is no pinpoint to show.</div>'):'<div class="v6-note">iLit has not matched this citation to a case in its library, so there is no case to open.</div>';
   return `<div class="v6-abody">${body}${g.caseId?`<div class="v6-links"><button type="button" class="pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Intelligence →</button><button type="button" data-v6-newtab="${g.caseId}">Open full case ↗</button></div><div class="v6-small">Double-click the citation in the text, or this row, to open the case in a new tab.</div>`:''}</div>`;}
  function actBody(g){return `<div class="v6-abody">${g.sections.map(s=>{const name=s.number?`Section ${s.number}${s.pinpoint&&s.pinpoint!==s.number?` (${s.pinpoint})`:''}`:(s.pinpoint?`Pinpoint ${s.pinpoint}`:'Whole Act or general reference');return `<div class="v6-sect"><div class="v6-sect-h"><strong>${E(name)}</strong><span class="v6-ct">${s.rows.length}</span>${s.url?`<a href="${E(s.url)}" target="_blank" rel="noopener noreferrer">Read ↗</a>`:''}</div>${s.text?citedTextHtml(s.text,true):''}</div>`;}).join('')}${g.url?`<div class="v6-links"><a href="${E(g.url)}" target="_blank" rel="noopener noreferrer">Open the Act on Justice Laws ↗</a></div>`:''}</div>`;}
  function authoritiesHtml(d){
@@ -226,5 +226,17 @@
  /* A fresh render of the text drops the cards and the hits. */
  const previousSetReaderMode=setReaderMode;
  setReaderMode=function(mode){clearCards();if(input){hits=[];cursor=-1;if(counter){counter.textContent='';prev.disabled=next.disabled=true;}input.value='';}previousSetReaderMode(mode);};
+ /* Layer toggles in the order Citations, Statutes, Tags (the old bar says Acts). */
+ (function(){const legend=document.querySelector('.reader-layer-legend');if(!legend)return;const by=k=>legend.querySelector(`[data-layer="${k}"]`);
+  const names={cites:'Citations',laws:'Statutes',tags:'Tags'};
+  ['cites','laws','tags'].forEach(k=>{const b=by(k);if(!b)return;legend.append(b);const dot=b.querySelector('i,.dot,span');const label=[...b.childNodes].reverse().find(n=>n.nodeType===3&&n.nodeValue.trim());if(label)label.nodeValue=' '+names[k];else if(!dot)b.textContent=names[k];});})();
+
+ /* The collapsed Counsel, appearances and record block also sits at the start of the decision. */
+ (function(){let busy=false;const addTop=()=>{if(busy)return;const root=body.querySelector('.fmt-decision'),foot=body.querySelector('.fmt-footer:not(.fmt-footer-top)');if(!root||!foot||root.querySelector('.fmt-footer-top'))return;busy=true;
+  const clone=foot.cloneNode(true);clone.classList.add('fmt-footer-top');clone.removeAttribute('open');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
+  const kids=[...root.children],anchor=kids.find(c=>c.classList.contains('fmt-caption'))||kids.find(c=>!c.classList.contains('fmt-meta'));
+  if(anchor)root.insertBefore(clone,anchor);else root.append(clone);busy=false;};
+  new MutationObserver(addTop).observe(body,{childList:true});addTop();})();
+
  if(readerState.payload)renderPanel();
 })();

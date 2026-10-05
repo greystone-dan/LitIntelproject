@@ -1290,7 +1290,7 @@ function hoverCitationInfo(item){
   return {kind:'Statute or regulation',title,label:[section?`Section ${section}`:'',/unknown/i.test(item.statute_version_label||'')?'':(item.statute_version_label||'')].filter(Boolean).join(' \u00b7 '),text,note:text?'':'The text of this provision is not in the iLit library.'};
  }
  const cited=item.target_citation||'',para=item.target_paragraph;
- if(!item.target_case_id)return {kind:'Cited case',title:item.normalized_citation||item.citation_text||'Cited case',label:'',text:'',note:'This case is not in the iLit library.'};
+ if(!item.target_case_id)return {kind:'Cited case',title:item.normalized_citation||item.citation_text||'Cited case',label:'',text:'',note:'iLit has not matched this citation to a case in its library, so there is no case to open.'};
  const title=item.target_title||cited||'Cited case';
  if(para===null||para===undefined)return {kind:'Cited case',title,label:cited,text:'',note:'Cited without a paragraph number, so there is no pinpoint to show.'};
  const paras=Array.isArray(item.target_paragraphs)&&item.target_paragraphs.length?item.target_paragraphs:[para],many=paras.length>1,texts=item.target_chunk_texts||{};

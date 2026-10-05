@@ -28,7 +28,7 @@ from .citations import (
 	resolve_legislation_reference,
 )
 from .case_formatter import format_decision
-from .document_structure import map_span_to_chunk_layers
+from .document_structure import locate_chunk_layers, map_span_to_located_layers
 from .database import (
 	Case,
 	CaseChunk,
@@ -1116,6 +1116,8 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 
 	case_text = case.full_text or case.summary or ""
 	chunks_by_id = {chunk.id: chunk for chunk in all_chunks if chunk.id is not None}
+	located_chunks = locate_chunk_layers(case_text, all_chunks)
+	chunk_starts: dict[int, int] = {}
 	for citation in citation_responses:
 		if citation.offset_start is None or citation.offset_end is None:
 			continue
@@ -1123,12 +1125,16 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		absolute_end = citation.offset_end
 		if citation.chunk_id is not None:
 			chunk = chunks_by_id.get(citation.chunk_id)
-			chunk_start = case_text.find(chunk.text) if chunk is not None else -1
-			if chunk is None or chunk_start < 0:
+			if chunk is None:
+				continue
+			if citation.chunk_id not in chunk_starts:
+				chunk_starts[citation.chunk_id] = case_text.find(chunk.text)
+			chunk_start = chunk_starts[citation.chunk_id]
+			if chunk_start < 0:
 				continue
 			absolute_start = chunk_start + citation.offset_start
 			absolute_end = chunk_start + citation.offset_end
-		layer_spans = map_span_to_chunk_layers(case_text, absolute_start, absolute_end, all_chunks)
+		layer_spans = map_span_to_located_layers(len(case_text), absolute_start, absolute_end, located_chunks)
 		citation.layer_spans = {
 			layer: {
 				"chunk_id": span.chunk_id,

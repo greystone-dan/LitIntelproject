@@ -47,7 +47,7 @@ jobs:
       PGCONNECT_TIMEOUT: "3"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Refuse dotenv database overrides
         shell: bash
         run: |
@@ -56,7 +56,7 @@ jobs:
             exit 1
           fi
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip

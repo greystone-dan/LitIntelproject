@@ -65,12 +65,17 @@ def _fold(text: str) -> str:
 
 
 def _title_case(text: str) -> str:
-	def fix(token: str) -> str:
+	def fix(token: str, first: bool) -> str:
+		if token.lower() in _PARTICLES and not first:
+			return token.lower()
+		match = re.fullmatch(r"(Mc|Mac)([A-Z]{2,})", token)
+		if match:
+			return match.group(1) + match.group(2).capitalize()
 		if not token.isupper() or "." in token:
 			return token
 		parts = re.split(r"([\-'])", token.lower())
 		return "".join(p.capitalize() if p not in "-'" else p for p in parts)
-	return " ".join(fix(t) for t in text.split())
+	return " ".join(fix(t, i == 0) for i, t in enumerate(text.split()))
 
 
 def parse_judge_name(raw: str) -> JudgeName | None:
@@ -195,8 +200,7 @@ def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 				male = [b for b in bare if parsed[b].gender == "m"]
 				if female and male:  # same surname, different gender titles: two people
 					clusters.extend([female, male])
-					clusters[0].extend(b for b in bare if not parsed[b].gender)
-					review = [b for b in bare if not parsed[b].gender]
+					review = [b for b in bare if not parsed[b].gender]  # cannot tell which one: leave alone
 				else:
 					clusters.append(list(bare))
 			else:

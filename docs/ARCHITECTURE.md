@@ -204,6 +204,7 @@ test checks that these paths continue to exist.
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_issue_record.py` | Aggregates judge-linked issue outcomes with explicit denominators |
+| `backend/judge_normalization.py` | Deterministic judge-name normalization (no database, no AI) |
 | `backend/legal_tagger.py` | Deterministic evidence-bearing legal tags |
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |

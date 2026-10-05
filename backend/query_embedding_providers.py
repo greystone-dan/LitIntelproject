@@ -219,6 +219,7 @@ def embed_query(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="Query embeddings are disabled; use lexical search or enable a provider",
         )
+    _check_mode(provider_name)
     assert model_name is not None and dimensions is not None
     if indexed_dimensions is not None and dimensions != indexed_dimensions:
         raise HTTPException(
@@ -230,7 +231,6 @@ def embed_query(
                 "required before using this provider."
             ),
         )
-    _check_mode(provider_name)
     try:
         vector = _configured_provider(
             provider_name, model_name, dimensions
@@ -332,6 +332,7 @@ def embed_case_summary(text: str) -> list[float] | None:
     if (
         model_config.table != "case_chunks"
         or model_config.dimensions != indexed_model.dimensions
+        or model_config.dimensions != OPENAI_EMBEDDING_DIMENSIONS
     ):
         return None
     try:

@@ -112,6 +112,34 @@ def test_ingestion_embeddings_are_disabled_by_default_mode_and_none_provider(mon
     assert query_embedding_providers.embed_case_summary("private summary") is None
 
 
+def test_case_summary_embedding_preserves_fixed_1536_dimension_contract(monkeypatch):
+    model = SimpleNamespace(table="case_chunks", dimensions=768)
+    monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+    monkeypatch.setattr(
+        query_embedding_providers, "_ingest_rollout_enabled", lambda: True
+    )
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_case_embedding_settings",
+        lambda: ("openai", "custom-hosted-model", 768),
+    )
+    monkeypatch.setattr(
+        query_embedding_providers, "get_embedding_model", lambda _name: model
+    )
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "get_indexed_embedding_model",
+        lambda: model,
+    )
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_configured_provider",
+        lambda *_args: pytest.fail("non-1536 case embedding provider must not run"),
+    )
+
+    assert query_embedding_providers.embed_case_summary("summary") is None
+
+
 def test_ingest_route_does_not_call_provider_when_enhanced_mode_is_off(monkeypatch):
     class FakeDatabase:
         def add(self, _row):

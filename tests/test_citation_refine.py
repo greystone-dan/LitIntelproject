@@ -480,3 +480,27 @@ def test_unknown_law_names_are_kept_but_fragments_dropped():
 	result = _laws("Motor Vehicle Act. Does the Act apply?", pass_one_rows=rows)
 	assert [(row.normalized_citation, row.confidence) for row in result.rows] == [("Motor Vehicle Act", 0.4)]
 	assert "sentence_fragment" in result.dropped[0].notes
+
+
+def _dockets(text, own):
+	return [row.normalized_citation for row in refine_case_citations(text, source_dockets=own).rows if row.kind == "docket"]
+
+
+def test_own_docket_is_not_a_citation_even_when_stored_without_year():
+	header = "File numbers\nDecision Content\nDate: 20030612\nDocket: T-1053-02\nCitation: 2003 FCT 742"
+	assert _dockets(header, ["T-1053"]) == []
+	assert _dockets(header, ["T-1053-02"]) == []
+	assert _dockets(header, []) == ["T-1053-02"]  # no own docket known: unchanged behaviour
+
+
+def test_dockets_listed_beside_the_own_docket_are_skipped():
+	header = "Dockets: IMM-3193-15 IMM-248-16 IMM-932-16 IMM-1354-16 IMM-1604-16\nCitation: 2018 FC 481"
+	assert _dockets(header, ["IMM-1354-16"]) == []
+	judgment = "JUDGMENT in IMM-3855-15, IMM-3838-15, IMM-591-16 and IMM-1552-17 THIS COURT'S JUDGMENT is"
+	assert _dockets(judgment, ["IMM-1552-17"]) == []
+
+
+def test_other_dockets_still_count_as_citations():
+	text = "Docket: T-766-03\nIn Mathiyabaranam (December 5, 1997), A-223-95, the Court held. See Court File No. T-1747-00."
+	assert _dockets(text, ["T-766"]) == ["A-223-95", "T-1747-00"]
+	assert _dockets("Docket: T-766-03\nSee T-766-99 as well.", ["T-766-03"]) == ["T-766-99"]

@@ -5,26 +5,12 @@
 	demo-safety fixes.
 # Unreleased
 
-- Issue #281: added migration `0039_citation_refinement` and four standalone
-  refinement-storage models, preserving base occurrence fields while adding
-  version/step/confidence metadata, statute grouping, paragraph links and
-  per-case status. Only absent tables are created; downgrade preserves them.
-  No runtime refinement wiring or data migration. DB-free tests cover repeat
-  upgrade, pre-existing preservation, model/field/index/FK parity and the new
-  single migration head. Added an explicit disposable PostgreSQL-gated test for
-  isolated fresh upgrade, reflected schema parity, actual repeated upgrade
-  function calls, and no-op downgrade/re-upgrade preservation with final cleanup.
-  Latest DB-free focused checks: 15 passed, 2 PostgreSQL-gated tests skipped,
-  2 SQLite-writing tests deselected. Earlier CI-filtered full suite:
-  2,856 passed, 5 skipped, 3 deselected, 1 xfailed, with 2 unrelated tokenizer
-  tests failing because the external tiktoken download host could not resolve.
-  External PostgreSQL access and dotenv reads were blocked during validation;
-  generated-reference checking passed. No deployment or live migration was run.
-  After merging latest main, focused schema checks passed (16 passed, 1
-  PostgreSQL-gated test skipped). The CI-filtered full suite recorded 2,874
-  passed, 6 skipped, 3 deselected and 1 xfailed, with the same 2 tokenizer DNS
-  failures and a Chromium fixture timeout. No unrelated failure was patched.
-
+- Navigation for the pitch: the top tabs are now About, Case search, Intelligence / Statistics (Judge Profiles, Citation Intelligence, FC Activity) and Coming soon. Coming soon has a page for every other feature with a short explainer and a black-and-yellow strip. The unfinished pages are still in the code and open by direct link (for example `/data-explorer?tab=themes`); Testing stays behind Show experimental.
+- Citation refinement: docket numbers that are the decision's own (or listed beside it in a consolidated header) are no longer added as case citations. `refine_document` and `refine_case_citations` take `source_dockets`; `evaluate_citation_refinement.py` passes each case's stored docket. No data or schema change.
+- Live Analysis: the library lookup is rewritten so cases are no longer all shown as "not in the library". It reads only the few columns it needs (not whole decisions), matches a stored citation that carries extra text after the neutral citation, accepts a case name only when exactly one decision matches, and a database error or timeout is now reported as "could not be checked" instead of "not in the library".
+- Reader: Markup is paused as a future deliverable. Its option in the view switcher is greyed out under a black-and-yellow "Coming soon" strip and cannot be opened; Formatted stays the default view. Live Analysis is paused the same way: its tab and Workbench card are greyed under the strip and no longer link to the page. The code for both is untouched.
+- Reader: case information is cleaner. The header shows court and citation, the case name, then one line with the IMM number, decision date and decision maker ("Justice Mosley", not "The Honourable Mr. Justice Mosley"), with the outcome pill and source links. The About panel lists case name, citation, court, decision date, IMM number, decision maker, hearing place and date, and outcome in a fixed order; minister, jurisdiction and language moved under record details.
+- Issue #281: added migration `0039_citation_refinement` and four standalone refinement-storage models, preserving base occurrence fields while adding version/step/confidence metadata, statute grouping, paragraph links and per-case status. Only absent tables are created; downgrade preserves them. No runtime refinement wiring or data migration. DB-free tests cover repeat upgrade, pre-existing preservation, model/field/index/FK parity and the new single migration head. Added an explicit disposable PostgreSQL-gated test for isolated fresh upgrade, reflected schema parity, actual repeated upgrade function calls, and no-op downgrade/re-upgrade preservation with final cleanup. Latest DB-free focused checks: 15 passed, 2 PostgreSQL-gated tests skipped, 2 SQLite-writing tests deselected. Earlier CI-filtered full suite: 2,856 passed, 5 skipped, 3 deselected, 1 xfailed, with 2 unrelated tokenizer tests failing because the external tiktoken download host could not resolve. External PostgreSQL access and dotenv reads were blocked during validation; generated-reference checking passed. No deployment or live migration was run. After merging latest main, focused schema checks passed (16 passed, 1 PostgreSQL-gated test skipped). The CI-filtered full suite recorded 2,874 passed, 6 skipped, 3 deselected and 1 xfailed, with the same 2 tokenizer DNS failures and a Chromium fixture timeout. No unrelated failure was patched.
 - Reader: the header is now one slim row and the reader fills the screen height (it used to take about half of a laptop screen), so the decision text gets the room; on phones the header chips sit on one line.
 - Formatted reader: hovering a statute or regulation reference now works (references stored against a chunk were dropped from the Formatted text), and pinpoint paragraph text that the reader data did not carry (cases citing more than twelve other cases) is fetched on hover instead of saying the paragraph is not stored.
 - Reader: the "Similar paragraphs" button is no longer added to any paragraph (the Show experimental switch no longer brings it back), and the potential legal-development notice is not fetched or shown on any page, including the formatted view and markup mode (the markup header pill is removed). Pinpoint paragraph text read from the stored decision now keeps a quoted list the formatter splits off the numbered line (for example Khosa para 44). No data or schema change.

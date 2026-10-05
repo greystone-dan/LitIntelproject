@@ -114,6 +114,7 @@ def _add_back_references(text: str, rows: list[dict[str, Any]]) -> list[dict[str
 			"resolved_case_title": target.get("resolved_case_title"),
 			"resolved_case_citation": target.get("resolved_case_citation"),
 			"heuristic_note": note,
+			"library_status": target.get("library_status"),
 		}
 		out = [r for r in out if (r["offset_start"], r["offset_end"]) != span]
 		out.append(row)
@@ -126,6 +127,7 @@ def _reader_citation(row: dict[str, Any], row_id: int, *, statute: bool) -> dict
 	resolved = row.get("resolved_case_id")
 	out: dict[str, Any] = {
 		"heuristic_note": row.get("heuristic_note"),
+		"library_status": row.get("library_status"),
 		"id": row_id,
 		"citation_kind": "statute" if statute else row["kind"],
 		"offset_start": row["offset_start"],

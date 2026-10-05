@@ -61,6 +61,22 @@ be adjusted with the `LITINTEL_MAX_*` environment variables. See
 [README.md](../README.md) for the short setup/test instructions and
 [SYSTEM_REFERENCE.md](../SYSTEM_REFERENCE.md) for configuration details.
 
+## Engine limits and request failure policy
+
+[`backend/db_limits.py`](../backend/db_limits.py) owns opt-in, validated engine
+kwargs and precise timeout classification. `database.py` keeps URL precedence,
+sessions and ORM ownership; `main.py` only registers the handlers. Unset limits
+preserve SQLAlchemy defaults. PostgreSQL timeout options apply per connection;
+SQLite keeps its dialect pool and ignores unsupported QueuePool kwargs.
+Diagnosed statement/lock timeouts and QueuePool exhaustion return a safe 503
+with `Retry-After: 5`; unrelated errors retain their previous handling.
+
+Scripts may opt into a separate `engine_without_timeout()` and must close their
+sessions and dispose it; application limits are neither global database changes
+nor implicit changes to other processes. This helper does not erase server/role
+defaults. See [configuration and accepted ranges](CONFIGURATION_REFERENCE.md#opt-in-database-limits)
+and the [database walkthrough](../.swm/2.40nypbay.sw.md#connection-rules).
+
 ## Main data tables
 
 The generated [schema reference](SCHEMA_REFERENCE.generated.md) lists every
@@ -169,6 +185,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
+| `backend/db_limits.py` | Opt-in engine limits, script engine helper, and precise safe timeout responses |
 | `backend/deidentify.py` | Reversible document de-identification |
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
@@ -177,6 +194,7 @@ test checks that these paths continue to exist.
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
@@ -185,9 +203,11 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
+| `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
 | `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |
+| `backend/memo_gap_check.py` | Bounded per-tag missing and possible-contrary authority suggestions for ephemeral memos |
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
@@ -212,6 +232,7 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/pages/memo_gap_check.py` | Escaped renderer for rule-based memo gap suggestions |
 | `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |

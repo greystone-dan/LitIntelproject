@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode now follows the mockups more closely. New Acts / statutes layer (margin notes with the Act, pinpoint, stored provision text or an honest "not stored", and a link to the Act); header pills for outcome, judge and file number; short margin pill names ("Vavilov 2019 SCC 65"); citation cards with a paragraph badge, "also cited at" and Open / Pin; judge card with Open judge profile; outcome card with Show paragraph; unit pills named from the section heading; Layers popup with counts, "N of M", Show all layers and Reset; a By-topic grouped view (Reading order / By topic, Fold all / Unfold all); a right-edge minimap; annotated print with numbered markers and numbered margin comments. Read-only on data already loaded, no AI, no schema change.
 - About page refresh and a Changelog view. The About overview was audited against the repository: counts at the top
   now read live from `/api/about/stats`, unverifiable figures (sample percentages, AI paragraph counts, test scores,
   old test and line counts) were removed or restated, the AI wording now says the site runs without AI, and a
@@ -20,6 +21,16 @@
   stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
   to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
   is a thin wrapper. No schema change, no AI.
+- Corrected **request observability** (`backend/request_context.py`): ContextVar-backed
+  middleware validates/preserves bounded incoming request IDs and adds `X-Request-ID`
+  to success, access-gate, 404, and 500 responses. Optional `SLOW_REQUEST_LOG_MS`
+  emits one-line JSON only above its threshold, containing request ID, method,
+  route template, status, and `duration_ms`; no request text, raw path/query, host,
+  or secret is logged. `/health/ready` and documented `GET /api/version` return
+  sanitized `commit`, process `started_at`, and `python_version`. A sanitized
+  `APP_COMMIT` is preferred; Git is queried only when the repository `.git`
+  directory exists. Existing password-gate
+  behavior is unchanged. No schema changes or migrations.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real

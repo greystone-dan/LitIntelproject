@@ -25,6 +25,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm import relationship
+from .db_limits import engine_kwargs
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # Prefer project-local settings over inherited shell variables.
@@ -74,7 +75,7 @@ def _database_url() -> str | URL:
 
 DATABASE_URL = _database_url()
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(DATABASE_URL, pool_pre_ping=True, **engine_kwargs(DATABASE_URL))
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 

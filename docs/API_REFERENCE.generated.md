@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T20:25:09.150146+00:00
+Generated: 2026-10-04T23:59:24.035035+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 119 across 116 paths
+OpenAPI operations: 121 across 118 paths
 Hidden operations: 64 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -358,6 +358,19 @@ Get sections for a specific statute version.
 
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/version`
+
+Api Version
+
+Return safe application version information.
+
+The response contains only a sanitized commit, process start time, and
+interpreter version.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `GET /cases/compare`
 
@@ -1256,6 +1269,14 @@ Recompute Citation Metrics
 ### `GET /health`
 
 Health
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/limits`
+
+Health Limits
 
 **Responses**
 

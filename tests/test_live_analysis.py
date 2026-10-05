@@ -169,15 +169,18 @@ def test_live_analysis_api_is_ephemeral_and_returns_evidence() -> None:
 	assert client.get("/live-analysis").status_code == 200
 
 
-def test_live_analysis_page_groups_ephemeral_evidence_in_layer_tabs() -> None:
+def test_live_analysis_page_is_the_site_page_with_markup_reader() -> None:
 	html = live_analysis_page_html()
 
-	assert 'data-evidence-tab="cases"' in html
-	assert 'data-evidence-tab="statutes"' in html
-	assert 'function groupedEvidence(' in html
-	assert 'authority_document_title||row.source_title||row.instrument_key' in html
-	assert 'data-start="${row.offset_start}"' in html
-	assert 'Evidence stays local to this uploaded document.' in html
+	# The site's own research shell and reader code, not a separate standalone page.
+	assert "Immigration Litigation Intelligence Tool" in html
+	assert 'id="caseReaderPanel"' in html and "window.__markupMode=api" in html
+	assert 'id="liveAnalysisPanel"' in html and 'data-tab="live-analysis"' in html
+	assert "'live-analysis':'liveAnalysisPanel'" in html
+	# It reads the document through the in-memory reader endpoints and switches markup mode on.
+	assert "/live-analysis/reader" in html and "/live-analysis/reader-text" in html
+	assert "toggle.click()" in html
+	assert "Not stored, no AI." in html
 
 
 def test_live_analysis_api_rejects_non_docx() -> None:

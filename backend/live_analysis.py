@@ -178,6 +178,17 @@ def _citation_variants(value: str) -> set[str]:
 	return variants
 
 
+_EMBEDDED_IDENTIFIER_RE = re.compile(
+	r"\b\d{4}\s+(?:SCC|FCA|FC|FCT|CAF|CF|CSC|ONCA|BCCA|ABCA)\s+\d{1,4}\b|\[\d{4}\]\s+\d+\s+S\.?C\.?R\.?\s+\d+",
+	re.IGNORECASE,
+)
+
+
+def _embedded_identifiers(match: Any) -> set[str]:
+	"""Neutral or SCR citations written inside a case-name citation, without any pinpoint after them."""
+	return {" ".join(found.upper().split()) for found in _EMBEDDED_IDENTIFIER_RE.findall(match.citation_text or "")}
+
+
 def _case_alias_terms(match: Any) -> set[str]:
 	clean = re.split(r"\s*,\s*(?:at\s+)?para", match.citation_text or "", maxsplit=1, flags=re.IGNORECASE)[0]
 	clean = " ".join(clean.split())
@@ -194,6 +205,7 @@ def _case_alias_terms(match: Any) -> set[str]:
 
 def _resolve_local_cases(session: Session, matches: list[Any]) -> dict[str, Case]:
 	variants = {variant for match in matches if match.kind == "neutral" for variant in _citation_variants(match.normalized_citation)}
+	variants |= {variant for match in matches for found in _embedded_identifiers(match) for variant in _citation_variants(found)}
 	alias_terms = {term for match in matches if match.kind in {"case", "case_short", "case_name"} for term in _case_alias_terms(match)}
 	if not variants and not alias_terms:
 		return {}
@@ -221,6 +233,10 @@ def _resolve_local_cases(session: Session, matches: list[Any]) -> dict[str, Case
 	return resolved
 
 
+def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
+	return _analyze_text(text, paragraphs, filename, session)
+
+
 def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
 	case_matches = extract_case_citation_matches(text)
 	statute_matches = extract_statute_reference_matches(text)
@@ -231,6 +247,11 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 			(resolved_cases.get(variant) for variant in sorted(_citation_variants(match.normalized_citation)) if variant in resolved_cases),
 			None,
 		)
+		if resolved_case is None:
+			resolved_case = next(
+				(resolved_cases.get(variant) for found in sorted(_embedded_identifiers(match)) for variant in sorted(_citation_variants(found)) if variant in resolved_cases),
+				None,
+			)
 		if resolved_case is None:
 			resolved_case = next((resolved_cases.get(term) for term in _case_alias_terms(match) if term in resolved_cases), None)
 		case_rows.append(_row(text, paragraphs, match, resolved_case=resolved_case))
@@ -259,6 +280,30 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 			"statute_references": len(statute_matches),
 		},
 	}
+
+
+def extract_document(content: bytes, filename: str, content_type: str | None = None) -> tuple[str, list[LiveParagraph]]:
+	"""Text and paragraphs of an uploaded DOCX or text PDF, held in memory only."""
+	validate_live_analysis_upload(filename, content_type, content)
+	if filename.lower().endswith(".pdf") or (content_type or "").lower() == "application/pdf":
+		return _paragraphs_from_pdf(content)
+	return _paragraphs_from_docx(content)
+
+
+def paragraphs_from_pasted_text(text: str) -> tuple[str, list[LiveParagraph]]:
+	"""Pasted text as paragraphs: one per blank-line-separated block (single line breaks stay inside a paragraph)."""
+	resource_limits.validate_pasted_text_length(len(text))
+	text = text.replace("\r\n", "\n").replace("\r", "\n")
+	paragraphs: list[LiveParagraph] = []
+	parts: list[str] = []
+	offset = 0
+	for index, block in enumerate(re.split(r"\n[ \t]*\n", text)):
+		start = offset
+		end = start + len(block)
+		paragraphs.append(LiveParagraph(index, block, start, end))
+		parts.append(block)
+		offset = end + 2
+	return "\n\n".join(parts), paragraphs
 
 
 def analyze_docx(content: bytes, filename: str, session: Session | None = None) -> dict[str, Any]:

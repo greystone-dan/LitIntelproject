@@ -391,6 +391,17 @@ def test_statute_layer_is_in_the_layer_list_and_old_saved_layers_load():
 
 
 @needs_node
+def test_in_this_case_line_lists_where_the_authority_is_cited():
+    out = _node("""
+console.log(JSON.stringify([
+  m.inThisCaseLine({loc: 14, alsoAt: [15]}, {paragraph: 7}),
+  m.inThisCaseLine({loc: 14, alsoAt: [15, 20, 14]}, {paragraph: null}),
+  m.inThisCaseLine({loc: 18, alsoAt: []}, {paragraph: 34}),
+  m.inThisCaseLine({loc: null, alsoAt: []}, {paragraph: 34}),
+]));
+""")
+    assert out == ["Cited at ¶[14] and ¶[15] (pinpoint ¶7)", "Cited at ¶[14], ¶[15] and ¶[20]",
+                   "Cited at ¶[18] (pinpoint ¶34)", ""]
 def test_quiet_citation_notes_stay_off_the_margin_and_out_of_the_export():
     out = _node("""
 const notes = m.buildNotes(a);

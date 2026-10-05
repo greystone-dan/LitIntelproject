@@ -416,3 +416,8 @@ def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
     assert "body.markup-mode-on #readerOverrulingRisk{display:none!important}" in css
     assert "mk-legal-open #readerOverrulingRisk:not([hidden])" in css
     assert 'data-mk-act="legal"' in js and "Legal-development notice" in js
+
+
+def test_margin_connectors_start_at_each_citations_own_text():
+    js = JS.read_text(encoding="utf-8")
+    assert "getClientRects()" in js and '<circle cx="${ax}"' in js  # a dot at the span end, not a shared start point

@@ -4,6 +4,7 @@ from backend.degraded_mode import panel_helpers_script
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
 from .case_quick_summary import inject_case_quick_summary
+from .changelog_tab import about_panel_html
 
 
 def data_explorer_page_html() -> str:
@@ -1543,7 +1544,7 @@ window.addEventListener('afterprint',()=>{
   about_end = html.index('<section id="searchPanel"', about_start)
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
-  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_fragment + '\n</section>\n' + html[about_end:]
+  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_panel_html(about_fragment) + '\n</section>\n' + html[about_end:]
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')

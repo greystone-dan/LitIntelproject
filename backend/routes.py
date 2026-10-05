@@ -12,7 +12,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from docx import Document
@@ -23,6 +23,13 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .precedent_finder import (
+	MAX_BODY_BYTES as PRECEDENT_BODY_BYTES,
+	MAX_CHARACTERS as PRECEDENT_CHARACTERS,
+	NO_STORE as PRECEDENT_NO_STORE,
+	find_precedents,
+)
+from .pages.precedent_finder import precedent_finder_page_html
 from .markup_export import Comment as MarkupComment, build_markup_docx
 from .alert_digest import (
 	build_alert_digest,
@@ -1073,6 +1080,62 @@ def get_citation_map_summary(db: Session = Depends(get_db)) -> dict[str, int]:
 @router.get("/citation-map", response_class=HTMLResponse)
 def citation_map_page() -> str:
 	return citation_map_html()
+
+
+@router.get("/precedent-finder", response_class=HTMLResponse, include_in_schema=False)
+def precedent_finder_page() -> HTMLResponse:
+	return HTMLResponse(precedent_finder_page_html(), headers=PRECEDENT_NO_STORE)
+
+
+@router.post(
+	"/precedent-finder",
+	responses={
+		413: {"description": "Proposition or JSON body exceeds the input limit; input is never echoed."},
+		422: {"description": "Invalid JSON proposition; input is never echoed."},
+		500: {"description": "Research unavailable; input is never echoed."},
+	},
+	openapi_extra={"requestBody": {"required": True, "content": {
+		"application/json": {"schema": {
+			"type": "object", "required": ["proposition"], "additionalProperties": False,
+			"properties": {"proposition": {"type": "string", "maxLength": PRECEDENT_CHARACTERS}},
+		}},
+	}}},
+)
+async def precedent_finder_analyze(request: Request, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+	Rank by distinct matching citing decisions, distinct matched tags, authority
+	date descending, then citation ascending. Statutes do not influence ranking.
+	All responses are no-store; no raw proposition is returned or persisted.
+	"""
+	# Do not bind a Pydantic body: default validation errors can echo submitted
+	# input. All errors here are fixed text, including malformed JSON and 500s.
+	def error(code: int, detail: str) -> JSONResponse:
+		return JSONResponse({"detail": detail}, status_code=code, headers=PRECEDENT_NO_STORE)
+
+	if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
+		return error(422, "Submit a JSON object containing a text proposition.")
+	body = bytearray()
+	async for chunk in request.stream():
+		if len(body) + len(chunk) > PRECEDENT_BODY_BYTES:
+			return error(413, "Proposition must be at most 3000 characters.")
+		body.extend(chunk)
+	try:
+		value = json.loads(body)
+	except (ValueError, UnicodeError, RecursionError):
+		return error(422, "Submit a valid JSON object containing a text proposition.")
+	finally:
+		body.clear()
+	if not isinstance(value, dict) or set(value) != {"proposition"} or not isinstance(value["proposition"], str):
+		return error(422, "Submit a JSON object containing a text proposition.")
+	proposition = value["proposition"]
+	if len(proposition) > PRECEDENT_CHARACTERS:
+		return error(413, "Proposition must be at most 3000 characters.")
+	try:
+		payload = await run_in_threadpool(find_precedents, proposition, db)
+	except Exception:
+		return error(500, "Precedent research is unavailable. Please try again.")
+	return JSONResponse(payload, headers=PRECEDENT_NO_STORE)
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)

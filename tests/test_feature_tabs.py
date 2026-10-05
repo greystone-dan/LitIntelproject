@@ -176,7 +176,7 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
         '<a id="downloadSearchWord" class="qf-link" href="/search/export.docx" '
         'hidden aria-hidden="true">Download Word</a>'
     ) in export_actions
-    assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
+    assert 'id="downloadSearchCsv"' not in html
     assert '<div class="search-status" id="searchMeta"' in html
     assert 'id="searchTipsPopover" popover role="dialog"' in html
     assert 'id="searchTipsToggle" popovertarget="searchTipsPopover"' in html
@@ -850,15 +850,14 @@ def test_citation_intelligence_overview_has_stable_context_and_result_states():
 def test_case_search_has_clear_primary_query_and_filter_state():
     html = routes._data_explorer_page_html()
 
-    assert 'class="search-hero"' in html
+    assert 'class="sp-title"' in html
     assert 'class="search-query-row"' in html
     assert 'role="combobox"' in html
     assert 'id="searchSuggestions"' in html
     assert 'aria-live="polite"' in html
     assert 'id="searchFilterSummary"' in html
-    assert 'legend>Authority and outcome</legend>' in html
-    assert 'legend>People, court, and time</legend>' in html
-    assert 'legend>Result display</legend>' in html
+    assert 'id="recentCases"' in html
+    assert 'id="toggleAdvancedSearch"' in html
     assert 'function updateSearchFilterSummary()' in html
     assert 'function requestSearchSuggestions(query)' in html
     assert "limit:'5'" in html

@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode: bare case names and short forms that are highlighted in the text but not matched to a stored case (for example "Horvath v. Canada") now respond to hover, click and Shift-click Peek like other citations; they show "Not in the library yet" and stay out of the margin and the Word export until opened. A render queued while switching cases no longer throws. The potential legal-development notice is hidden in markup and revealed by a "Legal-development notice" pill in the header row. No data or schema change.
 - Added the opt-in `openai_compatible` `/research` chat provider using the
   OpenAI SDK custom base URL and `CHAT_BASE_URL`, optional `CHAT_API_KEY`,
   `CHAT_MODEL`, and `CHAT_TIMEOUT_SECONDS`. The provider contract exposes

@@ -85,7 +85,9 @@ def _run(**extra):
 def test_build_notes_counts_and_filters():
     notes = _run()["notes"]
     types = [n["type"] for n in notes]
-    assert types.count("cite") == 1  # statute, unresolved short name and duplicate id skipped
+    assert types.count("cite") == 2  # statute and duplicate id skipped; the unresolved short name keeps a quiet note
+    quiet = [n for n in notes if n.get("quiet")]
+    assert [n["id"] for n in quiet] == ["cite-3"]  # highlighted in the text, so hover and click work, but no margin pill
     assert types.count("unit") == 1 and types.count("judge") == 1
     assert types.count("citedby") == 1
     cite = next(n for n in notes if n["type"] == "cite")
@@ -386,3 +388,31 @@ def test_by_topic_groups_use_section_headings_and_lead_sentences():
 def test_statute_layer_is_in_the_layer_list_and_old_saved_layers_load():
     out = _node("console.log(JSON.stringify({keys: m.LAYER_DEFS.map(d => d.key), s: m.sanitizeLayers({cite: 'off'})}));")
     assert "statute" in out["keys"] and out["s"]["statute"] == "markers" and out["s"]["cite"] == "off"
+
+
+@needs_node
+def test_quiet_citation_notes_stay_off_the_margin_and_out_of_the_export():
+    out = _node("""
+const notes = m.buildNotes(a);
+const quiet = notes.find(n => n.quiet);
+const layers = {cite: 'open'};
+const plan = m.exportPlan(notes, layers, () => 1);
+console.log(JSON.stringify({
+  quiet: quiet && quiet.id,
+  stateClosed: m.noteState(quiet, layers, {}),
+  stateOpened: m.noteState(quiet, layers, {[quiet.id]: true}),
+  loud: m.noteState(notes.find(n => n.id === 'cite-1'), layers, {}),
+  exported: plan.map(p => p.label),
+}));
+""", _payload())
+    assert out["quiet"] == "cite-3"
+    assert out["stateClosed"] == "off" and out["stateOpened"] == "open" and out["loud"] == "open"
+    assert len(out["exported"]) == 1  # only the resolved citation becomes a Word comment
+
+
+def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
+    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+    js = JS.read_text(encoding="utf-8")
+    assert "body.markup-mode-on #readerOverrulingRisk{display:none!important}" in css
+    assert "mk-legal-open #readerOverrulingRisk:not([hidden])" in css
+    assert 'data-mk-act="legal"' in js and "Legal-development notice" in js

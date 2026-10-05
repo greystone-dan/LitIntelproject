@@ -73,6 +73,55 @@ The system intentionally separates three kinds of derived information:
 
 ## What Is Implemented
 
+### Experimental citation treatment (backend only)
+
+Read-only `GET /api/citation-treatment/{case_id}` projects resolved incoming
+case-citation evidence through the pure rules in
+`backend/citation_treatment.py`, with source verification in
+`backend/citation_treatment_service.py`. It returns literal
+`"status": "experimental"` alongside `experimental: true` and `read_only: true`,
+and all five classes:
+`followed_applied`, `distinguished`, `criticised_not_followed`,
+`considered_neutral`, and `unknown`. Every event includes `how_assigned`
+naming its rule and exact matched phrase (empty for abstention with a reason).
+Phrase/citation offsets are paragraph-local code points; paragraph bounds and
+phrase document bounds reconstruct canonical text. Only verified numbered
+formatter paragraphs are classified. Missing text, invalid/ambiguous chunk
+spans, quotes, party/historical attribution, hypothetical language, and unclear
+multi-authority clauses abstain rather than borrowing nearby treatment.
+Separate narrow past-tense rules accept directly attributed “I followed”,
+“I applied”, “I distinguished”, “I criticised” and “I declined to follow”.
+Party/other-judge or historical descriptions remain unknown; tense is not
+broadened globally. “I did not follow” remains critical/non-following, and
+“I find … not distinguishable” remains supportive.
+Post-cue `not`, `never`, `no`, `neither`, or `nothing` within the same clause
+abstains conservatively, including “governs neither/nothing/no issue”.
+Independent clauses retain their own treatment; “examines … without adopting”
+can still be neutral.
+
+Counts use **all distinct other canonical decisions with resolved incoming
+case citations** as their common denominator, including unknown. A decision
+counts once in every observed class; counts/percentages may overlap and sum
+above the denominator/100%. Unknown counts only decisions without any
+classifiable evidence, not unknown paragraphs inside an otherwise classified
+decision. All paragraph events, including mixed and unknown evidence, remain
+in `evidence`; each class exposes at most five distinct example paragraphs
+with its matched phrase. An existing authority without citers returns zero
+counts; a missing authority returns 404.
+
+This is an **unreviewed experimental signal**, not a permanent decision label,
+negative-history service, or production accuracy claim. Criticism and refusal
+share a coarse class; it does not establish overruling. No UI, current citation
+metrics, target resolution, stored rows, models, or migrations change. The
+projection reads all stored case-citation rows for citing decisions to check
+authority scope; it is not paginated or performance-validated at corpus scale.
+Invented regression fixtures test intended rules, not legal-review precision.
+The current fixture-only check agrees on 122/122 occurrences in 113 invented
+paragraphs: 67 classifiable (54.92%) and 55 unknown (45.08%); synthetic
+precision/recall is 100% per class, not independent legal accuracy.
+See [the treatment design](docs/reports/authority-treatment-design.md) and
+[the extraction walkthrough](.swm/4.9nn3id9f.sw.md).
+
 ### Primary Research Workflows
 
 `/data-explorer` is the main research surface. Its top-left primary navigation

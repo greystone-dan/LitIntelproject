@@ -10,7 +10,7 @@ const clip=(s,n)=>{s=String(s==null?'':s).replace(/\s+/g,' ').trim();return s.le
 const ROLE_LABELS={evidence_fact:'Evidence / fact',governing_rule:'Governing rule',reasoning_application:'Reasoning application',counterargument_limitation:'Counterargument',issue:'Issue',disposition:'Disposition',party_position:'Party position'};
 const roleLabel=r=>ROLE_LABELS[r]||String(r||'').replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
 const BAND_COLORS=['#a78bfa','#0f766e','#d97706','#2563eb','#db2777','#65a30d','#0891b2','#9333ea','#dc2626','#0d9488','#ca8a04','#4f46e5'];
-const TYPE={cite:{label:'Citation',color:'#d4a017'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},statute:{label:'Act / statute',color:'#8b5bb2'},mine:{label:'My note',color:'#7c3aed'}};
+const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},statute:{label:'Act / statute',color:'#8b5bb2'},mine:{label:'My note',color:'#7c3aed'}};
 const LAYER_DEFS=[
  {key:'cite',label:'Citations',states:['off','markers','open'],def:'markers'},
  {key:'unit',label:'Discussion units',states:['off','markers','open'],def:'markers'},

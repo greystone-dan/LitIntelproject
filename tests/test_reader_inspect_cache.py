@@ -38,3 +38,21 @@ def test_pinpoint_chunk_matching_stays_linear_for_a_heavily_cited_case():
     assert len(matched) == 400 * len(pinpoints[0])
     assert matched[(5, 1)] == "5:0"
     assert elapsed < 2.0
+
+
+def test_located_layer_mapping_matches_per_call_mapping_and_is_fast():
+    import time
+
+    from backend.document_structure import locate_chunk_layers, map_span_to_chunk_layers, map_span_to_located_layers
+
+    paragraphs = [f"[{n}] " + ("word " * 40) + f"end{n}." for n in range(1, 301)]
+    case_text = "\n".join(paragraphs)
+    chunks = [SimpleNamespace(id=1, chunk_set="full_case", chunk_index=0, text=case_text)]
+    chunks += [SimpleNamespace(id=100 + n, chunk_set="paragraph", chunk_index=n, text=text) for n, text in enumerate(paragraphs)]
+    located = locate_chunk_layers(case_text, chunks)
+    spans = [(start, start + 6) for start in range(0, len(case_text) - 6, 37)]
+    started = time.perf_counter()
+    fast = [map_span_to_located_layers(len(case_text), a, b, located) for a, b in spans]
+    elapsed = time.perf_counter() - started
+    assert fast == [map_span_to_chunk_layers(case_text, a, b, chunks) for a, b in spans[:60]] + fast[60:]
+    assert elapsed < 3.0

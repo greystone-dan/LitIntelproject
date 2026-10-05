@@ -638,13 +638,13 @@ function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeP
 CONTROLLER
 assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true').dataset.group,GROUP);
 assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));
-if(SELECTED!=='workbench')assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
+assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
 const original=location.href;
 activateResearchTab('workbench');
 assert.equal(location.searchParams.get('group'),'workbench');
 assert.equal(location.searchParams.get('tab'),'workbench');
 assert.equal(location.searchParams.has('case_id'),false);
-assert.ok(Object.values(activeResearchPanels).every(id=>panels[id].hidden));
+assert.ok(Object.entries(activeResearchPanels).every(([key,id])=>panels[id].hidden===(key!=='workbench')));
 location.href=original;window.popstate();
 assert.equal(controls.find(item=>item.dataset.group&&item.classList.active).dataset.group,GROUP);
 activateResearchTab('research-bench');
@@ -1220,3 +1220,12 @@ def test_panel_fixture_browser_when_chromium_available():
         cwd=root, capture_output=True, text=True, timeout=30, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_workbench_group_has_a_landing_panel_linking_its_tools():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="workbenchPanel"' in html
+    assert "workbench:'workbenchPanel'" in html
+    for href in ("/citation-map", "/live-analysis", "/deidentify"):
+        assert f'class="workbench-card" href="{href}"' in html

@@ -1448,20 +1448,22 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 
 def fetch_tag_trends_by_year(db: Session) -> dict[str, Any]:
 	"""Tag frequency trends by year: top tags over time."""
+	year_col = func.extract('year', Case.date).label('year')
+	count_col = func.count(func.distinct(CaseTag.case_id)).label('case_count')
 	query = select(
-		func.extract('year', Case.date).label('year'),
+		year_col,
 		CaseTag.category,
 		CaseTag.value,
-		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+		count_col,
 		func.count(CaseTag.id).label('tag_mentions'),
 	).join(
 		Case, CaseTag.case_id == Case.id
 	).where(
 		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
 	).group_by(
-		'year', CaseTag.category, CaseTag.value
+		year_col, CaseTag.category, CaseTag.value
 	).order_by(
-		'year desc', 'case_count desc'
+		year_col.desc(), count_col.desc()
 	)
 	rows = db.execute(query).all()
 	trends = {}
@@ -1480,22 +1482,26 @@ def fetch_tag_trends_by_year(db: Session) -> dict[str, Any]:
 
 def fetch_tag_by_judge(db: Session) -> dict[str, Any]:
 	"""Judge specialization: most common tags per judge."""
+	count_col = func.count(func.distinct(CaseTag.case_id)).label('case_count')
 	query = select(
-		Case.judge,
+		JudgeProfile.display_name,
 		CaseTag.category,
 		CaseTag.value,
-		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+		count_col,
 	).join(
 		Case, CaseTag.case_id == Case.id
+	).join(
+		CaseJudgeProfile, CaseJudgeProfile.case_id == Case.id
+	).join(
+		JudgeProfile, JudgeProfile.id == CaseJudgeProfile.judge_profile_id
 	).where(
 		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION,
-		Case.judge.isnot(None),
 	).group_by(
-		Case.judge, CaseTag.category, CaseTag.value
+		JudgeProfile.display_name, CaseTag.category, CaseTag.value
 	).having(
 		func.count(func.distinct(CaseTag.case_id)) >= 2
 	).order_by(
-		Case.judge, 'case_count desc'
+		JudgeProfile.display_name, count_col.desc()
 	)
 	rows = db.execute(query).all()
 	judge_tags = {}
@@ -1512,17 +1518,18 @@ def fetch_tag_by_judge(db: Session) -> dict[str, Any]:
 
 def fetch_tag_frequency(db: Session) -> list[dict[str, Any]]:
 	"""Overall tag frequency across corpus."""
+	count_col = func.count(func.distinct(CaseTag.case_id)).label('case_count')
 	query = select(
 		CaseTag.category,
 		CaseTag.value,
-		func.count(func.distinct(CaseTag.case_id)).label('case_count'),
+		count_col,
 		func.count(CaseTag.id).label('tag_mentions'),
 	).where(
 		CaseTag.taxonomy_version == ACTIVE_TAG_TAXONOMY_VERSION
 	).group_by(
 		CaseTag.category, CaseTag.value
 	).order_by(
-		'case_count desc'
+		count_col.desc()
 	).limit(100)
 	rows = db.execute(query).all()
 	return [

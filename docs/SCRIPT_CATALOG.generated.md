@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 165
+Active scripts documented: 166
 
 ## Catalog
 
@@ -82,6 +82,7 @@ Active scripts documented: 165
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
+| `evaluate_discussion_unit_boundaries.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_discussion_unit_boundaries.py --help` |
 | `evaluate_fc_activity_deterministic.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_activity_deterministic.py --help` |
 | `evaluate_fc_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_citation_extraction.py --help` |
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
@@ -1182,6 +1183,20 @@ Active scripts documented: 165
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help
+```
+
+## `scripts/evaluate_discussion_unit_boundaries.py`
+
+**Purpose:** Score discussion-unit boundaries against hand-read gold labels. One evaluator for every version of ``backend/contextual_authority/discussion_units.py``. Everything runs offline from the stored deterministic case reports (``data/eval/llm_discussion_units_pilot/core_300_run/reports``); no database, network or model calls. Counting is per boundary (a boundary is a unit start paragraph index): * hits = gold starts that the algorithm also predicts (exact) * missed = gold starts not predicted * spurious = predicted starts not in gold * within-1 = gold starts matched one-to-one to a predicted start at most one paragraph away (exact matches are paired first, so one predicted start can never satisfy two gold starts) Paragraph 0 is a boundary in every gold label and every prediction, so the "interior" columns repeat the counts without it. Usage: python scripts/evaluate_discussion_unit_boundaries.py # working tree python scripts/evaluate_discussion_unit_boundaries.py --rev origin/main --rev ded7069 python scripts/evaluate_discussion_unit_boundaries.py --stored # units saved in the reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_discussion_unit_boundaries.py --help
 ```
 
 ## `scripts/evaluate_fc_activity_deterministic.py`

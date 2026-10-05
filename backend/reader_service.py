@@ -7,10 +7,15 @@ HTML source sanitization and citation markup wrapping, and citation-pass details
 from __future__ import annotations
 
 import re
+import time
+from collections import OrderedDict
+from itertools import islice
+from threading import RLock
+from types import SimpleNamespace
 from typing import Any
 
 from fastapi import HTTPException, status
-from sqlalchemy import select
+from sqlalchemy import Integer, and_, cast, func, or_, select
 from sqlalchemy.orm import Session
 
 from .citations import (
@@ -82,6 +87,31 @@ def _is_irpa_irpr_reference(value: str | None) -> bool:
 	)
 
 
+_INSPECT_CACHE: "OrderedDict[tuple, tuple[float, dict[str, Any]]]" = OrderedDict()
+_INSPECT_CACHE_MAX = 64
+_INSPECT_CACHE_TTL_SECONDS = 3600
+_INSPECT_CACHE_LOCK = RLock()
+
+
+def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | None) -> dict[str, Any]:
+	"""Discussion-unit segmentation is pure compute (seconds per case), so reuse it per case until its chunks change."""
+	key = None
+	if chunks is not None:
+		key = (case_id, tuple((chunk.id, chunk.text_hash) for chunk in chunks if (chunk.chunk_set or "") == "paragraph"))
+		with _INSPECT_CACHE_LOCK:
+			hit = _INSPECT_CACHE.get(key)
+			if hit is not None and time.monotonic() - hit[0] < _INSPECT_CACHE_TTL_SECONDS:
+				_INSPECT_CACHE.move_to_end(key)
+				return hit[1]
+	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
+	if key is not None:
+		with _INSPECT_CACHE_LOCK:
+			_INSPECT_CACHE[key] = (time.monotonic(), report)
+			while len(_INSPECT_CACHE) > _INSPECT_CACHE_MAX:
+				_INSPECT_CACHE.popitem(last=False)
+	return report
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -92,7 +122,7 @@ def _build_evidence_summary(
 ) -> CaseEvidenceSummaryResponse | None:
 	if not has_paragraph_chunks:
 		return None
-	report = inspect_case(db, case_id, "paragraph", 0.35, 2)
+	report = _cached_inspect_case(db, case_id, chunks)
 	units = []
 	for unit in report["discussion_units"]:
 		subthemes = []
@@ -437,6 +467,39 @@ def _citation_target_paragraph(
 	return int(match.group(1)) if match is not None else None
 
 
+def _match_pinpoint_chunks(pinpoints_by_case: dict[int, list[int]], chunks: Any) -> dict[tuple[int, int], str]:
+	"""Map (cited case, paragraph) to the text of the chunk covering it; one pass over the chunks."""
+	matched: dict[tuple[int, int], str] = {}
+	for chunk in chunks:
+		for paragraph in pinpoints_by_case.get(chunk.case_id, ()):
+			if chunk.paragraph_start <= paragraph <= chunk.paragraph_end:
+				matched[(chunk.case_id, paragraph)] = chunk.text
+	return matched
+
+
+_PINPOINT_SQL_PATTERN = r"(?i)(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)"
+
+
+def _incoming_cited_case_counts(db: Session, case_id: int) -> dict[int, int]:
+	"""Distinct citing cases per cited paragraph, aggregated in SQL (a heavily cited case has tens of thousands of rows)."""
+	paragraph = func.coalesce(
+		Citation.target_paragraph,
+		cast(
+			func.substring(
+				func.coalesce(func.nullif(Citation.citation_text, ""), func.nullif(Citation.normalized_citation, ""), ""),
+				_PINPOINT_SQL_PATTERN,
+			),
+			Integer,
+		),
+	)
+	rows = db.execute(
+		select(paragraph.label("paragraph"), func.count(func.distinct(Citation.source_case_id)).label("n"))
+		.where(Citation.target_case_id == case_id, Citation.source_case_id != case_id)
+		.group_by(paragraph)
+	).all()
+	return {int(row.paragraph): int(row.n) for row in rows if row.paragraph is not None}
+
+
 def _cited_case_counts_by_paragraph(rows: Any, case_id: int) -> dict[int, int]:
 	sources_by_paragraph: dict[int, set[int]] = {}
 	for source_case_id, paragraph in rows:
@@ -462,7 +525,27 @@ def _legislation_url_for_reference(value: str | None) -> str | None:
 	return f"https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section_number}.html"
 
 
+_INFERRED_TAG_CACHE: "OrderedDict[tuple, list[CaseReaderTagResponse]]" = OrderedDict()
+_INFERRED_TAG_CACHE_MAX = 128
+
+
 def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
+	"""Keyword tags over the whole decision (a few hundred ms on long ones), cached per case text."""
+	key = (getattr(case, "id", None), hash(case.full_text or ""), hash(case.summary or ""), len(chunks))
+	with _INSPECT_CACHE_LOCK:
+		cached = _INFERRED_TAG_CACHE.get(key)
+		if cached is not None:
+			_INFERRED_TAG_CACHE.move_to_end(key)
+			return list(cached)
+	tags = _compute_reader_inferred_tags(case, chunks)
+	with _INSPECT_CACHE_LOCK:
+		_INFERRED_TAG_CACHE[key] = tags
+		while len(_INFERRED_TAG_CACHE) > _INFERRED_TAG_CACHE_MAX:
+			_INFERRED_TAG_CACHE.popitem(last=False)
+	return list(tags)
+
+
+def _compute_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
 	if case.full_text and case.full_text.strip():
 		content = case.full_text
 	else:
@@ -504,7 +587,7 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 	tags: list[CaseReaderTagResponse] = []
 	max_occurrences_per_tag = 50
 	for category, value, pattern in catalog:
-		for match in list(re.finditer(pattern, content, flags=re.IGNORECASE))[:max_occurrences_per_tag]:
+		for match in islice(re.finditer(pattern, content, flags=re.IGNORECASE), max_occurrences_per_tag):
 			evidence = content[max(0, match.start() - 80) : min(len(content), match.end() + 80)].strip()
 			tags.append(
 				CaseReaderTagResponse(
@@ -841,7 +924,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 	]
 
 
-def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
+def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = True) -> CaseReaderDataResponse:
 	case = db.scalar(select(Case).where(Case.id == case_id))
 	if case is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
@@ -913,14 +996,26 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 	}
 	target_chunks: dict[tuple[int, int], str] = {}
 	if target_pinpoints:
-		target_case_ids = {case_id for case_id, _ in target_pinpoints}
+		# Fetch only the paragraph chunks that cover a cited pinpoint (not every paragraph of every cited case).
+		pinpoints_by_case: dict[int, list[int]] = {}
+		for target_case_id, paragraph in target_pinpoints:
+			pinpoints_by_case.setdefault(target_case_id, []).append(paragraph)
 		target_paragraph_chunks = db.scalars(
 			select(CaseChunk)
 			.where(
-				CaseChunk.case_id.in_(target_case_ids),
 				CaseChunk.chunk_set == "paragraph",
 				CaseChunk.paragraph_start.is_not(None),
 				CaseChunk.paragraph_end.is_not(None),
+				or_(
+					*(
+						and_(
+							CaseChunk.case_id == target_case_id,
+							CaseChunk.paragraph_start <= max(paragraphs),
+							CaseChunk.paragraph_end >= min(paragraphs),
+						)
+						for target_case_id, paragraphs in pinpoints_by_case.items()
+					)
+				),
 			)
 		)
 		best_span: dict[tuple[int, int], int] = {}
@@ -1029,32 +1124,19 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
 	formatted_html = None
-	evidence_summary = _build_evidence_summary(
-		case_id,
-		db,
-		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
-		chunks=all_chunks,
-		citations=citation_responses,
+	evidence_summary = (
+		_build_evidence_summary(
+			case_id,
+			db,
+			has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+			chunks=all_chunks,
+			citations=citation_responses,
+		)
+		if include_evidence
+		else None
 	)
 	case_summary = _build_case_summary(evidence_summary)
-	incoming_citations = db.execute(
-		select(
-			Citation.source_case_id,
-			Citation.citation_text,
-			Citation.normalized_citation,
-			Citation.target_paragraph,
-		).where(Citation.target_case_id == case_id)
-	).all()
-	cited_paragraph_counts = _cited_case_counts_by_paragraph(
-		(
-			(
-				source_case_id,
-				_citation_target_paragraph(citation_text, normalized_citation, target_paragraph),
-			)
-			for source_case_id, citation_text, normalized_citation, target_paragraph in incoming_citations
-		),
-		case_id,
-	)
+	cited_paragraph_counts = _incoming_cited_case_counts(db, case_id)
 
 	format_blocks = format_decision(case.full_text, cited_paragraph_counts)
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
@@ -1107,6 +1189,38 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		evidence_summary=evidence_summary,
 		case_summary=case_summary,
 	)
+
+
+def build_case_evidence(case_id: int, db: Session) -> dict[str, Any]:
+	"""Discussion-unit evidence and case summary alone, so the reader can load them after the decision text."""
+	if db.scalar(select(Case.id).where(Case.id == case_id)) is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
+	all_chunks = list(
+		db.scalars(
+			select(CaseChunk)
+			.where(
+				CaseChunk.case_id == case_id,
+				CaseChunk.chunk_set.in_(["paragraph", "section", "full_case", "legacy"]),
+			)
+			.order_by(CaseChunk.chunk_index)
+		)
+	)
+	citation_rows = db.execute(
+		select(Citation.id, Citation.chunk_id).where(Citation.source_case_id == case_id)
+	).all()
+	citations = [SimpleNamespace(id=row.id, chunk_id=row.chunk_id) for row in citation_rows]
+	evidence_summary = _build_evidence_summary(
+		case_id,
+		db,
+		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+		chunks=all_chunks,
+		citations=citations,
+	)
+	case_summary = _build_case_summary(evidence_summary)
+	return {
+		"evidence_summary": evidence_summary.model_dump(mode="json") if evidence_summary else None,
+		"case_summary": case_summary.model_dump(mode="json") if case_summary else None,
+	}
 
 
 def build_case_citation_pass(

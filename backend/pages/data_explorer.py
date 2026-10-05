@@ -992,8 +992,9 @@ async function openDecision(caseId){
  document.getElementById('searchPanel').hidden=true;readerPanel.hidden=false;readerPanel.scrollIntoView({behavior:'smooth',block:'start'});
  document.getElementById('decisionTargetHeading').textContent='Case information';
  document.getElementById('decisionTarget').replaceChildren();
+ const readerRequest=fetch(`/cases/${caseId}/reader-data?evidence=0`);readerRequest.catch(()=>{});
  return fetchCurrentPanel(`/analytics/search/cases/${caseId}`,body,{isCurrent:()=>readerState.caseId===caseId&&!readerPanel.hidden,onError:()=>{readerState.payload=null;resetMostCitedParagraphs()},render:async(data,current)=>{
- const readerResponse=await fetch(`/cases/${caseId}/reader-data`);
+ const readerResponse=await readerRequest;
  if(!readerResponse.ok)throw new Error('Reader unavailable');
  const readerData=await readerResponse.json();
  if(!current())return;
@@ -1005,6 +1006,7 @@ async function openDecision(caseId){
  if(docket){const fcInput=document.getElementById('fcImmInput');if(fcInput){fcInput.value=docket;fcInput.dataset.fcDocket=docket;}}
  if(readerData)renderCaseReaderPane(readerData);else document.getElementById('decisionTarget').innerHTML='<div class="reader-status">Case information is unavailable.</div>';
  setReaderMode(readerState.mode);loadPersistedReaderStatutes(caseId);
+ fetch(`/cases/${caseId}/evidence-summary`).then(r=>r.ok?r.json():null).then(ev=>{if(!ev||readerState.caseId!==caseId||!readerState.payload)return;Object.assign(readerState.payload.readerData,ev);try{renderCaseReaderPane(readerState.payload.readerData);setReaderMode(readerState.mode)}catch(error){}}).catch(()=>{});
  }});
 }
 function renderJudge(data){document.getElementById('judgeSummary').innerHTML=`<span><strong>${num(data.judges.length)}</strong><br>judges with more than 100 decisions</span><span><strong>${num(data.totals.decisions)}</strong><br>decisions counted</span><span><strong>${num(data.totals.classified)}</strong><br>classified outcomes</span>`;document.getElementById('judgeRows').innerHTML=data.judges.map((item,index)=>{const classified=item.government_wins+item.individual_wins;const govWidth=classified?item.government_wins/classified*100:0;const individualWidth=classified?item.individual_wins/classified*100:0;const unknownWidth=item.decisions?item.unclassified/item.decisions*100:0;return `<tr><td class="rank">${index+1}</td><td class="group">${esc(item.judge)}</td><td class="number">${num(item.decisions)}</td><td><div class="bar"><span style="width:${govWidth}%;background:var(--blue)"></span><span style="width:${individualWidth}%;background:var(--red)"></span><span style="width:${unknownWidth}%;background:#cbd5e1"></span></div></td><td class="number">${num(item.government_wins)}</td><td class="number">${num(item.individual_wins)}</td><td class="number">${num(item.unclassified)}</td><td class="number">${classified?`${govWidth.toFixed(1)}%`:'--'}</td></tr>`}).join('')};

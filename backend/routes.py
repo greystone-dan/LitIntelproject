@@ -196,6 +196,7 @@ from .fc_activity_insights import (
 from .reader_service import (
 	build_case_citation_pass,
 	build_case_citation_pass_detail,
+	build_case_evidence,
 	build_case_reader_data,
 	get_case_statute_references as _get_case_statute_references,
 	get_case_metadata_pass as _get_case_metadata_pass_impl,
@@ -936,8 +937,14 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 
 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
-def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
-	return build_case_reader_data(case_id, db)
+def get_case_reader_data(case_id: int, evidence: bool = True, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
+	return build_case_reader_data(case_id, db, include_evidence=evidence)
+
+
+@router.get("/cases/{case_id}/evidence-summary", response_model=dict[str, Any])
+def get_case_evidence_summary(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Discussion-unit evidence and case summary, loaded after the decision text so they never delay it."""
+	return build_case_evidence(case_id, db)
 
 
 @router.post("/cases/{case_id}/markup-export")

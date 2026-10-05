@@ -1284,7 +1284,12 @@ def fetch_analytics_search_cases(
 			filters.append(expression_sql)
 	elif query:
 		params["query"] = f"%{query}%"
-		query_fields = f"c.title ILIKE :query OR c.citation ILIKE :query OR {citation_match} OR {party_match}"
+		# Title and citation only: plain ILIKE can use the trigram indexes. The regex party matcher is no
+		# longer part of the filter (it forced a per-row regex scan); the citation matcher is added only
+		# when the query actually looks like a citation.
+		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
+		if params.get("match_citation"):
+			query_fields += f" OR {citation_match}"
 		if search_full_text:
 			if _fulltext_tsv_available(db):
 				# Indexed word search (stemmed) instead of scanning the 35 GB full_text column.

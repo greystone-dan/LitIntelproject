@@ -187,8 +187,9 @@ def test_active_route_parameterizes_matches_and_ranks_before_sql_pagination():
 		court="FC", cites="2019 SCC 65", government_outcome="lost", judge="Smith",
 		year="2020", limit=1, offset=2, db=db)
 	citation, party, _ = identity_sql("Baker")
-	assert db.sql.count(citation) == 3  # WHERE, SELECT label, ORDER BY
-	assert db.sql.count(party) == 3
+	# The regex matchers are no longer in WHERE (title/citation ILIKE only, index-friendly): label + ORDER BY.
+	assert db.sql.count(citation) == 2
+	assert db.sql.count(party) == 2
 	assert db.sql.index("ORDER BY") < db.sql.index("LIMIT :limit OFFSET :offset")
 	assert "CASE WHEN " + citation + " THEN 2 WHEN " + party + " THEN 1" in db.sql
 	assert "REGEXP_SPLIT_TO_TABLE" in db.sql

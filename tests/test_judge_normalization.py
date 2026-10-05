@@ -76,3 +76,13 @@ def test_best_display_name():
 	assert best_display_name(["THE HONOURABLE MR. JUSTICE BEAUDRY", "Justice Michel Beaudry"]) == "Justice Michel Beaudry"
 	assert best_display_name(["Prothonotary Mireille Tabib"]) == "Prothonotary Mireille Tabib"
 	assert best_display_name(["Judge A"]) is None
+
+
+def test_particles_and_mc_prefix_in_display_names():
+	assert parse_judge_name("THE HONOURABLE MR. JUSTICE KONRAD VON FINCKENSTEIN").name_text == "Konrad von Finckenstein"
+	assert parse_judge_name("THE HONOURABLE MR. JUSTICE W. P. McKEOWN").name_text == "W. P. McKeown"
+
+
+def test_unknown_gender_surname_only_is_not_assigned_when_two_people_share_surname():
+	g = group_judge_names({"Madam Justice Roy": 5, "Mr. Justice Roy": 9, "ROY J.": 3, "Justice Roy": 2})
+	assert not any("ROY J." in x.members or "Justice Roy" in x.members for x in g)

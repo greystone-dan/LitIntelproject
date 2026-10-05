@@ -24,3 +24,15 @@ def test_surname_shared_with_another_judge_is_not_guessed():
 def test_initial_mismatch_is_excluded_and_empty_is_none():
 	assert match_fc_rows([_row("J. Smith", 5, 0.5)], ["Anne Smith"], []) == []
 	assert combine_rows([]) is None
+
+
+def test_duplicate_spellings_of_same_judge_do_not_block_the_match():
+	rows = [_row("Shore", 7000, 0.3)]
+	others = ["The Honorable Mr. Justice Shore", "The Honourable Mister Justice Shore", "Mr. Justice Shore"]
+	assert match_fc_rows(rows, ["THE HONOURABLE MR. JUSTICE SHORE"], others) == rows
+
+
+def test_conflicting_given_initials_still_block_surname_only_rows():
+	rows = [_row("Brown", 50, 0.3)]
+	assert match_fc_rows(rows, ["Henry S. Brown"], ["Justice Alan Brown"]) == []
+	assert match_fc_rows([_row("H. Brown", 5, 0.3)], ["Henry S. Brown"], ["Justice Alan Brown"])

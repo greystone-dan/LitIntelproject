@@ -19,6 +19,13 @@ def _initials_compatible(a: JudgeName, b: JudgeName) -> bool:
 	return all(x[0] == y[0] for x, y in zip(a.given, b.given))
 
 
+def _conflicts(a: JudgeName, b: JudgeName) -> bool:
+	"""True when two same-surname names cannot be one person (gender clash or different initials)."""
+	if a.gender and b.gender and a.gender != b.gender:
+		return True
+	return bool(a.given and b.given and not _initials_compatible(a, b))
+
+
 def match_fc_rows(
 	rows: Iterable[dict[str, Any]],
 	profile_names: Iterable[str],
@@ -29,21 +36,23 @@ def match_fc_rows(
 	if not mine:
 		return []
 	surnames = {p.surname for p in mine}
-	rivals = [p for p in (parse_judge_name(n) for n in other_profile_names) if p and p.surname in surnames]
+	# Duplicate spellings of the same judge (e.g. "THE HONOURABLE MR. JUSTICE SHORE" and
+	# "The Honorable Mr. Justice Shore") are not rivals; only a conflicting identity is.
+	rivals = [
+		p for p in (parse_judge_name(n) for n in other_profile_names)
+		if p and p.surname in surnames and all(_conflicts(m, p) for m in mine if m.surname == p.surname)
+	]
 	matched = []
 	for row in rows:
 		parsed = parse_judge_name(str(row.get("name") or ""))
 		if parsed is None or parsed.surname not in surnames:
 			continue
-		same = [p for p in mine if p.surname == parsed.surname and _initials_compatible(p, parsed)]
-		if not same:
+		if not any(p.surname == parsed.surname and _initials_compatible(p, parsed) for p in mine):
 			continue
-		if not parsed.given and any(r.surname == parsed.surname for r in rivals):
-			continue  # surname-only row, another judge shares the surname: cannot tell who it is
-		if parsed.given and any(
-			r.surname == parsed.surname and r.given and _initials_compatible(r, parsed) for r in rivals
-		) and not any(p.given and _initials_compatible(p, parsed) for p in mine):
-			continue
+		if any(r.surname == parsed.surname and not _conflicts(r, parsed) for r in rivals) and (
+			not parsed.given or not any(p.given and _initials_compatible(p, parsed) for p in mine)
+		):
+			continue  # another judge with this surname could be the one named: do not guess
 		matched.append(row)
 	return matched
 

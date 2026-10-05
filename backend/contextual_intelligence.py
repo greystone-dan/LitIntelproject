@@ -229,7 +229,12 @@ def fetch_statute_tag_affinity(
 			"top_tag_categories": [],
 			"top_tag_values": [],
 			"top_cited_authorities": [],
-			"outcome_summary": {"won": 0, "lost": 0, "unclassified": 0, "relief_rate": None},
+			"outcomes": {
+				"government_wins": 0,
+				"individual_relief_wins": 0,
+				"classified_cases": 0,
+				"applicant_relief_rate_pct": None,
+			},
 		}
 
 	# 1. Enriched Tag Categories

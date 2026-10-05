@@ -1255,8 +1255,11 @@ function hoverCitationInfo(item){
  if(!item.target_case_id)return {kind:'Cited case',title:item.normalized_citation||item.citation_text||'Cited case',label:'',text:'',note:'This case is not in the iLit library.'};
  const title=item.target_title||cited||'Cited case';
  if(para===null||para===undefined)return {kind:'Cited case',title,label:cited,text:'',note:'Cited without a paragraph number, so there is no pinpoint to show.'};
- const text=item.target_chunk_text?hoverParagraph(item.target_chunk_text,para):'';
- return {kind:'Cited case',title,label:[cited,`Paragraph ${para}`].filter(Boolean).join(' \u00b7 '),text,note:text?'':`Paragraph ${para} is not stored in the library text for this case.`};
+ const paras=Array.isArray(item.target_paragraphs)&&item.target_paragraphs.length?item.target_paragraphs:[para],many=paras.length>1,texts=item.target_chunk_texts||{};
+ const parts=paras.map(p=>{const raw=texts[p]||(p===para?item.target_chunk_text:'');return raw?hoverParagraph(raw,p):'';}).filter(Boolean),shown=parts.slice(0,3);
+ const text=shown.join('\\n\\n')+(parts.length>shown.length?'\\n\\n\u2026':'');
+ const pinLabel=many?(item.target_pinpoint_label||`Paragraphs ${paras[0]}\u2013${paras[paras.length-1]}`).replace(/^paras?/,m=>m==='paras'?'Paragraphs':'Paragraph'):`Paragraph ${para}`;
+ return {kind:'Cited case',title,label:[cited,pinLabel+(item.target_pinpoint_open_ended?' (and following, not named)':'')].filter(Boolean).join(' \u00b7 '),text,note:text?'':`${pinLabel} is not stored in the library text for this case.`};
 }
 let hoverRowsKey=null,hoverRowsMap=new Map();
 function hoverRow(id){const a=readerState.payload?.readerData?.citations||[],b=readerState.payload?.citations||[];if(hoverRowsKey!==a||hoverRowsMap.size===0||hoverRowsMap.size!==new Set(a.concat(b).map(row=>String(row.id))).size){hoverRowsKey=a;hoverRowsMap=new Map(b.concat(a).map(row=>[String(row.id),row]));}return hoverRowsMap.get(String(id))||null;}

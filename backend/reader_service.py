@@ -40,7 +40,8 @@ from .database import (
 	StatuteReference,
 )
 from .statute_versioning import get_statute_version_label
-from .paragraph_cited_by_db import load_paragraph_cited_by, load_target_cited_by
+from .citation_refine.pinpoints import target_paragraphs
+from .paragraph_cited_by_db import load_paragraph_cited_by, load_pinpoint_cited_by
 from .metadata import extract_metadata_observations
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .models import (
@@ -438,6 +439,8 @@ def _build_reader_extracted_summary(
 
 
 MAX_PINPOINT_TEXT_CASES = 12
+# A pinpoint such as "paras 45-60" shows text for its first few paragraphs only, to keep the payload small.
+MAX_PINPOINT_TEXT_PARAGRAPHS = 6
 
 
 def _starts_with_paragraph(text: str | None, paragraph: int) -> bool:
@@ -457,14 +460,27 @@ def _citation_target_paragraph(
 	normalized_citation: str | None,
 	stored_target_paragraph: int | None = None,
 ) -> int | None:
-	if stored_target_paragraph is not None:
-		return int(stored_target_paragraph)
-	match = re.search(
-		r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
-		citation_text or normalized_citation or "",
-		re.IGNORECASE,
-	)
-	return int(match.group(1)) if match is not None else None
+	"""The first cited paragraph (``target_paragraphs`` has all of them)."""
+	pins = target_paragraphs(citation_text, normalized_citation, stored_target_paragraph)
+	return pins.first if pins is not None else None
+
+
+def _pinpoint_response_fields(pins: Any, target_case_id: int | None, target_chunks: dict[tuple[int, int], str]) -> dict[str, Any]:
+	"""Every paragraph the pinpoint names, the label, and stored text for the leading ones."""
+	if pins is None or target_case_id is None:
+		return {}
+	texts = {
+		str(paragraph): target_chunks[(target_case_id, paragraph)]
+		for paragraph in pins.paragraphs[:MAX_PINPOINT_TEXT_PARAGRAPHS]
+		if (target_case_id, paragraph) in target_chunks
+	}
+	return {
+		"target_paragraphs": list(pins.paragraphs),
+		"target_pinpoint_label": pins.label,
+		"target_pinpoint_open_ended": pins.open_ended,
+		"target_pinpoint_capped": pins.capped,
+		"target_chunk_texts": texts,
+	}
 
 
 def _match_pinpoint_chunks(pinpoints_by_case: dict[int, list[int]], chunks: Any) -> dict[tuple[int, int], str]:
@@ -983,16 +999,22 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	)
 	stored_citations = list(citation_rows)
 
-	def target_paragraph(citation: Citation) -> int | None:
-		return _citation_target_paragraph(
-			citation.citation_text,
-			citation.normalized_citation,
-		)
+	pins_by_citation = {
+		citation.id: target_paragraphs(citation.citation_text, citation.normalized_citation)
+		for citation, target_case_id, _, _ in stored_citations
+		if target_case_id is not None
+	}
 
+	def target_paragraph(citation: Citation) -> int | None:
+		pins = pins_by_citation.get(citation.id)
+		return pins.first if pins is not None else None
+
+	# Every paragraph a pinpoint names (cited-by), and the leading ones whose text is shown.
 	target_pinpoints = {
 		(target_case_id, paragraph)
 		for citation, target_case_id, _, _ in stored_citations
-		if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
+		if target_case_id is not None and pins_by_citation.get(citation.id) is not None
+		for paragraph in pins_by_citation[citation.id].paragraphs[:MAX_PINPOINT_TEXT_PARAGRAPHS]
 	}
 	target_chunks: dict[tuple[int, int], str] = {}
 	if target_pinpoints:
@@ -1069,6 +1091,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 			target_chunk_text=target_chunks.get((target_case_id, paragraph))
 			if target_case_id is not None and (paragraph := target_paragraph(citation)) is not None
 			else None,
+			**_pinpoint_response_fields(pins_by_citation.get(citation.id), target_case_id, target_chunks),
 			provenance=citation.provenance,
 			unresolved=citation.unresolved,
 		)
@@ -1143,12 +1166,19 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	try:
 		with db.begin_nested():
 			paragraph_cited_by = load_paragraph_cited_by(db, case_id)
-			target_cited_by = load_target_cited_by(db, target_pinpoints)
+			target_cited_by = load_pinpoint_cited_by(
+				db,
+				{
+					(row.target_case_id, tuple(row.target_paragraphs or ()))
+					for row in citation_responses
+					if row.target_case_id is not None and row.target_paragraphs
+				},
+			)
 	except Exception:  # noqa: BLE001
 		paragraph_cited_by, target_cited_by = None, {}
 	for row in citation_responses:
-		if row.target_case_id is not None and row.target_paragraph is not None:
-			row.target_cited_by = target_cited_by.get((row.target_case_id, row.target_paragraph))
+		if row.target_case_id is not None and row.target_paragraphs:
+			row.target_cited_by = target_cited_by.get((row.target_case_id, tuple(row.target_paragraphs)))
 	outcome = db.scalar(
 		select(CaseOutcome).where(CaseOutcome.case_id == case_id)
 		.order_by(CaseOutcome.updated_at.desc(), CaseOutcome.id.desc()).limit(1)

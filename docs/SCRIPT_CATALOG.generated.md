@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 166
+Active scripts documented: 167
 
 ## Catalog
 
@@ -166,6 +166,7 @@ Active scripts documented: 166
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
+| `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -2359,6 +2360,20 @@ Active scripts documented: 166
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help
+```
+
+## `scripts/sample_pinpoint_forms.py`
+
+**Purpose:** Count the pinpoint forms that really occur in decisions (read-only sampling aid). Usage: python scripts/sample_pinpoint_forms.py FCA.parquet RPD.parquet [--limit N] [--verify-target FCA.parquet] Input is any parquet with an ``unofficial_text_en`` column (A2AJ dataset shards). Classifies each paragraph/page pinpoint into a shape such as ``N``, ``N-N``, ``N,N and N``, ``N ff``, then reports how much of each shape the repo parser (``backend.citation_refine.pinpoints``) turns into the right set of numbers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

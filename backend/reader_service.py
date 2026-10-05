@@ -482,7 +482,7 @@ _INFERRED_TAG_CACHE_MAX = 128
 
 def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
 	"""Keyword tags over the whole decision (a few hundred ms on long ones), cached per case text."""
-	key = (case.id, hash(case.full_text or ""), hash(case.summary or ""), len(chunks))
+	key = (getattr(case, "id", None), hash(case.full_text or ""), hash(case.summary or ""), len(chunks))
 	with _INSPECT_CACHE_LOCK:
 		cached = _INFERRED_TAG_CACHE.get(key)
 		if cached is not None:

@@ -388,3 +388,22 @@ def test_build_case_reader_data_serializes_stored_outcome_read_only(monkeypatch,
     ]
     assert db.execute_count == 2
     assert db.write_calls == []
+
+
+def test_unit_roles_come_from_stored_paragraph_text_and_skip_reports_without_it():
+    from backend import reader_service
+
+    report = {
+        "paragraphs": [
+            {"paragraph_index": 0, "text": "[1] This is an application for judicial review of a RAD decision."},
+            {"paragraph_index": 1, "text": "[2] I find that the RAD erred."},
+            {"paragraph_index": 2, "text": "[3] For these reasons, the application is allowed."},
+        ],
+        "discussion_units": [
+            {"start_paragraph": 0, "end_paragraph": 0},
+            {"start_paragraph": 1, "end_paragraph": 1},
+            {"start_paragraph": 2, "end_paragraph": 2},
+        ],
+    }
+    assert reader_service._unit_roles(report) == ["overview", "analysis", "disposition"]
+    assert reader_service._unit_roles({"discussion_units": report["discussion_units"]}) == []

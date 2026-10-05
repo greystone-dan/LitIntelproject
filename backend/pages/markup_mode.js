@@ -239,7 +239,7 @@ function buildNotes(payload){
     if(!r)continue;
     const head=sectionHeading(rd.format_blocks,item.full_text,r.first);
     const subs=subthemeRanges({readerData:{chunks:chunks,evidence_summary:{units:[u]}}});
-    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit · '+(head?clip(head.replace(/^(?:[IVXLC]+|\d+|[A-Z])[.)]\s+/,''),18)+' ':u.unit_index+' · ')+'¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+(head?': '+clip(head,40):'')+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[]});
+    notes.push({id:'unit-'+u.unit_index,type:'unit',anchor:{kind:'para',num:r.first},pill:'Unit · '+(head?clip(head.replace(/^(?:[IVXLC]+|\d+|[A-Z])[.)]\s+/,''),18)+' ':u.unit_index+' · ')+'¶'+r.first+(r.last!==r.first?'–'+r.last:''),title:'Discussion unit '+u.unit_index+(head?': '+clip(head,40):'')+' (¶['+r.first+']'+(r.last!==r.first?'–['+r.last+']':'')+')',meta:subs.length+' sub-theme'+(subs.length===1?'':'s')+' · automatic segmentation',body:'',subs:subs,foot:[],role:u.role||null,roleNote:(rd.evidence_summary&&rd.evidence_summary.role_note)||''});
   }
   /* cited-by counts per paragraph come from the formatter's blocks; the batch job's stored rows add who and why */
   const stored=rd.paragraph_cited_by||null,storedBy={};
@@ -308,7 +308,14 @@ function exportPlan(notes,layers,blockOf){
   }
   return out;
 }
-const api={inThisCaseLine,paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+/* rule-based role of a discussion unit (no AI); shown only with Show experimental on, since it is right only about 55-69% of the time */
+const UNIT_ROLE_LABELS={metadata:'Header / footer',overview:'Overview',facts:'Facts',issues:'Issues',analysis:'Analysis',disposition:'Disposition'};
+function unitRoleView(n,expOn){
+  const label=expOn&&n&&n.type==='unit'&&n.role?(UNIT_ROLE_LABELS[n.role]||n.role):'';
+  if(!label)return {pill:n?n.pill:'',line:''};
+  return {pill:label+' · '+n.pill,line:'Role (experimental): '+label+(n.roleNote?'. '+n.roleNote:'')};
+}
+const api={paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,inThisCaseLine,unitRoleView,UNIT_ROLE_LABELS,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -463,11 +470,11 @@ function qBlock(text,label,id,max){
   return `<blockquote>${E(long&&!open?clip(t,max):t)}${long?` <button type="button" class="mk-link mk-qx" data-mk-qx="${E(id)}" aria-expanded="${open}">${open?'Show less':'Show full paragraph'}</button>`:''}${label?`<small>${E(label)}</small>`:''}</blockquote>`;
 }
 function noteHTML(n,st){
-  const t=TYPE[n.type];
-  if(st==='markers'||(st==='off'))return `<button type="button" class="mk-pill" data-mk-note="${E(n.id)}" aria-expanded="false" title="${E(n.title)}"><i style="background:${t.color}"></i>${E(n.pill)}</button>`;
+  const t=TYPE[n.type],rv=unitRoleView(n,typeof experimentalState!=='undefined'&&!!experimentalState.on);
+  if(st==='markers'||(st==='off'))return `<button type="button" class="mk-pill" data-mk-note="${E(n.id)}" aria-expanded="false" title="${E(n.title)}"><i style="background:${t.color}"></i>${E(rv.pill)}</button>`;
   const subs=n.subs&&n.subs.length?`<div class="mk-subs">${n.subs.map(s=>`<div class="mk-sub" style="--c:${s.color}"><b>¶[${s.first}]${s.last!==s.first?'–['+s.last+']':''}</b><span>${E(s.terms.join(' · '))}</span><div>${s.roles.map(r=>`<em>${E(r)}</em>`).join('')}</div></div>`).join('')}</div>`:'';
   const foot=(n.foot||[]).map(f=>`<button type="button" class="mk-link" data-mk-foot="${E(f.action)}" data-mk-arg="${E(f.arg)}">${E(f.label)}</button>`).join('');
-  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}${n.loc!=null?`<span class="mk-loc">¶[${E(n.loc)}]</span>`:''}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.alsoAt&&n.alsoAt.length?`<div class="mk-meta">also cited at ${n.alsoAt.map(x=>'¶['+E(x)+']').join(', ')}</div>`:''}${n.quote?qBlock(n.quote,n.quoteLabel,n.id,420):''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
+  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}${n.loc!=null?`<span class="mk-loc">¶[${E(n.loc)}]</span>`:''}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${rv.line?`<div class="mk-meta mk-role">${E(rv.line)}</div>`:''}${n.alsoAt&&n.alsoAt.length?`<div class="mk-meta">also cited at ${n.alsoAt.map(x=>'¶['+E(x)+']').join(', ')}</div>`:''}${n.quote?qBlock(n.quote,n.quoteLabel,n.id,420):''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
 }
 /* Fold view: topic emphasis and "show only selected" with fold bars for the hidden runs. */
 function clearFold(){

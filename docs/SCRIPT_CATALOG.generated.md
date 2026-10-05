@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 168
+Active scripts documented: 169
 
 ## Catalog
 
@@ -141,6 +141,7 @@ Active scripts documented: 168
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
+| `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
@@ -2011,6 +2012,20 @@ Active scripts documented: 168
 
 ```powershell
 .\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help
+```
+
+## `scripts/regenerate_docs.py`
+
+**Purpose:** Regenerate every checked-in generated doc and sync the backend file inventory. Run this before pushing any change that adds, renames or removes a script or a file under backend/, or changes routes or tables: python scripts/regenerate_docs.py It rewrites docs/API_REFERENCE.generated.md, docs/SCHEMA_REFERENCE.generated.md and docs/SCRIPT_CATALOG.generated.md, then adds a row to the backend inventory in docs/ARCHITECTURE.md for each new backend file (description taken from the module docstring; edit it afterwards if you like) and drops rows for files that no longer exist. Finally it runs scripts/check_generated_docs.py.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\regenerate_docs.py --help
 ```
 
 ## `scripts/remove_self_case_citations.py`

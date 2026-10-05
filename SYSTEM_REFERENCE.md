@@ -10782,6 +10782,14 @@ case or is cited by it and the stored occurrence count. Related rows open the
 active reader. This is a bounded relationship view, not a legal-similarity or
 citation-treatment classification.
 
+The paragraph cited-by builder behind those rows now has two modes: the
+original citing-case batch and an incremental per-case repair path for
+canonical `cases.id` values with no current status yet. The incremental path
+defaults to a bounded limit when none is supplied, does not use the site-health
+gate, and the off-by-default FC ingest hook now idempotently calls the shared
+one-case processor after the canonical citation commit when a source case needs
+a refresh.
+
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
 ## Judge Profile

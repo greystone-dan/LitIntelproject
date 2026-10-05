@@ -32,23 +32,46 @@ TOP_CITERS_PER_PARAGRAPH = 8
 ID_WINDOW = 5000
 
 
-def pending_source_ids(db: Session, after_id: int = 0, limit: int = 50, window: int = ID_WINDOW) -> list[int]:
-    """Citing cases that cite a resolved case and are not yet processed at the current version.
+def pending_source_ids(
+    db: Session,
+    after_id: int = 0,
+    limit: int = 50,
+    window: int = ID_WINDOW,
+    *,
+    include_all_cases: bool = False,
+) -> list[int]:
+    """Cases missing the current cited-by status.
 
-    Looks at a bounded range of case ids at a time (``window``), so no single query ever scans the whole
-    citations table, however sparse the remaining work is.
+    Default behavior matches the original bulk job: only citing cases that already
+    have at least one resolved outgoing citation. Set ``include_all_cases`` for the
+    incremental path that also covers canonical cases with no citations yet.
+    Looks at a bounded range of case ids at a time (``window``), so no single
+    query ever scans the whole table, however sparse the remaining work is.
     """
     top = db.scalar(select(func.max(Case.id))) or 0
-    done = exists().where(
-        ParagraphCitationStatus.source_case_id == Citation.source_case_id,
-        ParagraphCitationStatus.algo_version == ALGO_VERSION,
-    )
+    if include_all_cases:
+        done = exists().where(
+            ParagraphCitationStatus.source_case_id == Case.id,
+            ParagraphCitationStatus.algo_version == ALGO_VERSION,
+        )
+    else:
+        done = exists().where(
+            ParagraphCitationStatus.source_case_id == Citation.source_case_id,
+            ParagraphCitationStatus.algo_version == ALGO_VERSION,
+        )
     found: list[int] = []
     low = after_id
     while low < top and len(found) < limit:
         high = low + window
-        found.extend(
-            db.scalars(
+        if include_all_cases:
+            query = (
+                select(Case.id)
+                .where(Case.id > low, Case.id <= high, ~done)
+                .order_by(Case.id)
+                .limit(limit - len(found))
+            )
+        else:
+            query = (
                 select(Citation.source_case_id)
                 .where(
                     Citation.source_case_id > low,
@@ -60,7 +83,7 @@ def pending_source_ids(db: Session, after_id: int = 0, limit: int = 50, window: 
                 .order_by(Citation.source_case_id)
                 .limit(limit - len(found))
             )
-        )
+        found.extend(db.scalars(query))
         low = high
     return found
 
@@ -77,11 +100,14 @@ def count_processed_sources(db: Session) -> int:
     )
 
 
-def count_pending_sources(db: Session) -> tuple[int, int]:
-    """(citing cases with resolved citations, of which already processed at this version)."""
-    total = db.scalar(
-        select(func.count(func.distinct(Citation.source_case_id))).where(Citation.target_case_id.is_not(None))
-    ) or 0
+def count_pending_sources(db: Session, include_all_cases: bool = False) -> tuple[int, int]:
+    """(pending cases, of which already processed at this version)."""
+    if include_all_cases:
+        total = db.scalar(select(func.count()).select_from(Case)) or 0
+    else:
+        total = db.scalar(
+            select(func.count(func.distinct(Citation.source_case_id))).where(Citation.target_case_id.is_not(None))
+        ) or 0
     processed = db.scalar(
         select(func.count()).select_from(ParagraphCitationStatus).where(
             ParagraphCitationStatus.algo_version == ALGO_VERSION
@@ -140,6 +166,13 @@ def compute_source_edges(db: Session, source_case_id: int):
             continue
         occurrences.append(Occurrence(int(row.target_case_id), paragraph, start, end))
     return build_edges(text, occurrences, spans), len(occurrences)
+
+
+def invalidate_source_edges(db: Session, source_case_id: int) -> None:
+    """Forget one source case in the caller's transaction after locking the source row."""
+    db.scalar(select(Case.id).where(Case.id == source_case_id).with_for_update())
+    db.execute(delete(ParagraphCitationEdge).where(ParagraphCitationEdge.source_case_id == source_case_id))
+    db.execute(delete(ParagraphCitationStatus).where(ParagraphCitationStatus.source_case_id == source_case_id))
 
 
 def write_source_edges(db: Session, source_case_id: int, edges: Sequence) -> int:

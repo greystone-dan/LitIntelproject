@@ -493,6 +493,34 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <style>
 .reader-print-citation{display:none}
 .reader-toolbar{align-items:flex-start;gap:7px}
+/* Compact reader header (Daniel 2026-10-05): one slim row, and the reader fills the screen so the decision text gets the height. */
+@media(min-width:761px){
+#caseReaderPanel .reader-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:7px 14px 7px!important;position:relative}
+#caseReaderPanel .reader-head .return-to-results{margin:0!important;padding:3px 10px!important;order:1}
+#caseReaderPanel .reader-head .rh-eyebrow{margin:0;order:2;font-size:10px}
+#caseReaderPanel .reader-head h2{margin:0!important;font-size:1.15rem!important;line-height:1.2;max-width:none;flex:1 1 220px;min-width:0;order:3;text-wrap:pretty}
+#caseReaderPanel .reader-head .reader-print-citation{display:none}
+#caseReaderPanel .reader-head .reader-copy-cite{order:4;margin:0}
+#caseReaderPanel .reader-head .reader-meta{order:5;gap:4px 6px}
+#caseReaderPanel .reader-head .reader-compare-link{order:6;margin:0}
+#caseReaderPanel .reader-head .reader-toolbar{position:static!important;order:7;margin:0 0 0 auto!important}
+.inline-case-reader{height:calc(100vh - 16px)!important;min-height:440px!important}
+.inline-case-reader .reader-pane-header{padding:8px 16px 6px}
+.inline-case-reader .reader-evidence-bar{padding:4px 14px!important}
+.inline-case-reader .reader-layout{scroll-margin-top:0}
+#caseReaderPanel{scroll-margin-top:8px}
+}
+@media(max-width:760px){
+#caseReaderPanel .reader-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+#caseReaderPanel .reader-head h2{flex:1 1 100%;order:3;margin:0!important}
+#caseReaderPanel .reader-head .return-to-results{margin:0 8px 0 0!important;order:1}
+#caseReaderPanel .reader-head .rh-eyebrow{order:2;margin:0}
+#caseReaderPanel .reader-head .reader-print-citation{display:none}
+#caseReaderPanel .reader-head .reader-copy-cite{order:4;margin:0}
+#caseReaderPanel .reader-head .reader-meta{order:5}
+#caseReaderPanel .reader-head .reader-compare-link{order:6;margin:0}
+#caseReaderPanel .reader-head .reader-toolbar{order:7;margin-top:4px!important}
+}
 .reader-keyboard-help-toggle{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer}
 .reader-keyboard-help{position:absolute;z-index:5;right:14px;top:52px;width:240px;padding:12px 14px;border:1px solid var(--border);border-radius:7px;background:var(--surface);box-shadow:var(--shadow);color:var(--text);font-size:11px;letter-spacing:0;text-transform:none}
 .reader-keyboard-help ul{margin:7px 0 0;padding-left:18px;line-height:1.8}

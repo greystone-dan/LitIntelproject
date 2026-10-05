@@ -170,6 +170,7 @@ from .analytics_service import (
 	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
+	fetch_page_citation_counts,
 	fetch_analytics_search_ministers,
 	fetch_data_explorer_analytics,
 	fetch_fc_activity_breakdowns,
@@ -1954,13 +1955,21 @@ def search_analytics_cases(
 	offset: int = 0,
 	cohort_id: str = "",
 	facets: bool = True,
+	citation_stats: bool = True,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
 		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
-		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets,
+		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets, include_citation_stats=citation_stats,
 	)
+
+
+@router.get("/analytics/search/citation-stats", response_model=dict[str, Any])
+def search_analytics_citation_stats(ids: str = "", db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Citation counts for the result cards on screen, loaded after the results so they never delay them."""
+	case_ids = [int(part) for part in ids.split(",") if part.strip().isdigit()][:100]
+	return {"stats": fetch_page_citation_counts(db, case_ids)}
 
 
 @router.get("/analytics/search/facets", response_model=dict[str, Any])

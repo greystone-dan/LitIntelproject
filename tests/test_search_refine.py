@@ -43,3 +43,8 @@ def test_results_page_has_sort_bar_and_facet_chips():
     assert "paintSearchRefine(data.facets,values,results.length)" in html
     assert "#searchFacets .facet-chip" in html
     assert "/analytics/search/facets?" in html and "params.set('facets','0')" in html
+
+
+def test_citation_stats_load_after_results():
+    html = data_explorer_page_html()
+    assert "params.set('citation_stats','0')" in html and '/analytics/search/citation-stats?ids=' in html

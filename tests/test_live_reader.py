@@ -208,3 +208,10 @@ def test_a_citation_matches_only_as_a_whole_stored_citation() -> None:
 	assert not _identifier_in("2019 SCC 650", "2019 SCC 65")
 	assert not _identifier_in("12019 SCC 65", "2019 SCC 65")
 	assert not _identifier_in(None, "2019 SCC 65")
+
+
+def test_a_failed_lookup_names_its_reason_in_the_summary() -> None:
+	text, paragraphs = paragraphs_from_pasted_text("See Canada v Vavilov, 2019 SCC 65 at para 99.")
+	summary = build_live_reader_payload(text, paragraphs, "memo", _BrokenLibrary())["summary"]
+	assert "statement timeout" in summary["library_lookup_error"]
+	assert isinstance(summary["library_lookup_ms"], int)

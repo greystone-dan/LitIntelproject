@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from io import BytesIO
 import logging
 import re
+import time
 from typing import Any
 
 from docx import Document
@@ -253,18 +254,18 @@ def _lookup_cases(session: Session, matches: list[Any]) -> dict[str, _LibraryCas
 	return resolved
 
 
-def _resolve_local_cases(session: Session, matches: list[Any]) -> tuple[dict[str, _LibraryCase], bool]:
-	"""``(resolved, lookup_failed)``. A database error or timeout must not read as "not in the library"."""
+def _resolve_local_cases(session: Session, matches: list[Any]) -> tuple[dict[str, _LibraryCase], str | None]:
+	"""``(resolved, error)``; ``error`` names the failure (class and short message) or is ``None``. A database error or timeout must not read as "not in the library"."""
 	if not any(match.kind in {"neutral", "case", "case_short", "case_name"} for match in matches):
-		return {}, False
+		return {}, None
 	try:
 		with session.begin_nested():
 			if session.get_bind().dialect.name == "postgresql":
 				session.execute(text(f"SET LOCAL statement_timeout = {_LOOKUP_TIMEOUT_MS}"))
-			return _lookup_cases(session, matches), False
-	except Exception:  # noqa: BLE001 - reported per row as a failed lookup, not a missing case
+			return _lookup_cases(session, matches), None
+	except Exception as exc:  # noqa: BLE001 - reported per row as a failed lookup, not a missing case
 		logger.exception("live analysis library lookup failed")
-		return {}, True
+		return {}, f"{type(exc).__name__}: {' '.join(str(exc).split())[:160]}"
 
 
 def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
@@ -274,7 +275,10 @@ def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str,
 def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
 	case_matches = extract_case_citation_matches(text)
 	statute_matches = extract_statute_reference_matches(text)
-	resolved_cases, lookup_failed = _resolve_local_cases(session, case_matches) if session is not None else ({}, False)
+	started = time.monotonic()
+	resolved_cases, lookup_error = _resolve_local_cases(session, case_matches) if session is not None else ({}, None)
+	lookup_failed = lookup_error is not None
+	lookup_ms = round((time.monotonic() - started) * 1000)
 	case_rows: list[dict[str, Any]] = []
 	for match in case_matches:
 		resolved_case = next(
@@ -314,6 +318,8 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 			"resolved_case_citations": sum(row["resolved_case_id"] is not None for row in case_rows),
 			"unresolved_case_citations": sum(row["resolved_case_id"] is None for row in case_rows),
 			"library_lookup_failed": lookup_failed,
+			"library_lookup_error": lookup_error,
+			"library_lookup_ms": lookup_ms,
 			"statute_references": len(statute_matches),
 		},
 	}

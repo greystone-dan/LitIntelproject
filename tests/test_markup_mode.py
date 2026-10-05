@@ -31,6 +31,7 @@ out.topics = m.topicIndex(p.payload, 10);
 out.topicParas = Array.from(m.topicParas(out.topics, p.selected || [])).sort((a, b) => a - b);
 out.runs = m.foldRuns(p.visible || []);
 out.peeks = out.notes.filter(n => n.cite).map(n => m.peekFor(n));
+out.roleViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.unitRoleView(n, false), m.unitRoleView(n, true)]);
 console.log(JSON.stringify(out));
 """
 
@@ -108,6 +109,20 @@ def test_unit_paragraph_mapping_via_chunks():
     unit = next(n for n in res["notes"] if n["type"] == "unit")
     assert unit["anchor"] == {"kind": "para", "num": 1}
     assert [(r["first"], r["last"]) for r in res["ranges"]] == [(2, 3)]
+
+
+@needs_node
+def test_unit_role_chip_shows_only_with_experimental_on():
+    payload = _payload()
+    payload["readerData"]["evidence_summary"]["units"][0]["role"] = "facts"
+    payload["readerData"]["evidence_summary"]["role_note"] = "Experimental: about 55 to 69 of every 100."
+    off, on = _run(payload=payload)["roleViews"]
+    unit = next(n for n in _run(payload=payload)["notes"] if n["type"] == "unit")
+    assert off == {"pill": unit["pill"], "line": ""}
+    assert on["pill"] == "Facts · " + unit["pill"]
+    assert on["line"].startswith("Role (experimental): Facts") and "55 to 69" in on["line"]
+    plain_off, plain_on = _run()["roleViews"]  # no stored role: nothing changes either way
+    assert plain_off == plain_on and plain_on["line"] == ""
 
 
 @needs_node
@@ -421,12 +436,10 @@ console.log(JSON.stringify({
     assert len(out["exported"]) == 1  # only the resolved citation becomes a Word comment
 
 
-def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
-    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+def test_legal_development_notice_and_its_markup_pill_are_gone():
     js = JS.read_text(encoding="utf-8")
-    assert "body.markup-mode-on #readerOverrulingRisk{display:none!important}" in css
-    assert "mk-legal-open #readerOverrulingRisk:not([hidden])" in css
-    assert 'data-mk-act="legal"' in js and "Legal-development notice" in js
+    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+    assert 'data-mk-act="legal"' not in js and "mk-legal-open" not in js and "mk-legal-open" not in css
 
 
 def test_margin_connectors_start_at_each_citations_own_text():
@@ -478,3 +491,30 @@ console.log(JSON.stringify({
     assert "2 of 3" not in out["some"]["label"] and "text shown for 1 of 3 paragraphs" in out["some"]["label"]
     assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
     assert "later paragraphs not named" in out["ff"]["label"]
+
+
+@needs_node
+def test_back_reference_pinpoint_text_is_labelled_heuristic():
+    out = _node("""
+const base = {target_case_id: 9, target_title: 'Vavilov', target_paragraph: 99, target_chunk_text: '[99] Reasons must be justified.'};
+console.log(JSON.stringify({
+  plain: m.pinpointInfo(base),
+  back: m.pinpointInfo(Object.assign({heuristic_note: 'Back-reference (heuristic): earlier citation'}, base)),
+  noText: m.pinpointInfo({target_case_id: 9, target_paragraph: null, heuristic_note: 'Back-reference (heuristic): x'}),
+}));
+""")
+    assert "heuristic" not in out["plain"]["label"]
+    assert out["back"]["quote"].startswith("Reasons") and "Back-reference (heuristic)" in out["back"]["label"]
+    assert "Back-reference (heuristic)" in out["noText"]["body"]
+
+
+def test_markup_is_paused_in_the_reader_but_open_on_live_analysis():
+    from backend.pages.live_analysis import live_analysis_page_html
+
+    reader = data_explorer_page_html()
+    toggle = reader.split('id="readerMarkupToggle"', 1)[1].split(">", 1)[0]
+    assert "disabled" in toggle and "data-coming-soon" in toggle
+    assert 'content:"COMING SOON"' in reader
+    live = live_analysis_page_html()
+    live_toggle = live.split('id="readerMarkupToggle"', 1)[1].split(">", 1)[0]
+    assert "disabled" not in live_toggle

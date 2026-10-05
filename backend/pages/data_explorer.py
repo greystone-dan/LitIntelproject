@@ -6,9 +6,10 @@ from .tag_analytics import inject_tag_analytics
 from .case_quick_summary import inject_case_quick_summary
 from .changelog_tab import about_panel_html
 from .case_summary_card import inject_case_summary_card
+from .pitch_nav import apply_pitch_navigation
 
 
-def data_explorer_page_html() -> str:
+def data_explorer_page_html(pitch_navigation: bool = True) -> str:
   html = """<!doctype html>
 <html lang="en">
 <head>
@@ -161,7 +162,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .reader-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:var(--muted);font-size:12px}
 .reader-meta .meta-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--muted)}
 #readerOverrulingRisk{margin-top:12px;padding:9px 14px;font-size:13px;border:1px solid #d6a64b;border-left:4px solid #9a5b00;border-radius:6px;background:#fff7df;color:#352500}
-#readerOverrulingRisk[hidden]{display:none}
+#readerOverrulingRisk,#readerOverrulingRisk[hidden]{display:none!important}
 #readerOverrulingRisk>strong{display:block;margin-bottom:5px}
 #readerOverrulingRisk p{margin:4px 0;line-height:1.45}
 #readerOverrulingRisk .overruling-risk-flag{margin-top:9px;padding-top:8px;border-top:1px solid #e5d6b1}
@@ -419,7 +420,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <button class="tab" type="button" data-nav-group="research" data-tab="fc-history" aria-pressed="false" aria-controls="fcHistoryPanel">FC History</button>
 <button class="tab" type="button" data-nav-group="research" data-tab="themes" aria-pressed="false" aria-controls="themesPanel">Legal Themes &amp; Statutes</button>
 <a class="tab" data-nav-group="workbench" href="/citation-map" hidden>Citation Map</a>
-<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>
+<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>
 <a class="tab" data-nav-group="workbench" href="/deidentify" hidden>De-identify</a>
 <button class="tab" type="button" data-nav-group="testing" data-tab="research-bench" aria-pressed="false" aria-controls="researchBenchPanel" hidden>Research Bench</button>
 <a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>
@@ -493,6 +494,43 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <style>
 .reader-print-citation{display:none}
 .reader-toolbar{align-items:flex-start;gap:7px}
+/* Markup mode is paused (Daniel 2026-10-05): the option is greyed out under construction tape until it ships. The code stays. */
+.reader-view-button[data-coming-soon]{position:relative;overflow:hidden;opacity:.6;cursor:not-allowed;color:#8a8f98!important;min-width:84px;padding-left:14px!important;padding-right:14px!important}
+.reader-view-button[data-coming-soon]::before{content:"";position:absolute;left:-8%;right:-8%;top:50%;height:15px;margin-top:-7px;transform:rotate(-7deg);background:repeating-linear-gradient(135deg,#111 0 5px,#f5c400 5px 10px);opacity:.9;pointer-events:none}
+.reader-view-button[data-coming-soon]::after{content:"COMING SOON";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);padding:1px 5px;background:#f5c400;color:#111;font-size:8px;font-weight:800;letter-spacing:.06em;line-height:1.3;white-space:nowrap;border-radius:1px;pointer-events:none}
+.tab-coming-soon{position:relative;overflow:hidden;opacity:.6;cursor:not-allowed;color:#8a8f98!important;pointer-events:none}
+.tab-coming-soon::before{content:"";position:absolute;left:-6%;right:-6%;top:50%;height:15px;margin-top:-7px;transform:rotate(-5deg);background:repeating-linear-gradient(135deg,#111 0 5px,#f5c400 5px 10px);opacity:.9}
+.tab-coming-soon::after{content:"COMING SOON";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-5deg);padding:1px 5px;background:#f5c400;color:#111;font-size:8px;font-weight:800;letter-spacing:.06em;line-height:1.3;white-space:nowrap}
+.rh-facts{display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 0;color:#33465f;font-size:12.5px}.rh-fact+.rh-fact::before{content:"·";margin:0 8px;color:#9aa6b8}
+.rs-facts .rs-fact{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px;align-items:baseline}.rs-facts dt{color:var(--muted);font-size:11px}.rs-facts dd{margin:0;font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+/* Compact reader header (Daniel 2026-10-05): one slim row, and the reader fills the screen so the decision text gets the height. */
+@media(min-width:761px){
+#caseReaderPanel .reader-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:7px 14px 7px!important;position:relative}
+#caseReaderPanel .reader-head .return-to-results{margin:0!important;padding:3px 10px!important;order:1}
+#caseReaderPanel .reader-head .rh-eyebrow{margin:0;order:2;font-size:10px}
+#caseReaderPanel .reader-head h2{margin:0!important;font-size:1.15rem!important;line-height:1.2;max-width:none;flex:1 1 220px;min-width:0;order:3;text-wrap:pretty}
+#caseReaderPanel .reader-head .reader-print-citation{display:none}
+#caseReaderPanel .reader-head .reader-copy-cite{order:4;margin:0}
+#caseReaderPanel .reader-head .reader-meta{order:8;flex:1 1 100%;gap:6px 8px;align-items:center}
+#caseReaderPanel .reader-head .reader-compare-link{order:6;margin:0}
+#caseReaderPanel .reader-head .reader-toolbar{position:static!important;order:7;margin:0 0 0 auto!important}
+.inline-case-reader{height:calc(100vh - 16px)!important;min-height:440px!important}
+.inline-case-reader .reader-pane-header{padding:8px 16px 6px}
+.inline-case-reader .reader-evidence-bar{padding:4px 14px!important}
+.inline-case-reader .reader-layout{scroll-margin-top:0}
+#caseReaderPanel{scroll-margin-top:8px}
+}
+@media(max-width:760px){
+#caseReaderPanel .reader-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+#caseReaderPanel .reader-head h2{flex:1 1 100%;order:3;margin:0!important}
+#caseReaderPanel .reader-head .return-to-results{margin:0 8px 0 0!important;order:1}
+#caseReaderPanel .reader-head .rh-eyebrow{order:2;margin:0}
+#caseReaderPanel .reader-head .reader-print-citation{display:none}
+#caseReaderPanel .reader-head .reader-copy-cite{order:4;margin:0}
+#caseReaderPanel .reader-head .reader-meta{order:5}
+#caseReaderPanel .reader-head .reader-compare-link{order:6;margin:0}
+#caseReaderPanel .reader-head .reader-toolbar{order:7;margin-top:4px!important}
+}
 .reader-keyboard-help-toggle{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer}
 .reader-keyboard-help{position:absolute;z-index:5;right:14px;top:52px;width:240px;padding:12px 14px;border:1px solid var(--border);border-radius:7px;background:var(--surface);box-shadow:var(--shadow);color:var(--text);font-size:11px;letter-spacing:0;text-transform:none}
 .reader-keyboard-help ul{margin:7px 0 0;padding-left:18px;line-height:1.8}
@@ -537,7 +575,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="reader-toolbar">
 	<div class="reader-view-toggle" aria-label="Reader view mode">
 		<button type="button" class="reader-view-button" id="readerViewToggle" aria-pressed="false" title="Switch to chunk breakdown">Chunk breakdown</button>
-		<button type="button" class="reader-view-button" id="readerMarkupToggle" aria-pressed="false" title="Markup mode: the decision with notes in the margin">Markup</button>
+		<button type="button" class="reader-view-button" id="readerMarkupToggle" aria-pressed="false" data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon">Markup</button>
 		<button type="button" class="reader-view-button" id="readerFormatToggle" aria-pressed="true" title="Switch between formatted and plain decision text" hidden>Formatted</button>
 	</div>
 	<button type="button" class="reader-keyboard-help-toggle" id="readerKeyboardHelpToggle" aria-expanded="false" aria-controls="readerKeyboardHelp" title="Show keyboard shortcuts">?</button>
@@ -562,7 +600,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="page-header"><div class="eyebrow">Workbench</div><h2>Tools for working on a file</h2><p>Each tool opens on its own page.</p></div>
 <div class="workbench-cards">
 <a class="workbench-card" href="/citation-map"><strong>Citation Map</strong><span>Start from a case and follow what it cites and what cites it. Compare two cases to find the authorities they share.</span><em>Open Citation Map &rarr;</em></a>
-<a class="workbench-card" href="/live-analysis"><strong>Live Analysis</strong><span>Drop in a DOCX or text PDF to list its case citations and statute references with paragraph locations. The file is read in memory and discarded.</span><em>Open Live Analysis &rarr;</em></a>
+<div class="workbench-card tab-coming-soon" aria-disabled="true"><strong>Live Analysis</strong><span>Drop in a DOCX or text PDF to list its case citations and statute references with paragraph locations. The file is read in memory and discarded.</span><em>Coming soon</em></div>
 <a class="workbench-card" href="/deidentify"><strong>De-identify</strong><span>Swap names, ID numbers, contact details and dates in a document for placeholders, then put them back later with the key file.</span><em>Open De-identify &rarr;</em></a>
 </div>
 </section>
@@ -874,7 +912,7 @@ async function runProfessionalSearch(){
   onError:()=>setSearchStatus('Search unavailable. Your filters have been preserved.','error'),
   render:data=>{
   const queryEcho=document.getElementById('searchQueryEcho');
-  queryEcho.textContent=values.query.trim()&&data.query_echo?`Search interpreted as: ${data.query_echo}`:'';
+  queryEcho.textContent=values.query.trim()&&data.query_echo?(/^search: [^:]+$/i.test(data.query_echo)?`Showing cases with “${data.query_echo.slice(8)}” in the name or citation.`:`Search interpreted as: ${data.query_echo}`):'';
   queryEcho.hidden=!queryEcho.textContent;
   const results=data.results||[];
   setSearchStatus(results.length?`Showing ${num(results.length)} matching decision${results.length===1?'':'s'}. Select a result to open the decision.`:'No decisions matched this search. Check the spelling or remove a filter.',results.length?'success':'empty');
@@ -1249,7 +1287,7 @@ function hoverClip(text,max){const words=String(text||'').split(String.fromCharC
 function hoverCitationInfo(item){
  if(item.citation_kind==='statute'||item.provenance==='statute_references'){
   const title=item.authority_document_title||item.source_title||item.normalized_citation||item.citation_text||'Statute or regulation',section=item.provision_section||item.section_number||item.authority_section_number||item.pinpoint,text=item.provision_text||item.authority_section_text||item.source_text||'';
-  return {kind:'Statute or regulation',title,label:[section?`Section ${section}`:'',item.statute_version_label||''].filter(Boolean).join(' \u00b7 '),text,note:text?'':'The text of this provision is not in the iLit library.'};
+  return {kind:'Statute or regulation',title,label:[section?`Section ${section}`:'',/unknown/i.test(item.statute_version_label||'')?'':(item.statute_version_label||'')].filter(Boolean).join(' \u00b7 '),text,note:text?'':'The text of this provision is not in the iLit library.'};
  }
  const cited=item.target_citation||'',para=item.target_paragraph;
  if(!item.target_case_id)return {kind:'Cited case',title:item.normalized_citation||item.citation_text||'Cited case',label:'',text:'',note:'This case is not in the iLit library.'};
@@ -1259,11 +1297,43 @@ function hoverCitationInfo(item){
  const parts=paras.map(p=>{const raw=texts[p]||(p===para?item.target_chunk_text:'');return raw?hoverParagraph(raw,p):'';}).filter(Boolean),shown=parts.slice(0,3);
  const text=shown.join('\\n\\n')+(parts.length>shown.length?'\\n\\n\u2026':'');
  const pinLabel=many?(item.target_pinpoint_label||`Paragraphs ${paras[0]}\u2013${paras[paras.length-1]}`).replace(/^paras?/,m=>m==='paras'?'Paragraphs':'Paragraph'):`Paragraph ${para}`;
- return {kind:'Cited case',title,label:[cited,pinLabel+(item.target_pinpoint_open_ended?' (and following, not named)':'')].filter(Boolean).join(' \u00b7 '),text,note:text?'':`${pinLabel} is not stored in the library text for this case.`};
+ const label=[cited,pinLabel+(item.target_pinpoint_open_ended?' (and following, not named)':'')].filter(Boolean).join(' \u00b7 ');
+ if(!text&&!item._hoverFetched)return {kind:'Cited case',title,label,text:'',note:'Loading the paragraph text\u2026',fetch:{caseId:item.target_case_id,paragraphs:paras.slice(0,12)}};
+ return {kind:'Cited case',title,label,text,note:text?'':`${pinLabel} is not stored in the library text for this case.`};
 }
 let hoverRowsKey=null,hoverRowsMap=new Map();
 function hoverRow(id){const a=readerState.payload?.readerData?.citations||[],b=readerState.payload?.citations||[];if(hoverRowsKey!==a||hoverRowsMap.size===0||hoverRowsMap.size!==new Set(a.concat(b).map(row=>String(row.id))).size){hoverRowsKey=a;hoverRowsMap=new Map(b.concat(a).map(row=>[String(row.id),row]));}return hoverRowsMap.get(String(id))||null;}
-function initReaderHoverTooltips(){const tooltip=document.createElement('div');tooltip.className='reader-hover-tooltip';document.body.appendChild(tooltip);let active=null;const hide=()=>{active=null;tooltip.classList.remove('is-visible')};const fill=element=>{const row=element.dataset.citeId?hoverRow(element.dataset.citeId):null;tooltip.classList.toggle('is-card',Boolean(row));tooltip.replaceChildren();if(!row){tooltip.textContent=element.dataset.authority||'';return Boolean(tooltip.textContent)}const info=hoverCitationInfo(row),add=(tag,cls,text)=>{const node=document.createElement(tag);node.className=cls;node.textContent=text;tooltip.appendChild(node)};add('div','hv-kind',info.kind);add('div','hv-title',info.title);if(info.label)add('div','hv-label',info.label);if(info.text)add('div','hv-text',hoverClip(info.text,600));else add('div','hv-note',info.note);return true};const show=element=>{if(!fill(element))return;active=element;tooltip.classList.add('is-visible');const rect=element.getBoundingClientRect(),width=Math.min(320,window.innerWidth*0.7),gap=8;let left=Math.max(12,Math.min(rect.left,window.innerWidth-width-12));let top=rect.top-tooltip.offsetHeight-gap;if(top<8)top=Math.min(window.innerHeight-tooltip.offsetHeight-8,rect.bottom+gap);tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(8,top)}px`};document.addEventListener('mouseover',event=>{const element=event.target.closest?.('.reader-text [data-authority], .chunk-body [data-authority], .fmt-decision [data-authority]');if(!element||!document.body.contains(element)||element===active||element.contains(event.relatedTarget))return;show(element)});document.addEventListener('mouseout',event=>{const element=event.target.closest?.('.reader-text [data-authority], .chunk-body [data-authority], .fmt-decision [data-authority]');if(element&&(!event.relatedTarget||!element.contains(event.relatedTarget)))hide()});document.querySelectorAll('.reader-pane').forEach(pane=>pane.addEventListener('scroll',()=>{if(active)show(active)},{passive:true}));window.addEventListener('resize',hide)}
+async function hoverFetchText(row){
+ row._hoverFetched=true;
+ try{
+  const info=hoverCitationInfo({...row,_hoverFetched:false});if(!info.fetch)return false;
+  const response=await fetch(`/cases/${info.fetch.caseId}/paragraph-text?paragraphs=${info.fetch.paragraphs.join(',')}`);
+  if(!response.ok)return false;
+  const texts=await response.json();if(!texts||!Object.keys(texts).length)return false;
+  row.target_chunk_texts={...(row.target_chunk_texts||{}),...texts};
+  return true;
+ }catch(error){return false;}
+}
+function initReaderHoverTooltips(){
+ const tooltip=document.createElement('div');tooltip.className='reader-hover-tooltip';document.body.appendChild(tooltip);let active=null;
+ const hide=()=>{active=null;tooltip.classList.remove('is-visible')};
+ const fill=element=>{
+  const row=element.dataset.citeId?hoverRow(element.dataset.citeId):null;tooltip.classList.toggle('is-card',Boolean(row));tooltip.replaceChildren();
+  if(!row){tooltip.textContent=element.dataset.authority||'';return Boolean(tooltip.textContent)}
+  const info=hoverCitationInfo(row),add=(tag,cls,text)=>{const node=document.createElement(tag);node.className=cls;node.textContent=text;tooltip.appendChild(node)};
+  add('div','hv-kind',info.kind);add('div','hv-title',info.title);if(info.label)add('div','hv-label',info.label);
+  if(info.text)add('div','hv-text',hoverClip(info.text,600));else add('div','hv-note',info.note);
+  if(info.fetch&&!row._hoverFetched)hoverFetchText(row).then(()=>{if(active===element&&fill(element))place(element)});
+  return true;
+ };
+ const place=element=>{const rect=element.getBoundingClientRect(),gap=8,width=Math.min(tooltip.classList.contains('is-card')?380:320,window.innerWidth*0.7);let left=Math.max(12,Math.min(rect.left,window.innerWidth-width-12));let top=rect.top-tooltip.offsetHeight-gap;if(top<8)top=Math.min(window.innerHeight-tooltip.offsetHeight-8,rect.bottom+gap);tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(8,top)}px`};
+ const show=element=>{if(!fill(element))return;active=element;tooltip.classList.add('is-visible');place(element)};
+ const SEL='.reader-text [data-authority], .chunk-body [data-authority], .fmt-decision [data-authority]';
+ document.addEventListener('mouseover',event=>{const element=event.target.closest?.(SEL);if(!element||!document.body.contains(element)||element===active||element.contains(event.relatedTarget))return;show(element)});
+ document.addEventListener('mouseout',event=>{const element=event.target.closest?.(SEL);if(element&&(!event.relatedTarget||!element.contains(event.relatedTarget)))hide()});
+ document.querySelectorAll('.reader-pane').forEach(pane=>pane.addEventListener('scroll',()=>{if(active)show(active)},{passive:true}));
+ window.addEventListener('resize',hide);
+}
 var box=document.getElementById('judgeProfileContent');const judgeProfileObserver=new MutationObserver(()=>{if(!box||!box.querySelector('.ci-header')||box.querySelector('.judge-profile-filters'))return;const select=document.getElementById('judgeMinisterFilter'),available=[...select.options].filter(option=>option.value),panel=document.createElement('div');panel.className='judge-profile-filters';panel.innerHTML=`<strong>Minister / government party</strong><div id="judgeMinisterCheckboxes" class="result-tags" role="group" aria-label="Minister / government party">${available.map((option,index)=>`<label class="tag neutral" for="judgeMinisterOption${index}"><input type="checkbox" id="judgeMinisterOption${index}" value="${esc(option.value)}" ${option.selected?'checked':''}> ${esc(option.textContent)}</label>`).join('')}</div>`;box.insertBefore(panel,box.firstChild);panel.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{[...select.options].forEach(option=>option.selected=option.value!==''&&[...panel.querySelectorAll('input:checked')].some(item=>item.value===option.value));const slug=new URLSearchParams(location.search).get('judge');if(slug)loadJudgeProfile(slug,[...select.selectedOptions].map(option=>option.value))}))});judgeProfileObserver.observe(box,{childList:true});
 function groupedTagHtml(tags){const groups=new Map();(tags||[]).forEach(tag=>{const category=String(tag.category||'other').trim()||'other',value=String(tag.value||'Unlabeled tag').trim()||'Unlabeled tag',key=`${category.toLocaleLowerCase()}::${value.toLocaleLowerCase()}`;const group=groups.get(key)||{category,value,rows:[]};group.rows.push(tag);groups.set(key,group)});const ordered=[...groups.values()].sort((a,b)=>a.category.localeCompare(b.category)||a.value.localeCompare(b.value));if(!ordered.length)return '<div class="reader-status">No tags are stored or inferred for this case.</div>';const occurrenceCount=ordered.reduce((total,group)=>total+group.rows.length,0);return `<p class="reader-tag-summary">${num(ordered.length)} unique tag${ordered.length===1?'':'s'} across ${num(occurrenceCount)} stored or inferred occurrence${occurrenceCount===1?'':'s'}. Green highlights in the decision text correspond to tags with valid evidence spans.</p>${ordered.map(group=>`<details class="reader-tag-group"><summary><strong>${esc(group.category)}: ${esc(group.value)}</strong><span>${num(group.rows.length)} occurrence${group.rows.length===1?'':'s'}</span></summary><div class="reader-tag-occurrences">${group.rows.map((tag,index)=>`<div class="reader-tag-occurrence"><strong>Occurrence ${index+1}: ${esc(tag.evidence||'No evidence excerpt')}</strong><small>${esc(tag.source||'unknown source')} · score ${Math.round(Number(tag.score||0)*100)}% · ${esc(tag.taxonomy_version||'unversioned taxonomy')}${tag.offset_start!==null&&tag.offset_start!==undefined?` · offset ${tag.offset_start}-${tag.offset_end??'-'}`:''}</small></div>`).join('')}</div></details>`).join('')}`}
 function groupedStatuteHtml(rows){const sources=new Map();(rows||[]).forEach(row=>{const source=String(row.source_title||row.authority_document_title||row.instrument_key||row.normalized_citation||'Unknown source').trim()||'Unknown source',sourceKey=source.toLocaleLowerCase(),sourceGroup=sources.get(sourceKey)||{label:source,sections:new Map()};const section=String(row.provision_section||row.section_number||row.authority_section_number||row.pinpoint||'Unspecified section').trim()||'Unspecified section',sectionKey=section.toLocaleLowerCase(),sectionGroup=sourceGroup.sections.get(sectionKey)||{label:section,rows:[]};sectionGroup.rows.push(row);sourceGroup.sections.set(sectionKey,sectionGroup);sources.set(sourceKey,sourceGroup)});const ordered=[...sources.values()].sort((a,b)=>a.label.localeCompare(b.label));if(!ordered.length)return '<div class="reader-status">No persisted IRPA or IRPR references found.</div>';const occurrenceCount=ordered.reduce((total,source)=>total+[...source.sections.values()].reduce((sectionTotal,section)=>sectionTotal+section.rows.length,0),0);return `<p class="reader-statute-summary">${num(ordered.length)} unique source${ordered.length===1?'':'s'} across ${num(occurrenceCount)} occurrence${occurrenceCount===1?'':'s'}.</p>${ordered.map(source=>{const sections=[...source.sections.values()].sort((a,b)=>a.label.localeCompare(b.label));return `<details class="reader-statute-source"><summary><strong>${esc(source.label)}</strong><span>${num(sections.reduce((total,section)=>total+section.rows.length,0))} occurrence${sections.reduce((total,section)=>total+section.rows.length,0)===1?'':'s'}</span></summary><div class="reader-statute-sections">${sections.map(section=>`<details class="reader-statute-section"><summary><strong>Section ${esc(section.label)}</strong><span>${num(section.rows.length)} occurrence${section.rows.length===1?'':'s'}</span></summary><div class="reader-statute-occurrences">${section.rows.map((row,index)=>`<div class="reader-statute-occurrence"><strong>Occurrence ${index+1}: ${esc(row.citation_text||row.normalized_citation||section.label)}</strong><small>${esc(row.provision_text||row.authority_section_text||'No provision text')} · chunk ${row.chunk_id??'-'} · ${row.offset_start??'-'}-${row.offset_end??'-'}</small></div>`).join('')}</div></details>`).join('')}</div></details>`}).join('')}`}
@@ -1375,16 +1445,7 @@ async function showSimilarParagraphs(para){
       ((data.results||[]).map(row=>`<article class="reader-info-row"><a href="/data-explorer?tab=search&case_id=${Number(row.case_id)}&paragraph=${Number(row.paragraph_number)}">${esc(row.title)} · ${esc(row.citation||'')} · paragraph ${Number(row.paragraph_number)}</a><p>${esc(row.excerpt)}</p><p>${esc(row.why_matched)}</p><small>Shared tags: ${esc((row.shared_tags||[]).join(', ')||'none')} · Shared authorities: ${esc((row.shared_authorities||[]).join(', ')||'none')}</small></article>`).join('')||'<p>No matches found in the bounded verified evidence. This does not mean no similar passages exist.</p>');
   }});
 }
-const similarityBody=document.getElementById('decisionBody');
-if(similarityBody&&typeof MutationObserver!=='undefined'){
-  new MutationObserver(()=>{
-    similarityBody.querySelectorAll('.fmt-para').forEach(para=>{
-      if(para.querySelector('[data-paragraph-similar]'))return;
-      const button=document.createElement('button');button.type='button';button.dataset.paragraphSimilar='';button.textContent='Similar paragraphs';button.className='reader-source-link';button.setAttribute('aria-label',`Similar paragraphs for paragraph ${para.dataset.para}`);para.append(button);
-    });
-  }).observe(similarityBody,{childList:true,subtree:true});
-  similarityBody.addEventListener('click',event=>{const button=event.target.closest?.('[data-paragraph-similar]');if(button)showSimilarParagraphs(button.closest('.fmt-para'));});
-}
+/* The per-paragraph "Similar paragraphs" button is off everywhere (2026-10-05); showSimilarParagraphs stays for a later opt-in. */
 const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));if(Number.isInteger(initialCaseId)&&initialCaseId>0&&(new URLSearchParams(location.search).get('tab')||'search')==='search')openDecision(initialCaseId);
 </script>
 <script>
@@ -1437,8 +1498,13 @@ function sideAuthorityGroups(citations){const groups=new Map();citations.filter(
 function sideActGroups(citations){const groups=new Map();citations.filter(sideIsStatute).forEach(row=>{const parsed=String(row.citation_text||row.normalized_citation||'').match(/^(?:sections?|subsections?|paragraphs?|ss?[.])\s*([\w().]+).*?\s+of\s+(?:the\s+)?(.+)$/i);const title=row.authority_document_title||(parsed?parsed[2].trim():row.instrument_key||String(row.citation_text||row.normalized_citation||'Other legislation').trim());const number=row.authority_section_number||(parsed?parsed[1]:'');const group=groups.get(title)||{title,url:row.authority_document_url||'',sections:new Map()};const sectionKey=`${number}|${row.pinpoint||''}`;const section=group.sections.get(sectionKey)||{number,pinpoint:row.pinpoint||'',url:row.legislation_url||'',text:row.authority_section_text||'',rows:[],jump:new Set()};section.rows.push(row);[row.citation_text,row.normalized_citation].forEach(text=>text&&section.jump.add(String(text).toLowerCase()));group.sections.set(sectionKey,section);groups.set(title,group);});return [...groups.values()].map(group=>({...group,sections:[...group.sections.values()].sort((a,b)=>b.rows.length-a.rows.length),total:[...group.sections.values()].reduce((sum,section)=>sum+section.rows.length,0)})).sort((a,b)=>b.total-a.total);}
 function sideTagGroups(tags){const byCategory=new Map();tags.forEach(tag=>{const category=tag.category||'other',value=tag.value||tag.evidence||'Tag';const group=byCategory.get(category)||{category,values:new Map(),total:0};const entry=group.values.get(value)||{value,count:0,score:0};entry.count+=1;entry.score=Math.max(entry.score,Number(tag.score)||0);group.values.set(value,entry);group.total+=1;byCategory.set(category,group);});return [...byCategory.values()].map(group=>({...group,values:[...group.values.values()].sort((a,b)=>b.count-a.count||a.value.localeCompare(b.value))})).sort((a,b)=>b.total-a.total);}
 function sideOutcome(item){const outcome=String(item.government_outcome||item.decision_outcome||'').toLowerCase();if(outcome==='won')return {text:'Government won',cls:'is-gov'};if(outcome==='lost')return {text:'Individual won',cls:'is-ind'};return null;}
+const SIDE_MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function sideDate(value){const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(value||''));if(!m)return value?String(value):'';const month=SIDE_MONTHS[Number(m[2])-1];return month?`${month} ${Number(m[3])}, ${m[1]}`:String(value);}
+function sideTitleCase(text){return String(text||'').trim().toLowerCase().replace(/(^|[\s,(-])([a-z])/g,(all,lead,ch)=>lead+ch.toUpperCase());}
+function sideJudge(value){let name=String(value||'').replace(/\s+/g,' ').trim();if(!name)return '';name=name.replace(/^(?:the\s+)?(?:hon(?:ourable|\.)?\s+)/i,'').replace(/^(?:mr\.?|madam|madame|mme\.?|ms\.?|mrs\.?)\s+(?=justice)/i,'');if(name===name.toUpperCase()&&name.length>3)name=sideTitleCase(name);return name.charAt(0).toUpperCase()+name.slice(1);}
+function sideCaseFacts(d){const {item,meta}=d,raw=(item.metadata_json&&item.metadata_json.reader_extracted)||{};const docket=item.docket_number||meta.imm_number||meta.docket||meta.case_number||raw.docket||'';const hearingPlace=meta.location||raw['place of hearing']||'',hearingDate=raw['date of hearing']?sideTitleCase(raw['date of hearing']):'';const hearing=[hearingPlace?sideTitleCase(hearingPlace).replace(/\bOf\b/g,'of'):'',hearingDate].filter(Boolean).join(' \u00b7 ');return {name:item.title||'',citation:item.citation||'',court:item.court||'',decided:sideDate(item.date||meta.decision_date),docket:String(docket||'').replace(/^(?:IMM|imm)/,'IMM'),judge:sideJudge(item.judge||meta.judge||raw.judge||raw.present),hearing,outcome:sideOutcome(item)};}
 function sideFact(name,value){if(value===null||value===undefined||value==='')return '';return `<div class="rs-fact"><dt>${esc(name)}</dt><dd>${esc(Array.isArray(value)?value.join(', '):String(value))}</dd></div>`;}
-function sideAboutHtml(d){const {item,citations,tags,metrics,meta,metadata}=d;const authorities=sideAuthorityGroups(citations),acts=sideActGroups(citations);const outcome=sideOutcome(item);const docket=item.docket_number||meta.docket_number||meta.file_numbers;const tiles=[['Cited by',metrics.in_degree,'cases cite this decision'],['Cites',authorities.length,'distinct authorities'],['Tags',tags.length,'tag matches'],['Acts',acts.length,'statutes referenced']].map(([name,value,hint])=>`<div class="rs-tile" title="${esc(hint)}"><b>${value===null||value===undefined?'-':num(value)}</b><span>${esc(name)}</span></div>`).join('');const facts=[sideFact('Outcome',outcome?outcome.text:'Not recorded'),sideFact('Citation',item.citation),sideFact('Court',item.court),sideFact('Decision date',item.date||meta.decision_date),sideFact('Judge',item.judge||meta.judge),sideFact('Docket',docket),sideFact('Minister / party',item.minister||meta.minister),sideFact('Jurisdiction',item.jurisdiction),sideFact('Language',item.language||meta.language)].join('');const record=[sideFact('Case ID',item.id),sideFact('Source',item.source_name||item.source_type),sideFact('Processing',item.processing_status||meta.processing_status),sideFact('Text chunks',(d.readerData.chunks||[]).length)].join('')+metadata.filter(row=>row&&row.key).map(row=>sideFact(sideLabel(row.key),row.value)).join('');return `<div class="rs-tiles">${tiles}</div><section class="rs-card"><h4>About this case</h4><dl class="rs-facts">${facts||'<div class="rs-empty">No case details recorded.</div>'}</dl></section><details class="rs-card rs-record"><summary>Record and processing details</summary><dl class="rs-facts">${record}</dl></details>`;}
+function sideAboutHtml(d){const {item,citations,tags,metrics,meta,metadata}=d;const authorities=sideAuthorityGroups(citations),acts=sideActGroups(citations);const outcome=sideOutcome(item);const docket=item.docket_number||meta.docket_number||meta.file_numbers;const tiles=[['Cited by',metrics.in_degree,'cases cite this decision'],['Cites',authorities.length,'distinct authorities'],['Tags',tags.length,'tag matches'],['Acts',acts.length,'statutes referenced']].map(([name,value,hint])=>`<div class="rs-tile" title="${esc(hint)}"><b>${value===null||value===undefined?'-':num(value)}</b><span>${esc(name)}</span></div>`).join('');const cf=sideCaseFacts(d);const facts=[sideFact('Case name',cf.name),sideFact('Citation',cf.citation),sideFact('Court',cf.court),sideFact('Decision date',cf.decided),sideFact('Docket (IMM no.)',cf.docket),sideFact('Decision maker',cf.judge),sideFact('Heard',cf.hearing),sideFact('Outcome',outcome?outcome.text:'Not recorded')].join('');const record=[sideFact('Case ID',item.id),sideFact('Minister / party',item.minister||meta.minister),sideFact('Jurisdiction',item.jurisdiction),sideFact('Language',item.language||meta.language),sideFact('Source',item.source_name||item.source_type),sideFact('Processing',item.processing_status||meta.processing_status),sideFact('Text chunks',(d.readerData.chunks||[]).length)].join('')+metadata.filter(row=>row&&row.key).map(row=>sideFact(sideLabel(row.key),row.value)).join('');return `<div class="rs-tiles">${tiles}</div><section class="rs-card"><h4>About this case</h4><dl class="rs-facts">${facts||'<div class="rs-empty">No case details recorded.</div>'}</dl></section><details class="rs-card rs-record"><summary>Record and processing details</summary><dl class="rs-facts">${record}</dl></details>`;}
 function sideFilterBox(placeholder){return `<input class="rs-filter" type="search" data-side-filter placeholder="${esc(placeholder)}" aria-label="${esc(placeholder)}">`;}
 function sideAuthoritiesHtml(d){const groups=sideAuthorityGroups(d.citations);if(!groups.length)return '<div class="rs-empty">No case-to-case citations are stored for this decision.</div>';const row=group=>{const paras=[...group.paras].slice(0,4).join(', ');return `<div class="rs-row" data-q="${esc((group.label+' '+group.citation).toLowerCase())}"><button type="button" class="rs-row-main" data-side-jump="${esc([...group.jump].join('|'))}" data-side-kind="cite" data-side-key="${esc(group.key)}" title="Find in the text"><span class="rs-row-title">${esc(group.label)}</span><span class="rs-row-sub">${esc(group.citation&&group.citation!==group.label?group.citation:'')}${paras?` ${group.citation&&group.citation!==group.label?'· ':''}at ${esc(paras)}`:''}</span></button><span class="rs-count" title="Occurrences in this decision">${group.rows.length}</span>${group.caseId?`<button type="button" class="rs-open" data-side-open="${group.caseId}" data-side-title="${esc(group.label)}" title="Preview in the case context pane">Open</button>`:''}</div>`};const linked=groups.filter(group=>group.caseId),other=groups.filter(group=>!group.caseId);return `${sideFilterBox('Filter authorities')}${linked.length?`<h5 class="rs-sub">In the library <em>${linked.length}</em></h5>${linked.map(row).join('')}`:''}${other.length?`<h5 class="rs-sub">Not in the library <em>${other.length}</em></h5>${other.map(row).join('')}`:''}`;}
 function sideTagsHtml(d){const groups=sideTagGroups(d.tags);if(!groups.length)return '<div class="rs-empty">No tags were found in this decision.</div>';return `${sideFilterBox('Filter tags')}${groups.map((group,index)=>`<details class="rs-group" ${index<3?'open':''}><summary><span>${esc(sideLabel(group.category))}</span><em>${group.total}</em></summary><div class="rs-chips">${group.values.map(entry=>`<button type="button" class="rs-chip" data-q="${esc((entry.value+' '+group.category).toLowerCase())}" data-side-jump="${esc(String(entry.value).toLowerCase())}" data-side-kind="tag" data-side-key="tag:${esc(entry.value)}" title="Find in the text">${esc(sideLabel(entry.value))}<b>${entry.count}</b></button>`).join('')}</div></details>`).join('')}`;}
@@ -1446,7 +1512,16 @@ function sideActsHtml(d){const groups=sideActGroups(d.citations);if(!groups.leng
 function sideStructureHtml(d){const evidence=d.readerData?.evidence_summary;if(!evidence||!evidence.units.length)return '<div class="rs-empty">Case structure not available. Enable discussion units for this case.</div>';const renderSubtheme=subtheme=>`<div class="rs-row" data-q="${esc(`${subtheme.subtheme_id} ${(subtheme.key_terms||[]).join(' ')}`).toLowerCase()}"><button type="button" class="rs-row-main" data-side-structure-jump="${esc(subtheme.paragraph_indices.join(','))}" title="Jump to this section"><span class="rs-row-title">${esc(subtheme.subtheme_id)}</span><span class="rs-row-sub">${subtheme.key_terms?.length?esc((subtheme.key_terms||[]).slice(0,3).join(', ')):' No key terms'}</span></button><span class="rs-count">${subtheme.paragraph_indices.length}p</span></div>`;const renderUnit=unit=>`<details class="rs-group" open><summary><span>Unit ${unit.unit_index} (paras ${unit.start_paragraph}–${unit.end_paragraph})</span><em>${unit.subthemes.length}</em></summary>${unit.subthemes.map(renderSubtheme).join('')}</details>`;return `${sideFilterBox('Filter structure')}${evidence.units.map(renderUnit).join('')}`;}
 function renderReaderSidebar(){const box=document.getElementById('decisionTarget');if(!box||!readerState.payload)return;const d=sideData();if(sideState.caseId!==readerState.caseId){sideState.caseId=readerState.caseId;sideState.tab='about';sideState.linkedId=null;sideState.cursor={};}const filterValue=(box.querySelector('[data-side-filter]')||{}).value||'';const body={about:sideAboutHtml,structure:sideStructureHtml,authorities:sideAuthoritiesHtml,tags:sideTagsHtml,acts:sideActsHtml}[sideState.tab](d);const counts={authorities:sideAuthorityGroups(d.citations).length,tags:d.tags.length,acts:sideActGroups(d.citations).length,structure:(d.readerData?.evidence_summary?.units||[]).length};box.innerHTML=`<nav class="rs-tabs" role="tablist">${SIDE_TABS.map(([key,text])=>`<button type="button" role="tab" class="rs-tab${sideState.tab===key?' is-active':''}" aria-selected="${sideState.tab===key}" data-side-tab="${key}">${text}${counts[key]?`<i>${counts[key]}</i>`:''}</button>`).join('')}</nav><div class="rs-body">${body}</div>`;const filter=box.querySelector('[data-side-filter]');if(filter&&filterValue){filter.value=filterValue;sideApplyFilter(filter);}sideRenderHeader(d);sideRenderLinkedEmpty(d);}
 function sideApplyFilter(input){const query=String(input.value||'').trim().toLowerCase();document.querySelectorAll('#decisionTarget [data-q]').forEach(element=>{element.hidden=Boolean(query)&&!element.dataset.q.includes(query);});}
-function sideRenderHeader(d){const {item,metrics,citations}=d;const eyebrow=document.getElementById('decisionEyebrow');if(eyebrow)eyebrow.textContent=[item.court,item.citation,item.date].filter(Boolean).join('  ·  ');const meta=document.getElementById('decisionMeta');if(!meta)return;const statuteStatus=meta.querySelector('#decisionStatuteStatus');const outcome=sideOutcome(item);const docket=extractDocketFromPayload(item);const pills=[outcome?`<span class="meta-pill rh-outcome ${outcome.cls}">${outcome.text}</span>`:'',item.judge?`<span class="meta-pill">${esc(item.judge)}</span>`:'',metrics.in_degree!==null&&metrics.in_degree!==undefined?`<span class="meta-pill" title="Cases in the library that cite this decision">Cited by ${num(metrics.in_degree)}</span>`:'',`<span class="meta-pill" title="Distinct authorities cited">${num(sideAuthorityGroups(citations).length)} authorities</span>`];const links=[item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'',docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC History</a>`:''];meta.innerHTML=pills.concat(links).filter(Boolean).join('');if(statuteStatus)meta.append(statuteStatus);}
+function sideRenderHeader(d){
+ const {item,citations}=d,cf=sideCaseFacts(d),eyebrow=document.getElementById('decisionEyebrow');
+ if(eyebrow)eyebrow.textContent=[cf.court,cf.citation].filter(Boolean).join('  \u00b7  ');
+ const meta=document.getElementById('decisionMeta');if(!meta)return;
+ const statuteStatus=meta.querySelector('#decisionStatuteStatus'),docket=extractDocketFromPayload(item)||cf.docket;
+ const facts=[cf.docket?`<span class="rh-fact" title="Court file (IMM) number">${esc(cf.docket)}</span>`:'',cf.decided?`<span class="rh-fact" title="Decision date">${esc(cf.decided)}</span>`:'',cf.judge?`<span class="rh-fact" title="Decision maker">${esc(cf.judge)}</span>`:''].filter(Boolean).join('');
+ const links=[item.source_url?`<a class="reader-source-link" href="${esc(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source</a>`:'',docket?`<a class="reader-source-link" data-fc-docket="${esc(docket)}" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC History</a>`:''];
+ meta.innerHTML=[cf.outcome?`<span class="meta-pill rh-outcome ${cf.outcome.cls}">${cf.outcome.text}</span>`:'',facts?`<span class="rh-facts">${facts}</span>`:''].concat(links).filter(Boolean).join('');
+ if(statuteStatus)meta.append(statuteStatus);
+}
 function sideFindMarks(kind,needles){const wanted=needles.split('|').filter(Boolean);const selector=kind==='tag'?'#decisionBody mark.tag-highlight':kind==='act'?'#decisionBody .chunk-statute':'#decisionBody .citation-link, #decisionBody mark:not(.tag-highlight):not(.chunk-statute)';return [...document.querySelectorAll(selector)].filter(element=>{const title=String(element.getAttribute('title')||'').toLowerCase(),auth=String(element.dataset.authority||'').toLowerCase(),text=String(element.textContent||'').replace(/[ ]+/g,' ').trim().toLowerCase();return wanted.some(needle=>title.includes(needle)||auth===needle||text===needle||(kind!=='tag'&&text.length>3&&(needle.includes(text)||text.includes(needle))));});}
 function sideJump(button){const marks=sideFindMarks(button.dataset.sideKind,button.dataset.sideJump||'');const key=button.dataset.sideKey;if(!marks.length){button.classList.add('is-missing');button.title='Not found in the displayed text';return;}const index=((sideState.cursor[key]??-1)+1)%marks.length;sideState.cursor[key]=index;const target=marks[index];target.scrollIntoView({behavior:'smooth',block:'center'});document.querySelectorAll('.rs-flash').forEach(element=>element.classList.remove('rs-flash'));target.classList.add('rs-flash');setTimeout(()=>target.classList.remove('rs-flash'),2200);const counter=button.querySelector('.rs-row-sub')||button;counter.dataset.pos=`${index+1} of ${marks.length}`;}
 function sideStructureJump(button){const paraStr=button.dataset.sideStructureJump||'';if(!paraStr)return;const paras=paraStr.split(',').map(Number).filter(n=>Number.isInteger(n));if(!paras.length)return;const body=document.getElementById('decisionBody');if(!body)return;const fmtParas=[...body.querySelectorAll('.fmt-para')];const targets=paras.map(p=>fmtParas.find(para=>Number(para.dataset.para)===p)).filter(Boolean);if(!targets.length)return;targets[0].scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('#decisionBody .rs-unit-highlight').forEach(el=>el.classList.remove('rs-unit-highlight'));targets.forEach(target=>target.classList.add('rs-unit-highlight'));setTimeout(()=>targets.forEach(target=>target.classList.remove('rs-unit-highlight')),3000);}
@@ -1635,12 +1710,7 @@ window.addEventListener('afterprint',()=>{
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + snapshot_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + snapshot_js + '</script>\n</body>', 1)
-  overruling_risk_js = (here / 'overruling_risk_reader.js').read_text(encoding='utf-8')
-  html = html.replace(
-      '</body>',
-      '<script>\n' + overruling_risk_js + '\n</script>\n</body>',
-      1,
-  )
+  # The yellow legal-development banner is off (Daniel, 2026-10-05): overruling_risk_reader.js is no longer injected.
   reader_tab_selection = "button.classList.toggle('active',button.dataset.readerTab===activeTab);"
   html = html.replace(
       reader_tab_selection,
@@ -1656,4 +1726,6 @@ window.addEventListener('afterprint',()=>{
   # Phone layout goes last so it wins over every earlier rule at narrow widths.
   mobile_css = (here / 'mobile_layout.css').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)
+  if pitch_navigation:
+    html = apply_pitch_navigation(html)
   return html.replace('<script>', panel_helpers_script() + '\n<script>', 1)

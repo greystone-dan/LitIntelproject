@@ -119,11 +119,11 @@ def main() -> int:
 	counts: Counter[str] = Counter()
 	resolution: dict[str, Counter[str]] = {name: Counter() for name in ("baseline_cases", "refined_cases", "baseline_pinpoints", "refined_pinpoints", "baseline_laws", "refined_laws")}
 
-	documents: list[tuple[str, str, list[str | None]]] = []
+	documents: list[tuple[str, str, list[str | None], list[str | None]]] = []
 	session = None
 	if args.text_file:
 		for path in args.text_file:
-			documents.append((str(path), read_text_file(path), []))
+			documents.append((str(path), read_text_file(path), [], []))
 		if args.resolve:
 			print("--resolve needs the database; ignored for --text-file input.", file=sys.stderr)
 	else:
@@ -132,13 +132,13 @@ def main() -> int:
 		from backend.database import Case, SessionLocal
 
 		session = SessionLocal()
-		query = select(Case.id, Case.full_text, Case.citation, Case.secondary_citation).where(Case.full_text.is_not(None))
+		query = select(Case.id, Case.full_text, Case.citation, Case.secondary_citation, Case.docket_number).where(Case.full_text.is_not(None))
 		if args.case_id:
 			query = query.where(Case.id.in_(args.case_id))
 		else:
 			query = query.order_by(Case.id).offset(args.offset).limit(args.limit)
-		for case_id, full_text, citation, secondary in session.execute(query):
-			documents.append((f"case:{case_id}", full_text or "", [citation, secondary]))
+		for case_id, full_text, citation, secondary, docket in session.execute(query):
+			documents.append((f"case:{case_id}", full_text or "", [citation, secondary], [docket]))
 
 	lookups = None
 	if session is not None and args.resolve:
@@ -147,8 +147,8 @@ def main() -> int:
 		lookups = (load_case_index(session), paragraph_lookup_from_session(session), *statute_lookups_from_session(session))
 
 	try:
-		for source, text, own_citations in documents:
-			refined = refine_document(text, steps=steps, source_citations=own_citations)
+		for source, text, own_citations, own_dockets in documents:
+			refined = refine_document(text, steps=steps, source_citations=own_citations, source_dockets=own_dockets)
 			for layer_name, layer in (("cases", refined.cases), ("laws", refined.laws)):
 				for row in [*layer.rows, *layer.dropped]:
 					records.append(row_record(source, layer_name, row))
@@ -156,7 +156,7 @@ def main() -> int:
 			if lookups is None:
 				continue
 			case_index, paragraph_lookup, has_document, get_section = lookups
-			baseline = refine_document(text, steps=(), source_citations=own_citations)
+			baseline = refine_document(text, steps=(), source_citations=own_citations, source_dockets=own_dockets)
 			for label, rows in (("baseline", current_style_pinpoints(baseline.cases.rows)), ("refined", refined.cases.rows)):
 				for result in resolve_case_rows(rows, case_index, paragraph_lookup):
 					resolution[f"{label}_cases"][result.status] += 1

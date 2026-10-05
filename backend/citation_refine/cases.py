@@ -644,6 +644,24 @@ def _backref_row(
 	)
 
 
+_NOTE_MARKER_RE = re.compile(r"\[\d{1,3}\]")
+_IBID_RUNNING_TEXT_GAP = 400
+
+
+def _ibid_follows(content: str, match: re.Match[str], latest: RefinedCitation) -> bool:
+	"""True when "Ibid" really refers to ``latest``: that citation is in the note or sentence right before it.
+
+	In an endnote list ("[10] See the record [11] Ibid") the note just before must hold the citation; otherwise
+	"Ibid" means whatever that note cites (often a record or an exhibit), not an earlier case. In running text the
+	citation must be close behind.
+	"""
+	markers = list(_NOTE_MARKER_RE.finditer(content, latest.offset_end, match.start()))
+	own_marker = bool(markers) and not content[markers[-1].end() : match.start()].strip()
+	if own_marker:
+		return len(markers) == 1
+	return not markers and match.start() - latest.offset_end <= _IBID_RUNNING_TEXT_GAP
+
+
 def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCitation]:
 	rows_by_span = {(row.offset_start, row.offset_end): row for row in rows}
 	table = _alias_table(rows)
@@ -674,6 +692,8 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 		if not previous:
 			continue
 		latest = max(previous, key=lambda row: row.offset_end)
+		if not _ibid_follows(content, match, latest):
+			continue
 		target = _anchor_for(latest, rows_by_span)
 		added.append(_backref_row(content, match, target, match.group("word"), "C2_backrefs"))
 
@@ -759,6 +779,85 @@ def _validate(row: RefinedCitation, current_year: int, self_keys: set[str]) -> R
 	return replace(row, notes=tuple(dict.fromkeys(notes)), confidence=confidence)
 
 
+# --------------------------------------------------------------------------- own dockets
+_DOCKET_PART_RE = re.compile(r"(?<![\w-])(?P<court>IMM|DES|A|T)-(?P<number>\d{1,6})(?:-(?P<year>\d{2}))?(?![\w-])")
+_DOCKET_LIST_GAP_RE = re.compile(r"[\s,;]*(?:(?:and|et|&)[\s,;]*)?")
+
+
+def _own_docket_keys(source_dockets: Iterable[str | None]) -> list[tuple[str, str, str | None]]:
+	"""Own docket numbers as (court, number, year). The stored year is optional ("T-1053" or "T-1053-02")."""
+	return [
+		(match.group("court"), match.group("number"), match.group("year"))
+		for value in source_dockets
+		for match in _DOCKET_PART_RE.finditer(value or "")
+	]
+
+
+def _own_docket_matches(content: str, source_dockets: Iterable[str | None]) -> set[int]:
+	"""Start offsets of docket numbers in ``content`` that belong to the decision itself.
+
+	Stored dockets are missing for some courts (Federal Court of Appeal and tribunal decisions), so a number printed
+	after a docket label in the decision's header also counts. A match is the decision's own when it equals a stored docket (ignoring the year when the stored one has none) or
+	sits in the same unbroken list of docket numbers as such a match, as in the header of a consolidated decision. Every other
+	occurrence of those numbers in the text (the per-party "Docket:" blocks) is the decision's own as well.
+	"""
+	keys = _own_docket_keys(source_dockets)
+	matches = list(DOCKET_RE.finditer(content))
+	if not matches:
+		return set()
+	owned = [
+		any(
+			(court, number) == (key[0], key[1]) and (key[2] is None or key[2] == year)
+			for key in keys
+			for court, number, year in [_docket_parts(match.group("docket"))]
+		)
+		or _labelled_header_docket(content, match)
+		for match in matches
+	]
+	runs: list[list[int]] = [[0]] if matches else []
+	for index in range(1, len(matches)):
+		gap = content[matches[index - 1].end() : matches[index].start()]
+		if _DOCKET_LIST_GAP_RE.fullmatch(gap):
+			runs[-1].append(index)
+		else:
+			runs.append([index])
+	own_numbers: set[str] = set()
+	for run in runs:
+		if any(owned[index] for index in run):
+			own_numbers.update(matches[index].group("docket") for index in run)
+	# A consolidated decision repeats each of its dockets in a per-party "Docket:" block further down.
+	return {match.start() for match in matches if match.group("docket") in own_numbers}
+
+
+_DOCKET_LABEL_BEFORE_RE = re.compile(
+	r"(?:dockets?|file\s+numbers?|file\s+nos?\.?|court\s+file(?:\s+nos?\.?)?|consolidated\s+files)\s*[:.]?\s*(?:\(consolidated\s+files\s*)?[:.]?\s*$",
+	re.IGNORECASE,
+)
+_HEADER_WORD_AFTER_RE = re.compile(r"\s*(?:neutral\s+citation|citation|coram|between|style\s+of\s+cause|place\s+of\s+hearing)", re.IGNORECASE)
+_HEADER_CHARS = 4000
+
+
+def _labelled_header_docket(content: str, match: re.Match[str]) -> bool:
+	"""A docket printed right after "Docket:" / "File numbers" / "Court File No." in the decision's header block."""
+	label = _DOCKET_LABEL_BEFORE_RE.search(content[max(0, match.start() - 45) : match.start()])
+	if label is None:
+		return False
+	# "..., and in Court File No. T-1747-00, we rely on" is a reference in running text; a header label starts a line or
+	# follows a capitalised word.
+	before_label = content[max(0, match.start() - 45) : match.start()][: label.start()].rstrip(" \t")
+	if before_label and before_label[-1].islower():
+		return False
+	if match.start() < _HEADER_CHARS:
+		return True
+	# Counsel-page layout at the end ("DOCKET: A-413-00  STYLE OF CAUSE: ...") or a header-less text window.
+	return bool(_HEADER_WORD_AFTER_RE.match(content, match.end()))
+
+
+def _docket_parts(docket: str) -> tuple[str, str, str]:
+	court, number, year = docket.split("-")
+	return court, number, year
+
+
 # --------------------------------------------------------------------------- entry point
 def refine_case_citations(
 	text: str | None,
@@ -767,12 +866,15 @@ def refine_case_citations(
 	source_citations: Iterable[str | None] = (),
 	include_dockets: bool = True,
 	current_year: int | None = None,
+	source_dockets: Iterable[str | None] | None = None,
 ) -> LayerResult:
 	"""Run the case refinement layer over a whole decision.
 
 	``pass_one_rows`` defaults to ``extract_raw_citation_matches(text)`` (only the
 	case kinds and S.C.R. "secondary" rows are used). ``source_citations`` are the
 	decision's own citations; matching rows are dropped as self-citations.
+	``source_dockets`` are the decision's own docket numbers (pass it, even empty, to skip own dockets); docket rows that are
+	one of them, or sit in the same header list of consolidated dockets, are skipped.
 	"""
 	content = text or ""
 	enabled = frozenset(CASE_STEPS if steps is None else steps)
@@ -796,7 +898,11 @@ def refine_case_citations(
 			entries = [entry for entry in entries if any(_overlap(entry, row) for row in pass_one)]
 		rows = _reconcile(entries, list(pass_one), cores)
 	if include_dockets and "C1_gap_scan" in enabled:
+		# Passing ``source_dockets`` (even empty) opts in to own-docket skipping; without it every docket is a row.
+		own_dockets = _own_docket_matches(content, source_dockets) if source_dockets is not None else set()
 		for match in DOCKET_RE.finditer(content):
+			if match.start() in own_dockets:
+				continue
 			if any(not (match.end() <= row.offset_start or row.offset_end <= match.start()) for row in rows):
 				continue
 			rows.append(

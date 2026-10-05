@@ -26,3 +26,15 @@ def test_chunk_must_start_with_the_pinpoint_number_to_count_as_that_paragraph():
     assert not _starts_with_paragraph("SOLICITORS OF RECORD\nDOCKET: IMM-424-12", 54)
     assert not _starts_with_paragraph("[3] not thirty-four", 34)
     assert not _starts_with_paragraph(None, 34)
+
+
+def test_a_quoted_list_after_the_numbered_line_stays_with_its_paragraph():
+    decision = (
+        "[44] Judicial intervention is authorized where a tribunal\n"
+        "(c) erred in law in making a decision;\n"
+        "Errors of law are generally governed by a correctness standard.\n"
+        "[45] Next paragraph.\n"
+    )
+    text = paragraph_text_from_decision(decision, 44)
+    assert text.startswith("[44] Judicial") and "(c) erred in law" in text and "correctness standard." in text
+    assert "[45]" not in text

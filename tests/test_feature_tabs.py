@@ -580,44 +580,48 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
-    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'workbench', 'testing']
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'soon', 'testing']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
     assert '<a ' not in header
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('Info', 'Research', 'Workbench', 'Testing'):
+    for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
         assert f'>{label}</button>' in header
 
 
 def test_secondary_navigation_groups_existing_views_and_functional_tools():
     controls = NavigationParser(routes._data_explorer_page_html()).controls
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
-    assert views == {
-        'about': 'info', 'site-architecture': 'info', 'search': 'research',
-        'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'tag-analytics': 'research', 'research-bench': 'testing',
+    soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
+    assert set(soon.values()) == {'soon'}
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
+    assert len(soon) == 15
+    assert 'soon-fc-analytics' not in soon
+    assert {tab: group for tab, group in views.items() if tab not in soon} == {
+        'about': 'info', 'search': 'research',
+        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
+        'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
-    assert links == {
-        '/citation-map': 'workbench', '/live-analysis': 'workbench', '/deidentify': 'workbench',
-        '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
-    }
-    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
+    assert links == {'/discussion-units-sandbox': 'testing', '/citation-pass': 'testing'}
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'soon', 'testing'))
 
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
     ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
-    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'info'),
-    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'research'),
-    ('?tab=judge-profile&judge=smith', 'judge-profile', 'research'),
-    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'research'),
-    ('?tab=themes', 'themes', 'research'), ('?tab=research-bench', 'research-bench', 'testing'),
-    ('?group=workbench', 'workbench', 'workbench'), ('?group=testing', 'research-bench', 'testing'),
+    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
+    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
+    ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
+    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
+    ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'testing'),
+    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'themes', 'soon'), ('?tab=soon-themes', 'themes', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'testing'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
-    ('?tab=themes&group=info', 'themes', 'research'),
+    ('?tab=themes&group=info', 'themes', 'direct'),
     ('?tab=unknown', 'search', 'research'),
 ])
 def test_navigation_controller_initializes_deep_links_and_restores_history(query, selected, group):
@@ -635,20 +639,20 @@ const panels={};
 const location=new URL('http://localhost/data-explorer'+QUERY);
 const history={pushState(state,title,path){location.href=new URL(path,location).href}};
 const window={addEventListener(name,handler){this[name]=handler}};
-const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
+const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){},getAttribute(){return null}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
 function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
 CONTROLLER
-assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true').dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true')?.dataset.group,GROUP==='direct'?undefined:GROUP);
 assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));
 assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
 const original=location.href;
 activateResearchTab('workbench');
-assert.equal(location.searchParams.get('group'),'workbench');
+assert.equal(location.searchParams.get('group'),'direct');
 assert.equal(location.searchParams.get('tab'),'workbench');
 assert.equal(location.searchParams.has('case_id'),false);
 assert.ok(Object.entries(activeResearchPanels).every(([key,id])=>panels[id].hidden===(key!=='workbench')));
 location.href=original;window.popstate();
-assert.equal(controls.find(item=>item.dataset.group&&item.classList.active).dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.classList.active)?.dataset.group,GROUP==='direct'?undefined:GROUP);
 activateResearchTab('research-bench');
 assert.equal(location.searchParams.get('group'),'testing');
 assert.equal(panels.researchBenchPanel.hidden,false);
@@ -895,15 +899,13 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
-def test_reader_has_additive_cautious_overruling_risk_banner():
+def test_reader_legal_development_banner_and_similar_paragraph_buttons_are_off():
     html = routes._data_explorer_page_html()
 
-    assert 'id="readerOverrulingRisk"' in html
-    assert 'aria-live="polite"' in html
-    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" in html
-    assert "may be affected" in html
-    assert "How assigned" in html
-    assert "addRiskDetail(item, 'Review notice', flag.notice)" in html
+    # Daniel, 2026-10-05: the yellow legal-development indicator and the per-paragraph
+    # "Similar paragraphs" button are off everywhere; the APIs stay for later.
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" not in html
+    assert "dataset.paragraphSimilar" not in html
 
 
 def test_reader_overruling_risk_banner_renders_only_returned_flags():
@@ -919,6 +921,7 @@ const document={
   createElement(tag){return {tag,textContent:'',children:[],append(...nodes){this.children.push(...nodes)}}},
   createTextNode(text){return {tag:'text',textContent:String(text),children:[]}}
 };
+global.window={ILIT_SHOW_LEGAL_NOTICE:true};
 const readerState={caseId:null,payload:null};
 let payload={flags:[{
   assignment:'indirect',event:'Framework update',event_date:'2019-12-19',
@@ -1096,10 +1099,10 @@ def test_fc_activity_panel_exposes_procedural_insights():
 def test_fc_analytics_tab_is_wired_into_research_navigation():
     html = routes._data_explorer_page_html()
 
-    assert 'data-tab="fc-analytics"' in html
+    assert 'data-tab="fc-analytics" aria-pressed="false" aria-controls="fcAnalyticsPanel" hidden>Federal Court Analytics' in html
+    assert '>FC Activity</button>' not in html
     assert 'id="fcAnalyticsPanel"' in html
     assert "'fc-analytics':'fcAnalyticsPanel'" in html
-    assert "'fc-analytics','fc-history'" in html
     assert "window.fcxLoadDashboard" in html
     assert "/api/fc-activity/dashboard" in html
     for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
@@ -1229,8 +1232,11 @@ def test_workbench_group_has_a_landing_panel_linking_its_tools():
 
     assert 'id="workbenchPanel"' in html
     assert "workbench:'workbenchPanel'" in html
-    for href in ("/citation-map", "/live-analysis", "/deidentify"):
+    for href in ("/citation-map", "/deidentify"):
         assert f'class="workbench-card" href="{href}"' in html
+    # Live Analysis is paused (coming soon): shown, but not a link.
+    assert 'class="workbench-card tab-coming-soon" aria-disabled="true"><strong>Live Analysis' in html
+    assert 'href="/live-analysis"' not in html
 
 
 def test_reader_splitters_and_search_results_have_valid_aria():
@@ -1248,3 +1254,41 @@ def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
     assert hide_rule in html
     assert 'id="siteExperimentalToggle"' in html
     assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
+
+
+def test_plain_search_echo_uses_plain_words():
+    html = routes._data_explorer_page_html()
+    assert "in the name or citation." in html
+    assert "Search interpreted as: ${data.query_echo}" in html
+
+
+def test_reader_overruling_risk_notice_is_off_unless_a_page_opts_in():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(){}};
+const document={getElementById(){return banner}};
+let fetched=0;const fetch=async()=>{fetched++;return {ok:true,json:async()=>({flags:[{}]})}};
+const readerState={caseId:null,payload:null};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{};
+const original=openDecision;
+const controller = __CONTROLLER__;
+(async()=>{await openDecision(7);await new Promise(r=>setTimeout(r,0));assert.equal(fetched,0);assert.equal(openDecision,original);assert.equal(banner.hidden,true)})().catch(e=>{console.error(e);process.exitCode=1});
+""".replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
+def test_coming_soon_items_load_their_real_page_under_the_banner():
+    from backend.pages.pitch_nav import COMING_SOON, SOON_TARGETS
+
+    html = routes._data_explorer_page_html()
+    assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
+    framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
+    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statutes'
+    assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
+    assert all(path in {r.path for r in routes.router.routes} for path in framed.values())

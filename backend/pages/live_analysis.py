@@ -77,8 +77,9 @@ function open(data){
   readerState.caseId=null;readerState.payload={item:data.item,citations:data.citations,readerData:data.readerData};readerState.formatted=true;readerState.mode='normalized';
   $('decisionTitle').textContent=data.filename;
   const s=data.summary||{};
+  try{console.info('Live Analysis library lookup',{failed:!!s.library_lookup_failed,error:s.library_lookup_error||null,ms:s.library_lookup_ms,cases:s.case_citations,inLibrary:s.resolved_case_citations})}catch(e){}
   $('decisionEyebrow').textContent='Your document · read in memory, not stored';
-  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].map(v=>`<span class="meta-pill">${v}</span>`).join('');
+  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].concat(s.library_lookup_failed?['Library could not be checked: '+(s.library_lookup_error||'unknown error')]:[]).map(v=>`<span class="meta-pill">${v}</span>`).join('');
   $('decisionTarget').replaceChildren();
   sideState.caseId=null;sideState.tab='authorities';sideState.linkedId=null;
   const back=reader.querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to Live Analysis';
@@ -115,10 +116,10 @@ def _replace_once(html: str, old: str, new: str) -> str:
 
 
 def live_analysis_page_html() -> str:
-	html = data_explorer_page_html()
+	html = data_explorer_page_html(pitch_navigation=False)
 	html = _replace_once(
 		html,
-		'<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>',
+		'<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>',
 		'<button class="tab" type="button" data-nav-group="workbench" data-tab="live-analysis" aria-pressed="false" aria-controls="liveAnalysisPanel" hidden>Live Analysis</button>',
 	)
 	html = _replace_once(html, "workbench:'workbenchPanel',", "workbench:'workbenchPanel','live-analysis':'liveAnalysisPanel',")
@@ -130,6 +131,8 @@ def live_analysis_page_html() -> str:
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
 	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	# This page reads your document in markup mode, so the paused-markup lock on the case reader is lifted here.
+	html = _replace_once(html, ' data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon"', ' title="Markup mode: the decision with notes in the margin"')
 	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
 	html = html.replace("</head>", STYLE + "</head>", 1)
 	return html.replace("</body>", SCRIPT + "</body>", 1)

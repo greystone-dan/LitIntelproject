@@ -1,6 +1,8 @@
 """Live Analysis in the reader's markup view: the reader-shaped payload built from a document in memory."""
 
+import contextlib
 from io import BytesIO
+import types
 
 from docx import Document
 from fastapi.testclient import TestClient
@@ -73,7 +75,18 @@ class _NoLibrary:
 		return None
 
 	def execute(self, *args, **kwargs):
-		return []
+		return _Rows()
+
+	def begin_nested(self):
+		return contextlib.nullcontext()
+
+	def get_bind(self):
+		return types.SimpleNamespace(dialect=types.SimpleNamespace(name="sqlite"))
+
+
+class _BrokenLibrary(_NoLibrary):
+	def execute(self, *args, **kwargs):
+		raise RuntimeError("canceling statement due to statement timeout")
 
 
 def _client() -> TestClient:
@@ -163,3 +176,42 @@ def test_signal_words_are_not_part_of_the_marked_citation() -> None:
 	row = next(r for r in rows if "Suresh" in r["citation_text"])
 	assert row["citation_text"].startswith("Suresh v. Canada")
 	assert text[row["offset_start"] : row["offset_end"]] == row["citation_text"]
+
+
+def test_back_references_are_added_and_marked_as_heuristic() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(
+		"[1] See Canada v Vavilov, 2019 SCC 65 at para 10. [2] Vavilov, above at para 99. Ibid at para 20."
+	)
+	rows = build_live_reader_payload(text, paragraphs, "Pasted text", None)["citations"]
+	back = [r for r in rows if r.get("heuristic_note")]
+	assert [text[r["offset_start"] : r["offset_end"]] for r in back] == ["Vavilov, above at para 99", "Ibid at para 20"]
+	assert all(r["citation_kind"] == "case_short" and "heuristic" in r["heuristic_note"] for r in back)
+	assert not any(r.get("heuristic_note") for r in rows if "2019 SCC 65" in r["citation_text"])
+
+
+def test_a_library_that_cannot_be_checked_is_not_reported_as_missing() -> None:
+	text = "See Canada v Vavilov, 2019 SCC 65 at para 99."
+	text, paragraphs = paragraphs_from_pasted_text(text)
+	broken = build_live_reader_payload(text, paragraphs, "memo", _BrokenLibrary())
+	empty = build_live_reader_payload(text, paragraphs, "memo", _NoLibrary())
+	assert {c["library_status"] for c in broken["citations"] if c["citation_kind"] != "statute"} == {"lookup_failed"}
+	assert broken["summary"]["library_lookup_failed"] is True
+	assert {c["library_status"] for c in empty["citations"] if c["citation_kind"] != "statute"} == {"not_found"}
+	assert empty["summary"]["library_lookup_failed"] is False
+
+
+def test_a_citation_matches_only_as_a_whole_stored_citation() -> None:
+	from backend.live_analysis import _identifier_in
+
+	assert _identifier_in("Vavilov, 2019 SCC 65 (CanLII)", "2019 SCC 65")
+	assert _identifier_in("2019  scc 65", "2019 SCC 65")
+	assert not _identifier_in("2019 SCC 650", "2019 SCC 65")
+	assert not _identifier_in("12019 SCC 65", "2019 SCC 65")
+	assert not _identifier_in(None, "2019 SCC 65")
+
+
+def test_a_failed_lookup_names_its_reason_in_the_summary() -> None:
+	text, paragraphs = paragraphs_from_pasted_text("See Canada v Vavilov, 2019 SCC 65 at para 99.")
+	summary = build_live_reader_payload(text, paragraphs, "memo", _BrokenLibrary())["summary"]
+	assert "statement timeout" in summary["library_lookup_error"]
+	assert isinstance(summary["library_lookup_ms"], int)

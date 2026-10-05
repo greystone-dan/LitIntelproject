@@ -63,6 +63,7 @@ from .models import (
 	CitationMetricsResponse,
 )
 from scripts.inspect_discussion_units import inspect_case
+from .contextual_authority.unit_roles import label_unit_roles
 
 _STATUTE_LIKE_RE = re.compile(
 	r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE
@@ -113,6 +114,24 @@ def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | No
 	return report
 
 
+UNIT_ROLE_NOTE = (
+	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test cases they matched "
+	"the reader's role for about 55 to 69 of every 100 units."
+)
+
+
+def _unit_roles(report: dict[str, Any]) -> list[str]:
+	"""Rule-based role per discussion unit (no AI); empty when the report has no paragraph text."""
+	texts = {paragraph["paragraph_index"]: paragraph.get("text") or "" for paragraph in report.get("paragraphs", [])}
+	if not texts:
+		return []
+	units = [
+		[texts.get(index, "") for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)]
+		for unit in report["discussion_units"]
+	]
+	return label_unit_roles(units)
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -124,8 +143,9 @@ def _build_evidence_summary(
 	if not has_paragraph_chunks:
 		return None
 	report = _cached_inspect_case(db, case_id, chunks)
+	unit_roles = _unit_roles(report)
 	units = []
-	for unit in report["discussion_units"]:
+	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
 		for subtheme in unit.get("subthemes", []):
 			evidence = [
@@ -160,6 +180,7 @@ def _build_evidence_summary(
 				end_paragraph=unit["end_paragraph"],
 				paragraph_count=unit["paragraph_count"],
 				subthemes=subthemes,
+				role=unit_roles[position] if position < len(unit_roles) else None,
 			)
 		)
 
@@ -197,6 +218,7 @@ def _build_evidence_summary(
 		note="Evidence-based structural summary; not a legal conclusion. Each evidence span maps to canonical source text and a source hash.",
 		units=units,
 		citation_mappings=citation_mappings,
+		role_note=UNIT_ROLE_NOTE if unit_roles else None,
 	)
 
 
@@ -447,12 +469,44 @@ def _starts_with_paragraph(text: str | None, paragraph: int) -> bool:
 	return bool(text) and re.match(rf"^\s*\[{int(paragraph)}\]", text) is not None
 
 
+# Blocks the formatter splits off a numbered paragraph (a quoted provision, a list item) still belong to it.
+_PARAGRAPH_CONTINUATION_TYPES = {"text", "listitem", "connector", "caption"}
+
+
+def paragraphs_text_from_decision(full_text: str | None, paragraphs: Any) -> dict[int, str]:
+	"""Stored text of several numbered paragraphs, formatting the decision once (absent paragraphs are left out)."""
+	wanted = {int(paragraph) for paragraph in paragraphs}
+	found: dict[int, str] = {}
+	if not full_text or not wanted:
+		return found
+	blocks = format_decision(full_text)
+	for index, block in enumerate(blocks):
+		num = block.get("num")
+		if block.get("type") == "para" and num in wanted and num not in found:
+			end = block["end"]
+			for following in blocks[index + 1 :]:
+				if following.get("type") not in _PARAGRAPH_CONTINUATION_TYPES:
+					break
+				end = following["end"]
+			text = full_text[block["start"] : end].strip()
+			if text:
+				found[num] = text
+	return found
+
+
 def paragraph_text_from_decision(full_text: str | None, paragraph: int) -> str | None:
-	"""The stored text of one numbered paragraph, as the reader's formatter delimits it; ``None`` when absent."""
-	for block in format_decision(full_text):
-		if block.get("type") == "para" and block.get("num") == paragraph:
-			return full_text[block["start"] : block["end"]].strip() or None
-	return None
+	"""The stored text of one numbered paragraph, including quoted lists the formatter split off it; ``None`` when absent."""
+	return paragraphs_text_from_decision(full_text, (paragraph,)).get(int(paragraph))
+
+
+MAX_ON_DEMAND_PARAGRAPHS = 12
+
+
+def get_case_paragraph_texts(case_id: int, paragraphs: list[int], db: Session) -> dict[str, str]:
+	"""Stored text of the requested paragraphs of one case, for a hover that the reader data did not pre-fill."""
+	full_text = db.scalar(select(Case.full_text).where(Case.id == case_id))
+	found = paragraphs_text_from_decision(full_text, paragraphs[:MAX_ON_DEMAND_PARAGRAPHS])
+	return {str(paragraph): text for paragraph, text in found.items()}
 
 
 def _citation_target_paragraph(
@@ -925,7 +979,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 			source_url=legislation_url,
 			resolution_status=resolution.resolution_status,
 			section_number=resolution.provision_section or reference.provision_section,
-			provision_text=authority_section.text if authority_section is not None else None,
+			provision_text=authority_section.text if authority_section is not None else (getattr(reference, "section_text", None) or None),
 			provision_section=resolution.provision_section or reference.provision_section,
 			provision_subsection=resolution.provision_subsection or reference.provision_subsection,
 			provision_paragraph=resolution.provision_paragraph or reference.provision_paragraph,
@@ -934,10 +988,35 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 			unresolved=resolution.resolution_status != "resolved_section",
 			statute_version_label=version_label,
 		)
-	return [
-		build_response(reference)
-		for reference in rows
-	]
+	references = list(rows)
+	responses = [build_response(reference) for reference in references]
+	# References stored against a chunk carry chunk-local offsets. Give them whole-decision positions, like
+	# the case citations in the reader data, so the Formatted view can highlight them and show their hover text.
+	chunk_ids = {row.chunk_id for row in responses if row.chunk_id is not None and row.offset_start is not None}
+	chunk_starts: dict[int, int] = {}
+	case_text = ""
+	if chunk_ids:
+		case_text = db.scalar(select(Case.full_text).where(Case.id == case_id)) or ""
+		for chunk_id, chunk_text in db.execute(select(CaseChunk.id, CaseChunk.text).where(CaseChunk.id.in_(chunk_ids))):
+			start = case_text.find(chunk_text or "") if chunk_text else -1
+			if start >= 0:
+				chunk_starts[chunk_id] = start
+	for row in responses:
+		if row.chunk_id is None or row.offset_start is None or row.offset_end is None or row.chunk_id not in chunk_starts:
+			continue
+		start = chunk_starts[row.chunk_id] + row.offset_start
+		end = chunk_starts[row.chunk_id] + row.offset_end
+		if 0 <= start < end <= len(case_text):
+			row.layer_spans = {
+				"full_case": {
+					"chunk_id": None,
+					"absolute_start": 0,
+					"absolute_end": len(case_text),
+					"local_start": start,
+					"local_end": end,
+				}
+			}
+	return responses
 
 
 def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = True) -> CaseReaderDataResponse:
@@ -1068,10 +1147,10 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 			for target_case_id, full_text in db.execute(
 				select(Case.id, Case.full_text).where(Case.id.in_(wanted))
 			):
+				found = paragraphs_text_from_decision(full_text, wanted[target_case_id])
 				for paragraph in wanted[target_case_id]:
-					text = paragraph_text_from_decision(full_text, paragraph)
-					if text:
-						target_chunks[(target_case_id, paragraph)] = text
+					if paragraph in found:
+						target_chunks[(target_case_id, paragraph)] = found[paragraph]
 					else:
 						target_chunks.pop((target_case_id, paragraph), None)
 

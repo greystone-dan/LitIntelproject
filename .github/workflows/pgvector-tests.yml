@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 # A human must approve the first workflow run on this Copilot pull request.
 # Promotion: resolve failures (including migration/ORM drift), require passing
 # tests with no skips, remove continue-on-error, then add "pgvector" as a required
@@ -56,6 +60,8 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Install CPU-only PyTorch (skips ~4 GB of unused CUDA wheels)
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - name: Install dependencies
         run: python -m pip install -r requirements-dev.txt
       - name: Enable pgvector before migrations

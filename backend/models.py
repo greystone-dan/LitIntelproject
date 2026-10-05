@@ -379,6 +379,8 @@ class CaseDiscussionUnitSummaryResponse(BaseModel):
 	end_paragraph: int
 	paragraph_count: int
 	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
+	# Experimental, rule-based role (metadata, overview, facts, issues, analysis, disposition); see role_note.
+	role: str | None = None
 
 
 class CaseEvidenceSummaryResponse(BaseModel):
@@ -388,6 +390,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+	role_note: str | None = None
 
 
 class CaseSummarySectionItemResponse(BaseModel):

@@ -84,7 +84,7 @@ const document={getElementById(){return banner},
   createTextNode(t){return {tag:'text',textContent:String(t),children:[]}}};
 const readerState={caseId:null,payload:null};
 let narrow=true;
-global.window={matchMedia:()=>({matches:narrow})};
+global.window={ILIT_SHOW_LEGAL_NOTICE:true,matchMedia:()=>({matches:narrow})};
 let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
 let closeDecisionReader=()=>{};
 const payload={assessment:'A',flags:[{assignment:'indirect',event:'E',event_date:'2019-01-01',decision_date:'2018-01-01',rationale:'R',source:'S',how_assigned:'H',notice:'N'}]};

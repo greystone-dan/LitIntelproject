@@ -5,6 +5,16 @@
 	demo-safety fixes.
 # Unreleased
 
+- Navigation for the pitch: the top tabs are now About, Case search, Intelligence / Statistics (Judge Profiles, Citation Intelligence, FC Activity) and Coming soon. Coming soon has a page for every other feature with a short explainer and a black-and-yellow strip. The unfinished pages are still in the code and open by direct link (for example `/data-explorer?tab=themes`); Testing stays behind Show experimental.
+- Citation refinement (offline code only, no stored data changes): a bare "Ibid" is linked only when the note or sentence right before it holds the case citation (not after an unrelated record or exhibit note); "the Act" is no longer read as a court-procedure Act (Federal Courts Act, Interpretation Act, Canada Evidence Act) by elimination, and only counts an Act named earlier in the decision; a consolidated decision's per-party "Docket:" lines are no longer added as citations when the header lists them, and when no docket is stored (Federal Court of Appeal and tribunal decisions) the own docket is read from the header labels ("Docket:", "File numbers", "Court File No."). Own-docket skipping applies only when the caller passes `source_dockets`.
+- Citation refinement: docket numbers that are the decision's own (or listed beside it in a consolidated header) are no longer added as case citations. `refine_document` and `refine_case_citations` take `source_dockets`; `evaluate_citation_refinement.py` passes each case's stored docket. No data or schema change.
+- Live Analysis: the library lookup is rewritten so cases are no longer all shown as "not in the library". It reads only the few columns it needs (not whole decisions), matches a stored citation that carries extra text after the neutral citation, accepts a case name only when exactly one decision matches, and a database error or timeout is now reported as "could not be checked" instead of "not in the library".
+- Reader: Markup is paused as a future deliverable. Its option in the view switcher is greyed out under a black-and-yellow "Coming soon" strip and cannot be opened; Formatted stays the default view. Live Analysis is paused the same way: its tab and Workbench card are greyed under the strip and no longer link to the page. The code for both is untouched.
+- Reader: case information is cleaner. The header shows court and citation, the case name, then one line with the IMM number, decision date and decision maker ("Justice Mosley", not "The Honourable Mr. Justice Mosley"), with the outcome pill and source links. The About panel lists case name, citation, court, decision date, IMM number, decision maker, hearing place and date, and outcome in a fixed order; minister, jurisdiction and language moved under record details.
+- Reader: the header is now one slim row and the reader fills the screen height (it used to take about half of a laptop screen), so the decision text gets the room; on phones the header chips sit on one line.
+- Formatted reader: hovering a statute or regulation reference now works (references stored against a chunk were dropped from the Formatted text), and pinpoint paragraph text that the reader data did not carry (cases citing more than twelve other cases) is fetched on hover instead of saying the paragraph is not stored.
+- Reader: the "Similar paragraphs" button is no longer added to any paragraph (the Show experimental switch no longer brings it back), and the potential legal-development notice is not fetched or shown on any page, including the formatted view and markup mode (the markup header pill is removed). Pinpoint paragraph text read from the stored decision now keeps a quoted list the formatter splits off the numbered line (for example Khosa para 44). No data or schema change.
+- Live Analysis: "Vavilov, above at para 99" and "Ibid at para 20" in your own text are now linked to the earlier citation they point back to (the cited paragraph's text shows in the margin and hover card). This uses only the back-reference step of the citation refinement code, on this page only; stored data and the shared extractor are unchanged. These links are a guess about which earlier citation is meant, and the note says so ("Back-reference (heuristic)").
 - Live Analysis now opens your own memo, factum or decision (DOCX, text PDF, or pasted text) in the case reader's markup mode, in the site's own page and style. Case citations and statute references are marked in the text with margin notes, hover cards and the Peek panel; a cited case that is in the library shows the cited paragraph's stored text, and a statute reference shows the stored provision text. Case citations written as a case name followed by a neutral or SCR citation ("Vavilov, 2019 SCC 65 at paras 10-11") now match the library by that citation, where before only the case name could match. The document is read in memory, never stored, and no model is called. Headings and paragraph numbers in your own text are worked out from line shape (a heuristic). Outcome, judge, discussion units and tags are not shown for your own text. No schema or data change.
 - Markup mode: the citation hover card and the Peek panel now show an "In this case" line ("Cited at ¶[14] and ¶[15] (pinpoint ¶7)"), read from where the citation sits in the open decision. No data or schema change.
 - Markup: the Citations layer in the Margin layers panel is always selectable when the case has any citation, and its count includes citations whose case is not in the library (they stay out of the margin until clicked).
@@ -53,8 +63,10 @@
   idle-in-transaction limits, commits one short transaction per small batch, rests at least four times as
   long as it worked, can watch the site (`--health-url`) and back off when it is slow, has a CPU budget, a
   stop file (`stop_cited_by.txt`) and a database-error cutoff, and no longer scans the whole citations table
-  to find pending work. New `backend/batch_safety.py` and `backend/paragraph_cited_by_runner.py`; the script
-  is a thin wrapper. No schema change, no AI.
+  to find pending work. It now also has bounded `--incremental` repairs (default limit 50 when omitted, non-positive
+  limits rejected) for canonical cases with or without outgoing citations, and the off-by-default canonical refresh
+  hook lives in `fc_ingest.ingest_pipeline.refresh_paragraph_cited_by`. New `backend/batch_safety.py` and
+  `backend/paragraph_cited_by_runner.py`; the script is a thin wrapper. No schema change, no AI.
 - Markup mode: Export to Word and private notes. "Export to Word" downloads the
   decision with every margin note that is switched on (citations anchored on the
   citation itself, discussion units, outcome, judge, cited-by, my notes) as real
@@ -86,7 +98,8 @@
   distinguished, see, quoted, ...). Two additive tables (migration 0036). It is
   resumable, runs at low priority, and writes nothing without `--apply`. The
   Markup margin and Peek read the stored rows when they exist and fall back to
-  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`.
+  the old counts otherwise. No AI. See `docs/PARAGRAPH_CITED_BY.md`. The same
+  job now has a bounded incremental one-case-at-a-time path for canonical refreshes.
 - Markup mode second build, using only stored data: hover card on citations;
   Peek panel (floating or docked, stackable, shows the cited paragraph when the
   authority is in the library and says so when it is not); tag display modes

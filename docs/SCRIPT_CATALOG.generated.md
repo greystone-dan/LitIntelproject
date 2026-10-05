@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 166
+Active scripts documented: 167
 
 ## Catalog
 
@@ -136,6 +136,7 @@ Active scripts documented: 166
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `prepare_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help` |
 | `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
+| `profile_reader.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\profile_reader.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
@@ -1939,6 +1940,20 @@ Active scripts documented: 166
 
 ```powershell
 .\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help
+```
+
+## `scripts/profile_reader.py`
+
+**Purpose:** Time where a decision's reader payload spends its time (read-only). Runs build_case_reader_data for one case with per-stage wall times, SQL statement count and the slowest statements, then the real FastAPI route through TestClient (validation, JSON encoding, middleware) so any gap between the function and the HTTP response is visible. Only SELECTs are issued; the session is rolled back. python scripts/profile_reader.py 35874 python scripts/profile_reader.py 35874 28926 --profile-file logs/profile_reader.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\profile_reader.py --help
 ```
 
 ## `scripts/quick_search_engine.py`

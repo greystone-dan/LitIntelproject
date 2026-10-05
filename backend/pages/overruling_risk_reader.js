@@ -27,12 +27,12 @@
 		heading.textContent = flags.some(flag => flag.assignment === 'indirect')
 			? 'Potential legal-development indicator: this case may be affected.'
 			: 'This case is itself a listed legal-development authority; other cases may be affected by it.';
-		// On a phone the full notice is folded behind one tappable line so it cannot push the decision off screen.
+		// The full notice is folded behind one line so it cannot push the decision off screen.
 		const more = document.createElement('details');
 		const summary = document.createElement('summary');
 		summary.textContent = 'Details and sources';
 		more.append(summary);
-		more.open = !(typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 760px)').matches);
+		more.open = false;
 		banner.append(heading, more);
 		addRiskDetail(more, 'Assessment', payload.assessment);
 

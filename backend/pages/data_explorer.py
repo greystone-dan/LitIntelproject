@@ -160,7 +160,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .reader-head h2{margin:0 0 6px;font-size:1.5rem;letter-spacing:-0.03em}
 .reader-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:var(--muted);font-size:12px}
 .reader-meta .meta-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--muted)}
-#readerOverrulingRisk{margin-top:12px;padding:12px 14px;border:1px solid #d6a64b;border-left:4px solid #9a5b00;border-radius:6px;background:#fff7df;color:#352500}
+#readerOverrulingRisk{margin-top:12px;padding:9px 14px;font-size:13px;border:1px solid #d6a64b;border-left:4px solid #9a5b00;border-radius:6px;background:#fff7df;color:#352500}
 #readerOverrulingRisk[hidden]{display:none}
 #readerOverrulingRisk>strong{display:block;margin-bottom:5px}
 #readerOverrulingRisk p{margin:4px 0;line-height:1.45}

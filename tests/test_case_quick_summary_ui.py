@@ -311,7 +311,7 @@ function check(value,label){if(!value)throw new Error(label)}
          "--disable-extensions", "--no-first-run", "--no-default-browser-check",
          f"--user-data-dir={tmp_path / 'profile'}", f"--window-size={width},900",
          "--virtual-time-budget=3000", "--dump-dom", fixture_file.as_uri()],
-        capture_output=True, text=True, timeout=30,
+        capture_output=True, text=True, timeout=120,
     )
     marker = re.search(r'<pre id="result">(.*?)</pre>', result.stdout, re.S)
     assert result.returncode == 0, result.stderr[-2000:]

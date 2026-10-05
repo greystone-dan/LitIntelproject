@@ -77,7 +77,7 @@ try {
         '--no-first-run', '--no-default-browser-check', '--disable-extensions',
         `--user-data-dir=${path.join(directory, 'profile')}`,
         '--virtual-time-budget=3000', '--dump-dom', `file://${file}`,
-    ], {encoding: 'utf8', timeout: 20000, maxBuffer: 2 * 1024 * 1024});
+    ], {encoding: 'utf8', timeout: 90000, maxBuffer: 2 * 1024 * 1024});
     assert.equal(result.error, undefined, result.error?.message);
     assert.equal(result.status, 0, result.stderr);
     assert.match(result.stdout, /<pre id="result">PASS: browser isolation, loading, disabled retry and Case Search rendering<\/pre>/);

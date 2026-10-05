@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 166
+Active scripts documented: 167
 
 ## Catalog
 
@@ -47,6 +47,7 @@ Active scripts documented: 166
 | `build_fc_metadata_gold_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fc_metadata_gold_set.py --help` |
 | `build_final_expansion.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_final_expansion.py --help` |
 | `build_five_case_citation_gold_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help` |
+| `build_fulltext_index.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_fulltext_index.py --help` |
 | `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
@@ -693,6 +694,20 @@ Active scripts documented: 166
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_five_case_citation_gold_candidate.py --help
+```
+
+## `scripts/build_fulltext_index.py`
+
+**Purpose:** Build the full-text search column and index for cases (run once, in a quiet window). Not part of the normal deploy migration because it rewrites a very large table. Safe to stop and re-run: the backfill only touches rows still NULL, and the code keeps using the slower ILIKE path until the index ix_cases_search_tsv exists. python scripts/build_fulltext_index.py [--batch 500]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_fulltext_index.py --help
 ```
 
 ## `scripts/build_mason_argument_citation_fixture.py`

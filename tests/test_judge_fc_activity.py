@@ -36,3 +36,16 @@ def test_conflicting_given_initials_still_block_surname_only_rows():
 	rows = [_row("Brown", 50, 0.3)]
 	assert match_fc_rows(rows, ["Henry S. Brown"], ["Justice Alan Brown"]) == []
 	assert match_fc_rows([_row("H. Brown", 5, 0.3)], ["Henry S. Brown"], ["Justice Alan Brown"])
+
+
+def test_real_profile_name_sets_match_their_plain_docket_rows():
+	cases = {
+		"Shore": ("THE HONOURABLE MR. JUSTICE SHORE", ["The Honourable Mr. JusticeShore", "The Honourable Mister Justice Shore", "The Honorable Mr. Justice Shore", "Justice McDonald"]),
+		"Zinn": ("The Honourable Mr. Justice Zinn", ["The Honorable Mr. Justice Zinn", "Justice Pentney"]),
+		"Diner": ("The Honourable Mr. Justice Diner", ["Justice A. Diner", "Justice Alan Diner"]),
+		"Pentney": ("Justice Pentney", ["le juge Pentney", "Justice McDonald"]),
+		"McDonald": ("Justice McDonald", ["Justice Pentney"]),
+	}
+	for docket_name, (profile, others) in cases.items():
+		rows = [_row(docket_name, 100, 0.25)]
+		assert match_fc_rows(rows, [profile], others) == rows, docket_name

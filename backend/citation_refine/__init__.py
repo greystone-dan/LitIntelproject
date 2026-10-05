@@ -101,6 +101,7 @@ def refine_document(
 	steps: Iterable[str] | None = None,
 	source_citations: Iterable[str | None] = (),
 	current_year: int | None = None,
+	source_dockets: Iterable[str | None] = (),
 ) -> DocumentRefinement:
 	"""Run both refinement layers over one decision and reconcile them."""
 	content = text or ""
@@ -112,6 +113,7 @@ def refine_document(
 		steps=[step for step in CASE_STEPS if step in chosen],
 		source_citations=source_citations,
 		current_year=current_year,
+		source_dockets=source_dockets,
 	)
 	laws = refine_statute_references(
 		content,

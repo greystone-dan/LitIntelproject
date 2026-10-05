@@ -759,6 +759,57 @@ def _validate(row: RefinedCitation, current_year: int, self_keys: set[str]) -> R
 	return replace(row, notes=tuple(dict.fromkeys(notes)), confidence=confidence)
 
 
+# --------------------------------------------------------------------------- own dockets
+_DOCKET_PART_RE = re.compile(r"(?<![\w-])(?P<court>IMM|DES|A|T)-(?P<number>\d{1,6})(?:-(?P<year>\d{2}))?(?![\w-])")
+_DOCKET_LIST_GAP_RE = re.compile(r"[\s,;]*(?:(?:and|et|&)[\s,;]*)?")
+
+
+def _own_docket_keys(source_dockets: Iterable[str | None]) -> list[tuple[str, str, str | None]]:
+	"""Own docket numbers as (court, number, year). The stored year is optional ("T-1053" or "T-1053-02")."""
+	return [
+		(match.group("court"), match.group("number"), match.group("year"))
+		for value in source_dockets
+		for match in _DOCKET_PART_RE.finditer(value or "")
+	]
+
+
+def _own_docket_matches(content: str, source_dockets: Iterable[str | None]) -> set[int]:
+	"""Start offsets of docket numbers in ``content`` that belong to the decision itself.
+
+	A match is the decision's own when it equals a stored docket (ignoring the year when the stored one has none) or
+	sits in the same unbroken list of docket numbers as such a match, as in the header of a consolidated decision.
+	"""
+	keys = _own_docket_keys(source_dockets)
+	if not keys:
+		return set()
+	matches = list(DOCKET_RE.finditer(content))
+	owned = [
+		any(
+			(court, number) == (key[0], key[1]) and (key[2] is None or key[2] == year)
+			for key in keys
+			for court, number, year in [_docket_parts(match.group("docket"))]
+		)
+		for match in matches
+	]
+	runs: list[list[int]] = [[0]] if matches else []
+	for index in range(1, len(matches)):
+		gap = content[matches[index - 1].end() : matches[index].start()]
+		if _DOCKET_LIST_GAP_RE.fullmatch(gap):
+			runs[-1].append(index)
+		else:
+			runs.append([index])
+	result: set[int] = set()
+	for run in runs:
+		if any(owned[index] for index in run):
+			result.update(matches[index].start() for index in run)
+	return result
+
+
+def _docket_parts(docket: str) -> tuple[str, str, str]:
+	court, number, year = docket.split("-")
+	return court, number, year
+
+
 # --------------------------------------------------------------------------- entry point
 def refine_case_citations(
 	text: str | None,
@@ -767,12 +818,15 @@ def refine_case_citations(
 	source_citations: Iterable[str | None] = (),
 	include_dockets: bool = True,
 	current_year: int | None = None,
+	source_dockets: Iterable[str | None] = (),
 ) -> LayerResult:
 	"""Run the case refinement layer over a whole decision.
 
 	``pass_one_rows`` defaults to ``extract_raw_citation_matches(text)`` (only the
 	case kinds and S.C.R. "secondary" rows are used). ``source_citations`` are the
 	decision's own citations; matching rows are dropped as self-citations.
+	``source_dockets`` are the decision's own docket numbers; docket rows that are
+	one of them, or sit in the same header list of consolidated dockets, are skipped.
 	"""
 	content = text or ""
 	enabled = frozenset(CASE_STEPS if steps is None else steps)
@@ -796,7 +850,10 @@ def refine_case_citations(
 			entries = [entry for entry in entries if any(_overlap(entry, row) for row in pass_one)]
 		rows = _reconcile(entries, list(pass_one), cores)
 	if include_dockets and "C1_gap_scan" in enabled:
+		own_dockets = _own_docket_matches(content, source_dockets)
 		for match in DOCKET_RE.finditer(content):
+			if match.start() in own_dockets:
+				continue
 			if any(not (match.end() <= row.offset_start or row.offset_end <= match.start()) for row in rows):
 				continue
 			rows.append(

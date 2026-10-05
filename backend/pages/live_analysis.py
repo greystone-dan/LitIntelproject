@@ -130,6 +130,8 @@ def live_analysis_page_html() -> str:
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
 	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	# This page reads your document in markup mode, so the paused-markup lock on the case reader is lifted here.
+	html = _replace_once(html, ' data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon"', ' title="Markup mode: the decision with notes in the margin"')
 	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
 	html = html.replace("</head>", STYLE + "</head>", 1)
 	return html.replace("</body>", SCRIPT + "</body>", 1)

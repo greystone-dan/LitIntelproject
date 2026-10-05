@@ -241,6 +241,15 @@ class CaseReaderCitationResponse(BaseModel):
 	target_citation: str | None = None
 	target_paragraph: int | None = None
 	target_chunk_text: str | None = None
+	# All paragraphs the pinpoint names ("paras 45-48 and 52"); target_paragraph is the first.
+	target_paragraphs: list[int] | None = None
+	target_pinpoint_label: str | None = None
+	# "para 45 ff": the extent after the stated paragraph is unknown, so only stated paragraphs are listed.
+	target_pinpoint_open_ended: bool = False
+	# A long range was cut to its leading paragraphs (heuristic limit).
+	target_pinpoint_capped: bool = False
+	# Stored text for the leading paragraphs, keyed by paragraph number as a string.
+	target_chunk_texts: dict[str, str] | None = None
 	legislation_url: str | None = None
 	authority_document_title: str | None = None
 	authority_document_url: str | None = None

@@ -130,3 +130,36 @@ def test_case_name_citation_finds_its_neutral_citation_without_the_pinpoint() ->
 	assert _embedded_identifiers(match) == {"2019 SCC 65"}
 	assert _embedded_identifiers(SimpleNamespace(citation_text="Baker, [1999] 2 SCR 817 at para 22")) == {"[1999] 2 SCR 817"}
 	assert _embedded_identifiers(SimpleNamespace(citation_text="Doe v. Canada")) == set()
+
+
+FC_MEMO = """REASONS FOR JUDGMENT
+
+[1] Review under section 112 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA].
+
+[2] Reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10-11, 23-25. See Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817 at paras 22-27; Khosa, 2009 SCC 12 at paras 59, 61 and 63.
+
+[3] Under paragraph 97(1)(b) of the IRPA, and in Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 at para 35, and Singh v. Canada (MCI), 2018 FC 456 at para. 12.
+"""
+
+
+def test_pasted_fc_style_text_finds_the_common_citation_forms() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(FC_MEMO)
+	rows = build_live_reader_payload(text, paragraphs, "Pasted text", None)["citations"]
+	found = {text[r["offset_start"] : r["offset_end"]] for r in rows}
+	assert any(f.startswith("Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65") for f in found)
+	assert any("[1999] 2 SCR 817" in f for f in found)
+	assert any("2009 SCC 12" in f for f in found)
+	assert any("2016 FCA 93" in f for f in found) and any("2018 FC 456" in f for f in found)
+	assert any(r["citation_kind"] == "statute" and r.get("pinpoint") == "97(1)(b)" for r in rows)
+	assert any(r["citation_kind"] == "statute" and r.get("pinpoint") == "112" for r in rows)
+	# Known gaps of the shared extractor (not fixed here): semicolon-joined citations come back as one match
+	# ("Baker ...; Khosa ...") and a lead-in such as "Under paragraph 97(1)(b) of the IRPA, and in" can be
+	# swallowed into the next case's match.
+
+
+def test_signal_words_are_not_part_of_the_marked_citation() -> None:
+	text, paragraphs = paragraphs_from_pasted_text("[1] Compare Suresh v. Canada, 2002 SCC 1 at para 29, and the rest.")
+	rows = build_live_reader_payload(text, paragraphs, "Pasted text", None)["citations"]
+	row = next(r for r in rows if "Suresh" in r["citation_text"])
+	assert row["citation_text"].startswith("Suresh v. Canada")
+	assert text[row["offset_start"] : row["offset_end"]] == row["citation_text"]

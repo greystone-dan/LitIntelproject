@@ -20,8 +20,14 @@ from sqlalchemy.orm import Session
 
 from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
-from .paragraph_cited_by_db import load_target_cited_by
-from .reader_service import MAX_PINPOINT_TEXT_CASES, _citation_target_paragraph, paragraph_text_from_decision
+from .paragraph_cited_by_db import load_pinpoint_cited_by
+from .citation_refine.pinpoints import target_paragraphs
+from .reader_service import (
+	MAX_PINPOINT_TEXT_CASES,
+	MAX_PINPOINT_TEXT_PARAGRAPHS,
+	_pinpoint_response_fields,
+	paragraph_text_from_decision,
+)
 
 _SEGMENT_RE = re.compile(r"\S(?:.*?\S)?(?=\n[ \t]*\n|\s*\Z)", re.DOTALL)
 _NUMBERED_HEADING_RE = re.compile(r"^(?:[IVX]+|[A-Z]|\d{1,2}(?:\.\d{1,2})*)[.)]\s+\S")
@@ -59,7 +65,22 @@ def format_blocks_for_text(text: str) -> list[dict[str, Any]]:
 	return blocks
 
 
+_LEAD_WORDS_RE = re.compile(r"^(?:(?:and|or|but|see|also|compare|cf\.?|in|e\.g\.,?|per|accord|contra)\s+)+", re.IGNORECASE)
+
+
+def _trim_lead_words(row: dict[str, Any]) -> dict[str, Any]:
+	"""\"and in Canada v Huruglica, ...\" or \"Compare Suresh ...\": the signal words are not part of the citation."""
+	if row["kind"] not in {"case", "case_short", "case_name"}:
+		return row
+	match = _LEAD_WORDS_RE.match(row["reference_text"])
+	if not match or match.end() >= len(row["reference_text"]):
+		return row
+	return {**row, "reference_text": row["reference_text"][match.end():], "offset_start": row["offset_start"] + match.end()}
+
+
 def _reader_citation(row: dict[str, Any], row_id: int, *, statute: bool) -> dict[str, Any]:
+	if not statute:
+		row = _trim_lead_words(row)
 	resolved = row.get("resolved_case_id")
 	out: dict[str, Any] = {
 		"id": row_id,
@@ -84,41 +105,51 @@ def _reader_citation(row: dict[str, Any], row_id: int, *, statute: bool) -> dict
 
 
 def _attach_pinpoint_text(session: Session, rows: list[dict[str, Any]]) -> None:
-	"""Cited paragraph number, its stored text and its cited-by counts, from the library only."""
-	pinpoints: dict[tuple[int, int], dict[str, Any]] = {}
+	"""Cited paragraph(s), their stored text and cited-by counts, from the library only (same parser as the reader)."""
+	pins_by_row: dict[int, Any] = {}
 	for row in rows:
 		if row["target_case_id"] is None or row["citation_kind"] == "statute":
 			continue
-		paragraph = _citation_target_paragraph(row["citation_text"], row["normalized_citation"])
-		if paragraph is not None:
-			row["target_paragraph"] = paragraph
-			pinpoints[(row["target_case_id"], paragraph)] = row
-	if not pinpoints:
+		pins = target_paragraphs(row["citation_text"], row["normalized_citation"])
+		if pins is not None:
+			pins_by_row[row["id"]] = pins
+			row["target_paragraph"] = pins.first
+	if not pins_by_row:
 		return
+	by_id = {row["id"]: row for row in rows}
 	wanted: dict[int, set[int]] = {}
-	for case_id, paragraph in sorted(pinpoints):
+	for row_id in sorted(pins_by_row):
+		case_id = by_id[row_id]["target_case_id"]
 		if len(wanted) >= MAX_PINPOINT_TEXT_CASES and case_id not in wanted:
 			continue
-		wanted.setdefault(case_id, set()).add(paragraph)
+		wanted.setdefault(case_id, set()).update(pins_by_row[row_id].paragraphs[:MAX_PINPOINT_TEXT_PARAGRAPHS])
 	texts: dict[tuple[int, int], str] = {}
 	for case_id, full_text in session.execute(select(Case.id, Case.full_text).where(Case.id.in_(wanted))):
 		for paragraph in wanted[case_id]:
 			text = paragraph_text_from_decision(full_text, paragraph)
 			if text:
 				# Modern SCC reasons number paragraphs without brackets; the reader's note code looks for "[N]".
-				text = re.sub(rf"^\s*{paragraph}\s+(?=\S)", f"[{paragraph}] ", text) if not text.lstrip().startswith("[") else text
+				text = text if text.lstrip().startswith("[") else re.sub(rf"^\s*{paragraph}\s+(?=\S)", f"[{paragraph}] ", text)
 				texts[(case_id, paragraph)] = text
-	cited_by: dict[tuple[int, int], dict] = {}
+	for row_id, pins in pins_by_row.items():
+		row = by_id[row_id]
+		case_id = row["target_case_id"]
+		if case_id not in wanted:
+			continue
+		if (case_id, pins.first) in texts:
+			row["target_chunk_text"] = texts[(case_id, pins.first)]
+		row.update(_pinpoint_response_fields(pins, case_id, texts))
 	try:
 		with session.begin_nested():
-			cited_by = load_target_cited_by(session, pinpoints)
+			cited_by = load_pinpoint_cited_by(
+				session, {(by_id[i]["target_case_id"], tuple(p.paragraphs)) for i, p in pins_by_row.items()}
+			)
 	except Exception:  # noqa: BLE001 - optional stored data; a missing table must not break the page
 		cited_by = {}
-	for key, row in pinpoints.items():
-		if key in texts:
-			row["target_chunk_text"] = texts[key]
-		if key in cited_by:
-			row["target_cited_by"] = cited_by[key]
+	for row_id, pins in pins_by_row.items():
+		found = cited_by.get((by_id[row_id]["target_case_id"], tuple(pins.paragraphs)))
+		if found:
+			by_id[row_id]["target_cited_by"] = found
 
 
 def build_live_reader_payload(

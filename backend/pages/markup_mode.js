@@ -111,7 +111,15 @@ function peekFor(note){
   return {id:note.id,loc:note.loc==null?null:note.loc,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
     text:c.inLibrary?(note.quote||''):'',label:c.inLibrary&&note.quote?(note.quoteLabel||''):'',noText:c.inLibrary&&!note.quote?(note.body||''):'',
     missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
-    citedBy:c.inLibrary?citedByLine(c.citedBy):''};
+    citedBy:c.inLibrary?citedByLine(c.citedBy):'',here:inThisCaseLine(note,c)};
+}
+/* "Cited at ¶[14] and ¶[15] (pinpoint ¶7)": where this authority is cited in the open case, from the page itself. */
+function inThisCaseLine(note,c){
+  const at=[note.loc].concat(note.alsoAt||[]).filter(v=>v!=null&&v!=='').filter((v,i,a)=>a.indexOf(v)===i);
+  if(!at.length)return '';
+  const list=at.map(v=>'¶['+v+']');
+  const txt='Cited at '+(list.length>1?list.slice(0,-1).join(', ')+' and '+list[list.length-1]:list[0]);
+  return txt+(c.paragraph!=null?' (pinpoint ¶'+c.paragraph+')':'');
 }
 /* "Canada (Citizenship and Immigration) v Vavilov" -> "Vavilov": the party that is not the Crown, for the short pill label. */
 const CROWN=/^(canada|the minister|minister|attorney general|ministre|procureur|her majesty|his majesty|the queen|the king|mci|mpsep|mcic)\b/i;
@@ -164,8 +172,18 @@ function pinpointInfo(row){
   const n=row.target_paragraph,short=shortCaseName(row.target_title||row.target_citation||'');
   if(!row.target_case_id)return {quote:'',label:'',body:'Not in the library yet — no cited text available.'};
   if(n==null)return {quote:'',label:'',body:'No pinpoint paragraph was cited, so there is no paragraph text to show.'};
+  const paras=Array.isArray(row.target_paragraphs)&&row.target_paragraphs.length?row.target_paragraphs:[n];
+  if(paras.length>1){
+    const texts=row.target_chunk_texts||{};
+    const found=paras.map(p=>({p:p,t:paraText(texts[p]||(p===n?row.target_chunk_text:''),p)})).filter(x=>x.t);
+    const label=(row.target_pinpoint_label||'paras '+paras[0]+'–'+paras[paras.length-1])+(short?' of '+short:' of the cited case');
+    if(!found.length)return {quote:'',label:'',body:'Pinpoint '+(row.target_pinpoint_label||'paragraphs')+' has no stored text in the library.'};
+    const more=paras.length-found.length;
+    const note=more>0?' (text shown for '+found.length+' of '+paras.length+' paragraphs)':'';
+    return {quote:found.map(x=>'¶['+x.p+'] '+x.t).join('\n\n'),label:label+note+(row.target_pinpoint_open_ended?' — "ff": later paragraphs not named':''),body:''};
+  }
   const q=paraText(row.target_chunk_text,n);
-  if(q)return {quote:q,label:'¶['+n+']'+(short?' of '+short:' of the cited case'),body:''};
+  if(q)return {quote:q,label:'¶['+n+']'+(short?' of '+short:' of the cited case')+(row.target_pinpoint_open_ended?' — "ff": later paragraphs not named':''),body:''};
   return {quote:'',label:'',body:row.target_chunk_text?'Pinpoint ¶['+n+'] was not found in the stored text of the cited case, so no paragraph text is shown.':'Pinpoint ¶['+n+'] has no stored text in the library.'};
 }
 /* Short Act names for the pill; anything else falls back to the stored document title. */
@@ -212,7 +230,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null,pin=pinpointInfo(row);
-    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+(row.target_paragraphs&&row.target_paragraphs.length>1?(row.target_pinpoint_label||row.target_paragraph).toString().replace(/^paras? /,''):row.target_paragraph):''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint '+(row.target_paragraphs&&row.target_paragraphs.length>1?row.target_pinpoint_label:'¶'+row.target_paragraph):''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -290,7 +308,7 @@ function exportPlan(notes,layers,blockOf){
   }
   return out;
 }
-const api={paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+const api={inThisCaseLine,paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -698,7 +716,7 @@ function renderPanel(){
   if(!cards.length){state.pins=[];if(el)el.remove();if(p)p.classList.remove('markup-peeking');return}
   if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
   el.className='mk-panel '+state.dock;
-  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map((c,i)=>{const open=i===0||state.peekOpen.includes(c.id);const short=shortCaseName(c.title)+(c.paragraph!=null?' ¶'+c.paragraph:'');return open?`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t" data-mk-peek-toggle="${E(c.id)}" title="Click to collapse"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?qBlock(c.text,c.label,c.id,900):`<div class="mk-body">${E(c.noText||'No paragraph text is stored for this pinpoint.')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">${c.loc!=null?`Back to ¶[${E(c.loc)}]`:'Go to citation'}</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`:`<article class="mk-peek is-collapsed"><button type="button" class="mk-peek-row" data-mk-peek-toggle="${E(c.id)}"><i style="background:${TYPE.cite.color}"></i><b>${E(clip(short,40))}</b><small>expand ▾</small></button><button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></article>`}).join('')}</div>`;
+  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map((c,i)=>{const open=i===0||state.peekOpen.includes(c.id);const short=shortCaseName(c.title)+(c.paragraph!=null?' ¶'+c.paragraph:'');return open?`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t" data-mk-peek-toggle="${E(c.id)}" title="Click to collapse"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?qBlock(c.text,c.label,c.id,900):`<div class="mk-body">${E(c.noText||'No paragraph text is stored for this pinpoint.')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">${c.loc!=null?`Back to ¶[${E(c.loc)}]`:'Go to citation'}</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`:`<article class="mk-peek is-collapsed"><button type="button" class="mk-peek-row" data-mk-peek-toggle="${E(c.id)}"><i style="background:${TYPE.cite.color}"></i><b>${E(clip(short,40))}</b><small>expand ▾</small></button><button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></article>`}).join('')}</div>`;
   if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
   if(p){p.classList.toggle('markup-docked',state.dock==='dock');p.classList.add('markup-peeking')}
 }
@@ -714,7 +732,7 @@ function showHover(span){
   const n=state.notes.find(x=>x.id==='cite-'+span.dataset.citeId&&x.cite);if(!n)return;
   const c=peekFor(n);let h=$('mkHover');if(h)h.remove();
   h=document.createElement('div');h.id='mkHover';h.setAttribute('role','tooltip');
-  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}${c.text.length>320?' · click for the full paragraph':''}</small></blockquote>`:`<div class="mk-body">${E(c.noText||'')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
+  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}${c.text.length>320?' · click for the full paragraph':''}</small></blockquote>`:`<div class="mk-body">${E(c.noText||'')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
   document.body.appendChild(h);
   const r=span.getBoundingClientRect(),w=h.offsetWidth,hh=h.offsetHeight;
   const left=Math.max(8,Math.min(r.left,window.innerWidth-w-8));

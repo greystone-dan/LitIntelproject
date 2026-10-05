@@ -34,3 +34,18 @@ def test_statute_merge_keeps_case_citations():
     html = data_explorer_page_html()
     assert "provenance!=='statute_references'" in html
     assert "const row=element.dataset.citeId?hoverRow" in html or "hoverRow(element.dataset.citeId)" in html
+
+
+def test_hover_card_shows_range_pinpoint():
+    node = shutil.which("node")
+    html = data_explorer_page_html()
+    start = html.index("function hoverParagraph")
+    end = html.index("let hoverRowsKey", start)
+    probe = """
+const assert=require('node:assert/strict');
+const c=hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_title:'V',target_citation:'2019 SCC 65',target_paragraph:7,
+ target_paragraphs:[7,8],target_pinpoint_label:'paras 7-8',target_chunk_texts:{7:'[7] a ',8:'[8] b'}});
+assert.match(c.label,/Paragraphs 7-8/);assert.match(c.text,/\\[7\\] a/);assert.match(c.text,/\\[8\\] b/);
+"""
+    res = subprocess.run([node, "-e", html[start:end] + probe], capture_output=True, text=True)
+    assert res.returncode == 0, res.stderr

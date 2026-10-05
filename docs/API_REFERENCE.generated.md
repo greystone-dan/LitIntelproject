@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-28T10:49:45.795329+00:00
+Generated: 2026-10-05T13:31:37.852597+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 88 across 88 paths
-Hidden operations: 41 excluded from OpenAPI
+OpenAPI operations: 89 across 89 paths
+Hidden operations: 43 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1262,6 +1262,19 @@ Search Chunks Local
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /search/chunks/paragraphs`
+
+Search Paragraphs
+
+**Request body (required)**
+
+- `application/json`: `CaseSearchRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ## Hidden Operations
 
 ### `GET /about`
@@ -1488,6 +1501,38 @@ Handler: `backend.routes.fc_activity_analytics`
 - `year_from` (int | None; default `None`)
 - `year_to` (int | None; default `None`)
 - `city` (str; default `''`)
+- `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/breakdowns`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_breakdowns`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/flow`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_flow`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**

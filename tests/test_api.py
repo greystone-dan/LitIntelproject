@@ -188,9 +188,9 @@ def test_case_search_ui_has_download_action_using_current_search_values():
     page = routes.data_explorer_page().body.decode("utf-8")
 
     search_actions = re.findall(r'<div class="search-actions">(.*?)</div>', page)
-    export_actions = next(actions for actions in search_actions if 'id="downloadSearchCsv"' in actions)
+    export_actions = next(actions for actions in search_actions if 'id="downloadSearchWord"' in actions)
     assert 'type="submit" class="sq-go">Search cases</button>' in export_actions
-    assert 'id="downloadSearchCsv">Download CSV</button>' in export_actions
+    assert 'id="downloadSearchCsv"' not in page
     assert 'id="downloadSearchWord"' in export_actions
     assert "Object.entries(searchValues())" in page
     assert "/search/export.csv?" in page

@@ -1450,6 +1450,36 @@ The generated, table-by-table schema appendix is [docs/SCHEMA_REFERENCE.generate
 
 The appendix is generated from `backend.database.Base.metadata`. Alembic remains the deployment migration authority, and direct database inspection remains the final authority for an existing environment that may have drifted from code.
 
+### Refinement Storage Scaffold
+
+Revision `0039_citation_refinement` adds separate `citations_refined`,
+`statute_references_refined`, `citation_paragraph_links`, and
+`citation_refine_status` tables. Refined occurrences preserve the base occurrence
+fields, defaults, nullability, and foreign-key delete behavior; they add explicit
+refinement versions and nullable step/confidence metadata. Statute grouping has
+nullable integer start/end/index fields. Only the two occurrence tables have
+`source_case_id` indexes; status uses that field as its primary key.
+`source_citation_id` deliberately has no foreign key, so a later base-citation
+rebuild cannot cascade-delete refinement evidence. Paragraph links cascade only
+from their refined citation.
+
+This is storage only: no refinement writer, reader, resolver, route, backfill,
+or extraction switch is wired to these tables. Live Analysis's heuristic
+back-reference links remain independent of this scaffold. The migration follows
+main's unchanged `0038_search_indexes` revision. Existing `init_db()` is unchanged; as with other
+ORM models, its `create_all()` includes these tables, and metadata-based readiness
+includes them. Alembic remains the deployment path. The migration creates only
+absent tables, leaves pre-existing tables/indexes untouched, and has a no-op
+downgrade to preserve data. It does not repair pre-existing schema drift.
+`tests/test_citation_refinement_migration.py` includes DB-free contracts and an
+opt-in disposable PostgreSQL test (`CASELIBRARY_PGVECTOR_TESTS=1`, complete
+`POSTGRES_*` configuration, no root/backend dotenv overrides). The latter
+migrates an isolated empty schema from zero, checks column/type/nullability,
+primary-key, foreign-key and index parity, directly repeats the upgrade function,
+and checks table preservation through downgrade/re-upgrade, with final cleanup.
+It skips without opt-in or when PostgreSQL is unavailable; it was not run against
+a database during this change's validation.
+
 ### Proposed ID/IAD Decision Coverage
 
 ID/IAD tribunal decisions are not currently described as an implemented
@@ -1494,7 +1524,8 @@ design.
 
 ## Migrations
 
-Alembic migrations currently have one head, `0030_full_paragraph_ivfflat`.
+Alembic migrations currently have one head, `0039_citation_refinement`,
+following `0038_search_indexes`.
 The table below summarizes the early revisions; the complete graph remains
 authoritative in `alembic/versions/`.
 
@@ -2454,7 +2485,7 @@ This section makes this file self-contained. The companion files remain the main
 
 ### Appendix: AI CaseLibrary Work History
 
-Last generated: 2026-09-28T16:38:40.422022+00:00
+Last generated: 2026-10-05T13:00:43.450765+00:00
 
 This is the project work ledger derived from retained local VS Code session history. It complements `CHANGELOG.md`: the changelog records repository changes, while this document records the larger work narrative and an estimated Copilot-assisted effort timeline.
 
@@ -2478,12 +2509,14 @@ This is the project work ledger derived from retained local VS Code session hist
 
 ## Project Cost Context
 
-- Period represented: 2 months
-- Claude Code subscription: $300.00 (150.00/month)
-- Claude Code overage: $50.00
-- OpenAI credit: $25.00
-- Website hosting: $12.00
-- Estimated project cost for this period: $387.00
+- Period represented: costs to date as of 2026-10-05
+- GitHub Copilot (cumulative): $552.23
+- Claude Code subscription: $160.00/month (recurring)
+- Anthropic API (cumulative): $54.24
+- OpenAI credit (cumulative): $60.00
+- Website hosting / Cloudflare (cumulative): $14.85
+- Total to date (one-time costs): $841.32
+- Claude subscription of $160/month is recurring and continues to accrue beyond this total.
 - These user-provided figures are separate from the incomplete artifact-based API ledger in `docs/EVALUATION_COSTS.md`.
 
 ## Workstream Breakdown
@@ -3141,11 +3174,11 @@ The generator deliberately does not read a private VS Code session database dire
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.005395+00:00
+Generated: 2026-10-05T14:01:01.732842+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 109 across 106 paths
-Hidden operations: 62 excluded from OpenAPI
+OpenAPI operations: 130 across 127 paths
+Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3270,6 +3303,8 @@ Search Analytics Cases
 - `limit` (query, optional; integer, default `50`)
 - `offset` (query, optional; integer, default `0`)
 - `cohort_id` (query, optional; string, default `""`)
+- `facets` (query, optional; boolean, default `true`)
+- `citation_stats` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -3283,6 +3318,21 @@ Get Analytics Search Case
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/citation-stats`
+
+Search Analytics Citation Stats
+
+Citation counts for the result cards on screen, loaded after the results so they never delay them.
+
+**Parameters**
+
+- `ids` (query, optional; string, default `""`)
 
 **Responses**
 
@@ -3315,6 +3365,30 @@ Compare Cohort Assessment Records
 - `role` (query, optional; string, default `""`)
 - `limit` (query, optional; integer, default `25`)
 - `cohort_id` (query, optional; string, default `"discussion_units_core_300"`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/facets`
+
+Search Analytics Facets
+
+Court/year counts for the current filters, loaded after the results so they never delay them.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `cohort_id` (query, optional; string, default `""`)
 
 **Responses**
 
@@ -3360,6 +3434,14 @@ Get Analytics Themes
 
 - `200`: Successful Response; `application/json`: `object`
 
+### `GET /api/ai-mode`
+
+Get Ai Mode
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
 ### `GET /api/cases/{case_id}/summary`
 
 Get Case Summary
@@ -3371,6 +3453,52 @@ Get Case Summary
 **Responses**
 
 - `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/cases/{case_id}/summary-card`
+
+Get Case Summary Card
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `CaseSummaryCardResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/citation-treatment/{case_id}`
+
+Get Citation Treatment
+
+Experimental read-only paragraph evidence, not permanent authority labels.
+
+Counts use distinct citing decisions including unknown as their denominator.
+Classes overlap for mixed evidence; unknown means no classifiable evidence.
+No UI, citation metrics, stored data or source offsets are changed.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/compare`
+
+Compare Cases By Id Or Citation
+
+**Parameters**
+
+- `a` (query, required; string): Case ID or stored citation (maximum 512 characters).
+- `b` (query, required; string): Case ID or stored citation (maximum 512 characters).
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/judge-profiles/{slug}/issues`
@@ -3419,6 +3547,45 @@ Return local authoritative section text and cases citing the pinpoint.
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /api/overruling-risk/{case_id}`
+
+Get Overruling Risk
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/search-embedding-status`
+
+Search Embedding Status
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statutes/{act}/{section}/consideration`
+
+Statute Consideration Analytics
+
+Return descriptive, distinct-decision statistics for stored section references.
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /api/statutes/{statute_code}`
 
 Get Statute By Code
@@ -3450,6 +3617,19 @@ Get sections for a specific statute version.
 
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/version`
+
+Api Version
+
+Return safe application version information.
+
+The response contains only a sanitized commit, process start time, and
+interpreter version.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 
 ### `GET /cases/compare`
 
@@ -3576,6 +3756,40 @@ Get Case Contextual Anchors
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/evidence-summary`
+
+Get Case Evidence Summary
+
+Discussion-unit evidence and case summary, loaded after the decision text so they never delay it.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /cases/{case_id}/markup-export`
+
+Export Case Markup Docx
+
+Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `MarkupExportRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
@@ -3583,6 +3797,22 @@ Get Case Paragraph Assessments
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-text`
+
+Get Case Paragraph Text
+
+Stored text of numbered paragraphs of one case; the reader's citation hover asks for what it was not sent.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `paragraphs` (query, required; string): Comma-separated paragraph numbers, e.g. 45,46,47
 
 **Responses**
 
@@ -3611,6 +3841,7 @@ Get Case Reader Data
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `evidence` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -4334,6 +4565,31 @@ Health
 
 - `200`: Successful Response; `application/json`: `unspecified`
 
+### `GET /health/limits`
+
+Health Limits
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/live`
+
+Health Live
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/ready`
+
+Health Ready
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `503`: A required dependency is unavailable
+
 ### `POST /ingest`
 
 Ingest Case
@@ -4417,6 +4673,36 @@ Live Analysis Analyze
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /live-analysis/reader`
+
+Live Analysis Reader
+
+Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called.
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_reader_live_analysis_reader_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader-text`
+
+Live Analysis Reader Text
+
+Same as ``/live-analysis/reader`` for pasted text.
+
+**Request body (required)**
+
+- `application/json`: `LiveReaderTextRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/resolve`
 
 Live Analysis Resolve
@@ -4442,6 +4728,27 @@ Memo Citation Check Analyze
 
 - `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /precedent-finder`
+
+Precedent Finder Analyze
+
+Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+Rank by distinct matching citing decisions, distinct matched tags, authority
+date descending, then citation ascending. Statutes do not influence ranking.
+All responses are no-store; no raw proposition is returned or persisted.
+
+**Request body (required)**
+
+- `application/json`: `object`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `413`: Proposition or JSON body exceeds the input limit; input is never echoed.
+- `422`: Invalid JSON proposition; input is never echoed.
+- `500`: Research unavailable; input is never echoed.
 
 ### `GET /prototype/cases`
 
@@ -4513,6 +4820,36 @@ Create Saved Search
 **Responses**
 
 - `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest`
+
+Saved Search Digest
+
+Build a read-only digest of recorded case alerts, not live search results.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest.html`
+
+Saved Search Digest Html
+
+Render the same read-only digest as self-contained inline-CSS HTML.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `text/html`: `string`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `DELETE /saved-searches/{search_id}`
@@ -5311,6 +5648,22 @@ Handler: `backend.routes.citation_pass_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.compare_cases_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /data-explorer`
 
 **Hidden from OpenAPI.**
@@ -5510,6 +5863,16 @@ Handler: `backend.routes.memo_citation_check_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /precedent-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.precedent_finder_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /prototype`
 
 **Hidden from OpenAPI.**
@@ -5555,6 +5918,16 @@ Handler: `backend.main.robots`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-consideration`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_consideration.statute_consideration_page`
 
 **Responses**
 
@@ -5608,8 +5981,8 @@ Handler: `backend.routes.theme_explorer_page`
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-04T14:33:17.743454+00:00
-Tables: 32
+Generated: 2026-10-05T14:01:01.738163+00:00
+Tables: 38
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -5763,6 +6136,21 @@ erDiagram
         Integer out_degree
         FLOAT pagerank
     }
+    citation_paragraph_links {
+        Integer id PK
+        Integer refined_citation_id  FK
+        Integer target_case_id
+        Integer target_paragraph
+        String(50) link_status
+    }
+    citation_refine_status {
+        Integer source_case_id PK
+        Integer refine_version
+        String(50) status
+        DATETIME processed_at
+        Integer case_rows
+        Integer statute_rows
+    }
     citations {
         Integer id PK
         Integer source_case_id  FK
@@ -5781,6 +6169,29 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    citations_refined {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer target_case_id  FK
+        String(20) citation_kind
+        TEXT citation_text
+        TEXT normalized_citation
+        TEXT anchor_citation_text
+        Integer anchor_offset_start
+        Integer anchor_offset_end
+        String(255) declared_alias
+        Integer target_paragraph
+        Integer target_chunk_id  FK
+        String(20) provenance
+        Integer chunk_id  FK
+        Integer offset_start
+        Integer offset_end
+        BOOLEAN unresolved
+        String(50) refine_step
+        FLOAT confidence
+        Integer refine_version
+        Integer source_citation_id
     }
     discussion_unit_cache {
         Integer id PK
@@ -5978,6 +6389,23 @@ erDiagram
         TEXT text
         Integer display_order
     }
+    paragraph_citation_edges {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer target_case_id  FK
+        Integer target_paragraph
+        Integer mentions
+        String(20) purpose
+        JSON purpose_counts
+        String(60) signal
+        Integer algo_version
+    }
+    paragraph_citation_status {
+        Integer source_case_id PK FK
+        Integer algo_version
+        Integer edges
+        DATETIME computed_at
+    }
     recent_case_chunk_embeddings {
         Integer chunk_id PK FK
         Integer case_id  FK
@@ -6031,6 +6459,32 @@ erDiagram
         TEXT section_text
         String(20) reference_kind
     }
+    statute_references_refined {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer chunk_id  FK
+        Integer statute_version_id  FK
+        Integer offset_start
+        Integer offset_end
+        TEXT reference_text
+        TEXT normalized_reference
+        String(100) instrument_key
+        String(255) pinpoint
+        String(50) provision_section
+        String(50) provision_subsection
+        String(50) provision_paragraph
+        Integer provision_nested_depth
+        BOOLEAN provision_is_range_or_list
+        TEXT legislation_url
+        TEXT section_text
+        String(20) reference_kind
+        String(50) refine_step
+        FLOAT confidence
+        Integer group_start
+        Integer group_end
+        Integer group_index
+        Integer refine_version
+    }
     statute_sections {
         Integer id PK
         Integer statute_version_id  FK
@@ -6081,10 +6535,15 @@ erDiagram
     cases ||--o{ case_tags : "case_id"
     case_chunks ||--o{ case_tags : "chunk_id"
     cases ||--o{ citation_metrics : "case_id"
+    citations_refined ||--o{ citation_paragraph_links : "refined_citation_id"
     case_chunks ||--o{ citations : "chunk_id"
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    case_chunks ||--o{ citations_refined : "chunk_id"
+    cases ||--o{ citations_refined : "source_case_id"
+    cases ||--o{ citations_refined : "target_case_id"
+    case_chunks ||--o{ citations_refined : "target_chunk_id"
     cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
@@ -6093,6 +6552,9 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
+    cases ||--o{ paragraph_citation_edges : "source_case_id"
+    cases ||--o{ paragraph_citation_edges : "target_case_id"
+    cases ||--o{ paragraph_citation_status : "source_case_id"
     cases ||--o{ recent_case_chunk_embeddings : "case_id"
     case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
     cases ||--o{ search_alerts : "case_id"
@@ -6101,6 +6563,9 @@ erDiagram
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
     statute_versions ||--o{ statute_references : "statute_version_id"
+    case_chunks ||--o{ statute_references_refined : "chunk_id"
+    cases ||--o{ statute_references_refined : "source_case_id"
+    statute_versions ||--o{ statute_references_refined : "statute_version_id"
     statute_versions ||--o{ statute_sections : "statute_version_id"
     statutes ||--o{ statute_versions : "statute_id"
 ```
@@ -6121,7 +6586,10 @@ erDiagram
 | `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
+| `citation_paragraph_links` | 5 | `id` |
+| `citation_refine_status` | 6 | `source_case_id` |
 | `citations` | 17 | `id` |
+| `citations_refined` | 21 | `id` |
 | `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
@@ -6134,10 +6602,13 @@ erDiagram
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
+| `paragraph_citation_edges` | 9 | `id` |
+| `paragraph_citation_status` | 4 | `source_case_id` |
 | `recent_case_chunk_embeddings` | 10 | `chunk_id` |
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
 | `statute_references` | 18 | `id` |
+| `statute_references_refined` | 24 | `id` |
 | `statute_sections` | 10 | `id` |
 | `statute_versions` | 10 | `id` |
 | `statutes` | 12 | `id` |
@@ -6489,6 +6960,35 @@ erDiagram
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
 
+## `citation_paragraph_links`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `refined_citation_id` | `Integer` | no | FK -> citations_refined.id; NOT NULL |
+| `target_case_id` | `Integer` | yes | - |
+| `target_paragraph` | `Integer` | no | NOT NULL |
+| `link_status` | `String(50)` | no | NOT NULL |
+
+### Foreign Keys
+
+- `refined_citation_id` -> `citations_refined.id`; on delete `CASCADE`
+
+## `citation_refine_status`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; NOT NULL |
+| `refine_version` | `Integer` | no | NOT NULL |
+| `status` | `String(50)` | no | NOT NULL |
+| `processed_at` | `DATETIME` | yes | - |
+| `case_rows` | `Integer` | no | NOT NULL |
+| `statute_rows` | `Integer` | no | NOT NULL |
+
 ## `citations`
 
 ### Columns
@@ -6526,6 +7026,45 @@ erDiagram
 - `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
 - `ix_similarity_citation_source`: index on `source_case_id`, `id`
 - `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
+
+### Foreign Keys
+
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `citations_refined`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_case_id` | `Integer` | yes | FK -> cases.id |
+| `citation_kind` | `String(20)` | no | NOT NULL; default=unknown |
+| `citation_text` | `TEXT` | yes | - |
+| `normalized_citation` | `TEXT` | yes | - |
+| `anchor_citation_text` | `TEXT` | yes | - |
+| `anchor_offset_start` | `Integer` | yes | - |
+| `anchor_offset_end` | `Integer` | yes | - |
+| `declared_alias` | `String(255)` | yes | - |
+| `target_paragraph` | `Integer` | yes | - |
+| `target_chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `provenance` | `String(20)` | no | NOT NULL; default=local |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `unresolved` | `BOOLEAN` | no | NOT NULL; default=False |
+| `refine_step` | `String(50)` | yes | - |
+| `confidence` | `FLOAT` | yes | - |
+| `refine_version` | `Integer` | no | NOT NULL |
+| `source_citation_id` | `Integer` | yes | - |
+
+### Indexes
+
+- `ix_citations_refined_source_case_id`: index on `source_case_id`
 
 ### Foreign Keys
 
@@ -6921,6 +7460,50 @@ erDiagram
 
 - `document_id` -> `legislation_documents.id`; on delete `CASCADE`
 
+## `paragraph_citation_edges`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_paragraph` | `Integer` | no | NOT NULL |
+| `mentions` | `Integer` | no | NOT NULL; default=1 |
+| `purpose` | `String(20)` | no | NOT NULL; default=mentioned |
+| `purpose_counts` | `JSON` | yes | - |
+| `signal` | `String(60)` | yes | - |
+| `algo_version` | `Integer` | no | NOT NULL; default=1 |
+
+### Indexes
+
+- `ix_paragraph_citation_target`: index on `target_case_id`, `target_paragraph`
+
+### Unique Constraints
+
+- `uq_paragraph_citation_edge`: `source_case_id`, `target_case_id`, `target_paragraph`
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_citation_status`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; FK -> cases.id; NOT NULL |
+| `algo_version` | `Integer` | no | NOT NULL |
+| `edges` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+
 ## `recent_case_chunk_embeddings`
 
 ### Columns
@@ -7034,6 +7617,47 @@ erDiagram
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
 - `ix_statute_references_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_references_refined`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `reference_text` | `TEXT` | yes | - |
+| `normalized_reference` | `TEXT` | yes | - |
+| `instrument_key` | `String(100)` | yes | - |
+| `pinpoint` | `String(255)` | yes | - |
+| `provision_section` | `String(50)` | yes | - |
+| `provision_subsection` | `String(50)` | yes | - |
+| `provision_paragraph` | `String(50)` | yes | - |
+| `provision_nested_depth` | `Integer` | yes | - |
+| `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
+| `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
+| `reference_kind` | `String(20)` | no | NOT NULL |
+| `refine_step` | `String(50)` | yes | - |
+| `confidence` | `FLOAT` | yes | - |
+| `group_start` | `Integer` | yes | - |
+| `group_end` | `Integer` | yes | - |
+| `group_index` | `Integer` | yes | - |
+| `refine_version` | `Integer` | no | NOT NULL |
+
+### Indexes
+
+- `ix_statute_references_refined_source_case_id`: index on `source_case_id`
 
 ### Foreign Keys
 
@@ -7174,6 +7798,24 @@ The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, r
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
+## Public Health Probes
+
+The app keeps three health routes public, including when
+`CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
+
+| Route | Purpose | Failure behavior |
+| --- | --- | --- |
+| `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
+| `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
+| `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
+
+Readiness uses short per-probe timeouts and does not return credentials,
+hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
+model services are reported as `not_configured` and do not make the service
+unready; configured services that fail their endpoint check do. The database
+and vector requirements remain readiness dependencies regardless of optional
+model configuration.
+
 ## Optional Security Response Headers
 
 | Variable | Default | Consumer | Purpose and safety notes |
@@ -7213,17 +7855,17 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only explicitly selected local query embeddings. Hosted permits configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
-| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings; OpenAI additionally requires `ENHANCED_AI_MODE=hosted`. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
 | `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
-| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/text_generation_providers.py` | Selects `openai`, `local` (Ollama), or `openai_compatible` for `/research`. Enhanced local mode defaults to Ollama; the compatible provider requires a localhost/private `CHAT_BASE_URL`. Hosted mode requires a non-local compatible endpoint. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/text_generation_providers.py` | Selects `openai`, `local` (Ollama), or `openai_compatible` for `/research`. In enhanced `local` mode, Ollama remains the default; `openai_compatible` is accepted only when `CHAT_BASE_URL` is localhost or private. In `hosted` mode, the compatible provider requires a non-local endpoint. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
-| `CHAT_BASE_URL` | none | `backend/text_generation_providers.py` | OpenAI-SDK `base_url` for `openai_compatible`; local mode requires localhost/private and hosted mode requires a non-local endpoint. |
-| `CHAT_API_KEY` | none | `backend/text_generation_providers.py` | Optional key for the compatible endpoint; an SDK placeholder is used if omitted. |
-| `CHAT_MODEL` | `gpt-4o-mini` | `backend/text_generation_providers.py` | Model identifier sent to the compatible endpoint. |
+| `CHAT_BASE_URL` | none | `backend/text_generation_providers.py` | Base URL for the `openai_compatible` chat provider, passed to the OpenAI SDK as `base_url`. Enhanced local mode requires localhost/private; hosted mode requires a non-local endpoint. |
+| `CHAT_API_KEY` | none | `backend/text_generation_providers.py` | Optional API key for the compatible chat endpoint. The SDK uses a placeholder key when omitted, so local-compatible services should ignore bearer authentication. |
+| `CHAT_MODEL` | `gpt-4o-mini` | `backend/text_generation_providers.py` | Model identifier sent to the compatible chat endpoint. |
 | `CHAT_TIMEOUT_SECONDS` | `60` | `backend/text_generation_providers.py` | Positive request timeout for compatible chat completions. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
@@ -7244,16 +7886,37 @@ citations, statutes, offsets, and source provenance remain authoritative.
 The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
 explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
 `AI answers are disabled in this deployment` before retrieval or provider
-construction. The default hosted provider remains OpenAI. `local` selects
-Ollama (`qwen3:4b` by default) or an explicitly selected compatible endpoint
-whose `CHAT_BASE_URL` is localhost/private. In hosted mode, a compatible
-endpoint must be non-local. `CHAT_API_KEY` is optional; model and request
-timeout are configured by `CHAT_MODEL` and `CHAT_TIMEOUT_SECONDS`. The route
-uses provider context and output-token capabilities. An enabled route reports
-a controlled `503` when the selected provider is not configured or reachable.
-Setting these values does not download a model. Provider-side retention and
-processing location are not established by the code; verify the configured
-endpoint and its terms before sending research queries or retrieved excerpts.
+construction. The default `TEXT_GENERATION_PROVIDER=openai` preserves hosted
+OpenAI behavior. `local` selects Ollama (`qwen3:4b` by default); alternatively,
+`openai_compatible` selects the OpenAI SDK against `CHAT_BASE_URL`. Local mode
+allows that compatible provider only for localhost/private URLs. Hosted mode
+requires a non-local endpoint. The compatible provider advertises a 12,000
+character context limit, no default output-token cap, and JSON-mode support;
+Ollama advertises a 4,000-character limit and 256 default output tokens. The
+route uses provider context and output-token capabilities. An enabled route
+reports a controlled `503` when the selected provider is not configured or
+reachable. Setting these values does not download a model. Provider-side
+retention and processing location are not established by these settings; verify
+the configured endpoint and its terms before sending research queries or
+retrieved case excerpts.
+
+Query embedding is a separate provider decision and is disabled by default.
+Semantic/hybrid search uses lexical ranking until an operator explicitly sets
+`QUERY_EMBEDDING_PROVIDER=openai` or `local` and enables enhanced AI mode. OpenAI
+query inference additionally requires `ENHANCED_AI_MODE=hosted`; local query
+inference is permitted in `local` or `hosted` mode. The default off mode never
+constructs a query embedding provider. Only the OpenAI setting sends query text
+off-machine. Case-ingestion summary embeddings retain their existing,
+separately controlled provider path. The read-only
+`GET /api/search-embedding-status` endpoint reports both selected providers,
+the query model and dimensions (`null` when embeddings are disabled), the
+indexed-vector dimension, and whether query text is sent off-machine. It does
+not instantiate the embedding model. With the local BGE-M3 model,
+query vectors are 1024-dimensional while the standard hosted semantic index is
+1536-dimensional; the search dimension guard rejects that incompatible vector
+rather than submitting it. Local model inference may fetch model artifacts on
+first use if they are not already cached; this is separate from whether query
+text leaves the machine. See `docs/reports/local-query-embeddings.md`.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
@@ -7261,8 +7924,8 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
-| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 
@@ -7651,7 +8314,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 158
+Active scripts documented: 168
 
 ## Catalog
 
@@ -7680,6 +8343,8 @@ Active scripts documented: 158
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
+| `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
+| `build_changelog.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_changelog.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
@@ -7695,6 +8360,7 @@ Active scripts documented: 158
 | `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
+| `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
@@ -7707,6 +8373,7 @@ Active scripts documented: 158
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
 | `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
+| `compare_eval_runs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help` |
 | `compare_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_pipeline_case.py --help` |
 | `crawl_canlii.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\crawl_canlii.py --help` |
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
@@ -7721,9 +8388,11 @@ Active scripts documented: 158
 | `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
+| `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
+| `evaluate_discussion_unit_boundaries.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_discussion_unit_boundaries.py --help` |
 | `evaluate_fc_activity_deterministic.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_activity_deterministic.py --help` |
 | `evaluate_fc_citation_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_fc_citation_extraction.py --help` |
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
@@ -7777,6 +8446,7 @@ Active scripts documented: 158
 | `populate_fc_gold_case_ids.py` | Evaluation artifact maintenance | filesystem writer | `.\venv\Scripts\python.exe scripts\populate_fc_gold_case_ids.py --help` |
 | `prepare_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_discussion_units_cohort.py --help` |
 | `prepare_treatment_teacher_batch.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help` |
+| `profile_reader.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\profile_reader.py --help` |
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
@@ -7796,8 +8466,10 @@ Active scripts documented: 158
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
+| `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
+| `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
@@ -7805,6 +8477,7 @@ Active scripts documented: 158
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
+| `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -8138,6 +8811,34 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\browser_smoke.py --help
 ```
 
+## `scripts/build_alert_digest.py`
+
+**Purpose:** Build an offline saved-search digest from enriched JSON on stdin or --input.
+
+**Operational class:** Saved-search digest rendering
+
+**Write/network risk:** offline JSON input; filesystem output only; no database, network or sending
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_alert_digest.py --help
+```
+
+## `scripts/build_changelog.py`
+
+**Purpose:** Build the About-page changelog from GitHub records plus hand-written entries. Inputs (all committed under data/changelog/): entries.json hand-written, plain-language entries. Each one lists the merged PRs ("#216"), commits (short sha) or work-history days it summarises. An entry that cites merged PRs takes the date of the latest one, so dates always match GitHub. skip.json merged PRs deliberately left out (docs-only, CI tweaks, reverts, scratch work), with a reason. github_records.json cache of merged PRs and commits, written by --refresh. Output: data/changelog/changelog.json, which the About page embeds. Nothing is fetched when the page is viewed. python scripts/build_changelog.py rebuild changelog.json from the committed inputs python scripts/build_changelog.py --refresh first pull merged PRs and commits from GitHub (GITHUB_TOKEN, or the gh CLI) python scripts/build_changelog.py --check exit 1 if changelog.json is out of date (used by tests) python scripts/build_changelog.py --uncovered list merged PRs that have no entry and are not skipped Merged PRs that have no entry and are not skipped still appear, as short "auto" entries built from the PR title, so a refresh never loses work; write a proper entry for them in entries.json when convenient.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_changelog.py --help
+```
+
 ## `scripts/build_citation_sample_candidate.py`
 
 **Purpose:** Build a deterministic, read-only citation extraction candidate report.
@@ -8348,6 +9049,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help
 ```
 
+## `scripts/build_paragraph_cited_by.py`
+
+**Purpose:** Build the paragraph-level "cited by" tables from stored citation occurrences. For every case that cites another library case by paragraph, store which paragraph it cites, how often, and the signal phrase written next to the citation ("see also", "followed in", "distinguished", ...). The reader's Markup view reads these rows. Safe by default: with no flags it only reports what it would do. Nothing is written without --apply. No AI. It is built so it cannot slow the live site down (lowest process priority, one database connection, short time limits, rests between small batches, optional site health check, stop file). python scripts/build_paragraph_cited_by.py # plan only python scripts/build_paragraph_cited_by.py --apply --max-minutes 30 --health-url http://127.0.0.1:8001/health/ready python scripts/build_paragraph_cited_by.py --report-cited 1292 # show what is stored for a case Resumable: a citing case counts as done once its status row is written, so stopping (Ctrl+C, the stop file, --max-minutes) and running the same command again carries on. To redo everything after changing the classifier, raise ALGO_VERSION in backend/paragraph_cited_by.py. Read docs/PARAGRAPH_CITED_BY.md before running.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -8514,6 +9229,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help
+```
+
+## `scripts/compare_eval_runs.py`
+
+**Purpose:** Compare two model-evaluation runs using paired bootstrap confidence intervals.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help
 ```
 
 ## `scripts/compare_pipeline_case.py`
@@ -8712,6 +9441,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help
 ```
 
+## `scripts/eval_models.py`
+
+**Purpose:** Evaluate local embedding and JSON-generation models on frozen datasets.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_models.py --help
+```
+
 ## `scripts/evaluate_chunk_parity.py`
 
 **Purpose:** Compare HTML-enabled and text-only chunking on a bounded sample.
@@ -8752,6 +9495,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help
+```
+
+## `scripts/evaluate_discussion_unit_boundaries.py`
+
+**Purpose:** Score discussion-unit boundaries against hand-read gold labels. One evaluator for every version of ``backend/contextual_authority/discussion_units.py``. Everything runs offline from the stored deterministic case reports (``data/eval/llm_discussion_units_pilot/core_300_run/reports``); no database, network or model calls. Counting is per boundary (a boundary is a unit start paragraph index): * hits = gold starts that the algorithm also predicts (exact) * missed = gold starts not predicted * spurious = predicted starts not in gold * within-1 = gold starts matched one-to-one to a predicted start at most one paragraph away (exact matches are paired first, so one predicted start can never satisfy two gold starts) Paragraph 0 is a boundary in every gold label and every prediction, so the "interior" columns repeat the counts without it. Usage: python scripts/evaluate_discussion_unit_boundaries.py # working tree python scripts/evaluate_discussion_unit_boundaries.py --rev origin/main --rev ded7069 python scripts/evaluate_discussion_unit_boundaries.py --stored # units saved in the reports
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_discussion_unit_boundaries.py --help
 ```
 
 ## `scripts/evaluate_fc_activity_deterministic.py`
@@ -9496,6 +10253,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\prepare_treatment_teacher_batch.py --help
 ```
 
+## `scripts/profile_reader.py`
+
+**Purpose:** Time where a decision's reader payload spends its time (read-only). Runs build_case_reader_data for one case with per-stage wall times, SQL statement count and the slowest statements, then the real FastAPI route through TestClient (validation, JSON encoding, middleware) so any gap between the function and the HTTP response is visible. Only SELECTs are issued; the session is rolled back. python scripts/profile_reader.py 35874 python scripts/profile_reader.py 35874 28926 --profile-file logs/profile_reader.txt
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\profile_reader.py --help
+```
+
 ## `scripts/quick_search_engine.py`
 
 **Purpose:** Quick semantic search tester over chunk embeddings. Usage: python -m scripts.quick_search_engine "non-refoulement risk evidence"
@@ -9762,6 +10533,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help
 ```
 
+## `scripts/run_jobs.py`
+
+**Purpose:** Run opt-in interval jobs in a separate process, without database or dotenv imports.
+
+**Operational class:** Standalone interval orchestration
+
+**Write/network risk:** DB-free scheduler; opt-in child commands may write or use network; defaults disabled
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_jobs.py --list
+```
+
 ## `scripts/run_local_paragraph_summary_baseline.py`
 
 **Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
@@ -9788,6 +10573,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
+## `scripts/run_outcome_checker.py`
+
+**Purpose:** Second-opinion outcome reader for cases the rules leave "unclear" (advisory data, never overwrites). Dry run by default: counts the cases, estimates tokens and cost, calls nothing. A real run needs --confirm-spend and OPENAI_API_KEY, stops at --max-usd (never above 1.00), and writes JSONL files to --out. Only open case law is sent. Use --source gold to measure the checker against the hand-read gold set (class-by-class agreement).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help
 ```
 
 ## `scripts/run_overnight.py`
@@ -9886,6 +10685,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help
+```
+
+## `scripts/sample_pinpoint_forms.py`
+
+**Purpose:** Count the pinpoint forms that really occur in decisions (read-only sampling aid). Usage: python scripts/sample_pinpoint_forms.py FCA.parquet RPD.parquet [--limit N] [--verify-target FCA.parquet] Input is any parquet with an ``unofficial_text_en`` column (A2AJ dataset shards). Classifies each paragraph/page pinpoint into a shape such as ``N``, ``N-N``, ``N,N and N``, ``N ff``, then reports how much of each shape the repo parser (``backend.citation_refine.pinpoints``) turns into the right set of numbers.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`
@@ -10349,8 +11162,6 @@ controls, and reader subtabs. It is limited to the 300 IDs in
 and reader endpoints are separately scoped; requests for cases outside the
 manifest return `404`, and linked authorities outside the cohort are not
 exposed as navigable sandbox targets.
-The separate `backend/unit_search.py` semantic helper is deprecated and is not
-called by these routes; its default and stored-vector filter use `BAAI/bge-m3`.
 
 The active Data Explorer also provides a Core Cases proof of concept. `Display
 core cases` loads the first 100 ordinary case results while retaining the full
@@ -10782,14 +11593,6 @@ case or is cited by it and the stored occurrence count. Related rows open the
 active reader. This is a bounded relationship view, not a legal-similarity or
 citation-treatment classification.
 
-The paragraph cited-by builder behind those rows now has two modes: the
-original citing-case batch and an incremental per-case repair path for
-canonical `cases.id` values with no current status yet. The incremental path
-defaults to a bounded limit when none is supplied, does not use the site-health
-gate, and the off-by-default FC ingest hook now idempotently calls the shared
-one-case processor after the canonical citation commit when a source case needs
-a refresh.
-
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
 ## Judge Profile
@@ -11027,7 +11830,7 @@ not part of the base `requirements.txt`.
 | System surface | Primary tests | Coverage focus | Main gaps |
 | --- | --- | --- | --- |
 | Core API, ingest, search, reader payloads | `test_api.py` | Request validation, filtering, ranking, reader/citation-pass responses, metadata compatibility | No live PostgreSQL/pgvector performance suite |
-| Active Data Explorer UI contract | `test_feature_tabs.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup | No browser interaction/screenshot test |
+| Active Data Explorer UI contract | `test_feature_tabs.py`, `test_inline_js_syntax.py` | Tab presence, hidden route behavior, live stats contract, search controls, panel markup, rendered inline-script syntax | No browser interaction/screenshot test |
 | Citation extraction and resolution | `test_citations.py`, `test_citation_pipeline.py` | Case forms, aliases, pinpoints, offsets, statutes/instruments, rebuild semantics, graph bounds | Real-corpus precision/recall remains sampled rather than continuous |
 | Citation context, FC activity normalization, metadata subject derivation | `test_citation_refine_context.py`, `test_fc_activity_pure_logic.py`, `test_metadata_subjects.py` | Deterministic term resolution, source-row normalization, case-subject classification without a database | Broader language/source-format gold sets remain valuable |
 | Citation audit tooling | `test_verify_citation_extraction.py`, `test_build_fc_citation_seed.py`, `test_map_fc_seed_to_local_cases.py` | Fixtures, spans, audit reports, seed normalization/mapping | External model audit calls are not run in normal tests |
@@ -11066,7 +11869,7 @@ The overnight runner tests locks, job selection, state transitions, and command 
 | Change | Minimum test/check |
 | --- | --- |
 | Citation/statute rule | Relevant `test_citations.py` slice plus exact-span fixture; verify IRPA/IRPR nested forms, mixed-case provision identity, and negative shorthand cases when touched |
-| Reader/UI markup or behavior | `test_feature_tabs.py`, route/compile check, and manual browser interaction |
+| Reader/UI markup or behavior | `test_feature_tabs.py`, `test_inline_js_syntax.py`, route/compile check, and manual browser interaction |
 | Search/ranking/filter | Relevant `test_api.py` slice; inspect query semantics and result ordering |
 | Metadata/outcome/docket logic | `test_metadata.py` plus relevant `test_api.py` cases |
 | Tag taxonomy | `test_legal_tagger.py` with focused new rule fixture |

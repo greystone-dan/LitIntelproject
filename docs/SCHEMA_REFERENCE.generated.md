@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T16:05:30.970017+00:00
-Tables: 34
+Generated: 2026-10-05T16:40:18.751886+00:00
+Tables: 38
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -157,6 +157,21 @@ erDiagram
         Integer out_degree
         FLOAT pagerank
     }
+    citation_paragraph_links {
+        Integer id PK
+        Integer refined_citation_id  FK
+        Integer target_case_id
+        Integer target_paragraph
+        String(50) link_status
+    }
+    citation_refine_status {
+        Integer source_case_id PK
+        Integer refine_version
+        String(50) status
+        DATETIME processed_at
+        Integer case_rows
+        Integer statute_rows
+    }
     citations {
         Integer id PK
         Integer source_case_id  FK
@@ -175,6 +190,29 @@ erDiagram
         Integer offset_start
         Integer offset_end
         BOOLEAN unresolved
+    }
+    citations_refined {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer target_case_id  FK
+        String(20) citation_kind
+        TEXT citation_text
+        TEXT normalized_citation
+        TEXT anchor_citation_text
+        Integer anchor_offset_start
+        Integer anchor_offset_end
+        String(255) declared_alias
+        Integer target_paragraph
+        Integer target_chunk_id  FK
+        String(20) provenance
+        Integer chunk_id  FK
+        Integer offset_start
+        Integer offset_end
+        BOOLEAN unresolved
+        String(50) refine_step
+        FLOAT confidence
+        Integer refine_version
+        Integer source_citation_id
     }
     discussion_unit_cache {
         Integer id PK
@@ -442,6 +480,32 @@ erDiagram
         TEXT section_text
         String(20) reference_kind
     }
+    statute_references_refined {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer chunk_id  FK
+        Integer statute_version_id  FK
+        Integer offset_start
+        Integer offset_end
+        TEXT reference_text
+        TEXT normalized_reference
+        String(100) instrument_key
+        String(255) pinpoint
+        String(50) provision_section
+        String(50) provision_subsection
+        String(50) provision_paragraph
+        Integer provision_nested_depth
+        BOOLEAN provision_is_range_or_list
+        TEXT legislation_url
+        TEXT section_text
+        String(20) reference_kind
+        String(50) refine_step
+        FLOAT confidence
+        Integer group_start
+        Integer group_end
+        Integer group_index
+        Integer refine_version
+    }
     statute_sections {
         Integer id PK
         Integer statute_version_id  FK
@@ -492,10 +556,15 @@ erDiagram
     cases ||--o{ case_tags : "case_id"
     case_chunks ||--o{ case_tags : "chunk_id"
     cases ||--o{ citation_metrics : "case_id"
+    citations_refined ||--o{ citation_paragraph_links : "refined_citation_id"
     case_chunks ||--o{ citations : "chunk_id"
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    case_chunks ||--o{ citations_refined : "chunk_id"
+    cases ||--o{ citations_refined : "source_case_id"
+    cases ||--o{ citations_refined : "target_case_id"
+    case_chunks ||--o{ citations_refined : "target_chunk_id"
     cases ||--o{ discussion_unit_cache : "case_id"
     fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
     saved_searches ||--o{ fc_activity_alerts : "search_id"
@@ -515,6 +584,9 @@ erDiagram
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
     statute_versions ||--o{ statute_references : "statute_version_id"
+    case_chunks ||--o{ statute_references_refined : "chunk_id"
+    cases ||--o{ statute_references_refined : "source_case_id"
+    statute_versions ||--o{ statute_references_refined : "statute_version_id"
     statute_versions ||--o{ statute_sections : "statute_version_id"
     statutes ||--o{ statute_versions : "statute_id"
 ```
@@ -535,7 +607,10 @@ erDiagram
 | `case_tags` | 15 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
+| `citation_paragraph_links` | 5 | `id` |
+| `citation_refine_status` | 6 | `source_case_id` |
 | `citations` | 17 | `id` |
+| `citations_refined` | 21 | `id` |
 | `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
@@ -554,6 +629,7 @@ erDiagram
 | `saved_searches` | 9 | `id` |
 | `search_alerts` | 8 | `id` |
 | `statute_references` | 18 | `id` |
+| `statute_references_refined` | 24 | `id` |
 | `statute_sections` | 10 | `id` |
 | `statute_versions` | 10 | `id` |
 | `statutes` | 12 | `id` |
@@ -905,6 +981,35 @@ erDiagram
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
 
+## `citation_paragraph_links`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `refined_citation_id` | `Integer` | no | FK -> citations_refined.id; NOT NULL |
+| `target_case_id` | `Integer` | yes | - |
+| `target_paragraph` | `Integer` | no | NOT NULL |
+| `link_status` | `String(50)` | no | NOT NULL |
+
+### Foreign Keys
+
+- `refined_citation_id` -> `citations_refined.id`; on delete `CASCADE`
+
+## `citation_refine_status`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; NOT NULL |
+| `refine_version` | `Integer` | no | NOT NULL |
+| `status` | `String(50)` | no | NOT NULL |
+| `processed_at` | `DATETIME` | yes | - |
+| `case_rows` | `Integer` | no | NOT NULL |
+| `statute_rows` | `Integer` | no | NOT NULL |
+
 ## `citations`
 
 ### Columns
@@ -942,6 +1047,45 @@ erDiagram
 - `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
 - `ix_similarity_citation_source`: index on `source_case_id`, `id`
 - `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
+
+### Foreign Keys
+
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `citations_refined`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_case_id` | `Integer` | yes | FK -> cases.id |
+| `citation_kind` | `String(20)` | no | NOT NULL; default=unknown |
+| `citation_text` | `TEXT` | yes | - |
+| `normalized_citation` | `TEXT` | yes | - |
+| `anchor_citation_text` | `TEXT` | yes | - |
+| `anchor_offset_start` | `Integer` | yes | - |
+| `anchor_offset_end` | `Integer` | yes | - |
+| `declared_alias` | `String(255)` | yes | - |
+| `target_paragraph` | `Integer` | yes | - |
+| `target_chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `provenance` | `String(20)` | no | NOT NULL; default=local |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `unresolved` | `BOOLEAN` | no | NOT NULL; default=False |
+| `refine_step` | `String(50)` | yes | - |
+| `confidence` | `FLOAT` | yes | - |
+| `refine_version` | `Integer` | no | NOT NULL |
+| `source_citation_id` | `Integer` | yes | - |
+
+### Indexes
+
+- `ix_citations_refined_source_case_id`: index on `source_case_id`
 
 ### Foreign Keys
 
@@ -1494,6 +1638,47 @@ erDiagram
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
 - `ix_statute_references_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_references_refined`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `reference_text` | `TEXT` | yes | - |
+| `normalized_reference` | `TEXT` | yes | - |
+| `instrument_key` | `String(100)` | yes | - |
+| `pinpoint` | `String(255)` | yes | - |
+| `provision_section` | `String(50)` | yes | - |
+| `provision_subsection` | `String(50)` | yes | - |
+| `provision_paragraph` | `String(50)` | yes | - |
+| `provision_nested_depth` | `Integer` | yes | - |
+| `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
+| `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
+| `reference_kind` | `String(20)` | no | NOT NULL |
+| `refine_step` | `String(50)` | yes | - |
+| `confidence` | `FLOAT` | yes | - |
+| `group_start` | `Integer` | yes | - |
+| `group_end` | `Integer` | yes | - |
+| `group_index` | `Integer` | yes | - |
+| `refine_version` | `Integer` | no | NOT NULL |
+
+### Indexes
+
+- `ix_statute_references_refined_source_case_id`: index on `source_case_id`
 
 ### Foreign Keys
 

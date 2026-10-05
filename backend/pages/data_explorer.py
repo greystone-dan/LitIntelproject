@@ -252,6 +252,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 @media(max-width:600px){.topbar{align-items:flex-start;gap:10px}.topbar .brand{margin-left:0;flex-basis:100%}.brand-sub{overflow-wrap:anywhere}.research-nav{width:100%}.research-nav button{flex:1;min-width:64px;padding:8px}.group-views{flex-wrap:wrap;overflow:visible}.group-views .tab{white-space:normal}}
 .result-snippet{margin:8px 0 0;color:var(--muted);font-size:12.5px;line-height:1.5;max-width:70ch}.result-snippet mark{background:#fff0b3;color:var(--text);padding:0 1px;border-radius:2px}
 .workbench-landing .page-header{padding:6px 4px 14px;border-bottom:1px solid var(--border)}.workbench-landing .page-header h2{font:700 30px/1.1 "Newsreader",serif;margin:0 0 8px}.workbench-landing .page-header p{max-width:760px;margin:0;color:var(--muted);font-size:13px;line-height:1.6}.workbench-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:16px 0 4px}.workbench-card{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--text);text-decoration:none}.workbench-card:hover,.workbench-card:focus-visible{border-color:var(--teal);box-shadow:0 2px 10px rgba(0,0,0,.06)}.workbench-card strong{font:700 18px/1.2 "Newsreader",serif}.workbench-card span{color:var(--muted);font-size:13px;line-height:1.5}.workbench-card em{margin-top:auto;font-style:normal;font-weight:700;font-size:12px;color:var(--teal)}@media(max-width:760px){.workbench-cards{grid-template-columns:1fr}}
+.judge-compare{margin:0 0 18px;border:1px solid var(--border);border-radius:5px;background:var(--surface);padding:0 14px}.judge-compare>summary{display:flex;align-items:baseline;gap:10px;padding:12px 0;cursor:pointer;font-weight:700;font-size:14px}.judge-compare>summary small{color:var(--muted);font-weight:400;font-size:12px}.judge-compare>p{margin:0 0 10px;color:var(--muted);font-size:12px;line-height:1.5;max-width:760px}.judge-compare form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;padding-bottom:14px}.judge-compare form>div{display:flex;flex-direction:column;gap:4px;flex:1 1 200px}.judge-compare label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.judge-compare input{padding:9px 10px;border:1px solid var(--border);border-radius:4px;font:inherit;font-size:14px}.judge-compare button[type=submit]{font:inherit;font-size:13px;padding:11px 16px;border:0;border-radius:4px;background:var(--ink,#16202c);color:#fff;font-weight:700;cursor:pointer}.judge-compare #judgeComparisonResult:not(:empty){padding-bottom:14px}
 .research-bench-panel{--bench-blue:#315d8d;--bench-blue-soft:#e7eef6;--bench-teal:#176c68;--bench-teal-soft:#edf5f3;--bench-rust:#a4412b;--bench-rust-soft:#f7e8e3;--bench-amber:#8a6418;--bench-amber-soft:#f8f0dc;background:linear-gradient(135deg,#fffef9,#f7faf8)}
 .research-bench-panel>.page-header{padding:6px 4px 14px;border-bottom:1px solid var(--border)}
 .research-bench-panel>.page-header h2{font:700 30px/1.1 "Newsreader",serif;color:var(--text);margin:0 0 8px}
@@ -336,7 +337,8 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 .qf-group{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px}.qf-label{margin-right:2px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .qf-chip{padding:5px 12px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#33465f;font-size:12.5px;font-weight:600;cursor:pointer}.qf-chip:hover{border-color:#102038}.qf-chip.is-active{background:#102038;border-color:#102038;color:#fff}
 .qf-tools{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-left:auto}.qf-link{padding:0;border:0;background:none;color:#1e3a8a;font-size:12.5px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.qf-link:hover{color:#102038}
-#downloadSearchWord[hidden]{display:none!important}
+#downloadSearchWord[hidden]{display:none!important}#downloadSearchWord:not([hidden]){display:inline-flex;align-items:center;height:58px;padding:0 26px;border-radius:12px;background:#fff;border:1px solid #102038;color:#102038;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}#downloadSearchWord:hover,#downloadSearchWord:focus-visible{background:#eef2f8;color:#102038}.saved-search-actions a{color:var(--teal);font-weight:600;font-size:12px;text-decoration:underline;text-underline-offset:3px}.saved-search-actions a:visited{color:var(--teal)}
+
 .quick-filters .search-filter-summary{padding:2px 10px;border-radius:999px;background:#fff;border:1px solid var(--border);color:var(--muted);font-size:11.5px}
 .search-examples{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 2px 0;color:var(--muted);font-size:12px}.search-examples button{padding:3px 11px;border:1px dashed #b8b39f;border-radius:999px;background:transparent;color:#4a4636;font-size:12px;cursor:pointer}.search-examples button:hover{border-style:solid;background:#fff}
 #advancedSearchOptions{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#fff}#advancedSearchOptions fieldset{border:1px solid #eceae0;border-radius:10px;padding:12px 14px;background:#fcfbf7}#advancedSearchOptions legend{padding:0 6px;color:#9a3412;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
@@ -652,20 +654,20 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <form class="search-form" id="judgeProfileSearch"><div class="wide"><label for="judgeProfileQuery">Find a judge by name</label><input id="judgeProfileQuery" placeholder="e.g. Zinn" autocomplete="off"></div><select id="judgeMinisterFilter" multiple hidden aria-hidden="true"></select><div class="search-actions"><button type="submit">Find judge</button></div></form>
 <div class="search-meta" id="judgeProfileSearchMeta">Search by judge name to open a profile.</div>
 <div id="judgeProfileContent" class="search-meta">Loading judge profiles...</div>
-<section aria-labelledby="judgeComparisonHeading" style="padding:16px">
-<h3 id="judgeComparisonHeading">Compare shared issues and outcomes</h3>
-<p>Choose two canonical judge slugs. This comparison uses all linked decisions, independently of profile Minister filters. Stored research signals are not a complete judicial record or a ranking.</p>
+<details class="judge-compare">
+<summary><span id="judgeComparisonHeading">Compare two judges</span><small>Shared issues and outcomes</small></summary>
+<p>Start typing a judge's name in each box and pick a match. The comparison uses all linked decisions, independently of profile Minister filters. Stored research signals are not a complete judicial record or a ranking.</p>
 <form id="judgeComparisonForm">
-<label for="judgeCompareA">First judge slug</label>
-<input id="judgeCompareA" list="judgeCompareOptionsA" required maxlength="200" autocomplete="off">
+<div><label for="judgeCompareA">First judge</label>
+<input id="judgeCompareA" list="judgeCompareOptionsA" required maxlength="200" autocomplete="off" placeholder="e.g. Zinn"></div>
 <datalist id="judgeCompareOptionsA"></datalist>
-<label for="judgeCompareB">Second judge slug</label>
-<input id="judgeCompareB" list="judgeCompareOptionsB" required maxlength="200" autocomplete="off">
+<div><label for="judgeCompareB">Second judge</label>
+<input id="judgeCompareB" list="judgeCompareOptionsB" required maxlength="200" autocomplete="off" placeholder="e.g. Gagné"></div>
 <datalist id="judgeCompareOptionsB"></datalist>
 <button type="submit">Compare judges</button>
 </form>
 <div id="judgeComparisonResult" role="status" aria-live="polite"></div>
-</section>
+</details>
 </section>
 <section id="explorerPanel" class="panel-card search-layout" hidden>
 <div class="search-form" style="grid-template-columns:repeat(3,minmax(180px,1fr));margin-bottom:8px;">

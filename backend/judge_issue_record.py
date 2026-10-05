@@ -8,6 +8,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from .database import Case, CaseJudgeProfile, JudgeProfile
+from .judge_aliases import member_ids
 
 _JUDGE_ISSUE_MINIMUM_DECISIONS = 10
 _FEDERAL_COURT_NAMES = {"fc", "federal court", "federal court of canada"}
@@ -74,7 +75,7 @@ def fetch_judge_profile_issues(db: Session, slug: str) -> dict[str, Any]:
 			return {"status": "unknown_judge"}
 
 		linked_ids = select(CaseJudgeProfile.case_id).where(
-			CaseJudgeProfile.judge_profile_id == profile.id
+			CaseJudgeProfile.judge_profile_id.in_(member_ids(db, profile.id))
 		)
 		judge_cases = list(db.execute(
 			select(Case.id, Case.issues, Case.metadata_json)

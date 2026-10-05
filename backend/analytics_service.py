@@ -39,6 +39,7 @@ from .database import (
 	JudgeProfile,
 	StatuteReference,
 )
+from .judge_aliases import alias_map, member_ids
 from .judge_issue_record import (
 	_FEDERAL_COURT_NAMES,
 	_ISSUE_OUTCOME_CATEGORIES,
@@ -729,36 +730,43 @@ def _fetch_judge_profiles_impl(
 	limit: int = 50,
 ) -> list[dict[str, Any]]:
 	term = q.strip()
+	mapping = alias_map(db)
+	statement = select(JudgeProfile)
 	if term:
 		pattern = f"%{term}%"
-		statement = (
-			select(JudgeProfile)
-			.where(
-				or_(
-					JudgeProfile.display_name.ilike(pattern),
-					JudgeProfile.normalized_name.ilike(pattern),
-				)
+		statement = statement.where(
+			or_(
+				JudgeProfile.display_name.ilike(pattern),
+				JudgeProfile.normalized_name.ilike(pattern),
 			)
-			.order_by(JudgeProfile.display_name)
 		)
-		rows = list(db.scalars(statement))
-		ordered = sorted(
-			rows, key=lambda row: (-len(row.case_links), row.display_name.lower())
-		)[: max(1, min(100, limit))]
+	rows = [row for row in db.scalars(statement) if row.id not in mapping]
+	if mapping:
+		by_id = {row.id: row for row in db.scalars(select(JudgeProfile))}
+		members: dict[int, list[JudgeProfile]] = {}
+		for alias_id, canonical_id in mapping.items():
+			if alias_id in by_id:
+				members.setdefault(canonical_id, []).append(by_id[alias_id])
 	else:
-		rows = list(db.scalars(select(JudgeProfile)))
-		ordered = sorted(
-			rows, key=lambda row: (-len(row.case_links), row.display_name.lower())
-		)[: max(1, min(100, limit))]
+		members = {}
+
+	def case_count(row: JudgeProfile) -> int:
+		extra = members.get(row.id)
+		if not extra:
+			return len(row.case_links)
+		return len({link.case_id for profile in [row, *extra] for link in profile.case_links})
+
+	counted = [(row, case_count(row)) for row in rows]
+	ordered = sorted(counted, key=lambda pair: (-pair[1], pair[0].display_name.lower()))[: max(1, min(100, limit))]
 	return [
 		{
 			"slug": row.slug,
 			"display_name": row.display_name,
 			"primary_court": row.primary_court,
-			"aliases": row.aliases or [],
-			"decision_count": len(row.case_links),
+			"aliases": sorted({*(row.aliases or []), *(name for p in members.get(row.id, []) for name in [p.display_name, *(p.aliases or [])])}),
+			"decision_count": count,
 		}
-		for row in ordered
+		for row, count in ordered
 	]
 
 
@@ -833,7 +841,7 @@ def _fetch_judge_comparison(db: Session, a: str, b: str) -> dict[str, Any]:
 	for side, slug in (("a", a), ("b", b)):
 		profile = profiles[slug]
 		linked_ids = select(CaseJudgeProfile.case_id).where(
-			CaseJudgeProfile.judge_profile_id == profile.id
+			CaseJudgeProfile.judge_profile_id.in_(member_ids(db, profile.id))
 		)
 		rows = list(db.execute(
 			select(Case.id, Case.date, Case.issues, Case.metadata_json)
@@ -954,8 +962,12 @@ def fetch_judge_profile_by_slug(
 	profile = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == slug))
 	if profile is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Judge profile not found")
+	merged_ids = member_ids(db, profile.id)
+	if merged_ids[0] != profile.id:
+		profile = db.get(JudgeProfile, merged_ids[0])
+	member_profiles = [profile, *(db.get(JudgeProfile, pid) for pid in merged_ids[1:])]
 	all_cases = list(
-		{case.id: case for link in profile.case_links if (case := link.case) is not None}.values()
+		{case.id: case for member in member_profiles if member for link in member.case_links if (case := link.case) is not None}.values()
 	)
 	minister_filters = [" ".join(value.split()) for value in (ministers or []) if value.strip()]
 	minister_filter_keys = {value.casefold() for value in minister_filters}
@@ -979,7 +991,7 @@ def fetch_judge_profile_by_slug(
 			"slug": profile.slug,
 			"display_name": profile.display_name,
 			"primary_court": profile.primary_court,
-			"aliases": profile.aliases or [],
+			"aliases": sorted({*(profile.aliases or []), *(name for m in member_profiles[1:] if m for name in [m.display_name, *(m.aliases or [])])}),
 		},
 		"filter": {
 			"ministers": minister_filters,

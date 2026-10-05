@@ -168,6 +168,24 @@ class JudgeProfile(Base):
 	case_links = relationship("CaseJudgeProfile", back_populates="judge_profile", cascade="all, delete-orphan")
 
 
+class JudgeProfileAlias(Base):
+	"""Maps a duplicate judge profile onto its canonical profile (reversible: delete the row)."""
+
+	__tablename__ = "judge_profile_aliases"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	alias_profile_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("judge_profiles.id", ondelete="CASCADE"), nullable=False, unique=True
+	)
+	canonical_profile_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("judge_profiles.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	source: Mapped[str] = mapped_column(String(30), nullable=False, default="rule")
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+
 class CaseJudgeProfile(Base):
 	__tablename__ = "case_judge_profiles"
 	__table_args__ = (UniqueConstraint("case_id", "judge_profile_id", name="uq_case_judge_profile"),)

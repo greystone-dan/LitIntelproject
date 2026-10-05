@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 171
+Active scripts documented: 172
 
 ## Catalog
 
@@ -19,6 +19,7 @@ Active scripts documented: 171
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
 | `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
+| `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
@@ -306,6 +307,20 @@ Active scripts documented: 171
 
 ```powershell
 .\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help
+```
+
+## `scripts/apply_judge_aliases.py`
+
+**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help
 ```
 
 ## `scripts/audit_discussion_unit_structure.py`

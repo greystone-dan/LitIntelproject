@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T18:25:29.736772+00:00
-Tables: 38
+Generated: 2026-10-05T18:50:36.739317+00:00
+Tables: 39
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -383,6 +383,13 @@ erDiagram
         Integer records_failed
         JSON metadata_json
     }
+    judge_profile_aliases {
+        Integer id PK
+        Integer alias_profile_id  FK
+        Integer canonical_profile_id  FK
+        String(30) source
+        DATETIME created_at
+    }
     judge_profiles {
         Integer id PK
         String(255) slug
@@ -572,6 +579,8 @@ erDiagram
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
     fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
+    judge_profiles ||--o{ judge_profile_aliases : "alias_profile_id"
+    judge_profiles ||--o{ judge_profile_aliases : "canonical_profile_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
     cases ||--o{ paragraph_citation_edges : "source_case_id"
     cases ||--o{ paragraph_citation_edges : "target_case_id"
@@ -620,6 +629,7 @@ erDiagram
 | `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
+| `judge_profile_aliases` | 5 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
@@ -1419,6 +1429,31 @@ erDiagram
 - `ix_ingestion_runs_run_type`: index on `run_type`
 - `ix_ingestion_runs_source_type`: index on `source_type`
 - `ix_ingestion_runs_status`: index on `status`
+
+## `judge_profile_aliases`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `alias_profile_id` | `Integer` | no | FK -> judge_profiles.id; NOT NULL |
+| `canonical_profile_id` | `Integer` | no | FK -> judge_profiles.id; NOT NULL |
+| `source` | `String(30)` | no | NOT NULL; default=rule |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_judge_profile_aliases_canonical_profile_id`: index on `canonical_profile_id`
+
+### Unique Constraints
+
+- `unnamed`: `alias_profile_id`
+
+### Foreign Keys
+
+- `alias_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
+- `canonical_profile_id` -> `judge_profiles.id`; on delete `CASCADE`
 
 ## `judge_profiles`
 

@@ -13,7 +13,28 @@
   compatible endpoints, hosted mode rejects local/private URLs, and off mode
   still stops before provider construction. OpenAI and native Ollama remain
   supported.
-- Case pages: the unfinished reader tools are hidden by default. The Quick summary and Extracted case summary cards, the case structure and case summary buttons, paragraph assessments and the "Similar paragraphs" buttons only appear after switching on "Show experimental" (at the top of the reader, and in the Markup toolbar); the choice is remembered in this browser. When shown, the two summary cards start closed (one line each, with an arrow) and keep their state while you switch between Formatted and Markup. No data or schema change.
+- Case pages: the unfinished reader tools are hidden by default. The Quick summary, Extracted case summary and selected-passages summary cards, the case structure and case summary buttons, paragraph assessments and the “Similar paragraphs” buttons only appear after switching on “Show experimental” (at the top of the reader, and in the Markup toolbar); the choice is remembered in this browser. When shown, the Quick and Extracted summary cards start closed (one line each, with an arrow) and keep their state while you switch between Formatted and Markup. No data or schema change.
+- Added stored-data-only decision comparison at `GET /compare` and
+  `GET /api/compare`, accepting case IDs or stored citations. It displays fact
+  and outcome provenance, separate tags/statutes/authorities, shared and unique
+  signals, stored authority pinpoints, and directional cross-citations; unknown
+  decisions and self-comparison receive clear errors. Inputs above 512
+  characters fail closed before ID or citation parsing. The reader adds a
+  prefilled “Compare with…” link. The pre-existing `/case-compare` page and
+  `/cases/compare` JSON endpoint remain separate and available. No AI, schema,
+  or data writes. Also removed a redundant whitespace quantifier from reported
+  citation-year parsing; parenthesized reporter-year citations retain their
+  normalized form with repeated whitespace.
+- Added an additive read-only `GET /api/cases/{case_id}/summary-card` projection
+  and collapsed formatted-reader card. It shows stored case/outcome facts,
+  separate statute and active-tag layers, and up to three exact numbered
+  passages selected by disposition evidence, later stored pinpoint counts, and
+  an explicit standard-of-review statement. Missing fields are omitted; long
+  passages retain sentence boundaries and link to their source paragraph. No
+  AI, writes, schema changes, or live-data access. Focused summary-card,
+  reader-keyboard/print, JavaScript syntax, documentation-inventory, and
+  generated-reference checks passed.
+- Markup mode now follows the mockups more closely. New Acts / statutes layer (margin notes with the Act, pinpoint, stored provision text or an honest “not stored”, and a link to the Act); header pills for outcome, judge and file number; short margin pill names (“Vavilov 2019 SCC 65”); citation cards with a paragraph badge, “also cited at” and Open / Pin; judge card with Open judge profile; outcome card with Show paragraph; unit pills named from the section heading; Layers popup with counts, “N of M”, Show all layers and Reset; a By-topic grouped view (Reading order / By topic, Fold all / Unfold all); a right-edge minimap; annotated print with numbered markers and numbered margin comments. Read-only on data already loaded, no AI, no schema change.
 - About page refresh and a Changelog view. The About overview was audited against the repository: counts at the top
   now read live from `/api/about/stats`, unverifiable figures (sample percentages, AI paragraph counts, test scores,
   old test and line counts) were removed or restated, the AI wording now says the site runs without AI, and a

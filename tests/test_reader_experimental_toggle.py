@@ -11,7 +11,7 @@ def test_unfinished_tools_hidden_until_experimental_switch_is_on():
     assert rule, "hide rule missing"
     hidden = rule.group(1)
     for selector in ("#readerSummaryToggle", "#readerCaseSummaryToggle", "#readerAssessmentToggle",
-                     ".reader-quick-summary", ".reader-extracted-summary", "[data-paragraph-similar]"):
+                     ".reader-quick-summary", ".reader-extracted-summary", ".reader-extractive-summary", "[data-paragraph-similar]"):
         assert selector in hidden
     assert 'id="readerExperimentalToggle"' in html and "Show experimental" in html
     assert "ilit.reader.experimental" in html  # remembered per browser

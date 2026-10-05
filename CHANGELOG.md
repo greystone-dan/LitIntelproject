@@ -5,6 +5,22 @@
 	demo-safety fixes.
 # Unreleased
 
+- Issue #281: added migration `0039_citation_refinement` and four standalone
+  refinement-storage models, preserving base occurrence fields while adding
+  version/step/confidence metadata, statute grouping, paragraph links and
+  per-case status. Only absent tables are created; downgrade preserves them.
+  No runtime refinement wiring or data migration. DB-free tests cover repeat
+  upgrade, pre-existing preservation, model/field/index/FK parity and the new
+  single migration head. Added an explicit disposable PostgreSQL-gated test for
+  isolated fresh upgrade, reflected schema parity, actual repeated upgrade
+  function calls, and no-op downgrade/re-upgrade preservation with final cleanup.
+  Latest DB-free focused checks: 15 passed, 2 PostgreSQL-gated tests skipped,
+  2 SQLite-writing tests deselected. Earlier CI-filtered full suite:
+  2,856 passed, 5 skipped, 3 deselected, 1 xfailed, with 2 unrelated tokenizer
+  tests failing because the external tiktoken download host could not resolve.
+  External PostgreSQL access and dotenv reads were blocked during validation;
+  generated-reference checking passed. No deployment or live migration was run.
+
 - Live Analysis now opens your own memo, factum or decision (DOCX, text PDF, or pasted text) in the case reader's markup mode, in the site's own page and style. Case citations and statute references are marked in the text with margin notes, hover cards and the Peek panel; a cited case that is in the library shows the cited paragraph's stored text, and a statute reference shows the stored provision text. Case citations written as a case name followed by a neutral or SCR citation ("Vavilov, 2019 SCC 65 at paras 10-11") now match the library by that citation, where before only the case name could match. The document is read in memory, never stored, and no model is called. Headings and paragraph numbers in your own text are worked out from line shape (a heuristic). Outcome, judge, discussion units and tags are not shown for your own text. No schema or data change.
 - Markup mode: the citation hover card and the Peek panel now show an "In this case" line ("Cited at ¶[14] and ¶[15] (pinpoint ¶7)"), read from where the citation sits in the open decision. No data or schema change.
 - Markup: the Citations layer in the Margin layers panel is always selectable when the case has any citation, and its count includes citations whose case is not in the library (they stay out of the margin until clicked).

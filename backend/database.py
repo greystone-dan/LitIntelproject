@@ -594,6 +594,98 @@ class StatuteReference(Base):
 	statute_version = relationship("StatuteVersion")
 
 
+class CitationRefined(Base):
+	__tablename__ = "citations_refined"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	target_case_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=True
+	)
+	citation_kind: Mapped[str] = mapped_column(String(20), nullable=False, server_default="unknown")
+	citation_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	normalized_citation: Mapped[str | None] = mapped_column(Text, nullable=True)
+	anchor_citation_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	anchor_offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	anchor_offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	declared_alias: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	target_paragraph: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	target_chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True
+	)
+	provenance: Mapped[str] = mapped_column(String(20), nullable=False, server_default="local")
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True
+	)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	unresolved: Mapped[bool] = mapped_column(default=False, nullable=False)
+	refine_step: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+	refine_version: Mapped[int] = mapped_column(Integer, nullable=False)
+	source_citation_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+
+
+class CitationParagraphLink(Base):
+	__tablename__ = "citation_paragraph_links"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	refined_citation_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("citations_refined.id", ondelete="CASCADE"), nullable=False
+	)
+	target_case_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	target_paragraph: Mapped[int] = mapped_column(Integer, nullable=False)
+	link_status: Mapped[str] = mapped_column(String(50), nullable=False)
+
+
+class StatuteReferenceRefined(Base):
+	__tablename__ = "statute_references_refined"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True
+	)
+	statute_version_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("statute_versions.id", ondelete="SET NULL"), nullable=True
+	)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	reference_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	normalized_reference: Mapped[str | None] = mapped_column(Text, nullable=True)
+	instrument_key: Mapped[str | None] = mapped_column(String(100), nullable=True)
+	pinpoint: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	provision_section: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	provision_subsection: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	provision_paragraph: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	provision_nested_depth: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	provision_is_range_or_list: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+	legislation_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	section_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False)
+	refine_step: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+	group_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	group_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	group_index: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	refine_version: Mapped[int] = mapped_column(Integer, nullable=False)
+
+
+class CitationRefineStatus(Base):
+	__tablename__ = "citation_refine_status"
+
+	source_case_id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	refine_version: Mapped[int] = mapped_column(Integer, nullable=False)
+	status: Mapped[str] = mapped_column(String(50), nullable=False)
+	processed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	case_rows: Mapped[int] = mapped_column(Integer, nullable=False)
+	statute_rows: Mapped[int] = mapped_column(Integer, nullable=False)
+
+
 class A2AJCase(Base):
 	__tablename__ = "a2aj_cases"
 

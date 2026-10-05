@@ -1,0 +1,95 @@
+/* Case search page, desktop layout (see search_v6.js). Phone layout stays on mobile_layout.css. */
+@media(min-width:921px){
+html body section#searchPanel.panel-card.search-layout{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;overflow:visible!important}
+#searchPanel .search-hero,#searchPanel .quick-filters,#searchPanel .search-examples{display:none!important}
+#searchPanel .sp-top{position:sticky;top:0;z-index:50;background:#f1efe8;padding:6px 0 12px}
+#searchPanel .sp-title{font:600 1.75rem/1.2 "Newsreader",Georgia,serif;margin:0 0 10px;color:var(--text,#202522)}
+#searchPanel .search-query-row{display:flex!important;gap:8px;align-items:stretch;grid-template-columns:none!important}
+#searchPanel .primary-query{flex:1;min-width:0;margin:0}
+#searchPanel .primary-query input,html body #searchPanel .primary-query input{height:46px;width:100%;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;padding:0 14px;font:17px "IBM Plex Sans",Arial,sans-serif;box-shadow:0 4px 14px rgba(32,37,34,.12)}
+#searchPanel .primary-query input:focus{outline:2px solid #3b7bd1;outline-offset:-1px}
+#searchPanel .query-shortcut,#searchPanel .query-hint{display:none!important}
+#searchPanel .search-actions{display:flex;gap:8px;margin:0;flex:none}
+#searchPanel .search-actions .sq-go,html body #searchPanel .search-actions .sq-go{height:46px;padding:0 22px;border-radius:6px;border:1px solid var(--text,#202522);background:var(--text,#202522);color:#fff;font:600 14px "IBM Plex Sans",Arial,sans-serif;letter-spacing:0;text-transform:none;box-shadow:0 4px 14px rgba(32,37,34,.12)}
+#searchPanel .search-actions .sq-go.sq-alt{background:#fff;color:var(--text,#202522);border-color:var(--border,#d8d5ca)}
+#searchPanel .search-actions .sq-go.sq-alt:hover{border-color:#3b7bd1;background:#eef4fc}
+#searchPanel .search-actions .sq-go.sq-alt[aria-expanded="true"]{background:#eef4fc;border-color:#3b7bd1;color:#1f4f93}
+#searchPanel .sp-body{display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start}
+#searchPanel.sp-adv .sp-body{grid-template-columns:280px minmax(0,1fr);gap:20px}
+#searchPanel #advancedSearchOptions{display:none;margin:0;padding:0;border:0;position:sticky;top:var(--sp-top,112px);max-height:calc(100vh - var(--sp-top,112px) - 16px);overflow:auto;min-width:0}
+#searchPanel.sp-adv #advancedSearchOptions{display:block}
+#searchPanel #advancedSearchOptions::before,#searchPanel #advancedSearchOptions::after{display:none}
+#searchPanel .sp-rail{background:#fff;border:1px solid var(--border,#d8d5ca);border-radius:6px;padding:14px 14px 16px}
+#searchPanel .sp-rail-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+#searchPanel .sp-rail-head strong{font-size:16px}
+#searchPanel .search-filter-summary{font-size:13px;color:var(--text,#202522);border:0;background:none;padding:0}
+#searchPanel .sp-rail h4{margin:14px 0 6px;font-size:14px;font-weight:700;color:var(--text,#202522);letter-spacing:0;text-transform:none}
+#searchPanel .sp-chips{display:flex;flex-wrap:wrap;gap:6px}
+#searchPanel .qf-chip{border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:3px 10px;font:600 13px "IBM Plex Sans",Arial,sans-serif;color:var(--text,#202522)}
+#searchPanel .qf-chip:hover{border-color:#3b7bd1;background:#eef4fc}
+#searchPanel .qf-chip.is-active{background:var(--text,#202522);border-color:var(--text,#202522);color:#fff}
+#searchPanel .sp-l{display:block;font-size:14px;color:var(--text,#202522);margin:12px 0 3px;font-weight:500;letter-spacing:0;text-transform:none}
+#searchPanel .sp-rail input[type=text],#searchPanel .sp-rail input:not([type]),#searchPanel .sp-rail select{width:100%;height:36px;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;padding:0 9px;font:14px "IBM Plex Sans",Arial,sans-serif}
+#searchPanel .sp-ck{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:14px}
+#searchPanel .sp-ck input{width:16px;height:16px;accent-color:#2a62b0}
+#searchPanel .sp-rail-actions{display:flex;gap:8px;margin-top:16px}
+#searchPanel .sp-rail-actions button{flex:1;height:36px;border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;font:600 14px "IBM Plex Sans",Arial,sans-serif;color:var(--text,#202522)}
+#searchPanel .sp-rail-actions .sp-apply{background:var(--text,#202522);border-color:var(--text,#202522);color:#fff}
+#searchPanel .sp-rail-links{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid var(--border,#d8d5ca)}
+#searchPanel .sp-rail-links .query-tips-control,#searchPanel .sp-rail-links .saved-search-actions{margin:0;display:block;position:static}
+#searchPanel .sp-rail-links button,#searchPanel .sp-rail-links a{border:0;background:none;padding:0;color:#2a62b0;font:600 14px "IBM Plex Sans",Arial,sans-serif;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;cursor:pointer}
+#searchPanel .sp-rail-links .saved-search-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+#searchPanel .sp-results{min-width:0}
+/* count line and sort stay pinned under the search bar while the list scrolls */
+#searchPanel .sp-head{position:sticky;top:var(--sp-top,112px);z-index:30;display:flex;align-items:center;gap:12px;background:#f1efe8;border-bottom:2px solid var(--text,#202522);padding:6px 4px 8px}
+#searchPanel .sp-head #searchMeta{flex:1;display:block;margin:0;padding:0;background:none;border:0;border-radius:0;font:600 15px "IBM Plex Sans",Arial,sans-serif;color:var(--text,#202522);min-height:0}
+#searchPanel .sp-head #searchMeta[data-state="error"]{color:#7a2a1a}
+#searchPanel .sp-results .search-query-echo{display:none}
+#searchPanel .sp-head .search-refine,#searchPanel .sp-head .search-refine[hidden]{display:flex;position:static;margin:0;gap:8px;align-items:center;padding:0;border:0;background:none}
+#searchPanel .sp-head .search-refine[hidden]{visibility:hidden}
+#searchPanel .sp-head .search-refine label{font-size:14px}
+#searchPanel .sp-head .search-refine select{height:32px;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;padding:0 8px;font:14px "IBM Plex Sans",Arial,sans-serif}
+#searchPanel .sp-head .facet-chips{display:none}
+#searchPanel #searchResults{display:block;background:#fff;border:1px solid var(--border,#d8d5ca);border-top:0;border-radius:0 0 6px 6px;min-height:0;padding:0;gap:0}
+#searchPanel #searchResults:empty{display:none}
+#searchPanel #searchResults .empty{padding:28px;text-align:center;color:var(--text,#202522)}
+/* result rows */
+#searchPanel .rc-wrap{position:relative;border-bottom:1px solid #e7e4da}
+#searchPanel .rc-wrap:last-child{border-bottom:0}
+#searchPanel .rc-wrap .copy-cite{display:none}
+html body #searchPanel .case-result.sp-row{display:grid;grid-template-columns:minmax(0,1fr) 150px 190px;gap:16px;align-items:center;width:100%;padding:9px 16px;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none;text-align:left;cursor:pointer;font-family:"IBM Plex Sans",Arial,sans-serif;color:var(--text,#202522)}
+html body #searchPanel .case-result.sp-row:hover{background:#f6f9fd;box-shadow:none;transform:none;border:0}
+#searchPanel .sp-row .rc-main{min-width:0}
+#searchPanel .sp-title-line{font:600 19px/1.3 "Newsreader",Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text,#202522)}
+#searchPanel .sp-boxes{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:nowrap;overflow:hidden}
+#searchPanel .sp-bx{display:inline-block;border:1px solid var(--border,#d8d5ca);background:#f8f6ef;border-radius:4px;padding:0 9px;font-size:14px;line-height:23px;color:var(--text,#202522);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
+#searchPanel .sp-bx.cit{background:#e8eef7;border-color:#bcd1ee;color:#1f3d6b;font-weight:700}
+#searchPanel .sp-bx.ct{color:#fff;font-weight:700;letter-spacing:.03em}
+#searchPanel .sp-bx.ct-SCC{background:#202522;border-color:#202522}
+#searchPanel .sp-bx.ct-FCA{background:#176c68;border-color:#176c68}
+#searchPanel .sp-bx.ct-FC{background:#6b7a8c;border-color:#6b7a8c}
+#searchPanel .sp-bx.ct-other{background:#6b6a60;border-color:#6b6a60}
+#searchPanel .sp-out{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;white-space:nowrap}
+#searchPanel .sp-out i{width:9px;height:9px;border-radius:50%;flex:none;background:#8a8f8c}
+#searchPanel .sp-out.ind i{background:#2f8a5a}#searchPanel .sp-out.gov i{background:#a4412b}
+#searchPanel .sp-cited{position:relative;font-size:15px;text-align:right;white-space:nowrap}
+#searchPanel .sp-cited b{color:#2a62b0;font-weight:700}
+#searchPanel .sp-tip{display:none;position:absolute;z-index:60;bottom:calc(100% + 6px);right:0;width:250px;white-space:normal;text-align:left;padding:9px 12px;border-radius:6px;font-size:13px;line-height:1.4;color:var(--text,#202522);background:#eef4fc;border:1px solid #bcd1ee;border-left:5px solid #3b7bd1;box-shadow:0 6px 18px rgba(32,37,34,.18);pointer-events:none}
+#searchPanel .sp-tip b{display:block;color:var(--text,#202522);font-size:13px}
+#searchPanel .sp-cited:hover .sp-tip{display:block}
+#searchPanel .sp-snippet{margin:4px 0 0;font-size:14px;color:var(--text,#202522);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#searchPanel .sp-more{display:block;margin:14px auto 30px;border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:7px 18px;font:600 14px "IBM Plex Sans",Arial,sans-serif;color:var(--text,#202522);cursor:pointer}
+#searchPanel .sp-more:hover{border-color:#3b7bd1;background:#eef4fc}
+#searchPanel .sp-more[hidden]{display:none}
+}
+@media(max-width:920px){
+#searchPanel .sp-boxes{flex-wrap:wrap}
+#searchPanel .sp-bx{max-width:100%}
+#searchPanel .sp-row{display:block}
+#searchPanel .sp-out,#searchPanel .sp-cited{margin-top:6px;text-align:left}
+#searchPanel .sp-tip{display:none!important}
+#searchPanel .sp-rail-links{margin-top:12px}
+#searchPanel #advancedSearchOptions{display:none}
+#searchPanel.sp-adv #advancedSearchOptions{display:block}
+#searchPanel .sp-more{margin:12px auto}
+}

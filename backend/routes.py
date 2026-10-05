@@ -38,6 +38,7 @@ from .alert_digest import (
 )
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
+from .case_summary_card import router as case_summary_card_router
 
 try:
 	import yaml
@@ -323,6 +324,7 @@ def _data_explorer_page_html() -> str:
 router = APIRouter(tags=["cases"])
 router.include_router(statute_consideration_router)
 router.include_router(case_summary_router)
+router.include_router(case_summary_card_router)
 
 
 @router.get("/api/search-embedding-status")

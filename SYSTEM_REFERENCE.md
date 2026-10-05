@@ -311,6 +311,38 @@ discarded, failures leave existing reader tools available, and collapse state
 survives mode changes (reopening a decision defaults open). Quick summary is
 hidden in chunk/plain modes. No generated prose, source mutation, new
 dependencies, or extraction/resolution pipeline runs are involved.
+Separately, the additive extractive **Quick summary · selected passages** card
+uses `GET /api/cases/{case_id}/summary-card` and the new
+[`backend/case_summary_card.py`](backend/case_summary_card.py) projection. It
+returns stored citation, court, date, an explicitly header-verified extracted
+judge, the latest stored outcome and its source/status/confidence, up to five
+statute/instrument occurrence counts, and up to five distinct active-taxonomy
+tags with their stored score and source. These citation, statute, tag, outcome,
+and metadata fields remain separate layers.
+
+The card selects at most three exact, numbered formatter paragraphs: the
+paragraph containing verified stored disposition evidence (or the first
+paragraph under a Conclusion/Disposition heading); the paragraph with the most
+stored, resolved, incoming pinpoint citation occurrences from decisions dated
+after the cited case; and the paragraph containing explicit standard-of-review
+wording or immediately following a Standard of review heading. Every selected
+passage reports its paragraph number and selection rule. Pinpoint-count ties
+prefer the lower paragraph number; repeated/ambiguous formatted paragraph
+numbers are not guessed. The count reflects stored citation rows and is not a
+claim of complete corpus coverage.
+
+The corresponding compact, initially collapsed reader card appears only when
+the API returns useful stored data. It states **“Selected passages, not a
+summary written by AI”**, omits missing fields, and truncates long passages
+only at a safe sentence boundary with an ellipsis and a link to the complete
+backend-formatted paragraph. It does not synthesize an unknown outcome/source
+label when the corresponding stored field is absent. All values are escaped;
+the browser verifies each supplied paragraph's exact full-text code-point span
+against the reader formatter before using its backend block-start link. This
+card is additive to both the existing
+`/api/cases/{case_id}/summary` Quick summary and the Extracted case summary; it
+does not create or persist summaries, classifications, offsets, tags, statutes,
+or citations.
 Incoming case citations with an available pinpoint also mark the matching
 numbered paragraph in the full-text reader with a subtle shade and a
 “Cited by N cases” tooltip. The reader uses existing `target_paragraph` values

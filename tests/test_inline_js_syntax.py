@@ -6,6 +6,7 @@ import pytest
 
 from backend.pages.case_compare import case_compare_page_html
 from backend.pages.case_quick_summary import inject_case_quick_summary
+from backend.pages.case_summary_card import inject_case_summary_card
 from backend.pages.citation_map import citation_map_html
 from backend.pages.citation_pass import citation_pass_page_html
 from backend.pages.data_explorer import data_explorer_page_html
@@ -31,6 +32,7 @@ from backend.pages.theme_explorer import theme_explorer_page_html
 PAGE_RENDERERS = [
     ("case_compare", case_compare_page_html),
     ("case_quick_summary", lambda: inject_case_quick_summary("<body></body>")),
+    ("case_summary_card", lambda: inject_case_summary_card("<body></body>")),
     ("citation_map", citation_map_html),
     ("citation_pass", citation_pass_page_html),
     ("data_explorer", data_explorer_page_html),

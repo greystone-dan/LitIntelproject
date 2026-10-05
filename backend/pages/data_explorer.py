@@ -5,6 +5,7 @@ from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
 from .case_quick_summary import inject_case_quick_summary
 from .changelog_tab import about_panel_html
+from .case_summary_card import inject_case_summary_card
 
 
 def data_explorer_page_html() -> str:
@@ -1566,7 +1567,7 @@ window.addEventListener('afterprint',()=>{
       reader_tab_selection + "button.setAttribute('aria-pressed',String(button.dataset.readerTab===activeTab));",
   )
   html = inject_fc_analytics(html)
-  html = inject_case_quick_summary(inject_tag_analytics(html))
+  html = inject_case_quick_summary(inject_case_summary_card(inject_tag_analytics(html)))
   # Markup mode wraps the reader functions defined above, so it is injected last.
   markup_css = (here / 'markup_mode.css').read_text(encoding='utf-8')
   markup_js = (here / 'markup_mode.js').read_text(encoding='utf-8')

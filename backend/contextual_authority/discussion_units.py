@@ -316,38 +316,6 @@ def _is_section_header(text: str) -> bool:
     return False
 
 
-def _detect_strong_argument_transition(left_text: str, right_text: str) -> bool:
-    """Detect strong argumentative role transitions between consecutive paragraphs.
-
-    Returns True only for high-confidence, major transitions that indicate distinct sections:
-    - Between facts/background and legal framework/principles
-    - Between legal framework and analysis/application
-    - Between analysis and conclusion/disposition
-    """
-    left_upper = left_text.upper()
-    right_upper = right_text.upper()
-
-    # Check for facts → law transition
-    has_facts_in_left = any(w in left_upper for w in ["FACTS", "BACKGROUND", "CIRCUMSTANCES"])
-    has_law_in_right = any(w in right_upper for w in ["JURISPRUDENCE", "CASE LAW", "STATUTORY", "PURSUANT"])
-    if has_facts_in_left and has_law_in_right:
-        return True
-
-    # Check for law → analysis transition
-    has_law_in_left = any(w in left_upper for w in ["JURISPRUDENCE", "CASE LAW", "LEGAL PRINCIPLE"])
-    has_analysis_in_right = any(w in right_upper for w in ["APPLYING", "ANALYSIS", "TURNING TO"])
-    if has_law_in_left and has_analysis_in_right:
-        return True
-
-    # Check for analysis → conclusion transition
-    has_analysis_in_left = any(w in left_upper for w in ["ANALYSIS", "APPLYING", "IN MY VIEW"])
-    has_conclusion_in_right = any(w in right_upper for w in ["THEREFORE", "IN CONCLUSION", "I HAVE CONCLUDED"])
-    if has_analysis_in_left and has_conclusion_in_right:
-        return True
-
-    return False
-
-
 def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> ContinuityComponents:
     authority_overlap = _jaccard(left.citation_ids, right.citation_ids)
     statute_overlap = _jaccard(left.statute_ids, right.statute_ids)
@@ -463,20 +431,13 @@ def segment_discussion_units(
         # independent boundary trigger because headers often appear mid-paragraph text,
         # causing false positives. Headers are used as supporting signals elsewhere.
 
-        # Discourse cue boundary - explicit transition markers in right paragraph
-        # Only strongest cues trigger independently; weak ones need support from continuity
-        strong_cues = ("THE FIRST ISSUE", "THE SECOND ISSUE", "THE THIRD ISSUE",
-                       "TURNING TO", "TURNING NOW TO", "IN CONCLUSION")
+        # Weak discourse cues only trigger with low continuity. Strong cues ("Turning to",
+        # "In conclusion", "The first issue") no longer trigger on their own: on the verified
+        # gold set every boundary they alone produced was spurious
+        # (scripts/evaluate_discussion_unit_boundaries.py).
         weak_cues = ("ACCORDINGLY", "THEREFORE", "THUS,", "HENCE,")
-
-        right_upper = right.text.upper()
-        has_strong_cue = any(cue in right_upper for cue in strong_cues)
-        has_weak_cue = any(cue in right_upper for cue in weak_cues)
-
-        if has_strong_cue and index > 2:
-            boundaries.add(index)
-        elif has_weak_cue and component.continuity_score < 0.45 and index > 2:
-            # Weak cues only trigger with low continuity (strong signal agreement)
+        has_weak_cue = any(cue in right.text.upper() for cue in weak_cues)
+        if has_weak_cue and component.continuity_score < 0.45 and index > 2:
             boundaries.add(index)
 
         # Lexical topic shift boundary - significant vocabulary change PLUS low continuity
@@ -484,12 +445,6 @@ def segment_discussion_units(
         # This avoids false positives from stylistic variation
         topic_shift_score = _lexical_topic_shift_score(left, right)
         if topic_shift_score > 0.70 and component.continuity_score < 0.40 and index > 2:
-            boundaries.add(index)
-
-        # Strong argumentative role transition (major section boundary)
-        # Trigger at relatively low continuity threshold
-        if (_detect_strong_argument_transition(left.text, right.text) and
-            component.continuity_score < 0.65 and index > 2):
             boundaries.add(index)
 
         if is_signal_vacuum:

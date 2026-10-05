@@ -12,7 +12,7 @@ assert.equal(hoverClip('a b c d',3),'a b\\u2026');
 const s=hoverCitationInfo({citation_kind:'statute',authority_document_title:'IRPA',provision_section:'96',provision_text:'A Convention refugee is...'});
 assert.equal(s.title,'IRPA');assert.equal(s.label,'Section 96');assert.match(s.text,/Convention refugee/);
 assert.match(hoverCitationInfo({citation_kind:'statute',provenance:'statute_references'}).note,/not in the iLit library/);
-assert.match(hoverCitationInfo({citation_kind:'case_short',citation_text:'X'}).note,/not in the iLit library/);
+assert.match(hoverCitationInfo({citation_kind:'case_short',citation_text:'X'}).note,/not matched this citation/);
 assert.match(hoverCitationInfo({citation_kind:'case_short',target_case_id:2}).note,/no pinpoint/);
 const c=hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_title:'Vavilov',target_citation:'2019 SCC 65',target_paragraph:7,target_chunk_text:'[6] a [7] the text [8] b'});
 assert.equal(c.text,'[7] the text ');assert.match(c.label,/Paragraph 7/);

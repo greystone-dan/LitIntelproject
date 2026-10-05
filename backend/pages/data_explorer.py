@@ -205,6 +205,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .reader-layer-legend{display:flex;flex-wrap:wrap;gap:5px 10px;padding:7px 18px;border-bottom:1px solid var(--border);background:#fffef9;color:var(--muted);font-size:9px;letter-spacing:.03em}.reader-layer-legend span{display:inline-flex;align-items:center;gap:4px}.reader-layer-legend i{width:8px;height:8px;border-radius:2px;display:inline-block}.reader-layer-legend .layer-tags{background:#2d8a50}.reader-layer-legend .layer-laws{background:#7b4fa3}.reader-layer-legend .layer-citations{background:#c28e2d}
 /* Unfinished reader tools stay out of the way until the reader switches "Show experimental" on (remembered per browser). */
 body:not(.reader-experimental) :is(#readerSummaryToggle,#readerSummaryExpandToggle,#readerCaseSummaryToggle,#readerAssessmentToggle,#readerSummaryDetail,#readerCaseSummaryDetail,.reader-quick-summary,.reader-extracted-summary,.reader-extractive-summary,[data-paragraph-similar]){display:none!important}
+body:not(.reader-experimental) :is([data-group="testing"],#displayCoreCases,#cohortSearchPanel){display:none!important}.site-experimental-toggle{margin-left:14px;padding:5px 9px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer}.site-experimental-toggle[aria-pressed="true"]{border-color:var(--teal);color:var(--teal)}
 .reader-evidence-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:7px 18px;border-bottom:1px solid var(--border);background:#fffef9}.reader-evidence-toggle{padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:#fff;color:var(--muted);font-size:10px;font-weight:700;cursor:pointer}.reader-evidence-toggle[aria-pressed="true"]{border-color:var(--teal);color:var(--teal);background:#eef8f4}.reader-evidence-detail{margin:0 18px 10px;padding:9px 10px;border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:4px;background:#fff;font-size:11px;line-height:1.45;color:var(--text)}
 .global-search,.header-actions,.sidebar,.right-panel,.bottom-tray{display:none}
 @media(max-width:1100px){.reader-layout{grid-template-columns:minmax(210px,var(--reader-target-width)) 10px minmax(0,1fr) 10px minmax(210px,var(--reader-linked-width))}}
@@ -373,6 +374,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="brand-name">ILIT</div>
 <div class="brand-sub">Immigration Litigation Intelligence System</div>
 </div>
+<button type="button" class="site-experimental-toggle" id="siteExperimentalToggle" aria-pressed="false" title="Show or hide tools that are not finished yet">Show experimental</button>
 </div>
 </header>
 <div class="workspace">
@@ -1448,8 +1450,9 @@ const sidePreviousSetReaderMode=setReaderMode;setReaderMode=function(mode){sideP
 const extractedSummaryState={open:false};
 const experimentalState={on:false};
 try{experimentalState.on=localStorage.getItem('ilit.reader.experimental')==='1'}catch(error){}
-function setReaderExperimental(on){experimentalState.on=Boolean(on);try{localStorage.setItem('ilit.reader.experimental',on?'1':'0')}catch(error){}document.body.classList.toggle('reader-experimental',experimentalState.on);const toggle=document.getElementById('readerExperimentalToggle');if(toggle){toggle.setAttribute('aria-pressed',String(experimentalState.on));toggle.textContent=experimentalState.on?'Hide experimental':'Show experimental'}document.dispatchEvent(new CustomEvent('reader-experimental-change',{detail:experimentalState.on}))}
+function setReaderExperimental(on){experimentalState.on=Boolean(on);try{localStorage.setItem('ilit.reader.experimental',on?'1':'0')}catch(error){}document.body.classList.toggle('reader-experimental',experimentalState.on);for(const toggle of document.querySelectorAll('#readerExperimentalToggle,#siteExperimentalToggle')){toggle.setAttribute('aria-pressed',String(experimentalState.on));toggle.textContent=experimentalState.on?'Hide experimental':'Show experimental'}if(!experimentalState.on&&typeof researchGroups!=='undefined'&&new URLSearchParams(location.search).get('group')==='testing'&&typeof activateResearchTab==='function')activateResearchTab('search');document.dispatchEvent(new CustomEvent('reader-experimental-change',{detail:experimentalState.on}))}
 document.getElementById('readerExperimentalToggle')?.addEventListener('click',()=>setReaderExperimental(!experimentalState.on));
+document.getElementById('siteExperimentalToggle')?.addEventListener('click',()=>setReaderExperimental(!experimentalState.on));
 setReaderExperimental(experimentalState.on);
 document.addEventListener('toggle',event=>{const node=event.target;if(node&&node.classList&&node.classList.contains('reader-extracted-summary'))extractedSummaryState.open=node.open;},true);
 function extractedReaderSummaryHtml(data){

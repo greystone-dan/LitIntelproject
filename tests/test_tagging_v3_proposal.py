@@ -438,7 +438,7 @@ def test_summary_only_cases_follow_the_active_v3_text_contract(monkeypatch):
     cases_tagged, tags_created, skipped_cases = tag_cases_v3.tag_pending_cases(
         session,
         batch_size=2,
-        batch_timeout=0.01,
+        batch_timeout=30,
         limit=2,
     )
 

@@ -92,17 +92,10 @@ class LayerSpan:
     local_end: int
 
 
-def map_span_to_chunk_layers(
-    case_text: str,
-    span_start: int,
-    span_end: int,
-    chunks: list[Any] | tuple[Any, ...],
-) -> dict[str, LayerSpan]:
-    """Map a canonical case span into containing full, section, and paragraph chunks."""
-    if span_start < 0 or span_end <= span_start or span_end > len(case_text):
-        raise ValueError("span must be a positive range within case_text")
+def locate_chunk_layers(case_text: str, chunks: list[Any] | tuple[Any, ...]) -> list[tuple[str, Any, int, int]]:
+    """Find each chunk's absolute position in the case text once: (layer, chunk_id, start, end), in layer order."""
     layer_order = {"full_case": 0, "section": 1, "paragraph": 2, "legacy": 3}
-    located: dict[str, LayerSpan] = {}
+    located: list[tuple[str, Any, int, int]] = []
     search_cursors: dict[str, int] = {}
     for chunk in sorted(chunks, key=lambda item: (layer_order.get(getattr(item, "chunk_set", ""), 9), getattr(item, "chunk_index", 0))):
         layer = getattr(chunk, "chunk_set", None)
@@ -117,17 +110,44 @@ def map_span_to_chunk_layers(
             continue
         absolute_end = absolute_start + len(chunk_text)
         search_cursors[layer] = absolute_end
-        if layer in located or not (absolute_start <= span_start and span_end <= absolute_end):
+        located.append((layer, getattr(chunk, "id", None), absolute_start, absolute_end))
+    return located
+
+
+def map_span_to_located_layers(
+    case_text_length: int,
+    span_start: int,
+    span_end: int,
+    located_chunks: list[tuple[str, Any, int, int]],
+) -> dict[str, LayerSpan]:
+    """Same result as map_span_to_chunk_layers, using positions from locate_chunk_layers."""
+    if span_start < 0 or span_end <= span_start or span_end > case_text_length:
+        raise ValueError("span must be a positive range within case_text")
+    result: dict[str, LayerSpan] = {}
+    for layer, chunk_id, absolute_start, absolute_end in located_chunks:
+        if layer in result or not (absolute_start <= span_start and span_end <= absolute_end):
             continue
-        located[layer] = LayerSpan(
+        result[layer] = LayerSpan(
             layer=layer,
-            chunk_id=getattr(chunk, "id", None),
+            chunk_id=chunk_id,
             absolute_start=absolute_start,
             absolute_end=absolute_end,
             local_start=span_start - absolute_start,
             local_end=span_end - absolute_start,
         )
-    return located
+    return result
+
+
+def map_span_to_chunk_layers(
+    case_text: str,
+    span_start: int,
+    span_end: int,
+    chunks: list[Any] | tuple[Any, ...],
+) -> dict[str, LayerSpan]:
+    """Map a canonical case span into containing full, section, and paragraph chunks."""
+    if span_start < 0 or span_end <= span_start or span_end > len(case_text):
+        raise ValueError("span must be a positive range within case_text")
+    return map_span_to_located_layers(len(case_text), span_start, span_end, locate_chunk_layers(case_text, chunks))
 
 
 def _normalize_text(value: str) -> str:

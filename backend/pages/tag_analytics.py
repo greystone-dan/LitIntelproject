@@ -143,8 +143,22 @@ def inject_tag_analytics(html: str) -> str:
 	# Insert styles
 	if '</style>' in html:
 		html = html.replace('</style>', TAG_ANALYTICS_CSS + '</style>')
-	# Insert the panel and script after FC Analytics panel
-	if '</section>' in html:
+	# Put the panel next to the other top-level panels and register it with the tab router.
+	panel = TAG_ANALYTICS_PANEL + TAG_ANALYTICS_JS
+	if '<section id="themesPanel"' in html:
+		html = html.replace('<section id="themesPanel"', panel + '<section id="themesPanel"', 1)
+	elif '</section>' in html:
 		first_section_end = html.find('</section>')
-		html = html[:first_section_end + 10] + TAG_ANALYTICS_PANEL + TAG_ANALYTICS_JS + html[first_section_end + 10:]
+		html = html[:first_section_end + 10] + panel + html[first_section_end + 10:]
+	html = html.replace(
+		"'fc-analytics':'fcAnalyticsPanel',themes:'themesPanel'}",
+		"'fc-analytics':'fcAnalyticsPanel','tag-analytics':'tagAnalyticsPanel',themes:'themesPanel'}",
+		1,
+	)
+	html = html.replace("'fc-history','themes'", "'fc-history','tag-analytics','themes'", 1)
+	html = html.replace(
+		"  if(selected==='fc-history'){loadFcActivityTimeline();",
+		"  if(selected==='tag-analytics'&&window.tgaLoadAnalytics)window.tgaLoadAnalytics();\n  if(selected==='fc-history'){loadFcActivityTimeline();",
+		1,
+	)
 	return html

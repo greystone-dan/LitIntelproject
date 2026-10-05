@@ -601,7 +601,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {
-        '/citation-map': 'workbench', '/live-analysis': 'workbench', '/deidentify': 'workbench',
+        '/citation-map': 'workbench', '/deidentify': 'workbench',
         '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
     }
     assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
@@ -1228,8 +1228,11 @@ def test_workbench_group_has_a_landing_panel_linking_its_tools():
 
     assert 'id="workbenchPanel"' in html
     assert "workbench:'workbenchPanel'" in html
-    for href in ("/citation-map", "/live-analysis", "/deidentify"):
+    for href in ("/citation-map", "/deidentify"):
         assert f'class="workbench-card" href="{href}"' in html
+    # Live Analysis is paused (coming soon): shown, but not a link.
+    assert 'class="workbench-card tab-coming-soon" aria-disabled="true"><strong>Live Analysis' in html
+    assert 'href="/live-analysis"' not in html
 
 
 def test_reader_splitters_and_search_results_have_valid_aria():

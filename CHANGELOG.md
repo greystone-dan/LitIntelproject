@@ -5,7 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
-- Reader: Markup is paused as a future deliverable. Its option in the view switcher is greyed out under a black-and-yellow "Coming soon" strip and cannot be opened; Formatted stays the default view. The markup code is untouched, and the Live Analysis page still opens your document in markup mode.
+- Reader: Markup is paused as a future deliverable. Its option in the view switcher is greyed out under a black-and-yellow "Coming soon" strip and cannot be opened; Formatted stays the default view. Live Analysis is paused the same way: its tab and Workbench card are greyed under the strip and no longer link to the page. The code for both is untouched.
 - Reader: the header is now one slim row and the reader fills the screen height (it used to take about half of a laptop screen), so the decision text gets the room; on phones the header chips sit on one line.
 - Formatted reader: hovering a statute or regulation reference now works (references stored against a chunk were dropped from the Formatted text), and pinpoint paragraph text that the reader data did not carry (cases citing more than twelve other cases) is fetched on hover instead of saying the paragraph is not stored.
 - Reader: the "Similar paragraphs" button is no longer added to any paragraph (the Show experimental switch no longer brings it back), and the potential legal-development notice is not fetched or shown on any page, including the formatted view and markup mode (the markup header pill is removed). Pinpoint paragraph text read from the stored decision now keeps a quoted list the formatter splits off the numbered line (for example Khosa para 44). No data or schema change.

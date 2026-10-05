@@ -118,7 +118,7 @@ def live_analysis_page_html() -> str:
 	html = data_explorer_page_html()
 	html = _replace_once(
 		html,
-		'<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>',
+		'<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>',
 		'<button class="tab" type="button" data-nav-group="workbench" data-tab="live-analysis" aria-pressed="false" aria-controls="liveAnalysisPanel" hidden>Live Analysis</button>',
 	)
 	html = _replace_once(html, "workbench:'workbenchPanel',", "workbench:'workbenchPanel','live-analysis':'liveAnalysisPanel',")

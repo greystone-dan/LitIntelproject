@@ -419,7 +419,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <button class="tab" type="button" data-nav-group="research" data-tab="fc-history" aria-pressed="false" aria-controls="fcHistoryPanel">FC History</button>
 <button class="tab" type="button" data-nav-group="research" data-tab="themes" aria-pressed="false" aria-controls="themesPanel">Legal Themes &amp; Statutes</button>
 <a class="tab" data-nav-group="workbench" href="/citation-map" hidden>Citation Map</a>
-<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>
+<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>
 <a class="tab" data-nav-group="workbench" href="/deidentify" hidden>De-identify</a>
 <button class="tab" type="button" data-nav-group="testing" data-tab="research-bench" aria-pressed="false" aria-controls="researchBenchPanel" hidden>Research Bench</button>
 <a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>
@@ -497,6 +497,9 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 .reader-view-button[data-coming-soon]{position:relative;overflow:hidden;opacity:.6;cursor:not-allowed;color:#8a8f98!important;min-width:84px;padding-left:14px!important;padding-right:14px!important}
 .reader-view-button[data-coming-soon]::before{content:"";position:absolute;left:-8%;right:-8%;top:50%;height:15px;margin-top:-7px;transform:rotate(-7deg);background:repeating-linear-gradient(135deg,#111 0 5px,#f5c400 5px 10px);opacity:.9;pointer-events:none}
 .reader-view-button[data-coming-soon]::after{content:"COMING SOON";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-7deg);padding:1px 5px;background:#f5c400;color:#111;font-size:8px;font-weight:800;letter-spacing:.06em;line-height:1.3;white-space:nowrap;border-radius:1px;pointer-events:none}
+.tab-coming-soon{position:relative;overflow:hidden;opacity:.6;cursor:not-allowed;color:#8a8f98!important;pointer-events:none}
+.tab-coming-soon::before{content:"";position:absolute;left:-6%;right:-6%;top:50%;height:15px;margin-top:-7px;transform:rotate(-5deg);background:repeating-linear-gradient(135deg,#111 0 5px,#f5c400 5px 10px);opacity:.9}
+.tab-coming-soon::after{content:"COMING SOON";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-5deg);padding:1px 5px;background:#f5c400;color:#111;font-size:8px;font-weight:800;letter-spacing:.06em;line-height:1.3;white-space:nowrap}
 /* Compact reader header (Daniel 2026-10-05): one slim row, and the reader fills the screen so the decision text gets the height. */
 @media(min-width:761px){
 #caseReaderPanel .reader-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:7px 14px 7px!important;position:relative}
@@ -594,7 +597,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="page-header"><div class="eyebrow">Workbench</div><h2>Tools for working on a file</h2><p>Each tool opens on its own page.</p></div>
 <div class="workbench-cards">
 <a class="workbench-card" href="/citation-map"><strong>Citation Map</strong><span>Start from a case and follow what it cites and what cites it. Compare two cases to find the authorities they share.</span><em>Open Citation Map &rarr;</em></a>
-<a class="workbench-card" href="/live-analysis"><strong>Live Analysis</strong><span>Drop in a DOCX or text PDF to list its case citations and statute references with paragraph locations. The file is read in memory and discarded.</span><em>Open Live Analysis &rarr;</em></a>
+<div class="workbench-card tab-coming-soon" aria-disabled="true"><strong>Live Analysis</strong><span>Drop in a DOCX or text PDF to list its case citations and statute references with paragraph locations. The file is read in memory and discarded.</span><em>Coming soon</em></div>
 <a class="workbench-card" href="/deidentify"><strong>De-identify</strong><span>Swap names, ID numbers, contact details and dates in a document for placeholders, then put them back later with the key file.</span><em>Open De-identify &rarr;</em></a>
 </div>
 </section>

@@ -102,23 +102,25 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 - **Revisit trigger:** A benchmarked alternative improves accuracy and
 	explainability at an acceptable operational cost.
 
-### Keep local generation optional and OpenAI-compatible
+### Keep local generation optional and provider capabilities explicit
 
-- **Decision:** Support bounded local case-intelligence generation through
-	Ollama's OpenAI-compatible endpoint while retaining hosted generation as the
-	default.
+- **Decision:** Keep generation opt-in and provider-swappable. `/research`
+	supports hosted OpenAI, native local Ollama, and an OpenAI-SDK compatible
+	endpoint selected through `CHAT_BASE_URL`.
 - **Why:** The existing runner already defines the request and JSON artifact
 	contract, so provider selection can remain narrow and reversible. Local
-	execution improves privacy and avoids per-request API cost without making a
-	generative model authoritative for citations, statutes, offsets, or source
-	provenance.
-- **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
-	path; `ENHANCED_AI_MODE=local` opts the experimental `/research` route into
-	local generation without constructing an OpenAI client, while
-	`ENHANCED_AI_MODE=off` keeps enhanced API search/research disabled by default.
-	Users must install Ollama and pull an instruct model
-	separately. The script runner and API share the same OpenAI-compatible
-	contract.
+	execution can keep requests on an operator-controlled local endpoint without
+	making generated prose authoritative for citations, statutes, offsets, or
+	source provenance.
+- **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure native local
+	generation. Alternatively, `TEXT_GENERATION_PROVIDER=openai_compatible`
+	selects the OpenAI SDK with `CHAT_BASE_URL`, optional `CHAT_API_KEY`,
+	`CHAT_MODEL`, and `CHAT_TIMEOUT_SECONDS`. Enhanced local mode accepts the
+	compatible provider only for localhost/private URLs; hosted mode requires a
+	non-local endpoint. Off mode disables `/research` before provider
+	construction. Providers expose context-size, default-output-token, and
+	JSON-mode capabilities; `/research` uses context and token limits. Users must
+	install Ollama and pull an instruct model separately when using Ollama.
 - **Revisit trigger:** A local model passes bounded accuracy, latency,
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.

@@ -4178,11 +4178,6 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		context_parts.append(f"{header}\n" + "\n".join(passages))
 
 	context = "\n\n---\n\n".join(context_parts)
-	context_limit = _LOCAL_CONTEXT_CHAR_LIMIT if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else _CONTEXT_CHAR_LIMIT
-	if len(context) > context_limit:
-		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
-
-	system_prompt, prompt_version = get_prompt("research_system")
 
 	try:
 		provider = get_text_generation_provider()
@@ -4192,11 +4187,16 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 			detail=str(exc),
 		) from exc
 
+	if len(context) > provider.max_context_chars:
+		context = context[:provider.max_context_chars] + "\n[Context truncated at a passage boundary where possible]"
+
+	system_prompt, prompt_version = get_prompt("research_system")
+
 	try:
 		completion = provider.create_chat_completion(
 			model=provider.model_name,
 			temperature=search.temperature,
-			max_tokens=_LOCAL_RAG_MAX_TOKENS if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else None,
+			max_tokens=provider.default_max_tokens,
 			messages=[
 				{"role": "system", "content": system_prompt},
 				{"role": "user", "content": f"Question: {search.query}\n\nCase excerpts:\n{context}"},

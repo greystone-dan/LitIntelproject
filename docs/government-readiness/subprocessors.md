@@ -8,7 +8,7 @@ processing region.
 
 | Service | Purpose | Data sent or exposed | Location |
 | --- | --- | --- | --- |
-| OpenAI API | Explicitly enabled query embeddings; `/research` answer generation when hosted generation is selected; explicitly invoked paragraph assessment/segmentation and other evaluation scripts. | Search query text for embeddings only if `QUERY_EMBEDDING_PROVIDER=openai`; for `/research`, question and retrieved case excerpts; for build-time calls, selected case paragraph text and prompt metadata. | **To verify.** The code uses the SDK default endpoint and configures no region or data residency setting. |
+| OpenAI API or configured compatible chat endpoint | Explicitly enabled query embeddings; `/research` answer generation when the selected provider uses OpenAI or an OpenAI-compatible service; explicitly invoked paragraph assessment/segmentation and other evaluation scripts. | Search query text for embeddings only if `QUERY_EMBEDDING_PROVIDER=openai`; for `/research`, question and retrieved case excerpts; for build-time calls, selected case paragraph text and prompt metadata. The compatible endpoint is selected with `CHAT_BASE_URL`; in local enhanced mode it must be localhost/private. | **To verify.** OpenAI embedding and chat configuration uses the SDK default endpoint; compatible chat endpoint, processing location, and data residency depend on operator configuration and provider terms. |
 | Cloudflare Tunnel | Relays external application traffic to the loopback-hosted application when the tunnel is used. | Application requests and responses routed through the configured tunnel, potentially including uploaded memo content submitted to that app. The checked-in script does not establish provider-side inspection, logging, or retention. | **To verify.** Tunnel configuration is local and the code does not select a region. |
 | Google Fonts | Supplies font CSS/assets directly to the browser on pages that include the external stylesheet. | Browser asset request and associated network metadata. No application code appends search queries or uploaded content to the font URL. | **To verify.** No region is pinned in the page code. |
 | unpkg | Supplies the Lucide JavaScript asset requested by the citation-map page. | Browser asset request and associated network metadata. No application payload is included in the static asset URL. | **To verify.** No region is pinned in the page code. |
@@ -18,10 +18,12 @@ processing region.
 
 Ollama is an optional text-generation provider. The default base URL is
 `http://127.0.0.1:11434/v1`, and the application transforms this to Ollama's
-local `/api/chat` endpoint. An operator can configure a different URL, so
-confirm the actual endpoint before treating the path as local. [backend/text_generation_providers.py:11-12](../../backend/text_generation_providers.py#L11-L12)
-[backend/text_generation_providers.py:40-65](../../backend/text_generation_providers.py#L40-L65)
-[backend/text_generation_providers.py:77-95](../../backend/text_generation_providers.py#L77-L95)
+local `/api/chat` endpoint. The separate OpenAI-compatible provider uses
+`CHAT_BASE_URL` directly through the SDK. Local enhanced mode accepts that
+provider only for localhost/private URLs; hosted mode requires a non-local
+endpoint. Verify the configured endpoint and its terms before treating any
+request as local or sending non-public material.
+[backend/text_generation_providers.py](../../backend/text_generation_providers.py)
 
 ## Scope notes
 

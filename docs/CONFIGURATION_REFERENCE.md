@@ -34,97 +34,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine uses `pool_pre_ping=True`. The optional environment
-settings below are consumed by `backend/db_limits.py`; pool size, timeout,
-recycle, and SQL echo values in `config.yaml` are still not consumed by
-`create_engine()`. `backend/search_service.py` loads the four AI rollout flags
-from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment
-overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search
-and `/research`.
-
-### Opt-in Database Limits
-
-With all six variables unset, `engine_kwargs()` returns exactly `{}`:
-SQLAlchemy's dialect-specific defaults remain unchanged, with the existing
-`pool_pre_ping=True`. No statement or lock timeout is added by the application.
-For PostgreSQL QueuePool, SQLAlchemy defaults are size 5, overflow 10, checkout
-wait 30 seconds, and recycle -1. These are library defaults, not new app defaults.
-
-| Variable | Unset behavior | Accepted values | Suggested small-server starting value |
-| --- | --- | --- | --- |
-| `DB_STATEMENT_TIMEOUT_MS` | No application statement limit | Integer `0..2147483647` milliseconds; `0` explicitly disables PostgreSQL's statement timeout for this connection | `30000` |
-| `DB_LOCK_TIMEOUT_MS` | No application lock-wait limit | Integer `0..2147483647` milliseconds; `0` explicitly disables PostgreSQL's lock timeout for this connection | `5000` (keep below statement timeout) |
-| `DB_POOL_SIZE` | Omit `pool_size` | Integer `>=0`; `0` means unlimited pool size, **not** no pooling | `5` |
-| `DB_MAX_OVERFLOW` | Omit `max_overflow` | Integer `>=-1`; `-1` means unlimited overflow; `0` forbids overflow; ignored by QueuePool when size is `0` | `2` |
-| `DB_POOL_TIMEOUT_SECONDS` | Omit `pool_timeout` | Finite number `>=0` seconds; fractional seconds allowed; `0` means do not wait for a pool slot | `5` |
-| `DB_POOL_RECYCLE_SECONDS` | Omit `pool_recycle` | Integer `>=-1` seconds; `-1` disables recycling; `0` recycles on every checkout | `1800` |
-
-These are recommendations to tune against workload, not values applied by
-default. Unlimited size/overflow can exhaust a small server; prefer bounded
-values and account for each worker process's separate pool. Empty, malformed,
-fractional integer, out-of-range, NaN and infinite values raise a startup
-`ValueError` naming the setting without echoing its value. Ignored SQLite
-settings and omitted helper query limits are still validated.
-
-PostgreSQL receives only configured settings in
-`connect_args={"options": "-c statement_timeout=30000 -c lock_timeout=5000"}`
-(example values). Options apply to new physical connections, not as global
-database changes. SQLite omits both PostgreSQL options and all QueuePool-only
-kwargs (`pool_size`, `max_overflow`, `pool_timeout`), including for in-memory
-URLs; `pool_recycle` remains supported. No replacement pool class is forced.
-
-Configuration is evaluated when each engine is constructed, after the existing
-dotenv precedence for the application's engine. Restart the process after
-changing its configuration. Environment is per process (and may be inherited
-from its launching shell); application timeout settings do not affect other
-processes' database connections unless those processes also set/load them and
-use the configured engine. Unset application variables do not disable any
-PostgreSQL server/role defaults.
-
-Long-running offline scripts can explicitly create a separate engine:
-
-```python
-from backend.db_limits import engine_without_timeout
-from sqlalchemy.orm import Session
-
-engine = engine_without_timeout(database_url)  # caller supplies its configured URL
-try:
-    with Session(engine) as session:
-        # Perform the script's separately authorized, bounded work.
-        pass
-finally:
-    engine.dispose()
-```
-
-The helper omits **both** statement and lock options while retaining configured
-pool settings and pre-ping. It does not reset server/role timeouts, mutate the
-application engine, or automatically reroute existing `SessionLocal` sessions.
-Passing a URL avoids importing database configuration; omitting it lazily imports
-`backend.database.DATABASE_URL` (and initializes that module's shared engine).
-Importing `backend.db_limits` alone loads no dotenv files or engines. Callers
-must close sessions, roll back failed transactions, and dispose their engine.
-
-### Request Timeout Responses
-
-`backend/main.py` registers handlers from `backend/db_limits.py` for SQLAlchemy
-`OperationalError` and the separate pool `TimeoutError`. Only PostgreSQL
-SQLSTATE `57014` with diagnostic primary message
-`canceling statement due to statement timeout`, SQLSTATE `55P03` with
-`canceling statement due to lock timeout`, or SQLAlchemy's canonical QueuePool
-exhaustion diagnostic yields HTTP **503** with **Retry-After: 5**. User
-cancellation, NOWAIT lock errors, connection timeouts, and other operational or
-timeout failures retain existing handlers or are reraised. Classification
-intentionally requires the exact English PostgreSQL diagnostic; localized or
-missing diagnostics are not guessed.
-
-Responses contain only “The database is busy. Please try again in a few
-seconds.” JSON uses `{"detail": ...}`. Page requests accepting `text/html` get a
-small HTML explanation, but `/api` and `/api/...` always get JSON. Routes
-declared with a JSON response class (including default `/cases` API routes)
-also remain JSON even with HTML Accept headers. SQL, parameters, driver
-messages, connection strings and credentials are never included in these
-responses. This does not retry queries or repair transactions; normal session
-cleanup remains required. Focused mocked coverage: `tests/test_db_limits.py`.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search and `/research`.
 
 ## Access, Session, And Indexing Settings
 
@@ -139,7 +49,7 @@ The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a r
 
 ## Public Health Probes
 
-The app keeps its health routes public, including when
+The app keeps three health routes public, including when
 `CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
 
 | Route | Purpose | Failure behavior |
@@ -147,7 +57,6 @@ The app keeps its health routes public, including when
 | `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
 | `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
 | `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
-| `GET /health/limits` | Reports opt-in heavy-request concurrency and waiter counts without secrets. | Returns HTTP 404 unless `CASELIBRARY_DEBUG_ENDPOINTS=1`. |
 
 Readiness uses short per-probe timeouts and does not return credentials,
 hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
@@ -155,33 +64,6 @@ model services are reported as `not_configured` and do not make the service
 unready; configured services that fail their endpoint check do. The database
 and vector requirements remain readiness dependencies regardless of optional
 model configuration.
-
-## Request Observability Settings
-
-| Variable | Default | Consumer | Purpose and safety notes |
-| --- | --- | --- | --- |
-| `SLOW_REQUEST_LOG_MS` | none (disabled) | `backend/request_context.py` | Optional positive-integer threshold in milliseconds. Requests strictly exceeding it log a one-line JSON record containing request ID, method, route template, status, and `duration_ms`. |
-| `APP_COMMIT` | none (computed from `.git`) | `backend/request_context.py` | Optional sanitized 7-40-character hexadecimal commit override for `/api/version` and `/health/ready`. Invalid values are ignored; otherwise Git is queried only when the repository `.git` directory exists, or the field is `unknown`. |
-
-The slow-log threshold is read when the middleware is initialized; restart the
-server after changing it. A sane incoming request ID is preserved; malformed or
-oversized IDs are replaced, and every HTTP response carries the resulting
-`X-Request-ID`. See `docs/OPERATIONS_LOGGING.md` for version fields and logging
-details.
-
-## Optional Heavy-Endpoint Concurrency Limits
-
-| Variable | Default | Consumer | Purpose and validation |
-| --- | --- | --- | --- |
-| `HEAVY_ENDPOINT_MAX_CONCURRENCY` | unset (disabled) | `backend/load_shedding.py` | Enables per-process concurrency limits for live analysis, exports, citation map/intelligence, analytics, bulk search, and precedent finding. Must be a positive integer when set. |
-| `HEAVY_BUCKET_<NAME>_MAX` | `HEAVY_ENDPOINT_MAX_CONCURRENCY` | `backend/load_shedding.py` | Optional positive-integer override for `LIVE_ANALYSIS`, `EXPORTS`, `CITATION_MAP`, `ANALYTICS`, or `BULK_SEARCH`. Overrides apply only when the global setting enables limiting. |
-| `HEAVY_ENDPOINT_QUEUE_SECONDS` | `0` | `backend/load_shedding.py` | Maximum time a request waits for a bucket slot before receiving HTTP 503 with `Retry-After`; must be finite and non-negative. |
-| `CASELIBRARY_DEBUG_ENDPOINTS` | unset (disabled) | `backend/load_shedding.py` | Set to `1` to expose read-only counts at `GET /health/limits`; otherwise that endpoint returns 404. |
-
-Limits are process-local and leave all routes outside the explicit heavy-route
-table unlimited, including health, readiness, static assets, and light search.
-Upload byte, parsed-text, PDF-page, and archive limits remain separate controls
-in `backend/resource_limits.py`.
 
 ## Optional Security Response Headers
 
@@ -226,13 +108,14 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
 | `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
 | `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
-| `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
-| `OPENAI_API_KEY` | none | `backend/embedding_providers.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce HTTP 503 from the API rather than a silent fallback. |
-| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/embedding_providers.py`, embedding scripts, cohort builders | Hosted case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
-| `CASE_EMBEDDING_PROVIDER` | `QUERY_EMBEDDING_PROVIDER` (default `none`) | `backend/query_embedding_providers.py` | Optional provider override for case-summary embeddings during API ingestion. `none`, `openai`, or `local`; the enhanced-mode policy still applies. |
-| `CASE_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional case-summary model override. Local vectors must satisfy the existing 1536-dimensional case-vector storage contract. |
-| `CASE_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected output size for local case-summary embeddings. The selected model must emit this size and case storage still requires 1536 dimensions. |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/text_generation_providers.py` | Selects `openai`, `local` (Ollama), or `openai_compatible` for `/research`. In enhanced `local` mode, Ollama remains the default; `openai_compatible` is accepted only when `CHAT_BASE_URL` is localhost or private. In `hosted` mode, the compatible provider requires a non-local endpoint. |
+| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
+| `CHAT_BASE_URL` | none | `backend/text_generation_providers.py` | Base URL for the `openai_compatible` chat provider, passed to the OpenAI SDK as `base_url`. Enhanced local mode requires localhost/private; hosted mode requires a non-local endpoint. |
+| `CHAT_API_KEY` | none | `backend/text_generation_providers.py` | Optional API key for the compatible chat endpoint. The SDK uses a placeholder key when omitted, so local-compatible services should ignore bearer authentication. |
+| `CHAT_MODEL` | `gpt-4o-mini` | `backend/text_generation_providers.py` | Model identifier sent to the compatible chat endpoint. |
+| `CHAT_TIMEOUT_SECONDS` | `60` | `backend/text_generation_providers.py` | Positive request timeout for compatible chat completions. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
 | `OPENAI_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/verify_citation_extraction.py` | Model for optional citation audit sampling. |
@@ -251,13 +134,20 @@ citations, statutes, offsets, and source provenance remain authoritative.
 
 The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
 explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
-`AI answers are disabled in this deployment` before retrieval or generation.
-Use `ENHANCED_AI_MODE=local` for Ollama; this mode does not construct an OpenAI
-generation client. Use `ENHANCED_AI_MODE=hosted` to opt into the existing
-provider selection; `TEXT_GENERATION_PROVIDER` may still select Ollama there.
-The local provider's code-default model is `qwen3:4b`. An enabled route reports
-a controlled `503` when the selected provider is not configured or reachable.
-Setting these values does not download a model.
+`AI answers are disabled in this deployment` before retrieval or provider
+construction. The default `TEXT_GENERATION_PROVIDER=openai` preserves hosted
+OpenAI behavior. `local` selects Ollama (`qwen3:4b` by default); alternatively,
+`openai_compatible` selects the OpenAI SDK against `CHAT_BASE_URL`. Local mode
+allows that compatible provider only for localhost/private URLs. Hosted mode
+requires a non-local endpoint. The compatible provider advertises a 12,000
+character context limit, no default output-token cap, and JSON-mode support;
+Ollama advertises a 4,000-character limit and 256 default output tokens. The
+route uses provider context and output-token capabilities. An enabled route
+reports a controlled `503` when the selected provider is not configured or
+reachable. Setting these values does not download a model. Provider-side
+retention and processing location are not established by these settings; verify
+the configured endpoint and its terms before sending research queries or
+retrieved case excerpts.
 
 Query embedding is a separate provider decision and is disabled by default.
 Semantic/hybrid search uses lexical ranking until an operator explicitly sets
@@ -283,12 +173,12 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors, local queries, and case ingestion when selected. Constructed lazily and shared per model/device within the process. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
 | `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 
-Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validates returned dimension shape before storage. Do not point a 768- or 1536-dimensional model at the local chunk embedding workflow without an explicit schema/model change. `ENHANCED_AI_MODE=off` is the default and constructs no embedding model or client; local mode never sends query or case text to a hosted embedding provider. SentenceTransformer may download its model artifact on first enabled use if it is not already available locally; tests must use fake models and never download artifacts.
+Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validates returned dimension shape before storage. Do not point a 768- or 1536-dimensional model at the local chunk embedding workflow without an explicit schema/model change.
 
 ## Citation, Cohort, And Source Settings
 

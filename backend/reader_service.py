@@ -10,6 +10,7 @@ import re
 import time
 from collections import OrderedDict
 from threading import RLock
+from types import SimpleNamespace
 from typing import Any
 
 from fastapi import HTTPException, status
@@ -853,7 +854,7 @@ def get_case_statute_references(case_id: int, db: Session) -> list[CaseReaderCit
 	]
 
 
-def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
+def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = True) -> CaseReaderDataResponse:
 	case = db.scalar(select(Case).where(Case.id == case_id))
 	if case is None:
 		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
@@ -1023,12 +1024,16 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 
 	metrics = db.scalar(select(CitationMetrics).where(CitationMetrics.case_id == case_id))
 	formatted_html = None
-	evidence_summary = _build_evidence_summary(
-		case_id,
-		db,
-		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
-		chunks=all_chunks,
-		citations=citation_responses,
+	evidence_summary = (
+		_build_evidence_summary(
+			case_id,
+			db,
+			has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+			chunks=all_chunks,
+			citations=citation_responses,
+		)
+		if include_evidence
+		else None
 	)
 	case_summary = _build_case_summary(evidence_summary)
 	incoming_citations = db.execute(
@@ -1101,6 +1106,38 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 		evidence_summary=evidence_summary,
 		case_summary=case_summary,
 	)
+
+
+def build_case_evidence(case_id: int, db: Session) -> dict[str, Any]:
+	"""Discussion-unit evidence and case summary alone, so the reader can load them after the decision text."""
+	if db.scalar(select(Case.id).where(Case.id == case_id)) is None:
+		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Case not found")
+	all_chunks = list(
+		db.scalars(
+			select(CaseChunk)
+			.where(
+				CaseChunk.case_id == case_id,
+				CaseChunk.chunk_set.in_(["paragraph", "section", "full_case", "legacy"]),
+			)
+			.order_by(CaseChunk.chunk_index)
+		)
+	)
+	citation_rows = db.execute(
+		select(Citation.id, Citation.chunk_id).where(Citation.source_case_id == case_id)
+	).all()
+	citations = [SimpleNamespace(id=row.id, chunk_id=row.chunk_id) for row in citation_rows]
+	evidence_summary = _build_evidence_summary(
+		case_id,
+		db,
+		has_paragraph_chunks=any((chunk.chunk_set or "") == "paragraph" for chunk in all_chunks),
+		chunks=all_chunks,
+		citations=citations,
+	)
+	case_summary = _build_case_summary(evidence_summary)
+	return {
+		"evidence_summary": evidence_summary.model_dump(mode="json") if evidence_summary else None,
+		"case_summary": case_summary.model_dump(mode="json") if case_summary else None,
+	}
 
 
 def build_case_citation_pass(

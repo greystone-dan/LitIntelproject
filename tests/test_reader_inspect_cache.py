@@ -14,3 +14,10 @@ def test_discussion_unit_segmentation_is_cached_until_chunks_change(monkeypatch)
     chunks[0].text_hash = "b"
     reader_service._cached_inspect_case(None, 7, chunks)
     assert len(calls) == 2
+
+
+def test_reader_page_loads_evidence_after_the_text():
+    from backend.pages.data_explorer import data_explorer_page_html
+
+    html = data_explorer_page_html()
+    assert "/reader-data?evidence=0" in html and "/evidence-summary" in html

@@ -459,8 +459,12 @@ def test_index_migration_mirrors_orm_and_reverses(monkeypatch):
 
 
 def test_active_reader_feature_and_mock_browser():
+    from backend.degraded_mode import panel_helpers_script
     from backend.pages.data_explorer import data_explorer_page_html
     html = data_explorer_page_html()
+    panel_queue = "const panelRequests=" + html.split("const panelRequests=", 1)[1].split(
+        "function readerPanelCurrent", 1
+    )[0]
     feature = html.split("let paragraphSimilarityRequest=0;", 1)[1].split("const initialCaseId=", 1)[0]
     assert "/paragraphs/${n}/similar?limit=10" in feature
     assert "panel.isConnected" in feature
@@ -469,15 +473,17 @@ def test_active_reader_feature_and_mock_browser():
     if not browser:
         pytest.skip("Chromium not installed; static feature assertions passed")
     document = """<html><body><div id="decisionBody"><p class="fmt-para" data-para="7">Text</p></div>
-<script>
+""" + panel_helpers_script() + "<script>" + panel_queue + """
 let readerState={caseId:1};let openDecision=async id=>{readerState.caseId=id;};
 const esc=s=>String(s);let pending=[];
 window.fetch=()=>new Promise(resolve=>pending.push(resolve));
+const tick=()=>new Promise(resolve=>setTimeout(resolve,0));
 let paragraphSimilarityRequest=0;
 """ + feature + """
 (async ()=>{
 const para=document.querySelector('.fmt-para');
-const first=showSimilarParagraphs(para),second=showSimilarParagraphs(para);
+const first=showSimilarParagraphs(para);await tick();
+const second=showSimilarParagraphs(para);await tick();
 const loading=document.getElementById('paragraphSimilarity').textContent.includes('Loading');
 pending[1]({ok:true,json:async()=>({results:[{case_id:2,paragraph_number:9,title:'Target',excerpt:'Match',why_matched:'1 shared tag',shared_tags:['issue:fairness'],shared_authorities:[]}],coverage:{note:'Bounded'}})});
 await second;
@@ -485,15 +491,18 @@ pending[0]({ok:true,json:async()=>({results:[],coverage:{note:'STALE'}})});
 await first;
 const panel=document.getElementById('paragraphSimilarity');
 const linked=panel.textContent.includes('Bounded')&&!panel.textContent.includes('STALE')&&panel.querySelector('a').getAttribute('href').endsWith('case_id=2&paragraph=9');
-const empty=showSimilarParagraphs(para);pending[2]({ok:true,json:async()=>({results:[],coverage:{note:'Bounded'}})});await empty;
+const empty=showSimilarParagraphs(para);await tick();pending[2]({ok:true,json:async()=>({results:[],coverage:{note:'Bounded'}})});await empty;
 const emptyShown=document.getElementById('paragraphSimilarity').textContent.includes('No matches found');
-const failed=showSimilarParagraphs(para);pending[3]({ok:false,status:500});await failed;
-const errorShown=document.getElementById('paragraphSimilarity').textContent.includes('Unable to load');
+const failed=showSimilarParagraphs(para);await tick();pending[3]({ok:false,status:500});await failed;
+const errorShown=document.getElementById('paragraphSimilarity').textContent.includes('This section could not load.');
+document.querySelector('#paragraphSimilarity button').click();await tick();
+pending[4]({ok:true,json:async()=>({results:[],coverage:{note:'Recovered'}})});await tick();
+const recovered=document.getElementById('paragraphSimilarity').textContent.includes('Recovered');
 history.replaceState(null,'','?case_id=2&paragraph=9');
 const target=document.createElement('p');target.className='fmt-para';target.dataset.para='9';document.getElementById('decisionBody').append(target);
 await openDecision(2);
 const opened=target.classList.contains('is-cited');
-if(loading&&linked&&emptyShown&&errorShown&&opened){
+if(loading&&linked&&emptyShown&&errorShown&&recovered&&opened){
 document.body.dataset.browserCheck='passed';
 }
 })();

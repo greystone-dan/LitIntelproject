@@ -36,6 +36,11 @@ site is up, and watch the first few minutes.
    the time limit) loses nothing.
 5. Check one case: `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --report-cited <case id>`
 
+Incremental repair mode is `--incremental` and it defaults `--limit` to 50 when omitted. It rejects non-positive
+limits, counts every attempted case toward that limit (including skips and errors), commits one canonical case at a
+time, skips the site-health gate, and also covers canonical cases with no outgoing citations yet. Use it for
+post-commit refreshes and small bounded repairs; keep the default batch mode for the original citing-case sweep.
+
 **Stop it at any moment:** create an empty file named `stop_cited_by.txt` in the folder it was started from
 (or press Ctrl+C). It finishes the small batch it is on and exits.
 
@@ -46,12 +51,20 @@ site is up, and watch the first few minutes.
 - Server-side limits set for the whole connection: 15 s per statement, 2 s waiting for a lock, 30 s idle in a
   transaction. A slow or locked query is skipped (the case stays pending) and the job rests longer.
 - One short transaction per batch of 5 citing cases, committed at once, nothing held between batches.
+- `--incremental` switches to one transaction per case and refuses `--health-url`; the same statement and lock
+  limits still apply to the connection.
 - It rests after every batch for at least 4 times as long as the batch took (works at most 20% of the time),
   and never less than 2 s.
 - With `--health-url` it times the site before each batch; if the answer takes over 1.5 s, or fails, it waits
   (10 s, doubling up to 2 min) and asks again, and stops after 12 waits in a row.
 - It does not scan the whole citations table at start; `--count` asks for the full total (slow).
 - It stops after 5 database errors in a row.
+
+The off-by-default canonical hook is `fc_ingest.ingest_pipeline.refresh_paragraph_cited_by(source_case_id,
+session_factory, rebuild=False)`. Pass the canonical `cases.id` and a limited session factory after the
+canonical/citation commit; it is idempotent by default and only rebuilds when you ask it to. If a source's citations
+change, `invalidate_source_edges()` acquires the source row lock and clears its status and outgoing paragraph-cited-by
+rows in one short transaction so the next refresh starts cleanly. The caller owns the surrounding commit.
 
 Useful flags: `--batch-size`, `--sleep-between-batches` (raise to be gentler), `--sleep-between-cases`,
 `--max-duty`, `--max-minutes`, `--max-cpu-seconds`, `--limit N`, `--case-ids 12 34`, `--statement-timeout-ms`,

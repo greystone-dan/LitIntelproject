@@ -895,15 +895,13 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
-def test_reader_has_additive_cautious_overruling_risk_banner():
+def test_reader_legal_development_banner_and_similar_paragraph_buttons_are_off():
     html = routes._data_explorer_page_html()
 
-    assert 'id="readerOverrulingRisk"' in html
-    assert 'aria-live="polite"' in html
-    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" in html
-    assert "may be affected" in html
-    assert "How assigned" in html
-    assert "addRiskDetail(item, 'Review notice', flag.notice)" in html
+    # Daniel, 2026-10-05: the yellow legal-development indicator and the per-paragraph
+    # "Similar paragraphs" button are off everywhere; the APIs stay for later.
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" not in html
+    assert "dataset.paragraphSimilar" not in html
 
 
 def test_reader_overruling_risk_banner_renders_only_returned_flags():
@@ -919,6 +917,7 @@ const document={
   createElement(tag){return {tag,textContent:'',children:[],append(...nodes){this.children.push(...nodes)}}},
   createTextNode(text){return {tag:'text',textContent:String(text),children:[]}}
 };
+global.window={ILIT_SHOW_LEGAL_NOTICE:true};
 const readerState={caseId:null,payload:null};
 let payload={flags:[{
   assignment:'indirect',event:'Framework update',event_date:'2019-12-19',
@@ -1248,3 +1247,30 @@ def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
     assert hide_rule in html
     assert 'id="siteExperimentalToggle"' in html
     assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
+
+
+def test_plain_search_echo_uses_plain_words():
+    html = routes._data_explorer_page_html()
+    assert "in the name or citation." in html
+    assert "Search interpreted as: ${data.query_echo}" in html
+
+
+def test_reader_overruling_risk_notice_is_off_unless_a_page_opts_in():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(){}};
+const document={getElementById(){return banner}};
+let fetched=0;const fetch=async()=>{fetched++;return {ok:true,json:async()=>({flags:[{}]})}};
+const readerState={caseId:null,payload:null};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{};
+const original=openDecision;
+const controller = __CONTROLLER__;
+(async()=>{await openDecision(7);await new Promise(r=>setTimeout(r,0));assert.equal(fetched,0);assert.equal(openDecision,original);assert.equal(banner.hidden,true)})().catch(e=>{console.error(e);process.exitCode=1});
+""".replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr

@@ -6,11 +6,13 @@ import logging
 import re
 import time
 from datetime import date, timedelta
+from collections.abc import Callable
 from typing import Any
 from urllib.parse import urlparse
 
 from backend.database import SessionLocal
 from sqlalchemy import text
+from sqlalchemy.orm import Session
 from .db import SQLiteDb
 from .document_scraper import scrape_document_page
 from .errors import HumanValidationRequired
@@ -84,6 +86,30 @@ def load_a2aj_fc_item_urls(limit: int | None = None) -> list[str]:
     finally:
         session.close()
     return urls
+
+
+def refresh_paragraph_cited_by(
+    source_case_id: int,
+    session_factory: Callable[[], Session],
+    *,
+    rebuild: bool = False,
+) -> tuple[int, int]:
+    """Off-by-default hook for canonical callers.
+
+    ``source_case_id`` must be the canonical ``cases.id``. It is not the staged
+    ``fc_id`` from SQLite capture, and this hook must be called only after the
+    canonical citation commit has already landed. Pass ``rebuild=True`` only
+    when the source citations changed and you want an explicit rebuild.
+    """
+    from backend.paragraph_cited_by_runner import refresh_paragraph_cited_by_case
+
+    edges, occurrences, _ = refresh_paragraph_cited_by_case(
+        source_case_id,
+        session_factory,
+        apply=True,
+        force_rebuild=rebuild,
+    )
+    return edges, occurrences
 
 
 def _coerce_value(mapping: dict[str, Any] | None, *keys: str) -> str | None:

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 133
+Active scripts documented: 136
 
 ## Catalog
 
@@ -17,6 +17,7 @@ Active scripts documented: 133
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
 | `audit_fc_activity_motion_unknowns_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_motion_unknowns_openai.py --help` |
 | `audit_fc_activity_openai.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_activity_openai.py --help` |
 | `audit_fc_metadata_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_fc_metadata_extraction.py --help` |
@@ -102,6 +103,7 @@ Active scripts documented: 133
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
+| `monitor_vector_index.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help` |
 | `normalize_fc_activity_openai_outputs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\normalize_fc_activity_openai_outputs.py --help` |
 | `package_discussion_units_llm.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\package_discussion_units_llm.py --help` |
 | `plan_self_citation_cleanup.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\plan_self_citation_cleanup.py --help` |
@@ -135,6 +137,7 @@ Active scripts documented: 133
 | `run_v2_pipeline.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_v2_pipeline.py --list-jobs` |
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
+| `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -240,6 +243,20 @@ Active scripts documented: 133
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/audit_discussion_unit_structure.py`
+
+**Purpose:** Audit retained Discussion Unit reports for review-only structural risks.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help
 ```
 
 ## `scripts/audit_fc_activity_motion_unknowns_openai.py`
@@ -1432,6 +1449,20 @@ Active scripts documented: 133
 .\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help
 ```
 
+## `scripts/monitor_vector_index.py`
+
+**Purpose:** Report PostgreSQL progress for the hosted paragraph vector index build.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\monitor_vector_index.py --help
+```
+
 ## `scripts/normalize_fc_activity_openai_outputs.py`
 
 **Purpose:** Normalize open-ended FC Activity model outputs for evaluation only.
@@ -1892,6 +1923,20 @@ Active scripts documented: 133
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help
+```
+
+## `scripts/scheduled_intake_daemon.py`
+
+**Purpose:** Low-priority scheduled intake of new decisions from A2AJ and court sources. Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ) or 24 hours (court sources), deduplicating, and importing without interfering with the live site. Designed to be pausable, resume-able, and disable-able. Disable by: - Setting SCHEDULED_INTAKE_ENABLED=false in .env - Renaming script to .disabled
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

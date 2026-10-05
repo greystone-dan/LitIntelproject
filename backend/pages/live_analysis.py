@@ -119,7 +119,7 @@ def live_analysis_page_html() -> str:
 	html = data_explorer_page_html()
 	html = _replace_once(
 		html,
-		'<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>',
+		'<span class="tab tab-coming-soon" data-nav-group="workbench" aria-disabled="true" title="Live Analysis is coming soon" hidden>Live Analysis</span>',
 		'<button class="tab" type="button" data-nav-group="workbench" data-tab="live-analysis" aria-pressed="false" aria-controls="liveAnalysisPanel" hidden>Live Analysis</button>',
 	)
 	html = _replace_once(html, "workbench:'workbenchPanel',", "workbench:'workbenchPanel','live-analysis':'liveAnalysisPanel',")
@@ -131,6 +131,8 @@ def live_analysis_page_html() -> str:
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
 	)
 	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	# This page reads your document in markup mode, so the paused-markup lock on the case reader is lifted here.
+	html = _replace_once(html, ' data-coming-soon disabled aria-disabled="true" title="Markup mode is coming soon"', ' title="Markup mode: the decision with notes in the margin"')
 	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
 	html = html.replace("</head>", STYLE + "</head>", 1)
 	return html.replace("</body>", SCRIPT + "</body>", 1)

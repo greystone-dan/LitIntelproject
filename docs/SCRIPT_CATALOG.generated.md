@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 170
+Active scripts documented: 171
 
 ## Catalog
 
@@ -120,6 +120,7 @@ Active scripts documented: 170
 | `ingest_synthetic_cases.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\ingest_synthetic_cases.py --help` |
 | `inspect_context_variants.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_context_variants.py --help` |
 | `inspect_discussion_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help` |
+| `judge_alias_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_alias_report.py --help` |
 | `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
@@ -1719,6 +1720,20 @@ Active scripts documented: 170
 
 ```powershell
 .\venv\Scripts\python.exe scripts\inspect_discussion_units.py --help
+```
+
+## `scripts/judge_alias_report.py`
+
+**Purpose:** Read-only report of proposed same-person judge merge groups (no writes).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\judge_alias_report.py --help
 ```
 
 ## `scripts/judge_reconciliation_report.py`

@@ -23,6 +23,8 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any
 
+from .citation_refine.pinpoints import target_paragraphs
+
 ALGO_VERSION = 1
 
 #: Display order, strongest signal first. "mentioned" means no signal phrase was found.
@@ -65,15 +67,9 @@ def citation_target_paragraph(
     normalized_citation: str | None,
     stored_target_paragraph: int | None = None,
 ) -> int | None:
-    """The cited paragraph: the stored pinpoint, else one written in the citation text."""
-    if stored_target_paragraph is not None:
-        return int(stored_target_paragraph)
-    match = re.search(
-        r"(?:at\s+)?(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)",
-        citation_text or normalized_citation or "",
-        re.IGNORECASE,
-    )
-    return int(match.group(1)) if match is not None else None
+    """The first cited paragraph: the stored pinpoint, else one written in the citation text."""
+    pins = target_paragraphs(citation_text, normalized_citation, stored_target_paragraph)
+    return pins.first if pins is not None else None
 
 
 def signal_window(text: str, start: int, previous_end: int = 0, limit: int = _WINDOW) -> str:

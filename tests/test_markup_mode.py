@@ -448,3 +448,22 @@ console.log(JSON.stringify({
 def test_citations_layer_counts_unmatched_citations_so_it_stays_selectable():
     js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "markup_mode.js").read_text(encoding="utf-8")
     assert "function countFor(type){return state.notes.filter(n=>n.type===type).length}" in js
+
+
+@needs_node
+def test_range_pinpoint_shows_each_stored_paragraph():
+    out = _node("""
+const row = o => Object.assign({target_case_id: 9, target_title: 'Vavilov', target_paragraph: 45,
+  target_paragraphs: [45, 46, 47], target_pinpoint_label: 'paras 45-47'}, o);
+console.log(JSON.stringify({
+  all: m.pinpointInfo(row({target_chunk_texts: {45: '[45] First.', 46: '[46] Second.', 47: '[47] Third.'}})),
+  some: m.pinpointInfo(row({target_chunk_texts: {45: '[45] First.'}})),
+  none: m.pinpointInfo(row({})),
+  ff: m.pinpointInfo(row({target_paragraphs: [45], target_pinpoint_open_ended: true, target_chunk_text: '[45] First.'})),
+}));
+""")
+    assert out["all"]["quote"] == "¶[45] First.\n\n¶[46] Second.\n\n¶[47] Third."
+    assert out["all"]["label"] == "paras 45-47 of Vavilov"
+    assert "2 of 3" not in out["some"]["label"] and "text shown for 1 of 3 paragraphs" in out["some"]["label"]
+    assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
+    assert "later paragraphs not named" in out["ff"]["label"]

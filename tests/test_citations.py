@@ -536,6 +536,15 @@ def test_citation_variants_support_parenthesized_reporter_years():
 	assert citations._citation_variants("(1993) 163 N.R. 197") == ["1993 163 NR 197"]
 
 
+def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():
+	assert citations._citation_variants("(1993) \t 163 N.R. 197") == ["1993 163 NR 197"]
+
+
+def test_citation_variants_long_repeated_whitespace():
+	citation = "(1993)" + (" \t" * 4096) + "163 N.R. 197"
+	assert citations._citation_variants(citation) == ["1993 163 NR 197"]
+
+
 def test_normalize_alias_lookup_preserves_searchable_party_tokens():
 	assert citations._normalize_alias_lookup("Canada (Attorney General) v. Ward") == (
 		"canada attorney general v ward"

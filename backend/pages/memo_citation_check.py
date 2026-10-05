@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .memo_authority_suggestions import SUGGESTION_SECTION, SUGGESTION_SCRIPT
+from .memo_gap_check import GAP_SECTION, GAP_SCRIPT
 
 
 def memo_citation_check_page_html() -> str:
@@ -31,9 +32,17 @@ function render(data){document.getElementById('resultTitle').textContent=data.fi
 fileInput.onchange=()=>choose(fileInput.files[0]);['dragenter','dragover'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>choose(e.dataTransfer.files[0]));analyze.onclick=async()=>{if(!selected)return;analyze.disabled=true;status.textContent='Analyzing document…';showError('');const body=new FormData();body.append('file',selected);try{const response=await fetch('/memo-citation-check',{method:'POST',body});const data=await response.json();if(!response.ok)throw new Error(data.detail||`Request failed (${response.status})`);render(data);status.textContent='Analysis complete';}catch(e){showError(e.message);status.textContent='Analysis failed';}finally{analyze.disabled=false}};clear.onclick=()=>{selected=null;fileInput.value='';choose(null);results.classList.add('hidden');};
 </script></body></html>'''
 	# Keep the existing legacy sections and renderer unchanged.
-	html = html.replace("</section></main>", SUGGESTION_SECTION + "</section></main>")
+	html = html.replace(
+		"</section></main>",
+		SUGGESTION_SECTION + GAP_SECTION + "</section></main>",
+	)
 	html = html.replace(
 		"results.classList.remove('hidden');}",
-		"renderAuthoritySuggestions(data.suggestions);results.classList.remove('hidden');}",
+		"renderAuthoritySuggestions(data.suggestions);"
+		"renderMemoGapSuggestions(data.gap_suggestions);"
+		"results.classList.remove('hidden');}",
 	)
-	return html.replace("</script></body>", SUGGESTION_SCRIPT + "</script></body>")
+	return html.replace(
+		"</script></body>",
+		SUGGESTION_SCRIPT + GAP_SCRIPT + "</script></body>",
+	)

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 158
+Active scripts documented: 165
 
 ## Catalog
 
@@ -33,6 +33,8 @@ Active scripts documented: 158
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
+| `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
+| `build_changelog.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_changelog.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
 | `build_discussion_unit_priority_lists.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_discussion_unit_priority_lists.py --help` |
@@ -48,6 +50,7 @@ Active scripts documented: 158
 | `build_mason_argument_citation_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_argument_citation_fixture.py --help` |
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
+| `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
@@ -60,6 +63,7 @@ Active scripts documented: 158
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
 | `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
+| `compare_eval_runs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help` |
 | `compare_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\compare_pipeline_case.py --help` |
 | `crawl_canlii.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\crawl_canlii.py --help` |
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
@@ -74,6 +78,7 @@ Active scripts documented: 158
 | `embed_documentation_appendices.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_documentation_appendices.py --help` |
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
+| `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
@@ -149,8 +154,10 @@ Active scripts documented: 158
 | `run_citation_rebuild_progress.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_citation_rebuild_progress.py --list-jobs` |
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
+| `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
+| `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
 | `run_overnight.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_overnight.py --list-jobs` |
 | `run_paragraph_assessment_batches.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_paragraph_assessment_batches.py --help` |
 | `run_scc_text_only.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\run_scc_text_only.py --list-jobs` |
@@ -491,6 +498,34 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\browser_smoke.py --help
 ```
 
+## `scripts/build_alert_digest.py`
+
+**Purpose:** Build an offline saved-search digest from enriched JSON on stdin or --input.
+
+**Operational class:** Saved-search digest rendering
+
+**Write/network risk:** offline JSON input; filesystem output only; no database, network or sending
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_alert_digest.py --help
+```
+
+## `scripts/build_changelog.py`
+
+**Purpose:** Build the About-page changelog from GitHub records plus hand-written entries. Inputs (all committed under data/changelog/): entries.json hand-written, plain-language entries. Each one lists the merged PRs ("#216"), commits (short sha) or work-history days it summarises. An entry that cites merged PRs takes the date of the latest one, so dates always match GitHub. skip.json merged PRs deliberately left out (docs-only, CI tweaks, reverts, scratch work), with a reason. github_records.json cache of merged PRs and commits, written by --refresh. Output: data/changelog/changelog.json, which the About page embeds. Nothing is fetched when the page is viewed. python scripts/build_changelog.py rebuild changelog.json from the committed inputs python scripts/build_changelog.py --refresh first pull merged PRs and commits from GitHub (GITHUB_TOKEN, or the gh CLI) python scripts/build_changelog.py --check exit 1 if changelog.json is out of date (used by tests) python scripts/build_changelog.py --uncovered list merged PRs that have no entry and are not skipped Merged PRs that have no entry and are not skipped still appear, as short "auto" entries built from the PR title, so a refresh never loses work; write a proper entry for them in entries.json when convenient.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_changelog.py --help
+```
+
 ## `scripts/build_citation_sample_candidate.py`
 
 **Purpose:** Build a deterministic, read-only citation extraction candidate report.
@@ -701,6 +736,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help
 ```
 
+## `scripts/build_paragraph_cited_by.py`
+
+**Purpose:** Build the paragraph-level "cited by" tables from stored citation occurrences. For every case that cites another library case by paragraph, store which paragraph it cites, how often, and the signal phrase written next to the citation ("see also", "followed in", "distinguished", ...). The reader's Markup view reads these rows. Safe by default: with no flags it only reports what it would do. Nothing is written without --apply. No AI. It is built so it cannot slow the live site down (lowest process priority, one database connection, short time limits, rests between small batches, optional site health check, stop file). python scripts/build_paragraph_cited_by.py # plan only python scripts/build_paragraph_cited_by.py --apply --max-minutes 30 --health-url http://127.0.0.1:8001/health/ready python scripts/build_paragraph_cited_by.py --report-cited 1292 # show what is stored for a case Resumable: a citing case counts as done once its status row is written, so stopping (Ctrl+C, the stop file, --max-minutes) and running the same command again carries on. To redo everything after changing the classifier, raise ALGO_VERSION in backend/paragraph_cited_by.py. Read docs/PARAGRAPH_CITED_BY.md before running.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
 ## `scripts/build_prototype_cohort.py`
 
 **Purpose:** Build and operationalize prototype cohort for immigration case research. Pipeline: 1) Combine the 300-case core list with exact-matched seed/canon cases. 2) Embed cohort cases that are not yet embedded. 3) Export citation map edges restricted to cohort-internal citations.
@@ -867,6 +916,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help
+```
+
+## `scripts/compare_eval_runs.py`
+
+**Purpose:** Compare two model-evaluation runs using paired bootstrap confidence intervals.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\compare_eval_runs.py --help
 ```
 
 ## `scripts/compare_pipeline_case.py`
@@ -1063,6 +1126,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help
+```
+
+## `scripts/eval_models.py`
+
+**Purpose:** Evaluate local embedding and JSON-generation models on frozen datasets.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
 ## `scripts/evaluate_chunk_parity.py`
@@ -2115,6 +2192,20 @@ Active scripts documented: 158
 .\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help
 ```
 
+## `scripts/run_jobs.py`
+
+**Purpose:** Run opt-in interval jobs in a separate process, without database or dotenv imports.
+
+**Operational class:** Standalone interval orchestration
+
+**Write/network risk:** DB-free scheduler; opt-in child commands may write or use network; defaults disabled
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_jobs.py --list
+```
+
 ## `scripts/run_local_paragraph_summary_baseline.py`
 
 **Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
@@ -2141,6 +2232,20 @@ Active scripts documented: 158
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help
+```
+
+## `scripts/run_outcome_checker.py`
+
+**Purpose:** Second-opinion outcome reader for cases the rules leave "unclear" (advisory data, never overwrites). Dry run by default: counts the cases, estimates tokens and cost, calls nothing. A real run needs --confirm-spend and OPENAI_API_KEY, stops at --max-usd (never above 1.00), and writes JSONL files to --out. Only open case law is sent. Use --source gold to measure the checker against the hand-read gold set (class-by-class agreement).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help
 ```
 
 ## `scripts/run_overnight.py`

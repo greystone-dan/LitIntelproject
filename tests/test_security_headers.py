@@ -165,9 +165,10 @@ def test_security_headers_registration_and_order(monkeypatch):
     try:
         middleware_classes = [middleware.cls.__name__ for middleware in module.app.user_middleware]
 
-        assert middleware_classes[:3] == [
-            "SecurityHeadersMiddleware",
+        assert middleware_classes[:4] == [
+            "RequestContextMiddleware",
             "RequestAuditMiddleware",
+            "SecurityHeadersMiddleware",
             "BaseHTTPMiddleware",
         ]
 

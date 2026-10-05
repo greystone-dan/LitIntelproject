@@ -16,9 +16,11 @@ from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
 from backend.case_comparison import fetch_case_comparison
-from backend.database import Base, Case, CaseOutcome, CaseTag, Citation, StatuteReference
+from backend.database import Base, Case, CaseChunk, CaseOutcome, CaseTag, Citation, StatuteReference
+from backend.case_compare import compare_case_inputs
 from backend.legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from backend.pages.case_compare import case_compare_page_html
+from backend.pages.data_explorer import data_explorer_page_html
 
 
 @compiles(Vector, "sqlite")
@@ -31,7 +33,7 @@ def db():
     engine = create_engine("sqlite://", connect_args={"check_same_thread": False},
                            poolclass=StaticPool)
     Base.metadata.create_all(engine, tables=[
-        model.__table__ for model in (Case, CaseOutcome, CaseTag, Citation, StatuteReference)
+        model.__table__ for model in (Case, CaseOutcome, CaseTag, Citation, StatuteReference, CaseChunk)
     ])
     with Session(engine) as session:
         session.add_all([
@@ -321,7 +323,7 @@ def test_renderer_escaping_page_and_search_contract(db):
     assert 'min-width:0;overflow-wrap:anywhere' in html
     node = shutil.which("node")
     if node:
-        script = re.search(r"<script>(.*?)</script>", html, re.S).group(1)
+        script = re.search(r"<script>(.*?)</script>", html, re.I | re.S).group(1)
         checked = subprocess.run([node, "--check"], input=script, text=True, capture_output=True)
         assert checked.returncode == 0, checked.stderr
 
@@ -417,6 +419,26 @@ def test_http_route_precedence_validation_unknowns_and_empty_page(db, monkeypatc
         assert client.get("/case-compare?a=&b=").status_code == 200
         page = client.get("/case-compare?a=1&b=2")
         assert page.status_code == 200 and "Assignment provenance" in page.text
+        assert '<form action="/case-compare" method="get">' in page.text
+        by_citation = client.get("/api/compare?a=2024%20FC%201&b=2024%20FCA%202")
+        assert by_citation.status_code == 200
+        assert by_citation.json()["cases"]["a"]["case_id"] == 1
+        assert by_citation.json()["fact_provenance"]["court"]["verification"] == "unverified"
+        compare_page = client.get("/compare?a=2024%20FC%201&b=2024%20FCA%202")
+        assert compare_page.status_code == 200
+        assert '<form action="/compare" method="get">' in compare_page.text
+        unresolved = client.get("/api/compare?a=not-a-case&b=2024%20FCA%202")
+        assert unresolved.status_code == 404
+        assert "case ID or citation" in unresolved.json()["detail"]["message"]
+        assert client.get("/compare?a=not-a-case&b=2024%20FCA%202").status_code == 404
+        overlong = "2000 S.C.R. 1 " * 64
+        assert client.get("/api/compare", params={"a": overlong, "b": "2"}).status_code == 422
+        assert client.get("/compare", params={"a": overlong, "b": "2"}).status_code == 404
+        same = client.get("/api/compare?a=1&b=2024%20FC%201")
+        assert same.status_code == 400
+        assert same.json()["detail"]["message"] == "Choose two different decisions to compare."
+        same_page = client.get("/compare?a=1&b=2024%20FC%201")
+        assert same_page.status_code == 400 and "Choose two different decisions" in same_page.text
         assert client.get("/cases/1").status_code == 200
         calls = []
 
@@ -430,3 +452,85 @@ def test_http_route_precedence_validation_unknowns_and_empty_page(db, monkeypatc
                                    params={"query": "2024 FC 1", "limit": 8, "search_full_text": "false"})
         assert search_result.json()["results"][0]["case_id"] == 1
         assert calls[0]["search_full_text"] is False and calls[0]["query"] == "2024 FC 1"
+
+
+def test_compare_resolution_distinct_tags_cross_citation_and_stored_pinpoints(db):
+    from backend.database import CaseChunk
+
+    chunk = CaseChunk(case_id=1, chunk_set="paragraph", chunk_index=0,
+                      paragraph_start=7, paragraph_end=8, text="paragraphs 7-8",
+                      text_hash="fixture", token_estimate=2)
+    db.add(chunk)
+    db.flush()
+    db.add(Citation(source_case_id=1, target_case_id=2, citation_kind="case",
+                    citation_text="2024 FCA 2 at para 12", normalized_citation="2024 FCA 2",
+                    target_paragraph=12, chunk_id=chunk.id))
+    db.add(Citation(source_case_id=2, target_case_id=1, citation_kind="case",
+                    citation_text="2024 FC 1 at para 5", normalized_citation="2024 FC 1",
+                    target_paragraph=5))
+    # A matching mention without the stored resolved target must not imply A cites B.
+    db.add(Citation(source_case_id=1, target_case_id=None, citation_kind="case",
+                    citation_text="2024 FCA 2 at para 99", normalized_citation="2024 FCA 2",
+                    target_paragraph=99))
+    db.commit()
+
+    result = compare_case_inputs(db, "2024 FC 1", "2")
+    assert result["status"] == "ok"
+    assert result["tags"]["counts"] == {
+        "a": 2, "b": 2, "shared": 1, "unique_a": 1, "unique_b": 1,
+    }
+    assert result["cross_citations"]["a_cites_b"]["cites"] is True
+    forward = result["cross_citations"]["a_cites_b"]["occurrences"][0]
+    assert forward["target_paragraph"] == 12
+    assert len(result["cross_citations"]["a_cites_b"]["occurrences"]) == 1
+    assert (forward["source_paragraph_start"], forward["source_paragraph_end"]) == (7, 8)
+    assert result["cross_citations"]["b_cites_a"]["occurrences"][0]["target_paragraph"] == 5
+    cited_b = next(item for item in result["authorities"]["items"] if item["target_case_id"] == 2)
+    assert cited_b["pinpoints_by_side"] == {"a": [12], "b": []}
+    html = case_compare_page_html(result)
+    assert "A cites B: Yes" in html and "B cites A: Yes" in html
+    assert (
+        "source occurrence paragraphs 7–8; cited decision paragraph 12"
+        in html
+    )
+    assert "Stored cited-decision paragraph pinpoints: 12" in html
+    assert "source occurrence paragraphs are taken from the citing decision" in html
+
+
+def test_overlong_pathological_compare_input_fails_before_citation_regex(db, monkeypatch):
+    from backend import case_compare
+
+    parsed_inputs = []
+    original = case_compare._citation_variants
+
+    def record_variants(value):
+        parsed_inputs.append(value)
+        return original(value)
+
+    monkeypatch.setattr(case_compare, "_citation_variants", record_variants)
+    pathological = "2000 S.C.R. 1 " * 64
+    assert len(pathological) > case_compare.MAX_CASE_INPUT_CHARS
+    assert case_compare.resolve_case_input(db, pathological) is None
+    assert case_compare.resolve_case_input(db, "9" * 513) is None
+    assert parsed_inputs == []
+
+
+def test_comparison_page_progressive_enhancement_and_reader_features_preserved(db):
+    html = case_compare_page_html(None, "2024 FC 1", "", action="/compare")
+    assert 'name="a" value="2024 FC 1" required' in html
+    assert 'readonly' not in html
+    assert '<form action="/compare" method="get">' in html
+    assert 'Search citation or case name' in html
+
+    reader = data_explorer_page_html()
+    # Compatibility slice: retain keyboard help/navigation, visible highlight,
+    # print pagination/citation, and existing reader panels/features.
+    for marker in (
+        "Compare with…", "/compare?a=${encodeURIComponent(caseId)}",
+        "j</kbd> / <kbd>n", "k</kbd> / <kbd>p", "readerTypingTarget",
+        "is-reader-current", "break-inside:avoid", "readerPrintCitation",
+        "readerMostCited", "readerSummaryDetail", "readerCaseSummaryDetail",
+        "paragraph-assessment", "is-cited-by",
+    ):
+        assert marker in reader
+    assert ".reader-compare-link{display:none!important}" in reader

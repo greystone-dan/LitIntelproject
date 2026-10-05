@@ -100,6 +100,12 @@ class SearchDB:
 		return self.rows
 
 
+@pytest.fixture(autouse=True)
+def _enable_hosted_search_mode(monkeypatch):
+	"""Keep retrieval-mode characterization tests explicit about opt-in."""
+	monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+
+
 def test_case_search_ranks_identity_before_score_and_then_paginates():
 	# Party > title > body > fallback, even with opposing legacy scores.
 	rows = [(case("Bakery v Canada", id=3, citation="2020 SCC 3"), 1.0),
@@ -142,7 +148,8 @@ def test_topic_phrase_keeps_existing_python_score_order():
 
 
 @pytest.mark.parametrize("mode", ["semantic", "hybrid", "metadata"])
-def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode):
+def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, monkeypatch):
+	monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
 	party = case(id=1, citation="2020 SCC 1")
 	other = case("Bakery v Canada", id=2, citation="2020 SCC 2")
 	rows = [(other, .01, 1), (party, .9, .01)] if mode != "metadata" else [(other, 1), (party, .01)]

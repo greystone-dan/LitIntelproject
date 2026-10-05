@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 from html.parser import HTMLParser
 import json
+from pathlib import Path
 import re
 import shutil
 import subprocess
@@ -202,7 +203,7 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     assert "requestEditVersion=editVersion" in html
     assert "filtersDirty=editVersion!==requestEditVersion" in html
     assert "professionalSearchGeneration=0" in html
-    assert "if(requestId!==professionalSearchGeneration)return" in html
+    assert "isCurrent:()=>requestId===professionalSearchGeneration" in html
     assert "document.addEventListener('input',markFiltersDirty)" in html
     assert "document.addEventListener('change',markFiltersDirty)" in html
     assert (
@@ -275,7 +276,7 @@ def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
     controller = html.split('/* Most cited paragraphs: reader-only controls. */', 1)[1].split('</script>', 1)[0]
     summary_controller = html[html.index('function extractedReaderSummaryHtml('):].split('</script>', 1)[0]
     formatter = html.split('function formattedDecision(', 1)[1].split('\n', 1)[0]
-    loader = html.split('async function openDecision(', 1)[1].split('\n', 1)[0]
+    loader = html.split('async function openDecision(', 1)[1].split('\nfunction renderJudge(', 1)[0]
     assert html.index('const sidePreviousSetReaderMode=') < html.index('const mostCitedSetReaderMode=')
     assert html.index('const extractedSummaryPreviousMode=') < html.index('const mostCitedSetReaderMode=')
     assert html.index('const citationWorkspaceOpenDecision=') < html.index('const mostCitedOpenDecision=')
@@ -286,7 +287,7 @@ const readerState={caseId:7,mode:'chunks',formatted:false,payload:null};
 const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(selector){return selector==='.reader-extracted-summary'?[]:[target,duplicate]},querySelector(selector){assert.equal(selector,`[id="decision-source-${block.start}"]`);return target},insertAdjacentHTML(where,html){assert.equal(where,'afterbegin');this.summaryHtml=html},addEventListener(name,handler){this[name]=handler}}};
 const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options},closest(){return null}};
 const duplicate={dataset:{para:'2'},setAttribute(){throw Error('Duplicate paragraph received an anchor')}};
-const document={getElementById(id){return nodes[id]??={scrollIntoView(){}}},addEventListener(name,handler){this[name]=handler}};
+const document={getElementById(id){return nodes[id]??={scrollIntoView(){},replaceChildren(){}}},addEventListener(name,handler){this[name]=handler}};
 let reducedMotion=false;
 const window={matchMedia(query){assert.equal(query,'(prefers-reduced-motion: reduce)');return {matches:reducedMotion}}};
 let fail=false,closed=false,modeCalls=0;
@@ -296,6 +297,11 @@ let setReaderMode=function(mode){modeCalls++;readerState.mode=mode;if(mode==='no
 function highlightedDecision(text,citations,tags,start,end,chars){return esc(chars.slice(start,end).join(''))}
 function formattedDecision(FORMATTER
 CONTROLLER
+// This ranking fixture stubs transport only; durable helper/Retry contracts
+// execute the real helper in test_panel_helpers.js.
+async function fetchCurrentPanel(url,container,{render,onError}){
+  try{await render(await(await fetch(url)).json(),()=>true)}catch(_){onError?.()}
+}
 const actualOpenDecision=async function(BASE_LOADER
 const num=Number,extractDocketFromPayload=()=>null;
 let renderFailure=false;
@@ -887,6 +893,76 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
+def test_reader_has_additive_cautious_overruling_risk_banner():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerOverrulingRisk"' in html
+    assert 'aria-live="polite"' in html
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" in html
+    assert "may be affected" in html
+    assert "How assigned" in html
+    assert "addRiskDetail(item, 'Review notice', flag.notice)" in html
+
+
+def test_reader_overruling_risk_banner_renders_only_returned_flags():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(...nodes){this.children.push(...nodes)}};
+const document={
+  getElementById(id){assert.equal(id,'readerOverrulingRisk');return banner},
+  createElement(tag){return {tag,textContent:'',children:[],append(...nodes){this.children.push(...nodes)}}},
+  createTextNode(text){return {tag:'text',textContent:String(text),children:[]}}
+};
+const readerState={caseId:null,payload:null};
+let payload={flags:[{
+  assignment:'indirect',event:'Framework update',event_date:'2019-12-19',
+  decision_date:'2018-04-03',rationale:'<img src=x onerror=alert(1)>',
+  source:'Primary source',how_assigned:'Stored resolved citation relationship',
+  notice:'seed list, needs lawyer review.'
+}],assessment:'This case may be affected by the listed development.'};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{readerState.payload=null};
+const fetch=async url=>{assert.equal(url,'/api/overruling-risk/7');return {ok:true,json:async()=>payload}};
+const controller = __CONTROLLER__;
+function text(node){return String(node.textContent||'')+(node.children||[]).map(text).join('')}
+(async()=>{
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,false);
+  const rendered=text(banner);
+  assert.match(rendered,/this case may be affected/);
+  assert.match(rendered,/How assigned/);
+  assert.match(rendered,/seed list, needs lawyer review\./);
+  assert.match(rendered,/<img src=x onerror=alert\(1\)>/);
+  assert.equal(banner.innerHTML,undefined);
+  payload={flags:[],assessment:'No seeded indicator matched.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,true);
+  payload={flags:[{
+    assignment:'direct',event:'Framework update',event_date:'2019-12-19',
+    decision_date:'2019-12-19',rationale:'Listed development authority',
+    source:'Primary source',how_assigned:'Direct seed match',
+    notice:'seed list, needs lawyer review.'
+  }],assessment:'This case is itself a listed development authority; other cases may be affected by this development.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.match(text(banner),/This case is itself a listed legal-development authority/);
+  assert.match(text(banner),/other cases may be affected/);
+  await openDecision(7);
+  closeDecisionReader();
+  assert.equal(banner.hidden,true);
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    script = script.replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):
@@ -1026,3 +1102,121 @@ def test_fc_analytics_tab_is_wired_into_research_navigation():
     assert "/api/fc-activity/dashboard" in html
     for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
         assert f'id="{chart}"' in html
+
+
+def test_panel_helper_is_included_once_before_all_callers():
+    html = routes._data_explorer_page_html()
+    assert html.count("const fetchPanel =") == 1
+    assert html.index("const fetchPanel =") < html.index("function fetchCurrentPanel")
+    assert html.index("const fetchPanel =") < html.index("window.fcxLoadDashboard")
+    assert "window.fetch=" not in html
+    assert "panelSelections.get(container)===selection" in html
+    assert "container.isConnected" in html
+
+
+@pytest.mark.parametrize(
+    "function,endpoint,success",
+    [
+        ("runProfessionalSearch", "/analytics/search/cases?", "professionalResultCard"),
+        ("loadSearch", "/analytics/search/cases?", "resultCard"),
+        ("loadPersistedReaderStatutes", "/statute-references", "setReaderMode"),
+        ("loadReaderActs", "/statute-references", "render(rows)"),
+        ("loadJudgeProfiles", "/api/judge-profiles?limit=100", ".judge-profile-result"),
+        ("loadJudgeProfile", "/api/judge-profiles/${encodeURIComponent(slug)}", "syncJudgeMinisterCheckboxes()"),
+        ("searchJudgeProfiles", "/api/judge-profiles?q=", ".judge-profile-result"),
+        ("loadFcHistory", "/api/fc-history?", "data.entries_json"),
+        ("loadFcActivityTimeline", "/api/fc-activity/timeline", "renderFcActivityTimeline(data)"),
+        ("loadFcAnalytics", "/api/fc-activity/analytics?", "renderFcAnalytics(data)"),
+        ("loadFcActivityFlow", "/api/fc-activity/flow", "renderFcActivitySankey(data)"),
+        ("loadFcActivityBreakdowns", "/api/fc-activity/breakdowns", "data.registry_locations"),
+        ("loadFcMotions", "/api/fc-activity/motions?", "renderFcMotions()"),
+        ("loadFcCounsel", "/api/fc-activity/counsel?", "renderFcCounsel()"),
+        ("loadFcInsights", "/api/fc-activity/insights?", "renderFcBodies()"),
+        ("loadFcJudges", "/api/fc-activity/judges?", "renderFcJudges()"),
+        ("lookupFcCase", "/api/fc-activity/case?", "fcCaseRows(data)"),
+        ("showSimilarParagraphs", "/paragraphs/${n}/similar?", "row.why_matched"),
+    ],
+)
+def test_adopted_panel_success_and_events_are_inside_retry_renderer(function, endpoint, success):
+    html = routes._data_explorer_page_html()
+    start = re.search(rf"(?:async )?function {function}\(", html).start()
+    # Each owner ends before the next named function or script boundary.
+    tail = html[start:]
+    end = re.search(r"\n(?:async )?function |\n</script>", tail[1:])
+    body = tail[:end.start() + 1] if end else tail
+    assert "fetchCurrentPanel(" in body
+    assert endpoint in body
+    assert "render" in body
+    assert body.index("render") < body.index(success)
+    assert "catch(error)" not in body
+    assert "error.message" not in body
+
+
+def test_reader_sidepanel_owners_preserve_local_renderers_and_stale_guards():
+    html = routes._data_explorer_page_html()
+    for endpoint, tab in [
+        ("/cases/${caseId}/activity", "activity"),
+        ("/analytics/cases/${caseId}/thematic-cluster", "cluster"),
+        ("/search/tags/similar?case_id=", "similar"),
+    ]:
+        line = next(line for line in html.splitlines() if f"fetchCurrentPanel(`{endpoint}" in line)
+        assert f"readerPanelCurrent(caseId,'{tab}',content)" in line
+        assert "render:" in line
+        assert ".catch(" not in line
+    intelligence = html[html.index("async function loadCaseIntelligence"):html.index("function renderCaseReaderPane", html.index("async function loadCaseIntelligence"))]
+    for endpoint in ("authority-signals?", "similar?", "missing-authorities?", "completion-suggestions?"):
+        assert endpoint in intelligence
+    assert "Promise.allSettled" in intelligence
+    assert "panel.innerHTML=intelligenceRows(rows,row)" in intelligence
+    assert "readerPanelCurrent(caseId,'intelligence',box)" in intelligence
+    assert "no second bubbling Acts request" in html
+    assert "await readerStatutePending" in html
+    assert "const loadedJudgeProfile=" not in html
+    assert "Showing all ${num(data.decisions.length)} linked decisions." in html
+    assert html.count("fetchCurrentPanel(`/api/judge-profiles/${encodeURIComponent(slug)}") == 1
+    linked = html[html.index("openLinkedCase=async function"):html.index("function sideShowPara")]
+    assert "fetchCurrentPanel(" in linked
+    assert "sideState.linkedId===caseId" in linked
+
+
+def test_fc_dashboard_owners_do_not_render_independent_siblings():
+    from backend.pages.fc_analytics import FC_ANALYTICS_JS
+
+    script = FC_ANALYTICS_JS
+    assert "Promise.allSettled" in script
+    assert "renderAll" not in script
+    assert script.count("fetchCurrentPanel(`/api/fc-activity/dashboard?") == 1
+    assert "filter(key=>key!=='judges').forEach(renderView)" in script
+    for endpoint, container, renderer in [
+        ("dashboard", "fcxKpis", "renderDashboard()"),
+        ("judges", "fcxJudges", "renderView('judges')"),
+        ("counsel", "fcxCounsel", "renderCounsel()"),
+    ]:
+        line = next(line for line in script.splitlines() if f"fetchCurrentPanel(`/api/fc-activity/{endpoint}?" in line)
+        assert f"$('{container}')" in line
+        assert "render:" in line
+        assert line.index("render:") < line.index(renderer)
+
+
+def test_panel_helpers_node_behavior():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node.js is not available")
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [node, str(root / "tests/test_panel_helpers.js")],
+        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_panel_fixture_browser_when_chromium_available():
+    node = shutil.which("node")
+    if not node or not shutil.which("chromium"):
+        pytest.skip("Node.js and Chromium are required for fixture browser acceptance")
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [node, str(root / "tests/test_panel_browser.js")],
+        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr

@@ -1,0 +1,24 @@
+{
+  "name": "tiny-json-task",
+  "version": "1",
+  "items": [
+    {
+      "id": "decision-allowed",
+      "input": "Classify the decision.",
+      "source_text": "The Court allowed the appeal.",
+      "reference_labels": {"disposition": "allowed"},
+      "reference_spans": [
+        {"field": "disposition", "start": 10, "end": 17, "text": "allowed"}
+      ]
+    },
+    {
+      "id": "decision-dismissed",
+      "input": "Classify the decision.",
+      "source_text": "The application was dismissed.",
+      "reference_labels": {"disposition": "dismissed"},
+      "reference_spans": [
+        {"field": "disposition", "start": 20, "end": 29, "text": "dismissed"}
+      ]
+    }
+  ]
+}

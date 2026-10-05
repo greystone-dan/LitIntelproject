@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 
@@ -11,7 +12,8 @@ from scripts.package_discussion_units_llm import (
     build_request,
     render_markdown,
 )
-from scripts.run_model_paragraph_experiment import build_model_report, parse_segments
+from scripts import run_model_paragraph_experiment
+from scripts.run_model_paragraph_experiment import build_model_report, build_segmentation_request, parse_segments
 
 
 def _report():
@@ -37,6 +39,7 @@ def test_request_contains_numbered_paragraphs_and_baseline():
     assert [item["paragraph_index"] for item in payload["paragraphs"]] == [0, 1, 2]
     assert payload["deterministic_baseline"]["discussion_unit_count"] == 2
     assert "final unit ends at the last_allowed index" in request["messages"][0]["content"]
+    assert request["prompt_version"] == "v1"
 
 
 def test_text_only_request_excludes_deterministic_signals():
@@ -48,6 +51,10 @@ def test_text_only_request_excludes_deterministic_signals():
         {"paragraph_index": 1, "text": "The parties made submissions."},
         {"paragraph_index": 2, "text": "The Court applies the test."},
     ]
+    assert request["prompt_version"] == "v1"
+    assert hashlib.sha256(request["messages"][0]["content"].encode("utf-8")).hexdigest() == (
+        "8e1ad3c88bb3da336ec52e1c9fecb6ccbbcee33246aa4a1209298106bb967580"
+    )
 
 
 def test_numbered_paragraph_expansion_omits_unnumbered_case_header():
@@ -91,6 +98,7 @@ def test_markdown_uses_plain_language_span_headings():
     assert "Prompt tokens: `100`" in markdown
     assert "Total tokens: `125`" in markdown
     assert "Estimated billing (USD): `$2e-05`" in markdown
+    assert "Prompt version: `v1`" in markdown
 
 
 def test_response_rejects_gaps():
@@ -103,6 +111,7 @@ def test_paragraph_assessment_returns_one_entry_per_paragraph():
     request = build_paragraph_assessment_request(report, report["paragraphs"])
     payload = json.loads(request["messages"][1]["content"])
     assert [item["paragraph_index"] for item in payload["paragraphs"]] == [0, 1, 2]
+    assert request["prompt_version"] == "v1"
     result = _parse_paragraph_assessment(
         json.dumps({"assessments": [
             {"paragraph_index": 0, "topic": "history", "role": "procedural"},
@@ -162,6 +171,75 @@ def test_package_cli_creates_nested_output_directories_for_replay(tmp_path: Path
         sys.argv = original
 
     assert markdown_path.exists()
+    assert json.loads(request_path.read_text(encoding="utf-8"))["prompt_version"] == "v1"
+    assert "Prompt version: `v1`" in markdown_path.read_text(encoding="utf-8")
+
+
+def test_package_cli_records_prompt_version_in_completed_output(monkeypatch, tmp_path: Path):
+    input_path = tmp_path / "input.json"
+    request_path = tmp_path / "request.json"
+    markdown_path = tmp_path / "review.md"
+    input_path.write_text(json.dumps(_report()), encoding="utf-8")
+    response = type(
+        "Response",
+        (),
+        {
+            "choices": [
+                type(
+                    "Choice",
+                    (),
+                    {
+                        "message": type(
+                            "Message",
+                            (),
+                            {
+                                "content": json.dumps(
+                                    {"units": [{"start_paragraph": 0, "end_paragraph": 2, "label": "Analysis"}]}
+                                )
+                            },
+                        )()
+                    },
+                )()
+            ],
+            "usage": type("Usage", (), {"prompt_tokens": 1, "completion_tokens": 1, "total_tokens": 2})(),
+        },
+    )()
+    fake_client = type(
+        "Client",
+        (),
+        {
+            "chat": type(
+                "Chat",
+                (),
+                {"completions": type("Completions", (), {"create": lambda *_args, **_kwargs: response})()},
+            )()
+        },
+    )()
+    monkeypatch.setattr("scripts.package_discussion_units_llm.OpenAI", lambda **_kwargs: fake_client)
+
+    from scripts.package_discussion_units_llm import main
+    import sys
+
+    original = sys.argv
+    sys.argv = [
+        "package",
+        "--input-json",
+        str(input_path),
+        "--output-request",
+        str(request_path),
+        "--output-markdown",
+        str(markdown_path),
+        "--send",
+    ]
+    try:
+        assert main() == 0
+    finally:
+        sys.argv = original
+
+    artifact = json.loads(request_path.read_text(encoding="utf-8"))
+    assert artifact["request"]["prompt_version"] == "v1"
+    assert artifact["response"]["prompt_version"] == "v1"
+    assert "Prompt version: `v1`" in markdown_path.read_text(encoding="utf-8")
 
 
 def test_model_segmentation_requires_exact_contiguous_source_offsets():
@@ -197,3 +275,67 @@ def test_model_report_uses_model_paragraphs_without_deterministic_baseline():
     payload = json.loads(request["messages"][1]["content"])
     assert payload["paragraph_window"] == {"first_allowed": 0, "last_allowed": 1}
     assert "deterministic_baseline" not in payload
+
+
+def test_model_paragraph_output_files_record_both_prompt_versions(monkeypatch, tmp_path):
+    source = "[1] First"
+
+    class FakeCase:
+        id = 7
+
+    class FakeSession:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_exc):
+            return None
+
+        def scalar(self, _statement):
+            return FakeCase()
+
+    class FakeCompletions:
+        def __init__(self):
+            self.calls = 0
+
+        def create(self, **_kwargs):
+            self.calls += 1
+            content = (
+                json.dumps({"segments": [{"kind": "paragraph", "paragraph_number": 1, "start_offset": 0, "end_offset": len(source)}]})
+                if self.calls == 1
+                else json.dumps({"units": [{"start_paragraph": 0, "end_paragraph": 0, "label": "Analysis"}]})
+            )
+            return type(
+                "Response",
+                (),
+                {
+                    "choices": [type("Choice", (), {"message": type("Message", (), {"content": content})()})()],
+                    "usage": type("Usage", (), {"prompt_tokens": 1, "completion_tokens": 1, "total_tokens": 2})(),
+                },
+            )()
+
+    completions = FakeCompletions()
+    fake_client = type("Client", (), {"chat": type("Chat", (), {"completions": completions})()})()
+    monkeypatch.setattr(run_model_paragraph_experiment, "SessionLocal", lambda: FakeSession())
+    monkeypatch.setattr(run_model_paragraph_experiment, "case_text", lambda _case: source)
+    monkeypatch.setattr(run_model_paragraph_experiment, "OpenAI", lambda **_kwargs: fake_client)
+    monkeypatch.setattr(run_model_paragraph_experiment, "record_case", lambda *_args, **_kwargs: None)
+
+    output_dir = tmp_path / "outputs"
+    run_model_paragraph_experiment.run_case(
+        7,
+        output_dir,
+        model="test-model",
+        budget_usd=1.0,
+        send=True,
+        ledger_path=tmp_path / "ledger.jsonl",
+    )
+
+    request_artifact = json.loads((output_dir / "case_7_requests.json").read_text(encoding="utf-8"))
+    report = json.loads((output_dir / "case_7_model_paragraphs.json").read_text(encoding="utf-8"))
+    markdown = (output_dir / "case_7_discussion_units.md").read_text(encoding="utf-8")
+    expected_versions = {"segmentation": "v1", "discussion_units": "v1"}
+    assert request_artifact["prompt_version"] == expected_versions
+    assert request_artifact["segmentation_request"]["prompt_version"] == "v1"
+    assert request_artifact["discussion_request"]["prompt_version"] == "v1"
+    assert report["prompt_version"] == expected_versions
+    assert "Prompt versions: segmentation `v1`; discussion units `v1`" in markdown

@@ -51,6 +51,12 @@ _JUDGE_JUNK_RE = re.compile(
 )
 
 
+_JUDGE_LABEL_ONLY_RE = re.compile(r"(?:AND\s+ORDER|AND|BY)(?:\s*:)?(?:\s+BY\s*:?)?", re.IGNORECASE)
+_JUDGE_NAME_RE = re.compile(
+    r"[A-ZÀ-Ý][A-Za-zÀ-ÿ'’\-]+(?:\s+[A-ZÀ-Ý][A-Za-zÀ-ÿ'’\-]+){0,2},?\s+(?:J\.A\.|C\.J\.|A\.C\.J\.|J\.F\.C\.C\.|J\.)(?=\W|$)"
+)
+
+
 def _is_judge_junk(value: str | None) -> bool:
     """Return True when a captured judge value is a court name, annex, or bare label."""
     if not value:
@@ -132,6 +138,7 @@ def _normalize_metadata_key(key: str) -> str:
         "date of hearing": "date of hearing",
         "reasons for judgment and judgment by": "judge",
         "reasons for judgment by": "judge",
+        "reasons for judgment": "judge",
         "judgment delivered by": "judge",
         "jugement rendu par": "judge",
         "en presence de": "present",
@@ -551,6 +558,16 @@ def _extract_metadata(full_text: str) -> dict[str, Any]:
         )
         if reasons_match:
             metadata["judge"] = reasons_match.group(1).strip()
+    # "REASONS FOR ORDER AND ORDER BY: MACTAVISH, J." and "REASONS FOR ORDER BY:\nPAMEL J.A." leave only a label behind.
+    judge_now = " ".join(str(metadata.get("judge") or "").split())
+    if not judge_now or _JUDGE_LABEL_ONLY_RE.fullmatch(judge_now):
+        metadata.pop("judge", None)
+        anchor = re.search(r"(?i)REASONS\s+FOR\s+(?:ORDER|JUDGMENT)", full_text[:15000])
+        named = _JUDGE_NAME_RE.search(full_text[anchor.end() : anchor.end() + 300]) if anchor else None
+        if named:
+            metadata["judge"] = " ".join(named.group(0).split())
+        elif _JUDGE_NAME_RE.fullmatch(" ".join(str(metadata.get("reasons for judgment") or "").split())):
+            metadata["judge"] = " ".join(str(metadata["reasons for judgment"]).split())
 
     # Fallbacks for decisions where labels are not in fully uppercase sections.
     date_match = re.search(r"\bDate:\s*(\d{4}[-/]?\d{2}[-/]?\d{2}|\d{8})\b", full_text, re.IGNORECASE)

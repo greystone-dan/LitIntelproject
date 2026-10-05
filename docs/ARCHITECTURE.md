@@ -186,6 +186,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
 | `backend/db_limits.py` | Opt-in engine limits, script engine helper, and precise safe timeout responses |
+| `backend/degraded_mode.py` | Narrow database-connection outage classification, safe HTML/JSON 503 responses, and opt-in retryable panel script |
 | `backend/deidentify.py` | Reversible document de-identification |
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |

@@ -6,6 +6,7 @@ import pytest
 from pgvector.sqlalchemy import Vector
 from sqlalchemy import create_engine, func, select
 from sqlalchemy.ext.compiler import compiles
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
@@ -139,8 +140,21 @@ def _count(factory, model):
 
 def test_defaults_are_gentle():
     args = parse_args([])
-    assert args.apply is False and args.batch_size <= 5 and args.sleep_between_batches >= 2
+    assert args.apply is False and args.batch_size <= 5 and args.sleep_between_batches >= 2 and args.limit is None
     assert args.statement_timeout_ms <= 15000 and args.lock_timeout_ms <= 2000 and args.max_duty <= 0.2
+
+
+def test_incremental_defaults_to_bounded_limit_and_rejects_nonpositive_limit():
+    assert parse_args(["--incremental"]).limit == 50
+    with pytest.raises(SystemExit):
+        parse_args(["--incremental", "--limit", "0"])
+    with pytest.raises(SystemExit):
+        parse_args(["--incremental", "--limit", "-1"])
+
+
+def test_incremental_rejects_health_url():
+    with pytest.raises(SystemExit):
+        parse_args(["--incremental", "--health-url", "http://127.0.0.1:8001/health/ready"])
 
 
 def test_plan_mode_writes_nothing(factory, tmp_path):
@@ -197,3 +211,127 @@ def test_explicit_case_ids(factory, tmp_path):
     with factory() as db:
         done = set(db.scalars(select(ParagraphCitationStatus.source_case_id)))
     assert done == {3, 5}
+
+
+def test_incremental_mode_commits_case_by_case_and_covers_no_citation_cases(factory, tmp_path):
+    class FailingGate:
+        def wait_until_healthy(self):
+            raise AssertionError("health gate should be disabled in incremental mode")
+
+    args = _args(tmp_path, "--apply", "--incremental", "--limit", "7", "--batch-size", "3")
+    before = run(args, factory, health=FailingGate(), sleep=lambda s: None, log=lambda m: None)
+    assert before.processed == 7 and before.stopped_because == "limit reached"
+    with factory() as db:
+        statuses = db.execute(
+            select(ParagraphCitationStatus.source_case_id, ParagraphCitationStatus.edges, ParagraphCitationStatus.computed_at)
+            .order_by(ParagraphCitationStatus.source_case_id)
+        ).all()
+        target = db.execute(
+            select(ParagraphCitationStatus.edges).where(ParagraphCitationStatus.source_case_id == 1)
+        ).scalar_one()
+        assert target == 0
+        assert [row.source_case_id for row in statuses] == [1, 2, 3, 4, 5, 6, 7]
+        cited_by = db.execute(
+            select(ParagraphCitationStatus.source_case_id).where(ParagraphCitationStatus.source_case_id == 1)
+        ).scalar_one()
+        assert cited_by == 1
+        target_view = db.execute(select(ParagraphCitationStatus).where(ParagraphCitationStatus.source_case_id == 1)).scalar_one()
+        assert target_view.edges == 0
+        from backend.paragraph_cited_by_db import load_target_cited_by
+
+        cited = load_target_cited_by(db, [(1, 12)])
+        assert cited[(1, 12)]["citer_count"] == 6
+        before_statuses = [(row.source_case_id, row.edges, row.computed_at) for row in statuses]
+        before_edges = db.execute(
+            select(ParagraphCitationEdge.id, ParagraphCitationEdge.source_case_id, ParagraphCitationEdge.target_case_id, ParagraphCitationEdge.target_paragraph)
+            .order_by(ParagraphCitationEdge.id)
+        ).all()
+    after = run(args, factory, health=FailingGate(), sleep=lambda s: None, log=lambda m: None)
+    assert after.processed == 0 and after.stopped_because == "finished"
+    with factory() as db:
+        after_statuses = db.execute(
+            select(ParagraphCitationStatus.source_case_id, ParagraphCitationStatus.edges, ParagraphCitationStatus.computed_at)
+            .order_by(ParagraphCitationStatus.source_case_id)
+        ).all()
+        after_edges = db.execute(
+            select(ParagraphCitationEdge.id, ParagraphCitationEdge.source_case_id, ParagraphCitationEdge.target_case_id, ParagraphCitationEdge.target_paragraph)
+            .order_by(ParagraphCitationEdge.id)
+        ).all()
+    assert before_statuses == [(row.source_case_id, row.edges, row.computed_at) for row in after_statuses]
+    assert before_edges == after_edges
+
+
+def test_bulk_operational_error_rolls_back_before_sleep(factory, tmp_path, monkeypatch):
+    from backend import paragraph_cited_by_runner as runner
+
+    real_compute = runner.compute_source_edges
+    events: list[str] = []
+
+    def flaky_compute(db, source_id):
+        if source_id == 2:
+            raise OperationalError("statement", {}, Exception("boom"))
+        return real_compute(db, source_id)
+
+    def spy_factory():
+        db = factory()
+        original_rollback = db.rollback
+
+        def rollback():
+            events.append("rollback")
+            return original_rollback()
+
+        db.rollback = rollback
+        return db
+
+    monkeypatch.setattr(runner, "compute_source_edges", flaky_compute)
+    result = run(
+        _args(tmp_path, "--apply", "--batch-size", "3"),
+        spy_factory,
+        sleep=lambda seconds: events.append(f"sleep:{seconds}"),
+        log=lambda m: None,
+    )
+
+    assert result.failed == [2]
+    assert events[0] == "rollback"
+    assert events[1].startswith("sleep")
+
+
+def test_incremental_mode_rolls_back_only_the_failed_case(factory, tmp_path, monkeypatch):
+    from backend import paragraph_cited_by_runner as runner
+
+    real_compute = runner.compute_source_edges
+
+    def flaky_compute(db, source_id):
+        if source_id == 3:
+            raise RuntimeError("boom")
+        return real_compute(db, source_id)
+
+    monkeypatch.setattr(runner, "compute_source_edges", flaky_compute)
+    result = run(_args(tmp_path, "--apply", "--incremental", "--limit", "3", "--batch-size", "3"),
+                 factory, sleep=lambda s: None, log=lambda m: None)
+    assert result.processed == 2
+    assert result.attempts == 3
+    assert result.failed == [3]
+    assert result.stopped_because == "limit reached"
+    with factory() as db:
+        done = set(db.scalars(select(ParagraphCitationStatus.source_case_id)))
+    assert {1, 2}.issubset(done) and 3 not in done
+
+
+def test_incremental_limit_counts_current_explicit_ids(factory, tmp_path):
+    with factory() as db:
+        from backend.paragraph_cited_by_db import compute_source_edges, write_source_edges
+
+        edges, _ = compute_source_edges(db, 2)
+        write_source_edges(db, 2, edges)
+        db.commit()
+
+    result = run(_args(tmp_path, "--apply", "--incremental", "--limit", "2", "--case-ids", "2", "3", "4", "--batch-size", "5"),
+                 factory, sleep=lambda s: None, log=lambda m: None)
+    assert result.processed == 1
+    assert result.attempts == 2
+    assert result.failed == []
+    assert result.stopped_because == "limit reached"
+    with factory() as db:
+        done = set(db.scalars(select(ParagraphCitationStatus.source_case_id)))
+    assert {2, 3}.issubset(done) and 4 not in done

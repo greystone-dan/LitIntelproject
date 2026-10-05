@@ -163,3 +163,14 @@ def test_signal_words_are_not_part_of_the_marked_citation() -> None:
 	row = next(r for r in rows if "Suresh" in r["citation_text"])
 	assert row["citation_text"].startswith("Suresh v. Canada")
 	assert text[row["offset_start"] : row["offset_end"]] == row["citation_text"]
+
+
+def test_back_references_are_added_and_marked_as_heuristic() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(
+		"[1] See Canada v Vavilov, 2019 SCC 65 at para 10. [2] Vavilov, above at para 99. Ibid at para 20."
+	)
+	rows = build_live_reader_payload(text, paragraphs, "Pasted text", None)["citations"]
+	back = [r for r in rows if r.get("heuristic_note")]
+	assert [text[r["offset_start"] : r["offset_end"]] for r in back] == ["Vavilov, above at para 99", "Ibid at para 20"]
+	assert all(r["citation_kind"] == "case_short" and "heuristic" in r["heuristic_note"] for r in back)
+	assert not any(r.get("heuristic_note") for r in rows if "2019 SCC 65" in r["citation_text"])

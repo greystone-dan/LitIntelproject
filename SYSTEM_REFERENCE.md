@@ -1079,8 +1079,24 @@ The public `GET /health` response remains the legacy process message.
 extension, ORM-required tables, and configured model endpoints. Database and
 HTTP probes have short timeouts. Readiness returns HTTP 503 when a required
 check fails and emits status-only endpoint details rather than secrets,
-hostnames, or connection strings. All three health paths remain exempt from the
-optional application password gate.
+hostnames, or connection strings. Readiness includes safe `commit`, `started_at`,
+and `python_version` metadata. `GET /api/version` returns the same fields:
+sanitized `APP_COMMIT` or a short Git hash only when the repository `.git`
+directory exists (otherwise `unknown`), process start time, and Python version.
+It does not return environment variables, hostnames, or secrets.
+Health paths remain exempt from the optional application password gate.
+`GET /api/version` follows the existing optional password-gate configuration;
+the gate's behavior is otherwise unchanged.
+
+The request-context middleware uses a `ContextVar` set/reset for each request
+and adds the validated or generated `X-Request-ID` to success, access-gate,
+404, and 500 responses. Incoming IDs are ASCII, 8-64 characters; invalid values
+are replaced. Optional structured slow-request logging is disabled by default;
+`SLOW_REQUEST_LOG_MS` enables one-line JSON records only when duration strictly
+exceeds the threshold. Fields are request ID, method, route template, status,
+and `duration_ms`; no raw path/query or request text is logged. See
+[docs/OPERATIONS_LOGGING.md](docs/OPERATIONS_LOGGING.md) and
+[docs/CONFIGURATION_REFERENCE.md](docs/CONFIGURATION_REFERENCE.md) for details.
 
 The local application is commonly served at `http://127.0.0.1:8000`. To start
 or refresh the website, run the canonical command from the repository root:

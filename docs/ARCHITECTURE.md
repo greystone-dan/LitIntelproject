@@ -194,6 +194,7 @@ test checks that these paths continue to exist.
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |

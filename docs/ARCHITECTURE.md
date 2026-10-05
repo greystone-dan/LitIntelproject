@@ -251,6 +251,8 @@ test checks that these paths continue to exist.
 | `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
+| `backend/pages/reader_v6.css` | TODO: describe this file |
+| `backend/pages/reader_v6.js` | TODO: describe this file |
 | `backend/pages/research.py` | Experimental research page builder |
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |

@@ -9,6 +9,7 @@ from __future__ import annotations
 import re
 import time
 from collections import OrderedDict
+from itertools import islice
 from threading import RLock
 from types import SimpleNamespace
 from typing import Any
@@ -475,7 +476,27 @@ def _legislation_url_for_reference(value: str | None) -> str | None:
 	return f"https://laws-lois.justice.gc.ca/eng/acts/I-2.5/section-{section_number}.html"
 
 
+_INFERRED_TAG_CACHE: "OrderedDict[tuple, list[CaseReaderTagResponse]]" = OrderedDict()
+_INFERRED_TAG_CACHE_MAX = 128
+
+
 def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
+	"""Keyword tags over the whole decision (a few hundred ms on long ones), cached per case text."""
+	key = (case.id, hash(case.full_text or ""), hash(case.summary or ""), len(chunks))
+	with _INSPECT_CACHE_LOCK:
+		cached = _INFERRED_TAG_CACHE.get(key)
+		if cached is not None:
+			_INFERRED_TAG_CACHE.move_to_end(key)
+			return list(cached)
+	tags = _compute_reader_inferred_tags(case, chunks)
+	with _INSPECT_CACHE_LOCK:
+		_INFERRED_TAG_CACHE[key] = tags
+		while len(_INFERRED_TAG_CACHE) > _INFERRED_TAG_CACHE_MAX:
+			_INFERRED_TAG_CACHE.popitem(last=False)
+	return list(tags)
+
+
+def _compute_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[CaseReaderTagResponse]:
 	if case.full_text and case.full_text.strip():
 		content = case.full_text
 	else:
@@ -517,7 +538,7 @@ def _build_reader_inferred_tags(case: Case, chunks: list[CaseChunk]) -> list[Cas
 	tags: list[CaseReaderTagResponse] = []
 	max_occurrences_per_tag = 50
 	for category, value, pattern in catalog:
-		for match in list(re.finditer(pattern, content, flags=re.IGNORECASE))[:max_occurrences_per_tag]:
+		for match in islice(re.finditer(pattern, content, flags=re.IGNORECASE), max_occurrences_per_tag):
 			evidence = content[max(0, match.start() - 80) : min(len(content), match.end() + 80)].strip()
 			tags.append(
 				CaseReaderTagResponse(

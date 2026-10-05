@@ -78,6 +78,8 @@ def parse_judge_name(raw: str) -> JudgeName | None:
 	if not raw or not raw.strip():
 		return None
 	repaired = repair_text(raw)
+	if re.search(r"\bassessor\b", repaired, re.IGNORECASE):
+		return None  # "Deputy Assessor" entries are a different role: never merge them into a judge
 	role = "prothonotary" if _ROLE_PROTHONOTARY.search(repaired) else "judge"
 	gender = "f" if _FEMALE.search(repaired) else ("m" if re.search(r"\b(?:mr|mister|monsieur)\b", repaired, re.IGNORECASE) else "")
 	flags: list[str] = []
@@ -204,3 +206,16 @@ def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 				roles = sorted({parsed[m].role for m in cluster})
 				groups.append(MergeGroup(surname, cluster, _display(cluster, parsed, counts), roles, review))
 	return sorted(groups, key=lambda g: -sum(counts[m] for m in g.members))
+
+
+def best_display_name(names: list[str]) -> str | None:
+	"""Clean display name for one person from their raw strings, e.g. "Justice Simon Noël".
+
+	Returns None when no string parses, so callers fall back to the stored name.
+	"""
+	parsed = [p for p in (parse_judge_name(n) for n in names) if p]
+	if not parsed:
+		return None
+	best = max(parsed, key=lambda p: (len(p.given), p.name_text != p.name_text.upper(), len(p.name_text)))
+	prefix = "Prothonotary" if all(p.role == "prothonotary" for p in parsed) else "Justice"
+	return f"{prefix} {best.name_text}"

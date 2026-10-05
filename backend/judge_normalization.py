@@ -1,9 +1,9 @@
 """Deterministic judge-name normalization (no database, no AI).
 
 `parse_judge_name` turns a raw extracted judge string into a `JudgeName` with a
-surname, given-name tokens or initials, and an honorific/role flag. `same_person`
-and `group_judge_names` use those parts to propose merge groups. Nothing here
-writes data: callers apply approved groups through a reversible alias layer.
+surname key, given-name tokens or initials, a role and a gender hint.
+`group_judge_names` proposes same-person merge groups. Nothing here writes
+data: callers apply approved groups through a reversible alias layer.
 """
 
 from __future__ import annotations
@@ -13,82 +13,116 @@ import unicodedata
 from collections import defaultdict
 from dataclasses import dataclass, field
 
-_TITLE_WORDS = (
-	r"the\s+honou?rable|l[’']?\s*honorable|honou?rable|hon\.?|madam(?:e)?\s+justice|mr\.?\s+justice|mrs\.?\s+justice|"
-	r"chief\s+justice|associate\s+chief\s+justice|associate\s+judge|deputy\s+judge|supernumerary|"
-	r"justice|judge|juge\s+en\s+chef|juge|madame|madam|monsieur|mr\.?|mrs\.?|ms\.?|prothonotary|protonotaire|"
-	r"member|commissioner|dr\.?"
+# Leading surname particles ignored when building the surname key ("de Montigny" == "Montigny").
+_PARTICLES = {"de", "du", "des", "von", "van", "der", "den", "di"}
+_ROLE_PROTHONOTARY = re.compile(r"prothonotary|protonotaire", re.IGNORECASE)
+_FEMALE = re.compile(r"\b(?:madam|madame|ms|mrs|mme|mademoiselle)\b", re.IGNORECASE)
+# Phrases first (they contain words that are also surname particles), then single words.
+_PHRASE_RE = re.compile(
+	r"\b(?:l[’']?\s*honou?rable\s+juge|l[’']?\s*honou?rable|(?:le|la)\s+juge|juge\s+en\s+chef|"
+	r"case\s+management\s+judge|associate\s+chief\s+justice|assistant\s+chief\s+justice|acting\s+chief\s+justice|"
+	r"associate\s+judge|deputy\s+judge|chief\s+justice|the\s+honou?rable|the\s+honou?rouble)\b",
+	re.IGNORECASE,
 )
-_TITLE_RE = re.compile(rf"\b(?:{_TITLE_WORDS})\b", re.IGNORECASE)
-_SUFFIX_RE = re.compile(r"[,\s]+(?:A\.?C\.?J\.?|C\.?J\.?|J\.?A\.?|J\.?F\.?C\.?C\.?|P\.?|J\.?)\s*$", re.IGNORECASE)
-_PARTICLES = {"de", "du", "des", "la", "le", "van", "von", "der", "den", "st", "ste", "mc", "mac"}
+_WORD_RE = re.compile(
+	r"\b(?:hono\w*|mister|mr|mrs|ms|madam|madame|mme|monsieur|justice|jusice|judge|juge|chief|acting|assistant|"
+	r"associate|prothonotary|protonotaire|esquire|esq|maitre|me|supernumerary|the|dr|hon|deputy|assessor|registrar)\b",
+	re.IGNORECASE,
+)
+_SUFFIX_RE = re.compile(r"[,\s]+(?:A\.?\s?C\.?\s?J|C\.?\s?J|D\.?\s?J|J\.?\s?A|J\.?\s?F\.?\s?C\.?\s?C|J|P)\.?\s*$", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
 class JudgeName:
 	raw: str
-	surname: str  # lowercased ascii, spaces collapsed, hyphens kept as space
-	given: tuple[str, ...] = ()  # lowercased given-name tokens (full words or single letters)
+	surname: str  # lowercase ascii, hyphens as spaces, leading particles dropped
+	given: tuple[str, ...] = ()  # lowercase given-name tokens (words or single initials)
 	role: str = "judge"  # judge | prothonotary
+	gender: str = ""  # "m", "f" or "" when unknown
+	name_text: str = ""  # original-case name with titles/suffixes removed (accents kept)
 	flags: tuple[str, ...] = field(default_factory=tuple)
 
 	@property
 	def initials(self) -> str:
 		return "".join(token[0] for token in self.given)
 
-	@property
-	def key(self) -> str:
-		"""Stable grouping key: surname plus first initial (surname only when no given name)."""
-		return f"{self.surname}|{self.initials[:1]}"
+
+def repair_text(raw: str) -> str:
+	"""Fix common encoding damage and drop trailing docket noise."""
+	text = raw
+	if re.search(r"[ÂÃâ][\x80-\xbf€™œ‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜š›œžŸ]|Â", text):
+		try:
+			text = text.encode("cp1252").decode("utf-8")
+		except (UnicodeEncodeError, UnicodeDecodeError):
+			text = text.replace("Â", " ")
+	text = text.replace(" ", " ").replace("‑", "-").replace("‐", "-").replace("’", "'")
+	text = re.sub(r"\b(?:docket|between)\b.*$", "", text, flags=re.IGNORECASE)
+	return " ".join(text.split())
 
 
 def _fold(text: str) -> str:
-	text = text.replace("’", "'")
 	return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
 
 
+def _title_case(text: str) -> str:
+	def fix(token: str) -> str:
+		if not token.isupper() or "." in token:
+			return token
+		parts = re.split(r"([\-'])", token.lower())
+		return "".join(p.capitalize() if p not in "-'" else p for p in parts)
+	return " ".join(fix(t) for t in text.split())
+
+
 def parse_judge_name(raw: str) -> JudgeName | None:
-	"""Parse a raw judge string; return None when nothing name-like is left."""
+	"""Parse a raw judge string; return None when no personal name is left."""
 	if not raw or not raw.strip():
 		return None
-	text = " ".join(_fold(raw).split())
+	repaired = repair_text(raw)
+	role = "prothonotary" if _ROLE_PROTHONOTARY.search(repaired) else "judge"
+	gender = "f" if _FEMALE.search(repaired) else ("m" if re.search(r"\b(?:mr|mister|monsieur)\b", repaired, re.IGNORECASE) else "")
 	flags: list[str] = []
-	role = "prothonotary" if re.search(r"prothonotary|protonotaire", text, re.IGNORECASE) else "judge"
-	# "Gleason, J." / "Gleason J." -> strip trailing role suffix, remember it.
-	stripped = _SUFFIX_RE.sub("", text)
-	if stripped != text:
+	text = re.sub(r"[-_=]{3,}", " ", repaired)
+	text = re.sub(r"(?i)justice(?=[A-Z])", "Justice ", text)
+	text = re.sub(r"\s+\.", ".", text).replace("_", " ")
+	text = re.sub(r"([a-z])([A-Z]\.)", r"\1 \2", text)
+	text = re.sub(r",?\s*\b(?:esq(?:uire)?)\b\.?,?", " ", text, flags=re.IGNORECASE)
+	previous = None
+	while previous != text:
+		previous, text = text, _SUFFIX_RE.sub("", text.strip())
+	if text != repaired.strip():
 		flags.append("suffix")
-	text = _TITLE_RE.sub(" ", stripped)
-	text = re.sub(r"[^A-Za-z'\-,\. ]+", " ", text)
+	text = _PHRASE_RE.sub(" ", text)
+	text = _WORD_RE.sub(" ", text)
+	text = re.sub(r"\bM\.(?=\s)", " ", text)
+	text = re.sub(r"[^A-Za-zÀ-ÿ'\-,. ]+", " ", text)
 	text = " ".join(text.split()).strip(" ,.")
-	if not text:
-		return None
-	if "," in text:  # "Surname, Given" form
-		surname_part, _, given_part = text.partition(",")
+	name_text = text
+	folded = _fold(text)
+	if "," in folded:
+		surname_part, _, given_part = folded.partition(",")
 		given_tokens = given_part.replace(".", " ").split()
-		flags.append("comma-order")
 	else:
-		tokens = text.replace(".", " ").split()
-		if len(tokens) == 1:
-			surname_part, given_tokens = tokens[0], []
-		else:
-			# Trailing token(s) are the surname; leading single letters / words are given names.
-			idx = len(tokens) - 1
-			while idx > 0 and tokens[idx - 1].lower() in _PARTICLES:
-				idx -= 1
-			surname_part, given_tokens = " ".join(tokens[idx:]), tokens[:idx]
-	surname = re.sub(r"[\-\s]+", " ", surname_part.lower()).strip()
+		tokens = folded.replace(".", " ").split()
+		if not tokens:
+			return None
+		idx = len(tokens) - 1
+		while idx > 0 and tokens[idx - 1].lower() in _PARTICLES:
+			idx -= 1
+		surname_part, given_tokens = " ".join(tokens[idx:]), tokens[:idx]
+	words = [w for w in re.split(r"[\-\s]+", surname_part.lower()) if w]
+	while len(words) > 1 and words[0] in _PARTICLES:
+		words.pop(0)
+	surname = " ".join(words)
 	surname = re.sub(r"^(mc|mac)\s+", r"\1", surname)
-	given = tuple(re.sub(r"[^a-z]", "", t.lower()) for t in given_tokens)
-	given = tuple(t for t in given if t)
+	given = tuple(t for t in (re.sub(r"[^a-z]", "", g.lower()) for g in given_tokens) if t)
 	if len(surname) < 2 or not re.search(r"[a-z]{2}", surname):
 		return None
-	return JudgeName(raw=raw, surname=surname, given=given, role=role, flags=tuple(flags))
+	return JudgeName(raw, surname, given, role, gender, _title_case(name_text), tuple(flags))
 
 
 def _given_compatible(a: JudgeName, b: JudgeName) -> bool:
 	if not a.given or not b.given:
-		return False  # surname-only never merges on its own; needs review
+		return False  # surname-only never merges on its own
 	for x, y in zip(a.given, b.given):
 		if x[0] != y[0]:
 			return False
@@ -98,24 +132,38 @@ def _given_compatible(a: JudgeName, b: JudgeName) -> bool:
 
 
 def same_person(a: JudgeName, b: JudgeName) -> bool:
-	"""True only for a safe merge: same surname, same role, compatible given names/initials."""
-	return a.surname == b.surname and a.role == b.role and _given_compatible(a, b)
+	"""Safe merge: same surname, compatible given names/initials, no gender clash.
+
+	Role is ignored on purpose: prothonotaries became associate judges (e.g. Tabib, Aylen).
+	"""
+	if a.surname != b.surname or (a.gender and b.gender and a.gender != b.gender):
+		return False
+	return _given_compatible(a, b)
 
 
 @dataclass
 class MergeGroup:
 	surname: str
-	members: list[str]  # raw strings, most frequent first
-	canonical: str
-	needs_review: list[str] = field(default_factory=list)  # surname-only strings with several candidates
+	members: list[str]
+	canonical: str  # display name for the person
+	roles: list[str] = field(default_factory=list)
+	needs_review: list[str] = field(default_factory=list)
+
+
+def _display(members: list[str], parsed: dict[str, JudgeName], counts: dict[str, int]) -> str:
+	def rank(raw: str) -> tuple:
+		p = parsed[raw]
+		mixed = p.name_text != p.name_text.upper()
+		return (len(p.given), mixed, counts[raw])
+	return parsed[max(members, key=rank)].name_text
 
 
 def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 	"""Group raw judge strings (value -> decision count) into proposed same-person groups.
 
-	Only groups with 2+ distinct raw strings are returned. Surname-only strings attach to
-	a group only when exactly one candidate person has that surname; otherwise they are
-	listed under `needs_review`.
+	Only groups with 2+ distinct raw strings, or ones with a review note, are returned.
+	A surname-only string joins a group only when exactly one person with that surname exists;
+	otherwise it is listed under `needs_review` and left alone.
 	"""
 	parsed = {raw: parse_judge_name(raw) for raw in counts}
 	by_surname: dict[str, list[str]] = defaultdict(list)
@@ -137,12 +185,22 @@ def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 		review: list[str] = []
 		if bare:
 			if len(clusters) == 1:
-				clusters[0].extend(bare)
-			elif len(clusters) == 0 and len(bare) > 1:
-				clusters.append(list(bare))  # all surname-only variants of one name
+				fits = [b for b in bare if not (parsed[b].gender and parsed[clusters[0][0]].gender and parsed[b].gender != parsed[clusters[0][0]].gender)]
+				clusters[0].extend(fits)
+				review = [b for b in bare if b not in fits]
+			elif not clusters:
+				female = [b for b in bare if parsed[b].gender == "f"]
+				male = [b for b in bare if parsed[b].gender == "m"]
+				if female and male:  # same surname, different gender titles: two people
+					clusters.extend([female, male])
+					clusters[0].extend(b for b in bare if not parsed[b].gender)
+					review = [b for b in bare if not parsed[b].gender]
+				else:
+					clusters.append(list(bare))
 			else:
 				review = bare
 		for cluster in clusters:
 			if len(cluster) > 1 or review:
-				groups.append(MergeGroup(surname, cluster, max(cluster, key=lambda r: (len(parsed[r].given), counts[r])), review if len(clusters) > 1 or review else []))
+				roles = sorted({parsed[m].role for m in cluster})
+				groups.append(MergeGroup(surname, cluster, _display(cluster, parsed, counts), roles, review))
 	return sorted(groups, key=lambda g: -sum(counts[m] for m in g.members))

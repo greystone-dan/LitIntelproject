@@ -28,7 +28,7 @@ def build_report(counts: dict[str, int]) -> dict:
 		"unparseable_sample": unparsed[:50],
 		"groups": [
 			{"canonical": g.canonical, "members": g.members, "needs_review": g.needs_review,
-			 "decisions": sum(counts[m] for m in g.members)}
+			 "roles": g.roles, "decisions": sum(counts[m] for m in g.members)}
 			for g in groups
 		],
 	}

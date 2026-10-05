@@ -249,6 +249,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 .topbar{justify-content:flex-start;flex-wrap:wrap;height:auto;min-height:68px;gap:16px;padding-top:10px;padding-bottom:10px}.topbar .brand{margin-left:auto;min-width:0}.research-nav{flex-wrap:wrap;justify-content:flex-start;gap:4px}.research-nav button{min-width:72px;min-height:40px;padding:8px 12px;border:0;border-radius:5px;background:transparent;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer}.research-nav button.active{background:var(--ink);color:#fff}.research-nav button:focus-visible,.group-views :focus-visible{outline:2px solid var(--teal);outline-offset:2px}.group-views{flex-wrap:wrap;overflow:visible;max-width:100%}.group-views [hidden]{display:none!important}.group-views a{display:inline-flex;align-items:center;min-height:40px;text-decoration:none}.group-views .tab{min-height:40px;letter-spacing:0}.group-views .tab:hover{color:var(--teal)}
 @media(max-width:600px){.topbar{align-items:flex-start;gap:10px}.topbar .brand{margin-left:0;flex-basis:100%}.brand-sub{overflow-wrap:anywhere}.research-nav{width:100%}.research-nav button{flex:1;min-width:64px;padding:8px}.group-views{flex-wrap:wrap;overflow:visible}.group-views .tab{white-space:normal}}
 .result-snippet{margin:8px 0 0;color:var(--muted);font-size:12.5px;line-height:1.5;max-width:70ch}.result-snippet mark{background:#fff0b3;color:var(--text);padding:0 1px;border-radius:2px}
+.workbench-landing .page-header{padding:6px 4px 14px;border-bottom:1px solid var(--border)}.workbench-landing .page-header h2{font:700 30px/1.1 "Newsreader",serif;margin:0 0 8px}.workbench-landing .page-header p{max-width:760px;margin:0;color:var(--muted);font-size:13px;line-height:1.6}.workbench-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:16px 0 4px}.workbench-card{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid var(--border);border-radius:5px;background:var(--surface);color:var(--text);text-decoration:none}.workbench-card:hover,.workbench-card:focus-visible{border-color:var(--teal);box-shadow:0 2px 10px rgba(0,0,0,.06)}.workbench-card strong{font:700 18px/1.2 "Newsreader",serif}.workbench-card span{color:var(--muted);font-size:13px;line-height:1.5}.workbench-card em{margin-top:auto;font-style:normal;font-weight:700;font-size:12px;color:var(--teal)}@media(max-width:760px){.workbench-cards{grid-template-columns:1fr}}
 .research-bench-panel{--bench-blue:#315d8d;--bench-blue-soft:#e7eef6;--bench-teal:#176c68;--bench-teal-soft:#edf5f3;--bench-rust:#a4412b;--bench-rust-soft:#f7e8e3;--bench-amber:#8a6418;--bench-amber-soft:#f8f0dc;background:linear-gradient(135deg,#fffef9,#f7faf8)}
 .research-bench-panel>.page-header{padding:6px 4px 14px;border-bottom:1px solid var(--border)}
 .research-bench-panel>.page-header h2{font:700 30px/1.1 "Newsreader",serif;color:var(--text);margin:0 0 8px}
@@ -548,6 +549,14 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="reader-pane-splitter" data-reader-splitter="linked" role="separator" aria-label="Resize case context column" tabindex="0"></div>
 <aside class="reader-pane linked"><div class="reader-pane-header" id="linkedCaseHeading">Case context</div><div id="linkedCaseContext" class="reader-status">Linked cases and related authorities will appear here.</div></aside>
 </div>
+</div>
+</section>
+<section id="workbenchPanel" class="panel-card search-layout workbench-landing" hidden>
+<div class="page-header"><div class="eyebrow">Workbench</div><h2>Tools for working on a file</h2><p>Each tool opens on its own page.</p></div>
+<div class="workbench-cards">
+<a class="workbench-card" href="/citation-map"><strong>Citation Map</strong><span>Start from a case and follow what it cites and what cites it. Compare two cases to find the authorities they share.</span><em>Open Citation Map &rarr;</em></a>
+<a class="workbench-card" href="/live-analysis"><strong>Live Analysis</strong><span>Drop in a DOCX or text PDF to list its case citations and statute references with paragraph locations. The file is read in memory and discarded.</span><em>Open Live Analysis &rarr;</em></a>
+<a class="workbench-card" href="/deidentify"><strong>De-identify</strong><span>Swap names, ID numbers, contact details and dates in a document for placeholders, then put them back later with the key file.</span><em>Open De-identify &rarr;</em></a>
 </div>
 </section>
 <section id="researchBenchPanel" class="panel-card search-layout research-bench-panel" hidden>
@@ -1283,7 +1292,7 @@ const showResearchBench=()=>activateResearchTab('research-bench');
 document.querySelectorAll('[data-bench-tab]').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('[data-bench-tab]').forEach(item=>item.classList.toggle('active',item===tab));document.querySelectorAll('[data-bench-view]').forEach(view=>{view.hidden=view.dataset.benchView!==tab.dataset.benchTab});}));
 </script>
 <script>
-const activeResearchPanels={about:'aboutPanel',search:'searchPanel','research-bench':'researchBenchPanel','site-architecture':'siteArchitecturePanel','citation-intelligence':'citationIntelligencePanel','judge-profile':'judgeProfilePanel','fc-history':'fcHistoryPanel',themes:'themesPanel'};
+const activeResearchPanels={about:'aboutPanel',search:'searchPanel',workbench:'workbenchPanel','research-bench':'researchBenchPanel','site-architecture':'siteArchitecturePanel','citation-intelligence':'citationIntelligencePanel','judge-profile':'judgeProfilePanel','fc-history':'fcHistoryPanel',themes:'themesPanel'};
 const researchGroups={info:['about','site-architecture'],research:['search','citation-intelligence','judge-profile','fc-history','themes'],workbench:['workbench'],testing:['research-bench']};
 const lastGroupTabs={info:'about',research:'search',workbench:'workbench',testing:'research-bench'};
 function activateResearchTab(tabKey,updateUrl=true){

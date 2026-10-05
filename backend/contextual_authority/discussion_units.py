@@ -10,7 +10,7 @@ from .models import text_hash
 
 
 DISCUSSION_UNIT_METHOD = "discussion_unit_v1"
-DISCUSSION_UNIT_VERSION = "1.4"
+DISCUSSION_UNIT_VERSION = "1.5"
 _CONTENT_STOPWORDS = frozenset(
     "a an and are as at be been being by for from had has have he her his in is it its may of on or that the their them they this to was were will with would".split()
 )
@@ -386,6 +386,7 @@ def segment_discussion_units(
     consecutive_signal_vacuum_pairs: int = 4,
     signal_vacuum_text_overlap: float = 0.10,
     signal_vacuum_min_paragraphs: int = 40,
+    require_corroboration_for_signal_vacuum: bool = False,
     config: dict[str, object] | None = None,
 ) -> tuple[DiscussionUnit, ...]:
     if not paragraphs:
@@ -409,10 +410,12 @@ def segment_discussion_units(
         "consecutive_signal_vacuum_pairs": consecutive_signal_vacuum_pairs,
         "signal_vacuum_text_overlap": signal_vacuum_text_overlap,
         "signal_vacuum_min_paragraphs": signal_vacuum_min_paragraphs,
+        "require_corroboration_for_signal_vacuum": require_corroboration_for_signal_vacuum,
         **(config or {}),
     }
     config_hash = text_hash(json.dumps(config_payload, sort_keys=True, separators=(",", ":")))
     boundaries = {0}
+    strong_signal_indices = set()  # Track indices with strong boundary signals for corroboration
     low_score_count = 0
     signal_vacuum_count = 0
     signal_vacuum_active = False
@@ -454,10 +457,12 @@ def segment_discussion_units(
         # Disposition boundary marker
         if _is_disposition(right.text) and index > 2:
             boundaries.add(index)
+            strong_signal_indices.add(index)
 
         # Issue marker boundary - separates multiple legal issues
         if _is_issue_marker(right.text):
             boundaries.add(index)
+            strong_signal_indices.add(index)
 
         # NOTE: Section header detection (roman numerals, section keywords) disabled as
         # independent boundary trigger because headers often appear mid-paragraph text,
@@ -475,6 +480,7 @@ def segment_discussion_units(
 
         if has_strong_cue and index > 2:
             boundaries.add(index)
+            strong_signal_indices.add(index)
         elif has_weak_cue and component.continuity_score < 0.45 and index > 2:
             # Weak cues only trigger with low continuity (strong signal agreement)
             boundaries.add(index)
@@ -495,11 +501,37 @@ def segment_discussion_units(
         if is_signal_vacuum:
             signal_vacuum_count += 1
             if signal_vacuum_count >= consecutive_signal_vacuum_pairs and not signal_vacuum_active:
-                boundaries.add(index - consecutive_signal_vacuum_pairs + 1)
+                vacuum_boundary_idx = index - consecutive_signal_vacuum_pairs + 1
+                # Check for corroboration: is there a strong signal nearby?
+                has_corroboration = False
+                if require_corroboration_for_signal_vacuum:
+                    # Look for strong signals within ±2 paragraphs
+                    for strong_idx in strong_signal_indices:
+                        if abs(strong_idx - vacuum_boundary_idx) <= 2:
+                            has_corroboration = True
+                            break
+                else:
+                    # If corroboration not required, always trigger
+                    has_corroboration = True
+
+                if has_corroboration:
+                    boundaries.add(vacuum_boundary_idx)
                 signal_vacuum_active = True
         else:
             if signal_vacuum_active:
-                boundaries.add(index)
+                vacuum_end_idx = index
+                # Check for corroboration at end of vacuum region
+                has_corroboration = False
+                if require_corroboration_for_signal_vacuum:
+                    for strong_idx in strong_signal_indices:
+                        if abs(strong_idx - vacuum_end_idx) <= 2:
+                            has_corroboration = True
+                            break
+                else:
+                    has_corroboration = True
+
+                if has_corroboration:
+                    boundaries.add(vacuum_end_idx)
             signal_vacuum_count = 0
             signal_vacuum_active = False
         if component.continuity_score < threshold:

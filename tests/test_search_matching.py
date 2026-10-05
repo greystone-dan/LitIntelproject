@@ -162,15 +162,19 @@ def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, m
 
 class AnalyticsDB:
 	def execute(self, statement, params):
-		self.sql, self.params = str(statement), params
-		self.bindparams = set(statement._bindparams)
-		self.compiled_sql = str(statement.compile())
+		self.page_stats = "FROM cases" not in str(statement)
+		if not self.page_stats:
+			self.sql, self.params = str(statement), params
+			self.bindparams = set(statement._bindparams)
+			self.compiled_sql = str(statement.compile())
 		return self
 
 	def mappings(self):
 		return self
 
 	def all(self):
+		if self.page_stats:
+			return []
 		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
 			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
 			government_outcome=None, matching_citations=0, citation_mentions=0,
@@ -183,8 +187,9 @@ def test_active_route_parameterizes_matches_and_ranks_before_sql_pagination():
 		court="FC", cites="2019 SCC 65", government_outcome="lost", judge="Smith",
 		year="2020", limit=1, offset=2, db=db)
 	citation, party, _ = identity_sql("Baker")
-	assert db.sql.count(citation) == 3  # WHERE, SELECT label, ORDER BY
-	assert db.sql.count(party) == 3
+	# The regex matchers are no longer in WHERE (title/citation ILIKE only, index-friendly): label + ORDER BY.
+	assert db.sql.count(citation) == 2
+	assert db.sql.count(party) == 2
 	assert db.sql.index("ORDER BY") < db.sql.index("LIMIT :limit OFFSET :offset")
 	assert "CASE WHEN " + citation + " THEN 2 WHEN " + party + " THEN 1" in db.sql
 	assert "REGEXP_SPLIT_TO_TABLE" in db.sql

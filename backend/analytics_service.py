@@ -18,7 +18,7 @@ from typing import Any, Callable, Optional
 import httpx
 from fastapi import HTTPException, status
 from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
@@ -1150,6 +1150,71 @@ def _search_facets(db, where_clause, params, cohort_ids):
 	}
 
 
+_FACET_CACHE: dict[str, tuple[float, dict[str, Any]]] = {}
+_FACET_CACHE_TTL_SECONDS = 600
+_FACET_CACHE_MAX_ENTRIES = 200
+
+
+def _facet_cache_key(params: dict[str, Any], where_clause: str) -> str:
+	relevant = {k: v for k, v in sorted(params.items()) if k not in ("limit", "offset")}
+	return f"{where_clause}|{relevant!r}"
+
+
+def _facet_cache_get(key: str) -> dict[str, Any] | None:
+	entry = _FACET_CACHE.get(key)
+	if entry is None or time.monotonic() - entry[0] > _FACET_CACHE_TTL_SECONDS:
+		return None
+	return entry[1]
+
+
+def _facet_cache_put(key: str, facets: dict[str, Any]) -> None:
+	if len(_FACET_CACHE) >= _FACET_CACHE_MAX_ENTRIES:
+		_FACET_CACHE.clear()
+	_FACET_CACHE[key] = (time.monotonic(), facets)
+
+
+def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
+	return {str(k): v for k, v in _page_citation_counts(db, case_ids[:100]).items()}
+
+
+def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
+	"""Citation metrics for only the cases on the returned page (two grouped queries, no per-row subqueries)."""
+	if not case_ids:
+		return {}
+	counts: dict[int, dict[str, int]] = {
+		case_id: {
+			"citation_mentions": 0,
+			"unique_cited_authorities": 0,
+			"resolved_target_cases": 0,
+			"cited_by_cases": 0,
+		}
+		for case_id in case_ids
+	}
+	outgoing = sql_text(
+		"""
+		SELECT source_case_id AS case_id,
+			COUNT(*) AS mentions,
+			COUNT(DISTINCT COALESCE(NULLIF(normalized_citation, ''), citation_text)) AS authorities,
+			COUNT(DISTINCT target_case_id) AS targets
+		FROM citations WHERE source_case_id IN :ids GROUP BY source_case_id
+		"""
+	).bindparams(bindparam("ids", expanding=True))
+	for row in db.execute(outgoing, {"ids": case_ids}).mappings().all():
+		entry = counts[int(row["case_id"])]
+		entry["citation_mentions"] = int(row["mentions"] or 0)
+		entry["unique_cited_authorities"] = int(row["authorities"] or 0)
+		entry["resolved_target_cases"] = int(row["targets"] or 0)
+	incoming = sql_text(
+		"""
+		SELECT target_case_id AS case_id, COUNT(DISTINCT source_case_id) AS n
+		FROM citations WHERE target_case_id IN :ids AND source_case_id <> target_case_id GROUP BY target_case_id
+		"""
+	).bindparams(bindparam("ids", expanding=True))
+	for row in db.execute(incoming, {"ids": case_ids}).mappings().all():
+		counts[int(row["case_id"])]["cited_by_cases"] = int(row["n"] or 0)
+	return counts
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1166,6 +1231,9 @@ def fetch_analytics_search_cases(
 	limit: int = 50,
 	offset: int = 0,
 	cohort_ids: list[int] | None = None,
+	include_facets: bool = True,
+	facets_only: bool = False,
+	include_citation_stats: bool = True,
 ) -> dict[str, Any]:
 	limit = max(1, min(limit, 100))
 	offset = max(0, offset)
@@ -1199,7 +1267,12 @@ def fetch_analytics_search_cases(
 			filters.append(expression_sql)
 	elif query:
 		params["query"] = f"%{query}%"
-		query_fields = f"c.title ILIKE :query OR c.citation ILIKE :query OR {citation_match} OR {party_match}"
+		# Title and citation only: plain ILIKE can use the trigram indexes. The regex party matcher is no
+		# longer part of the filter (it forced a per-row regex scan); the citation matcher is added only
+		# when the query actually looks like a citation.
+		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
+		if params.get("match_citation"):
+			query_fields += f" OR {citation_match}"
 		if search_full_text:
 			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 		filters.append(f"({query_fields})")
@@ -1232,24 +1305,20 @@ def fetch_analytics_search_cases(
 		params["year"] = f"{year}%"
 		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
 	where_clause = " AND ".join(filters)
+	if facets_only:
+		if search_full_text:
+			return {"facets": {}}
+		cache_key = _facet_cache_key(params, where_clause)
+		facets = _facet_cache_get(cache_key)
+		if facets is None:
+			facets = _search_facets(db, where_clause, params, cohort_ids)
+			_facet_cache_put(cache_key, facets)
+		return {"facets": facets}
 	citation_count = (
 		"(SELECT COUNT(*) FROM citations cited WHERE cited.source_case_id = c.id "
 		"AND (cited.citation_text ILIKE :cites OR cited.normalized_citation ILIKE :cites))"
 		if cites
 		else "0"
-	)
-	citation_mentions = "(SELECT COUNT(*) FROM citations cited WHERE cited.source_case_id = c.id)"
-	unique_cited_authorities = (
-		"(SELECT COUNT(DISTINCT COALESCE(NULLIF(cited.normalized_citation, ''), cited.citation_text)) "
-		"FROM citations cited WHERE cited.source_case_id = c.id)"
-	)
-	resolved_target_cases = (
-		"(SELECT COUNT(DISTINCT cited.target_case_id) FROM citations cited "
-		"WHERE cited.source_case_id = c.id AND cited.target_case_id IS NOT NULL)"
-	)
-	cited_by_cases = (
-		"(SELECT COUNT(DISTINCT cited.source_case_id) FROM citations cited "
-		"WHERE cited.target_case_id = c.id AND cited.source_case_id <> c.id)"
 	)
 	default_sort = (
 		"matching_citations DESC, c.date DESC NULLS LAST, c.id DESC"
@@ -1287,10 +1356,6 @@ def fetch_analytics_search_cases(
 				c.metadata_json->'reader_extracted'->>'government outcome' AS government_outcome,
 				{minister_expression} AS minister,
 				{citation_count} AS matching_citations
-				,{citation_mentions} AS citation_mentions
-				,{unique_cited_authorities} AS unique_cited_authorities
-				,{resolved_target_cases} AS resolved_target_cases
-				,{cited_by_cases} AS cited_by_cases
 				,{match_label} AS matched_on
 				,{snippet_sql} AS snippet
 			FROM cases c
@@ -1299,10 +1364,15 @@ def fetch_analytics_search_cases(
 			LIMIT :limit OFFSET :offset
 			"""
 		)
-	facets = _search_facets(db, where_clause, params, cohort_ids) if offset == 0 and not search_full_text else {}
+	facets = (
+		_search_facets(db, where_clause, params, cohort_ids)
+		if include_facets and offset == 0 and not search_full_text
+		else {}
+	)
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 	rows = db.execute(statement, params).mappings().all()
+	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
 	return {
 		"facets": facets,
 		"results": [
@@ -1317,10 +1387,10 @@ def fetch_analytics_search_cases(
 				"decision_outcome": row["decision_outcome"],
 				"government_outcome": row["government_outcome"],
 				"matching_citations": int(row["matching_citations"] or 0),
-				"citation_mentions": int(row["citation_mentions"] or 0),
-				"unique_cited_authorities": int(row["unique_cited_authorities"] or 0),
-				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
-				"cited_by_cases": int(row["cited_by_cases"] or 0),
+				"citation_mentions": citation_counts.get(int(row["id"]), {}).get("citation_mentions", 0),
+				"unique_cited_authorities": citation_counts.get(int(row["id"]), {}).get("unique_cited_authorities", 0),
+				"resolved_target_cases": citation_counts.get(int(row["id"]), {}).get("resolved_target_cases", 0),
+				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0),
 				"matched_on": row.get("matched_on", "Metadata"),
 				"snippet": clean_search_snippet(row.get("snippet")),
 			}
@@ -1365,6 +1435,7 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 	citation_rows = list(
 		db.scalars(
 			select(Citation)
+			.options(joinedload(Citation.target_case).load_only(Case.id, Case.title, Case.citation))
 			.where(Citation.source_case_id == case.id)
 			.order_by(Citation.id)
 		)

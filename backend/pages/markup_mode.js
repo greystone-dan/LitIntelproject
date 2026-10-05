@@ -109,7 +109,7 @@ function citedByLine(s){
 function peekFor(note){
   const c=note&&note.cite;if(!c)return null;
   return {id:note.id,loc:note.loc==null?null:note.loc,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
-    text:c.inLibrary?(note.quote||''):'',label:c.inLibrary?(c.paragraph!=null?'Paragraph ['+c.paragraph+'] of the cited case':(note.quote?'Cited text':'')):'',
+    text:c.inLibrary?(note.quote||''):'',label:c.inLibrary&&note.quote?(note.quoteLabel||''):'',noText:c.inLibrary&&!note.quote?(note.body||''):'',
     missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
     citedBy:c.inLibrary?citedByLine(c.citedBy):'',here:inThisCaseLine(note,c)};
 }
@@ -158,6 +158,24 @@ function headerInfo(payload){
   const file=String(item.docket_number||(metaValue(meta,'docket')||{}).value||(metaValue(meta,'imm_number')||{}).value||(metaValue(meta,'case_number')||{}).value||'').trim();
   return {outcome:oc?String(oc.value).replace(/_/g,' ').replace(/^./,c=>c.toUpperCase()):'',judge:String(item.judge||(jm&&jm.value)||'').trim(),file:file};
 }
+/* The cited paragraph's own text, from the stored chunk, only when the chunk really starts with that paragraph number. */
+function paraText(chunk,num){
+  const t=String(chunk||'');if(num==null||!t)return '';
+  const m=new RegExp('^\\s*\\['+Number(num)+'\\]\\s*').exec(t);if(!m)return '';
+  let body=t.slice(m[0].length);
+  const cut=[/\n\s*\[\d+\]\s/,/\n[A-Z][A-Z .,'’-]{3,}\s*(?:\n|$)/].map(r=>{const x=r.exec(body);return x?x.index:-1}).filter(i=>i>=0);
+  if(cut.length)body=body.slice(0,Math.min(...cut));
+  return body.replace(/\s+/g,' ').trim();
+}
+/* What a citation note can honestly say about its pinpoint: the paragraph text, or why there is none. Stored text only. */
+function pinpointInfo(row){
+  const n=row.target_paragraph,short=shortCaseName(row.target_title||row.target_citation||'');
+  if(!row.target_case_id)return {quote:'',label:'',body:'Not in the library yet — no cited text available.'};
+  if(n==null)return {quote:'',label:'',body:'No pinpoint paragraph was cited, so there is no paragraph text to show.'};
+  const q=paraText(row.target_chunk_text,n);
+  if(q)return {quote:q,label:'¶['+n+']'+(short?' of '+short:' of the cited case'),body:''};
+  return {quote:'',label:'',body:row.target_chunk_text?'Pinpoint ¶['+n+'] was not found in the stored text of the cited case, so no paragraph text is shown.':'Pinpoint ¶['+n+'] has no stored text in the library.'};
+}
 /* Short Act names for the pill; anything else falls back to the stored document title. */
 const ACT_SHORT={'canada.irpa':'IRPA','canada.irpr':'IRPR'};
 function statuteNote(row){
@@ -197,11 +215,12 @@ function buildNotes(payload){
   const seen=new Set();
   for(const row of rd.citations||[]){
     if(!row||row.id==null||seen.has(row.id)||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
-    if(!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name'))continue;
+    /* a bare case name or short form with no stored target is still highlighted in the text, so it keeps a note (hover, click, Peek) but no margin pill until opened */
+    const quiet=!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name');
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
-    const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    const hasPin=row.target_paragraph!=null,pin=pinpointInfo(row);
+    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -243,7 +262,7 @@ function sanitizeLayers(raw){
 function noteState(note,layers,overrides){
   const layer=layers[note.type];
   if(layer==='off'||layer===undefined)return 'off';
-  if(note.type==='citedby')return overrides&&overrides[note.id]===true?'open':'off';
+  if(note.type==='citedby'||note.quiet)return overrides&&overrides[note.id]===true?'open':'off';
   if(overrides&&overrides[note.id]===true)return 'open';
   if(overrides&&overrides[note.id]===false)return 'markers';
   return layer==='open'?'open':'markers';
@@ -263,7 +282,7 @@ function commentFor(n){
   const t=TYPE[n.type]||{label:'Note'};
   const lines=[];
   if(n.meta&&n.type!=='mine')lines.push(String(n.meta));
-  if(n.quote)lines.push((n.quoteLabel?n.quoteLabel+': ':'')+'“'+String(n.quote).replace(/\s+/g,' ').trim()+'”');
+  if(n.quote)lines.push((n.quoteLabel?n.quoteLabel+': ':'')+'“'+clip(String(n.quote).replace(/\s+/g,' ').trim(),700)+'”');
   if(n.body)lines.push(String(n.body));
   for(const s of n.subs||[])lines.push('¶['+s.first+']'+(s.last!==s.first?'–['+s.last+']':'')+': '+(s.terms||[]).join(', ')+(s.roles&&s.roles.length?' ('+s.roles.join(', ')+')':''));
   return {label:t.label+(n.title&&n.type!=='mine'?': '+clip(n.title,90):''),text:lines.join('\n'),quote:n.cite&&n.cite.text?String(n.cite.text):null};
@@ -272,14 +291,14 @@ function commentFor(n){
 function exportPlan(notes,layers,blockOf){
   const out=[];
   for(const n of notes||[]){
-    if(n.type==='tags')continue;
+    if(n.type==='tags'||n.quiet)continue;
     const st=layers&&layers[n.type];if(st===undefined||st==='off')continue;
     const c=commentFor(n),b=blockOf?blockOf(n):null;
     out.push({block:b==null?null:Number(b),label:c.label,text:c.text,quote:c.quote,author:n.type==='mine'?'My note':'iLit Markup'});
   }
   return out;
 }
-const api={inThisCaseLine,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
+const api={inThisCaseLine,paraText,pinpointInfo,mineToNotes,mineUpsert,commentFor,exportPlan,E,clip,roleLabel,paraNumberForIndex,rangeParas,subthemeRanges,buildNotes,citePill,topicGroups,leadSentence,shortCaseName,sectionHeading,headerInfo,layoutNotes,defaultLayers,sanitizeLayers,noteState,topicIndex,topicParas,foldRuns,peekFor,citedByLine,LAYER_DEFS,TYPE};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 if(typeof window==='undefined'||typeof document==='undefined')return;
 window.__markupMode=api;
@@ -287,7 +306,7 @@ window.__markupMode=api;
 /* ---------- browser behaviour ---------- */
 const $=id=>document.getElementById(id);
 const state={on:false,layers:defaultLayers(),overrides:{},notes:[],infoOpen:false,outlineOpen:false,layersOpen:false,findTerm:'',findHits:[],findAt:-1,
-  caseId:null,mine:[],editing:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[],view:'reading',topicOpen:[],printing:false,peekOpen:[]};
+  caseId:null,mine:[],editing:null,pins:[],dock:'float',panelPos:null,topics:[],topicSel:[],foldOthers:false,unfolded:[],view:'reading',topicOpen:[],printing:false,peekOpen:[],qopen:{}};
 const store={get(){try{return JSON.parse(localStorage.getItem('ilit.markup.layers')||'null')}catch(e){return null}},set(v){try{localStorage.setItem('ilit.markup.layers',JSON.stringify(v))}catch(e){}}};
 state.layers=sanitizeLayers(store.get());
 const MINE_KEY='ilit.markup.notes.v1';
@@ -323,6 +342,13 @@ function removeStage(){
   if(body)source.insertBefore(body,stage);
   stage.remove();for(const id of ['markupBar','markupPrintHead']){const e=$(id);if(e)e.remove()}
 }
+/* The potential legal-development notice is hidden in markup (CSS); a header pill reveals it. */
+function legalNoticeShown(){const a=document.getElementById('readerOverrulingRisk');return !!(a&&!a.hidden)}
+let legalWatch=null;
+function watchLegalNotice(){
+  const a=document.getElementById('readerOverrulingRisk');if(legalWatch||!a||typeof MutationObserver==='undefined')return;
+  legalWatch=new MutationObserver(()=>{if(state.on)renderBar()});legalWatch.observe(a,{attributes:true,attributeFilter:['hidden']});
+}
 function setOn(on){
   if(on===state.on)return;
   const p=panel();if(!p)return;
@@ -330,12 +356,12 @@ function setOn(on){
   if(on){
     const rd=readerState&&readerState.payload&&readerState.payload.readerData;
     if(!rd||!(rd.format_blocks||[]).length){toggle&&toggle.setAttribute('title','Markup mode needs the formatted reader, which is unavailable for this case');return}
-    state.on=true;document.body.classList.add('markup-mode-on');
+    state.on=true;document.body.classList.add('markup-mode-on');watchLegalNotice();
     readerState.formatted=true;
     readerState.mode='normalized';
     setReaderMode('normalized');
   }else{
-    state.on=false;document.body.classList.remove('markup-mode-on');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
+    state.on=false;document.body.classList.remove('markup-mode-on','mk-legal-open');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
     hideHover(true);clearFold();cleanMine();decorateNums(false);closeEditor();
     removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked','markup-peeking');
     const pn=$('mkPanel');if(pn)pn.remove();
@@ -400,7 +426,7 @@ function renderBar(){
   const rows=LAYER_DEFS.map(d=>`<div class="mk-lr${countOf(d)?'':' is-empty'}"><b>${E(d.label)}</b><span class="mk-lc">${countOf(d)||'—'}</span><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button"${countOf(d)?'':' disabled'} data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
   const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
   bar.classList.toggle('is-open',!!state.barOpen);
-  const hi=headerInfo(readerState.payload),hdr=[hi.outcome&&`<span class="mk-hp is-outcome">${E(hi.outcome)}</span>`,hi.judge&&`<span class="mk-hp">${E(clip(hi.judge.replace(/^The Honourable\s+(Mr\.?|Madam|Mrs\.?|Ms\.?)?\s*Justice\s+/i,'Justice '),40))}</span>`,hi.file&&`<span class="mk-hp">${E(hi.file)}</span>`].filter(Boolean).join('');
+  const hi=headerInfo(readerState.payload),hdr=[hi.outcome&&`<span class="mk-hp is-outcome">${E(hi.outcome)}</span>`,hi.judge&&`<span class="mk-hp">${E(clip(hi.judge.replace(/^The Honourable\s+(Mr\.?|Madam|Mrs\.?|Ms\.?)?\s*Justice\s+/i,'Justice '),40))}</span>`,hi.file&&`<span class="mk-hp">${E(hi.file)}</span>`,legalNoticeShown()&&`<button type="button" class="mk-hp is-legal" data-mk-act="legal" aria-pressed="${document.body.classList.contains('mk-legal-open')}" title="Show or hide the potential legal-development notice for this case">Legal-development notice</button>`].filter(Boolean).join('');
   bar.innerHTML=(hdr?`<div class="mk-row mk-hdr">${hdr}</div>`:'')+`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾ <small>${liveOn} of ${live.length}</small></button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
   `${groupsN?`<div class="mk-row mk-row2 mk-viewrow"><span class="mk-seg" role="group" aria-label="Reading order or by topic"><button type="button" data-mk-act="view-reading" aria-pressed="${state.view==='reading'}">Reading order</button><button type="button" data-mk-act="view-topic" aria-pressed="${state.view==='topic'}">By topic</button></span>${state.view==='topic'?`<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="topic-fold">Fold all</button><button type="button" class="mk-btn" data-mk-act="topic-unfold">Unfold all</button>`:''}</div>`:''}<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="experimental" aria-pressed="${typeof experimentalState!=='undefined'&&!!experimentalState.on}" title="Show or hide the unfinished reader tools (summary cards, paragraph assessments, similar paragraphs)">Experimental</button><button type="button" class="mk-btn" data-mk-act="export" title="Word file of this case with the margin notes as comments">Export to Word</button><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
   `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="showall">Show all layers</button><button type="button" class="mk-btn" data-mk-act="reset">Reset</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
@@ -420,12 +446,18 @@ function anchorEl(n){
   }
   return body.querySelector('.fmt-decision');
 }
+/* A quoted paragraph: trimmed with a "Show full paragraph" toggle when it is long. */
+function qBlock(text,label,id,max){
+  const t=String(text||'');if(!t)return '';
+  const long=t.length>max,open=!!(state.qopen&&state.qopen[id]);
+  return `<blockquote>${E(long&&!open?clip(t,max):t)}${long?` <button type="button" class="mk-link mk-qx" data-mk-qx="${E(id)}" aria-expanded="${open}">${open?'Show less':'Show full paragraph'}</button>`:''}${label?`<small>${E(label)}</small>`:''}</blockquote>`;
+}
 function noteHTML(n,st){
   const t=TYPE[n.type];
   if(st==='markers'||(st==='off'))return `<button type="button" class="mk-pill" data-mk-note="${E(n.id)}" aria-expanded="false" title="${E(n.title)}"><i style="background:${t.color}"></i>${E(n.pill)}</button>`;
   const subs=n.subs&&n.subs.length?`<div class="mk-subs">${n.subs.map(s=>`<div class="mk-sub" style="--c:${s.color}"><b>¶[${s.first}]${s.last!==s.first?'–['+s.last+']':''}</b><span>${E(s.terms.join(' · '))}</span><div>${s.roles.map(r=>`<em>${E(r)}</em>`).join('')}</div></div>`).join('')}</div>`:'';
   const foot=(n.foot||[]).map(f=>`<button type="button" class="mk-link" data-mk-foot="${E(f.action)}" data-mk-arg="${E(f.arg)}">${E(f.label)}</button>`).join('');
-  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}${n.loc!=null?`<span class="mk-loc">¶[${E(n.loc)}]</span>`:''}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.alsoAt&&n.alsoAt.length?`<div class="mk-meta">also cited at ${n.alsoAt.map(x=>'¶['+E(x)+']').join(', ')}</div>`:''}${n.quote?`<blockquote>${E(n.quote)}<small>${E(n.quoteLabel)}</small></blockquote>`:''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
+  return `<div class="mk-card ${n.type}${n.unverified?' is-unverified':''}" style="--c:${t.color}" data-mk-note="${E(n.id)}"><div class="mk-card-t"><i style="background:${t.color}"></i>${E(t.label)}${n.loc!=null?`<span class="mk-loc">¶[${E(n.loc)}]</span>`:''}<button type="button" class="mk-x" data-mk-fold="${E(n.id)}" aria-label="Fold this note">✕</button></div><h4>${E(n.title)}</h4>${n.meta?`<div class="mk-meta">${E(n.meta)}</div>`:''}${n.alsoAt&&n.alsoAt.length?`<div class="mk-meta">also cited at ${n.alsoAt.map(x=>'¶['+E(x)+']').join(', ')}</div>`:''}${n.quote?qBlock(n.quote,n.quoteLabel,n.id,420):''}${n.body?`<div class="mk-body">${E(n.body)}</div>`:''}${subs}${foot?`<div class="mk-foot">${foot}</div>`:''}</div>`;
 }
 /* Fold view: topic emphasis and "show only selected" with fold bars for the hidden runs. */
 function clearFold(){
@@ -455,7 +487,7 @@ function applyFold(){
   }
 }
 function render(){
-  const stage=$('markupStage');if(!stage)return;
+  const stage=$('markupStage');if(!stage||!readerState.payload)return;   /* a case switch can leave a render queued with no payload */
   applyFold();
   applyMine();
   renderBar();
@@ -490,12 +522,18 @@ function render(){
   const items=els.map(o=>({y:o.a.getBoundingClientRect().top-base.top-2,h:o.el.offsetHeight}));
   const lay=layoutNotes(items,8);
   let bottom=0,g='';
+  const rowSeen={};
   for(const l of lay){
     const o=els[l.index];o.el.style.top=l.top+'px';bottom=Math.max(bottom,l.top+items[l.index].h);
     if(o.n.anchor.kind==='cite'){
-      const ar=o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
-      const ay=ar.top-base.top+Math.min(11,ar.height/2),ty=l.top+(o.st==='open'?16:12);
-      g+=`<path d="M${bodyR.right-base.left-2} ${ay} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${o.st==='open'?1.4:1}" opacity="${o.st==='open'?.85:.4}"/>`;
+      /* the line starts at this citation's own text: a dot at the end of its first line, a leader in the gap under that line to the margin, so two citations on one line never share a start point */
+      const rs=o.a.getClientRects(),r0=rs.length?rs[0]:o.a.getBoundingClientRect(),col=TYPE[o.n.type].color;
+      /* the leader runs in the gap under the text line, not through the words */
+      const ay=Math.round((r0.bottom+1-base.top)*10)/10,ax=r0.right-base.left,ty=l.top+(o.st==='open'?16:12);
+      const rowKey=Math.round(ay/8),k=rowSeen[rowKey]=(rowSeen[rowKey]||0)+1;
+      const elbow=Math.max(ax,bodyR.right-base.left-2)+(k-1)*5;
+      const op=o.st==='open'?.85:.4,sw=o.st==='open'?1.4:1;
+      g+=`<path d="M${ax} ${ay} H${elbow} L-4 ${ty}" fill="none" stroke="${col}" stroke-width="${sw}" opacity="${op}"/><circle cx="${ax}" cy="${ay}" r="2.4" fill="${col}" opacity="${Math.max(op,.6)}"/>`;
     }
   }
   if(state.printing){
@@ -668,7 +706,7 @@ function renderPanel(){
   if(!cards.length){state.pins=[];if(el)el.remove();if(p)p.classList.remove('markup-peeking');return}
   if(!el){el=document.createElement('aside');el.id='mkPanel';el.setAttribute('aria-label','Citation peek panel');document.body.appendChild(el)}
   el.className='mk-panel '+state.dock;
-  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map((c,i)=>{const open=i===0||state.peekOpen.includes(c.id);const short=shortCaseName(c.title)+(c.paragraph!=null?' ¶'+c.paragraph:'');return open?`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t" data-mk-peek-toggle="${E(c.id)}" title="Click to collapse"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?`<blockquote>${E(c.text)}<small>${E(c.label)}</small></blockquote>`:'<div class="mk-body">No paragraph text is stored for this pinpoint.</div>'):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">${c.loc!=null?`Back to ¶[${E(c.loc)}]`:'Go to citation'}</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`:`<article class="mk-peek is-collapsed"><button type="button" class="mk-peek-row" data-mk-peek-toggle="${E(c.id)}"><i style="background:${TYPE.cite.color}"></i><b>${E(clip(short,40))}</b><small>expand ▾</small></button><button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></article>`}).join('')}</div>`;
+  el.innerHTML=`<div class="mk-panel-h" data-mk-drag><b>Peek · ${cards.length} citation${cards.length===1?'':'s'}</b><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="dock">${state.dock==='dock'?'Float':'Dock to bottom'}</button><button type="button" class="mk-btn" data-mk-act="clearpins">Close all</button></div><div class="mk-panel-b">${cards.map((c,i)=>{const open=i===0||state.peekOpen.includes(c.id);const short=shortCaseName(c.title)+(c.paragraph!=null?' ¶'+c.paragraph:'');return open?`<article class="mk-peek${c.inLibrary?'':' is-missing'}"><div class="mk-card-t" data-mk-peek-toggle="${E(c.id)}" title="Click to collapse"><i style="background:${TYPE.cite.color}"></i>Citation<button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?qBlock(c.text,c.label,c.id,900):`<div class="mk-body">${E(c.noText||'No paragraph text is stored for this pinpoint.')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-goto-cite="${E(c.id)}">${c.loc!=null?`Back to ¶[${E(c.loc)}]`:'Go to citation'}</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}</div></article>`:`<article class="mk-peek is-collapsed"><button type="button" class="mk-peek-row" data-mk-peek-toggle="${E(c.id)}"><i style="background:${TYPE.cite.color}"></i><b>${E(clip(short,40))}</b><small>expand ▾</small></button><button type="button" class="mk-x" data-mk-unpin="${E(c.id)}" aria-label="Close this peek">✕</button></article>`}).join('')}</div>`;
   if(state.dock==='float'&&state.panelPos){el.style.left=state.panelPos.x+'px';el.style.top=state.panelPos.y+'px';el.style.right='auto';el.style.bottom='auto'}
   if(p){p.classList.toggle('markup-docked',state.dock==='dock');p.classList.add('markup-peeking')}
 }
@@ -684,7 +722,7 @@ function showHover(span){
   const n=state.notes.find(x=>x.id==='cite-'+span.dataset.citeId&&x.cite);if(!n)return;
   const c=peekFor(n);let h=$('mkHover');if(h)h.remove();
   h=document.createElement('div');h.id='mkHover';h.setAttribute('role','tooltip');
-  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}</small></blockquote>`:''):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
+  h.innerHTML=`<div class="mk-card-t"><i style="background:${TYPE.cite.color}"></i>Citation</div><h4>${E(c.title)}</h4><div class="mk-meta">${E([c.citation,c.paragraph!=null?'¶['+c.paragraph+']':''].filter(Boolean).join(' · '))}</div>${c.here?`<div class="mk-hl"><b>In this case</b>${E(c.here)}</div>`:''}${c.inLibrary?(c.text?`<blockquote>${E(clip(c.text,320))}<small>${E(c.label)}${c.text.length>320?' · click for the full paragraph':''}</small></blockquote>`:`<div class="mk-body">${E(c.noText||'')}</div>`):`<div class="mk-body">${E(c.missing)}</div>`}${c.citedBy?`<div class="mk-cb">${E(c.citedBy)}</div>`:''}<div class="mk-foot"><button type="button" class="mk-link" data-mk-foot="pin" data-mk-arg="${E(c.id)}">Peek in panel</button>${c.inLibrary?`<button type="button" class="mk-link" data-mk-foot="open-case" data-mk-arg="${E(c.caseId)}">Open case</button>`:''}<span class="mk-hint">Click: note · Shift-click: peek</span></div>`;
   document.body.appendChild(h);
   const r=span.getBoundingClientRect(),w=h.offsetWidth,hh=h.offsetHeight;
   const left=Math.max(8,Math.min(r.left,window.innerWidth-w-8));
@@ -765,6 +803,7 @@ document.addEventListener('click',ev=>{
     else if(a==='info'){state.infoOpen=!state.infoOpen;render();if(state.infoOpen){const d=$('decisionTarget');if(d)d.scrollTop=0}}
     else if(a==='more'){state.barOpen=!state.barOpen;render()}
     else if(a==='outline'){state.outlineOpen=!state.outlineOpen;render()}
+    else if(a==='legal'){document.body.classList.toggle('mk-legal-open');renderBar()}
     else if(a==='experimental'){if(typeof setReaderExperimental==='function')setReaderExperimental(!(typeof experimentalState!=='undefined'&&experimentalState.on));render()}
     else if(a==='print'){window.print()}
     else if(a==='export'){exportWord(act)}
@@ -790,6 +829,7 @@ document.addEventListener('click',ev=>{
     if(foot.dataset.mkFoot==='judge-profile'){const tab=document.querySelector('[data-tab="judge-profile"]');if(tab){setOn(false);tab.click();const q=$('judgeProfileQuery');if(q){q.value=foot.dataset.mkArg||'';q.dispatchEvent(new Event('input',{bubbles:true}))}}return}
     if(foot.dataset.mkFoot==='open-url'){if(/^https:\/\//i.test(foot.dataset.mkArg||''))window.open(foot.dataset.mkArg,'_blank','noopener,noreferrer');return}
     if(foot.dataset.mkFoot==='open-case'&&typeof openDecision==='function'){setOn(false);openDecision(Number(foot.dataset.mkArg))}return}
+  const qx=t.closest('[data-mk-qx]');if(qx){const k=qx.dataset.mkQx;state.qopen[k]=!state.qopen[k];render();renderPanel();return}
   const go=t.closest('[data-mk-goto]');if(go){goto($('decisionBody').querySelector(`[id="decision-source-${go.dataset.mkGoto}"]`));return}
   const gp=t.closest('[data-mk-para]');if(gp){goto($('decisionBody').querySelector(`.fmt-para[data-para="${gp.dataset.mkPara}"]`));return}
   const pill=t.closest('.mk-pill[data-mk-note],.mk-heat[data-mk-note]');

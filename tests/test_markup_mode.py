@@ -53,7 +53,7 @@ def _payload(verified=True):
             "citations": [
                 {"id": 1, "citation_kind": "neutral", "citation_text": "2019 SCC 65",
                  "target_case_id": 9, "target_title": "Vavilov <x>", "target_paragraph": 7,
-                 "target_chunk_text": "Quoted text"},
+                 "target_chunk_text": "[7] Quoted text"},
                 {"id": 2, "citation_kind": "statute", "citation_text": "IRPA s 96"},
                 {"id": 3, "citation_kind": "case_short", "citation_text": "Baker"},
                 {"id": 1, "citation_kind": "neutral", "citation_text": "dup"},
@@ -85,7 +85,9 @@ def _run(**extra):
 def test_build_notes_counts_and_filters():
     notes = _run()["notes"]
     types = [n["type"] for n in notes]
-    assert types.count("cite") == 1  # statute, unresolved short name and duplicate id skipped
+    assert types.count("cite") == 2  # statute and duplicate id skipped; the unresolved short name keeps a quiet note
+    quiet = [n for n in notes if n.get("quiet")]
+    assert [n["id"] for n in quiet] == ["cite-3"]  # highlighted in the text, so hover and click work, but no margin pill
     assert types.count("unit") == 1 and types.count("judge") == 1
     assert types.count("citedby") == 1
     cite = next(n for n in notes if n["type"] == "cite")
@@ -400,3 +402,60 @@ console.log(JSON.stringify([
 """)
     assert out == ["Cited at ¶[14] and ¶[15] (pinpoint ¶7)", "Cited at ¶[14], ¶[15] and ¶[20]",
                    "Cited at ¶[18] (pinpoint ¶34)", ""]
+def test_quiet_citation_notes_stay_off_the_margin_and_out_of_the_export():
+    out = _node("""
+const notes = m.buildNotes(a);
+const quiet = notes.find(n => n.quiet);
+const layers = {cite: 'open'};
+const plan = m.exportPlan(notes, layers, () => 1);
+console.log(JSON.stringify({
+  quiet: quiet && quiet.id,
+  stateClosed: m.noteState(quiet, layers, {}),
+  stateOpened: m.noteState(quiet, layers, {[quiet.id]: true}),
+  loud: m.noteState(notes.find(n => n.id === 'cite-1'), layers, {}),
+  exported: plan.map(p => p.label),
+}));
+""", _payload())
+    assert out["quiet"] == "cite-3"
+    assert out["stateClosed"] == "off" and out["stateOpened"] == "open" and out["loud"] == "open"
+    assert len(out["exported"]) == 1  # only the resolved citation becomes a Word comment
+
+
+def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
+    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+    js = JS.read_text(encoding="utf-8")
+    assert "body.markup-mode-on #readerOverrulingRisk{display:none!important}" in css
+    assert "mk-legal-open #readerOverrulingRisk:not([hidden])" in css
+    assert 'data-mk-act="legal"' in js and "Legal-development notice" in js
+
+
+def test_margin_connectors_start_at_each_citations_own_text():
+    js = JS.read_text(encoding="utf-8")
+    assert "getClientRects()" in js and '<circle cx="${ax}"' in js  # a dot at the span end, not a shared start point
+
+
+@needs_node
+def test_pinpoint_text_is_shown_only_when_the_stored_chunk_is_that_paragraph():
+    out = _node("""
+const row = o => Object.assign({target_case_id: 9, target_title: 'Strachn v. Canada (Citizenship and Immigration)', target_paragraph: 34}, o);
+console.log(JSON.stringify({
+  ok: m.pinpointInfo(row({target_chunk_text: '[34] This has been interpreted to be a conjunctive test.\\n[35] Next paragraph.'})),
+  footer: m.pinpointInfo(row({target_paragraph: 54, target_chunk_text: 'SOLICITORS OF RECORD\\nDOCKET: IMM-424-12'})),
+  heading: m.pinpointInfo(row({target_chunk_text: '[34] Ends here.\\nJUDGMENT\\nTHIS COURT ORDERS'})),
+  none: m.pinpointInfo(row({})),
+  nopin: m.pinpointInfo(row({target_paragraph: null})),
+  outside: m.pinpointInfo({target_case_id: null, target_paragraph: 3}),
+}));
+""")
+    assert out["ok"]["quote"] == "This has been interpreted to be a conjunctive test."
+    assert out["ok"]["label"] == "¶[34] of Strachn" and out["ok"]["body"] == ""
+    assert out["footer"]["quote"] == "" and "not found" in out["footer"]["body"]  # a wrong chunk is never shown as the paragraph
+    assert out["heading"]["quote"] == "Ends here."
+    assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
+    assert "No pinpoint paragraph was cited" in out["nopin"]["body"]
+    assert "Not in the library yet" in out["outside"]["body"]
+
+
+def test_citations_layer_counts_unmatched_citations_so_it_stays_selectable():
+    js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "markup_mode.js").read_text(encoding="utf-8")
+    assert "function countFor(type){return state.notes.filter(n=>n.type===type).length}" in js

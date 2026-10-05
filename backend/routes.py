@@ -170,6 +170,7 @@ from .analytics_service import (
 	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
+	fetch_page_citation_counts,
 	fetch_analytics_search_ministers,
 	fetch_data_explorer_analytics,
 	fetch_fc_activity_breakdowns,
@@ -195,6 +196,7 @@ from .fc_activity_insights import (
 from .reader_service import (
 	build_case_citation_pass,
 	build_case_citation_pass_detail,
+	build_case_evidence,
 	build_case_reader_data,
 	get_case_statute_references as _get_case_statute_references,
 	get_case_metadata_pass as _get_case_metadata_pass_impl,
@@ -935,8 +937,14 @@ def get_case_activity(case_id: int, db: Session = Depends(get_db)) -> dict[str, 
 
 
 @router.get("/cases/{case_id}/reader-data", response_model=CaseReaderDataResponse)
-def get_case_reader_data(case_id: int, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
-	return build_case_reader_data(case_id, db)
+def get_case_reader_data(case_id: int, evidence: bool = True, db: Session = Depends(get_db)) -> CaseReaderDataResponse:
+	return build_case_reader_data(case_id, db, include_evidence=evidence)
+
+
+@router.get("/cases/{case_id}/evidence-summary", response_model=dict[str, Any])
+def get_case_evidence_summary(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Discussion-unit evidence and case summary, loaded after the decision text so they never delay it."""
+	return build_case_evidence(case_id, db)
 
 
 @router.post("/cases/{case_id}/markup-export")
@@ -1953,8 +1961,47 @@ def search_analytics_cases(
 	limit: int = 50,
 	offset: int = 0,
 	cohort_id: str = "",
+	facets: bool = True,
+	citation_stats: bool = True,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	return _run_analytics_case_search(
+		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
+		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets, include_citation_stats=citation_stats,
+	)
+
+
+@router.get("/analytics/search/citation-stats", response_model=dict[str, Any])
+def search_analytics_citation_stats(ids: str = "", db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Citation counts for the result cards on screen, loaded after the results so they never delay them."""
+	case_ids = [int(part) for part in ids.split(",") if part.strip().isdigit()][:100]
+	return {"stats": fetch_page_citation_counts(db, case_ids)}
+
+
+@router.get("/analytics/search/facets", response_model=dict[str, Any])
+def search_analytics_facets(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Court/year counts for the current filters, loaded after the results so they never delay them."""
+	return _run_analytics_case_search(
+		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
+		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		cohort_id=cohort_id, facets_only=True,
+	)
+
+
+def _run_analytics_case_search(db: Session, *, cohort_id: str = "", **kwargs: Any) -> dict[str, Any]:
 	cohort_ids = None
 	if cohort_id:
 		if cohort_id != "discussion_units_core_300":
@@ -1962,19 +2009,8 @@ def search_analytics_cases(
 		cohort_ids = list(load_discussion_unit_cohort())
 	return fetch_analytics_search_cases(
 		db,
-		query=query,
-		cites=cites,
-		government_outcome=government_outcome,
-		decision_outcome=decision_outcome,
-		minister=minister,
-		judge=judge,
-		court=court,
-		year=year,
-		search_full_text=search_full_text,
-		sort_by=sort_by,
-		limit=limit,
-		offset=offset,
 		cohort_ids=cohort_ids,
+		**kwargs,
 	)
 
 

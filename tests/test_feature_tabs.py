@@ -895,15 +895,13 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
-def test_reader_has_additive_cautious_overruling_risk_banner():
+def test_reader_legal_development_banner_and_similar_paragraph_buttons_are_off():
     html = routes._data_explorer_page_html()
 
-    assert 'id="readerOverrulingRisk"' in html
-    assert 'aria-live="polite"' in html
-    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" in html
-    assert "may be affected" in html
-    assert "How assigned" in html
-    assert "addRiskDetail(item, 'Review notice', flag.notice)" in html
+    # Daniel, 2026-10-05: the yellow legal-development indicator and the per-paragraph
+    # "Similar paragraphs" button are off everywhere; the APIs stay for later.
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" not in html
+    assert "dataset.paragraphSimilar" not in html
 
 
 def test_reader_overruling_risk_banner_renders_only_returned_flags():

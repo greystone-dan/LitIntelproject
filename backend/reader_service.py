@@ -63,6 +63,7 @@ from .models import (
 	CitationMetricsResponse,
 )
 from scripts.inspect_discussion_units import inspect_case
+from .contextual_authority.unit_roles import label_unit_roles
 
 _STATUTE_LIKE_RE = re.compile(
 	r"\b(IRPA|IRPR|Charter|Act|Code|Regulations?|Convention|art\.)\b", re.IGNORECASE
@@ -113,6 +114,24 @@ def _cached_inspect_case(db: Session, case_id: int, chunks: list[CaseChunk] | No
 	return report
 
 
+UNIT_ROLE_NOTE = (
+	"Experimental: unit roles come from fixed text rules, not a reader. On hand-read test cases they matched "
+	"the reader's role for about 55 to 69 of every 100 units."
+)
+
+
+def _unit_roles(report: dict[str, Any]) -> list[str]:
+	"""Rule-based role per discussion unit (no AI); empty when the report has no paragraph text."""
+	texts = {paragraph["paragraph_index"]: paragraph.get("text") or "" for paragraph in report.get("paragraphs", [])}
+	if not texts:
+		return []
+	units = [
+		[texts.get(index, "") for index in range(unit["start_paragraph"], unit["end_paragraph"] + 1)]
+		for unit in report["discussion_units"]
+	]
+	return label_unit_roles(units)
+
+
 def _build_evidence_summary(
 	case_id: int,
 	db: Session,
@@ -124,8 +143,9 @@ def _build_evidence_summary(
 	if not has_paragraph_chunks:
 		return None
 	report = _cached_inspect_case(db, case_id, chunks)
+	unit_roles = _unit_roles(report)
 	units = []
-	for unit in report["discussion_units"]:
+	for position, unit in enumerate(report["discussion_units"]):
 		subthemes = []
 		for subtheme in unit.get("subthemes", []):
 			evidence = [
@@ -160,6 +180,7 @@ def _build_evidence_summary(
 				end_paragraph=unit["end_paragraph"],
 				paragraph_count=unit["paragraph_count"],
 				subthemes=subthemes,
+				role=unit_roles[position] if position < len(unit_roles) else None,
 			)
 		)
 
@@ -197,6 +218,7 @@ def _build_evidence_summary(
 		note="Evidence-based structural summary; not a legal conclusion. Each evidence span maps to canonical source text and a source hash.",
 		units=units,
 		citation_mappings=citation_mappings,
+		role_note=UNIT_ROLE_NOTE if unit_roles else None,
 	)
 
 

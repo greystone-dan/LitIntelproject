@@ -1249,6 +1249,12 @@ def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
     assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
 
 
+def test_plain_search_echo_uses_plain_words():
+    html = routes._data_explorer_page_html()
+    assert "in the name or citation." in html
+    assert "Search interpreted as: ${data.query_echo}" in html
+
+
 def test_reader_overruling_risk_notice_is_off_unless_a_page_opts_in():
     node = shutil.which("node")
     if not node:

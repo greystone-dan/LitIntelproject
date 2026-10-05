@@ -471,7 +471,7 @@ def test_active_reader_feature_and_mock_browser():
     assert "/paragraphs/${n}/similar?limit=10" in feature
     assert "panel.isConnected" in feature
     assert "&paragraph=${Number(row.paragraph_number)}" in feature
-    browser = shutil.which("chromium")
+    browser = shutil.which("google-chrome") or shutil.which("chromium")
     if not browser:
         pytest.skip("Chromium not installed; static feature assertions passed")
     document = """<html><body><div id="decisionBody"><p class="fmt-para" data-para="7">Text</p></div>

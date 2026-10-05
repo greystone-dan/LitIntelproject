@@ -70,11 +70,10 @@ def test_markup_bar_is_compact_and_not_sticky_on_phones():
 
 
 def test_overruling_notice_folds_on_phones():
-    assert "(max-width: 760px)" in RISK_JS
     assert "document.createElement('details')" in RISK_JS
 
 
-def test_overruling_notice_details_open_state_follows_screen_width():
+def test_overruling_notice_details_are_closed_on_every_screen_size():
     node = shutil.which("node")
     assert node, "node is required for this test"
     script = r"""
@@ -98,7 +97,7 @@ const controller = __CONTROLLER__;
   assert.equal(banner.children[0].tag,'strong');
   narrow=false;
   await openDecision(7);await new Promise(r=>setTimeout(r,0));
-  details=banner.children.find(c=>c.tag==='details');assert.equal(details.open,true);
+  details=banner.children.find(c=>c.tag==='details');assert.equal(details.open,false);
 })().catch(e=>{console.error(e);process.exitCode=1});
 """.replace("__CONTROLLER__", RISK_JS)
     result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)

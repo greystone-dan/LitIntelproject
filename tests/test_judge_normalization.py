@@ -64,3 +64,15 @@ def test_prothonotary_who_became_judge_merges_and_gender_clash_does_not():
 def test_display_name_prefers_full_mixed_case_name():
 	g = group_judge_names({"THE HONOURABLE MR. JUSTICE SIMON NOËL": 400, "Justice Simon Noël": 3, "NOËL J.": 4})
 	assert g[0].canonical == "Simon Noël"
+
+
+def test_deputy_assessor_entries_are_never_merged_and_mojibake_is_repaired():
+	assert parse_judge_name("The Honourable Mr. Justice Russell, Deputy Assessor") is None
+	assert parse_judge_name("Justice J.E. DubÃ©").surname == "dube"
+
+
+def test_best_display_name():
+	from backend.judge_normalization import best_display_name
+	assert best_display_name(["THE HONOURABLE MR. JUSTICE BEAUDRY", "Justice Michel Beaudry"]) == "Justice Michel Beaudry"
+	assert best_display_name(["Prothonotary Mireille Tabib"]) == "Prothonotary Mireille Tabib"
+	assert best_display_name(["Judge A"]) is None

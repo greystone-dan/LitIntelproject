@@ -43,6 +43,7 @@ from .database import (
 from .fc_activity_insights import fetch_fc_activity_judges
 from .judge_aliases import alias_map, member_ids
 from .judge_fc_activity import combine_rows, match_fc_rows
+from .judge_normalization import best_display_name
 from .judge_issue_record import (
 	_FEDERAL_COURT_NAMES,
 	_ISSUE_OUTCOME_CATEGORIES,
@@ -764,7 +765,7 @@ def _fetch_judge_profiles_impl(
 	return [
 		{
 			"slug": row.slug,
-			"display_name": row.display_name,
+			"display_name": best_display_name([row.display_name, *(p.display_name for p in members.get(row.id, []))]) or row.display_name,
 			"primary_court": row.primary_court,
 			"aliases": sorted({*(row.aliases or []), *(name for p in members.get(row.id, []) for name in [p.display_name, *(p.aliases or [])])}),
 			"decision_count": count,
@@ -1002,7 +1003,7 @@ def fetch_judge_profile_by_slug(
 		"fc_activity": combine_rows(fc_rows),
 		"profile": {
 			"slug": profile.slug,
-			"display_name": profile.display_name,
+			"display_name": best_display_name([m.display_name for m in member_profiles if m]) or profile.display_name,
 			"primary_court": profile.primary_court,
 			"aliases": sorted({*(profile.aliases or []), *(name for m in member_profiles[1:] if m for name in [m.display_name, *(m.aliases or [])])}),
 		},

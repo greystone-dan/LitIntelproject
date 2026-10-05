@@ -22,7 +22,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import delete, select
 
 from backend.database import CaseJudgeProfile, JudgeProfile, JudgeProfileAlias, SessionLocal
-from backend.judge_normalization import group_judge_names
+from backend.judge_normalization import best_display_name, group_judge_names
 
 
 def propose(session) -> list[tuple[JudgeProfile, list[JudgeProfile], dict]]:
@@ -70,7 +70,8 @@ def main() -> None:
 		for canonical, aliases, info in proposals:
 			new = [p for p in aliases if p.id not in existing]
 			total_aliases += len(new)
-			print(f"{canonical.display_name}  <-  {' | '.join(p.display_name for p in aliases)}"
+			shown = best_display_name([canonical.display_name, *(p.display_name for p in aliases)]) or canonical.display_name
+			print(f"{shown}  <-  {' | '.join(p.display_name for p in aliases)}"
 				+ (f"  [review: {len(info['needs_review'])} surname-only left alone]" if info["needs_review"] else ""))
 			if args.apply:
 				for p in new:

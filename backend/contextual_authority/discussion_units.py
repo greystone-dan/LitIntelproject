@@ -195,15 +195,29 @@ def _is_disposition(text: str) -> bool:
 
 
 def _is_issue_marker(text: str) -> bool:
-    """Detect explicit issue markers (Issue 1, Issue 2, First issue, etc)."""
+    """Detect explicit issue markers (Issue 1, Issue 2, First issue, raises issue, etc)."""
     text_upper = text.upper()
-    # Only match at the start of the text or after paragraph markers like "[N]"
-    # This avoids matching "issue" within phrases like "issue a FIR"
-    issue_patterns = (
+    # Numbered issues at paragraph start: "[5] Issue 1", "FIRST ISSUE", etc.
+    numbered_patterns = (
         r"^\[?\d+\]?\s*(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
         r"^(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
     )
-    return any(re.search(pattern, text_upper) for pattern in issue_patterns)
+    if any(re.search(pattern, text_upper) for pattern in numbered_patterns):
+        return True
+
+    # Semantic markers of problem statements that mark facts→analysis transition:
+    # - "raises [a/an] [primary] issue[s]" (case 13414)
+    # - "issues raised [by the parties]" (case 32257)
+    # - "THE/[sole] issue is/are/before"
+    semantic_patterns = (
+        r"RAISES\s+(?:A|AN|ONE|SEVERAL)?\s*(?:PRIMARY\s+)?ISSUES?",
+        r"ISSUES?\s+RAISED",
+        r"(?:^|\s)(?:THE\s+)?(?:SOLE\s+)?ISSUES?(?:\s+(?:IS|ARE|BEFORE)|$)",
+    )
+    if any(re.search(pattern, text_upper) for pattern in semantic_patterns):
+        return True
+
+    return False
 
 
 def _detect_discourse_cue(text: str) -> bool:
@@ -260,6 +274,46 @@ def _lexical_topic_shift_score(left: ParagraphFeatures, right: ParagraphFeatures
     overlap = _jaccard(left_words, right_words)
     # Convert to dissimilarity: high overlap (0.7) → low shift (0.3)
     return 1.0 - overlap
+
+
+def _is_section_header(text: str) -> bool:
+    """Detect section headers that mark major divisions in judicial decisions.
+
+    Identifies roman numerals, lettered headings, and section keywords that signal
+    argumentative role transitions (Preamble -> Facts -> Analysis -> Disposition).
+    Headers can appear at paragraph start or embedded within the text.
+    """
+    text_upper = text.upper()
+
+    # Roman numeral patterns: I, II, III, IV, V, VI, VII, VIII, IX, X
+    # Can appear at start or in the middle: ". I.", " I. ", "[5] I.", etc.
+    # Look for roman numeral followed by period and space/content
+    if re.search(r"(?:^|\s|\.|])(\s*)(I|II|III|IV|V|VI|VII|VIII|IX|X)(\.|:)\s+", text_upper):
+        return True
+
+    # Check for section keywords at paragraph start or after boundaries
+    # Patterns like "I. Background", "[5] Analysis", "2. Facts", etc.
+    section_keywords = (
+        "BACKGROUND",
+        "FACTS",
+        "PROCEDURAL HISTORY",
+        "DECISION",
+        "ISSUES?",
+        "ANALYSIS",
+        "STANDARD OF REVIEW",
+        "LEGAL PRINCIPLES?",
+        "REASONS?",
+        "CONCLUSION",
+        "DISPOSITION",
+        "ORDERS?",
+    )
+
+    for keyword in section_keywords:
+        # Match at start or after number/bracket/period
+        if re.search(rf"(?:^|\[|\d\.])\s*{keyword}(?:\s|:|$|\.)", text_upper):
+            return True
+
+    return False
 
 
 def _detect_strong_argument_transition(left_text: str, right_text: str) -> bool:
@@ -404,6 +458,10 @@ def segment_discussion_units(
         # Issue marker boundary - separates multiple legal issues
         if _is_issue_marker(right.text):
             boundaries.add(index)
+
+        # NOTE: Section header detection (roman numerals, section keywords) disabled as
+        # independent boundary trigger because headers often appear mid-paragraph text,
+        # causing false positives. Headers are used as supporting signals elsewhere.
 
         # Discourse cue boundary - explicit transition markers in right paragraph
         # Only strongest cues trigger independently; weak ones need support from continuity

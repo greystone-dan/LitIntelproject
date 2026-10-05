@@ -486,11 +486,22 @@ def _dockets(text, own):
 	return [row.normalized_citation for row in refine_case_citations(text, source_dockets=own).rows if row.kind == "docket"]
 
 
+def test_own_docket_is_found_from_header_labels_when_none_is_stored():
+	# Federal Court of Appeal and tribunal decisions have no stored docket (QA review v4): read it from the header.
+	fca = "Federal Court of Appeal Decisions\nFile numbers A-56-00\nDecision Content\nDate: 20010522\nDocket: A-56-00\nNeutral Citation: 2001 FCA 160\nCORAM: STRAYER J.A."
+	assert _dockets(fca, [None]) == []
+	assert _dockets(fca, None) == ["A-56-00", "A-56-00"]
+	consolidated = "Date: 20011121\nDocket: A-1-00 A-2-00 A-8-00 A-9-00\nNeutral citation: 2001 FCA 353\nCORAM: STRAYER J.A.\nDocket: A-1-00\nBETWEEN:"
+	assert _dockets(consolidated, [None]) == []
+	body = "Date: 20010146\nDocket: A-9-00\nCoram: X J.A.\n" + ("The appellant argued. " * 400) + "Three actions (T-2051-96, T-1359-97) were brought. See File Nos. A-747-99 and A-749-99."
+	assert _dockets(body, []) == ["T-2051-96", "T-1359-97", "A-747-99", "A-749-99"]
+
+
 def test_own_docket_is_not_a_citation_even_when_stored_without_year():
 	header = "File numbers\nDecision Content\nDate: 20030612\nDocket: T-1053-02\nCitation: 2003 FCT 742"
 	assert _dockets(header, ["T-1053"]) == []
 	assert _dockets(header, ["T-1053-02"]) == []
-	assert _dockets(header, []) == ["T-1053-02"]  # no own docket known: unchanged behaviour
+	assert _dockets(header, None) == ["T-1053-02"]  # not asked to skip own dockets: unchanged behaviour
 
 
 def test_dockets_listed_beside_the_own_docket_are_skipped():
@@ -504,3 +515,78 @@ def test_other_dockets_still_count_as_citations():
 	text = "Docket: T-766-03\nIn Mathiyabaranam (December 5, 1997), A-223-95, the Court held. See Court File No. T-1747-00."
 	assert _dockets(text, ["T-766"]) == ["A-223-95", "T-1747-00"]
 	assert _dockets("Docket: T-766-03\nSee T-766-99 as well.", ["T-766-03"]) == ["T-766-99"]
+
+
+# --- real rows from the citation QA review (qa-review-v3.md): cases 48, 153, 501 ---
+def test_consolidated_decision_per_party_dockets_are_its_own():
+	# Case 48 (2018 FC 481): the header lists the dockets, then each party block repeats one of them.
+	text = (
+		"File numbers\nIMM-1354-16, IMM-1604-16, IMM-248-16, IMM-3193-15, IMM-932-16\nDecision Content\nDate: 20180504\n"
+		"Dockets: IMM-3193-15\nIMM-248-16\nIMM-932-16\nIMM-1354-16\nIMM-1604-16\nCitation: 2018 FC 481\n"
+		"PRESENT: The Honourable Madam Justice Heneghan\nDocket: IMM-3193-15\nBETWEEN:\nREEM YOUSEF SAEED KREISHAN\nApplicant\n"
+		"and\nTHE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\nDocket: IMM-248-16\nAND BETWEEN:\nGIOVANI ACEVEDO ARANGO\n"
+	)
+	assert _dockets(text, ["IMM-1354-16"]) == []
+	assert _dockets(text + "See also Court File No. IMM-7777-15.", ["IMM-1354-16"]) == ["IMM-7777-15"]
+
+
+ENDNOTES_153 = (
+	"[9] Tribunal Record at page 6\n[10] See IMM-6306-99, Applicants' Record at page 11\n[11] Ibid\n[12] Ibid at page 13\n"
+	"[13] Ibid at page 14\n[18] Office of the United Nations High Commissioner for Refugees, Handbook, page 22\n"
+)
+BIKO = "Biko v. Canada (Secretary of State), [1994] F.C.J. No. 1741 (T.D.)"
+
+
+def _ibid_targets(text):
+	rows = refine_case_citations(text).rows
+	return [row for row in rows if row.step == "C2_backrefs"]
+
+
+def test_ibid_after_a_non_case_note_is_not_linked_to_an_earlier_case():
+	# Case 153 (2001 FCT 1243): "Ibid" here means the Applicants' Record, not the case cited earlier.
+	text = f"The panel erred. See {BIKO}. A later paragraph follows.\n\n" + ENDNOTES_153
+	assert _ibid_targets(text) == []
+
+
+def test_ibid_right_after_a_case_note_still_links():
+	notes = f"[3] {BIKO}\n[4] Ibid at page 5\n[5] Ibid\n"
+	rows = _ibid_targets(notes)
+	assert len(rows) == 2
+	assert all("Biko" in row.normalized_citation for row in rows)
+	running = f"The Court applied {BIKO}. Ibid at 10 says the same."
+	assert len(_ibid_targets(running)) == 1
+
+
+def test_ibid_far_from_the_citation_in_running_text_is_not_linked():
+	text = f"{BIKO}. " + "The panel considered the evidence at length. " * 20 + "Ibid at 10."
+	assert _ibid_targets(text) == []
+
+
+def _acts(text):
+	from backend.citation_refine import refine_document
+
+	return [(row.citation_text, row.instrument_key) for row in refine_document(text).laws.rows if "instrument_from_default_reading" in row.notes]
+
+
+def test_the_act_is_not_read_as_the_federal_courts_act_by_elimination():
+	# Case 501 (2001 FCT 789): an employment-insurance decision that only mentions the Federal Courts Act in passing.
+	text = (
+		"The Commission imposed a penalty. [34] I note that under section 33 of the Act the Commission may impose a penalty "
+		"where it becomes aware of facts. The claim was out of time under section 43 of the Act. "
+		"Judicial review is brought under section 18.1 of the Federal Courts Act."
+	)
+	assert _acts(text) == []
+
+
+def test_the_act_still_resolves_in_immigration_decisions_and_by_definition():
+	from backend.citation_refine import refine_document
+
+	def provisions(text):
+		return [(row.provision, row.instrument_key) for row in refine_document(text).laws.rows]
+
+	assert ("97", "canada.irpa") in provisions("The Immigration and Refugee Protection Act applies. Under section 97 of the Act the claim fails.")
+	assert ("5(3)", "canada.citizenship_act") in provisions(
+		"The Citizenship Act, R.S.C. 1985, c. C-29 (the Act) governs. Under subsection 5(3) of the Act the Judge may recommend."
+	)
+	# A sole non-procedural Act named earlier in the decision is still the default reading.
+	assert ("12", "canada.citizenship_act") in provisions("This is an appeal under the Citizenship Act. Section 12 of the Act applies.")

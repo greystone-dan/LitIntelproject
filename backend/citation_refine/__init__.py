@@ -101,7 +101,7 @@ def refine_document(
 	steps: Iterable[str] | None = None,
 	source_citations: Iterable[str | None] = (),
 	current_year: int | None = None,
-	source_dockets: Iterable[str | None] = (),
+	source_dockets: Iterable[str | None] | None = None,
 ) -> DocumentRefinement:
 	"""Run both refinement layers over one decision and reconcile them."""
 	content = text or ""

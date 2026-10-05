@@ -189,11 +189,12 @@ function buildNotes(payload){
   const seen=new Set();
   for(const row of rd.citations||[]){
     if(!row||row.id==null||seen.has(row.id)||row.citation_kind==='statute'||row.citation_kind==='instrument')continue;
-    if(!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name'))continue;
+    /* a bare case name or short form with no stored target is still highlighted in the text, so it keeps a note (hover, click, Peek) but no margin pill until opened */
+    const quiet=!row.target_case_id&&(row.citation_kind==='case_short'||row.citation_kind==='case_name');
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null;
-    notes.push({id:'cite-'+row.id,type:'cite',anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:row.target_case_id?'':'Not in the library yet — no cited text available.',quote:row.target_chunk_text?clip(row.target_chunk_text,700):'',quoteLabel:hasPin?'Pinpoint text, ¶'+row.target_paragraph+' of the cited case':(row.target_chunk_text?'Cited text':''),cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];
@@ -235,7 +236,7 @@ function sanitizeLayers(raw){
 function noteState(note,layers,overrides){
   const layer=layers[note.type];
   if(layer==='off'||layer===undefined)return 'off';
-  if(note.type==='citedby')return overrides&&overrides[note.id]===true?'open':'off';
+  if(note.type==='citedby'||note.quiet)return overrides&&overrides[note.id]===true?'open':'off';
   if(overrides&&overrides[note.id]===true)return 'open';
   if(overrides&&overrides[note.id]===false)return 'markers';
   return layer==='open'?'open':'markers';
@@ -264,7 +265,7 @@ function commentFor(n){
 function exportPlan(notes,layers,blockOf){
   const out=[];
   for(const n of notes||[]){
-    if(n.type==='tags')continue;
+    if(n.type==='tags'||n.quiet)continue;
     const st=layers&&layers[n.type];if(st===undefined||st==='off')continue;
     const c=commentFor(n),b=blockOf?blockOf(n):null;
     out.push({block:b==null?null:Number(b),label:c.label,text:c.text,quote:c.quote,author:n.type==='mine'?'My note':'iLit Markup'});
@@ -315,6 +316,13 @@ function removeStage(){
   if(body)source.insertBefore(body,stage);
   stage.remove();for(const id of ['markupBar','markupPrintHead']){const e=$(id);if(e)e.remove()}
 }
+/* The potential legal-development notice is hidden in markup (CSS); a header pill reveals it. */
+function legalNoticeShown(){const a=document.getElementById('readerOverrulingRisk');return !!(a&&!a.hidden)}
+let legalWatch=null;
+function watchLegalNotice(){
+  const a=document.getElementById('readerOverrulingRisk');if(legalWatch||!a||typeof MutationObserver==='undefined')return;
+  legalWatch=new MutationObserver(()=>{if(state.on)renderBar()});legalWatch.observe(a,{attributes:true,attributeFilter:['hidden']});
+}
 function setOn(on){
   if(on===state.on)return;
   const p=panel();if(!p)return;
@@ -322,12 +330,12 @@ function setOn(on){
   if(on){
     const rd=readerState&&readerState.payload&&readerState.payload.readerData;
     if(!rd||!(rd.format_blocks||[]).length){toggle&&toggle.setAttribute('title','Markup mode needs the formatted reader, which is unavailable for this case');return}
-    state.on=true;document.body.classList.add('markup-mode-on');
+    state.on=true;document.body.classList.add('markup-mode-on');watchLegalNotice();
     readerState.formatted=true;
     readerState.mode='normalized';
     setReaderMode('normalized');
   }else{
-    state.on=false;document.body.classList.remove('markup-mode-on');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
+    state.on=false;document.body.classList.remove('markup-mode-on','mk-legal-open');state.infoOpen=false;state.outlineOpen=false;state.layersOpen=false;
     hideHover(true);clearFold();cleanMine();decorateNums(false);closeEditor();
     removeStage();p.classList.remove('markup-on','markup-info-open','markup-docked','markup-peeking');
     const pn=$('mkPanel');if(pn)pn.remove();
@@ -352,7 +360,7 @@ function afterRender(){
   state.findHits=[];state.findAt=-1;
   render();
 }
-function countFor(type){return state.notes.filter(n=>n.type===type).length}
+function countFor(type){return state.notes.filter(n=>n.type===type&&!n.quiet).length}
 function tagCount(){const rd=readerState.payload&&readerState.payload.readerData;return rd&&Array.isArray(rd.tags)?rd.tags.length:0}
 /* Re-render the toolbar without losing the user's place: keep focus (and caret in the find box). */
 function focusKey(el){
@@ -392,7 +400,7 @@ function renderBar(){
   const rows=LAYER_DEFS.map(d=>`<div class="mk-lr${countOf(d)?'':' is-empty'}"><b>${E(d.label)}</b><span class="mk-lc">${countOf(d)||'—'}</span><span class="mk-seg" role="group" aria-label="${E(d.label)} layer">${d.states.map(s=>`<button type="button"${countOf(d)?'':' disabled'} data-mk-layer="${d.key}" data-mk-state="${s}" aria-pressed="${L[d.key]===s}">${STATE_LABEL[s]}</button>`).join('')}</span></div>`).join('');
   const topicRow=state.topics.length?`<div class="mk-row mk-row2 mk-topics" role="group" aria-label="Topics"><span class="mk-lbl">Topics</span>${state.topics.map(t=>`<button type="button" class="mk-topic" data-mk-topic="${E(t.key)}" aria-pressed="${state.topicSel.includes(t.key)}" style="--c:${t.color}" title="${t.paras} paragraph${t.paras===1?'':'s'}"><i></i>${E(t.label)}</button>`).join('')}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="fold" aria-pressed="${state.foldOthers}"${state.topicSel.length?'':' disabled'}>${state.foldOthers?'Show all paragraphs':'Show only selected'}</button>${state.topicSel.length?'<button type="button" class="mk-btn" data-mk-act="topics-clear">Clear topics</button>':''}</div>`:'';
   bar.classList.toggle('is-open',!!state.barOpen);
-  const hi=headerInfo(readerState.payload),hdr=[hi.outcome&&`<span class="mk-hp is-outcome">${E(hi.outcome)}</span>`,hi.judge&&`<span class="mk-hp">${E(clip(hi.judge.replace(/^The Honourable\s+(Mr\.?|Madam|Mrs\.?|Ms\.?)?\s*Justice\s+/i,'Justice '),40))}</span>`,hi.file&&`<span class="mk-hp">${E(hi.file)}</span>`].filter(Boolean).join('');
+  const hi=headerInfo(readerState.payload),hdr=[hi.outcome&&`<span class="mk-hp is-outcome">${E(hi.outcome)}</span>`,hi.judge&&`<span class="mk-hp">${E(clip(hi.judge.replace(/^The Honourable\s+(Mr\.?|Madam|Mrs\.?|Ms\.?)?\s*Justice\s+/i,'Justice '),40))}</span>`,hi.file&&`<span class="mk-hp">${E(hi.file)}</span>`,legalNoticeShown()&&`<button type="button" class="mk-hp is-legal" data-mk-act="legal" aria-pressed="${document.body.classList.contains('mk-legal-open')}" title="Show or hide the potential legal-development notice for this case">Legal-development notice</button>`].filter(Boolean).join('');
   bar.innerHTML=(hdr?`<div class="mk-row mk-hdr">${hdr}</div>`:'')+`<div class="mk-row"><button type="button" class="mk-btn" data-mk-act="layers" aria-expanded="${!!state.layersOpen}">Layers ▾ <small>${liveOn} of ${live.length}</small></button><button type="button" class="mk-btn mk-more" data-mk-act="more" aria-expanded="${!!state.barOpen}">${state.barOpen?'Fewer tools ▴':'Find · Topics · More ▾'}</button>${chips}<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="expand">Expand all</button><button type="button" class="mk-btn" data-mk-act="collapse">Collapse all</button></div>`+
   `${groupsN?`<div class="mk-row mk-row2 mk-viewrow"><span class="mk-seg" role="group" aria-label="Reading order or by topic"><button type="button" data-mk-act="view-reading" aria-pressed="${state.view==='reading'}">Reading order</button><button type="button" data-mk-act="view-topic" aria-pressed="${state.view==='topic'}">By topic</button></span>${state.view==='topic'?`<span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="topic-fold">Fold all</button><button type="button" class="mk-btn" data-mk-act="topic-unfold">Unfold all</button>`:''}</div>`:''}<div class="mk-row mk-row2"><label class="mk-find"><span class="mk-find-ico" aria-hidden="true">⌕</span><input type="search" id="markupFind" placeholder="Find in this case" value="${E(state.findTerm)}" aria-label="Find in this case"><span id="markupFindCount" class="mk-find-count" aria-live="polite"></span></label><button type="button" class="mk-btn" data-mk-act="info" aria-expanded="${state.infoOpen}">Case info ▾</button><button type="button" class="mk-btn" data-mk-act="outline" aria-expanded="${state.outlineOpen}">Outline</button><span class="mk-sp"></span><button type="button" class="mk-btn" data-mk-act="experimental" aria-pressed="${typeof experimentalState!=='undefined'&&!!experimentalState.on}" title="Show or hide the unfinished reader tools (summary cards, paragraph assessments, similar paragraphs)">Experimental</button><button type="button" class="mk-btn" data-mk-act="export" title="Word file of this case with the margin notes as comments">Export to Word</button><button type="button" class="mk-btn" data-mk-act="print">Print annotated</button></div>`+topicRow+
   `<div class="mk-pop" id="markupLayerPop"${state.layersOpen?'':' hidden'}><div class="mk-pop-h">Margin layers<small>Off · Markers (collapsed pills) · Open (full bubbles). Tags: Underline · Tint · Bubbles.</small></div>${rows}<div class="mk-pop-f"><button type="button" class="mk-btn" data-mk-act="showall">Show all layers</button><button type="button" class="mk-btn" data-mk-act="reset">Reset</button><span>Click a pill or bubble to open or fold just that note.</span></div></div>`;
@@ -447,7 +455,7 @@ function applyFold(){
   }
 }
 function render(){
-  const stage=$('markupStage');if(!stage)return;
+  const stage=$('markupStage');if(!stage||!readerState.payload)return;   /* a case switch can leave a render queued with no payload */
   applyFold();
   applyMine();
   renderBar();
@@ -757,6 +765,7 @@ document.addEventListener('click',ev=>{
     else if(a==='info'){state.infoOpen=!state.infoOpen;render();if(state.infoOpen){const d=$('decisionTarget');if(d)d.scrollTop=0}}
     else if(a==='more'){state.barOpen=!state.barOpen;render()}
     else if(a==='outline'){state.outlineOpen=!state.outlineOpen;render()}
+    else if(a==='legal'){document.body.classList.toggle('mk-legal-open');renderBar()}
     else if(a==='experimental'){if(typeof setReaderExperimental==='function')setReaderExperimental(!(typeof experimentalState!=='undefined'&&experimentalState.on));render()}
     else if(a==='print'){window.print()}
     else if(a==='export'){exportWord(act)}

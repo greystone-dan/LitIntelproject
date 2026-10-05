@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 import os
 import shutil
+import signal
 import subprocess
 import tempfile
 
@@ -508,19 +509,38 @@ document.body.dataset.browserCheck='passed';
 }
 })();
 </script></body></html>"""
-    with tempfile.TemporaryDirectory() as directory:
+    # ignore_cleanup_errors: Chromium helper processes can still be flushing the
+    # profile directory for a moment after the main process exits.
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as directory:
         path = Path(directory) / "mock-reader.html"
         path.write_text(document)
         # Same isolation flags as the other headless-Chromium tests: private profile
         # (no shared default profile between parallel workers), no /dev/shm use, no
         # session D-Bus lookup (the stall seen in CI stderr).
-        result = subprocess.run([browser, "--headless", "--no-sandbox", "--disable-gpu",
-                                 "--disable-dev-shm-usage", "--disable-background-networking",
-                                 "--disable-extensions", "--no-first-run",
-                                 "--no-default-browser-check",
-                                 f"--user-data-dir={Path(directory) / 'profile'}",
-                                 "--dump-dom", "--virtual-time-budget=1000", path.as_uri()],
-                                capture_output=True, text=True, timeout=30,
-                                env={**os.environ, "DBUS_SESSION_BUS_ADDRESS": "disabled:"})
+        # Own process group: Chromium leaves helper processes that inherit the output
+        # pipes, so a plain subprocess.run() can wait on them until its timeout even
+        # though the page finished. Kill the whole group once the browser is done.
+        process = subprocess.Popen(
+            [browser, "--headless", "--no-sandbox", "--disable-gpu",
+             "--disable-dev-shm-usage", "--disable-background-networking",
+             "--disable-extensions", "--no-first-run", "--no-default-browser-check",
+             f"--user-data-dir={Path(directory) / 'profile'}",
+             "--dump-dom", "--virtual-time-budget=1000", path.as_uri()],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+            env={**os.environ, "DBUS_SESSION_BUS_ADDRESS": "disabled:"},
+            start_new_session=True,
+        )
+        try:
+            stdout, stderr = process.communicate(timeout=30)
+        finally:
+            try:
+                if hasattr(os, "killpg"):
+                    os.killpg(process.pid, signal.SIGKILL)
+                else:
+                    process.kill()
+            except ProcessLookupError:
+                pass
+            process.wait()
+    result = subprocess.CompletedProcess(process.args, process.returncode, stdout, stderr)
     assert result.returncode == 0, result.stderr
     assert 'data-browser-check="passed"' in result.stdout, result.stdout

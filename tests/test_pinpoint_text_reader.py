@@ -69,3 +69,27 @@ def test_pinpoint_text_is_the_cited_paragraph_or_absent(db):
     assert "[4]" not in rows[3].target_chunk_text
     # A paragraph the cited decision does not have gets no text at all.
     assert rows[99].target_chunk_text is None
+
+
+def test_on_demand_paragraph_text_and_statute_positions(db):
+    from backend.database import StatuteReference
+    from backend.reader_service import get_case_paragraph_texts, get_case_statute_references
+
+    texts = get_case_paragraph_texts(2, [3, 99], db)
+    assert texts["3"].startswith("[3] The test is conjunctive")
+    assert "99" not in texts
+
+    source = db.get(Case, 1)
+    chunk_text = source.full_text.split("\n", 1)[1]
+    db.add(CaseChunk(id=50, case_id=1, chunk_set="paragraph", chunk_index=0, paragraph_start=1, paragraph_end=1,
+                     text=chunk_text, text_hash="s", token_estimate=10))
+    db.flush()
+    local = chunk_text.index("2023 FC 9")
+    db.add(StatuteReference(source_case_id=1, chunk_id=50, offset_start=local, offset_end=local + 9,
+                            reference_text="2023 FC 9", normalized_reference="x", reference_kind="statute",
+                            section_text="A provision."))
+    db.commit()
+    row = get_case_statute_references(1, db)[0]
+    span = row.layer_spans["full_case"]
+    assert source.full_text[span["local_start"]:span["local_end"]] == "2023 FC 9"
+    assert row.provision_text == "A provision."

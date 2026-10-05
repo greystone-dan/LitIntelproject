@@ -16,7 +16,11 @@ assert.match(hoverCitationInfo({citation_kind:'case_short',citation_text:'X'}).n
 assert.match(hoverCitationInfo({citation_kind:'case_short',target_case_id:2}).note,/no pinpoint/);
 const c=hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_title:'Vavilov',target_citation:'2019 SCC 65',target_paragraph:7,target_chunk_text:'[6] a [7] the text [8] b'});
 assert.equal(c.text,'[7] the text ');assert.match(c.label,/Paragraph 7/);
-assert.match(hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_paragraph:7}).note,/Paragraph 7 is not stored/);
+const pending=hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_paragraph:7});
+assert.deepEqual(pending.fetch,{caseId:2,paragraphs:[7]});assert.match(pending.note,/Loading/);
+assert.match(hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_paragraph:7,_hoverFetched:true}).note,/Paragraph 7 is not stored/);
+assert.equal(hoverCitationInfo({citation_kind:'case_short',target_case_id:2,target_paragraph:7,target_chunk_text:'[7] x'}).fetch,undefined);
+assert.equal(hoverCitationInfo({citation_kind:'statute',provision_section:'96',statute_version_label:'Version unknown',provision_text:'t'}).label,'Section 96');
 """
 
 

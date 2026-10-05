@@ -1173,28 +1173,6 @@ def _facet_cache_put(key: str, facets: dict[str, Any]) -> None:
 	_FACET_CACHE[key] = (time.monotonic(), facets)
 
 
-_TSV_INDEX_NAME = "ix_cases_search_tsv"
-_tsv_state: dict[str, float | bool] = {"ok": False, "checked": 0.0}
-
-
-def _fulltext_tsv_available(db) -> bool:
-	"""True once scripts/build_fulltext_index.py has finished (column + GIN index exist); rechecked every minute."""
-	if _tsv_state["ok"]:
-		return True
-	if time.monotonic() - float(_tsv_state["checked"]) < 60 and _tsv_state["checked"]:
-		return False
-	_tsv_state["checked"] = time.monotonic()
-	try:
-		if not hasattr(db, "get_bind") or db.get_bind().dialect.name != "postgresql":
-			return False
-		found = db.execute(sql_text("SELECT 1 FROM pg_indexes WHERE indexname = :name"), {"name": _TSV_INDEX_NAME}).first()
-		_tsv_state["ok"] = found is not None
-	except Exception:
-		db.rollback()
-		return False
-	return bool(_tsv_state["ok"])
-
-
 def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 	"""Citation metrics for only the cases on the returned page (two grouped queries, no per-row subqueries)."""
 	if not case_ids:
@@ -1291,12 +1269,7 @@ def fetch_analytics_search_cases(
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
 		if search_full_text:
-			if _fulltext_tsv_available(db):
-				# Indexed word search (stemmed) instead of scanning the 35 GB full_text column.
-				params["tsquery"] = query
-				query_fields += " OR c.search_tsv @@ websearch_to_tsquery('english', :tsquery)"
-			else:
-				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 		filters.append(f"({query_fields})")
 	if cites:
 		params["cites"] = f"%{cites}%"

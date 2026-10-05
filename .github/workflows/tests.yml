@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -20,6 +24,8 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Install CPU-only PyTorch (skips ~4 GB of unused CUDA wheels)
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - name: Install dependencies
         run: python -m pip install -r requirements-dev.txt
       # Deselected on purpose (not silently skipped); they only pass on Daniel's machine:
@@ -29,7 +35,7 @@ jobs:
       #     -> fails on a clean machine (client kwargs come back empty); needs investigation
       - name: Run tests
         run: >
-          python -m pytest -q
+          python -m pytest -q -n auto
           --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence
           --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes
           --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint
@@ -74,6 +80,8 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Install CPU-only PyTorch (skips ~4 GB of unused CUDA wheels)
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
       - name: Verify and enable pgvector on disposable database

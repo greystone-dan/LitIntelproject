@@ -116,7 +116,7 @@ def _replace_once(html: str, old: str, new: str) -> str:
 
 
 def live_analysis_page_html() -> str:
-	html = data_explorer_page_html()
+	html = data_explorer_page_html(pitch_navigation=False)
 	html = _replace_once(
 		html,
 		'<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>',

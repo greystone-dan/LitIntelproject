@@ -53,3 +53,22 @@ assert.match(c.label,/Paragraphs 7-8/);assert.match(c.text,/\\[7\\] a/);assert.m
 """
     res = subprocess.run([node, "-e", html[start:end] + probe], capture_output=True, text=True)
     assert res.returncode == 0, res.stderr
+
+
+def test_case_info_helpers_clean_dates_and_decision_makers():
+    node = shutil.which("node")
+    html = data_explorer_page_html()
+    start = html.index("const SIDE_MONTHS")
+    end = html.index("function sideFact", start)
+    probe = """
+const assert=require('node:assert/strict');
+function sideOutcome(){return null}
+assert.equal(sideDate('2018-02-08'),'February 8, 2018');
+assert.equal(sideJudge('The Honourable Mr. Justice Mosley'),'Justice Mosley');
+assert.equal(sideJudge('The Honourable Madam Justice Strickland'),'Justice Strickland');
+assert.equal(sideJudge('JUSTICE ZINN'),'Justice Zinn');
+const f=sideCaseFacts({item:{title:'A v B',citation:'2018 FC 147',court:'FC',date:'2018-02-08',docket_number:'IMM-1-17',metadata_json:{reader_extracted:{'place of hearing':'toronto, ontario','date of hearing':'FEBRUARY 5, 2018'}}},meta:{}});
+assert.equal(f.docket,'IMM-1-17');assert.equal(f.hearing,'Toronto, Ontario \\u00b7 February 5, 2018');
+"""
+    res = subprocess.run([node, "-e", html[start:end] + probe], capture_output=True, text=True)
+    assert res.returncode == 0, res.stderr

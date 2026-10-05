@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T10:00:27.997087+00:00
+Generated: 2026-10-05T10:15:42.589130+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 125 across 122 paths
+OpenAPI operations: 126 across 123 paths
 Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -132,6 +132,7 @@ Search Analytics Cases
 - `offset` (query, optional; integer, default `0`)
 - `cohort_id` (query, optional; string, default `""`)
 - `facets` (query, optional; boolean, default `true`)
+- `citation_stats` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -145,6 +146,21 @@ Get Analytics Search Case
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/citation-stats`
+
+Search Analytics Citation Stats
+
+Citation counts for the result cards on screen, loaded after the results so they never delay them.
+
+**Parameters**
+
+- `ids` (query, optional; string, default `""`)
 
 **Responses**
 

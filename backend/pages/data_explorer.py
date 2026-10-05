@@ -865,7 +865,7 @@ async function runProfessionalSearch(){
  const values=searchValues(),params=new URLSearchParams();
  document.getElementById('searchQueryEcho').hidden=true;
  Object.entries(values).forEach(([key,value])=>{if(value)params.set(key,value)});
- params.set('facets','0');
+ params.set('facets','0');params.set('citation_stats','0');
  setSearchStatus(values.search_full_text?'Searching names, citations, and full decision text...':'Searching case names and citations...','loading');
  document.getElementById('searchResults').innerHTML='';
  return fetchCurrentPanel(`/analytics/search/cases?${params}`,document.getElementById('searchResults'),{
@@ -880,7 +880,9 @@ async function runProfessionalSearch(){
   paintSearchRefine(data.facets,values,results.length);
   if(results.length&&!values.search_full_text){const facetParams=new URLSearchParams(params);['sort_by','limit','offset'].forEach(k=>facetParams.delete(k));fetch(`/analytics/search/facets?${facetParams}`).then(r=>r.ok?r.json():null).then(f=>{if(f&&requestId===professionalSearchGeneration)paintSearchRefine(f.facets,values,results.length)}).catch(()=>{})}
   document.getElementById('searchResults').innerHTML=results.map(item=>professionalResultCard(item,values.query)).join('')||(values.query?'<div class="empty">No matching decisions. Try a citation, a shorter party name, or fewer filters.</div>':'<div class="empty">Enter a case name or citation to begin.</div>');
-  document.querySelectorAll('#searchResults .case-result').forEach(button=>button.addEventListener('click',()=>openDecision(Number(button.dataset.caseId))));
+  const bindCards=()=>document.querySelectorAll('#searchResults .case-result').forEach(button=>button.addEventListener('click',()=>openDecision(Number(button.dataset.caseId))));
+  bindCards();
+  if(results.length)fetch(`/analytics/search/citation-stats?ids=${results.map(item=>item.case_id).join(',')}`).then(r=>r.ok?r.json():null).then(d=>{if(!d||requestId!==professionalSearchGeneration)return;results.forEach(item=>Object.assign(item,(d.stats||{})[item.case_id]||{}));document.getElementById('searchResults').innerHTML=results.map(item=>professionalResultCard(item,values.query)).join('');bindCards()}).catch(()=>{});
  }});
 }
 function bindProfessionalSearch(){const form=document.getElementById('caseSearch'),input=document.getElementById('searchQuery'),clear=document.getElementById('clearSearch');form.addEventListener('submit',event=>{event.preventDefault();event.stopImmediatePropagation();runProfessionalSearch();},true);input.addEventListener('input',()=>{clearTimeout(suggestionState.timer);const query=input.value.trim();if(query.length<2){suggestionState.controller?.abort();closeSearchSuggestions();return;}suggestionState.timer=setTimeout(()=>requestSearchSuggestions(query),280);});input.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSearchSuggestions();return;}if(!suggestionState.items.length)return;if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const step=event.key==='ArrowDown'?1:-1;suggestionState.active=(suggestionState.active+step+suggestionState.items.length)%suggestionState.items.length;paintSearchSuggestions();}else if(event.key==='Enter'&&suggestionState.active>=0){event.preventDefault();event.stopImmediatePropagation();chooseSearchSuggestion(suggestionState.active);}});clear.addEventListener('click',()=>{suggestionState.controller?.abort();closeSearchSuggestions();setSearchStatus('Search by case name or citation. Open Advanced options for filters or full-decision text.');});document.addEventListener('click',event=>{if(!event.target.closest?.('.case-finder'))closeSearchSuggestions();});document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();input.focus();input.select();}});}

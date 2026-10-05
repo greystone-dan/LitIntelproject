@@ -1173,6 +1173,10 @@ def _facet_cache_put(key: str, facets: dict[str, Any]) -> None:
 	_FACET_CACHE[key] = (time.monotonic(), facets)
 
 
+def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
+	return {str(k): v for k, v in _page_citation_counts(db, case_ids[:100]).items()}
+
+
 def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 	"""Citation metrics for only the cases on the returned page (two grouped queries, no per-row subqueries)."""
 	if not case_ids:
@@ -1229,6 +1233,7 @@ def fetch_analytics_search_cases(
 	cohort_ids: list[int] | None = None,
 	include_facets: bool = True,
 	facets_only: bool = False,
+	include_citation_stats: bool = True,
 ) -> dict[str, Any]:
 	limit = max(1, min(limit, 100))
 	offset = max(0, offset)
@@ -1367,7 +1372,7 @@ def fetch_analytics_search_cases(
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 	rows = db.execute(statement, params).mappings().all()
-	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows])
+	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
 	return {
 		"facets": facets,
 		"results": [

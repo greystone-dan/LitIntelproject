@@ -1,6 +1,6 @@
 # AI CaseLibrary Work History
 
-Last generated: 2026-09-28T16:38:40.422022+00:00
+Last generated: 2026-10-05T12:57:30.174808+00:00
 
 This is the project work ledger derived from retained local VS Code session history. It complements `CHANGELOG.md`: the changelog records repository changes, while this document records the larger work narrative and an estimated Copilot-assisted effort timeline.
 
@@ -25,11 +25,13 @@ This is the project work ledger derived from retained local VS Code session hist
 ## Project Cost Context
 
 - Period represented: 2 months
-- Claude Code subscription: $300.00 (150.00/month)
-- Claude Code overage: $50.00
-- OpenAI credit: $25.00
-- Website hosting: $12.00
-- Estimated project cost for this period: $387.00
+- Claude Code subscription: $320.00 (160.00/month)
+- Claude Code overage: $0.00
+- OpenAI credit: $60.00
+- Website hosting (Cloudflare): $14.85
+- GitHub Copilot (cumulative): $552.23
+- Anthropic API (cumulative): $54.24
+- Estimated total project cost: $1001.32
 - These user-provided figures are separate from the incomplete artifact-based API ledger in `docs/EVALUATION_COSTS.md`.
 
 ## Workstream Breakdown

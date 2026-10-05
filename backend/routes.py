@@ -12,7 +12,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, Response, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from docx import Document
@@ -23,6 +23,13 @@ from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
+from .precedent_finder import (
+	MAX_BODY_BYTES as PRECEDENT_BODY_BYTES,
+	MAX_CHARACTERS as PRECEDENT_CHARACTERS,
+	NO_STORE as PRECEDENT_NO_STORE,
+	find_precedents,
+)
+from .pages.precedent_finder import precedent_finder_page_html
 from .markup_export import Comment as MarkupComment, build_markup_docx
 from .alert_digest import (
 	build_alert_digest,
@@ -31,6 +38,8 @@ from .alert_digest import (
 )
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
+from .case_summary_card import router as case_summary_card_router
+from .citation_treatment_service import citation_treatment_summary
 
 try:
 	import yaml
@@ -87,6 +96,7 @@ from .pages.deidentify import deidentify_page_html
 from .pages.issue_brief import issue_brief_page_html
 from .pages.case_compare import case_compare_page_html
 from .case_comparison import fetch_case_comparison
+from .case_compare import MAX_CASE_INPUT_CHARS, compare_case_inputs, resolve_case_input
 from .pages.memo_citation_check import memo_citation_check_page_html
 from .pages.prototype import prototype_page_html
 from .pages.quick_search import quick_search_page_html
@@ -315,6 +325,7 @@ def _data_explorer_page_html() -> str:
 router = APIRouter(tags=["cases"])
 router.include_router(statute_consideration_router)
 router.include_router(case_summary_router)
+router.include_router(case_summary_card_router)
 
 
 @router.get("/api/search-embedding-status")
@@ -778,6 +789,65 @@ def case_compare_page(
 	return HTMLResponse(case_compare_page_html(result, a, b))
 
 
+@router.get("/api/compare", response_model=dict[str, Any])
+def compare_cases_by_id_or_citation(
+	a: str = Query(
+		min_length=1,
+		max_length=MAX_CASE_INPUT_CHARS,
+		description=f"Case ID or stored citation (maximum {MAX_CASE_INPUT_CHARS} characters).",
+	),
+	b: str = Query(
+		min_length=1,
+		max_length=MAX_CASE_INPUT_CHARS,
+		description=f"Case ID or stored citation (maximum {MAX_CASE_INPUT_CHARS} characters).",
+	),
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	result = compare_case_inputs(db, a, b)
+	if result["status"] == "unknown_case":
+		raise HTTPException(status_code=404, detail={
+			"code": "unknown_case",
+			"message": "Could not find a stored decision for each input. Enter a case ID or citation.",
+			"unknown_inputs": result["unknown_inputs"],
+		})
+	if result["status"] == "same_case":
+		raise HTTPException(status_code=400, detail={
+			"code": "same_case",
+			"message": "Choose two different decisions to compare.",
+		})
+	return result
+
+
+@router.get("/compare", response_class=HTMLResponse, include_in_schema=False)
+def compare_cases_page(
+	a: str = "",
+	b: str = "",
+	db: Session = Depends(get_db),
+) -> HTMLResponse:
+	resolved: list[str] = []
+	for value in (a, b):
+		case_id = resolve_case_input(db, value) if value.strip() else None
+		if value.strip() and case_id is None:
+			message = "We could not find that stored decision. Try a case ID or citation."
+			return HTMLResponse(
+				f"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Case not found</title>"
+				f"<h1>Case not found</h1><p>{message}</p><p><a href=\"/compare\">Start another comparison</a></p></html>",
+				status_code=404,
+			)
+		resolved.append(str(case_id) if case_id is not None else "")
+	if len(resolved) == 2 and all(resolved):
+		result = compare_case_inputs(db, a, b)
+		if result["status"] == "same_case":
+			return HTMLResponse(
+				"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Choose two decisions</title>"
+				"<h1>Choose two different decisions</h1><p>A decision cannot be compared with itself.</p>"
+				"<p><a href=\"/compare\">Start another comparison</a></p></html>",
+				status_code=400,
+			)
+		return HTMLResponse(case_compare_page_html(result, *resolved, action="/compare"))
+	return HTMLResponse(case_compare_page_html(None, *resolved, action="/compare"))
+
+
 @router.get("/cases/{case_id}", response_model=CaseResponse)
 def get_case(case_id: int, db: Session = Depends(get_db)) -> Case:
 	case = db.scalar(select(Case).where(Case.id == case_id))
@@ -1059,6 +1129,18 @@ def get_case_citation_metrics(case_id: int, db: Session = Depends(get_db)) -> Ci
 	return CitationMetricsResponse.model_validate(metrics, from_attributes=True)
 
 
+@router.get("/api/citation-treatment/{case_id}", response_model=dict[str, Any])
+def get_citation_treatment(case_id: int, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Experimental read-only paragraph evidence, not permanent authority labels.
+
+	Counts use distinct citing decisions including unknown as their denominator.
+	Classes overlap for mixed evidence; unknown means no classifiable evidence.
+	No UI, citation metrics, stored data or source offsets are changed.
+	"""
+	_get_case_or_404(case_id, db)
+	return citation_treatment_summary(db, case_id)
+
+
 @router.post("/citation-metrics/recompute", response_model=dict[str, int])
 def recompute_citation_metrics(db: Session = Depends(get_db)) -> dict[str, int]:
 	updated = _compute_citation_metrics(db)
@@ -1073,6 +1155,62 @@ def get_citation_map_summary(db: Session = Depends(get_db)) -> dict[str, int]:
 @router.get("/citation-map", response_class=HTMLResponse)
 def citation_map_page() -> str:
 	return citation_map_html()
+
+
+@router.get("/precedent-finder", response_class=HTMLResponse, include_in_schema=False)
+def precedent_finder_page() -> HTMLResponse:
+	return HTMLResponse(precedent_finder_page_html(), headers=PRECEDENT_NO_STORE)
+
+
+@router.post(
+	"/precedent-finder",
+	responses={
+		413: {"description": "Proposition or JSON body exceeds the input limit; input is never echoed."},
+		422: {"description": "Invalid JSON proposition; input is never echoed."},
+		500: {"description": "Research unavailable; input is never echoed."},
+	},
+	openapi_extra={"requestBody": {"required": True, "content": {
+		"application/json": {"schema": {
+			"type": "object", "required": ["proposition"], "additionalProperties": False,
+			"properties": {"proposition": {"type": "string", "maxLength": PRECEDENT_CHARACTERS}},
+		}},
+	}}},
+)
+async def precedent_finder_analyze(request: Request, db: Session = Depends(get_db)) -> JSONResponse:
+	"""Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+	Rank by distinct matching citing decisions, distinct matched tags, authority
+	date descending, then citation ascending. Statutes do not influence ranking.
+	All responses are no-store; no raw proposition is returned or persisted.
+	"""
+	# Do not bind a Pydantic body: default validation errors can echo submitted
+	# input. All errors here are fixed text, including malformed JSON and 500s.
+	def error(code: int, detail: str) -> JSONResponse:
+		return JSONResponse({"detail": detail}, status_code=code, headers=PRECEDENT_NO_STORE)
+
+	if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
+		return error(422, "Submit a JSON object containing a text proposition.")
+	body = bytearray()
+	async for chunk in request.stream():
+		if len(body) + len(chunk) > PRECEDENT_BODY_BYTES:
+			return error(413, "Proposition must be at most 3000 characters.")
+		body.extend(chunk)
+	try:
+		value = json.loads(body)
+	except (ValueError, UnicodeError, RecursionError):
+		return error(422, "Submit a valid JSON object containing a text proposition.")
+	finally:
+		body.clear()
+	if not isinstance(value, dict) or set(value) != {"proposition"} or not isinstance(value["proposition"], str):
+		return error(422, "Submit a JSON object containing a text proposition.")
+	proposition = value["proposition"]
+	if len(proposition) > PRECEDENT_CHARACTERS:
+		return error(413, "Proposition must be at most 3000 characters.")
+	try:
+		payload = await run_in_threadpool(find_precedents, proposition, db)
+	except Exception:
+		return error(500, "Precedent research is unavailable. Please try again.")
+	return JSONResponse(payload, headers=PRECEDENT_NO_STORE)
 
 
 @router.get("/live-analysis", response_class=HTMLResponse, include_in_schema=False)
@@ -4040,11 +4178,6 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 		context_parts.append(f"{header}\n" + "\n".join(passages))
 
 	context = "\n\n---\n\n".join(context_parts)
-	context_limit = _LOCAL_CONTEXT_CHAR_LIMIT if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else _CONTEXT_CHAR_LIMIT
-	if len(context) > context_limit:
-		context = context[:context_limit] + "\n[Context truncated at a passage boundary where possible]"
-
-	system_prompt, prompt_version = get_prompt("research_system")
 
 	try:
 		provider = get_text_generation_provider()
@@ -4054,11 +4187,16 @@ def research(search: ResearchRequest, db: Session = Depends(get_db)) -> Research
 			detail=str(exc),
 		) from exc
 
+	if len(context) > provider.max_context_chars:
+		context = context[:provider.max_context_chars] + "\n[Context truncated at a passage boundary where possible]"
+
+	system_prompt, prompt_version = get_prompt("research_system")
+
 	try:
 		completion = provider.create_chat_completion(
 			model=provider.model_name,
 			temperature=search.temperature,
-			max_tokens=_LOCAL_RAG_MAX_TOKENS if os.getenv("TEXT_GENERATION_PROVIDER", "").strip().lower() == "local" else None,
+			max_tokens=provider.default_max_tokens,
 			messages=[
 				{"role": "system", "content": system_prompt},
 				{"role": "user", "content": f"Question: {search.query}\n\nCase excerpts:\n{context}"},

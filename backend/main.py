@@ -11,11 +11,18 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Resp
 from starlette.routing import Match, Mount
 from starlette.staticfiles import StaticFiles
 
+from . import load_shedding
 from .audit import RequestAuditMiddleware
 from .database import init_db
+from .db_limits import register_timeout_handlers
+from .degraded_mode import register_degraded_mode
 from .health import liveness, readiness
-from .routes import router
+from .request_context import (
+    RequestContextMiddleware,
+    get_version_info,
+)
 from .overruling_risk_routes import router as overruling_risk_router
+from .routes import router
 from .security_headers import SecurityHeadersMiddleware
 
 
@@ -26,6 +33,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+register_timeout_handlers(app)
+load_shedding.register(app)
+register_degraded_mode(app)
 
 
 ACCESS_COOKIE = "caselibrary_access"
@@ -94,6 +104,7 @@ async def private_access_and_noindex(request: Request, call_next):
         "/health",
         "/health/live",
         "/health/ready",
+        "/health/limits",
     }
     matched_route = next(
         (route for route in app.routes if route.matches(request.scope)[0] == Match.FULL),
@@ -115,9 +126,10 @@ async def private_access_and_noindex(request: Request, call_next):
     return response
 
 
-app.add_middleware(RequestAuditMiddleware)
 if os.getenv("CASELIBRARY_SECURITY_HEADERS") == "1":
     app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(RequestAuditMiddleware)
+app.add_middleware(RequestContextMiddleware)
 
 
 app.include_router(router)
@@ -145,7 +157,33 @@ def health_live():
 )
 def health_ready():
     document, is_ready = readiness()
+    # Add safe version information to readiness response
+    version_info = get_version_info()
+    document["version"] = version_info
     return JSONResponse(document, status_code=200 if is_ready else 503)
+
+
+@app.get("/api/version", response_model=dict[str, str | int])
+def api_version() -> dict[str, str | int]:
+    """Return safe application version information.
+
+    The response contains only a sanitized commit, process start time, and
+    interpreter version.
+    """
+    return get_version_info()
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_with_request_id(request: Request, _exc: Exception):
+    """Preserve request correlation on the framework's generic 500 response."""
+    request_id = getattr(request.state, "request_id", None)
+    headers = {"X-Request-ID": request_id} if request_id else {}
+    return Response(
+        content="Internal Server Error",
+        status_code=500,
+        media_type="text/plain",
+        headers=headers,
+    )
 
 
 @app.get("/robots.txt", response_class=Response, include_in_schema=False)

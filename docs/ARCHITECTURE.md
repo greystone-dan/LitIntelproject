@@ -61,6 +61,22 @@ be adjusted with the `LITINTEL_MAX_*` environment variables. See
 [README.md](../README.md) for the short setup/test instructions and
 [SYSTEM_REFERENCE.md](../SYSTEM_REFERENCE.md) for configuration details.
 
+## Engine limits and request failure policy
+
+[`backend/db_limits.py`](../backend/db_limits.py) owns opt-in, validated engine
+kwargs and precise timeout classification. `database.py` keeps URL precedence,
+sessions and ORM ownership; `main.py` only registers the handlers. Unset limits
+preserve SQLAlchemy defaults. PostgreSQL timeout options apply per connection;
+SQLite keeps its dialect pool and ignores unsupported QueuePool kwargs.
+Diagnosed statement/lock timeouts and QueuePool exhaustion return a safe 503
+with `Retry-After: 5`; unrelated errors retain their previous handling.
+
+Scripts may opt into a separate `engine_without_timeout()` and must close their
+sessions and dispose it; application limits are neither global database changes
+nor implicit changes to other processes. This helper does not erase server/role
+defaults. See [configuration and accepted ranges](CONFIGURATION_REFERENCE.md#opt-in-database-limits)
+and the [database walkthrough](../.swm/2.40nypbay.sw.md#connection-rules).
+
 ## Main data tables
 
 The generated [schema reference](SCHEMA_REFERENCE.generated.md) lists every
@@ -139,11 +155,15 @@ test checks that these paths continue to exist.
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
+| `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
+| `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/citation_map.py` | Citation graph and authority analytics |
+| `backend/citation_treatment.py` | Pure, conservative experimental rules over exact paragraph citation spans (unreviewed evidence, no persistence or model calls) |
+| `backend/citation_treatment_service.py` | Read-only source projection for the experimental treatment endpoint |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
 | `backend/citation_pipeline/canlii.py` | CanLII source adapter for citation extraction |
@@ -158,6 +178,8 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
+| `backend/citation_treatment.py` | Pure rules that label how a decision treats a cited authority |
+| `backend/citation_treatment_service.py` | Loads stored citations and verifies treatment labels against source text |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
 | `backend/contextual_authority/__init__.py` | Contextual-authority analysis package |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |
@@ -169,6 +191,8 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |
 | `backend/database.py` | SQLAlchemy engine, sessions, ORM schema, and database setup |
+| `backend/db_limits.py` | Opt-in engine limits, script engine helper, and precise safe timeout responses |
+| `backend/degraded_mode.py` | Narrow database-connection outage classification, safe HTML/JSON 503 responses, and opt-in retryable panel script |
 | `backend/deidentify.py` | Reversible document de-identification |
 | `backend/deidentify_names.py` | Finds personal names for the de-identification tool |
 | `backend/discussion_units_sandbox.py` | Read-only cohort search for the discussion-unit experiment |
@@ -178,6 +202,7 @@ test checks that these paths continue to exist.
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
 | `backend/fc_activity.py` | Normalizes Federal Court activity source records |
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
+| `backend/request_context.py` | Request ID generation, validation, and optional slow-request logging for observability |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
@@ -186,9 +211,11 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
+| `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
 | `backend/memo_authority_suggestions.py` | Bounded distinct-citation and stored-outcome suggestions for ephemeral memos |
 | `backend/memo_citation_check.py` | Checks uploaded legal memos for citation completeness |
+| `backend/memo_gap_check.py` | Bounded per-tag missing and possible-contrary authority suggestions for ephemeral memos |
 | `backend/memo_suggestion_models.py` | Additive descriptive memo-authority response contracts |
 | `backend/metadata.py` | Facade for deterministic source-metadata extraction |
 | `backend/metadata_outcomes.py` | Derives outcome and government-role metadata |
@@ -199,8 +226,10 @@ test checks that these paths continue to exist.
 | `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
-| `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page |
+| `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page for `/case-compare` and `/compare` |
+| `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
+| `backend/pages/case_summary_card.py` | Conditional formatted-reader card for exact selected passages and source-paragraph links |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
@@ -212,14 +241,18 @@ test checks that these paths continue to exist.
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page builder |
+| `backend/pages/memo_gap_check.py` | Escaped renderer for rule-based memo gap suggestions |
 | `backend/markup_export.py` | Word export of a case with Markup margin notes as real Word comments (pure; standard-library OOXML) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
+| `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
+| `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/pages/markup_mode.css` | Styles for the Markup mode case-reader view |
 | `backend/pages/markup_mode.js` | Browser behavior for Markup mode: margin notes built from the loaded reader payload |
 | `backend/pages/mobile_layout.css` | Phone-width layout rules for the search page and case reader, injected last |
 | `backend/pages/memo_authority_suggestions.py` | Escaped descriptive renderer for additive memo suggestions |
 | `backend/pages/memo_citation_check.py` | Memo citation-check page builder |
+| `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
@@ -231,6 +264,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
+| `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/query_embedding_providers.py` | Applies enhanced-mode policy to query and case-ingestion provider selection, errors, and vector dimensions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |
@@ -252,7 +286,7 @@ test checks that these paths continue to exist.
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
-| `backend/text_generation_providers.py` | Optional hosted/local text-generation provider selection |
+| `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 
@@ -269,9 +303,13 @@ lazily, and local models are cached across provider instances by model and
 device. Search query dimensions are checked against the indexed-vector contract;
 case embeddings must also match the existing stored-vector dimension.
 
-The vector-table helper is design scaffolding only: the embedding registry does
-not yet exist, no runtime path calls the helper, and no table is created. Its
-exact `chunk_embeddings_<slug>` naming rule, per-row model identity columns,
-proposed schema, future registry-based search and bulk-load flow, and out-of-chain
-migration template are under
+Runtime model selection uses `backend/embedding_registry.py` and the static
+`ai.embeddings.registry` in `config.yaml` to route hosted 1536-dimensional
+vectors to existing chunk tables and local 1024-dimensional BGE-M3 vectors to
+the separately tagged `case_chunk_embeddings` table. Exact model identity and
+table routing are enforced together; this configuration does not create tables
+or migrate/re-embed stored vectors. `backend/vector_tables.py` remains separate
+design scaffolding: its proposed `chunk_embeddings_<slug>` naming rule,
+per-row model identity columns, bulk-load flow, and out-of-chain migration
+template are under
 [`docs/proposed-migrations/`](proposed-migrations/embedding-per-model-tables.md).

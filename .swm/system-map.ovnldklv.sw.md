@@ -2,7 +2,7 @@
 title: Application Architecture and Runtime Map
 ---
 &nbsp;
- 
+
 # System Map
 
 This walkthrough describes the active runtime path of AI CaseLibrary and the
@@ -61,7 +61,8 @@ overstate pipeline completeness.
 
 | Component | Role | Refactoring constraint |
 | --- | --- | --- |
-| `backend/main.py` | Creates the FastAPI application, registers routes, handles startup, access, and health route registration | Keep startup concerns separate from route implementation |
+| `backend/main.py` | Creates the FastAPI application, registers routes, handles startup, access, request ID middleware, and health route registration | Keep startup concerns separate from route implementation |
+| `backend/request_context.py` | Generates/validates request IDs, implements optional slow-request logging, provides safe version info | Never log request bodies, query strings, hostnames, or secrets; only log safe metadata |
 | `backend/health.py` | Implements public liveness and bounded readiness checks | Keep dependency probes separate from route registration; never return endpoint addresses or credentials |
 | `backend/routes.py` | Owns the public API contract, query orchestration, and generated HTML/CSS/JavaScript research interfaces | Treat API and embedded UI as a coupled artifact until browser coverage exists |
 | `backend/models.py` | Defines Pydantic request and response contracts | Change external contracts with route tests and generated API documentation |
@@ -92,7 +93,19 @@ The legacy `GET /health` response is unchanged. `/health`, `/health/live`, and
 Readiness returns HTTP 503 when a required dependency check fails; unconfigured
 optional model endpoints are reported without making readiness fail. Probe
 responses do not expose hostnames, endpoint URLs, credentials, or connection
-strings.
+strings. Readiness and the new `GET /api/version` endpoint include safe version
+information.
+
+`backend/request_context.py` registers one `RequestContextMiddleware` in
+`backend/main.py`. It sets/resets a request-ID `ContextVar`, validates incoming
+IDs, and adds `X-Request-ID` to successful, access-gate, 404, and 500 responses.
+Optional `SLOW_REQUEST_LOG_MS` emits a single-line JSON record only above its
+threshold, containing request ID, method, route template, status, and
+`duration_ms`; request text, raw path/query, hosts, and secrets are excluded.
+Records use Uvicorn's INFO-level `uvicorn.error` logger and reach the default
+stderr handler; the PC service redirects stderr to `logs/app.err.log`.
+Readiness and `GET /api/version` expose only sanitized commit, process start time,
+and Python version; Git lookup is guarded by the repository `.git` directory.
 
 ## Processing Contract
 
@@ -287,6 +300,24 @@ profiles, and legacy combined tag/citation jobs stay outside the active V2 path.
 	empty results; those states must remain explicit.
 
 ## Deployment And Access Boundary
+
+### Dependency outage boundary
+
+[`backend/degraded_mode.py`](../backend/degraded_mode.py) owns connectivity-only
+classification and safe HTML/JSON 503 rendering. Registration remains in
+[`backend/main.py`](../backend/main.py); audit middleware supplies request IDs
+through request state. This does not intercept pool/query/connect timeouts or
+unrelated database errors, alter access controls, or expose exception details.
+[`backend/health.py`](../backend/health.py) continues to own readiness probes.
+Offline response and readiness contracts live in
+[`tests/test_degraded_mode.py`](../tests/test_degraded_mode.py).
+
+The 2026-10-04 dependency-equipped offline validation passed these response
+contracts and `tests/test_health.py` without reading dotenv files or connecting
+to PostgreSQL. All three generated references passed regeneration and
+`python scripts/check_generated_docs.py`; the
+[canonical checkpoint](../SYSTEM_REFERENCE.md#runtime-components) records the
+full-suite result and remaining validation boundaries.
 
 `backend/main.py` keeps access enforcement off when `CASELIBRARY_ACCESS_PASSWORD`
 is unset or empty. Setting a non-empty password in the server process environment

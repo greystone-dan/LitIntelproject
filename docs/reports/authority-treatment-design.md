@@ -1,8 +1,114 @@
 # Citation authority-treatment design
 
-**Status:** Proposal only. This document describes a future, evidence-linked
-research signal; it does not describe a production classifier or current UI
-behavior.
+**Status:** The reviewed event model and UI remain proposals. Issue #120 adds
+an unreviewed, deterministic experimental backend projection only; it is not
+a production classifier or current UI behavior.
+
+## Implemented experimental rule projection (#120)
+
+[`backend/citation_treatment.py`](../../backend/citation_treatment.py) is pure:
+no database imports, teacher/model calls, dependencies, persistence, or target
+resolution. Its five coarse classes are `followed_applied`, `distinguished`,
+`criticised_not_followed`, `considered_neutral`, and `unknown`. These do **not**
+replace the richer proposed labels below. In particular, criticism and refusal
+are grouped, and no rule asserts overruling or precedential status.
+
+Rules require exact citation spans, a narrow grammatical bridge to a trigger,
+sentence/clause scope, and current-court attribution or a narrow declarative
+formula. Negative refusal phrases precede positive substrings; explicit
+“I find … not distinguishable” is supportive, but a bare negated distinction
+abstains. Multi-authority clauses with unclear scope, quoted words, party or
+historical narration, modals, double negation, and invalid spans abstain.
+Separate past-tense rules accept directly attributed “I followed A”,
+“I applied A”, “I distinguished A”, “I criticised A” and
+“I declined to follow A” (also direct we/this court/the court subjects).
+They do not globally broaden tense or infer an inherited past-tense subject;
+party/other-judge past descriptions remain unknown. Existing “did not follow”
+remains critical/non-following and “I find … not distinguishable” supportive.
+Post-cue `not`, `never`, `no`, `neither`, or `nothing` in the same clause
+conservatively blocks classification, including “governs neither/nothing/no
+issue” and “I follow A neither …”. This does not infer a negative treatment
+label. Independent clauses stay separate, and the neutral “examines A without
+adopting it fully” remains supported; `without` is not a post-cue blocker.
+Separate contrast clauses can classify different authorities; fresh explicit
+judicial statements outside quotations can qualify. Every event retains
+`how_assigned`, rule ID, exact phrase/span, method version and unreviewed status;
+unknown has an empty phrase/null phrase span and a specific reason.
+
+[`backend/citation_treatment_service.py`](../../backend/citation_treatment_service.py)
+reads existing resolved incoming case citations and all stored case authorities
+in those citing decisions. It checks chunk-relative offsets against a unique
+canonical chunk and requires a numbered backend formatter paragraph. It does
+not use the trimmed/radius-limited `citation_contexts()` windows as paragraph
+evidence. Missing/ambiguous/unverified paragraphs remain unknown. Paragraph
+and phrase document offsets are source-reconstructible code-point bounds.
+
+`GET /api/citation-treatment/{case_id}` returns literal `"status": "experimental"`,
+`experimental: true`, `read_only: true`,
+method, `total_distinct_citing_decisions`, all five `classes`, and complete
+paragraph-level `evidence`. Each class has `count`, the common `denominator`,
+`percentage`, and up to five distinct example paragraphs with matched phrases.
+The denominator includes **all distinct other canonical citing decisions with
+resolved incoming case-citation rows**, even those without usable text.
+A decision counts once per observed class, so mixed evidence is retained and
+class counts/percentages overlap. Unknown counts a decision **only when none
+of its events are classifiable**; its unknown paragraphs still remain in the
+evidence array. Missing authority: 404; existing authority without citers: a
+valid empty result. No UI or existing metrics are changed.
+
+Validation uses invented labelled paragraphs in
+[`tests/fixtures/citation_treatment_invented.json`](../../tests/fixtures/citation_treatment_invented.json)
+and offline mocked HTTP/source-projection tests in
+[`tests/test_citation_treatment.py`](../../tests/test_citation_treatment.py).
+Run `python -m pytest -q tests/test_citation_treatment.py` for the focused check.
+These are authored regression expectations, not a held-out legal gold set,
+training data, calibrated confidence, or evidence of the proposed 95% target.
+Known gaps: English-only narrow vocabulary/grammar; implicit/pronoun and
+cross-sentence adoption deliberately missed; coordinated authority lists
+abstain; historical/party context spanning sentences may be missed; complex
+nested quotations/attribution can remain ambiguous. The read projection loads
+all citation rows for citing decisions and has no corpus-scale latency proof.
+Legal-review evaluation and query-cost measurement must precede UI exposure.
+
+The authored regression set contains **113 invented paragraphs / 122 citation
+occurrences**. The pure fixture check verifies rule/expected agreement of
+122/122: supportive 24/24, distinguishing 14/14, critical/non-following 18/18,
+neutral 11/11, and unknown 55/55 (zero false positives/negatives on this set;
+synthetic precision/recall 100% per class, total TP 122 / FP 0 / FN 0).
+Classifiable coverage is 67/122 (54.92%); abstention is 55/122 (45.08%).
+New regression rows assert exact citation spans and literal affirmative phrase
+spans, with party/other-judge past narration, quotation, historical attribution,
+modality, negation and unrelated-action counterexamples.
+The post-cue correction adds seven paragraphs / nine occurrences: five
+abstentions, three supportive events and one explicit non-following event.
+Positive “governs” and independent-clause events assert exact phrase spans.
+These counts describe regression agreement after rule development,
+not independent legal accuracy. Additional tests exercise mixed events on one
+occurrence, governing modality/negation/attribution across clauses, unclosed
+quotes and actor binding. Offline mocked endpoint examples verify all five
+counts, overlapping classes, distinct-decision denominator, example caps,
+missing/empty records and canonical-span rejection.
+
+Validation checkpoint (2026-10-04): the existing provisioned runtime
+`/tmp/citation-treatment-venv/bin/python -m pytest -q tests/test_citation_treatment.py`
+passed **139 tests** (two dependency deprecation warnings) after the post-cue
+correction. `scripts/check_generated_docs.py` passed (three references checked);
+no generated-reference changes were needed for this rules-only correction.
+Python compilation, changed-document local links and `git diff --check`
+also passed. A whole-document link probe encountered the existing unrelated
+`SYSTEM_REFERENCE.md` link to missing `ANALYST_QUICK_START.md`; all 11 changed
+documentation links resolve.
+
+The earlier full-suite gate remains blocked by its three retained failures:
+`tests/test_api.py::test_local_chunk_search_uses_requested_model` and the two
+token-count tests in `tests/test_openai_chunk_embeddings.py`. Read-only inspection
+found no configured Hugging Face/model cache or tiktoken cache, and no usable
+artifacts in a bounded search of existing cache locations. The local-search
+test patches the routes helper, whereas the implementation calls the helper in
+`backend/search_service.py`; this unrelated test/code was not changed.
+No models/tokenizer data were downloaded or fabricated, and no full-suite
+retry was attempted. These failures are not evidence against the focused
+treatment checks, but prevent claiming the user's full-suite completion gate.
 
 ## Product outcome
 

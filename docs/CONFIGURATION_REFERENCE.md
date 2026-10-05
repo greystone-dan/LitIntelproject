@@ -109,13 +109,17 @@ See the optional request audit log section of `SETUP.md` for operator instructio
 | `QUERY_EMBEDDING_PROVIDER` | Registry-selected provider in enabled mode; `none` in off mode | `backend/query_embedding_providers.py` | Optional explicit provider override (`openai` or `local`). It must match the selected registry model; OpenAI inference requires hosted mode. |
 | `QUERY_EMBEDDING_MODEL` | Registry-selected model | `backend/query_embedding_providers.py` | Optional legacy query-model override. It must agree with the selected provider and resolve through the registry. |
 | `QUERY_EMBEDDING_DIMENSIONS` | Registered model's output width | `backend/query_embedding_providers.py` | Optional local query-vector assertion. If set, it must equal the selected model's configured `dimensions`; selected-table compatibility is checked separately. |
-| `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects the `/research` answer-generation provider in enabled modes. `ENHANCED_AI_MODE=local` selects Ollama regardless of this value; hosted mode preserves the configured provider. |
-| `OPENAI_API_KEY` | none | `backend/embedding_providers.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce HTTP 503 from the API rather than a silent fallback. |
+| `TEXT_GENERATION_PROVIDER` | `openai` when `ENHANCED_AI_MODE=hosted` | `backend/text_generation_providers.py` | Selects `openai`, `local` (Ollama), or `openai_compatible` for `/research`. In enhanced `local` mode, Ollama remains the default; `openai_compatible` is accepted only when `CHAT_BASE_URL` is localhost or private. In `hosted` mode, the compatible provider requires a non-local endpoint. |
+| `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys produce controlled failures rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | Runtime registry default (`ai.embeddings.model` in `config.yaml`); standalone scripts may define their own defaults | `backend/query_embedding_providers.py`, `backend/routes.py`, embedding scripts | Runtime provider/query selection resolves the model ID and width through `ai.embeddings.registry`; hosted scripts retain explicit model/schema guards. Do not infer that changing runtime configuration changes their fixed contract. The hosted case/chunk vector contract is 1536 dimensions. |
 | `CASE_EMBEDDING_PROVIDER` | `QUERY_EMBEDDING_PROVIDER` (default `none`) | `backend/query_embedding_providers.py` | Optional provider override for case-summary embeddings during API ingestion. `none`, `openai`, or `local`; the enhanced-mode policy still applies. |
 | `CASE_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional case-summary model override. Local vectors must satisfy the existing 1536-dimensional case-vector storage contract. |
 | `CASE_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected output size for local case-summary embeddings. The selected model must emit this size and case storage still requires 1536 dimensions. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
+| `CHAT_BASE_URL` | none | `backend/text_generation_providers.py` | Base URL for the `openai_compatible` chat provider, passed to the OpenAI SDK as `base_url`. Enhanced local mode requires localhost/private; hosted mode requires a non-local endpoint. |
+| `CHAT_API_KEY` | none | `backend/text_generation_providers.py` | Optional API key for the compatible chat endpoint. The SDK uses a placeholder key when omitted, so local-compatible services should ignore bearer authentication. |
+| `CHAT_MODEL` | `gpt-4o-mini` | `backend/text_generation_providers.py` | Model identifier sent to the compatible chat endpoint. |
+| `CHAT_TIMEOUT_SECONDS` | `60` | `backend/text_generation_providers.py` | Positive request timeout for compatible chat completions. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
 | `OPENAI_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/verify_citation_extraction.py` | Model for optional citation audit sampling. |
@@ -134,13 +138,20 @@ citations, statutes, offsets, and source provenance remain authoritative.
 
 The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
 explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
-`AI answers are disabled in this deployment` before retrieval or generation.
-Use `ENHANCED_AI_MODE=local` for Ollama; this mode does not construct an OpenAI
-generation client. Use `ENHANCED_AI_MODE=hosted` to opt into the existing
-provider selection; `TEXT_GENERATION_PROVIDER` may still select Ollama there.
-The local provider's code-default model is `qwen3:4b`. An enabled route reports
-a controlled `503` when the selected provider is not configured or reachable.
-Setting these values does not download a model.
+`AI answers are disabled in this deployment` before retrieval or provider
+construction. The default `TEXT_GENERATION_PROVIDER=openai` preserves hosted
+OpenAI behavior. `local` selects Ollama (`qwen3:4b` by default); alternatively,
+`openai_compatible` selects the OpenAI SDK against `CHAT_BASE_URL`. Local mode
+allows that compatible provider only for localhost/private URLs. Hosted mode
+requires a non-local endpoint. The compatible provider advertises a 12,000
+character context limit, no default output-token cap, and JSON-mode support;
+Ollama advertises a 4,000-character limit and 256 default output tokens. The
+route uses provider context and output-token capabilities. An enabled route
+reports a controlled `503` when the selected provider is not configured or
+reachable. Setting these values does not download a model. Provider-side
+retention and processing location are not established by these settings; verify
+the configured endpoint and its terms before sending research queries or
+retrieved case excerpts.
 
 Query embedding remains disabled in the default off mode. In enabled modes,
 semantic/hybrid chunk retrieval selects `EMBEDDING_MODEL` (or the same hosted
@@ -185,12 +196,13 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 Local model dimensions come from the registry and returned vectors are checked
 against that metadata before use. The configured BGE-M3 entry is 1024-dimensional.
-Do not use a query model whose width differs from the indexed vectors without an
-an explicit schema/model change and compatible index. `ENHANCED_AI_MODE=off`
-is the default and constructs no embedding model or client; local mode never
-sends query or case text to a hosted embedding provider. SentenceTransformer
-may download its model artifact on first enabled use if it is not already
-cached; tests must use fake models and never download artifacts.
+The provider validates returned dimensions before use. Local BGE-M3 query
+retrieval is routed to its separate 1024-dimensional, model-tagged chunk table;
+case-level vectors remain fixed at 1536 dimensions. `ENHANCED_AI_MODE=off` is
+the default and constructs no embedding model or client; local mode never sends
+query or case text to a hosted embedding provider. SentenceTransformer may
+download its model artifact on first enabled use if it is not already cached;
+tests must use fake models and never download artifacts.
 
 ## Citation, Cohort, And Source Settings
 

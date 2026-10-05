@@ -1127,6 +1127,29 @@ def _query_expression_sql(
 	return compile_node(expression) if expression is not None else "FALSE"
 
 
+def _search_facets(db, where_clause, params, cohort_ids):
+	"""Counts of matching decisions by court and year (plain SQL, no model)."""
+	facet_params = {k: v for k, v in params.items() if k not in ("limit", "offset")}
+
+	def run(expr, limit):
+		statement = sql_text(
+			f"SELECT {expr} AS label, COUNT(*) AS n FROM cases c WHERE {where_clause} "
+			f"AND {expr} IS NOT NULL GROUP BY label ORDER BY n DESC, label LIMIT {limit}"
+		)
+		if cohort_ids is not None:
+			statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
+		return [
+			{"value": str(row["label"]), "count": int(row["n"])}
+			for row in db.execute(statement, facet_params).mappings().all()
+			if row.get("label") is not None
+		]
+
+	return {
+		"court": run("c.court", 8),
+		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
+	}
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1247,6 +1270,14 @@ def fetch_analytics_search_cases(
 		)
 		params.update(ranking_params)
 		sort_order = sort_order_sql
+	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
+	snippet_sql = "NULL"
+	if search_full_text and query and not query_uses_operators:
+		params["snippet_query"] = query.lower()
+		snippet_sql = (
+			"CASE WHEN POSITION(:snippet_query IN LOWER(COALESCE(c.full_text, ''))) > 0 "
+			"THEN SUBSTRING(c.full_text FROM GREATEST(POSITION(:snippet_query IN LOWER(c.full_text)) - 110, 1) FOR 300) END"
+		)
 	statement = sql_text(
 			f"""
 			SELECT
@@ -1261,16 +1292,19 @@ def fetch_analytics_search_cases(
 				,{resolved_target_cases} AS resolved_target_cases
 				,{cited_by_cases} AS cited_by_cases
 				,{match_label} AS matched_on
+				,{snippet_sql} AS snippet
 			FROM cases c
 			WHERE {where_clause}
 			ORDER BY {sort_order}
 			LIMIT :limit OFFSET :offset
 			"""
 		)
+	facets = _search_facets(db, where_clause, params, cohort_ids) if offset == 0 and not search_full_text else {}
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 	rows = db.execute(statement, params).mappings().all()
 	return {
+		"facets": facets,
 		"results": [
 			{
 				"case_id": int(row["id"]),
@@ -1288,6 +1322,7 @@ def fetch_analytics_search_cases(
 				"resolved_target_cases": int(row["resolved_target_cases"] or 0),
 				"cited_by_cases": int(row["cited_by_cases"] or 0),
 				"matched_on": row.get("matched_on", "Metadata"),
+				"snippet": clean_search_snippet(row.get("snippet")),
 			}
 
 			for row in rows
@@ -1296,6 +1331,14 @@ def fetch_analytics_search_cases(
 		"offset": offset,
 		"query_echo": parsed_query["echo"],
 	}
+
+
+def clean_search_snippet(raw: str | None) -> str | None:
+	"""Tidy a stored text excerpt for a result card: collapse whitespace and mark the cut ends."""
+	text = " ".join((raw or "").split())
+	if not text:
+		return None
+	return f"\u2026{text}\u2026"
 
 
 def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:

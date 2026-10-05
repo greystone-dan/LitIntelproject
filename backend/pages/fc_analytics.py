@@ -71,7 +71,7 @@ FC_ANALYTICS_PANEL = r"""
 </div>
 <div class="fcx-chips" id="fcxChips" aria-live="polite"></div>
 <div class="fcx-status" id="fcxStatus">Loading the dashboard...</div>
-<div class="fcx-body" id="fcxBody">
+<div class="fcx-body" id="fcxDashboardBody">
 <div class="fcx-kpis" id="fcxKpis"></div>
 <div class="fcx-grid">
 <article class="fcx-card"><header><div><h3>How files progress</h3><p>Files reaching each stage; the rest were discontinued, are open, or ended another way.</p></div><button class="fcx-toggle" data-table="funnel">Table</button></header><div id="fcxFunnel"></div></article>
@@ -168,9 +168,9 @@ const VIEWS={
  refusals:{box:'fcxRefusals',chart:d=>barsH($('fcxRefusals'),d.refusal_reasons.filter(r=>r.value!=='not_applicable'&&r.value!=='unknown').map(r=>({...r,_label:label(r.value)})),{value:'count',fmt:v=>num(v),title:'Leave refusals'}),table:d=>table($('fcxRefusals'),'refusals',[['value','Reason',v=>label(v)],['count','Files',num]],d.refusal_reasons)},
  cities:{box:'fcxCities',chart:d=>barsH($('fcxCities'),d.by_city.filter(r=>r.value!=='unknown').map(r=>({...r,_label:r.value})),{value:'files',fmt:v=>num(v),sub:r=>`· ${pct(r.leave_grant_rate)} leave`,title:'Files',onClick:r=>setFilter('city',r.value)}),table:d=>table($('fcxCities'),'cities',[['value','Registry'],['files','Files',num],['leave_grant_rate','Leave granted',pct],['jr_grant_rate','JR granted',pct]],d.by_city,r=>setFilter('city',r.value))},
 };
-function renderView(key){const view=VIEWS[key];if(!view||!state.data)return;(state.tables[key]?view.table:view.chart)(state.data);const btn=document.querySelector(`#fcAnalyticsPanel [data-table="${key}"]`);if(btn){btn.textContent=state.tables[key]?'Chart':'Table';btn.setAttribute('aria-pressed',String(!!state.tables[key]))}}
+function renderView(key){const view=VIEWS[key];if(!view||(key==='judges'?!state.judges:!state.data))return;(state.tables[key]?view.table:view.chart)(state.data);const btn=document.querySelector(`#fcAnalyticsPanel [data-table="${key}"]`);if(btn){btn.textContent=state.tables[key]?'Chart':'Table';btn.setAttribute('aria-pressed',String(!!state.tables[key]))}}
 function renderCounsel(){table($('fcxCounsel'),'counsel',[['name','Counsel'],['files','Files',num],['leave_grant_rate','Leave',pct],['jr_grant_rate','JR',pct],['resolved_by_consent','Settled',num]],state.counsel,r=>setChip('counsel',r.key,r.name))}
-function renderAll(){renderKpis(state.data.kpis);Object.keys(VIEWS).forEach(renderView);renderCounsel()}
+function renderDashboard(){renderKpis(state.data.kpis);Object.keys(VIEWS).filter(key=>key!=='judges').forEach(renderView)}
 
 // ---- filters -----------------------------------------------------------------
 function query(extra={}){const p=new URLSearchParams();const f={...state.filters,...extra};for(const [k,v] of Object.entries(f))if(v!==''&&v!==null&&v!==undefined)p.set(k,v);for(const [k,c] of Object.entries(state.chips)){if(k==='year'){p.set('year_from',c.value);p.set('year_to',c.value)}else p.set(k,c.value)}return p}
@@ -180,11 +180,18 @@ function renderChips(){const box=$('fcxChips');box.replaceChildren();for(const [
 function syncUrl(){const url=new URL(location.href);['year_from','year_to','city','decision_body','application_type','representation','language','office','judge','counsel','year'].forEach(k=>url.searchParams.delete(k));if(url.searchParams.get('tab')==='fc-analytics'){const q=query();for(const [k,v] of q)url.searchParams.set(k,v);history.replaceState(null,'',url.pathname+url.search)}}
 function fillOptions(d){if(state.options)return;state.options=true;state.years=d.by_year.map(r=>r.year);for(const id of ['fcxYearFrom','fcxYearTo']){const s=$(id);state.years.forEach(y=>s.appendChild(el('option',{value:y},String(y))))}d.by_city.filter(r=>r.value!=='unknown').forEach(r=>$('fcxCity').appendChild(el('option',{value:r.value},r.value)));d.by_decision_body.filter(r=>r.value!=='unknown').forEach(r=>$('fcxBody').appendChild(el('option',{value:r.value},label(r.value))));['leave_and_judicial_review','leave_and_judicial_review_extension_of_time','leave_judicial_review_and_mandamus','direct_judicial_review'].forEach(v=>$('fcxType').appendChild(el('option',{value:v},label(v))));for(const [k,v] of Object.entries(state.filters)){const s=document.querySelector(`#fcAnalyticsPanel [data-filter="${k}"]`);if(s)s.value=v}}
 let seq=0;
-async function load(){const mine=++seq;renderChips();$('fcxBody').classList.add('is-loading');$('fcxStatus').textContent='Updating...';const q=query();syncUrl();
+async function load(){const mine=++seq;renderChips();$('fcxDashboardBody').classList.add('is-loading');$('fcxStatus').textContent='Updating...';const q=query();syncUrl();
  const judgeQ=new URLSearchParams();for(const k of ['year_from','year_to','decision_body'])if(q.get(k))judgeQ.set(k,q.get(k));judgeQ.set('min_decisions','25');const counselQ=new URLSearchParams(judgeQ);counselQ.delete('min_decisions');counselQ.set('min_files','15');if(q.get('city'))counselQ.set('city',q.get('city'));
- try{const [d,j,c]=await Promise.all([fetch(`/api/fc-activity/dashboard?${q}`).then(r=>{if(!r.ok)throw new Error(`Dashboard request failed (${r.status})`);return r.json()}),fetch(`/api/fc-activity/judges?${judgeQ}`).then(r=>r.ok?r.json():{judges:[]}),fetch(`/api/fc-activity/counsel?${counselQ}`).then(r=>r.ok?r.json():{counsel:[]})]);if(mine!==seq)return;
- state.data=d;state.judges=j.judges||[];state.counsel=c.counsel||[];fillOptions(d);renderAll();$('fcxStatus').textContent=`${num(d.kpis.files)} files in this view.`+(Object.keys(state.chips).length||Object.values(state.filters).some(Boolean)?' Clear all to return to every file.':'')}
- catch(error){if(mine!==seq)return;$('fcxStatus').textContent=`Dashboard unavailable: ${error.message}`}finally{if(mine===seq)$('fcxBody').classList.remove('is-loading')}}
+ // Kpis owns recovery for the shared dashboard response; charts reuse that
+ // response, never issue identical requests, and never render judges/counsel.
+ const isCurrent=()=>mine===seq;
+ await Promise.allSettled([
+  fetchCurrentPanel(`/api/fc-activity/dashboard?${q}`,$('fcxKpis'),{isCurrent,onError:()=>{state.data=null;Object.entries(VIEWS).filter(([key])=>key!=='judges').forEach(([,view])=>empty($(view.box),'This section could not load.'));$('fcxStatus').textContent='Dashboard unavailable.'},render:d=>{state.data=d;fillOptions(d);renderDashboard();$('fcxStatus').textContent=`${num(d.kpis.files)} files in this view.`+(Object.keys(state.chips).length||Object.values(state.filters).some(Boolean)?' Clear all to return to every file.':'')}}),
+  fetchCurrentPanel(`/api/fc-activity/judges?${judgeQ}`,$('fcxJudges'),{isCurrent,onError:()=>{state.judges=null},render:j=>{state.judges=j.judges||[];renderView('judges')}}),
+  fetchCurrentPanel(`/api/fc-activity/counsel?${counselQ}`,$('fcxCounsel'),{isCurrent,onError:()=>{state.counsel=null},render:c=>{state.counsel=c.counsel||[];renderCounsel()}})
+ ]);
+ if(mine===seq)$('fcxDashboardBody').classList.remove('is-loading');
+}
 function preset(kind){document.querySelectorAll('#fcxPresets button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.preset===kind)));const last=state.years.length?Math.max(...state.years):new Date().getFullYear();state.filters.year_from=kind==='all'?'':String(last-Number(kind)+1);state.filters.year_to='';$('fcxYearFrom').value=state.filters.year_from;$('fcxYearTo').value='';load()}
 document.querySelectorAll('#fcAnalyticsPanel [data-filter]').forEach(s=>s.addEventListener('change',()=>{state.filters[s.dataset.filter]=s.value;if(s.dataset.filter.startsWith('year'))document.querySelectorAll('#fcxPresets button').forEach(b=>b.setAttribute('aria-pressed','false'));load()}));
 document.querySelectorAll('#fcxPresets button').forEach(b=>b.addEventListener('click',()=>preset(b.dataset.preset)));

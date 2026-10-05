@@ -39,7 +39,8 @@ title: "Embedding model configuration and selection"
    canonical model tag. Local generation remains separate from query embedding.
 5. API-ingestion summary vectors are opt-in and remain subject to the rollout
    flag, enhanced mode, provider selection, and the existing 1536-dimensional
-   case-vector contract.
+   case-vector contract. A registry selection with another width is skipped
+   rather than written into the fixed-width case vector.
 
 ## Invariants and failure modes
 

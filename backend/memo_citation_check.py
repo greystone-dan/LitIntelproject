@@ -12,6 +12,7 @@ from sqlalchemy import func, select, and_
 
 from .database import Case, Citation
 from .memo_authority_suggestions import build_authority_suggestions
+from .memo_gap_check import build_memo_gap_suggestions
 from .live_analysis import (
 	analyze_document,
 	LiveParagraph,
@@ -118,6 +119,7 @@ def analyze_memo_citations(
 	analysis = {
 		**analysis,
 		"suggestions": build_authority_suggestions(analysis, session),
+		"gap_suggestions": build_memo_gap_suggestions(analysis, session),
 	}
 
 	if not session:

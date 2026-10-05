@@ -486,11 +486,22 @@ def _dockets(text, own):
 	return [row.normalized_citation for row in refine_case_citations(text, source_dockets=own).rows if row.kind == "docket"]
 
 
+def test_own_docket_is_found_from_header_labels_when_none_is_stored():
+	# Federal Court of Appeal and tribunal decisions have no stored docket (QA review v4): read it from the header.
+	fca = "Federal Court of Appeal Decisions\nFile numbers A-56-00\nDecision Content\nDate: 20010522\nDocket: A-56-00\nNeutral Citation: 2001 FCA 160\nCORAM: STRAYER J.A."
+	assert _dockets(fca, [None]) == []
+	assert _dockets(fca, None) == ["A-56-00", "A-56-00"]
+	consolidated = "Date: 20011121\nDocket: A-1-00 A-2-00 A-8-00 A-9-00\nNeutral citation: 2001 FCA 353\nCORAM: STRAYER J.A.\nDocket: A-1-00\nBETWEEN:"
+	assert _dockets(consolidated, [None]) == []
+	body = "Date: 20010146\nDocket: A-9-00\nCoram: X J.A.\n" + ("The appellant argued. " * 400) + "Three actions (T-2051-96, T-1359-97) were brought. See File Nos. A-747-99 and A-749-99."
+	assert _dockets(body, []) == ["T-2051-96", "T-1359-97", "A-747-99", "A-749-99"]
+
+
 def test_own_docket_is_not_a_citation_even_when_stored_without_year():
 	header = "File numbers\nDecision Content\nDate: 20030612\nDocket: T-1053-02\nCitation: 2003 FCT 742"
 	assert _dockets(header, ["T-1053"]) == []
 	assert _dockets(header, ["T-1053-02"]) == []
-	assert _dockets(header, []) == ["T-1053-02"]  # no own docket known: unchanged behaviour
+	assert _dockets(header, None) == ["T-1053-02"]  # not asked to skip own dockets: unchanged behaviour
 
 
 def test_dockets_listed_beside_the_own_docket_are_skipped():

@@ -1,48 +1,135 @@
+"""Live Analysis page: the case reader's markup view for a document the user brings.
+
+The page is the site's own research page (same header, navigation, styles and reader code), with a
+Workbench view where a DOCX, text PDF or pasted text is read in memory and shown in the reader's
+markup mode. Nothing is stored and no model is called; see ``backend/live_reader.py``.
+"""
+
 from __future__ import annotations
+
+from .data_explorer import data_explorer_page_html
+
+PANEL_HTML = r'''<section id="liveAnalysisPanel" class="panel-card search-layout live-analysis-panel" hidden>
+<div class="page-header"><div class="eyebrow">Workbench</div><h2>Live Analysis</h2><p>Bring a memo, factum or decision and read it the way the case reader shows a decision: its case citations and statute references marked in the text, with the cited paragraph, the Act's provision text and the library's cited-by counts in the margin.</p></div>
+<div class="la-privacy" role="note"><strong>Not stored, no AI.</strong> The document is read in memory for this request and discarded. It is never saved to the library and never sent to any model. Only the existing rule-based citation and statute checks run, against the library as it already is.</div>
+<div class="la-inputs">
+<label class="la-drop" id="laDrop"><input id="laFile" type="file" accept=".docx,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"><strong id="laFileLabel">Choose a DOCX or text PDF</strong><span>or drop it here. Up to 10 MB. Scanned PDFs are not read.</span></label>
+<div class="la-or">or paste text</div>
+<label class="la-paste"><span class="la-sr">Pasted text</span><textarea id="laText" rows="7" placeholder="Paste the text of a memo or decision here. Blank lines separate paragraphs."></textarea></label>
+</div>
+<div class="la-actions"><button type="button" class="la-go" id="laAnalyze" disabled>Read in markup mode</button><button type="button" class="la-clear" id="laClear">Clear</button><span class="la-status" id="laStatus" role="status">Nothing selected yet</span></div>
+<div class="la-error" id="laError" role="alert" hidden></div>
+<p class="la-note">Headings and paragraph numbers in an uploaded document are worked out from line shape (a heuristic), not read from the file's own styles. The case information panels that rely on a stored decision (outcome, judge, discussion units, tags) are not available for your own text.</p>
+</section>
+'''
+
+STYLE = r'''<style>
+.live-analysis-panel .la-privacy{margin:14px 0;padding:11px 14px;border:1px solid var(--border);border-left:3px solid var(--blue,#2563eb);border-radius:4px;background:var(--surface-alt);font-size:13px;line-height:1.55}
+.la-inputs{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:820px}
+.la-drop{display:block;padding:22px 18px;border:1.5px dashed var(--border);border-radius:6px;background:var(--surface);text-align:center;cursor:pointer}
+.la-drop.is-drag,.la-drop:focus-within{border-color:var(--blue,#2563eb);background:var(--surface-alt)}
+.la-drop input{position:absolute;opacity:0;width:1px;height:1px}
+.la-drop strong{display:block;font-size:14px}.la-drop span{display:block;margin-top:4px;color:var(--muted);font-size:12px}
+.la-or{color:var(--muted);font-size:12px;text-align:center}
+.la-paste textarea{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border);border-radius:6px;font:13px/1.55 Georgia,"Times New Roman",serif;background:var(--surface);color:var(--text);resize:vertical}
+.la-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.la-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0}
+.la-go,.la-clear{padding:8px 16px;border-radius:5px;border:1px solid var(--border);font:600 13px "IBM Plex Sans",sans-serif;cursor:pointer;background:var(--surface);color:var(--text)}
+.la-go{background:var(--blue,#2563eb);border-color:var(--blue,#2563eb);color:#fff}.la-go:disabled{opacity:.5;cursor:not-allowed}
+.la-status{color:var(--muted);font-size:12px}.la-error{margin:0 0 10px;padding:9px 12px;border:1px solid #e3b5b5;border-radius:4px;background:#fdf1f1;color:#8a1f1f;font-size:13px}
+.la-note{max-width:820px;color:var(--muted);font-size:12px;line-height:1.55}
+body.live-doc-open [data-side-tab="about"],body.live-doc-open [data-side-tab="structure"],body.live-doc-open [data-side-tab="tags"],body.live-doc-open [data-mk-act="export"],body.live-doc-open #readerViewToggle,body.live-doc-open #readerCompareLink,body.live-doc-open #readerCopyCite,body.live-doc-open #readerFormatToggle,body.live-doc-open #readerPrintCitation{display:none!important}
+</style>
+'''
+
+SCRIPT = r'''<script>
+/* Live Analysis: send the document to /live-analysis/reader, then show the reader's markup view over the result. */
+(function(){
+const $=id=>document.getElementById(id);
+const panel=$('liveAnalysisPanel'),file=$('laFile'),text=$('laText'),go=$('laAnalyze'),status=$('laStatus'),err=$('laError'),drop=$('laDrop');
+if(!panel)return;
+let chosen=null;
+const showError=m=>{err.textContent=m||'';err.hidden=!m};
+function refresh(){go.disabled=!(chosen||text.value.trim());status.textContent=chosen?`${chosen.name} · ${(chosen.size/1048576).toFixed(2)} MB`:(text.value.trim()?'Pasted text ready':'Nothing selected yet')}
+function choose(f){chosen=f||null;$('laFileLabel').textContent=chosen?chosen.name:'Choose a DOCX or text PDF';if(chosen)text.value='';refresh();showError('')}
+file.addEventListener('change',()=>choose(file.files[0]));
+text.addEventListener('input',()=>{if(text.value.trim()&&chosen){chosen=null;file.value='';$('laFileLabel').textContent='Choose a DOCX or text PDF'}refresh()});
+['dragenter','dragover'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.add('is-drag')}));
+['dragleave','drop'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.remove('is-drag')}));
+drop.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files[0];if(f)choose(f)});
+$('laClear').addEventListener('click',()=>{chosen=null;file.value='';text.value='';refresh();showError('');if(!$('caseReaderPanel').hidden)closeDecisionReader()});
+async function analyze(){
+  showError('');go.disabled=true;status.textContent='Reading the document…';
+  try{
+    let response;
+    if(chosen){const body=new FormData();body.append('file',chosen);response=await fetch('/live-analysis/reader',{method:'POST',body})}
+    else response=await fetch('/live-analysis/reader-text',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:text.value,title:'Pasted text'})});
+    if(!response.ok){let d='The document could not be read.';try{const j=await response.json();if(j&&j.detail)d=typeof j.detail==='string'?j.detail:d}catch(e){}throw new Error(d)}
+    open(await response.json());
+    status.textContent='';
+  }catch(e){showError(e.message||'The document could not be read.')}
+  finally{refresh()}
+}
+go.addEventListener('click',analyze);
+function open(data){
+  const reader=$('caseReaderPanel');
+  document.body.classList.add('live-doc-open');
+  readerState.caseId=null;readerState.payload={item:data.item,citations:data.citations,readerData:data.readerData};readerState.formatted=true;readerState.mode='normalized';
+  $('decisionTitle').textContent=data.filename;
+  const s=data.summary||{};
+  $('decisionEyebrow').textContent='Your document · read in memory, not stored';
+  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].map(v=>`<span class="meta-pill">${v}</span>`).join('');
+  $('decisionTarget').replaceChildren();
+  sideState.caseId=null;sideState.tab='authorities';sideState.linkedId=null;
+  const back=reader.querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to Live Analysis';
+  panel.hidden=true;$('searchPanel').hidden=true;reader.hidden=false;
+  setReaderMode('normalized');
+  const toggle=$('readerMarkupToggle');if(toggle&&toggle.getAttribute('aria-pressed')!=='true')toggle.click();
+  reader.scrollIntoView({block:'start'});
+}
+/* A library case opens in a new tab so the uploaded document (held only in this page) is not lost. */
+document.addEventListener('click',e=>{
+  const foot=e.target.closest&&e.target.closest('[data-mk-foot="open-case"]');
+  if(!foot||!document.body.classList.contains('live-doc-open'))return;
+  e.preventDefault();e.stopImmediatePropagation();
+  window.open('/data-explorer?tab=search&case_id='+encodeURIComponent(foot.dataset.mkArg),'_blank','noopener');
+},true);
+const previousClose=closeDecisionReader;
+closeDecisionReader=function(){
+  previousClose.apply(this,arguments);
+  if(!document.body.classList.contains('live-doc-open'))return;
+  document.body.classList.remove('live-doc-open');
+  $('searchPanel').hidden=true;panel.hidden=false;
+  const back=$('caseReaderPanel').querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to case results';
+};
+refresh();
+})();
+</script>
+'''
+
+
+def _replace_once(html: str, old: str, new: str) -> str:
+	if html.count(old) != 1:
+		raise RuntimeError(f"live analysis page: expected one occurrence of {old[:60]!r}, found {html.count(old)}")
+	return html.replace(old, new, 1)
 
 
 def live_analysis_page_html() -> str:
-	return r'''<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Live Analysis | AI CaseLibrary</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#182421;--muted:#66756f;--paper:#e8eee9;--surface:#fbfdf9;--line:#cbd8d0;--teal:#087f73;--rust:#bd5638;--gold:#c18a25;--blue:#32639b}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Manrope,sans-serif;background:radial-gradient(circle at 80% 0,#d8e9e1 0,transparent 35%),linear-gradient(135deg,#eef3ed,#e5ece8);min-height:100vh}header{height:72px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(251,253,249,.84)}.brand{font-size:18px;font-weight:800;letter-spacing:.02em}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.nav{display:flex;gap:8px}.nav a{padding:8px 10px;color:var(--muted);font-size:11px;text-decoration:none;border-radius:4px}.nav a:hover,.nav a.active{color:var(--ink);background:#dce9e2}.wrap{width:min(1180px,90vw);margin:0 auto;padding:58px 0 70px}.eyebrow{color:var(--rust);font:500 11px/1 "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}h1{max-width:720px;margin:12px 0 10px;font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.04em} .lead{max-width:650px;color:var(--muted);font-size:15px;line-height:1.65}.upload{margin-top:34px;padding:28px;border:1px solid var(--line);background:rgba(251,253,249,.82);box-shadow:0 18px 50px rgba(24,36,33,.08)}.drop{display:grid;place-items:center;min-height:210px;padding:28px;border:1px dashed #8da89b;background:#f4f8f4;text-align:center;cursor:pointer}.drop:hover,.drop.drag{border-color:var(--teal);background:#eaf5f0}.drop strong{display:block;font-size:18px}.drop span{display:block;margin-top:8px;color:var(--muted);font-size:12px}.drop input{display:none}.actions{display:flex;align-items:center;gap:12px;margin-top:16px}.button{height:40px;padding:0 15px;border:0;border-radius:4px;background:var(--ink);color:white;font:700 12px Manrope;cursor:pointer}.button.secondary{border:1px solid var(--line);background:transparent;color:var(--ink)}.button:disabled{opacity:.45;cursor:wait}.status{color:var(--muted);font-size:12px}.notice{margin-top:16px;color:var(--muted);font-size:11px;line-height:1.5}.notice strong{color:var(--ink)}.error{margin-top:18px;padding:12px;border-left:3px solid var(--rust);background:#fff3ee;color:#87341f;font-size:12px}.hidden{display:none}.results{margin-top:42px}.result-head{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:14px}.result-head h2{margin:0;font-size:22px}.meta{color:var(--muted);font-size:11px}.summary{display:grid;grid-template-columns:repeat(4,1fr);margin:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.metric{padding:16px 12px;border-right:1px solid var(--line)}.metric:last-child{border:0}.metric strong{display:block;font-size:25px}.metric span{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{min-width:0;padding:20px;border:1px solid var(--line);background:rgba(251,253,249,.75)}.panel h3{margin:0 0 14px;font-size:14px}.source{padding:16px;border:1px solid var(--line);background:#f8fbf8;font:12px/1.7 "DM Mono",monospace;white-space:pre-wrap;word-break:break-word}.match{padding:13px 0;border-bottom:1px solid #dce5df}.match:last-child{border-bottom:0}.match strong{display:block;font-size:13px}.match small{display:block;margin-top:5px;color:var(--muted);font:10px "DM Mono",monospace}.match p{margin:8px 0 0;color:#40514a;font-size:11px;line-height:1.5}.pill{display:inline-block;margin:7px 6px 0 0;padding:4px 7px;border-radius:3px;background:#dcece5;color:#17665d;font:500 10px "DM Mono",monospace}.pill.unresolved{background:#f6e6d6;color:#8c5519}@media(max-width:760px){header{padding:0 5vw}.nav a{font-size:0}.nav a:before{content:'↗';font-size:16px}.wrap{padding-top:40px}.upload{padding:16px}.summary,.grid{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.result-head{display:block}.result-head .meta{margin-top:8px}}
-</style>
-<style>
-.source{min-height:520px;padding:24px;font-size:13px;line-height:1.85;box-shadow:inset 0 3px 0 #dcece5}.source mark{padding:2px 3px;border-radius:2px;cursor:pointer}.source mark.case{background:#f6d8cb;box-shadow:inset 0 -2px var(--rust)}.source mark.statute{background:#d7ebe4;box-shadow:inset 0 -2px var(--teal)}.source mark:hover{outline:2px solid var(--blue)}.reader-bar{display:flex;justify-content:space-between;margin:-4px 0 12px;color:var(--muted);font:10px "DM Mono",monospace;text-transform:uppercase}.legend{display:flex;gap:9px;text-transform:none}.legend i{display:inline-block;width:8px;height:8px;margin-right:3px;border-radius:2px}.case-key{background:#f6d8cb}.statute-key{background:#d7ebe4}.match{cursor:pointer}@media(max-width:760px){.source{min-height:360px;padding:16px;font-size:11px}.reader-bar{align-items:flex-start;flex-direction:column;gap:8px}}
-</style>
-<style>.reader-hover-tooltip{position:fixed;z-index:1000;width:320px;max-width:min(320px,70vw);padding:9px 11px;background:#25322e;color:#fff;border-radius:4px;box-shadow:0 4px 14px rgba(24,36,33,.22);font:11px/1.5 "DM Mono",monospace;white-space:pre-wrap;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease}.reader-hover-tooltip.is-visible{opacity:1;transform:translateY(0)}.source mark[data-authority]{cursor:pointer}.source-link{display:inline-block;margin-top:8px;color:var(--teal);font-size:11px;font-weight:700;text-decoration:none}.source-link:hover{text-decoration:underline}</style>
-<style>
-.evidence-tabs{display:flex;gap:6px;margin:14px 0 12px;border-bottom:1px solid var(--line)}.evidence-tab{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);font:700 11px Manrope;cursor:pointer}.evidence-tab:hover,.evidence-tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--teal)}.evidence-count{min-width:18px;padding:1px 5px;border-radius:9px;background:#e1ebe5;color:var(--ink);font:10px "DM Mono",monospace;text-align:center}.evidence-panel[hidden]{display:none}.evidence-group{margin:0;border-top:1px solid var(--line)}.evidence-group summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;color:var(--ink);font-size:12px;font-weight:700;cursor:pointer}.evidence-group-count{color:var(--muted);font:10px "DM Mono",monospace}.evidence-group .match{padding:10px 0 10px 10px;border-top:1px solid #e4ece6}.evidence-empty{padding:12px 0;color:var(--muted);font-size:12px}
-</style>
-</head>
-<body><header><div class="brand">ILIT <small>Live document analysis</small></div><nav class="nav"><a href="/data-explorer">Research</a><a href="/citation-map">Citation Map</a><a class="active" href="/live-analysis">Live Analysis</a></nav></header>
-<main class="wrap"><div class="eyebrow">Ephemeral workspace</div><h1>Read a document without filing it away.</h1><p class="lead">Drop in a DOCX to inspect case citations and legislation references with exact paragraph locations. The analysis is held in memory for this request and is discarded when you clear the page.</p>
-<section class="upload"><label class="drop" id="drop"><input id="file" type="file" accept=".docx,.pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"><strong id="fileLabel">Choose a DOCX or text PDF</strong><span>Maximum 10 MB · no scanned-PDF OCR or permanent upload</span></label><div class="actions"><button class="button" id="analyze" disabled>Analyze document</button><button class="button secondary" id="clear" type="button">Clear</button><label><input id="resolveLocal" type="checkbox"> Resolve local matches</label><span class="status" id="status">No document selected</span></div><p class="notice"><strong>Privacy boundary:</strong> this prototype parses in memory, does not write to the case library, and does not call external AI services. Local resolution only reads existing case metadata.</p><div class="error hidden" id="error"></div></section>
-<section class="results hidden" id="results"><div class="result-head"><h2 id="resultTitle">Analysis</h2><div class="meta" id="resultMeta"></div></div><div class="summary" id="summary"></div><div class="grid"><div class="panel"><div class="reader-bar"><span>Temporary case reader</span><span class="legend"><span><i class="case-key"></i>Case</span><span><i class="statute-key"></i>Statute</span></span></div><div class="source" id="source"></div></div><div class="panel"><h3>Evidence inspector</h3><div class="meta" style="margin-bottom:12px">Select a highlighted reference to inspect its location and context.</div><h3>Case citations</h3><div id="cases"></div><h3 style="margin-top:26px">Statute references</h3><div id="statutes"></div></div></div></section></main>
-<script>
-const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),analyze=document.getElementById('analyze'),clear=document.getElementById('clear'),status=document.getElementById('status'),error=document.getElementById('error'),results=document.getElementById('results');let selected=null;
-const esc=value=>String(value??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-function showError(message){error.textContent=message;error.classList.toggle('hidden',!message)}
-function choose(file){selected=file||null;document.getElementById('fileLabel').textContent=selected?selected.name:'Choose a DOCX or text PDF';analyze.disabled=!selected;status.textContent=selected?`${(selected.size/1024/1024).toFixed(2)} MB selected`:'No document selected';showError('');}
-	const resolveControl=document.getElementById('resolveLocal');if(resolveControl){resolveControl.checked=false;resolveControl.disabled=true;resolveControl.parentElement.lastChild.textContent=' Extraction runs first; resolve citations afterward.'}
-function renderRows(rows,empty){return rows.length?rows.map(row=>`<div class="match" data-start="${row.offset_start}"><strong>${esc(row.reference_text)} <span class="pill">${esc(row.kind)}</span>${row.resolved_case_id?'<span class="pill">resolved</span>':' '}</strong><small>${row.page_number?`Page ${row.page_number} · `:`Paragraph ${row.paragraph_index===null?'?':row.paragraph_index+1} · `}offsets ${row.offset_start}-${row.offset_end}</small>${row.resolved_case_title?`<p>${esc(row.resolved_case_title)} · ${esc(row.resolved_case_citation||'')}</p>`:`<p>${esc(row.context)}</p>`}</div>`).join(''):`<div class="meta">${empty}</div>`}
-function renderSource(data){const matches=[...data.case_citations.map(row=>({...row,layer:'case'})),...data.statute_references.map(row=>({...row,layer:'statute'}))].sort((a,b)=>a.offset_start-b.offset_start),text=data.text||'';let html='',cursor=0;for(const match of matches){if(match.offset_start<cursor)continue;html+=esc(text.slice(cursor,match.offset_start));html+=`<mark class="${match.layer}" title="${esc(match.kind)}" data-start="${match.offset_start}">${esc(text.slice(match.offset_start,match.offset_end))}</mark>`;cursor=match.offset_end;}return html+esc(text.slice(cursor))||'Source text is unavailable.';}
-function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const s=data.summary;document.getElementById('summary').innerHTML=`<div class="metric"><strong>${s.case_citations}</strong><span>Case citations</span></div><div class="metric"><strong>${s.resolved_case_citations}</strong><span>Resolved locally</span></div><div class="metric"><strong>${s.unresolved_case_citations}</strong><span>Unresolved</span></div><div class="metric"><strong>${s.statute_references}</strong><span>Statute references</span></div>`;document.getElementById('source').innerHTML=renderSource(data);document.getElementById('cases').innerHTML=renderRows(data.case_citations,'No case citations found.');document.getElementById('statutes').innerHTML=renderRows(data.statute_references,'No statute references found.');results.classList.remove('hidden');document.querySelectorAll('.match').forEach(row=>row.onclick=()=>document.querySelector(`mark[data-start="${row.dataset.start}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}));}
-fileInput.onchange=()=>choose(fileInput.files[0]);['dragenter','dragover'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(name=>drop.addEventListener(name,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>choose(e.dataTransfer.files[0]));analyze.onclick=async()=>{if(!selected)return;analyze.disabled=true;status.textContent='Analyzing in memory…';showError('');const body=new FormData();body.append('file',selected);try{const query=document.getElementById('resolveLocal').checked?'?resolve=true':'';const response=await fetch(`/live-analysis/analyze${query}`,{method:'POST',body});const data=await response.json();if(!response.ok)throw new Error(data.detail||`Request failed (${response.status})`);render(data);status.textContent='Analysis complete';}catch(e){showError(e.message);status.textContent='Analysis failed';}finally{analyze.disabled=false}};clear.onclick=()=>{selected=null;fileInput.value='';choose(null);results.classList.add('hidden');};
-function renderRows(rows,empty){return rows.length?rows.map(row=>`<div class="match" data-start="${row.offset_start}"><strong>${esc(row.reference_text)} <span class="pill">${esc(row.kind)}</span>${row.resolved_case_id?'<span class="pill">resolved</span>':' '}</strong><small>${row.page_number?`Page ${row.page_number} · `:`Paragraph ${row.paragraph_index===null?'?':row.paragraph_index+1} · `}offsets ${row.offset_start}-${row.offset_end}</small>${row.resolved_case_title?`<p>${esc(row.resolved_case_title)} · ${esc(row.resolved_case_citation||'')}</p>`:`<p>${esc(row.context)}</p>`}${row.source_url?`<a class="source-link" href="${esc(row.source_url)}" target="_blank" rel="noopener noreferrer">Open ${esc(row.source_title||'official legislation source')}</a>`:''}</div>`).join(''):`<div class="meta">${empty}</div>`}
-function renderSource(data){const matches=[...data.case_citations.map(row=>({...row,layer:'case'})),...data.statute_references.map(row=>({...row,layer:'statute'}))].sort((a,b)=>a.offset_start-b.offset_start),text=data.text||'';let html='',cursor=0;for(const match of matches){if(match.offset_start<cursor)continue;html+=esc(text.slice(cursor,match.offset_start));const authority=match.source_text||match.resolved_case_title||match.context||match.reference_text;html+=`<mark class="${match.layer}" title="${esc(match.kind)}" data-authority="${esc(authority)}" data-start="${match.offset_start}">${esc(text.slice(match.offset_start,match.offset_end))}</mark>`;cursor=match.offset_end}return html+esc(text.slice(cursor))||'Source text is unavailable.'}
-function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const s=data.summary;document.getElementById('summary').innerHTML=`<div class="metric"><strong>${s.case_citations}</strong><span>Case citations</span></div><div class="metric"><strong>${s.resolved_case_citations}</strong><span>Resolved locally</span></div><div class="metric"><strong>${s.unresolved_case_citations}</strong><span>Unresolved</span></div><div class="metric"><strong>${s.statute_references}</strong><span>Statute references</span></div>`;document.getElementById('source').innerHTML=renderSource(data);document.getElementById('cases').innerHTML=renderRows(data.case_citations,'No case citations found.');document.getElementById('statutes').innerHTML=renderRows(data.statute_references,'No statute references found.');results.classList.remove('hidden');document.querySelectorAll('.match').forEach(row=>row.onclick=()=>document.querySelector(`mark[data-start="${row.dataset.start}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}));if(!document.getElementById('resolveCitations')){analyze.insertAdjacentHTML('afterend','<button class="button secondary" id="resolveCitations" type="button">Resolve citations</button>');document.getElementById('resolveCitations').onclick=resolveCitations}}
-async function resolveCitations(){if(!selected)return;const button=document.getElementById('resolveCitations');button.disabled=true;status.textContent='Resolving citations locally...';const body=new FormData();body.append('file',selected);try{const response=await fetch('/live-analysis/resolve',{method:'POST',body});const data=await response.json();if(!response.ok)throw new Error(data.detail||`Request failed (${response.status})`);render(data);status.textContent='Citation resolution complete';}catch(error){showError(error.message);status.textContent='Citation resolution failed';}finally{button.disabled=false}}
-function initHoverTooltips(){const tooltip=document.createElement('div');tooltip.className='reader-hover-tooltip';document.body.appendChild(tooltip);let active=null;const hide=()=>{active=null;tooltip.classList.remove('is-visible')};const show=element=>{const text=element.dataset.authority;if(!text)return;active=element;tooltip.textContent=text;tooltip.classList.add('is-visible');const rect=element.getBoundingClientRect(),width=Math.min(320,window.innerWidth*.7),gap=8;let left=Math.max(12,Math.min(rect.left,window.innerWidth-width-12));let top=rect.top-tooltip.offsetHeight-gap;if(top<8)top=Math.min(window.innerHeight-tooltip.offsetHeight-8,rect.bottom+gap);tooltip.style.left=`${left}px`;tooltip.style.top=`${Math.max(8,top)}px`};document.addEventListener('mouseover',event=>{const element=event.target.closest?.('.source [data-authority]');if(!element||element===active||element.contains(event.relatedTarget))return;show(element)});document.addEventListener('mouseout',event=>{const element=event.target.closest?.('.source [data-authority]');if(element&&(!event.relatedTarget||!element.contains(event.relatedTarget)))hide()});window.addEventListener('resize',hide)}
-function evidenceRow(row){const location=row.page_number?`Page ${row.page_number}`:`Paragraph ${row.paragraph_index===null?'?':row.paragraph_index+1}`;const status=row.resolved_case_id?'resolved':row.resolution_status||'';const detail=row.resolved_case_title?`${esc(row.resolved_case_title)}${row.resolved_case_citation?` · ${esc(row.resolved_case_citation)}`:''}`:esc(row.context||row.authority_section_text||'');const sourceUrl=row.source_url||row.authority_document_url;const sourceLabel=row.source_title||row.authority_document_title||'official legislation source';return `<div class="match" data-start="${row.offset_start}"><strong>${esc(row.reference_text)} <span class="pill">${esc(row.kind)}</span>${status?`<span class="pill">${esc(status)}</span>`:''}</strong><small>${location} · offsets ${row.offset_start}-${row.offset_end}</small><p>${detail}</p>${sourceUrl?`<a class="source-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">Open ${esc(sourceLabel)}</a>`:''}</div>`}
-function groupedEvidence(rows,empty,groupLabel){if(!rows.length)return `<div class="evidence-empty">${empty}</div>`;const groups=new Map();for(const row of rows){const key=groupLabel(row)||'Other references';const group=groups.get(key)||[];group.push(row);groups.set(key,group)}return [...groups.entries()].map(([key,entries])=>`<details class="evidence-group" open><summary><span>${esc(key)}</span><span class="evidence-group-count">${entries.length} occurrence${entries.length===1?'':'s'}</span></summary>${entries.map(evidenceRow).join('')}</details>`).join('')}
-function activateEvidenceTab(tab){document.querySelectorAll('[data-evidence-tab]').forEach(button=>{const selected=button.dataset.evidenceTab===tab;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});document.querySelectorAll('[data-evidence-panel]').forEach(panel=>{panel.hidden=panel.dataset.evidencePanel!==tab})}
-function renderEvidenceInspector(data){const inspector=document.querySelectorAll('.grid .panel')[1];const caseRows=data.case_citations||[],statuteRows=data.statute_references||[];inspector.innerHTML=`<h3>Evidence inspector</h3><div class="meta" style="margin-bottom:12px">Select a reference to return to its source span. Evidence stays local to this uploaded document.</div><div class="evidence-tabs" role="tablist" aria-label="Live analysis evidence"><button class="evidence-tab" type="button" role="tab" data-evidence-tab="cases" aria-selected="true">Case citations <span class="evidence-count">${caseRows.length}</span></button><button class="evidence-tab" type="button" role="tab" data-evidence-tab="statutes" aria-selected="false">Statutes <span class="evidence-count">${statuteRows.length}</span></button></div><div class="evidence-panel" data-evidence-panel="cases">${groupedEvidence(caseRows,'No case citations found.',row=>row.resolved_case_title||row.reference_text)}</div><div class="evidence-panel" data-evidence-panel="statutes" hidden>${groupedEvidence(statuteRows,'No statute references found.',row=>row.authority_document_title||row.source_title||row.instrument_key||row.reference_text)}</div>`;inspector.querySelectorAll('[data-evidence-tab]').forEach(button=>button.onclick=()=>activateEvidenceTab(button.dataset.evidenceTab));}
-function render(data){document.getElementById('resultTitle').textContent=data.filename;document.getElementById('resultMeta').textContent=`${data.paragraph_count} paragraphs · ${data.text_length} characters`;const s=data.summary;document.getElementById('summary').innerHTML=`<div class="metric"><strong>${s.case_citations}</strong><span>Case citations</span></div><div class="metric"><strong>${s.resolved_case_citations}</strong><span>Resolved locally</span></div><div class="metric"><strong>${s.unresolved_case_citations}</strong><span>Unresolved</span></div><div class="metric"><strong>${s.statute_references}</strong><span>Statute references</span></div>`;document.getElementById('source').innerHTML=renderSource(data);renderEvidenceInspector(data);results.classList.remove('hidden');document.querySelectorAll('.match').forEach(row=>row.onclick=()=>document.querySelector(`mark[data-start="${row.dataset.start}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}));if(!document.getElementById('resolveCitations')){analyze.insertAdjacentHTML('afterend','<button class="button secondary" id="resolveCitations" type="button">Resolve citations</button>');document.getElementById('resolveCitations').onclick=resolveCitations}}
-initHoverTooltips();
-</script></body></html>'''
+	html = data_explorer_page_html()
+	html = _replace_once(
+		html,
+		'<a class="tab" data-nav-group="workbench" href="/live-analysis" hidden>Live Analysis</a>',
+		'<button class="tab" type="button" data-nav-group="workbench" data-tab="live-analysis" aria-pressed="false" aria-controls="liveAnalysisPanel" hidden>Live Analysis</button>',
+	)
+	html = _replace_once(html, "workbench:'workbenchPanel',", "workbench:'workbenchPanel','live-analysis':'liveAnalysisPanel',")
+	html = _replace_once(html, "workbench:['workbench'],", "workbench:['workbench','live-analysis'],")
+	# This page opens on its own view; the research page's default is Case search.
+	html = _replace_once(
+		html,
+		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'search'),false)",
+		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'live-analysis'),false)",
+	)
+	html = _replace_once(html, '<section id="caseReaderPanel"', PANEL_HTML + '<section id="caseReaderPanel"')
+	html = _replace_once(html, "<title>Immigration Litigation Intelligence Tool | iLIT</title>", "<title>Live Analysis | iLIT</title>")
+	html = html.replace("</head>", STYLE + "</head>", 1)
+	return html.replace("</body>", SCRIPT + "</body>", 1)

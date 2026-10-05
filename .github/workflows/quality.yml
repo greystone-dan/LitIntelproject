@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   ruff:
     name: Ruff (non-blocking)
@@ -19,12 +23,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - name: Install and run Ruff
         id: ruff
         continue-on-error: true
         run: |
           set +e
-          python -m pip install -r requirements-dev.txt > ruff-install.log 2>&1
+          python -m pip install "$(grep '^ruff==' requirements-dev.txt)" > ruff-install.log 2>&1
           install_status=$?
           if [ "$install_status" -eq 0 ]; then
             ruff --version > ruff-version.txt 2>&1
@@ -61,12 +66,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
       - name: Install and run pip-audit
         id: pip-audit
         continue-on-error: true
         run: |
           set +e
-          python -m pip install -r requirements-dev.txt > pip-audit-install.log 2>&1
+          python -m pip install "$(grep '^pip-audit==' requirements-dev.txt)" > pip-audit-install.log 2>&1
           install_status=$?
           if [ "$install_status" -eq 0 ]; then
             pip-audit --version > pip-audit-version.txt 2>&1

@@ -596,12 +596,13 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
     soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
     assert set(soon.values()) == {'soon'}
-    assert {'soon-themes', 'soon-tag-analytics', 'soon-fc-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
     assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 16
+    assert len(soon) == 15
+    assert 'soon-fc-analytics' not in soon
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
         'about': 'info', 'search': 'research',
-        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-history': 'intel',
+        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
         'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
@@ -614,9 +615,9 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
     ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
-    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'intel'),
+    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
     ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'testing'),
-    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'soon', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'themes', 'soon'), ('?tab=soon-themes', 'themes', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
     ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'testing'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
@@ -638,7 +639,7 @@ const panels={};
 const location=new URL('http://localhost/data-explorer'+QUERY);
 const history={pushState(state,title,path){location.href=new URL(path,location).href}};
 const window={addEventListener(name,handler){this[name]=handler}};
-const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
+const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){},getAttribute(){return null}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
 function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
 CONTROLLER
 assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true')?.dataset.group,GROUP==='direct'?undefined:GROUP);
@@ -1098,7 +1099,8 @@ def test_fc_activity_panel_exposes_procedural_insights():
 def test_fc_analytics_tab_is_wired_into_research_navigation():
     html = routes._data_explorer_page_html()
 
-    assert 'data-tab="soon-fc-analytics"' in html
+    assert 'data-tab="fc-analytics" aria-pressed="false" aria-controls="fcAnalyticsPanel" hidden>Federal Court Analytics' in html
+    assert '>FC Activity</button>' not in html
     assert 'id="fcAnalyticsPanel"' in html
     assert "'fc-analytics':'fcAnalyticsPanel'" in html
     assert "window.fcxLoadDashboard" in html
@@ -1279,3 +1281,14 @@ const controller = __CONTROLLER__;
 """.replace("__CONTROLLER__", controller)
     result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_coming_soon_items_load_their_real_page_under_the_banner():
+    from backend.pages.pitch_nav import COMING_SOON, SOON_TARGETS
+
+    html = routes._data_explorer_page_html()
+    assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
+    framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
+    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statutes'
+    assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
+    assert all(path in {r.path for r in routes.router.routes} for path in framed.values())

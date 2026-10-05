@@ -874,7 +874,7 @@ async function runProfessionalSearch(){
   onError:()=>setSearchStatus('Search unavailable. Your filters have been preserved.','error'),
   render:data=>{
   const queryEcho=document.getElementById('searchQueryEcho');
-  queryEcho.textContent=values.query.trim()&&data.query_echo?`Search interpreted as: ${data.query_echo}`:'';
+  queryEcho.textContent=values.query.trim()&&data.query_echo?(/^search: [^:]+$/i.test(data.query_echo)?`Showing cases with “${data.query_echo.slice(8)}” in the name or citation.`:`Search interpreted as: ${data.query_echo}`):'';
   queryEcho.hidden=!queryEcho.textContent;
   const results=data.results||[];
   setSearchStatus(results.length?`Showing ${num(results.length)} matching decision${results.length===1?'':'s'}. Select a result to open the decision.`:'No decisions matched this search. Check the spelling or remove a filter.',results.length?'success':'empty');

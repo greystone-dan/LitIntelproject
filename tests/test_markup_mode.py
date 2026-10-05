@@ -410,12 +410,10 @@ console.log(JSON.stringify({
     assert len(out["exported"]) == 1  # only the resolved citation becomes a Word comment
 
 
-def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
-    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+def test_legal_development_notice_and_its_markup_pill_are_gone():
     js = JS.read_text(encoding="utf-8")
-    assert "body.markup-mode-on #readerOverrulingRisk{display:none!important}" in css
-    assert "mk-legal-open #readerOverrulingRisk:not([hidden])" in css
-    assert 'data-mk-act="legal"' in js and "Legal-development notice" in js
+    css = (PAGES / "markup_mode.css").read_text(encoding="utf-8")
+    assert 'data-mk-act="legal"' not in js and "mk-legal-open" not in js and "mk-legal-open" not in css
 
 
 def test_margin_connectors_start_at_each_citations_own_text():

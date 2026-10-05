@@ -447,11 +447,21 @@ def _starts_with_paragraph(text: str | None, paragraph: int) -> bool:
 	return bool(text) and re.match(rf"^\s*\[{int(paragraph)}\]", text) is not None
 
 
+# Blocks the formatter splits off a numbered paragraph (a quoted provision, a list item) still belong to it.
+_PARAGRAPH_CONTINUATION_TYPES = {"text", "listitem", "connector", "caption"}
+
+
 def paragraph_text_from_decision(full_text: str | None, paragraph: int) -> str | None:
-	"""The stored text of one numbered paragraph, as the reader's formatter delimits it; ``None`` when absent."""
-	for block in format_decision(full_text):
+	"""The stored text of one numbered paragraph, including quoted lists the formatter split off it; ``None`` when absent."""
+	blocks = format_decision(full_text)
+	for index, block in enumerate(blocks):
 		if block.get("type") == "para" and block.get("num") == paragraph:
-			return full_text[block["start"] : block["end"]].strip() or None
+			end = block["end"]
+			for following in blocks[index + 1 :]:
+				if following.get("type") not in _PARAGRAPH_CONTINUATION_TYPES:
+					break
+				end = following["end"]
+			return full_text[block["start"] : end].strip() or None
 	return None
 
 

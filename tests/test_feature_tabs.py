@@ -580,44 +580,47 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
-    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'workbench', 'testing']
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'soon', 'testing']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
     assert '<a ' not in header
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('Info', 'Research', 'Workbench', 'Testing'):
+    for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
         assert f'>{label}</button>' in header
 
 
 def test_secondary_navigation_groups_existing_views_and_functional_tools():
     controls = NavigationParser(routes._data_explorer_page_html()).controls
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
-    assert views == {
-        'about': 'info', 'site-architecture': 'info', 'search': 'research',
-        'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'fc-analytics': 'research', 'themes': 'research', 'tag-analytics': 'research', 'research-bench': 'testing',
+    soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
+    assert set(soon.values()) == {'soon'}
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-fc-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
+    assert len(soon) == 16
+    assert {tab: group for tab, group in views.items() if tab not in soon} == {
+        'about': 'info', 'search': 'research',
+        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-history': 'intel',
+        'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
-    assert links == {
-        '/citation-map': 'workbench', '/deidentify': 'workbench',
-        '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
-    }
-    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
+    assert links == {'/discussion-units-sandbox': 'testing', '/citation-pass': 'testing'}
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'soon', 'testing'))
 
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
     ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
-    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'info'),
-    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'research'),
-    ('?tab=judge-profile&judge=smith', 'judge-profile', 'research'),
-    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'research'),
-    ('?tab=themes', 'themes', 'research'), ('?tab=research-bench', 'research-bench', 'testing'),
-    ('?group=workbench', 'workbench', 'workbench'), ('?group=testing', 'research-bench', 'testing'),
+    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
+    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
+    ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
+    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'intel'),
+    ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'testing'),
+    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'soon', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'testing'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
-    ('?tab=themes&group=info', 'themes', 'research'),
+    ('?tab=themes&group=info', 'themes', 'direct'),
     ('?tab=unknown', 'search', 'research'),
 ])
 def test_navigation_controller_initializes_deep_links_and_restores_history(query, selected, group):
@@ -638,17 +641,17 @@ const window={addEventListener(name,handler){this[name]=handler}};
 const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
 function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
 CONTROLLER
-assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true').dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true')?.dataset.group,GROUP==='direct'?undefined:GROUP);
 assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));
 assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
 const original=location.href;
 activateResearchTab('workbench');
-assert.equal(location.searchParams.get('group'),'workbench');
+assert.equal(location.searchParams.get('group'),'direct');
 assert.equal(location.searchParams.get('tab'),'workbench');
 assert.equal(location.searchParams.has('case_id'),false);
 assert.ok(Object.entries(activeResearchPanels).every(([key,id])=>panels[id].hidden===(key!=='workbench')));
 location.href=original;window.popstate();
-assert.equal(controls.find(item=>item.dataset.group&&item.classList.active).dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.classList.active)?.dataset.group,GROUP==='direct'?undefined:GROUP);
 activateResearchTab('research-bench');
 assert.equal(location.searchParams.get('group'),'testing');
 assert.equal(panels.researchBenchPanel.hidden,false);
@@ -1095,10 +1098,9 @@ def test_fc_activity_panel_exposes_procedural_insights():
 def test_fc_analytics_tab_is_wired_into_research_navigation():
     html = routes._data_explorer_page_html()
 
-    assert 'data-tab="fc-analytics"' in html
+    assert 'data-tab="soon-fc-analytics"' in html
     assert 'id="fcAnalyticsPanel"' in html
     assert "'fc-analytics':'fcAnalyticsPanel'" in html
-    assert "'fc-analytics','fc-history'" in html
     assert "window.fcxLoadDashboard" in html
     assert "/api/fc-activity/dashboard" in html
     for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):

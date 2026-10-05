@@ -6,9 +6,10 @@ from .tag_analytics import inject_tag_analytics
 from .case_quick_summary import inject_case_quick_summary
 from .changelog_tab import about_panel_html
 from .case_summary_card import inject_case_summary_card
+from .pitch_nav import apply_pitch_navigation
 
 
-def data_explorer_page_html() -> str:
+def data_explorer_page_html(pitch_navigation: bool = True) -> str:
   html = """<!doctype html>
 <html lang="en">
 <head>
@@ -1725,4 +1726,6 @@ window.addEventListener('afterprint',()=>{
   # Phone layout goes last so it wins over every earlier rule at narrow widths.
   mobile_css = (here / 'mobile_layout.css').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)
+  if pitch_navigation:
+    html = apply_pitch_navigation(html)
   return html.replace('<script>', panel_helpers_script() + '\n<script>', 1)

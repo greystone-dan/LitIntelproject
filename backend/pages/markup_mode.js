@@ -168,7 +168,13 @@ function paraText(chunk,num){
   return body.replace(/\s+/g,' ').trim();
 }
 /* What a citation note can honestly say about its pinpoint: the paragraph text, or why there is none. Stored text only. */
+/* A back-reference ("above", "Ibid") is a guess about which earlier citation is meant; say so wherever its text is shown. */
 function pinpointInfo(row){
+  const r=pinpointInfoCore(row),h=row&&row.heuristic_note;
+  if(!h)return r;
+  return r.label?Object.assign({},r,{label:r.label+' · '+h}):Object.assign({},r,{body:(r.body?r.body+' ':'')+h});
+}
+function pinpointInfoCore(row){
   const n=row.target_paragraph,short=shortCaseName(row.target_title||row.target_citation||'');
   if(!row.target_case_id)return {quote:'',label:'',body:'Not in the library yet — no cited text available.'};
   if(n==null)return {quote:'',label:'',body:'No pinpoint paragraph was cited, so there is no paragraph text to show.'};

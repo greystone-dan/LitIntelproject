@@ -15,7 +15,7 @@ from types import SimpleNamespace
 from typing import Any
 
 from fastapi import HTTPException, status
-from sqlalchemy import and_, or_, select
+from sqlalchemy import Integer, and_, cast, func, or_, select
 from sqlalchemy.orm import Session
 
 from .citations import (
@@ -449,6 +449,39 @@ def _citation_target_paragraph(
 		re.IGNORECASE,
 	)
 	return int(match.group(1)) if match is not None else None
+
+
+def _match_pinpoint_chunks(pinpoints_by_case: dict[int, list[int]], chunks: Any) -> dict[tuple[int, int], str]:
+	"""Map (cited case, paragraph) to the text of the chunk covering it; one pass over the chunks."""
+	matched: dict[tuple[int, int], str] = {}
+	for chunk in chunks:
+		for paragraph in pinpoints_by_case.get(chunk.case_id, ()):
+			if chunk.paragraph_start <= paragraph <= chunk.paragraph_end:
+				matched[(chunk.case_id, paragraph)] = chunk.text
+	return matched
+
+
+_PINPOINT_SQL_PATTERN = r"(?i)(?:para(?:s|graph(?:s)?)?\.?|paragraph(?:s)?)\s+(\d+)"
+
+
+def _incoming_cited_case_counts(db: Session, case_id: int) -> dict[int, int]:
+	"""Distinct citing cases per cited paragraph, aggregated in SQL (a heavily cited case has tens of thousands of rows)."""
+	paragraph = func.coalesce(
+		Citation.target_paragraph,
+		cast(
+			func.substring(
+				func.coalesce(func.nullif(Citation.citation_text, ""), func.nullif(Citation.normalized_citation, ""), ""),
+				_PINPOINT_SQL_PATTERN,
+			),
+			Integer,
+		),
+	)
+	rows = db.execute(
+		select(paragraph.label("paragraph"), func.count(func.distinct(Citation.source_case_id)).label("n"))
+		.where(Citation.target_case_id == case_id, Citation.source_case_id != case_id)
+		.group_by(paragraph)
+	).all()
+	return {int(row.paragraph): int(row.n) for row in rows if row.paragraph is not None}
 
 
 def _cited_case_counts_by_paragraph(rows: Any, case_id: int) -> dict[int, int]:
@@ -969,10 +1002,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 				),
 			)
 		)
-		for chunk in target_paragraph_chunks:
-			for paragraph in pinpoints_by_case.get(chunk.case_id, ()):
-				if chunk.paragraph_start <= paragraph <= chunk.paragraph_end:
-					target_chunks[(chunk.case_id, paragraph)] = chunk.text
+		target_chunks = _match_pinpoint_chunks(pinpoints_by_case, target_paragraph_chunks)
 
 	citation_responses = [
 		CaseReaderCitationResponse(
@@ -1057,24 +1087,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		else None
 	)
 	case_summary = _build_case_summary(evidence_summary)
-	incoming_citations = db.execute(
-		select(
-			Citation.source_case_id,
-			Citation.citation_text,
-			Citation.normalized_citation,
-			Citation.target_paragraph,
-		).where(Citation.target_case_id == case_id)
-	).all()
-	cited_paragraph_counts = _cited_case_counts_by_paragraph(
-		(
-			(
-				source_case_id,
-				_citation_target_paragraph(citation_text, normalized_citation, target_paragraph),
-			)
-			for source_case_id, citation_text, normalized_citation, target_paragraph in incoming_citations
-		),
-		case_id,
-	)
+	cited_paragraph_counts = _incoming_cited_case_counts(db, case_id)
 
 	format_blocks = format_decision(case.full_text, cited_paragraph_counts)
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.

@@ -2,6 +2,8 @@
 (() => {
 	const banner = document.getElementById('readerOverrulingRisk');
 	if (!banner) return;
+	// Off everywhere by decision (2026-10-05): the notice is neither fetched nor shown unless a page opts in.
+	if (typeof window === 'undefined' || window.ILIT_SHOW_LEGAL_NOTICE !== true) return;
 
 	let requestVersion = 0;
 

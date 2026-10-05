@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 169
+Active scripts documented: 170
 
 ## Catalog
 
@@ -169,6 +169,7 @@ Active scripts documented: 169
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
+| `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -2404,6 +2405,20 @@ Active scripts documented: 169
 
 ```powershell
 .\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
+```
+
+## `scripts/scheduled_intake_daemon.py`
+
+**Purpose:** Low-priority scheduled intake of new decisions from A2AJ and court sources. Runs continuously on Daniel's PC, checking for new decisions every 6 hours (A2AJ) or 24 hours (court sources), deduplicating, and importing without interfering with the live site. Designed to be pausable, resume-able, and disable-able. Disable by: - Setting SCHEDULED_INTAKE_ENABLED=false in .env - Renaming script to .disabled
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

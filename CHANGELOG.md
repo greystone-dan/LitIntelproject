@@ -5,6 +5,7 @@
 	demo-safety fixes.
 # Unreleased
 
+- Markup mode: the citation hover card and the Peek panel now show an "In this case" line ("Cited at ¶[14] and ¶[15] (pinpoint ¶7)"), read from where the citation sits in the open decision. No data or schema change.
 - Added the opt-in `openai_compatible` `/research` chat provider using the
   OpenAI SDK custom base URL and `CHAT_BASE_URL`, optional `CHAT_API_KEY`,
   `CHAT_MODEL`, and `CHAT_TIMEOUT_SECONDS`. The provider contract exposes

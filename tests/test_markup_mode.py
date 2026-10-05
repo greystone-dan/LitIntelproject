@@ -386,3 +386,17 @@ def test_by_topic_groups_use_section_headings_and_lead_sentences():
 def test_statute_layer_is_in_the_layer_list_and_old_saved_layers_load():
     out = _node("console.log(JSON.stringify({keys: m.LAYER_DEFS.map(d => d.key), s: m.sanitizeLayers({cite: 'off'})}));")
     assert "statute" in out["keys"] and out["s"]["statute"] == "markers" and out["s"]["cite"] == "off"
+
+
+@needs_node
+def test_in_this_case_line_lists_where_the_authority_is_cited():
+    out = _node("""
+console.log(JSON.stringify([
+  m.inThisCaseLine({loc: 14, alsoAt: [15]}, {paragraph: 7}),
+  m.inThisCaseLine({loc: 14, alsoAt: [15, 20, 14]}, {paragraph: null}),
+  m.inThisCaseLine({loc: 18, alsoAt: []}, {paragraph: 34}),
+  m.inThisCaseLine({loc: null, alsoAt: []}, {paragraph: 34}),
+]));
+""")
+    assert out == ["Cited at ¶[14] and ¶[15] (pinpoint ¶7)", "Cited at ¶[14], ¶[15] and ¶[20]",
+                   "Cited at ¶[18] (pinpoint ¶34)", ""]

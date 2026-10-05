@@ -17,6 +17,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
+from backend.citation_link_rules import build_index as build_key_index
+from backend.citation_link_rules import resolve_row as resolve_with_extended_rules
 from backend.citations import _citation_variants, _normalize_alias_lookup, build_local_case_resolution_index
 from backend.database import Case, Citation, SessionLocal
 
@@ -129,6 +131,12 @@ def parse_args() -> argparse.Namespace:
 		default=None,
 		help="Inspect only one unresolved citation kind.",
 	)
+	parser.add_argument(
+		"--extended-rules",
+		action="store_true",
+		help="After the standard rules, also try exact-key rules (French neutral cites, reporter spelling "
+		"variants, year-only SCR cites, title-confirmed ties); see backend/citation_link_rules.py.",
+	)
 	parser.add_argument("--dry-run", action="store_true")
 	return parser.parse_args()
 
@@ -154,6 +162,12 @@ def main() -> None:
 		index = build_local_case_resolution_index(session)
 		title_index = _build_title_resolution_index(session)
 		title_year_index = _build_title_year_resolution_index(session)
+		key_index = (
+			build_key_index(session.execute(select(Case.id, Case.title, Case.citation, Case.secondary_citation)))
+			if args.extended_rules
+			else None
+		)
+		extended_counts: dict[str, int] = defaultdict(int)
 		print(f"local_citation_keys={len(index)}")
 		print(f"local_title_keys={len(title_index)}")
 		last_id = args.resume_from_id
@@ -182,6 +196,15 @@ def main() -> None:
 			for citation in rows:
 				inspected += 1
 				variants = _citation_variants(citation.normalized_citation or citation.citation_text or "")
+				if key_index is not None and not variants:
+					extended = resolve_with_extended_rules(
+						citation.normalized_citation or citation.citation_text, citation.source_case_id, key_index
+					)
+					if extended.target_case_id is not None:
+						resolved += 1
+						extended_counts[extended.rule or "extended"] += 1
+						updates.append({"id": citation.id, "target_case_id": extended.target_case_id, "unresolved": False})
+						continue
 				if not variants and citation.citation_kind == "case_name":
 					target_case_id = _case_name_target_id(citation, title_index)
 					if target_case_id is not None:
@@ -197,6 +220,13 @@ def main() -> None:
 					target_case_id = _title_target_id(citation, title_index, title_year_index)
 					if target_case_id is not None:
 						title_resolved += 1
+				if target_case_id is None and key_index is not None:
+					extended = resolve_with_extended_rules(
+						citation.normalized_citation or citation.citation_text, citation.source_case_id, key_index
+					)
+					if extended.target_case_id is not None:
+						target_case_id = extended.target_case_id
+						extended_counts[extended.rule or "extended"] += 1
 				if target_case_id is not None:
 					resolved += 1
 					updates.append({"id": citation.id, "target_case_id": target_case_id, "unresolved": False})
@@ -208,6 +238,8 @@ def main() -> None:
 				f"title_resolved={title_resolved} last_id={last_id}"
 			)
 
+	if args.extended_rules:
+		print("extended_rule_links=" + ", ".join(f"{rule}:{count}" for rule, count in sorted(extended_counts.items())))
 	print(
 		f"finished inspected={inspected} neutral_candidates={candidates} resolved={resolved} "
 		f"title_resolved={title_resolved} last_id={last_id}"

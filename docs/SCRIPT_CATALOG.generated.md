@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 172
+Active scripts documented: 173
 
 ## Catalog
 
@@ -18,6 +18,7 @@ Active scripts documented: 172
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `analyze_citation_link_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_citation_link_coverage.py --help` |
 | `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
 | `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
@@ -293,6 +294,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/analyze_citation_link_coverage.py`
+
+**Purpose:** Explain why unresolved citation rows do not link (read-only: SELECTs only). Each unresolved case-citation row goes into one bucket: already linkable by the standard rules, linkable by the extended exact-key rules, or a named reason it cannot link (cited case not in the library, other court, ambiguous key, name only, back reference, and so on). Also reports what the library's own citation fields look like, because a cite can only link if the library case carries the same key. python scripts/analyze_citation_link_coverage.py --output logs/link_coverage.json python scripts/analyze_citation_link_coverage.py --probe-case 61200 --limit 50000
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_citation_link_coverage.py --help
 ```
 
 ## `scripts/analyze_themes_before_after.py`

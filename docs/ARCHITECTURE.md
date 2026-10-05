@@ -162,6 +162,7 @@ test checks that these paths continue to exist.
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
+| `backend/citation_link_rules.py` | Exact-key rules for linking stored citation rows to library cases |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
 | `backend/citation_pipeline/canlii.py` | CanLII source adapter for citation extraction |

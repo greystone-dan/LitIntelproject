@@ -644,6 +644,24 @@ def _backref_row(
 	)
 
 
+_NOTE_MARKER_RE = re.compile(r"\[\d{1,3}\]")
+_IBID_RUNNING_TEXT_GAP = 400
+
+
+def _ibid_follows(content: str, match: re.Match[str], latest: RefinedCitation) -> bool:
+	"""True when "Ibid" really refers to ``latest``: that citation is in the note or sentence right before it.
+
+	In an endnote list ("[10] See the record [11] Ibid") the note just before must hold the citation; otherwise
+	"Ibid" means whatever that note cites (often a record or an exhibit), not an earlier case. In running text the
+	citation must be close behind.
+	"""
+	markers = list(_NOTE_MARKER_RE.finditer(content, latest.offset_end, match.start()))
+	own_marker = bool(markers) and not content[markers[-1].end() : match.start()].strip()
+	if own_marker:
+		return len(markers) == 1
+	return not markers and match.start() - latest.offset_end <= _IBID_RUNNING_TEXT_GAP
+
+
 def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCitation]:
 	rows_by_span = {(row.offset_start, row.offset_end): row for row in rows}
 	table = _alias_table(rows)
@@ -674,6 +692,8 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 		if not previous:
 			continue
 		latest = max(previous, key=lambda row: row.offset_end)
+		if not _ibid_follows(content, match, latest):
+			continue
 		target = _anchor_for(latest, rows_by_span)
 		added.append(_backref_row(content, match, target, match.group("word"), "C2_backrefs"))
 
@@ -777,7 +797,8 @@ def _own_docket_matches(content: str, source_dockets: Iterable[str | None]) -> s
 	"""Start offsets of docket numbers in ``content`` that belong to the decision itself.
 
 	A match is the decision's own when it equals a stored docket (ignoring the year when the stored one has none) or
-	sits in the same unbroken list of docket numbers as such a match, as in the header of a consolidated decision.
+	sits in the same unbroken list of docket numbers as such a match, as in the header of a consolidated decision. Every other
+	occurrence of those numbers in the text (the per-party "Docket:" blocks) is the decision's own as well.
 	"""
 	keys = _own_docket_keys(source_dockets)
 	if not keys:
@@ -798,11 +819,12 @@ def _own_docket_matches(content: str, source_dockets: Iterable[str | None]) -> s
 			runs[-1].append(index)
 		else:
 			runs.append([index])
-	result: set[int] = set()
+	own_numbers: set[str] = set()
 	for run in runs:
 		if any(owned[index] for index in run):
-			result.update(matches[index].start() for index in run)
-	return result
+			own_numbers.update(matches[index].group("docket") for index in run)
+	# A consolidated decision repeats each of its dockets in a per-party "Docket:" block further down.
+	return {match.start() for match in matches if match.group("docket") in own_numbers}
 
 
 def _docket_parts(docket: str) -> tuple[str, str, str]:

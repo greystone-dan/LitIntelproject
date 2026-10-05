@@ -55,6 +55,7 @@ class DocumentContext:
 	sentence_starts: list[int] = field(default_factory=list)
 	definitions: list[Definition] = field(default_factory=list)
 	mentioned_instruments: dict[str, int] = field(default_factory=dict)
+	first_mentions: dict[str, int] = field(default_factory=dict)
 
 	@classmethod
 	def build(cls, text: str) -> "DocumentContext":
@@ -80,6 +81,7 @@ class DocumentContext:
 				continue
 			key, _language = found
 			self.mentioned_instruments[key] = self.mentioned_instruments.get(key, 0) + 1
+			self.first_mentions.setdefault(key, match.start())
 			definition = _DEFINITION_RE.match(self.text, match.end())
 			if definition is None:
 				continue
@@ -114,14 +116,24 @@ class DocumentContext:
 		anywhere = [item for item in self.definitions if item.term == normalized]
 		if anywhere:
 			return anywhere[0].instrument_key, True
-		return self._default_for(normalized)
+		return self._default_for(normalized, offset)
 
-	def _default_for(self, term: str) -> tuple[str, bool] | None:
+	def _default_for(self, term: str, offset: int | None = None) -> tuple[str, bool] | None:
 		mentioned = self.mentioned_instruments
 		if term in {"act", "loi"}:
 			if "canada.irpa" in mentioned or (self.is_immigration_context and "canada.immigration_act" not in mentioned):
 				return "canada.irpa", False
-			acts = [key for key in mentioned if REGISTRY[key].kind == "statute" and _is_act(key)]
+			# "The only Act named" is a guess, so it needs the Act to have been named before this use and to be one a
+			# decision is likely to mean by "the Act". Court-procedure Acts are cited in passing (judicial review
+			# jurisdiction), so a decision about another statute must not have its "the Act" read as one of those.
+			acts = [
+				key
+				for key in mentioned
+				if REGISTRY[key].kind == "statute"
+				and _is_act(key)
+				and key not in _INCIDENTAL_ACTS
+				and (offset is None or self.first_mentions.get(key, 0) <= offset)
+			]
 			return (acts[0], False) if len(acts) == 1 else None
 		if term in {"regulations", "règlement"}:
 			if "canada.irpr" in mentioned or self.is_immigration_context:
@@ -140,6 +152,10 @@ class DocumentContext:
 		if term == "charter":
 			return "canada.charter", False
 		return None
+
+
+# Acts decisions cite in passing for procedure; never the answer to a bare "the Act" by elimination.
+_INCIDENTAL_ACTS = frozenset({"canada.federal_courts_act", "canada.interpretation_act", "canada.canada_evidence_act"})
 
 
 def _is_act(key: str) -> bool:

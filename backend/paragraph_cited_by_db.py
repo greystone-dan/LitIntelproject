@@ -16,12 +16,12 @@ from backend.database import (
     ParagraphCitationEdge,
     ParagraphCitationStatus,
 )
+from backend.citation_refine.pinpoints import target_paragraphs
 from backend.paragraph_cited_by import (
     ALGO_VERSION,
     PURPOSE_LABELS,
     Occurrence,
     build_edges,
-    citation_target_paragraph,
     citer_sort_key,
     summarise_purposes,
 )
@@ -161,10 +161,12 @@ def compute_source_edges(db: Session, source_case_id: int):
         spans.append((start, end))
         if row.target_case_id is None or row.target_case_id == source_case_id:
             continue
-        paragraph = citation_target_paragraph(row.citation_text, row.normalized_citation, row.target_paragraph)
-        if paragraph is None:
+        pins = target_paragraphs(row.citation_text, row.normalized_citation, row.target_paragraph)
+        if pins is None:
             continue
-        occurrences.append(Occurrence(int(row.target_case_id), paragraph, start, end))
+        # "paras 45-48" is one mention of each paragraph it names.
+        for paragraph in pins.paragraphs:
+            occurrences.append(Occurrence(int(row.target_case_id), paragraph, start, end))
     return build_edges(text, occurrences, spans), len(occurrences)
 
 
@@ -291,6 +293,16 @@ def load_paragraph_cited_by(db: Session, case_id: int) -> dict | None:
 def load_target_cited_by(db: Session, pinpoints: Iterable[tuple[int, int]]) -> dict[tuple[int, int], dict]:
     """Stored cited-by summary for (cited case, paragraph) pairs, only where the batch covered that case."""
     wanted = {(int(c), int(p)) for c, p in pinpoints}
+    summaries = load_pinpoint_cited_by(db, {(c, (p,)) for c, p in wanted})
+    return {(c, p): summaries[(c, (p,))] for c, p in wanted if (c, (p,)) in summaries}
+
+
+def load_pinpoint_cited_by(db: Session, pinpoints: Iterable[tuple[int, tuple[int, ...]]]) -> dict[tuple[int, tuple[int, ...]], dict]:
+    """Stored cited-by summary for (cited case, paragraphs) pinpoints, e.g. "paras 45-48".
+
+    Cases that cite any of the named paragraphs are counted once; mentions are summed.
+    """
+    wanted = {(int(c), tuple(int(p) for p in ps)) for c, ps in pinpoints if ps}
     if not wanted:
         return {}
     coverage = _coverage(db, {c for c, _ in wanted})
@@ -299,6 +311,7 @@ def load_target_cited_by(db: Session, pinpoints: Iterable[tuple[int, int]]) -> d
         return {}
     rows = db.execute(
         select(
+            ParagraphCitationEdge.source_case_id,
             ParagraphCitationEdge.target_case_id,
             ParagraphCitationEdge.target_paragraph,
             ParagraphCitationEdge.mentions,
@@ -306,16 +319,18 @@ def load_target_cited_by(db: Session, pinpoints: Iterable[tuple[int, int]]) -> d
             ParagraphCitationEdge.purpose_counts,
         ).where(ParagraphCitationEdge.target_case_id.in_(complete))
     ).all()
-    grouped: dict[tuple[int, int], list] = defaultdict(list)
+    by_case: dict[int, list] = defaultdict(list)
     for row in rows:
-        key = (int(row.target_case_id), int(row.target_paragraph))
-        if key in wanted:
-            grouped[key].append(row)
-    return {
-        key: {
-            "citer_count": len(group),
+        by_case[int(row.target_case_id)].append(row)
+    result: dict[tuple[int, tuple[int, ...]], dict] = {}
+    for key in wanted:
+        case_id, paragraphs = key
+        group = [r for r in by_case.get(case_id, ()) if int(r.target_paragraph) in paragraphs]
+        if not group:
+            continue
+        result[key] = {
+            "citer_count": len({int(r.source_case_id) for r in group}),
             "mention_count": sum(int(r.mentions) for r in group),
             "purposes": summarise_purposes(r.purpose_counts or {r.purpose: int(r.mentions)} for r in group),
         }
-        for key, group in grouped.items()
-    }
+    return result

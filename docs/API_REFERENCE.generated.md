@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T10:15:42.589130+00:00
+Generated: 2026-10-05T13:03:16.612881+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 126 across 123 paths
+OpenAPI operations: 129 across 126 paths
 Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -584,6 +584,21 @@ Get Case Contextual Anchors
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/evidence-summary`
+
+Get Case Evidence Summary
+
+Discussion-unit evidence and case summary, loaded after the decision text so they never delay it.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /cases/{case_id}/markup-export`
 
 Export Case Markup Docx
@@ -638,6 +653,7 @@ Get Case Reader Data
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `evidence` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -1467,6 +1483,36 @@ Live Analysis Analyze
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader`
+
+Live Analysis Reader
+
+Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called.
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_reader_live_analysis_reader_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader-text`
+
+Live Analysis Reader Text
+
+Same as ``/live-analysis/reader`` for pasted text.
+
+**Request body (required)**
+
+- `application/json`: `LiveReaderTextRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /live-analysis/resolve`

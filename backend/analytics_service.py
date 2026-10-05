@@ -18,7 +18,7 @@ from typing import Any, Callable, Optional
 import httpx
 from fastapi import HTTPException, status
 from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
 from scripts.fetch_fc_procedural_history import HEADERS, process_imm, upsert_result
@@ -1435,6 +1435,7 @@ def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, A
 	citation_rows = list(
 		db.scalars(
 			select(Citation)
+			.options(joinedload(Citation.target_case).load_only(Case.id, Case.title, Case.citation))
 			.where(Citation.source_case_id == case.id)
 			.order_by(Citation.id)
 		)

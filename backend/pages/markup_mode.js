@@ -10,7 +10,7 @@ const clip=(s,n)=>{s=String(s==null?'':s).replace(/\s+/g,' ').trim();return s.le
 const ROLE_LABELS={evidence_fact:'Evidence / fact',governing_rule:'Governing rule',reasoning_application:'Reasoning application',counterargument_limitation:'Counterargument',issue:'Issue',disposition:'Disposition',party_position:'Party position'};
 const roleLabel=r=>ROLE_LABELS[r]||String(r||'').replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
 const BAND_COLORS=['#a78bfa','#0f766e','#d97706','#2563eb','#db2777','#65a30d','#0891b2','#9333ea','#dc2626','#0d9488','#ca8a04','#4f46e5'];
-const TYPE={cite:{label:'Citation',color:'#c28e2d'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},statute:{label:'Act / statute',color:'#8b5bb2'},mine:{label:'My note',color:'#7c3aed'}};
+const TYPE={cite:{label:'Citation',color:'#d4a017'},unit:{label:'Discussion unit',color:'#2563eb'},outcome:{label:'Outcome',color:'#1f6b45'},judge:{label:'Judge',color:'#475569'},citedby:{label:'Cited by others',color:'#0f766e'},statute:{label:'Act / statute',color:'#8b5bb2'},mine:{label:'My note',color:'#7c3aed'}};
 const LAYER_DEFS=[
  {key:'cite',label:'Citations',states:['off','markers','open'],def:'markers'},
  {key:'unit',label:'Discussion units',states:['off','markers','open'],def:'markers'},
@@ -110,7 +110,7 @@ function peekFor(note){
   const c=note&&note.cite;if(!c)return null;
   return {id:note.id,loc:note.loc==null?null:note.loc,title:note.title,citation:c.citation,inLibrary:c.inLibrary,caseId:c.caseId,paragraph:c.paragraph,
     text:c.inLibrary?(note.quote||''):'',label:c.inLibrary&&note.quote?(note.quoteLabel||''):'',noText:c.inLibrary&&!note.quote?(note.body||''):'',
-    missing:c.inLibrary?'':'Not in the library yet: iLit has no text for this authority.',
+    missing:c.inLibrary?'':(c.failed?'The library could not be checked for this authority just now (a lookup error, not a missing case). Read the document again to retry.':'Not in the library yet: iLit has no text for this authority.'),
     citedBy:c.inLibrary?citedByLine(c.citedBy):'',here:inThisCaseLine(note,c)};
 }
 /* "Cited at ¶[14] and ¶[15] (pinpoint ¶7)": where this authority is cited in the open case, from the page itself. */
@@ -176,7 +176,7 @@ function pinpointInfo(row){
 }
 function pinpointInfoCore(row){
   const n=row.target_paragraph,short=shortCaseName(row.target_title||row.target_citation||'');
-  if(!row.target_case_id)return {quote:'',label:'',body:'Not in the library yet — no cited text available.'};
+  if(!row.target_case_id)return {quote:'',label:'',body:row.library_status==='lookup_failed'?'The library could not be checked just now (a lookup error), so no cited text is shown. Read the document again to retry.':'Not in the library yet — no cited text available.'};
   if(n==null)return {quote:'',label:'',body:'No pinpoint paragraph was cited, so there is no paragraph text to show.'};
   const paras=Array.isArray(row.target_paragraphs)&&row.target_paragraphs.length?row.target_paragraphs:[n];
   if(paras.length>1){
@@ -236,7 +236,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null,pin=pinpointInfo(row);
-    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+(row.target_paragraphs&&row.target_paragraphs.length>1?(row.target_pinpoint_label||row.target_paragraph).toString().replace(/^paras? /,''):row.target_paragraph):''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint '+(row.target_paragraphs&&row.target_paragraphs.length>1?row.target_pinpoint_label:'¶'+row.target_paragraph):''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+(row.target_paragraphs&&row.target_paragraphs.length>1?(row.target_pinpoint_label||row.target_paragraph).toString().replace(/^paras? /,''):row.target_paragraph):''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint '+(row.target_paragraphs&&row.target_paragraphs.length>1?row.target_pinpoint_label:'¶'+row.target_paragraph):''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null,failed:row.library_status==='lookup_failed'},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];

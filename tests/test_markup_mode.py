@@ -31,6 +31,7 @@ out.topics = m.topicIndex(p.payload, 10);
 out.topicParas = Array.from(m.topicParas(out.topics, p.selected || [])).sort((a, b) => a - b);
 out.runs = m.foldRuns(p.visible || []);
 out.peeks = out.notes.filter(n => n.cite).map(n => m.peekFor(n));
+out.roleViews = out.notes.filter(n => n.type === 'unit').flatMap(n => [m.unitRoleView(n, false), m.unitRoleView(n, true)]);
 console.log(JSON.stringify(out));
 """
 
@@ -108,6 +109,20 @@ def test_unit_paragraph_mapping_via_chunks():
     unit = next(n for n in res["notes"] if n["type"] == "unit")
     assert unit["anchor"] == {"kind": "para", "num": 1}
     assert [(r["first"], r["last"]) for r in res["ranges"]] == [(2, 3)]
+
+
+@needs_node
+def test_unit_role_chip_shows_only_with_experimental_on():
+    payload = _payload()
+    payload["readerData"]["evidence_summary"]["units"][0]["role"] = "facts"
+    payload["readerData"]["evidence_summary"]["role_note"] = "Experimental: about 55 to 69 of every 100."
+    off, on = _run(payload=payload)["roleViews"]
+    unit = next(n for n in _run(payload=payload)["notes"] if n["type"] == "unit")
+    assert off == {"pill": unit["pill"], "line": ""}
+    assert on["pill"] == "Facts · " + unit["pill"]
+    assert on["line"].startswith("Role (experimental): Facts") and "55 to 69" in on["line"]
+    plain_off, plain_on = _run()["roleViews"]  # no stored role: nothing changes either way
+    assert plain_off == plain_on and plain_on["line"] == ""
 
 
 @needs_node

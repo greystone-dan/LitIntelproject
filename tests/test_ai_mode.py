@@ -172,12 +172,12 @@ def test_local_generation_provider_never_constructs_openai(monkeypatch):
 	monkeypatch.setenv("ENHANCED_AI_MODE", "local")
 	monkeypatch.setenv("TEXT_GENERATION_PROVIDER", "openai")
 	monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
-	monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
+	monkeypatch.delenv("QUERY_EMBEDDING_DIMENSIONS", raising=False)
 	monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 	monkeypatch.setattr(
 		query_embedding_providers,
 		"_local_provider",
-		lambda *_args: SimpleNamespace(embed_query=lambda _text: [0.2] * 1536),
+		lambda *_args: SimpleNamespace(embed_query=lambda _text: [0.2] * 1024),
 	)
 	monkeypatch.setattr(
 		text_generation_providers, "OpenAI",
@@ -193,7 +193,7 @@ def test_local_generation_provider_never_constructs_openai(monkeypatch):
 		text_generation_providers.OllamaChatProvider,
 	)
 	assert search_service._effective_search_mode("semantic") == "semantic"
-	assert len(search_service._embed("local query")) == 1536
+	assert len(query_embedding_providers.embed_query("local query")) == 1024
 
 
 def test_hosted_mode_preserves_configured_openai_provider_through_fake(monkeypatch):

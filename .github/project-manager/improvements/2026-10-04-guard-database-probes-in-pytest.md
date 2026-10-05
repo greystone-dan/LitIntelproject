@@ -24,3 +24,20 @@ that currently rely on the import-time probe; cover both local and CI flows.
 
 Decision and date: Deferred on 2026-10-04; this issue does not change test
 infrastructure or database behavior.
+
+## Repeat Evidence (2026-10-05)
+
+During PR comment 5990921329 integration, a focused and an initial full pytest
+run set `PYTHON_DOTENV_DISABLED=1` but did not block the conftest probe.
+`SessionLocal().execute("SELECT 1")` was therefore attempted during collection;
+the connection outcome was not captured and no writes were intended. Later
+validation used a temporary startup guard that blocked the project engine's
+`connect` and `raw_connection` methods before pytest collection; the focused
+run confirmed the probe was intercepted. This repeats the risk above and shows
+that an environment flag alone is insufficient.
+
+Recommendation: Prioritize a repository-owned, documented no-project-database
+pytest launcher/guard before further managed full-suite runs. It must install
+the block before `tests/conftest.py` import, preserve explicit in-memory SQLite
+tests, and leave PostgreSQL integration opt-in. Until then, use the bounded
+temporary engine guard and record it with every pytest result.

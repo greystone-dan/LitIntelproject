@@ -26,8 +26,14 @@ except Exception:  # pragma: no cover
 from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
 from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
+from .embedding_registry import (
+	DEFAULT_LOCAL_EMBEDDING_MODEL,
+	DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
+	get_embedding_model,
+)
 from .query_embedding_providers import (
 	embed_query,
+	get_indexed_embedding_model,
 	query_embedding_provider,
 	query_embeddings_enabled,
 )
@@ -45,8 +51,9 @@ from .models import (
 	LocalChunkSearchRequest,
 )
 
-EMBEDDING_DIMENSIONS = 1536
-EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
+_INDEXED_EMBEDDING_MODEL = get_indexed_embedding_model()
+EMBEDDING_DIMENSIONS = _INDEXED_EMBEDDING_MODEL.output_dimensions
+EMBEDDING_MODEL = _INDEXED_EMBEDDING_MODEL.model_id
 RECENT_5000_IVFFLAT_LISTS = 200
 RECENT_5000_IVFFLAT_PROBES_DEFAULT = 12
 
@@ -110,14 +117,40 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 	return requested_mode
 
 
-def _embed(text: str) -> list[float]:
-	embedding = embed_query(text, indexed_dimensions=EMBEDDING_DIMENSIONS)
-	if len(embedding) != EMBEDDING_DIMENSIONS:
+def _selected_embedding_model_id(request_model: str | None = None) -> str:
+	if request_model:
+		return request_model
+	configured_model = os.getenv("EMBEDDING_MODEL")
+	if configured_model:
+		return configured_model
+	query_model = os.getenv("QUERY_EMBEDDING_MODEL")
+	if query_model:
+		return query_model
+	query_provider = os.getenv("QUERY_EMBEDDING_PROVIDER", "").strip().lower()
+	if query_provider == "local":
+		return os.getenv("LOCAL_EMBEDDING_MODEL", DEFAULT_LOCAL_EMBEDDING_MODEL)
+	if query_provider == "openai":
+		return os.getenv("OPENAI_EMBEDDING_MODEL", EMBEDDING_MODEL)
+	if enhanced_mode() == "local":
+		return DEFAULT_LOCAL_EMBEDDING_MODEL
+	return EMBEDDING_MODEL
+
+
+def _embed(text: str, model_id: str | None = None) -> list[float]:
+	model_config = get_embedding_model(
+		model_id or _selected_embedding_model_id()
+	)
+	embedding = embed_query(
+		text,
+		indexed_dimensions=DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
+		model_id=model_config.name,
+	)
+	if len(embedding) != model_config.dimensions:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
 			detail=(
-				f"The query embedding returned {len(embedding)} dimensions but searched "
-				f"vectors are {EMBEDDING_DIMENSIONS}-dimensional; re-embedding is "
+				f"The query embedding returned {len(embedding)} dimensions but the selected "
+				f"model requires {model_config.dimensions}; re-embedding is "
 				"required before using a query model with a different dimension."
 			),
 		)
@@ -425,7 +458,19 @@ def execute_search_cases(
 ) -> list[CaseSearchResponse]:
 	_validate_search_ranges(search)
 	effective_mode = _effective_search_mode(search.search_mode, rollout=rollout)
-	embed_func = embed_fn or _embed
+	selected_model = get_embedding_model(
+		_selected_embedding_model_id(search.embedding_model)
+		if effective_mode in {"semantic", "hybrid"}
+		else EMBEDDING_MODEL
+	)
+	# Case.embedding is a hosted 1536-wide vector with no per-model local table.
+	# Keep local model searches on chunk endpoints rather than mixing vector widths.
+	if (
+		selected_model.table != "case_chunks"
+		or enhanced_mode() != "hosted"
+	) and effective_mode in {"semantic", "hybrid"}:
+		effective_mode = "lexical"
+	embed_func = embed_fn or (lambda text: _embed(text, selected_model.name))
 
 	query_vector = embed_func(search.query) if effective_mode in {"semantic", "hybrid"} else None
 	semantic_distance = (
@@ -528,7 +573,20 @@ def execute_search_chunks(
 ) -> list[ChunkSearchResponse]:
 	_validate_search_ranges(search)
 	effective_mode = _effective_search_mode(search.search_mode, rollout=rollout)
-	embed_func = embed_fn or _embed
+	model_config = get_embedding_model(
+		_selected_embedding_model_id(search.embedding_model)
+		if effective_mode in {"semantic", "hybrid"}
+		else EMBEDDING_MODEL
+	)
+	if (
+		effective_mode in {"semantic", "hybrid"}
+		and model_config.table == "case_chunks"
+		and enhanced_mode() != "hosted"
+	):
+		effective_mode = "lexical"
+	embed_func = embed_fn or (lambda text: _embed(text, model_config.name))
+	if effective_mode in {"semantic", "hybrid"}:
+		search = search.model_copy(update={"embedding_model": model_config.name})
 
 	if effective_mode in {"lexical", "metadata"}:
 		lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
@@ -538,6 +596,22 @@ def execute_search_chunks(
 			.order_by(lexical_rank.desc())
 			.offset((search.page - 1) * search.page_size)
 			.limit(search.page_size)
+		)
+	elif model_config.table == "case_chunk_embeddings":
+		query_vector = _local_embedding_provider(model_config.name).embed_query(search.query)
+		distance = CaseChunkEmbedding.embedding.cosine_distance(query_vector).label("distance")
+		statement = (
+			select(Case, CaseChunk, distance)
+			.join(CaseChunk, CaseChunk.case_id == Case.id)
+			.join(CaseChunkEmbedding, CaseChunkEmbedding.chunk_id == CaseChunk.id)
+			.order_by(distance)
+			.offset((search.page - 1) * search.page_size)
+			.limit(search.page_size)
+		)
+		statement = _apply_case_filters(
+			statement,
+			search,
+			embedding_model_column=CaseChunkEmbedding.model_name,
 		)
 	else:
 		if _can_use_recent_5000_artifact(search, effective_mode, db):
@@ -576,7 +650,8 @@ def execute_search_chunks(
 			.offset((search.page - 1) * search.page_size)
 			.limit(search.page_size)
 		)
-	statement = _apply_case_filters(statement, search)
+	if model_config.table == "case_chunks":
+		statement = _apply_case_filters(statement, search)
 
 	rows = list(db.execute(statement))
 	if effective_mode in {"lexical", "metadata"}:
@@ -639,13 +714,14 @@ def execute_search_chunks_local(
 			detail="Local semantic search is disabled by rollout configuration",
 		)
 	_validate_search_ranges(search)
-	query_vector = _local_embedding_provider(search.model_name).embed_query(search.query)
+	model_config = get_embedding_model(search.model_name)
+	query_vector = _local_embedding_provider(model_config.name).embed_query(search.query)
 	distance = CaseChunkEmbedding.embedding.cosine_distance(query_vector).label("distance")
 	statement = (
 		select(Case, CaseChunk, distance)
 		.join(CaseChunk, CaseChunk.case_id == Case.id)
 		.join(CaseChunkEmbedding, CaseChunkEmbedding.chunk_id == CaseChunk.id)
-		.where(CaseChunkEmbedding.model_name == search.model_name)
+		.where(CaseChunkEmbedding.model_name == model_config.name)
 		.order_by(distance)
 		.offset((search.page - 1) * search.page_size)
 		.limit(search.page_size)
@@ -673,10 +749,33 @@ def execute_grouped_chunk_search(
 	"""Inner retrieval shared by /search/chunks/grouped and /research."""
 	_validate_search_ranges(search)
 	effective_mode = _effective_search_mode(search.search_mode, rollout=rollout)
-	embed_func = embed_fn or _embed
+	model_config = get_embedding_model(
+		_selected_embedding_model_id(getattr(search, "embedding_model", None))
+		if effective_mode in {"semantic", "hybrid"}
+		else EMBEDDING_MODEL
+	)
+	if (
+		effective_mode in {"semantic", "hybrid"}
+		and model_config.table == "case_chunks"
+		and enhanced_mode() != "hosted"
+	):
+		effective_mode = "lexical"
+	embed_func = embed_fn or (lambda text: _embed(text, model_config.name))
+	if effective_mode in {"semantic", "hybrid"}:
+		search = search.model_copy(update={"embedding_model": model_config.name})
 
-	query_vector = embed_func(search.query) if effective_mode in {"semantic", "hybrid"} else None
-	if _can_use_recent_5000_artifact(search, effective_mode, db):
+	if effective_mode in {"semantic", "hybrid"}:
+		query_vector = (
+			_local_embedding_provider(model_config.name).embed_query(search.query)
+			if model_config.table == "case_chunk_embeddings"
+			else embed_func(search.query)
+		)
+	else:
+		query_vector = None
+	if (
+		model_config.table == "case_chunks"
+		and _can_use_recent_5000_artifact(search, effective_mode, db)
+	):
 		_apply_recent_5000_ivfflat_probes(db)
 		semantic_distance = (
 			RecentCaseChunkEmbedding.embedding.cosine_distance(query_vector).label("semantic_distance")
@@ -699,6 +798,28 @@ def execute_grouped_chunk_search(
 			search,
 			chunk_set_column=RecentCaseChunkEmbedding.chunk_set,
 			embedding_model_column=RecentCaseChunkEmbedding.embedding_model,
+		)
+	elif (
+		model_config.table == "case_chunk_embeddings"
+		and query_vector is not None
+	):
+		semantic_distance = CaseChunkEmbedding.embedding.cosine_distance(
+			query_vector
+		).label("semantic_distance")
+		lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
+		statement = (
+			select(Case, CaseChunk, semantic_distance, lexical_rank)
+			.join(CaseChunk, CaseChunk.case_id == Case.id)
+			.join(
+				CaseChunkEmbedding,
+				CaseChunkEmbedding.chunk_id == CaseChunk.id,
+			)
+			.where(CaseChunkEmbedding.model_name == model_config.name)
+		)
+		statement = _apply_case_filters(
+			statement,
+			search,
+			embedding_model_column=CaseChunkEmbedding.model_name,
 		)
 	else:
 		semantic_distance = (
@@ -794,7 +915,7 @@ def execute_grouped_chunk_search(
 		item.chunks = item.chunks[: search.max_chunks_per_case]
 	if getattr(search, "ranking_mode", "paragraph") == "balanced_rag" and grouped_cases:
 		case_scores: dict[int, tuple[float | None, int]] = {}
-		if query_vector is not None:
+		if query_vector is not None and model_config.table == "case_chunks":
 			case_scores = {
 				case_id: (case_similarity, int(in_degree or 0))
 				for case_id, case_similarity, in_degree in db.execute(

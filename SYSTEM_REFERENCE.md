@@ -328,20 +328,43 @@ paging and explicit date/minister sorts remain intact. Results expose a short
 - The CSV and Word exports use the existing SQL analytics Case Search rather
   than vector retrieval; their behavior and `/analytics/search/cases` remain
   unchanged and do not construct an AI provider.
-- Query embedding selection is independent of generation and disabled by
-  default. Semantic/hybrid requests use lexical ranking unless the operator
-  explicitly selects a query provider and enables enhanced mode. The OpenAI
-  provider requires `ENHANCED_AI_MODE=hosted` and
-  `QUERY_EMBEDDING_PROVIDER=openai`; the local SentenceTransformer option keeps
-  query text on-device and requires `QUERY_EMBEDDING_PROVIDER=local` in
-  `local` or `hosted` mode. `GET /api/search-embedding-status` reports the selected query
+- Query embedding selection is independent of generation and remains disabled
+  in the default `off` mode. In `local` or `hosted` mode, `EMBEDDING_MODEL`
+  selects the registered model for semantic/hybrid chunk retrieval; absent an
+  explicit selection, the hosted default remains `text-embedding-3-small`.
+  Optional `QUERY_EMBEDDING_PROVIDER` and `QUERY_EMBEDDING_MODEL` settings
+  continue to support explicit selection. OpenAI query inference requires
+  `ENHANCED_AI_MODE=hosted`; local SentenceTransformer inference keeps query
+  text on-device and is permitted in `local` or `hosted` mode.
+  `GET /api/search-embedding-status` reports the selected query
   provider/model/output dimensions, indexed dimensions, whether query text
   leaves the machine, and `TEXT_GENERATION_PROVIDER` without loading a model.
-  Search rejects query vectors that do not match its 1536-dimensional
-  indexed-vector contract. The default local BGE-M3 model is 1024-dimensional,
-  so it requires a compatible indexed-vector family before it can be used by
-  that search path. See [the local query embedding report](docs/reports/local-query-embeddings.md)
-  and [configuration reference](docs/CONFIGURATION_REFERENCE.md).
+  Search and case ingestion use the shared `EmbeddingProvider` interface in
+  `backend/embedding_providers.py`: the default is `NoneEmbeddingProvider`,
+  OpenAI client creation is lazy, and local SentenceTransformer models are
+  shared by model/device within the process. `backend/query_embedding_providers.py`
+  applies `backend/ai_mode.py` before constructing or invoking a provider.
+  Therefore `off` makes no embedding calls and constructs no model; local mode
+  cannot select hosted embedding providers; hosted mode permits the configured
+  provider. Ingestion only embeds a summary when its rollout flag and enhanced
+  mode are enabled and a provider is configured. Model IDs, provider,
+  dimensions, normalization, query/document prefixes, and retrieval table come
+  from `ai.embeddings.registry` in `config.yaml`; hosted and local defaults are
+  configured separately. Hosted `text-embedding-3-small` retrieval uses the
+  existing 1536-dimensional chunk tables. `BAAI/bge-m3` (also accepted as
+  `bge-m3`) retrieves only from the separately tagged 1024-dimensional
+  `case_chunk_embeddings` table. The exact canonical model tag and table are
+  applied together, so vectors of different widths are never compared.
+  Search rejects query vectors that do not match the selected indexed-vector
+  contract. The case-level semantic path remains on the hosted 1536-dimensional
+  schema; BGE-M3's 1024-dimensional vectors are supported only through the
+  separately tagged local chunk table, not compared with hosted vectors.
+  API-ingestion summary vectors are emitted only for a registry model matching
+  the fixed 1536-dimensional case-vector contract; incompatible selections are
+  skipped rather than written at the wrong width. Registry selection does not
+  migrate or re-embed stored vectors. See [the local query embedding report](docs/reports/local-query-embeddings.md),
+  the [configuration reference](docs/CONFIGURATION_REFERENCE.md), and the
+  [offline model evaluation guide](docs/OFFLINE_MODEL_EVALUATION.md).
 - The active Data Explorer keeps ordinary case search as the default. Its
   opt-in RAG checkbox calls `/research` and ranks candidate cases with the
   default blend of 55% best paragraph similarity, 30% full-case similarity,
@@ -874,7 +897,9 @@ Reference-library documents are deliberately separate from canonical cases. `dat
 | `backend/intelligence.py` | Derived intelligence fields: decision outcome, government role/result, case type/challenge/issue/topic |
 | `case_outcomes` | Versioned outcome source of truth: disposition, winner/loser, challenged issues, confidence, and evidence offsets |
 | `backend/legal_tagger_v3.py` | Active deterministic V3 core mention tags; V1/V2 taggers remain legacy comparison layers |
-| `backend/embedding_providers.py` | Embedding provider selection/wiring |
+| `backend/embedding_registry.py` | Configuration-loaded embedding model IDs, provider types, defaults, and output-dimension metadata |
+| `backend/embedding_providers.py` | Shared embedding-provider interface and lazy disabled, OpenAI, and SentenceTransformer implementations |
+| `backend/query_embedding_providers.py` | Policy-gated query and case-ingestion provider configuration, dimensions, and API error mapping |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with context/token/JSON capability metadata and local/private URL gating |
 | `scripts/run_case_intelligence_request.py` | Bounded hosted or local case-intelligence generation |
 | `backend/fc_activity.py` | A2AJ Federal Court activity normalization |

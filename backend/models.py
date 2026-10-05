@@ -1,7 +1,13 @@
 from datetime import date, datetime
+import os
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from .embedding_registry import (
+	DEFAULT_LOCAL_EMBEDDING_MODEL,
+	DEFAULT_OPENAI_EMBEDDING_MODEL,
+	get_embedding_model,
+)
 from .memo_suggestion_models import MemoAuthoritySuggestions
 
 
@@ -480,7 +486,15 @@ class ChunkSearchResponse(CaseResponse):
 class LocalChunkSearchRequest(CaseSearchRequest):
 	model_config = ConfigDict(protected_namespaces=())
 
-	model_name: str = Field(default="BAAI/bge-m3", min_length=1, max_length=255)
+	model_name: str = Field(default=DEFAULT_LOCAL_EMBEDDING_MODEL, min_length=1, max_length=255)
+
+	@field_validator("model_name")
+	@classmethod
+	def validate_model_name(cls, value: str) -> str:
+		model = get_embedding_model(value)
+		if model.provider != "local":
+			raise ValueError(f"Embedding model {value!r} is not a local model")
+		return model.name
 
 
 class ChunkGroupSearchRequest(CaseSearchRequest):
@@ -831,7 +845,16 @@ class ResearchRequest(ChunkGroupSearchRequest):
 	max_cases: int = Field(default=8, ge=1, le=10)
 	temperature: float = Field(default=0.3, ge=0.0, le=1.0)
 	chunk_set: Literal["paragraph"] = "paragraph"
-	embedding_model: Literal["text-embedding-3-small"] = "text-embedding-3-small"
+	embedding_model: str = Field(
+		default_factory=lambda: os.getenv(
+			"EMBEDDING_MODEL",
+			DEFAULT_LOCAL_EMBEDDING_MODEL
+			if os.getenv("ENHANCED_AI_MODE", "off").strip().lower() == "local"
+			else DEFAULT_OPENAI_EMBEDDING_MODEL,
+		),
+		min_length=1,
+		max_length=255,
+	)
 	ranking_mode: Literal["paragraph", "balanced_rag"] = "balanced_rag"
 	paragraph_weight: float = Field(default=0.55, ge=0.0, le=1.0)
 	case_similarity_weight: float = Field(default=0.30, ge=0.0, le=1.0)
@@ -850,6 +873,11 @@ class ResearchRequest(ChunkGroupSearchRequest):
 	# override ChunkGroupSearchRequest defaults for richer context
 	max_chunks_per_case: int = Field(default=3, ge=1, le=10)
 	page_size: int = Field(default=20, ge=1, le=50)
+
+	@field_validator("embedding_model")
+	@classmethod
+	def validate_embedding_model(cls, value: str) -> str:
+		return get_embedding_model(value).name
 
 
 class ResearchSource(BaseModel):

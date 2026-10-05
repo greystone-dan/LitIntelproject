@@ -9,10 +9,27 @@ from typing import Any
 
 import numpy as np
 
-DEFAULT_LOCAL_EMBEDDING_MODEL = "BAAI/bge-m3"
-DEFAULT_LOCAL_EMBEDDING_DIMENSIONS = 1024
-DEFAULT_OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
-DEFAULT_OPENAI_EMBEDDING_DIMENSIONS = 1536
+from .embedding_registry import (
+    DEFAULT_LOCAL_EMBEDDING_DIMENSIONS,
+    DEFAULT_LOCAL_EMBEDDING_MODEL,
+    DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
+    DEFAULT_OPENAI_EMBEDDING_MODEL,
+    EmbeddingModel,
+    get_embedding_model,
+    validate_embedding_dimensions,
+)
+
+__all__ = [
+    "DEFAULT_LOCAL_EMBEDDING_DIMENSIONS",
+    "DEFAULT_LOCAL_EMBEDDING_MODEL",
+    "DEFAULT_OPENAI_EMBEDDING_DIMENSIONS",
+    "DEFAULT_OPENAI_EMBEDDING_MODEL",
+    "EmbeddingProvider",
+    "EmbeddingProviderUnavailableError",
+    "NoneEmbeddingProvider",
+    "OpenAIEmbeddingProvider",
+    "SentenceTransformerEmbeddingProvider",
+]
 
 
 class EmbeddingProvider(ABC):
@@ -32,6 +49,25 @@ class EmbeddingProvider(ABC):
 
 class EmbeddingProviderUnavailableError(RuntimeError):
     """Raised when an embedding provider cannot be used in this environment."""
+
+
+def _normalize(vector: list[float]) -> list[float]:
+    norm = float(np.linalg.norm(np.asarray(vector, dtype=np.float32)))
+    return [value / norm for value in vector] if norm else vector
+
+
+def _registered_model(model_name: str, provider: str) -> EmbeddingModel | None:
+    try:
+        model_config = get_embedding_model(model_name)
+    except ValueError:
+        # An explicitly injected/fake model remains useful to provider consumers.
+        # Configuration entry points validate model IDs before constructing providers.
+        return None
+    if model_config.provider != provider:
+        if provider == "local":
+            raise ValueError(f"Embedding model {model_name!r} is not a local model")
+        raise ValueError(f"Embedding model {model_name!r} is not an OpenAI model")
+    return model_config
 
 
 class NoneEmbeddingProvider(EmbeddingProvider):
@@ -56,12 +92,25 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
         self,
         model_name: str = DEFAULT_OPENAI_EMBEDDING_MODEL,
         *,
-        dimensions: int = DEFAULT_OPENAI_EMBEDDING_DIMENSIONS,
+        dimensions: int | None = None,
         client: Any | None = None,
         client_factory: Any | None = None,
     ) -> None:
-        self.model_name = model_name
-        self.dimensions = dimensions
+        self.model_config = _registered_model(model_name, "openai")
+        expected_dimensions = (
+            self.model_config.output_dimensions
+            if self.model_config is not None
+            else DEFAULT_OPENAI_EMBEDDING_DIMENSIONS
+        )
+        if dimensions is not None and self.model_config and dimensions != expected_dimensions:
+            raise ValueError(
+                f"Embedding model {model_name} is configured for "
+                f"{expected_dimensions} dimensions"
+            )
+        self.model_name = (
+            self.model_config.name if self.model_config is not None else model_name
+        )
+        self.dimensions = expected_dimensions if dimensions is None else dimensions
         self._client = client
         self._client_factory = client_factory
 
@@ -72,14 +121,15 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise EmbeddingProviderUnavailableError("OPENAI_API_KEY is not configured")
+
         client_factory = self._client_factory
         if client_factory is None:
             from openai import OpenAI
 
             client_factory = OpenAI
 
-        # The SDK reads this variable during client initialization. Avoid applying a
-        # process-wide organization override, then restore it immediately.
+        # The SDK reads this setting at construction; do not let a process-wide
+        # organization override silently affect this application client.
         organization = os.environ.pop("OPENAI_ORG_ID", None)
         try:
             self._client = client_factory(api_key=api_key)
@@ -88,18 +138,37 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
                 os.environ["OPENAI_ORG_ID"] = organization
         return self._client
 
-    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+    def _encode(self, texts: list[str], *, query: bool) -> list[list[float]]:
         if not texts:
             return []
+        prefix = ""
+        if self.model_config is not None:
+            prefix = (
+                self.model_config.query_prefix
+                if query
+                else self.model_config.document_prefix
+            )
+        prepared_texts = [f"{prefix}{text}" for text in texts]
+        request_input: str | list[str] = prepared_texts
+        if query and self.model_config is not None:
+            request_input = prepared_texts[0]
         response = self._get_client().embeddings.create(
-            input=texts, model=self.model_name
+            input=request_input,
+            model=self.model_name,
         )
-        vectors = [item.embedding for item in response.data]
-        _validate_dimensions(vectors, self.model_name, self.dimensions)
+        vectors = [list(item.embedding) for item in response.data]
+        _validate_dimensions(vectors, self.model_name or "unknown", self.dimensions or 0)
+        if self.model_config is not None:
+            validate_embedding_dimensions(self.model_name or "", len(vectors[0]))
+            if self.model_config.normalize:
+                vectors = [_normalize(vector) for vector in vectors]
         return vectors
 
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        return self._encode(texts, query=False)
+
     def embed_query(self, text: str) -> list[float]:
-        return self.embed_documents([text])[0]
+        return self._encode([text], query=True)[0]
 
 
 class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
@@ -112,18 +181,35 @@ class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
         self,
         model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
         *,
-        dimensions: int = DEFAULT_LOCAL_EMBEDDING_DIMENSIONS,
+        dimensions: int | None = None,
         device: str | None = None,
         model: Any | None = None,
     ) -> None:
-        self.model_name = model_name
-        self.dimensions = dimensions
+        self.model_config = _registered_model(model_name, "local")
+        if self.model_config is None and dimensions is None:
+            raise ValueError(
+                f"Unregistered local embedding model {model_name!r} requires dimensions"
+            )
+        expected_dimensions = (
+            self.model_config.output_dimensions
+            if self.model_config is not None
+            else dimensions
+        )
+        if dimensions is not None and self.model_config and dimensions != expected_dimensions:
+            raise ValueError(
+                f"Embedding model {model_name} is configured for "
+                f"{expected_dimensions} dimensions"
+            )
+        self.model_name = (
+            self.model_config.name if self.model_config is not None else model_name
+        )
+        self.dimensions = expected_dimensions if dimensions is None else dimensions
         self.device = device or os.getenv("LOCAL_EMBEDDING_DEVICE", "cpu")
         self._model = model
 
     def _get_model(self) -> Any:
         if self._model is None:
-            key = (self.model_name, self.device)
+            key = (self.model_name or "", self.device)
             with self._models_lock:
                 if key not in self._models:
                     try:
@@ -138,12 +224,21 @@ class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
                 self._model = self._models[key]
         return self._model
 
-    def _encode(self, texts: list[str]) -> list[list[float]]:
+    def _encode(self, texts: list[str], *, query: bool = False) -> list[list[float]]:
         if not texts:
             return []
+        prefix = ""
+        normalize = False
+        if self.model_config is not None:
+            prefix = (
+                self.model_config.query_prefix
+                if query
+                else self.model_config.document_prefix
+            )
+            normalize = self.model_config.normalize
         vectors = self._get_model().encode(
-            texts,
-            normalize_embeddings=True,
+            [f"{prefix}{text}" for text in texts],
+            normalize_embeddings=normalize,
             show_progress_bar=False,
             convert_to_numpy=True,
         )
@@ -154,13 +249,15 @@ class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
                 f"Embedding model {self.model_name} returned {actual} dimensions; "
                 f"expected {self.dimensions}"
             )
+        if self.model_config is not None:
+            validate_embedding_dimensions(self.model_name or "", array.shape[1])
         return array.tolist()
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
         return self._encode(texts)
 
     def embed_query(self, text: str) -> list[float]:
-        return self._encode([text])[0]
+        return self._encode([text], query=True)[0]
 
 
 def _validate_dimensions(

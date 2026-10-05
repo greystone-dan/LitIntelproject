@@ -55,7 +55,7 @@ def search_units_by_embedding(
 		query: Search query text
 		db: Database session
 		limit: Maximum results to return
-		embedding_model: Embedding model name (default: BAAI/bge-m3)
+		embedding_model: Model ID (defaults to the configured local registry model)
 		similarity_threshold: Minimum similarity score (0-1)
 
 	Returns:

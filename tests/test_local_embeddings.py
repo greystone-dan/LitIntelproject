@@ -35,7 +35,7 @@ def test_sentence_transformer_provider_normalizes_and_validates_dimensions():
 
 def test_sentence_transformer_provider_rejects_wrong_dimensions():
     provider = SentenceTransformerEmbeddingProvider(
-        model_name="wrong-model",
+        model_name="BAAI/bge-m3",
         dimensions=1024,
         model=FakeSentenceModel(dimensions=384),
     )

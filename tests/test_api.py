@@ -1442,6 +1442,9 @@ def test_local_chunk_search_uses_requested_model(monkeypatch):
 
 
 def test_search_embedding_status_reports_no_embedding_default(monkeypatch):
+    # The registry's enabled-mode hosted default is opt-in only after the
+    # enhanced-mode gate; verify that off mode reports no selected provider.
+    monkeypatch.setenv("ENHANCED_AI_MODE", "off")
     monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
     monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
     monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
@@ -1497,19 +1500,19 @@ def test_default_semantic_search_falls_back_without_constructing_model_client(mo
     assert "cosine" not in str(database.statement).lower()
 
 
-def test_local_query_embedding_with_matching_indexed_dimensions(monkeypatch):
+def test_local_query_embedding_uses_registered_model_dimensions(monkeypatch):
     monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
-    monkeypatch.setenv("QUERY_EMBEDDING_MODEL", "test-1536-local")
+    monkeypatch.setenv("QUERY_EMBEDDING_MODEL", "BAAI/bge-m3")
     monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
-    monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
-    provider = SimpleNamespace(embed_query=lambda text: [0.25] * 1536)
+    monkeypatch.delenv("QUERY_EMBEDDING_DIMENSIONS", raising=False)
+    provider = SimpleNamespace(embed_query=lambda text: [0.25] * 1024)
     monkeypatch.setattr(query_embedding_providers, "_local_provider", lambda model, dims: provider)
 
-    assert len(search_service._embed("local query")) == 1536
+    assert len(query_embedding_providers.embed_query("local query")) == 1024
     assert query_embedding_providers.get_search_embedding_status() == {
         "query_provider": "local",
-        "model": "test-1536-local",
-        "dimensions": 1536,
+        "model": "BAAI/bge-m3",
+        "dimensions": 1024,
         "indexed_dimensions": 1536,
         "query_data_leaves_machine": False,
         "text_generation_provider": "openai",

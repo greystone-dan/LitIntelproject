@@ -378,7 +378,7 @@ function afterRender(){
   state.findHits=[];state.findAt=-1;
   render();
 }
-function countFor(type){return state.notes.filter(n=>n.type===type&&!n.quiet).length}
+function countFor(type){return state.notes.filter(n=>n.type===type).length}
 function tagCount(){const rd=readerState.payload&&readerState.payload.readerData;return rd&&Array.isArray(rd.tags)?rd.tags.length:0}
 /* Re-render the toolbar without losing the user's place: keep focus (and caret in the find box). */
 function focusKey(el){

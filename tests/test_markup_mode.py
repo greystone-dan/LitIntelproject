@@ -443,3 +443,8 @@ console.log(JSON.stringify({
     assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
     assert "No pinpoint paragraph was cited" in out["nopin"]["body"]
     assert "Not in the library yet" in out["outside"]["body"]
+
+
+def test_citations_layer_counts_unmatched_citations_so_it_stays_selectable():
+    js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "markup_mode.js").read_text(encoding="utf-8")
+    assert "function countFor(type){return state.notes.filter(n=>n.type===type).length}" in js

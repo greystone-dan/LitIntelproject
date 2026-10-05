@@ -2,11 +2,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from io import BytesIO
+import logging
 import re
+import time
 from typing import Any
 
 from docx import Document
-from sqlalchemy import func, or_, select, tuple_
+from sqlalchemy import func, or_, select, text, tuple_
 from sqlalchemy.orm import Session
 
 from .citations import (
@@ -17,6 +19,8 @@ from .citations import (
 )
 from .database import Case
 from . import resource_limits
+
+logger = logging.getLogger(__name__)
 
 MAX_DOCX_BYTES = resource_limits.MAX_UPLOAD_BYTES
 LIVE_ANALYSIS_CONTENT_TYPES = {
@@ -203,34 +207,65 @@ def _case_alias_terms(match: Any) -> set[str]:
 	return terms
 
 
-def _resolve_local_cases(session: Session, matches: list[Any]) -> dict[str, Case]:
+@dataclass(frozen=True)
+class _LibraryCase:
+	"""The few columns a citation row needs; the (very large) decision text is never loaded here."""
+
+	id: int
+	title: str | None
+	citation: str | None
+	secondary_citation: str | None
+
+
+_LOOKUP_TIMEOUT_MS = 10000
+_MAX_ALIAS_TERMS = 40
+
+
+def _identifier_in(value: str | None, identifier: str) -> bool:
+	"""``identifier`` appears in ``value`` as a whole citation (so ``2019 SCC 6`` does not match ``2019 SCC 65``)."""
+	return bool(value) and re.search(rf"(?<!\w){re.escape(identifier)}(?!\w)", " ".join(value.upper().split())) is not None
+
+
+def _lookup_cases(session: Session, matches: list[Any]) -> dict[str, _LibraryCase]:
 	variants = {variant for match in matches if match.kind == "neutral" for variant in _citation_variants(match.normalized_citation)}
 	variants |= {variant for match in matches for found in _embedded_identifiers(match) for variant in _citation_variants(found)}
 	alias_terms = {term for match in matches if match.kind in {"case", "case_short", "case_name"} for term in _case_alias_terms(match)}
-	if not variants and not alias_terms:
-		return {}
-	normalized_citation = func.upper(func.regexp_replace(func.coalesce(Case.citation, ""), r"\s+", " ", "g"))
-	normalized_secondary = func.upper(
-		func.regexp_replace(func.coalesce(Case.secondary_citation, ""), r"\s+", " ", "g")
-	)
-	conditions = [normalized_citation.in_(variants), normalized_secondary.in_(variants)] if variants else []
-	for term in alias_terms:
-		pattern = f"%{term}%"
-		conditions.extend([Case.title.ilike(pattern), Case.citation.ilike(pattern), Case.secondary_citation.ilike(pattern)])
-	cases = session.scalars(select(Case).where(or_(*conditions)).order_by(Case.id)).all()
-	resolved: dict[str, Case] = {}
-	for case in cases:
-		for value in (case.citation, case.secondary_citation):
-			if value:
-				resolved.setdefault(" ".join(value.upper().split()), case)
-		if case.title:
-			for term in alias_terms:
-				if term in case.title.lower():
-					resolved.setdefault(term, case)
-		for term in alias_terms:
-			if any(term in (value or "").lower() for value in (case.citation, case.secondary_citation)):
-				resolved.setdefault(term, case)
+	resolved: dict[str, _LibraryCase] = {}
+	columns = (Case.id, Case.title, Case.citation, Case.secondary_citation)
+	if variants:
+		# The stored citation is not always the bare neutral citation (it may carry the case name or a reporter
+		# after it), so match containing it, then confirm the whole citation is there. The trigram index serves this.
+		conditions = []
+		for variant in sorted(variants):
+			pattern = f"%{variant}%"
+			conditions.extend([Case.citation.ilike(pattern), Case.secondary_citation.ilike(pattern)])
+		for row in session.execute(select(*columns).where(or_(*conditions)).order_by(Case.id).limit(20 * len(variants))):
+			case = _LibraryCase(*row)
+			for variant in variants:
+				if _identifier_in(case.citation, variant) or _identifier_in(case.secondary_citation, variant):
+					resolved.setdefault(variant, case)
+	# A case name alone is ambiguous ("Baker" is in many titles): accept it only when exactly one decision matches.
+	for term in sorted(alias_terms)[:_MAX_ALIAS_TERMS]:
+		if term in resolved:
+			continue
+		rows = session.execute(select(*columns).where(Case.title.ilike(f"%{term}%")).order_by(Case.id).limit(2)).all()
+		if len(rows) == 1:
+			resolved[term] = _LibraryCase(*rows[0])
 	return resolved
+
+
+def _resolve_local_cases(session: Session, matches: list[Any]) -> tuple[dict[str, _LibraryCase], str | None]:
+	"""``(resolved, error)``; ``error`` names the failure (class and short message) or is ``None``. A database error or timeout must not read as "not in the library"."""
+	if not any(match.kind in {"neutral", "case", "case_short", "case_name"} for match in matches):
+		return {}, None
+	try:
+		with session.begin_nested():
+			if session.get_bind().dialect.name == "postgresql":
+				session.execute(text(f"SET LOCAL statement_timeout = {_LOOKUP_TIMEOUT_MS}"))
+			return _lookup_cases(session, matches), None
+	except Exception as exc:  # noqa: BLE001 - reported per row as a failed lookup, not a missing case
+		logger.exception("live analysis library lookup failed")
+		return {}, f"{type(exc).__name__}: {' '.join(str(exc).split())[:160]}"
 
 
 def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
@@ -240,7 +275,10 @@ def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str,
 def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
 	case_matches = extract_case_citation_matches(text)
 	statute_matches = extract_statute_reference_matches(text)
-	resolved_cases = _resolve_local_cases(session, case_matches) if session is not None else {}
+	started = time.monotonic()
+	resolved_cases, lookup_error = _resolve_local_cases(session, case_matches) if session is not None else ({}, None)
+	lookup_failed = lookup_error is not None
+	lookup_ms = round((time.monotonic() - started) * 1000)
 	case_rows: list[dict[str, Any]] = []
 	for match in case_matches:
 		resolved_case = next(
@@ -254,7 +292,9 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 			)
 		if resolved_case is None:
 			resolved_case = next((resolved_cases.get(term) for term in _case_alias_terms(match) if term in resolved_cases), None)
-		case_rows.append(_row(text, paragraphs, match, resolved_case=resolved_case))
+		row = _row(text, paragraphs, match, resolved_case=resolved_case)
+		row["library_status"] = "in_library" if resolved_case else ("lookup_failed" if lookup_failed else ("not_checked" if session is None else "not_found"))
+		case_rows.append(row)
 
 	return {
 		"filename": filename,
@@ -277,6 +317,9 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 			"case_citations": len(case_rows),
 			"resolved_case_citations": sum(row["resolved_case_id"] is not None for row in case_rows),
 			"unresolved_case_citations": sum(row["resolved_case_id"] is None for row in case_rows),
+			"library_lookup_failed": lookup_failed,
+			"library_lookup_error": lookup_error,
+			"library_lookup_ms": lookup_ms,
 			"statute_references": len(statute_matches),
 		},
 	}

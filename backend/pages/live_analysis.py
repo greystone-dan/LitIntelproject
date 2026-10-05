@@ -77,8 +77,9 @@ function open(data){
   readerState.caseId=null;readerState.payload={item:data.item,citations:data.citations,readerData:data.readerData};readerState.formatted=true;readerState.mode='normalized';
   $('decisionTitle').textContent=data.filename;
   const s=data.summary||{};
+  try{console.info('Live Analysis library lookup',{failed:!!s.library_lookup_failed,error:s.library_lookup_error||null,ms:s.library_lookup_ms,cases:s.case_citations,inLibrary:s.resolved_case_citations})}catch(e){}
   $('decisionEyebrow').textContent='Your document · read in memory, not stored';
-  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].map(v=>`<span class="meta-pill">${v}</span>`).join('');
+  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].concat(s.library_lookup_failed?['Library could not be checked: '+(s.library_lookup_error||'unknown error')]:[]).map(v=>`<span class="meta-pill">${v}</span>`).join('');
   $('decisionTarget').replaceChildren();
   sideState.caseId=null;sideState.tab='authorities';sideState.linkedId=null;
   const back=reader.querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to Live Analysis';

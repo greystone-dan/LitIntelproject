@@ -161,7 +161,7 @@ tbody tr:hover{background:#fafcff}.number{text-align:right}.rank{color:var(--mut
 .reader-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:var(--muted);font-size:12px}
 .reader-meta .meta-pill{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--muted)}
 #readerOverrulingRisk{margin-top:12px;padding:9px 14px;font-size:13px;border:1px solid #d6a64b;border-left:4px solid #9a5b00;border-radius:6px;background:#fff7df;color:#352500}
-#readerOverrulingRisk[hidden]{display:none}
+#readerOverrulingRisk,#readerOverrulingRisk[hidden]{display:none!important}
 #readerOverrulingRisk>strong{display:block;margin-bottom:5px}
 #readerOverrulingRisk p{margin:4px 0;line-height:1.45}
 #readerOverrulingRisk .overruling-risk-flag{margin-top:9px;padding-top:8px;border-top:1px solid #e5d6b1}
@@ -1375,16 +1375,7 @@ async function showSimilarParagraphs(para){
       ((data.results||[]).map(row=>`<article class="reader-info-row"><a href="/data-explorer?tab=search&case_id=${Number(row.case_id)}&paragraph=${Number(row.paragraph_number)}">${esc(row.title)} · ${esc(row.citation||'')} · paragraph ${Number(row.paragraph_number)}</a><p>${esc(row.excerpt)}</p><p>${esc(row.why_matched)}</p><small>Shared tags: ${esc((row.shared_tags||[]).join(', ')||'none')} · Shared authorities: ${esc((row.shared_authorities||[]).join(', ')||'none')}</small></article>`).join('')||'<p>No matches found in the bounded verified evidence. This does not mean no similar passages exist.</p>');
   }});
 }
-const similarityBody=document.getElementById('decisionBody');
-if(similarityBody&&typeof MutationObserver!=='undefined'){
-  new MutationObserver(()=>{
-    similarityBody.querySelectorAll('.fmt-para').forEach(para=>{
-      if(para.querySelector('[data-paragraph-similar]'))return;
-      const button=document.createElement('button');button.type='button';button.dataset.paragraphSimilar='';button.textContent='Similar paragraphs';button.className='reader-source-link';button.setAttribute('aria-label',`Similar paragraphs for paragraph ${para.dataset.para}`);para.append(button);
-    });
-  }).observe(similarityBody,{childList:true,subtree:true});
-  similarityBody.addEventListener('click',event=>{const button=event.target.closest?.('[data-paragraph-similar]');if(button)showSimilarParagraphs(button.closest('.fmt-para'));});
-}
+/* The per-paragraph "Similar paragraphs" button is off everywhere (2026-10-05); showSimilarParagraphs stays for a later opt-in. */
 const initialCaseId=Number(new URLSearchParams(location.search).get('case_id'));if(Number.isInteger(initialCaseId)&&initialCaseId>0&&(new URLSearchParams(location.search).get('tab')||'search')==='search')openDecision(initialCaseId);
 </script>
 <script>

@@ -28,3 +28,9 @@ def test_markup_toolbar_has_the_same_switch():
     from pathlib import Path
     js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "markup_mode.js").read_text(encoding="utf-8")
     assert 'data-mk-act="experimental"' in js and "setReaderExperimental" in js
+
+
+def test_similar_paragraphs_button_is_never_added_to_the_formatted_view():
+    html = data_explorer_page_html()
+    assert "button.dataset.paragraphSimilar=''" not in html
+    assert "#readerOverrulingRisk,#readerOverrulingRisk[hidden]{display:none!important}" in html

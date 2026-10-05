@@ -147,6 +147,27 @@ Repeated mentions count once; stored coverage does not imply legal equivalence
 or completeness. Unknown IDs return HTTP 404 with `detail.code=unknown_case`
 and the missing IDs. No data is written and no new resolution is attempted.
 
+`GET /compare?a=<case_id-or-citation>&b=<case_id-or-citation>` is an additive
+side-by-side comparison page, backed by `GET /api/compare?a=...&b=...` for JSON.
+Both inputs accept a canonical case ID or stored formal citation. The new
+`backend/case_compare.py` helper uses the existing local citation identity
+resolver; inputs above 512 characters fail closed before trimming, numeric
+conversion, or citation normalization. The API also declares a 512-character
+query bound. It performs no external lookup, extraction, or write. The page adds
+`Citation.target_paragraph` as the cited decision's paragraph pinpoint, while
+source occurrence paragraphs come from the citing decision's stored chunk.
+Cross-citations are shown only when stored `Citation.target_case_id` exactly
+matches the other compared case. The page includes an additive “Compare with…”
+reader link prefilled with the open case ID. Missing
+decisions produce an explanatory HTML/API 404; comparing a decision with itself
+is politely rejected. Forms remain usable without JavaScript; optional search
+pickers enhance selection. This is additive to the pre-existing
+`GET /case-compare` search-first page and `GET /cases/compare` JSON contract.
+The old page continues submitting to `/case-compare`; the new page submits to
+`/compare`, so their route contracts are not conflated. All displayed facts and
+outcome evidence are stored, labelled unverified, and do not imply legal
+equivalence or completeness.
+
 The standalone `/issue-brief-ui?tag=category:value` page provides a printable
 tag-focused brief, backed by `GET /issue-brief?tag=category:value`. It summarizes
 tagged decisions by year, outcome, and court, lists up to ten resolved case
@@ -576,7 +597,7 @@ the application; implementation checks use mocks, never a live database.
 
 ### Citation, Statute, And Metadata Processing
 
-`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
+`backend/citations.py` is the deterministic extraction layer. It recognizes neutral citations, reported decisions, named cases, bounded short forms, and source-specific aliases. It normalizes and resolves case citations against local data, then marks unresolved rows explicitly. Reported variants include bracketed, bare, and parenthesized years; whitespace after a parenthesized year is accepted by the same required separator and normalizes consistently. A short form may anchor only to an identifier-bearing full citation in the same source decision: a full `case` row, including a full CanLII case citation or a complete FTR/DLR reporter-only case citation, or a compatibility `case_name` span containing a reported citation. It preserves its own citation text, pinpoint, and exact offsets while referencing that full anchor text and span directly; a bare name and a preceding short form can never seed an anchor. Generic bare aliases such as `Agency`, `Canadian`, `hospital`, and `Revenue` are rejected even when a full case citation exists. Reporter-only full citations retain an adjacent court, declared alias, and pinpoint as part of their anchor; other full-citation extension retains a trailing reporter, bracket alias, and pinpoint in order. Pinpoints are persisted within `citation_text` and `normalized_citation`; there is no separate citation pinpoint field. For rows linked to a chunk, occurrence offsets are chunk-relative and anchor offsets remain document-relative. Citation rows retain source case, optional target case, optional chunk, exact offsets, normalized form, provenance, and unresolved state.
 
 `scripts/rebuild_citations_controlled.py` is the only prepared path for a clean citation-layer replacement. It accepts either explicit case IDs or a bounded `--all --limit` selection that freezes the selected text-bearing IDs into durable state before replacement. It defaults to a non-mutating dry run, writes baseline and comparison JSONL plus a small append-only per-case checkpoint journal under one run directory, and uses an exclusive file lock. Resume recovery merges comparison evidence with the checkpoint journal, lets the newer journal entry override comparison evidence for the same case, and treats an operator-recorded terminal status (such as an explicit skip) as a pass-through rather than a recovery boundary so later journal-backed cases are still recovered. The larger `state.json` snapshot is rewritten every ten cases rather than every case; transient Windows replacements retry for up to 30 seconds, and an operator interrupt records a stopped state. Apply mode additionally requires `--apply --confirm-citation-rebuild`; it invokes only the `case_citations` stage, flushes pending rows before comparison, and rejects short forms with invalid direct anchor provenance or a nonempty-to-empty citation result. It prints cumulative `Cases Processed [...] - Citations Extracted [...]` progress every ten cases from the same terminal process and creates no per-batch directories. It intentionally does not resolve targets or recompute metrics. Two cases (`24480`, `53722`) were explicitly skipped after review; `53722` was a genuine multi-hour stall requiring a forced process termination, confirmed rolled back to its exact baseline. The verified cursor after the recovery-walk fix is `53,757` committed, with case `53,758` next; target resolution and metrics remain deferred.
 

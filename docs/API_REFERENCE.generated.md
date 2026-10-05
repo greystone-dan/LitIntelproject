@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T00:03:13.183346+00:00
+Generated: 2026-10-05T00:21:27.264150+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 121 across 118 paths
-Hidden operations: 64 excluded from OpenAPI
+OpenAPI operations: 122 across 119 paths
+Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -240,6 +240,20 @@ Get Case Summary
 **Responses**
 
 - `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/compare`
+
+Compare Cases By Id Or Citation
+
+**Parameters**
+
+- `a` (query, required; string): Case ID or stored citation (maximum 512 characters).
+- `b` (query, required; string): Case ID or stored citation (maximum 512 characters).
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/judge-profiles/{slug}/issues`
@@ -2322,6 +2336,22 @@ Handler: `backend.routes.citation_intelligence_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.citation_pass_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.compare_cases_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 

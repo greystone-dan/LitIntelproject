@@ -490,6 +490,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 	@page{margin:18mm}
 	body{background:#fff!important}
 	body *{visibility:hidden!important}
+	.reader-compare-link{display:none!important}
 	.app-shell,.workspace,.center-pane{display:block!important;width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important;box-shadow:none!important}
 	.topbar,.sidebar,.page-header,.center-pane>.panel-card:not(#caseReaderPanel){display:none!important}
 	#caseReaderPanel:not([hidden]),#caseReaderPanel:not([hidden]) *{visibility:visible!important}
@@ -517,6 +518,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <h2 id="decisionTitle">Decision</h2>
 <div id="readerPrintCitation" class="reader-print-citation" aria-label="Case citation"></div>
 <div class="reader-meta" id="decisionMeta"></div>
+<a class="reader-source-link reader-compare-link" id="readerCompareLink" href="/compare">Compare with…</a>
 <aside id="readerOverrulingRisk" class="reader-overruling-risk" role="note" aria-live="polite" hidden></aside>
 <div class="reader-toolbar">
 	<div class="reader-view-toggle" aria-label="Reader view mode">
@@ -1503,6 +1505,8 @@ openDecision=async function(caseId){
 	await readerKeyboardOpenDecision(caseId);
 	const citation=document.getElementById('readerPrintCitation');
 	if(citation)citation.textContent=readerState.payload?.item?.citation||'';
+	const compareLink=document.getElementById('readerCompareLink');
+	if(compareLink)compareLink.href=`/compare?a=${encodeURIComponent(caseId)}`;
 	toggleReaderKeyboardHelp(false);
 };
 const readerKeyboardCloseDecisionReader=closeDecisionReader;

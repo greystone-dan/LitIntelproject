@@ -176,6 +176,8 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
+| `backend/citation_treatment.py` | Pure experimental rules that read exact paragraph citation spans as treatment evidence |
+| `backend/citation_treatment_service.py` | Read-only source projection for the experimental citation treatment endpoint |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
 | `backend/contextual_authority/__init__.py` | Contextual-authority analysis package |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |

@@ -32,11 +32,14 @@ class Pinpoint:
 	values: tuple[int, ...]
 	is_range_or_list: bool = False
 	truncated: bool = False
+	# "para 45 ff" / "et seq": the author means 45 and an unstated number of following paragraphs.
+	# ``values`` holds only the stated numbers; the extent is never guessed.
+	open_ended: bool = False
 
 	def display(self) -> str:
 		label = {"paragraph": "para", "page": "p.", "footnote": "n."}.get(self.kind, self.kind)
 		if len(self.values) == 1:
-			return f"{label} {self.values[0]}"
+			return f"{label} {self.values[0]}" + (" ff" if self.open_ended else "")
 		return f"{label} {self.values[0]}-{self.values[-1]}" if self._is_contiguous() else f"{label} " + ", ".join(
 			str(value) for value in self.values
 		)

@@ -189,6 +189,7 @@ test checks that these paths continue to exist.
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |
 | `backend/contextual_authority/observations.py` | Observation and evidence structures for contextual analysis |
 | `backend/contextual_authority/subthemes.py` | Groups discussion-unit subthemes |
+| `backend/contextual_authority/unit_roles.py` | Deterministic coarse role labels (facts, issues, analysis, disposition...) for discussion units |
 | `backend/contextual_authority/teacher_contract.py` | Validates report-only teacher/evaluation outputs |
 | `backend/contextual_authority/voting.py` | Voting helpers for contextual review |
 | `backend/contextual_intelligence.py` | Contextual tag, statute, and citation intelligence service |

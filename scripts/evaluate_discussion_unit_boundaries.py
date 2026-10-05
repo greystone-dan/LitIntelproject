@@ -242,6 +242,48 @@ SETS = {
 }
 
 
+# --------------------------------------------------------------------------- roles
+
+
+def load_gold_roles(gold_dir: Path) -> dict[int, tuple[list[int], list[str]]]:
+    cases = json.loads((gold_dir / "gold_boundaries_v2.json").read_text())["cases"]
+    return {int(case_id): (case["starts"], case["roles"]) for case_id, case in cases.items()}
+
+
+def paragraph_roles(starts: Sequence[int], roles: Sequence[str], paragraph_count: int) -> list[str]:
+    """Spread unit roles over paragraphs: each paragraph takes its unit's role."""
+    bounds = list(starts) + [paragraph_count]
+    out: list[str] = []
+    for role, start, end in zip(roles, bounds, bounds[1:]):
+        out.extend([role] * (end - start))
+    return out
+
+
+def _units_from_starts(texts: Sequence[str], starts: Sequence[int]) -> list[list[str]]:
+    bounds = list(starts) + [len(texts)]
+    return [list(texts[a:b]) for a, b in zip(bounds, bounds[1:])]
+
+
+def evaluate_roles(case_ids: Sequence[int], gold_roles, predict_starts) -> dict[str, tuple[int, int]]:
+    """Unit-level role accuracy on gold units, and paragraph-level agreement on predicted units."""
+    from backend.contextual_authority.unit_roles import label_unit_roles
+
+    unit_hits = unit_total = para_hits = para_total = 0
+    for case_id in case_ids:
+        starts, roles = gold_roles[case_id]
+        texts = [p["text"] for p in load_report(case_id)["paragraphs"]]
+        predicted_on_gold = label_unit_roles(_units_from_starts(texts, starts))
+        unit_hits += sum(a == b for a, b in zip(predicted_on_gold, roles))
+        unit_total += len(roles)
+        pred_starts = predict_starts(case_id)
+        pred_roles = label_unit_roles(_units_from_starts(texts, pred_starts))
+        gold_para = paragraph_roles(starts, roles, len(texts))
+        pred_para = paragraph_roles(pred_starts, pred_roles, len(texts))
+        para_hits += sum(a == b for a, b in zip(gold_para, pred_para))
+        para_total += len(texts)
+    return {"units": (unit_hits, unit_total), "paragraphs": (para_hits, para_total)}
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--gold-dir", type=Path, default=DEFAULT_GOLD_DIR)
@@ -250,6 +292,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--stored", action="store_true", help="score the units saved in the stored reports")
     parser.add_argument("--kwarg", action="append", default=[], help="segment kwarg as name=json, e.g. require_corroboration_for_signal_vacuum=true")
     parser.add_argument("--per-case", action="store_true")
+    parser.add_argument("--roles", action="store_true", help="also score deterministic role labels (gold v2)")
     parser.add_argument("--json", type=Path, help="write per-case results here")
     args = parser.parse_args(argv)
 
@@ -276,6 +319,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             if args.per_case:
                 for c, (g, p, s) in result.per_case.items():
                     print(f"    {c}: hits {s.hits}/{s.gold}, spurious {s.spurious}, gold {g}, predicted {p}")
+    if args.roles:
+        gold_roles = load_gold_roles(args.gold_dir)
+        print("\n| Version | Set | Role accuracy on gold units | Paragraph role agreement on predicted units |\n|---|---|---|---|")
+        for name, predict in versions:
+            for set_label, case_ids in SETS.items():
+                r = evaluate_roles(case_ids, gold_roles, predict)
+                (uh, ut), (ph, pt) = r["units"], r["paragraphs"]
+                print(f"| {name} | {set_label} | {uh}/{ut} = {pct(uh, ut)} | {ph}/{pt} = {pct(ph, pt)} |")
     if args.json:
         args.json.write_text(json.dumps(dump, indent=1))
     return 0

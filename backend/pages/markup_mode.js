@@ -172,8 +172,18 @@ function pinpointInfo(row){
   const n=row.target_paragraph,short=shortCaseName(row.target_title||row.target_citation||'');
   if(!row.target_case_id)return {quote:'',label:'',body:'Not in the library yet — no cited text available.'};
   if(n==null)return {quote:'',label:'',body:'No pinpoint paragraph was cited, so there is no paragraph text to show.'};
+  const paras=Array.isArray(row.target_paragraphs)&&row.target_paragraphs.length?row.target_paragraphs:[n];
+  if(paras.length>1){
+    const texts=row.target_chunk_texts||{};
+    const found=paras.map(p=>({p:p,t:paraText(texts[p]||(p===n?row.target_chunk_text:''),p)})).filter(x=>x.t);
+    const label=(row.target_pinpoint_label||'paras '+paras[0]+'–'+paras[paras.length-1])+(short?' of '+short:' of the cited case');
+    if(!found.length)return {quote:'',label:'',body:'Pinpoint '+(row.target_pinpoint_label||'paragraphs')+' has no stored text in the library.'};
+    const more=paras.length-found.length;
+    const note=more>0?' (text shown for '+found.length+' of '+paras.length+' paragraphs)':'';
+    return {quote:found.map(x=>'¶['+x.p+'] '+x.t).join('\n\n'),label:label+note+(row.target_pinpoint_open_ended?' — "ff": later paragraphs not named':''),body:''};
+  }
   const q=paraText(row.target_chunk_text,n);
-  if(q)return {quote:q,label:'¶['+n+']'+(short?' of '+short:' of the cited case'),body:''};
+  if(q)return {quote:q,label:'¶['+n+']'+(short?' of '+short:' of the cited case')+(row.target_pinpoint_open_ended?' — "ff": later paragraphs not named':''),body:''};
   return {quote:'',label:'',body:row.target_chunk_text?'Pinpoint ¶['+n+'] was not found in the stored text of the cited case, so no paragraph text is shown.':'Pinpoint ¶['+n+'] has no stored text in the library.'};
 }
 /* Short Act names for the pill; anything else falls back to the stored document title. */
@@ -220,7 +230,7 @@ function buildNotes(payload){
     seen.add(row.id);
     const title=row.target_title||row.citation_text||row.normalized_citation||'Citation';
     const hasPin=row.target_paragraph!=null,pin=pinpointInfo(row);
-    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+row.target_paragraph:''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint ¶'+row.target_paragraph:''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
+    notes.push({id:'cite-'+row.id,type:'cite',quiet:quiet,anchor:{kind:'cite',id:row.id},pill:citePill(row,title)+(hasPin?' ¶'+(row.target_paragraphs&&row.target_paragraphs.length>1?(row.target_pinpoint_label||row.target_paragraph).toString().replace(/^paras? /,''):row.target_paragraph):''),title:title,meta:[row.target_citation||row.normalized_citation,row.pinpoint,hasPin?'pinpoint '+(row.target_paragraphs&&row.target_paragraphs.length>1?row.target_pinpoint_label:'¶'+row.target_paragraph):''].filter(Boolean).join(' · '),body:pin.body,quote:pin.quote,quoteLabel:pin.label,cite:{inLibrary:!!row.target_case_id,caseId:row.target_case_id||null,citation:row.target_citation||row.normalized_citation||row.citation_text||'',paragraph:hasPin?row.target_paragraph:null,pinpoint:row.pinpoint||'',text:row.citation_text||'',citedBy:row.target_cited_by||null},foot:(row.target_case_id?[{label:'Open '+shortCaseName(row.target_title||row.target_citation||'case'),action:'open-case',arg:row.target_case_id}]:[]).concat([{label:'Pin',action:'pin',arg:'cite-'+row.id}])});
   }
   /* discussion units and their sub-themes */
   const units=(rd.evidence_summary&&rd.evidence_summary.units)||[];

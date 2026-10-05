@@ -198,6 +198,7 @@ from .reader_service import (
 	build_case_citation_pass_detail,
 	build_case_evidence,
 	build_case_reader_data,
+	get_case_paragraph_texts as _get_case_paragraph_texts,
 	get_case_statute_references as _get_case_statute_references,
 	get_case_metadata_pass as _get_case_metadata_pass_impl,
 	_build_metadata_pass_normalized_rows,
@@ -980,6 +981,22 @@ def get_similar_paragraphs(
 @router.get("/cases/{case_id}/statute-references", response_model=list[CaseReaderCitationResponse])
 def get_case_statute_references(case_id: int, db: Session = Depends(get_db)) -> list[CaseReaderCitationResponse]:
 	return _get_case_statute_references(case_id, db)
+
+
+@router.get("/cases/{case_id}/paragraph-text", response_model=dict[str, str])
+def get_case_paragraph_text(
+	case_id: int,
+	paragraphs: str = Query(..., max_length=200, description="Comma-separated paragraph numbers, e.g. 45,46,47"),
+	db: Session = Depends(get_db),
+) -> dict[str, str]:
+	"""Stored text of numbered paragraphs of one case; the reader's citation hover asks for what it was not sent."""
+	try:
+		numbers = [int(part) for part in paragraphs.split(",") if part.strip()]
+	except ValueError:
+		raise HTTPException(status_code=422, detail="Paragraphs must be comma-separated numbers") from None
+	if case_id < 1 or not numbers or any(number < 1 for number in numbers):
+		raise HTTPException(status_code=422, detail="Case and paragraph numbers must be positive")
+	return _get_case_paragraph_texts(case_id, numbers, db)
 
 
 @router.get("/api/legislation/cases", response_model=list[LegislationCaseOccurrenceResponse])

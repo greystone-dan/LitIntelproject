@@ -2,10 +2,10 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T11:40:45.694473+00:00
+Generated: 2026-10-05T13:23:17.107993+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 127 across 124 paths
+OpenAPI operations: 128 across 125 paths
 Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
@@ -625,6 +625,22 @@ Get Case Paragraph Assessments
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraph-text`
+
+Get Case Paragraph Text
+
+Stored text of numbered paragraphs of one case; the reader's citation hover asks for what it was not sent.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `paragraphs` (query, required; string): Comma-separated paragraph numbers, e.g. 45,46,47
 
 **Responses**
 

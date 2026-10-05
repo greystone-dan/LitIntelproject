@@ -970,6 +970,7 @@ function text(node){return String(node.textContent||'')+(node.children||[]).map(
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):
+            self.id = hash(slug)
             self.slug = slug
             self.display_name = display_name
             self.primary_court = "Federal Court"
@@ -977,6 +978,9 @@ def test_judge_profiles_default_to_most_linked_profiles():
             self.case_links = list(range(case_link_count))
 
     class Database:
+        def execute(self, statement):
+            return iter([])  # no alias rows
+
         def scalars(self, statement):
             return iter([
                 FakeProfile("judge-b", "Judge B", 2),

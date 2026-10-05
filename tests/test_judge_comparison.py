@@ -27,6 +27,8 @@ def db():
 		for ddl in (
 			"CREATE TABLE judge_profiles (id INTEGER PRIMARY KEY, slug TEXT, display_name TEXT, "
 			"normalized_name TEXT, primary_court TEXT, aliases JSON, created_at DATETIME, updated_at DATETIME)",
+			"CREATE TABLE judge_profile_aliases (id INTEGER PRIMARY KEY, alias_profile_id INTEGER, "
+			"canonical_profile_id INTEGER, source TEXT, created_at DATETIME)",
 			"CREATE TABLE cases (id INTEGER PRIMARY KEY, date DATE, issues JSON, metadata_json JSON, "
 			"citation TEXT, title TEXT, court TEXT)",
 			"CREATE TABLE case_judge_profiles (id INTEGER PRIMARY KEY, case_id INTEGER, judge_profile_id INTEGER, "

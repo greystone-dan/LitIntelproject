@@ -214,6 +214,50 @@ source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
+The base requirements include sentence-transformers because the application
+test suite exercises local semantic search. Automatic spaCy name detection is
+optional; install its package and model only when using that feature:
+
+```bash
+pip install -r requirements.txt -r requirements-ml.txt
+```
+
+### Optional request audit log
+
+Auditing is **off by default**. To enable it, set `CASELIBRARY_AUDIT_LOG` to
+a writable file path in the server's process environment before starting it:
+
+```powershell
+$env:CASELIBRARY_AUDIT_LOG = "C:\private-logs\requests.jsonl"
+```
+
+Create the parent directory first. Keep logs outside the repository and web
+root, with access limited to authorized operators. Unset the variable (or leave
+it empty) to disable auditing; configuration changes require a server restart.
+
+Each JSON line contains `time` (UTC), a server-generated `request_id`, `method`,
+`path`, `status`, `duration_ms`, and `client_address_hash`. Paths are matched
+route templates (for example `/cases/{case_id}`); unmatched paths are recorded
+as `<unmatched>` to avoid storing user-supplied filenames or text. Duration
+includes streaming the response. The address hash uses HMAC-SHA256 with a
+random process-local key, so it cannot be correlated across workers or restarts.
+The address is the ASGI client address; the audit middleware does not read
+forwarded-address headers.
+
+No request or response bodies, uploaded filenames, query strings, cookies, or
+request headers are recorded on **any** route, including `/live-analysis*`,
+`/memo-citation-check`, `/api/deidentify*`, and `/api/reidentify`. Raw addresses
+are excluded unless `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS=true` is explicitly set;
+this adds `client_address` and should only be used with an appropriate privacy
+and retention policy.
+
+Files rotate at 5 MiB, keeping three backups (`.1`–`.3`). Use one server process
+per audit file: standard file rotation is not coordinated across processes.
+Write, rotation, and configuration failures are ignored and never change a
+request's result; check file creation and growth after enabling logging.
+This optional audit log does not change Uvicorn or reverse-proxy access logs;
+review those separately because they may record addresses and query strings.
+
 ---
 
 ## 7. Connect Copilot to Your Project
@@ -315,7 +359,7 @@ CASELIBRARY_SESSION_SECRET=use-a-different-long-random-secret
 CASELIBRARY_SESSION_SECONDS=86400
 ```
 
-After restarting the site, unauthenticated browser requests go to `/access`. A successful password entry creates an `HttpOnly` cookie valid for 24 hours. API requests without the cookie receive `401`; the health and robots endpoints remain public.
+These settings currently provide a login page and issue an `HttpOnly` cookie, but the application middleware does not validate that cookie or block unauthenticated requests to protected routes. The `X-Robots-Tag` and `robots.txt` directives are not access controls. Do not rely on these settings to protect sensitive material; verify an independent proxy/identity access gate before exposure. See [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md#high-configured-private-access-is-not-enforced) and the [CBSA readiness checklist](docs/reports/cbsa-readiness-checklist.md).
 
 ---
 

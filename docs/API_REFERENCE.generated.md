@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T13:31:37.852597+00:00
+Generated: 2026-10-05T15:16:46.572319+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 89 across 89 paths
-Hidden operations: 43 excluded from OpenAPI
+OpenAPI operations: 130 across 127 paths
+Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -131,6 +131,8 @@ Search Analytics Cases
 - `limit` (query, optional; integer, default `50`)
 - `offset` (query, optional; integer, default `0`)
 - `cohort_id` (query, optional; string, default `""`)
+- `facets` (query, optional; boolean, default `true`)
+- `citation_stats` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -144,6 +146,21 @@ Get Analytics Search Case
 **Parameters**
 
 - `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /analytics/search/citation-stats`
+
+Search Analytics Citation Stats
+
+Citation counts for the result cards on screen, loaded after the results so they never delay them.
+
+**Parameters**
+
+- `ids` (query, optional; string, default `""`)
 
 **Responses**
 
@@ -182,6 +199,30 @@ Compare Cohort Assessment Records
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /analytics/search/facets`
+
+Search Analytics Facets
+
+Court/year counts for the current filters, loaded after the results so they never delay them.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `cohort_id` (query, optional; string, default `""`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /analytics/search/ministers`
 
 Get Analytics Search Ministers
@@ -205,6 +246,14 @@ Get Statute Tag Matrix
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /analytics/tags`
+
+Get Tag Analytics
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
 ### `GET /analytics/themes`
 
 Get Analytics Themes
@@ -212,6 +261,87 @@ Get Analytics Themes
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/ai-mode`
+
+Get Ai Mode
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/cases/{case_id}/summary`
+
+Get Case Summary
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `StoredCaseSummaryResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/cases/{case_id}/summary-card`
+
+Get Case Summary Card
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `CaseSummaryCardResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/citation-treatment/{case_id}`
+
+Get Citation Treatment
+
+Experimental read-only paragraph evidence, not permanent authority labels.
+
+Counts use distinct citing decisions including unknown as their denominator.
+Classes overlap for mixed evidence; unknown means no classifiable evidence.
+No UI, citation metrics, stored data or source offsets are changed.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/compare`
+
+Compare Cases By Id Or Citation
+
+**Parameters**
+
+- `a` (query, required; string): Case ID or stored citation (maximum 512 characters).
+- `b` (query, required; string): Case ID or stored citation (maximum 512 characters).
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/judge-profiles/{slug}/issues`
+
+Judge Profile Issues
+
+**Parameters**
+
+- `slug` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/legislation/cases`
 
@@ -243,6 +373,107 @@ Return local authoritative section text and cases citing the pinpoint.
 **Responses**
 
 - `200`: Successful Response; `application/json`: `LegislationSectionLookupResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/overruling-risk/{case_id}`
+
+Get Overruling Risk
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/search-embedding-status`
+
+Search Embedding Status
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statutes/{act}/{section}/consideration`
+
+Statute Consideration Analytics
+
+Return descriptive, distinct-decision statistics for stored section references.
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}`
+
+Get Statute By Code
+
+Get statute details, optionally as of a specific date.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `as_of` (query, optional; string | null)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statutes/{statute_code}/versions/{version_id}/sections`
+
+Get Statute Sections
+
+Get sections for a specific statute version.
+
+**Parameters**
+
+- `statute_code` (path, required; string)
+- `version_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/version`
+
+Api Version
+
+Return safe application version information.
+
+The response contains only a sanitized commit, process start time, and
+interpreter version.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+
+### `GET /cases/compare`
+
+Compare two decisions using distinct stored research signals
+
+Returns side-by-side case facts and stored outcome assignment provenance, preserving unclassified outcomes and raw labels. Active legal tags, statute references and case authorities have distinct shared/unique counts; repeated mentions count once. Read-only; no classification or resolution is performed. Unknown IDs return 404 with detail.code=unknown_case and unknown_ids.
+
+**Parameters**
+
+- `a` (query, required; integer)
+- `b` (query, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical case ID(s).
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /cases/{case_id}`
@@ -353,6 +584,40 @@ Get Case Contextual Anchors
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/evidence-summary`
+
+Get Case Evidence Summary
+
+Discussion-unit evidence and case summary, loaded after the decision text so they never delay it.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /cases/{case_id}/markup-export`
+
+Export Case Markup Docx
+
+Word file of the decision with the margin notes the browser sends as Word comments. Nothing is stored.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `MarkupExportRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/paragraph-assessments`
 
 Get Case Paragraph Assessments
@@ -366,6 +631,37 @@ Get Case Paragraph Assessments
 - `200`: Successful Response; `application/json`: `object`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /cases/{case_id}/paragraph-text`
+
+Get Case Paragraph Text
+
+Stored text of numbered paragraphs of one case; the reader's citation hover asks for what it was not sent.
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `paragraphs` (query, required; string): Comma-separated paragraph numbers, e.g. 45,46,47
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /cases/{case_id}/paragraphs/{n}/similar`
+
+Get Similar Paragraphs
+
+**Parameters**
+
+- `case_id` (path, required; integer)
+- `n` (path, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ParagraphSimilarityResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `GET /cases/{case_id}/reader-data`
 
 Get Case Reader Data
@@ -373,6 +669,7 @@ Get Case Reader Data
 **Parameters**
 
 - `case_id` (path, required; integer)
+- `evidence` (query, optional; boolean, default `true`)
 
 **Responses**
 
@@ -766,6 +1063,7 @@ Get Citation Map Case Tags
 
 - `case_id` (path, required; integer)
 - `limit` (query, optional; integer, default `100`)
+- `display_limit` (query, optional; integer | null)
 
 **Responses**
 
@@ -1095,6 +1393,31 @@ Health
 
 - `200`: Successful Response; `application/json`: `unspecified`
 
+### `GET /health/limits`
+
+Health Limits
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/live`
+
+Health Live
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+
+### `GET /health/ready`
+
+Health Ready
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `503`: A required dependency is unavailable
+
 ### `POST /ingest`
 
 Ingest Case
@@ -1129,6 +1452,38 @@ Get Inventory
 
 - `200`: Successful Response; `application/json`: `InventoryResponse`
 
+### `GET /issue-brief`
+
+Build a legal issue brief for a tag
+
+Summarizes active-taxonomy tagged decisions by year, outcome, and court, with resolved case authorities and traceable decision links. Outcome percentages use all decisions in the year as denominator and each split includes the unclassified count and denominator. An empty tag returns an empty brief.
+
+**Parameters**
+
+- `tag` (query, optional; string, default `""`): Exact legal tag in category:value form; empty is supported.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /judges/compare`
+
+Judge Comparison
+
+Compare stored research coverage, shared issues and outcomes; not a ranking.
+
+**Parameters**
+
+- `a` (query, required; string): Canonical judge slug
+- `b` (query, required; string): Canonical judge slug
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `404`: Unknown canonical judge slug (detail.code: unknown_judge)
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/analyze`
 
 Live Analysis Analyze
@@ -1146,6 +1501,36 @@ Live Analysis Analyze
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `POST /live-analysis/reader`
+
+Live Analysis Reader
+
+Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called.
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_live_analysis_reader_live_analysis_reader_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /live-analysis/reader-text`
+
+Live Analysis Reader Text
+
+Same as ``/live-analysis/reader`` for pasted text.
+
+**Request body (required)**
+
+- `application/json`: `LiveReaderTextRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
 ### `POST /live-analysis/resolve`
 
 Live Analysis Resolve
@@ -1158,6 +1543,40 @@ Live Analysis Resolve
 
 - `200`: Successful Response; `application/json`: `LiveAnalysisResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /memo-citation-check`
+
+Memo Citation Check Analyze
+
+**Request body (required)**
+
+- `multipart/form-data`: `Body_memo_citation_check_analyze_memo_citation_check_post`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `MemoCitationCheckResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /precedent-finder`
+
+Precedent Finder Analyze
+
+Ephemeral V3 tag matching with bounded resolved-authority ranking.
+
+Rank by distinct matching citing decisions, distinct matched tags, authority
+date descending, then citation ascending. Statutes do not influence ranking.
+All responses are no-store; no raw proposition is returned or persisted.
+
+**Request body (required)**
+
+- `application/json`: `object`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `413`: Proposition or JSON body exceeds the input limit; input is never echoed.
+- `422`: Invalid JSON proposition; input is never echoed.
+- `500`: Research unavailable; input is never echoed.
 
 ### `GET /prototype/cases`
 
@@ -1208,6 +1627,113 @@ Research
 **Responses**
 
 - `200`: Successful Response; `application/json`: `ResearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches`
+
+List Saved Searches
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `POST /saved-searches`
+
+Create Saved Search
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchCreateRequest`
+
+**Responses**
+
+- `201`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest`
+
+Saved Search Digest
+
+Build a read-only digest of recorded case alerts, not live search results.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/digest.html`
+
+Saved Search Digest Html
+
+Render the same read-only digest as self-contained inline-CSS HTML.
+
+**Parameters**
+
+- `since` (query, optional; string | null): Override last checks with an ISO timestamp
+
+**Responses**
+
+- `200`: Successful Response; `text/html`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `DELETE /saved-searches/{search_id}`
+
+Delete Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `204`: Successful Response
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /saved-searches/{search_id}`
+
+Get Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchDetailResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `PUT /saved-searches/{search_id}`
+
+Update Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Request body (required)**
+
+- `application/json`: `SavedSearchUpdateRequest`
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SavedSearchResponse`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `POST /saved-searches/{search_id}/check`
+
+Check Saved Search
+
+**Parameters**
+
+- `search_id` (path, required; integer)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `SearchDigestResponse`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `POST /search`
@@ -1275,6 +1801,80 @@ Search Paragraphs
 - `200`: Successful Response; `application/json`: `array`
 - `422`: Validation Error; `application/json`: `HTTPValidationError`
 
+### `GET /search/export.csv`
+
+Export Search Analytics Cases
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `cohort_id` (query, optional; string, default `""`)
+
+**Responses**
+
+- `200`: Successful Response; `text/csv`: `string`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /search/export.docx`
+
+Export Search Docx
+
+Export up to 200 cases using the Data Explorer search filters.
+
+**Parameters**
+
+- `query` (query, optional; string, default `""`)
+- `cites` (query, optional; string, default `""`)
+- `government_outcome` (query, optional; string, default `""`)
+- `decision_outcome` (query, optional; string, default `""`)
+- `minister` (query, optional; string, default `""`)
+- `judge` (query, optional; string, default `""`)
+- `court` (query, optional; string, default `""`)
+- `year` (query, optional; string, default `""`)
+- `search_full_text` (query, optional; boolean, default `false`)
+- `sort_by` (query, optional; string, default `"relevance"`)
+- `limit` (query, optional; integer, default `50`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `unspecified`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /search/tags/similar`
+
+Find Similar Cases By Tags
+
+Find cases with overlapping tags. Score by Jaccard similarity of tag (category, value) pairs.
+
+**Parameters**
+
+- `case_id` (query, required; integer)
+- `limit` (query, optional; integer, default `10`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /themes/discovery`
+
+Get Theme Discovery
+
+Discover recurring legal themes across Core-300 by grouping subthemes with shared key terms.
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `ThemeDiscoveryResponse`
+
 ## Hidden Operations
 
 ### `GET /about`
@@ -1312,6 +1912,20 @@ Handler: `backend.main.access_login`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /access/logout`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.main.access_logout`
+
+**Handler parameters**
+
+- `request` (Request; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/about/stats`
 
 **Hidden from OpenAPI.**
@@ -1321,6 +1935,7 @@ Handler: `backend.routes.about_stats`
 **Handler parameters**
 
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -1488,6 +2103,41 @@ Handler: `backend.routes.citation_intelligence_timeline`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /api/deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `names` (str; default `Form()`)
+- `details` (str; default `Form()`)
+- `categories` (str; default `Form()`)
+- `auto_names` (bool; default `Form(True)`)
+- `never_hide` (str; default `Form()`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/deidentify/docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_docx_api`
+
+**Handler parameters**
+
+- `text` (str; default `Form(PydanticUndefined)`)
+- `filename` (str; default `Form(document.docx)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/fc-activity/analytics`
 
 **Hidden from OpenAPI.**
@@ -1503,6 +2153,7 @@ Handler: `backend.routes.fc_activity_analytics`
 - `city` (str; default `''`)
 - `source_type` (str; default `''`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -1523,6 +2174,65 @@ Handler: `backend.routes.fc_activity_breakdowns`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /api/fc-activity/case`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_case`
+
+**Handler parameters**
+
+- `imm` (str; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/counsel`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_counsel`
+
+**Handler parameters**
+
+- `min_files` (int; default `20`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/dashboard`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_dashboard`
+
+**Handler parameters**
+
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `city` (str; default `''`)
+- `decision_body` (str; default `''`)
+- `application_type` (str; default `''`)
+- `representation` (str; default `''`)
+- `language` (str; default `''`)
+- `office` (str; default `''`)
+- `resolution` (str; default `''`)
+- `judge` (str; default `''`)
+- `counsel` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /api/fc-activity/flow`
 
 **Hidden from OpenAPI.**
@@ -1533,6 +2243,59 @@ Handler: `backend.routes.fc_activity_flow`
 
 - `city` (str; default `''`)
 - `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/insights`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_insights`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_judges`
+
+**Handler parameters**
+
+- `min_decisions` (int; default `25`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/motions`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_motions`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**
@@ -1580,6 +2343,7 @@ Handler: `backend.routes.judge_profiles`
 - `q` (str; default `''`)
 - `limit` (int; default `50`)
 - `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 
@@ -1601,6 +2365,38 @@ Handler: `backend.routes.judge_profile`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `POST /api/reidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.reidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `key` (str; default `Form(PydanticUndefined)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_compare_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /case-reader`
 
 **Hidden from OpenAPI.**
@@ -1610,6 +2406,21 @@ Handler: `backend.routes.case_reader_page`
 **Handler parameters**
 
 - `case_id` (int | None; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 
@@ -1665,11 +2476,37 @@ Handler: `backend.routes.citation_pass_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.compare_cases_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /data-explorer`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.data_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_page`
 
 **Responses**
 
@@ -1795,6 +2632,21 @@ Handler: `backend.routes.fc_history_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /issue-brief-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_issue_brief_ui`
+
+**Handler parameters**
+
+- `tag` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /judges`
 
 **Hidden from OpenAPI.**
@@ -1824,6 +2676,26 @@ Handler: `backend.routes.judge_profile_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.live_analysis_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /memo-citation-check`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.memo_citation_check_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /precedent-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.precedent_finder_page`
 
 **Responses**
 
@@ -1869,11 +2741,61 @@ Handler: `backend.main.robots`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /saved-searches-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-consideration`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_consideration.statute_consideration_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_viewer_page_route`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /tag-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.tag_finder_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /testing`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.testing_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /themes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.theme_explorer_page`
 
 **Responses**
 

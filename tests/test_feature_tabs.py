@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 from html.parser import HTMLParser
 import json
+from pathlib import Path
 import re
 import shutil
 import subprocess
@@ -165,6 +166,404 @@ def test_rendered_shell_exposes_tabs_and_product_title():
     assert 'id="judgePanel"' not in html
 
 
+def test_data_explorer_word_export_shares_search_actions_with_csv():
+    html = routes._data_explorer_page_html()
+
+    search_actions = re.findall(r'<div class="search-actions">(.*?)</div>', html)
+    export_actions = next(actions for actions in search_actions if 'id="downloadSearchWord"' in actions)
+    assert 'type="submit" class="sq-go">Search cases</button>' in export_actions
+    assert (
+        '<a id="downloadSearchWord" class="qf-link" href="/search/export.docx" '
+        'hidden aria-hidden="true">Download Word</a>'
+    ) in export_actions
+    assert '<button type="button" class="sq-go" id="downloadSearchCsv">Download CSV</button>' in export_actions
+    assert '<div class="search-status" id="searchMeta"' in html
+    assert 'id="searchTipsPopover" popover role="dialog"' in html
+    assert 'id="searchTipsToggle" popovertarget="searchTipsPopover"' in html
+    assert 'id="searchQueryEcho" role="status"' in html
+    assert "data.query_echo" in html
+    assert "button.href='/search/export.docx'+(params.size?'?'+params:'')" in html
+    assert "Object.entries(searchValues()).forEach(([name,value])=>{if(value)params.set(name,value)})" in html
+    search_values = re.search(r"function searchValues\(\)\{return \{([^}]+)\};\}", html)
+    assert search_values is not None
+    assert re.findall(r"(?:^|,)([a-z_]+):", search_values.group(1)) == [
+        "query",
+        "cites",
+        "government_outcome",
+        "decision_outcome",
+        "minister",
+        "judge",
+        "court",
+        "year",
+        "search_full_text",
+        "sort_by",
+        "limit",
+    ]
+    assert "let filtersDirty=false" in html
+    assert "requestEditVersion=editVersion" in html
+    assert "filtersDirty=editVersion!==requestEditVersion" in html
+    assert "professionalSearchGeneration=0" in html
+    assert "isCurrent:()=>requestId===professionalSearchGeneration" in html
+    assert "document.addEventListener('input',markFiltersDirty)" in html
+    assert "document.addEventListener('change',markFiltersDirty)" in html
+    assert (
+        "!document.getElementById('searchUseRag')?.checked&&!filtersDirty"
+        "&&meta.dataset.state==='success'&&meta.textContent.includes('matching decision')"
+        "&&Boolean(results.querySelector('.case-result'))"
+    ) in html
+    assert "#downloadSearchWord[hidden]{display:none!important}" in html
+
+
+def test_reader_renders_backend_cited_paragraph_metadata():
+    html = routes._data_explorer_page_html()
+
+    assert "Number(b.cited_by_count)>0" in html
+    assert "Cited by ${b.cited_by_count} cases" in html
+    assert "background:#fff9e8" in html
+    assert ".fmt-para.is-cited-by{color:#202522}" in html
+    def luminance(color):
+        channels = [int(color[index : index + 2], 16) / 255 for index in (0, 2, 4)]
+        linear = [
+            channel / 12.92
+            if channel <= 0.04045
+            else ((channel + 0.055) / 1.055) ** 2.4
+            for channel in channels
+        ]
+        return sum(value * weight for value, weight in zip(linear, (0.2126, 0.7152, 0.0722)))
+
+    def contrast_ratio(background, foreground):
+        return (luminance(background) + 0.05) / (luminance(foreground) + 0.05)
+
+    assert contrast_ratio("fff9e8", "202522") >= 4.5
+    assert ".rs-context-text .fmt-para.is-cited .fmt-para-num{color:#202522}" in html
+    assert contrast_ratio("fff4c2", "202522") >= 4.5
+    assert 'data-para="${b.num}"' in html
+
+
+def test_inline_reader_keyboard_navigation_and_print_contract():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="readerKeyboardHelpToggle"' in html
+    assert 'id="readerKeyboardHelp"' in html
+    assert '<kbd>j</kbd> / <kbd>n</kbd> Next paragraph' in html
+    assert '<kbd>k</kbd> / <kbd>p</kbd> Previous paragraph' in html
+    assert 'id="readerPrintCitation"' in html
+    assert '#decisionBody .fmt-para.is-reader-current' in html
+    assert '@media print' in html
+    assert '#decisionBody .fmt-para{break-inside:avoid!important;page-break-inside:avoid!important' in html
+    assert '#caseReaderPanel .reader-pane.target' in html
+    assert '#caseReaderPanel .reader-pane.linked' in html
+    controller = html.split('/* Inline reader keyboard navigation and print behavior. */', 1)[1]
+    controller = controller.split('</script>', 1)[0]
+    assert "key==='j'||key==='n'?1:key==='k'||key==='p'?-1:0" in controller
+    assert "readerTypingTarget(event.target)" in controller
+    assert "target.setAttribute('aria-current','location')" in controller
+    assert "target.classList.add('is-reader-current')" in controller
+    assert "readerState.formatted=true" in controller
+    assert "window.addEventListener('beforeprint'" in controller
+    assert "window.addEventListener('afterprint'" in controller
+
+
+def test_reader_most_cited_paragraphs_ranking_jumps_and_reset():
+    node = shutil.which('node')
+    if not node:
+        pytest.skip('Node is required to execute the reader controls')
+    html = routes._data_explorer_page_html()
+    panel = html.split('<details id="readerMostCited"', 1)[1].split('</details>', 1)[0]
+    assert 'hidden' in panel.split('>', 1)[0]
+    assert 'open' not in panel.split('>', 1)[0]
+    assert '<summary>Most cited paragraphs</summary>' in panel
+    controller = html.split('/* Most cited paragraphs: reader-only controls. */', 1)[1].split('</script>', 1)[0]
+    summary_controller = html[html.index('function extractedReaderSummaryHtml('):].split('</script>', 1)[0]
+    formatter = html.split('function formattedDecision(', 1)[1].split('\n', 1)[0]
+    loader = html.split('async function openDecision(', 1)[1].split('\nfunction renderJudge(', 1)[0]
+    assert html.index('const sidePreviousSetReaderMode=') < html.index('const mostCitedSetReaderMode=')
+    assert html.index('const extractedSummaryPreviousMode=') < html.index('const mostCitedSetReaderMode=')
+    assert html.index('const citationWorkspaceOpenDecision=') < html.index('const mostCitedOpenDecision=')
+    script = r"""
+const assert=require('node:assert/strict');
+const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const readerState={caseId:7,mode:'chunks',formatted:false,payload:null};
+const nodes={readerMostCited:{hidden:true,open:false},readerMostCitedList:{innerHTML:''},decisionBody:{querySelectorAll(selector){return selector==='.reader-extracted-summary'?[]:[target,duplicate]},querySelector(selector){assert.equal(selector,`[id="decision-source-${block.start}"]`);return target},insertAdjacentHTML(where,html){assert.equal(where,'afterbegin');this.summaryHtml=html},addEventListener(name,handler){this[name]=handler}}};
+const target={dataset:{para:'2'},setAttribute(name,value){this[name]=value},scrollIntoView(options){this.scrolled=options},focus(options){this.focused=options},closest(){return null}};
+const duplicate={dataset:{para:'2'},setAttribute(){throw Error('Duplicate paragraph received an anchor')}};
+const document={getElementById(id){return nodes[id]??={scrollIntoView(){},replaceChildren(){}}},addEventListener(name,handler){this[name]=handler}};
+let reducedMotion=false;
+const window={matchMedia(query){assert.equal(query,'(prefers-reduced-motion: reduce)');return {matches:reducedMotion}}};
+let fail=false,closed=false,modeCalls=0;
+let openDecision=async function(id){assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');if(fail)return;readerState.caseId=id;readerState.payload=payload;setReaderMode('normalized');};
+let closeDecisionReader=function(){closed=true;readerState.payload=null};
+let setReaderMode=function(mode){modeCalls++;readerState.mode=mode;if(mode==='normalized'&&readerState.formatted)target.id=`decision-source-${block.start}`;else delete target.id};
+function highlightedDecision(text,citations,tags,start,end,chars){return esc(chars.slice(start,end).join(''))}
+function formattedDecision(FORMATTER
+CONTROLLER
+// This ranking fixture stubs transport only; durable helper/Retry contracts
+// execute the real helper in test_panel_helpers.js.
+async function fetchCurrentPanel(url,container,{render,onError}){
+  try{await render(await(await fetch(url)).json(),()=>true)}catch(_){onError?.()}
+}
+const actualOpenDecision=async function(BASE_LOADER
+const num=Number,extractDocketFromPayload=()=>null;
+let renderFailure=false;
+function renderCaseReaderPane(){if(renderFailure)throw Error('Rendering failed')}
+const fetch=async()=>({ok:true,json:async()=>({case:{full_text:text},citation_metrics:{},format_blocks:[block]})});
+const text='😀 prefix [2] <script>& "quoted" 😀 body';
+const chars=Array.from(text),start=chars.join('').indexOf('[2]')-1;
+const block={type:'para',num:2,start,mark_end:start+3,end:chars.length,cited_by_count:4};
+const payload={item:{full_text:text},readerData:{format_blocks:[block],extracted_summary:[{key:'disposition',label:'Disposition',value:'stored disposition',evidence:'stored disposition',block_start:start,block_type:'para',paragraph_number:2}]}};
+const rows=[{...block,num:10,cited_by_count:4},{...block,num:1,cited_by_count:0},{...block,num:3,cited_by_count:9},{...block,num:9,cited_by_count:4},{...block,num:4,cited_by_count:4},{...block,num:5,cited_by_count:4},block,{...block,type:'heading',num:6,cited_by_count:99}];
+assert.deepEqual(mostCitedParagraphs(rows).map(b=>b.num),[3,2,4,5,9]);
+const duplicateBlock={...block,num:'2',start:block.start+1,cited_by_count:99};
+assert.deepEqual(mostCitedParagraphs([...rows,duplicateBlock]).map(b=>b.num),[3,2,4,5,9]);
+assert.equal(mostCitedParagraphs([block,duplicateBlock])[0],block);
+assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:0},duplicateBlock]),[]);
+assert.deepEqual(mostCitedParagraphs([]),[]);
+assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:-1}]),[]);
+for(const count of [1.5,Infinity,NaN,'not a count'])assert.deepEqual(mostCitedParagraphs([{...block,cited_by_count:count}]),[]);
+for(const num of [0,-1,1.5,'not a paragraph'])assert.deepEqual(mostCitedParagraphs([{...block,num}]),[]);
+assert.ok(!formattedDecision(text,[],[],[block]).includes('id="reader-source-para-'));
+assert.ok(formattedDecision(text,[],[],[block]).includes(`id="decision-source-${block.start}"`));
+(async()=>{
+await openDecision(7);
+assert.equal(target.id,undefined);
+assert.equal(nodes.readerMostCited.hidden,false);
+assert.equal(nodes.readerMostCited.open,false);
+assert.match(nodes.decisionBody.summaryHtml,/stored disposition/);
+assert.ok(nodes.decisionBody.summaryHtml.includes(`href="#decision-source-${block.start}"`));
+assert.match(nodes.readerMostCitedList.innerHTML,/4 other cases/);
+assert.ok(nodes.readerMostCitedList.innerHTML.includes(`<a href="#decision-source-${block.start}" class="reader-evidence-toggle" data-reader-para-jump="2">Jump to paragraph 2</a>`));
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<button'));
+assert.match(nodes.readerMostCitedList.innerHTML,/&lt;script&gt;&amp; &quot;quoted&quot; 😀 body/);
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('<script>'));
+assert.ok(!nodes.readerMostCitedList.innerHTML.includes('[2]'));
+readerState.mode='chunks';readerState.formatted=false;
+let prevented=false;
+document.click({preventDefault(){prevented=true;assert.equal(readerState.mode,'chunks')},target:{closest(selector){assert.equal(selector,'#readerMostCited a[data-reader-para-jump]');return {dataset:{readerParaJump:'2'}}}}});
+assert.equal(prevented,true);
+document.click({preventDefault(){throw Error('Unrelated click prevented')},target:{closest(){return null}}});
+assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.tabindex,'-1');assert.equal(duplicate.id,undefined);
+assert.equal(target.scrolled.block,'center');assert.equal(target.scrolled.behavior,'smooth');assert.equal(target.focused.preventScroll,true);
+readerState.mode='chunks';readerState.formatted=false;
+nodes.decisionBody.click({preventDefault(){},target:{closest(){return {dataset:{summarySource:String(block.start)}}}}});
+assert.equal(readerState.mode,'normalized');assert.equal(readerState.formatted,true);
+assert.equal(target.id,`decision-source-${block.start}`);assert.equal(target.focused.preventScroll,true);
+assert.equal(nodes.readerMostCited.hidden,false);
+reducedMotion=true;jumpToReaderParagraph(2);assert.equal(target.scrolled.behavior,'auto');
+readerState.mode='normalized';readerState.formatted=false;jumpToReaderParagraph(2);
+assert.equal(readerState.formatted,true);assert.equal(readerState.mode,'normalized');
+const calls=modeCalls;jumpToReaderParagraph('999');assert.equal(modeCalls,calls);
+nodes.readerMostCited.open=true;await openDecision(8);assert.equal(nodes.readerMostCited.open,false);
+nodes.readerMostCited.open=true;fail=true;await openDecision(9);
+assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCitedList.innerHTML,'');
+assert.equal(readerState.payload,null);
+fail=false;await openDecision(10);closeDecisionReader();
+assert.equal(closed,true);assert.equal(nodes.readerMostCited.hidden,true);assert.equal(nodes.readerMostCited.open,false);
+assert.equal(nodes.readerMostCitedList.innerHTML,'');
+readerState.payload={item:{full_text:text},readerData:{format_blocks:[]}};renderMostCitedParagraphs();
+assert.equal(nodes.readerMostCited.hidden,true);
+const longText='x'.repeat(219)+'😀tail';
+readerState.payload={item:{full_text:longText},readerData:{format_blocks:[{...block,start:0,mark_end:0,end:224,cited_by_count:1}]}};
+renderMostCitedParagraphs();assert.match(nodes.readerMostCitedList.innerHTML,/1 other case</);
+assert.ok(nodes.readerMostCitedList.innerHTML.includes('x'.repeat(219)+'😀…'));
+readerState.payload=payload;payload.readerData.format_blocks=[block,duplicateBlock];renderMostCitedParagraphs();
+assert.equal((nodes.readerMostCitedList.innerHTML.match(/data-reader-para-jump="2"/g)||[]).length,1);
+assert.match(nodes.readerMostCitedList.innerHTML,/4 other cases/);
+nodes.readerMostCited.open=true;renderFailure=true;await actualOpenDecision(11);
+assert.equal(readerState.payload,null);assert.equal(nodes.readerMostCited.hidden,true);
+assert.equal(nodes.readerMostCited.open,false);assert.equal(nodes.readerMostCitedList.innerHTML,'');
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    script = script.replace('FORMATTER', formatter).replace('CONTROLLER', summary_controller + '\n' + controller).replace('BASE_LOADER', loader)
+    result = subprocess.run([node, '-'], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
+def test_extracted_reader_summary_omits_missing_fields_and_escapes_source_quote():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the extracted reader summary")
+    html = routes._data_explorer_page_html()
+    helpers = "\n".join([
+        html.split("const esc=", 1)[1].split("\n", 1)[0],
+    ])
+    helpers = "const esc=" + helpers
+    helpers += "\n" + html[html.index("function sideFact("):].split("\n", 1)[0]
+    helpers += "\n" + html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1
+    )[0]
+    script = helpers + """
+const assert=require('node:assert/strict');
+assert.equal(extractedReaderSummaryHtml({}), '');
+assert.equal(extractedReaderSummaryHtml(null), '');
+const sparse=extractedReaderSummaryHtml({case:{court:'Federal Court'}});
+assert.equal(sparse,'');
+const quote='[42] The application is dismissed.\\n<script>alert("x")</script> & costs.';
+const data={
+  case:{court:'Federal Court',date:'2026-10-03'},
+  format_blocks:[{type:'meta',start:0},{type:'para',num:42,start:100}],
+  extracted_summary:[
+    {key:'court',label:'Court',value:'Federal Court',evidence:'Federal Court',block_start:0,block_type:'meta',paragraph_number:null},
+    {key:'judge',label:'Judge',value:'Justice "Smith"',evidence:'Justice "Smith"',block_start:0,block_type:'meta',paragraph_number:null},
+    ...[['outcome','Outcome','dismissed'],['outcome_source','Outcome source','stored <rule>'],['disposition','Disposition',quote]].map(([key,label,value])=>({key,label,value,evidence:quote,block_start:100,block_type:'para',paragraph_number:42}))
+  ],
+  tags:[{category:'issue',value:'unverified tag',score:1}]
+};
+const rendered=extractedReaderSummaryHtml(data);
+assert.ok(rendered.includes('dismissed'));
+assert.ok(rendered.includes('stored &lt;rule&gt;'));
+assert.ok(rendered.includes('Justice &quot;Smith&quot;'));
+assert.ok(rendered.includes(esc(quote)));
+assert.ok(!rendered.includes('<script>'));
+assert.equal((rendered.match(/href="#decision-source-100"/g)||[]).length,3);
+assert.equal((rendered.match(/href="#decision-source-0"/g)||[]).length,2);
+assert.ok(rendered.includes('data-summary-source="100"'));
+assert.ok(!rendered.includes('unverified tag'));
+assert.ok(!rendered.includes('2026-10-03'));
+delete data.format_blocks;
+assert.equal(extractedReaderSummaryHtml(data),'');
+data.extracted_summary=data.extracted_summary.filter(row=>!row.key.startsWith('outcome'));
+data.format_blocks=[{type:'para',num:42,start:100}];
+const noOutcome=extractedReaderSummaryHtml(data);
+assert.ok(noOutcome.includes('Disposition'));
+assert.ok(!noOutcome.includes('Outcome source'));
+data.format_blocks=[{type:'para',num:42,start:200}];
+assert.equal(extractedReaderSummaryHtml(data),''); // same number is not the same source block
+console.log('Extracted summary rendering assertions passed');
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+    assert "Extracted summary rendering assertions passed" in result.stdout
+
+
+def test_extracted_reader_summary_mounts_in_active_reader_and_links_formatter_paragraphs():
+    html = routes._data_explorer_page_html()
+    assert "body.insertAdjacentHTML('afterbegin',extractedReaderSummaryHtml(readerState.payload.readerData))" in html
+    assert 'const anchor=`id="decision-source-${b.start}"`' in html
+    assert "const start=link.dataset.summarySource;readerState.formatted=true;setReaderMode('normalized')" in html
+    assert "target.focus({preventScroll:true})" in html
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the active reader summary mount")
+    mount = html[html.index("const extractedSummaryPreviousMode="):].split(
+        "document.getElementById('decisionBody')?.addEventListener('click',event=>{", 1
+    )[0]
+    script = """
+const assert=require('node:assert/strict');
+const readerState={payload:{readerData:{marker:'stored reader data'}}};
+let modeCalls=[],insertions=[],removed=0;
+const paragraph={dataset:{para:'42'}};
+const body={
+  querySelectorAll:selector=>selector==='.reader-extracted-summary'?[{remove:()=>removed++}]:[paragraph],
+  insertAdjacentHTML:(where,html)=>insertions.push([where,html])
+};
+const document={getElementById:id=>id==='decisionBody'?body:null};
+let setReaderMode=mode=>modeCalls.push(mode);
+const extractedReaderSummaryHtml=data=>{assert.equal(data.marker,'stored reader data');return '<section>quote</section>';};
+""" + mount + """
+setReaderMode('normalized');setReaderMode('chunks');setReaderMode('normalized');
+assert.deepEqual(modeCalls,['normalized','chunks','normalized']);
+assert.equal(removed,3);
+assert.deepEqual(insertions,Array(3).fill(['afterbegin','<section>quote</section>']));
+readerState.payload=null;
+setReaderMode('normalized');
+assert.equal(insertions.length,3);
+"""
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, timeout=20)
+    assert result.returncode == 0, result.stderr
+
+
+def test_extracted_summary_browser_source_links():
+    """Optional local Chromium acceptance; no browser dependency for CI."""
+    playwright = pytest.importorskip("playwright.sync_api")
+    chromium = shutil.which("chromium")
+    if not chromium:
+        pytest.skip("Chromium is required for local browser acceptance")
+    from datetime import date
+    from backend.case_formatter import format_decision
+    from backend.reader_service import _build_reader_extracted_summary
+    from backend.models import CaseReaderMetadataFieldResponse
+
+    text = ("Federal Court\nDate: 20250102\nJudge: Justice Smith\nDecision Content\n"
+            "[1] Refugee evidence 😀.\n[2] The application is dismissed.")
+    case = SimpleNamespace(full_text=text, court="Federal Court",
+                           date=date(2025, 1, 2), metadata_json={})
+    start = text.index("application is dismissed")
+    outcome = SimpleNamespace(
+        decision_outcome="dismissed", source="stored_rule",
+        disposition_evidence="application is dismissed",
+        evidence_offset_start=start, evidence_offset_end=start + len("application is dismissed"),
+    )
+    start = text.index("Refugee evidence")
+    tag = SimpleNamespace(
+        category="issue", value="refugee", score=1, source="stored_tag",
+        evidence="Refugee evidence", offset_start=start, offset_end=start + len("Refugee evidence"),
+    )
+    judge = CaseReaderMetadataFieldResponse(
+        key="judge", value="Justice Smith", source="reader_extracted", evidence="Justice Smith",
+    )
+    blocks = format_decision(text)
+
+    def payload(stored_outcome):
+        return {
+            "format_blocks": blocks,
+            "extracted_summary": [
+                row.model_dump() for row in _build_reader_extracted_summary(
+                    case, stored_outcome, blocks, [tag], [judge],
+                )
+            ],
+        }
+
+    html = routes._data_explorer_page_html()
+    helpers = "const esc=" + html.split("const esc=", 1)[1].split("\n", 1)[0] + "\n"
+    for name in ["highlightedDecision", "formattedDecision"]:
+        helpers += html[html.index("function " + name + "("):].split("\n", 1)[0] + "\n"
+    helpers += html[html.index("function extractedReaderSummaryHtml("):].split(
+        "const extractedSummaryPreviousMode=", 1,
+    )[0]
+    hooks = html[html.index("const extractedSummaryPreviousMode="):].split("</script>", 1)[0]
+    setup = (
+        "const readerState={formatted:false,payload:{readerData:" + json.dumps(payload(outcome)) +
+        "}};const storedText=" + json.dumps(text) + ";"
+        "let setReaderMode=mode=>{document.getElementById('decisionBody').innerHTML="
+        "mode==='chunks'?'<div>Chunks</div>':"
+        "formattedDecision(storedText,[],[],readerState.payload.readerData.format_blocks);};"
+    )
+    with playwright.sync_playwright() as browser_driver:
+        browser = browser_driver.chromium.launch(
+            executable_path=chromium, headless=True, args=["--no-sandbox"],
+        )
+        page = browser.new_page()
+        errors = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.set_content("<div id=decisionBody></div>")
+        page.add_script_tag(content=helpers + setup + hooks)
+        for size in [{"width": 1280, "height": 900}, {"width": 390, "height": 844}]:
+            page.set_viewport_size(size)
+            page.evaluate("setReaderMode('chunks')")
+            assert page.locator(".reader-extracted-summary").count() == 1
+            assert page.locator(".reader-extracted-summary a").count() == 7
+            assert page.locator(".reader-extracted-summary").evaluate("node => node.open") is False  # closed until the reader opens it
+            page.evaluate("extractedSummaryState.open = true")
+            for index in range(7):
+                page.evaluate("setReaderMode('chunks')")
+                link = page.locator(".reader-extracted-summary a").nth(index)
+                href = link.get_attribute("href")
+                link.click()
+                assert page.locator("#decisionBody " + href).count() == 1
+                assert page.evaluate("document.activeElement.id") == href[1:]
+            assert page.locator("blockquote").inner_text() == "[2] The application is dismissed."
+        update = "data=>{readerState.payload.readerData=data;setReaderMode('normalized')}"
+        for stored_outcome in [None, SimpleNamespace(**(vars(outcome) | {"evidence_offset_start": -1}))]:
+            page.evaluate(update, payload(stored_outcome))
+            assert page.locator(".reader-extracted-summary a").count() == 4
+            assert "Outcome" not in page.locator(".reader-extracted-summary").inner_text()
+        page.evaluate(update, {"case": {"court": "unverified"}, "format_blocks": [], "extracted_summary": []})
+        assert page.locator(".reader-extracted-summary").count() == 0
+        assert not errors
+        browser.close()
+
+
 class NavigationParser(HTMLParser):
     def __init__(self, html):
         super().__init__()
@@ -181,44 +580,47 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
-    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'workbench', 'testing']
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'soon', 'testing']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
     assert '<a ' not in header
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('Info', 'Research', 'Workbench', 'Testing'):
+    for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
         assert f'>{label}</button>' in header
 
 
 def test_secondary_navigation_groups_existing_views_and_functional_tools():
     controls = NavigationParser(routes._data_explorer_page_html()).controls
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
-    assert views == {
-        'about': 'info', 'site-architecture': 'info', 'search': 'research',
-        'citation-intelligence': 'research', 'judge-profile': 'research',
-        'fc-history': 'research', 'themes': 'research', 'research-bench': 'testing',
+    soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
+    assert set(soon.values()) == {'soon'}
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-fc-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
+    assert len(soon) == 16
+    assert {tab: group for tab, group in views.items() if tab not in soon} == {
+        'about': 'info', 'search': 'research',
+        'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-history': 'intel',
+        'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
-    assert links == {
-        '/citation-map': 'workbench', '/live-analysis': 'workbench',
-        '/discussion-units-sandbox': 'testing', '/citation-pass': 'testing',
-    }
-    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'workbench', 'testing'))
+    assert links == {'/discussion-units-sandbox': 'testing', '/citation-pass': 'testing'}
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'soon', 'testing'))
 
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
     ('', 'search', 'research'), ('?tab=info', 'about', 'info'),
-    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'info'),
-    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'research'),
-    ('?tab=judge-profile&judge=smith', 'judge-profile', 'research'),
-    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'research'),
-    ('?tab=themes', 'themes', 'research'), ('?tab=research-bench', 'research-bench', 'testing'),
-    ('?group=workbench', 'workbench', 'workbench'), ('?group=testing', 'research-bench', 'testing'),
+    ('?tab=about', 'about', 'info'), ('?tab=site-architecture', 'site-architecture', 'direct'),
+    ('?tab=citation-intelligence&case_id=7', 'citation-intelligence', 'intel'),
+    ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
+    ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'intel'),
+    ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'testing'),
+    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'soon', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'testing'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
-    ('?tab=themes&group=info', 'themes', 'research'),
+    ('?tab=themes&group=info', 'themes', 'direct'),
     ('?tab=unknown', 'search', 'research'),
 ])
 def test_navigation_controller_initializes_deep_links_and_restores_history(query, selected, group):
@@ -239,17 +641,17 @@ const window={addEventListener(name,handler){this[name]=handler}};
 const document={getElementById(id){return panels[id]??=( {hidden:id!=='searchPanel',setAttribute(){}} )},querySelectorAll(selector){if(selector==='[data-group]')return controls.filter(item=>item.dataset.group);if(selector==='[data-nav-group]')return controls.filter(item=>item.dataset.navGroup);if(selector==='[data-tab]')return controls.filter(item=>item.dataset.tab);return []},addEventListener(){}};
 function loadAbout(){} function loadCitationIntelligence(){} function loadJudgeProfiles(){} function loadThemes(){} function loadStatuteAffinity(){} function loadFcActivityTimeline(){} function loadFcActivityBreakdowns(){} function openDecision(){}
 CONTROLLER
-assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true').dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.attrs['aria-pressed']==='true')?.dataset.group,GROUP==='direct'?undefined:GROUP);
 assert.deepEqual(controls.filter(item=>item.dataset.navGroup&&!item.hidden).map(item=>item.dataset.navGroup),controls.filter(item=>item.dataset.navGroup===GROUP).map(()=>GROUP));
-if(SELECTED!=='workbench')assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
+assert.equal(panels[activeResearchPanels[SELECTED]].hidden,false);
 const original=location.href;
 activateResearchTab('workbench');
-assert.equal(location.searchParams.get('group'),'workbench');
+assert.equal(location.searchParams.get('group'),'direct');
 assert.equal(location.searchParams.get('tab'),'workbench');
 assert.equal(location.searchParams.has('case_id'),false);
-assert.ok(Object.values(activeResearchPanels).every(id=>panels[id].hidden));
+assert.ok(Object.entries(activeResearchPanels).every(([key,id])=>panels[id].hidden===(key!=='workbench')));
 location.href=original;window.popstate();
-assert.equal(controls.find(item=>item.dataset.group&&item.classList.active).dataset.group,GROUP);
+assert.equal(controls.find(item=>item.dataset.group&&item.classList.active)?.dataset.group,GROUP==='direct'?undefined:GROUP);
 activateResearchTab('research-bench');
 assert.equal(location.searchParams.get('group'),'testing');
 assert.equal(panels.researchBenchPanel.hidden,false);
@@ -447,7 +849,7 @@ def test_citation_intelligence_overview_has_stable_context_and_result_states():
 def test_case_search_has_clear_primary_query_and_filter_state():
     html = routes._data_explorer_page_html()
 
-    assert 'class="search-intro"' in html
+    assert 'class="search-hero"' in html
     assert 'class="search-query-row"' in html
     assert 'role="combobox"' in html
     assert 'id="searchSuggestions"' in html
@@ -461,6 +863,16 @@ def test_case_search_has_clear_primary_query_and_filter_state():
     assert "limit:'5'" in html
     assert "sort_by:'relevance'" in html
     assert 'function professionalResultCard(item)' in html
+
+
+def test_case_search_can_save_current_query_and_filters():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="saveCurrentSearch"' in html
+    assert 'href="/saved-searches-ui"' in html
+    assert "filters})" in html
+    assert "search_mode:'metadata'" in html
+    assert "async function saveCurrentSearch()" in html
 
 
 def test_chunk_reader_uses_compact_sections_and_inherited_reference_type():
@@ -486,6 +898,75 @@ def test_main_search_and_reader_expose_core_case_and_assessment_controls():
     assert 'font-family:inherit;font-size:inherit;line-height:inherit' in html
 
 
+def test_reader_legal_development_banner_and_similar_paragraph_buttons_are_off():
+    html = routes._data_explorer_page_html()
+
+    # Daniel, 2026-10-05: the yellow legal-development indicator and the per-paragraph
+    # "Similar paragraphs" button are off everywhere; the APIs stay for later.
+    assert "/api/overruling-risk/${encodeURIComponent(caseId)}" not in html
+    assert "dataset.paragraphSimilar" not in html
+
+
+def test_reader_overruling_risk_banner_renders_only_returned_flags():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(...nodes){this.children.push(...nodes)}};
+const document={
+  getElementById(id){assert.equal(id,'readerOverrulingRisk');return banner},
+  createElement(tag){return {tag,textContent:'',children:[],append(...nodes){this.children.push(...nodes)}}},
+  createTextNode(text){return {tag:'text',textContent:String(text),children:[]}}
+};
+global.window={ILIT_SHOW_LEGAL_NOTICE:true};
+const readerState={caseId:null,payload:null};
+let payload={flags:[{
+  assignment:'indirect',event:'Framework update',event_date:'2019-12-19',
+  decision_date:'2018-04-03',rationale:'<img src=x onerror=alert(1)>',
+  source:'Primary source',how_assigned:'Stored resolved citation relationship',
+  notice:'seed list, needs lawyer review.'
+}],assessment:'This case may be affected by the listed development.'};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{readerState.payload=null};
+const fetch=async url=>{assert.equal(url,'/api/overruling-risk/7');return {ok:true,json:async()=>payload}};
+const controller = __CONTROLLER__;
+function text(node){return String(node.textContent||'')+(node.children||[]).map(text).join('')}
+(async()=>{
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,false);
+  const rendered=text(banner);
+  assert.match(rendered,/this case may be affected/);
+  assert.match(rendered,/How assigned/);
+  assert.match(rendered,/seed list, needs lawyer review\./);
+  assert.match(rendered,/<img src=x onerror=alert\(1\)>/);
+  assert.equal(banner.innerHTML,undefined);
+  payload={flags:[],assessment:'No seeded indicator matched.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.equal(banner.hidden,true);
+  payload={flags:[{
+    assignment:'direct',event:'Framework update',event_date:'2019-12-19',
+    decision_date:'2019-12-19',rationale:'Listed development authority',
+    source:'Primary source',how_assigned:'Direct seed match',
+    notice:'seed list, needs lawyer review.'
+  }],assessment:'This case is itself a listed development authority; other cases may be affected by this development.'};
+  await openDecision(7);
+  await new Promise(resolve=>setTimeout(resolve,0));
+  assert.match(text(banner),/This case is itself a listed legal-development authority/);
+  assert.match(text(banner),/other cases may be affected/);
+  await openDecision(7);
+  closeDecisionReader();
+  assert.equal(banner.hidden,true);
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    script = script.replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr
+
+
 def test_judge_profiles_default_to_most_linked_profiles():
     class FakeProfile:
         def __init__(self, slug, display_name, case_link_count):
@@ -506,6 +987,32 @@ def test_judge_profiles_default_to_most_linked_profiles():
     result = routes.judge_profiles("", 10, Database())
 
     assert [item["slug"] for item in result] == ["judge-a", "judge-c", "judge-b"]
+
+
+def test_judge_issue_outcomes_are_lazy_loaded_and_disclose_safe_denominators():
+    html = routes._data_explorer_page_html()
+
+    assert "Outcome patterns by issue" in html
+    assert (
+        "Outcome method: government outcome “won” = Minister win, “lost” = applicant win, "
+        "“mixed” = other; undetermined, unrecognized, and missing values are unclassified, "
+        "and percentages use all issue decisions, including unclassified."
+    ) in html
+    assert "At least " in html
+    assert "${N(hidden)} issue${hidden===1?'':'s'} hidden (each has fewer than ${minimum} decisions)." in html
+    assert "including unclassified" in html
+    assert "undetermined, unrecognized, and missing values are unclassified" in html
+    assert "Federal Court issue outcomes" in html
+    assert "data-jp-issues" in html
+    assert "/api/judge-profiles/${encodeURIComponent(slug)}/issues" in html
+    profile_loader = html.split("async function jpSelect", 1)[1].split("function tally", 1)[0]
+    assert "/issues" not in profile_loader
+    issue_loader = html.split("async function jpLoadIssues", 1)[1].split("function jpMainClick", 1)[0]
+    assert "getJSON(`/api/judge-profiles/${encodeURIComponent(slug)}/issues`)" in issue_loader
+    click_handler = html.split("function jpMainClick", 1)[1].split("/* ---------------- Citation intelligence", 1)[0]
+    assert "closest('[data-jp-issues]')" in click_handler
+    assert "jpLoadIssues()" in click_handler
+    assert "jpIssueCategories" in html
 
 
 def test_rendered_shell_exposes_original_source_link_action():
@@ -576,3 +1083,199 @@ def test_rendered_shell_exposes_independent_case_summary_control():
     assert 'Show case summary' in html
     assert 'id="readerCaseSummaryDetail"' in html
     assert 'renderCaseSummary' in html
+
+
+def test_fc_activity_panel_exposes_procedural_insights():
+    html = routes._data_explorer_page_html()
+
+    for element_id in ("fcInsights", "fcInsightsKpis", "fcInsightsDurations", "fcInsightsBreakdowns", "fcJudgeTable", "fcCaseForm"):
+        assert f'id="{element_id}"' in html
+    assert "/api/fc-activity/insights" in html
+    assert "/api/fc-activity/judges" in html
+    assert "/api/fc-activity/case" in html
+
+
+def test_fc_analytics_tab_is_wired_into_research_navigation():
+    html = routes._data_explorer_page_html()
+
+    assert 'data-tab="soon-fc-analytics"' in html
+    assert 'id="fcAnalyticsPanel"' in html
+    assert "'fc-analytics':'fcAnalyticsPanel'" in html
+    assert "window.fcxLoadDashboard" in html
+    assert "/api/fc-activity/dashboard" in html
+    for chart in ("fcxKpis", "fcxFunnel", "fcxRates", "fcxOutcomes", "fcxMotions", "fcxJudges", "fcxCompliance"):
+        assert f'id="{chart}"' in html
+
+
+def test_panel_helper_is_included_once_before_all_callers():
+    html = routes._data_explorer_page_html()
+    assert html.count("const fetchPanel =") == 1
+    assert html.index("const fetchPanel =") < html.index("function fetchCurrentPanel")
+    assert html.index("const fetchPanel =") < html.index("window.fcxLoadDashboard")
+    assert "window.fetch=" not in html
+    assert "panelSelections.get(container)===selection" in html
+    assert "container.isConnected" in html
+
+
+@pytest.mark.parametrize(
+    "function,endpoint,success",
+    [
+        ("runProfessionalSearch", "/analytics/search/cases?", "professionalResultCard"),
+        ("loadSearch", "/analytics/search/cases?", "resultCard"),
+        ("loadPersistedReaderStatutes", "/statute-references", "setReaderMode"),
+        ("loadReaderActs", "/statute-references", "render(rows)"),
+        ("loadJudgeProfiles", "/api/judge-profiles?limit=100", ".judge-profile-result"),
+        ("loadJudgeProfile", "/api/judge-profiles/${encodeURIComponent(slug)}", "syncJudgeMinisterCheckboxes()"),
+        ("searchJudgeProfiles", "/api/judge-profiles?q=", ".judge-profile-result"),
+        ("loadFcHistory", "/api/fc-history?", "data.entries_json"),
+        ("loadFcActivityTimeline", "/api/fc-activity/timeline", "renderFcActivityTimeline(data)"),
+        ("loadFcAnalytics", "/api/fc-activity/analytics?", "renderFcAnalytics(data)"),
+        ("loadFcActivityFlow", "/api/fc-activity/flow", "renderFcActivitySankey(data)"),
+        ("loadFcActivityBreakdowns", "/api/fc-activity/breakdowns", "data.registry_locations"),
+        ("loadFcMotions", "/api/fc-activity/motions?", "renderFcMotions()"),
+        ("loadFcCounsel", "/api/fc-activity/counsel?", "renderFcCounsel()"),
+        ("loadFcInsights", "/api/fc-activity/insights?", "renderFcBodies()"),
+        ("loadFcJudges", "/api/fc-activity/judges?", "renderFcJudges()"),
+        ("lookupFcCase", "/api/fc-activity/case?", "fcCaseRows(data)"),
+        ("showSimilarParagraphs", "/paragraphs/${n}/similar?", "row.why_matched"),
+    ],
+)
+def test_adopted_panel_success_and_events_are_inside_retry_renderer(function, endpoint, success):
+    html = routes._data_explorer_page_html()
+    start = re.search(rf"(?:async )?function {function}\(", html).start()
+    # Each owner ends before the next named function or script boundary.
+    tail = html[start:]
+    end = re.search(r"\n(?:async )?function |\n</script>", tail[1:])
+    body = tail[:end.start() + 1] if end else tail
+    assert "fetchCurrentPanel(" in body
+    assert endpoint in body
+    assert "render" in body
+    assert body.index("render") < body.index(success)
+    assert "catch(error)" not in body
+    assert "error.message" not in body
+
+
+def test_reader_sidepanel_owners_preserve_local_renderers_and_stale_guards():
+    html = routes._data_explorer_page_html()
+    for endpoint, tab in [
+        ("/cases/${caseId}/activity", "activity"),
+        ("/analytics/cases/${caseId}/thematic-cluster", "cluster"),
+        ("/search/tags/similar?case_id=", "similar"),
+    ]:
+        line = next(line for line in html.splitlines() if f"fetchCurrentPanel(`{endpoint}" in line)
+        assert f"readerPanelCurrent(caseId,'{tab}',content)" in line
+        assert "render:" in line
+        assert ".catch(" not in line
+    intelligence = html[html.index("async function loadCaseIntelligence"):html.index("function renderCaseReaderPane", html.index("async function loadCaseIntelligence"))]
+    for endpoint in ("authority-signals?", "similar?", "missing-authorities?", "completion-suggestions?"):
+        assert endpoint in intelligence
+    assert "Promise.allSettled" in intelligence
+    assert "panel.innerHTML=intelligenceRows(rows,row)" in intelligence
+    assert "readerPanelCurrent(caseId,'intelligence',box)" in intelligence
+    assert "no second bubbling Acts request" in html
+    assert "await readerStatutePending" in html
+    assert "const loadedJudgeProfile=" not in html
+    assert "Showing all ${num(data.decisions.length)} linked decisions." in html
+    assert html.count("fetchCurrentPanel(`/api/judge-profiles/${encodeURIComponent(slug)}") == 1
+    linked = html[html.index("openLinkedCase=async function"):html.index("function sideShowPara")]
+    assert "fetchCurrentPanel(" in linked
+    assert "sideState.linkedId===caseId" in linked
+
+
+def test_fc_dashboard_owners_do_not_render_independent_siblings():
+    from backend.pages.fc_analytics import FC_ANALYTICS_JS
+
+    script = FC_ANALYTICS_JS
+    assert "Promise.allSettled" in script
+    assert "renderAll" not in script
+    assert script.count("fetchCurrentPanel(`/api/fc-activity/dashboard?") == 1
+    assert "filter(key=>key!=='judges').forEach(renderView)" in script
+    for endpoint, container, renderer in [
+        ("dashboard", "fcxKpis", "renderDashboard()"),
+        ("judges", "fcxJudges", "renderView('judges')"),
+        ("counsel", "fcxCounsel", "renderCounsel()"),
+    ]:
+        line = next(line for line in script.splitlines() if f"fetchCurrentPanel(`/api/fc-activity/{endpoint}?" in line)
+        assert f"$('{container}')" in line
+        assert "render:" in line
+        assert line.index("render:") < line.index(renderer)
+
+
+def test_panel_helpers_node_behavior():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node.js is not available")
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [node, str(root / "tests/test_panel_helpers.js")],
+        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_panel_fixture_browser_when_chromium_available():
+    node = shutil.which("node")
+    if not node or not shutil.which("chromium"):
+        pytest.skip("Node.js and Chromium are required for fixture browser acceptance")
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [node, str(root / "tests/test_panel_browser.js")],
+        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_workbench_group_has_a_landing_panel_linking_its_tools():
+    html = routes._data_explorer_page_html()
+
+    assert 'id="workbenchPanel"' in html
+    assert "workbench:'workbenchPanel'" in html
+    for href in ("/citation-map", "/deidentify"):
+        assert f'class="workbench-card" href="{href}"' in html
+    # Live Analysis is paused (coming soon): shown, but not a link.
+    assert 'class="workbench-card tab-coming-soon" aria-disabled="true"><strong>Live Analysis' in html
+    assert 'href="/live-analysis"' not in html
+
+
+def test_reader_splitters_and_search_results_have_valid_aria():
+    html = routes._data_explorer_page_html()
+
+    for name in ("target", "linked"):
+        assert f'data-reader-splitter="{name}" role="separator" aria-valuemin="220" aria-valuemax="520" aria-valuenow="300"' in html
+    assert 'id="searchResults" role="region" aria-label="Case search results"' in html
+
+
+def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
+    html = routes._data_explorer_page_html()
+
+    hide_rule = 'body:not(.reader-experimental) :is([data-group="testing"],#displayCoreCases,#cohortSearchPanel){display:none!important}'
+    assert hide_rule in html
+    assert 'id="siteExperimentalToggle"' in html
+    assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
+
+
+def test_plain_search_echo_uses_plain_words():
+    html = routes._data_explorer_page_html()
+    assert "in the name or citation." in html
+    assert "Search interpreted as: ${data.query_echo}" in html
+
+
+def test_reader_overruling_risk_notice_is_off_unless_a_page_opts_in():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node is required to execute the reader warning")
+    controller = Path("backend/pages/overruling_risk_reader.js").read_text(encoding="utf-8")
+    script = r"""
+const assert=require('node:assert/strict');
+const banner={hidden:true,children:[],replaceChildren(){this.children=[]},append(){}};
+const document={getElementById(){return banner}};
+let fetched=0;const fetch=async()=>{fetched++;return {ok:true,json:async()=>({flags:[{}]})}};
+const readerState={caseId:null,payload:null};
+let openDecision=async id=>{readerState.caseId=Number(id);readerState.payload={}};
+let closeDecisionReader=()=>{};
+const original=openDecision;
+const controller = __CONTROLLER__;
+(async()=>{await openDecision(7);await new Promise(r=>setTimeout(r,0));assert.equal(fetched,0);assert.equal(openDecision,original);assert.equal(banner.hidden,true)})().catch(e=>{console.error(e);process.exitCode=1});
+""".replace("__CONTROLLER__", controller)
+    result = subprocess.run([node, "-"], input=script, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr

@@ -107,6 +107,6 @@ def test_outcome_stage_writes_versioned_dedicated_record():
     )
 
     assert case_processing._run_outcome_layer(session, case) == 1
-    assert session.added_rows[0].classifier_version == "deterministic_outcome_v1"
+    assert session.added_rows[0].classifier_version == "deterministic_outcome_v2"
     assert session.added_rows[0].winner_side == "respondent"
     assert session.added_rows[0].disposition_evidence == "application is dismissed"

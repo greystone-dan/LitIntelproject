@@ -1,286 +1,154 @@
-# AI CaseLibrary
+# iLit (AI CaseLibrary)
 
-AI CaseLibrary is a Canadian legal research system focused on immigration litigation workflows.
-It collects court decisions and legal reference materials, preserves source provenance, and adds searchable structure (metadata, chunks, citations, tags, and embeddings).
+iLit is a research tool for Canadian immigration case law. It stores decisions
+and their source history, then makes the text searchable and lets researchers
+inspect citations, legislation references, extracted case information, and
+related analytics. It supports research; it is not legal advice.
 
-This project is a research aid, not legal advice.
+This page is a contributor and reviewer entry point. The detailed architecture,
+all backend modules, data boundaries, and schema summary are in
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Current behavior is documented in
+[SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md).
 
-For the complete, current architecture, system behavior, data model, operational
-workflows, API map, limitations, and code-review posture, read
-[SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md). It is the canonical system document.
+## What is available
 
-For the repository-wide ownership atlas and bounded overnight operations guide,
-read [OVERNIGHT.md](OVERNIGHT.md).
+- **Data Explorer** — the primary interface for About, Case Search, Site
+  Architecture, Citation Intelligence, Judge Profile, FC History, and Legal
+  Themes & Statutes. Search results open a full-decision reader with stored
+  citation, statute, and other evidence.
+- **Case and passage search** — text and structured filters, lexical or
+  embedding-backed retrieval where vectors exist, and grouped passage results.
+- **Citation Map** — explore citation relationships, authorities, paths, and
+  related graph analytics.
+- **Statute Library** — browse imported federal statute text and sections, with
+  point-in-time versions available for decision dates when that version data is
+  present.
+- **Citation Pass** — inspect deterministic citation and statute extraction
+  and source offsets; this is a QA tool, not the normal research workflow.
+- **Live Analysis** — inspect DOCX or text-based PDF content in memory and
+  optionally resolve extracted citations against local case records. Uploaded
+  documents are not saved to the case database.
+- **Supporting tools** — saved searches, de-identification, memo citation
+  checks, and experimental research or cohort-analysis pages.
+- **Source-aware ingestion** — add or merge case records while preserving
+  provenance and source identity.
 
-For the Swimm documentation sequence, repository map, cleanup queue, and future
-project-manager agent handoff contract, read
-[docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md](docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md).
+Selected routes are listed below. Their presence and current API contracts are
+checked against the generated [API reference](docs/API_REFERENCE.generated.md).
 
-## What This Repo Provides
+| Route | Purpose |
+| --- | --- |
+| `GET /data-explorer` | Primary research interface and case reader |
+| `GET /case-reader` | Compatibility redirect into Data Explorer |
+| `GET /citation-map` | Citation graph workbench |
+| `GET /statutes` | Statute Library |
+| `GET /citation-pass` | Extraction and offset QA |
+| `GET /live-analysis` | In-memory document review |
+| `POST /live-analysis/analyze` | Analyze a supplied document |
+| `POST /live-analysis/resolve` | Resolve extracted references locally |
+| `GET /quick-search` | Lightweight search interface |
+| `POST /search` | Case-level search |
+| `POST /search/chunks` | Passage-level search |
+| `POST /ingest` | Create a case through the ingestion contract |
+| `POST /ingest/merge` | Merge a source record into a case |
+| `GET /saved-searches` | List saved searches |
+| `POST /research` | Experimental retrieval and answer workflow |
 
-- FastAPI backend for case ingestion, search, retrieval, case reading, analytics, and citation exploration
-- PostgreSQL + pgvector canonical case store
-- Source staging pipelines for A2AJ and Federal Court collection workflows
-- Paragraph chunking and citation-network processing
-- Search and reader UIs for decisions, analytics, and citation QA
-- Isolated side-project utilities that can store separate datasets without entering the canonical case workflow
+## Run locally
 
-## Current Status
+You need Python, PostgreSQL with the `pgvector` extension, and a local database
+configured through environment variables. No database credentials are included
+in the repository. Optional provider credentials are only needed for workflows
+that use those providers; deterministic extraction and most local reads do not
+require an AI API key.
 
-- Canonical case store is populated and searchable
-- Advanced search UI is live at `/data-explorer` with filters, minister dropdown, result metrics, and a full-decision modal reader
-- Unified case reading is live inside `/data-explorer`; `/case-reader` is a compatibility redirect for legacy bookmarks
-- Citation graph analytics are live under `/citation-map/*`
-- Citation extraction and local target resolution are both populated in the database
-- Standalone Live Analysis accepts DOCX and text-based PDF files without saving uploads
-- Citation Pass remains available as the deterministic QA surface for extraction debugging
-- The isolated Luck of the Draw III utility lives under `side_projects/luck_of_the_draw_iii` and writes only to schema `lotd`
-
-Current live scale in the main case library database:
-
-- 35,902 canonical cases
-- 35,856 cases with full text
-- 1,390,886 paragraph chunks
-- 1,492,628 stored citation rows
-- 760,197 citations linked to a target case
-- 31,944 unique linked target cases
-- Reader metadata coverage: 31,340 judges, 31,449 decision outcomes, 27,230 government outcomes
-
-## Current Workflow
-
-Use the repo in three distinct modes:
-
-1. Research workflow: `/data-explorer` for advanced search, filters, analytics tabs, and full-decision reading.
-2. Case reading workflow: open a result in `/data-explorer` for unified case detail, stored citations, chunks, sources, and metrics. `/case-reader` redirects here for legacy bookmarks.
-3. Extractor QA workflow: `/citation-pass` when validating citation extraction offsets or layered extractor behavior.
-4. Ephemeral document workflow: `/live-analysis` to inspect a DOCX or text-based PDF with temporary highlights, followed by explicit local citation resolution when needed.
-
-Core research-facing capabilities now available:
-
-1. Search cases by text, cited authority, minister/government party, judge, court, year, government outcome, and decision outcome.
-2. Sort search results by citation relevance, date, or minister.
-3. Open full decisions in a modal reader with stored citation highlights.
-4. See per-case citation metrics such as total citation mentions, unique cited authorities, and linked target cases.
-5. Review judge-outcome summaries and flexible two-field analytics in the same `/data-explorer` surface.
-6. Explore citation graph, authority flow, lifecycle, surprises, hidden bridges, and contextual exports under `/citation-map/*`.
-7. Run deterministic extraction QA in `/citation-pass` without mixing statute/instrument and case-citation decisions.
-8. Analyze an unsaved DOCX or text-based PDF in `/live-analysis`, then use the separate Resolve citations action; results remain in memory and local resolution is read-only.
-
-### Day-To-Day Commands
-
-Refresh the local website and Cloudflare tunnel:
-
-~~~powershell
-.\scripts\refresh_site.ps1
-~~~
-
-This stops stale local Uvicorn/cloudflared processes and starts the configured
-API and tunnel. Keep the terminal open while using the site. The usual URLs are
-`http://127.0.0.1:8000/data-explorer` and `https://www.ilit.ca/data-explorer`.
-
-Start API:
-
-~~~powershell
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8070
-~~~
-
-Open UI:
-
-- http://127.0.0.1:8070/data-explorer
-
-Focused citation tests:
-
-~~~powershell
-./venv/Scripts/python.exe -m pytest tests/test_citations.py -q
-~~~
-
-Optional full test sweep:
-
-~~~powershell
-./venv/Scripts/python.exe -m pytest -q
-~~~
-
-Primary success criteria for this phase:
-
-- Advanced search returns stored case-level citation evidence quickly enough to open heavily cited decisions interactively.
-- Stored citation rows retain chunk location and offset integrity.
-- Case-to-case target resolution remains a separate local pass after extraction.
-- Statute/instrument and metadata layers remain separate from case-citation QA decisions.
-
-## Legacy Separation
-
-To keep the project less scattered, legacy materials are explicitly separated:
-
-- `legacy/` for archived artifacts and legacy workflow references
-- `backend/legacy/` for modules intentionally excluded from active runtime paths
-- `docs/history/` for historical implementation notes
-
-Default active path for research and case reading is `/data-explorer`; `/case-reader` is retained as a compatibility redirect for legacy bookmarks. Citation Pass is the verification path.
-
-## Tech Stack
-
-- Python 3.11+
-- FastAPI
-- SQLAlchemy + Alembic
-- PostgreSQL + pgvector
-- OpenAI embeddings and local embedding support
-- Pytest test suite
-
-See [requirements.txt](requirements.txt) for pinned dependency versions.
-
-## Repository Layout
-
-- [backend](backend): API routes, models, database layer, retrieval logic
-- [scripts](scripts): ingestion, chunking, embeddings, evaluation, and operational scripts
-- [side_projects](side_projects): isolated non-core dataset utilities and outputs
-- [fc_ingest](fc_ingest): Federal Court source-specific staging pipeline
-- [alembic](alembic): schema migrations
-- [tests](tests): automated tests
-- [data](data): evaluation artifacts, staging outputs, and runtime data folders
-- [canlaw](canlaw): source staging helpers and related tooling
-
-## Quick Start
-
-1. Clone and enter the project
-
-~~~bash
-git clone https://github.com/greystone-dan/LitIntelproject.git
-cd LitIntelproject
-~~~
-
-2. Create and activate virtual environment
-
-~~~powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-~~~
-
-3. Install dependencies
-
-~~~powershell
+```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-~~~
+python -m alembic upgrade head
+python -m uvicorn backend.main:app --port 8000
+```
 
-4. Configure environment
+On Windows, activate the environment with
+`.\.venv\Scripts\Activate.ps1`. Configure the database before starting the
+application. The server starts locally; open the `/data-explorer` route in a
+browser.
 
-- Copy [.env.example](.env.example) to .env
-- Fill database and API credentials
+## Run tests
 
-5. Run migrations (if needed)
+The CI test job uses Python 3.12 and installs `requirements-dev.txt`. Run the
+same test selection locally:
 
-~~~powershell
-alembic upgrade head
-~~~
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q \
+  --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence \
+  --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes \
+  --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint
+```
 
-6. Start API
+Those three tests are deliberately deselected in CI: two require a local
+PostgreSQL service, and one expects an Ollama client configuration that is not
+available in a clean test environment and remains under investigation.
+Generated API, schema, and script documentation is checked with:
 
-~~~powershell
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
-~~~
+```bash
+python scripts/check_generated_docs.py
+```
 
-## Primary Interfaces
+## Data flow and hosting
 
-- `GET /data-explorer`: single-page research interface with About, Case Search,
-  Site Architecture, Citation Intelligence, Judge Outcomes, Judge Profile, Data
-  Explorer, and FC History tabs
-- `GET /about`: compatibility redirect to the About tab
-- `GET /citation-intelligence`: compatibility redirect to Citation Intelligence
-- `GET /judges`: compatibility redirect to Judge Profile
-- `GET /case-reader`: compatibility redirect to the `/data-explorer` case reader
-- `GET /citation-pass`: extractor QA surface
-- `GET /live-analysis`: ephemeral DOCX/text-PDF reader with highlights
-- `POST /live-analysis/analyze`: in-memory document extraction only
-- `POST /live-analysis/resolve`: separate batched local resolution for neutral, named, and short-form case references
-- `GET /citation-map`: citation graph workbench
-- `GET /quick-search`: lightweight lexical/semantic search page
+Source-specific collectors and staging tools prepare records; validated case
+records enter the canonical ingestion and merge policy. PostgreSQL stores the
+canonical cases and separate derived layers. Processing extracts chunks,
+metadata, citations, statutes, tags, outcomes, and optional embeddings. Search
+and analytics services read those layers through the API, and the API serves
+the research pages.
 
-## Quick Search Testing
+The live application and its PostgreSQL/pgvector database run together on one
+workstation. The database is not hosted in the cloud. GitHub holds source code
+and runs CI; cloud sessions do not connect to the live database.
 
-### Browser UI
+## Defaults and boundaries
 
-For the proof of concept, keep the site to one UI and continue citation verification on the existing metadata and chunking base. Do not re-ingest the 300-case review list yet.
+- The password gate is **off by default**. Setting `CASELIBRARY_ACCESS_PASSWORD`
+  enables the application gate; it is not a substitute for a separately
+  configured network perimeter when one is required.
+- The request audit log is **off by default**. Set `CASELIBRARY_AUDIT_LOG` to
+  a file path to opt in. Raw client addresses are not logged unless the separate
+  raw-address option is explicitly enabled.
+- Document size and parsing limits are **on by default**. The
+  `LITINTEL_MAX_*` environment variables override limits; they do not turn
+  validation off.
+- Case citations, legislation references, metadata, tags, and embeddings are
+  separate data layers. Staging data, activity data, reference documents,
+  synthetic examples, and side-project datasets are not interchangeable with
+  canonical case records.
 
-After server startup, open:
+## Repository map
 
-- http://127.0.0.1:8000/quick-search
+| Location | What it contains |
+| --- | --- |
+| `backend/` | FastAPI application, routes, data models, database access, processing, search, and pages |
+| `alembic/` | Database schema migrations |
+| `scripts/` | Ingestion, acquisition, evaluation, documentation, and operations commands |
+| `fc_ingest/` | Federal Court source collection and staging |
+| `canlaw/` | Local legal-data staging archive and command-line tools |
+| `data/` | Local source, reference-library, evaluation, and runtime artifacts; much is not tracked |
+| `docs/` | Architecture, source governance, setup, research guidance, and generated references |
+| `tests/` | Automated tests |
+| `side_projects/` | Independent data utilities outside the canonical case workflow |
+| `legacy/` | Archived or reference-only materials |
+| `.swm/` | Connected architecture and workflow walkthroughs |
+| `.github/` | CI workflows and repository automation |
+| `SYSTEM_REFERENCE.md` | Detailed current system and operations reference |
 
-If port 8000 is already in use, run on another port and open the matching URL.
+## Further reading
 
-### Terminal Semantic Search
-
-~~~powershell
-python -m scripts.quick_search_engine "non-refoulement risk on return" --limit 10
-~~~
-
-## Local Domain Hosting (Cloudflare Tunnel)
-
-If you want to expose your local app through your own domain while it runs on your machine:
-
-1. One-time setup:
-
-~~~powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\setup_cloudflare_tunnel.ps1 -Hostname your.domain.com -TunnelName aicaselibrary-local -LocalPort 8070
-~~~
-
-2. Start app + tunnel:
-
-~~~powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run_local_with_tunnel.ps1
-~~~
-
-See [docs/CLOUDFLARE_TUNNEL_SETUP.md](docs/CLOUDFLARE_TUNNEL_SETUP.md) for details.
-
-## Useful Endpoints
-
-- GET / : backend health message
-- GET /data-explorer : six-tab immigration litigation intelligence UI
-- GET /api/about/stats : live About-page library statistics
-- GET /api/citation-intelligence/{case_id}/overview : citation overview metrics
-- GET /api/citation-intelligence/{case_id}/table : citation evidence table
-- GET /api/judge-profiles : canonical judge profile list
-- GET /api/judge-profiles/{slug} : selected judge profile and linked cases
-- GET /analytics/search/cases : filtered case search API
-- GET /analytics/search/ministers : minister dropdown source API
-- GET /analytics/search/cases/{case_id} : full-decision reader payload with citation highlights and metrics
-- GET /case-reader : compatibility redirect to the `/data-explorer` case reader
-- GET /quick-search : lightweight semantic/hybrid search page
-- GET /citation-pass : citation QA UI
-- POST /search : case-level search
-- POST /search/chunks : chunk-level search
-- POST /search/chunks/grouped : grouped passage retrieval by case
-- GET /testing : API testing page
-- GET /research : research interface page
-
-## Data and Provenance Notes
-
-- Preserve source first, enrich second
-- Canonical data lives in PostgreSQL
-- Staging data may exist in SQLite/Parquet/JSON artifacts
-- Reference library documents are stored separately from canonical cases
-- Citation rows are stored as chunk-backed `Citation` records with offsets and normalized text; the citation record itself does not carry a dedicated timestamp column, so timing is inferred from the owning case and chunk timestamps.
-- The Luck of the Draw III side project stores its imported tables in PostgreSQL schema `lotd`, not in the canonical case tables.
-
-## GitHub and Large Files
-
-This repository excludes oversized local backup archives from tracking.
-If you generate large local archives in [backups](backups), keep them out of Git history.
-
-## Core Documentation
-
-- [SYSTEM_REFERENCE.md](SYSTEM_REFERENCE.md): canonical current architecture, functionality, data model, operations, and limitations
-- [SYSTEM_OVERVIEW.txt](SYSTEM_OVERVIEW.txt): plain-language system state
-- [SETUP.md](SETUP.md): environment and workstation setup
-- [OVERNIGHT.md](OVERNIGHT.md): unattended operation guide
-- [DOCS_INDEX.md](DOCS_INDEX.md): document authority map
-- [CHANGELOG.md](CHANGELOG.md): milestone and feature changes
-- [ROADMAP.md](ROADMAP.md): forward plan for missing features and QA
-- [side_projects/luck_of_the_draw_iii/README.md](side_projects/luck_of_the_draw_iii/README.md): isolated LotD dataset utility
-
-## Historical Notes
-
-Historical AI handoff documents were moved to [docs/history](docs/history) to keep the repository root focused on active operational docs.
-
-## License and Usage
-
-Use according to upstream data source licenses and your organizational policy.
-Always verify critical legal findings against authoritative records.
+- [Architecture, schema, and source boundaries](docs/ARCHITECTURE.md)
+- [Data source and licence register](docs/DATA_SOURCE_REGISTER.md)
+- [Generated API reference](docs/API_REFERENCE.generated.md)
+- [Generated schema reference](docs/SCHEMA_REFERENCE.generated.md)
+- [Current system reference](SYSTEM_REFERENCE.md)
+- [Setup guide](SETUP.md)

@@ -1,0 +1,77 @@
+# Docker Compose configuration for AI CaseLibrary
+# Run with: docker compose up -d
+# Includes app and pgvector PostgreSQL database
+
+services:
+  # PostgreSQL database with pgvector extension
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: caselibrary_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env or the environment}"
+      POSTGRES_DB: ${POSTGRES_DB:-caselibrary}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - caselibrary_net
+
+  # AI CaseLibrary backend application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: caselibrary_app
+    environment:
+      # The app reads POSTGRES_* before DATABASE_URL.
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env or the environment}"
+      POSTGRES_DB: ${POSTGRES_DB:-caselibrary}
+      PORT: ${PORT:-8000}
+      CASELIBRARY_ACCESS_PASSWORD: ${CASELIBRARY_ACCESS_PASSWORD:-}
+      CASELIBRARY_SESSION_SECRET: ${CASELIBRARY_SESSION_SECRET:-}
+      CASELIBRARY_SESSION_SECONDS: ${CASELIBRARY_SESSION_SECONDS:-86400}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_ORG_ID: ${OPENAI_ORG_ID:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o}
+      OPENAI_EMBEDDING_MODEL: ${OPENAI_EMBEDDING_MODEL:-text-embedding-3-small}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-3-5-sonnet-20241022}
+      CANLII_API_KEY: ${CANLII_API_KEY:-}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    ports:
+      - "${APP_PORT:-8000}:${PORT:-8000}"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.getenv('PORT', '8000') + '/health', timeout=5)"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - caselibrary_net
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  caselibrary_net:
+    driver: bridge

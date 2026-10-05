@@ -536,6 +536,15 @@ def test_citation_variants_support_parenthesized_reporter_years():
 	assert citations._citation_variants("(1993) 163 N.R. 197") == ["1993 163 NR 197"]
 
 
+def test_citation_variants_parenthesized_reporter_year_accepts_extra_whitespace():
+	assert citations._citation_variants("(1993) \t 163 N.R. 197") == ["1993 163 NR 197"]
+
+
+def test_citation_variants_long_repeated_whitespace():
+	citation = "(1993)" + (" \t" * 4096) + "163 N.R. 197"
+	assert citations._citation_variants(citation) == ["1993 163 NR 197"]
+
+
 def test_normalize_alias_lookup_preserves_searchable_party_tokens():
 	assert citations._normalize_alias_lookup("Canada (Attorney General) v. Ward") == (
 		"canada attorney general v ward"
@@ -746,8 +755,32 @@ def test_extract_statute_reference_matches_supports_french_provision_forms():
 
 	matches = citations.extract_statute_reference_matches(text)
 
-	assert any("Loi sur l'immigration" in match.normalized_citation for match in matches)
-	assert any("Code criminel" in match.normalized_citation for match in matches)
+	french_matches = [
+		match
+		for match in matches
+		if "Loi sur l'immigration" in match.normalized_citation
+		or "Code criminel" in match.normalized_citation
+	]
+	assert [match.citation_text for match in french_matches] == [
+		"article 112 de la Loi sur l'immigration et la protection des réfugiés",
+		"paragraphe 320.13(1) du Code criminel",
+	]
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in french_matches)
+
+
+def test_extract_statute_reference_matches_rejects_dates_page_numbers_and_other_statute_sections():
+	text = (
+		"The hearing occurred on 2024-01-01. The record is at pages 34 and 35-37. "
+		"Section 34(1)(f) of the Citizenship Act applies."
+	)
+
+	matches = citations.extract_statute_reference_matches(text)
+
+	assert [match.citation_text for match in matches] == [
+		"Section 34(1)(f) of the Citizenship Act"
+	]
+	assert all("Immigration and Refugee Protection" not in match.normalized_citation for match in matches)
+	assert not citations.extract_case_citation_matches("The hearing occurred on 2024-01-01.")
 
 
 def test_extract_statute_reference_matches_excludes_procedural_order_labels():
@@ -1627,6 +1660,40 @@ def test_extract_raw_citation_matches_populates_pinpoint_for_short_form_range():
 	assert short_matches[0].pinpoint == "at paras. 10-12"
 
 
+def test_extract_case_citations_preserves_exact_spans_for_para_12_and_range():
+	text = (
+		"Vavilov v. Canada, 2019 SCC 65. "
+		"Vavilov at para 12; Vavilov at paras 12-14."
+	)
+
+	matches = citations.extract_case_citation_matches(text)
+	short_matches = [match for match in matches if match.kind == "case_short"]
+
+	assert [match.citation_text for match in short_matches] == [
+		"Vavilov at para 12",
+		"Vavilov at paras 12-14",
+	]
+	assert [match.pinpoint for match in short_matches] == ["at para. 12", "at paras. 12-14"]
+	assert all(text[match.offset_start:match.offset_end] == match.citation_text for match in short_matches)
+
+
+@pytest.mark.xfail(
+	reason="backend.citations does not resolve Ibid short forms; the citation refinement layer handles them."
+)
+def test_extract_case_citations_supports_ibid_short_form():
+	text = "Vavilov v. Canada, 2019 SCC 65. Ibid at para 12."
+
+	short_matches = [
+		match
+		for match in citations.extract_case_citation_matches(text)
+		if match.kind == "case_short"
+	]
+
+	assert len(short_matches) == 1
+	assert short_matches[0].citation_text == "Ibid at para 12"
+	assert short_matches[0].pinpoint == "at para. 12"
+
+
 def test_extract_raw_citation_matches_preserves_case_trailing_reporter_and_pinpoint():
 	text = (
 		"Febles v. Canada (Citizenship and Immigration), 2014 SCC 68, [2014] 3 S.C.R. 431, at para. 94 "
@@ -2365,7 +2432,7 @@ def test_citation_map_issue_and_evidence_endpoints_are_bounded(monkeypatch):
 
 	monkeypatch.setattr(routes, "_citation_map_topics", lambda db, query, limit: calls.update(topics=(db, query, limit)) or [])
 	monkeypatch.setattr(routes, "_citation_issue_map", lambda db, category, value, limit: calls.update(issue=(db, category, value, limit)) or {})
-	monkeypatch.setattr(routes, "_case_legal_tags", lambda db, case_id, limit: calls.update(tags=(db, case_id, limit)) or [])
+	monkeypatch.setattr(routes, "_case_legal_tags", lambda db, case_id, limit, display_limit=None: calls.update(tags=(db, case_id, limit)) or [])
 	monkeypatch.setattr(routes, "_common_citing_cases", lambda db, case_ids, limit: calls.update(common=(db, case_ids, limit)) or [])
 	monkeypatch.setattr(routes, "_citation_contexts", lambda db, source, target, limit: calls.update(context=(db, source, target, limit)) or [context])
 
@@ -3231,3 +3298,8 @@ def test_new_csv_exports_include_expected_headers(monkeypatch):
 	assert dashboard_csv.media_type == "text/csv; charset=utf-8"
 	assert dashboard_csv.headers["content-disposition"] == 'attachment; filename="shift-dashboard.csv"'
 	assert b"replacement_candidate" in dashboard_csv.body
+
+def test_legacy_extraction_handles_case_name_chains(monkeypatch):
+	monkeypatch.setenv("CASELIBRARY_CITATION_PIPELINE", "legacy")
+	rows = citations.extract_raw_citation_matches("See Smith v. Canada, 2010 FC 5 at para 3.")
+	assert any(row.kind == "case" and "2010 FC 5" in row.normalized_citation for row in rows)

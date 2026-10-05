@@ -41,7 +41,7 @@ FORMAL_CIT_RE = re.compile(
 	re.IGNORECASE,
 )
 REPORTED_CIT_RE = re.compile(
-	r"(?<![A-Za-z0-9])(?:\[((?:19|20)\d{2})\]|\(((?:19|20)\d{2})\)\s*|((?:19|20)\d{2}))\s+"
+	r"(?<![A-Za-z0-9])(?:\[((?:19|20)\d{2})\]|\(((?:19|20)\d{2})\)|((?:19|20)\d{2}))\s+"
 	r"(\d{1,3})\s+([A-Z](?:[A-Z.]|\s){1,14}?)\s+(\d{1,7})\b",
 	re.IGNORECASE,
 )
@@ -733,23 +733,6 @@ def _raw_match(
 	)
 
 
-def _canonical_statute_name(name: str) -> str:
-	lowered = _normalize_whitespace(name).lower()
-	if lowered == "irpa":
-		return "IRPA"
-	if lowered == "irpr":
-		return "IRPR"
-	if lowered in {"charter", "canadian charter of rights and freedoms"}:
-		return "Canadian Charter of Rights and Freedoms"
-	if lowered == "immigration and refugee protection act":
-		return "Immigration and Refugee Protection Act"
-	if lowered == "immigration and refugee protection regulations":
-		return "Immigration and Refugee Protection Regulations"
-	if lowered == "criminal code":
-		return "Criminal Code"
-	return _normalize_whitespace(name)
-
-
 def _full_statute_citation_name(name: str) -> str:
 	return canonical_citation_name(_normalize_whitespace(name))
 
@@ -948,7 +931,7 @@ def _extract_case_chain_candidates(content: str) -> list[tuple[int, int, RawCita
 				global_parties_start,
 				global_end,
 				_raw_match(
-						"case_name" if reported.startswith("(") else "case",
+					"case",
 					citation_text,
 					normalized,
 					global_parties_start,
@@ -1016,11 +999,6 @@ def _clean_case_side(value: str) -> str:
 	cleaned = re.sub(r"\([^)]*\)", "", value)
 	cleaned = re.sub(r"[^A-Za-z'\-\s]", " ", cleaned)
 	return _normalize_whitespace(cleaned)
-
-
-def _extract_short_alias(parties: str) -> str | None:
-	aliases = _extract_short_aliases(parties)
-	return aliases[0] if aliases else None
 
 
 def _extract_short_aliases(parties: str) -> list[str]:
@@ -3000,10 +2978,3 @@ def convert_a2aj_edges_to_local(session: Session, dedupe: bool = True) -> int:
 		inserted += 1
 	session.commit()
 	return inserted
-
-
-def merge_local_and_a2aj_graph(session: Session) -> dict[str, int]:
-	"""Recompute local graph metrics after any A2AJ merge pass."""
-	return {
-		"citation_metrics_updated": compute_citation_metrics(session),
-	}

@@ -32,12 +32,18 @@ Primary explainer docs:
    ownership boundaries, and validation expectations.
 6. `.github/project-manager/README.md` explains the workspace project-manager
     agent, durable task records, status, and escalation rules.
+7. `docs/reports/privacy-security-review.md` is the scoped privacy/security
+   review for live document analysis and de-identification; current route
+   behavior remains authoritative in code and `SYSTEM_REFERENCE.md`.
+8. `docs/BACKGROUND_JOBS.md` documents the separate, disabled-by-default interval
+   runner, JSON config, DB-free locks, scheduling, cleanup and exit codes. It
+   does not change web startup or replace the overnight runbook.
 
 ## Active Vs Legacy Locations
 
 Active implementation and operations:
 
-1. Root docs (`README.md`, `AI_HANDOFF.md`, `CHANGELOG.md`, `SYSTEM_OVERVIEW.txt`)
+1. Root docs (`README.md`, `SYSTEM_REFERENCE.md`, `CHANGELOG.md`)
 2. Active backend modules under `backend/` (excluding `backend/legacy/`)
 3. Isolated side-project utilities under `side_projects/` when the task explicitly concerns non-core datasets
 
@@ -67,8 +73,8 @@ Current operational sources of truth:
 5. `ROADMAP.md`
 - Forward-looking phased delivery plan for missing features, QA, and release readiness.
 
-6. `AI_HANDOFF.md`
-- Detailed working handoff. It may include time-bound implementation context; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
+6. `docs/history/AI_HANDOFF_2026-09-02_root.md`
+- Archived detailed working handoff (moved out of the repo root). It is time-bound; defer to `SYSTEM_REFERENCE.md` for active architecture and status.
 
 7. `docs/CLAUDE_ACTIVITY_PROJECT_SETUP.md`
 - Portable Claude Project setup, Activity data contract, commands, prompts, evidence rules, and implementation acceptance criteria.
@@ -91,6 +97,26 @@ Current operational sources of truth:
 
 12. `side_projects/luck_of_the_draw_iii/README.md`
 - Scope and run instructions for the isolated Luck of the Draw III dataset import/export utility.
+
+13. `docs/reports/id-iad-coverage-design.md`
+- Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
+
+## Task-Specific Review Reports
+
+- `docs/reports/baseline-lint-and-audit.md` records the first non-blocking
+  Ruff and pip-audit results and their scope. The checks and their artifact
+  behavior are defined by `.github/workflows/quality.yml`.
+- `docs/reports/open-pr-review.md` records the read-only, point-in-time review
+  of PRs #28, #29, #32, and #34, including immutable source citations,
+  migration/route interactions, untested paths, and review limitations. It is
+  evidence for that review only; it does not replace current GitHub checks or
+  the authoritative source code and migrations.
+- `docs/reports/overruling-risk.md` documents the provisional, seed-based
+  overruling-risk indicator, assignment semantics, limits, and extension steps.
+- `docs/reports/local-query-embeddings.md` documents the opt-in query embedding
+  provider, query-data locality signal, and vector-dimension compatibility
+  boundary; current behavior remains authoritative in code and
+  `SYSTEM_REFERENCE.md`.
 
 Historical context (read with caution):
 
@@ -139,7 +165,7 @@ or reproducibility requires a source-controlled artifact.
 2. Research-facing work is currently centered on `/data-explorer`, including its inline case reader and linked citation review; `/case-reader` is a compatibility redirect for legacy bookmarks, `/citation-pass` remains the extractor QA surface, and `/live-analysis` is the ephemeral document reader.
 3. Case-to-case resolution is now a separate local database pass after extraction; do not recombine it with extraction.
 4. Live Analysis reads uploaded DOCX/text-PDF bytes in memory only; local citation resolution is batched and read-only.
-5. Root documentation should prioritize `README.md`, `AI_HANDOFF.md`, `SYSTEM_OVERVIEW.txt`, `OVERNIGHT.md`, and `CHANGELOG.md`.
+5. Root documentation should prioritize `README.md`, `SYSTEM_REFERENCE.md`, `OVERNIGHT.md`, and `CHANGELOG.md`.
 
 ## Nighttime Patch Checklist
 

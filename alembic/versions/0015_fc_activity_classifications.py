@@ -16,6 +16,34 @@ depends_on = None
 
 
 def upgrade() -> None:
+    if "fc_activity_cases" not in sa.inspect(op.get_bind()).get_table_names():
+        # Frozen pre-0027 schema: do not import live ORM metadata here.
+        # 0027 owns the source_type/source_name/source_id provenance columns.
+        op.create_table(
+            "fc_activity_cases",
+            sa.Column("id", sa.Integer(), nullable=False),
+            sa.Column("source_key", sa.String(length=255), nullable=False),
+            sa.Column("citation", sa.String(length=255), nullable=True),
+            sa.Column("year", sa.Integer(), nullable=True),
+            sa.Column("case_name", sa.Text(), nullable=True),
+            sa.Column("date_filed", sa.Date(), nullable=True),
+            sa.Column("city_filed", sa.String(length=255), nullable=True),
+            sa.Column("nature", sa.Text(), nullable=True),
+            sa.Column("case_class", sa.String(length=120), nullable=True),
+            sa.Column("track", sa.String(length=120), nullable=True),
+            sa.Column("source_url", sa.String(length=2048), nullable=True),
+            sa.Column("scraped_timestamp", sa.DateTime(timezone=True), nullable=True),
+            sa.Column("raw_payload", sa.JSON(), nullable=True),
+            sa.Column("created_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+            sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
+            sa.PrimaryKeyConstraint("id"),
+            sa.UniqueConstraint("citation", name="uq_fc_activity_case_citation"),
+            sa.UniqueConstraint("source_key", name="uq_fc_activity_case_source_key"),
+        )
+        op.create_index("ix_fc_activity_cases_source_key", "fc_activity_cases", ["source_key"], unique=True)
+        for column in ("citation", "year", "date_filed"):
+            op.create_index(f"ix_fc_activity_cases_{column}", "fc_activity_cases", [column])
+
     op.create_table(
         "fc_activity_classifications",
         sa.Column("id", sa.Integer(), nullable=False),

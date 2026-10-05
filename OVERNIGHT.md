@@ -123,6 +123,15 @@ The live progress command reports CREATE INDEX, not CREATE INDEX CONCURRENTLY;
 editing the migration does not change already-running sessions. No settings,
 processes, or index builds were changed during diagnosis.
 
+Authorized memory cleanup (2026-10-01): stopped unused Steam, Steam helpers,
+and Claude desktop processes only. Available Windows RAM rose from 1.33 GiB
+to 2.68 GiB of 11.84 GiB total. VS Code, SQL/PostgreSQL, Windows/security,
+sync and hardware services were preserved. At 16:40:58 local, the same builder
+PID 47696 remained unblocked at 189,348/241,571 blocks and 1,526,693 tuples,
+with IO/DataFileRead observed. This verifies continuity and freed memory, not
+a measured indexing speedup. Closing applications does not raise the active
+builder's maintenance_work_mem. Diagnostic defaults do not prove its overrides.
+
 
 This is the repository atlas and the canonical operational guide for bounded overnight work. It explains what each meaningful repository family does, how data moves between families, which boundaries are active or isolated, and how to validate changes. It is paired with these authorities:
 
@@ -432,6 +441,17 @@ Generated API, schema, script, and work-history documents are outputs of their g
 | UI/page builder | research UI guide and route/page owner | Python compilation, feature-tab tests, browser request/check |
 | Evaluation/gold data | data-source register and producing script | bounded generation, fixture/evaluation tests, provenance review |
 | Documentation/Swimm | `DOCS_INDEX.md` and owning walkthrough | link review, structural check, `git diff --check` |
+
+## Saved Search Alert Checker
+
+`scripts/check_saved_searches.py` evaluates stored case-search criteria through
+the existing analytics search service. Its default mode is read-only and limits
+each invocation to at most 25 saved searches and 100 results per search. Start
+with `python scripts/check_saved_searches.py --help`; a bounded check can target
+one saved search with `--search-id <id>`. Add `--apply` only when approved to
+persist unseen case matches and update last-check timestamps. The script does
+not schedule itself, poll external sources, or alter canonical case records.
+Do not run concurrent PostgreSQL writers.
 
 ## Overnight Runner
 

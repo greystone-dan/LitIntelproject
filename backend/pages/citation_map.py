@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 def citation_map_html() -> str:
-	return r"""<!doctype html>
+	html = r"""<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,12 +24,14 @@ def citation_map_html() -> str:
 		.card{padding:17px;border-bottom:1px solid var(--line)}.card .citation{color:var(--rust);font-size:11px;font-weight:600}.card h2{margin:5px 0 7px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:10px;line-height:1.45}.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.action{display:flex;align-items:center;justify-content:center;gap:5px;height:34px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink);font-size:10px}.action.primary{border-color:var(--ink);background:var(--ink);color:white}.action:hover{border-color:var(--teal);color:var(--teal)}.action.primary:hover{background:var(--teal);color:white}.action i{width:14px}
 		.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}.tab{padding:10px 2px;border:0;background:transparent;color:var(--muted);font-size:9px}.tab.active{color:var(--ink);box-shadow:inset 0 -2px var(--rust)}.details{height:calc(100% - 230px);overflow:auto}.row{padding:11px 15px;border-bottom:1px solid #e9e6dd}.row strong{display:block;font-size:11px;line-height:1.35}.row small{display:block;margin-top:3px;color:var(--muted);font-size:9px;line-height:1.45}.row button,.row a{display:inline-block;margin-top:6px;padding:0;border:0;background:transparent;color:var(--blue);font-size:10px;text-decoration:none}.badge{display:inline-block;margin:6px 4px 0 0;padding:2px 5px;border-radius:3px;background:#eee8d9;color:#66521f;font-size:9px}.context{margin-top:6px;padding:9px;border-left:3px solid var(--teal);background:#f4f3ed;white-space:pre-wrap;font:10px/1.5 "IBM Plex Sans",sans-serif}.tag-grid{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.tag{padding:4px 6px;border:1px solid var(--line);border-radius:4px;background:#f4f3ed;font-size:9px}.tag.irpa{border-color:#b4ccc9;background:#edf5f3}.loading{opacity:.55;pointer-events:none}
 		@media(max-width:1100px){.shell{height:auto;grid-template-columns:240px minmax(450px,1fr)}.left,.center{height:calc(100vh - 68px)}.right{grid-column:1/-1;height:560px;border-top:1px solid var(--line);border-left:0}}@media(max-width:720px){.top{padding:10px 14px}.brand span,.stats,.site-nav a span{display:none}.top-right{gap:5px}.shell{grid-template-columns:1fr}.left{height:210px;max-width:100vw;overflow:hidden;border-right:0;border-bottom:1px solid var(--line)}.starts{display:flex;width:100%;max-width:100vw;height:88px;overflow-x:auto}.start-row{flex:0 0 205px;width:205px;min-width:0;border-right:1px solid #e9e6dd}.center{height:720px}.right{grid-column:1;height:560px}.map{overflow:auto}}
+		.search input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+		button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 	</style>
 </head>
 <body>
 	<header class="top"><div class="brand"><h1>ILIT</h1><span>Immigration Litigation Intelligence System</span></div><div class="top-right"><nav class="site-nav"><a href="/data-explorer"><span>Research</span></a><a href="/citation-intelligence"><span>Citation Intel</span></a><a class="active" href="/citation-map"><i data-lucide="network"></i><span>Citation Map</span></a><a href="/live-analysis"><span>Live Analysis</span></a><a href="/data-explorer"><i data-lucide="book-open"></i><span>Case Reader</span></a><a href="/about"><span>About</span></a></nav><div class="stats"><div class="stat"><strong id="statCases">-</strong><span>Cases</span></div><div class="stat"><strong id="statEdges">-</strong><span>Links</span></div><div class="stat"><strong id="statResolved">-</strong><span>Resolved</span></div></div></div></header>
 	<main class="shell">
-		<aside class="left"><div class="head"><h2>Find a case</h2><div class="search"><i data-lucide="search"></i><input id="search" type="search" autocomplete="off" placeholder="Citation or case name"><div id="searchResults" class="search-results"></div></div></div><div class="label">Starting points</div><div id="starts" class="starts"><div class="empty">Loading...</div></div></aside>
+		<aside class="left"><div class="head"><h2>Find a case</h2><div class="search"><i data-lucide="search"></i><input id="search" type="search" aria-label="Find a case by citation or case name" autocomplete="off" placeholder="Citation or case name"><div id="searchResults" class="search-results"></div></div></div><div class="label">Starting points</div><div id="starts" class="starts"><div class="empty">Loading...</div></div></aside>
 		<section class="center"><div class="map-head"><div class="map-title"><strong id="mapTitle">Select a case</strong><span id="mapSub">Click a node to inspect; expand to grow outward</span></div><div class="tools"><div class="mode-switch"><button class="mode-button active" data-mode="case">Case Explorer</button><button class="mode-button" data-mode="issue">Issue Map</button></div><button id="reset" class="icon" title="Reset map" aria-label="Reset map"><i data-lucide="rotate-ccw"></i></button><button id="refresh" class="icon" title="Refresh map" aria-label="Refresh map"><i data-lucide="refresh-cw"></i></button></div></div><div id="compareBar" class="compare-bar"><span>Compare</span><div id="compareChips"></div><button id="findCommon" class="compare-action" disabled>Find common citers</button></div><div id="issueBar" class="issue-bar"><select id="topicSelect" aria-label="Issue or statute tag"></select><div class="range-wrap"><span>Cases</span><input id="caseCount" type="range" min="20" max="150" step="10" value="50"><span id="caseCountValue" class="range-value">50 cases</span></div></div><div id="map" class="map"><svg id="mapSvg" role="img" aria-label="Citation map"></svg><div id="legend" class="legend"><span><i class="dot" style="background:var(--rust)"></i>Central case</span><span><i class="dot" style="background:var(--teal)"></i>Authority</span><span><i class="dot" style="background:var(--gold)"></i>Expanded</span></div></div></section>
 		<aside class="right"><div id="card" class="card"><span class="citation">No selection</span><h2>Case details</h2><p>Select a case or authority.</p></div><div class="tabs"><button class="tab active" data-tab="links">Links</button><button class="tab" data-tab="context">Context</button><button class="tab" data-tab="tags">Tags</button><button class="tab" data-tab="related">Related</button><button class="tab" data-tab="common">Common</button></div><div id="details" class="details"><div class="empty">No results yet.</div></div></aside>
 	</main>
@@ -64,3 +66,36 @@ def citation_map_html() -> str:
 		document.getElementById('search').oninput=()=>{clearTimeout(state.timer);state.timer=setTimeout(()=>search().catch(()=>{}),220)};document.getElementById('findCommon').onclick=()=>findCommon().catch(e=>alert(e.message));document.getElementById('reset').onclick=()=>state.mode==='issue'?loadIssue():state.focusId&&loadFocus(state.focusId);document.getElementById('refresh').onclick=()=>state.mode==='issue'?loadIssue():state.focusId&&loadFocus(state.focusId);document.querySelectorAll('.mode-button').forEach(b=>b.onclick=()=>switchMode(b.dataset.mode).catch(e=>alert(e.message)));document.getElementById('topicSelect').onchange=()=>loadIssue().catch(e=>alert(e.message));document.getElementById('caseCount').oninput=e=>{state.issueLimit=+e.target.value;document.getElementById('caseCountValue').textContent=`${state.issueLimit} cases`};document.getElementById('caseCount').onchange=()=>loadIssue().catch(e=>alert(e.message));document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{state.tab=t.dataset.tab;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===t));renderDetails()});document.addEventListener('click',e=>{if(!e.target.closest('.search'))document.getElementById('searchResults').innerHTML=''});window.addEventListener('resize',renderMap);renderCompare();applyModeUI();lucide.createIcons();load().catch(e=>document.getElementById('starts').innerHTML=`<div class="empty">${esc(e.message)}</div>`);
 	</script>
 </body></html>"""
+	replacements = (
+		(
+			'<button class="mode-button active" data-mode="case">',
+			'<button class="mode-button active" data-mode="case" aria-pressed="true">',
+		),
+		(
+			'<button class="mode-button" data-mode="issue">',
+			'<button class="mode-button" data-mode="issue" aria-pressed="false">',
+		),
+		(
+			'<button class="tab active" data-tab="links">',
+			'<button class="tab active" data-tab="links" aria-pressed="true">',
+		),
+	)
+	for old, new in replacements:
+		html = html.replace(old, new, 1)
+	html = html.replace(
+		"b.classList.toggle('active',b.dataset.mode===state.mode)",
+		"{b.classList.toggle('active',b.dataset.mode===state.mode);b.setAttribute('aria-pressed',String(b.dataset.mode===state.mode))}",
+	)
+	html = html.replace(
+		"t.classList.toggle('active',t.dataset.tab==='common')",
+		"{t.classList.toggle('active',t.dataset.tab==='common');t.setAttribute('aria-pressed',String(t.dataset.tab==='common'))}",
+	)
+	html = html.replace(
+		"x.classList.toggle('active',x===t)",
+		"{x.classList.toggle('active',x===t);x.setAttribute('aria-pressed',String(x===t))}",
+	)
+	for tab in ("context", "tags", "related", "common"):
+		old = f'<button class="tab" data-tab="{tab}">'
+		new = f'<button class="tab" data-tab="{tab}" aria-pressed="false">'
+		html = html.replace(old, new, 1)
+	return html

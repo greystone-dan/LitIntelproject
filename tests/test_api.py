@@ -1,23 +1,38 @@
+import csv
+import io
 from datetime import date
+from io import BytesIO
+import re
 from types import SimpleNamespace
 
 import pytest
-from fastapi import HTTPException
+from docx import Document
+from fastapi import FastAPI, HTTPException
+from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
 from backend import routes
-from backend.reader_service import _build_reader_inferred_tags
+from backend import query_embedding_providers
+from backend import search_service
+from backend.reader_service import (
+    _build_reader_inferred_tags,
+    _citation_target_paragraph,
+    _cited_case_counts_by_paragraph,
+)
 from backend.models import (
     CaseIngestRequest,
     CaseReaderMetadataFieldResponse,
     CaseSearchRequest,
     ChunkGroupSearchRequest,
     LocalChunkSearchRequest,
+    ResearchRequest,
 )
 
 
 @pytest.fixture(autouse=True)
 def _enable_ai_rollout_defaults(monkeypatch):
+    monkeypatch.setenv("ENHANCED_AI_MODE", "hosted")
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
     monkeypatch.setitem(routes.AI_ROLLOUT, "semantic_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "hybrid_enabled", True)
     monkeypatch.setitem(routes.AI_ROLLOUT, "local_semantic_enabled", True)
@@ -28,6 +43,19 @@ def test_main_paragraph_assessments_are_read_only_and_optional(monkeypatch):
     monkeypatch.setattr(routes, "load_paragraph_assessments", lambda case_id, enforce_cohort: {"case_id": case_id, "available": False, "assessments": {}, "source": "paragraph_level_300_run"})
 
     assert routes.get_case_paragraph_assessments(42)["available"] is False
+
+
+def test_reader_cited_paragraph_counts_use_distinct_other_source_cases_only():
+    assert _cited_case_counts_by_paragraph(
+        [(10, 1), (11, 1), (11, 1), (10, 2), (12, None), (None, 3)], 10
+    ) == {1: 1}
+
+
+def test_reader_incoming_pinpoint_uses_existing_stored_paragraph_or_citation_text():
+    assert _citation_target_paragraph("reported case at para. 12", None) == 12
+    assert _citation_target_paragraph(None, "reported case, paragraph 7") == 7
+    assert _citation_target_paragraph("no pinpoint", None) is None
+    assert _citation_target_paragraph("at para. 12", None, 9) == 9
 
 
 def test_main_search_accepts_only_named_core_cohort(monkeypatch):
@@ -41,6 +69,131 @@ def test_main_search_accepts_only_named_core_cohort(monkeypatch):
     assert calls["cohort_ids"] == [1, 2]
     with pytest.raises(HTTPException):
         routes.search_analytics_cases(cohort_id="arbitrary", db=object())
+
+
+def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypatch):
+    calls = []
+    monkeypatch.setattr(routes, "load_discussion_unit_cohort", lambda: {1: {}, 2: {}})
+
+    def fake_search(db, **kwargs):
+        calls.append(kwargs)
+        if kwargs["offset"] == 0:
+            return {
+                "results": [
+                    {
+                        "case_id": 42,
+                        "citation": "=SUM(A1:A2)",
+                        "title": "+unsafe title",
+                        "court": "-unsafe court",
+                        "date": "2024-01-02",
+                        "judge": "@unsafe judge",
+                        "government_outcome": "won",
+                        "decision_outcome": "dismissed",
+                    },
+                    {
+                        "case_id": 43,
+                        "citation": "Citation",
+                        "title": "Decision outcome case",
+                        "government_outcome": "unknown",
+                        "decision_outcome": "granted",
+                    },
+                ]
+            }
+        return {"results": []}
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    response = routes.export_search_analytics_cases(
+        query="Vavilov",
+        cites="2019 SCC 65",
+        government_outcome="won",
+        decision_outcome="dismissed",
+        minister="Minister",
+        judge="Zinn",
+        court="FC",
+        year="2024",
+        search_full_text=True,
+        sort_by="newest",
+        cohort_id="discussion_units_core_300",
+        db=object(),
+    )
+
+    assert response.body.startswith(b"\xef\xbb\xbf")
+    assert response.headers["content-disposition"] == 'attachment; filename="case-search.csv"'
+    rows = list(csv.reader(io.StringIO(response.body.decode("utf-8-sig"))))
+    assert rows == [
+        ["citation", "title", "court", "date", "judge", "outcome", "iLit URL"],
+        ["'=SUM(A1:A2)", "'+unsafe title", "'-unsafe court", "2024-01-02", "'@unsafe judge", "won", "/data-explorer?case_id=42"],
+        ["Citation", "Decision outcome case", "", "", "", "granted", "/data-explorer?case_id=43"],
+    ]
+    assert calls == [
+        {
+            "query": "Vavilov",
+            "cites": "2019 SCC 65",
+            "government_outcome": "won",
+            "decision_outcome": "dismissed",
+            "minister": "Minister",
+            "judge": "Zinn",
+            "court": "FC",
+            "year": "2024",
+            "search_full_text": True,
+            "sort_by": "newest",
+            "limit": 100,
+            "offset": 0,
+            "cohort_ids": [1, 2],
+        }
+    ]
+
+
+def test_case_search_csv_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    routes.export_search_analytics_cases(query=query, db=object())
+
+    assert calls[0]["query"] == query
+
+
+def test_case_search_csv_export_caps_results_at_1000(monkeypatch):
+    calls = []
+
+    def fake_search(db, **kwargs):
+        calls.append(kwargs)
+        return {
+            "results": [
+                {
+                    "case_id": case_id,
+                    "citation": f"Citation {case_id}",
+                    "title": f"Case {case_id}",
+                }
+                for case_id in range(kwargs["offset"], kwargs["offset"] + kwargs["limit"])
+            ]
+        }
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    response = routes.export_search_analytics_cases(db=object())
+
+    rows = list(csv.reader(io.StringIO(response.body.decode("utf-8-sig"))))
+    assert len(rows) == 1001
+    assert len(calls) == 10
+    assert [call["offset"] for call in calls] == list(range(0, 1000, 100))
+    assert all(call["limit"] == 100 for call in calls)
+
+
+def test_case_search_ui_has_download_action_using_current_search_values():
+    page = routes.data_explorer_page().body.decode("utf-8")
+
+    search_actions = re.findall(r'<div class="search-actions">(.*?)</div>', page)
+    export_actions = next(actions for actions in search_actions if 'id="downloadSearchCsv"' in actions)
+    assert 'type="submit" class="sq-go">Search cases</button>' in export_actions
+    assert 'id="downloadSearchCsv">Download CSV</button>' in export_actions
+    assert 'id="downloadSearchWord"' in export_actions
+    assert "Object.entries(searchValues())" in page
+    assert "/search/export.csv?" in page
 
 
 def test_cohort_assessment_search_requires_named_core_cohort(monkeypatch):
@@ -66,6 +219,7 @@ class FakeDatabase:
         self.scalars_values = []
         self.added = []
         self.committed = False
+        self.executed_statements = []
 
     def add(self, value):
         self.added.append(value)
@@ -79,8 +233,9 @@ class FakeDatabase:
     def refresh(self, value):
         value.id = 1
 
-    def execute(self, statement):
+    def execute(self, statement, params=None):
         self.statement = statement
+        self.executed_statements.append(statement)
         return self.rows
 
     def scalar(self, statement):
@@ -105,9 +260,14 @@ class QueuedReaderSession:
     def scalars(self, statement):
         return iter(self.rows)
 
+    def execute(self, statement):
+        return iter(())
+
 
 def test_ingest_stores_metadata_and_embedding(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     database = FakeDatabase()
     request = CaseIngestRequest(
         title="Example v. Jones",
@@ -208,6 +368,121 @@ def test_search_metadata_mode_uses_basic_identifiers(monkeypatch):
     assert any("Federal Court" in str(value) for value in params.values())
     assert "Canada" in params.values()
     assert "%2024 FC%" in params.values()
+
+
+def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeypatch):
+    calls = []
+
+    def fake_search(database, **kwargs):
+        calls.append((database, kwargs))
+        start = kwargs["offset"]
+        return {
+            "results": [
+                {
+                    "citation": f"2024 FC {index + 1}",
+                    "title": f"Example case {index + 1}",
+                    "court": "Federal Court",
+                    "date": date(2024, 6, 1),
+                    "decision_outcome": "dismissed",
+                }
+                for index in range(start, start + 100)
+            ]
+        }
+
+    monkeypatch.setattr(routes, "fetch_analytics_search_cases", fake_search)
+    database = object()
+    response = routes.export_search_docx(
+        query="contract/fairness?",
+        cites="Vavilov",
+        government_outcome="won",
+        decision_outcome="dismissed",
+        minister="Minister A",
+        judge="Zinn",
+        court="Federal Court",
+        year="2024",
+        search_full_text=True,
+        sort_by="newest",
+        limit=25,
+        db=database,
+    )
+
+    document = Document(BytesIO(response.body))
+    header = document.paragraphs[0].text
+    assert "Query: contract/fairness?" in header
+    for filter_value in (
+        "cites=Vavilov",
+        "government_outcome=won",
+        "decision_outcome=dismissed",
+        "minister=Minister A",
+        "judge=Zinn",
+        "court=Federal Court",
+        "year=2024",
+        "search_full_text=True",
+        "sort_by=newest",
+        "limit=25",
+    ):
+        assert filter_value in header
+    assert "Count: 200" in header
+    assert re.search(r"Generated: \d{4}-\d{2}-\d{2}", header)
+    assert [cell.text for cell in document.tables[0].rows[0].cells] == [
+        "Citation",
+        "Title",
+        "Court",
+        "Date",
+        "Outcome",
+    ]
+    assert len(document.tables[0].rows) == 201
+    assert [cell.text for cell in document.tables[0].rows[1].cells] == [
+        "2024 FC 1",
+        "Example case 1",
+        "Federal Court",
+        "2024-06-01",
+        "dismissed",
+    ]
+    assert document.tables[0].rows[1].cells[4].text == "dismissed"
+    assert response.headers["content-type"] == (
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
+    assert response.headers["content-disposition"] == (
+        'attachment; filename="search-contract-fairness.docx"'
+    )
+    assert response.headers["cache-control"] == "no-store"
+    assert len(calls) == 2
+    assert [kwargs["offset"] for _, kwargs in calls] == [0, 100]
+    assert all(kwargs["limit"] == 100 for _, kwargs in calls)
+    assert all(
+        {key: value for key, value in kwargs.items() if key not in {"limit", "offset"}}
+        == {
+            "query": "contract/fairness?",
+            "cites": "Vavilov",
+            "government_outcome": "won",
+            "decision_outcome": "dismissed",
+            "minister": "Minister A",
+            "judge": "Zinn",
+            "court": "Federal Court",
+            "year": "2024",
+            "search_full_text": True,
+            "sort_by": "newest",
+        }
+        for _, kwargs in calls
+    )
+    assert all(database_arg is database for database_arg, _ in calls)
+
+
+def test_search_docx_export_forwards_operator_query(monkeypatch):
+    calls = []
+    query = 'court:FC year:2018..2022 AND cites:"2008 SCC 9"'
+    monkeypatch.setattr(
+        routes,
+        "fetch_analytics_search_cases",
+        lambda db, **kwargs: calls.append(kwargs) or {"results": []},
+    )
+
+    response = routes.export_search_docx(query=query, db=object())
+
+    document = Document(BytesIO(response.body))
+    assert f"Query: {query}" in document.paragraphs[0].text
+    assert calls[0]["query"] == query
 
 
 def test_analytics_search_relevance_prefers_exact_case_name_matches():
@@ -818,7 +1093,9 @@ def test_raw_ingest_skips_embedding(monkeypatch):
 
 
 def test_ingest_hashes_server_text_and_derives_status(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     request = CaseIngestRequest(
         title="Hash test",
         court="Federal Court",
@@ -931,6 +1208,7 @@ def test_grouped_chunk_search_groups_by_case(monkeypatch):
     )
     request = ChunkGroupSearchRequest(
         query="risk",
+        search_mode="semantic",
         source_type="a2aj_curated",
         page=1,
         page_size=5,
@@ -947,6 +1225,99 @@ def test_grouped_chunk_search_groups_by_case(monkeypatch):
     assert result.cases[0].chunks[0].chunk_text == "Best passage A"
     assert len(result.cases[0].chunks) == 1
     assert result.cases[1].id == 202
+
+
+def test_grouped_chunk_search_supports_recent_case_cohort(monkeypatch):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(search_service, "_recent_5000_artifact_ready", lambda db: False)
+    case = SimpleNamespace(
+        id=401,
+        title="Recent case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 8, 1),
+        citation="2026 FC 401",
+        summary="A",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    chunk = SimpleNamespace(chunk_index=0, text="Recent passage")
+    database = FakeDatabase(rows=[(case, chunk, 0.1, 0.5)])
+
+    result = routes.search_chunks_grouped(
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
+    )
+
+    assert result.total_cases == 1
+    compiled_sql = str(database.statement.compile())
+    assert "LIMIT" in compiled_sql
+    assert "cases.id IN" in compiled_sql
+
+
+def test_research_defaults_to_full_hosted_paragraph_retrieval():
+    request = ResearchRequest(query="procedural fairness")
+
+    assert request.chunk_set == "paragraph"
+    assert request.embedding_model == "text-embedding-3-small"
+    assert request.case_cohort is None
+
+
+def test_balanced_rag_local_passage_reranker_rewards_direct_answer_language():
+    direct = search_service._local_passage_relevance(
+        "What is the test for procedural fairness?",
+        "The court held that the applicable test for procedural fairness is contextual.",
+    )
+    background = search_service._local_passage_relevance(
+        "What is the test for procedural fairness?",
+        "The applicant described the history of the immigration application.",
+    )
+
+    assert direct > background
+
+
+def test_grouped_chunk_search_recent_cohort_uses_ivfflat_artifact(monkeypatch):
+    monkeypatch.setattr(routes, "_embed", lambda text: [0.2] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(search_service, "_recent_5000_artifact_ready", lambda db: True)
+    case = SimpleNamespace(
+        id=402,
+        title="Recent indexed case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 8, 2),
+        citation="2026 FC 402",
+        summary="A",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    artifact_chunk = SimpleNamespace(
+        chunk_index=0,
+        text="Recent indexed passage",
+    )
+    database = FakeDatabase(rows=[(case, artifact_chunk, 0.1, 0.5)])
+
+    result = routes.search_chunks_grouped(
+        ChunkGroupSearchRequest(
+            query="risk", search_mode="semantic", case_cohort="recent_5000"
+        ),
+        database,
+    )
+
+    assert result.total_cases == 1
+    compiled_sql = str(database.statement.compile())
+    assert "recent_case_chunk_embeddings" in compiled_sql
+    assert any(
+        "set_config('ivfflat.probes'" in str(statement)
+        for statement in database.executed_statements
+    )
 
 
 def test_grouped_chunk_search_lexical_mode_skips_embedding(monkeypatch):
@@ -1044,7 +1415,7 @@ def test_paragraph_search_forces_semantic_openai_paragraph_filter(monkeypatch):
 
 def test_local_chunk_search_uses_requested_model(monkeypatch):
     provider = SimpleNamespace(embed_query=lambda text: [0.3] * 1024)
-    monkeypatch.setattr(routes, "_local_embedding_provider", lambda model_name: provider)
+    monkeypatch.setattr(search_service, "_local_embedding_provider", lambda model_name: provider)
     case = SimpleNamespace(
         id=701,
         title="Local vector case",
@@ -1071,6 +1442,126 @@ def test_local_chunk_search_uses_requested_model(monkeypatch):
     assert result[0].chunk_text == "Relevant local passage"
     assert result[0].similarity == pytest.approx(0.88)
     assert "BAAI/bge-m3" in database.statement.compile().params.values()
+
+
+def test_search_embedding_status_reports_no_embedding_default(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("TEXT_GENERATION_PROVIDER", raising=False)
+    app = FastAPI()
+    app.include_router(routes.router)
+
+    with TestClient(app) as client:
+        response = client.get("/api/search-embedding-status")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "query_provider": "none",
+        "model": None,
+        "dimensions": None,
+        "indexed_dimensions": 1536,
+        "query_data_leaves_machine": False,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_default_semantic_search_falls_back_without_constructing_model_client(monkeypatch):
+    monkeypatch.delenv("QUERY_EMBEDDING_PROVIDER", raising=False)
+
+    def fail_if_constructed(**kwargs):
+        raise AssertionError("default search must not construct an embedding client")
+
+    monkeypatch.setattr(query_embedding_providers, "OpenAI", fail_if_constructed)
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_local_provider",
+        lambda *args: fail_if_constructed(),
+    )
+    case = SimpleNamespace(
+        id=1,
+        title="Default Search Case",
+        court="Federal Court",
+        jurisdiction="Canada",
+        date=date(2026, 7, 31),
+        citation="2026 FC 55",
+        summary="state protection analysis",
+        full_text=None,
+        issues=None,
+        metadata_json=None,
+        source_url=None,
+        source_name="source",
+    )
+    database = FakeDatabase(rows=[(case, 0.3)])
+
+    results = routes.search_cases(CaseSearchRequest(query="state protection"), database)
+
+    assert results[0].title == "Default Search Case"
+    assert "cosine" not in str(database.statement).lower()
+
+
+def test_local_query_embedding_with_matching_indexed_dimensions(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.setenv("QUERY_EMBEDDING_MODEL", "test-1536-local")
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("QUERY_EMBEDDING_DIMENSIONS", "1536")
+    provider = SimpleNamespace(embed_query=lambda text: [0.25] * 1536)
+    monkeypatch.setattr(query_embedding_providers, "_local_provider", lambda model, dims: provider)
+
+    assert len(search_service._embed("local query")) == 1536
+    assert query_embedding_providers.get_search_embedding_status() == {
+        "query_provider": "local",
+        "model": "test-1536-local",
+        "dimensions": 1536,
+        "indexed_dimensions": 1536,
+        "query_data_leaves_machine": False,
+        "text_generation_provider": "openai",
+    }
+
+
+def test_local_query_embedding_mismatch_fails_before_provider_use(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "local")
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("LOCAL_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("QUERY_EMBEDDING_DIMENSIONS", raising=False)
+    provider_calls = []
+    monkeypatch.setattr(
+        query_embedding_providers,
+        "_local_provider",
+        lambda model, dims: provider_calls.append((model, dims)),
+    )
+
+    with pytest.raises(HTTPException) as exc:
+        search_service._embed("local query")
+    assert exc.value.status_code == 503
+    assert "1024" in exc.value.detail
+    assert "1536" in exc.value.detail
+    assert "re-embedding" in exc.value.detail
+    assert provider_calls == []
+
+
+def test_query_embedding_provider_supports_explicit_openai_opt_in_without_live_client(monkeypatch):
+    monkeypatch.setenv("QUERY_EMBEDDING_PROVIDER", "openai")
+    monkeypatch.delenv("QUERY_EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("OPENAI_EMBEDDING_MODEL", raising=False)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    created = {}
+
+    class FakeOpenAI:
+        def __init__(self, **kwargs):
+            created.update(kwargs)
+            self.embeddings = SimpleNamespace(
+                create=lambda **params: SimpleNamespace(
+                    data=[SimpleNamespace(embedding=[0.5] * 1536)]
+                )
+            )
+
+    monkeypatch.setattr(query_embedding_providers, "OpenAI", FakeOpenAI)
+    vector = query_embedding_providers.embed_query("outbound query")
+
+    assert len(vector) == 1536
+    assert created == {"api_key": "test-key"}
+    assert query_embedding_providers.get_search_embedding_status()["query_data_leaves_machine"] is True
 
 
 def test_search_lexical_mode_skips_embedding_call(monkeypatch):
@@ -1111,7 +1602,9 @@ def test_hybrid_mode_requires_non_zero_weight_sum():
 
 
 def test_ingest_adds_extracted_citations_to_metadata(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     monkeypatch.setattr(routes, "_extract_legal_citations", lambda text: ["2007 FC 1262", "2026 ONCA 1"])
 
     request = CaseIngestRequest(
@@ -1130,7 +1623,9 @@ def test_ingest_adds_extracted_citations_to_metadata(monkeypatch):
 
 
 def test_ingest_preserves_cases_cited_when_provided(monkeypatch):
-    monkeypatch.setattr(routes, "_embed", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS)
+    monkeypatch.setattr(
+        routes, "embed_case_summary", lambda text: [0.1] * routes.EMBEDDING_DIMENSIONS
+    )
     monkeypatch.setattr(routes, "_extract_legal_citations", lambda text: ["2007 FC 1262"])
 
     request = CaseIngestRequest(

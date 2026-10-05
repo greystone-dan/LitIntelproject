@@ -11,7 +11,9 @@ from sqlalchemy import (
 	DateTime,
 	Float,
 	Integer,
+	Index,
 	JSON,
+	LargeBinary,
 	ForeignKey,
 	String,
 	Text,
@@ -23,6 +25,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 from sqlalchemy.orm import relationship
+from .db_limits import engine_kwargs
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # Prefer project-local settings over inherited shell variables.
@@ -72,7 +75,7 @@ def _database_url() -> str | URL:
 
 DATABASE_URL = _database_url()
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(DATABASE_URL, pool_pre_ping=True, **engine_kwargs(DATABASE_URL))
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 
@@ -141,6 +144,9 @@ class Case(Base):
 		"CaseTaggingStatus", back_populates="case", cascade="all, delete-orphan"
 	)
 	outcomes = relationship("CaseOutcome", back_populates="case", cascade="all, delete-orphan")
+	discussion_unit_caches = relationship(
+		"DiscussionUnitCache", back_populates="case", cascade="all, delete-orphan"
+	)
 
 
 class JudgeProfile(Base):
@@ -211,6 +217,7 @@ class CaseSource(Base):
 
 class CaseChunk(Base):
 	__tablename__ = "case_chunks"
+	__table_args__ = (Index("ix_similarity_paragraph", "case_id", "chunk_set", "paragraph_start", "id"),)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	case_id: Mapped[int] = mapped_column(
@@ -264,9 +271,40 @@ class CaseChunkEmbedding(Base):
 	chunk = relationship("CaseChunk", back_populates="local_embeddings")
 
 
+class RecentCaseChunkEmbedding(Base):
+	__tablename__ = "recent_case_chunk_embeddings"
+
+	chunk_id: Mapped[int] = mapped_column(
+		Integer,
+		ForeignKey("case_chunks.id", ondelete="CASCADE"),
+		primary_key=True,
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer,
+		ForeignKey("cases.id", ondelete="CASCADE"),
+		nullable=False,
+		index=True,
+	)
+	chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
+	paragraph_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	paragraph_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	chunk_set: Mapped[str] = mapped_column(String(50), nullable=False, server_default="paragraph")
+	text: Mapped[str] = mapped_column(Text, nullable=False)
+	embedding: Mapped[list[float]] = mapped_column(Vector(1536), nullable=False)
+	embedding_model: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	refreshed_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	chunk = relationship("CaseChunk")
+	case = relationship("Case")
+
+
 class CaseTag(Base):
 	__tablename__ = "case_tags"
 	__table_args__ = (
+		Index("ix_similarity_tag_posting", "taxonomy_version", "category", "value", "case_id", "id"),
+		Index("ix_similarity_tag_source", "case_id", "taxonomy_version", "id"),
 		UniqueConstraint(
 			"case_id",
 			"category",
@@ -354,6 +392,28 @@ class CaseOutcome(Base):
 	case = relationship("Case", back_populates="outcomes")
 
 
+class DiscussionUnitCache(Base):
+	__tablename__ = "discussion_unit_cache"
+	__table_args__ = (
+		UniqueConstraint("case_id", "method_version", name="uq_discussion_unit_cache_version"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	method_version: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	units_json: Mapped[str] = mapped_column(Text, nullable=False)
+	total_units: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	total_subthemes: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now()
+	)
+
+	case = relationship("Case", back_populates="discussion_unit_caches")
+
+
 class IngestionRun(Base):
 	__tablename__ = "ingestion_runs"
 
@@ -373,6 +433,11 @@ class IngestionRun(Base):
 
 class Citation(Base):
 	__tablename__ = "citations"
+	__table_args__ = (
+		Index("ix_similarity_authority_posting", "target_case_id", "source_case_id", "id"),
+		Index("ix_similarity_unresolved_posting", "normalized_citation", "source_case_id", "id"),
+		Index("ix_similarity_citation_source", "source_case_id", "id"),
+	)
 
 	id: Mapped[int] = mapped_column(Integer, primary_key=True)
 	source_case_id: Mapped[int] = mapped_column(
@@ -406,6 +471,51 @@ class Citation(Base):
 		"CaseChunk",
 		back_populates="citations",
 		foreign_keys=[chunk_id],
+	)
+
+
+class ParagraphCitationEdge(Base):
+	"""Who cites which paragraph of a decision, how often, and the signal phrase used.
+
+	Written by scripts/build_paragraph_cited_by.py from stored citation occurrences; one row per
+	(citing case, cited case, cited paragraph). Rewritten as a unit per citing case.
+	"""
+
+	__tablename__ = "paragraph_citation_edges"
+	__table_args__ = (
+		UniqueConstraint(
+			"source_case_id", "target_case_id", "target_paragraph", name="uq_paragraph_citation_edge"
+		),
+		Index("ix_paragraph_citation_target", "target_case_id", "target_paragraph"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False
+	)
+	target_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False
+	)
+	target_paragraph: Mapped[int] = mapped_column(Integer, nullable=False)
+	mentions: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+	purpose: Mapped[str] = mapped_column(String(20), nullable=False, server_default="mentioned")
+	purpose_counts: Mapped[dict[str, int] | None] = mapped_column(JSON, nullable=True)
+	signal: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	algo_version: Mapped[int] = mapped_column(Integer, nullable=False, server_default="1")
+
+
+class ParagraphCitationStatus(Base):
+	"""Marks a citing case as processed by the paragraph cited-by batch (the resume point)."""
+
+	__tablename__ = "paragraph_citation_status"
+
+	source_case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), primary_key=True
+	)
+	algo_version: Mapped[int] = mapped_column(Integer, nullable=False)
+	edges: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	computed_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
 	)
 
 
@@ -461,6 +571,9 @@ class StatuteReference(Base):
 	chunk_id: Mapped[int | None] = mapped_column(
 		Integer, ForeignKey("case_chunks.id", ondelete="SET NULL"), nullable=True, index=True
 	)
+	statute_version_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("statute_versions.id", ondelete="SET NULL"), nullable=True, index=True
+	)
 	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	reference_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -473,10 +586,12 @@ class StatuteReference(Base):
 	provision_nested_depth: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	provision_is_range_or_list: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, index=True)
 	legislation_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	section_text: Mapped[str | None] = mapped_column(Text, nullable=True)
 	reference_kind: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
 
 	source_case = relationship("Case", back_populates="statute_references")
 	chunk = relationship("CaseChunk", back_populates="statute_references")
+	statute_version = relationship("StatuteVersion")
 
 
 class A2AJCase(Base):
@@ -597,6 +712,84 @@ class FCActivityClassification(Base):
 	source_case = relationship("FCActivityCase", back_populates="classification")
 
 
+class FCActivityMotion(Base):
+	"""One row per motion in a classified IMM file: type, filer, outcome and the judge who ruled."""
+
+	__tablename__ = "fc_activity_motions"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	position: Mapped[int] = mapped_column(Integer, nullable=False)
+	motion_type: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	filer: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	outcome: Mapped[str] = mapped_column(String(60), nullable=False, index=True)
+	link: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	filed_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	decision_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	days_to_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	in_writing: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	relief: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class FCActivitySummary(Base):
+	"""One flat row per classified IMM file so the site can aggregate without parsing classification_json."""
+
+	__tablename__ = "fc_activity_summaries"
+
+	source_case_id: Mapped[int] = mapped_column(Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), primary_key=True)
+	imm_number: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	classifier_version: Mapped[str] = mapped_column(String(80), nullable=False)
+	year: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+	city_filed: Mapped[str | None] = mapped_column(String(255), nullable=True, index=True)
+	resolution: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	lifecycle: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	review_result: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	decision_body: Mapped[str | None] = mapped_column(String(40), nullable=True, index=True)
+	leave_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	leave_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	merits_judge_key: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+	merits_judge_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	applicant_counsel_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
+	applicant_counsel_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	representation: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	respondent_position: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	leave_refusal_reason: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	stay_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_mode: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	appeal_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	certified_question: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	consent_status: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	reasons_at_filing: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	proceeding_language: Mapped[str | None] = mapped_column(String(20), nullable=True)
+	lead_file: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	lead_resolution: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	application_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	office_location: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	joint_applicants: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	motions_filed: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	extension_of_time: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	dormant: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	days_decision_to_filing: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	filing_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	record_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	memorandum_timeliness: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	hearing_window: Mapped[str | None] = mapped_column(String(40), nullable=True)
+	days_filing_to_perfection: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_leave_decision: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_leave_grant_to_hearing: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_hearing_to_judgment: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	days_filing_to_final_disposition: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	judgment_from_bench: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+
 class FCActivityDocument(Base):
 	__tablename__ = "fc_activity_documents"
 	__table_args__ = (
@@ -619,6 +812,134 @@ class FCActivityDocument(Base):
 	)
 
 	case = relationship("FCActivityCase", back_populates="documents")
+
+
+class SavedSearch(Base):
+	__tablename__ = "saved_searches"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+	description: Mapped[str | None] = mapped_column(Text, nullable=True)
+	query: Mapped[str] = mapped_column(Text, nullable=False)
+	search_mode: Mapped[str] = mapped_column(String(20), nullable=False, default="semantic")
+	filters: Mapped[dict[str, object]] = mapped_column(JSON, nullable=False)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	updated_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False
+	)
+	last_alert_check: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+	alerts = relationship("SearchAlert", back_populates="search", cascade="all, delete-orphan")
+
+
+class SearchAlert(Base):
+	__tablename__ = "search_alerts"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	search_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("saved_searches.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	chunk_id: Mapped[int | None] = mapped_column(
+		Integer, ForeignKey("case_chunks.id", ondelete="CASCADE"), nullable=True
+	)
+	match_type: Mapped[str] = mapped_column(String(50), nullable=False)
+	relevance_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+	discovered_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	search = relationship("SavedSearch", back_populates="alerts")
+	case = relationship("Case")
+	chunk = relationship("CaseChunk")
+
+
+class FCActivityAlert(Base):
+	__tablename__ = "fc_activity_alerts"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	search_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("saved_searches.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	case_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("fc_activity_cases.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	entry_type: Mapped[str] = mapped_column(String(100), nullable=False)
+	discovered_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False, index=True
+	)
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
+
+	search = relationship("SavedSearch")
+	case = relationship("FCActivityCase")
+
+
+class Statute(Base):
+	__tablename__ = "statutes"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	instrument_key: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)
+	title: Mapped[str] = mapped_column(Text, nullable=False)
+	short_title: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	jurisdiction: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	statute_type: Mapped[str] = mapped_column(String(50), nullable=False)
+	consolidated_year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	source: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	license: Mapped[str | None] = mapped_column(String(100), nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+	updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False, onupdate=func.now())
+
+	versions = relationship("StatuteVersion", back_populates="statute", cascade="all, delete-orphan")
+
+
+class StatuteVersion(Base):
+	__tablename__ = "statute_versions"
+	__table_args__ = (
+		UniqueConstraint("statute_id", "in_force_date", name="uq_statute_version_date"),
+	)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	statute_id: Mapped[int] = mapped_column(Integer, ForeignKey("statutes.id", ondelete="CASCADE"), nullable=False, index=True)
+	version_number: Mapped[str] = mapped_column(String(50), nullable=False)
+	in_force_date: Mapped[date_type] = mapped_column(Date, nullable=False, index=True)
+	end_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	full_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	text_compressed: Mapped[bytes | None] = mapped_column(LargeBinary(), nullable=True)
+	source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+	fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+	statute = relationship("Statute", back_populates="versions")
+	sections = relationship("StatuteSection", back_populates="statute_version", cascade="all, delete-orphan")
+
+
+class StatuteSection(Base):
+	__tablename__ = "statute_sections"
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	statute_version_id: Mapped[int] = mapped_column(
+		Integer, ForeignKey("statute_versions.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	section_number: Mapped[str] = mapped_column(String(50), nullable=False)
+	subsection: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	paragraph: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	heading: Mapped[str | None] = mapped_column(Text, nullable=True)
+	text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	offset_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	offset_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+	statute_version = relationship("StatuteVersion", back_populates="sections")
 
 
 def get_db() -> Generator[Session, None, None]:

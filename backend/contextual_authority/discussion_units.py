@@ -10,7 +10,7 @@ from .models import text_hash
 
 
 DISCUSSION_UNIT_METHOD = "discussion_unit_v1"
-DISCUSSION_UNIT_VERSION = "1.2"
+DISCUSSION_UNIT_VERSION = "1.4"
 _CONTENT_STOPWORDS = frozenset(
     "a an and are as at be been being by for from had has have he her his in is it its may of on or that the their them they this to was were will with would".split()
 )
@@ -144,6 +144,178 @@ def _density_shift(left: ParagraphFeatures, right: ParagraphFeatures) -> float:
     return min(1.0, abs(left_density - right_density))
 
 
+def _is_boilerplate_start(text: str) -> bool:
+    """Detect case header/metadata at document start."""
+    text_upper = text.upper()
+    # Case headers typically contain multiple metadata fields
+    has_court = "COURT" in text_upper and "DATABASE" in text_upper
+    has_neutral = "NEUTRAL CITATION" in text_upper
+    has_docket = "DOCKET" in text_upper
+
+    # Trigger on court database OR neutral citation
+    return has_court or has_neutral
+
+
+def _is_boilerplate_end(text: str) -> bool:
+    """Detect case footer/metadata at document end."""
+    text_upper = text.upper()
+    # Court order/footer markers
+    boilerplate_markers = (
+        "SOLICITORS OF RECORD",
+        "ORDER AND ORDER:",
+        "ORDER :",
+        "DOCKET :",
+        "DOCKET:",
+        "STYLE OF CAUSE",
+        "PLACE OF HEARING",
+        "DATE OF HEARING",
+        "REASONS FOR",
+        "APPEARANCES",
+        "FOR THE",
+        "FOR RESPONDENT",
+        "FOR APPLICANT",
+    )
+    return any(marker in text_upper for marker in boilerplate_markers)
+
+
+def _is_disposition(text: str) -> bool:
+    """Detect final order/judgment language."""
+    text_upper = text.upper()
+    disposition_markers = (
+        "IT IS ORDERED",
+        "THIS COURT ORDERS",
+        "THIS COURT'S JUDGMENT",
+        "THE APPLICATION IS",
+        "THE APPLICATION FOR",
+        "JUDGMENT IS",
+        "FOR THESE REASONS",
+        "DISPOSITION",
+    )
+    return any(marker in text_upper for marker in disposition_markers)
+
+
+def _is_issue_marker(text: str) -> bool:
+    """Detect explicit issue markers (Issue 1, Issue 2, First issue, raises issue, etc)."""
+    text_upper = text.upper()
+    # Numbered issues at paragraph start: "[5] Issue 1", "FIRST ISSUE", etc.
+    numbered_patterns = (
+        r"^\[?\d+\]?\s*(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
+        r"^(ISSUE\s*\d|FIRST\s+ISSUE|SECOND\s+ISSUE|THIRD\s+ISSUE)",
+    )
+    if any(re.search(pattern, text_upper) for pattern in numbered_patterns):
+        return True
+
+    # Semantic markers of problem statements that mark facts→analysis transition:
+    # - "raises [a/an] [primary] issue[s]" (case 13414)
+    # - "issues raised [by the parties]" (case 32257)
+    # - "THE/[sole] issue is/are/before"
+    semantic_patterns = (
+        r"RAISES\s+(?:A|AN|ONE|SEVERAL)?\s*(?:PRIMARY\s+)?ISSUES?",
+        r"ISSUES?\s+RAISED",
+        r"(?:^|\s)(?:THE\s+)?(?:SOLE\s+)?ISSUES?(?:\s+(?:IS|ARE|BEFORE)|$)",
+    )
+    if any(re.search(pattern, text_upper) for pattern in semantic_patterns):
+        return True
+
+    return False
+
+
+def _detect_discourse_cue(text: str) -> bool:
+    """Detect explicit discourse markers indicating section transitions.
+
+    Looks for phrases that signal a shift in discussion: new issues, conclusions,
+    specific analysis markers. These are independent of citation signals and work
+    even in low-signal passages like mega-blob paragraphs.
+    """
+    text_upper = text.upper()
+
+    # Issue/question markers
+    issue_cues = (
+        "THE FIRST ISSUE", "THE SECOND ISSUE", "THE THIRD ISSUE",
+        "FIRST ISSUE", "SECOND ISSUE", "THIRD ISSUE",
+        "THE ISSUE IS", "THIS ISSUE", "THE MAIN ISSUE",
+    )
+
+    # Transition markers
+    transition_cues = (
+        "TURNING TO", "TURNING NOW TO", "MOVING TO", "MOVING NOW TO",
+        "WE NOW TURN", "I NOW TURN", "THE COURT NOW TURNS",
+        "WE NOW CONSIDER", "I NOW CONSIDER",
+    )
+
+    # Analysis/perspective markers
+    analysis_cues = (
+        "IN MY VIEW", "IN OUR VIEW", "IN THE COURT'S VIEW",
+        "IT IS MY VIEW", "IT IS OUR VIEW",
+        "I CONCLUDE", "WE CONCLUDE", "THE COURT CONCLUDES",
+        "IN CONCLUSION", "ACCORDINGLY", "FOR THESE REASONS",
+        "THEREFORE", "THUS,", "HENCE,",
+    )
+
+    all_cues = issue_cues + transition_cues + analysis_cues
+    return any(cue in text_upper for cue in all_cues)
+
+
+def _lexical_topic_shift_score(left: ParagraphFeatures, right: ParagraphFeatures) -> float:
+    """Calculate topic shift based on word overlap between consecutive paragraphs.
+
+    Returns a score from 0.0 (high similarity) to 1.0 (low similarity) indicating
+    how much the topic/vocabulary has changed. Uses simple word overlap (Jaccard)
+    on content words, independent of citations.
+    """
+    left_words = _content_words(left.text)
+    right_words = _content_words(right.text)
+
+    # If either paragraph is very short, it's not informative
+    if len(left_words) < 3 or len(right_words) < 3:
+        return 0.5  # Neutral score
+
+    # Jaccard similarity on content words
+    overlap = _jaccard(left_words, right_words)
+    # Convert to dissimilarity: high overlap (0.7) → low shift (0.3)
+    return 1.0 - overlap
+
+
+def _is_section_header(text: str) -> bool:
+    """Detect section headers that mark major divisions in judicial decisions.
+
+    Identifies roman numerals, lettered headings, and section keywords that signal
+    argumentative role transitions (Preamble -> Facts -> Analysis -> Disposition).
+    Headers can appear at paragraph start or embedded within the text.
+    """
+    text_upper = text.upper()
+
+    # Roman numeral patterns: I, II, III, IV, V, VI, VII, VIII, IX, X
+    # Can appear at start or in the middle: ". I.", " I. ", "[5] I.", etc.
+    # Look for roman numeral followed by period and space/content
+    if re.search(r"(?:^|\s|\.|])(\s*)(I|II|III|IV|V|VI|VII|VIII|IX|X)(\.|:)\s+", text_upper):
+        return True
+
+    # Check for section keywords at paragraph start or after boundaries
+    # Patterns like "I. Background", "[5] Analysis", "2. Facts", etc.
+    section_keywords = (
+        "BACKGROUND",
+        "FACTS",
+        "PROCEDURAL HISTORY",
+        "DECISION",
+        "ISSUES?",
+        "ANALYSIS",
+        "STANDARD OF REVIEW",
+        "LEGAL PRINCIPLES?",
+        "REASONS?",
+        "CONCLUSION",
+        "DISPOSITION",
+        "ORDERS?",
+    )
+
+    for keyword in section_keywords:
+        # Match at start or after number/bracket/period
+        if re.search(rf"(?:^|\[|\d\.])\s*{keyword}(?:\s|:|$|\.)", text_upper):
+            return True
+
+    return False
+
+
 def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> ContinuityComponents:
     authority_overlap = _jaccard(left.citation_ids, right.citation_ids)
     statute_overlap = _jaccard(left.statute_ids, right.statute_ids)
@@ -151,6 +323,7 @@ def compute_continuity(left: ParagraphFeatures, right: ParagraphFeatures) -> Con
     text_overlap = _text_overlap(left, right)
     heading_boundary_penalty = 1.0 if right.is_heading else 0.0
     signal_density_shift = _density_shift(left, right)
+
     continuity_score = (
         0.25 * (authority_overlap if left.citation_ids or right.citation_ids else 0.5)
         + 0.15 * (statute_overlap if left.statute_ids or right.statute_ids else 0.5)
@@ -178,9 +351,9 @@ def segment_discussion_units(
     *,
     threshold: float = 0.35,
     consecutive_low_scores: int = 2,
-    consecutive_signal_vacuum_pairs: int = 8,
+    consecutive_signal_vacuum_pairs: int = 4,
     signal_vacuum_text_overlap: float = 0.10,
-    signal_vacuum_min_paragraphs: int = 50,
+    signal_vacuum_min_paragraphs: int = 40,
     config: dict[str, object] | None = None,
 ) -> tuple[DiscussionUnit, ...]:
     if not paragraphs:
@@ -211,6 +384,24 @@ def segment_discussion_units(
     low_score_count = 0
     signal_vacuum_count = 0
     signal_vacuum_active = False
+
+    # Detect structural boundaries: boilerplate headers and footers, disposition markers
+    boilerplate_start_idx = 0
+    boilerplate_end_idx = len(paragraphs)
+    for i, para in enumerate(paragraphs):
+        if boilerplate_start_idx == 0 and _is_boilerplate_start(para.text):
+            boilerplate_start_idx = i + 1
+            if i > 0:
+                boundaries.add(i + 1)
+
+    # Find disposition/footer boundaries from the end
+    for i in range(len(paragraphs) - 1, -1, -1):
+        if _is_boilerplate_end(paragraphs[i].text):
+            boilerplate_end_idx = i
+            if i < len(paragraphs) - 1:
+                boundaries.add(i)
+            break
+
     for index, component in enumerate(continuity, 1):
         left = paragraphs[index - 1]
         right = paragraphs[index]
@@ -227,6 +418,35 @@ def segment_discussion_units(
             and not has_signal
             and component.text_overlap < signal_vacuum_text_overlap
         )
+
+        # Disposition boundary marker
+        if _is_disposition(right.text) and index > 2:
+            boundaries.add(index)
+
+        # Issue marker boundary - separates multiple legal issues
+        if _is_issue_marker(right.text):
+            boundaries.add(index)
+
+        # NOTE: Section header detection (roman numerals, section keywords) disabled as
+        # independent boundary trigger because headers often appear mid-paragraph text,
+        # causing false positives. Headers are used as supporting signals elsewhere.
+
+        # Weak discourse cues only trigger with low continuity. Strong cues ("Turning to",
+        # "In conclusion", "The first issue") no longer trigger on their own: on the verified
+        # gold set every boundary they alone produced was spurious
+        # (scripts/evaluate_discussion_unit_boundaries.py).
+        weak_cues = ("ACCORDINGLY", "THEREFORE", "THUS,", "HENCE,")
+        has_weak_cue = any(cue in right.text.upper() for cue in weak_cues)
+        if has_weak_cue and component.continuity_score < 0.45 and index > 2:
+            boundaries.add(index)
+
+        # Lexical topic shift boundary - significant vocabulary change PLUS low continuity
+        # Only combine high topic shift (>0.70) with very low continuity (<0.40)
+        # This avoids false positives from stylistic variation
+        topic_shift_score = _lexical_topic_shift_score(left, right)
+        if topic_shift_score > 0.70 and component.continuity_score < 0.40 and index > 2:
+            boundaries.add(index)
+
         if is_signal_vacuum:
             signal_vacuum_count += 1
             if signal_vacuum_count >= consecutive_signal_vacuum_pairs and not signal_vacuum_active:

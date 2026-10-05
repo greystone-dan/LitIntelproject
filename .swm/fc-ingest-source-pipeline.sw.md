@@ -11,6 +11,14 @@ staging package. It is not the canonical case database and it does not decide
 whether a staged record should replace a canonical field. That policy belongs
 to `backend/ingestion.py`.
 
+The staging pipeline may expose an off-by-default canonical refresh hook for
+paragraph cited-by rebuilds, but the staging loop itself never calls it. When
+used, `refresh_paragraph_cited_by(source_case_id, session_factory, rebuild=False)` must receive
+the canonical `cases.id`, not the staged `fc_id`, and it must run only after the
+canonical/citation commit has already succeeded.
+The hook is idempotent by default; pass `rebuild=True` only for an explicit
+refresh after citations change.
+
 ```mermaid
 flowchart LR
     CLI[fc_ingest/__main__.py] --> Pipeline[ingest_pipeline.py]
@@ -37,6 +45,9 @@ flowchart LR
 | `db.py` | SQLite connection, schema, upsert, and legacy upgrade behavior | SQLite is staging persistence, not canonical authority |
 | `models.py` | Typed staged item/document records | Keeps parser output explicit between steps |
 | `errors.py` | Source and human-review failure types | Failures must not be promoted to successful capture |
+
+The canonical refresh hook is off by default and intentionally outside these
+staging responsibilities.
 
 ## State And Provenance
 
@@ -608,6 +619,26 @@ fields. A collector can change without moving source merge, case identity, or
 citation semantics into the source adapter.
 
 ## Validation
+
+### Research-panel outage boundary
+
+FC activity presentation uses the shared helper in
+[`backend/degraded_mode.py`](../backend/degraded_mode.py), adopted by
+[`backend/pages/data_explorer.py`](../backend/pages/data_explorer.py) and its
+injected [`backend/pages/fc_analytics.py`](../backend/pages/fc_analytics.py).
+Dashboard, judge and counsel requests settle independently; Retry reuses the
+same renderer without refetching healthy siblings. A dashboard response shared
+by charts has one recovery owner rather than identical requests per chart.
+This changes presentation only: no collector, staging, provenance, canonical
+judgment or activity endpoint contracts change. Offline owner-isolation and
+retry checks run with `node tests/test_panel_helpers.js`; see the
+[frontend walkthrough](6.maiixtsw.sw.md) for browser validation boundaries.
+
+The 2026-10-04 feature-tab pytest validation passed both new Node checks via
+pytest, including the fixture-only Chromium check. Full-suite acceptance and
+the no-live-database boundary are recorded in the
+[canonical checkpoint](../SYSTEM_REFERENCE.md#runtime-components); no collector
+or live FC integration was run for this presentation change.
 
 Start with the package help command and a bounded parser/database test. For the
 full source slice, run:

@@ -1,0 +1,93 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Environment and secrets
+.env
+.env.example
+.env.*
+.env.*.local
+.env.*.vault
+
+# Cloudflare Tunnel
+.cloudflared/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+.venv
+env.bak/
+venv.bak/
+
+# Project-specific data
+data/eval/
+data/cache/
+*.sql
+*.sql.gz
+*.dump
+*.backup
+*.bak
+data/backups/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Documentation build
+docs/_build/
+docs/.build/
+
+# Node modules (if used)
+node_modules/
+npm-debug.log
+
+# Misc
+.swm/
+.claude/
+WORK_HISTORY.md
+CHANGELOG.md
+README.md
+SETUP.md
+logs/
+*.log
+
+# CI/CD
+.github/project-manager/

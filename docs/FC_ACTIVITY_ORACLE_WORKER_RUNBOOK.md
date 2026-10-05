@@ -102,11 +102,12 @@ reclassification or local-LLM review.
 
 ## Full-Inventory Classification Recovery
 
-The deterministic classifier writes only to `fc_activity_classifications` and
+The deterministic classifier writes to `fc_activity_classifications` and the
+flat `fc_activity_summaries` table the site aggregates, and
 keeps its source-case relationship inside the FC Activity layer. A full local
 inventory run is bounded by `--batch-size` and records an atomic JSON checkpoint
 only after each database batch commits. The database version check is the
-authoritative skip guard: rows already carrying `fc_activity_v5` are skipped on
+authoritative skip guard: rows already carrying `fc_activity_v6` are skipped on
 rerun, including when the process stopped after a commit but before its
 checkpoint was replaced. Use `--force` only for an intentional full
 reclassification.
@@ -115,10 +116,11 @@ The approximately 300k run command is documented here but was not executed as
 part of this change:
 
 ```powershell
-.\venv\Scripts\python.exe -u scripts\classify_fc_activity.py --all --write --batch-size 500 --state-file data\overnight_runs\fc-activity-classification-v5\state.json --resume
+.\venv\Scripts\python.exe -u scripts\classify_fc_activity.py --all --write --batch-size 1000 --workers 6 --state-file data\overnight_runs\fc-activity-classification-v6\state.json --resume
 ```
 
-Keep the state file with the run artifacts and resume the same file after an
+`--workers` spreads classification over that many processes; leave one or two
+cores free for the site. Keep the state file with the run artifacts and resume the same file after an
 interruption. A stale checkpoint is safe to replay because current-version
 rows are skipped; missing or older-version rows remain eligible. Verify
 source-case and classification counts, and inspect version/source-layer

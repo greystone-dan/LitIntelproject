@@ -7,9 +7,16 @@ import json
 import os
 from pathlib import Path
 import re
+import sys
 from typing import Any
 
 from openai import OpenAI
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from backend.prompt_registry import get_prompt
 
 try:
     from scripts.discussion_units_ledger import record_case, should_skip
@@ -86,20 +93,7 @@ def build_request(
             }
             for item in expanded_paragraphs
         ]
-    system = (
-        "You identify plain-language Discussion Units in a legal decision. "
-        "Use only the supplied numbered paragraphs. Group contiguous paragraphs that "
-        "perform one coherent task, such as procedural history, facts, party submissions, "
-        "legal test, analysis/application, or disposition. Do not invent facts or citations. "
-        "Return JSON with a units array. Each unit must contain start_paragraph, end_paragraph, "
-        "label, explanation, transition_from_previous, and confidence. Use paragraph indices "
-        "exactly as supplied; never output an index not present in the supplied list, and "
-        "cover the supplied window from its first index through its last index exactly once. "
-        "Before responding, verify that the first unit starts at the first_allowed index, "
-        "the final unit ends at the last_allowed index, and there are no gaps or overlaps. "
-        "Do not stop after summarizing only the most important paragraphs. "
-        "Keep explanations short and readable for a legal researcher."
-    )
+    system, prompt_version = get_prompt("discussion_units")
     if text_only:
         system += " Do not rely on metadata or deterministic segmentation; infer the units from the paragraph text alone."
     payload = {
@@ -127,6 +121,7 @@ def build_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
@@ -141,15 +136,7 @@ def build_paragraph_assessment_request(
     model: str = MODEL,
     budget_usd: float = 1.0,
 ) -> dict[str, Any]:
-    system = (
-        "Assess each supplied legal paragraph independently. Return JSON with an assessments "
-        "array containing exactly one entry for every supplied paragraph, in the same order. "
-        "Each entry must contain paragraph_index, topic, role, explanation, and confidence. "
-        "Use the same topic for adjacent paragraphs when appropriate; do not merge entries "
-        "or omit a paragraph. Use only the supplied paragraph text and do not invent facts, "
-        "citations, or paragraph indices. Keep explanations short and readable for a legal "
-        "researcher."
-    )
+    system, prompt_version = get_prompt("discussion_paragraph_assessment")
     payload = {
         "request_id": f"discussion-paragraph-assessment-case-{report['case_id']}",
         "contract_version": "discussion_paragraph_assessment_v1",
@@ -162,6 +149,7 @@ def build_paragraph_assessment_request(
     return {
         "model": model,
         "budget_usd": budget_usd,
+        "prompt_version": prompt_version,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(payload, ensure_ascii=True, sort_keys=True)},
@@ -259,10 +247,12 @@ def render_paragraph_assessment_markdown(
     usage: dict[str, Any] | None = None,
 ) -> str:
     usage = usage or {}
+    _, prompt_version = get_prompt("discussion_paragraph_assessment")
     lines = [
         f"# Paragraph-level Discussion Assessment: case {report['case_id']}",
         "",
         f"Model: `{model}`",
+        f"Prompt version: `{prompt_version}`",
         f"Prompt tokens: `{usage.get('prompt_tokens', 'not available')}`",
         f"Completion tokens: `{usage.get('completion_tokens', 'not available')}`",
         f"Total tokens: `{usage.get('total_tokens', 'not available')}`",
@@ -357,6 +347,7 @@ def render_markdown(
     usage: dict[str, Any] | None = None,
 ) -> str:
     usage = usage or {}
+    _, prompt_version = get_prompt("discussion_units")
     prompt_tokens = usage.get("prompt_tokens", "not available")
     completion_tokens = usage.get("completion_tokens", "not available")
     total_tokens = usage.get("total_tokens", "not available")
@@ -365,6 +356,7 @@ def render_markdown(
         f"# Plain-language Discussion Units: case {report['case_id']}",
         "",
         f"Model: `{model}`",
+        f"Prompt version: `{prompt_version}`",
         f"Prompt tokens: `{prompt_tokens}`",
         f"Completion tokens: `{completion_tokens}`",
         f"Total tokens: `{total_tokens}`",
@@ -529,6 +521,7 @@ def main() -> int:
         "network_called": True,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "model": args.model,
+        "prompt_version": request["prompt_version"],
         "case_id": report["case_id"],
         "source_report": str(args.input_json),
         "usage": {

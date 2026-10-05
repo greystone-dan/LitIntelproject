@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Test coverage reporting is a development/CI tool, not a runtime dependency.
+pytest-cov==5.0.0
+ruff==0.16.10
+pip-audit==2.10.1

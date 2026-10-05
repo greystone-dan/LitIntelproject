@@ -1,11 +1,25 @@
 from datetime import date
+from contextlib import contextmanager
 
 import pytest
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import create_engine, select
+from sqlalchemy.ext.compiler import compiles
+from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.pool import StaticPool
 
 from fc_ingest import ingest_pipeline
 from fc_ingest.errors import HumanValidationRequired
-from fc_ingest.ingest_pipeline import _normalize_fc_item_url, _split_by_months
+from fc_ingest.ingest_pipeline import _normalize_fc_item_url, _split_by_months, refresh_paragraph_cited_by
 from fc_ingest.item_scraper import parse_item_page
+from backend.database import Base, Case, Citation, ParagraphCitationEdge, ParagraphCitationStatus
+from backend.paragraph_cited_by_db import invalidate_source_edges
+from backend.paragraph_cited_by_runner import refresh_paragraph_cited_by_case
+
+
+@compiles(Vector, "sqlite")
+def _sqlite_vector_type(_type, _compiler, **_kw):
+    return "JSON"
 
 
 def test_split_by_months_keeps_december_bounded_to_calendar_month():
@@ -379,3 +393,125 @@ def test_ingest_item_uses_document_pdf_url_fallback(monkeypatch):
     assert out["docket"] == "IMM-664-18"
     assert fake_db.pdf is not None
     assert fake_db.pdf["neutral_citation"] == "2018 FC 1123"
+
+
+def test_refresh_paragraph_cited_by_hook_uses_canonical_source_id():
+    engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
+    Base.metadata.create_all(engine, tables=[m.__table__ for m in (
+        Case, Citation, ParagraphCitationEdge, ParagraphCitationStatus)])
+    factory = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+    with factory() as session:
+        session.add(Case(id=1, title="Authority", citation="2019 SCC 65", court="SCC", date=date(2019, 1, 1), full_text="x"))
+        full_text = "See Authority, 2019 SCC 65 at para 12."
+        start = full_text.index("Authority")
+        session.add(Case(id=2, title="Citer", citation="2020 FC 1", court="FC", date=date(2020, 1, 1), full_text=full_text))
+        session.add(Citation(
+            source_case_id=2,
+            target_case_id=1,
+            citation_kind="neutral",
+            citation_text="Authority, 2019 SCC 65 at para 12",
+            normalized_citation="2019 SCC 65",
+            target_paragraph=12,
+            offset_start=start,
+            offset_end=start + len("Authority, 2019 SCC 65 at para 12"),
+        ))
+        session.commit()
+
+    edges, used = refresh_paragraph_cited_by(2, factory)
+    assert edges == 1 and used == 1
+    with factory() as session:
+        status = session.get(ParagraphCitationStatus, 2)
+        edge_ids = session.scalars(
+            select(ParagraphCitationEdge.id).where(ParagraphCitationEdge.source_case_id == 2).order_by(ParagraphCitationEdge.id)
+        ).all()
+        assert status.edges == 1
+        assert len(edge_ids) == 1
+        first_computed_at = status.computed_at
+
+    repeat_edges, repeat_used = refresh_paragraph_cited_by(2, factory)
+    assert (repeat_edges, repeat_used) == (0, 0)
+    with factory() as session:
+        status = session.get(ParagraphCitationStatus, 2)
+        edge_ids = session.scalars(
+            select(ParagraphCitationEdge.id).where(ParagraphCitationEdge.source_case_id == 2).order_by(ParagraphCitationEdge.id)
+        ).all()
+        assert status.edges == 1
+        assert status.computed_at == first_computed_at
+        assert len(edge_ids) == 1
+
+    with factory() as session:
+        with session.begin():
+            invalidate_source_edges(session, 2)
+
+    rebuilt_edges, rebuilt_used = refresh_paragraph_cited_by(2, factory, rebuild=True)
+    assert (rebuilt_edges, rebuilt_used) == (1, 1)
+
+
+def test_refresh_paragraph_cited_by_case_sets_local_timeouts_before_lock(monkeypatch):
+    calls: list[tuple[str, object]] = []
+    scalar_results = iter([1, None])
+
+    class FakeDialect:
+        name = "postgresql"
+
+    class FakeBind:
+        dialect = FakeDialect()
+
+    class FakeSession:
+        def __init__(self):
+            self.bind = FakeBind()
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+        @contextmanager
+        def begin(self):
+            yield self
+
+        def get_bind(self):
+            return self.bind
+
+        def get(self, model, ident):
+            return None
+
+        def execute(self, statement, params=None):
+            calls.append((str(statement), params))
+
+        def scalar(self, statement):
+            calls.append(("scalar", str(statement)))
+            return next(scalar_results)
+
+    monkeypatch.setattr(
+        "backend.paragraph_cited_by_runner.compute_source_edges",
+        lambda db, source_id: ([], 0),
+    )
+    monkeypatch.setattr(
+        "backend.paragraph_cited_by_runner.write_source_edges",
+        lambda db, source_id, edges: len(edges),
+    )
+
+    edges, used, skipped = refresh_paragraph_cited_by_case(2, lambda: FakeSession())
+
+    assert (edges, used, skipped) == (0, 0, False)
+    assert calls[:4] == [
+        ("SELECT set_config(:setting, :value, true)", {"setting": "lock_timeout", "value": "2000"}),
+        ("SELECT set_config(:setting, :value, true)", {"setting": "statement_timeout", "value": "15000"}),
+        ("SELECT set_config(:setting, :value, true)", {"setting": "idle_in_transaction_session_timeout", "value": "30000"}),
+        ("scalar", str(select(Case.id).where(Case.id == 2).with_for_update())),
+    ]
+
+
+def test_run_full_ingestion_leaves_refresh_hook_off_by_default(monkeypatch):
+    monkeypatch.setattr(
+        ingest_pipeline,
+        "refresh_paragraph_cited_by",
+        lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("hook should stay off by default")),
+    )
+    monkeypatch.setattr(ingest_pipeline, "load_a2aj_fc_item_urls", lambda limit=None: [])
+
+    result = ingest_pipeline.run_full_ingestion(FakeDb(), a2aj_direct=True)
+
+    assert result == []

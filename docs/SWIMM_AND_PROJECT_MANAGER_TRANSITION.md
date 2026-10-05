@@ -1,6 +1,6 @@
 # Swimm Documentation And Project Manager Transition
 
-Last reviewed: 2026-09-03
+Last reviewed: 2026-10-04
 
 ## Purpose
 
@@ -37,6 +37,14 @@ marked complete. The durable task record must name both updated paths and the
 focused validation evidence. If no walkthrough exists for the owner surface,
 the task is blocked until one is created or the documentation gap is explicitly
 recorded.
+
+For a read-only review spanning multiple pull requests, preserve the reviewed
+base/head SHAs and each PR's state, cite findings to exact diff files/lines,
+summarize relevant discussions and test evidence, and call out cross-PR
+route/migration overlaps. Treat the review report as the canonical assessment;
+do not modify target PR refs. Update the relevant governance walkthrough when
+the review establishes or changes a reusable review workflow, not merely to
+duplicate individual findings.
 
 Managed tasks are execution handoffs, not plan-only requests. The manager should
 carry them through authority reads, delegation, implementation, focused repair,
@@ -82,6 +90,7 @@ whole project map.
 | Citation evidence | `backend/citations.py` | Extraction, offsets, resolution, metrics, and QA boundaries | Citation QA |
 | Database map | `backend/database.py` and `alembic/` | ORM entities, migrations, and pgvector responsibilities | Data/platform |
 | Operational run | `scripts/run_overnight.py` and `OVERNIGHT.md` | Locks, bounded jobs, resume behavior, and recovery | Operations |
+| CI quality workflow | `.github/workflows/quality.yml` | Non-blocking PR/weekly Ruff and dependency-audit checks, result artifacts, and baseline scope | Quality/platform |
 | Active UI | `backend/routes.py` and `docs/RESEARCH_UI_GUIDE.md` | Data Explorer, inline reader, Citation Map, and legacy boundaries | Research UI |
 | Technical debt register | Swimm: Technical Debt Register and Improvement Queue | Evidence-backed debt, opportunities, owners, and revisit triggers | Governance |
 | Architecture decisions | Swimm: Architecture Decisions and Design Rationale | Durable rationale, options, consequences, and open decisions | Architecture |
@@ -228,8 +237,8 @@ walkthrough becomes stale, label the gap and point to the authoritative source;
 do not preserve a visually complete but inaccurate diagram.
 
 The current Swimm set includes the system, active UI, ingestion, citation,
-database, operations, Federal Court, CanLaw, future-state, technical-debt,
-architecture-decision, and evaluation walkthroughs.
+database, operations, CI quality workflow, Federal Court, CanLaw, future-state,
+technical-debt, architecture-decision, and evaluation walkthroughs.
 Use the P0 queue to drive cleanup through the implemented manager framework.
 Add a walkthrough when a new owner surface appears, rather than allowing the
 agent to infer an undocumented boundary.

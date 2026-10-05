@@ -1,6 +1,6 @@
 # Configuration Reference
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-10-04
 
 This document describes configuration discovered from active Python environment-variable reads, the checked-in `.env.example`, and `config.yaml`. It contains no credential values. `SYSTEM_REFERENCE.md` is the broader system handbook.
 
@@ -10,7 +10,7 @@ This document describes configuration discovered from active Python environment-
 2. Process environment variables are present before those files are loaded, but the project `.env` files may override them because of `override=True`.
 3. For database connection selection, explicit `POSTGRES_*` values take precedence over `DATABASE_URL` whenever any `POSTGRES_*` setting is set.
 4. Command-line arguments generally override environment-backed defaults for scripts that expose both.
-5. `config.yaml` is currently a checked-in static reference template. No active runtime module loads it, so changing it alone does not reconfigure FastAPI, SQLAlchemy, embedding providers, logging, or security behavior.
+5. `backend/ai_mode.py` reads `ENHANCED_AI_MODE` at runtime (after the database module has loaded the repository and backend `.env` files). The mode defaults to `off`; only `off`, `local`, and `hosted` are accepted. The four search rollout flags under `ai.rollout` are separate controls.
 
 Never commit `.env`, `backend/.env`, database passwords, API keys, access passwords, tunnel credentials, or generated secret files. `.env.example` must contain placeholders only.
 
@@ -20,7 +20,7 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | --- | --- | --- |
 | `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` or `DATABASE_URL` | Canonical database routes and write scripts | Prefer complete `POSTGRES_*` local configuration; see precedence above. |
 | `OPENAI_API_KEY` | OpenAI embedding, research-answer, and OpenAI audit/adjudication paths | Not required for deterministic extraction, tag, chunk, or most local read paths. |
-| `CASELIBRARY_ACCESS_PASSWORD` plus independent `CASELIBRARY_SESSION_SECRET` | Intended private-site login | Current middleware does not enforce this login design; do not treat merely setting these variables as access protection. |
+| `CASELIBRARY_ACCESS_PASSWORD` and preferably a separate `CASELIBRARY_SESSION_SECRET` | Optional private-site login | The gate is off by default and enforced when the password is non-empty. Use a separate strong signing secret and a verified perimeter policy where needed. |
 
 ## Application And Database Settings
 
@@ -34,27 +34,88 @@ Never commit `.env`, `backend/.env`, database passwords, API keys, access passwo
 | `DATABASE_URL` | none | `backend/database.py` | Alternative complete SQLAlchemy URL. Ignored when any explicit `POSTGRES_*` variable is present. |
 | `OVERNIGHT_PYTHON` | `venv/Scripts/python.exe`, else current interpreter | `scripts/run_overnight.py` | Interpreter used by scheduled jobs. Must point to an executable with project dependencies. |
 
-The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`.
+The SQLAlchemy engine currently uses `pool_pre_ping=True`; pool size, timeout, recycle, and SQL echo values in `config.yaml` are not presently consumed by `create_engine()`. `backend/search_service.py` loads the four AI rollout flags from `config.yaml` and then applies any `CASELIBRARY_*_ENABLED` environment overrides. The independent `ENHANCED_AI_MODE` setting gates enhanced API search and `/research`.
 
 ## Access, Session, And Indexing Settings
 
 | Variable | Default | Consumer | Purpose and safety notes |
 | --- | --- | --- | --- |
-| `CASELIBRARY_ACCESS_PASSWORD` | none | `backend/main.py` | Intended password for the private access page. A missing value makes `/access` return `503`. Current middleware does not enforce protected-route access. |
-| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Set a separate strong random value; do not rely on the password fallback. |
+| `CASELIBRARY_ACCESS_PASSWORD` | none (gate disabled) | `backend/main.py` | Enables signed-cookie checks for protected routes when non-empty. The access page returns `503` when unset. |
+| `CASELIBRARY_SESSION_SECRET` | `SECRET_KEY`, then access password | `backend/main.py` | HMAC signing secret for access cookies. Configure a separate strong random value rather than relying on either fallback. |
 | `SECRET_KEY` | none | `backend/main.py` | Fallback session signing secret only. It is not otherwise a general JWT/application-secret implementation. |
 | `CASELIBRARY_SESSION_SECONDS` | `86400`, minimum `300` | `backend/main.py` | Cookie lifetime in seconds. Invalid values fall back to `86400`. |
 
 The application adds `X-Robots-Tag: noindex, nofollow, noarchive` and serves a restrictive `robots.txt`. This is an indexing directive, not authentication. Configure tunnel/reverse-proxy access control before exposing restricted material.
 
+## Public Health Probes
+
+The app keeps three health routes public, including when
+`CASELIBRARY_ACCESS_PASSWORD` enables the optional password gate:
+
+| Route | Purpose | Failure behavior |
+| --- | --- | --- |
+| `GET /health` | Legacy process response; its response body is unchanged. | No dependency checks. |
+| `GET /health/live` | Reports whether the process can serve requests. | Does not query dependencies. |
+| `GET /health/ready` | Reports database connectivity, pgvector extension availability, required ORM tables, and configured model endpoints as separate checks. | Returns HTTP 503 if a required check fails. |
+
+Readiness uses short per-probe timeouts and does not return credentials,
+hostnames, endpoint URLs, or connection strings. Unconfigured optional remote
+model services are reported as `not_configured` and do not make the service
+unready; configured services that fail their endpoint check do. The database
+and vector requirements remain readiness dependencies regardless of optional
+model configuration.
+
+## Optional Security Response Headers
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_SECURITY_HEADERS` | `0` (disabled) | `backend/main.py`, `backend/security_headers.py` | Enable response security headers only when set to `1`. |
+| `CASELIBRARY_HSTS_MAX_AGE` | `31536000` seconds | `backend/security_headers.py` | HSTS max age; invalid values fall back to the default and negative values are clamped to zero. |
+| `CASELIBRARY_HSTS_SUBDOMAINS` | `0` | `backend/security_headers.py` | Adds `includeSubDomains` only when set to `1`; enable only if all subdomains support HTTPS. |
+| `CASELIBRARY_CSP_ENFORCE` | `0` | `backend/security_headers.py` | Selects enforcing CSP only when set to `1`; report-only is the default, and enforcement is untested. |
+
+Configuration is read when the application/middleware is initialized; restart
+the server after changing these settings. HSTS is emitted only for HTTPS requests
+according to the ASGI scheme or the first `X-Forwarded-Proto` value. Only trust
+forwarded-protocol headers when a trusted proxy overwrites them. The middleware
+preserves existing response headers and does not consume response bodies. See
+[Optional Security Response Headers](SECURITY_HEADERS.md) for activation,
+report-only review, CSP policy scope, and limitations.
+
+## Optional Request Audit Log
+
+| Variable | Default | Consumer | Purpose and safety notes |
+| --- | --- | --- | --- |
+| `CASELIBRARY_AUDIT_LOG` | none (disabled) | `backend/audit.py` | JSON-lines file path; 5 MiB rotation, three backups. Parent directory must exist. Use one process per file. |
+| `CASELIBRARY_AUDIT_LOG_RAW_ADDRESS` | `false` | `backend/audit.py` | Only `true` (case-insensitive) permits recording the raw client address alongside its hash. |
+
+Configuration is read when the middleware is initialized; restart the server
+after changing it. Records contain UTC time, generated request ID, method,
+matched route template (`<unmatched>` for unknown paths), status, duration in
+milliseconds, and an HMAC-SHA256 client-address hash with a random process-local
+key. Hashes are not stable across workers or restarts. Bodies, filenames, query
+strings, headers, and cookies are never logged, including on the live-analysis,
+memo-citation-check, de-identification, and re-identification routes. Logging
+errors do not break requests and do not print records or exception details.
+Protect the log directory and review separate server/proxy access logging.
+See the optional request audit log section of `SETUP.md` for operator instructions.
+
 ## OpenAI And External Model Settings
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/routes.py` | Selects the experimental `/research` answer-generation provider. Use `local` for Ollama; hosted OpenAI remains the default. |
+| `ENHANCED_AI_MODE` | `off` | `backend/ai_mode.py`, API search/research routes, generation provider factory | Selects `off`, `local`, or `hosted`; invalid values are rejected. Off disables `/research` with HTTP 503 and downgrades explicit semantic/hybrid API search to lexical without invoking embeddings. Local selects local generation and permits only local query embeddings. Hosted permits the configured generation and query providers; hosted query embeddings still require explicit `QUERY_EMBEDDING_PROVIDER` selection. |
+| `QUERY_EMBEDDING_PROVIDER` | `none` | `backend/query_embedding_providers.py` | Query embeddings are disabled by default; semantic/hybrid requests use lexical ranking. Explicitly select `openai` or `local` query embeddings and enable enhanced mode; OpenAI additionally requires hosted mode. |
+| `QUERY_EMBEDDING_MODEL` | Provider default | `backend/query_embedding_providers.py` | Optional explicit query embedding model. Defaults to `OPENAI_EMBEDDING_MODEL`/`text-embedding-3-small` for OpenAI or `LOCAL_EMBEDDING_MODEL`/`BAAI/bge-m3` for local. |
+| `QUERY_EMBEDDING_DIMENSIONS` | `1024` for local | `backend/query_embedding_providers.py` | Expected local query-vector size. The selected model's actual output and the target indexed vectors must match; standard hosted semantic search currently requires 1536 dimensions. |
+| `TEXT_GENERATION_PROVIDER` | `openai` | `backend/text_generation_providers.py` | Selects `openai`, `local` (Ollama), or `openai_compatible` for `/research`. In enhanced `local` mode, Ollama remains the default; `openai_compatible` is accepted only when `CHAT_BASE_URL` is localhost or private. In `hosted` mode, the compatible provider requires a non-local endpoint. |
 | `OPENAI_API_KEY` | none | `backend/routes.py`, embedding scripts, audit/adjudication scripts | Required wherever an OpenAI client is constructed. Missing keys should produce a controlled failure rather than a silent fallback. |
 | `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | `backend/routes.py`, `scripts/embed_a2aj_cases.py`, `scripts/embed_openai_chunks.py`, cohort builders | Case/chunk embedding model name. The common vector dimension is 1536; change model and schema/index assumptions together. |
 | `OPENAI_CHAT_MODEL` | `gpt-4o-mini` | `backend/routes.py` | Experimental `/research` answer-generation model. This route is not a production legal-answer system. |
+| `CHAT_BASE_URL` | none | `backend/text_generation_providers.py` | Base URL for the `openai_compatible` chat provider, passed to the OpenAI SDK as `base_url`. Enhanced local mode requires localhost/private; hosted mode requires a non-local endpoint. |
+| `CHAT_API_KEY` | none | `backend/text_generation_providers.py` | Optional API key for the compatible chat endpoint. The SDK uses a placeholder key when omitted, so local-compatible services should ignore bearer authentication. |
+| `CHAT_MODEL` | `gpt-4o-mini` | `backend/text_generation_providers.py` | Model identifier sent to the compatible chat endpoint. |
+| `CHAT_TIMEOUT_SECONDS` | `60` | `backend/text_generation_providers.py` | Positive request timeout for compatible chat completions. |
 | `OPENAI_EMBED_COST_PER_1M` | `0.02` | `scripts/embed_openai_chunks.py` | Planning estimate for embedding cost per million tokens; does not alter provider billing. |
 | `OPENAI_METADATA_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/adjudicate_fc_metadata.py` | Model for optional low-confidence metadata adjudication. |
 | `OPENAI_AUDIT_MODEL` | `gpt-4.1-nano` | `scripts/verify_citation_extraction.py` | Model for optional citation audit sampling. |
@@ -71,10 +132,40 @@ The case-intelligence runner defaults to the hosted OpenAI provider. Use
 machine through Ollama. Local generation is optional enrichment; deterministic
 citations, statutes, offsets, and source provenance remain authoritative.
 
-The experimental `/research` route uses the same provider boundary. Set
-`TEXT_GENERATION_PROVIDER=local` to call Ollama; its code default model is
-`qwen3:4b`. The route reports a controlled `503` when the selected provider
-is not configured or reachable. This setting does not download a model.
+The experimental `/research` route is disabled unless `ENHANCED_AI_MODE` is
+explicitly set to `local` or `hosted`. Off mode returns HTTP 503 with
+`AI answers are disabled in this deployment` before retrieval or provider
+construction. The default `TEXT_GENERATION_PROVIDER=openai` preserves hosted
+OpenAI behavior. `local` selects Ollama (`qwen3:4b` by default); alternatively,
+`openai_compatible` selects the OpenAI SDK against `CHAT_BASE_URL`. Local mode
+allows that compatible provider only for localhost/private URLs. Hosted mode
+requires a non-local endpoint. The compatible provider advertises a 12,000
+character context limit, no default output-token cap, and JSON-mode support;
+Ollama advertises a 4,000-character limit and 256 default output tokens. The
+route uses provider context and output-token capabilities. An enabled route
+reports a controlled `503` when the selected provider is not configured or
+reachable. Setting these values does not download a model. Provider-side
+retention and processing location are not established by these settings; verify
+the configured endpoint and its terms before sending research queries or
+retrieved case excerpts.
+
+Query embedding is a separate provider decision and is disabled by default.
+Semantic/hybrid search uses lexical ranking until an operator explicitly sets
+`QUERY_EMBEDDING_PROVIDER=openai` or `local` and enables enhanced AI mode. OpenAI
+query inference additionally requires `ENHANCED_AI_MODE=hosted`; local query
+inference is permitted in `local` or `hosted` mode. The default off mode never
+constructs a query embedding provider. Only the OpenAI setting sends query text
+off-machine. Case-ingestion summary embeddings retain their existing,
+separately controlled provider path. The read-only
+`GET /api/search-embedding-status` endpoint reports both selected providers,
+the query model and dimensions (`null` when embeddings are disabled), the
+indexed-vector dimension, and whether query text is sent off-machine. It does
+not instantiate the embedding model. With the local BGE-M3 model,
+query vectors are 1024-dimensional while the standard hosted semantic index is
+1536-dimensional; the search dimension guard rejects that incompatible vector
+rather than submitting it. Local model inference may fetch model artifacts on
+first use if they are not already cached; this is separate from whether query
+text leaves the machine. See `docs/reports/local-query-embeddings.md`.
 
 The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but current application code does not read them. Do not assume setting them changes runtime behavior.
 
@@ -82,8 +173,8 @@ The checked-in template also names `OPENAI_ORG_ID` and `OPENAI_MODEL`, but curre
 
 | Variable | Default | Consumer | Purpose |
 | --- | --- | --- | --- |
-| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors. |
-| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
+| `LOCAL_EMBEDDING_MODEL` | `BAAI/bge-m3` | `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | Local SentenceTransformer model used for model-versioned chunk vectors and the local query-provider fallback. |
+| `LOCAL_EMBEDDING_DEVICE` | `cpu` | `backend/embedding_providers.py`, `backend/query_embedding_providers.py`, `scripts/embed_local_chunks.py` | SentenceTransformer device. Use a supported device string such as `cpu` or an intentionally configured accelerator. |
 | `A2AJ_EMBED_LIMIT` | `25` | `scripts/embed_a2aj_cases.py` | Limits A2AJ embedding work for bounded pilot runs. |
 | `A2AJ_EMBED_SOURCE_TYPE` | `a2aj_curated` | `scripts/embed_a2aj_cases.py` | Selects the canonical source type targeted by that embedding script. |
 
@@ -113,11 +204,18 @@ Local BGE-M3 vectors are expected to have 1024 dimensions. The provider validate
 
 The CanLII API client enforces an in-process default ceiling of two requests per second and 1,000 requests per UTC day. Those values are currently dataclass defaults, not environment variables.
 
-## Static Template Settings
+## Partially Consumed Template Settings
 
-`config.yaml` records non-secret aspirational/default settings for app identity, server, database pool, pgvector, AI behavior, logging, security, Copilot indexing, and common paths. It is not currently loaded by active application code.
+`config.yaml` records defaults for application, server, database, vector, AI,
+logging, security, and path settings. Only the four `ai.rollout` flags read by
+`backend/search_service.py` currently affect application behavior.
 
-Treat it as a planning template until a configuration loader is implemented. In particular, changing `server.host`, `server.port`, `database.pool_size`, `pgvector.index_type`, `ai.rollout`, `logging`, `security`, or `paths` in that file will not alter runtime behavior today. Use explicit Uvicorn flags, runtime environment variables, or code changes instead.
+Changing `server.host`, `server.port`, database-pool, vector, logging, security,
+or path values in that file does not alter runtime behavior. The four rollout
+flags are `semantic_enabled`, `hybrid_enabled`, `local_semantic_enabled`, and
+`embed_on_ingest_enabled`; matching `CASELIBRARY_*_ENABLED` environment values
+override them. Use the consuming module's environment settings or explicit
+server flags for other runtime configuration.
 
 ## Example Local Development Setup
 
@@ -150,8 +248,8 @@ For a local-only deterministic extraction/tagging/chunking session, omit `OPENAI
 
 ## Known Configuration Gaps
 
-1. `config.yaml` is not a live configuration source and can drift from code.
-2. The private-access variables are not enforced by current middleware.
+1. Only the search-service AI rollout flags in `config.yaml` are loaded; other template values can drift from code.
+2. Private access is disabled by default and enforced only when `CASELIBRARY_ACCESS_PASSWORD` is non-empty.
 3. The `.env.example` includes several legacy/aspirational names not read by active code.
 4. There is no central typed settings object or startup validation report for all required configuration.
 5. Cloudflare tunnel configuration is intentionally local and should be documented without committing credentials.

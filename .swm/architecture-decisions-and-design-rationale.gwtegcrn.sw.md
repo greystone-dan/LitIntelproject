@@ -102,24 +102,55 @@ combined-regex experiment changed counts and was rejected as an accuracy risk.
 - **Revisit trigger:** A benchmarked alternative improves accuracy and
 	explainability at an acceptable operational cost.
 
-### Keep local generation optional and OpenAI-compatible
+### Keep local generation optional and provider capabilities explicit
 
-- **Decision:** Support bounded local case-intelligence generation through
-	Ollama's OpenAI-compatible endpoint while retaining hosted generation as the
-	default.
+- **Decision:** Keep generation opt-in and provider-swappable. `/research`
+	supports hosted OpenAI, native local Ollama, and an OpenAI-SDK compatible
+	endpoint selected through `CHAT_BASE_URL`.
 - **Why:** The existing runner already defines the request and JSON artifact
 	contract, so provider selection can remain narrow and reversible. Local
-	execution improves privacy and avoids per-request API cost without making a
-	generative model authoritative for citations, statutes, offsets, or source
-	provenance.
-- **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure the local
-	path; `TEXT_GENERATION_PROVIDER=local` selects it for the experimental
-	`/research` route; users must install Ollama and pull an instruct model
-	separately. The script runner and API share the same OpenAI-compatible
-	contract.
+	execution can keep requests on an operator-controlled local endpoint without
+	making generated prose authoritative for citations, statutes, offsets, or
+	source provenance.
+- **Consequence:** `OLLAMA_BASE_URL` and `OLLAMA_MODEL` configure native local
+	generation. Alternatively, `TEXT_GENERATION_PROVIDER=openai_compatible`
+	selects the OpenAI SDK with `CHAT_BASE_URL`, optional `CHAT_API_KEY`,
+	`CHAT_MODEL`, and `CHAT_TIMEOUT_SECONDS`. Enhanced local mode accepts the
+	compatible provider only for localhost/private URLs; hosted mode requires a
+	non-local endpoint. Off mode disables `/research` before provider
+	construction. Providers expose context-size, default-output-token, and
+	JSON-mode capabilities; `/research` uses context and token limits. Users must
+	install Ollama and pull an instruct model separately when using Ollama.
 - **Revisit trigger:** A local model passes bounded accuracy, latency,
 	reproducibility, and evidence-grounding evaluation gates for a specific
 	production workflow.
+
+### Share embedding adapters behind the enhanced-mode policy
+
+- **Decision:** Use one `EmbeddingProvider` contract for query and case-ingestion
+  embeddings, with explicit disabled, lazy OpenAI, and cached local
+  SentenceTransformer implementations. Apply the central `backend/ai_mode.py`
+  policy before provider construction or invocation.
+- **Options considered:** Separate wrappers at each call site duplicate lifecycle
+  and dimension behavior; a generic adapter registry owned by the query module
+  gives ingestion the wrong owner dependency; a shared provider module keeps
+  provider mechanics common while retaining separate query and case-vector
+  configuration.
+- **Why:** The default-off behavior must be auditable as no model construction and
+  no outbound call. Local mode must keep user text on-device, while hosted mode
+  remains explicit. A common boundary also makes provider failures and
+  dimensions consistently testable without real clients or model downloads.
+- **Consequence:** Provider implementations live in
+  `backend/embedding_providers.py`; policy-aware configuration and API error
+  mapping live in `backend/query_embedding_providers.py`. Search and API
+  ingestion keep separate configuration/vector contracts. Local model instances
+  are shared by model/device within the process. Existing stored vector dimensions
+  remain authoritative; selecting a provider does not migrate or re-embed them.
+- **Evidence:** Focused fake-client/model tests cover provider adapters, mode
+  gating, ingestion no-call behavior, missing-key 503, and provider-failure 502.
+- **Revisit trigger:** A second independent consumer needs different lifecycle,
+  provider, or dimension semantics that cannot be represented by the common
+  contract without coupling owners.
 
 ### Keep RAG retrieval evidence-first and read-only
 
@@ -245,6 +276,23 @@ sections, and 176 paragraphs with exact canonical-text containment.
 3. Which citation-context and purpose labels provide useful researcher signal
 	 without implying unsupported legal conclusions.
 4. What quality and performance thresholds should block a release.
+
+### Proposed ID/IAD coverage for CBSA-hearing research
+
+- **Status:** Design proposal only; source availability, licence applicability,
+  publication completeness, and legal outcome taxonomy remain unverified.
+- **Proposal:** Evaluate provenance-preserving ID/IAD decision coverage using
+  an official-first source ledger, and add a secondary source only after
+  permitted use and record identity are confirmed.
+- **Boundary:** Keep tribunal identity separate from court, preserve source
+  terms and conflicts, and scope outcome analytics by reviewed proceeding
+  category and Minister role rather than treating every government-related
+  result as a Minister win/loss.
+- **Evidence and phased plan:** See
+  [the ID/IAD coverage design](../docs/reports/id-iad-coverage-design.md).
+- **Revisit trigger:** Authoritative source/terms review and a reviewed,
+  source-linked pilot confirm stable identity, permitted use, and outcome
+  labels precise enough for a bounded schema and analytics change.
 
 ## Governance Rule
 

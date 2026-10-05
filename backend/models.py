@@ -2,6 +2,35 @@ from datetime import date, datetime
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+from .memo_suggestion_models import MemoAuthoritySuggestions
+
+
+class SimilarParagraphResponse(BaseModel):
+	case_id: int
+	title: str
+	citation: str | None = None
+	paragraph_number: int
+	excerpt: str
+	score: int
+	shared_tags: list[str]
+	shared_authorities: list[str]
+	why_matched: str
+
+
+class ParagraphSimilarityCoverage(BaseModel):
+	partial: bool
+	candidate_cases_checked: int
+	source_row_budget: int
+	signal_budget: int
+	postings_per_signal: int
+	candidate_case_budget: int
+	paragraph_row_budget: int
+	note: str
+
+
+class ParagraphSimilarityResponse(BaseModel):
+	results: list[SimilarParagraphResponse]
+	coverage: ParagraphSimilarityCoverage
 
 
 class CaseIngestRequest(BaseModel):
@@ -85,7 +114,7 @@ class LiveAnalysisResponse(BaseModel):
 
 class CaseSearchRequest(BaseModel):
 	query: str = Field(min_length=1)
-	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "lexical"
 	semantic_weight: float = Field(default=0.7, ge=0.0, le=1.0)
 	lexical_weight: float = Field(default=0.3, ge=0.0, le=1.0)
 	candidate_pool: int = Field(default=100, ge=10, le=500)
@@ -108,6 +137,7 @@ class CaseSearchRequest(BaseModel):
 	scraped_from: date | None = None
 	scraped_to: date | None = None
 	source_type: str | None = Field(default=None, max_length=100)
+	case_cohort: Literal["recent_5000"] | None = None
 	chunk_set: str | None = Field(default=None, max_length=50)
 	embedding_model: str | None = Field(default=None, max_length=100)
 	language: str | None = Field(default=None, max_length=10)
@@ -211,6 +241,15 @@ class CaseReaderCitationResponse(BaseModel):
 	target_citation: str | None = None
 	target_paragraph: int | None = None
 	target_chunk_text: str | None = None
+	# All paragraphs the pinpoint names ("paras 45-48 and 52"); target_paragraph is the first.
+	target_paragraphs: list[int] | None = None
+	target_pinpoint_label: str | None = None
+	# "para 45 ff": the extent after the stated paragraph is unknown, so only stated paragraphs are listed.
+	target_pinpoint_open_ended: bool = False
+	# A long range was cut to its leading paragraphs (heuristic limit).
+	target_pinpoint_capped: bool = False
+	# Stored text for the leading paragraphs, keyed by paragraph number as a string.
+	target_chunk_texts: dict[str, str] | None = None
 	legislation_url: str | None = None
 	authority_document_title: str | None = None
 	authority_document_url: str | None = None
@@ -230,6 +269,9 @@ class CaseReaderCitationResponse(BaseModel):
 	provenance: str = "local"
 	unresolved: bool = False
 	layer_spans: dict[str, dict[str, int | None]] | None = None
+	statute_version_label: str | None = None
+	# Stored paragraph cited-by summary for the cited paragraph (batch job; None until it has run).
+	target_cited_by: dict | None = None
 
 
 class LegislationCaseOccurrenceResponse(BaseModel):
@@ -291,6 +333,24 @@ class CaseReaderMetadataFieldResponse(BaseModel):
 	evidence: str | None = None
 
 
+class CaseReaderExtractedSummaryItemResponse(BaseModel):
+	"""Verified full_text excerpt with an exact formatter anchor (code-point offsets).
+
+	block_start disambiguates repeated paragraph numbers and anchors unnumbered
+	header blocks. start/end are the evidence range, not chunk-local offsets.
+	"""
+	key: str
+	label: str
+	value: str
+	source: str
+	evidence: str
+	start: int
+	end: int
+	block_start: int
+	block_type: str
+	paragraph_number: int | None = None
+
+
 class CaseEvidenceSpanResponse(BaseModel):
 	role: str
 	text: str
@@ -319,6 +379,8 @@ class CaseDiscussionUnitSummaryResponse(BaseModel):
 	end_paragraph: int
 	paragraph_count: int
 	subthemes: list[CaseSubThemeSummaryResponse] = Field(default_factory=list)
+	# Experimental, rule-based role (metadata, overview, facts, issues, analysis, disposition); see role_note.
+	role: str | None = None
 
 
 class CaseEvidenceSummaryResponse(BaseModel):
@@ -328,6 +390,7 @@ class CaseEvidenceSummaryResponse(BaseModel):
 	total_subthemes: int
 	note: str
 	units: list[CaseDiscussionUnitSummaryResponse] = Field(default_factory=list)
+	role_note: str | None = None
 
 
 class CaseSummarySectionItemResponse(BaseModel):
@@ -362,10 +425,27 @@ class CaseReaderDataResponse(BaseModel):
 	citations: list[CaseReaderCitationResponse]
 	tags: list[CaseReaderTagResponse]
 	extracted_metadata: list[CaseReaderMetadataFieldResponse] = []
+	extracted_summary: list[CaseReaderExtractedSummaryItemResponse] = []
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
+	format_blocks: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
+	# Stored per-paragraph "cited by" from the batch job (None until it has run for this case).
+	paragraph_cited_by: dict | None = None
+
+
+class MarkupExportComment(BaseModel):
+	block: int | None = None
+	label: str = Field(default="", max_length=120)
+	text: str = Field(default="", max_length=4000)
+	quote: str | None = Field(default=None, max_length=400)
+	author: str = Field(default="iLit Markup", max_length=40)
+
+
+class MarkupExportRequest(BaseModel):
+	comments: list[MarkupExportComment] = Field(default_factory=list, max_length=3000)
+	highlights: list[int] = Field(default_factory=list, max_length=3000)
 
 
 class InventoryCaseResponse(BaseModel):
@@ -396,12 +476,17 @@ class InventoryResponse(BaseModel):
 class CaseSearchResponse(CaseResponse):
 	similarity: float
 	match_source: str | None = None
+	matched_on: str | None = None
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class ChunkSearchResponse(CaseResponse):
 	chunk_index: int
 	chunk_text: str
 	similarity: float
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class LocalChunkSearchRequest(CaseSearchRequest):
@@ -412,6 +497,7 @@ class LocalChunkSearchRequest(CaseSearchRequest):
 
 class ChunkGroupSearchRequest(CaseSearchRequest):
 	max_chunks_per_case: int = Field(default=2, ge=1, le=10)
+	ranking_mode: Literal["paragraph", "balanced_rag"] = "paragraph"
 
 
 class ChunkPassage(BaseModel):
@@ -431,6 +517,8 @@ class GroupedChunkSearchResponse(BaseModel):
 	total_chunks: int
 	max_chunks_per_case: int
 	cases: list[GroupedChunkCaseResponse]
+	search_mode_effective: str | None = None
+	ai_disabled_reason: str | None = None
 
 
 class CitationResponse(BaseModel):
@@ -751,8 +839,26 @@ class A2AJCaseMapResponse(BaseModel):
 
 
 class ResearchRequest(ChunkGroupSearchRequest):
-	max_cases: int = Field(default=5, ge=1, le=10)
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "hybrid"
+	max_cases: int = Field(default=8, ge=1, le=10)
 	temperature: float = Field(default=0.3, ge=0.0, le=1.0)
+	chunk_set: Literal["paragraph"] = "paragraph"
+	embedding_model: Literal["text-embedding-3-small"] = "text-embedding-3-small"
+	ranking_mode: Literal["paragraph", "balanced_rag"] = "balanced_rag"
+	paragraph_weight: float = Field(default=0.55, ge=0.0, le=1.0)
+	case_similarity_weight: float = Field(default=0.30, ge=0.0, le=1.0)
+	citation_weight: float = Field(default=0.15, ge=0.0, le=1.0)
+	candidate_pool: int = Field(default=300, ge=10, le=500)
+	max_chunks_per_case: int = Field(default=4, ge=1, le=10)
+	page_size: int = Field(default=50, ge=1, le=50)
+
+	@model_validator(mode="after")
+	def validate_ranking_weights(self) -> "ResearchRequest":
+		if self.ranking_mode == "balanced_rag" and (
+			self.paragraph_weight + self.case_similarity_weight + self.citation_weight <= 0
+		):
+			raise ValueError("balanced_rag requires positive ranking weights")
+		return self
 	# override ChunkGroupSearchRequest defaults for richer context
 	max_chunks_per_case: int = Field(default=3, ge=1, le=10)
 	page_size: int = Field(default=20, ge=1, le=50)
@@ -775,5 +881,168 @@ class ResearchResponse(BaseModel):
 	answer: str
 	sources: list[ResearchSource]
 	model_used: str
+	prompt_version: str
 	prompt_tokens: int
 	completion_tokens: int
+
+
+class JudgeAnalyticsResponse(BaseModel):
+	"""Judge and outcome information for a unit."""
+	judges: list[str]
+	disposition: str | None
+	outcome_status: str | None
+	winner_side: str | None
+
+
+class UnitSearchResultResponse(BaseModel):
+	"""Result from unit-level search."""
+	case_id: int
+	unit_index: int
+	start_paragraph: int
+	end_paragraph: int
+	subtheme_id: str
+	key_terms: list[str]
+	judges: list[str]
+	disposition: str | None
+	score: float
+	match_type: str
+
+
+class UnitSearchResponse(BaseModel):
+	"""Response from unit search endpoint."""
+	query: str
+	total_results: int
+	results: list[UnitSearchResultResponse]
+
+
+class ThemeJudgePattern(BaseModel):
+	"""Judge pattern for a theme."""
+	judge_name: str
+	occurrence_count: int
+
+
+class ThemeDispositionSplit(BaseModel):
+	"""Disposition outcomes for a theme."""
+	disposition: str
+	count: int
+
+
+class ThemeWithJudgeAnalyticsResponse(BaseModel):
+	"""Enhanced theme with judge analytics."""
+	theme_id: str
+	theme_name: str
+	occurrence_count: int
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrences: list[dict[str, Any]]  # Includes judge/outcome/disposition info
+	judge_patterns: dict[str, Any] = Field(default_factory=dict)
+
+
+class ThemeOccurrenceResponse(BaseModel):
+	"""One occurrence of a theme in a case's discussion unit."""
+	case_id: int
+	unit_index: int
+	subtheme_id: str
+
+
+class DiscoveredThemeResponse(BaseModel):
+	"""A discovered recurring theme across the case corpus."""
+	theme_id: str
+	theme_name: str
+	top_key_terms: list[str]
+	top_argument_roles: list[str]
+	occurrence_count: int
+	occurrences: list[ThemeOccurrenceResponse] = Field(default_factory=list)
+
+
+class ThemeDiscoveryResponse(BaseModel):
+	"""Response from theme discovery endpoint."""
+	total_themes: int
+	themes: list[DiscoveredThemeResponse] = Field(default_factory=list)
+
+
+class MemoCitationAnalysis(BaseModel):
+	total_authorities_cited: int
+	resolved_authorities: int
+	authorities_with_treatment: int
+	missing_authorities_found: int
+
+
+class MemoCitationCheckResponse(BaseModel):
+	filename: str
+	text: str
+	text_length: int
+	paragraph_count: int
+	case_citations: list[Any]  # EnhancedCitationResponse
+	statute_references: list[Any]  # LiveAnalysisReferenceResponse
+	missing_authorities: list[Any]  # MissingAuthorityResponse
+	memo_analysis: MemoCitationAnalysis
+	suggestions: MemoAuthoritySuggestions = Field(default_factory=MemoAuthoritySuggestions)
+	gap_suggestions: dict[str, Any] = Field(
+		default_factory=dict
+	)
+
+
+class SavedSearchCreateRequest(BaseModel):
+	name: str = Field(min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str = ""
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] = "semantic"
+	filters: dict[str, Any] = Field(default_factory=dict)
+
+
+class SavedSearchUpdateRequest(BaseModel):
+	name: str | None = Field(default=None, min_length=1, max_length=255)
+	description: str | None = Field(default=None, max_length=1000)
+	query: str | None = None
+	search_mode: Literal["semantic", "lexical", "hybrid", "metadata"] | None = None
+	filters: dict[str, Any] | None = None
+
+
+class SearchAlertResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	search_id: int
+	case_id: int
+	chunk_id: int | None = None
+	match_type: str
+	relevance_score: float | None = None
+	discovered_at: datetime
+	case_title: str | None = None
+	case_citation: str | None = None
+	case_date: date | None = None
+	chunk_text: str | None = None
+
+
+class SavedSearchResponse(BaseModel):
+	model_config = ConfigDict(from_attributes=True)
+
+	id: int
+	name: str
+	description: str | None = None
+	query: str
+	search_mode: str
+	filters: dict[str, Any]
+	created_at: datetime
+	updated_at: datetime
+	last_alert_check: datetime | None = None
+	alert_count: int = 0
+
+
+class SavedSearchDetailResponse(SavedSearchResponse):
+	alerts: list[SearchAlertResponse] = Field(default_factory=list)
+
+
+class SearchDigestRequest(BaseModel):
+	search_id: int
+	include_fc_activity: bool = True
+
+
+class SearchDigestResponse(BaseModel):
+	search_id: int
+	search_name: str
+	generated_at: datetime
+	new_case_matches: list[SearchAlertResponse]
+	new_fc_activity: list[dict[str, Any]] = Field(default_factory=list)
+	total_new_results: int

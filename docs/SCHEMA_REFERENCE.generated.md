@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-09-29T12:46:29.251365+00:00
-Tables: 22
+Generated: 2026-10-05T15:16:47.938415+00:00
+Tables: 34
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -176,6 +176,24 @@ erDiagram
         Integer offset_end
         BOOLEAN unresolved
     }
+    discussion_unit_cache {
+        Integer id PK
+        Integer case_id  FK
+        String(100) method_version
+        TEXT units_json
+        Integer total_units
+        Integer total_subthemes
+        DATETIME computed_at
+        DATETIME updated_at
+    }
+    fc_activity_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        String(100) entry_type
+        DATETIME discovered_at
+        DATETIME created_at
+    }
     fc_activity_cases {
         Integer id PK
         String(255) source_key
@@ -228,6 +246,74 @@ erDiagram
         String(64) entry_hash
         JSON raw_document
         DATETIME created_at
+    }
+    fc_activity_motions {
+        Integer id PK
+        Integer source_case_id  FK
+        String(255) imm_number
+        Integer year
+        String(255) city_filed
+        Integer position
+        String(60) motion_type
+        String(40) filer
+        String(60) outcome
+        String(60) link
+        String(120) judge_key
+        String(255) judge_name
+        DATE filed_date
+        DATE decision_date
+        Integer days_to_decision
+        BOOLEAN in_writing
+        TEXT relief
+    }
+    fc_activity_summaries {
+        Integer source_case_id PK FK
+        String(255) imm_number
+        String(80) classifier_version
+        Integer year
+        String(255) city_filed
+        String(80) resolution
+        String(40) lifecycle
+        String(40) leave_result
+        String(40) review_result
+        String(40) decision_body
+        String(120) leave_judge_key
+        String(255) leave_judge_name
+        String(120) merits_judge_key
+        String(255) merits_judge_name
+        String(160) applicant_counsel_key
+        String(255) applicant_counsel_name
+        String(40) representation
+        String(40) respondent_position
+        String(40) leave_refusal_reason
+        String(40) stay_status
+        String(40) hearing_mode
+        Integer hearing_minutes
+        String(40) appeal_status
+        String(60) certified_question
+        String(40) consent_status
+        String(40) reasons_at_filing
+        String(20) proceeding_language
+        String(40) lead_file
+        String(80) lead_resolution
+        String(80) application_type
+        String(80) office_location
+        BOOLEAN joint_applicants
+        Integer motions_filed
+        String(40) extension_of_time
+        BOOLEAN dormant
+        Integer days_decision_to_filing
+        String(40) filing_timeliness
+        String(40) record_timeliness
+        String(40) memorandum_timeliness
+        String(40) hearing_window
+        Integer days_filing_to_perfection
+        Integer days_filing_to_leave_decision
+        Integer days_leave_grant_to_hearing
+        Integer days_hearing_to_judgment
+        Integer days_filing_to_final_disposition
+        BOOLEAN judgment_from_bench
+        DATETIME updated_at
     }
     fc_procedural_history {
         Integer id PK
@@ -286,10 +372,61 @@ erDiagram
         TEXT text
         Integer display_order
     }
+    paragraph_citation_edges {
+        Integer id PK
+        Integer source_case_id  FK
+        Integer target_case_id  FK
+        Integer target_paragraph
+        Integer mentions
+        String(20) purpose
+        JSON purpose_counts
+        String(60) signal
+        Integer algo_version
+    }
+    paragraph_citation_status {
+        Integer source_case_id PK FK
+        Integer algo_version
+        Integer edges
+        DATETIME computed_at
+    }
+    recent_case_chunk_embeddings {
+        Integer chunk_id PK FK
+        Integer case_id  FK
+        Integer chunk_index
+        Integer paragraph_start
+        Integer paragraph_end
+        String(50) chunk_set
+        TEXT text
+        VECTOR(1536) embedding
+        String(100) embedding_model
+        DATETIME refreshed_at
+    }
+    saved_searches {
+        Integer id PK
+        String(255) name
+        TEXT description
+        TEXT query
+        String(20) search_mode
+        JSON filters
+        DATETIME created_at
+        DATETIME updated_at
+        DATETIME last_alert_check
+    }
+    search_alerts {
+        Integer id PK
+        Integer search_id  FK
+        Integer case_id  FK
+        Integer chunk_id  FK
+        String(50) match_type
+        FLOAT relevance_score
+        DATETIME discovered_at
+        DATETIME created_at
+    }
     statute_references {
         Integer id PK
         Integer source_case_id  FK
         Integer chunk_id  FK
+        Integer statute_version_id  FK
         Integer offset_start
         Integer offset_end
         TEXT reference_text
@@ -302,7 +439,46 @@ erDiagram
         Integer provision_nested_depth
         BOOLEAN provision_is_range_or_list
         TEXT legislation_url
+        TEXT section_text
         String(20) reference_kind
+    }
+    statute_sections {
+        Integer id PK
+        Integer statute_version_id  FK
+        String(50) section_number
+        String(50) subsection
+        String(50) paragraph
+        TEXT heading
+        TEXT text
+        Integer offset_start
+        Integer offset_end
+        DATETIME created_at
+    }
+    statute_versions {
+        Integer id PK
+        Integer statute_id  FK
+        String(50) version_number
+        DATE in_force_date
+        DATE end_date
+        TEXT full_text
+        BLOB text_compressed
+        TEXT source_url
+        DATETIME fetched_at
+        DATETIME created_at
+    }
+    statutes {
+        Integer id PK
+        String(100) instrument_key
+        TEXT title
+        String(255) short_title
+        String(100) jurisdiction
+        String(50) statute_type
+        Integer consolidated_year
+        String(100) source
+        TEXT source_url
+        String(100) license
+        DATETIME created_at
+        DATETIME updated_at
     }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
@@ -320,11 +496,27 @@ erDiagram
     cases ||--o{ citations : "source_case_id"
     cases ||--o{ citations : "target_case_id"
     case_chunks ||--o{ citations : "target_chunk_id"
+    cases ||--o{ discussion_unit_cache : "case_id"
+    fc_activity_cases ||--o{ fc_activity_alerts : "case_id"
+    saved_searches ||--o{ fc_activity_alerts : "search_id"
     fc_activity_cases ||--o{ fc_activity_classifications : "source_case_id"
     fc_activity_cases ||--o{ fc_activity_documents : "case_id"
+    fc_activity_cases ||--o{ fc_activity_motions : "source_case_id"
+    fc_activity_cases ||--o{ fc_activity_summaries : "source_case_id"
     legislation_documents ||--o{ legislation_sections : "document_id"
+    cases ||--o{ paragraph_citation_edges : "source_case_id"
+    cases ||--o{ paragraph_citation_edges : "target_case_id"
+    cases ||--o{ paragraph_citation_status : "source_case_id"
+    cases ||--o{ recent_case_chunk_embeddings : "case_id"
+    case_chunks ||--o{ recent_case_chunk_embeddings : "chunk_id"
+    cases ||--o{ search_alerts : "case_id"
+    case_chunks ||--o{ search_alerts : "chunk_id"
+    saved_searches ||--o{ search_alerts : "search_id"
     case_chunks ||--o{ statute_references : "chunk_id"
     cases ||--o{ statute_references : "source_case_id"
+    statute_versions ||--o{ statute_references : "statute_version_id"
+    statute_versions ||--o{ statute_sections : "statute_version_id"
+    statutes ||--o{ statute_versions : "statute_id"
 ```
 
 ## Table Summary
@@ -344,15 +536,27 @@ erDiagram
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citations` | 17 | `id` |
+| `discussion_unit_cache` | 8 | `id` |
+| `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
 | `fc_activity_classifications` | 20 | `id` |
 | `fc_activity_documents` | 9 | `id` |
+| `fc_activity_motions` | 17 | `id` |
+| `fc_activity_summaries` | 47 | `source_case_id` |
 | `fc_procedural_history` | 14 | `id` |
 | `ingestion_runs` | 12 | `id` |
 | `judge_profiles` | 8 | `id` |
 | `legislation_documents` | 7 | `id` |
 | `legislation_sections` | 6 | `id` |
-| `statute_references` | 16 | `id` |
+| `paragraph_citation_edges` | 9 | `id` |
+| `paragraph_citation_status` | 4 | `source_case_id` |
+| `recent_case_chunk_embeddings` | 10 | `chunk_id` |
+| `saved_searches` | 9 | `id` |
+| `search_alerts` | 8 | `id` |
+| `statute_references` | 18 | `id` |
+| `statute_sections` | 10 | `id` |
+| `statute_versions` | 10 | `id` |
+| `statutes` | 12 | `id` |
 
 ## `a2aj_case_map`
 
@@ -461,6 +665,7 @@ erDiagram
 - `ix_case_chunks_case_id`: index on `case_id`
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
+- `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
 
 ### Foreign Keys
 
@@ -626,6 +831,8 @@ erDiagram
 - `ix_case_tags_source`: index on `source`
 - `ix_case_tags_taxonomy_version`: index on `taxonomy_version`
 - `ix_case_tags_value`: index on `value`
+- `ix_similarity_tag_posting`: index on `taxonomy_version`, `category`, `value`, `case_id`, `id`
+- `ix_similarity_tag_source`: index on `case_id`, `taxonomy_version`, `id`
 
 ### Unique Constraints
 
@@ -732,6 +939,9 @@ erDiagram
 - `ix_citations_target_case_id`: index on `target_case_id`
 - `ix_citations_target_chunk_id`: index on `target_chunk_id`
 - `ix_citations_target_paragraph`: index on `target_paragraph`
+- `ix_similarity_authority_posting`: index on `target_case_id`, `source_case_id`, `id`
+- `ix_similarity_citation_source`: index on `source_case_id`, `id`
+- `ix_similarity_unresolved_posting`: index on `normalized_citation`, `source_case_id`, `id`
 
 ### Foreign Keys
 
@@ -739,6 +949,58 @@ erDiagram
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_case_id` -> `cases.id`; on delete `CASCADE`
 - `target_chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `discussion_unit_cache`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `method_version` | `String(100)` | no | NOT NULL |
+| `units_json` | `TEXT` | no | NOT NULL |
+| `total_units` | `Integer` | no | NOT NULL; default=0 |
+| `total_subthemes` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_discussion_unit_cache_case_id`: index on `case_id`
+- `ix_discussion_unit_cache_method_version`: index on `method_version`
+
+### Unique Constraints
+
+- `uq_discussion_unit_cache_version`: `case_id`, `method_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `fc_activity_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `entry_type` | `String(100)` | no | NOT NULL |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_fc_activity_alerts_case_id`: index on `case_id`
+- `ix_fc_activity_alerts_discovered_at`: index on `discovered_at`
+- `ix_fc_activity_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
 
 ## `fc_activity_cases`
 
@@ -855,6 +1117,113 @@ erDiagram
 
 - `case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
 
+## `fc_activity_motions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> fc_activity_cases.id; NOT NULL |
+| `imm_number` | `String(255)` | yes | - |
+| `year` | `Integer` | yes | - |
+| `city_filed` | `String(255)` | yes | - |
+| `position` | `Integer` | no | NOT NULL |
+| `motion_type` | `String(60)` | no | NOT NULL |
+| `filer` | `String(40)` | yes | - |
+| `outcome` | `String(60)` | no | NOT NULL |
+| `link` | `String(60)` | yes | - |
+| `judge_key` | `String(120)` | yes | - |
+| `judge_name` | `String(255)` | yes | - |
+| `filed_date` | `DATE` | yes | - |
+| `decision_date` | `DATE` | yes | - |
+| `days_to_decision` | `Integer` | yes | - |
+| `in_writing` | `BOOLEAN` | yes | - |
+| `relief` | `TEXT` | yes | - |
+
+### Indexes
+
+- `ix_fc_activity_motions_imm_number`: index on `imm_number`
+- `ix_fc_activity_motions_judge_key`: index on `judge_key`
+- `ix_fc_activity_motions_motion_type`: index on `motion_type`
+- `ix_fc_activity_motions_outcome`: index on `outcome`
+- `ix_fc_activity_motions_source_case_id`: index on `source_case_id`
+- `ix_fc_activity_motions_year`: index on `year`
+
+### Foreign Keys
+
+- `source_case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+
+## `fc_activity_summaries`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; FK -> fc_activity_cases.id; NOT NULL |
+| `imm_number` | `String(255)` | yes | - |
+| `classifier_version` | `String(80)` | no | NOT NULL |
+| `year` | `Integer` | yes | - |
+| `city_filed` | `String(255)` | yes | - |
+| `resolution` | `String(80)` | yes | - |
+| `lifecycle` | `String(40)` | yes | - |
+| `leave_result` | `String(40)` | yes | - |
+| `review_result` | `String(40)` | yes | - |
+| `decision_body` | `String(40)` | yes | - |
+| `leave_judge_key` | `String(120)` | yes | - |
+| `leave_judge_name` | `String(255)` | yes | - |
+| `merits_judge_key` | `String(120)` | yes | - |
+| `merits_judge_name` | `String(255)` | yes | - |
+| `applicant_counsel_key` | `String(160)` | yes | - |
+| `applicant_counsel_name` | `String(255)` | yes | - |
+| `representation` | `String(40)` | yes | - |
+| `respondent_position` | `String(40)` | yes | - |
+| `leave_refusal_reason` | `String(40)` | yes | - |
+| `stay_status` | `String(40)` | yes | - |
+| `hearing_mode` | `String(40)` | yes | - |
+| `hearing_minutes` | `Integer` | yes | - |
+| `appeal_status` | `String(40)` | yes | - |
+| `certified_question` | `String(60)` | yes | - |
+| `consent_status` | `String(40)` | yes | - |
+| `reasons_at_filing` | `String(40)` | yes | - |
+| `proceeding_language` | `String(20)` | yes | - |
+| `lead_file` | `String(40)` | yes | - |
+| `lead_resolution` | `String(80)` | yes | - |
+| `application_type` | `String(80)` | yes | - |
+| `office_location` | `String(80)` | yes | - |
+| `joint_applicants` | `BOOLEAN` | yes | - |
+| `motions_filed` | `Integer` | yes | - |
+| `extension_of_time` | `String(40)` | yes | - |
+| `dormant` | `BOOLEAN` | yes | - |
+| `days_decision_to_filing` | `Integer` | yes | - |
+| `filing_timeliness` | `String(40)` | yes | - |
+| `record_timeliness` | `String(40)` | yes | - |
+| `memorandum_timeliness` | `String(40)` | yes | - |
+| `hearing_window` | `String(40)` | yes | - |
+| `days_filing_to_perfection` | `Integer` | yes | - |
+| `days_filing_to_leave_decision` | `Integer` | yes | - |
+| `days_leave_grant_to_hearing` | `Integer` | yes | - |
+| `days_hearing_to_judgment` | `Integer` | yes | - |
+| `days_filing_to_final_disposition` | `Integer` | yes | - |
+| `judgment_from_bench` | `BOOLEAN` | yes | - |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_fc_activity_summaries_applicant_counsel_key`: index on `applicant_counsel_key`
+- `ix_fc_activity_summaries_city_filed`: index on `city_filed`
+- `ix_fc_activity_summaries_decision_body`: index on `decision_body`
+- `ix_fc_activity_summaries_imm_number`: index on `imm_number`
+- `ix_fc_activity_summaries_leave_judge_key`: index on `leave_judge_key`
+- `ix_fc_activity_summaries_merits_judge_key`: index on `merits_judge_key`
+- `ix_fc_activity_summaries_office_location`: index on `office_location`
+- `ix_fc_activity_summaries_resolution`: index on `resolution`
+- `ix_fc_activity_summaries_year`: index on `year`
+
+### Foreign Keys
+
+- `source_case_id` -> `fc_activity_cases.id`; on delete `CASCADE`
+
 ## `fc_procedural_history`
 
 ### Columns
@@ -968,6 +1337,125 @@ erDiagram
 
 - `document_id` -> `legislation_documents.id`; on delete `CASCADE`
 
+## `paragraph_citation_edges`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `target_paragraph` | `Integer` | no | NOT NULL |
+| `mentions` | `Integer` | no | NOT NULL; default=1 |
+| `purpose` | `String(20)` | no | NOT NULL; default=mentioned |
+| `purpose_counts` | `JSON` | yes | - |
+| `signal` | `String(60)` | yes | - |
+| `algo_version` | `Integer` | no | NOT NULL; default=1 |
+
+### Indexes
+
+- `ix_paragraph_citation_target`: index on `target_case_id`, `target_paragraph`
+
+### Unique Constraints
+
+- `uq_paragraph_citation_edge`: `source_case_id`, `target_case_id`, `target_paragraph`
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `target_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `paragraph_citation_status`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `source_case_id` | `Integer` | no | PK; FK -> cases.id; NOT NULL |
+| `algo_version` | `Integer` | no | NOT NULL |
+| `edges` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Foreign Keys
+
+- `source_case_id` -> `cases.id`; on delete `CASCADE`
+
+## `recent_case_chunk_embeddings`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `chunk_id` | `Integer` | no | PK; FK -> case_chunks.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_index` | `Integer` | no | NOT NULL |
+| `paragraph_start` | `Integer` | yes | - |
+| `paragraph_end` | `Integer` | yes | - |
+| `chunk_set` | `String(50)` | no | NOT NULL; default=paragraph |
+| `text` | `TEXT` | no | NOT NULL |
+| `embedding` | `VECTOR(1536)` | no | NOT NULL |
+| `embedding_model` | `String(100)` | no | NOT NULL |
+| `refreshed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_recent_case_chunk_embeddings_case_id`: index on `case_id`
+- `ix_recent_case_chunk_embeddings_embedding_model`: index on `embedding_model`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+
+## `saved_searches`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `name` | `String(255)` | no | NOT NULL |
+| `description` | `TEXT` | yes | - |
+| `query` | `TEXT` | no | NOT NULL |
+| `search_mode` | `String(20)` | no | NOT NULL; default=semantic |
+| `filters` | `JSON` | no | NOT NULL |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `last_alert_check` | `DATETIME` | yes | - |
+
+### Indexes
+
+- `ix_saved_searches_created_at`: index on `created_at`
+- `ix_saved_searches_name`: index on `name`
+
+## `search_alerts`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `search_id` | `Integer` | no | FK -> saved_searches.id; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `match_type` | `String(50)` | no | NOT NULL |
+| `relevance_score` | `FLOAT` | yes | - |
+| `discovered_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_search_alerts_case_id`: index on `case_id`
+- `ix_search_alerts_discovered_at`: index on `discovered_at`
+- `ix_search_alerts_search_id`: index on `search_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+- `chunk_id` -> `case_chunks.id`; on delete `CASCADE`
+- `search_id` -> `saved_searches.id`; on delete `CASCADE`
+
 ## `statute_references`
 
 ### Columns
@@ -977,6 +1465,7 @@ erDiagram
 | `id` | `Integer` | no | PK; NOT NULL |
 | `source_case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
 | `chunk_id` | `Integer` | yes | FK -> case_chunks.id |
+| `statute_version_id` | `Integer` | yes | FK -> statute_versions.id |
 | `offset_start` | `Integer` | yes | - |
 | `offset_end` | `Integer` | yes | - |
 | `reference_text` | `TEXT` | yes | - |
@@ -989,6 +1478,7 @@ erDiagram
 | `provision_nested_depth` | `Integer` | yes | - |
 | `provision_is_range_or_list` | `BOOLEAN` | no | NOT NULL; default=False |
 | `legislation_url` | `TEXT` | yes | - |
+| `section_text` | `TEXT` | yes | - |
 | `reference_kind` | `String(20)` | no | NOT NULL |
 
 ### Indexes
@@ -1003,8 +1493,90 @@ erDiagram
 - `ix_statute_references_provision_subsection`: index on `provision_subsection`
 - `ix_statute_references_reference_kind`: index on `reference_kind`
 - `ix_statute_references_source_case_id`: index on `source_case_id`
+- `ix_statute_references_statute_version_id`: index on `statute_version_id`
 
 ### Foreign Keys
 
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
 - `source_case_id` -> `cases.id`; on delete `CASCADE`
+- `statute_version_id` -> `statute_versions.id`; on delete `SET NULL`
+
+## `statute_sections`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_version_id` | `Integer` | no | FK -> statute_versions.id; NOT NULL |
+| `section_number` | `String(50)` | no | NOT NULL |
+| `subsection` | `String(50)` | yes | - |
+| `paragraph` | `String(50)` | yes | - |
+| `heading` | `TEXT` | yes | - |
+| `text` | `TEXT` | yes | - |
+| `offset_start` | `Integer` | yes | - |
+| `offset_end` | `Integer` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_sections_statute_version_id`: index on `statute_version_id`
+
+### Foreign Keys
+
+- `statute_version_id` -> `statute_versions.id`; on delete `CASCADE`
+
+## `statute_versions`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `statute_id` | `Integer` | no | FK -> statutes.id; NOT NULL |
+| `version_number` | `String(50)` | no | NOT NULL |
+| `in_force_date` | `DATE` | no | NOT NULL |
+| `end_date` | `DATE` | yes | - |
+| `full_text` | `TEXT` | yes | - |
+| `text_compressed` | `BLOB` | yes | - |
+| `source_url` | `TEXT` | yes | - |
+| `fetched_at` | `DATETIME` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statute_versions_in_force_date`: index on `in_force_date`
+- `ix_statute_versions_statute_id`: index on `statute_id`
+
+### Unique Constraints
+
+- `uq_statute_version_date`: `statute_id`, `in_force_date`
+
+### Foreign Keys
+
+- `statute_id` -> `statutes.id`; on delete `CASCADE`
+
+## `statutes`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `instrument_key` | `String(100)` | no | NOT NULL |
+| `title` | `TEXT` | no | NOT NULL |
+| `short_title` | `String(255)` | yes | - |
+| `jurisdiction` | `String(100)` | no | NOT NULL |
+| `statute_type` | `String(50)` | no | NOT NULL |
+| `consolidated_year` | `Integer` | yes | - |
+| `source` | `String(100)` | no | NOT NULL |
+| `source_url` | `TEXT` | yes | - |
+| `license` | `String(100)` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+| `updated_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_statutes_instrument_key`: unique index on `instrument_key`
+- `ix_statutes_jurisdiction`: index on `jurisdiction`
+- `ix_statutes_source`: index on `source`

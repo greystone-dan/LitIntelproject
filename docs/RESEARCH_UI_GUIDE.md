@@ -1,13 +1,28 @@
 # Research UI Guide
 
-Last reviewed: 2026-09-30
+Last reviewed: 2026-10-03
 
 This guide explains the active iLIT research interfaces, their controls, and how to interpret what they display. The application is a research aid. Source text, source status, and legal propositions must be verified independently.
 
+New analysts can start with the task-focused [iLit Analyst Quick Start](ANALYST_QUICK_START.md); this guide remains the canonical, detailed repository reference for current UI behavior and limitations.
+
 ## Experimental RAG Research
 
-The `/research` page is the current, experimental RAG workflow. It has four
-steps:
+In the `/data-explorer` formatted reader, select **Similar paragraphs** beside
+a numbered paragraph to see stored-evidence matches in other cases. Matches
+explain shared V3 legal tags (one point each) and cited case authorities (two
+points each); ties use case ID then paragraph number. Links open the returned
+case at its paragraph. This is a bounded search, not semantic similarity or a
+legal conclusion: no embeddings, live-inferred tags or statute references are
+scored. Coverage notes disclose caps and omitted unverified/ambiguous evidence;
+an empty result does not establish that no similar passages exist.
+
+The `/research` page is an experimental RAG workflow, disabled by default.
+`ENHANCED_AI_MODE=off` returns HTTP 503 with the message
+`AI answers are disabled in this deployment` before retrieval or generation.
+The page displays this server error inline and restores its submit control.
+Setting `ENHANCED_AI_MODE=local` or `hosted` explicitly enables the workflow.
+When enabled, it has four steps:
 
 1. Retrieve relevant stored case passages with grouped chunk search.
 2. Assemble a bounded excerpt context from the retrieved cases.
@@ -19,13 +34,16 @@ To use a local model during development, run Ollama locally, pull an instruct
 model, and set these values in the ignored `.env` file:
 
 ```dotenv
-TEXT_GENERATION_PROVIDER=local
+ENHANCED_AI_MODE=local
 OLLAMA_BASE_URL=http://127.0.0.1:11434/v1
 OLLAMA_MODEL=qwen3:4b
 ```
 
-The model is not downloaded by the application. `OLLAMA_MODEL` must name a
-model already available to Ollama. Local generation and local semantic
+Local mode selects Ollama and does not construct an OpenAI generation client.
+For the existing hosted-provider behavior, set `ENHANCED_AI_MODE=hosted`;
+`TEXT_GENERATION_PROVIDER` then selects the configured generator. The model is
+not downloaded by the application. `OLLAMA_MODEL` must name a model already
+available to Ollama. Local generation and local semantic
 retrieval are separate settings: the former selects the answer provider, while
 the latter uses model-versioned BGE-M3 chunk embeddings when enabled and when
 matching stored vectors exist. Hosted corpus backfill uses
@@ -74,6 +92,23 @@ arrow-key focus and Enter activation, and non-overlapping group buttons with
 no horizontal overflow or uncaught page errors. These checks do not certify
 research-result accuracy or every standalone tool workflow.
 
+## Accessibility review
+
+The 2026-10-03 static review covered Case Search, the inline case reader, Judge
+Profile, Citation Map, and citation-oriented standalone page builders. It added
+keyboard-visible focus rings to the audited search/reader controls, a
+programmatic name to Citation Map search, and pressed state to the inline
+reader's information-view buttons and Citation Map mode/detail controls. Cited
+paragraph shading and linked-case pinpoint shading use high-contrast text
+(14.8:1 and 14.06:1 calculated, respectively); the extracted case summary
+remains a separate accessible control.
+The audit and remaining limitations are in
+`docs/reports/accessibility-audit.md`.
+
+This is not a WCAG 2.1 AA conformance claim: dynamic browser output, screen-reader
+announcements, responsive/touch behavior, and assistive-technology use still
+need manual verification.
+
 The embedded research and information views retain these data responsibilities:
 
 | Tab | Primary purpose | Main data layer |
@@ -87,6 +122,25 @@ The embedded research and information views retain these data responsibilities:
 | Legal Themes & Statutes | Explore theme definitions and statute-tag affinities | `case_tags`, `statute_references`, citations |
 
 The tab labels are navigation, not proof that every data layer is complete for every case. Empty states mean the relevant source, enrichment, or linkage is absent from the current database.
+
+## Printable Legal Issue Brief
+
+Open `/issue-brief-ui?tag=category:value` for a standalone, print-oriented
+summary of decisions carrying an exact active-taxonomy tag. The page reports
+decision counts by year and court, per-year outcome splits, the ten most cited
+resolved case authorities, and links up to 12 tagged decisions and the
+authorities in the case reader. The page discloses the shown/total decision-link
+count; `/issue-brief?tag=category:value` retains the complete decision list and
+provides the data as JSON. An empty tag returns a valid empty brief.
+
+Outcome labels come from `reader_extracted` decision metadata. Percentages use
+all tagged decisions in that year as the denominator, including records with no
+classified outcome; each percentage is shown alongside the unclassified count
+and denominator. Authority counts mean stored citation occurrences from tagged
+source decisions with a resolved case target, with distinct citing decisions
+reported separately. Unresolved citations and the separate statute-reference
+layer are not included. The print stylesheet is intended to keep the summary
+compact, but no browser/physical-page behavior is certified here.
 
 ## Discussion Units Sandbox
 
@@ -132,7 +186,7 @@ that path is in place, address accessibility and responsive behavior:
 - Review reader tabset selection and keyboard semantics; primary groups and
 	secondary view buttons already expose pressed state and focus navigation.
 - Give reader pane separators visible focus treatment and keyboard resizing.
-- Strengthen search/input focus contrast and verify it at desktop and mobile sizes.
+- Verify strengthened search/input focus visibility at desktop and mobile sizes.
 - Measure reader tab touch targets and label fit at 390px, and verify top-level tab overflow at desktop widths.
 - Add screenshot/keyboard checks for evidence-detail positioning and chart reflow.
 
@@ -192,11 +246,47 @@ Escape to dismiss the list, or `Ctrl+K` (`Command+K` on macOS) to return focus
 to the query. Selecting a suggestion runs the normal case search; it does not
 bypass filters or open an unverified external source.
 
+### Power-user query syntax
+
+Case Search accepts operators in the main query field:
+
+| Syntax | Example | Meaning |
+| --- | --- | --- |
+| Quoted phrase | `"procedural fairness"` | Search the phrase as one term |
+| AND / OR | `Vavilov AND fairness` / `SCC OR FCA` | Combine terms; AND binds more tightly than OR |
+| NOT / leading minus | `fairness NOT delay` / `fairness -delay` | Exclude the following term |
+| Court | `court:SCC` | Match the named court |
+| Year / range | `year:2020` / `year:2018..2022` (also `year:2018-2022`) | Match one decision year or an inclusive range |
+| Judge | `judge:"Justice Zinn"` | Match a judge name |
+| Cited authority | `cites:"2019 SCC 65"` / `cites:2019SCC65` | Match a citation recorded in the decision |
+| Decision outcome | `outcome:allowed` | Match the recorded decision outcome |
+
+The **Search tips** popover summarizes the syntax. After a search, the
+interpretation is shown above the results; unsupported field names remain
+searchable as ordinary words and are called out there, and an unbalanced quote
+is treated as a phrase with a warning. Operator-free queries continue to use the
+ordinary title/citation-first path. CSV and Word exports apply the same query
+syntax as the result search. A year-range echo is phrased as “2018 through 2022
+(inclusive)” so the interpreted boundary is clear.
+
 Open **Advanced options** when the question needs more precision. Filters are
 grouped into authority/outcome, people/court/time, and result display. The
 button reports how many optional filters are active, so a refined search stays
 visible as a state rather than hidden configuration. On narrow screens the
 query actions and filter groups stack vertically.
+
+### Saved Searches And Alerts
+
+Use **Save current search** below the Case Search controls to name and preserve
+the current query and filter values. **Saved searches** opens `/saved-searches-ui`,
+where saved criteria and recorded case alerts can be reviewed, checked, or
+deleted. No saved search is loaded or applied automatically, so the existing
+search workflow is unchanged when the collection is empty.
+
+The `scripts/check_saved_searches.py` checker evaluates a bounded number of
+stored searches. It is read-only unless invoked with `--apply`; apply mode
+records only previously unseen case matches. The checker does not poll external
+sources or schedule itself, and does not change the active search API.
 
 Choose a result count and sort order:
 
@@ -210,6 +300,15 @@ Choose a result count and sort order:
 Open Advanced options to narrow the candidate set. Available filters include cited authority, government outcome, decision outcome, judge, court, date/year, minister/government party, source type, and other metadata-oriented constraints. Court abbreviations such as `FC`, `FCA`, and `SCC` expand to their canonical court names.
 
 Enable **Search full decision text** only when the research question requires text passages rather than named authorities. Full-text matching broadens results and can be slower or noisier than title/citation lookup.
+
+After a nonempty successful ordinary case search, **Download Word** appears
+in the shared search-actions group beside the search/export controls. It exports
+the current query and the same named filters used by `searchValues()` through
+`GET /search/export.docx`. The link is
+hidden before results, for empty/error/loading states, while RAG is selected,
+and after any search field is edited; submit the search again to export its
+current result set. Older asynchronous case-search responses cannot restore a
+stale link.
 
 ### Reading Result Metadata
 
@@ -234,6 +333,47 @@ Open a result to enter the reader. The reader replaces the search panel until cl
 | Case context | Selected linked authority and related context | Compare cited authority without losing the source decision |
 
 The side panes are resizable on larger screens and can stack on smaller displays. Case information can be collapsed. Reader panes scroll independently so linked authority context does not force the decision text away from its current position.
+
+The formatted reader starts with a default-open **Quick summary** disclosure.
+It preserves the existing **Extracted case summary** and technical **Show case
+summary** controls. Collapse it to read; switching modes preserves its state,
+while reopening a decision defaults open. It is hidden in chunk/plain modes.
+Identity and outcome fields are stored values, not newly inferred conclusions;
+missing outcomes read **unclassified**, and missing extraction sources
+**unknown**. A stored outcome may remain visible without verified evidence.
+Unavailable identity rows and disposition/issue sections, plus empty statute/tag
+sections, are omitted without placeholders; outcome/source remain visible.
+Disposition quotations reproduce the complete verified numbered source
+paragraph. Issue or standard-of-review quotations contain one or two verbatim
+sentences from explicit English openings/headings, with issues preferred.
+Ambiguous abbreviations, quotes, incomplete sentences or invalid spans are
+omitted, not rewritten. Use each source link to focus its exact backend
+paragraph block, including when paragraph numbers repeat.
+
+Top statutes list up to five stored statute/instrument occurrence counts,
+not unique decisions or case-law citations. Source links appear only for exact
+document-relative evidence; chunk-relative references still count but are not
+linked. Top tags list up to five distinct active-taxonomy labels with verified
+source evidence; invalid evidence omits the tag rather than showing a placeholder.
+Valid tags retain their stored scores and sources. Neither score nor frequency
+establishes legal importance. No generated prose or new classifications are
+created by this card. If its read-only request fails, other reader tools remain
+available. See [`backend/case_summary.py`](../backend/case_summary.py) for
+extraction rules and `GET /api/cases/{case_id}/summary` for the typed contract.
+
+In formatted text, press **j** or **n** to move to the next numbered paragraph and **k** or **p** to move to the previous one. The current paragraph receives a visible highlight and keyboard focus. Press **?** or use the **?** control to show or hide the shortcut list; Escape closes the list. These shortcuts do not run while typing in an input, text area, select, or editable region. Print the reader to keep its title, citation, and paragraph numbers while hiding navigation, side panels, and buttons; paragraphs are kept together where page space permits.
+
+Above the source decision, **Most cited paragraphs** is collapsed by default
+and hidden if no numbered paragraphs have incoming pinpoint counts. Expand it
+with Enter or Space to see up to five paragraphs, ranked by distinct other
+citing cases in this library; ties use ascending paragraph number. Each entry
+shows the count, a short excerpt, and a jump link (Tab, then Enter). A jump
+switches from chunk/plain text to normalized formatted text and focuses the
+source paragraph, leaving linked context separate. These are the same counts
+as paragraph shading, not a second query or a finding about citation treatment.
+Opening another case, a failed load, or closing the reader clears the panel.
+The panel and **Extracted case summary** use the same backend block-start
+anchors, so either evidence link remains usable after switching reader modes.
 
 ### Reader Modes
 
@@ -446,11 +586,39 @@ citation-treatment classification.
 
 Interpret these views as navigation and prioritization aids. A citation increase can reflect corpus coverage, extraction changes, or genuine usage change. An outcome association does not show that an authority caused an outcome.
 
-## Judge Outcomes And Profiles
+## Judge Profile
 
-Judge Outcomes aggregates stored classifications. It shows decisions, government wins, individual wins, unclassified rows, and a government-win percentage among classified decisions. Use minimum-decision thresholds before making comparisons; unclassified cases and source/classification gaps matter.
+Judge Profile is the sole active judge workflow; the standalone Judge Outcomes
+view is retired. It resolves a canonical judge identity, aliases, primary
+court, linked cases, and available outcome/year information. The profile
+summary shows government wins, classified decisions, all linked decisions,
+and government win rate. The rate is government wins divided by classified
+decisions; unclassified decisions are excluded from the denominator. Its
+optional Minister filter narrows linked decisions associated with the selected
+government actor; it does not calculate an individual Minister's performance.
+Use profiles to reduce name variation, not to claim a complete judicial record
+or infer individual bias. Source and classification gaps matter when comparing
+rates.
 
-Judge Profile resolves a canonical judge identity, aliases, primary court, linked cases, and available outcome/year information. It is intended to reduce name variation, not to claim a complete judicial record or infer individual bias.
+**Compare judges** within Judge Profile accepts two canonical slugs, with
+name-search suggestions and the open profile prefilled as the first judge.
+It compares all linked decisions, independently of the profile's Minister filter.
+Shared recorded issues and their outcome splits appear first; an issue must
+occur in at least five distinct decisions for **both** judges. Issues come only
+from stored case issue lists, normalized for case/whitespace, with no inferred
+or metadata fallback. No qualifying issues is a coverage result, not proof
+that the judges address different legal questions.
+
+Overall outcomes retain government won, government lost and unclassified
+decisions. Every displayed count is `count / denominator`: issue outcome
+denominators are issue decisions; year, issue-coverage, tag and authority counts
+use all linked decisions for that judge. Undated decisions remain visible.
+Most-used tags and most-cited authorities show up to ten entries, counting
+distinct source decisions rather than repeated occurrences; overlapping counts
+must not be added. Resolved authority labels come from the target case, otherwise
+the stored citation label. Unknown slugs produce an explicit message. This is
+research coverage, not a ranking, a measure of harshness, or a causal inference.
+The read-only endpoint is `GET /judges/compare?a=<slug>&b=<slug>`.
 
 ## Data Explorer And FC History
 

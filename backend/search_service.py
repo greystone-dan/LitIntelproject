@@ -8,13 +8,13 @@ from __future__ import annotations
 
 import math
 import os
+import re
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable
 
 from fastapi import HTTPException, status
-from openai import OpenAI, OpenAIError
-from sqlalchemy import Text, func, or_, select
+from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
 
@@ -23,9 +23,16 @@ try:
 except Exception:  # pragma: no cover
 	yaml = None
 
-from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics
+from .database import Case, CaseChunk, CaseChunkEmbedding, CaseTag, CitationMetrics, RecentCaseChunkEmbedding
+from .ai_mode import enhanced_mode, search_downgrade_reason
 from .embedding_providers import SentenceTransformerEmbeddingProvider
+from .query_embedding_providers import (
+	embed_query,
+	query_embedding_provider,
+	query_embeddings_enabled,
+)
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .search_matching import citation_query, match_details
 from .models import (
 	CaseResponse,
 	CaseSearchRequest,
@@ -40,6 +47,8 @@ from .models import (
 
 EMBEDDING_DIMENSIONS = 1536
 EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
+RECENT_5000_IVFFLAT_LISTS = 200
+RECENT_5000_IVFFLAT_PROBES_DEFAULT = 12
 
 
 def _env_bool(name: str) -> bool | None:
@@ -84,6 +93,11 @@ AI_ROLLOUT = _load_ai_rollout_flags()
 
 
 def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None = None) -> str:
+	mode = enhanced_mode()
+	if requested_mode in {"semantic", "hybrid"} and (
+		mode == "off" or (mode == "local" and query_embedding_provider() != "local")
+	):
+		return "lexical"
 	flags = rollout or AI_ROLLOUT
 	if requested_mode == "semantic" and not flags.get("semantic_enabled", True):
 		return "metadata"
@@ -91,31 +105,21 @@ def _effective_search_mode(requested_mode: str, rollout: dict[str, bool] | None 
 		not flags.get("hybrid_enabled", True) or not flags.get("semantic_enabled", True)
 	):
 		return "metadata"
+	if requested_mode in {"semantic", "hybrid"} and not query_embeddings_enabled():
+		return "lexical"
 	return requested_mode
 
 
 def _embed(text: str) -> list[float]:
-	api_key = os.getenv("OPENAI_API_KEY")
-	if not api_key:
-		raise HTTPException(
-			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-			detail="OPENAI_API_KEY is not configured",
-		)
-
-	try:
-		client = OpenAI(api_key=api_key)
-		response = client.embeddings.create(input=text, model=EMBEDDING_MODEL)
-	except OpenAIError as exc:
-		raise HTTPException(
-			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service is unavailable",
-		) from exc
-
-	embedding = response.data[0].embedding
+	embedding = embed_query(text, indexed_dimensions=EMBEDDING_DIMENSIONS)
 	if len(embedding) != EMBEDDING_DIMENSIONS:
 		raise HTTPException(
 			status_code=status.HTTP_502_BAD_GATEWAY,
-			detail="The embedding service returned an unexpected vector size",
+			detail=(
+				f"The query embedding returned {len(embedding)} dimensions but searched "
+				f"vectors are {EMBEDDING_DIMENSIONS}-dimensional; re-embedding is "
+				"required before using a query model with a different dimension."
+			),
 		)
 	return embedding
 
@@ -169,7 +173,7 @@ def _case_search_document() -> Any:
 	)
 
 
-def _chunk_search_document() -> Any:
+def _chunk_search_document(chunk_text_column: Any = CaseChunk.text) -> Any:
 	return func.concat_ws(
 		" ",
 		func.coalesce(Case.title, ""),
@@ -184,11 +188,25 @@ def _chunk_search_document() -> Any:
 		func.coalesce(func.cast(Case.cases_cited, Text), ""),
 		func.coalesce(func.cast(Case.cases_citing, Text), ""),
 		func.coalesce(func.cast(Case.metadata_json, Text), ""),
-		func.coalesce(CaseChunk.text, ""),
+		func.coalesce(chunk_text_column, ""),
 	)
 
 
-def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
+def _apply_case_filters(
+	statement: Select,
+	search: CaseSearchRequest,
+	*,
+	chunk_set_column: Any = CaseChunk.chunk_set,
+	embedding_model_column: Any = CaseChunk.embedding_model,
+) -> Select:
+	if search.case_cohort == "recent_5000":
+		recent_case_ids = (
+			select(Case.id)
+			.order_by(Case.date.desc(), Case.id.desc())
+			.limit(5000)
+			.scalar_subquery()
+		)
+		statement = statement.where(Case.id.in_(recent_case_ids))
 	if search.title_contains:
 		statement = statement.where(Case.title.ilike(f"%{search.title_contains}%"))
 	if search.court:
@@ -221,10 +239,10 @@ def _apply_case_filters(statement: Select, search: CaseSearchRequest) -> Select:
 			statement = statement.where(or_(*party_clauses))
 	if search.source_type:
 		statement = statement.where(Case.source_type == search.source_type)
-	if search.chunk_set:
-		statement = statement.where(CaseChunk.chunk_set == search.chunk_set)
-	if search.embedding_model:
-		statement = statement.where(CaseChunk.embedding_model == search.embedding_model)
+	if search.chunk_set and chunk_set_column is not None:
+		statement = statement.where(chunk_set_column == search.chunk_set)
+	if search.embedding_model and embedding_model_column is not None:
+		statement = statement.where(embedding_model_column == search.embedding_model)
 	if search.language:
 		statement = statement.where(Case.language == search.language)
 	if search.processing_status:
@@ -324,9 +342,73 @@ def _case_lexical_rank_expr(query: str):
 	return func.ts_rank_cd(func.to_tsvector("simple", document), func.plainto_tsquery("simple", query))
 
 
-def _chunk_lexical_rank_expr(query: str):
-	document = _chunk_search_document()
+def _chunk_lexical_rank_expr(query: str, chunk_text_column: Any = CaseChunk.text):
+	document = _chunk_search_document(chunk_text_column)
 	return func.ts_rank_cd(func.to_tsvector("simple", document), func.plainto_tsquery("simple", query))
+
+
+def _local_passage_relevance(query: str, passage: str) -> float:
+	terms = [term for term in re.findall(r"[a-z0-9]{3,}", query.lower()) if term not in {"what", "which", "when", "does", "under"}]
+	if not terms:
+		return 0.0
+	text = passage.lower()
+	coverage = sum(term in text for term in set(terms)) / len(set(terms))
+	answer_language = sum(
+		marker in text
+		for marker in ("the test", "the duty", "the applicable", "the court held", "the tribunal", "procedural fairness", "reasonableness")
+	)
+	return min(1.0, (0.8 * coverage) + (0.2 * min(1.0, answer_language / 2)))
+
+
+def _recent_5000_ivfflat_probes() -> int:
+	raw_value = os.getenv("CASELIBRARY_RECENT_5000_IVFFLAT_PROBES")
+	if not raw_value:
+		return RECENT_5000_IVFFLAT_PROBES_DEFAULT
+	try:
+		probes = int(raw_value)
+	except ValueError:
+		return RECENT_5000_IVFFLAT_PROBES_DEFAULT
+	return max(1, min(probes, RECENT_5000_IVFFLAT_LISTS))
+
+
+def _recent_5000_artifact_ready(db: Session) -> bool:
+	try:
+		table_name = db.scalar(select(func.to_regclass("public.recent_case_chunk_embeddings")))
+	except Exception:
+		return False
+	if table_name is None:
+		return False
+	try:
+		return db.scalar(select(RecentCaseChunkEmbedding.chunk_id).limit(1)) is not None
+	except Exception:
+		return False
+
+
+def _apply_recent_5000_ivfflat_probes(db: Session) -> None:
+	try:
+		db.execute(
+			sql_text("SELECT set_config('ivfflat.probes', :probes, true)"),
+			{"probes": str(_recent_5000_ivfflat_probes())},
+		)
+	except Exception:
+		# Fallback to exact scan if probe tuning is unavailable in this session.
+		pass
+
+
+def _can_use_recent_5000_artifact(
+	search: CaseSearchRequest,
+	effective_mode: str,
+	db: Session,
+) -> bool:
+	if search.case_cohort != "recent_5000":
+		return False
+	if effective_mode not in {"semantic", "hybrid"}:
+		return False
+	if search.chunk_set and search.chunk_set != "paragraph":
+		return False
+	if search.embedding_model and search.embedding_model != EMBEDDING_MODEL:
+		return False
+	return _recent_5000_artifact_ready(db)
 
 
 @lru_cache(maxsize=2)
@@ -394,10 +476,14 @@ def execute_search_cases(
 			else 0.0
 		)
 		lexical_score = max(0.0, float(lexical_rank_value or 0.0))
+		if getattr(search, "ranking_mode", "paragraph") == "balanced_rag":
+			local_relevance = _local_passage_relevance(search.query, chunk.text)
+			semantic_similarity = (0.85 * semantic_similarity) + (0.15 * local_relevance)
 		max_lexical = max(max_lexical, lexical_score)
 		prepared_rows.append((case, semantic_similarity, lexical_score))
 
-	weighted_rows: list[tuple[Case, float, float]] = []
+	weighted_rows: list[tuple[Case, float, float, str, int]] = []
+	identity_query = bool(citation_query(search.query))
 	for case, semantic_similarity, lexical_score in prepared_rows:
 		lexical_similarity = lexical_score / max_lexical if max_lexical > 0 else 0.0
 		if effective_mode == "semantic":
@@ -410,9 +496,14 @@ def execute_search_cases(
 				(search.semantic_weight * semantic_similarity) + (search.lexical_weight * lexical_similarity)
 			) / denominator
 		graph_boost = min(0.05, math.log1p(max(0, graph_in_degree_value)) / 100.0)
-		weighted_rows.append((case, final_score, final_score + graph_boost))
+		label, tier = match_details(case, search.query, effective_mode)
+		identity_query = identity_query or tier >= 3
+		weighted_rows.append((case, final_score, final_score + graph_boost, label, tier))
 
-	weighted_rows.sort(key=lambda item: item[2], reverse=True)
+	if identity_query:
+		weighted_rows.sort(key=lambda item: (item[4], item[2]), reverse=True)
+	else:
+		weighted_rows.sort(key=lambda item: item[2], reverse=True)
 	start = (search.page - 1) * search.page_size
 	end = start + search.page_size
 	page_rows = weighted_rows[start:end]
@@ -422,8 +513,9 @@ def execute_search_cases(
 			**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
 			similarity=score,
 			match_source=_case_match_source(case, search.query, effective_mode),
+			matched_on=label,
 		)
-		for case, score, _ in page_rows
+		for case, score, _, label, _ in page_rows
 	]
 
 
@@ -448,6 +540,33 @@ def execute_search_chunks(
 			.limit(search.page_size)
 		)
 	else:
+		if _can_use_recent_5000_artifact(search, effective_mode, db):
+			_apply_recent_5000_ivfflat_probes(db)
+			distance = RecentCaseChunkEmbedding.embedding.cosine_distance(embed_func(search.query)).label("distance")
+			statement = (
+				select(Case, RecentCaseChunkEmbedding, distance)
+				.join(RecentCaseChunkEmbedding, RecentCaseChunkEmbedding.case_id == Case.id)
+				.order_by(distance)
+				.offset((search.page - 1) * search.page_size)
+				.limit(search.page_size)
+			)
+			statement = _apply_case_filters(
+				statement,
+				search,
+				chunk_set_column=RecentCaseChunkEmbedding.chunk_set,
+				embedding_model_column=RecentCaseChunkEmbedding.embedding_model,
+			)
+			rows = list(db.execute(statement))
+			return [
+				ChunkSearchResponse(
+					**CaseResponse.model_validate(case, from_attributes=True).model_dump(),
+					chunk_index=chunk.chunk_index,
+					chunk_text=chunk.text,
+					similarity=max(0.0, min(1.0, 1.0 - float(distance_value))),
+				)
+				for case, chunk, distance_value in rows
+			]
+
 		distance = CaseChunk.embedding.cosine_distance(embed_func(search.query)).label("distance")
 		statement = (
 			select(Case, CaseChunk, distance)
@@ -508,6 +627,11 @@ def execute_search_chunks_local(
 	*,
 	rollout: dict[str, bool] | None = None,
 ) -> list[ChunkSearchResponse]:
+	if enhanced_mode() == "off":
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail="AI-powered search is disabled in this deployment",
+		)
 	flags = rollout or AI_ROLLOUT
 	if not flags.get("local_semantic_enabled", True):
 		raise HTTPException(
@@ -552,33 +676,68 @@ def execute_grouped_chunk_search(
 	embed_func = embed_fn or _embed
 
 	query_vector = embed_func(search.query) if effective_mode in {"semantic", "hybrid"} else None
-	semantic_distance = (
-		CaseChunk.embedding.cosine_distance(query_vector).label("semantic_distance")
-		if query_vector is not None
-		else None
-	)
-	lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
+	if _can_use_recent_5000_artifact(search, effective_mode, db):
+		_apply_recent_5000_ivfflat_probes(db)
+		semantic_distance = (
+			RecentCaseChunkEmbedding.embedding.cosine_distance(query_vector).label("semantic_distance")
+			if query_vector is not None
+			else None
+		)
+		lexical_rank = _chunk_lexical_rank_expr(
+			search.query,
+			chunk_text_column=RecentCaseChunkEmbedding.text,
+		).label("lexical_rank")
 
-	statement = (
-		select(Case, CaseChunk, semantic_distance, lexical_rank)
-		if semantic_distance is not None
-		else select(Case, CaseChunk, lexical_rank)
-	)
-	statement = statement.join(CaseChunk, CaseChunk.case_id == Case.id)
-	if effective_mode in {"semantic", "hybrid"}:
-		statement = statement.where(CaseChunk.embedding.is_not(None))
-	statement = _apply_case_filters(statement, search)
+		statement = (
+			select(Case, RecentCaseChunkEmbedding, semantic_distance, lexical_rank)
+			if semantic_distance is not None
+			else select(Case, RecentCaseChunkEmbedding, lexical_rank)
+		)
+		statement = statement.join(RecentCaseChunkEmbedding, RecentCaseChunkEmbedding.case_id == Case.id)
+		statement = _apply_case_filters(
+			statement,
+			search,
+			chunk_set_column=RecentCaseChunkEmbedding.chunk_set,
+			embedding_model_column=RecentCaseChunkEmbedding.embedding_model,
+		)
+	else:
+		semantic_distance = (
+			CaseChunk.embedding.cosine_distance(query_vector).label("semantic_distance")
+			if query_vector is not None
+			else None
+		)
+		lexical_rank = _chunk_lexical_rank_expr(search.query).label("lexical_rank")
+
+		statement = (
+			select(Case, CaseChunk, semantic_distance, lexical_rank)
+			if semantic_distance is not None
+			else select(Case, CaseChunk, lexical_rank)
+		)
+		statement = statement.join(CaseChunk, CaseChunk.case_id == Case.id)
+		if effective_mode in {"semantic", "hybrid"}:
+			statement = statement.where(CaseChunk.embedding.is_not(None))
+		statement = _apply_case_filters(statement, search)
 
 	chunk_scan_limit = min(
 		500,
 		max(search.candidate_pool, search.page_size * search.max_chunks_per_case * 5),
 	)
 	if effective_mode in {"lexical", "metadata"}:
-		statement = statement.order_by(lexical_rank.desc()).limit(chunk_scan_limit)
+		raw_rows = list(db.execute(statement.order_by(lexical_rank.desc()).limit(chunk_scan_limit)))
+	elif effective_mode == "hybrid":
+		semantic_rows = list(db.execute(statement.order_by(semantic_distance).limit(chunk_scan_limit)))
+		lexical_rows = list(db.execute(statement.order_by(lexical_rank.desc()).limit(chunk_scan_limit)))
+		seen_chunks: set[tuple[int, int]] = set()
+		raw_rows = []
+		for row in semantic_rows + lexical_rows:
+			row_case, row_chunk = row[0], row[1]
+			row_key = (int(row_case.id), int(row_chunk.id))
+			if row_key in seen_chunks:
+				continue
+			seen_chunks.add(row_key)
+			raw_rows.append(row)
 	else:
-		statement = statement.order_by(semantic_distance).limit(chunk_scan_limit)
-
-	raw_rows = list(db.execute(statement))
+		raw_rows = list(db.execute(statement.order_by(semantic_distance).limit(chunk_scan_limit)))
 	prepared_rows: list[tuple[Case, CaseChunk, float, float]] = []
 	max_lexical = 0.0
 
@@ -633,6 +792,42 @@ def execute_grouped_chunk_search(
 	for item in grouped_cases:
 		item.chunks.sort(key=lambda c: c.similarity, reverse=True)
 		item.chunks = item.chunks[: search.max_chunks_per_case]
+	if getattr(search, "ranking_mode", "paragraph") == "balanced_rag" and grouped_cases:
+		case_scores: dict[int, tuple[float | None, int]] = {}
+		if query_vector is not None:
+			case_scores = {
+				case_id: (case_similarity, int(in_degree or 0))
+				for case_id, case_similarity, in_degree in db.execute(
+					select(
+						Case.id,
+						Case.embedding.cosine_distance(query_vector).label("case_distance"),
+						func.coalesce(CitationMetrics.in_degree, 0).label("in_degree"),
+					)
+					.outerjoin(CitationMetrics, CitationMetrics.case_id == Case.id)
+					.where(Case.id.in_([item.id for item in grouped_cases]))
+				)
+			}
+		max_citation = max(
+			(math.log1p(score[1]) for score in case_scores.values()),
+			default=0.0,
+		)
+		paragraph_weight = float(getattr(search, "paragraph_weight", 0.55))
+		case_weight = float(getattr(search, "case_similarity_weight", 0.30))
+		citation_weight = float(getattr(search, "citation_weight", 0.15))
+		weight_total = paragraph_weight + case_weight + citation_weight
+		for item in grouped_cases:
+			case_similarity_value, in_degree = case_scores.get(item.id, (None, 0))
+			case_similarity = (
+				max(0.0, min(1.0, 1.0 - float(case_similarity_value)))
+				if case_similarity_value is not None
+				else 0.0
+			)
+			citation_score = math.log1p(in_degree) / max_citation if max_citation > 0 else 0.0
+			item.best_similarity = (
+				paragraph_weight * item.best_similarity
+				+ case_weight * case_similarity
+				+ citation_weight * citation_score
+			) / weight_total
 	grouped_cases.sort(key=lambda c: c.best_similarity, reverse=True)
 
 	start = (search.page - 1) * search.page_size
@@ -644,4 +839,6 @@ def execute_grouped_chunk_search(
 		total_chunks=len(raw_rows),
 		max_chunks_per_case=search.max_chunks_per_case,
 		cases=paged_cases,
+		search_mode_effective=effective_mode,
+		ai_disabled_reason=search_downgrade_reason(search.search_mode, effective_mode),
 	)

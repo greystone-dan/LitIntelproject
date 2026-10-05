@@ -88,6 +88,7 @@ button,input,select{font:inherit}
 .search-actions{display:flex;align-items:flex-end;gap:10px}.search-actions button{height:42px;padding:0 16px;border:0;border-radius:10px;background:var(--navy);color:#fff;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.search-actions button.secondary{background:#eef2ff;color:var(--navy)}
 .advanced-actions{display:flex;justify-content:flex-start;margin-top:12px}.advanced-actions button{display:inline-flex;align-items:center;gap:8px}.advanced-actions button::before{content:'+';font-size:16px;line-height:0;font-weight:400}.advanced-actions button[aria-expanded="true"]::before{content:'−'}.advanced-search{margin-top:2px;padding:16px 0 2px;border-top:1px solid var(--border);min-width:0}.advanced-search[hidden]{display:none}.advanced-search::before{content:'Refine the result set';display:block;color:var(--text);font-size:12px;font-weight:700;letter-spacing:.04em}.advanced-search::after{content:'Use these filters to narrow by authority, outcome, court, judge, year, or full decision text.';display:block;margin-top:3px;color:var(--muted);font-size:11px}.advanced-search .search-form{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:14px;min-width:0}.advanced-search fieldset{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:12px;border:1px solid var(--border);border-radius:5px}.advanced-search legend{padding:0 6px;color:var(--text);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.advanced-search .search-form>div,.advanced-search .check-field{min-width:0}.advanced-search input,.advanced-search select{min-width:0;max-width:100%}.check-field{display:flex;align-items:center;gap:8px;min-height:42px;color:var(--muted);font-size:12px;font-weight:600}.check-field input{width:16px;height:16px;accent-color:var(--blue)}
 .search-meta{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+.search-refine{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:10px 0 12px;font-size:13px}.search-refine[hidden]{display:none}.search-refine select{padding:4px 8px;border:1px solid var(--line,#cfd6e0);border-radius:6px;background:#fff;font:inherit}.facet-chips{display:flex;flex-wrap:wrap;gap:6px}.facet-chip{border:1px solid var(--line,#cfd6e0);background:#fff;border-radius:999px;padding:3px 10px;font:inherit;cursor:pointer}.facet-chip span{color:#5b6573;margin-left:2px}.facet-chip:hover,.facet-chip:focus-visible{border-color:#1f4e8c}.facet-chip.active{background:#e8f0fb;border-color:#1f4e8c}
 .results-wrap{display:grid;gap:10px;margin-top:12px}
 .case-result{display:block;width:100%;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-align:left;cursor:pointer;transition:all .15s ease}
 .case-result:hover{border-color:var(--blue);background:linear-gradient(180deg,#ffffff 0%,#eff6ff 100%);box-shadow:var(--shadow-soft)}
@@ -477,6 +478,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div id="cohortSearchPanel" class="cohort-search-panel" hidden><div class="eyebrow">Core 300 assessment search</div><form id="cohortSearchForm"><div class="search-query-row"><label class="primary-query" for="cohortQuery"><span>Find concepts in paragraph assessments</span><small>Experimental matching across topic, role, explanation, and paragraph text. Scope: Core 300 only.</small><input id="cohortQuery" placeholder="Try standard of review issues" autocomplete="off"></label><button type="submit">Search assessments</button></div></form><div class="search-status" id="cohortSearchMeta" role="status" aria-live="polite">Activate Core Cases to search the 300 assessment records.</div><div class="results-wrap" id="cohortSearchResults" aria-label="Core 300 assessment search results"></div><div class="search-status" id="cohortComparisonMeta" role="status" aria-live="polite"></div><div class="results-wrap" id="cohortComparisonResults" aria-label="Core 300 assessment comparison results"></div></div>
 <div class="search-status" id="searchMeta" role="status" aria-live="polite" data-state="idle">Search by case name or citation. Open Advanced options for filters or full-decision text.</div>
 <div class="search-query-echo" id="searchQueryEcho" role="status" aria-live="polite" hidden></div>
+<div class="search-refine" id="searchRefine" hidden><label for="quickSort">Sort by</label><select id="quickSort"><option value="newest">Newest decision</option><option value="relevance">Most cited / newest</option><option value="oldest">Oldest decision</option><option value="minister">Minister (A-Z)</option></select><div class="facet-chips" id="searchFacets" aria-label="Narrow results"></div></div>
 <div class="results-wrap" id="searchResults" aria-label="Case search results"></div>
 </section>
 <style>
@@ -821,6 +823,25 @@ async function requestSearchSuggestions(query){suggestionState.controller?.abort
 function snippetHtml(text,query){const raw=String(text||''),q=String(query||'').trim().toLowerCase();if(!q)return esc(raw);const lower=raw.toLowerCase();let out='',at=0,hit=lower.indexOf(q);while(hit>=0){out+=esc(raw.slice(at,hit))+'<mark>'+esc(raw.slice(hit,hit+q.length))+'</mark>';at=hit+q.length;hit=lower.indexOf(q,at)}return out+esc(raw.slice(at))}
 function professionalResultCard(item){const context=[item.court,item.date,item.judge,item.minister].filter(Boolean),outcome=item.government_outcome==='won'?'Government won':item.government_outcome==='lost'?'Individual won':item.decision_outcome||'',outcomeClass=item.government_outcome==='won'?'win':item.government_outcome==='lost'?'loss':'neutral';return `<button class="case-result" data-case-id="${item.case_id}" aria-label="Open ${esc(item.title||'decision')}"><div class="result-identity"><div class="result-title">${esc(item.title||'Untitled decision')}</div><div class="result-citation">${esc(item.citation||'Citation unavailable')}</div><div class="result-context">${context.map(value=>`<span>${esc(value)}</span>`).join('')}</div>${outcome?`<div class="result-tags"><span class="tag ${outcomeClass}">${esc(outcome)}</span>${item.decision_outcome&&item.decision_outcome!==outcome?`<span class="tag neutral">${esc(item.decision_outcome)}</span>`:''}</div>`:''}</div><div class="result-side"><div class="result-metrics"><div class="result-metric"><strong>${num(item.citation_mentions)}</strong><span>mentions</span></div><div class="result-metric"><strong>${num(item.unique_cited_authorities)}</strong><span>authorities</span></div><div class="result-metric"><strong>${num(item.resolved_target_cases)}</strong><span>linked</span></div></div><span class="result-open">Open decision</span></div></button>`;}
 let professionalSearchGeneration=0;
+function paintSearchRefine(facets,values,count){
+ const bar=document.getElementById('searchRefine'),box=document.getElementById('searchFacets'),sort=document.getElementById('quickSort');
+ if(!bar)return;
+ bar.hidden=!count;
+ sort.value=document.getElementById('searchSort').value;
+ const chips=[];
+ if(values.court)chips.push(`<button type="button" class="facet-chip active" data-facet="court" data-value="" aria-label="Remove court filter ${esc(values.court)}">Court: ${esc(values.court)} ×</button>`);
+ else((facets||{}).court||[]).forEach(row=>chips.push(`<button type="button" class="facet-chip" data-facet="court" data-value="${esc(row.value)}">${esc(row.value)} <span>${num(row.count)}</span></button>`));
+ if(values.year)chips.push(`<button type="button" class="facet-chip active" data-facet="year" data-value="" aria-label="Remove year filter ${esc(values.year)}">Year: ${esc(values.year)} ×</button>`);
+ else((facets||{}).year||[]).slice(0,8).forEach(row=>chips.push(`<button type="button" class="facet-chip" data-facet="year" data-value="${esc(row.value)}">${esc(row.value)} <span>${num(row.count)}</span></button>`));
+ box.innerHTML=chips.join('');
+}
+document.addEventListener('click',event=>{
+ const chip=event.target.closest?.('#searchFacets .facet-chip');
+ if(!chip)return;
+ document.getElementById(chip.dataset.facet==='court'?'courtFilter':'yearFilter').value=chip.dataset.value;
+ runProfessionalSearch();
+});
+document.getElementById('quickSort')?.addEventListener('change',event=>{document.getElementById('searchSort').value=event.target.value;runProfessionalSearch();});
 async function runProfessionalSearch(){
  const requestId=++professionalSearchGeneration;
  closeSearchSuggestions();
@@ -838,6 +859,7 @@ async function runProfessionalSearch(){
   queryEcho.hidden=!queryEcho.textContent;
   const results=data.results||[];
   setSearchStatus(results.length?`Showing ${num(results.length)} matching decision${results.length===1?'':'s'}. Select a result to open the decision.`:'No decisions matched this search. Check the spelling or remove a filter.',results.length?'success':'empty');
+  paintSearchRefine(data.facets,values,results.length);
   document.getElementById('searchResults').innerHTML=results.map(item=>professionalResultCard(item,values.query)).join('')||(values.query?'<div class="empty">No matching decisions. Try a citation, a shorter party name, or fewer filters.</div>':'<div class="empty">Enter a case name or citation to begin.</div>');
   document.querySelectorAll('#searchResults .case-result').forEach(button=>button.addEventListener('click',()=>openDecision(Number(button.dataset.caseId))));
  }});

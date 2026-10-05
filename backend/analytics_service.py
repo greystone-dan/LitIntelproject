@@ -1127,6 +1127,29 @@ def _query_expression_sql(
 	return compile_node(expression) if expression is not None else "FALSE"
 
 
+def _search_facets(db, where_clause, params, cohort_ids):
+	"""Counts of matching decisions by court and year (plain SQL, no model)."""
+	facet_params = {k: v for k, v in params.items() if k not in ("limit", "offset")}
+
+	def run(expr, limit):
+		statement = sql_text(
+			f"SELECT {expr} AS label, COUNT(*) AS n FROM cases c WHERE {where_clause} "
+			f"AND {expr} IS NOT NULL GROUP BY label ORDER BY n DESC, label LIMIT {limit}"
+		)
+		if cohort_ids is not None:
+			statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
+		return [
+			{"value": str(row["label"]), "count": int(row["n"])}
+			for row in db.execute(statement, facet_params).mappings().all()
+			if row.get("label") is not None
+		]
+
+	return {
+		"court": run("c.court", 8),
+		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
+	}
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1276,10 +1299,12 @@ def fetch_analytics_search_cases(
 			LIMIT :limit OFFSET :offset
 			"""
 		)
+	facets = _search_facets(db, where_clause, params, cohort_ids) if offset == 0 and not search_full_text else {}
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 	rows = db.execute(statement, params).mappings().all()
 	return {
+		"facets": facets,
 		"results": [
 			{
 				"case_id": int(row["id"]),

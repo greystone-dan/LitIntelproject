@@ -543,6 +543,8 @@ def test_extracted_summary_browser_source_links():
             page.evaluate("setReaderMode('chunks')")
             assert page.locator(".reader-extracted-summary").count() == 1
             assert page.locator(".reader-extracted-summary a").count() == 7
+            assert page.locator(".reader-extracted-summary").evaluate("node => node.open") is False  # closed until the reader opens it
+            page.evaluate("extractedSummaryState.open = true")
             for index in range(7):
                 page.evaluate("setReaderMode('chunks')")
                 link = page.locator(".reader-extracted-summary a").nth(index)

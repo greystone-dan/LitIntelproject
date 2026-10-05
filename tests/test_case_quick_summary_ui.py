@@ -155,7 +155,7 @@ await openDecision(7);
 assert.equal(pending.length,1);assert.equal(pending[0].url,'/api/cases/7/summary');
 assert.equal(pending[0].options.method,'GET');assert.ok(body.html.includes('Loading stored quick summary'));
 pending[0].resolve({ok:true,json:async()=>DATA});await tick();
-assert.ok(body.html.includes('Quick summary'));assert.ok(body.html.includes(' open '));
+assert.ok(body.html.includes('Quick summary'));assert.ok(!body.html.includes(' open '));assert.equal(quickSummaryState.open,false);
 setReaderMode('chunks');assert.equal(body.html,'');
 setReaderMode('normalized');assert.ok(body.html.includes('Quick summary'));
 readerState.formatted=false;setReaderMode('normalized');assert.equal(body.html,'');
@@ -262,12 +262,14 @@ function check(value,label){if(!value)throw new Error(label)}
  const body=document.getElementById('decisionBody');
  check(body.firstElementChild.classList.contains('reader-quick-summary'),'summary first');
  check(body.querySelector('.reader-extracted-summary'),'existing extracted card');
- check(body.querySelector('.reader-quick-summary').open,'default open');
+ check(!body.querySelector('.reader-quick-summary').open,'default closed');
  check(!body.querySelector('.reader-quick-summary img'),'safe identity');
  const links=body.querySelectorAll('[data-quick-summary-start]');
  check(links.length===4,'all verified links');
  for(const link of links){link.click();check(document.activeElement.id==='decision-source-'+DATA.disposition.block_start,'duplicate anchor focus')}
  const panel=body.querySelector('.reader-quick-summary');
+ panel.querySelector('summary').click();await new Promise(resolve=>setTimeout(resolve,50));
+ check(panel.open,'native expand');
  panel.querySelector('summary').click();await new Promise(resolve=>setTimeout(resolve,50));
  check(!panel.open,'native collapse');
  setReaderMode('chunks');check(!body.querySelector('.reader-quick-summary'),'chunks hidden');
@@ -275,7 +277,7 @@ function check(value,label){if(!value)throw new Error(label)}
  setReaderMode('normalized');check(!body.querySelector('.reader-quick-summary').open,'collapse preserved');
  readerState.formatted=false;setReaderMode('normalized');check(!body.querySelector('.reader-quick-summary'),'plain hidden');
  readerState.formatted=true;setReaderMode('normalized');check(body.querySelector('.reader-quick-summary'),'formatted remount');
- await openDecision(7);check(body.querySelector('.reader-quick-summary').open,'reopen default');
+ await openDecision(7);check(!body.querySelector('.reader-quick-summary').open,'reopen default closed');
  check(document.documentElement.scrollWidth<=innerWidth,'no horizontal overflow');
  quickSummaryState.data={case_id:7,top_statutes:[{instrument_key:'IRPR',count:1,evidence:null}],
   top_tags:[{category:'issue',value:'INVALID_TAG',evidence:{...DATA.disposition,text:'fabricated'}}]};

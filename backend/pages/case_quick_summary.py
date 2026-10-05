@@ -2,7 +2,7 @@
 
 QUICK_SUMMARY_JS = r"""
 /* Quick summary: stored data only; independent of the extracted/technical cards. */
-const quickSummaryState={generation:0,caseId:null,status:'idle',data:null,controller:null,open:true};
+const quickSummaryState={generation:0,caseId:null,status:'idle',data:null,controller:null,open:false};
 function quickSummaryEscape(value){
     return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 }
@@ -63,7 +63,7 @@ function mountQuickSummary(){
 }
 function resetQuickSummary(caseId=null){
     quickSummaryState.controller?.abort();
-    Object.assign(quickSummaryState,{generation:quickSummaryState.generation+1,caseId,status:'idle',data:null,controller:null,open:true});
+    Object.assign(quickSummaryState,{generation:quickSummaryState.generation+1,caseId,status:'idle',data:null,controller:null,open:false});
     document.getElementById('decisionBody')?.querySelectorAll('.reader-quick-summary').forEach(node=>node.remove());
 }
 async function loadQuickSummary(caseId,generation){

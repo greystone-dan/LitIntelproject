@@ -406,6 +406,22 @@ def _build_reader_extracted_summary(
 	return items
 
 
+
+MAX_PINPOINT_TEXT_CASES = 12
+
+
+def _starts_with_paragraph(text: str | None, paragraph: int) -> bool:
+	return bool(text) and re.match(rf"^\s*\[{int(paragraph)}\]", text) is not None
+
+
+def paragraph_text_from_decision(full_text: str | None, paragraph: int) -> str | None:
+	"""The stored text of one numbered paragraph, as the reader's formatter delimits it; ``None`` when absent."""
+	for block in format_decision(full_text):
+		if block.get("type") == "para" and block.get("num") == paragraph:
+			return full_text[block["start"] : block["end"]].strip() or None
+	return None
+
+
 def _citation_target_paragraph(
 	citation_text: str | None,
 	normalized_citation: str | None,
@@ -907,13 +923,40 @@ def build_case_reader_data(case_id: int, db: Session) -> CaseReaderDataResponse:
 				CaseChunk.paragraph_end.is_not(None),
 			)
 		)
+		best_span: dict[tuple[int, int], int] = {}
 		for chunk in target_paragraph_chunks:
 			for target_case_id, paragraph in target_pinpoints:
 				if (
 					chunk.case_id == target_case_id
 					and chunk.paragraph_start <= paragraph <= chunk.paragraph_end
 				):
-					target_chunks[(target_case_id, paragraph)] = chunk.text
+					key = (target_case_id, paragraph)
+					# The narrowest chunk that holds the paragraph wins, not whichever is read last.
+					span = chunk.paragraph_end - chunk.paragraph_start
+					if key not in best_span or span < best_span[key]:
+						best_span[key] = span
+						target_chunks[key] = chunk.text
+		# Paragraph text from the stored decision itself where no chunk starts at that paragraph (large cases are
+		# chunked coarsely). Bounded, and stored text only.
+		missing = sorted(
+			key for key in target_pinpoints
+			if not _starts_with_paragraph(target_chunks.get(key), key[1])
+		)
+		if missing:
+			wanted: dict[int, set[int]] = {}
+			for target_case_id, paragraph in missing:
+				if len(wanted) >= MAX_PINPOINT_TEXT_CASES and target_case_id not in wanted:
+					continue
+				wanted.setdefault(target_case_id, set()).add(paragraph)
+			for target_case_id, full_text in db.execute(
+				select(Case.id, Case.full_text).where(Case.id.in_(wanted))
+			):
+				for paragraph in wanted[target_case_id]:
+					text = paragraph_text_from_decision(full_text, paragraph)
+					if text:
+						target_chunks[(target_case_id, paragraph)] = text
+					else:
+						target_chunks.pop((target_case_id, paragraph), None)
 
 	citation_responses = [
 		CaseReaderCitationResponse(

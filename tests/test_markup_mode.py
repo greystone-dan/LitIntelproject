@@ -53,7 +53,7 @@ def _payload(verified=True):
             "citations": [
                 {"id": 1, "citation_kind": "neutral", "citation_text": "2019 SCC 65",
                  "target_case_id": 9, "target_title": "Vavilov <x>", "target_paragraph": 7,
-                 "target_chunk_text": "Quoted text"},
+                 "target_chunk_text": "[7] Quoted text"},
                 {"id": 2, "citation_kind": "statute", "citation_text": "IRPA s 96"},
                 {"id": 3, "citation_kind": "case_short", "citation_text": "Baker"},
                 {"id": 1, "citation_kind": "neutral", "citation_text": "dup"},
@@ -421,3 +421,30 @@ def test_legal_development_notice_is_folded_behind_a_header_pill_in_markup():
 def test_margin_connectors_start_at_each_citations_own_text():
     js = JS.read_text(encoding="utf-8")
     assert "getClientRects()" in js and '<circle cx="${ax}"' in js  # a dot at the span end, not a shared start point
+
+
+@needs_node
+def test_pinpoint_text_is_shown_only_when_the_stored_chunk_is_that_paragraph():
+    out = _node("""
+const row = o => Object.assign({target_case_id: 9, target_title: 'Strachn v. Canada (Citizenship and Immigration)', target_paragraph: 34}, o);
+console.log(JSON.stringify({
+  ok: m.pinpointInfo(row({target_chunk_text: '[34] This has been interpreted to be a conjunctive test.\\n[35] Next paragraph.'})),
+  footer: m.pinpointInfo(row({target_paragraph: 54, target_chunk_text: 'SOLICITORS OF RECORD\\nDOCKET: IMM-424-12'})),
+  heading: m.pinpointInfo(row({target_chunk_text: '[34] Ends here.\\nJUDGMENT\\nTHIS COURT ORDERS'})),
+  none: m.pinpointInfo(row({})),
+  nopin: m.pinpointInfo(row({target_paragraph: null})),
+  outside: m.pinpointInfo({target_case_id: null, target_paragraph: 3}),
+}));
+""")
+    assert out["ok"]["quote"] == "This has been interpreted to be a conjunctive test."
+    assert out["ok"]["label"] == "¶[34] of Strachn" and out["ok"]["body"] == ""
+    assert out["footer"]["quote"] == "" and "not found" in out["footer"]["body"]  # a wrong chunk is never shown as the paragraph
+    assert out["heading"]["quote"] == "Ends here."
+    assert out["none"]["quote"] == "" and "no stored text" in out["none"]["body"]
+    assert "No pinpoint paragraph was cited" in out["nopin"]["body"]
+    assert "Not in the library yet" in out["outside"]["body"]
+
+
+def test_citations_layer_counts_unmatched_citations_so_it_stays_selectable():
+    js = (Path(__file__).resolve().parents[1] / "backend" / "pages" / "markup_mode.js").read_text(encoding="utf-8")
+    assert "function countFor(type){return state.notes.filter(n=>n.type===type).length}" in js

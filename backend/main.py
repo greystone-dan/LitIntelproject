@@ -15,6 +15,7 @@ from . import load_shedding
 from .audit import RequestAuditMiddleware
 from .database import init_db
 from .db_limits import register_timeout_handlers
+from .degraded_mode import register_degraded_mode
 from .health import liveness, readiness
 from .request_context import (
     RequestContextMiddleware,
@@ -34,6 +35,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 register_timeout_handlers(app)
 load_shedding.register(app)
+register_degraded_mode(app)
 
 
 ACCESS_COOKIE = "caselibrary_access"

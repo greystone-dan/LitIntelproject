@@ -42,13 +42,18 @@ class RequestAuditMiddleware:
                 self.handler = None
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
-        if scope["type"] != "http" or self.handler is None:
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+
+        request_id = uuid4().hex
+        scope.setdefault("state", {})["request_id"] = request_id
+        if self.handler is None:
             await self.app(scope, receive, send)
             return
 
         started = time.perf_counter()
         timestamp = datetime.now(timezone.utc).isoformat()
-        request_id = uuid4().hex
         status = 500
 
         async def capture_status(message: Message) -> None:

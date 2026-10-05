@@ -506,3 +506,15 @@ console.log(JSON.stringify({
     assert "heuristic" not in out["plain"]["label"]
     assert out["back"]["quote"].startswith("Reasons") and "Back-reference (heuristic)" in out["back"]["label"]
     assert "Back-reference (heuristic)" in out["noText"]["body"]
+
+
+def test_markup_is_paused_in_the_reader_but_open_on_live_analysis():
+    from backend.pages.live_analysis import live_analysis_page_html
+
+    reader = data_explorer_page_html()
+    toggle = reader.split('id="readerMarkupToggle"', 1)[1].split(">", 1)[0]
+    assert "disabled" in toggle and "data-coming-soon" in toggle
+    assert 'content:"COMING SOON"' in reader
+    live = live_analysis_page_html()
+    live_toggle = live.split('id="readerMarkupToggle"', 1)[1].split(">", 1)[0]
+    assert "disabled" not in live_toggle

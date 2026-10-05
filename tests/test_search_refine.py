@@ -42,3 +42,4 @@ def test_results_page_has_sort_bar_and_facet_chips():
     assert 'id="quickSort"' in html and 'id="searchFacets"' in html
     assert "paintSearchRefine(data.facets,values,results.length)" in html
     assert "#searchFacets .facet-chip" in html
+    assert "/analytics/search/facets?" in html and "params.set('facets','0')" in html

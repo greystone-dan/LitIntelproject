@@ -162,15 +162,19 @@ def test_identity_precedes_each_case_search_mode_without_live_embeddings(mode, m
 
 class AnalyticsDB:
 	def execute(self, statement, params):
-		self.sql, self.params = str(statement), params
-		self.bindparams = set(statement._bindparams)
-		self.compiled_sql = str(statement.compile())
+		self.page_stats = "FROM cases" not in str(statement)
+		if not self.page_stats:
+			self.sql, self.params = str(statement), params
+			self.bindparams = set(statement._bindparams)
+			self.compiled_sql = str(statement.compile())
 		return self
 
 	def mappings(self):
 		return self
 
 	def all(self):
+		if self.page_stats:
+			return []
 		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
 			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
 			government_outcome=None, matching_citations=0, citation_mentions=0,

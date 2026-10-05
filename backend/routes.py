@@ -1953,8 +1953,39 @@ def search_analytics_cases(
 	limit: int = 50,
 	offset: int = 0,
 	cohort_id: str = "",
+	facets: bool = True,
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
+	return _run_analytics_case_search(
+		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
+		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets,
+	)
+
+
+@router.get("/analytics/search/facets", response_model=dict[str, Any])
+def search_analytics_facets(
+	query: str = "",
+	cites: str = "",
+	government_outcome: str = "",
+	decision_outcome: str = "",
+	minister: str = "",
+	judge: str = "",
+	court: str = "",
+	year: str = "",
+	search_full_text: bool = False,
+	cohort_id: str = "",
+	db: Session = Depends(get_db),
+) -> dict[str, Any]:
+	"""Court/year counts for the current filters, loaded after the results so they never delay them."""
+	return _run_analytics_case_search(
+		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
+		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		cohort_id=cohort_id, facets_only=True,
+	)
+
+
+def _run_analytics_case_search(db: Session, *, cohort_id: str = "", **kwargs: Any) -> dict[str, Any]:
 	cohort_ids = None
 	if cohort_id:
 		if cohort_id != "discussion_units_core_300":
@@ -1962,19 +1993,8 @@ def search_analytics_cases(
 		cohort_ids = list(load_discussion_unit_cohort())
 	return fetch_analytics_search_cases(
 		db,
-		query=query,
-		cites=cites,
-		government_outcome=government_outcome,
-		decision_outcome=decision_outcome,
-		minister=minister,
-		judge=judge,
-		court=court,
-		year=year,
-		search_full_text=search_full_text,
-		sort_by=sort_by,
-		limit=limit,
-		offset=offset,
 		cohort_ids=cohort_ids,
+		**kwargs,
 	)
 
 

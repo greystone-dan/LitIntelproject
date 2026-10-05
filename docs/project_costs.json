@@ -6,16 +6,18 @@
 	"hosting_usd": 14.85,
 	"github_copilot_total_usd": 552.23,
 	"anthropic_api_onetime_usd": 54.24,
-	"source_note": "User-provided project costs on 2026-10-05. Currency: USD. GitHub Copilot and Anthropic API costs are cumulative totals; other figures are recurring/periodic as labeled.",
+	"source_note": "User-provided project costs on 2026-10-05. Daniel gave no currency; USD assumed to match prior file. One-time costs to date: $841.32 (sum of all items, subscription counted once). Claude subscription $160/month is recurring.",
 	"cost_breakdown": {
-		"recurring_monthly": {
-			"claude_subscription_usd": 160
-		},
-		"one_time_or_cumulative": {
+		"one_time_cumulative_usd": 841.32,
+		"one_time_items": {
 			"github_copilot_total_usd": 552.23,
 			"anthropic_api_usd": 54.24,
 			"openai_credits_usd": 60,
-			"cloudflare_domain_registration_usd": 14.85
+			"cloudflare_domain_registration_usd": 14.85,
+			"claude_subscription_one_month_usd": 160
+		},
+		"recurring_monthly": {
+			"claude_subscription_usd": 160
 		}
 	}
 }

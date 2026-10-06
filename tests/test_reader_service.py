@@ -330,6 +330,8 @@ def test_build_case_reader_data_serializes_stored_outcome_read_only(monkeypatch,
                 return case
             if entity is reader_service.CitationMetrics:
                 return None
+            if entity is reader_service.CaseTypeLabel:
+                return None  # stored case type: read-only lookup, none stored here
             assert entity is reader_service.CaseOutcome
             sql = str(statement)
             assert "ORDER BY case_outcomes.updated_at DESC, case_outcomes.id DESC" in sql
@@ -387,7 +389,7 @@ def test_build_case_reader_data_serializes_stored_outcome_read_only(monkeypatch,
     assert vars(case) == original_case
     assert db.scalar_entities == [
         reader_service.Case, reader_service.CitationMetrics, reader_service.Citation,
-        reader_service.CaseOutcome,
+        reader_service.CaseOutcome, reader_service.CaseTypeLabel,
     ]
     assert db.collection_entities == [
         reader_service.CaseSource, reader_service.CaseChunk, reader_service.CaseTag,

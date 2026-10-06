@@ -35,10 +35,13 @@ from .database import (
 	CaseOutcome,
 	CaseSource,
 	CaseTag,
+	CaseTypeLabel,
 	Citation,
 	CitationMetrics,
 	StatuteReference,
 )
+from .case_types.display import case_type_payload
+from .case_types.taxonomy import TAXONOMY_VERSION
 from .statute_versioning import get_statute_version_label
 from .citation_refine.pinpoints import target_paragraphs
 from .paragraph_cited_by_db import load_paragraph_cited_by, load_pinpoint_cited_by
@@ -1275,8 +1278,14 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	)
 	extracted_metadata += _build_reader_outcome_metadata(case, outcome, format_blocks)
 
+	case_type_row = db.scalar(
+		select(CaseTypeLabel).where(CaseTypeLabel.case_id == case_id, CaseTypeLabel.taxonomy_version == TAXONOMY_VERSION)
+		.order_by(CaseTypeLabel.id.desc()).limit(1)
+	)
+
 	return CaseReaderDataResponse(
 		case=CaseResponse.model_validate(case, from_attributes=True),
+		case_type=case_type_payload(case_type_row),
 		paragraph_cited_by=paragraph_cited_by,
 		format_blocks=format_blocks,
 		extracted_summary=_build_reader_extracted_summary(

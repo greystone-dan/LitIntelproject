@@ -164,6 +164,7 @@ test checks that these paths continue to exist.
 | `backend/case_types/__init__.py` | Deterministic case-type labels ("what kind of case is this"). No AI at any point |
 | `backend/case_types/claim_issues.py` | Deterministic "what was the claim decided on" labels for refugee-protection decisions |
 | `backend/case_types/classifier.py` | Deterministic "what type of case is this" classifier |
+| `backend/case_types/display.py` | Turn a stored case_type_labels row into what the site shows. Reads stored data only; no classification, no AI |
 | `backend/case_types/taxonomy.py` | Case-type taxonomy for Canadian immigration and refugee decisions |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_map.py` | Citation graph and authority analytics |

@@ -433,6 +433,8 @@ class CaseReaderDataResponse(BaseModel):
 	case_summary: CaseSummaryResponse | None = None
 	# Stored per-paragraph "cited by" from the batch job (None until it has run for this case).
 	paragraph_cited_by: dict | None = None
+	# Stored rule-based case type (None until labels are populated, and for unclear or non-immigration decisions).
+	case_type: dict | None = None
 
 
 class MarkupExportComment(BaseModel):

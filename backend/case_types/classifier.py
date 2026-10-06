@@ -56,6 +56,7 @@ _ANNEX_RE = re.compile(
 _DECISION_CONTENT_RE = re.compile(r"Decision Content|Contenu de la décision", re.IGNORECASE)
 _FIRST_PARA_RE = re.compile(r"(?:^|\n)\s*\[1\]")
 _EIGHTH_PARA_RE = re.compile(r"(?:^|\n)\s*\[8\]")
+_IMMIGRATION_VOCAB_RE = re.compile(r"Minister of (?:Citizenship|Immigration|Public Safety|Employment and Immigration)|Immigration,? Refugees|Immigration and Refugee Board|Immigration Division|Immigration Appeal Division|Refugee (?:Protection|Appeal) Division|permanent resident|foreign national|Convention refugee|refugee (?:claim|status|protection)|deportation|removal order|visa officer|immigration (?:officer|consequence)", re.IGNORECASE)
 _ACT_NAME_RE = re.compile(r"Immigration and Refugee Protection Act|Immigration Act|Citizenship Act|\bIRPA\b", re.IGNORECASE)
 _DOCKET_IMM_RE = re.compile(r"\bIMM-\d+-\d+\b|\bIMM-\d+\b")
 
@@ -283,9 +284,7 @@ def is_immigration_decision(
         return True
     if _DOCKET_IMM_RE.search(intro[:2000]):
         return True
-    if sum(1 for hit in hits if hit.instrument in IMMIGRATION_INSTRUMENTS) >= 2:
-        return True
-    return len(_ACT_NAME_RE.findall(intro)) >= 1
+    return bool(_ACT_NAME_RE.search(intro) or _IMMIGRATION_VOCAB_RE.search(intro))
 
 
 def classify_text(
@@ -316,6 +315,7 @@ def classify_text(
                               reason="no immigration or citizenship statute, IMM docket or immigration respondent")
 
     scores: dict[str, float] = {}
+    intro_scores: dict[str, float] = {}
     evidence: dict[str, list[Evidence]] = {}
     matched_hits: dict[str, list[ProvisionHit]] = {}
     for case_type in CASE_TYPES:
@@ -343,6 +343,11 @@ def classify_text(
             evidence.setdefault(case_type.key, []).append(Evidence("cue", pattern, count, True))
         for pattern, count in body_hits.most_common(2):
             evidence.setdefault(case_type.key, []).append(Evidence("cue", pattern, count, False))
+        intro_provision = sum(
+            INTRO_PROVISION_WEIGHT * hit.confidence for hit in matched_hits.get(case_type.key, [])
+            if intro_end - len(intro) <= hit.offset < intro_end
+        )
+        intro_scores[case_type.key] = intro_provision + min(2, len(intro_hits)) * INTRO_CUE_WEIGHT
         total = provision_score + cue_score
         if total > 0:
             scores[case_type.key] = round(total, 2)
@@ -380,17 +385,27 @@ def classify_text(
 
     top_key, top_score = ranked[0]
     second_score = ranked[1][1] if len(ranked) > 1 else 0.0
+    tie_broken_by_intro = False
     if second_score and top_score < MIN_LEAD_RATIO * second_score:
-        return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, dict(ranked[:6]),
+        # The opening is where the court says what the case is about: accept a close winner only if
+        # the opening points clearly at it and not at the runner-up.
+        intro_top = intro_scores.get(top_key, 0.0)
+        intro_second = intro_scores.get(ranked[1][0], 0.0)
+        intro_ranked = sorted(((intro_scores.get(key, 0.0), key) for key, _ in ranked[:4]), reverse=True)
+        if intro_ranked[0][1] != top_key or intro_top < 5.0 or intro_top < 2.0 * max(intro_second, 0.01):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, dict(ranked[:6]),
                               [key for key, _ in ranked[:3]], proceeding,
                               evidence=evidence_dicts(top_key),
                               reason="two or more case types have similar evidence")
+        tie_broken_by_intro = True
 
     secondary = [key for key, score in ranked[1:4]
                  if score >= max(MIN_SECONDARY_SCORE, SECONDARY_FRACTION * top_score)
                  and not (key == "refugee_claim" and top_key in SPECIFIC_PROTECTION_TYPES)]
     lead = 1.0 - (second_score / top_score) * 0.5 if top_score else 0.0
     confidence = round(min(1.0, top_score / 14.0) * lead, 2)
+    if tie_broken_by_intro:
+        confidence = min(confidence, 0.4)
     detail = _primary_detail(matched_hits.get(top_key, []))
     return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, top_key, detail, secondary, confidence,
                           dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key))

@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-05T18:50:36.739317+00:00
-Tables: 39
+Generated: 2026-10-06T12:20:45.092054+00:00
+Tables: 40
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -119,6 +119,20 @@ erDiagram
         String(30) evidence_role
         String(50) source
         String(100) taxonomy_version
+        DATETIME created_at
+    }
+    case_type_labels {
+        Integer id PK
+        Integer case_id  FK
+        String(50) taxonomy_version
+        String(30) status
+        String(80) primary_type
+        String(80) primary_detail
+        JSON secondary_types
+        String(60) proceeding
+        FLOAT confidence
+        JSON scores
+        JSON evidence
         DATETIME created_at
     }
     cases {
@@ -562,6 +576,7 @@ erDiagram
     cases ||--o{ case_tagging_status : "case_id"
     cases ||--o{ case_tags : "case_id"
     case_chunks ||--o{ case_tags : "chunk_id"
+    cases ||--o{ case_type_labels : "case_id"
     cases ||--o{ citation_metrics : "case_id"
     citations_refined ||--o{ citation_paragraph_links : "refined_citation_id"
     case_chunks ||--o{ citations : "chunk_id"
@@ -614,6 +629,7 @@ erDiagram
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
 | `case_tags` | 15 | `id` |
+| `case_type_labels` | 12 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citation_paragraph_links` | 5 | `id` |
@@ -928,6 +944,40 @@ erDiagram
 
 - `case_id` -> `cases.id`; on delete `CASCADE`
 - `chunk_id` -> `case_chunks.id`; on delete `SET NULL`
+
+## `case_type_labels`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `taxonomy_version` | `String(50)` | no | NOT NULL |
+| `status` | `String(30)` | no | NOT NULL |
+| `primary_type` | `String(80)` | yes | - |
+| `primary_detail` | `String(80)` | yes | - |
+| `secondary_types` | `JSON` | yes | - |
+| `proceeding` | `String(60)` | yes | - |
+| `confidence` | `FLOAT` | no | NOT NULL; default=0 |
+| `scores` | `JSON` | yes | - |
+| `evidence` | `JSON` | yes | - |
+| `created_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_type_labels_case_id`: index on `case_id`
+- `ix_case_type_labels_primary_type`: index on `primary_type`
+- `ix_case_type_labels_status`: index on `status`
+- `ix_case_type_labels_taxonomy_version`: index on `taxonomy_version`
+
+### Unique Constraints
+
+- `uq_case_type_label_version`: `case_id`, `taxonomy_version`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
 
 ## `cases`
 

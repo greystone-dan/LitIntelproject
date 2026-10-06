@@ -36,7 +36,7 @@ def _excerpt(text: str) -> str:
     return " ".join(text[start:start + 1400].split())
 
 
-def load_sample(parquet_dir: Path, per_stratum: int, seed: int, courts: tuple[str, ...]):
+def load_sample(parquet_dir: Path, per_stratum: int, seed: int, courts: tuple[str, ...], require: str | None = None):
     import pandas as pd
 
     rows = []
@@ -46,6 +46,8 @@ def load_sample(parquet_dir: Path, per_stratum: int, seed: int, courts: tuple[st
             continue
         frame = pd.read_parquet(path, columns=["citation_en", "name_en", "document_date_en", "unofficial_text_en", "unofficial_text_fr", "citation_fr"])
         frame["year"] = frame["document_date_en"].dt.year
+        if require:
+            frame = frame[frame["unofficial_text_en"].fillna("").str.contains(require, regex=True)]
         for low, high in ERAS:
             part = frame[(frame["year"] >= low) & (frame["year"] <= high)]
             if part.empty:
@@ -71,9 +73,10 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--courts", default=",".join(COURTS))
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--require", help="Only sample decisions whose English text matches this regex.")
     parser.add_argument("--out", required=True, type=Path)
     args = parser.parse_args()
-    rows = load_sample(args.parquet_dir, args.per_stratum, args.seed, tuple(args.courts.split(",")))
+    rows = load_sample(args.parquet_dir, args.per_stratum, args.seed, tuple(args.courts.split(",")), args.require)
     with Pool(args.workers) as pool, args.out.open("w", encoding="utf-8") as handle:
         for done, item in enumerate(pool.imap_unordered(_work, rows, chunksize=4), 1):
             handle.write(json.dumps(item, ensure_ascii=False) + "\n")

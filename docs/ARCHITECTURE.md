@@ -161,6 +161,9 @@ test checks that these paths continue to exist.
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
+| `backend/case_types/__init__.py` | Deterministic case-type labels ("what kind of case is this"). No AI at any point |
+| `backend/case_types/classifier.py` | Deterministic "what type of case is this" classifier |
+| `backend/case_types/taxonomy.py` | Case-type taxonomy for Canadian immigration and refugee decisions |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |

@@ -133,6 +133,6 @@ def test_the_act_defined_in_the_decision_is_used_for_bare_provisions():
 
 
 def test_bare_of_the_act_with_unregistered_nearest_act_keeps_a_row_without_instrument():
-    text = "The Corrections and Conditional Release Act applies. Subsection 140(1) of the Act provides for reviews."
+    text = "The Radiocommunication Act applies. Subsection 140(1) of the Act provides for reviews."
     rows = [e for e in analyze_text(text)["extracted"] if e["text"].lower().startswith("subsection")]
     assert rows and rows[0]["instrument_key"] is None

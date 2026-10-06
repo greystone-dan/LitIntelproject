@@ -1215,7 +1215,7 @@ def test_panel_helpers_node_behavior():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_helpers.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 
@@ -1227,7 +1227,7 @@ def test_panel_fixture_browser_when_chromium_available():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_browser.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 

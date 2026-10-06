@@ -1,5 +1,17 @@
 from backend import analytics_service
-from tests.test_search_matching import AnalyticsDB
+
+
+class AnalyticsDB:
+	def execute(self, statement, params):
+		if "FROM cases" in str(statement):
+			self.sql, self.params = str(statement), params
+		return self
+
+	def mappings(self):
+		return self
+
+	def all(self):
+		return []
 
 
 def test_cites_case_id_filters_on_resolved_citation_with_bound_param():

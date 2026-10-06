@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-06T12:24:09.772823+00:00
+Generated: 2026-10-06T12:42:03.729551+00:00
 Tables: 40
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -130,6 +130,7 @@ erDiagram
         String(80) primary_detail
         JSON secondary_types
         String(60) proceeding
+        JSON issues
         FLOAT confidence
         JSON scores
         JSON evidence
@@ -629,7 +630,7 @@ erDiagram
 | `case_sources` | 14 | `id` |
 | `case_tagging_status` | 5 | `id` |
 | `case_tags` | 15 | `id` |
-| `case_type_labels` | 12 | `id` |
+| `case_type_labels` | 13 | `id` |
 | `cases` | 28 | `id` |
 | `citation_metrics` | 4 | `case_id` |
 | `citation_paragraph_links` | 5 | `id` |
@@ -959,6 +960,7 @@ erDiagram
 | `primary_detail` | `String(80)` | yes | - |
 | `secondary_types` | `JSON` | yes | - |
 | `proceeding` | `String(60)` | yes | - |
+| `issues` | `JSON` | yes | - |
 | `confidence` | `FLOAT` | no | NOT NULL; default=0 |
 | `scores` | `JSON` | yes | - |
 | `evidence` | `JSON` | yes | - |

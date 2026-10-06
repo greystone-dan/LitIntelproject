@@ -180,3 +180,15 @@ def test_appeal_court_decision_with_no_immigration_title_and_few_provisions_is_u
     result = classify_text(text, court="FCA", title="Baragar v. Canada (Attorney General)")
     assert result.status == STATUS_UNCLEAR
     assert result.primary_type is None
+
+
+def test_refugee_claim_reports_the_issue_the_court_calls_determinative() -> None:
+    text = decision(
+        "This is an application for judicial review of a decision of the Refugee Protection Division rejecting the applicant's "
+        "claim under sections 96 and 97 of the Immigration and Refugee Protection Act.",
+        "The determinative issue in this case is the availability of an internal flight alternative (IFA) in Mumbai.",
+        "The RPD found a viable IFA. The applicant says the IFA is not viable. The IFA test has two prongs.",
+    )
+    result = classify(text)
+    assert result.primary_type == "refugee_claim"
+    assert result.issues and result.issues[0] == "internal_flight_alternative"

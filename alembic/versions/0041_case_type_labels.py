@@ -29,6 +29,7 @@ def upgrade() -> None:
         sa.Column("primary_detail", sa.String(80), nullable=True),
         sa.Column("secondary_types", sa.JSON(), nullable=True),
         sa.Column("proceeding", sa.String(60), nullable=True),
+        sa.Column("issues", sa.JSON(), nullable=True),
         sa.Column("confidence", sa.Float(), nullable=False, server_default="0"),
         sa.Column("scores", sa.JSON(), nullable=True),
         sa.Column("evidence", sa.JSON(), nullable=True),

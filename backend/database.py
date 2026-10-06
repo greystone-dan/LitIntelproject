@@ -200,6 +200,7 @@ class CaseTypeLabel(Base):
 	primary_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
 	secondary_types: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
 	proceeding: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	issues: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
 	confidence: Mapped[float] = mapped_column(Float, nullable=False, server_default="0")
 	scores: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 	evidence: Mapped[list | None] = mapped_column(JSON, nullable=True)

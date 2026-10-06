@@ -15,6 +15,7 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from typing import Any, Iterable
 
+from .claim_issues import issues_by_anchor
 from .taxonomy import (
     CASE_TYPES,
     IMMIGRATION_INSTRUMENTS,
@@ -86,6 +87,7 @@ class CaseTypeResult:
     proceeding: str | None
     evidence: list[dict[str, Any]] = field(default_factory=list)
     reason: str = ""
+    issues: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -421,8 +423,9 @@ def classify_text(
     if tie_broken_by_intro:
         confidence = min(confidence, 0.4)
     detail = _primary_detail(matched_hits.get(top_key, []))
+    issues = issues_by_anchor(reasons) if top_key == "refugee_claim" else []
     return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, top_key, detail, secondary, confidence,
-                          dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key))
+                          dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key), issues=issues)
 
 
 def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:

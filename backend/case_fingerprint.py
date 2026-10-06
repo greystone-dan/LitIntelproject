@@ -239,6 +239,9 @@ class FingerprintIndex:
         self.subject = _l2(sp.hstack([plain_block, role_matrix * role_weight]).tocsr())
         self.authorities, self._auth_vocab = _tfidf(auth_rows, min_df_authority)
 
+    def has(self, case_id: int) -> bool:
+        return case_id in self._row
+
     def __len__(self) -> int:
         return len(self.case_ids)
 

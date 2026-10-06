@@ -299,6 +299,7 @@ test checks that these paths continue to exist.
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
+| `backend/similar_cases.py` | Read-only "similar cases" for the reader: same subject and shares authorities, from stored fingerprints |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
 | `backend/statute_sections.py` | Section-level statute library: table of contents with case counts and a per-section view |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |

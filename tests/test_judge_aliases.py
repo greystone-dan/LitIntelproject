@@ -46,3 +46,10 @@ def test_alias_merges_list_and_profile_and_is_reversible(db):
 	db.query(JudgeProfileAlias).delete()
 	db.commit()
 	assert len(_fetch_judge_profiles_impl(db)) == 3
+
+
+def test_panel_string_profiles_are_hidden_from_the_list(db):
+	db.add(JudgeProfile(id=9, slug="judge-panel", display_name="McLachlin C.J. and Abella, Rowe JJ.", normalized_name="panel", primary_court="SCC"))
+	db.add(JudgeProfile(id=10, slug="judge-panel2", display_name="Wagner, Richard; Abella, Rosalie", normalized_name="panel2", primary_court="SCC"))
+	db.commit()
+	assert {r["slug"] for r in _fetch_judge_profiles_impl(db)} == {"judge-zinn", "judge-simon-zinn", "judge-other"}

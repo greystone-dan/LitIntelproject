@@ -43,7 +43,7 @@ from .database import (
 from .fc_activity_insights import fetch_fc_activity_judges
 from .judge_aliases import alias_map, member_ids
 from .judge_fc_activity import combine_rows, match_fc_rows
-from .judge_normalization import best_display_name
+from .judge_normalization import best_display_name, is_panel_string
 from .judge_issue_record import (
 	_FEDERAL_COURT_NAMES,
 	_ISSUE_OUTCOME_CATEGORIES,
@@ -744,7 +744,8 @@ def _fetch_judge_profiles_impl(
 				JudgeProfile.normalized_name.ilike(pattern),
 			)
 		)
-	rows = [row for row in db.scalars(statement) if row.id not in mapping]
+	# Whole-panel strings ("A; B; C") from the first backfill are not judges; hide them from the list.
+	rows = [row for row in db.scalars(statement) if row.id not in mapping and not is_panel_string(row.display_name)]
 	if mapping:
 		by_id = {row.id: row for row in db.scalars(select(JudgeProfile))}
 		members: dict[int, list[JudgeProfile]] = {}

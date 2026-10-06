@@ -56,7 +56,7 @@ def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | No
     value = re.sub(r"\s+", "", pinpoint or "").strip(".")
     if not value:
         return None, None, None, None, False
-    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?[A-Za-z]?)(?P<tail>(?:\([^()]+\))*)", value)
+    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?(?:[A-Za-z](?![A-Za-z]))?)(?P<tail>(?:\([^()]+\))*)", value)
     if match is None:
         return None, None, None, None, True
     groups = re.findall(r"\(([^()]+)\)", match.group("tail"))

@@ -41,3 +41,11 @@ def test_anchored_provision_guards():
     text = "The Charter applies. The pre-trial order under s. 515(10)(c) and the Year Book 19 E. 3 R.S. 346 were cited."
     found = [e for e in analyze_text(text)["extracted"] if e["instrument_key"] == "canada.charter" and e["pinpoint"]]
     assert not found
+
+
+def test_provision_identity_does_not_read_a_range_word_as_a_section_suffix():
+    from backend.statutes import parse_provision_identity
+
+    assert parse_provision_identity("34 to 37")[0] == "34"
+    assert parse_provision_identity("7 and 8")[0] == "7"
+    assert parse_provision_identity("31A(1)")[0] == "31a"

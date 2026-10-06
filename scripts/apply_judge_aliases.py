@@ -63,6 +63,21 @@ def propose(session) -> list[tuple[JudgeProfile, list[JudgeProfile], dict]]:
 	return result
 
 
+def stale_rows(session) -> list[JudgeProfileAlias]:
+	"""Rule alias rows whose two profiles are no longer in the same proposed person group.
+
+	A row is kept when the group still holds both profiles, even if a different member is now the
+	canonical one (a new spelling can become the biggest profile without the merge being wrong).
+	"""
+	group_of: dict[int, int] = {}
+	for index, (canonical, aliases, _) in enumerate(propose(session)):
+		for profile in [canonical, *aliases]:
+			group_of[profile.id] = index
+	return [row for row in session.scalars(select(JudgeProfileAlias).where(JudgeProfileAlias.source == "rule"))
+		if group_of.get(row.alias_profile_id) is None
+		or group_of.get(row.alias_profile_id) != group_of.get(row.canonical_profile_id)]
+
+
 def func_count():
 	return func.count()
 
@@ -80,10 +95,8 @@ def main() -> None:
 			print(f"alias_rows_removed={removed}")
 			return
 		if args.prune:
-			wanted = {p.id: c.id for c, aliases, _ in propose(session) for p in aliases}
 			names = {p.id: p.display_name for p in session.scalars(select(JudgeProfile))}
-			stale = [row for row in session.scalars(select(JudgeProfileAlias).where(JudgeProfileAlias.source == "rule"))
-				if wanted.get(row.alias_profile_id) != row.canonical_profile_id]
+			stale = stale_rows(session)
 			for row in stale:
 				print(f"remove: {names.get(row.alias_profile_id)}  -/->  {names.get(row.canonical_profile_id)}")
 				if args.apply:

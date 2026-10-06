@@ -64,3 +64,20 @@ def test_refugee_division_bare_sections_default_to_the_irpa():
 def test_bare_section_96_is_never_tied_to_the_charter():
     text = "The Charter applies to this hearing. The risk assessment under section 96 and sections 97 and 98 was reasonable."
     assert not [e for e in analyze_text(text)["extracted"] if e["instrument_key"] == "canada.charter" and e["pinpoint"]]
+
+
+def test_federal_court_immigration_decision_ties_bare_96_to_irpa_not_charter():
+    text = (
+        "This is an application under the Immigration and Refugee Protection Act (the \"Act\"). "
+        "The applicant argues that section 7 of the Charter is engaged. "
+        "He says the denial of a section 96 risk assessment breaches section 7. Under section 97 of the Act it fails."
+    )
+    keyed = {(e["text"], e["instrument_key"], e["pinpoint"]) for e in analyze_text(text, "FC")["extracted"]}
+    assert ("section 96", "canada.irpa", "96") in keyed
+    assert ("section 97", "canada.irpa", "97") in keyed
+    assert not [k for k in keyed if k[1] == "canada.charter" and k[2] == "96"]
+
+
+def test_non_immigration_decision_does_not_default_to_irpa():
+    text = "The Patent Act (the \"Act\") applies. See section 96 of the Act and section 97."
+    assert not [e for e in analyze_text(text, "FC")["extracted"] if e["instrument_key"] == "canada.irpa"]

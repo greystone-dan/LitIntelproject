@@ -2317,13 +2317,35 @@ def court_defaults_to_irpa(court: str | None) -> bool:
 	return (court or "").strip().upper() in DEFAULT_IRPA_COURTS
 
 
-def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch]) -> list[RawCitationMatch]:
-	"""In Refugee Protection Division decisions "the Act" is the IRPA, and sections 96-98 are its grounds."""
+_IRPA_NAME_RE = re.compile(r"\bIRPA\b|Immigration and Refugee Protection Act")
+_ACT_DEFINITION_RE = re.compile(r"\(\s*(?:the\s+)?[\"“”']?(?:the\s+)?Act[\"“”']?\s*\)")
+
+
+def _act_is_irpa(content: str) -> bool:
+	"""True when the decision defines "the Act" as the IRPA, or defines no "Act" while naming the IRPA."""
+	definition = _ACT_DEFINITION_RE.search(content)
+	if definition is not None:
+		return bool(_IRPA_NAME_RE.search(content[max(0, definition.start() - 120) : definition.start()]))
+	return False
+
+
+def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch], board: bool) -> list[RawCitationMatch]:
+	"""Tie "the Act" and sections 96-98 to the IRPA in immigration decisions.
+
+	Board decisions are always IRPA decisions. In other decisions the IRPA must be named earlier in
+	the text, and "of the Act" must be defined as the IRPA.
+	"""
+	first_irpa = _IRPA_NAME_RE.search(content)
+	if not board and first_irpa is None:
+		return []
+	act_is_irpa = board or _act_is_irpa(content)
 	rows: list[RawCitationMatch] = []
 	for match in STANDALONE_PROVISION_RE.finditer(content):
 		start, end = match.span()
 		prefix = match.group(1).lower()
 		if prefix.startswith("art") or prefix.startswith("para") or prefix.startswith("subpara"):
+			continue
+		if not board and (first_irpa is None or first_irpa.start() >= start):
 			continue
 		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
 			continue
@@ -2333,7 +2355,10 @@ def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch]
 			continue
 		tail = content[end : end + 50]
 		of_the_act = re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this)\s+Act\b", tail, re.IGNORECASE)
-		if not of_the_act and int(leading.group(0)) not in (96, 97, 98):
+		if of_the_act:
+			if not act_is_irpa:
+				continue
+		elif int(leading.group(0)) not in (96, 97, 98):
 			continue
 		if re.match(r"\s+of\s+(?:the|this)\s+(?!Act\b)[A-Z]", tail):
 			continue
@@ -2358,8 +2383,7 @@ def extract_statute_reference_matches(text: str | None, *, default_irpa: bool = 
 	candidates.extend(candidate for _start, _end, candidate in _extract_provisions_of_registered_acts(content))
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
 	candidates.extend(_extract_bare_federal_courts_rules(content, candidates))
-	if default_irpa:
-		candidates.extend(_extract_default_irpa_provisions(content, candidates))
+	candidates.extend(_extract_default_irpa_provisions(content, candidates, board=default_irpa))
 	return _select_best_non_overlapping(candidates)
 
 

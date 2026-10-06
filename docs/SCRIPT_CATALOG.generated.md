@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 183
+Active scripts documented: 184
 
 ## Catalog
 
@@ -150,6 +150,7 @@ Active scripts documented: 183
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
 | `recompute_citation_metrics.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help` |
+| `reextract_statute_references.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
 | `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
@@ -2152,6 +2153,20 @@ Active scripts documented: 183
 
 ```powershell
 .\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help
+```
+
+## `scripts/reextract_statute_references.py`
+
+**Purpose:** Re-extract statute references with the current rules; dry run compares, apply replaces. Why: older extraction dropped decimal sections ("18.1" stored as "18") and mis-handled lists. This reads the same text the original build used (the preferred chunk set, else full text), runs the current extractor, and compares with the stored rows of the same cases. Dry run (default) writes nothing: it reports counts before and after (rows, rows with an instrument, decimal sections, list rows, rows per instrument) and sample changes. --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL backup file, then replaces that case's rows (one transaction per batch). Restore: scripts that read the backup file, or re-insert rows from it; the backup holds every column. Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help
 ```
 
 ## `scripts/refresh_recent_5000_artifact.py`

@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-06T17:01:11.825294+00:00
+Generated: 2026-10-06T16:11:55.793421+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 131 across 128 paths
-Hidden operations: 4 excluded from OpenAPI
+Hidden operations: 65 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -1901,6 +1901,16 @@ Discover recurring legal themes across Core-300 by grouping subthemes with share
 
 ## Hidden Operations
 
+### `GET /about`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.about_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /access`
 
 **Hidden from OpenAPI.**
@@ -1940,11 +1950,876 @@ Handler: `backend.main.access_logout`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
+### `GET /api/about/stats`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.about_stats`
+
+**Handler parameters**
+
+- `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_cases`
+
+**Handler parameters**
+
+- `title` (str; default `''`)
+- `limit` (int; default `12`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_search`
+
+**Handler parameters**
+
+- `q` (str; default `''`)
+- `limit` (int; default `12`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/companions`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_companions`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `limit` (int; default `20`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/courts`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_courts`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_judges`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `limit` (int; default `30`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/outcomes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_outcomes`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/overview`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_overview`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_statutes`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `limit` (int; default `25`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/table`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_table`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `page` (int; default `1`)
+- `page_size` (int; default `50`)
+- `year` (int | None; default `None`)
+- `court` (str | None; default `None`)
+- `judge` (str | None; default `None`)
+- `gov_outcome` (str | None; default `None`)
+- `min_mentions` (int; default `1`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/citation-intelligence/{case_id}/timeline`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_timeline`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `names` (str; default `Form()`)
+- `details` (str; default `Form()`)
+- `categories` (str; default `Form()`)
+- `auto_names` (bool; default `Form(True)`)
+- `never_hide` (str; default `Form()`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/deidentify/docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_docx_api`
+
+**Handler parameters**
+
+- `text` (str; default `Form(PydanticUndefined)`)
+- `filename` (str; default `Form(document.docx)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/analytics`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_analytics`
+
+**Handler parameters**
+
+- `x` (str; default `'year'`)
+- `group_by` (str; default `'full_history_resolution'`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `city` (str; default `''`)
+- `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/breakdowns`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_breakdowns`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/case`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_case`
+
+**Handler parameters**
+
+- `imm` (str; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/counsel`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_counsel`
+
+**Handler parameters**
+
+- `min_files` (int; default `20`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/dashboard`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_dashboard`
+
+**Handler parameters**
+
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `city` (str; default `''`)
+- `decision_body` (str; default `''`)
+- `application_type` (str; default `''`)
+- `representation` (str; default `''`)
+- `language` (str; default `''`)
+- `office` (str; default `''`)
+- `resolution` (str; default `''`)
+- `judge` (str; default `''`)
+- `counsel` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/flow`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_flow`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `source_type` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/insights`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_insights`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_judges`
+
+**Handler parameters**
+
+- `min_decisions` (int; default `25`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `decision_body` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/motions`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_motions`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `year_from` (int | None; default `None`)
+- `year_to` (int | None; default `None`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-activity/timeline`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_activity_timeline`
+
+**Handler parameters**
+
+- `city` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/fc-history`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fetch_fc_history`
+
+**Handler parameters**
+
+- `imm` (str; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/judge-profiles`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.judge_profiles`
+
+**Handler parameters**
+
+- `q` (str; default `''`)
+- `limit` (int; default `50`)
+- `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/judge-profiles/{slug}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.judge_profile`
+
+**Handler parameters**
+
+- `slug` (str; required)
+- `minister` (list[str] | None; default `Query(None)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /api/reidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.reidentify_api`
+
+**Handler parameters**
+
+- `file` (fastapi.datastructures.UploadFile | None; default `File(None)`)
+- `text` (str; default `Form()`)
+- `key` (str; default `Form(PydanticUndefined)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_compare_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-reader`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_page`
+
+**Handler parameters**
+
+- `case_id` (int | None; default `None`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-reader-ui/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_ui_page`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /case-reader/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.case_reader_cases`
+
+**Handler parameters**
+
+- `limit` (int; default `300`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /cases/{case_id}/activity`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_case_activity`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /citation-intelligence`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_intelligence_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /citation-pass`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.citation_pass_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /compare`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.compare_cases_page`
+
+**Handler parameters**
+
+- `a` (str; default `''`)
+- `b` (str; default `''`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /data-explorer`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.data_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /deidentify`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.deidentify_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/activity`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_activity`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/paragraph-assessments`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_paragraph_assessments`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/reader-data`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_reader_data`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/cases/{case_id}/statute-references`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_statute_references`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /discussion-units-sandbox/search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.discussion_units_sandbox_search`
+
+**Handler parameters**
+
+- `query` (str; default `''`)
+- `cites` (str; default `''`)
+- `government_outcome` (str; default `''`)
+- `decision_outcome` (str; default `''`)
+- `minister` (str; default `''`)
+- `judge` (str; default `''`)
+- `court` (str; default `''`)
+- `year` (str; default `''`)
+- `search_full_text` (bool; default `False`)
+- `sort_by` (str; default `'relevance'`)
+- `limit` (int; default `50`)
+- `offset` (int; default `0`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /fc-history`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.fc_history_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /issue-brief-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.get_issue_brief_ui`
+
+**Handler parameters**
+
+- `tag` (str; default `Query()`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /judges`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.judges_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /judges/{slug}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.judge_profile_page`
+
+**Handler parameters**
+
+- `slug` (str; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /live-analysis`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.live_analysis_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /memo-citation-check`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.memo_citation_check_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /precedent-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.precedent_finder_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /prototype`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.prototype_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /quick-search`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.quick_search_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /research`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.research_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
 ### `GET /robots.txt`
 
 **Hidden from OpenAPI.**
 
 Handler: `backend.main.robots`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /saved-searches-ui`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.saved_searches_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-consideration`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_consideration.statute_consideration_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statutes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_viewer_page_route`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /tag-finder`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.tag_finder_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /testing`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.testing_interface`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /themes`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.theme_explorer_page`
 
 **Responses**
 

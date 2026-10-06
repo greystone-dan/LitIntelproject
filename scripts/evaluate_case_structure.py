@@ -1,16 +1,17 @@
 """Score deterministic case-structure labelling against hand-labelled decisions.
 
 Gold: 22 Federal Court decisions from 2001-2004 (data/eval/case_structure/gold_fc_2001_2004_v2.json,
-paragraphs from the stored reports) and 14 hand-labelled FC / FCA / SCC decisions from 2008-2024
-(gold_new_cases.json). Each case has a 'dev' or 'holdout' split. Only dev cases may be used for tuning;
-holdout is scored at declared checkpoints.
+paragraphs from the stored reports), 30 more hand-labelled FC / FCA / SCC decisions (gold_new_cases.json) and
+18 RPD decisions (gold_rpd_labels.json, text read from an extract that is not in the repository). Each case has
+a 'dev', 'holdout' or 'holdout2' split. Only dev cases may be used for tuning; the holdouts are scored at
+declared checkpoints.
 
 Approaches (all offline, no database, network or AI):
   main         the segmentation on main (continuity + boundary rules) with deterministic unit role labels
   structure    paragraph role labelling by cues + ordered skeleton, units from role changes
   structure+h  the same plus a split at each major heading inside the analysis
 
-Run:  python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout]
+Run:  python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout holdout2]
 """
 
 from __future__ import annotations

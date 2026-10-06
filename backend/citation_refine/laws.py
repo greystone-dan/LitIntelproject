@@ -55,7 +55,7 @@ KNOWN_MAX_PROVISION = {
 _PROVISION = r"\d{1,3}(?:\.\d{1,3})?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9.]{1,6}\s*\))*(?:[a-z]{1,4}\)(?:\([ivx]{1,5}\))?)?"
 _SIBLING = r"(?:\(\s*[A-Za-z0-9.]{1,6}\s*\)(?:\s*\(\s*[A-Za-z0-9.]{1,6}\s*\))*|[a-z]{1,4}\)(?!\w))"
 _SEPARATOR = r"(?:\s*,\s*(?:and|or|et|ou)?\s*|\s+(?:and|or|to|through|et|ou|à)\s+|\s*[-–]\s*)"
-_PROVISION_LIST = rf"{_PROVISION}(?:{_SEPARATOR}(?:{_PROVISION}|{_SIBLING}))*"
+_PROVISION_LIST = rf"{_PROVISION}(?:{_SEPARATOR}(?:{_PROVISION}|{_SIBLING}))*+"
 
 _EN_LABEL = (
 	r"(?:sub-?sections?|subss?\.|subs\.|sub-?paragraphs?|subparas?\.|paragraphs?|paras?\.|"

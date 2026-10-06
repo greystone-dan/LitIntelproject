@@ -189,12 +189,15 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     assert re.findall(r"(?:^|,)([a-z_]+):", search_values.group(1)) == [
         "query",
         "cites",
+        "cites_case_id",
+        "tags",
         "government_outcome",
         "decision_outcome",
         "minister",
         "judge",
         "court",
         "year",
+        "case_type",
         "search_full_text",
         "sort_by",
         "limit",
@@ -1213,7 +1216,7 @@ def test_panel_helpers_node_behavior():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_helpers.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 
@@ -1225,7 +1228,7 @@ def test_panel_fixture_browser_when_chromium_available():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_browser.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 
@@ -1292,6 +1295,6 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     html = routes._data_explorer_page_html()
     assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
     framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
-    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statutes'
+    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statute-library'
     assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())

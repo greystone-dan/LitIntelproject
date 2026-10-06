@@ -294,7 +294,6 @@ class JusticeLawsXMLClient:
 	def extract_metadata_from_xml(self, root: ET.Element) -> dict:
 		"""Extract metadata (dates, version info) from statute XML."""
 		metadata = {}
-		ns = {'lims': 'http://justice.gc.ca/lims'}
 
 		# Extract point-in-time date
 		pit_date = root.attrib.get('{http://justice.gc.ca/lims}pit-date')
@@ -371,24 +370,20 @@ def parse_statute_sections_from_xml(root: ET.Element) -> list[dict]:
 	"""
 	sections = []
 	offset = 0
-	ns = {'lims': 'http://justice.gc.ca/lims'}
 
-	# Find all Section elements in the statute
-	for section_elem in root.findall('.//Section', ns):
-		section_num = section_elem.attrib.get('sid', '').split('/')[-1] if 'sid' in section_elem.attrib else None
-
-		# Try to get section number from text content
+	# Only the enacted text (<Body>); sections inside <RelatedOrNotInForce> are
+	# amending or not-yet-in-force bill text that reuses the same numbers.
+	body = root.find('.//Body')
+	for section_elem in (body if body is not None else root).iter('Section'):
+		# Justice Laws XML puts the real section number in a direct <Label> child
+		# (e.g. <Label>20</Label>) and the heading in <MarginalNote>.
+		label_elem = section_elem.find('Label')
+		section_num = (label_elem.text or '').strip() if label_elem is not None else ''
 		if not section_num:
-			for child in section_elem:
-				if 'sectionLabel' in child.tag.lower():
-					section_num = child.text
-					break
+			section_num = None
 
-		# Extract heading
-		heading = ''
-		heading_elem = section_elem.find('.//Heading')
-		if heading_elem is not None and heading_elem.text:
-			heading = heading_elem.text
+		note_elem = section_elem.find('MarginalNote')
+		heading = ''.join(note_elem.itertext()).strip() if note_elem is not None else ''
 
 		# Extract full text by joining all text content
 		text_parts = []
@@ -403,7 +398,7 @@ def parse_statute_sections_from_xml(root: ET.Element) -> list[dict]:
 				'subsection': None,
 				'paragraph': None,
 				'heading': heading,
-				'text': section_text[:5000],  # Limit to 5000 chars per section
+				'text': section_text,
 				'offset_start': offset,
 				'offset_end': offset + len(section_text),
 			}
@@ -543,7 +538,7 @@ def import_statute_from_xml(
 		if not sections:
 			sections = parse_statute_sections(statute_text)
 
-		for section_data in sections[:100]:  # Limit to first 100 sections to avoid DB bloat
+		for section_data in sections:
 			section = StatuteSection(
 				statute_version_id=statute_version.id,
 				section_number=section_data["section_number"],
@@ -557,7 +552,7 @@ def import_statute_from_xml(
 			db.add(section)
 
 		db.commit()
-		logger.info(f"Imported {min(len(sections), 100)} sections for {instrument_key} ({version_date})")
+		logger.info(f"Imported {len(sections)} sections for {instrument_key} ({version_date})")
 		return statute
 
 	except Exception as e:

@@ -86,3 +86,65 @@ def test_particles_and_mc_prefix_in_display_names():
 def test_unknown_gender_surname_only_is_not_assigned_when_two_people_share_surname():
 	g = group_judge_names({"Madam Justice Roy": 5, "Mr. Justice Roy": 9, "ROY J.": 3, "Justice Roy": 2})
 	assert not any("ROY J." in x.members or "Justice Roy" in x.members for x in g)
+
+
+def test_dominant_person_takes_surname_only_strings_when_others_are_stray():
+	g = group_judge_names({"Mr. Justice John A. O'Keefe": 320, "Mr. Justice John J. O'Keefe": 1, "Mr. Justice O'Keefe": 522})
+	assert len(g) == 1 and "Mr. Justice O'Keefe" in g[0].members and "Mr. Justice John J. O'Keefe" not in g[0].members
+	g = group_judge_names({"Anne Smith": 50, "Bob Smith": 40, "Justice Smith": 9})
+	assert not any("Justice Smith" in x.members for x in g)
+
+
+def test_scc_panel_is_split_into_individual_judges():
+	from backend.judge_normalization import parse_panel
+	panel = ("Wagner, Richard; Abella, Rosalie Silberman; Moldaver, Michael J.; Karakatsanis, Andromache; "
+		"Gascon, Clément; Côté, Suzanne; Brown, Russell; Rowe, Malcolm; Martin, Sheilah")
+	judges = parse_panel(panel)
+	assert [j.surname for j in judges] == ["wagner", "abella", "moldaver", "karakatsanis", "gascon", "cote", "brown", "rowe", "martin"]
+	assert judges[1].name_text == "Rosalie Silberman Abella" and judges[2].name_text == "Michael Moldaver"
+	old = parse_panel("L'Heureux-Dubé, Claire; Gonthier, Charles Doherty; Cory, Peter deCarteret; McLachlin, Beverley; Binnie, William Ian Corneil")
+	assert old[0].surname == "l'heureux dube" and len(old) == 5
+	assert parse_judge_name("Gibson, J.").name_text == "Gibson"
+
+
+def test_older_present_style_panel_lines():
+	from backend.judge_normalization import parse_panel
+	judges = parse_panel("McLachlin C.J. and L’Heureux‑Dubé, Gonthier, Iacobucci, Major, Bastarache, Binnie, Arbour and LeBel")
+	assert [j.surname for j in judges][:3] == ["mclachlin", "l'heureux dube", "gonthier"] and len(judges) == 9
+	judges = parse_panel("Dickson C.J. and Ritchie*, Beetz, Estey, McIntyre, Lamer and Wilson JJ.")
+	assert [j.surname for j in judges] == ["dickson", "ritchie", "beetz", "estey", "mcintyre", "lamer", "wilson"]
+	assert parse_panel("NOËL J.A.")[0].surname == "noel"
+
+
+def test_fca_surname_only_is_court_scoped():
+	day = 365
+	counts = {"Simon Noël": 900, "NOËL J.": 50, "NOËL J.A.": 469}
+	# Overlapping dates: two different people, so the J.A. string is not merged into the FC judge.
+	overlap = {"Simon Noël": (2002 * day, 2025 * day), "NOËL J.": (2002 * day, 2025 * day), "NOËL J.A.": (2002 * day, 2025 * day)}
+	assert not any("NOËL J.A." in g.members for g in group_judge_names(counts, overlap))
+	assert not any("NOËL J.A." in g.members for g in group_judge_names(counts))
+	# FC decisions ended before the appeal ones began: an elevated judge, merged.
+	moved = {"Eleanor Dawson": (1998 * day, 2010 * day), "DAWSON J.A.": (2010 * day, 2024 * day)}
+	g = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, moved)
+	assert len(g) == 1 and set(g[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
+
+
+def test_bare_strings_stay_in_their_own_court():
+	counts = {"Henry S. Brown": 60, "Russell Brown": 371, "The Honourable Mr. Justice Brown": 40}
+	courts = {"Henry S. Brown": {"FC"}, "Russell Brown": {"SCC"}, "The Honourable Mr. Justice Brown": {"FC"}}
+	groups = group_judge_names(counts, courts=courts)
+	merged = [g for g in groups if "The Honourable Mr. Justice Brown" in g.members]
+	assert merged and set(merged[0].members) == {"Henry S. Brown", "The Honourable Mr. Justice Brown"}
+
+
+def test_supreme_court_judge_later_on_fca_merges_when_dates_do_not_overlap():
+	day = 365
+	spans = {"Marshall Rothstein": (2006 * day, 2016 * day), "ROTHSTEIN J.A.": (1992 * day, 2006 * day)}
+	g = group_judge_names({"Marshall Rothstein": 546, "ROTHSTEIN J.A.": 252}, spans, {"Marshall Rothstein": {"SCC"}, "ROTHSTEIN J.A.": {"FCA"}})
+	assert len(g) == 1 and set(g[0].members) == {"Marshall Rothstein", "ROTHSTEIN J.A."}
+
+
+def test_panel_ignores_sentence_fragments():
+	from backend.judge_normalization import parse_panel
+	assert parse_panel("et nous sommes d'avis que ce jugement est bien fondé.; Abella, Rosalie") and \
+		[j.surname for j in parse_panel("et nous sommes d'avis que ce jugement est bien fondé.; Abella, Rosalie")] == ["abella"]

@@ -156,6 +156,8 @@ test checks that these paths continue to exist.
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
+| `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |
+| `backend/case_fingerprint_store.py` | Stored case fingerprints: compute at ingest/batch time, read back into a similarity index |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |

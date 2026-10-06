@@ -1066,3 +1066,17 @@ def init_db() -> None:
 	with engine.begin() as connection:
 		connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
 	Base.metadata.create_all(bind=engine)
+
+
+class CaseFingerprintRecord(Base):
+	"""Stored deterministic fingerprint of one decision (see backend/case_fingerprint.py)."""
+
+	__tablename__ = "case_fingerprints"
+
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), primary_key=True)
+	version: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+	terms: Mapped[dict] = mapped_column(JSON, nullable=False)
+	authorities: Mapped[dict] = mapped_column(JSON, nullable=False)
+	role_chars: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	text_length: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())

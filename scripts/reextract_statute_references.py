@@ -29,7 +29,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import delete, select
 
 from backend.citations import (
-    court_defaults_to_irpa,
+    irpa_mode_for,
     _preferred_case_chunks,
     extract_statute_reference_matches,
     rebuild_statute_references_for_case,
@@ -44,7 +44,7 @@ def new_rows_for_texts(texts: list[str], court: str | None = None) -> list[dict[
     """Run the current extractor over each text and return plain row dicts."""
     rows: list[dict[str, Any]] = []
     for text in texts:
-        for match in extract_statute_reference_matches(text, default_irpa=court_defaults_to_irpa(court)):
+        for match in extract_statute_reference_matches(text, default_irpa=irpa_mode_for(court, text)):
             parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
             rows.append(
                 {

@@ -54,6 +54,7 @@ from .judge_issue_record import (
 	fetch_judge_profile_issues,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
 from .search_matching import identity_sql, matched_on_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
@@ -1171,10 +1172,31 @@ def _search_facets(db, where_clause, params, cohort_ids):
 			if row.get("label") is not None
 		]
 
-	return {
+	facets = {
 		"court": run("c.court", 8),
 		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
 	}
+	facets["case_type"] = _case_type_facet(db, where_clause, facet_params, cohort_ids)
+	return facets
+
+
+def _case_type_facet(db, where_clause, facet_params, cohort_ids):
+	"""Counts of matching decisions by stored case type (primary or second main type), read from the stored labels."""
+	statement = sql_text(
+		"SELECT t.label AS label, COUNT(DISTINCT c.id) AS n FROM cases c "
+		"JOIN case_type_labels ctl ON ctl.case_id = c.id AND ctl.taxonomy_version = :case_type_version "
+		"AND ctl.status = 'classified' "
+		"CROSS JOIN LATERAL (VALUES (ctl.primary_type), (ctl.second_type)) AS t(label) "
+		f"WHERE {where_clause} AND t.label IS NOT NULL GROUP BY t.label ORDER BY n DESC, t.label LIMIT 40"
+	)
+	if cohort_ids is not None:
+		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
+	rows = db.execute(statement, {**facet_params, "case_type_version": TAXONOMY_VERSION}).mappings().all()
+	return [
+		{"value": str(row["label"]), "label": TYPES_BY_KEY[row["label"]].label, "count": int(row["n"])}
+		for row in rows
+		if row.get("label") in TYPES_BY_KEY
+	]
 
 
 _FACET_CACHE: dict[str, tuple[float, dict[str, Any]]] = {}
@@ -1253,6 +1275,7 @@ def fetch_analytics_search_cases(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	case_type: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = 50,
@@ -1328,6 +1351,18 @@ def fetch_analytics_search_cases(
 		else:
 			params["court"] = f"%{court}%"
 			filters.append("c.court ILIKE :court")
+	case_type = case_type.strip()
+	if case_type:
+		if case_type in TYPES_BY_KEY:
+			params["case_type"] = case_type
+			params["case_type_version"] = TAXONOMY_VERSION
+			filters.append(
+				"EXISTS (SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = c.id "
+				"AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'classified' "
+				"AND (ctl.primary_type = :case_type OR ctl.second_type = :case_type))"
+			)
+		else:
+			filters.append("FALSE")
 	if year:
 		params["year"] = f"{year}%"
 		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")

@@ -49,3 +49,7 @@ whose alias is lowercase, a generic word, or not whole words of the anchored cas
 title-block party line or a footnote artifact. Short forms the decision defines itself ("[Vavilov]") and back-reference rows are
 never rejected. On 500 random English FC/FCA decisions this removed about 17% of pass-one short forms; the removed ones read as
 junk, with a few real ones lost (for example "O'Leary" written as "Leary", or "Teva Ramipril").
+
+## Defined names and pinpoint-first forms (step `C4c_defined_names`)
+
+Test case: 2026 FC 738 (id 35113). The live extractor missed the short forms "B010" (a trilogy list, "Suresh, Febles, B010") and "CCR" ("Mason and CCR", defined as "[CCR]"), and the pinpoint in "As stated at paragraph 34 of Lozano" (the pinpoint comes before the case name). The refinement already recovered the "at paras 13-14" pinpoint on a parallel cite and a few cites the live run missed. The new step adds bare mentions of a name the decision defines ("[CCR]") or an identifier-like first party ("B010"), and attaches pinpoint-first forms ("paragraph 34 of Lozano", "au paragraphe 34 de Lozano") to the case. On 40 random FC/FCA decisions it added 65 rows; the contexts read by hand were all genuine references (a defined alias mentioned again). "Refugees" (from the department name "Immigration, Refugees and Citizenship Canada") is now rejected as a generic word. Not covered yet: "Khadr 2010 at para 14" (name and year, no neutral cite).

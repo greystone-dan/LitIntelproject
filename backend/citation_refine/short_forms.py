@@ -19,7 +19,7 @@ _GENERIC = frozenset(
 		"holdings", "society", "association", "minister", "canada", "court", "crown", "queen", "king", "city", "county",
 		"commission", "council", "authority", "services", "industries", "limited", "ltd", "inc", "co", "national", "general",
 		"attorney", "citizenship", "immigration", "refugee", "province", "state", "united", "the", "la", "le", "les", "de", "du", "service", "services", "band", "companies", "associated", "judgment", "international",
-		"marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
+		"refugees", "employment", "marine", "revenue", "public", "commissioner", "ontario", "alberta", "quebec", "board", "union", "school", "centre", "center",
 	}
 )
 _NAME_END_RE = re.compile(r",\s*(?:\[|\(|(?:19|20)\d\d|\d+\s+[A-Z]|at\s|à\s|au\s|aux\s)")

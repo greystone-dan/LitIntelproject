@@ -7,7 +7,8 @@ from sqlalchemy.ext.compiler import compiles
 from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
-from backend.citation_refine import refine_document
+from backend.citation_refine import CASE_STEPS, refine_document
+from backend.citation_refine.cases import refine_case_citations
 from backend.database import Base, Case, Citation, CitationRefined, CitationRefineStatus
 
 FRENCH = (
@@ -140,3 +141,32 @@ def test_title_block_and_footnote_name_only_rows_are_rejected():
 
 	assert all(is_weak_short_form(name_only(t)) for t in ["JUNIOR HERMAN v. THE", "MAHIR YAHYA SHARIF v. MCI", "Hall v. Hill[3"])
 	assert not any(is_weak_short_form(name_only(t)) for t in ["Drummond v. Baylis", "R. v. Jack", "Canada (Attorney General) v. Singh"])
+
+
+_DEFINED_NAMES_TEXT = (
+	"The Respondent relies on Lozano Caceres v Canada (Citizenship and Immigration), 2022 FC 179 [Lozano] as support. "
+	"As stated at paragraph 34 of Lozano: the test is met. "
+	"See Canadian Council for Refugees v Canada (Citizenship and Immigration), 2023 SCC 17 [CCR] at para 158 and "
+	"B010 v Canada (Citizenship and Immigration), 2015 SCC 58. This is the trilogy (Suresh, Febles, B010). "
+	"In light of Mason and CCR, there was a matter to be resolved."
+)
+
+
+def test_defined_names_pinpoint_first_and_bare_acronyms() -> None:
+	rows = refine_document(_DEFINED_NAMES_TEXT).cases.rows
+	step_rows = [row for row in rows if row.step == "C4c_defined_names"]
+	pinpoint_first = [row for row in step_rows if "pinpoint_first" in row.notes]
+	assert [row.citation_text for row in pinpoint_first] == ["at paragraph 34 of Lozano"]
+	assert pinpoint_first[0].pinpoint == "at para. 34"
+	assert "2022 FC 179" in pinpoint_first[0].normalized_citation
+	bare = {row.citation_text: row for row in step_rows if "defined_name" in row.notes}
+	assert list(row.citation_text for row in step_rows if row.citation_text == "B010") == ["B010"]
+	assert "CCR" in bare and "2023 SCC 17" in bare["CCR"].normalized_citation
+	# the bracketed definition itself is never a second row
+	assert not [row for row in rows if row.citation_text == "[CCR]"]
+
+
+def test_defined_names_step_can_be_switched_off() -> None:
+	steps = [step for step in CASE_STEPS if step != "C4c_defined_names"]
+	rows = refine_case_citations(_DEFINED_NAMES_TEXT, steps=steps).rows
+	assert not [row for row in rows if row.step == "C4c_defined_names"]

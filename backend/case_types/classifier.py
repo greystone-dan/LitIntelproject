@@ -338,6 +338,11 @@ def classify_text(
         return CaseTypeResult(TAXONOMY_VERSION, STATUS_INSUFFICIENT, None, None, [], 0.0, {}, [], None,
                               reason="decision text too short to classify")
 
+    if not (docket and _DOCKET_IMM_RE.search(docket)):
+        # Stored docket missing or truncated: the Federal Court header names it near the top of the text.
+        header_docket = _DOCKET_IMM_RE.search(content[:1500])
+        docket = header_docket.group(0) if header_docket else docket
+
     reasons, intro, intro_end = split_regions(content)
     if not PREGATE_RE.search(content):
         if title and _IMMIGRATION_PARTY_RE.search(title):

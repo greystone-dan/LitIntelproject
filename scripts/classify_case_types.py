@@ -57,7 +57,7 @@ def main() -> None:
 					session.add(CaseTypeLabel(
 						case_id=case.id, taxonomy_version=TAXONOMY_VERSION, status=result.status,
 						primary_type=result.primary_type, primary_detail=result.primary_detail,
-						secondary_types=result.secondary_types, proceeding=result.proceeding, issues=result.issues,
+						secondary_types=result.secondary_types, second_type=result.second_type, second_detail=result.second_detail, proceeding=result.proceeding, issues=result.issues,
 						confidence=result.confidence, scores=result.scores, evidence=result.evidence,
 					))
 			if args.apply:

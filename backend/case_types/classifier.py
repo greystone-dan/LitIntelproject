@@ -38,6 +38,9 @@ MIN_PRIMARY_SCORE = 6.0
 MIN_LEAD_RATIO = 1.4
 MIN_SECONDARY_SCORE = 6.0
 SECONDARY_FRACTION = 0.5
+GENERIC_SECOND_TYPES = frozenset({"refugee_claim", "protected_person_permanent_residence"})
+SECOND_MAIN_INTRO_SCORE = 5.0  # the opening names the second type
+SECOND_MAIN_FRACTION = 0.75  # or its evidence nearly matches the primary
 INTRO_PROVISION_WEIGHT = 3.0
 INTRO_CUE_WEIGHT = 5.0
 BODY_CUE_WEIGHT = 0.5
@@ -95,6 +98,8 @@ class CaseTypeResult:
     evidence: list[dict[str, Any]] = field(default_factory=list)
     reason: str = ""
     issues: list[str] = field(default_factory=list)
+    second_type: str | None = None
+    second_detail: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -421,6 +426,15 @@ def classify_text(
         intro_top = intro_scores.get(top_key, 0.0)
         intro_second = intro_scores.get(ranked[1][0], 0.0)
         intro_ranked = sorted(((intro_scores.get(key, 0.0), key) for key, _ in ranked[:4]), reverse=True)
+        second_key = ranked[1][0]
+        if (intro_top >= SECOND_MAIN_INTRO_SCORE and intro_second >= SECOND_MAIN_INTRO_SCORE
+                and top_key in matched_hits and second_key in matched_hits
+                and not (second_key in GENERIC_SECOND_TYPES and TYPES_BY_KEY[top_key].group != TYPES_BY_KEY[second_key].group)):
+            # Two provisions are both named in the opening with similar weight: two main types, not "unclear".
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, top_key, _primary_detail(matched_hits[top_key]), [second_key],
+                                  0.4, dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key),
+                                  reason="two case types are both named in the opening",
+                                  second_type=second_key, second_detail=_primary_detail(matched_hits[second_key]))
         if intro_ranked[0][1] != top_key or intro_top < 5.0 or intro_top < 2.0 * max(intro_second, 0.01):
             return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, dict(ranked[:6]),
                               [key for key, _ in ranked[:3]], proceeding,
@@ -431,6 +445,15 @@ def classify_text(
     secondary = [key for key, score in ranked[1:4]
                  if score >= max(MIN_SECONDARY_SCORE, SECONDARY_FRACTION * top_score)
                  and not (key == "refugee_claim" and top_key in SPECIFIC_PROTECTION_TYPES)]
+    # A second MAIN type: a secondary type that the opening names, or whose evidence nearly matches the primary's.
+    # Generic protection vocabulary is never a second main type for a non-protection case, and the second type
+    # must rest on a statutory provision, not on wording alone.
+    second_type = next((key for key in secondary
+                        if key in matched_hits
+                        and not (key in GENERIC_SECOND_TYPES and TYPES_BY_KEY[top_key].group != TYPES_BY_KEY[key].group)
+                        and (intro_scores.get(key, 0.0) >= SECOND_MAIN_INTRO_SCORE
+                             or scores.get(key, 0.0) >= SECOND_MAIN_FRACTION * top_score)), None)
+    second_detail = _primary_detail(matched_hits.get(second_type, [])) if second_type else None
     lead = 1.0 - (second_score / top_score) * 0.5 if top_score else 0.0
     confidence = round(min(1.0, top_score / 14.0) * lead, 2)
     if tie_broken_by_intro:
@@ -438,7 +461,8 @@ def classify_text(
     detail = _primary_detail(matched_hits.get(top_key, []))
     issues = issues_by_anchor(reasons) if top_key == "refugee_claim" else []
     return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, top_key, detail, secondary, confidence,
-                          dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key), issues=issues)
+                          dict(ranked[:6]), [], proceeding, evidence=evidence_dicts(top_key), issues=issues,
+                          second_type=second_type, second_detail=second_detail)
 
 
 def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:

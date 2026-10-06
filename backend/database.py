@@ -199,6 +199,8 @@ class CaseTypeLabel(Base):
 	primary_type: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
 	primary_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
 	secondary_types: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	second_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	second_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
 	proceeding: Mapped[str | None] = mapped_column(String(60), nullable=True)
 	issues: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
 	confidence: Mapped[float] = mapped_column(Float, nullable=False, server_default="0")

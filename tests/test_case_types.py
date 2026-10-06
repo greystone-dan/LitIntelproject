@@ -192,3 +192,29 @@ def test_refugee_claim_reports_the_issue_the_court_calls_determinative() -> None
     result = classify(text)
     assert result.primary_type == "refugee_claim"
     assert result.issues and result.issues[0] == "internal_flight_alternative"
+
+
+def test_second_main_type_when_two_provisions_are_both_at_issue() -> None:
+    text = decision(
+        "The applicant, a permanent resident, was found inadmissible for serious criminality under paragraph 36(1)(a) "
+        "of the Immigration and Refugee Protection Act [IRPA] and for organized criminality under paragraph 37(1)(a) of "
+        "the IRPA.",
+        "The Immigration Division concluded under paragraph 36(1)(a) and paragraph 37(1)(a) that the applicant is "
+        "inadmissible. Paragraph 36(1)(a) applies to the conviction; paragraph 37(1)(a) applies to the membership.",
+        "On the first ground, section 36(1)(a) is met. On the second, section 37(1)(a) is met.",
+    )
+    result = classify(text, court="FCA")
+    assert result.status == STATUS_CLASSIFIED
+    assert {result.primary_type, result.second_type} == {"inadmissibility_serious_criminality", "inadmissibility_organized_crime"}
+    assert result.second_detail in {"36(1)(a)", "37(1)(a)"}
+
+
+def test_single_issue_decision_has_no_second_main_type() -> None:
+    text = decision(
+        "The Minister applied under section 108 of the Immigration and Refugee Protection Act [IRPA] to cease the "
+        "applicant's refugee protection because she reavailed herself of the protection of her country.",
+        "Paragraph 108(1)(a) of the IRPA applies where the person voluntarily reavails.",
+    )
+    result = classify(text)
+    assert result.primary_type == "refugee_cessation"
+    assert result.second_type is None

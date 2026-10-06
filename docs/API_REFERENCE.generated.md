@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-06T16:11:55.793421+00:00
+Generated: 2026-10-06T17:20:56.531291+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 131 across 128 paths
@@ -128,6 +128,7 @@ Search Analytics Cases
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
@@ -205,7 +206,7 @@ Compare Cohort Assessment Records
 
 Search Analytics Facets
 
-Court/year counts for the current filters, loaded after the results so they never delay them.
+Court, year and case-type counts for the current filters, loaded after the results so they never delay them.
 
 **Parameters**
 
@@ -219,6 +220,7 @@ Court/year counts for the current filters, loaded after the results so they neve
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `cohort_id` (query, optional; string, default `""`)
 
@@ -1837,6 +1839,7 @@ Export Search Analytics Cases
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `cohort_id` (query, optional; string, default `""`)

@@ -137,6 +137,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
             "year": "2024",
             "cites_case_id": None,
             "tags": "",
+            "case_type": "",
             "search_full_text": True,
             "sort_by": "newest",
             "limit": 100,

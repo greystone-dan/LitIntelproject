@@ -20,6 +20,8 @@ class _FakeDb:
     def execute(self, statement, params):
         sql = str(statement)
         self.statements.append((sql, params))
+        if "case_type_labels" in sql:
+            return _Result([{"label": "refugee_claim", "n": 4}])
         if "c.court" in sql:
             return _Result([{"label": "FC", "n": 3}])
         return _Result([{"label": 2024, "n": 2}])
@@ -31,6 +33,7 @@ def test_facets_are_plain_sql_counts_without_paging_params():
     assert facets == {
         "court": [{"value": "FC", "count": 3}],
         "year": [{"value": "2024", "count": 2}],
+        "case_type": [{"value": "refugee_claim", "label": "Refugee / protection claim (ss. 96-97)", "count": 4}],
     }
     for sql, params in db.statements:
         assert "GROUP BY" in sql and "c.title ILIKE :q" in sql

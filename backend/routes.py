@@ -2019,6 +2019,7 @@ def search_analytics_cases(
 	year: str = "",
 	cites_case_id: int | None = None,
 	tags: str = "",
+	case_type: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = 50,
@@ -2030,7 +2031,7 @@ def search_analytics_cases(
 ) -> dict[str, Any]:
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
-		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, search_full_text=search_full_text,
+		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, case_type=case_type, search_full_text=search_full_text,
 		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets, include_citation_stats=citation_stats,
 	)
 
@@ -2060,14 +2061,15 @@ def search_analytics_facets(
 	year: str = "",
 	cites_case_id: int | None = None,
 	tags: str = "",
+	case_type: str = "",
 	search_full_text: bool = False,
 	cohort_id: str = "",
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	"""Court/year counts for the current filters, loaded after the results so they never delay them."""
+	"""Court, year and case-type counts for the current filters, loaded after the results so they never delay them."""
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
-		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, search_full_text=search_full_text,
+		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, case_type=case_type, search_full_text=search_full_text,
 		cohort_id=cohort_id, facets_only=True,
 	)
 
@@ -2108,6 +2110,7 @@ def export_search_analytics_cases(
 	year: str = "",
 	cites_case_id: int | None = None,
 	tags: str = "",
+	case_type: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	cohort_id: str = "",
@@ -2133,6 +2136,7 @@ def export_search_analytics_cases(
 			year=year,
 			cites_case_id=cites_case_id,
 			tags=tags,
+			case_type=case_type,
 			search_full_text=search_full_text,
 			sort_by=sort_by,
 			limit=min(100, 1000 - len(rows)),

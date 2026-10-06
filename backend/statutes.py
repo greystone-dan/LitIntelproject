@@ -27,12 +27,36 @@ def normalize_provision_pinpoint(pinpoint: str | None) -> str:
     return value
 
 
+_PROVISION_ITEM = r"\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
+_PROVISION_SEP = r"(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
+_PROVISION_LIST = _PROVISION_ITEM + r"(?:" + _PROVISION_SEP + _PROVISION_ITEM + r")*"
+
+
+def expand_pinpoint_list(pinpoint: str | None) -> list[str]:
+    """Split a list or range pinpoint ("34,35,37", "96-97", "96 to 98") into single provisions.
+
+    Ranges expand only between plain whole-number sections (capped at 60); anything else is kept as written.
+    """
+    text = re.sub(r"\s+", " ", pinpoint or "").strip(" .,")
+    if not text:
+        return []
+    parts = [part for part in re.split(r"\s*,\s*(?:and\s+|or\s+)?|\s+(?:and|or)\s+", text) if part]
+    expanded: list[str] = []
+    for part in parts:
+        range_match = re.fullmatch(r"(\d{1,3})\s*(?:-|\u2013|to)\s*(\d{1,3})", part.strip(), re.IGNORECASE)
+        if range_match and 0 <= int(range_match.group(2)) - int(range_match.group(1)) <= 60:
+            expanded.extend(str(number) for number in range(int(range_match.group(1)), int(range_match.group(2)) + 1))
+        else:
+            expanded.append(normalize_provision_pinpoint(part))
+    return expanded
+
+
 def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | None, str | None, int | None, bool]:
     raw_value = re.sub(r"\s+", " ", pinpoint or "").strip(".")
     value = re.sub(r"\s+", "", pinpoint or "").strip(".")
     if not value:
         return None, None, None, None, False
-    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?[A-Za-z]?)(?P<tail>(?:\([^()]+\))*)", value)
+    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?(?:[A-Za-z](?![A-Za-z]))?)(?P<tail>(?:\([^()]+\))*)", value)
     if match is None:
         return None, None, None, None, True
     groups = re.findall(r"\(([^()]+)\)", match.group("tail"))
@@ -121,6 +145,69 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "source_url": "https://laws-lois.justice.gc.ca/eng/acts/C-33/",
         "url": "https://laws-lois.justice.gc.ca/eng/acts/C-33/section-{section}.html",
     },
+    "canada.customs_act": {
+        "aliases": ("Customs Act",),
+        "citation": "Customs Act, R.S.C. 1985, c. 1 (2nd Supp.)",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/acts/C-52.6/",
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/C-52.6/section-{section}.html",
+    },
+    "canada.cbsa_act": {
+        "aliases": ("Canada Border Services Agency Act", "CBSA Act"),
+        "citation": "Canada Border Services Agency Act, S.C. 2005, c. 38",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/acts/C-1.4/",
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/C-1.4/section-{section}.html",
+    },
+    "canada.customs_tariff": {
+        "aliases": ("Customs Tariff",),
+        "citation": "Customs Tariff, S.C. 1997, c. 36",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/acts/C-54.011/",
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/C-54.011/section-{section}.html",
+    },
+    "canada.excise_tax_act": {
+        "aliases": ("Excise Tax Act",),
+        "citation": "Excise Tax Act, R.S.C. 1985, c. E-15",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/",
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/section-{section}.html",
+    },
+    "canada.fc_cirp_rules": {
+        "aliases": (
+            "Federal Courts Citizenship, Immigration and Refugee Protection Rules",
+            "Federal Court Citizenship, Immigration and Refugee Protection Rules",
+        ),
+        "citation": "Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/section-{section}.html",
+    },
+    "canada.rpd_rules": {
+        "aliases": ("Refugee Protection Division Rules", "RPD Rules"),
+        "citation": "Refugee Protection Division Rules, SOR/2012-256",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-256/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-256/section-{section}.html",
+    },
+    "canada.rad_rules": {
+        "aliases": ("Refugee Appeal Division Rules", "RAD Rules"),
+        "citation": "Refugee Appeal Division Rules, SOR/2012-257",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-257/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-257/section-{section}.html",
+    },
+    "canada.id_rules": {
+        "aliases": ("Immigration Division Rules", "ID Rules"),
+        "citation": "Immigration Division Rules, SOR/2002-229",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-229/section-{section}.html",
+    },
+    "canada.iad_rules": {
+        "aliases": ("Immigration Appeal Division Rules", "IAD Rules"),
+        "citation": "Immigration Appeal Division Rules, SOR/2002-230",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-230/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-230/section-{section}.html",
+    },
+    "canada.citizenship_regulations": {
+        "aliases": ("Citizenship Regulations",),
+        "citation": "Citizenship Regulations, SOR/93-246",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-246/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-246/section-{section}.html",
+    },
     "international.refugee_convention": {
         "aliases": ("Refugee Convention", "Convention Relating to the Status of Refugees"),
         "citation": "Convention Relating to the Status of Refugees",
@@ -150,6 +237,10 @@ def parse_legislation_citation(value: str | None) -> LegislationCitation | None:
         if not any(re.search(rf"\b{re.escape(alias)}\b", text, re.IGNORECASE) for alias in aliases):
             continue
         match = re.search(
+            r"\b(?:ss?|sections?|paragraphs?|paras?|subsections?|subsecs?)\.?\s*(?=\d)(" + _PROVISION_LIST + r")",
+            text,
+            re.IGNORECASE,
+        ) or re.search(
             r"\b(?:s|ss|sections?|paragraphs?|subsections?)\.?\s*(?=\d)([^,;]+?)(?=\s+of\s+|\s*$|[.;])",
             text,
             re.IGNORECASE,

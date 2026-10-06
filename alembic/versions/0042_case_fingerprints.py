@@ -1,7 +1,7 @@
 """Add stored case fingerprints (not used by the live site yet).
 
-Revision ID: 0041_case_fingerprints
-Revises: 0040_judge_profile_aliases
+Revision ID: 0042_case_fingerprints
+Revises: 0041_case_type_labels
 Create Date: 2026-10-06
 """
 
@@ -9,8 +9,8 @@ import sqlalchemy as sa
 from alembic import op
 
 
-revision = "0041_case_fingerprints"
-down_revision = "0040_judge_profile_aliases"
+revision = "0042_case_fingerprints"
+down_revision = "0041_case_type_labels"
 branch_labels = None
 depends_on = None
 

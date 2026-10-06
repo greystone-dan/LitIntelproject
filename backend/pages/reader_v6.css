@@ -8,7 +8,7 @@
 .v6-actions button:hover,.v6-actions a:hover{border-color:var(--teal,#176c68);color:var(--teal,#176c68)}
 .v6-facts-strip{display:flex;align-items:stretch;gap:0;border-top:1px solid var(--border,#d8d5ca);margin:6px -22px 0;padding:0 22px}
 .v6-fs{padding:10px 22px 10px 0;margin-right:22px;border-right:1px solid var(--border,#d8d5ca);min-width:0}
-.v6-fs small{display:block;font-size:13px;color:var(--muted,#6b6a60)}.v6-fs b{display:block;font-size:17px;font-weight:600;margin-top:2px;white-space:nowrap}
+.v6-fs small{display:block;font-size:13px;color:var(--muted,#6b6a60)}.v6-fs b{display:block;max-width:320px;overflow:hidden;text-overflow:ellipsis;font-size:17px;font-weight:600;margin-top:2px;white-space:nowrap}
 .v6-lk{border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--teal,#176c68);border-bottom:1px dashed currentColor;cursor:pointer}
 .v6-stats{margin-left:auto;display:flex;gap:8px;align-items:center}
 .v6-stat{border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:3px 14px;text-align:center;min-width:86px;cursor:pointer}
@@ -129,3 +129,5 @@
 
 /* counsel block repeated at the start of the decision */
 #decisionBody .fmt-footer-top{margin:10px 0 14px}
+
+#readerCompareLink{display:none!important}

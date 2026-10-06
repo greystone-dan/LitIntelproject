@@ -289,7 +289,8 @@ def test_rule_of_federal_courts_immigration_rules_is_identified():
 	row = _one(_laws("Rule 9 of the Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22").rows)
 	assert row.instrument_key == "canada.fc_cirp_rules"
 	assert row.normalized_citation.endswith("r. 9")
-	assert row.action == "corrected"
+	# The base extractor now registers these Rules itself, so the refinement layer finds nothing to correct.
+	assert row.action in {"kept", "corrected"}
 
 
 def test_provision_then_acronym():

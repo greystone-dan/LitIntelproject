@@ -86,18 +86,18 @@ STANDALONE_CASE_NAME_RE = re.compile(
 	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ0-9'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ0-9'’\-&,()\[\]. ]{1,120}?)(?=[,.;)\]]|\s|$)",
 	re.IGNORECASE,
 )
-STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
+STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
 LONG_STATUTE_CIT_RE = re.compile(
 	r"\b(?:"
 	r"Immigration and Refugee Protection Act(?:,\s*S\.C\.\s*\d{4},\s*c\.\s*[A-Z0-9.-]+(?:\s*\([^)]*\))?)?"
 	r"|Immigration and Refugee Protection Regulations(?:,\s*SOR/\d{4}-\d+)?"
 	r"|Canadian Charter of Rights and Freedoms(?:,?\s*Part I of the Constitution Act, 1982)?"
 	r"|Criminal Code(?:,\s*R\.S\.C\.\s*\d{4},\s*c\.\s*C-\d+)?"
-	r")\b(?:,?\s*(?:s\.|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)?",
+	r")\b(?:,?\s*(?:s\.|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)?",
 	re.IGNORECASE,
 )
 SHORT_CHARTER_SECTION_RE = re.compile(
-	r"\bCharter\b,?\s*(?:s\.|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*",
+	r"\bCharter\b,?\s*(?:s\.|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*",
 	re.IGNORECASE,
 )
 SECTION_OF_STATUTE_RE = re.compile(
@@ -148,7 +148,7 @@ IRPA_IRPR_BARE_NESTED_PROVISION_OF_STATUTE_RE = re.compile(
 	re.IGNORECASE,
 )
 SECTIONS_OF_STATUTE_RE = re.compile(
-	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+?)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
+	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+))++)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
 	re.IGNORECASE,
 )
 REFUGEE_CONVENTION_ARTICLE_RE = re.compile(
@@ -963,6 +963,9 @@ def _candidate_rank(start: int, end: int, citation: RawCitationMatch) -> tuple[i
 		score += 90
 	elif citation.kind == "statute":
 		score += 80
+		# A statute match that carries a provision outranks an act-only match on the same words.
+		if re.search(r"\bss?\. \d", norm):
+			score += 10
 	elif citation.kind == "case_short":
 		score += 70
 		if " v. " in norm:
@@ -1983,12 +1986,36 @@ def _extract_anchored_provision_candidates(
 				authority_start + len(following_authority.group(1)),
 			)
 		else:
-			anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
+			named_after = next(
+				(
+					candidate
+					for candidate in context_anchors
+					if candidate.kind == kind
+					and _anchored_authority_name(candidate)
+					and 0 <= candidate.offset_start - end <= 30
+					and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
+				),
+				None,
+			)
+			if named_after is not None:
+				anchor = named_after
+			elif not sentence_anchors and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE):
+				# "section 18 of the Act" names an instrument we cannot see; do not guess the nearest one.
+				continue
+			else:
+				anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
 		authority = _anchored_authority_name(anchor)
 		if not authority:
 			continue
 
 		provisions = _normalize_section_list(match.group(2))
+		if re.search(r"\b(?:R|S|C)\.?\s?(?:S|C|R)\.?\s*$", content[max(0, start - 8) : start]):
+			continue  # a reporter or statute-book volume ("R.S. 346"), not a provision
+		leading_number = re.match(r"\d+(?:\.\d+)?", provisions)
+		if "Charter" in authority and leading_number:
+			charter_section = leading_number.group(0)
+			if (float(charter_section) > 52 or ("." in charter_section and charter_section != "16.1")):
+				continue  # the Charter has no such provision; the nearest-statute guess is wrong
 		plural = prefix.endswith("s") or prefix.startswith("arts") or prefix.startswith("ss")
 		if prefix.startswith("art"):
 			label = "arts." if plural else "art."
@@ -2205,7 +2232,144 @@ def extract_case_citation_matches(text: str | None) -> list[RawCitationMatch]:
 	return [row for row in extract_raw_citation_matches(text) if row.kind in CASE_CITATION_KINDS]
 
 
-def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch]:
+_PROVISION_UNIT = r"(?:sub)?(?:sections?|paragraphs?|paras?\.?|subsecs?\.?|ss?\.|rules?|regulations?)"
+_PROVISION_ITEM = r"R?\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
+_PROVISION_JOIN = r"(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
+_PROVISION_JOIN_UNIT = r"(?:" + _PROVISION_JOIN + r"|\s+(?:and|or)\s+" + _PROVISION_UNIT + r"\s*)"
+_PROVISION_LIST_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN + _PROVISION_ITEM + r")*"
+_PROVISION_LIST_UNITS_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN_UNIT + _PROVISION_ITEM + r")*"
+_REGISTERED_ACT_ALIASES = sorted(
+	{alias for definition in LEGISLATION_REGISTRY.values() for alias in definition["aliases"]},
+	key=len,
+	reverse=True,
+)
+_REGISTERED_ACT_RE = "|".join(re.escape(alias) for alias in _REGISTERED_ACT_ALIASES)
+# "<unit> <list> of [the] <registered act>" for any registered act (not only IRPA/IRPR).
+PROVISION_OF_REGISTERED_ACT_RE = re.compile(
+	r"\b" + _PROVISION_UNIT + r"\s*(?P<list>" + _PROVISION_LIST_UNITS_RE + r")\s+of\s+(?:the\s+)?(?:former\s+)?(?P<act>" + _REGISTERED_ACT_RE + r")\b",
+	re.IGNORECASE,
+)
+# "<registered act>, s. <list>" (including "IRPA, ss 96-97" and "IRPA, s 25.1(1)").
+REGISTERED_ACT_THEN_PROVISION_RE = re.compile(
+	r"\b(?P<act>" + _REGISTERED_ACT_RE + r")\s*,?\s*" + _PROVISION_UNIT + r"\s*(?P<list>" + _PROVISION_LIST_RE + r")",
+	re.IGNORECASE,
+)
+
+
+def _normalize_provision_list(value: str) -> tuple[str, bool]:
+	"""Return the normalized provision text and whether it is a list or range."""
+	text = re.sub(r"\bR(?=\d)", "", _normalize_whitespace(value))
+	text = re.sub(r"\b(?:sub)?(?:sections?|paragraphs?|paras?\.?|subsecs?\.?|ss?\.|rules?|regulations?)\s*", "", text, flags=re.IGNORECASE)
+	if re.search(r",|\s(?:and|or|to)\s|[-\u2013]", text, re.IGNORECASE):
+		return _normalize_section_list(text), True
+	return _normalize_nested_provision(text), False
+
+
+def _extract_provisions_of_registered_acts(content: str) -> list[tuple[int, int, RawCitationMatch]]:
+	rows: list[tuple[int, int, RawCitationMatch]] = []
+	for pattern in (PROVISION_OF_REGISTERED_ACT_RE, REGISTERED_ACT_THEN_PROVISION_RE):
+		for match in pattern.finditer(content):
+			provision, is_list = _normalize_provision_list(match.group("list"))
+			if not provision:
+				continue
+			act = _full_statute_citation_name(match.group("act"))
+			normalized = f"{act} {'ss.' if is_list else 's.'} {provision}"
+			rows.append((match.start(), match.end(), _raw_match("statute", match.group(0), normalized, match.start(), match.end())))
+	return rows
+
+
+BARE_RULE_RE = re.compile(r"\bRules?\s+(\d{1,3}(?:\.\d+)?(?:\s*\([A-Za-z0-9]+\))*)")
+_FEDERAL_COURTS_RULES_NAME_RE = re.compile(r"\bFederal Courts Rules\b")
+
+
+def _extract_bare_federal_courts_rules(content: str, taken: list[RawCitationMatch]) -> list[RawCitationMatch]:
+	"""Tie "Rule 53(1)" to the Federal Courts Rules once the decision has named them earlier."""
+	first_named = _FEDERAL_COURTS_RULES_NAME_RE.search(content)
+	if first_named is None:
+		return []
+	rows: list[RawCitationMatch] = []
+	for match in BARE_RULE_RE.finditer(content):
+		start, end = match.span()
+		if start < first_named.start():
+			continue
+		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+			continue
+		before = content[max(0, start - 30) : start]
+		if re.search(r"(?:Tax Court|Supreme Court|Superior Court|Civil Procedure|Court of Appeal|Provincial|Divisional)[^.]{0,20}$", before, re.IGNORECASE):
+			continue
+		after = content[end : end + 60]
+		named_other = re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?(?!Rules\b|Federal Courts Rules\b)[A-Z]", after)
+		if named_other:
+			continue
+		provision, _ = _normalize_provision_list(match.group(1))
+		if not provision:
+			continue
+		normalized = f"Federal Courts Rules, SOR/98-106 s. {provision}"
+		rows.append(_raw_match("statute", match.group(0), normalized, start, end))
+	return rows
+
+
+DEFAULT_IRPA_COURTS = {"RPD", "RAD", "ID", "IAD"}
+
+
+def court_defaults_to_irpa(court: str | None) -> bool:
+	"""Board decisions are decided under the IRPA, so a bare \"the Act\" means the IRPA."""
+	return (court or "").strip().upper() in DEFAULT_IRPA_COURTS
+
+
+_IRPA_NAME_RE = re.compile(r"\bIRPA\b|Immigration and Refugee Protection Act")
+_ACT_DEFINITION_RE = re.compile(r"\(\s*(?:the\s+)?[\"“”']?(?:the\s+)?Act[\"“”']?\s*\)")
+
+
+def _act_is_irpa(content: str) -> bool:
+	"""True when the decision defines "the Act" as the IRPA, or defines no "Act" while naming the IRPA."""
+	definition = _ACT_DEFINITION_RE.search(content)
+	if definition is not None:
+		return bool(_IRPA_NAME_RE.search(content[max(0, definition.start() - 120) : definition.start()]))
+	return False
+
+
+def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch], board: bool) -> list[RawCitationMatch]:
+	"""Tie "the Act" and sections 96-98 to the IRPA in immigration decisions.
+
+	Board decisions are always IRPA decisions. In other decisions the IRPA must be named earlier in
+	the text, and "of the Act" must be defined as the IRPA.
+	"""
+	first_irpa = _IRPA_NAME_RE.search(content)
+	if not board and first_irpa is None:
+		return []
+	act_is_irpa = board or _act_is_irpa(content)
+	rows: list[RawCitationMatch] = []
+	for match in STANDALONE_PROVISION_RE.finditer(content):
+		start, end = match.span()
+		prefix = match.group(1).lower()
+		if prefix.startswith("art") or prefix.startswith("para") or prefix.startswith("subpara"):
+			continue
+		if not board and (first_irpa is None or first_irpa.start() >= start):
+			continue
+		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+			continue
+		provisions = _normalize_section_list(match.group(2))
+		leading = re.match(r"\d+", provisions)
+		if leading is None:
+			continue
+		tail = content[end : end + 50]
+		of_the_act = re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this)\s+Act\b", tail, re.IGNORECASE)
+		if of_the_act:
+			if not act_is_irpa:
+				continue
+		elif int(leading.group(0)) not in (96, 97, 98):
+			continue
+		if re.match(r"\s+of\s+(?:the|this)\s+(?!Act\b)[A-Z]", tail):
+			continue
+		plural = prefix.endswith("s") or prefix.startswith("ss")
+		label = "ss." if plural else "s."
+		normalized = f"{_full_statute_citation_name('IRPA')} {label} {provisions}"
+		rows.append(_raw_match("statute", match.group(0), normalized, start, end))
+	return rows
+
+
+def extract_statute_reference_matches(text: str | None, *, default_irpa: bool = False) -> list[RawCitationMatch]:
 	"""Return only statute and legal-instrument matches from deterministic law rules."""
 	content = text or ""
 	if not content.strip():
@@ -2216,7 +2380,10 @@ def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch
 		for _start, _end, citation in _extract_regex_candidates(content)
 		if citation.kind in STATUTE_REFERENCE_KINDS
 	]
+	candidates.extend(candidate for _start, _end, candidate in _extract_provisions_of_registered_acts(content))
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
+	candidates.extend(_extract_bare_federal_courts_rules(content, candidates))
+	candidates.extend(_extract_default_irpa_provisions(content, candidates, board=default_irpa))
 	return _select_best_non_overlapping(candidates)
 
 
@@ -2556,9 +2723,10 @@ def extract_statute_references_from_text(
 	source_case_id: int,
 	text: str | None,
 	chunk_id: int | None = None,
+	default_irpa: bool = False,
 ) -> list[StatuteReference]:
 	selected: list[StatuteReference] = []
-	for raw_match in extract_statute_reference_matches(text):
+	for raw_match in extract_statute_reference_matches(text, default_irpa=default_irpa):
 		parsed = parse_legislation_citation(raw_match.normalized_citation or raw_match.citation_text)
 		selected.append(
 			StatuteReference(
@@ -2665,12 +2833,13 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 def rebuild_statute_references_for_case(session: Session, case: Case, chunks: list[CaseChunk] | None = None) -> int:
 	session.execute(delete(StatuteReference).where(StatuteReference.source_case_id == case.id))
 	inserted = 0
+	default_irpa = court_defaults_to_irpa(getattr(case, "court", None))
 	selected_chunks = _preferred_case_chunks(chunks or [])
 	if selected_chunks:
 		for chunk in selected_chunks:
-			inserted += len(extract_statute_references_from_text(session, case.id, chunk.text, chunk.id))
+			inserted += len(extract_statute_references_from_text(session, case.id, chunk.text, chunk.id, default_irpa=default_irpa))
 	else:
-		inserted += len(extract_statute_references_from_text(session, case.id, case.full_text or case.summary, None))
+		inserted += len(extract_statute_references_from_text(session, case.id, case.full_text or case.summary, None, default_irpa=default_irpa))
 	return inserted
 
 
@@ -2803,18 +2972,27 @@ def batch_extract_statute_references_from_chunks(session: Session, batch_size: i
 
 
 def compute_citation_metrics(session: Session) -> int:
-	resolved_edges = list(
-		session.execute(
-			select(Citation.source_case_id, Citation.target_case_id).where(Citation.target_case_id.is_not(None))
-		)
-	)
+	"""Store each case's in-degree (distinct other cases citing it) and out-degree (resolved citation rows).
+
+	In-degree counts citing cases, not citation rows, and ignores a case citing itself, so it matches the
+	"cited by N decisions" shown in search and in the reader.
+	"""
 	out_degree: dict[int, int] = defaultdict(int)
+	for source_case_id, count in session.execute(
+		select(Citation.source_case_id, func.count())
+		.where(Citation.target_case_id.is_not(None))
+		.group_by(Citation.source_case_id)
+	):
+		if source_case_id is not None:
+			out_degree[int(source_case_id)] = int(count)
 	in_degree: dict[int, int] = defaultdict(int)
-	for source_case_id, target_case_id in resolved_edges:
-		if source_case_id is None or target_case_id is None:
-			continue
-		out_degree[int(source_case_id)] += 1
-		in_degree[int(target_case_id)] += 1
+	for target_case_id, count in session.execute(
+		select(Citation.target_case_id, func.count(func.distinct(Citation.source_case_id)))
+		.where(Citation.target_case_id.is_not(None), Citation.source_case_id != Citation.target_case_id)
+		.group_by(Citation.target_case_id)
+	):
+		if target_case_id is not None:
+			in_degree[int(target_case_id)] = int(count)
 
 	updated = 0
 	for case_id, in session.execute(select(Case.id)):

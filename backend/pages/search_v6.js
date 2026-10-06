@@ -98,8 +98,9 @@ document.addEventListener('click',event=>{
  if(target.closest('#clearSearch')){
   event.stopImmediatePropagation();event.stopPropagation();
   $('caseSearch').reset();$('advancedSearchOptions').reset();
-  ['governmentOutcome','courtFilter','cites','decisionOutcome','judgeFilter','yearFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});
+  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','decisionOutcome','judgeFilter','yearFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});
   $('ministerFilter').value='';$('searchFullText').checked=false;$('searchSort').value='newest';$('quickSort').value='newest';
+  if(window.__pickReset)window.__pickReset();
   $('searchResults').innerHTML='';if(moreButton)moreButton.hidden=true;
   setSearchStatus('Search by case name or citation, or press Recent cases to see the newest decisions.');
   if(typeof qfSync==='function')qfSync();if(typeof updateSearchFilterSummary==='function')updateSearchFilterSummary();
@@ -109,12 +110,88 @@ document.addEventListener('click',event=>{
 $('advancedSearchOptions').addEventListener('submit',event=>{event.preventDefault();$('caseSearch').requestSubmit();});
 $('applyFilters')?.addEventListener('click',event=>{event.preventDefault();$('caseSearch').requestSubmit();});
 
+/* Advanced: pick the case that is cited (Cases citing) and pick tags (Tag). Stored data only, no AI. */
+(function(){
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const fire=()=>document.getElementById('advancedSearchOptions')?.dispatchEvent(new Event('input',{bubbles:true}));
+ const debounce=(fn,ms)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms)}};
+ const citesInput=$('citesFilter'),citesId=$('citesCaseId'),citesList=$('citesPickList'),citesNote=$('citesPickNote');
+ const tagInput=$('tagSearch'),tagHidden=$('tagFilter'),tagList=$('tagPickList'),tagChips=$('tagChips');
+ if(!citesInput||!tagInput)return;
+ let picked=[],citeGen=0;
+ const closeList=l=>{l.hidden=true;l.innerHTML=''};
+ function showPicked(item){
+  citesId.value=item?String(item.case_id):'';
+  citesNote.hidden=!item;
+  citesNote.innerHTML=item?'Showing cases that cite '+esc(item.title)+(item.citation?' ('+esc(item.citation)+')':'')+' <button type="button" class="sp-x" id="citesClear" aria-label="Remove this filter">&times;</button>':'';
+  fire();
+ }
+ citesInput.addEventListener('input',()=>{
+  if(citesId.value){citesId.value='';citesNote.hidden=true;fire();}
+  lookup();
+ });
+ const lookup=debounce(async()=>{
+  const q=citesInput.value.trim(),gen=++citeGen;
+  if(q.length<2){closeList(citesList);return}
+  try{
+   const r=await fetch('/analytics/search/cases?'+new URLSearchParams({query:q,limit:'6',sort_by:'relevance',facets:'0',citation_stats:'0'}));
+   if(!r.ok||gen!==citeGen)return;
+   const rows=((await r.json()).results||[]).slice(0,6);
+   citesList.innerHTML=rows.map(x=>'<button type="button" data-id="'+x.case_id+'"><b>'+esc(x.title)+'</b><span>'+esc([x.citation,x.court].filter(Boolean).join(' · '))+'</span></button>').join('')||'<div class="sp-pick-empty">No matching cases</div>';
+   citesList.hidden=false;
+   citesList._rows=rows;
+  }catch(e){}
+ },220);
+ citesList.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-id]');if(!b)return;
+  const item=(citesList._rows||[]).find(x=>String(x.case_id)===b.dataset.id);if(!item)return;
+  citesInput.value=item.title;closeList(citesList);showPicked(item);
+ });
+ citesNote.addEventListener('click',e=>{if(e.target.closest('#citesClear')){citesInput.value='';showPicked(null);}});
+ function paintTags(){
+  tagHidden.value=picked.map(t=>t.value).join(',');
+  tagChips.innerHTML=picked.map(t=>'<span class="sp-tag">'+esc(t.label)+' <button type="button" data-v="'+esc(t.value)+'" aria-label="Remove tag '+esc(t.label)+'">&times;</button></span>').join('');
+  fire();
+ }
+ const lookupTags=debounce(async()=>{
+  const q=tagInput.value.trim();
+  try{
+   const r=await fetch('/analytics/search/tags?'+new URLSearchParams({q,limit:'10'}));
+   if(!r.ok||q!==tagInput.value.trim())return;
+   const rows=((await r.json()).tags||[]).filter(t=>!picked.some(p=>p.value===t.value));
+   tagList._rows=rows;
+   tagList.innerHTML=rows.map(t=>'<button type="button" data-v="'+esc(t.value)+'"><b>'+esc(t.label)+'</b><span>'+Number(t.count).toLocaleString()+' cases'+(t.category?' · '+esc(String(t.category).replace(/_/g,' ')):'')+'</span></button>').join('')||'<div class="sp-pick-empty">No matching tags</div>';
+   tagList.hidden=false;
+  }catch(e){}
+ },200);
+ tagInput.addEventListener('input',lookupTags);
+ tagInput.addEventListener('focus',lookupTags);
+ tagList.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-v]');if(!b)return;
+  const t=(tagList._rows||[]).find(x=>x.value===b.dataset.v);
+  if(t&&picked.length<5){picked.push(t);tagInput.value='';closeList(tagList);paintTags();}
+ });
+ tagChips.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-v]');if(!b)return;
+  picked=picked.filter(t=>t.value!==b.dataset.v);paintTags();
+ });
+ document.addEventListener('click',e=>{if(!e.target.closest('.sp-pick')){closeList(citesList);closeList(tagList);}});
+ window.__pickReset=()=>{picked=[];paintTags();citesNote.hidden=true;closeList(citesList);closeList(tagList);};
+})();
+
 /* Recent cases: newest decisions first, current filters kept */
 $('recentCases')?.addEventListener('click',()=>{
- $('searchQuery').value='';
+ $('searchQuery').value='';window.__sortChosen=true;
  $('searchSort').value='newest';if($('quickSort'))$('quickSort').value='newest';
  $('caseSearch').requestSubmit();
 });
 
-setSearchStatus('Search by case name or citation, or press Recent cases to see the newest decisions.');
+/* Most cited: cases cited by the most other cases, current filters kept */
+$('mostCitedCases')?.addEventListener('click',()=>{
+ $('searchQuery').value='';window.__sortChosen=true;
+ $('searchSort').value='most_cited';if($('quickSort'))$('quickSort').value='most_cited';
+ $('caseSearch').requestSubmit();
+});
+
+setSearchStatus('Search by case name or citation, or press Recent cases or Most cited.');
 })();

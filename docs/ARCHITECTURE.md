@@ -163,6 +163,11 @@ test checks that these paths continue to exist.
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
+| `backend/case_types/__init__.py` | Deterministic case-type labels ("what kind of case is this"). No AI at any point |
+| `backend/case_types/claim_issues.py` | Deterministic "what was the claim decided on" labels for refugee-protection decisions |
+| `backend/case_types/classifier.py` | Deterministic "what type of case is this" classifier |
+| `backend/case_types/display.py` | Turn a stored case_type_labels row into what the site shows. Reads stored data only; no classification, no AI |
+| `backend/case_types/taxonomy.py` | Case-type taxonomy for Canadian immigration and refugee decisions |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
@@ -174,6 +179,7 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/cases.py` | Refines case-citation candidates |
 | `backend/citation_refine/context.py` | Shared whole-document context for refinement |
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
+| `backend/citation_refine/landmarks.py` | Bare short forms of landmark cases: "Vavilov at para 85" with no full citation in the decision |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
@@ -263,6 +269,7 @@ test checks that these paths continue to exist.
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |
+| `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
@@ -293,6 +300,7 @@ test checks that these paths continue to exist.
 | `backend/search_service.py` | Case and passage search/retrieval |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
+| `backend/statute_sections.py` | Section-level statute library: table of contents with case counts and a per-section view |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |

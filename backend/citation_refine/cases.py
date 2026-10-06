@@ -34,9 +34,10 @@ from .models import (
 	Pinpoint,
 	RefinedCitation,
 )
+from .landmarks import landmark_rows
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
-CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C5_validate")
+CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C5_validate")
 
 # --------------------------------------------------------------------------- courts and reporters
 # Neutral citation court codes -> first year the code was used (None = no check).
@@ -62,7 +63,7 @@ FRENCH_TO_ENGLISH_COURT = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"
 _FRENCH_COURTS = set(FRENCH_TO_ENGLISH_COURT)
 
 _COURT_ALTERNATION = "|".join(sorted(NEUTRAL_COURTS, key=len, reverse=True))
-NEUTRAL_RE = re.compile(rf"(?<![\w/\[(])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
+NEUTRAL_RE = re.compile(rf"(?<![\w/])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
 CANLII_RE = re.compile(
 	r"(?<![\w/])(?P<year>(?:19|20)\d{2})\s+CanLII\s+(?P<number>\d{1,9})(?:\s*\((?P<court>[A-Za-z][A-Za-z .]{1,20})\))?",
 	re.IGNORECASE,
@@ -142,7 +143,7 @@ DOCKET_RE = re.compile(r"(?<![\w-])(?P<docket>(?:IMM|DES|A|T)-\d{1,6}-\d{2})(?![
 # What may sit between two parallel citations or after the last one.
 _TAG = r"\((?:CanLII|QL|Lexis|QuickLaw|[A-Z][A-Za-z.&]{0,6}(?:\s?[A-Z][A-Za-z.&]{0,6}){0,3})\)"
 _GAP_PINPOINT = (
-	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	r"\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?(?:\s*(?:,|and)\s*\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?)*?)"
 )
 # Between parallel citations: a comma, optional court/database tags, optional pinpoint
@@ -581,7 +582,7 @@ def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], 
 # --------------------------------------------------------------------------- back-references
 _PIN_RANGE = r"\d{1,5}(?!\d|\s+(?-i:[A-Z]))(?:\s*(?:[-–]|to|à)\s*\d{1,5}(?!\d|\s+(?-i:[A-Z])))?"
 _PINPOINT_TAIL = (
-	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	rf"{_PIN_RANGE}(?:\s*(?:,|and|et|&)\s*{_PIN_RANGE})*)?"
 )
 IBID_RE = re.compile(rf"(?<![\w.])(?P<word>Ibid(?:em)?\.?|Id\.)(?P<tail>{_PINPOINT_TAIL})", re.UNICODE)
@@ -924,6 +925,9 @@ def refine_case_citations(
 		rows = _apply_backrefs(content, rows)
 	if "C4_pinpoints" in enabled:
 		rows = [_with_pinpoints(content, row) for row in rows]
+
+	if "C4b_landmarks" in enabled:
+		rows = sorted([*rows, *landmark_rows(content, rows)], key=lambda row: (row.offset_start, row.offset_end))
 
 	dropped: list[RefinedCitation] = []
 	if "C5_validate" in enabled:

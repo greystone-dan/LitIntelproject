@@ -320,6 +320,11 @@ def test_build_case_reader_data_serializes_stored_outcome_read_only(monkeypatch,
             assert statement.is_select
             entity = statement.column_descriptions[0]["entity"]
             self.scalar_entities.append(entity)
+            if entity is reader_service.Citation:
+                # The live "cited by" count: distinct citing cases for this authority.
+                assert "count(distinct(citations.source_case_id))" in str(statement)
+                assert statement.compile().params["target_case_id_1"] == case.id
+                return 0
             assert statement.compile().params["case_id_1" if entity is not reader_service.Case else "id_1"] == case.id
             if entity is reader_service.Case:
                 return case
@@ -381,7 +386,8 @@ def test_build_case_reader_data_serializes_stored_outcome_read_only(monkeypatch,
     assert response.format_blocks == expected_blocks
     assert vars(case) == original_case
     assert db.scalar_entities == [
-        reader_service.Case, reader_service.CitationMetrics, reader_service.CaseOutcome,
+        reader_service.Case, reader_service.CitationMetrics, reader_service.Citation,
+        reader_service.CaseOutcome,
     ]
     assert db.collection_entities == [
         reader_service.CaseSource, reader_service.CaseChunk, reader_service.CaseTag,

@@ -2803,18 +2803,27 @@ def batch_extract_statute_references_from_chunks(session: Session, batch_size: i
 
 
 def compute_citation_metrics(session: Session) -> int:
-	resolved_edges = list(
-		session.execute(
-			select(Citation.source_case_id, Citation.target_case_id).where(Citation.target_case_id.is_not(None))
-		)
-	)
+	"""Store each case's in-degree (distinct other cases citing it) and out-degree (resolved citation rows).
+
+	In-degree counts citing cases, not citation rows, and ignores a case citing itself, so it matches the
+	"cited by N decisions" shown in search and in the reader.
+	"""
 	out_degree: dict[int, int] = defaultdict(int)
+	for source_case_id, count in session.execute(
+		select(Citation.source_case_id, func.count())
+		.where(Citation.target_case_id.is_not(None))
+		.group_by(Citation.source_case_id)
+	):
+		if source_case_id is not None:
+			out_degree[int(source_case_id)] = int(count)
 	in_degree: dict[int, int] = defaultdict(int)
-	for source_case_id, target_case_id in resolved_edges:
-		if source_case_id is None or target_case_id is None:
-			continue
-		out_degree[int(source_case_id)] += 1
-		in_degree[int(target_case_id)] += 1
+	for target_case_id, count in session.execute(
+		select(Citation.target_case_id, func.count(func.distinct(Citation.source_case_id)))
+		.where(Citation.target_case_id.is_not(None), Citation.source_case_id != Citation.target_case_id)
+		.group_by(Citation.target_case_id)
+	):
+		if target_case_id is not None:
+			in_degree[int(target_case_id)] = int(count)
 
 	updated = 0
 	for case_id, in session.execute(select(Case.id)):

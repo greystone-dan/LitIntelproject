@@ -401,18 +401,25 @@ def imm_year_number(imm: str | None) -> tuple[int, int] | None:
 
 
 def highest_known_imm(db, year_suffix: int) -> int:
-    """Highest IMM sequence number already stored for a two-digit year suffix."""
+    """Highest IMM sequence number already stored for a two-digit year suffix.
+
+    Files from 2023 on keep the docket number only in raw_payload ('imm_number'); the citation
+    column is blank, and date_filed is the latest activity date, so the docket-year suffix is
+    the only reliable filing year. The year column is used just to narrow the scan.
+    """
     suffix = f"{year_suffix:02d}"
     pattern = rf"^IMM-[0-9]+-{suffix}$"
+    full_year = 2000 + year_suffix if year_suffix <= 50 else 1900 + year_suffix
     best = 0
     queries = (
-        "SELECT max(split_part(citation, '-', 2)::int) FROM fc_activity_cases WHERE citation ~ :p",
+        "SELECT max(split_part(citation, '-', 2)::int) FROM fc_activity_cases "
+        "WHERE year IN (:y, :y1) AND citation ~ :p",
         "SELECT max(split_part(raw_payload->>'imm_number', '-', 2)::int) FROM fc_activity_cases "
-        "WHERE raw_payload->>'imm_number' ~ :p",
+        "WHERE year IN (:y, :y1) AND raw_payload->>'imm_number' ~ :p",
         "SELECT max(split_part(imm_number, '-', 2)::int) FROM fc_procedural_history WHERE imm_number ~ :p",
     )
     for query in queries:
-        value = db.execute(text(query), {"p": pattern}).scalar()
+        value = db.execute(text(query), {"p": pattern, "y": full_year, "y1": full_year + 1}).scalar()
         if value:
             best = max(best, int(value))
     return best
@@ -525,12 +532,13 @@ def refresh_candidates(db, limit: int, min_age_days: int, active_within_days: in
     rows = db.execute(
         text(
             """
-            SELECT c.citation
+            SELECT COALESCE(c.citation, c.raw_payload->>'imm_number')
             FROM fc_activity_cases c
             JOIN (
                 SELECT case_id, max(doc_dt) AS last_doc FROM fc_activity_documents GROUP BY case_id
             ) d ON d.case_id = c.id
-            WHERE c.citation ~ '^IMM-[0-9]+-[0-9]{2}$'
+            WHERE c.year >= :min_year
+              AND COALESCE(c.citation, c.raw_payload->>'imm_number') ~ '^IMM-[0-9]+-[0-9]{2}$'
               AND d.last_doc >= :active_since
               AND (c.scraped_timestamp IS NULL OR c.scraped_timestamp < :stale_before)
             ORDER BY c.scraped_timestamp NULLS FIRST, c.id
@@ -541,6 +549,7 @@ def refresh_candidates(db, limit: int, min_age_days: int, active_within_days: in
             "active_since": today - timedelta(days=active_within_days),
             "stale_before": datetime.now(timezone.utc) - timedelta(days=min_age_days),
             "limit": limit,
+            "min_year": today.year - 1,
         },
     )
     return [row[0] for row in rows]

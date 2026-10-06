@@ -395,3 +395,34 @@ def test_activity_stage_dry_run_and_empty_year_guard(clean_db, monkeypatch):
     assert dry["new_files"] == [f"IMM-6-{TEST_YEAR}"]
     with SessionLocal() as db:
         assert db.scalar(select(FCActivityCase).where(FCActivityCase.citation == f"IMM-6-{TEST_YEAR}")) is None
+
+
+def test_files_with_number_only_in_raw_payload_are_found_and_updated_in_place(clean_db):
+    """2023+ rows have a blank citation; the number lives in raw_payload and the legacy source key."""
+    from sqlalchemy import func, select
+
+    from backend.database import FCActivityCase, SessionLocal
+    from scripts.fetch_fc_procedural_history import _activity_hash
+
+    imm = f"IMM-77-{TEST_YEAR}"
+    with SessionLocal() as db:
+        db.add(
+            FCActivityCase(
+                source_key=_activity_hash("fc-procedural-endpoint", imm),
+                citation=None,
+                year=1997,
+                date_filed=date(1998, 1, 1),  # latest activity, not filing date
+                raw_payload={"imm_number": imm},
+            )
+        )
+        db.commit()
+        assert daily_intake.highest_known_imm(db, TEST_YEAR) == 77
+
+    result = _fake_result(imm, [("1997-04-20", "Application for leave and judicial review filed", "")])
+    with SessionLocal() as db:
+        daily_intake.store_activity(db, imm, result)
+        rows = db.scalars(select(FCActivityCase).where(FCActivityCase.raw_payload["imm_number"].as_string() == imm)).all()
+        assert len(rows) == 1 and rows[0].citation == imm  # same row, no duplicate
+        assert db.scalar(select(func.count()).select_from(FCActivityCase).where(FCActivityCase.citation == imm)) == 1
+        refresh = daily_intake.refresh_candidates(db, 50, 0, 100000, date(1997, 6, 1))
+        assert imm in refresh  # found through raw_payload, not only the citation column

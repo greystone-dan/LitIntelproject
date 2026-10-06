@@ -81,11 +81,61 @@ _IMMIGRATION_PARTY_RE = re.compile(
 )
 _STAY_INTRO_RE = re.compile(
     r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
-    r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
+    r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |a |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
     r"order (?:staying|prohibiting)[^.]{0,40}remov)",
     re.IGNORECASE,
 )
 STAY_INTRO_BONUS = 12.0
+JR_SUBJECT_BONUS = 8.0
+_JR_SENTENCE_RE = re.compile(r"[^.]{0,400}?(?:judicial\s+review|set\s+aside|leave\s+to\s+(?:appeal|commence))[^.]{0,400}", re.IGNORECASE)
+_JR_SUBJECTS = (
+    ("refugee_claim", re.compile(r"Refugee\s+(?:Protection|Appeal)\s+Division|\bRPD\b|\bRAD\b|refugee\s+(?:claim|protection|status)|Convention\s+refugee", re.IGNORECASE)),
+    ("humanitarian_compassionate", re.compile(r"humanitarian\s+and\s+compassionate|\bH\s?&\s?C\b", re.IGNORECASE)),
+    ("pre_removal_risk_assessment", re.compile(r"pre-removal\s+risk\s+assessment|\bPRRA\b", re.IGNORECASE)),
+    ("study_permit", re.compile(r"student\s+visa|study\s+permit", re.IGNORECASE)),
+    ("work_permit", re.compile(r"work\s+permit", re.IGNORECASE)),
+    ("visitor_visa", re.compile(r"visitor\s+visa|temporary\s+resident\s+visa", re.IGNORECASE)),
+)
+_ACT_NAME_RE = re.compile(r"Immigration\s+and\s+Refugee\s+Protection\s+(?:Act|Regulations)|\bIRPA\b", re.IGNORECASE)
+_DEFER_RE = re.compile(r"\bdefer|\bstay\b|mandamus|relief\s+from", re.IGNORECASE)
+_IAD_RE = re.compile(r"Immigration\s+Appeal\s+Division|\bIAD\b", re.IGNORECASE)
+_OPENING_RULES = (
+    ("court_procedure_only", re.compile(r"\bmotion\b[^.]{0,120}(?:\brules?\b|non-disclosure|set aside the order|expedite|reconsider)|appeal[^.]{0,60}order of (?:the )?prothonotary|set aside the order of this court", re.IGNORECASE)),
+    ("removal_deferral_stay", re.compile(r"\bdefer(?:ral)?\b[^.]{0,80}removal|refus\w+ to defer|stay of (?:a |the |an )?(?:removal|deportation|execution)|stay the execution|motion (?:for|to) (?:a )?stay|granted a stay|application for a stay|request(?:ing|s)? a stay", re.IGNORECASE)),
+    ("pre_removal_risk_assessment", re.compile(r"risk assessment|\bPRRA\b|minister.s protection|protection of the minister|applications? for protection", re.IGNORECASE)),
+    ("permanent_resident_status", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}residency obligation|residency obligation[^.]{0,300}(?:Immigration Appeal Division|\bIAD\b)", re.IGNORECASE)),
+    ("family_class_sponsorship", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}(?:visa officer|sponsor|spous|marriage|husband|wife|family class|adopt)|(?:visa officer|sponsor|spous|marriage|husband|wife|family class)[^.]{0,200}(?:Immigration Appeal Division|\bIAD\b)", re.IGNORECASE)),
+    ("removal_admissibility_proceedings", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}(?:removal order|deportation order|exclusion order|inadmissib)", re.IGNORECASE)),
+    ("humanitarian_compassionate", re.compile(r"humanitarian\s+(?:and|or)\s+compassionate|\bH\s?&\s?C\b|(?:section|subsection|s\.)\s?25(?:\(1\))?\b", re.IGNORECASE)),
+    ("study_permit", re.compile(r"study permit|student visa|study in canada|genuine student|permis d.études", re.IGNORECASE)),
+    ("work_permit", re.compile(r"work permit|work authori[sz]ation|permis de travail", re.IGNORECASE)),
+    ("visitor_visa", re.compile(r"visitor visa|temporary resident visa|visa de visiteur|visa de résident temporaire", re.IGNORECASE)),
+    ("economic_immigration", re.compile(r"provincial nominee|express entry|skilled worker|skilled trades|canadian experience class", re.IGNORECASE)),
+    ("refugee_claim", re.compile(r"section d.appel des réfugiés|section de la protection des réfugiés|section du statut|demande d.asile|(?:claimed|sought|claiming|made a claim for) (?:refugee )?(?:protection|status)|refugee claim|refugee protection claim|refugee division|refugee (?:protection|appeal) division|(?:panel|member) of the immigration and refugee board|\bRPD\b|\bRAD\b", re.IGNORECASE)),
+)
+OPENING_SUBJECT_WINDOW = 500
+
+
+_SUBORDINATE_TO_H_AND_C = {"court_procedure_only", "removal_deferral_stay", "permanent_resident_status", "family_class_sponsorship",
+                           "removal_admissibility_proceedings"}
+
+
+def opening_subject_type(intro: str) -> str | None:
+    """The one decision subject the opening paragraphs name, used only to resolve unclear results.
+
+    H&C is the subject only when nothing more specific is named (a deferral or an Immigration Appeal Division
+    appeal "on H&C grounds" is about the deferral or the appeal), and a refugee claim only when nothing else is named
+    (many other decisions recite a refugee claim as background). Two different subjects name none.
+    """
+    opening = _ACT_NAME_RE.sub(" ", intro[:OPENING_SUBJECT_WINDOW])
+    hits = [key for key, pattern in _OPENING_RULES if pattern.search(opening)]
+    if _SUBORDINATE_TO_H_AND_C.intersection(hits):
+        hits = [key for key in hits if key != "humanitarian_compassionate"]
+    if len(hits) > 1:
+        hits = [key for key in hits if key != "refugee_claim"]
+    return hits[0] if len(hits) == 1 else None
+
+
 PRRA_OFFICER_HC_BONUS = 8.0
 PRRA_DECISION_BONUS = 8.0
 PROCEDURAL_INTRO_BONUS = 5.0
@@ -324,13 +374,24 @@ def is_immigration_decision(
     return bool(_ACT_NAME_RE.search(intro) or _IMMIGRATION_VOCAB_RE.search(intro))
 
 
-def classify_text(
+def jr_subject_type(intro: str) -> str | None:
+    """The one subject named in the opening judicial review sentence, or None when it names none or several."""
+    match = _JR_SENTENCE_RE.search(intro[:700])
+    if not match or _IAD_RE.search(match.group(0)):
+        return None
+    sentence = _ACT_NAME_RE.sub(" ", match.group(0))
+    subjects = [key for key, pattern in _JR_SUBJECTS if pattern.search(sentence)]
+    return subjects[0] if len(subjects) == 1 and not _DEFER_RE.search(sentence) else None
+
+
+def _classify_text(
     text: str | None,
     *,
     court: str | None = None,
     title: str | None = None,
     docket: str | None = None,
     source_citations: Iterable[str | None] = (),
+    jr_bonus: float = 0.0,
 ) -> CaseTypeResult:
     """Classify one decision from its text."""
     content = text or ""
@@ -429,6 +490,14 @@ def classify_text(
             and _PRRA_DECISION_RE.search(intro[:500])):
         scores["pre_removal_risk_assessment"] = round(scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS, 2)
         intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
+    # The opening sentence that names the judicial review says what decision is under review: when it names
+    # exactly one subject (refugee claim, H&C, PRRA, study or work permit, visitor visa), that subject leads.
+    jr_subject = None
+    if jr_bonus:
+        jr_subject = jr_subject_type(intro) or opening_subject_type(intro)
+    if jr_subject:
+        scores[jr_subject] = round(scores.get(jr_subject, 0.0) + jr_bonus, 2)
+        intro_scores[jr_subject] = intro_scores.get(jr_subject, 0.0) + jr_bonus
     prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
     if prra_hc:
         scores["humanitarian_compassionate"] = round(scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS, 2)
@@ -528,3 +597,14 @@ def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:
     pool = repeated or list(counts.items())
     pool.sort(key=lambda item: (item[1] * (1 + 0.25 * item[0].count("(")), item[0].count("(")), reverse=True)
     return pool[0][0]
+
+
+def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
+    """Classify one decision. A decision that stays unclear is retried once with the subject named in the
+    judicial review sentence leading, so the bonus only ever resolves unclear results and never changes a clear one."""
+    result = _classify_text(text, **kwargs)
+    if result.status == STATUS_UNCLEAR:
+        retry = _classify_text(text, jr_bonus=JR_SUBJECT_BONUS, **kwargs)
+        if retry.status == STATUS_CLASSIFIED:
+            return retry
+    return result

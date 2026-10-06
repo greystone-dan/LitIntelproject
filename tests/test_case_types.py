@@ -218,3 +218,23 @@ def test_single_issue_decision_has_no_second_main_type() -> None:
     result = classify(text)
     assert result.primary_type == "refugee_cessation"
     assert result.second_type is None
+
+
+def test_prra_officer_deciding_an_h_and_c_application_is_an_h_and_c_case() -> None:
+    text = decision(
+        "This is an application for judicial review of the decision of a Pre-Removal Risk Assessment officer who "
+        "rejected the applicant's humanitarian and compassionate (H&C) application under subsection 25(1) of the "
+        "Immigration and Refugee Protection Act [IRPA].",
+        "The officer found the hardship in Mexico insufficient under subsection 25(1) and considered the risk factors "
+        "described in sections 96 and 97 of the IRPA and section 112 of the IRPA in the pre-removal risk assessment.",
+    )
+    assert classify(text).primary_type == "humanitarian_compassionate"
+
+
+def test_motion_to_intervene_is_a_procedural_matter() -> None:
+    text = decision(
+        "These reasons concern a motion for leave to intervene in the appeal of a decision about inadmissibility under "
+        "paragraph 37(1)(a) of the Immigration and Refugee Protection Act [IRPA].",
+        "The proposed intervener argues about paragraph 37(1)(a) and section 37 of the IRPA and section 36 of the IRPA.",
+    )
+    assert classify(text, court="FCA", title="Canada (Public Safety) v. Smith").primary_type == "court_procedure_only"

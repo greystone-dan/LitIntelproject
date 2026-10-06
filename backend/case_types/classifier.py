@@ -65,6 +65,14 @@ _CRIMINAL_TITLE_RE = re.compile(r"^(?:R\.|Her Majesty|La Reine|Regina)\s+(?:v\.|
 _IMMIGRATION_TITLE_RE = re.compile(r"Citizenship|Immigration|Public Safety|Refugee|Minister of|Solicitor General|Canada Border|Council for", re.IGNORECASE)
 CRIMINAL_CASE_MIN_HITS = 25
 NON_IMMIGRATION_TITLE_MIN_HITS = 8
+_PROCEDURAL_INTRO_RE = re.compile(
+    r"(?:motion|application|request)\s+(?:\w+\s+){0,3}?(?:for\s+leave\s+)?to\s+(?:intervene|strike|quash)"
+    r"|leave\s+to\s+intervene|for\s+an\s+order\s+striking|(?:motion|request)\s+for\s+an?\s+extension\s+of\s+time|costs\s+(?:against|awarded\s+against)",
+    re.IGNORECASE,
+)
+_PRRA_OFFICER_HC_RE = re.compile(
+    r"(?:pre-removal\s+risk\s+assessment|PRRA)\s+officer[^.]{0,160}?(?:humanitarian\s+and\s+compassionate|H&C)", re.IGNORECASE
+)
 _STAY_INTRO_RE = re.compile(
     r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
     r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
@@ -72,6 +80,10 @@ _STAY_INTRO_RE = re.compile(
     re.IGNORECASE,
 )
 STAY_INTRO_BONUS = 12.0
+PRRA_OFFICER_HC_BONUS = 8.0
+PROCEDURAL_INTRO_BONUS = 5.0
+PROCEDURAL_INTRO_WINDOW = 250  # the first sentence or two, where the court says what it is deciding
+APPEAL_COURT_CUE_ONLY_MIN_SCORE = 15.0
 _ACT_NAME_RE = re.compile(r"Immigration and Refugee Protection Act|Immigration Act|Citizenship Act|\bIRPA\b", re.IGNORECASE)
 _DOCKET_IMM_RE = re.compile(r"\bIMM-\d+-\d+\b|\bIMM-\d+\b")
 
@@ -396,6 +408,20 @@ def classify_text(
             if key in scores:
                 scores[key] = round(scores[key] * DEMOTE_GENERAL_FACTOR, 2)
 
+    # A PRRA officer who decided an H&C application: the case is about the H&C decision.
+    prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
+    if prra_hc:
+        scores["humanitarian_compassionate"] = round(scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS, 2)
+        intro_scores["humanitarian_compassionate"] = intro_scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS
+        if "pre_removal_risk_assessment" in scores:
+            scores["pre_removal_risk_assessment"] = round(scores["pre_removal_risk_assessment"] * DEMOTE_GENERAL_FACTOR, 2)
+
+    # A motion about the court's own process (intervention, extension, striking or quashing an appeal, costs) is
+    # procedural whatever statute the underlying case concerns.
+    if _PROCEDURAL_INTRO_RE.search(intro[:PROCEDURAL_INTRO_WINDOW]):
+        scores["court_procedure_only"] = round(max(scores.values(), default=0.0) + PROCEDURAL_INTRO_BONUS, 2)
+        intro_scores["court_procedure_only"] = scores["court_procedure_only"]
+
     # A removal order that follows from an upstream finding (residency breach, an inadmissibility ground)
     # is labelled by the upstream finding.
     upstream = [key for key, value in scores.items()
@@ -407,7 +433,8 @@ def classify_text(
     allowed_groups = ALLOWED_GROUPS_BY_PROCEEDING.get(proceeding or "")
     if allowed_groups:
         scores = {key: value for key, value in scores.items()
-                  if TYPES_BY_KEY[key].group in allowed_groups or key == "removal_deferral_stay"}
+                  if TYPES_BY_KEY[key].group in allowed_groups or key == "removal_deferral_stay"
+                  or (prra_hc and key == "humanitarian_compassionate")}
     min_primary = MIN_PRIMARY_SCORE_KNOWN_FORUM if allowed_groups else MIN_PRIMARY_SCORE
 
     ranked = sorted(scores.items(), key=lambda item: item[1], reverse=True)
@@ -418,6 +445,12 @@ def classify_text(
                               reason="no case type reached the minimum evidence score")
 
     top_key, top_score = ranked[0]
+    if (court_key in {"FCA", "SCC"} and top_key not in matched_hits and top_score < APPEAL_COURT_CUE_ONLY_MIN_SCORE
+            and top_key != "court_procedure_only"):
+        # An appeal-court decision labelled from wording alone, with no statute provision behind it, is not safe.
+        return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, dict(ranked[:6]),
+                              [key for key, _ in ranked[:3]], proceeding,
+                              reason="only wording, no statute provision, supports the leading case type")
     second_score = ranked[1][1] if len(ranked) > 1 else 0.0
     tie_broken_by_intro = False
     if second_score and top_score < MIN_LEAD_RATIO * second_score:

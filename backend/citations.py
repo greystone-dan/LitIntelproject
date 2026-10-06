@@ -2011,9 +2011,11 @@ def _extract_anchored_provision_candidates(
 		provisions = _normalize_section_list(match.group(2))
 		if re.search(r"\b(?:R|S|C)\.?\s?(?:S|C|R)\.?\s*$", content[max(0, start - 8) : start]):
 			continue  # a reporter or statute-book volume ("R.S. 346"), not a provision
-		leading_number = re.match(r"\d+", provisions)
-		if "Charter" in authority and leading_number and int(leading_number.group(0)) > 52:
-			continue  # the Charter has no provision above s. 52; the nearest-statute guess is wrong
+		leading_number = re.match(r"\d+(?:\.\d+)?", provisions)
+		if "Charter" in authority and leading_number:
+			charter_section = leading_number.group(0)
+			if (float(charter_section) > 52 or ("." in charter_section and charter_section != "16.1")):
+				continue  # the Charter has no such provision; the nearest-statute guess is wrong
 		plural = prefix.endswith("s") or prefix.startswith("arts") or prefix.startswith("ss")
 		if prefix.startswith("art"):
 			label = "arts." if plural else "art."
@@ -2307,7 +2309,67 @@ def _extract_bare_federal_courts_rules(content: str, taken: list[RawCitationMatc
 	return rows
 
 
-def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch]:
+DEFAULT_IRPA_COURTS = {"RPD", "RAD", "ID", "IAD"}
+
+
+def court_defaults_to_irpa(court: str | None) -> bool:
+	"""Board decisions are decided under the IRPA, so a bare \"the Act\" means the IRPA."""
+	return (court or "").strip().upper() in DEFAULT_IRPA_COURTS
+
+
+_IRPA_NAME_RE = re.compile(r"\bIRPA\b|Immigration and Refugee Protection Act")
+_ACT_DEFINITION_RE = re.compile(r"\(\s*(?:the\s+)?[\"“”']?(?:the\s+)?Act[\"“”']?\s*\)")
+
+
+def _act_is_irpa(content: str) -> bool:
+	"""True when the decision defines "the Act" as the IRPA, or defines no "Act" while naming the IRPA."""
+	definition = _ACT_DEFINITION_RE.search(content)
+	if definition is not None:
+		return bool(_IRPA_NAME_RE.search(content[max(0, definition.start() - 120) : definition.start()]))
+	return False
+
+
+def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch], board: bool) -> list[RawCitationMatch]:
+	"""Tie "the Act" and sections 96-98 to the IRPA in immigration decisions.
+
+	Board decisions are always IRPA decisions. In other decisions the IRPA must be named earlier in
+	the text, and "of the Act" must be defined as the IRPA.
+	"""
+	first_irpa = _IRPA_NAME_RE.search(content)
+	if not board and first_irpa is None:
+		return []
+	act_is_irpa = board or _act_is_irpa(content)
+	rows: list[RawCitationMatch] = []
+	for match in STANDALONE_PROVISION_RE.finditer(content):
+		start, end = match.span()
+		prefix = match.group(1).lower()
+		if prefix.startswith("art") or prefix.startswith("para") or prefix.startswith("subpara"):
+			continue
+		if not board and (first_irpa is None or first_irpa.start() >= start):
+			continue
+		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+			continue
+		provisions = _normalize_section_list(match.group(2))
+		leading = re.match(r"\d+", provisions)
+		if leading is None:
+			continue
+		tail = content[end : end + 50]
+		of_the_act = re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this)\s+Act\b", tail, re.IGNORECASE)
+		if of_the_act:
+			if not act_is_irpa:
+				continue
+		elif int(leading.group(0)) not in (96, 97, 98):
+			continue
+		if re.match(r"\s+of\s+(?:the|this)\s+(?!Act\b)[A-Z]", tail):
+			continue
+		plural = prefix.endswith("s") or prefix.startswith("ss")
+		label = "ss." if plural else "s."
+		normalized = f"{_full_statute_citation_name('IRPA')} {label} {provisions}"
+		rows.append(_raw_match("statute", match.group(0), normalized, start, end))
+	return rows
+
+
+def extract_statute_reference_matches(text: str | None, *, default_irpa: bool = False) -> list[RawCitationMatch]:
 	"""Return only statute and legal-instrument matches from deterministic law rules."""
 	content = text or ""
 	if not content.strip():
@@ -2321,6 +2383,7 @@ def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch
 	candidates.extend(candidate for _start, _end, candidate in _extract_provisions_of_registered_acts(content))
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
 	candidates.extend(_extract_bare_federal_courts_rules(content, candidates))
+	candidates.extend(_extract_default_irpa_provisions(content, candidates, board=default_irpa))
 	return _select_best_non_overlapping(candidates)
 
 
@@ -2660,9 +2723,10 @@ def extract_statute_references_from_text(
 	source_case_id: int,
 	text: str | None,
 	chunk_id: int | None = None,
+	default_irpa: bool = False,
 ) -> list[StatuteReference]:
 	selected: list[StatuteReference] = []
-	for raw_match in extract_statute_reference_matches(text):
+	for raw_match in extract_statute_reference_matches(text, default_irpa=default_irpa):
 		parsed = parse_legislation_citation(raw_match.normalized_citation or raw_match.citation_text)
 		selected.append(
 			StatuteReference(
@@ -2769,12 +2833,13 @@ def rebuild_citations_for_case(session: Session, case: Case, chunks: list[CaseCh
 def rebuild_statute_references_for_case(session: Session, case: Case, chunks: list[CaseChunk] | None = None) -> int:
 	session.execute(delete(StatuteReference).where(StatuteReference.source_case_id == case.id))
 	inserted = 0
+	default_irpa = court_defaults_to_irpa(getattr(case, "court", None))
 	selected_chunks = _preferred_case_chunks(chunks or [])
 	if selected_chunks:
 		for chunk in selected_chunks:
-			inserted += len(extract_statute_references_from_text(session, case.id, chunk.text, chunk.id))
+			inserted += len(extract_statute_references_from_text(session, case.id, chunk.text, chunk.id, default_irpa=default_irpa))
 	else:
-		inserted += len(extract_statute_references_from_text(session, case.id, case.full_text or case.summary, None))
+		inserted += len(extract_statute_references_from_text(session, case.id, case.full_text or case.summary, None, default_irpa=default_irpa))
 	return inserted
 
 

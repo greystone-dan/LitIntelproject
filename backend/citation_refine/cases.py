@@ -34,9 +34,10 @@ from .models import (
 	Pinpoint,
 	RefinedCitation,
 )
+from .landmarks import landmark_rows
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
-CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C5_validate")
+CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C5_validate")
 
 # --------------------------------------------------------------------------- courts and reporters
 # Neutral citation court codes -> first year the code was used (None = no check).
@@ -924,6 +925,9 @@ def refine_case_citations(
 		rows = _apply_backrefs(content, rows)
 	if "C4_pinpoints" in enabled:
 		rows = [_with_pinpoints(content, row) for row in rows]
+
+	if "C4b_landmarks" in enabled:
+		rows = sorted([*rows, *landmark_rows(content, rows)], key=lambda row: (row.offset_start, row.offset_end))
 
 	dropped: list[RefinedCitation] = []
 	if "C5_validate" in enabled:

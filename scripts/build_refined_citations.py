@@ -6,6 +6,7 @@ data. DRY RUN BY DEFAULT: nothing is written without `--apply`.
 
     python scripts/build_refined_citations.py --limit 500            # dry run: counts and a compare to pass one
     python scripts/build_refined_citations.py --limit 500 --apply    # write the first 500 decisions
+    python scripts/build_refined_citations.py --language fr --random-seed 1 --limit 500   # random French sample, dry run
     python scripts/build_refined_citations.py --apply --court FC     # continue (resumable; skips done decisions)
     python scripts/build_refined_citations.py --revert --yes         # delete all refined rows and status rows for this version
 
@@ -18,6 +19,7 @@ Statute references and paragraph links are a later step.
 from __future__ import annotations
 
 import argparse
+import random
 import sys
 import time
 from datetime import datetime, timezone
@@ -43,6 +45,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 	parser.add_argument("--limit", type=int, default=500, help="Maximum decisions to process this run (default 500).")
 	parser.add_argument("--court", default=None, help="Only this court (FC, FCA, SCC, RPD ...).")
 	parser.add_argument("--case-id", type=int, action="append", default=None, help="Only these decision ids (repeatable).")
+	parser.add_argument("--language", choices=("en", "fr"), default=None, help="Only decisions tagged with this language.")
+	parser.add_argument("--random-seed", type=int, default=None, help="Pick decisions in a seeded random order instead of lowest id first.")
 	parser.add_argument("--start-after-id", type=int, default=0)
 	parser.add_argument("--sleep", type=float, default=0.0, help="Seconds to pause between decisions.")
 	parser.add_argument("--stop-file", type=Path, default=None, help="Stop cleanly when this file exists.")
@@ -121,17 +125,19 @@ def main(argv: list[str] | None = None) -> None:
 			print(f"reverted refine_version={args.refine_version} rows_deleted={rows} status_rows_deleted={statuses}")
 			return
 		done = select(CitationRefineStatus.source_case_id).where(CitationRefineStatus.refine_version == args.refine_version)
-		query = (
-			select(Case.id)
-			.where(Case.id > args.start_after_id, Case.full_text.is_not(None), Case.id.not_in(done))
-			.order_by(Case.id)
-			.limit(args.limit)
-		)
+		query = select(Case.id).where(Case.id > args.start_after_id, Case.full_text.is_not(None), Case.id.not_in(done)).order_by(Case.id)
 		if args.court:
 			query = query.where(Case.court == args.court)
+		if args.language:
+			query = query.where(Case.language == args.language)
 		if args.case_id:
 			query = query.where(Case.id.in_(args.case_id))
-		case_ids = list(session.scalars(query))
+		if args.random_seed is None:
+			case_ids = list(session.scalars(query.limit(args.limit)))
+		else:
+			candidates = list(session.scalars(query))
+			random.Random(args.random_seed).shuffle(candidates)
+			case_ids = candidates[: args.limit]
 		processed = refined_total = first_total = zero_before = zero_after = 0
 		for case_id in case_ids:
 			if args.stop_file is not None and args.stop_file.exists():

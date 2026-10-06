@@ -26,3 +26,13 @@ not citations; no pass-one row went missing without an explanation.
 Not measured here: case-name and pinpoint correctness, the 55 ambiguous matches (a resolution issue),
 and statute references. `scripts/build_refined_citations.py` writes refined rows beside the live table
 (dry run by default, resumable, revertable); nothing reads them yet.
+
+## Bare landmark short forms (step `C4b_landmarks`)
+
+Of the 426 live decisions that mention Vavilov without a Vavilov citation row, 335 are French (cited as `2019 CSC 65`,
+fixed above). Most of the English remainder cite it by name only ("Vavilov at para 85") with no full citation anywhere in
+the decision, which pass one cannot link because it needs an earlier full citation. Checked on 2025 FC 198, 2025 FC 834 and
+2026 FC 736: pass one finds no Vavilov row, the new step finds every mention. The step knows nine fixed landmark names
+(Vavilov, Dunsmuir, Khosa, Kanthasamy, Agraira, Newfoundland Nurses, Doré, Mason, Baker) and only fires on
+"<Name> at para N" (or French "au para N") that no other row already covers. In 800 random A2AJ decisions it added only 3 rows
+(most decisions give the full citation), so it matters mainly for decisions like the ones above.

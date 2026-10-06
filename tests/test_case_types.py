@@ -298,3 +298,21 @@ def test_opening_subject_rules_pick_one_subject_and_stay_silent_on_two():
     assert opening_subject_type("[1] She claimed refugee status in 2005. This is a judicial review of the refusal of her H&C application.") == "humanitarian_compassionate"
     assert opening_subject_type("[1] The officer refused the study permit and the work permit.") is None
     assert opening_subject_type("[1] Mr. Smith is a citizen of Peru.") is None
+
+
+def test_stay_motion_opening_is_a_stay_not_its_underlying_ground() -> None:
+    text = decision(
+        "The Applicants seek an interim stay, pending their application for leave and judicial review, of their removal from "
+        "Canada. They rely on a humanitarian and compassionate application under section 25(1) of the Act that is outstanding. "
+        "The test for a stay is serious issue, irreparable harm and balance of convenience.",
+    )
+    assert classify(text).primary_type == "removal_deferral_stay"
+
+
+def test_referral_to_admissibility_hearing_is_removal_proceedings() -> None:
+    text = decision(
+        "The applicant seeks judicial review of a decision of the Minister's delegate to refer him to an admissibility hearing "
+        "under subsection 44(2) of the Act. The delegate weighed humanitarian and compassionate factors under section 25(1) of the Act "
+        "but found the referral warranted because of a conviction under section 36(1)(a).",
+    )
+    assert classify(text).primary_type == "removal_admissibility_proceedings"

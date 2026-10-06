@@ -1356,7 +1356,16 @@ def fetch_analytics_search_cases(
 		"newest": "c.date DESC NULLS LAST, c.id DESC",
 		"oldest": "c.date ASC NULLS LAST, c.id ASC",
 		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
+		"most_cited": "cited_by.n DESC, c.date DESC NULLS LAST, c.id DESC",
 	}.get(sort_by, default_sort)
+	# Live count of distinct citing cases (the stored metrics table is stale), joined only for this sort.
+	cited_by_join = (
+		"JOIN (SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
+		"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id) "
+		"cited_by ON cited_by.target_case_id = c.id"
+		if sort_by == "most_cited"
+		else ""
+	)
 	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
@@ -1386,6 +1395,7 @@ def fetch_analytics_search_cases(
 				,{match_label} AS matched_on
 				,{snippet_sql} AS snippet
 			FROM cases c
+			{cited_by_join}
 			WHERE {where_clause}
 			ORDER BY {sort_order}
 			LIMIT :limit OFFSET :offset

@@ -14,7 +14,6 @@ import re
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from fastapi.responses import HTMLResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -233,10 +232,3 @@ def statute_library_section(
     db: Session = Depends(get_db),
 ) -> dict[str, Any]:
     return fetch_section_view(db, act, section, page, page_size)
-
-
-@router.get("/statute-library", response_class=HTMLResponse, include_in_schema=False)
-def statute_library_page() -> HTMLResponse:
-    from .pages.statute_library import statute_library_page_html
-
-    return HTMLResponse(statute_library_page_html())

@@ -111,6 +111,7 @@ from .memo_citation_check import analyze_memo_citations
 from .deidentify import deidentify_text, reidentify_text, text_from_upload, text_to_docx
 from . import resource_limits
 from .pages.testing import testing_page_html
+from .pages.statute_library import statute_library_page_html
 from .pages.statute_viewer import statute_viewer_page_html
 from .statute_consideration import router as statute_consideration_router
 from .statute_sections import router as statute_sections_router
@@ -1492,6 +1493,11 @@ def data_explorer_page() -> HTMLResponse:
 @router.get("/saved-searches-ui", response_class=HTMLResponse, include_in_schema=False)
 def saved_searches_page() -> HTMLResponse:
 	return HTMLResponse(content=saved_searches_page_html(), status_code=status.HTTP_200_OK)
+
+
+@router.get("/statute-library", response_class=HTMLResponse, include_in_schema=False)
+def statute_library_page_route() -> HTMLResponse:
+	return HTMLResponse(content=statute_library_page_html(), status_code=status.HTTP_200_OK)
 
 
 @router.get("/statutes", response_class=HTMLResponse, include_in_schema=False)

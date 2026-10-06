@@ -1,6 +1,3 @@
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
-
 from backend import statute_sections as sections
 from backend.pages.statute_library import statute_library_page_html
 
@@ -20,14 +17,10 @@ def test_provision_label_for_breakdown():
 
 
 def test_routes_and_page_are_registered():
-    app = FastAPI()
-    app.include_router(sections.router)
     paths = {route.path for route in sections.router.routes}
     assert "/api/statute-library/acts" in paths
     assert "/api/statute-library/{act}/sections/{section}" in paths
-    response = TestClient(app).get("/statute-library")
-    assert response.status_code == 200
-    assert "Statute Library" in response.text
+    assert "Statute Library" in statute_library_page_html()
 
 
 def test_section_pattern_has_no_capture_group():

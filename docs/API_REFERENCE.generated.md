@@ -2826,7 +2826,7 @@ Handler: `backend.statute_consideration.statute_consideration_page`
 
 **Hidden from OpenAPI.**
 
-Handler: `backend.statute_sections.statute_library_page`
+Handler: `backend.routes.statute_library_page_route`
 
 **Responses**
 

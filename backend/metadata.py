@@ -85,6 +85,50 @@ def _field_source_label(field_sources: dict[str, str]) -> str:
 	return "derived"
 
 
+_RPD_MARKER_RE = re.compile(r"Refugee Protection Division|Section de la protection des r[ée]fugi[ée]s|\bRPD File\b", re.IGNORECASE)
+_RPD_NOT_A_NAME_RE = re.compile(r"counsel|claimant|conseil|demandeur|representative|minister|tribunal officer", re.IGNORECASE)
+
+
+def _rpd_header_fields(content: str) -> dict[str, str]:
+	"""Panel member and one-line place of hearing for Refugee Protection Division decisions.
+
+	The generic label extractor lets "place of hearing" run on through the rest of the RPD cover page
+	and finds no judge, so this reads the two fields from the cover page lines instead.
+	"""
+	head = content[:3000]
+	if not _RPD_MARKER_RE.search(head):
+		return {}
+	lines = [line.strip() for line in head.splitlines()]
+	found: dict[str, str] = {}
+	for index, line in enumerate(lines):
+		if re.fullmatch(r"Panel(?:\s+Tribunal)?", line, re.IGNORECASE):
+			for candidate in lines[index + 1 : index + 4]:
+				if not candidate or candidate.lower() == "tribunal":
+					continue
+				name = re.sub(r"^(?:Me|Mme|Mr\.?|Ms\.?|Mrs\.?)\s+", "", candidate)
+				if (
+					len(name) <= 60
+					and 1 < len(name.split()) <= 5
+					and not re.search(r"\d", name)
+					and not _RPD_NOT_A_NAME_RE.search(name)
+				):
+					found["judge"] = name
+				break
+			break
+	for index, line in enumerate(lines):
+		if re.match(r"Place\s*\(?s?\)?\s*of hearing", line, re.IGNORECASE):
+			for candidate in lines[index + 1 : index + 3]:
+				if candidate and not re.match(r"Lieu", candidate, re.IGNORECASE):
+					place = candidate
+					if re.search(r"\b(?:in|at)$", place, re.IGNORECASE) and index + 2 < len(lines):
+						place += " " + lines[lines.index(candidate, index) + 1]
+					if len(place) <= 80 and not re.search(r"\bdate\b", place, re.IGNORECASE):
+						found["place of hearing"] = place
+					break
+			break
+	return found
+
+
 def extract_case_metadata(text: str | None) -> dict[str, object]:
 	"""Extract the complete metadata payload stored once on a case."""
 	content = text or ""
@@ -94,6 +138,10 @@ def extract_case_metadata(text: str | None) -> dict[str, object]:
 	extracted = dict(_extract_metadata_with_quality(content))
 	confidence = dict(extracted.get("_field_confidence") or {})
 	sources = dict(extracted.get("_field_sources") or {})
+	for field, value in _rpd_header_fields(content).items():
+		extracted[field] = value
+		confidence[field] = 0.9
+		sources[field] = {"text": value}
 	for field, (value, score) in derive_intelligence_fields(content, extracted).items():
 		extracted[field] = value
 		confidence[field] = score

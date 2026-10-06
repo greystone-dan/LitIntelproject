@@ -1427,7 +1427,7 @@ def fetch_analytics_search_cases(
 				"citation_mentions": citation_counts.get(int(row["id"]), {}).get("citation_mentions", 0),
 				"unique_cited_authorities": citation_counts.get(int(row["id"]), {}).get("unique_cited_authorities", 0),
 				"resolved_target_cases": citation_counts.get(int(row["id"]), {}).get("resolved_target_cases", 0),
-				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0),
+				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0 if include_citation_stats else None),
 				"matched_on": row.get("matched_on", "Metadata"),
 				"snippet": clean_search_snippet(row.get("snippet")),
 			}

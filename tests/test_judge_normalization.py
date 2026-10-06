@@ -114,3 +114,37 @@ def test_older_present_style_panel_lines():
 	judges = parse_panel("Dickson C.J. and Ritchie*, Beetz, Estey, McIntyre, Lamer and Wilson JJ.")
 	assert [j.surname for j in judges] == ["dickson", "ritchie", "beetz", "estey", "mcintyre", "lamer", "wilson"]
 	assert parse_panel("NOËL J.A.")[0].surname == "noel"
+
+
+def test_fca_surname_only_is_court_scoped():
+	day = 365
+	counts = {"Simon Noël": 900, "NOËL J.": 50, "NOËL J.A.": 469}
+	# Overlapping dates: two different people, so the J.A. string is not merged into the FC judge.
+	overlap = {"Simon Noël": (2002 * day, 2025 * day), "NOËL J.": (2002 * day, 2025 * day), "NOËL J.A.": (2002 * day, 2025 * day)}
+	assert not any("NOËL J.A." in g.members for g in group_judge_names(counts, overlap))
+	assert not any("NOËL J.A." in g.members for g in group_judge_names(counts))
+	# FC decisions ended before the appeal ones began: an elevated judge, merged.
+	moved = {"Eleanor Dawson": (1998 * day, 2010 * day), "DAWSON J.A.": (2010 * day, 2024 * day)}
+	g = group_judge_names({"Eleanor Dawson": 300, "DAWSON J.A.": 234}, moved)
+	assert len(g) == 1 and set(g[0].members) == {"Eleanor Dawson", "DAWSON J.A."}
+
+
+def test_bare_strings_stay_in_their_own_court():
+	counts = {"Henry S. Brown": 60, "Russell Brown": 371, "The Honourable Mr. Justice Brown": 40}
+	courts = {"Henry S. Brown": {"FC"}, "Russell Brown": {"SCC"}, "The Honourable Mr. Justice Brown": {"FC"}}
+	groups = group_judge_names(counts, courts=courts)
+	merged = [g for g in groups if "The Honourable Mr. Justice Brown" in g.members]
+	assert merged and set(merged[0].members) == {"Henry S. Brown", "The Honourable Mr. Justice Brown"}
+
+
+def test_supreme_court_judge_later_on_fca_merges_when_dates_do_not_overlap():
+	day = 365
+	spans = {"Marshall Rothstein": (2006 * day, 2016 * day), "ROTHSTEIN J.A.": (1992 * day, 2006 * day)}
+	g = group_judge_names({"Marshall Rothstein": 546, "ROTHSTEIN J.A.": 252}, spans, {"Marshall Rothstein": {"SCC"}, "ROTHSTEIN J.A.": {"FCA"}})
+	assert len(g) == 1 and set(g[0].members) == {"Marshall Rothstein", "ROTHSTEIN J.A."}
+
+
+def test_panel_ignores_sentence_fragments():
+	from backend.judge_normalization import parse_panel
+	assert parse_panel("et nous sommes d'avis que ce jugement est bien fondé.; Abella, Rosalie") and \
+		[j.surname for j in parse_panel("et nous sommes d'avis que ce jugement est bien fondé.; Abella, Rosalie")] == ["abella"]

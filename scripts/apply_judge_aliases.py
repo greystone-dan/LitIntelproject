@@ -5,6 +5,8 @@ profile in `judge_profile_aliases`. No profile or case link is rewritten or dele
 
   python scripts/apply_judge_aliases.py            # dry run: print proposed merges
   python scripts/apply_judge_aliases.py --apply    # write alias rows (needs Daniel's go)
+  python scripts/apply_judge_aliases.py --prune    # dry run: rule rows the current rules no longer propose
+  python scripts/apply_judge_aliases.py --prune --apply   # delete those rows (e.g. Marc/Simon Noël)
   python scripts/apply_judge_aliases.py --revert   # delete every source='rule' alias row
 """
 
@@ -19,9 +21,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
-from sqlalchemy import delete, select
+from sqlalchemy import delete, func, select
 
-from backend.database import CaseJudgeProfile, JudgeProfile, JudgeProfileAlias, SessionLocal
+from backend.database import Case, CaseJudgeProfile, JudgeProfile, JudgeProfileAlias, SessionLocal
 from backend.judge_normalization import best_display_name, group_judge_names
 
 
@@ -37,8 +39,21 @@ def propose(session) -> list[tuple[JudgeProfile, list[JudgeProfile], dict]]:
 	for profile in profiles:
 		by_name[profile.display_name].append(profile)
 	counts = {name: sum(links[p.id] for p in plist) for name, plist in by_name.items()}
+	dates: dict[int, list[int]] = {}
+	for profile_id, first, last in session.execute(
+		select(CaseJudgeProfile.judge_profile_id, func.min(Case.date), func.max(Case.date))
+		.join(Case, Case.id == CaseJudgeProfile.case_id).group_by(CaseJudgeProfile.judge_profile_id)
+	):
+		if first and last:
+			dates[profile_id] = [first.toordinal(), last.toordinal()]
+	spans = {}
+	for name, plist in by_name.items():
+		known = [dates[p.id] for p in plist if p.id in dates]
+		if known:
+			spans[name] = (min(a for a, _ in known), max(b for _, b in known))
+	courts = {name: {p.primary_court for p in plist if p.primary_court} for name, plist in by_name.items()}
 	result = []
-	for group in group_judge_names(counts):
+	for group in group_judge_names(counts, spans, courts):
 		members = [p for name in group.members for p in by_name[name]]
 		if len(members) < 2:
 			continue
@@ -49,13 +64,13 @@ def propose(session) -> list[tuple[JudgeProfile, list[JudgeProfile], dict]]:
 
 
 def func_count():
-	from sqlalchemy import func
 	return func.count()
 
 
 def main() -> None:
 	parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 	parser.add_argument("--apply", action="store_true", help="Write alias rows.")
+	parser.add_argument("--prune", action="store_true", help="Remove rule rows the current rules no longer propose.")
 	parser.add_argument("--revert", action="store_true", help="Delete all rule-sourced alias rows.")
 	args = parser.parse_args()
 	with SessionLocal() as session:
@@ -63,6 +78,19 @@ def main() -> None:
 			removed = session.execute(delete(JudgeProfileAlias).where(JudgeProfileAlias.source == "rule")).rowcount
 			session.commit()
 			print(f"alias_rows_removed={removed}")
+			return
+		if args.prune:
+			wanted = {p.id: c.id for c, aliases, _ in propose(session) for p in aliases}
+			names = {p.id: p.display_name for p in session.scalars(select(JudgeProfile))}
+			stale = [row for row in session.scalars(select(JudgeProfileAlias).where(JudgeProfileAlias.source == "rule"))
+				if wanted.get(row.alias_profile_id) != row.canonical_profile_id]
+			for row in stale:
+				print(f"remove: {names.get(row.alias_profile_id)}  -/->  {names.get(row.canonical_profile_id)}")
+				if args.apply:
+					session.delete(row)
+			if args.apply:
+				session.commit()
+			print(f"alias_rows_{'removed' if args.apply else 'to_remove'}={len(stale)}")
 			return
 		existing = {a for (a,) in session.execute(select(JudgeProfileAlias.alias_profile_id))}
 		proposals = propose(session)

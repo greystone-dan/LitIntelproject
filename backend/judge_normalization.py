@@ -168,12 +168,65 @@ def _display(members: list[str], parsed: dict[str, JudgeName], counts: dict[str,
 	return parsed[max(members, key=rank)].name_text
 
 
-def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
+_FCA_SUFFIX_RE = re.compile(r"\bJ\.?\s?A\.?\s*$", re.IGNORECASE)
+ELEVATION_TOLERANCE_DAYS = 366
+
+
+def is_fca_string(raw: str) -> bool:
+	"""True for an appeal-court style string ("NOËL J.A."): the same surname can be a different person at the FC."""
+	return bool(_FCA_SUFFIX_RE.search(repair_text(raw).strip()))
+
+
+def _span(members: list[str], spans: dict[str, tuple[int, int]]) -> tuple[int, int] | None:
+	known = [spans[m] for m in members if m in spans]
+	return (min(a for a, _ in known), max(b for _, b in known)) if known else None
+
+
+def _attach_bare(bare, clusters, counts, parsed) -> list[str]:
+	"""Attach surname-only strings to the person they belong to (mutates `clusters`); return the ones left for review."""
+	review: list[str] = []
+	if len(clusters) == 1:
+		fits = [b for b in bare if not (parsed[b].gender and parsed[clusters[0][0]].gender and parsed[b].gender != parsed[clusters[0][0]].gender)]
+		clusters[0].extend(fits)
+		review = [b for b in bare if b not in fits]
+	elif not clusters:
+		female = [b for b in bare if parsed[b].gender == "f"]
+		male = [b for b in bare if parsed[b].gender == "m"]
+		if female and male:  # same surname, different gender titles: two people
+			clusters.extend([female, male])
+			review = [b for b in bare if not parsed[b].gender]  # cannot tell which one: leave alone
+		else:
+			clusters.append(list(bare))
+	else:
+		weights = [sum(counts[m] for m in c) for c in clusters]
+		top = max(range(len(clusters)), key=lambda i: weights[i])
+		others = sum(weights) - weights[top]
+		# A clearly dominant person (others are a handful of stray decisions, usually a
+		# typo'd initial) takes the surname-only strings; otherwise leave them for review.
+		if others <= max(3, weights[top] // 50):
+			gender = parsed[clusters[top][0]].gender
+			fits = [b for b in bare if not (parsed[b].gender and gender and parsed[b].gender != gender)]
+			clusters[top].extend(fits)
+			review = [b for b in bare if b not in fits]
+		else:
+			review = list(bare)
+	return review
+
+
+def group_judge_names(counts: dict[str, int], spans: dict[str, tuple[int, int]] | None = None,
+		courts: dict[str, set[str]] | None = None) -> list[MergeGroup]:
 	"""Group raw judge strings (value -> decision count) into proposed same-person groups.
 
 	Only groups with 2+ distinct raw strings, or ones with a review note, are returned.
 	A surname-only string joins a group only when exactly one person with that surname exists;
 	otherwise it is listed under `needs_review` and left alone.
+
+	Surname-only "J.A." strings (Federal Court of Appeal) are court-scoped: they join a Federal Court
+	person only when `spans` (raw string -> (first, last) decision date ordinals) shows that person's
+	FC decisions ended before the appeal decisions began (a judge elevated to the FCA). Without spans,
+	or when the dates overlap (Simon Noël FC vs Marc Noël FCA), they stay a separate FCA person.
+	Any other surname-only string (`courts`: raw string -> courts of its profiles) joins only a person
+	seen in one of its own courts, so FC "Justice Brown" never lands on SCC Russell Brown.
 	"""
 	parsed = {raw: parse_judge_name(raw) for raw in counts}
 	by_surname: dict[str, list[str]] = defaultdict(list)
@@ -193,32 +246,29 @@ def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 			else:
 				clusters.append([raw])
 		review: list[str] = []
-		if bare:
-			if len(clusters) == 1:
-				fits = [b for b in bare if not (parsed[b].gender and parsed[clusters[0][0]].gender and parsed[b].gender != parsed[clusters[0][0]].gender)]
-				clusters[0].extend(fits)
-				review = [b for b in bare if b not in fits]
-			elif not clusters:
-				female = [b for b in bare if parsed[b].gender == "f"]
-				male = [b for b in bare if parsed[b].gender == "m"]
-				if female and male:  # same surname, different gender titles: two people
-					clusters.extend([female, male])
-					review = [b for b in bare if not parsed[b].gender]  # cannot tell which one: leave alone
-				else:
-					clusters.append(list(bare))
+		bare_fca = [b for b in bare if is_fca_string(b)]
+		bare = [b for b in bare if b not in bare_fca]
+		if bare and courts and clusters:
+			by_court: dict[frozenset, list[str]] = defaultdict(list)
+			for b in bare:
+				by_court[frozenset(courts.get(b, ()))].append(b)
+			for court_set, strings in by_court.items():
+				pool = [c for c in clusters if not court_set or court_set & set().union(*(courts.get(m, set()) for m in c))]
+				review.extend(_attach_bare(strings, pool, counts, parsed) if pool else strings)
+		elif bare:
+			review.extend(_attach_bare(bare, clusters, counts, parsed))
+		if bare_fca:
+			fca_start = _span(bare_fca, spans or {})
+			fits = []
+			for cluster in clusters:
+				cluster_span = _span(cluster, spans or {})
+				if fca_start and cluster_span and (cluster_span[1] <= fca_start[0] + ELEVATION_TOLERANCE_DAYS
+						or fca_start[1] <= cluster_span[0] + ELEVATION_TOLERANCE_DAYS):
+					fits.append(cluster)
+			if len(fits) == 1:
+				fits[0].extend(bare_fca)
 			else:
-				weights = [sum(counts[m] for m in c) for c in clusters]
-				top = max(range(len(clusters)), key=lambda i: weights[i])
-				others = sum(weights) - weights[top]
-				# A clearly dominant person (others are a handful of stray decisions, usually a
-				# typo'd initial) takes the surname-only strings; otherwise leave them for review.
-				if others <= max(3, weights[top] // 50):
-					gender = parsed[clusters[top][0]].gender
-					fits = [b for b in bare if not (parsed[b].gender and gender and parsed[b].gender != gender)]
-					clusters[top].extend(fits)
-					review = [b for b in bare if b not in fits]
-				else:
-					review = bare
+				clusters.append(list(bare_fca))
 		for cluster in clusters:
 			if len(cluster) > 1 or review:
 				roles = sorted({parsed[m].role for m in cluster})
@@ -248,13 +298,24 @@ def split_panel(raw: str) -> list[str]:
 	return [part.strip() for part in text.split(";") if part.strip()]
 
 
+_SENTENCE_WORDS = {"et", "le", "la", "les", "de", "du", "des", "nous", "que", "est", "the", "and", "was", "this", "pour", "avis"}
+
+
+def _plausible_name(parsed: JudgeName) -> bool:
+	"""Reject sentence fragments that landed in a panel field (French reasons text, "et nous sommes d'avis...")."""
+	words = parsed.name_text.split()
+	if len(words) > 6 or len(parsed.name_text) > 60:
+		return False
+	return not (len(words) >= 3 and sum(w.lower() in _SENTENCE_WORDS for w in words) >= 2 and "-" not in parsed.name_text)
+
+
 def parse_panel(raw: str) -> list[JudgeName]:
 	"""Individual judges named in a panel field; unparseable parts and duplicates are dropped."""
 	seen: set[tuple[str, str]] = set()
 	judges: list[JudgeName] = []
 	for part in split_panel(raw):
 		parsed = parse_judge_name(part)
-		if parsed is None:
+		if parsed is None or not _plausible_name(parsed):
 			continue
 		key = (parsed.surname, parsed.initials[:1])
 		if key not in seen:

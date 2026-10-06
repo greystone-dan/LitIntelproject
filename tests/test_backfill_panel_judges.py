@@ -38,3 +38,14 @@ def test_dry_run_changes_nothing_and_apply_is_idempotent(db):
 	assert wagner.display_name == "Justice Richard Wagner" and wagner.primary_court == "SCC"
 	assert len(wagner.case_links) == 2
 	assert db.query(CaseJudgeProfile).count() == 6
+
+
+def test_same_name_profile_from_another_court_is_not_reused(db):
+	db.add(JudgeProfile(slug="judge-rowe", display_name="Rowe J.", normalized_name="rowe", primary_court="FC", aliases=[]))
+	db.add(Case(id=9, title="C9", citation="c9", court="SCC", full_text="x", date=datetime.date(1918, 1, 1),
+		metadata_json={"reader_extracted": {"judge": "Rowe; Smith"}}))
+	db.commit()
+	backfill_panels(db, ["SCC"], apply=True)
+	fc = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == "judge-rowe"))
+	assert not fc.case_links
+	assert db.scalar(select(JudgeProfile).where(JudgeProfile.slug == "judge-rowe-scc")) is not None

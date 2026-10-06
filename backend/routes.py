@@ -172,6 +172,7 @@ from .analytics_service import (
 	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
+	fetch_tag_suggestions,
 	fetch_page_citation_counts,
 	fetch_analytics_search_ministers,
 	fetch_data_explorer_analytics,
@@ -2016,6 +2017,8 @@ def search_analytics_cases(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = 50,
@@ -2027,9 +2030,15 @@ def search_analytics_cases(
 ) -> dict[str, Any]:
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
-		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, search_full_text=search_full_text,
 		sort_by=sort_by, limit=limit, offset=offset, cohort_id=cohort_id, include_facets=facets, include_citation_stats=citation_stats,
 	)
+
+
+@router.get("/analytics/search/tags", response_model=dict[str, Any])
+def search_analytics_tags(q: str = "", limit: int = 12, db: Session = Depends(get_db)) -> dict[str, Any]:
+	"""Stored tag values matching the typed text, with how many decisions carry each (for the Tag filter)."""
+	return {"tags": fetch_tag_suggestions(db, q, limit)}
 
 
 @router.get("/analytics/search/citation-stats", response_model=dict[str, Any])
@@ -2049,6 +2058,8 @@ def search_analytics_facets(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
 	search_full_text: bool = False,
 	cohort_id: str = "",
 	db: Session = Depends(get_db),
@@ -2056,7 +2067,7 @@ def search_analytics_facets(
 	"""Court/year counts for the current filters, loaded after the results so they never delay them."""
 	return _run_analytics_case_search(
 		db, query=query, cites=cites, government_outcome=government_outcome, decision_outcome=decision_outcome,
-		minister=minister, judge=judge, court=court, year=year, search_full_text=search_full_text,
+		minister=minister, judge=judge, court=court, year=year, cites_case_id=cites_case_id, tags=tags, search_full_text=search_full_text,
 		cohort_id=cohort_id, facets_only=True,
 	)
 
@@ -2095,6 +2106,8 @@ def export_search_analytics_cases(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	cohort_id: str = "",
@@ -2118,6 +2131,8 @@ def export_search_analytics_cases(
 			judge=judge,
 			court=court,
 			year=year,
+			cites_case_id=cites_case_id,
+			tags=tags,
 			search_full_text=search_full_text,
 			sort_by=sort_by,
 			limit=min(100, 1000 - len(rows)),
@@ -3824,6 +3839,8 @@ def export_search_docx(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = Query(default=50, ge=1, le=100),
@@ -3838,6 +3855,8 @@ def export_search_docx(
 		"judge": judge,
 		"court": court,
 		"year": year,
+		"cites_case_id": cites_case_id or "",
+		"tags": tags,
 		"search_full_text": search_full_text,
 		"sort_by": sort_by,
 		"limit": limit,
@@ -3854,6 +3873,8 @@ def export_search_docx(
 			judge=judge,
 			court=court,
 			year=year,
+			cites_case_id=cites_case_id,
+			tags=tags,
 			search_full_text=search_full_text,
 			sort_by=sort_by,
 			limit=100,

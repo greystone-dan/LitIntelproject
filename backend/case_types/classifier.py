@@ -81,7 +81,7 @@ _IMMIGRATION_PARTY_RE = re.compile(
 )
 _STAY_INTRO_RE = re.compile(
     r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
-    r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
+    r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |a |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
     r"order (?:staying|prohibiting)[^.]{0,40}remov)",
     re.IGNORECASE,
 )
@@ -96,6 +96,8 @@ _JR_SUBJECTS = (
     ("work_permit", re.compile(r"work\s+permit", re.IGNORECASE)),
     ("visitor_visa", re.compile(r"visitor\s+visa|temporary\s+resident\s+visa", re.IGNORECASE)),
 )
+_ACT_NAME_RE = re.compile(r"Immigration\s+and\s+Refugee\s+Protection\s+(?:Act|Regulations)|\bIRPA\b", re.IGNORECASE)
+_DEFER_RE = re.compile(r"\bdefer|\bstay\b|mandamus|relief\s+from", re.IGNORECASE)
 _IAD_RE = re.compile(r"Immigration\s+Appeal\s+Division|\bIAD\b", re.IGNORECASE)
 PRRA_OFFICER_HC_BONUS = 8.0
 PRRA_DECISION_BONUS = 8.0
@@ -335,13 +337,24 @@ def is_immigration_decision(
     return bool(_ACT_NAME_RE.search(intro) or _IMMIGRATION_VOCAB_RE.search(intro))
 
 
-def classify_text(
+def jr_subject_type(intro: str) -> str | None:
+    """The one subject named in the opening judicial review sentence, or None when it names none or several."""
+    match = _JR_SENTENCE_RE.search(intro[:700])
+    if not match or _IAD_RE.search(match.group(0)):
+        return None
+    sentence = _ACT_NAME_RE.sub(" ", match.group(0))
+    subjects = [key for key, pattern in _JR_SUBJECTS if pattern.search(sentence)]
+    return subjects[0] if len(subjects) == 1 and not _DEFER_RE.search(sentence) else None
+
+
+def _classify_text(
     text: str | None,
     *,
     court: str | None = None,
     title: str | None = None,
     docket: str | None = None,
     source_citations: Iterable[str | None] = (),
+    jr_bonus: float = 0.0,
 ) -> CaseTypeResult:
     """Classify one decision from its text."""
     content = text or ""
@@ -442,12 +455,10 @@ def classify_text(
         intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
     # The opening sentence that names the judicial review says what decision is under review: when it names
     # exactly one subject (refugee claim, H&C, PRRA, study or work permit, visitor visa), that subject leads.
-    jr_sentence = _JR_SENTENCE_RE.search(intro[:700])
-    if jr_sentence and not _STAY_INTRO_RE.search(intro) and not _IAD_RE.search(jr_sentence.group(0)):
-        subjects = [key for key, pattern in _JR_SUBJECTS if pattern.search(jr_sentence.group(0))]
-        if len(subjects) == 1 and subjects[0] in scores:
-            scores[subjects[0]] = round(scores[subjects[0]] + JR_SUBJECT_BONUS, 2)
-            intro_scores[subjects[0]] = intro_scores.get(subjects[0], 0.0) + JR_SUBJECT_BONUS
+    jr_subject = jr_subject_type(intro) if jr_bonus and not _STAY_INTRO_RE.search(intro) else None
+    if jr_subject and jr_subject in scores:
+        scores[jr_subject] = round(scores[jr_subject] + jr_bonus, 2)
+        intro_scores[jr_subject] = intro_scores.get(jr_subject, 0.0) + jr_bonus
     prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
     if prra_hc:
         scores["humanitarian_compassionate"] = round(scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS, 2)
@@ -547,3 +558,14 @@ def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:
     pool = repeated or list(counts.items())
     pool.sort(key=lambda item: (item[1] * (1 + 0.25 * item[0].count("(")), item[0].count("(")), reverse=True)
     return pool[0][0]
+
+
+def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
+    """Classify one decision. A decision that stays unclear is retried once with the subject named in the
+    judicial review sentence leading, so the bonus only ever resolves unclear results and never changes a clear one."""
+    result = _classify_text(text, **kwargs)
+    if result.status == STATUS_UNCLEAR:
+        retry = _classify_text(text, jr_bonus=JR_SUBJECT_BONUS, **kwargs)
+        if retry.status == STATUS_CLASSIFIED:
+            return retry
+    return result

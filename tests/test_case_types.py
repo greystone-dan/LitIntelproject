@@ -277,3 +277,14 @@ def test_imm_docket_in_text_header_is_never_not_immigration_when_docket_missing(
             "BETWEEN: A and Canada (Citizenship and Immigration). " + "The applicant seeks judicial review of an officer's decision. " * 20)
     result = classify_text(text, court="FC", title="A v. Canada (Citizenship and Immigration)", docket=None)
     assert result.status != "not_immigration"
+
+
+def test_judicial_review_sentence_names_the_subject():
+    from backend.case_types.classifier import jr_subject_type
+    assert jr_subject_type("[1] This is an application for judicial review of a decision of the Refugee Protection Division.") == "refugee_claim"
+    assert jr_subject_type("[1] An application for judicial review of a refusal of her humanitarian and compassionate (H&C) application.") == "humanitarian_compassionate"
+    # The Act's own name is not a refugee-claim cue, a deferral or mandamus is not the subject, and two subjects name none.
+    assert jr_subject_type("[1] Judicial review under the Immigration and Refugee Protection Act of a refusal to process.") is None
+    assert jr_subject_type("[1] Judicial review of a refusal to defer removal pending an H&C application.") is None
+    assert jr_subject_type("[1] Judicial review of a PRRA decision after the Refugee Protection Division refused the claim.") is None
+    assert jr_subject_type("[1] Judicial review of a decision of the Immigration Appeal Division on a refugee sponsorship.") is None

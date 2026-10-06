@@ -95,6 +95,7 @@ Active scripts documented: 179
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
+| `evaluate_statute_sections.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
 | `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
@@ -1379,6 +1380,20 @@ Active scripts documented: 179
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
+```
+
+## `scripts/evaluate_statute_sections.py`
+
+**Purpose:** Measure section-level statute extraction against the frozen gold set. Gold file: data/eval/statute_section_gold.json (synthetic CBSA-style sentences with the instrument and pinpoint a careful reader would extract; lists are expected one pair per section). Cases with "holdout": true are frozen for before/after comparison: never tune extraction rules on them. Pure measurement, no database, no network. Usage: python scripts/evaluate_statute_sections.py [--split dev|holdout|all] [--misses] [--json out.json]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help
 ```
 
 ## `scripts/evidence_gate.py`

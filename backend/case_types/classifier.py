@@ -86,7 +86,7 @@ _STAY_INTRO_RE = re.compile(
     re.IGNORECASE,
 )
 STAY_INTRO_BONUS = 12.0
-JR_SUBJECT_BONUS = 6.0
+JR_SUBJECT_BONUS = 8.0
 _JR_SENTENCE_RE = re.compile(r"[^.]{0,400}?(?:judicial\s+review|set\s+aside|leave\s+to\s+(?:appeal|commence))[^.]{0,400}", re.IGNORECASE)
 _JR_SUBJECTS = (
     ("refugee_claim", re.compile(r"Refugee\s+(?:Protection|Appeal)\s+Division|\bRPD\b|\bRAD\b|refugee\s+(?:claim|protection|status)|Convention\s+refugee", re.IGNORECASE)),
@@ -99,6 +99,43 @@ _JR_SUBJECTS = (
 _ACT_NAME_RE = re.compile(r"Immigration\s+and\s+Refugee\s+Protection\s+(?:Act|Regulations)|\bIRPA\b", re.IGNORECASE)
 _DEFER_RE = re.compile(r"\bdefer|\bstay\b|mandamus|relief\s+from", re.IGNORECASE)
 _IAD_RE = re.compile(r"Immigration\s+Appeal\s+Division|\bIAD\b", re.IGNORECASE)
+_OPENING_RULES = (
+    ("court_procedure_only", re.compile(r"\bmotion\b[^.]{0,120}(?:\brules?\b|non-disclosure|set aside the order|expedite|reconsider)|appeal[^.]{0,60}order of (?:the )?prothonotary|set aside the order of this court", re.IGNORECASE)),
+    ("removal_deferral_stay", re.compile(r"\bdefer(?:ral)?\b[^.]{0,80}removal|refus\w+ to defer|stay of (?:a |the |an )?(?:removal|deportation|execution)|stay the execution|motion (?:for|to) (?:a )?stay|granted a stay|application for a stay|request(?:ing|s)? a stay", re.IGNORECASE)),
+    ("pre_removal_risk_assessment", re.compile(r"risk assessment|\bPRRA\b|minister.s protection|protection of the minister|applications? for protection", re.IGNORECASE)),
+    ("permanent_resident_status", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}residency obligation|residency obligation[^.]{0,300}(?:Immigration Appeal Division|\bIAD\b)", re.IGNORECASE)),
+    ("family_class_sponsorship", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}(?:visa officer|sponsor|spous|marriage|husband|wife|family class|adopt)|(?:visa officer|sponsor|spous|marriage|husband|wife|family class)[^.]{0,200}(?:Immigration Appeal Division|\bIAD\b)", re.IGNORECASE)),
+    ("removal_admissibility_proceedings", re.compile(r"(?:Immigration Appeal Division|\bIAD\b)[^.]{0,300}(?:removal order|deportation order|exclusion order|inadmissib)", re.IGNORECASE)),
+    ("humanitarian_compassionate", re.compile(r"humanitarian\s+(?:and|or)\s+compassionate|\bH\s?&\s?C\b|(?:section|subsection|s\.)\s?25(?:\(1\))?\b", re.IGNORECASE)),
+    ("study_permit", re.compile(r"study permit|student visa|study in canada|genuine student|permis d.études", re.IGNORECASE)),
+    ("work_permit", re.compile(r"work permit|work authori[sz]ation|permis de travail", re.IGNORECASE)),
+    ("visitor_visa", re.compile(r"visitor visa|temporary resident visa|visa de visiteur|visa de résident temporaire", re.IGNORECASE)),
+    ("economic_immigration", re.compile(r"provincial nominee|express entry|skilled worker|skilled trades|canadian experience class", re.IGNORECASE)),
+    ("refugee_claim", re.compile(r"section d.appel des réfugiés|section de la protection des réfugiés|section du statut|demande d.asile|(?:claimed|sought|claiming|made a claim for) (?:refugee )?(?:protection|status)|refugee claim|refugee protection claim|refugee division|refugee (?:protection|appeal) division|(?:panel|member) of the immigration and refugee board|\bRPD\b|\bRAD\b", re.IGNORECASE)),
+)
+OPENING_SUBJECT_WINDOW = 500
+
+
+_SUBORDINATE_TO_H_AND_C = {"court_procedure_only", "removal_deferral_stay", "permanent_resident_status", "family_class_sponsorship",
+                           "removal_admissibility_proceedings"}
+
+
+def opening_subject_type(intro: str) -> str | None:
+    """The one decision subject the opening paragraphs name, used only to resolve unclear results.
+
+    H&C is the subject only when nothing more specific is named (a deferral or an Immigration Appeal Division
+    appeal "on H&C grounds" is about the deferral or the appeal), and a refugee claim only when nothing else is named
+    (many other decisions recite a refugee claim as background). Two different subjects name none.
+    """
+    opening = _ACT_NAME_RE.sub(" ", intro[:OPENING_SUBJECT_WINDOW])
+    hits = [key for key, pattern in _OPENING_RULES if pattern.search(opening)]
+    if _SUBORDINATE_TO_H_AND_C.intersection(hits):
+        hits = [key for key in hits if key != "humanitarian_compassionate"]
+    if len(hits) > 1:
+        hits = [key for key in hits if key != "refugee_claim"]
+    return hits[0] if len(hits) == 1 else None
+
+
 PRRA_OFFICER_HC_BONUS = 8.0
 PRRA_DECISION_BONUS = 8.0
 PROCEDURAL_INTRO_BONUS = 5.0
@@ -455,9 +492,11 @@ def _classify_text(
         intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
     # The opening sentence that names the judicial review says what decision is under review: when it names
     # exactly one subject (refugee claim, H&C, PRRA, study or work permit, visitor visa), that subject leads.
-    jr_subject = jr_subject_type(intro) if jr_bonus and not _STAY_INTRO_RE.search(intro) else None
-    if jr_subject and jr_subject in scores:
-        scores[jr_subject] = round(scores[jr_subject] + jr_bonus, 2)
+    jr_subject = None
+    if jr_bonus:
+        jr_subject = jr_subject_type(intro) or opening_subject_type(intro)
+    if jr_subject:
+        scores[jr_subject] = round(scores.get(jr_subject, 0.0) + jr_bonus, 2)
         intro_scores[jr_subject] = intro_scores.get(jr_subject, 0.0) + jr_bonus
     prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
     if prra_hc:

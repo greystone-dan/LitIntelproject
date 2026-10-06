@@ -75,3 +75,19 @@ def test_french_paragraph_pinpoint_is_normalised_cleanly():
 	rows = refine_document(text).cases.rows
 	assert rows and all(" e " not in f" {row.normalized_citation} " for row in rows)
 	assert any("para. 13" in row.normalized_citation for row in rows)
+
+
+def test_bare_landmark_short_forms_link_to_the_landmark_case():
+	rows = refine_document("It was justified: Vavilov at para 85. See also Vavilov, au para 12 and Vavilov at paras 122, 194.").cases.rows
+	assert [row.identifiers for row in rows] == [("2019 SCC 65",)] * 3
+	assert rows[0].pinpoint == "at para. 85" and rows[2].pinpoint == "at paras. 122, 194"
+
+
+def test_landmark_rule_stays_quiet_without_pinpoint_or_with_a_party_name():
+	text = "The Vavilov framework applies. Baker v. Smith at para 3 is different. Mason was late."
+	assert not [row for row in refine_document(text).cases.rows if row.step == "C4b_landmarks"]
+
+
+def test_landmark_rule_does_not_double_count_a_full_citation():
+	text = "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 at para 10."
+	assert len(refine_document(text).cases.rows) == 1

@@ -177,6 +177,7 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/cases.py` | Refines case-citation candidates |
 | `backend/citation_refine/context.py` | Shared whole-document context for refinement |
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
+| `backend/citation_refine/landmarks.py` | Bare short forms of landmark cases: "Vavilov at para 85" with no full citation in the decision |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |

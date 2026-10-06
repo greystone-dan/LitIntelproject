@@ -53,3 +53,24 @@ def test_panel_string_profiles_are_hidden_from_the_list(db):
 	db.add(JudgeProfile(id=10, slug="judge-panel2", display_name="Wagner, Richard; Abella, Rosalie", normalized_name="panel2", primary_court="SCC"))
 	db.commit()
 	assert {r["slug"] for r in _fetch_judge_profiles_impl(db)} == {"judge-zinn", "judge-simon-zinn", "judge-other"}
+
+
+def test_prune_keeps_rows_in_the_same_group_even_if_canonical_changed(db):
+	from scripts.apply_judge_aliases import stale_rows
+	db.add_all([
+		JudgeProfile(id=4, slug="judge-john-a-okeefe", display_name="Mr. Justice John A. O'Keefe", normalized_name="john a o'keefe", primary_court="FC"),
+		JudgeProfile(id=5, slug="judge-john-okeefe-upper", display_name="THE HONOURABLE MR. JUSTICE JOHN A. O'KEEFE", normalized_name="john a o'keefe 2", primary_court="FC"),
+		JudgeProfile(id=6, slug="judge-gleason", display_name="Dawn Gleason", normalized_name="dawn gleason", primary_court="FC"),
+		JudgeProfile(id=7, slug="judge-gleason-s", display_name="Simon Gleason", normalized_name="simon gleason", primary_court="FC"),
+	])
+	db.flush()
+	for n, pid in enumerate((4, 5, 5, 6, 7), start=10):
+		db.add(Case(id=n, title=f"C{n}", citation=f"c{n}", court="FC", full_text="x", date=__import__("datetime").date(2021, 1, 1)))
+		db.flush()
+		db.add(CaseJudgeProfile(case_id=n, judge_profile_id=pid, raw_name="x"))
+	# canonical on the row (4) differs from the biggest profile (5), but both are one person: keep.
+	db.add(JudgeProfileAlias(alias_profile_id=4, canonical_profile_id=5, source="rule"))
+	# Two different Gleasons were once wrongly merged: remove.
+	db.add(JudgeProfileAlias(alias_profile_id=7, canonical_profile_id=6, source="rule"))
+	db.commit()
+	assert [(r.alias_profile_id, r.canonical_profile_id) for r in stale_rows(db)] == [(7, 6)]

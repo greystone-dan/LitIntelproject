@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-06T16:11:55.793421+00:00
+Generated: 2026-10-06T17:32:41.493137+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 131 across 128 paths
-Hidden operations: 65 excluded from OpenAPI
+OpenAPI operations: 134 across 131 paths
+Hidden operations: 66 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -128,6 +128,7 @@ Search Analytics Cases
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
@@ -205,7 +206,7 @@ Compare Cohort Assessment Records
 
 Search Analytics Facets
 
-Court/year counts for the current filters, loaded after the results so they never delay them.
+Court, year and case-type counts for the current filters, loaded after the results so they never delay them.
 
 **Parameters**
 
@@ -219,6 +220,7 @@ Court/year counts for the current filters, loaded after the results so they neve
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `cohort_id` (query, optional; string, default `""`)
 
@@ -415,6 +417,43 @@ Search Embedding Status
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statute-library/acts`
+
+Statute Library Acts
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `GET /api/statute-library/{act}/sections`
+
+Statute Library Toc
+
+**Parameters**
+
+- `act` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statute-library/{act}/sections/{section}`
+
+Statute Library Section
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/statutes/{act}/{section}/consideration`
 
@@ -1837,6 +1876,7 @@ Export Search Analytics Cases
 - `year` (query, optional; string, default `""`)
 - `cites_case_id` (query, optional; integer | null)
 - `tags` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `cohort_id` (query, optional; string, default `""`)
@@ -2780,6 +2820,16 @@ Handler: `backend.routes.saved_searches_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.statute_consideration.statute_consideration_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-library`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.statute_library_page_route`
 
 **Responses**
 

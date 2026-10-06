@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 181
+Active scripts documented: 182
 
 ## Catalog
 
@@ -180,6 +180,7 @@ Active scripts documented: 181
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
+| `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
@@ -2570,6 +2571,20 @@ Active scripts documented: 181
 
 ```powershell
 .\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
+```
+
+## `scripts/sample_statute_extraction.py`
+
+**Purpose:** Draw a random sample of real decisions and write the statute references the extractor finds, for hand-checking. READ-ONLY: SELECTs from cases and runs the extractor in memory; writes nothing to the database. For each sampled decision it records every extracted statute reference (text, instrument, pinpoint, context) and every "loose" provision mention (s. 12, subsection 5(1), paragraph 3(b) ...) that no extracted reference covers, so both precision and recall can be hand-checked. Sampling is deterministic for a given --seed (md5 order), per court, so a second run reproduces it. Usage: python scripts/sample_statute_extraction.py --cases-per-court 40 --seed 20261006 --out sample.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help
 ```
 
 ## `scripts/scheduled_intake_daemon.py`

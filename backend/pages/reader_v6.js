@@ -207,6 +207,8 @@
  body.addEventListener('dblclick',event=>{const el=event.target.closest(SEL);if(!el)return;clearTimeout(clickTimer);window.getSelection().removeAllRanges();
   const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;if(!row)return;
   if(row.target_case_id)return openFull(row.target_case_id);
+  const sec=/^\d{1,3}(?:\.\d+)?[A-Za-z]?/.exec(String(row.section_number||row.pinpoint||''));
+  if(row.instrument_key&&sec)return void window.open(`/statute-library?act=${encodeURIComponent(row.instrument_key)}&section=${encodeURIComponent(sec[0])}`,'_blank','noopener');
   const url=row.legislation_url||row.authority_document_url;if(url)window.open(url,'_blank','noopener');});
  openLinkedCase=function(){};
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&[...v6.cards.values()].some(c=>c.classList.contains('is-pinned')))clearCards();});

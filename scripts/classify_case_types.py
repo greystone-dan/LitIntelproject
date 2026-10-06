@@ -34,6 +34,9 @@ def main() -> None:
 	parser.add_argument("--batch", type=int, default=200)
 	parser.add_argument("--sample", type=int, default=0, help="Pick this many decisions at random (use with --seed) instead of the lowest ids.")
 	parser.add_argument("--seed", type=int, default=1, help="Random seed for --sample.")
+	parser.add_argument("--export", help="Write a tab-separated file (id, court, citation, title, docket, status, type, reason, opening text) of the classified rows for review.")
+	parser.add_argument("--export-status", default="not_immigration", help="Only export rows with this status (or primary type); default not_immigration.")
+	parser.add_argument("--export-max", type=int, default=150, help="Stop exporting after this many rows.")
 	parser.add_argument("--show-reasons", action="store_true", help="Also print why decisions were not_immigration or unclear.")
 	args = parser.parse_args()
 
@@ -55,11 +58,19 @@ def main() -> None:
 			ids = ids[: args.limit]
 		counts: Counter = Counter()
 		reasons: Counter = Counter()
+		export_rows: list[str] = []
 		for start in range(0, len(ids), args.batch):
 			for case in session.scalars(select(Case).where(Case.id.in_(ids[start:start + args.batch]))):
 				result = classify_text(case.full_text, court=case.court, title=case.title, docket=case.docket_number,
 				                       source_citations=[case.citation])
 				counts[result.primary_type or result.status] += 1
+				if args.export and len(export_rows) < args.export_max and args.export_status in (result.status, result.primary_type):
+					text = case.full_text or ""
+					start = text.find("[1]")
+					opening = " ".join(text[max(start, 0):max(start, 0) + 500].split())
+					fields = [case.id, case.court, case.citation, case.title, case.docket_number, result.status,
+					          result.primary_type, result.reason, opening]
+					export_rows.append("\t".join(str(item or "").replace("\t", " ").replace("\n", " ") for item in fields))
 				if args.show_reasons and not result.primary_type:
 					reasons[f"{case.court} {result.status}: {result.reason[:70]}"] += 1
 				if args.apply:
@@ -75,6 +86,9 @@ def main() -> None:
 		print(("Applied" if args.apply else "Dry run (nothing written)") + f": {len(ids)} decisions")
 		for label, count in counts.most_common():
 			print(f"{count:7d}  {label}")
+		if args.export:
+			Path(args.export).write_text("\n".join(export_rows) + "\n", encoding="utf-8")
+			print(f"Wrote {len(export_rows)} rows to {args.export}")
 		for label, count in reasons.most_common(12):
 			print(f"{count:7d}  [{label}]")
 

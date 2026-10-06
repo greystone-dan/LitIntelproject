@@ -186,6 +186,26 @@ class JudgeProfileAlias(Base):
 	)
 
 
+class CaseTypeLabel(Base):
+	"""Deterministic "what type of case" label for a decision (rule-based, no AI; one row per case and taxonomy version)."""
+
+	__tablename__ = "case_type_labels"
+	__table_args__ = (UniqueConstraint("case_id", "taxonomy_version", name="uq_case_type_label_version"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	taxonomy_version: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+	status: Mapped[str] = mapped_column(String(30), nullable=False, index=True)
+	primary_type: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	primary_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	secondary_types: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	proceeding: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	confidence: Mapped[float] = mapped_column(Float, nullable=False, server_default="0")
+	scores: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	evidence: Mapped[list | None] = mapped_column(JSON, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
 class CaseJudgeProfile(Base):
 	__tablename__ = "case_judge_profiles"
 	__table_args__ = (UniqueConstraint("case_id", "judge_profile_id", name="uq_case_judge_profile"),)

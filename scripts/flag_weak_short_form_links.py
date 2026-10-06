@@ -1,4 +1,7 @@
-"""Find (and optionally unlink) live short-form citations that point at the wrong case.
+"""PARKED 2026-10-06: Daniel asked to leave the live cleanup for later; do not run --apply. Evidence note:
+/mnt/project-files/citation-refinement/wrong-short-form-links-evidence-2026-10-06.md
+
+Find (and optionally unlink) live short-form citations that point at the wrong case.
 
 Pass one anchored many capitalised common words ("Lake", "Bank", "Council", "Quebec") to a nearby full
 citation, and the resolver then linked those rows to the anchored case, so cited-by counts on the live site include

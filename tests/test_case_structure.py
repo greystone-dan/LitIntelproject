@@ -124,6 +124,7 @@ def test_issue_openers_split_long_analysis_only_when_asked():
 @pytest.fixture
 def no_rpd(monkeypatch, tmp_path):
     monkeypatch.setenv("RPD_SAMPLE_CSV", str(tmp_path / "missing.csv"))
+    monkeypatch.setenv("RPD_SAMPLE_CSV_2", str(tmp_path / "missing2.csv"))
 
 
 def test_gold_files_are_consistent(no_rpd):
@@ -138,10 +139,12 @@ def test_gold_files_are_consistent(no_rpd):
 
 def test_rpd_cases_are_skipped_without_the_extract_and_when_the_text_differs(monkeypatch, tmp_path):
     monkeypatch.setenv("RPD_SAMPLE_CSV", str(tmp_path / "missing.csv"))
+    monkeypatch.setenv("RPD_SAMPLE_CSV_2", str(tmp_path / "missing2.csv"))
     assert ev.load_rpd_cases() == []
     wrong = tmp_path / "wrong.csv"
-    wrong.write_text("case_id,chunk_index,text\n41876,0,not the decision\n")
+    wrong.write_text("case_id,chunk_index,text\n41876,0,not the decision\n40114,0,not the decision\n")
     monkeypatch.setenv("RPD_SAMPLE_CSV", str(wrong))
+    monkeypatch.setenv("RPD_SAMPLE_CSV_2", str(wrong))
     assert ev.load_rpd_cases() == []
 
 

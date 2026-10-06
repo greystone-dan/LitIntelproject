@@ -107,11 +107,17 @@ def load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> li
 
 
 def load_rpd_cases(gold_dir: Path = GOLD_DIR) -> list[Case]:
+    return _load_rpd(gold_dir, "gold_rpd_labels.json", "RPD_SAMPLE_CSV", "/mnt/project-files/rpd-structure-sample.csv") + _load_rpd(
+        gold_dir, "gold_rpd2_labels.json", "RPD_SAMPLE_CSV_2", "/mnt/project-files/discussion-units/rpd-structure-sample-2.csv"
+    )
+
+
+def _load_rpd(gold_dir: Path, labels_file: str, env_name: str, default_csv: str) -> list[Case]:
     """RPD labels are in the repo; the decision text is not. Read it from the extract if present."""
-    csv_path = Path(os.environ.get("RPD_SAMPLE_CSV", "/mnt/project-files/rpd-structure-sample.csv"))
+    csv_path = Path(os.environ.get(env_name, default_csv))
     if not csv_path.exists():
         return []
-    labels = json.loads((gold_dir / "gold_rpd_labels.json").read_text())["cases"]
+    labels = json.loads((gold_dir / labels_file).read_text())["cases"]
     rows: dict[str, list[tuple[int, str]]] = defaultdict(list)
     with csv_path.open(encoding="utf-8", newline="") as handle:
         for row in csv.DictReader(handle):
@@ -246,7 +252,7 @@ def row(label: str, boundary: BoundaryScore, roles: tuple[int, int]) -> str:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--splits", nargs="+", default=["dev"], choices=["dev", "holdout", "holdout2"])
+    parser.add_argument("--splits", nargs="+", default=["dev"], choices=["dev", "holdout", "holdout2", "holdout_rpd"])
     parser.add_argument("--approach", action="append", choices=list(APPROACHES))
     parser.add_argument("--per-case", action="store_true")
     parser.add_argument("--confusion", action="store_true")

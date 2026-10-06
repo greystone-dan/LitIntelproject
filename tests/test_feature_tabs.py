@@ -197,6 +197,7 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
         "judge",
         "court",
         "year",
+        "case_type",
         "search_full_text",
         "sort_by",
         "limit",

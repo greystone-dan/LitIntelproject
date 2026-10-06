@@ -135,6 +135,7 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
             "judge": "Zinn",
             "court": "FC",
             "year": "2024",
+            "case_type": "",
             "search_full_text": True,
             "sort_by": "newest",
             "limit": 100,

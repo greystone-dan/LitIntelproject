@@ -76,6 +76,9 @@ _PRRA_OFFICER_HC_RE = re.compile(
 _PRRA_DECISION_RE = re.compile(
     r"decision[^.]{0,200}?(?:pre-removal\s+risk\s+assessment|PRRA)\b", re.IGNORECASE
 )
+_IMMIGRATION_PARTY_RE = re.compile(
+    r"Citizenship\s+and\s+Immigration|Immigration,\s+Refugees\s+and\s+Citizenship|Immigration\s+and\s+Refugee", re.IGNORECASE
+)
 _STAY_INTRO_RE = re.compile(
     r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
     r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
@@ -337,6 +340,9 @@ def classify_text(
 
     reasons, intro, intro_end = split_regions(content)
     if not PREGATE_RE.search(content):
+        if title and _IMMIGRATION_PARTY_RE.search(title):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, {}, [], None,
+                                  reason="an immigration department is a party but no immigration statute is named in the text")
         return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], None,
                               reason="no immigration statute, tribunal or IMM docket named anywhere in the text")
     law_rows = extract_law_rows(reasons, list(source_citations))

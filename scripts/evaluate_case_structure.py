@@ -16,7 +16,10 @@ Run:  python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdo
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import json
+import os
 import re
 import sys
 from collections import defaultdict
@@ -94,7 +97,30 @@ def load_cases(gold_dir: Path = GOLD_DIR, reports_dir: Path = REPORTS_DIR) -> li
         cases.append(Case(f"FC-old-{case_id}", "FC 2001-04", "holdout" if int(case_id) in hold else "dev", paragraphs, starts, roles, report))
     new = json.loads((gold_dir / "gold_new_cases.json").read_text())["cases"]
     for cite, item in new.items():
-        cases.append(Case(cite, item["court"] + (" 2008-24" if item["court"] == "FC" else ""), item["split"], item["paragraphs"], item["starts"], item["roles"]))
+        report = None
+        if "report_case_id" in item:
+            report = json.loads((reports_dir / f"case_{item['report_case_id']}_deterministic.json").read_text())
+        cases.append(Case(cite, item["court"] + (" 2008-24" if item["court"] == "FC" else ""), item["split"], item["paragraphs"], item["starts"], item["roles"], report))
+    cases.extend(load_rpd_cases(gold_dir))
+    return cases
+
+
+def load_rpd_cases(gold_dir: Path = GOLD_DIR) -> list[Case]:
+    """RPD labels are in the repo; the decision text is not. Read it from the extract if present."""
+    csv_path = Path(os.environ.get("RPD_SAMPLE_CSV", "/mnt/project-files/rpd-structure-sample.csv"))
+    if not csv_path.exists():
+        return []
+    labels = json.loads((gold_dir / "gold_rpd_labels.json").read_text())["cases"]
+    rows: dict[str, list[tuple[int, str]]] = defaultdict(list)
+    with csv_path.open(encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            rows[row["case_id"]].append((int(row["chunk_index"]), row["text"].replace("\r\n", "\n").replace("\r", "\n")))
+    cases: list[Case] = []
+    for case_id, item in labels.items():
+        paragraphs = [text for _, text in sorted(rows.get(case_id, []))]
+        if hashlib.sha256("\f".join(paragraphs).encode()).hexdigest() != item["text_sha256"]:
+            continue  # a different extract: do not score labels against other text
+        cases.append(Case(f"RPD-{case_id}", "RPD", item["split"], paragraphs, item["starts"], item["roles"]))
     return cases
 
 
@@ -219,7 +245,7 @@ def row(label: str, boundary: BoundaryScore, roles: tuple[int, int]) -> str:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--splits", nargs="+", default=["dev"], choices=["dev", "holdout"])
+    parser.add_argument("--splits", nargs="+", default=["dev"], choices=["dev", "holdout", "holdout2"])
     parser.add_argument("--approach", action="append", choices=list(APPROACHES))
     parser.add_argument("--per-case", action="store_true")
     parser.add_argument("--confusion", action="store_true")

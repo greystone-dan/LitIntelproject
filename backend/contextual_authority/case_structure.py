@@ -87,7 +87,8 @@ _DISPOSITION_RE = re.compile(
     r"|\b(?:this|the) (?:application|appeal|motion|judicial review|cross-appeal)\b[^.]{0,60}\b(?:is|will be|must be|should be|are)\s+(?:therefore |accordingly |hereby )?(?:allowed|dismissed|granted|denied)\b"
     r"|\b(?:application|appeal|motion)s?\s+(?:for judicial review\s+)?(?:is|are)\s+(?:therefore |accordingly )?(?:allowed|dismissed|granted|denied)\b"
     r"|\bin the result\b|\bfor (?:all )?(?:of )?(?:these|the foregoing|the above|those) reasons\b|\bno (?:serious )?question[s]?\b[^.]{0,60}\bcertif|\bcertif(?:y|ied|ication)\b[^.]{0,60}\bquestion"
-    r"|^(?:Appeal|Application|Motion)s? (?:allowed|dismissed|granted)\b|\bwith costs\b",
+    r"|^(?:Appeal|Application|Motion)s? (?:allowed|dismissed|granted)\b|\bwith costs\b"
+    r"|\btherefore (?:rejects?|accepts?)\b|\b(?:rejects?|accepts?) the (?:refugee )?(?:claim|appeal)s?\b|\bis neither a convention refugee\b|\bare neither convention refugees\b|\bthat concludes my reasons\b",
     re.I,
 )
 _OVERVIEW_RE = re.compile(
@@ -104,6 +105,7 @@ _ISSUES_RE = re.compile(
 _FACTS_RE = re.compile(
     r"\b(?:is|was) (?:a )?(?:citizen|national|native|resident) of\b|\bwas born\b|\barrived in canada\b|\bclaimed (?:refugee )?protection\b|\bcame to canada\b"
     r"|\bin (?:january|february|march|april|may|june|july|august|september|october|november|december)(?: \d{1,2},)? (?:of )?\d{4}\b|\b(?:in|by|since|until|from) (?:19|20)\d{2}\b|\bon (?:january|february|march|april|may|june|july|august|september|october|november|december) \d{1,2}, \d{4}\b"
+    r"|\balleges? (?:that|he|she|they)\b|\bclaimants? (?:is|are|was|were) (?:a |an )?(?:citizens?|nationals?)\b|\bfled (?:to|from)\b"
     r"|\b(?:the|The) (?:RAD|RPD|IAD|ID|SST|SST-GD|SST-AD|Board|officer|Officer|panel|Panel|Member|Tribunal|tribunal|delegate|decision-maker|senior immigration officer|judge|trial judge|chambers judge|Court of Appeal|adjudicator|Minister(?:’s|'s) delegate|visa officer)\b[^.]{0,60}\b(?:found|concluded|determined|held|rejected|refused|noted|commented|stated|considered|acknowledged|accepted|observed|indicated|said|wrote|explained|relied|dismissed|allowed|granted|issued|reviewed|assessed|identified|drew|gave|made|then|also)\b",
     re.I,
 )
@@ -213,6 +215,8 @@ def _emissions(paragraphs: Sequence[str]) -> list[dict[str, float]]:
         facts_hits = len(_FACTS_RE.findall(sample))
         if facts_hits and pos < 0.75:
             score["facts"] += min(3.0, 0.8 * facts_hits)
+        if sample.count("XXXX") >= 2 and pos < 0.6 and number is not None:
+            score["facts"] += 0.8  # anonymised RPD decisions mask names and dates in the narrative
         analysis_hits = len(_ANALYSIS_RE.findall(sample))
         if analysis_hits:
             score["analysis"] += min(3.0, 0.9 * analysis_hits)

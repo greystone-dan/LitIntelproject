@@ -121,20 +121,34 @@ def test_issue_openers_split_long_analysis_only_when_asked():
     assert cs.structural_unit_starts(paragraphs, roles, split_issue_openers=True) == [0, 5]
 
 
-def test_gold_files_are_consistent():
+@pytest.fixture
+def no_rpd(monkeypatch, tmp_path):
+    monkeypatch.setenv("RPD_SAMPLE_CSV", str(tmp_path / "missing.csv"))
+
+
+def test_gold_files_are_consistent(no_rpd):
     cases = ev.load_cases()
-    assert len(cases) == 36
-    assert {c.split for c in cases} == {"dev", "holdout"}
+    assert len(cases) == 52  # 22 FC 2001-04 + 30 new FC / FCA / SCC / FC 2001-04 labelled by hand
+    assert {c.split for c in cases} == {"dev", "holdout", "holdout2"}
     for case in cases:
         assert len(case.starts) == len(case.roles), case.key
         assert case.starts == sorted(case.starts) and case.starts[-1] < len(case.paragraphs), case.key
         assert set(case.roles) <= set(cs.ROLES), case.key
 
 
-def test_structure_labelling_scores_well_above_floor_on_both_splits():
-    """Regression floor, not a target: dev 80.9% / holdout 64.3% paragraph role accuracy when written."""
+def test_rpd_cases_are_skipped_without_the_extract_and_when_the_text_differs(monkeypatch, tmp_path):
+    monkeypatch.setenv("RPD_SAMPLE_CSV", str(tmp_path / "missing.csv"))
+    assert ev.load_rpd_cases() == []
+    wrong = tmp_path / "wrong.csv"
+    wrong.write_text("case_id,chunk_index,text\n41876,0,not the decision\n")
+    monkeypatch.setenv("RPD_SAMPLE_CSV", str(wrong))
+    assert ev.load_rpd_cases() == []
+
+
+def test_structure_labelling_scores_well_above_floor_on_every_split(no_rpd):
+    """Regression floors, not targets (paragraph role accuracy when written: dev 85%, holdout 64%, holdout2 85%)."""
     cases = ev.load_cases()
-    for split, floor in (("dev", 0.75), ("holdout", 0.6)):
+    for split, floor in (("dev", 0.75), ("holdout", 0.6), ("holdout2", 0.75)):
         subset = [c for c in cases if c.split == split]
         boundary, (hits, total), _, _ = ev.evaluate(subset, ev.APPROACHES["structure+h"])
         assert hits / total >= floor, (split, hits, total)

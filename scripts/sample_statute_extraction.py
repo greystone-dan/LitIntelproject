@@ -23,7 +23,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.citations import court_defaults_to_irpa, extract_statute_reference_matches
+from backend.citations import irpa_mode_for, extract_statute_reference_matches
 from backend.statutes import parse_legislation_citation
 
 LOOSE_PROVISION_RE = re.compile(
@@ -34,7 +34,7 @@ CONTEXT = 120
 
 
 def analyze_text(text: str, court: str | None = None) -> dict[str, Any]:
-    matches = extract_statute_reference_matches(text, default_irpa=court_defaults_to_irpa(court))
+    matches = extract_statute_reference_matches(text, default_irpa=irpa_mode_for(court, text))
     extracted = []
     for match in matches:
         parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)

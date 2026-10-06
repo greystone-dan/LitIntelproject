@@ -28,14 +28,14 @@ _PINPOINT_START_RE = re.compile(r"\s*,?\s*(?:\(|\[|at\s|à\s|au\s|aux\s|,|;|supr
 
 
 def _words(value: str) -> list[str]:
-	return re.findall(r"[\w'’-]+", value.casefold())
+	return [word.strip("'’-") for word in re.findall(r"[\w'’-]+", value.casefold()) if word.strip("'’-")]
 
 
 def _without_article(tokens: list[str]) -> list[str]:
 	return tokens[1:] if tokens and tokens[0] in {"the", "le", "la", "les", "l"} else tokens
 
 
-def _alias_of(row: RefinedCitation) -> str:
+def alias_of(row: RefinedCitation) -> str:
 	text = " ".join((row.citation_text or "").replace("\n", " ").split())
 	text = re.sub(r"^\(\s*(?:(?:see|voir|cf\.?)\s+)?", "", text, flags=re.IGNORECASE)
 	match = _PINPOINT_START_RE.search(text)
@@ -58,7 +58,7 @@ def is_weak_short_form(row: RefinedCitation) -> bool:
 		return _weak_case_name(row)
 	if row.kind != "case_short" or row.step != "pass1" or row.declared_alias:
 		return False
-	alias = _alias_of(row)
+	alias = alias_of(row)
 	words = _words(alias)
 	if not words:
 		return True

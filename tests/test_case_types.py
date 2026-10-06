@@ -259,3 +259,15 @@ def test_immigration_department_party_without_a_named_statute_is_unclear_not_dis
     assert result.status == STATUS_UNCLEAR
     plain = classify_text(text, court="FC", title="Smith v. Canada (Revenue Agency)", docket="T-87-01")
     assert plain.status == STATUS_NOT_IMMIGRATION
+
+
+def test_claim_issues_are_empty_when_the_court_names_no_determinative_issue() -> None:
+    text = decision(
+        "The applicant seeks judicial review of a decision of the Refugee Protection Division refusing his claim under "
+        "sections 96 and 97 of the Immigration and Refugee Protection Act [IRPA].",
+        "The RPD found the applicant not credible and doubted his story. The credibility findings were about the "
+        "inconsistencies in his testimony and the omissions in his Basis of Claim narrative.",
+    )
+    result = classify(text)
+    assert result.primary_type == "refugee_claim"
+    assert result.issues == []

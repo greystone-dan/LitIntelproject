@@ -57,7 +57,11 @@ def anchor_sentences(text: str, *, limit: int = 4) -> list[str]:
 
 
 def issues_by_anchor(text: str, *, limit: int = 2) -> list[str]:
-    """Issues named in the court's own 'determinative / central issue' sentences; falls back to counts."""
+    """Issues named in the court's own 'determinative / central issue' sentences.
+
+    Empty when the decision states none: word counts alone label almost everything "credibility", so they are
+    not stored as a result (see issues_by_counts for experiments).
+    """
     found: Counter = Counter()
     for sentence in anchor_sentences(text, limit=6):
         counts = _counts(sentence)
@@ -66,4 +70,4 @@ def issues_by_anchor(text: str, *, limit: int = 2) -> list[str]:
                 found[issue] += count
     if found:
         return [issue for issue, _ in found.most_common(limit)]
-    return issues_by_counts(text, limit=limit)
+    return []

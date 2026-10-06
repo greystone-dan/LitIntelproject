@@ -1986,7 +1986,24 @@ def _extract_anchored_provision_candidates(
 				authority_start + len(following_authority.group(1)),
 			)
 		else:
-			anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
+			named_after = next(
+				(
+					candidate
+					for candidate in context_anchors
+					if candidate.kind == kind
+					and _anchored_authority_name(candidate)
+					and 0 <= candidate.offset_start - end <= 30
+					and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
+				),
+				None,
+			)
+			if named_after is not None:
+				anchor = named_after
+			elif not sentence_anchors and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE):
+				# "section 18 of the Act" names an instrument we cannot see; do not guess the nearest one.
+				continue
+			else:
+				anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
 		authority = _anchored_authority_name(anchor)
 		if not authority:
 			continue

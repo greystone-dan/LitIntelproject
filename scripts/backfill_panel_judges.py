@@ -47,7 +47,11 @@ def backfill_panels(session, courts: list[str], *, apply: bool = False) -> dict[
 		stats["panel_cases"] += 1
 		for judge in parse_panel(raw):
 			key = normalize_judge_name(judge.name_text)
-			profile = profiles.get(key) or new_profiles.get(key)
+			existing = profiles.get(key)
+			if existing is not None and existing.primary_court not in (None, "", case.court):
+				key = f"{key} {case.court.lower()}"  # same surname, different court: a different person (FC Lemieux vs SCC Lemieux)
+				existing = profiles.get(key)
+			profile = existing or new_profiles.get(key)
 			if profile is None:
 				profile = JudgeProfile(slug=judge_slug(key), display_name=f"Justice {judge.name_text}",
 					normalized_name=key, primary_court=case.court, aliases=[judge.raw])

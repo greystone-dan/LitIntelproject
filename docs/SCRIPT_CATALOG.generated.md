@@ -314,7 +314,7 @@ Active scripts documented: 175
 
 ## `scripts/apply_judge_aliases.py`
 
-**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
+**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --prune # dry run: rule rows the current rules no longer propose python scripts/apply_judge_aliases.py --prune --apply # delete those rows (e.g. Marc/Simon Noël) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
 
 **Operational class:** Utility
 

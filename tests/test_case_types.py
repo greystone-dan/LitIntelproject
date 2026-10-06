@@ -316,3 +316,22 @@ def test_referral_to_admissibility_hearing_is_removal_proceedings() -> None:
         "but found the referral warranted because of a conviction under section 36(1)(a).",
     )
     assert classify(text).primary_type == "removal_admissibility_proceedings"
+
+
+def test_appeal_court_costs_assessment_with_immigration_party_is_court_procedure() -> None:
+    text = decision("This is an assessment of costs pursuant to a Judgment of the Court dismissing the appeal with costs.", docket="A-12-18")
+    result = classify_text(text, court="FCA", title="Cabral v. Canada (Citizenship and Immigration)")
+    assert result.status == STATUS_CLASSIFIED
+    assert result.primary_type == "court_procedure_only"
+
+
+def test_appeal_court_decision_with_no_immigration_subject_is_not_immigration() -> None:
+    text = decision("The appellant appeals the striking of a claim for damages against the Crown.", docket="A-12-18")
+    result = classify_text(text, court="FCA", title="Almacen v. Canada")
+    assert result.status == "not_immigration"
+
+
+def test_refugee_division_decision_without_statute_names_is_still_typed() -> None:
+    text = decision("The claimant, a citizen of Cuba, alleges a well-founded fear of persecution by reason of political opinion.", docket="MA9-09861")
+    result = classify_text(text, court="RPD", title="MA9-09861")
+    assert result.status != "not_immigration"

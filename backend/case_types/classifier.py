@@ -101,6 +101,8 @@ _STAY_LOOSE_RE = re.compile(
     r"(?:interim |temporary )?stay[^.]{0,120}\bremoval\b|application (?:to|for) (?:an? )?stay|irreparable harm", re.IGNORECASE
 )
 REFERRAL_44_BONUS = 12.0
+LEAD_MIN_SCORE = 8.0
+LEAD_MIN_RATIO = 2.2
 RAD_NO_PRRA_FACTOR = 0.2
 STAY_INTRO_BONUS = 12.0
 JR_SUBJECT_BONUS = 8.0
@@ -422,7 +424,7 @@ def _classify_text(
         docket = header_docket.group(0) if header_docket else docket
 
     reasons, intro, intro_end = split_regions(content)
-    if not PREGATE_RE.search(content):
+    if not PREGATE_RE.search(content) and (court or "").strip().upper() not in {"RPD", "RAD", "IAD", "ID"}:
         if title and _IMMIGRATION_PARTY_RE.search(title):
             return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, {}, [], None,
                                   reason="an immigration department is a party but no immigration statute is named in the text")
@@ -629,6 +631,51 @@ def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:
     return pool[0][0]
 
 
+_COSTS_INTRO_RE = re.compile(r"bill\s+of\s+costs|assessment\s+of\s+(?:the\s+)?costs|assessment\s+officer|costs\s+pursuant\s+to\s+the\s+judgment", re.IGNORECASE)
+_MOOT_OR_QUASH_RE = re.compile(r"\bmoot(?:ness)?\b|(?:to\s+quash|quashing)\s+(?:the\s+|this\s+|an\s+)?appeal|without\s+jurisdiction|summary\s+(?:dismissal|judgment)|\brule\s+22\b", re.IGNORECASE)
+_CITIZENSHIP_REVOCATION_RE = re.compile(r"revok\w+\s+(?:the\s+)?(?:appellant'?s?\s+|his\s+|her\s+)?citizenship|citizenship[^.]{0,40}revo", re.IGNORECASE)
+
+
+def _opening_fallback(text: str, court: str | None, title: str | None) -> CaseTypeResult | None:
+    """Type a still-unclear immigration-court decision from its opening alone, or call it not immigration.
+
+    Appeal-court motions, costs assessments and short reasons often name no provision the scorer can use, but the
+    opening still says what the matter is. Returns None when the opening does not settle it."""
+    if (court or "").strip().upper() != "FCA":
+        return None
+    _reasons, intro, _end = split_regions(text)
+    head = intro[:800]
+    party = bool(title and _IMMIGRATION_PARTY_RE.search(title))
+    if not party:
+        if _CITIZENSHIP_REVOCATION_RE.search(intro[:1500]):
+            key = "citizenship_revocation"
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, key, None, [], 0.4, {}, [], None,
+                                  reason="typed from the opening of the decision only")
+        if not (_IMMIGRATION_VOCAB_RE.search(intro[:1500]) or _ACT_NAME_RE.search(intro[:1500])
+                or _DOCKET_IMM_RE.search(text[:2500])
+                or re.search(r"citizenship|removal|deport", intro[:1500], re.IGNORECASE)):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], None,
+                                  reason="no immigration subject in the opening of an appeal-court decision")
+        if _COSTS_INTRO_RE.search(head) or _PROCEDURAL_INTRO_RE.search(head) or _MOOT_OR_QUASH_RE.search(head):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, "court_procedure_only", None, [], 0.4, {}, [], None,
+                                  reason="typed from the opening of the decision only")
+        return None
+    if _CITIZENSHIP_REVOCATION_RE.search(intro[:1500]):
+        key = "citizenship_revocation"
+    elif _COSTS_INTRO_RE.search(head):
+        key = "court_procedure_only"
+    elif _PROCEDURAL_INTRO_RE.search(head) or _MOOT_OR_QUASH_RE.search(head):
+        key = "court_procedure_only"
+    elif _STAY_INTRO_RE.search(head):
+        key = "removal_deferral_stay"
+    else:
+        key = jr_subject_type(intro) or opening_subject_type(intro)
+    if not key:
+        return None
+    return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, key, None, [], 0.4, {}, [], None,
+                          reason="typed from the opening of the decision only")
+
+
 def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
     """Classify one decision. A decision that stays unclear is retried once with the subject named in the
     judicial review sentence leading, so the bonus only ever resolves unclear results and never changes a clear one."""
@@ -637,4 +684,11 @@ def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
         retry = _classify_text(text, jr_bonus=JR_SUBJECT_BONUS, **kwargs)
         if retry.status == STATUS_CLASSIFIED:
             return retry
+        fallback = _opening_fallback(text or "", kwargs.get("court"), kwargs.get("title"))
+        if fallback is not None:
+            return fallback
+        ranked = sorted(result.scores.items(), key=lambda item: -item[1])
+        if ranked and ranked[0][1] >= LEAD_MIN_SCORE and (len(ranked) < 2 or ranked[0][1] >= LEAD_MIN_RATIO * ranked[1][1]):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, ranked[0][0], None, [], 0.3, dict(ranked[:6]), [], result.proceeding,
+                                  reason="leading case type only; low confidence")
     return result

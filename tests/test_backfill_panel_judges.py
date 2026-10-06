@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
 from backend.database import Base, Case, CaseJudgeProfile, JudgeProfile
+from scripts.backfill_judge_profiles import normalize_judge_name
 from scripts.backfill_panel_judges import backfill_panels
 
 
@@ -49,3 +50,15 @@ def test_same_name_profile_from_another_court_is_not_reused(db):
 	fc = db.scalar(select(JudgeProfile).where(JudgeProfile.slug == "judge-rowe"))
 	assert not fc.case_links
 	assert db.scalar(select(JudgeProfile).where(JudgeProfile.slug == "judge-rowe-scc")) is not None
+
+
+def test_fca_bench_links_reuse_authoring_profile_and_skip_clerks(db):
+	db.add(JudgeProfile(slug="judge-stratas-j-a", display_name="STRATAS J.A.", normalized_name=normalize_judge_name("STRATAS J.A."), primary_court="FCA", aliases=[]))
+	db.add(Case(id=20, title="C20", citation="c20", court="FCA", full_text="x", date=datetime.date(2020, 1, 1),
+		metadata_json={"reader_extracted": {"judge": "STRATAS J.A.", "present": "GAUTHIER J.A.\nSTRATAS J.A.\nLOCKE J.A.\nKARINE TURGEON, Assessment Officer"}}))
+	db.commit()
+	stats = backfill_panels(db, ["FCA"], apply=True)
+	assert stats["profiles_created"] == 2 and stats["links_created"] == 3
+	names = sorted(p.display_name for p in db.scalars(select(JudgeProfile)))
+	assert names == ["GAUTHIER J.A.", "LOCKE J.A.", "STRATAS J.A."]
+	assert backfill_panels(db, ["FCA"], apply=True).get("links_created", 0) == 0

@@ -14,7 +14,6 @@ on:
       - "docker-compose.yml"
       - ".dockerignore"
       - "requirements.txt"
-      - "backend/**"
       - ".github/workflows/docker-build.yml"
   pull_request:
     branches:
@@ -25,7 +24,6 @@ on:
       - "docker-compose.yml"
       - ".dockerignore"
       - "requirements.txt"
-      - "backend/**"
       - ".github/workflows/docker-build.yml"
 
 permissions:

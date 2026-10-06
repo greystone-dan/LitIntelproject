@@ -189,6 +189,8 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     assert re.findall(r"(?:^|,)([a-z_]+):", search_values.group(1)) == [
         "query",
         "cites",
+        "cites_case_id",
+        "tags",
         "government_outcome",
         "decision_outcome",
         "minister",

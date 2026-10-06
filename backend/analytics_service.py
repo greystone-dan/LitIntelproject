@@ -1242,6 +1242,45 @@ def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 	return counts
 
 
+def _split_tag_values(raw: str) -> list[str]:
+	"""Selected tag values from a comma-separated parameter: normalized, de-duplicated, at most five."""
+	seen: list[str] = []
+	for part in (raw or "").split(","):
+		value = "_".join(part.strip().lower().replace("_", " ").split())
+		if value and value not in seen:
+			seen.append(value)
+	return seen[:5]
+
+
+_TAG_VOCABULARY_CACHE: dict[str, Any] = {"at": 0.0, "rows": []}
+_TAG_VOCABULARY_TTL_SECONDS = 3600
+
+
+def fetch_tag_suggestions(db, query: str, limit: int = 12) -> list[dict[str, Any]]:
+	"""Stored tag values matching what was typed, with the number of decisions carrying each (cached for an hour)."""
+	now = time.monotonic()
+	if not _TAG_VOCABULARY_CACHE["rows"] or now - _TAG_VOCABULARY_CACHE["at"] > _TAG_VOCABULARY_TTL_SECONDS:
+		rows = db.execute(
+			sql_text(
+				"SELECT REPLACE(LOWER(value), ' ', '_') AS value, MIN(category) AS category, COUNT(DISTINCT case_id) AS n "
+				"FROM case_tags WHERE taxonomy_version = :version GROUP BY 1 ORDER BY n DESC"
+			),
+			{"version": ACTIVE_TAG_TAXONOMY_VERSION},
+		).mappings().all()
+		_TAG_VOCABULARY_CACHE["rows"] = [
+			{"value": str(r["value"]), "category": str(r["category"] or ""), "count": int(r["n"] or 0)} for r in rows
+		]
+		_TAG_VOCABULARY_CACHE["at"] = now
+	needle = " ".join((query or "").lower().replace("_", " ").split())
+	matches = [
+		{**row, "label": row["value"].replace("_", " ")}
+		for row in _TAG_VOCABULARY_CACHE["rows"]
+		if not needle or needle in row["value"].replace("_", " ").lower()
+	]
+	matches.sort(key=lambda row: (not row["label"].startswith(needle), -row["count"]))
+	return matches[: max(1, min(limit, 25))]
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1253,6 +1292,8 @@ def fetch_analytics_search_cases(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = 50,
@@ -1309,6 +1350,24 @@ def fetch_analytics_search_cases(
 			"EXISTS (SELECT 1 FROM citations cited WHERE cited.source_case_id = c.id "
 			"AND (cited.citation_text ILIKE :cites OR cited.normalized_citation ILIKE :cites))"
 		)
+	if cites_case_id:
+		# A case picked from the suggestions: decisions with a resolved citation to exactly that case.
+		params["cites_case_id"] = int(cites_case_id)
+		filters.append(
+			"EXISTS (SELECT 1 FROM citations picked WHERE picked.source_case_id = c.id "
+			"AND picked.target_case_id = :cites_case_id)"
+		)
+	for index, tag_value in enumerate(_split_tag_values(tags)):
+		# Every selected tag must be present on the decision (stored tags, active taxonomy only).
+		# Stored values mix "removal_order" and "removal order", so both spellings are matched.
+		params[f"tag_{index}"] = tag_value
+		params[f"tag_{index}_sp"] = tag_value.replace("_", " ")
+		filters.append(
+			f"EXISTS (SELECT 1 FROM case_tags ct{index} WHERE ct{index}.case_id = c.id "
+			f"AND ct{index}.taxonomy_version = :tag_version "
+			f"AND ct{index}.value IN (:tag_{index}, :tag_{index}_sp))"
+		)
+		params["tag_version"] = ACTIVE_TAG_TAXONOMY_VERSION
 	if government_outcome in {"won", "lost"}:
 		params["government_outcome"] = government_outcome
 		filters.append("c.metadata_json->'reader_extracted'->>'government outcome' = :government_outcome")

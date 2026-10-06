@@ -271,3 +271,9 @@ def test_claim_issues_are_empty_when_the_court_names_no_determinative_issue() ->
     result = classify(text)
     assert result.primary_type == "refugee_claim"
     assert result.issues == []
+
+def test_imm_docket_in_text_header_is_never_not_immigration_when_docket_missing():
+    text = ("File numbers IMM-1234-20 Decision Content Date: 20210101 Docket: IMM-1234-20 Citation: 2021 FC 1 "
+            "BETWEEN: A and Canada (Citizenship and Immigration). " + "The applicant seeks judicial review of an officer's decision. " * 20)
+    result = classify_text(text, court="FC", title="A v. Canada (Citizenship and Immigration)", docket=None)
+    assert result.status != "not_immigration"

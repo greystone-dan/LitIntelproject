@@ -37,6 +37,10 @@
 .ilit-about .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ilit-about .card{padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
 .ilit-about .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.ilit-about a.card.go{display:block;color:inherit;text-decoration:none}
+.ilit-about a.card.go:hover{border-color:var(--rust);box-shadow:0 2px 8px rgba(31,41,55,.08)}
+.ilit-about a.card.go:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ilit-about a.card.go .k::after{content:" \2192"}
 .ilit-about .card .k{display:block;margin-bottom:6px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
 .ilit-about ul.ticks{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
@@ -98,12 +102,12 @@
 
   <section id="tabs">
     <h2>Finding your way around</h2>
-    <p class="intro">The site has four sections along the top.</p>
+    <p class="intro">The site has three working sections along the top, plus this page. Click a card to go there.</p>
     <div class="grid">
-      <div class="card"><span class="k">Case search</span><p>The main page. Find decisions by name, citation or phrase, narrow them with filters, and open one to read it.</p></div>
-      <div class="card"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></div>
-      <div class="card"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer. The full list is further down this page.</p></div>
-      <div class="card"><span class="k">About</span><p>This page, with a Changelog tab that lists what has been added, by date.</p></div>
+      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Case search</span><p>The main page. Find decisions by name, citation or phrase, narrow them with filters, and open one to read it.</p></a>
+      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></a>
+      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer. The full list is further down this page.</p></a>
+      <a class="card go" href="?tab=about&amp;about=changelog" data-goto="changelog"><span class="k">Changelog</span><p>A timeline, newest first, of what has been added to the site and when, with a filter by theme.</p></a>
     </div>
   </section>
 
@@ -195,6 +199,16 @@
 </div>
 </div>
 <script>
+(function(){
+  document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      var g=a.dataset.goto,sel=g==='changelog'?'[data-about-view="changelog"]':'.primary-groups [data-group="'+g+'"]';
+      var target=document.querySelector(sel);
+      if(!target)return;
+      ev.preventDefault();target.click();window.scrollTo({top:0});
+    });
+  });
+})();
 (function(){
   var els=document.querySelectorAll('.ilit-about [data-live]');
   if(!els.length||!window.fetch)return;

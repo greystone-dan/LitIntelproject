@@ -62,6 +62,13 @@ _CRIMINAL_TITLE_RE = re.compile(r"^(?:R\.|Her Majesty|La Reine|Regina)\s+(?:v\.|
 _IMMIGRATION_TITLE_RE = re.compile(r"Citizenship|Immigration|Public Safety|Refugee|Minister of|Solicitor General|Canada Border|Council for", re.IGNORECASE)
 CRIMINAL_CASE_MIN_HITS = 25
 NON_IMMIGRATION_TITLE_MIN_HITS = 8
+_STAY_INTRO_RE = re.compile(
+    r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
+    r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
+    r"order (?:staying|prohibiting)[^.]{0,40}remov)",
+    re.IGNORECASE,
+)
+STAY_INTRO_BONUS = 12.0
 _ACT_NAME_RE = re.compile(r"Immigration and Refugee Protection Act|Immigration Act|Citizenship Act|\bIRPA\b", re.IGNORECASE)
 _DOCKET_IMM_RE = re.compile(r"\bIMM-\d+-\d+\b|\bIMM-\d+\b")
 
@@ -368,6 +375,11 @@ def classify_text(
         if total > 0:
             scores[case_type.key] = round(total, 2)
 
+    # A decision written to explain a stay of removal is about the stay, whatever risk grounds it discusses.
+    if _STAY_INTRO_RE.search(intro):
+        scores["removal_deferral_stay"] = round(scores.get("removal_deferral_stay", 0.0) + STAY_INTRO_BONUS, 2)
+        intro_scores["removal_deferral_stay"] = intro_scores.get("removal_deferral_stay", 0.0) + STAY_INTRO_BONUS
+
     # A specific protection type outranks the generic ss. 96-97 vocabulary it is decided in.
     specific_present = any(scores.get(key, 0.0) >= MIN_PRIMARY_SCORE for key in SPECIFIC_PROTECTION_TYPES)
     if specific_present and "refugee_claim" in scores:
@@ -389,7 +401,8 @@ def classify_text(
 
     allowed_groups = ALLOWED_GROUPS_BY_PROCEEDING.get(proceeding or "")
     if allowed_groups:
-        scores = {key: value for key, value in scores.items() if TYPES_BY_KEY[key].group in allowed_groups}
+        scores = {key: value for key, value in scores.items()
+                  if TYPES_BY_KEY[key].group in allowed_groups or key == "removal_deferral_stay"}
     min_primary = MIN_PRIMARY_SCORE_KNOWN_FORUM if allowed_groups else MIN_PRIMARY_SCORE
 
     ranked = sorted(scores.items(), key=lambda item: item[1], reverse=True)

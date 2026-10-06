@@ -56,7 +56,7 @@ def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | No
     value = re.sub(r"\s+", "", pinpoint or "").strip(".")
     if not value:
         return None, None, None, None, False
-    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?[A-Za-z]?)(?P<tail>(?:\([^()]+\))*)", value)
+    match = re.match(r"(?P<section>\d{1,3}(?:\.\d+)?(?:[A-Za-z](?![A-Za-z]))?)(?P<tail>(?:\([^()]+\))*)", value)
     if match is None:
         return None, None, None, None, True
     groups = re.findall(r"\(([^()]+)\)", match.group("tail"))
@@ -168,6 +168,15 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "citation": "Excise Tax Act, R.S.C. 1985, c. E-15",
         "source_url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/",
         "url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/section-{section}.html",
+    },
+    "canada.fc_cirp_rules": {
+        "aliases": (
+            "Federal Courts Citizenship, Immigration and Refugee Protection Rules",
+            "Federal Court Citizenship, Immigration and Refugee Protection Rules",
+        ),
+        "citation": "Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/section-{section}.html",
     },
     "canada.rpd_rules": {
         "aliases": ("Refugee Protection Division Rules", "RPD Rules"),

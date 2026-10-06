@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-06T18:29:46.508748+00:00
-Tables: 40
+Generated: 2026-10-06T18:44:10.166735+00:00
+Tables: 41
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -53,6 +53,15 @@ erDiagram
         VECTOR(1536) embedding
         String(100) embedding_model
         DATETIME created_at
+    }
+    case_fingerprints {
+        Integer case_id PK FK
+        String(20) version
+        JSON terms
+        JSON authorities
+        JSON role_chars
+        Integer text_length
+        DATETIME computed_at
     }
     case_judge_profiles {
         Integer id PK
@@ -572,6 +581,7 @@ erDiagram
     cases ||--o{ a2aj_case_map : "local_case_id"
     case_chunks ||--o{ case_chunk_embeddings : "chunk_id"
     cases ||--o{ case_chunks : "case_id"
+    cases ||--o{ case_fingerprints : "case_id"
     cases ||--o{ case_judge_profiles : "case_id"
     judge_profiles ||--o{ case_judge_profiles : "judge_profile_id"
     cases ||--o{ case_outcomes : "case_id"
@@ -627,6 +637,7 @@ erDiagram
 | `a2aj_citation_edges` | 4 | `id` |
 | `case_chunk_embeddings` | 6 | `id` |
 | `case_chunks` | 13 | `id` |
+| `case_fingerprints` | 7 | `case_id` |
 | `case_judge_profiles` | 5 | `id` |
 | `case_outcomes` | 18 | `id` |
 | `case_sources` | 14 | `id` |
@@ -771,6 +782,28 @@ erDiagram
 - `ix_case_chunks_chunk_set`: index on `chunk_set`
 - `ix_case_chunks_text_hash`: index on `text_hash`
 - `ix_similarity_paragraph`: index on `case_id`, `chunk_set`, `paragraph_start`, `id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`
+
+## `case_fingerprints`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `case_id` | `Integer` | no | PK; FK -> cases.id; NOT NULL |
+| `version` | `String(20)` | no | NOT NULL |
+| `terms` | `JSON` | no | NOT NULL |
+| `authorities` | `JSON` | no | NOT NULL |
+| `role_chars` | `JSON` | yes | - |
+| `text_length` | `Integer` | no | NOT NULL; default=0 |
+| `computed_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_case_fingerprints_version`: index on `version`
 
 ### Foreign Keys
 

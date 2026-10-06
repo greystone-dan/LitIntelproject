@@ -264,6 +264,22 @@ class FingerprintIndex:
         """Cases that cite the most similar set of authorities (rare authorities count for more)."""
         return self._top(self.authorities, case_id, k, min_score)
 
+    def _percentile(self, matrix: sp.csr_matrix, a: int, b: int) -> float:
+        """Where ``b`` ranks among all cases for query ``a`` (1.0 = nearest), both directions averaged."""
+        total = 0.0
+        for query, target in ((a, b), (b, a)):
+            row, other = self._row[query], self._row[target]
+            scores = (matrix @ matrix[row].T).toarray().ravel()
+            scores[row] = -1.0
+            total += float((scores < scores[other]).sum() + 1) / len(scores)
+        return total / 2
+
+    def subject_percentile(self, a: int, b: int) -> float:
+        return self._percentile(self.subject, a, b)
+
+    def authority_percentile(self, a: int, b: int) -> float:
+        return self._percentile(self.authorities, a, b)
+
     def explain_subject(self, a: int, b: int, limit: int = 8) -> list[tuple[str, float]]:
         """Plain (role-free) terms that two cases share, ranked by their weight in the comparison."""
         row_a, row_b = self._row.get(a), self._row.get(b)

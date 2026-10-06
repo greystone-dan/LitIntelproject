@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 174
+Active scripts documented: 175
 
 ## Catalog
 
@@ -103,6 +103,7 @@ Active scripts documented: 174
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
+| `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
@@ -1485,6 +1486,20 @@ Active scripts documented: 174
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help
+```
+
+## `scripts/fingerprint_pilot.py`
+
+**Purpose:** Read-only pilot: fingerprint a random sample of real cases and see whether the sample conclusions hold. Reads cases.full_text (SELECT only, in a read-only transaction, one connection, lowest process priority, throttled), computes case fingerprints in memory, and writes everything to files. It writes nothing to the database. Output (default ``data/eval/case_fingerprints/pilot/``): * ``fingerprints.jsonl`` one fingerprint per sampled case (terms, authorities, seconds) * ``pilot-report.md`` timing, neighbours for the landmark cases and 20 random cases, and the 150 hand-labelled pairs re-scored on this library * ``pilot-results.json`` the same numbers, machine readable Run it from the repo folder, for example:: ./venv/Scripts/python.exe scripts/fingerprint_pilot.py --fc 1200 --fca 500 --scc 300
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help
 ```
 
 ## `scripts/generate_api_reference.py`

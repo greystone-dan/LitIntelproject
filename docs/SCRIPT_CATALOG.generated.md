@@ -2286,7 +2286,7 @@ Active scripts documented: 187
 
 ## `scripts/repair_range_word_sections.py`
 
-**Purpose:** Repair statute_references.provision_section values like "34t" that came from "34 to 37". The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
+**Purpose:** Repair statute_references.provision_section values like "34t" (from "34 to 37") or "25s" (from "25 s. 3"). The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
 
 **Operational class:** Utility
 

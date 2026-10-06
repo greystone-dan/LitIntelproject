@@ -36,3 +36,16 @@ the decision, which pass one cannot link because it needs an earlier full citati
 (Vavilov, Dunsmuir, Khosa, Kanthasamy, Agraira, Newfoundland Nurses, Doré, Mason, Baker) and only fires on
 "<Name> at para N" (or French "au para N") that no other row already covers. In 800 random A2AJ decisions it added only 3 rows
 (most decisions give the full citation), so it matters mainly for decisions like the ones above.
+
+## Weak pass-one short forms and name-only rows (checked on the stage-1 rows written to the database)
+
+A hand check of 300 random rows from the first 1,000 refined decisions found the new rows (French cites, backrefs, parallel
+cites, landmark short forms) sound, but about a third of the pass-one short forms ("case_short", 27% of all rows) point at
+the wrong case: a common word is taken as a short name ("Lake" for Lake City Casinos, "Bank" for Royal Bank of Canada v. Radius
+Credit Union, "Nation" for Standingready v. Ocean Man First Nation, lowercase "connection", a footnote note "actuellement
+disponible seulement en anglais"), and 11% of rows are name-only lines (title-block party names like "JUNIOR HERMAN v. THE",
+footnote artifacts like "Hall v. Hill[3"). The refinement now rejects, in `C5_validate` (note `weak_short_form`): a short form
+whose alias is lowercase, a generic word, or not whole words of the anchored case's party names, and name-only rows that are a
+title-block party line or a footnote artifact. Short forms the decision defines itself ("[Vavilov]") and back-reference rows are
+never rejected. On 500 random English FC/FCA decisions this removed about 17% of pass-one short forms; the removed ones read as
+junk, with a few real ones lost (for example "O'Leary" written as "Leary", or "Teva Ramipril").

@@ -35,6 +35,7 @@ from .models import (
 	RefinedCitation,
 )
 from .landmarks import landmark_rows
+from .short_forms import is_weak_short_form
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
 CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C5_validate")
@@ -937,6 +938,9 @@ def refine_case_citations(
 		validated: list[RefinedCitation] = []
 		for row in rows:
 			checked = _validate(row, year_limit, self_keys)
+			if checked is not None and is_weak_short_form(checked):
+				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, "weak_short_form")))
+				continue
 			if checked is None:
 				reason = "self_citation" if set(row.identifiers) & self_keys else "noise"
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, reason)))

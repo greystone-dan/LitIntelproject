@@ -73,6 +73,9 @@ _PROCEDURAL_INTRO_RE = re.compile(
 _PRRA_OFFICER_HC_RE = re.compile(
     r"(?:pre-removal\s+risk\s+assessment|PRRA)\s+officer[^.]{0,160}?(?:humanitarian\s+and\s+compassionate|H&C)", re.IGNORECASE
 )
+_PRRA_DECISION_RE = re.compile(
+    r"decision[^.]{0,200}?(?:pre-removal\s+risk\s+assessment|PRRA)\b", re.IGNORECASE
+)
 _STAY_INTRO_RE = re.compile(
     r"(?:reasons (?:for|on) (?:the |a |my )?(?:stay|motion)|motion (?:for|to) (?:an? )?(?:order )?(?:staying|stay)|"
     r"(?:I|the Court) (?:have |has )?stayed|stay of (?:the |his |her |their )?removal|stay (?:the )?(?:execution|enforcement) of|"
@@ -81,6 +84,7 @@ _STAY_INTRO_RE = re.compile(
 )
 STAY_INTRO_BONUS = 12.0
 PRRA_OFFICER_HC_BONUS = 8.0
+PRRA_DECISION_BONUS = 8.0
 PROCEDURAL_INTRO_BONUS = 5.0
 PROCEDURAL_INTRO_WINDOW = 250  # the first sentence or two, where the court says what it is deciding
 APPEAL_COURT_CUE_ONLY_MIN_SCORE = 15.0
@@ -409,6 +413,11 @@ def classify_text(
                 scores[key] = round(scores[key] * DEMOTE_GENERAL_FACTOR, 2)
 
     # A PRRA officer who decided an H&C application: the case is about the H&C decision.
+    # A judicial review of a PRRA decision is a PRRA case, unless it is a stay motion or the officer decided H&C.
+    if (not _STAY_INTRO_RE.search(intro) and not _PRRA_OFFICER_HC_RE.search(intro[:800])
+            and _PRRA_DECISION_RE.search(intro[:500])):
+        scores["pre_removal_risk_assessment"] = round(scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS, 2)
+        intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
     prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
     if prra_hc:
         scores["humanitarian_compassionate"] = round(scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS, 2)

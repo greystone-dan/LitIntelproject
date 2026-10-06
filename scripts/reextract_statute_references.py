@@ -29,12 +29,11 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import delete, select
 
 from backend.citations import (
-    court_defaults_to_irpa,
-    _preferred_case_chunks,
+    irpa_mode_for,
     extract_statute_reference_matches,
     rebuild_statute_references_for_case,
 )
-from backend.database import Case, CaseChunk, SessionLocal, StatuteReference
+from backend.database import Case, SessionLocal, StatuteReference
 from backend.statutes import parse_legislation_citation
 
 BACKUP_COLUMNS = [column.name for column in StatuteReference.__table__.columns]
@@ -44,7 +43,7 @@ def new_rows_for_texts(texts: list[str], court: str | None = None) -> list[dict[
     """Run the current extractor over each text and return plain row dicts."""
     rows: list[dict[str, Any]] = []
     for text in texts:
-        for match in extract_statute_reference_matches(text, default_irpa=court_defaults_to_irpa(court)):
+        for match in extract_statute_reference_matches(text, default_irpa=irpa_mode_for(court, text)):
             parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
             rows.append(
                 {
@@ -96,10 +95,11 @@ def select_case_ids(db, case_ids: list[int], sample: int | None, seed: int, incl
 
 
 def case_texts(db, case: Case) -> list[str]:
-    chunks = list(db.scalars(select(CaseChunk).where(CaseChunk.case_id == case.id)))
-    selected = _preferred_case_chunks(chunks)
-    if selected:
-        return [chunk.text or "" for chunk in selected]
+    """The text the stored rows were built from: the full text (their chunk_id is NULL).
+
+    The "section" chunk set holds only headings for many decisions, so extracting from chunks would
+    miss nearly every reference; the apply step also rebuilds from the full text.
+    """
     return [case.full_text or case.summary or ""]
 
 
@@ -133,7 +133,7 @@ def run(case_ids: list[int], apply: bool, backup_path: Path | None, batch_size: 
                     if backup is not None:
                         backup.write(json.dumps({"case_id": case_id, "rows": old}, default=str) + "\n")
                         backup.flush()
-                    rebuild_statute_references_for_case(db, case)
+                    rebuild_statute_references_for_case(db, case, [])
                     changes["cases_rebuilt"] += 1
                     if index % batch_size == 0:
                         db.commit()

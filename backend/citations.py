@@ -148,7 +148,7 @@ IRPA_IRPR_BARE_NESTED_PROVISION_OF_STATUTE_RE = re.compile(
 	re.IGNORECASE,
 )
 SECTIONS_OF_STATUTE_RE = re.compile(
-	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+?)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
+	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+))++)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
 	re.IGNORECASE,
 )
 REFUGEE_CONVENTION_ARTICLE_RE = re.compile(

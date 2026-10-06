@@ -169,6 +169,15 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "source_url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/",
         "url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/section-{section}.html",
     },
+    "canada.fc_citizenship_immigration_rules": {
+        "aliases": (
+            "Federal Courts Citizenship, Immigration and Refugee Protection Rules",
+            "Federal Court Citizenship, Immigration and Refugee Protection Rules",
+        ),
+        "citation": "Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-93-22/section-{section}.html",
+    },
     "canada.rpd_rules": {
         "aliases": ("Refugee Protection Division Rules", "RPD Rules"),
         "citation": "Refugee Protection Division Rules, SOR/2012-256",

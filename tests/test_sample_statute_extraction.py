@@ -21,3 +21,23 @@ def test_provision_with_letter_subparagraph_takes_named_regulations():
     )
     keyed = {(e["instrument_key"], e["pinpoint"]) for e in result["extracted"]}
     assert ("canada.irpr", "228(1)") in keyed
+
+
+def test_bare_rule_ties_to_federal_courts_rules_only_after_they_are_named():
+    named = analyze_text("Under the Federal Courts Rules, SOR/98-106, see Rule 53(1) and Rule 5 of the Tax Court Rules.")
+    keyed = {(e["instrument_key"], e["pinpoint"]) for e in named["extracted"]}
+    assert ("canada.federal_courts_rules", "53(1)") in keyed
+    assert ("canada.federal_courts_rules", "5") not in keyed
+    assert not [e for e in analyze_text("See Rule 53(1).")["extracted"] if e["instrument_key"]]
+
+
+def test_fc_citizenship_immigration_rules_are_registered():
+    result = analyze_text("Rule 9 of the Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22 applies.")
+    keyed = {(e["instrument_key"], e["pinpoint"]) for e in result["extracted"]}
+    assert ("canada.fc_citizenship_immigration_rules", "9") in keyed
+
+
+def test_anchored_provision_guards():
+    text = "The Charter applies. The pre-trial order under s. 515(10)(c) and the Year Book 19 E. 3 R.S. 346 were cited."
+    found = [e for e in analyze_text(text)["extracted"] if e["instrument_key"] == "canada.charter" and e["pinpoint"]]
+    assert not found

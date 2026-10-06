@@ -187,6 +187,7 @@ test checks that these paths continue to exist.
 | `backend/citation_treatment_service.py` | Loads stored citations and verifies treatment labels against source text |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
 | `backend/contextual_authority/__init__.py` | Contextual-authority analysis package |
+| `backend/contextual_authority/case_structure.py` | Case structure: label every paragraph of a decision with its structural role (no AI) |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |
 | `backend/contextual_authority/discussion_units.py` | Deterministic paragraph features and discussion-unit boundaries |
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |

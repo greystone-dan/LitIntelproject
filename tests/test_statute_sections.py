@@ -22,7 +22,7 @@ def test_provision_label_for_breakdown():
 def test_routes_and_page_are_registered():
     app = FastAPI()
     app.include_router(sections.router)
-    paths = {route.path for route in app.routes}
+    paths = {route.path for route in sections.router.routes}
     assert "/api/statute-library/acts" in paths
     assert "/api/statute-library/{act}/sections/{section}" in paths
     response = TestClient(app).get("/statute-library")

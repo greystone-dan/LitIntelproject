@@ -1,416 +1,206 @@
 <style>
-/* iLit About page. Scoped under .ilit-about so it can sit inside the ilit.ca explorer
-   without clashing with the site's own .tag, .eyebrow and .card rules.
-   Tokens copy the live site's palette (backend/pages/data_explorer.py, second :root block). */
+/* iLit About page. Scoped under .ilit-about so it sits inside the explorer without clashing with the site's own rules. */
 .ilit-about{
-  --bg:#f1efe8; --surface:#fffef9; --surface-alt:#f8f6ef; --border:#d8d5ca;
-  --text:#202522; --muted:#69726d; --ink:#202522;
-  --blue:#315d8d; --blue-soft:#e7eef6;      /* citations, case law */
-  --rust:#a4412b; --rust-soft:#f7e8e3;      /* brand accent; FC docket, internal material */
-  --teal:#176c68; --teal-soft:#edf5f3;      /* built / yes */
-  --amber:#8a6418; --amber-soft:#f8f0dc;    /* limits, caveats (site amber #c28e2d darkened for text) */
+  --surface:#fffef9; --surface-alt:#f8f6ef; --border:#d8d5ca;
+  --text:#202522; --muted:#5f6863;
+  --blue:#315d8d; --blue-soft:#e7eef6;
+  --rust:#a4412b; --rust-soft:#f7e8e3;
+  --teal:#176c68; --teal-soft:#edf5f3;
+  --amber:#8a6418; --amber-soft:#f8f0dc;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  color:var(--text); font:15px/1.65 var(--sans);
+  color:var(--text); font-size:15px; line-height:1.65;
 }
 .ilit-about *{box-sizing:border-box}
-.ilit-about .wrap{max-width:1000px;margin:0 auto}
-.ilit-about header.top{padding-bottom:28px;border-bottom:1px solid var(--border)}
-.ilit-about .eyebrow{font:600 11px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin:0 0 10px}
-.ilit-about h1{font:700 clamp(30px,5vw,42px)/1.1 var(--serif);margin:0 0 14px;text-wrap:balance;max-width:22ch}
-.ilit-about .lede{font-size:17px;line-height:1.6;max-width:60ch;margin:0;color:var(--text)}
-.ilit-about h2{font:700 clamp(23px,3.4vw,28px)/1.15 var(--serif);margin:0 0 12px;text-wrap:balance}
-.ilit-about h3{font:600 20px/1.2 var(--serif);margin:0 0 6px}
-.ilit-about section{padding-block:40px;border-bottom:1px solid var(--border);scroll-margin-top:16px}
-.ilit-about section:last-of-type{border-bottom:0}
-.ilit-about p{max-width:68ch;margin:0 0 14px}
-.ilit-about .muted{color:var(--muted)}
-.ilit-about .small{font-size:13px;line-height:1.6}
-.ilit-about a{color:var(--teal)}
-.ilit-about a:focus-visible,.ilit-about summary:focus-visible{outline:3px solid rgba(23,108,104,.25);outline-offset:2px}
-.ilit-about .kicker{font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--rust);margin:0 0 9px}
+.ilit-about .wrap{max-width:960px;margin:0 auto;padding:4px 0 8px}
+.ilit-about .eyebrow{margin:0 0 8px;color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-about h1{margin:0;font:600 34px/1.1 var(--serif);letter-spacing:-.01em}
+.ilit-about .lede{max-width:68ch;margin:14px 0 0;font-size:16.5px;color:var(--text)}
+.ilit-about section{margin-top:38px;padding-top:28px;border-top:1px solid var(--border)}
+.ilit-about section:first-of-type{border-top:0}
+.ilit-about h2{margin:0;font:600 24px/1.2 var(--serif)}
+.ilit-about h3{margin:0 0 4px;font-size:14.5px;line-height:1.35}
+.ilit-about .intro{max-width:70ch;margin:8px 0 0;color:var(--muted)}
+.ilit-about p{margin:8px 0 0}
+.ilit-about code{padding:1px 5px;border-radius:3px;background:var(--surface-alt);font-size:.9em}
+.ilit-about a{color:var(--blue)}
 
-.ilit-about nav.jump{display:flex;flex-wrap:wrap;gap:0;margin-top:18px;margin-left:-11px}
-.ilit-about nav.jump a{font:500 10.5px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:11px 11px}
-.ilit-about nav.jump a:hover,.ilit-about nav.jump a:focus-visible{color:var(--text);box-shadow:inset 0 -2px var(--rust)}
+.ilit-about .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:24px;border:1px solid var(--border);border-radius:6px;background:var(--surface);overflow:hidden}
+.ilit-about .tiles div{padding:16px 18px;border-left:1px solid var(--border)}
+.ilit-about .tiles div:first-child{border-left:0}
+.ilit-about .tiles b{display:block;font:600 28px/1.1 var(--serif);color:var(--rust)}
+.ilit-about .tiles div:nth-child(2) b{color:var(--blue)}
+.ilit-about .tiles div:nth-child(3) b{color:var(--teal)}
+.ilit-about .tiles span{display:block;margin-top:6px;color:var(--muted);font-size:12.5px;line-height:1.4}
+.ilit-about .small{color:var(--muted);font-size:12.5px;line-height:1.55}
 
-.ilit-about .big{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-top:24px}
-.ilit-about .big.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.ilit-about .big div{background:var(--surface);padding:16px 18px}
-.ilit-about .big b{display:block;font:600 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink)}
-.ilit-about .big span{display:block;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45}
-.ilit-about .big .d b{color:var(--rust)} .ilit-about .big .a b{color:var(--blue)}
+.ilit-about .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.ilit-about .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ilit-about .card{padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.ilit-about .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.ilit-about .card .k{display:block;margin-bottom:6px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-.ilit-about .ask{margin-top:22px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--rust);border-radius:5px;padding:14px 18px;max-width:72ch;font-size:14px}
-.ilit-about .ask p{margin:0}
+.ilit-about ul.ticks{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.ilit-about ul.ticks li{position:relative;padding-left:24px;max-width:78ch}
+.ilit-about ul.ticks li::before{content:"";position:absolute;left:3px;top:.6em;width:9px;height:5px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.ilit-about ul.ticks b{font-weight:600}
 
-.ilit-about figure{margin:24px 0 0}
-.ilit-about .svgwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:18px}
-.ilit-about .svgwrap svg{display:block;width:100%;height:auto;color:var(--muted)}
-.ilit-about figcaption{font-size:13px;color:var(--muted);margin-top:9px;max-width:76ch}
-.ilit-about figcaption strong{color:var(--text)}
-.ilit-about svg text{font-family:var(--sans)}
-.ilit-about svg .bx{fill:var(--surface);stroke:var(--border);stroke-width:1.5}
-.ilit-about svg .bxh{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
-.ilit-about svg .bxd{fill:var(--rust-soft);stroke:var(--rust);stroke-width:1.5}
-.ilit-about svg .bxm{fill:var(--surface-alt);stroke:var(--border);stroke-width:1.5;stroke-dasharray:4 3}
-.ilit-about svg .tt{fill:var(--text);font-weight:600}
-.ilit-about svg .tth{fill:var(--blue);font-weight:600}
-.ilit-about svg .ttd{fill:var(--rust);font-weight:600}
-.ilit-about svg .ts{fill:var(--muted)}
-.ilit-about svg .tl{fill:var(--muted);font-style:italic}
-.ilit-about svg .cap{fill:var(--rust);letter-spacing:.08em;font-weight:600}
-.ilit-about svg .ln{stroke:currentColor;stroke-width:1.5;fill:none}
-.ilit-about svg .dash{stroke-dasharray:5 4}
-.ilit-about svg .lnh{stroke:var(--blue)}
-.ilit-about svg .fa{fill:var(--blue)}
-.ilit-about svg .bard{fill:var(--rust)} .ilit-about svg .barh{fill:var(--blue)} .ilit-about svg .barm{fill:var(--muted)}
-.ilit-about svg .tbar{fill:#fffef9}
-.ilit-about svg .zone{fill:none;stroke:var(--teal);stroke-width:1.5;stroke-dasharray:6 4}
-.ilit-about svg .dot{fill:var(--ink)} .ilit-about svg .tdot{fill:#fffef9}
+.ilit-about .tag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;vertical-align:1px}
+.ilit-about .tag.live{background:var(--teal-soft);color:var(--teal)}
+.ilit-about .tag.soon{background:var(--amber-soft);color:var(--amber)}
+.ilit-about .tag.wip{background:var(--blue-soft);color:var(--blue)}
 
-.ilit-about .compare{margin-top:22px;border:1px solid var(--border);border-radius:5px;background:var(--surface);overflow-x:auto}
-.ilit-about .compare table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
-.ilit-about .compare th,.ilit-about .compare td{padding:11px 14px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
-.ilit-about .compare thead th{font:600 10px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-alt)}
-.ilit-about .compare tr:last-child td{border-bottom:0}
-.ilit-about .compare td:nth-child(2){color:var(--muted)}
-.ilit-about .compare .no{color:var(--amber);font-weight:600}
-.ilit-about .compare .yes{color:var(--teal);font-weight:600}
+.ilit-about .table-wrap{margin-top:16px;overflow-x:auto;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.ilit-about table{width:100%;border-collapse:collapse;font-size:13.5px}
+.ilit-about th,.ilit-about td{padding:9px 14px;border-top:1px solid var(--border);text-align:left;vertical-align:top}
+.ilit-about thead th{border-top:0;background:var(--surface-alt);color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.ilit-about td.num,.ilit-about th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-.ilit-about .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
-.ilit-about .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.ilit-about .card{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:16px 18px}
-.ilit-about .card h3{font-size:18px}
-.ilit-about .card p{font-size:13.5px;margin:0;color:var(--text)}
-.ilit-about .card .ex{font-size:12.5px;color:var(--muted);margin-top:8px}
-.ilit-about .tag{display:inline-block;font:600 10px/1 var(--sans);letter-spacing:.04em;text-transform:uppercase;padding:4px 6px;border:1px solid var(--border);border-radius:4px;margin-bottom:10px}
-.ilit-about .tag.ok{background:var(--teal-soft);color:var(--teal)}
-.ilit-about .tag.part{background:var(--blue-soft);color:var(--blue)}
-.ilit-about .tag.gap{background:var(--amber-soft);color:var(--amber)}
+.ilit-about .status-list{margin-top:16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.ilit-about .status-list div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 16px;border-top:1px solid var(--border);font-size:13.5px}
+.ilit-about .status-list div:first-child{border-top:0}
+.ilit-about .status-list strong{font-size:13.5px}
+.ilit-about .status-list span{color:var(--muted)}
 
-.ilit-about .ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
-.ilit-about .ba article{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:16px 18px}
-.ilit-about .ba .ask-line{font:600 18px/1.35 var(--serif);margin:0 0 12px}
-.ilit-about .ba dl{margin:0;display:grid;grid-template-columns:70px minmax(0,1fr);gap:8px 12px;font-size:13.5px}
-.ilit-about .ba dt{font:600 10px/2 var(--sans);letter-spacing:.08em;text-transform:uppercase}
-.ilit-about .ba dt.before{color:var(--amber)} .ilit-about .ba dt.after{color:var(--teal)}
-.ilit-about .ba dd{margin:0}
-
-.ilit-about .status{margin-top:20px;border:1px solid var(--border);border-radius:5px;background:var(--surface)}
-.ilit-about .status div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:11px 16px;border-top:1px solid var(--border);font-size:13.5px;align-items:baseline}
-.ilit-about .status div:first-child{border-top:0}
-
-.ilit-about .note{background:var(--amber-soft);border:1px solid #e8d9b4;border-radius:5px;padding:13px 16px;margin-top:14px;max-width:76ch;font-size:13.5px}
+.ilit-about .note{max-width:78ch;margin-top:16px;padding:13px 16px;border:1px solid #e8d9b4;border-radius:6px;background:var(--amber-soft);font-size:13.5px}
 .ilit-about .note strong{color:var(--amber)}
+.ilit-about .soon-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin:16px 0 0;padding:0;list-style:none}
+.ilit-about .soon-list li{padding:10px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-size:13px;line-height:1.5;color:var(--muted)}
+.ilit-about .soon-list b{display:block;color:var(--text);font-size:13.5px}
+.ilit-about footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px;max-width:78ch}
 
-.ilit-about details{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:12px 16px;margin-top:8px;max-width:78ch}
-.ilit-about summary{cursor:pointer;font-weight:600;font-size:14px}
-.ilit-about details p{margin:10px 0 0;font-size:13.5px}
-.ilit-about footer{margin-top:24px;font-size:12px;color:var(--muted);max-width:78ch}
-
-@media (max-width:820px){
-  .ilit-about .big{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ilit-about .cards,.ilit-about .cards.two,.ilit-about .ba{grid-template-columns:minmax(0,1fr)}
+@media (max-width:760px){
+  .ilit-about h1{font-size:28px}
+  .ilit-about .grid,.ilit-about .grid.three,.ilit-about .soon-list{grid-template-columns:minmax(0,1fr)}
+  .ilit-about .status-list div{grid-template-columns:minmax(0,1fr);gap:4px}
 }
 @media (max-width:520px){
   .ilit-about{font-size:15px}
-  .ilit-about .big.three{grid-template-columns:minmax(0,1fr)}
-  .ilit-about .svgwrap{padding:12px}
-  .ilit-about .status div{grid-template-columns:minmax(0,1fr);gap:4px}
+  .ilit-about .tiles{grid-template-columns:minmax(0,1fr)}
+  .ilit-about .tiles div{border-left:0;border-top:1px solid var(--border)}
+  .ilit-about .tiles div:first-child{border-top:0}
+  .ilit-about section{margin-top:30px;padding-top:22px}
 }
 </style>
 <div class="ilit-about">
 <div class="wrap">
-  <header class="top">
-    <p class="eyebrow">Status overview · shared informally with the CBSA Hearings and Litigation Division · 5 October 2026</p>
-    <h1>iLit: where the project stands</h1>
-    <p class="lede">iLit is a litigation intelligence tool for immigration law that I have been building independently. It reads every Federal Court immigration file and decision, connects them, and answers the questions a litigation analyst is asked every week, with the source behind every answer. This is where it is today, and where it could go next.</p>
-    <div class="big" role="list">
-      <div class="d" role="listitem"><b data-live="cases">loading…</b><span>Federal Court immigration files tracked step by step</span></div>
-      <div role="listitem"><b data-live="cases">loading…</b><span>decisions read paragraph by paragraph</span></div>
-      <div class="a" role="listitem"><b data-live="citations">loading…</b><span>citations, each linked to what it cites</span></div>
-      <div role="listitem"><b data-live="linked_citations">loading…</b><span>citations linked to the exact paragraph they point to</span></div>
+
+  <header>
+    <p class="eyebrow">About · where the demo stands on 6 October 2026</p>
+    <h1>iLit: immigration litigation intelligence</h1>
+    <p class="lede">iLit is a research tool for Canadian immigration case law that I am building independently, on public decisions only. It lets you search the library, read a decision with its citations and statute references alongside the text, and see how a judge, an authority or the Federal Court docket fits into the wider picture. This page describes what works today and what does not yet.</p>
+    <div class="tiles" role="list">
+      <div role="listitem"><b data-live="cases">–</b><span>decisions in the library</span></div>
+      <div role="listitem"><b data-live="citations">–</b><span>citation records found in those decisions</span></div>
+      <div role="listitem"><b data-live="fc_activity_cases">–</b><span>Federal Court immigration files with their docket history</span></div>
     </div>
-    <div class="ask"><p><strong>In short:</strong> this is not a request to adopt anything or start a pilot. The project runs on public data, outside government, and moves quickly because of it. The last section sets out an unofficial idea of what modest funding would speed up, in three sizes.</p></div>
-    <nav class="jump" aria-label="Jump to">
-      <a href="#today">CanLII vs iLit</a><a href="#how">How it works</a><a href="#files">Tracking files</a><a href="#cites">Smart citations</a><a href="#ai">AI on paragraphs</a><a href="#internal">Internal material</a><a href="#intake">New cases</a><a href="#analyst">For the analyst</a><a href="#trust">Trust</a><a href="#state">Where I am</a><a href="#foundation">Foundation</a><a href="#independent">Why independent</a><a href="#value">Costs compared</a><a href="#funding">Funding idea</a>
-    </nav>
+    <p class="small" style="margin-top:10px">These three numbers are read from the database when this page opens. If they show a dash, the database could not be reached.</p>
   </header>
 
-  <section id="today">
-    <p class="kicker">The starting point</p>
-    <h2>What changes when you go from CanLII to iLit</h2>
-    <p>The Division has no Westlaw or Lexis. CanLII is free and reliable, but it only lets you find and read one decision at a time. Everything else is done by hand.</p>
-    <div class="compare">
+  <section id="tabs">
+    <h2>Finding your way around</h2>
+    <p class="intro">The site has four sections along the top.</p>
+    <div class="grid">
+      <div class="card"><span class="k">Case search</span><p>The main page. Find decisions by name, citation or phrase, narrow them with filters, and open one to read it.</p></div>
+      <div class="card"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></div>
+      <div class="card"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer. The full list is further down this page.</p></div>
+      <div class="card"><span class="k">About</span><p>This page, with a Changelog tab that lists what has been added, by date.</p></div>
+    </div>
+  </section>
+
+  <section id="library">
+    <h2>What is in the library</h2>
+    <p class="intro">Decisions from four courts and tribunals, each kept as published with its source address, and split into numbered paragraphs so a result can point to a passage. The counts below were taken from the database on 6 October.</p>
+    <div class="table-wrap">
       <table>
-        <thead><tr><th>I need to…</th><th>With CanLII today</th><th>With iLit</th></tr></thead>
+        <thead><tr><th>Court or tribunal</th><th class="num">Decisions</th><th>Years covered</th></tr></thead>
         <tbody>
-          <tr><td>Know where a Federal Court file stands</td><td><span class="no">Not possible.</span> Read the court’s docket online.</td><td><span class="yes">Type the file number.</span> Leave, hearing and result, plus stays and motions where the docket records them.</td></tr>
-          <tr><td>See how the Minister has fared on an issue</td><td><span class="no">Not possible.</span></td><td><span class="yes">One filter</span>, where the outcome has been coded (about half of decisions so far).</td></tr>
-          <tr><td>Check what a cited paragraph actually says</td><td>Open the case and scroll.</td><td><span class="yes">Click.</span> The paragraph appears, where the pinpoint can be matched.</td></tr>
-          <tr><td>Know if an authority is still the one to cite</td><td>A “cited by” count.</td><td><span class="yes">Trend:</span> emerging, dominant or declining, with possible successors suggested.</td></tr>
-          <tr><td>Check the other side’s memo</td><td>One citation at a time.</td><td><span class="yes">Upload it.</span> The cases and laws the rules recognise are found and linked to the library.</td></tr>
-          <tr><td>Find what an argument is missing</td><td><span class="no">Not possible.</span></td><td><span class="yes">Gap check</span> for decisions in the library, against their closest peers. Checking the Division’s own drafts is a next step.</td></tr>
-          <tr><td>See how courts handled an argument across cases</td><td>Days of reading.</td><td><span class="yes">Search by argument</span>, compare side by side (so far within 300 core decisions).</td></tr>
+          <tr><td>Federal Court (FC)</td><td class="num">35,981</td><td>2001–2026</td></tr>
+          <tr><td>Supreme Court of Canada (SCC)</td><td class="num">10,893</td><td>1877–2026</td></tr>
+          <tr><td>Federal Court of Appeal (FCA)</td><td class="num">7,813</td><td>2001–2026</td></tr>
+          <tr><td>Immigration and Refugee Board, Refugee Protection Division (RPD)</td><td class="num">6,729</td><td>2002–2020</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="small muted" style="margin-top:14px">Buying a commercial platform would not close this gap either. A September 2026 scan found no Canadian product with Federal Court file tracking, Minister win/loss data or immigration citation trends. The tools that do this kind of analysis cover US courts only.</p>
+    <p class="small" style="margin-top:10px">A further 45 older records carry no decision text. The library is not a complete archive of any of these courts. Immigration Division and Immigration Appeal Division decisions are not in it yet.</p>
+    <p>Alongside the decisions, the library holds a separate record of the Federal Court docket for immigration files: the dated entries recorded on each file, such as filing, leave and judgment. It is a different kind of record from a decision, and it is what the Federal Court Analytics view draws on.</p>
   </section>
 
-  <section id="how">
-    <p class="kicker">The big picture</p>
-    <h2>How it works</h2>
-    <p>iLit uses public information only. It collects it, keeps the original untouched, reads it into facts, and connects the pieces.</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 300" role="img" aria-label="Public sources are collected, read, linked, and turned into answers for analysts" style="min-width:720px"><defs><marker id="f1-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f1-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><text x="95" y="22" text-anchor="middle" class="cap" font-size="11">PUBLIC SOURCES</text><text x="285" y="22" text-anchor="middle" class="cap" font-size="11">1 · COLLECT</text><text x="475" y="22" text-anchor="middle" class="cap" font-size="11">2 · READ</text><text x="665" y="22" text-anchor="middle" class="cap" font-size="11">3 · CONNECT</text><text x="855" y="22" text-anchor="middle" class="cap" font-size="11">ANSWERS</text><rect x="20" y="42" width="150" height="64" rx="6" class="bx"/><text x="95.0" y="70.5" text-anchor="middle" class="tt" font-size="13.5">Federal Court dockets</text><text x="95.0" y="86.5" text-anchor="middle" class="ts" font-size="12">every immigration file</text><rect x="20" y="124" width="150" height="64" rx="6" class="bx"/><text x="95.0" y="152.5" text-anchor="middle" class="tt" font-size="13.5">Court decisions</text><text x="95.0" y="168.5" text-anchor="middle" class="ts" font-size="12">FC, FCA, SCC, RPD</text><rect x="20" y="206" width="150" height="64" rx="6" class="bx"/><text x="95.0" y="234.5" text-anchor="middle" class="tt" font-size="13.5">Laws and guidance</text><text x="95.0" y="250.5" text-anchor="middle" class="ts" font-size="12">IRPA, IRPR, CBSA, IRB</text><rect x="210" y="42" width="150" height="228" rx="6" class="bx"/><text x="285.0" y="136.5" text-anchor="middle" class="tt" font-size="13.5">Keep the original</text><text x="285.0" y="152.5" text-anchor="middle" class="ts" font-size="12">exactly as published,</text><text x="285.0" y="168.5" text-anchor="middle" class="ts" font-size="12">with where and when</text><text x="285.0" y="184.5" text-anchor="middle" class="ts" font-size="12">it came from</text><rect x="400" y="42" width="150" height="228" rx="6" class="bx"/><text x="475.0" y="112.5" text-anchor="middle" class="tt" font-size="13.5">Read it</text><text x="475.0" y="128.5" text-anchor="middle" class="ts" font-size="12">paragraphs</text><text x="475.0" y="144.5" text-anchor="middle" class="ts" font-size="12">judge and outcome</text><text x="475.0" y="160.5" text-anchor="middle" class="ts" font-size="12">did the Minister win</text><text x="475.0" y="176.5" text-anchor="middle" class="ts" font-size="12">citations</text><text x="475.0" y="192.5" text-anchor="middle" class="ts" font-size="12">laws referenced</text><text x="475.0" y="208.5" text-anchor="middle" class="ts" font-size="12">docket steps</text><rect x="590" y="42" width="150" height="228" rx="6" class="bxh"/><text x="665.0" y="128.5" text-anchor="middle" class="tth" font-size="13.5">Connect it</text><text x="665.0" y="144.5" text-anchor="middle" class="ts" font-size="12">file ↔ decision</text><text x="665.0" y="160.5" text-anchor="middle" class="ts" font-size="12">decision ↔ authority</text><text x="665.0" y="176.5" text-anchor="middle" class="ts" font-size="12">citation ↔ exact</text><text x="665.0" y="192.5" text-anchor="middle" class="ts" font-size="12">paragraph cited</text><rect x="780" y="42" width="150" height="46" rx="6" class="bx"/><text x="855.0" y="69.5" text-anchor="middle" class="tt" font-size="12.5">Where a file stands</text><rect x="780" y="100" width="150" height="46" rx="6" class="bx"/><text x="855.0" y="127.5" text-anchor="middle" class="tt" font-size="12.5">Which authorities matter</text><rect x="780" y="158" width="150" height="46" rx="6" class="bx"/><text x="855.0" y="185.5" text-anchor="middle" class="tt" font-size="12.5">What a memo is missing</text><rect x="780" y="216" width="150" height="46" rx="6" class="bx"/><text x="855.0" y="243.5" text-anchor="middle" class="tt" font-size="12.5">How arguments fared</text><polyline points="170,74 206,74" class="ln" marker-end="url(#f1-a)"/><polyline points="170,156 206,156" class="ln" marker-end="url(#f1-a)"/><polyline points="170,238 206,238" class="ln" marker-end="url(#f1-a)"/><polyline points="360,156 396,156" class="ln" marker-end="url(#f1-a)"/><polyline points="550,156 586,156" class="ln" marker-end="url(#f1-a)"/><polyline points="740,156 760,156 760,65 776,65" class="ln" marker-end="url(#f1-a)"/><polyline points="740,156 760,156 760,123 776,123" class="ln" marker-end="url(#f1-a)"/><polyline points="740,156 760,156 760,181 776,181" class="ln" marker-end="url(#f1-a)"/><polyline points="740,156 760,156 760,239 776,239" class="ln" marker-end="url(#f1-a)"/></svg></div><figcaption><strong>How iLit works.</strong> It collects public court records, keeps the originals untouched, reads them into structured facts, connects them to each other, and answers the questions analysts ask. Every answer can be traced back to the original page.</figcaption></figure>
-    <figure><div class="svgwrap"><svg viewBox="0 0 900 280" role="img" aria-label="Dockets, decisions and authorities are joined by file number and by citation" style="min-width:680px"><defs><marker id="f2-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f2-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="20" y="40" width="230" height="110" rx="6" class="bxd"/><text x="135.0" y="83.5" text-anchor="middle" class="ttd" font-size="14.5">Federal Court dockets</text><text x="135.0" y="99.5" text-anchor="middle" class="ts" font-size="12" data-live="fc_activity_cases">loading…</text><text x="135.0" y="115.5" text-anchor="middle" class="ts" font-size="12" data-live="fc_activity_documents">loading…</text><rect x="335" y="40" width="230" height="110" rx="6" class="bx"/><text x="450.0" y="83.5" text-anchor="middle" class="tt" font-size="14.5">Decisions with reasons</text><text x="450.0" y="99.5" text-anchor="middle" class="ts" font-size="12" data-live="cases">loading…</text><text x="450.0" y="115.5" text-anchor="middle" class="ts" font-size="12">split into paragraphs</text><rect x="650" y="40" width="230" height="110" rx="6" class="bxh"/><text x="765.0" y="83.5" text-anchor="middle" class="tth" font-size="14.5">Authorities cited</text><text x="765.0" y="99.5" text-anchor="middle" class="ts" font-size="12" data-live="citations">loading…</text><text x="765.0" y="115.5" text-anchor="middle" class="ts" font-size="12">934,000 linked to the case</text><polyline points="250,95 331,95" class="ln" marker-end="url(#f2-a)"/><text x="291" y="86" text-anchor="middle" class="tl" font-size="11.5">court file no.</text><polyline points="565,95 646,95" class="ln" marker-end="url(#f2-a)"/><text x="605" y="86" text-anchor="middle" class="tl" font-size="11.5">citation</text><text x="135" y="178" text-anchor="middle" class="tt" font-size="13.5">What happened</text><text x="135" y="196" text-anchor="middle" class="ts" font-size="12">leave, stays, hearings, outcome</text><text x="450" y="178" text-anchor="middle" class="tt" font-size="13.5">Why it happened</text><text x="450" y="196" text-anchor="middle" class="ts" font-size="12">the Court’s reasoning, judge, result</text><text x="765" y="178" text-anchor="middle" class="tt" font-size="13.5">What the Court relied on</text><text x="765" y="196" text-anchor="middle" class="ts" font-size="12">cases and laws, down to the paragraph</text><polyline points="135,214 135,250 765,250 765,218" class="ln dash" marker-end="url(#f2-a)"/><text x="450" y="268" text-anchor="middle" class="tl" font-size="11.5">next: which authorities decide challenges to CBSA decisions versus IRB decisions</text></svg></div><figcaption><strong>Three kinds of information, joined.</strong> CanLII has only the middle box. iLit connects each decision to its court file and to everything it cites, so you can move from “what happened” to “why” to “on what authority” in a click.</figcaption></figure>
+  <section id="search">
+    <h2><span class="tag live">Live</span>Case search</h2>
+    <p class="intro">Search runs entirely on the stored library. Nothing you type is sent to an AI service.</p>
+    <ul class="ticks">
+      <li><b>Find a case.</b> Type a case name, party, citation or phrase. By default the search looks at names and citations; tick “Search the full decision text” to search the reasons as well. A short plain-words line under the box says what the search is doing.</li>
+      <li><b>See why it matched.</b> Each result shows an excerpt with your words highlighted, the court, date, outcome and how many other decisions cite it.</li>
+      <li><b>Narrow it down.</b> Advanced filters cover court, decision year, decision result, judge, Minister or government party, a tag, and a case that the results must cite. Court and year chips narrow results in one click, and results can be sorted by newest, oldest, relevance or most cited.</li>
+      <li><b>Take results with you.</b> A Copy citation button sits on results and in the reader, and a search can be downloaded as a spreadsheet or Word file.</li>
+    </ul>
   </section>
 
-  <section id="files">
-    <p class="kicker">What makes it unique · 1</p>
-    <h2>It tracks every Federal Court file, not just the ones with decisions</h2>
-    <p>Today, checking what has happened on a Federal Court immigration file means looking it up on the court’s website by hand, one case at a time. iLit already holds the docket history of every immigration file ever filed, tracking them with 3.6 million entries, available instantly. It is designed to be refreshed so it stays accurate.</p>
-    <div class="ask" style="margin-top:0;margin-bottom:18px"><p><strong>Why that matters:</strong> statistics can cover every case ever filed, not only the files JRU received. Most immigration files never produce a published decision (leave is usually refused without reasons, files are discontinued or settled), so tools built on decisions, CanLII included, never see them. One caveat: the docket is typed by Registry staff, so some entries contain errors, and any statistic inherits them.</p></div>
-    <figure><div class="svgwrap"><svg viewBox="0 0 900 210" role="img" aria-label="In a sample of 15,000 files, about two in three were refused leave, usually without reasons" style="min-width:700px"><defs><marker id="f3-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f3-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="20.0" y="40" width="559.9" height="54" class="bard"/><text x="32" y="72" text-anchor="start" class="tbar" font-size="13" font-weight="600">Leave refused · 65%</text><rect x="579.9" y="40" width="133.3" height="54" class="barh"/><text x="591.86" y="72" text-anchor="start" class="tbar" font-size="13" font-weight="600">Granted · 16%</text><rect x="713.2" y="40" width="166.8" height="54" class="barm"/><text x="725.1600000000001" y="72" text-anchor="start" class="tbar" font-size="13" font-weight="600">Unclear · 19%</text><text x="20" y="26" text-anchor="start" class="ts" font-size="12">15,000 Federal Court immigration files, 500 per year, 1993–2022</text><polyline points="20,106 20,116 579.9,116 579.9,106" class="ln" fill="none"/><text x="299.93" y="138" text-anchor="middle" class="tt" font-size="13.5">Usually decided with no written reasons.</text><text x="299.93" y="156" text-anchor="middle" class="ts" font-size="12">Invisible to any tool built only on published decisions, including CanLII.</text><text x="299.93" y="184" text-anchor="middle" class="tth" font-size="13.5">iLit sees every one of them through the docket.</text></svg></div><figcaption><strong>Why the docket matters.</strong> Most immigration files end without a published decision. Measuring outcomes or workload from decisions alone describes a small, skewed slice. The docket gives the whole picture. Sample from iLit’s docket classifier (earlier version); illustrative, not an official statistic.</figcaption></figure>
-    <p style="margin-top:24px">iLit stores the court’s docket for all immigration files. About 219,000 have already been turned into clear steps like these, and a newer, more detailed version is being tested on samples:</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 330" role="img" aria-label="The steps of a Federal Court immigration file that iLit tracks" style="min-width:720px"><defs><marker id="f4-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f4-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="20" y="40" width="160" height="64" rx="6" class="bx"/><text x="100.0" y="68.5" text-anchor="middle" class="tt" font-size="13.5">Application filed</text><text x="100.0" y="84.5" text-anchor="middle" class="ts" font-size="12">date, applicant</text><rect x="205" y="40" width="160" height="64" rx="6" class="bx"/><text x="285.0" y="68.5" text-anchor="middle" class="tt" font-size="13.5">Record filed</text><text x="285.0" y="84.5" text-anchor="middle" class="ts" font-size="12">file perfected</text><rect x="390" y="40" width="160" height="64" rx="6" class="bxh"/><text x="470.0" y="60.5" text-anchor="middle" class="tt" font-size="13.5">Leave decision</text><text x="470.0" y="76.5" text-anchor="middle" class="ts" font-size="12">granted or refused</text><text x="470.0" y="92.5" text-anchor="middle" class="ts" font-size="12">judge</text><rect x="575" y="40" width="160" height="64" rx="6" class="bx"/><text x="655.0" y="68.5" text-anchor="middle" class="tt" font-size="13.5">Hearing</text><text x="655.0" y="84.5" text-anchor="middle" class="ts" font-size="12">scheduled or held</text><rect x="760" y="40" width="160" height="64" rx="6" class="bx"/><text x="840.0" y="60.5" text-anchor="middle" class="tt" font-size="13.5">Judgment</text><text x="840.0" y="76.5" text-anchor="middle" class="ts" font-size="12">granted or dismissed</text><text x="840.0" y="92.5" text-anchor="middle" class="ts" font-size="12">judge</text><polyline points="180,72.0 201,72.0" class="ln" marker-end="url(#f4-a)"/><polyline points="365,72.0 386,72.0" class="ln" marker-end="url(#f4-a)"/><polyline points="550,72.0 571,72.0" class="ln" marker-end="url(#f4-a)"/><polyline points="735,72.0 756,72.0" class="ln" marker-end="url(#f4-a)"/><text x="542" y="64.0" text-anchor="middle" class="tl" font-size="11.5">granted</text><rect x="390" y="170" width="160" height="54" rx="6" class="bxd"/><text x="470.0" y="193.5" text-anchor="middle" class="ttd" font-size="13.5">File closed</text><text x="470.0" y="209.5" text-anchor="middle" class="ts" font-size="12">leave refused</text><polyline points="470,104 470,166" class="ln" marker-end="url(#f4-a)"/><text x="480" y="142" text-anchor="start" class="tl" font-size="11.5">refused</text><rect x="205" y="170" width="160" height="54" rx="6" class="bxm"/><text x="285.0" y="193.5" text-anchor="middle" class="tt" font-size="13.5">Discontinued</text><text x="285.0" y="209.5" text-anchor="middle" class="ts" font-size="12">or withdrawn</text><polyline points="285,104 285,166" class="ln dash" marker-end="url(#f4-a)"/><rect x="20" y="258" width="900" height="54" rx="6" class="bxd"/><text x="470.0" y="281.5" text-anchor="middle" class="ttd" font-size="13.5">Motions and stays of removal, tracked whenever they appear</text><text x="470.0" y="297.5" text-anchor="middle" class="ts" font-size="12">type of motion, outcome, scheduled removal date and destination</text><polyline points="100,104 100,254" class="ln dash" marker-end="url(#f4-a)"/><text x="745" y="190" text-anchor="start" class="ts" font-size="12">Each step is dated, linked to the</text><text x="745" y="206" text-anchor="start" class="ts" font-size="12">registry entry it came from, and</text><text x="745" y="222" text-anchor="start" class="ts" font-size="12">rolled up into one card per file.</text></svg></div><figcaption><strong>Following a file.</strong> iLit reads the free-text docket of every Federal Court immigration file and turns it into these steps, in English and French. Enter a file number and see where it stands in seconds.</figcaption></figure>
-    <div class="cards" style="margin-top:22px">
-      <div class="card"><span class="tag ok">Working</span><h3>File status in seconds</h3><p>Enter a file number and see leave, judicial review result, judge, status and latest activity, fetched live from the court. Motions and stays are coming in the newer version.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>Who made the decision being challenged</h3><p>CBSA, IRB, IRCC or a visa office, and the subject: removal, detention, inadmissibility, PRRA, H&amp;C and more. A decision-maker was found for about 94% of a 1,000-file sample; accuracy not yet checked.</p><p class="ex">Would separate litigation about CBSA’s own decisions from the rest.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>Stays of removal</h3><p>Stay motions and outcomes, with the scheduled removal date and destination when the docket states them.</p></div>
-    </div>
-    <p class="small muted" style="margin-top:16px">New in the last few days, and so far tested on a 5,000-file sample rather than applied to the whole library: each file knows which steps apply at its stage (a file refused leave is no longer shown as “missing” a hearing), motion filings are linked to the docket entries they came from, and a repeatable test suite measures the docket reader. Motion types are still a prototype, identified for about a quarter of files in a sample.</p>
-    <p class="small muted">This layer began as a Python version of the JRU Personal Inventory Tool, an Excel workbook for tracking one person’s caseload. iLit keeps its logic and scales it to every file in the court.</p>
+  <section id="reader">
+    <h2><span class="tag live">Live</span>The case reader</h2>
+    <p class="intro">Open any result to read the decision in a clean formatted view built from the original text.</p>
+    <ul class="ticks">
+      <li><b>Readable layout.</b> Headings, numbered paragraphs, quotations and signature blocks are set out by fixed rules rather than shown as one block of text. A header row gives the court, citation, case name, file number, decision date, decision maker and outcome, with links to the source.</li>
+      <li><b>Citations and statutes in the text.</b> Citations to other cases and references to statutes are highlighted in place. Hovering over a pinpointed citation shows the paragraph it points to, when that case is in the library, and hovering over a statute reference shows the provision text where it is stored. A citation that cannot be matched says so rather than guessing.</li>
+      <li><b>Around the text.</b> A side panel gives the case information and the authorities and statutes the decision refers to, and there is a search box for the text of the decision itself. A chunk-by-chunk view of the same text is also available.</li>
+      <li><b>Outcomes say when they are unsure.</b> The outcome shown comes from fixed rules read against the decision. If the rules cannot tell, it says “unclear” instead of picking one.</li>
+    </ul>
+    <p class="small">Some reader tools are still unfinished, so they stay hidden unless you switch on “Show experimental” at the top of the reader.</p>
   </section>
 
-  <section id="cites">
-    <p class="kicker">What makes it unique · 2</p>
-    <h2>It makes citations smart</h2>
-    <p>On CanLII a citation is a link. In iLit each citation knows where it sits in the decision, which paragraph it points to, and how it is used across the whole library.</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 330" role="img" aria-label="A citation in a decision becomes a link to the exact paragraph and then feeds analysis" style="min-width:720px"><defs><marker id="f5-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f5-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="20" y="30" width="160" height="70" rx="6" class="bx"/><text x="100.0" y="61.5" text-anchor="middle" class="tt" font-size="13.5">In the decision</text><text x="100.0" y="77.5" text-anchor="middle" class="ts" font-size="12">“Vavilov, at para 99”</text><rect x="205" y="30" width="160" height="70" rx="6" class="bx"/><text x="285.0" y="61.5" text-anchor="middle" class="tt" font-size="13.5">Recognised</text><text x="285.0" y="77.5" text-anchor="middle" class="ts" font-size="12">as a short-form citation</text><polyline points="180,65 201,65" class="ln" marker-end="url(#f5-a)"/><rect x="390" y="30" width="160" height="70" rx="6" class="bx"/><text x="470.0" y="53.5" text-anchor="middle" class="tt" font-size="13.5">Matched</text><text x="470.0" y="69.5" text-anchor="middle" class="ts" font-size="12">to the full name earlier</text><text x="470.0" y="85.5" text-anchor="middle" class="ts" font-size="12">in the same decision</text><polyline points="365,65 386,65" class="ln" marker-end="url(#f5-a)"/><rect x="575" y="30" width="160" height="70" rx="6" class="bx"/><text x="655.0" y="61.5" text-anchor="middle" class="tt" font-size="13.5">Linked</text><text x="655.0" y="77.5" text-anchor="middle" class="ts" font-size="12">to Vavilov in the library</text><polyline points="550,65 571,65" class="ln" marker-end="url(#f5-a)"/><rect x="760" y="30" width="160" height="70" rx="6" class="bxh"/><text x="840.0" y="53.5" text-anchor="middle" class="tth" font-size="13.5">Pinpointed</text><text x="840.0" y="69.5" text-anchor="middle" class="ts" font-size="12">to paragraph 99</text><text x="840.0" y="85.5" text-anchor="middle" class="ts" font-size="12">shown on click</text><polyline points="735,65 756,65" class="ln" marker-end="url(#f5-a)"/><rect x="20" y="150" width="900" height="40" rx="6" class="bxm"/><text x="470.0" y="174.5" text-anchor="middle" class="tt" font-size="13">Done for citations; pinpointed to the paragraph for many of them</text><polyline points="470,100 470,146" class="ln" marker-end="url(#f5-a)"/><rect x="20" y="240" width="216" height="64" rx="6" class="bx"/><text x="128.0" y="268.5" text-anchor="middle" class="tt" font-size="13">Is this authority emerging</text><text x="128.0" y="284.5" text-anchor="middle" class="ts" font-size="12">or declining?</text><polyline points="128,190 128,236" class="ln" marker-end="url(#f5-a)"/><rect x="248" y="240" width="216" height="64" rx="6" class="bx"/><text x="356.0" y="268.5" text-anchor="middle" class="tt" font-size="13">How does the Minister fare</text><text x="356.0" y="284.5" text-anchor="middle" class="ts" font-size="12">when it’s cited?</text><polyline points="356,190 356,236" class="ln" marker-end="url(#f5-a)"/><rect x="476" y="240" width="216" height="64" rx="6" class="bx"/><text x="584.0" y="260.5" text-anchor="middle" class="tt" font-size="13">What do similar decisions</text><text x="584.0" y="276.5" text-anchor="middle" class="ts" font-size="12">cite that this one</text><text x="584.0" y="292.5" text-anchor="middle" class="ts" font-size="12">doesn’t?</text><polyline points="584,190 584,236" class="ln" marker-end="url(#f5-a)"/><rect x="704" y="240" width="216" height="64" rx="6" class="bx"/><text x="812.0" y="268.5" text-anchor="middle" class="tt" font-size="13">Which chain of citations</text><text x="812.0" y="284.5" text-anchor="middle" class="ts" font-size="12">led here?</text><polyline points="812,190 812,236" class="ln" marker-end="url(#f5-a)"/></svg></div><figcaption><strong>How a citation becomes intelligence.</strong> Most tools stop at “this case cites that case”. iLit knows exactly where each citation sits, which paragraph it points to, and adds them up across the whole library to answer questions no single decision can.</figcaption></figure>
-    <div class="cards" style="margin-top:22px">
-      <div class="card"><span class="tag ok">Working</span><h3>Authority profile</h3><p>Who cites it, how often, in which courts, and how the Minister fared in those cases. Click any year to read the passages.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>Emerging or declining</h3><p>Flags authorities as emerging, dominant or declining, and suggests possible successors: the kind of shift seen when Vavilov replaced Dunsmuir.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>What’s missing</h3><p>For a decision in the library, lists authorities that at least a fifth of its 40 closest peers cite but it doesn’t.</p></div>
-      <div class="card"><span class="tag ok">Working</span><h3>Truly similar cases</h3><p>Finds cases that share rare authorities, which say more about similarity than sharing Vavilov does.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>Citation chains</h3><p>Follows chains of citations from the Supreme Court down through the Federal Court cases that relied on them.</p></div>
-      <div class="card"><span class="tag part">Prototype</span><h3>Memo check</h3><p>Upload a Word or PDF memo. Citations and statute references in standard formats are found, matched and linked to their text. Nothing is saved.</p></div>
+  <section id="intel">
+    <h2><span class="tag live">Live</span>Intelligence / Statistics</h2>
+    <p class="intro">Three views that add up many decisions.</p>
+    <div class="grid three">
+      <div class="card"><h3>Judge Profiles</h3><p>A judge’s decisions in the library, outcomes by issue with the full count shown (unclassified decisions included), Federal Court docket activity, and a side-by-side comparison of two judges. Judge names in the source decisions are written many ways, so duplicate profiles still exist while the cleanup is finished. Read these as descriptions, not rankings.</p></div>
+      <div class="card"><h3>Citation Intelligence</h3><p>Pick one case and see which decisions cite it, how that has changed over time, the courts and outcomes of the citing decisions, and the passages where it is cited.</p></div>
+      <div class="card"><h3>Federal Court Analytics</h3><p>Charts and tables over the Federal Court docket layer: how files progress, leave and judicial review outcomes by year filed, the time between steps, motions by type, judges, counsel and the registry. The docket is typed by Registry staff, so any figure inherits their errors.</p></div>
     </div>
   </section>
 
-  <section id="ai">
-    <p class="kicker">What makes it unique · 3</p>
-    <h2>AI gives every paragraph a meaning, and ties it to its authorities</h2>
-    <p>Counting citations tells you what a court relied on. The next question is what each paragraph is doing: stating the issue, setting out the Minister’s position, applying a test, rejecting an argument. iLit uses rules and AI together to label each paragraph, then links it to the citations inside it.</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 250" role="img" aria-label="Rules and AI label each paragraph, rules verify, and paragraphs are linked to citations" style="min-width:720px"><defs><marker id="f6-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f6-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="20" y="30" width="160" height="76" rx="6" class="bx"/><text x="100.0" y="64.5" text-anchor="middle" class="tt" font-size="13.5">A paragraph</text><text x="100.0" y="80.5" text-anchor="middle" class="ts" font-size="12">from a decision</text><rect x="205" y="30" width="160" height="76" rx="6" class="bx"/><text x="285.0" y="56.5" text-anchor="middle" class="tt" font-size="13.5">Rules</text><text x="285.0" y="72.5" text-anchor="middle" class="ts" font-size="12">find its role:</text><text x="285.0" y="88.5" text-anchor="middle" class="ts" font-size="12">issue, position, test…</text><polyline points="180,68 201,68" class="ln" marker-end="url(#f6-a)"/><rect x="390" y="30" width="160" height="76" rx="6" class="bxh"/><text x="470.0" y="56.5" text-anchor="middle" class="tth" font-size="13.5">AI reads it</text><text x="470.0" y="72.5" text-anchor="middle" class="ts" font-size="12">adds a topic and</text><text x="470.0" y="88.5" text-anchor="middle" class="ts" font-size="12">a plain explanation</text><polyline points="365,68 386,68" class="ln" marker-end="url(#f6-a)"/><rect x="575" y="30" width="160" height="76" rx="6" class="bx"/><text x="655.0" y="56.5" text-anchor="middle" class="tt" font-size="13.5">Rules check</text><text x="655.0" y="72.5" text-anchor="middle" class="ts" font-size="12">real paragraph?</text><text x="655.0" y="88.5" text-anchor="middle" class="ts" font-size="12">real citations?</text><polyline points="550,68 571,68" class="ln" marker-end="url(#f6-a)"/><rect x="760" y="30" width="160" height="76" rx="6" class="bx"/><text x="840.0" y="56.5" text-anchor="middle" class="tt" font-size="13.5">Linked</text><text x="840.0" y="72.5" text-anchor="middle" class="ts" font-size="12">to the citations</text><text x="840.0" y="88.5" text-anchor="middle" class="ts" font-size="12">inside it</text><polyline points="735,68 756,68" class="ln" marker-end="url(#f6-a)"/><rect x="575" y="170" width="160" height="50" rx="6" class="bxm"/><text x="655.0" y="191.5" text-anchor="middle" class="tt" font-size="13.5">Marked “not found”</text><text x="655.0" y="207.5" text-anchor="middle" class="ts" font-size="12">never guessed</text><polyline points="655,106 655,166" class="ln dash" marker-end="url(#f6-a)"/><text x="664" y="142" text-anchor="start" class="tl" font-size="11.5">fails</text><rect x="760" y="170" width="160" height="50" rx="6" class="bxh"/><text x="840.0" y="191.5" text-anchor="middle" class="tth" font-size="13.5">Search and compare</text><text x="840.0" y="207.5" text-anchor="middle" class="ts" font-size="12">across decisions</text><polyline points="840,106 840,166" class="ln" marker-end="url(#f6-a)"/><text x="20" y="190" text-anchor="start" class="tth" font-size="15" font-weight="600">AI proposes. Rules verify.</text><text x="20" y="210" text-anchor="start" class="ts" font-size="12">AI output is a separate, labelled layer and never</text><text x="20" y="226" text-anchor="start" class="ts" font-size="12">changes the source text, citations or facts.</text></svg></div><figcaption><strong>AI that reads paragraphs.</strong> Each paragraph gets a meaning (what it is doing and what it is about) and is tied to the authorities cited in it. Done so far for about 93% of the paragraphs in 300 core decisions, with citations linked to the paragraphs that use them.</figcaption></figure>
-    <p style="margin-top:22px">This means an analyst can ask “show me every paragraph where a court applied the mootness test, and what it cited” and get the answer across the core decisions at once. A test search for “mootness” returned 25 paragraphs (the display limit), 33 citations and 21 linked authorities.</p>
-    <p class="small muted">The AI layer is an early prototype. It has been run on 300 core decisions using a low-cost public AI service, at roughly a tenth of a cent per decision, and only on public court decisions.</p>
+  <section id="soon">
+    <h2><span class="tag soon">Coming soon</span>Built, not yet ready to rely on</h2>
+    <p class="intro">These exist in the code and open from the Coming soon section, each under a banner saying so, but I do not yet stand behind them. Each one’s own explainer says what it is meant to do.</p>
+    <ul class="soon-list"><!--COMING_SOON_LIST--></ul>
   </section>
 
-  <section id="internal">
-    <p class="kicker">Built to carry over · 1</p>
-    <h2>The same engine is designed to work on the Division’s own material</h2>
-    <p>Everything iLit does to a court decision (finding its citations, splitting it into paragraphs, linking each citation to the case it names and the paragraph it points to) works on ordinary text. That is deliberate. The same reader can be pointed at draft submissions, precedent memos and briefing notes, and connect them to the whole body of public case law.</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 300" role="img" aria-label="Today a public AI reads only public decisions; with local hardware the AI runs inside the department and can read internal documents" style="min-width:720px"><defs><marker id="f7-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f7-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><text x="220" y="22" text-anchor="middle" class="cap" font-size="11">TODAY</text><text x="710" y="22" text-anchor="middle" class="cap" font-size="11">WITH FUNDED HARDWARE</text><rect x="20" y="60" width="170" height="60" rx="6" class="bx"/><text x="105.0" y="86.5" text-anchor="middle" class="tt" font-size="13.5">iLit</text><text x="105.0" y="102.5" text-anchor="middle" class="ts" font-size="12">public decisions</text><rect x="270" y="60" width="170" height="60" rx="6" class="bxm"/><text x="355.0" y="86.5" text-anchor="middle" class="tt" font-size="13.5">Public AI service</text><text x="355.0" y="102.5" text-anchor="middle" class="ts" font-size="12">outside the department</text><polyline points="190,90 266,90" class="ln" marker-end="url(#f7-a)"/><text x="228" y="80" text-anchor="middle" class="tl" font-size="11.5">public text only</text><line x1="230" y1="40" x2="230" y2="150" class="ln dash"/><rect x="20" y="170" width="420" height="110" rx="6" class="bxd"/><text x="230.0" y="197.5" text-anchor="middle" class="ttd" font-size="13.5">Internal documents</text><text x="230.0" y="213.5" text-anchor="middle" class="ts" font-size="12">cannot be sent to a public AI</text><text x="230.0" y="229.5" text-anchor="middle" class="ts" font-size="12"></text><text x="230.0" y="245.5" text-anchor="middle" class="ts" font-size="12">Uploaded documents get rule-based</text><text x="230.0" y="261.5" text-anchor="middle" class="ts" font-size="12">citation checks only, in memory</text><rect x="490" y="40" width="430" height="245" rx="10" class="zone"/><text x="705" y="60" text-anchor="middle" class="tth" font-size="12.5">Department network: nothing leaves</text><rect x="510" y="80" width="180" height="60" rx="6" class="bx"/><text x="600.0" y="106.5" text-anchor="middle" class="tt" font-size="13.5">iLit</text><text x="600.0" y="122.5" text-anchor="middle" class="ts" font-size="12">public case law</text><rect x="720" y="80" width="180" height="60" rx="6" class="bxh"/><text x="810.0" y="106.5" text-anchor="middle" class="tth" font-size="13.5">Local AI</text><text x="810.0" y="122.5" text-anchor="middle" class="ts" font-size="12">on departmental hardware</text><polyline points="690,110 716,110" class="ln" marker-end="url(#f7-a)"/><rect x="510" y="190" width="390" height="76" rx="6" class="bxd"/><text x="705.0" y="216.5" text-anchor="middle" class="ttd" font-size="13.5">Internal documents</text><text x="705.0" y="232.5" text-anchor="middle" class="ts" font-size="12">draft submissions, precedent memos, briefing notes</text><text x="705.0" y="248.5" text-anchor="middle" class="ts" font-size="12">read paragraph by paragraph and linked to the case law</text><polyline points="810,140 810,186" class="ln" marker-end="url(#f7-a)"/><text x="818" y="166" text-anchor="start" class="tl" font-size="11.5">reads</text><polyline points="600,140 600,186" class="ln" marker-end="url(#f7-a)"/><text x="608" y="166" text-anchor="start" class="tl" font-size="11.5">links to</text></svg></div><figcaption><strong>What local hardware unlocks.</strong> Today a low-cost public AI is used, and only on public decisions. iLit is being built so the same AI step can run on a local model inside the department. That opens live AI analysis of the Division’s own internal documents, which a public service can never be given.</figcaption></figure>
-    <div class="compare">
-      <table>
-        <thead><tr><th>Piece</th><th>Where it stands</th></tr></thead>
-        <tbody>
-          <tr><td>Reads citations in any document, not just decisions</td><td><span class="yes">Built.</span> The memo check already uses the same reader on uploaded Word and PDF files.</td></tr>
-          <tr><td>Uploaded documents are never stored</td><td><span class="yes">Built.</span> The memo check works in memory and writes nothing to the database.</td></tr>
-          <tr><td>Search by meaning without a public service</td><td><span class="yes">Partly built.</span> The library can be indexed by a model on the local machine, but search questions still go to a public service by default.</td></tr>
-          <tr><td>Switch the AI from a public service to a local model</td><td><span class="yes">Partly built.</span> A one-setting switch exists for some steps; others still call the public service directly and need moving behind it. Tested only with a small model, and early results were poor on a summary test, which is why better hardware matters.</td></tr>
-          <tr><td>Storing internal documents as their own separate collection</td><td><span class="no">To build.</span> Today uploads are analysed and discarded; a separate, access-controlled store would be new.</td></tr>
-          <tr><td>A capable local AI model</td><td><span class="no">Needs hardware.</span> This is what the funding tiers below pay for.</td></tr>
-          <tr><td>Approval to handle protected information</td><td><span class="no">Not yet.</span> Needs departmental hosting, sign-in and roles, an audit log and encryption. The project’s own readiness review says so.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="cards two" style="margin-top:18px">
-      <div class="card"><h3>Today</h3><p>Public data only. A low-cost public AI service is used on public court decisions. Uploaded memos get rule-based citation checks only, and are never sent anywhere.</p></div>
-      <div class="card"><h3>Once hosted inside the department</h3><p>The same steps run on a local AI model, so nothing leaves the building. That is what opens <strong>live AI analysis of internal documents</strong>: every argument in a draft matched to how courts have treated it, and every authority checked.</p></div>
+  <section id="progress">
+    <h2><span class="tag wip">In progress</span>Not live yet</h2>
+    <p class="intro">Work that is on its way. None of it should be assumed to be in the live library today.</p>
+    <div class="status-list">
+      <div><strong>Case-type labels</strong><span>Rule-based labels for what kind of case a decision is (for example a judicial review of an immigration decision). The reader chip and the search filter are in the code and only show labels once they are stored in the library, which has not happened yet. No AI is involved.</span></div>
+      <div><strong>Statute library</strong><span>A library of federal statutes with the sections of each Act, the decisions that cite them, and extraction of statute references from decisions. Extraction fixes are being tested against a hand-checked set and the stored references are still being repaired.</span></div>
+      <div><strong>Judge name cleanup</strong><span>Merging the many spellings of each judge into one profile, with every merge reversible, and splitting Supreme Court panels into individual judges. The rules are written and being checked before they are applied to the stored data.</span></div>
+      <div><strong>Citation clean-up</strong><span>Better matching of short forms such as “Vavilov at para 99”, French citations, “Ibid” and “the Act”. It is written to store its results beside the existing ones first, so nothing is overwritten.</span></div>
+      <div><strong>Case fingerprints</strong><span>A way to find similar decisions by subject and shared authorities. A draft only, not connected to the site.</span></div>
+      <div><strong>Keeping the library current</strong><span>New decisions are still brought in by hand. A scheduled, automatic intake has its first foundation written but is not running.</span></div>
+      <div><strong>More tribunals</strong><span>Immigration Division and Immigration Appeal Division decisions: a plan exists, but none are in the library.</span></div>
     </div>
   </section>
 
-  <section id="intake">
-    <p class="kicker">Built to carry over · 2</p>
-    <h2>It is designed to take in new cases as they happen</h2>
-    <p>A research tool is only useful if it stays current. iLit was built from the start to add new decisions and new docket activity incrementally, not by rebuilding everything.</p>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 330" role="img" aria-label="New court activity is checked, stored once, read and linked, then the file is scheduled for its next check" style="min-width:720px"><defs><marker id="f9-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f9-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><text x="470" y="22" text-anchor="middle" class="cap" font-size="11">HOW NEW CASES COME IN</text><rect x="20" y="50" width="190" height="78" rx="6" class="bxd"/><text x="115.0" y="77.5" text-anchor="middle" class="ttd" font-size="13.5">New court activity</text><text x="115.0" y="93.5" text-anchor="middle" class="ts" font-size="12">new decisions,</text><text x="115.0" y="109.5" text-anchor="middle" class="ts" font-size="12">new docket entries</text><rect x="260" y="50" width="190" height="78" rx="6" class="bx"/><text x="355.0" y="77.5" text-anchor="middle" class="tt" font-size="13.5">Check what&#x27;s due</text><text x="355.0" y="93.5" text-anchor="middle" class="ts" font-size="12">only files that are</text><text x="355.0" y="109.5" text-anchor="middle" class="ts" font-size="12">stale or still open</text><rect x="500" y="50" width="190" height="78" rx="6" class="bx"/><text x="595.0" y="77.5" text-anchor="middle" class="tt" font-size="13.5">Keep the original</text><text x="595.0" y="93.5" text-anchor="middle" class="ts" font-size="12">fingerprinted;</text><text x="595.0" y="109.5" text-anchor="middle" class="ts" font-size="12">unchanged pages skipped</text><rect x="740" y="50" width="180" height="78" rx="6" class="bxh"/><text x="830.0" y="77.5" text-anchor="middle" class="tth" font-size="13.5">Read and link</text><text x="830.0" y="93.5" text-anchor="middle" class="ts" font-size="12">docket steps, citations,</text><text x="830.0" y="109.5" text-anchor="middle" class="ts" font-size="12">pinpoints, search index</text><rect x="740" y="200" width="180" height="78" rx="6" class="bx"/><text x="830.0" y="227.5" text-anchor="middle" class="tt" font-size="13.5">Answers updated</text><text x="830.0" y="243.5" text-anchor="middle" class="ts" font-size="12">file status, trends,</text><text x="830.0" y="259.5" text-anchor="middle" class="ts" font-size="12">search</text><rect x="380" y="200" width="250" height="78" rx="6" class="bx"/><text x="505.0" y="227.5" text-anchor="middle" class="tt" font-size="13.5">Next check scheduled</text><text x="505.0" y="243.5" text-anchor="middle" class="ts" font-size="12">each file records when it was</text><text x="505.0" y="259.5" text-anchor="middle" class="ts" font-size="12">last checked and when it&#x27;s due</text><polyline points="210,89 256,89" class="ln" marker-end="url(#f9-a)"/><polyline points="450,89 496,89" class="ln" marker-end="url(#f9-a)"/><polyline points="690,89 736,89" class="ln" marker-end="url(#f9-a)"/><polyline points="830,128 830,196" class="ln" marker-end="url(#f9-a)"/><polyline points="740,239 634,239" class="ln" marker-end="url(#f9-a)"/><polyline points="380,239 355,239 355,132" class="ln dash" marker-end="url(#f9-a)"/><text x="346" y="190" text-anchor="end" class="tl" font-size="11.5">loop</text><rect x="20" y="200" width="300" height="78" rx="6" class="bxm"/><text x="170.0" y="227.5" text-anchor="middle" class="tt" font-size="13.5">Polite by design</text><text x="170.0" y="243.5" text-anchor="middle" class="ts" font-size="12">spaces out requests; stops if the</text><text x="170.0" y="259.5" text-anchor="middle" class="ts" font-size="12">site asks for human verification</text><text x="470" y="312" text-anchor="middle" class="tl" font-size="12">Each step is built and has been run. Today they are started by hand; joining them into one nightly run is a next step.</text></svg></div><figcaption><strong>Designed to keep up.</strong> iLit is built to take in new decisions and new docket activity as they appear, without redoing work: each step only handles what is new or changed, and can pick up where it left off after an interruption.</figcaption></figure>
-    <div class="cards">
-      <div class="card"><span class="tag ok">Built</span><h3>Only what’s new</h3><p>Every page is fingerprinted when stored, so duplicates are skipped. Processing steps such as indexing and tagging only handle items they haven’t done yet.</p></div>
-      <div class="card"><span class="tag ok">Built</span><h3>Picks up where it left off</h3><p>Overnight processing can be stopped and resumed safely, with a lock so two runs never collide. Collectors pull only recent months and stop if a site asks for human verification.</p></div>
-      <div class="card"><span class="tag part">Next</span><h3>Fully automatic</h3><p>Today each run is started by hand, and a few hand-offs are manual (loading collected decisions, linking their citations). Joining those up and running it nightly needs an always-on machine.</p></div>
-    </div>
+  <section id="principles">
+    <h2>How it works, and what I do not claim</h2>
+    <ul class="ticks">
+      <li><b>No AI is needed to use the site.</b> Search, the reader and the statistics read data that was prepared in advance. What you type and any file you open is not sent to any AI service. AI-related features exist in the code but are switched off by default.</li>
+      <li><b>The original comes first.</b> Each decision is stored as published, and everything shown beside it (outcome, case information, paragraph links, labels) is derived from it by rules and kept as a separate layer. Where a fact cannot be found, the page says so.</li>
+      <li><b>It is a research aid, not legal advice.</b> Automated reading makes mistakes. Check anything that matters against the source decision, which every result links to.</li>
+      <li><b>Public data only.</b> Everything in the library comes from public sources. The site currently runs on my own workstation.</li>
+      <li><b>Source terms.</b> Some source data comes with its own terms of use, which would need to be confirmed before any wider deployment.</li>
+    </ul>
+    <div class="note"><strong>Judge statistics are sensitive.</strong> Figures about individual judges can be misread, so the judge views show full denominators and avoid ranking.</div>
   </section>
 
-  <section id="analyst">
-    <p class="kicker">In practice</p>
-    <h2>Why a litigation analyst would use it every week</h2>
-    <div class="ba">
-      <article>
-        <p class="ask-line">“What’s the status of the Division’s open files?”</p>
-        <dl><dt class="before">Before</dt><dd>Look up each file on the court’s website by hand and read the docket.</dd><dt class="after">With iLit</dt><dd>Every file’s docket history is already stored and searchable; a live lookup refreshes any single file in seconds.</dd></dl>
-      </article>
-      <article>
-        <p class="ask-line">“How strong is the applicant’s memo?”</p>
-        <dl><dt class="before">Before</dt><dd>Look up each authority on CanLII, one by one.</dd><dt class="after">With iLit</dt><dd>Upload it. Every authority the rules recognise is found and linked, so its trend and track record are one click away.</dd></dl>
-      </article>
-      <article>
-        <p class="ask-line">“What does the Court do with s. 34(1)(f) right now?”</p>
-        <dl><dt class="before">Before</dt><dd>An old precedent memo, or days of reading.</dd><dt class="after">With iLit</dt><dd>The current leading, emerging and declining authorities, plus the cases the individual won.</dd></dl>
-      </article>
-      <article>
-        <p class="ask-line">“How much immigration litigation challenges CBSA decisions?”</p>
-        <dl><dt class="before">Before</dt><dd>No reliable way to count.</dd><dt class="after">With iLit</dt><dd>Being tested: files sorted by who made the decision under challenge. A grouped view is still to build.</dd></dl>
-      </article>
-      <article>
-        <p class="ask-line">“Is a brief missing a case the Court usually expects?”</p>
-        <dl><dt class="before">Before</dt><dd>Counsel’s memory.</dd><dt class="after">With iLit</dt><dd>For decisions in the library today, a gap check against the 40 most similar ones. Running it on the Division’s own drafts is a next step.</dd></dl>
-      </article>
-      <article>
-        <p class="ask-line">“How does a draft compare with how courts handled these arguments?”</p>
-        <dl><dt class="before">Before</dt><dd>Not possible.</dd><dt class="after">With iLit + local AI</dt><dd>Each argument in the draft matched to how courts dealt with it, inside the department.</dd></dl>
-      </article>
-    </div>
-  </section>
+  <footer>Updated 6 October 2026 against the code on the main branch (<a href="https://github.com/greystone-dan/LitIntelproject">github.com/greystone-dan/LitIntelproject</a>). The Changelog tab lists every addition by date.</footer>
 
-  <section id="trust">
-    <p class="kicker">Can it be relied on?</p>
-    <h2>Every answer shows its work</h2>
-    <div class="cards">
-      <div class="card"><h3>Source first</h3><p>The original decision and docket are kept untouched. Core facts keep a pointer to the sentence or docket line they came from.</p></div>
-      <div class="card"><h3>Rules, not guesses</h3><p>Core facts come from fixed rules that give the same answer every time. If something can’t be found, iLit says “not found”.</p></div>
-      <div class="card"><h3>AI kept in its lane</h3><p>AI adds labels in a separate layer. It never changes the source, the citations or the facts, and its labels are automatically checked against the source.</p></div>
-      <div class="card"><h3>Built carefully</h3><p>Automated tests, dry runs before bulk changes, all-or-nothing database writes, and a written record of every change.</p></div>
-      <div class="card"><h3>Collected politely</h3><p>Public sources only. The Federal Court collectors space out their requests and stop if the site asks for human verification.</p></div>
-      <div class="card"><h3>Can run in-house</h3><p>Standard software and a local AI option, designed so nothing would need to leave the department once hosted there.</p></div>
-    </div>
-  </section>
-
-  <section id="state">
-    <p class="kicker">Where I am</p>
-    <h2>What works today, and what I’m working on next</h2>
-    <p>Everything above exists in code and runs today on my own workstation, except the items that depend on local AI or internal documents. Some of it is finished; some is a working prototype that needs checking against real use.</p>
-    <div class="big" role="list" style="margin-top:18px">
-      <div role="listitem"><b>123 h+</b><span>of recorded work over two months (31 Jul to 28 Sept)</span></div>
-      <div class="a" role="listitem"><b>50,000+</b><span>lines of code, written by one person</span></div>
-      <div role="listitem"><b>705</b><span>automated tests guarding the data</span></div>
-      <div class="d" role="listitem"><b>≈ US$841</b><span>total spent so far, plus $160/month Claude subscription (recurring)</span></div>
-    </div>
-    <p class="small muted" style="margin-top:12px">Hours are counted conservatively from coding-session logs, with gaps over five minutes ignored. Reading, testing and research outside those sessions aren’t counted, so the real figure is higher. Spending to date: GitHub Copilot $552, Claude subscription $160, Anthropic API $54, OpenAI $60, Cloudflare $15. The $160/month subscription continues each month beyond this total.</p>
-    <div class="status">
-      <div><span class="tag ok">Working</span><span>Search, decision reader, file lookup, authority profiles, paragraph-level citation links</span></div>
-      <div><span class="tag part">Prototype</span><span>Authority trends, gap check, memo upload, CBSA-decision grouping, stays, motion types, stage-aware file tracking, AI paragraph meaning (300 core decisions)</span></div>
-      <div><span class="tag gap">Next</span><span>Enforce sign-in; move off my personal computer; clean up judge names; add ID and IAD decisions; check accuracy against a hand-reviewed sample; extend AI paragraph meaning beyond the first 300 decisions; run new-case intake on a schedule</span></div>
-    </div>
-    <div class="note"><strong>Two sensitivities I’m keeping in view.</strong> Judge-level statistics are delicate for a government litigant (France banned them in 2019), so any official use would be decided with Legal Services. Some source data carries non-commercial licence terms that would need confirming before any deployment.</div>
-  </section>
-
-  <section id="foundation">
-    <p class="kicker">The foundation is built</p>
-    <h2>The hard part is done: new intelligence can now be built on top</h2>
-    <p>Most of the effort so far has gone into the base layers: collecting the data, keeping the originals, reading decisions and dockets into structured facts, and linking decisions, files and citations to each other. With those in place, new features are mostly a matter of asking new questions of data that already exists.</p>
-    <div class="cards">
-      <div class="card"><h3>Already shown</h3><p>Motion types, stage-aware file tracking and challenged-decision analysis were each added in days, because the docket data and the tests underneath were already there.</p></div>
-      <div class="card"><h3>Within reach</h3><p>Time from filing to leave decision by year and registry, stay success rates by type of removal, how often files are discontinued, and caseload trends by decision-maker. All can be derived from what is stored.</p></div>
-      <div class="card"><h3>With local AI</h3><p>Checking the Division’s own drafts against the case law, and summarizing how courts have handled each argument, once a capable model can run in-house.</p></div>
-    </div>
-    <p class="small muted" style="margin-top:16px">“Within reach” items are not built yet. They are listed because the data they need is already in place.</p>
-  </section>
-
-  <section id="independent">
-    <p class="kicker">Why independent, for now</p>
-    <h2>Staying outside government is what lets it move this fast</h2>
-    <p>Because iLit uses public information only, it doesn’t yet need approved hosting, a security assessment or a procurement process. That buys two things a departmental project rarely gets early on.</p>
-    <div class="cards two">
-      <div class="card"><h3>Flexibility</h3><p>I can try an idea, test it on real data, and drop it the same week if it doesn’t work. Features like docket tracking, citation trends and paragraph meaning came out of that kind of trial and error.</p></div>
-      <div class="card"><h3>Speed</h3><p>Changes go from idea to working code in days, not quarters. More than 230 tasks have been recorded since early September; in the last two days alone the docket reader learned which steps apply at each stage of a file.</p></div>
-    </div>
-    <p class="small muted" style="margin-top:16px">The trade-off is clear: it runs on my computer, it can’t touch internal documents, and nobody has vouched for it yet. Bringing it inside the department makes sense once it has proven itself, not before.</p>
-  </section>
-
-  <section id="value">
-    <p class="kicker">Pricing and value</p>
-    <h2>What comparable tools cost, and what this has cost</h2>
-    <p>The Division has CanLII, which is free. Commercial platforms cost six figures a year and still don’t do what iLit does. Hiring out a build like this would take a funded team, a procurement cycle and many months.</p>
-    <div class="big three" role="list">
-      <div role="listitem"><b>$104K–$248K</b><span>a year for a commercial AI research platform, 25 users</span></div>
-      <div class="d" role="listitem"><b>50,000+</b><span>lines of code built by one person, using about 30% of my work time over two months</span></div>
-      <div class="a" role="listitem"><b>≈ US$841</b><span>spent so far (plus $160/month Claude subscription continuing)</span></div>
-    </div>
-    <div class="compare">
-      <table>
-        <thead><tr><th>Option</th><th>Rough cost (CAD)</th><th>Federal Court immigration outcomes and file tracking?</th></tr></thead>
-        <tbody>
-          <tr><td>CanLII (today)</td><td>Free</td><td><span class="no">No</span></td></tr>
-          <tr><td>Westlaw with CoCounsel</td><td>$124K–$248K a year for 25 users</td><td><span class="no">No</span></td></tr>
-          <tr><td>Lexis+ AI</td><td>$104K–$207K a year for 25 users</td><td><span class="no">No</span></td></tr>
-          <tr><td>iLit</td><td>About US$841 so far; $2K–$20K one-time to keep going (plus $160/month ongoing)</td><td><span class="yes">Yes, already built</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="cards two" style="margin-top:18px">
-      <div class="card"><h3>Commercial platforms</h3><p>Reported list prices, since vendors quote privately. They add general research and AI drafting, but none codes Federal Court immigration outcomes or tracks files.</p></div>
-      <div class="card"><h3>AI processing</h3><p>Cheap either way. The low-cost model used so far costs about a tenth of a cent per decision. A deeper pass over every decision with stronger models would cost about $500–$2,000.</p></div>
-    </div>
-    <p class="small muted" style="margin-top:14px">Seat prices assume 25 users, an estimate of the Division’s likely users. Prices are reported list ranges from September 2026 pricing guides, not vendor quotes.</p>
-  </section>
-
-  <section id="funding">
-    <p class="kicker">An unofficial funding idea</p>
-    <h2>What a little money would buy</h2>
-    <p>This isn’t a formal request. The project keeps going either way. Funding decides two things: how fast it moves over the next few months, and whether its AI can move onto a machine that could one day sit inside the department and read internal material.</p>
-
-    <h3 style="margin-top:26px">Why hardware is the real bottleneck</h3>
-    <p>Only an AI model that runs on a machine under the department’s control can ever be allowed to read internal documents. How good that model can be depends almost entirely on the machine’s memory.</p>
-    <div class="compare">
-      <table>
-        <thead><tr><th>Machine</th><th>Size of AI model it can run</th><th>What that means</th></tr></thead>
-        <tbody>
-          <tr><td>My current workstation</td><td>Small (the 4-billion-parameter model tested)</td><td><span class="no">Not good enough.</span> Scored poorly on a paragraph summary test.</td></tr>
-          <tr><td>Used MacBook Pro, 32–36 GB</td><td>Mid-size (roughly 14 to 30 billion)</td><td>Likely good enough for labelling paragraphs and checking memos. To be tested.</td></tr>
-          <tr><td>Mac Studio, 256 GB</td><td>Large (70 billion and up)</td><td>Likely comparable to the low-cost public service used today, with nothing leaving the machine.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small muted" style="margin-top:10px">Model sizes are a common rule of thumb, not yet tested on these machines. Measuring them against the public service is the first job for any new machine.</p>
-
-    <h3 style="margin-top:26px">Three sizes</h3>
-    <figure><div class="svgwrap"><svg viewBox="0 0 940 330" role="img" aria-label="Three unofficial funding tiers, each building on the one below: about 2 thousand dollars for AI services, about 5 thousand for a dedicated machine, 15 to 20 thousand for a Mac Studio" style="min-width:700px"><defs><marker id="f8-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="f8-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fa"/></marker></defs><rect x="30" y="115" width="270" height="185" rx="6" class="bx"/><text x="165" y="149" text-anchor="middle" class="tt" font-size="24" font-weight="650">≈ $2K</text><text x="165" y="173" text-anchor="middle" class="tt" font-size="13.5">Tier 1 · Keep building</text><text x="165" y="195" text-anchor="middle" class="ts" font-size="12">subscriptions and</text><text x="165" y="211" text-anchor="middle" class="ts" font-size="12">more AI API use</text><text x="165" y="227" text-anchor="middle" class="ts" font-size="12">for the next few months</text><text x="165" y="266" text-anchor="middle" class="tl" font-size="11.5">AI meaning for far more</text><text x="165" y="282" text-anchor="middle" class="tl" font-size="11.5">of the library, faster</text><polyline points="302,197.5 333,169.5" class="ln dash" marker-end="url(#f8-a)"/><rect x="335" y="65" width="270" height="235" rx="6" class="bxh"/><text x="470" y="99" text-anchor="middle" class="tth" font-size="24" font-weight="650">≈ $5K</text><text x="470" y="123" text-anchor="middle" class="tt" font-size="13.5">Tier 2 · Its own machine</text><text x="470" y="145" text-anchor="middle" class="ts" font-size="12">used MacBook Pro, 32 GB,</text><text x="470" y="161" text-anchor="middle" class="ts" font-size="12">running a capable</text><text x="470" y="177" text-anchor="middle" class="ts" font-size="12">local AI model</text><text x="470" y="266" text-anchor="middle" class="tl" font-size="11.5">Off my personal computer;</text><text x="470" y="282" text-anchor="middle" class="tl" font-size="11.5">AI step tested locally</text><polyline points="607,172.5 638,144.5" class="ln dash" marker-end="url(#f8-a)"/><rect x="640" y="15" width="270" height="285" rx="6" class="bxd"/><text x="775" y="49" text-anchor="middle" class="ttd" font-size="24" font-weight="650">$15–20K</text><text x="775" y="73" text-anchor="middle" class="tt" font-size="13.5">Tier 3 · Built to last</text><text x="775" y="95" text-anchor="middle" class="ts" font-size="12">powerful Mac Studio</text><text x="775" y="111" text-anchor="middle" class="ts" font-size="12">with room for larger</text><text x="775" y="127" text-anchor="middle" class="ts" font-size="12">AI models</text><text x="775" y="266" text-anchor="middle" class="tl" font-size="11.5">Large local models; internal</text><text x="775" y="282" text-anchor="middle" class="tl" font-size="11.5">docs once approved</text><line x1="20" y1="301" x2="920" y2="301" class="ln"/><text x="470" y="322" text-anchor="middle" class="ts" font-size="12">Each tier includes the one before it. Italic lines show what it unlocks.</text></svg></div><figcaption><strong>An unofficial funding idea, in three sizes.</strong> Any of them speeds the project up; none of them commits anyone to adopting it. Figures are rough, in Canadian dollars, and come from the pricing research.</figcaption></figure>
-    <div class="compare" style="margin-top:22px">
-      <table>
-        <thead><tr><th></th><th>Low · about $2,000</th><th>Mid · about $5,000</th><th>High · $15,000 to $20,000</th></tr></thead>
-        <tbody>
-          <tr><td><strong>What it buys</strong></td><td>Six months of AI coding subscriptions (≈ $850), AI service credits (≈ $1,000), domain and off-site backup (≈ $150)</td><td>Everything in Low, plus a used MacBook Pro, M2 or M3 Max, 32–36 GB ($1,700–$2,500), an external drive and battery backup (≈ $600)</td><td>A Mac Studio M5 Ultra (from $7,799; ≈ $11,000–$12,500 with 256 GB), backup storage and AppleCare (≈ $1,500), a year of subscriptions and AI services (≈ $3,000–$4,000)</td></tr>
-          <tr><td><strong>What it unlocks</strong></td><td>AI paragraph meaning across the whole library instead of 300 decisions; more room for AI-assisted development</td><td>iLit off my personal computer and always on, so new cases can come in nightly; the first real test of a capable local AI model</td><td>All AI work done locally on large models, for several users, with room for internal documents once authorized; a machine that lasts years</td></tr>
-          <tr><td><strong>Why it matters to the Division</strong></td><td>A fuller, more current picture sooner</td><td>Proves whether the internal-document idea works before anyone commits to it</td><td>A ready platform if the Division ever wants to bring it inside</td></tr>
-          <tr><td><strong>What it doesn’t do</strong></td><td>Still public AI, still on my computer</td><td>Not approved for protected information</td><td>Still needs departmental hosting and approval before touching internal files</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="cards two" style="margin-top:18px">
-      <div class="card"><h3>What it has cost so far</h3><p>About US$841 to date, mostly GitHub Copilot ($552) and one month of Claude subscription ($160), plus at least 123 hours of my time. The $160/month Claude subscription continues. Recorded spending on AI experiments is about US$4.</p></div>
-      <div class="card"><h3>What stays the same at any tier</h3><p>No obligation on the Division, no procurement, and public data only. Any equipment would be dedicated to the project. Internal documents stay out until the department approves otherwise.</p></div>
-    </div>
-    <div class="note" style="max-width:none"><strong>Not a request for pay.</strong> I am not asking to be paid for my time, overtime or otherwise. Any funding would go only to equipment and services for the project.</div>
-    <p class="small muted" style="margin-top:16px">All figures are rough, unofficial and in Canadian dollars unless marked US$. Hardware prices are Canadian list or resale figures from September 2026; the 256 GB configuration is an estimate.</p>
-  </section>
-
-  <section id="qa">
-    <p class="kicker">Questions</p>
-    <h2>Likely questions</h2>
-    <details><summary>Is this a chatbot giving legal answers?</summary><p>No. The core is rule-based and repeatable, and every answer points to its source. AI only adds labels that are checked and kept separate. It is a research aid, not legal advice.</p></details>
-    <details><summary>Why not just buy Westlaw or Lexis?</summary><p>They would add general research, sold per user, but none of them tracks Federal Court files, codes Minister outcomes, or analyses immigration citation trends. iLit does, at the cost of a machine and some AI services.</p></details>
-    <details><summary>Could it read the Division’s internal documents?</summary><p>Not with a public AI, and it doesn’t today. With local hardware the AI runs inside the department, so internal documents can be analysed without leaving it, once that use is authorized.</p></details>
-    <details><summary>How accurate is it?</summary><p>In samples of up to 100 decisions, every recorded citation position matched the source text exactly. Automated AI reviews of about 480 decisions flagged 70–81% fewer citation problems after fixes. Neither is a human accuracy check. A hand-reviewed accuracy check of file tracking and outcomes is one of my next steps.</p></details>
-    <details><summary>Who owns it?</summary><p>It is a personal project, built on my own time with public data. If it were ever brought into the department, ownership and support would be settled then.</p></details>
-    <details><summary>Why not bring it into government now?</summary><p>It isn’t ready, and staying outside keeps it flexible and fast. It makes more sense to prove its value first, then look at hosting, security and internal documents.</p></details>
-  </section>
-
-  <footer>Based on a code-level review of the iLit repository (github.com/greystone-dan/LitIntelproject) on 5 October 2026 and periodic scans of competing tools. Figures come from the project’s own reports and samples and may differ from live counts. Funding figures are rough and unofficial.</footer>
 </div>
 </div>
+<script>
+(function(){
+  var els=document.querySelectorAll('.ilit-about [data-live]');
+  if(!els.length||!window.fetch)return;
+  fetch('/api/about/stats').then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(!d)return;
+    els.forEach(function(el){var v=d[el.dataset.live];if(typeof v==='number')el.textContent=v.toLocaleString('en-CA')});
+  }).catch(function(){});
+})();
+</script>

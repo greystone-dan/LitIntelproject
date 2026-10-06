@@ -26,7 +26,7 @@ table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:8px;bord
 </style></head><body><main>
 <a href="/">&larr; iLit</a>
 <h1>Statute Library</h1>
-<p class="muted">Pick a section to read it and see every decision in the library that cites it, by year, court and outcome. Counts are distinct decisions with a stored reference; they are descriptive, not a measure of legal effect. Statute text is an unofficial Justice Laws consolidation.</p>
+<p class="muted">Pick a section to read it and see every decision in the library that cites it, by year, court and outcome. Counts are distinct decisions with a stored reference; they are descriptive, not a measure of legal effect. Statute text is an unofficial Justice Laws consolidation. Counts for decimal sections such as 18.1 or 25.1 are currently included in the base section (18, 25) until the references are re-extracted.</p>
 <div class="bar"><label>Act<br><select id="act"></select></label><label>Find a section<br><input id="find" placeholder="e.g. 34 or inadmissibility"></label>
 <label><input type="checkbox" id="onlycited" checked> only sections cited in decisions</label></div>
 <div id="msg" aria-live="polite"></div>
@@ -54,7 +54,7 @@ $('detail').innerHTML='<div class="panel muted">Loading&hellip;</div>';
 try{const d=await api(`/api/statute-library/${encodeURIComponent(state.act)}/sections/${encodeURIComponent(section)}?page=${page}&page_size=25`);const t=d.summary.decision_count;
 const rows=d.decisions.map(x=>`<tr><td><a href="/case-reader-ui/${encodeURIComponent(x.case_id)}">${esc(x.title||x.citation||'Decision')}</a><br><small class="muted">${esc(x.citation||'')}</small></td><td>${esc(x.court)}</td><td>${esc(x.date||'')}</td><td>${esc(x.outcome)}</td><td>${x.reference_count}</td></tr>`).join('');
 $('detail').innerHTML=`<div class="panel"><h2 style="margin:0 0 4px">${esc(d.act.title)} s.&nbsp;${esc(d.section.number)}${d.section.label?` <span class="muted">&mdash; ${esc(d.section.label)}</span>`:''}</h2>
-<p class="muted" style="margin:0 0 8px"><strong>${t.toLocaleString()}</strong> decision${t===1?'':'s'} cite this section (${d.summary.reference_occurrences.toLocaleString()} references).</p>
+<p class="muted" style="margin:0 0 8px"><strong>${t.toLocaleString()}</strong> decision${t===1?'':'s'} cite this section (${d.summary.reference_occurrences.toLocaleString()} references).</p>${/^\d+$/.test(d.section.number)?'<small class="muted">Includes references to decimal sections of the same number (for example 18.1) until re-extraction.</small>':''}
 ${d.section.text_available?`<div class="sectiontext">${esc(d.section.text)}</div><small class="muted">${esc(d.section.text_note)}</small>`:'<p class="muted">No statute text is indexed for this section.</p>'}</div>
 <div class="stats">${lines(d.by_provision,'By subsection / paragraph',t)}${lines(d.by_year,'By year',t)}${lines(d.by_court,'By court',t)}${lines(d.by_outcome,'Decision outcomes',t)}</div>
 <div class="panel"><h3>Decisions</h3><p class="muted" style="margin-top:0">Most references in the decision first, then most recent.</p><div style="overflow:auto"><table><thead><tr><th>Decision</th><th>Court</th><th>Date</th><th>Outcome</th><th>Refs</th></tr></thead><tbody>${rows||'<tr><td colspan="5" class="muted">No decisions.</td></tr>'}</tbody></table></div>

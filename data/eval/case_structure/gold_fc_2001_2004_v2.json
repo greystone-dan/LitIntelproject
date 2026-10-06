@@ -1,0 +1,877 @@
+{
+ "description": "Discussion-unit gold boundaries v2: the 22 verified cases as unit start indexes into the stored case reports (data/eval/llm_discussion_units_pilot/core_300_run/reports). v1 = gold_set_labels_verified.json + gold_set_labels_verified_22cases.json.",
+ "date": "2026-10-05",
+ "hold_out": [
+  126,
+  2517,
+  4006,
+  15005
+ ],
+ "method": "Each quoted start in hand_labels_8_new_cases_2026-10-04_complete.json was searched for verbatim in the stored text; starts moved to the paragraph containing the quote. Quotes that do not exist in the case were replaced by the first later paragraph that states the outcome, or dropped if none. The 16 prior cases have no quotes and are unchanged. 8343 quotes all matched; unchanged.",
+ "warning": "4 of the 6 'independently read' new cases had disposition quotes that do not appear in the case text. Treat the new cases as weaker evidence than the prior 16.",
+ "cases": {
+  "62": {
+   "starts": [
+    0,
+    2,
+    9,
+    15,
+    60,
+    62
+   ],
+   "v1_starts": [
+    0,
+    2,
+    9,
+    15,
+    60,
+    62
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble/Procedure",
+    "Facts & Procedural History",
+    "Preliminary Issue & Parties' Arguments",
+    "Court's Jurisprudence Analysis",
+    "Certification Questions & Order",
+    "Metadata"
+   ]
+  },
+  "126": {
+   "starts": [
+    0,
+    2,
+    9,
+    16,
+    22
+   ],
+   "v1_starts": [
+    0,
+    2,
+    9,
+    16,
+    22
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "analysis",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble/Procedure",
+    "Facts & Board Decision",
+    "Applicant's Arguments",
+    "Court's Reasoning & Conclusion",
+    "Disposition & Metadata"
+   ]
+  },
+  "677": {
+   "starts": [
+    0,
+    1,
+    4,
+    7,
+    11,
+    37,
+    39
+   ],
+   "v1_starts": [
+    0,
+    1,
+    4,
+    7,
+    11,
+    37,
+    39
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble",
+    "Overview/Summary",
+    "Facts & Procedural History",
+    "Issue & Standard of Review",
+    "Court's Substantive Analysis",
+    "Conclusion & Order",
+    "Metadata"
+   ]
+  },
+  "1439": {
+   "starts": [
+    0,
+    1,
+    4,
+    8,
+    14,
+    47
+   ],
+   "v1_starts": [
+    0,
+    1,
+    4,
+    8,
+    14,
+    47
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "overview",
+    "issues",
+    "facts",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Overview",
+    "Issues & Standard of Review",
+    "Facts & Documentary Evidence",
+    "Court's Substantive Analysis",
+    "Judgment & Metadata"
+   ]
+  },
+  "1748": {
+   "starts": [
+    0,
+    1,
+    5,
+    7,
+    10,
+    30,
+    46,
+    47
+   ],
+   "v1_starts": [
+    0,
+    1,
+    5,
+    7,
+    10,
+    30,
+    46,
+    47
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "overview",
+    "issues",
+    "analysis",
+    "analysis",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Overview",
+    "Issue & Standard of Review",
+    "Legal Framework - IFA Principles",
+    "First Prong Analysis - Risk of Persecution",
+    "Second Prong Analysis - Reasonableness of Relocation",
+    "Conclusion",
+    "Judgment & Metadata"
+   ]
+  },
+  "1978": {
+   "starts": [
+    0,
+    1,
+    11,
+    13,
+    31,
+    32
+   ],
+   "v1_starts": [
+    0,
+    1,
+    11,
+    13,
+    31,
+    32
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Background & Claim",
+    "RAD Findings & Issue",
+    "Legal Framework & Analysis",
+    "Conclusion",
+    "Judgment & Metadata"
+   ]
+  },
+  "2220": {
+   "starts": [
+    0,
+    3,
+    4,
+    9,
+    13,
+    15,
+    17,
+    19
+   ],
+   "v1_starts": [
+    0,
+    3,
+    4,
+    9,
+    13,
+    15,
+    17,
+    19
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "issues",
+    "issues",
+    "analysis",
+    "disposition",
+    "disposition",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble & Background",
+    "Board's Decision & Findings Summary",
+    "Applicant's Issues & Court's Preliminary Analysis",
+    "Legal Framework & Standard of Review",
+    "Court's Analysis of Evidence & Credibility",
+    "Conclusion & Disposition",
+    "Court Order",
+    "Metadata"
+   ]
+  },
+  "2517": {
+   "starts": [
+    0,
+    2,
+    11,
+    12,
+    15,
+    24,
+    25
+   ],
+   "v1_starts": [
+    0,
+    2,
+    11,
+    12,
+    15,
+    24,
+    25
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble",
+    "Factual Background",
+    "Impugned Decision & Findings",
+    "Issue & Standard of Review",
+    "Court's Analysis",
+    "Disposition",
+    "Metadata"
+   ]
+  },
+  "2660": {
+   "starts": [
+    0,
+    2,
+    9,
+    12,
+    13,
+    17,
+    25,
+    41
+   ],
+   "v1_starts": [
+    0,
+    2,
+    9,
+    12,
+    13,
+    17,
+    25,
+    41
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "facts",
+    "analysis",
+    "issues",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Background Facts",
+    "Investigation Findings",
+    "Tribunal's Decision",
+    "Relevant Statutory Provisions",
+    "Standard of Review",
+    "Court's Analysis of Errors",
+    "Order and Metadata"
+   ]
+  },
+  "2788": {
+   "starts": [
+    0,
+    3,
+    5,
+    12,
+    13,
+    21,
+    24,
+    28
+   ],
+   "v1_starts": [
+    0,
+    3,
+    5,
+    12,
+    13,
+    21,
+    24,
+    28
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "issues",
+    "issues",
+    "analysis",
+    "analysis",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble & Overview",
+    "Factual Background - Applicants & Persecution Claims",
+    "RPD & RAD Findings - IFA Assessment",
+    "Issues Heading",
+    "Applicants' Issues & Court's Evidence Admissibility Analysis",
+    "Court's Analysis - Cult Confusion Issue",
+    "Court's IFA Analysis & Conclusion",
+    "Metadata"
+   ]
+  },
+  "4006": {
+   "starts": [
+    0,
+    1,
+    5,
+    10,
+    17,
+    24,
+    40,
+    47,
+    48
+   ],
+   "v1_starts": [
+    0,
+    1,
+    5,
+    10,
+    17,
+    24,
+    40,
+    47,
+    48
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "overview",
+    "facts",
+    "facts",
+    "issues",
+    "analysis",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "I. Overview",
+    "II. Background - Factual & Procedural",
+    "II. Background - RAD's Decision",
+    "II. Standard of Review",
+    "III. Analysis - Applicant's Evidence Challenge",
+    "IV. Analysis - Second Prong & Conclusion",
+    "Certification Question",
+    "Judgment & Metadata"
+   ]
+  },
+  "4090": {
+   "starts": [
+    0,
+    1,
+    8,
+    12,
+    22,
+    27,
+    29
+   ],
+   "v1_starts": [
+    0,
+    1,
+    8,
+    12,
+    22,
+    27,
+    29
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "analysis",
+    "disposition",
+    "metadata"
+   ],
+   "role_source": [
+    "Preamble",
+    "Factual & Procedural Background",
+    "Threshold & Legal Framework",
+    "Court's Analysis - Credibility Issue",
+    "Court's Analysis - Documents Issue & Conclusion",
+    "Judgment Order",
+    "Metadata"
+   ]
+  },
+  "15005": {
+   "starts": [
+    0,
+    2,
+    21,
+    35,
+    48,
+    60,
+    121,
+    161,
+    201,
+    231
+   ],
+   "v1_starts": [
+    0,
+    2,
+    21,
+    35,
+    48,
+    60,
+    121,
+    161,
+    201,
+    231
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "facts",
+    "facts",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Factual Background - Military Service",
+    "Afghanistan Deployment and Conscientious Objector Application",
+    "Iraq Deployment Decision and Admissibility of Evidence",
+    "Board's Analysis of Substantive Issues",
+    "Board's Legal Analysis and Findings",
+    "Federal Court's Standard of Review and Analysis",
+    "Court's Analysis of Persecution and Convention Grounds",
+    "Court's Conclusions and Legal Findings",
+    "Judgment and Metadata"
+   ]
+  },
+  "17038": {
+   "starts": [
+    0,
+    12,
+    35,
+    69,
+    108,
+    147
+   ],
+   "v1_starts": [
+    0,
+    12,
+    35,
+    69,
+    108,
+    147
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "issues",
+    "analysis",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble and Overview",
+    "Standard of Review Legal Framework",
+    "Court's Analysis of RAD Deference Framework",
+    "Court's Analysis of Demeanor and Credibility Evidence",
+    "Court's Conclusion on Legal Errors and Application",
+    "Judgment and Order"
+   ]
+  },
+  "23057": {
+   "starts": [
+    0,
+    3,
+    9,
+    25,
+    69,
+    104
+   ],
+   "v1_starts": [
+    0,
+    3,
+    9,
+    25,
+    69,
+    104
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "facts",
+    "facts",
+    "facts",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Factual Background and First Claims",
+    "Second and Third Applications and Procedural History",
+    "SST's Decision and Reasoning",
+    "Federal Court's Analysis and Conclusion",
+    "Judgment and Metadata"
+   ]
+  },
+  "24261": {
+   "starts": [
+    0,
+    1,
+    4,
+    10,
+    15,
+    38,
+    44,
+    66,
+    100
+   ],
+   "v1_starts": [
+    0,
+    1,
+    4,
+    10,
+    15,
+    38,
+    44,
+    66,
+    100
+   ],
+   "changes": [],
+   "roles": [
+    "overview",
+    "overview",
+    "facts",
+    "facts",
+    "facts",
+    "issues",
+    "analysis",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "Preamble",
+    "Overview",
+    "Factual Background",
+    "Board's Decision Context",
+    "Board's Substantive Analysis",
+    "Issues and Standard of Review",
+    "Court's Risk Assessment Arguments",
+    "Court's Credibility and Inference Analysis",
+    "Judgment and Metadata"
+   ]
+  },
+  "8343": {
+   "starts": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    7
+   ],
+   "v1_starts": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    7
+   ],
+   "changes": [],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "disposition",
+    "disposition"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  },
+  "12123": {
+   "starts": [
+    0,
+    4,
+    6,
+    10
+   ],
+   "v1_starts": [
+    0,
+    1,
+    6,
+    9,
+    13
+   ],
+   "changes": [
+    "Quotes re-located in the stored text. [1] 'In 2013, Mr Jin Han Zhou' sits inside paragraph 0 with the header, so start 1 merges into 0.",
+    "'II. The RAD's Decision [6]' starts inside paragraph 4: 6 -> 4.",
+    "'III. Was the RAD obliged...' starts inside paragraph 6: 9 -> 6.",
+    "'IV. Conclusion and Disposition [13]' opens paragraph 10: 13 -> 10."
+   ],
+   "roles": [
+    "overview",
+    "facts",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  },
+  "13414": {
+   "starts": [
+    0,
+    1,
+    2,
+    11,
+    17
+   ],
+   "v1_starts": [
+    0,
+    1,
+    2,
+    11,
+    22,
+    23
+   ],
+   "changes": [
+    "Disposition start 22: quoted '[22] In view of the foregoing reasons...' does not exist; stored text ends at [21] with no outcome paragraph. Dropped.",
+    "Footer 23 -> 17 ('SOLICITORS OF RECORD' is paragraph 17; the case has 19 paragraphs)."
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "metadata"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  },
+  "13410": {
+   "starts": [
+    0,
+    1,
+    3,
+    21
+   ],
+   "v1_starts": [
+    0,
+    1,
+    3,
+    22,
+    45
+   ],
+   "changes": [
+    "'[22] On April 1, 2013, the SST-AD replaced...' starts inside paragraph 21: 22 -> 21.",
+    "Disposition start 45: quoted '[45] The application for judicial review is allowed' does not exist in the text and no later paragraph states the outcome. Dropped."
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  },
+  "3646": {
+   "starts": [
+    0,
+    1,
+    4,
+    11,
+    48
+   ],
+   "v1_starts": [
+    0,
+    1,
+    4,
+    10,
+    20
+   ],
+   "changes": [
+    "'[10] After summarizing the background' is paragraph 11: 10 -> 11. ('I. Background' heading at 4 is correct.)",
+    "Disposition start 20: quoted '[20] The application is therefore allowed' does not exist (paragraph 20 is standard-of-review text). Replaced by the first later paragraph stating the outcome, the JUDGMENT block at 48."
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  },
+  "32257": {
+   "starts": [
+    0,
+    1,
+    3,
+    8,
+    45
+   ],
+   "v1_starts": [
+    0,
+    1,
+    3,
+    8,
+    30
+   ],
+   "changes": [
+    "Disposition start 30: quoted '[30] The application is allowed' does not exist (paragraph 30 is analysis). Replaced by '[45] In the result, the application is allowed' at 45."
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "disposition"
+   ],
+   "role_source": [
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)",
+    "hand_labels_8_new_cases (mapped to v2 starts)"
+   ]
+  }
+ },
+ "role_classes": [
+  "metadata",
+  "overview",
+  "facts",
+  "issues",
+  "analysis",
+  "disposition"
+ ],
+ "role_mapping_note": "Free-text roles of the 16 prior cases mapped to 6 classes by their first-named part; decisions under review (Board's/RAD's findings) count as facts; conclusions, orders and certification count as disposition. Overrides listed in role_overrides.",
+ "role_overrides": {
+  "Court's Analysis - Cult Confusion Issue": "analysis",
+  "Court's Analysis - Credibility Issue": "analysis",
+  "Court's Analysis - Documents Issue & Conclusion": "analysis",
+  "Board's Analysis of Substantive Issues": "facts",
+  "Board's Substantive Analysis": "facts",
+  "Board's Legal Analysis and Findings": "facts",
+  "Second and Third Applications and Procedural History": "facts",
+  "Legal Framework & Standard of Review": "issues",
+  "Applicant's Arguments": "analysis",
+  "Court's Conclusion on Legal Errors and Application": "disposition",
+  "Court's Conclusions and Legal Findings": "disposition"
+ }
+}

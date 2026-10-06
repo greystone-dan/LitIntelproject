@@ -146,3 +146,23 @@ def test_statute_scan_is_windowed_and_offsets_survive():
     assert len(text) > 30000
     fingerprint = compute_fingerprint(text)
     assert any(key.startswith("s:Immigration and Refugee Protection Act s25") for key in fingerprint.terms)
+
+
+def test_rebuild_missing_filters_court_and_ends_transactions(session):
+    session.add_all([_case(1, "A", HC, "2020 FC 1"), _case(2, "B", HC2, "2020 FC 2")])
+    session.get(Case, 2).court = "Federal Court of Appeal"
+    session.commit()
+    assert rebuild_missing(session, court="FCA") == 1
+    assert session.get(CaseFingerprintRecord, 2) is not None and session.get(CaseFingerprintRecord, 1) is None
+    assert rebuild_missing(session, court="FC", max_duty=0.99) == 1
+
+
+def test_rebuild_missing_with_workers_matches_single_process(session):
+    session.add_all([_case(1, "A", HC, "2020 FC 1"), _case(2, "B", HC2, "2020 FC 2")])
+    session.commit()
+    assert rebuild_missing(session, workers=2) == 2
+    parallel = {r.case_id: dict(r.terms) for r in session.query(CaseFingerprintRecord)}
+    session.query(CaseFingerprintRecord).delete()
+    session.commit()
+    assert rebuild_missing(session, workers=1) == 2
+    assert parallel == {r.case_id: dict(r.terms) for r in session.query(CaseFingerprintRecord)}

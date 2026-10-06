@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 178
+Active scripts documented: 182
 
 ## Catalog
 
@@ -32,6 +32,7 @@ Active scripts documented: 178
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
 | `backfill_panel_judges.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help` |
 | `backfill_rpd_header.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help` |
+| `backfill_statute_provisions.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help` |
 | `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
@@ -55,6 +56,7 @@ Active scripts documented: 178
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
+| `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
@@ -93,6 +95,7 @@ Active scripts documented: 178
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
+| `evaluate_statute_sections.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
 | `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
@@ -177,6 +180,7 @@ Active scripts documented: 178
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
+| `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
@@ -495,6 +499,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help
+```
+
+## `scripts/backfill_statute_provisions.py`
+
+**Purpose:** Fill statute_references.provision_section/subsection/paragraph from the stored pinpoint. The provision_* columns were added after most references were stored, so about 99.9% of rows have a pinpoint such as "36(1)(a)" but an empty provision_section. Statute-consideration queries filter on provision_section and so find almost nothing. This derives the columns from the pinpoint with the same parser the extractor uses. It never changes the pinpoint, the instrument or any other column, and only touches rows whose provision_section is still NULL. Dry run by default (counts and samples only). Use --apply to write.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help
 ```
 
 ## `scripts/batch_compute_units.py`
@@ -817,6 +835,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help
+```
+
+## `scripts/build_refined_citations.py`
+
+**Purpose:** Build side-by-side refined case citations (second-pass extraction) for decisions. Writes only to the new tables `citations_refined` and `citation_refine_status`; the live `citations` table is never touched, so the site keeps reading pass-one data. DRY RUN BY DEFAULT: nothing is written without `--apply`. python scripts/build_refined_citations.py --limit 500 # dry run: counts and a compare to pass one python scripts/build_refined_citations.py --limit 500 --apply # write the first 500 decisions python scripts/build_refined_citations.py --apply --court FC # continue (resumable; skips done decisions) python scripts/build_refined_citations.py --revert --yes # delete all refined rows and status rows for this version One decision per transaction, resumable (decisions with a status row for the same refine version are skipped), capped by --limit, with an optional stop file checked between decisions. Docket rows are not stored (no column for them yet). Statute references and paragraph links are a later step.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_refined_citations.py --help
 ```
 
 ## `scripts/build_statute_demand_report.py`
@@ -1349,6 +1381,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
+```
+
+## `scripts/evaluate_statute_sections.py`
+
+**Purpose:** Measure section-level statute extraction against the frozen gold set. Gold file: data/eval/statute_section_gold.json (synthetic CBSA-style sentences with the instrument and pinpoint a careful reader would extract; lists are expected one pair per section). Cases with "holdout": true are frozen for before/after comparison: never tune extraction rules on them. Pure measurement, no database, no network. Usage: python scripts/evaluate_statute_sections.py [--split dev|holdout|all] [--misses] [--json out.json]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help
 ```
 
 ## `scripts/evidence_gate.py`
@@ -2525,6 +2571,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
+```
+
+## `scripts/sample_statute_extraction.py`
+
+**Purpose:** Draw a random sample of real decisions and write the statute references the extractor finds, for hand-checking. READ-ONLY: SELECTs from cases and runs the extractor in memory; writes nothing to the database. For each sampled decision it records every extracted statute reference (text, instrument, pinpoint, context) and every "loose" provision mention (s. 12, subsection 5(1), paragraph 3(b) ...) that no extracted reference covers, so both precision and recall can be hand-checked. Sampling is deterministic for a given --seed (md5 order), per court, so a second run reproduces it. Usage: python scripts/sample_statute_extraction.py --cases-per-court 40 --seed 20261006 --out sample.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help
 ```
 
 ## `scripts/scheduled_intake_daemon.py`

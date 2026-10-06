@@ -22,8 +22,8 @@ _LIST = rf"{_RANGE}(?:\s*(?:,|;|and|or|et|&)\s*{_RANGE})*"
 
 # Paragraph pinpoints in English and French.
 _PARAGRAPH_LABEL = (
-	r"(?:paragraphs?|paras?\.?|para\.?|¶¶?|"
-	r"paragraphes?|par\.?|parag\.?)"
+	r"(?:paragraphes?|paragraphs?|paras?\.?|para\.?|¶¶?|"
+	r"par\.?|parag\.?)"
 )
 # Page pinpoints.
 _PAGE_LABEL = r"(?:pages?|pp\.?|p\.)"

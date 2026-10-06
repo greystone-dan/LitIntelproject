@@ -135,6 +135,8 @@ def test_case_search_csv_export_reuses_search_filters_and_escapes_cells(monkeypa
             "judge": "Zinn",
             "court": "FC",
             "year": "2024",
+            "cites_case_id": None,
+            "tags": "",
             "search_full_text": True,
             "sort_by": "newest",
             "limit": 100,
@@ -461,6 +463,8 @@ def test_search_export_uses_analytics_filters_and_caps_docx_at_two_pages(monkeyp
             "judge": "Zinn",
             "court": "Federal Court",
             "year": "2024",
+            "cites_case_id": None,
+            "tags": "",
             "search_full_text": True,
             "sort_by": "newest",
         }

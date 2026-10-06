@@ -2009,6 +2009,11 @@ def _extract_anchored_provision_candidates(
 			continue
 
 		provisions = _normalize_section_list(match.group(2))
+		if re.search(r"\b(?:R|S|C)\.?\s?(?:S|C|R)\.?\s*$", content[max(0, start - 8) : start]):
+			continue  # a reporter or statute-book volume ("R.S. 346"), not a provision
+		leading_number = re.match(r"\d+", provisions)
+		if "Charter" in authority and leading_number and int(leading_number.group(0)) > 52:
+			continue  # the Charter has no provision above s. 52; the nearest-statute guess is wrong
 		plural = prefix.endswith("s") or prefix.startswith("arts") or prefix.startswith("ss")
 		if prefix.startswith("art"):
 			label = "arts." if plural else "art."
@@ -2271,6 +2276,37 @@ def _extract_provisions_of_registered_acts(content: str) -> list[tuple[int, int,
 	return rows
 
 
+BARE_RULE_RE = re.compile(r"\bRules?\s+(\d{1,3}(?:\.\d+)?(?:\s*\([A-Za-z0-9]+\))*)")
+_FEDERAL_COURTS_RULES_NAME_RE = re.compile(r"\bFederal Courts Rules\b")
+
+
+def _extract_bare_federal_courts_rules(content: str, taken: list[RawCitationMatch]) -> list[RawCitationMatch]:
+	"""Tie "Rule 53(1)" to the Federal Courts Rules once the decision has named them earlier."""
+	first_named = _FEDERAL_COURTS_RULES_NAME_RE.search(content)
+	if first_named is None:
+		return []
+	rows: list[RawCitationMatch] = []
+	for match in BARE_RULE_RE.finditer(content):
+		start, end = match.span()
+		if start < first_named.start():
+			continue
+		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+			continue
+		before = content[max(0, start - 30) : start]
+		if re.search(r"(?:Tax Court|Supreme Court|Superior Court|Civil Procedure|Court of Appeal|Provincial|Divisional)[^.]{0,20}$", before, re.IGNORECASE):
+			continue
+		after = content[end : end + 60]
+		named_other = re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?(?!Rules\b|Federal Courts Rules\b)[A-Z]", after)
+		if named_other:
+			continue
+		provision, _ = _normalize_provision_list(match.group(1))
+		if not provision:
+			continue
+		normalized = f"Federal Courts Rules, SOR/98-106 s. {provision}"
+		rows.append(_raw_match("statute", match.group(0), normalized, start, end))
+	return rows
+
+
 def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch]:
 	"""Return only statute and legal-instrument matches from deterministic law rules."""
 	content = text or ""
@@ -2284,6 +2320,7 @@ def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch
 	]
 	candidates.extend(candidate for _start, _end, candidate in _extract_provisions_of_registered_acts(content))
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
+	candidates.extend(_extract_bare_federal_courts_rules(content, candidates))
 	return _select_best_non_overlapping(candidates)
 
 

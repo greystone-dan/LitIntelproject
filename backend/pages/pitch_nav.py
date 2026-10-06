@@ -26,7 +26,7 @@ COMING_SOON = [
     ("issue-brief", "Issue Briefs", "A short research brief on one legal issue tag, built from the decisions that address it."),
     ("quick-search", "Quick Search", "Search the text of decisions by passage instead of by case, to find the paragraphs that say what you are looking for."),
     ("tag-finder", "Tag Finder", "Pick a decision and find others that share its legal issue tags."),
-    ("statutes", "Federal Statutes", "Browse federal statutes, with the version that was in force when each decision was made."),
+    ("statutes", "Federal Statutes", "Read a section of IRPA, IRPR and other federal acts and see every decision in the library that cites it, by year, court and outcome."),
     ("site-architecture", "Site Architecture", "A live map of how decisions move from official sources into the library and out to each research page."),
 ]
 
@@ -46,7 +46,7 @@ SOON_TARGETS = {
     "issue-brief": ("page", "/issue-brief-ui"),
     "quick-search": ("page", "/quick-search"),
     "tag-finder": ("page", "/tag-finder"),
-    "statutes": ("page", "/statutes"),
+    "statutes": ("page", "/statute-library"),
 }
 
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">

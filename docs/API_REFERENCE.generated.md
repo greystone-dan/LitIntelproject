@@ -5,8 +5,8 @@ This file is generated from `backend.main:app.openapi()` by `scripts/generate_ap
 Generated: 2026-10-06T16:11:55.793421+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
-OpenAPI operations: 131 across 128 paths
-Hidden operations: 65 excluded from OpenAPI
+OpenAPI operations: 134 across 131 paths
+Hidden operations: 66 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -415,6 +415,43 @@ Search Embedding Status
 **Responses**
 
 - `200`: Successful Response; `application/json`: `object`
+
+### `GET /api/statute-library/acts`
+
+Statute Library Acts
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `array`
+
+### `GET /api/statute-library/{act}/sections`
+
+Statute Library Toc
+
+**Parameters**
+
+- `act` (path, required; string)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
+
+### `GET /api/statute-library/{act}/sections/{section}`
+
+Statute Library Section
+
+**Parameters**
+
+- `act` (path, required; string)
+- `section` (path, required; string)
+- `page` (query, optional; integer, default `1`)
+- `page_size` (query, optional; integer, default `25`)
+
+**Responses**
+
+- `200`: Successful Response; `application/json`: `object`
+- `422`: Validation Error; `application/json`: `HTTPValidationError`
 
 ### `GET /api/statutes/{act}/{section}/consideration`
 
@@ -2780,6 +2817,16 @@ Handler: `backend.routes.saved_searches_page`
 **Hidden from OpenAPI.**
 
 Handler: `backend.statute_consideration.statute_consideration_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /statute-library`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.statute_sections.statute_library_page`
 
 **Responses**
 

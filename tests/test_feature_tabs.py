@@ -1295,6 +1295,6 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     html = routes._data_explorer_page_html()
     assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
     framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
-    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statutes'
+    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statute-library'
     assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())

@@ -22,7 +22,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.citations import extract_statute_reference_matches
-from backend.statutes import normalize_provision_pinpoint, parse_legislation_citation
+from backend.statutes import expand_pinpoint_list, normalize_provision_pinpoint, parse_legislation_citation
 
 DEFAULT_GOLD = PROJECT_ROOT / "data" / "eval" / "statute_section_gold.json"
 
@@ -32,7 +32,8 @@ def extracted_pairs(text: str) -> set[tuple[str, str]]:
     for match in extract_statute_reference_matches(text):
         parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
         if parsed is not None and parsed.instrument_key and parsed.pinpoint:
-            pairs.add((parsed.instrument_key, normalize_provision_pinpoint(parsed.pinpoint)))
+            singles = expand_pinpoint_list(parsed.pinpoint) if parsed.is_range_or_list else [normalize_provision_pinpoint(parsed.pinpoint)]
+            pairs.update((parsed.instrument_key, single) for single in singles)
     return pairs
 
 

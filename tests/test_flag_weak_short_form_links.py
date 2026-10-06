@@ -53,7 +53,7 @@ def targets(session):
 def test_dry_run_flags_only_the_weak_link_and_writes_nothing(session, monkeypatch, tmp_path, capsys):
 	backup = tmp_path / "weak.csv"
 	run(session, monkeypatch, "--backup", str(backup))
-	assert "suspects=1" in capsys.readouterr().out
+	assert "suspects_to_act_on=1" in capsys.readouterr().out
 	assert [row["citation_text"] for row in csv.DictReader(backup.open(encoding="utf-8"))] == ["group"]
 	assert targets(session)["group"] == 2
 
@@ -70,3 +70,9 @@ def test_apply_requires_a_backup(session, monkeypatch):
 	with pytest.raises(SystemExit):
 		run(session, monkeypatch, "--apply")
 	assert targets(session)["group"] == 2
+
+
+def test_judge_handles_non_breaking_hyphen_in_party_name() -> None:
+	from scripts.flag_weak_short_form_links import judge
+
+	assert judge("Pro-Sys at para 103", "Pro-Sys Consultants Ltd. v. Microsoft Corporation, 2013 SCC 57, at para. 103", "Pro‑Sys Consultants Ltd. v. Microsoft Corporation") is None

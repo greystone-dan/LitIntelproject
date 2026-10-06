@@ -33,14 +33,10 @@ if str(PROJECT_ROOT) not in sys.path:
 	sys.path.insert(0, str(PROJECT_ROOT))
 
 from backend.citation_refine.models import RefinedCitation
-from backend.citation_refine.short_forms import alias_of, is_weak_short_form
+from backend.citation_refine.short_forms import _words, alias_of, is_weak_short_form
 from backend.database import Case, Citation, SessionLocal
 
 BACKUP_FIELDS = ["id", "source_case_id", "previous_target_case_id", "reason", "citation_text", "target_title"]
-
-
-def _words(value: str) -> list[str]:
-	return [word.strip("'’-") for word in re.findall(r"[\w'’-]+", value.casefold()) if word.strip("'’-")]
 
 
 def alias_in_title(alias: str, title: str | None) -> bool:
@@ -86,6 +82,13 @@ def main(argv: list[str] | None = None) -> None:
 	parser.add_argument("--revert-from", type=Path, default=None, help="Restore target_case_id from a backup CSV.")
 	parser.add_argument("--limit", type=int, default=None, help="Inspect at most this many linked short-form rows.")
 	parser.add_argument("--batch-size", type=int, default=20_000)
+	parser.add_argument(
+		"--reasons",
+		default="weak_short_form",
+		help="Comma list of reasons to act on (default weak_short_form, the high-precision rule; alias_not_in_target_title is "
+		"about half real errors and is only counted unless named here).",
+	)
+	parser.add_argument("--examples", type=int, default=0, help="Print this many random suspect examples (with their reason).")
 	args = parser.parse_args(argv)
 
 	with SessionLocal() as session:
@@ -104,6 +107,7 @@ def main(argv: list[str] | None = None) -> None:
 			print(f"{'REVERTED' if args.apply else 'DRY RUN (nothing written)'} rows_in_backup={len(rows)}")
 			return
 
+		acted_reasons = {item.strip() for item in args.reasons.split(",") if item.strip()}
 		inspected = 0
 		reasons: Counter = Counter()
 		suspects: list[dict] = []
@@ -111,6 +115,8 @@ def main(argv: list[str] | None = None) -> None:
 			if reason is None:
 				continue
 			reasons[reason] += 1
+			if reason not in acted_reasons:
+				continue
 			suspects.append(
 				{
 					"id": row.id,
@@ -122,7 +128,12 @@ def main(argv: list[str] | None = None) -> None:
 				}
 			)
 		session.rollback()
-		print(f"inspected={inspected} suspects={len(suspects)} by_reason={dict(reasons)}")
+		print(f"inspected={inspected} suspects_to_act_on={len(suspects)} counted_by_reason={dict(reasons)} acting_on={sorted(acted_reasons)}")
+		if args.examples and suspects:
+			import random
+
+			for item in random.Random(1).sample(suspects, min(args.examples, len(suspects))):
+				print(f"EXAMPLE id={item['id']} source={item['source_case_id']} reason={item['reason']} text={item['citation_text']!r} -> {item['target_title']!r}")
 		if args.backup is not None:
 			args.backup.parent.mkdir(parents=True, exist_ok=True)
 			with args.backup.open("w", encoding="utf-8", newline="") as handle:

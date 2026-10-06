@@ -28,6 +28,7 @@ _PINPOINT_START_RE = re.compile(r"\s*,?\s*(?:\(|\[|at\s|à\s|au\s|aux\s|,|;|supr
 
 
 def _words(value: str) -> list[str]:
+	value = value.replace("\u2010", "-").replace("\u2011", "-").replace("\u2012", "-")
 	return [word.strip("'’-") for word in re.findall(r"[\w'’-]+", value.casefold()) if word.strip("'’-")]
 
 

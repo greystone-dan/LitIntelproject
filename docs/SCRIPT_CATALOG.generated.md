@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 178
+Active scripts documented: 179
 
 ## Catalog
 
@@ -32,6 +32,7 @@ Active scripts documented: 178
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
 | `backfill_panel_judges.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help` |
 | `backfill_rpd_header.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help` |
+| `backfill_statute_provisions.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help` |
 | `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
@@ -495,6 +496,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help
+```
+
+## `scripts/backfill_statute_provisions.py`
+
+**Purpose:** Fill statute_references.provision_section/subsection/paragraph from the stored pinpoint. The provision_* columns were added after most references were stored, so about 99.9% of rows have a pinpoint such as "36(1)(a)" but an empty provision_section. Statute-consideration queries filter on provision_section and so find almost nothing. This derives the columns from the pinpoint with the same parser the extractor uses. It never changes the pinpoint, the instrument or any other column, and only touches rows whose provision_section is still NULL. Dry run by default (counts and samples only). Use --apply to write.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help
 ```
 
 ## `scripts/batch_compute_units.py`

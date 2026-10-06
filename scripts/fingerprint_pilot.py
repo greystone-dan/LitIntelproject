@@ -52,12 +52,16 @@ DEFAULT_GOLD = [
 def _court_ids(session: Session, court_key: str) -> list[int]:
     labels = COURT_LABELS[court_key]
     stmt = select(Case.id).where(Case.full_text.is_not(None)).where(func.upper(Case.court).in_(labels))
-    return [row for row in session.scalars(stmt)]
+    ids = [row for row in session.scalars(stmt)]
+    session.rollback()  # end the transaction: batch_safety kills ones idle over 30 s
+    return ids
 
 
 def _find_case(session: Session, citation: str) -> int | None:
     stmt = select(Case.id).where(Case.citation.ilike(f"%{citation}%")).order_by(Case.id).limit(1)
-    return session.scalar(stmt)
+    found = session.scalar(stmt)
+    session.rollback()
+    return found
 
 
 def _load_gold(paths: list[str]) -> list[dict]:
@@ -124,6 +128,7 @@ def run(session: Session, options: argparse.Namespace) -> dict:
             select(Case.id, Case.title, Case.court, Case.citation, func.substr(Case.full_text, 1, options.max_chars))
             .where(Case.id == case_id)
         ).one_or_none()
+        session.rollback()  # no open transaction while computing/sleeping (idle > 30 s gets killed)
         if row is None or not row[4]:
             continue
         work_start = time.time()

@@ -29,6 +29,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from sqlalchemy import delete, select
 
 from backend.citations import (
+    court_defaults_to_irpa,
     _preferred_case_chunks,
     extract_statute_reference_matches,
     rebuild_statute_references_for_case,
@@ -39,11 +40,11 @@ from backend.statutes import parse_legislation_citation
 BACKUP_COLUMNS = [column.name for column in StatuteReference.__table__.columns]
 
 
-def new_rows_for_texts(texts: list[str]) -> list[dict[str, Any]]:
+def new_rows_for_texts(texts: list[str], court: str | None = None) -> list[dict[str, Any]]:
     """Run the current extractor over each text and return plain row dicts."""
     rows: list[dict[str, Any]] = []
     for text in texts:
-        for match in extract_statute_reference_matches(text):
+        for match in extract_statute_reference_matches(text, default_irpa=court_defaults_to_irpa(court)):
             parsed = parse_legislation_citation(match.normalized_citation or match.citation_text)
             rows.append(
                 {
@@ -121,7 +122,7 @@ def run(case_ids: list[int], apply: bool, backup_path: Path | None, batch_size: 
                     changes["case_missing"] += 1
                     continue
                 old = stored_rows(db, case_id)
-                new = new_rows_for_texts(case_texts(db, case))
+                new = new_rows_for_texts(case_texts(db, case), case.court)
                 before.update(summarize(old))
                 after.update(summarize(new))
                 diff = diff_case(old, new)

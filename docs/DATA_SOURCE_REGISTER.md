@@ -292,3 +292,6 @@ Missing provenance is a data-quality defect, not an invitation to fabricate valu
 4. Docket correlation can be strong without proving that two records are identical decisions.
 5. Reference-library snapshots age; checksum validity proves local-file integrity, not current legal validity.
 6. Dataset-wide statistics should identify source scope and extraction date before being used for research conclusions.
+## Added federal statute snapshots (2026-10-06)
+
+41 more Justice Laws XML snapshots (Open Government Licence - Canada) sit in `data/reference_library/legislation_xml/`: Customs Act, CBSA Act, Customs Tariff, Excise Tax Act, Excise Acts, Patent Act, Competition Act, Bankruptcy and Insolvency Act, Food and Drugs Act and Regulations, NOC Regulations, CDSA, Canada Evidence Act, Access to Information Act, Fisheries Act, Labour Code, CCRA, CSIS Act, Extradition Act, Security of Information Act, YCJA, Canada Marine and Shipping Acts, EI Act, FPSLRA, PCMLTFA, plus the RPD, RAD, ID, IAD (2022) and Federal Courts Citizenship Immigration Rules and Citizenship Regulations. `scripts/index_legislation.py --dry-run` parses and counts them without a database; `--only-missing` indexes only instruments with no document. Not available: the repealed Immigration Act (R.S.C. 1985, c. I-2) and the pre-2022 IAD Rules, which Justice Laws no longer serves.

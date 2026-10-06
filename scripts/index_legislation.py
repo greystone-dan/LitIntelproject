@@ -102,6 +102,65 @@ XML_SOURCES = {
 	),
 }
 
+# Justice Laws XML snapshots added for statute coverage (Open Government Licence - Canada).
+# Each row: instrument key, title the XML must carry, citation, file in data/reference_library/legislation_xml/, Justice Laws path.
+_JUSTICE_LAWS = (
+	("canada.customs_act", "Customs Act", "R.S.C. 1985, c. 1 (2nd Supp.)", "C-52.6.xml", "acts/C-52.6"),
+	("canada.cbsa_act", "Canada Border Services Agency Act", "S.C. 2005, c. 38", "C-1.4.xml", "acts/C-1.4"),
+	("canada.customs_tariff", "Customs Tariff", "S.C. 1997, c. 36", "C-54.011.xml", "acts/C-54.011"),
+	("canada.excise_tax_act", "Excise Tax Act", "R.S.C. 1985, c. E-15", "E-15.xml", "acts/E-15"),
+	("canada.excise_act", "Excise Act", "R.S.C. 1985, c. E-14", "E-14.xml", "acts/E-14"),
+	("canada.excise_act_2001", "Excise Act, 2001", "S.C. 2002, c. 22", "E-14.1.xml", "acts/E-14.1"),
+	("canada.patent_act", "Patent Act", "R.S.C. 1985, c. P-4", "P-4.xml", "acts/P-4"),
+	("canada.competition_act", "Competition Act", "R.S.C. 1985, c. C-34", "C-34.xml", "acts/C-34"),
+	("canada.bankruptcy_insolvency_act", "Bankruptcy and Insolvency Act", "R.S.C. 1985, c. B-3", "B-3.xml", "acts/B-3"),
+	("canada.food_and_drugs_act", "Food and Drugs Act", "R.S.C. 1985, c. F-27", "F-27.xml", "acts/F-27"),
+	("canada.controlled_drugs_substances_act", "Controlled Drugs and Substances Act", "S.C. 1996, c. 19", "C-38.8.xml", "acts/C-38.8"),
+	("canada.evidence_act", "Canada Evidence Act", "R.S.C. 1985, c. C-5", "C-5.xml", "acts/C-5"),
+	("canada.access_to_information_act", "Access to Information Act", "R.S.C. 1985, c. A-1", "A-1.xml", "acts/A-1"),
+	("canada.interpretation_act", "Interpretation Act", "R.S.C. 1985, c. I-21", "I-21.xml", "acts/I-21"),
+	("canada.supreme_court_act", "Supreme Court Act", "R.S.C. 1985, c. S-26", "S-26.xml", "acts/S-26"),
+	("canada.fisheries_act", "Fisheries Act", "R.S.C. 1985, c. F-14", "F-14.xml", "acts/F-14"),
+	("canada.labour_code", "Canada Labour Code", "R.S.C. 1985, c. L-2", "L-2.xml", "acts/L-2"),
+	("canada.criminal_records_act", "Criminal Records Act", "R.S.C. 1985, c. C-47", "C-47.xml", "acts/C-47"),
+	("canada.csis_act", "Canadian Security Intelligence Service Act", "R.S.C. 1985, c. C-23", "C-23.xml", "acts/C-23"),
+	("canada.extradition_act", "Extradition Act", "S.C. 1999, c. 18", "E-23.01.xml", "acts/E-23.01"),
+	("canada.security_of_information_act", "Security of Information Act", "R.S.C. 1985, c. O-5", "O-5.xml", "acts/O-5"),
+	("canada.marine_act", "Canada Marine Act", "S.C. 1998, c. 10", "C-6.7.xml", "acts/C-6.7"),
+	("canada.employment_insurance_act", "Employment Insurance Act", "S.C. 1996, c. 23", "E-5.6.xml", "acts/E-5.6"),
+	("canada.railway_safety_act", "Railway Safety Act", "R.S.C. 1985, c. 32 (4th Supp.)", "R-4.2.xml", "acts/R-4.2"),
+	("canada.crown_liability_proceedings_act", "Crown Liability and Proceedings Act", "R.S.C. 1985, c. C-50", "C-50.xml", "acts/C-50"),
+	("canada.shipping_act_2001", "Canada Shipping Act, 2001", "S.C. 2001, c. 26", "C-10.15.xml", "acts/C-10.15"),
+	("canada.fpslra", "Federal Public Sector Labour Relations Act", "S.C. 2003, c. 22, s. 2", "P-33.3.xml", "acts/P-33.3"),
+	("canada.pcmltfa", "Proceeds of Crime (Money Laundering) and Terrorist Financing Act", "S.C. 2000, c. 17", "P-24.501.xml", "acts/P-24.501"),
+	("canada.corrections_conditional_release_act", "Corrections and Conditional Release Act", "S.C. 1992, c. 20", "C-44.6.xml", "acts/C-44.6"),
+	("canada.youth_criminal_justice_act", "Youth Criminal Justice Act", "S.C. 2002, c. 1", "Y-1.5.xml", "acts/Y-1.5"),
+	("canada.indian_act", "Indian Act", "R.S.C. 1985, c. I-5", "indian_act_I-5.xml", "acts/I-5"),
+	("canada.privacy_act", "Privacy Act", "R.S.C. 1985, c. P-21", "privacy_act_P-21.xml", "acts/P-21"),
+	("canada.human_rights_act", "Canadian Human Rights Act", "R.S.C. 1985, c. H-6", "canadian_human_rights_act_H-6.xml", "acts/H-6"),
+	("canada.rpd_rules", "Refugee Protection Division Rules", "SOR/2012-256", "SOR-2012-256.xml", "regulations/SOR-2012-256"),
+	("canada.rad_rules", "Refugee Appeal Division Rules", "SOR/2012-257", "SOR-2012-257.xml", "regulations/SOR-2012-257"),
+	("canada.id_rules", "Immigration Division Rules", "SOR/2002-229", "SOR-2002-229.xml", "regulations/SOR-2002-229"),
+	("canada.iad_rules", "Immigration Appeal Division Rules, 2022", "SOR/2022-277", "SOR-2022-277.xml", "regulations/SOR-2022-277"),
+	("canada.fc_cirp_rules", "Federal Courts Citizenship, Immigration and Refugee Protection Rules", "SOR/93-22", "SOR-93-22.xml", "regulations/SOR-93-22"),
+	("canada.citizenship_regulations", "Citizenship Regulations", "SOR/93-246", "SOR-93-246.xml", "regulations/SOR-93-246"),
+	("canada.noc_regulations", "Patented Medicines (Notice of Compliance) Regulations", "SOR/93-133", "SOR-93-133.xml", "regulations/SOR-93-133"),
+	("canada.food_and_drug_regulations", "Food and Drug Regulations", "C.R.C., c. 870", "CRC-c-870.xml", "regulations/C.R.C.,_c._870"),
+)
+
+for _key, _title, _citation, _file, _path in _JUSTICE_LAWS:
+	XML_SOURCES.setdefault(
+		_key,
+		SourceDefinition(
+			title=_title,
+			citation=_citation,
+			relative_path=f"data/reference_library/legislation_xml/{_file}",
+			source_format="xml",
+			source_url=f"https://laws-lois.justice.gc.ca/eng/{_path}/",
+		),
+	)
+JUSTICE_LAWS_KEYS = tuple(row[0] for row in _JUSTICE_LAWS)
+
 NON_XML_SOURCES = {
 	"canada.charter": SourceDefinition(
 		title="Canadian Charter of Rights and Freedoms",
@@ -133,7 +192,10 @@ def parse_sections(path: Path) -> list[tuple[str, str | None, str]]:
 	root = ET.parse(path).getroot()
 	sections = []
 	seen_numbers: set[str] = set()
-	for section in root.iter("Section"):
+	# Only the enacted text: sections quoted inside amending bills, "not in force" notes and schedules are
+	# not addressable provisions and used to push look-alike numbers into the library.
+	body = root.find("Body")
+	for section in (body if body is not None else root).iter("Section"):
 		label = section.findtext("Label")
 		if not label:
 			continue
@@ -273,13 +335,58 @@ def index_source(session, instrument_key: str, source: SourceDefinition) -> int:
 	return len(rows)
 
 
+def verify_identity(path: Path, title: str) -> bool:
+	"""True when the XML's own short or long title carries the expected title (a wrong snapshot is rejected)."""
+	root = ET.parse(path).getroot()
+	wanted = re.sub(r"\W+", " ", title).strip().lower()
+	for tag in ("ShortTitle", "LongTitle"):
+		found = root.findtext(f".//{tag}")
+		if found and wanted in re.sub(r"\W+", " ", found).strip().lower():
+			return True
+	return False
+
+
+def dry_run(keys) -> None:
+	"""Parse each snapshot and print its section counts; touches no database."""
+	total = 0
+	for key in keys:
+		source = SOURCE_DEFINITIONS[key]
+		path = PROJECT_ROOT / source.relative_path
+		if not path.exists():
+			print(f"{key}: file not found at {source.relative_path}")
+			continue
+		sections = parse_source_sections(path, source.source_format)
+		ok = verify_identity(path, source.title) if source.source_format == "xml" and key in JUSTICE_LAWS_KEYS else None
+		numbers = [number for number, _, _ in sections]
+		empty = sum(1 for _, _, text in sections if not text.strip())
+		total += len(sections)
+		print(f"{key}: sections={len(sections)} empty_text={empty} first={numbers[:1]} last={numbers[-1:]} identity_ok={ok}")
+	print(f"total sections: {total}")
+
+
 def main() -> None:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--instrument", choices=[*SOURCE_DEFINITIONS, "all"], default="all")
+	parser.add_argument("--dry-run", action="store_true", help="parse and count only; no database access")
+	parser.add_argument(
+		"--only-missing",
+		action="store_true",
+		help="skip instruments that already have a document, so existing text is left untouched",
+	)
 	args = parser.parse_args()
+	keys = SOURCE_DEFINITIONS if args.instrument == "all" else {args.instrument: SOURCE_DEFINITIONS[args.instrument]}
+	if args.dry_run:
+		dry_run(keys)
+		return
 	with SessionLocal() as session:
-		keys = SOURCE_DEFINITIONS if args.instrument == "all" else {args.instrument: SOURCE_DEFINITIONS[args.instrument]}
+		existing = set(session.scalars(select(LegislationDocument.instrument_key))) if args.only_missing else set()
 		for key, source in keys.items():
+			if key in existing:
+				print(f"{key}: skipped (already indexed)", flush=True)
+				continue
+			if key in JUSTICE_LAWS_KEYS and not verify_identity(PROJECT_ROOT / source.relative_path, source.title):
+				print(f"{key}: REJECTED, the snapshot's title does not match {source.title!r}", flush=True)
+				continue
 			count = index_source(session, key, source)
 			print(f"{key}: sections={count}", flush=True)
 		session.commit()

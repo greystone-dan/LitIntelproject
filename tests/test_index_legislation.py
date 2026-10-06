@@ -164,3 +164,29 @@ def test_parse_source_sections_rejects_unknown_format(tmp_path):
         assert str(error) == "unsupported source format: pdf"
     else:
         raise AssertionError("unsupported source format should fail")
+
+
+def test_added_justice_laws_snapshots_exist_parse_and_match_their_titles():
+    from pathlib import Path
+
+    from scripts.index_legislation import JUSTICE_LAWS_KEYS, PROJECT_ROOT, verify_identity
+
+    assert len(JUSTICE_LAWS_KEYS) == len(set(JUSTICE_LAWS_KEYS))
+    for key in JUSTICE_LAWS_KEYS:
+        source = SOURCE_DEFINITIONS[key]
+        path = Path(PROJECT_ROOT) / source.relative_path
+        assert path.exists(), key
+        assert verify_identity(path, source.title), key
+        sections = parse_source_sections(path, "xml")
+        assert sections, key
+        assert all(text.strip() for _, _, text in sections), key
+
+
+def test_only_enacted_body_sections_are_indexed(tmp_path):
+    xml = tmp_path / "x.xml"
+    xml.write_text(
+        "<Statute><Body><Section><Label>1</Label><MarginalNote>Short title</MarginalNote><Text>Short.</Text></Section></Body>"
+        "<RelatedOrNotInForce><Section><Label>97.34</Label><Text>quoted amendment</Text></Section></RelatedOrNotInForce></Statute>",
+        encoding="utf-8",
+    )
+    assert [number for number, _, _ in parse_source_sections(xml, "xml")] == ["1"]

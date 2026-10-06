@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 177
+Active scripts documented: 178
 
 ## Catalog
 
@@ -146,6 +146,7 @@ Active scripts documented: 177
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
+| `recompute_citation_metrics.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
 | `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
@@ -2090,6 +2091,20 @@ Active scripts documented: 177
 
 ```powershell
 .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
+```
+
+## `scripts/recompute_citation_metrics.py`
+
+**Purpose:** Refresh the stored "cited by" numbers (citation_metrics). Dry run by default. The stored in_degree was last computed before many citation links were added or cleaned (Baker showed 0 with about 2,900 citing cases), and counted citation rows. It now counts distinct citing cases, as search does. python scripts/recompute_citation_metrics.py # dry run: stored vs live for sample cases and totals python scripts/recompute_citation_metrics.py --apply # recompute and write all rows (needs Daniel's go)
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help
 ```
 
 ## `scripts/refresh_recent_5000_artifact.py`

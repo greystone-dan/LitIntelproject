@@ -843,5 +843,336 @@
   "refs": [
    "#224"
   ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "navigation",
+  "title": "Four sections along the top: About, Case search, Intelligence, Coming soon",
+  "text": "The site now opens on a short, clear set of sections. Judge Profiles, Citation Intelligence and Federal Court Analytics sit under Intelligence / Statistics, and every other feature has its own page under Coming soon with a short explainer and a banner saying it is not finished. Nothing was removed; the pages still open by direct link.",
+  "refs": [
+   "#292",
+   "#294",
+   "#248"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "search",
+  "title": "Case search redesigned",
+  "text": "A new search page with a floating search bar, an Advanced filter panel, boxed result rows, Recent cases and a Show more button. Polish followed: relevance sort, an RPD court chip and a cleaner Minister list.",
+  "refs": [
+   "#298",
+   "#314"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "search",
+  "title": "Results explain themselves",
+  "text": "Each result shows a highlighted excerpt of why it matched, court and year chips to narrow in one click, a sort bar, a Copy citation button, and a plain-words line under the search box saying what the search is doing.",
+  "refs": [
+   "#256",
+   "#257",
+   "#258",
+   "#279"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "performance",
+  "title": "Faster search and faster case opening",
+  "text": "Filter counts load lazily, full-text search uses an index, citation counts load after the results appear, and a decision opens faster because its data is located once per case.",
+  "refs": [
+   "#262",
+   "#263",
+   "#267",
+   "#271"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "search",
+  "title": "Filter by the case a decision cites, and by tag",
+  "text": "Advanced search can now require that results cite a chosen case, and can filter by legal tag.",
+  "refs": [
+   "#321"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "search",
+  "title": "Case type filter (labels not stored yet)",
+  "text": "Search can filter by what kind of case a decision is, with counts. It only shows options once the case-type labels are stored in the library, which has not happened yet.",
+  "refs": [
+   "#320",
+   "#333"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Formatted reader redesigned",
+  "text": "A left panel, a title card, click cards for citations and authorities, search inside the decision, a slim one-row header and a reader that fills the screen height.",
+  "refs": [
+   "#285",
+   "#297",
+   "#299"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Clean case information in the reader",
+  "text": "The header shows court and citation, the case name, then the file number, decision date and decision maker (“Justice Mosley”), with the outcome and source links. The About panel lists the same facts in a fixed order, and a bug that left Authorities text stuck on “Loading” was fixed.",
+  "refs": [
+   "#291",
+   "#304",
+   "#313"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Hover shows the paragraph or provision cited",
+  "text": "Hovering a pinpointed citation shows the text of the paragraph it points to, and hovering a statute reference shows the stored provision text. Pinpoints written as ranges, lists, “ff” and several paragraphs per citation are now read correctly. Conventions and treaties now appear as statutes rather than as unmatched citations.",
+  "refs": [
+   "#268",
+   "#272",
+   "#337"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Unfinished reader tools hidden behind “Show experimental”",
+  "text": "The summary cards, case-structure and paragraph-assessment tools, Similar paragraphs and the legal-development notice no longer appear by default, so the reader shows only what is ready. The Testing tab and Core cases tools are behind the same switch.",
+  "refs": [
+   "#245",
+   "#251",
+   "#254",
+   "#278"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "markup",
+  "title": "Markup mode: Acts layer and closer fidelity",
+  "text": "Markup gained a layer for statutes with provision text, header pills for outcome, judge and file number, shorter margin labels and richer citation cards. Hover cards and Peek panels now show the pinpoint paragraph’s text and an “In this case” line, and every highlighted citation responds to hover and click.",
+  "refs": [
+   "#243",
+   "#264",
+   "#265",
+   "#266",
+   "#274"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "markup",
+  "title": "Markup mode and Live Analysis paused as “Coming soon”",
+  "text": "Markup is greyed out in the reader’s view switcher under a Coming soon strip and cannot be opened, and Live Analysis is paused the same way. The code is untouched. Before the pause, Live Analysis could open your own memo, factum or decision in Markup, link “above” and “Ibid” back-references (marked as a guess), and had its library lookup fixed.",
+  "refs": [
+   "#276",
+   "#277",
+   "#280",
+   "#289",
+   "#290"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "outcomes",
+  "title": "Case types: rule-based “what kind of case is this”",
+  "text": "Fixed rules label each decision as, for example, a judicial review of an immigration decision, using the text header, the IMM docket number and the subject named in the opening, with no AI. Unclear decisions are resolved from the subject in the opening, immigration-party decisions are kept out of the “not immigration” group, and rows can be exported for review. A dry run is checked before anything is stored; the labels are not stored in the library yet. The reader gains a case-type chip once they are.",
+  "refs": [
+   "#308",
+   "#311",
+   "#316",
+   "#318",
+   "#322",
+   "#323",
+   "#332"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Case structure: a role for each paragraph",
+  "text": "Discussion-unit boundaries were improved and pruned, and each paragraph can be labelled with its role in the decision (such as issue or analysis) by rules, with no AI. These labels sit behind “Show experimental”.",
+  "refs": [
+   "#246",
+   "#255",
+   "#260",
+   "#310"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "judges",
+  "title": "Judge names cleaned up, step by step",
+  "text": "A judge-name normalizer and a read-only report came first, then a reversible way to merge duplicate profiles, Federal Court docket activity on each judge profile, Supreme Court panels split into individual judges, court-specific rules for the Federal Court of Appeal and Supreme Court, and every Federal Court of Appeal bench member linked rather than only the author. Stale or wrong merges were pruned. The rules are not yet applied to the stored data.",
+  "refs": [
+   "#300",
+   "#301",
+   "#302",
+   "#303",
+   "#305",
+   "#307",
+   "#312",
+   "#315",
+   "#319"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "judges",
+  "title": "Judge Profile compare form tidied",
+  "text": "The two-judge comparison form and two search-page links were tidied.",
+  "refs": [
+   "#249"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "statutes",
+  "title": "Statute importer fixed and statute library pages",
+  "text": "The importer no longer drops sections past the first hundred and reads section numbers correctly. The Statute Library page shows the sections of each Act with case counts, text and the decisions that cite them, and a dry-run backfill fills provision columns from pinpoints.",
+  "refs": [
+   "#324",
+   "#325",
+   "#327"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "statutes",
+  "title": "Statute reference extraction improved against a hand-checked set",
+  "text": "A gold set and evaluator measure how many statute references are found (the baseline was 64.7 percent recall). Extraction now handles provisions of any Act, decimals and lists, CBSA acts, Federal Courts Citizenship, Immigration and Refugee Protection Rules and bare “Rule N”, with guards against wrong anchoring, and refugee decisions tie “the Act” and sections 96 to 98 to the IRPA. The stored references are still being repaired.",
+  "refs": [
+   "#328",
+   "#330",
+   "#335",
+   "#338"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "citations",
+  "title": "Citation extraction: French, parentheses and landmark short forms",
+  "text": "French citations, parenthesised citations and bare landmark short forms such as “Vavilov at para N” are now linked. A new side-by-side writer stores refined results next to the originals instead of overwriting. A scanner that took minutes on long judgments was fixed, and a decision’s own docket numbers are no longer read as citations.",
+  "refs": [
+   "#282",
+   "#287",
+   "#293",
+   "#309",
+   "#329",
+   "#331"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "citations",
+  "title": "Rule-based citation treatment and cited-by upkeep",
+  "text": "An experimental rule-based endpoint reads how a citing decision treats an authority, and the paragraph cited-by data is kept current in small bounded steps beside the live site.",
+  "refs": [
+   "#128",
+   "#270"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "search",
+  "title": "Precedent finder, memo gap suggestions and stored-data comparison",
+  "text": "Describe a legal issue and get the authorities cited by decisions with matching tags, with explained rankings; a memo check can suggest authorities it is missing; and two decisions can be compared side by side from stored data only. All are listed under Coming soon.",
+  "refs": [
+   "#125",
+   "#237",
+   "#238"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "reader",
+  "title": "Extractive case summary card",
+  "text": "A summary card built only from sentences in the decision, each linked to its paragraph, for quick triage. It is behind “Show experimental”.",
+  "refs": [
+   "#239"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "tagging",
+  "title": "Tag Analytics tab fixed",
+  "text": "The Tag Analytics tab never opened and its data call failed. Both are fixed, and it is listed under Coming soon.",
+  "refs": [
+   "#247"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "security",
+  "title": "User text stays away from models",
+  "text": "Anything typed or uploaded is kept away from AI models unless enhanced AI mode has been switched on, and the opt-in research chat provider can point at a local or other compatible model. Search itself stays free of AI.",
+  "refs": [
+   "#209",
+   "#253"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "infrastructure",
+  "title": "Friendlier when the database is down",
+  "text": "If the database is unavailable the pages show a plain message and each panel can retry on its own. Requests now carry IDs, slow requests are logged, and optional database timeouts and limits on heavy endpoints protect the site.",
+  "refs": [
+   "#233",
+   "#234",
+   "#235",
+   "#236"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "library",
+  "title": "Scheduled intake: first foundation",
+  "text": "The first piece of an automatic intake of new decisions was written. It only discovers what is new (a dry run) and is not running.",
+  "refs": [
+   "#284"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "library",
+  "title": "Case fingerprints (draft)",
+  "text": "A draft way to find similar decisions by subject and shared authorities. It is not connected to the site.",
+  "refs": [
+   "#317"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "docs",
+  "title": "Accessibility fixes",
+  "text": "Two accessibility errors found by an automated check were fixed.",
+  "refs": [
+   "#252"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "docs",
+  "title": "About page refreshed and Changelog added",
+  "text": "The About overview was audited against the code, and a Changelog view was added with this timeline built from GitHub history.",
+  "refs": [
+   "#242"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "theme": "docs",
+  "title": "About page rewritten for the demo",
+  "text": "The About page was rewritten to describe the demo as it stands on 6 October: what is live, what is coming soon and what is still in progress, with the funding section removed. The Changelog was brought up to date.",
+  "refs": [
+   "about-demo-rewrite-2026-10-06"
+  ]
  }
 ]

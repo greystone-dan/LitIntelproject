@@ -416,9 +416,21 @@
    "author": "Copilot"
   },
   {
+   "number": 125,
+   "title": "Add proposition-based precedent finder with explained authority rankings",
+   "merged_at": "2026-10-04T23:27:11Z",
+   "author": "Copilot"
+  },
+  {
    "number": 127,
    "title": "Add power-user operators to Case Search",
    "merged_at": "2026-10-04T14:33:41Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 128,
+   "title": "Add experimental rule-based citation treatment endpoint",
+   "merged_at": "2026-10-05T04:33:07Z",
    "author": "Copilot"
   },
   {
@@ -554,6 +566,12 @@
    "author": "Copilot"
   },
   {
+   "number": 209,
+   "title": "Add configurable OpenAI-compatible research chat provider",
+   "merged_at": "2026-10-05T05:16:48Z",
+   "author": "Copilot"
+  },
+  {
    "number": 211,
    "title": "Scaffold per-model vector tables",
    "merged_at": "2026-10-04T19:49:11Z",
@@ -632,9 +650,585 @@
    "author": "greystone-dan"
   },
   {
+   "number": 233,
+   "title": "Add opt-in database timeouts and connection pool limits",
+   "merged_at": "2026-10-04T23:52:01Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 234,
+   "title": "Add opt-in concurrency limits for heavy endpoints",
+   "merged_at": "2026-10-04T23:59:07Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 235,
+   "title": "Add request IDs, slow-request logging, and runtime version metadata",
+   "merged_at": "2026-10-05T00:02:48Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 236,
+   "title": "Add friendly database outage responses and isolated panel retries",
+   "merged_at": "2026-10-05T00:19:10Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 237,
+   "title": "Add rule-based memo gap suggestions",
+   "merged_at": "2026-10-04T23:39:20Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 238,
+   "title": "Add stored-data side-by-side decision comparison",
+   "merged_at": "2026-10-05T00:29:56Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 239,
+   "title": "Add an extractive case summary card for reader triage",
+   "merged_at": "2026-10-05T04:31:34Z",
+   "author": "Copilot"
+  },
+  {
    "number": 240,
    "title": "Make the paragraph cited-by job safe beside the live site",
    "merged_at": "2026-10-04T20:29:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 241,
+   "title": "Add site recovery runbook",
+   "merged_at": "2026-10-04T23:20:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 242,
+   "title": "About page refresh and Changelog tab built from GitHub history",
+   "merged_at": "2026-10-04T23:31:14Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 243,
+   "title": "Markup mode: statutes layer and closer fidelity to the mockups",
+   "merged_at": "2026-10-04T23:50:53Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 245,
+   "title": "Hide unfinished reader tools behind \"Show experimental\"",
+   "merged_at": "2026-10-05T09:20:36Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 246,
+   "title": "Improve discussion unit boundary detection with broadened issue markers",
+   "merged_at": "2026-10-05T00:25:11Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 247,
+   "title": "Fix the Tag Analytics tab (it never opened and its data call failed)",
+   "merged_at": "2026-10-05T08:42:45Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 248,
+   "title": "Workbench tab: show a landing page instead of a blank screen",
+   "merged_at": "2026-10-05T08:43:12Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 249,
+   "title": "Tidy the Judge Profile compare form and two search-page links",
+   "merged_at": "2026-10-05T09:25:34Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 251,
+   "title": "Case reader: fold the legal-development notice on desktop too",
+   "merged_at": "2026-10-05T08:43:16Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 252,
+   "title": "Fix two accessibility errors found by an automated check",
+   "merged_at": "2026-10-05T09:27:32Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 253,
+   "title": "Keep user-typed text away from models unless enhanced AI mode is on",
+   "merged_at": "2026-10-05T08:43:22Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 254,
+   "title": "Hide the Testing tab and Core cases tools behind Show experimental",
+   "merged_at": "2026-10-05T09:36:05Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 255,
+   "title": "Discussion-unit boundaries: one evaluator, and prune two rules that only add wrong boundaries",
+   "merged_at": "2026-10-05T08:43:25Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 256,
+   "title": "Search results: show a highlighted excerpt of why each case matched",
+   "merged_at": "2026-10-05T05:05:21Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 257,
+   "title": "Search results: sort bar and narrow-by court/year chips",
+   "merged_at": "2026-10-05T05:11:29Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 258,
+   "title": "Copy citation button on results and in the reader",
+   "merged_at": "2026-10-05T05:14:32Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 259,
+   "title": "Fix red main: list citation_treatment modules in architecture doc",
+   "merged_at": "2026-10-05T05:27:12Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 260,
+   "title": "Deterministic role labels for discussion units",
+   "merged_at": "2026-10-05T12:52:43Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 262,
+   "title": "Speed up case search: lazy facets, indexed full-text, trigram indexes",
+   "merged_at": "2026-10-05T10:07:07Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 263,
+   "title": "Search: load citation counts after results",
+   "merged_at": "2026-10-05T10:26:06Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 264,
+   "title": "Markup: make every highlighted citation work, and fold the legal-development notice",
+   "merged_at": "2026-10-05T11:27:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 265,
+   "title": "Markup: margin connector lines start at each citation's own text",
+   "merged_at": "2026-10-05T11:33:05Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 266,
+   "title": "Markup: show the pinpoint paragraph's text in citation comments, hover card and Peek",
+   "merged_at": "2026-10-05T11:46:04Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 267,
+   "title": "Faster decision open (reader data)",
+   "merged_at": "2026-10-05T12:08:30Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 268,
+   "title": "Formatted view: hover shows pinpoint paragraph or provision text",
+   "merged_at": "2026-10-05T11:54:41Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 270,
+   "title": "Keep paragraph cited-by data current with bounded incremental processing",
+   "merged_at": "2026-10-05T13:30:47Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 271,
+   "title": "Reader: locate chunks once per case, not per citation",
+   "merged_at": "2026-10-05T12:30:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 272,
+   "title": "Pinpoints: ranges, lists, ff and several paragraphs per citation",
+   "merged_at": "2026-10-05T12:52:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 273,
+   "title": "Add read-only reader profiling script",
+   "merged_at": "2026-10-05T12:52:05Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 274,
+   "title": "Markup: \"In this case\" line on the citation hover card and Peek panel",
+   "merged_at": "2026-10-05T13:01:32Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 275,
+   "title": "Update project costs with October 2026 figures",
+   "merged_at": "2026-10-05T13:18:55Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 276,
+   "title": "Show rule-based discussion-unit roles in the markup reader (experimental)",
+   "merged_at": "2026-10-05T13:32:06Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 277,
+   "title": "Live Analysis: open your own document in the reader's markup mode",
+   "merged_at": "2026-10-05T13:19:20Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 278,
+   "title": "Reader: Similar paragraphs and legal-development notice off everywhere; Khosa pinpoint keeps its quoted list",
+   "merged_at": "2026-10-05T13:32:40Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 279,
+   "title": "Search: plain-words line under the search box",
+   "merged_at": "2026-10-05T13:43:23Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 280,
+   "title": "Live Analysis: link \"above\" and \"Ibid\" back-references (marked heuristic)",
+   "merged_at": "2026-10-05T13:29:17Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 282,
+   "title": "Add side-by-side citation refinement storage",
+   "merged_at": "2026-10-05T16:48:11Z",
+   "author": "Copilot"
+  },
+  {
+   "number": 284,
+   "title": "Add scheduled intake daemon foundation (dry-run discovery)",
+   "merged_at": "2026-10-05T16:39:35Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 285,
+   "title": "Reader: slim header, full-height reader, statute hover and on-demand pinpoint text",
+   "merged_at": "2026-10-05T13:44:27Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 286,
+   "title": "Docs sync: stop duplicate failure emails on branch pushes",
+   "merged_at": "2026-10-05T13:44:55Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 287,
+   "title": "Citation refinement: skip a decision's own docket numbers",
+   "merged_at": "2026-10-05T14:13:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 288,
+   "title": "One-command doc regenerator (stops red builds from docs drift)",
+   "merged_at": "2026-10-05T14:01:56Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 289,
+   "title": "Live Analysis: fix \"not in the library\" lookup (error vs not found)",
+   "merged_at": "2026-10-05T14:06:07Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 290,
+   "title": "Reader: pause Markup behind a \"Coming soon\" strip",
+   "merged_at": "2026-10-05T14:25:56Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 291,
+   "title": "Reader: clean case information (name, citation, date, IMM number, decision maker)",
+   "merged_at": "2026-10-05T14:34:08Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 292,
+   "title": "Navigation for the pitch: About, Case search, Intelligence, Coming soon",
+   "merged_at": "2026-10-05T15:15:31Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 293,
+   "title": "Citation refinement: guard bare Ibid, default \"the Act\", per-party dockets",
+   "merged_at": "2026-10-05T16:05:16Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 294,
+   "title": "Nav: Federal Court Analytics in Intelligence; Coming soon pages load under the banner",
+   "merged_at": "2026-10-05T16:04:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 295,
+   "title": "CI: faster runs (parallel tests, CPU-only torch, cancel superseded runs)",
+   "merged_at": "2026-10-05T16:34:44Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 297,
+   "title": "Formatted reader redesign: left panel, title card, click cards, in-text search",
+   "merged_at": "2026-10-05T17:43:28Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 298,
+   "title": "Case search page redesign (mockup v6)",
+   "merged_at": "2026-10-05T18:19:30Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 299,
+   "title": "Reader follow-up: unlinked citations, pinned toolbar, counsel block at start, compact authorities",
+   "merged_at": "2026-10-05T18:25:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 300,
+   "title": "Judge name normalizer and read-only alias report (step 1)",
+   "merged_at": "2026-10-05T18:29:39Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 301,
+   "title": "Judge normalizer tuned on real data (step 1b)",
+   "merged_at": "2026-10-05T18:46:05Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 302,
+   "title": "Judge alias layer: merge duplicate judge profiles reversibly (step 2)",
+   "merged_at": "2026-10-05T18:54:40Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 303,
+   "title": "Judge profiles: Federal Court docket activity (step 3)",
+   "merged_at": "2026-10-05T19:09:38Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 304,
+   "title": "Reader: fix Authorities pinpoint text stuck on \"Loading\"",
+   "merged_at": "2026-10-05T19:26:10Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 305,
+   "title": "Judge profiles: fix FC docket match for prolific judges",
+   "merged_at": "2026-10-05T20:39:25Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 307,
+   "title": "SCC judges: split panels into individual judge profiles (step 4a)",
+   "merged_at": "2026-10-06T14:34:40Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 308,
+   "title": "Case types: rule-based \"what kind of case is this\" labels (no AI)",
+   "merged_at": "2026-10-06T14:35:45Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 309,
+   "title": "Fix citation scanner taking minutes on long judgments",
+   "merged_at": "2026-10-06T14:34:38Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 310,
+   "title": "Case structure: label each paragraph with its role in the decision (no AI)",
+   "merged_at": "2026-10-06T18:42:18Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 311,
+   "title": "Case types: random sampling for the dry run",
+   "merged_at": "2026-10-06T14:51:48Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 312,
+   "title": "Judges: court-scoped FCA/SCC rules, fix Noël merge, prune stale aliases",
+   "merged_at": "2026-10-06T15:19:42Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 313,
+   "title": "Reader and search QA fixes: header facts, cited-by counts, RPD panel, source record, search dropdown",
+   "merged_at": "2026-10-06T15:42:11Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 314,
+   "title": "Search page polish: relevance sort, RPD chip, cleaner Minister list, hide Compare",
+   "merged_at": "2026-10-06T16:13:04Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 315,
+   "title": "Judge alias prune: only remove rows that are really wrong",
+   "merged_at": "2026-10-06T15:48:54Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 316,
+   "title": "Case types: export rows for review, keep immigration-party decisions out of not_immigration",
+   "merged_at": "2026-10-06T16:13:00Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 317,
+   "title": "Case fingerprints: similar by subject and shares authorities (draft, not wired in)",
+   "merged_at": "2026-10-06T18:48:16Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 318,
+   "title": "Reader: case type chip and About row (stored labels only)",
+   "merged_at": "2026-10-06T16:13:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 319,
+   "title": "FCA judges: link every bench member, not just the author",
+   "merged_at": "2026-10-06T16:13:14Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 320,
+   "title": "Search: Case type filter with counts (stored labels only)",
+   "merged_at": "2026-10-06T16:13:24Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 321,
+   "title": "Search: pick the cited case and Tag filter in Advanced",
+   "merged_at": "2026-10-06T16:58:04Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 322,
+   "title": "Case types: use the IMM docket in the text header as a fallback",
+   "merged_at": "2026-10-06T16:57:15Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 323,
+   "title": "Case types: resolve unclear decisions from the subject named in the opening",
+   "merged_at": "2026-10-06T17:11:47Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 324,
+   "title": "Fix statute importer section numbers and 100-section cap",
+   "merged_at": "2026-10-06T17:08:59Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 325,
+   "title": "Backfill statute provision columns from pinpoints (dry run first)",
+   "merged_at": "2026-10-06T17:09:03Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 326,
+   "title": "CI: cut Docker Build from ~21 min to a few minutes; stop Chrome test timeouts",
+   "merged_at": "2026-10-06T17:08:54Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 327,
+   "title": "Statute Library: sections with case counts, text and decisions",
+   "merged_at": "2026-10-06T17:30:45Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 328,
+   "title": "Statute extraction gold set and evaluator (baseline 64.7% recall)",
+   "merged_at": "2026-10-06T17:11:53Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 329,
+   "title": "Citation extraction: French cites, parenthesised cites, and a safe side-by-side writer",
+   "merged_at": "2026-10-06T17:11:50Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 330,
+   "title": "Statute extraction: provisions of any act, decimals, lists, CBSA acts",
+   "merged_at": "2026-10-06T17:30:18Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 331,
+   "title": "Citation extraction: link bare landmark short forms (Vavilov at para N)",
+   "merged_at": "2026-10-06T17:33:22Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 332,
+   "title": "Case types: resolve unclear decisions from the subject named in the opening",
+   "merged_at": "2026-10-06T17:31:43Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 333,
+   "title": "Search: Case type filter with counts (replay of 320 onto main)",
+   "merged_at": "2026-10-06T17:32:32Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 334,
+   "title": "Docs: regenerate generated docs (main drifted by two scripts)",
+   "merged_at": "2026-10-06T17:27:56Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 335,
+   "title": "Statute extraction: FC Citizenship/Immigration Rules, bare Rule N, anchoring guards",
+   "merged_at": "2026-10-06T18:28:53Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 337,
+   "title": "Reader: conventions and treaties show as statutes, not yellow",
+   "merged_at": "2026-10-06T18:43:09Z",
+   "author": "greystone-dan"
+  },
+  {
+   "number": 338,
+   "title": "Statute extraction: refugee decisions tie \"the Act\" and sections 96-98 to the IRPA",
+   "merged_at": "2026-10-06T18:43:14Z",
    "author": "greystone-dan"
   }
  ],
@@ -1855,6 +2449,11 @@
    "subject": "Add printable legal issue briefs with denominator-safe outcomes (#92)"
   },
   {
+   "sha": "038ef60",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/add-db-timeout-and-pool-settings"
+  },
+  {
    "sha": "079fb54",
    "date": "2026-10-04",
    "subject": "Add Citation Context: show which subtheme cites each case in linked case pane (#31)"
@@ -1875,6 +2474,11 @@
    "subject": "Refresh README and architecture overview (#135)"
   },
   {
+   "sha": "0cb271e",
+   "date": "2026-10-04",
+   "subject": "Add stored-data decision comparison"
+  },
+  {
    "sha": "109a9f3",
    "date": "2026-10-04",
    "subject": "Add collapsible most-cited paragraphs panel to case reader (#93)"
@@ -1883,6 +2487,11 @@
    "sha": "114f63d",
    "date": "2026-10-04",
    "subject": "Prioritize exact citation and party-name search matches (#96)"
+  },
+  {
+   "sha": "117e141",
+   "date": "2026-10-04",
+   "subject": "Add experimental rule-based citation treatment evidence endpoint"
   },
   {
    "sha": "144efa1",
@@ -1895,9 +2504,19 @@
    "subject": "Renumber migration from 0031 to 0035 with updated down_revision"
   },
   {
+   "sha": "1c9ba34",
+   "date": "2026-10-04",
+   "subject": "Add opt-in database limits and safe timeout responses"
+  },
+  {
    "sha": "1ca3c22",
    "date": "2026-10-04",
    "subject": "Regenerate API and schema documentation"
+  },
+  {
+   "sha": "230ebca",
+   "date": "2026-10-04",
+   "subject": "Add extractive case summary card"
   },
   {
    "sha": "277a838",
@@ -1910,14 +2529,29 @@
    "subject": "Update migration head expectation to 0033_discussion_unit_cache"
   },
   {
+   "sha": "29b6c25",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
    "sha": "29c2e05",
    "date": "2026-10-04",
    "subject": "Restore main routes and add unit search/judge analytics endpoints"
   },
   {
+   "sha": "29f0520",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/observability-request-ids-slow-request-log"
+  },
+  {
    "sha": "2c448bc",
    "date": "2026-10-04",
    "subject": "Fix migration reference in 0035_statute_library_phase1"
+  },
+  {
+   "sha": "2fe41d9",
+   "date": "2026-10-04",
+   "subject": "Regenerate script catalog for citation intelligence PR"
   },
   {
    "sha": "307fb57",
@@ -1928,6 +2562,11 @@
    "sha": "3216fa1",
    "date": "2026-10-04",
    "subject": "(#191)"
+  },
+  {
+   "sha": "36c49cc",
+   "date": "2026-10-04",
+   "subject": "Document citation_intelligence_prompts.py in backend inventory"
   },
   {
    "sha": "36f94fb",
@@ -1950,9 +2589,19 @@
    "subject": "(#177)"
   },
   {
+   "sha": "3c4a65b",
+   "date": "2026-10-04",
+   "subject": "Document discussion units gold set expansion findings and methodological gap"
+  },
+  {
    "sha": "3ce31fb",
    "date": "2026-10-04",
    "subject": "(#198)"
+  },
+  {
+   "sha": "3e3403a",
+   "date": "2026-10-04",
+   "subject": "Update citation intelligence prompts docstring"
   },
   {
    "sha": "3f1135f",
@@ -1960,9 +2609,19 @@
    "subject": "(#194)"
   },
   {
+   "sha": "3f9de56",
+   "date": "2026-10-04",
+   "subject": "Merge pull request #234 from greystone-dan/copilot/opt-in-concurrency-limits"
+  },
+  {
    "sha": "3faa00d",
    "date": "2026-10-04",
    "subject": "(#199)"
+  },
+  {
+   "sha": "410426f",
+   "date": "2026-10-04",
+   "subject": "Classify precedent finder as heavy search"
   },
   {
    "sha": "441e6d0",
@@ -1970,9 +2629,19 @@
    "subject": "(#160)"
   },
   {
+   "sha": "44bedf4",
+   "date": "2026-10-04",
+   "subject": "Merge pull request #233 from greystone-dan/copilot/add-db-timeout-and-pool-settings"
+  },
+  {
    "sha": "4735088",
    "date": "2026-10-04",
    "subject": "#225"
+  },
+  {
+   "sha": "48a73ab",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/add-db-timeout-and-pool-settings"
   },
   {
    "sha": "4df8016",
@@ -1985,14 +2654,44 @@
    "subject": "Port saved searches and alerts to the redesigned Case Search (#80)"
   },
   {
+   "sha": "50c9d02",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
+   "sha": "5542b5e",
+   "date": "2026-10-04",
+   "subject": "Shorten observability operations guide"
+  },
+  {
+   "sha": "5694688",
+   "date": "2026-10-04",
+   "subject": "Merge main into claude/theme-breakdown-v02idf"
+  },
+  {
    "sha": "5864d9a",
    "date": "2026-10-04",
    "subject": "(#193)"
   },
   {
+   "sha": "5866778",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
    "sha": "5877a30",
    "date": "2026-10-04",
    "subject": "(#221)"
+  },
+  {
+   "sha": "598edff",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/add-db-timeout-and-pool-settings"
+  },
+  {
+   "sha": "59d9747",
+   "date": "2026-10-04",
+   "subject": "#242"
   },
   {
    "sha": "5f9e411",
@@ -2010,6 +2709,21 @@
    "subject": "Add saved search models to models.py"
   },
   {
+   "sha": "629f87c",
+   "date": "2026-10-04",
+   "subject": "Merge pull request #243 from greystone-dan/claude/markup-fidelity"
+  },
+  {
+   "sha": "634ecad",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
+   "sha": "63aba02",
+   "date": "2026-10-04",
+   "subject": "#125"
+  },
+  {
    "sha": "67f9893",
    "date": "2026-10-04",
    "subject": "Merge pull request #139 from greystone-dan/claude/unit-search-judge-analytics-v2"
@@ -2018,6 +2732,11 @@
    "sha": "680409e",
    "date": "2026-10-04",
    "subject": "Add filtered CSV export for Case Search (#74)"
+  },
+  {
+   "sha": "6816601",
+   "date": "2026-10-04",
+   "subject": "Guard raw streamed text routes"
   },
   {
    "sha": "70fc18d",
@@ -2040,6 +2759,11 @@
    "subject": "Regenerate documentation files for PR 34"
   },
   {
+   "sha": "75ff162",
+   "date": "2026-10-04",
+   "subject": "Add discourse markers and lexical topic shift detection for boundary segmentation"
+  },
+  {
    "sha": "760efa8",
    "date": "2026-10-04",
    "subject": "Add keyboard navigation and print support to the case reader (#113)"
@@ -2053,6 +2777,16 @@
    "sha": "76ec648",
    "date": "2026-10-04",
    "subject": "Cache slow analytics endpoints with a configurable TTL (#108)"
+  },
+  {
+   "sha": "7801afd",
+   "date": "2026-10-04",
+   "subject": "Markup Peek: older pinned citations collapse to one-line rows"
+  },
+  {
+   "sha": "80d572b",
+   "date": "2026-10-04",
+   "subject": "Add opt-in heavy request concurrency limits"
   },
   {
    "sha": "85ec0b0",
@@ -2078,6 +2812,16 @@
    "sha": "8e116f0",
    "date": "2026-10-04",
    "subject": "#161"
+  },
+  {
+   "sha": "8ea2ff2",
+   "date": "2026-10-04",
+   "subject": "#237"
+  },
+  {
+   "sha": "8f7018d",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
   },
   {
    "sha": "915991a",
@@ -2110,6 +2854,16 @@
    "subject": "(#212)"
   },
   {
+   "sha": "9d5a05c",
+   "date": "2026-10-04",
+   "subject": "Add strong argumentative role transition detection to discussion unit segmentation"
+  },
+  {
+   "sha": "a02e13d",
+   "date": "2026-10-04",
+   "subject": "Remove overlapping reporter whitespace regex"
+  },
+  {
    "sha": "a2ca692",
    "date": "2026-10-04",
    "subject": "(#190)"
@@ -2118,6 +2872,11 @@
    "sha": "a352567",
    "date": "2026-10-04",
    "subject": "Restore export_search_analytics_cases function to routes.py"
+  },
+  {
+   "sha": "a4d8ce3",
+   "date": "2026-10-04",
+   "subject": "Add citation intelligence assessment prompts and test harness"
   },
   {
    "sha": "a54adb6",
@@ -2140,6 +2899,11 @@
    "subject": "(#201)"
   },
   {
+   "sha": "ae2de16",
+   "date": "2026-10-04",
+   "subject": "Add request IDs and runtime version observability"
+  },
+  {
    "sha": "aedd69a",
    "date": "2026-10-04",
    "subject": "Repair empty-database Alembic bootstrap and add PostgreSQL CI (#91)"
@@ -2155,9 +2919,29 @@
    "subject": "(#220)"
   },
   {
+   "sha": "b773385",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/observability-request-ids-slow-request-log"
+  },
+  {
+   "sha": "ba40bd0",
+   "date": "2026-10-04",
+   "subject": "Remove broken _detect_argument_role code from discussion_units.py"
+  },
+  {
    "sha": "ba9e8c3",
    "date": "2026-10-04",
    "subject": "(#129)"
+  },
+  {
+   "sha": "bc53e2b",
+   "date": "2026-10-04",
+   "subject": "Add OpenAI-compatible research chat provider"
+  },
+  {
+   "sha": "bf0374a",
+   "date": "2026-10-04",
+   "subject": "Fix imports in test_citation_intelligence_prompts.py"
   },
   {
    "sha": "c46edd1",
@@ -2165,14 +2949,49 @@
    "subject": "Document ID/IAD decision coverage design (#65)"
   },
   {
+   "sha": "c478047",
+   "date": "2026-10-04",
+   "subject": "WIP markup fidelity: statutes layer, header pills, by-topic view, print markers (not for merge)"
+  },
+  {
    "sha": "c5892bb",
    "date": "2026-10-04",
    "subject": "Add DiscussionUnitCache model and fix migration test"
   },
   {
+   "sha": "c76b79e",
+   "date": "2026-10-04",
+   "subject": "Merge main"
+  },
+  {
+   "sha": "c97329e",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
+   "sha": "cafadec",
+   "date": "2026-10-04",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/case-compare-endpoint"
+  },
+  {
    "sha": "d008476",
    "date": "2026-10-04",
    "subject": "Add side-by-side case comparison (#122)"
+  },
+  {
+   "sha": "d1c3eb0",
+   "date": "2026-10-04",
+   "subject": "Initial plan"
+  },
+  {
+   "sha": "d2b3b86",
+   "date": "2026-10-04",
+   "subject": "Add context-size and metadata variants for Phase 1 testing"
+  },
+  {
+   "sha": "d435b55",
+   "date": "2026-10-04",
+   "subject": "Record issue 204 full-suite validation limits"
   },
   {
    "sha": "d48d641",
@@ -2195,6 +3014,11 @@
    "subject": "Add opt-in password enforcement; keep access open by default (#106)"
   },
   {
+   "sha": "d978a5c",
+   "date": "2026-10-04",
+   "subject": "Bound case comparison input resolution"
+  },
+  {
    "sha": "dae5891",
    "date": "2026-10-04",
    "subject": "Trigger CI re-run"
@@ -2215,6 +3039,11 @@
    "subject": "(#213)"
   },
   {
+   "sha": "ee1364d",
+   "date": "2026-10-04",
+   "subject": "#241"
+  },
+  {
    "sha": "ef9939b",
    "date": "2026-10-04",
    "subject": "#240"
@@ -2225,6 +3054,26 @@
    "subject": "(#159)"
   },
   {
+   "sha": "f7f2ebb",
+   "date": "2026-10-04",
+   "subject": "Markup mode: statutes layer, header pills, short pill names, layer counts, by-topic view, minimap, numbered print"
+  },
+  {
+   "sha": "f91358e",
+   "date": "2026-10-04",
+   "subject": "Merge main"
+  },
+  {
+   "sha": "f999291",
+   "date": "2026-10-04",
+   "subject": "Abstain on citation treatment negated after the trigger"
+  },
+  {
+   "sha": "fc536d2",
+   "date": "2026-10-04",
+   "subject": "Resolve latest-main generated doc conflicts"
+  },
+  {
    "sha": "fc90009",
    "date": "2026-10-04",
    "subject": "Add power-user operators to Case Search (#127)"
@@ -2233,6 +3082,1121 @@
    "sha": "fdecc46",
    "date": "2026-10-04",
    "subject": "Add denominator-safe issue outcomes to judge profiles (#124)"
+  },
+  {
+   "sha": "020b927",
+   "date": "2026-10-05",
+   "subject": "Keep paragraph cited-by data current with bounded incremental processing (#270)"
+  },
+  {
+   "sha": "06c6be5",
+   "date": "2026-10-05",
+   "subject": "Regenerate API_REFERENCE and SCRIPT_CATALOG documentation"
+  },
+  {
+   "sha": "0778ae5",
+   "date": "2026-10-05",
+   "subject": "Give the Workbench tab a landing page instead of a blank screen (#248)"
+  },
+  {
+   "sha": "0a228e4",
+   "date": "2026-10-05",
+   "subject": "Search: say 'Showing cases with X in the name or citation' for plain searches (#279)"
+  },
+  {
+   "sha": "0c5e8fe",
+   "date": "2026-10-05",
+   "subject": "Case search page redesign: floating search bar, Advanced filter panel, boxed result rows, Recent cases button"
+  },
+  {
+   "sha": "0d47c94",
+   "date": "2026-10-05",
+   "subject": "Add read-only reader profiling script"
+  },
+  {
+   "sha": "0d4c5f4",
+   "date": "2026-10-05",
+   "subject": "Add Copy citation buttons to search results and the reader"
+  },
+  {
+   "sha": "1116b48",
+   "date": "2026-10-05",
+   "subject": "Merge latest main into feature branch"
+  },
+  {
+   "sha": "13bbd8f",
+   "date": "2026-10-05",
+   "subject": "Add one-command doc regenerator that also syncs the backend inventory (#288)"
+  },
+  {
+   "sha": "17efa69",
+   "date": "2026-10-05",
+   "subject": "Add deterministic judge-name normalizer and read-only alias report"
+  },
+  {
+   "sha": "1c52a10",
+   "date": "2026-10-05",
+   "subject": "Faster decision open (reader data)"
+  },
+  {
+   "sha": "1da12be",
+   "date": "2026-10-05",
+   "subject": "Live Analysis: fix \"not in the library\" lookup (error vs not found) (#289)"
+  },
+  {
+   "sha": "20ad30d",
+   "date": "2026-10-05",
+   "subject": "Resolve PR 209 rebase conflicts and regenerate docs"
+  },
+  {
+   "sha": "24bcf79",
+   "date": "2026-10-05",
+   "subject": "Merge main into copilot/add-citation-refined-tables"
+  },
+  {
+   "sha": "25ab102",
+   "date": "2026-10-05",
+   "subject": "Keep user-typed text away from models unless enhanced AI mode is on (#253)"
+  },
+  {
+   "sha": "26d968d",
+   "date": "2026-10-05",
+   "subject": "Formatted reader redesign: left panel, title card, click cards, in-text search"
+  },
+  {
+   "sha": "26f3d70",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #128 from greystone-dan/copilot/rule-based-citation-treatment"
+  },
+  {
+   "sha": "281734b",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #239 from greystone-dan/copilot/extractive-case-summary-card"
+  },
+  {
+   "sha": "2903404",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/claude/theme-breakdown-v02idf' into claude/theme-breakdown-v02idf"
+  },
+  {
+   "sha": "2af2897",
+   "date": "2026-10-05",
+   "subject": "Reader follow-up: honest unlinked-citation wording, toggle order, pinned toolbar, counsel block at start, compact authorities, tidier panel join"
+  },
+  {
+   "sha": "2b27c71",
+   "date": "2026-10-05",
+   "subject": "Formatted view: hover shows pinpoint paragraph or provision text"
+  },
+  {
+   "sha": "2c9bd83",
+   "date": "2026-10-05",
+   "subject": "Navigation for the pitch: About, Case search, Intelligence, Coming soon (#292)"
+  },
+  {
+   "sha": "304099d",
+   "date": "2026-10-05",
+   "subject": "Show FC docket activity (leave, JR, motions, stays) on judge profiles"
+  },
+  {
+   "sha": "3249727",
+   "date": "2026-10-05",
+   "subject": "Deterministic role labels for discussion units"
+  },
+  {
+   "sha": "398fc56",
+   "date": "2026-10-05",
+   "subject": "Update project costs with October 2026 figures"
+  },
+  {
+   "sha": "3b3e941",
+   "date": "2026-10-05",
+   "subject": "Live Analysis: open your own document in the reader's markup mode"
+  },
+  {
+   "sha": "3c56409",
+   "date": "2026-10-05",
+   "subject": "Tune judge normalizer on real data: mojibake, particles, deputy/associate titles, gender clash, display names"
+  },
+  {
+   "sha": "3d9629d",
+   "date": "2026-10-05",
+   "subject": "Add scheduled intake daemon foundation with dry-run discovery"
+  },
+  {
+   "sha": "3f205aa",
+   "date": "2026-10-05",
+   "subject": "Reader: list each judge on a bench as its own link; square Case search box"
+  },
+  {
+   "sha": "41c4995",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #256 from greystone-dan/claude/project-thread-beikts-snippets"
+  },
+  {
+   "sha": "422e408",
+   "date": "2026-10-05",
+   "subject": "Fix Ollama client test to mock correct class"
+  },
+  {
+   "sha": "50e4397",
+   "date": "2026-10-05",
+   "subject": "Merge main into PR 238 branch (case comparison)"
+  },
+  {
+   "sha": "53410f5",
+   "date": "2026-10-05",
+   "subject": "Add sort bar and court/year narrow-by chips to case search"
+  },
+  {
+   "sha": "54485cc",
+   "date": "2026-10-05",
+   "subject": "Reader: stop Authorities pinpoint text reloading forever; keep jumps clear of the pinned toolbar"
+  },
+  {
+   "sha": "54d3cb3",
+   "date": "2026-10-05",
+   "subject": "CI: faster runs (parallel tests, CPU-only torch, cancel superseded runs, fix browser test timeout)"
+  },
+  {
+   "sha": "5b6fa31",
+   "date": "2026-10-05",
+   "subject": "Markup: \"In this case\" line on the citation hover card and Peek panel"
+  },
+  {
+   "sha": "5c0e629",
+   "date": "2026-10-05",
+   "subject": "Merge main into copilot/add-citation-refined-tables"
+  },
+  {
+   "sha": "5c188b7",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #238 from greystone-dan/copilot/case-compare-endpoint"
+  },
+  {
+   "sha": "5e626ad",
+   "date": "2026-10-05",
+   "subject": "Search: load citation counts after results"
+  },
+  {
+   "sha": "5f21aad",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/main' into feature/scheduled-intake-foundation"
+  },
+  {
+   "sha": "5fcff03",
+   "date": "2026-10-05",
+   "subject": "Merge main into PR 282 branch"
+  },
+  {
+   "sha": "60dd969",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #298 from greystone-dan/claude/project-thread-rzx0nj"
+  },
+  {
+   "sha": "6687f6b",
+   "date": "2026-10-05",
+   "subject": "Fix red main: document citation_treatment modules in architecture"
+  },
+  {
+   "sha": "6da6500",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/main' into claude/project-thread-pjyjq1"
+  },
+  {
+   "sha": "72a3b10",
+   "date": "2026-10-05",
+   "subject": "Merge main into PR 284 branch"
+  },
+  {
+   "sha": "755ac7a",
+   "date": "2026-10-05",
+   "subject": "Update security headers test to account for RequestContextMiddleware"
+  },
+  {
+   "sha": "79bc5be",
+   "date": "2026-10-05",
+   "subject": "Tidy Judge Profile compare form and the Download Word / Saved searches links"
+  },
+  {
+   "sha": "7f668bd",
+   "date": "2026-10-05",
+   "subject": "Fix middleware registration order"
+  },
+  {
+   "sha": "7fc4bf3",
+   "date": "2026-10-05",
+   "subject": "Pinpoints: ranges, lists, ff and several paragraphs per citation"
+  },
+  {
+   "sha": "8940475",
+   "date": "2026-10-05",
+   "subject": "Add side-by-side citation refinement storage schema"
+  },
+  {
+   "sha": "8fd03b8",
+   "date": "2026-10-05",
+   "subject": "Regenerate script catalog for scheduled_intake_daemon.py"
+  },
+  {
+   "sha": "9019f9b",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #304 from greystone-dan/claude/project-thread-pjyjq1"
+  },
+  {
+   "sha": "90d8ea2",
+   "date": "2026-10-05",
+   "subject": "Keep Deputy Assessor entries out of judge merges; clean judge display names"
+  },
+  {
+   "sha": "929cde7",
+   "date": "2026-10-05",
+   "subject": "Merge main into claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "933c38a",
+   "date": "2026-10-05",
+   "subject": "Markup: margin connector lines start at each citation's own text"
+  },
+  {
+   "sha": "98ff913",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #257 from greystone-dan/claude/project-thread-beikts-sort"
+  },
+  {
+   "sha": "9d80f7b",
+   "date": "2026-10-05",
+   "subject": "Fix the Tag Analytics tab (it never opened and its data call failed)"
+  },
+  {
+   "sha": "9dee4f8",
+   "date": "2026-10-05",
+   "subject": "Hide unfinished reader tools behind Show experimental, and add architectural notes"
+  },
+  {
+   "sha": "9e088ab",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #299 from greystone-dan/claude/project-thread-pjyjq1"
+  },
+  {
+   "sha": "a376e4f",
+   "date": "2026-10-05",
+   "subject": "Add friendly database outage responses and isolated panel retries (#236)"
+  },
+  {
+   "sha": "a7f9051",
+   "date": "2026-10-05",
+   "subject": "Show rule-based unit roles in the markup reader (experimental) (#276)"
+  },
+  {
+   "sha": "ae7b60c",
+   "date": "2026-10-05",
+   "subject": "Reader: pause Markup behind a \"Coming soon\" strip (#290)"
+  },
+  {
+   "sha": "ae7ed8f",
+   "date": "2026-10-05",
+   "subject": "Discussion-unit boundaries: one evaluator, and prune two rules that only add wrong boundaries (#255)"
+  },
+  {
+   "sha": "afc574c",
+   "date": "2026-10-05",
+   "subject": "Docs sync: run on pushes to main and PRs only, not every branch push (#286)"
+  },
+  {
+   "sha": "b0fdf16",
+   "date": "2026-10-05",
+   "subject": "Citation refinement: guard bare Ibid, default \"the Act\", per-party dockets (#293)"
+  },
+  {
+   "sha": "b37ffff",
+   "date": "2026-10-05",
+   "subject": "Hide the Testing tab and Core cases tools behind Show experimental"
+  },
+  {
+   "sha": "b6063ec",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #297 from greystone-dan/claude/project-thread-pjyjq1"
+  },
+  {
+   "sha": "b675b74",
+   "date": "2026-10-05",
+   "subject": "Merge latest main into PR 284"
+  },
+  {
+   "sha": "b6e8ebc",
+   "date": "2026-10-05",
+   "subject": "Fix FC activity matching for judges with duplicate profile spellings; tidy display names"
+  },
+  {
+   "sha": "b73318c",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/add-citation-refined-tables"
+  },
+  {
+   "sha": "b92d81a",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #303 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "bafb5b1",
+   "date": "2026-10-05",
+   "subject": "Add reversible judge profile alias layer (table, read paths, apply/revert script)"
+  },
+  {
+   "sha": "be96ee5",
+   "date": "2026-10-05",
+   "subject": "Merge branch 'main' into claude/theme-breakdown-v02idf"
+  },
+  {
+   "sha": "c021ccc",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #301 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "c2a5745",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #209 from greystone-dan/copilot/chat-provider-openai-compatible-endpoint"
+  },
+  {
+   "sha": "c3df4b4",
+   "date": "2026-10-05",
+   "subject": "Regression test: real profile/docket name sets for Shore, Zinn, Diner, Pentney, McDonald"
+  },
+  {
+   "sha": "c4b60be",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #258 from greystone-dan/claude/project-thread-beikts-cite"
+  },
+  {
+   "sha": "c4d16b4",
+   "date": "2026-10-05",
+   "subject": "Fold the legal-development notice on desktop too and shrink it (#251)"
+  },
+  {
+   "sha": "cbfe851",
+   "date": "2026-10-05",
+   "subject": "Reader: Similar paragraphs and legal-development notice off everywhere; Khosa pinpoint keeps its quoted list (#278)"
+  },
+  {
+   "sha": "cda9256",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #235 from greystone-dan/copilot/observability-request-ids-slow-request-log"
+  },
+  {
+   "sha": "cf42b34",
+   "date": "2026-10-05",
+   "subject": "Citation refinement: skip a decision's own docket numbers (#287)"
+  },
+  {
+   "sha": "cf7faff",
+   "date": "2026-10-05",
+   "subject": "Search speed fix: default to title/citation only, lazy facets"
+  },
+  {
+   "sha": "d1c6ed1",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/main' into copilot/add-citation-refined-tables"
+  },
+  {
+   "sha": "d36bee1",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #246 from greystone-dan/claude/theme-breakdown-v02idf"
+  },
+  {
+   "sha": "d5aab0a",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #280 from greystone-dan/claude/live-analysis-backrefs"
+  },
+  {
+   "sha": "dbbb987",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #302 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "dc36ecc",
+   "date": "2026-10-05",
+   "subject": "Document citation_treatment.py and citation_treatment_service.py in ARCHITECTURE.md"
+  },
+  {
+   "sha": "de7513b",
+   "date": "2026-10-05",
+   "subject": "Markup: make every highlighted citation work, and fold the legal-development notice"
+  },
+  {
+   "sha": "ded4199",
+   "date": "2026-10-05",
+   "subject": "Improve discussion unit boundary detection with broadened issue markers"
+  },
+  {
+   "sha": "df1bdba",
+   "date": "2026-10-05",
+   "subject": "Fix two accessibility errors: reader splitters and search results region"
+  },
+  {
+   "sha": "e490646",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #282 from greystone-dan/copilot/add-citation-refined-tables"
+  },
+  {
+   "sha": "e6c4490",
+   "date": "2026-10-05",
+   "subject": "Reader: slim header, full-height reader, statute hover and on-demand pinpoint text (#285)"
+  },
+  {
+   "sha": "ed1b99e",
+   "date": "2026-10-05",
+   "subject": "Markup: show the pinpoint paragraph's text in citation comments, hover card and Peek"
+  },
+  {
+   "sha": "ee9f6e1",
+   "date": "2026-10-05",
+   "subject": "Show a highlighted excerpt under each full-text search result"
+  },
+  {
+   "sha": "f60d877",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #284 from greystone-dan/feature/scheduled-intake-foundation"
+  },
+  {
+   "sha": "f7e08b5",
+   "date": "2026-10-05",
+   "subject": "Live Analysis: link 'above' and 'Ibid' back-references, marked heuristic"
+  },
+  {
+   "sha": "f8b15f2",
+   "date": "2026-10-05",
+   "subject": "Merge remote-tracking branch 'origin/main' into claude/project-thread-pjyjq1"
+  },
+  {
+   "sha": "f8ed811",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #305 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "fc34649",
+   "date": "2026-10-05",
+   "subject": "Nav: Federal Court Analytics replaces FC Activity; Coming soon items load their real page under the banner (#294)"
+  },
+  {
+   "sha": "fcf8c60",
+   "date": "2026-10-05",
+   "subject": "Drop Ollama test fix from PR (already in claude/library-expansion-w61ccb)"
+  },
+  {
+   "sha": "fd3ce56",
+   "date": "2026-10-05",
+   "subject": "Reader: clean case information in the header and About panel (#291)"
+  },
+  {
+   "sha": "fd95f9d",
+   "date": "2026-10-05",
+   "subject": "Merge pull request #300 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "ffb3896",
+   "date": "2026-10-05",
+   "subject": "Initial plan"
+  },
+  {
+   "sha": "ffded1d",
+   "date": "2026-10-05",
+   "subject": "Reader: locate chunks once per case, not per citation"
+  },
+  {
+   "sha": "020aa77",
+   "date": "2026-10-06",
+   "subject": "Reader: treaty and convention references show as statutes, not case-yellow"
+  },
+  {
+   "sha": "0652764",
+   "date": "2026-10-06",
+   "subject": "Statute library page: say that decimal sections are folded into the base section until re-extraction"
+  },
+  {
+   "sha": "0877328",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #335 from greystone-dan/claude/statute-extraction-fixes-2"
+  },
+  {
+   "sha": "08ce88f",
+   "date": "2026-10-06",
+   "subject": "Fix statute importer: use real section numbers, keep all sections, skip amending text"
+  },
+  {
+   "sha": "0a81b0b",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "0d9fe59",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #326 from greystone-dan/claude/project-thread-ho0nz6"
+  },
+  {
+   "sha": "0ff1f44",
+   "date": "2026-10-06",
+   "subject": "Add frozen statute-extraction gold set (182 cases, 184 pairs) and evaluator"
+  },
+  {
+   "sha": "1725890",
+   "date": "2026-10-06",
+   "subject": "Pilot script: end the DB transaction after every query so batch_safety does not kill it"
+  },
+  {
+   "sha": "18daa55",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #332 from greystone-dan/claude/case-type-jr-subject-64qm41"
+  },
+  {
+   "sha": "1937b86",
+   "date": "2026-10-06",
+   "subject": "Add deterministic case-type classifier (no AI), label table, dry-run script, tests"
+  },
+  {
+   "sha": "1cc8c14",
+   "date": "2026-10-06",
+   "subject": "Tests: check the page source for the statute kind rule"
+  },
+  {
+   "sha": "1d1ee1c",
+   "date": "2026-10-06",
+   "subject": "Case types: read the IMM docket from the text header when the stored docket is missing"
+  },
+  {
+   "sha": "2024a58",
+   "date": "2026-10-06",
+   "subject": "Regenerate docs"
+  },
+  {
+   "sha": "20e277f",
+   "date": "2026-10-06",
+   "subject": "Statute extraction: FC Citizenship, Immigration and Refugee Protection Rules; bare Rule N after Federal Courts Rules named; guards for Charter section >52 and reporter numbers"
+  },
+  {
+   "sha": "2303b5e",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #329 from greystone-dan/claude/project-thread-4obmv8"
+  },
+  {
+   "sha": "241fe8c",
+   "date": "2026-10-06",
+   "subject": "Docker Build: only on Dockerfile/requirements changes (backend code is just copied in)"
+  },
+  {
+   "sha": "2999018",
+   "date": "2026-10-06",
+   "subject": "Refined citations: link bare landmark short forms (Vavilov at para N)"
+  },
+  {
+   "sha": "299a347",
+   "date": "2026-10-06",
+   "subject": "Case structure: deterministic paragraph role labelling, evaluator and 14 new hand-labelled decisions"
+  },
+  {
+   "sha": "299e722",
+   "date": "2026-10-06",
+   "subject": "Add dry-run-first script to backfill statute provision columns from pinpoints"
+  },
+  {
+   "sha": "2b6e339",
+   "date": "2026-10-06",
+   "subject": "Statute extraction: board decisions default 'the Act' and sections 96-98 to the IRPA; never guess decimal/odd sections to the Charter"
+  },
+  {
+   "sha": "2c593d5",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #321 from greystone-dan/claude/project-thread-26wcpo-filters"
+  },
+  {
+   "sha": "333d802",
+   "date": "2026-10-06",
+   "subject": "Add Case type filter and counts to advanced search (stored labels only)"
+  },
+  {
+   "sha": "34da6ba",
+   "date": "2026-10-06",
+   "subject": "Tests: self-contained fake DB in the search filter tests"
+  },
+  {
+   "sha": "363bf49",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #318 from greystone-dan/claude/case-type-chip-64qm41"
+  },
+  {
+   "sha": "37ccf09",
+   "date": "2026-10-06",
+   "subject": "Case types: resolve unclear decisions from the subject named in the opening paragraphs"
+  },
+  {
+   "sha": "38b8056",
+   "date": "2026-10-06",
+   "subject": "Use the existing fc_cirp_rules key; refinement test accepts kept now that base extraction registers the Rules"
+  },
+  {
+   "sha": "3a77ed9",
+   "date": "2026-10-06",
+   "subject": "Regenerate docs after merging main"
+  },
+  {
+   "sha": "3b05da0",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #322 from greystone-dan/claude/case-type-docket-64qm41"
+  },
+  {
+   "sha": "3c15015",
+   "date": "2026-10-06",
+   "subject": "FCA bench links from the present line (court-scoped, dry run default)"
+  },
+  {
+   "sha": "3c4861b",
+   "date": "2026-10-06",
+   "subject": "Restore API reference generated on main (local generator lacked optional deps)"
+  },
+  {
+   "sha": "3c7b924",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #328 from greystone-dan/claude/statute-gold-set"
+  },
+  {
+   "sha": "42bcfe9",
+   "date": "2026-10-06",
+   "subject": "Case fingerprints: deterministic similar-by-subject and shares-authorities (not wired in)"
+  },
+  {
+   "sha": "444a07f",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #315 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "46ee57b",
+   "date": "2026-10-06",
+   "subject": "Merge main into case-type filter replay"
+  },
+  {
+   "sha": "4934a26",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #334 from greystone-dan/docs-regen-main"
+  },
+  {
+   "sha": "4bd2b49",
+   "date": "2026-10-06",
+   "subject": "Case structure: second held-back batch (16), 18 RPD labels, RPD cues; evaluator and tests updated"
+  },
+  {
+   "sha": "4c78397",
+   "date": "2026-10-06",
+   "subject": "Reader: show the stored case type as a chip and in the About panel"
+  },
+  {
+   "sha": "4c8e674",
+   "date": "2026-10-06",
+   "subject": "Refined neutral-cite scan: allow a citation directly after an opening parenthesis"
+  },
+  {
+   "sha": "513d8d9",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "5269db4",
+   "date": "2026-10-06",
+   "subject": "Merge remote-tracking branch 'origin/main' into claude/project-thread-4obmv8"
+  },
+  {
+   "sha": "56996bd",
+   "date": "2026-10-06",
+   "subject": "Judges: court-scoped FCA and SCC rules, prune stale aliases, filter panel junk"
+  },
+  {
+   "sha": "5deaddd",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #310 from greystone-dan/claude/project-thread-r2z1su"
+  },
+  {
+   "sha": "5fe4c5f",
+   "date": "2026-10-06",
+   "subject": "Update search tests for the case_type parameter and facet"
+  },
+  {
+   "sha": "635904c",
+   "date": "2026-10-06",
+   "subject": "Merge main into PR 308"
+  },
+  {
+   "sha": "6457b18",
+   "date": "2026-10-06",
+   "subject": "Case structure: evaluator docstring and script catalog reflect the three splits"
+  },
+  {
+   "sha": "6465aa0",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #307 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "693021b",
+   "date": "2026-10-06",
+   "subject": "Reader: fix RPD Heard field, judge suffix casing, duplicate topic chips, raw tag hover"
+  },
+  {
+   "sha": "6e468dd",
+   "date": "2026-10-06",
+   "subject": "Fix route-registration test for the section library"
+  },
+  {
+   "sha": "6e7e2f5",
+   "date": "2026-10-06",
+   "subject": "Regenerate docs (script count drifted on main)"
+  },
+  {
+   "sha": "7038777",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #314 from greystone-dan/claude/project-thread-26wcpo-search"
+  },
+  {
+   "sha": "71cdcf3",
+   "date": "2026-10-06",
+   "subject": "Merge main into PR 314"
+  },
+  {
+   "sha": "72403eb",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #333 from greystone-dan/fix-320-to-main"
+  },
+  {
+   "sha": "72fd9e4",
+   "date": "2026-10-06",
+   "subject": "Remove test that only asserts on a dictionary it builds itself"
+  },
+  {
+   "sha": "7323ab2",
+   "date": "2026-10-06",
+   "subject": "WIP: score bonus for the subject named in the judicial review sentence (not yet validated)"
+  },
+  {
+   "sha": "7428dd8",
+   "date": "2026-10-06",
+   "subject": "Extend IRPA defaults to FC/FCA immigration decisions: bare sections 96-98 once the IRPA is named; 'of the Act' only when the Act is defined as the IRPA"
+  },
+  {
+   "sha": "757f192",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #327 from greystone-dan/claude/statute-section-page"
+  },
+  {
+   "sha": "771d9cb",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #311 from greystone-dan/claude/project-thread-64qm41"
+  },
+  {
+   "sha": "786a30c",
+   "date": "2026-10-06",
+   "subject": "Case types: second main type with provision, two-type result for ties named in the opening"
+  },
+  {
+   "sha": "7c0d0dc",
+   "date": "2026-10-06",
+   "subject": "Case types: let the subject of the judicial review sentence resolve unclear results"
+  },
+  {
+   "sha": "7ebc46e",
+   "date": "2026-10-06",
+   "subject": "Case types: stay-of-removal decisions are labelled by the stay (or left unclear)"
+  },
+  {
+   "sha": "7f40eff",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #309 from greystone-dan/claude/scanner-linear-64qm41"
+  },
+  {
+   "sha": "823f3de",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #331 from greystone-dan/claude/project-thread-4obmv8"
+  },
+  {
+   "sha": "824a92c",
+   "date": "2026-10-06",
+   "subject": "Search: no zero 'cited by' before counts load, suggestions never reopen after Search; update reader test for live cited-by query"
+  },
+  {
+   "sha": "874386a",
+   "date": "2026-10-06",
+   "subject": "Merge main into statute section page"
+  },
+  {
+   "sha": "927e047",
+   "date": "2026-10-06",
+   "subject": "Prune: keep alias rows whose profiles are still in the same person group"
+  },
+  {
+   "sha": "937d7e2",
+   "date": "2026-10-06",
+   "subject": "Search: case type filter with counts (stored labels only), against main"
+  },
+  {
+   "sha": "96c6fb6",
+   "date": "2026-10-06",
+   "subject": "Case types: export option for review, immigration-party decisions with no named statute are unclear"
+  },
+  {
+   "sha": "97fe5d3",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #338 from greystone-dan/claude/statute-extraction-fixes-2"
+  },
+  {
+   "sha": "9863608",
+   "date": "2026-10-06",
+   "subject": "Merge remote-tracking branch 'origin/main' into claude/project-thread-26wcpo-filters"
+  },
+  {
+   "sha": "9c3aefa",
+   "date": "2026-10-06",
+   "subject": "Refined citations writer: --language and --random-seed for random stage samples"
+  },
+  {
+   "sha": "9d903bc",
+   "date": "2026-10-06",
+   "subject": "Fix provision parser reading 'to'/'and' as a section suffix (34 to 37 -> 34t); add dry-run repair script"
+  },
+  {
+   "sha": "9fa8283",
+   "date": "2026-10-06",
+   "subject": "Case types: dry run can sample randomly and show why decisions are not immigration or unclear"
+  },
+  {
+   "sha": "a1c31d0",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #319 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "a62df18",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "a6c5dc5",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "a908861",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #330 from greystone-dan/claude/statute-extraction-fixes"
+  },
+  {
+   "sha": "adf20df",
+   "date": "2026-10-06",
+   "subject": "Reader: live cited-by count, full FC docket, RPD panel member and place, dry-run scripts for RPD header and test-row removal"
+  },
+  {
+   "sha": "aed5925",
+   "date": "2026-10-06",
+   "subject": "Search: Most cited button (live distinct-citing-cases ranking)"
+  },
+  {
+   "sha": "b241b4c",
+   "date": "2026-10-06",
+   "subject": "Case types: security certificate type, tighter gate and procedural type, intro tie-break, docs, migration head test"
+  },
+  {
+   "sha": "b29d5f9",
+   "date": "2026-10-06",
+   "subject": "Case types: store claim issues only when the court states its determinative issue"
+  },
+  {
+   "sha": "b356227",
+   "date": "2026-10-06",
+   "subject": "Serve /statute-library from the main router and update the feature-tab test"
+  },
+  {
+   "sha": "b5ae278",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #308 from greystone-dan/claude/project-thread-64qm41"
+  },
+  {
+   "sha": "b69353f",
+   "date": "2026-10-06",
+   "subject": "Do not attach bare 'section N of the Act' to the nearest named statute; take a named regulation after letter subparagraphs"
+  },
+  {
+   "sha": "b93e31a",
+   "date": "2026-10-06",
+   "subject": "Case fingerprints: fix migration head test, add real-library pilot script and gold pairs"
+  },
+  {
+   "sha": "b98cfb4",
+   "date": "2026-10-06",
+   "subject": "Add statute re-extraction script: dry run compares before/after; apply backs up old rows to JSONL first"
+  },
+  {
+   "sha": "bbc695a",
+   "date": "2026-10-06",
+   "subject": "Search: pick the cited case, Tag filter with suggestions, fix id clash that disabled Cases citing"
+  },
+  {
+   "sha": "bc7af6a",
+   "date": "2026-10-06",
+   "subject": "Case types: criminal-appeal and non-immigration-title filters with tests"
+  },
+  {
+   "sha": "c160ad4",
+   "date": "2026-10-06",
+   "subject": "Case structure: untouched second RPD sample (24 labelled, scored once)"
+  },
+  {
+   "sha": "c35ab56",
+   "date": "2026-10-06",
+   "subject": "Citation metrics: in-degree counts distinct citing cases; dry-run recompute script"
+  },
+  {
+   "sha": "c417952",
+   "date": "2026-10-06",
+   "subject": "Merge remote-tracking branch 'origin/main' into m332"
+  },
+  {
+   "sha": "c740da1",
+   "date": "2026-10-06",
+   "subject": "Refined citations: parenthesised neutral cites, French paragraphe pinpoints, resumable writer script, results note"
+  },
+  {
+   "sha": "c7d3b05",
+   "date": "2026-10-06",
+   "subject": "CI: CPU-only torch in Dockerfile; longer headless-Chrome test timeouts; show slowest tests"
+  },
+  {
+   "sha": "c7f4df7",
+   "date": "2026-10-06",
+   "subject": "Regenerate script catalog without the held linking script"
+  },
+  {
+   "sha": "c82a69c",
+   "date": "2026-10-06",
+   "subject": "Search: relevance default with a query, RPD chip, cleaner Minister list; hide Compare link"
+  },
+  {
+   "sha": "c8b0393",
+   "date": "2026-10-06",
+   "subject": "Sync API reference for case_type search parameter"
+  },
+  {
+   "sha": "ca06d87",
+   "date": "2026-10-06",
+   "subject": "Reader: collapse source record preamble, header statute count matches authorities tab"
+  },
+  {
+   "sha": "cd6e468",
+   "date": "2026-10-06",
+   "subject": "Revert unrelated generated-doc churn; keep script catalog row only"
+  },
+  {
+   "sha": "cdfa765",
+   "date": "2026-10-06",
+   "subject": "Case types: procedural-motion and PRRA-officer H&C rules, appeal-court cue-only guard, more tests"
+  },
+  {
+   "sha": "d333fb9",
+   "date": "2026-10-06",
+   "subject": "Case types: PRRA-decision rule, test fix"
+  },
+  {
+   "sha": "d91aa6c",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #337 from greystone-dan/claude/project-thread-26wcpo-yellow"
+  },
+  {
+   "sha": "db2fa14",
+   "date": "2026-10-06",
+   "subject": "SCC panels: split into individual judges (parser, dry-run backfill script); dominant-spelling merge rule"
+  },
+  {
+   "sha": "dbec5fa",
+   "date": "2026-10-06",
+   "subject": "Case types: refugee-claim issue labels (court's determinative issue, counts fallback)"
+  },
+  {
+   "sha": "dc49a63",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "dce6036",
+   "date": "2026-10-06",
+   "subject": "Add read-only sampler to hand-check statute extraction on real decisions"
+  },
+  {
+   "sha": "e153ba0",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #325 from greystone-dan/claude/statute-provision-backfill"
+  },
+  {
+   "sha": "e23410f",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #312 from greystone-dan/claude/project-thread-lpjqp1"
+  },
+  {
+   "sha": "e35481c",
+   "date": "2026-10-06",
+   "subject": "Merge main into case fingerprints branch; renumber migration to 0042"
+  },
+  {
+   "sha": "e3ff191",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #313 from greystone-dan/claude/project-thread-26wcpo"
+  },
+  {
+   "sha": "e621b98",
+   "date": "2026-10-06",
+   "subject": "Case types: narrow security certificate range to ss. 76-85; regenerate docs"
+  },
+  {
+   "sha": "e727ccc",
+   "date": "2026-10-06",
+   "subject": "Add section-level statute library: table of contents, section text, cases by year/court/outcome"
+  },
+  {
+   "sha": "e72d4e6",
+   "date": "2026-10-06",
+   "subject": "Merge main and regenerate docs"
+  },
+  {
+   "sha": "ea87614",
+   "date": "2026-10-06",
+   "subject": "Merge remote-tracking branch 'origin/claude/project-thread-26wcpo-search' into claude/project-thread-26wcpo-search"
+  },
+  {
+   "sha": "ed78d3b",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #317 from greystone-dan/claude/project-thread-2jo38e"
+  },
+  {
+   "sha": "ee559c3",
+   "date": "2026-10-06",
+   "subject": "Regenerate script catalog"
+  },
+  {
+   "sha": "f020881",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #316 from greystone-dan/claude/project-thread-64qm41"
+  },
+  {
+   "sha": "f22bb32",
+   "date": "2026-10-06",
+   "subject": "Merge pull request #324 from greystone-dan/claude/project-thread-w7eulo"
+  },
+  {
+   "sha": "f234e88",
+   "date": "2026-10-06",
+   "subject": "Fix quadratic/exponential backtracking in provision-list patterns on long judgments"
+  },
+  {
+   "sha": "f2669b2",
+   "date": "2026-10-06",
+   "subject": "Statute extraction: provisions of any registered act, decimals, lists, new instruments"
+  },
+  {
+   "sha": "f5592a8",
+   "date": "2026-10-06",
+   "subject": "Merge remote-tracking branch 'origin/main' into pr-330"
   }
  ]
 }

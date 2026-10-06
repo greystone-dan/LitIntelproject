@@ -33,6 +33,7 @@ DATA = Path(__file__).resolve().parents[1] / "data" / "changelog"
 ENTRIES, SKIP, RECORDS, OUT = (DATA / name for name in ("entries.json", "skip.json", "github_records.json", "changelog.json"))
 
 THEMES = [
+	("navigation", "Navigation"),
 	("search", "Search"),
 	("reader", "Case reader"),
 	("markup", "Markup mode"),

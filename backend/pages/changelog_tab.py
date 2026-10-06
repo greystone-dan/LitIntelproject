@@ -10,6 +10,8 @@ import html
 import json
 from pathlib import Path
 
+from .pitch_nav import COMING_SOON
+
 CHANGELOG_PATH = Path(__file__).resolve().parents[2] / "data" / "changelog" / "changelog.json"
 
 _CSS = """
@@ -91,6 +93,8 @@ def load_changelog() -> dict:
 def about_panel_html(overview_fragment: str) -> str:
 	"""Wrap the About overview and the changelog in two switchable views."""
 	# Kept in an escaped attribute rather than a script block so no entry text can end a script early.
+	soon = "".join(f"<li><b>{html.escape(name)}</b>{html.escape(text)}</li>" for _key, name, text in COMING_SOON)
+	overview_fragment = overview_fragment.replace("<!--COMING_SOON_LIST-->", soon)
 	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"

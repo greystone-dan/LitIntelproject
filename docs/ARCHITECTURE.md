@@ -265,6 +265,7 @@ test checks that these paths continue to exist.
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |
+| `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
@@ -295,6 +296,7 @@ test checks that these paths continue to exist.
 | `backend/search_service.py` | Case and passage search/retrieval |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
+| `backend/statute_sections.py` | Section-level statute library: table of contents with case counts and a per-section view |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |

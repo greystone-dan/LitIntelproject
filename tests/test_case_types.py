@@ -160,3 +160,23 @@ def test_every_type_has_provisions_or_cues_and_unique_keys() -> None:
 @pytest.mark.parametrize("text", ["", None])
 def test_empty_text(text) -> None:
     assert classify_text(text).status == STATUS_INSUFFICIENT
+
+
+def test_criminal_appeal_title_is_not_labelled_as_an_immigration_case() -> None:
+    text = decision(
+        "The accused pleaded guilty and later says he did not know that a conviction could lead to a removal order under "
+        "section 44 of the Immigration and Refugee Protection Act. This appeal concerns when a guilty plea may be withdrawn.",
+        "The appellant is a permanent resident and a foreign national in the sense of the Act.",
+    )
+    result = classify_text(text, court="SCC", title="R. v. Wong")
+    assert result.status == STATUS_NOT_IMMIGRATION
+
+
+def test_appeal_court_decision_with_no_immigration_title_and_few_provisions_is_unclear() -> None:
+    text = decision(
+        "The appellant challenges a decision of a federal tribunal. In passing the Immigration and Refugee Protection Act, "
+        "section 34, is mentioned as an example of a security provision. The test for a stay is irreparable harm.",
+    )
+    result = classify_text(text, court="FCA", title="Baragar v. Canada (Attorney General)")
+    assert result.status == STATUS_UNCLEAR
+    assert result.primary_type is None

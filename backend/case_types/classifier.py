@@ -57,6 +57,10 @@ _DECISION_CONTENT_RE = re.compile(r"Decision Content|Contenu de la décision", r
 _FIRST_PARA_RE = re.compile(r"(?:^|\n)\s*\[1\]")
 _EIGHTH_PARA_RE = re.compile(r"(?:^|\n)\s*\[8\]")
 _IMMIGRATION_VOCAB_RE = re.compile(r"Minister of (?:Citizenship|Immigration|Public Safety|Employment and Immigration)|Immigration,? Refugees|Immigration and Refugee Board|Immigration Division|Immigration Appeal Division|Refugee (?:Protection|Appeal) Division|permanent resident|foreign national|Convention refugee|refugee (?:claim|status|protection)|deportation|removal order|visa officer|immigration (?:officer|consequence)", re.IGNORECASE)
+_CRIMINAL_TITLE_RE = re.compile(r"^(?:R\.|Her Majesty|La Reine|Regina)\s+(?:v\.|c\.)", re.IGNORECASE)
+_IMMIGRATION_TITLE_RE = re.compile(r"Citizenship|Immigration|Public Safety|Refugee|Minister of|Solicitor General|Canada Border|Council for", re.IGNORECASE)
+CRIMINAL_CASE_MIN_HITS = 25
+NON_IMMIGRATION_TITLE_MIN_HITS = 8
 _ACT_NAME_RE = re.compile(r"Immigration and Refugee Protection Act|Immigration Act|Citizenship Act|\bIRPA\b", re.IGNORECASE)
 _DOCKET_IMM_RE = re.compile(r"\bIMM-\d+-\d+\b|\bIMM-\d+\b")
 
@@ -313,6 +317,16 @@ def classify_text(
     if not is_immigration_decision(hits, docket=docket, title=title, court=court, intro=intro):
         return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], proceeding,
                               reason="no immigration or citizenship statute, IMM docket or immigration respondent")
+
+    court_key = (court or "").strip().upper()
+    if court_key not in {"FC", "RPD", "RAD", "IAD", "ID"} and title is not None:
+        immigration_hits = sum(1 for hit in hits if hit.instrument in IMMIGRATION_INSTRUMENTS)
+        if _CRIMINAL_TITLE_RE.match(title.strip()) and immigration_hits < CRIMINAL_CASE_MIN_HITS:
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], proceeding,
+                                  reason="criminal appeal that mentions immigration only as a consequence")
+        if not _IMMIGRATION_TITLE_RE.search(title) and immigration_hits < NON_IMMIGRATION_TITLE_MIN_HITS:
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, {}, [], proceeding,
+                                  reason="title and statute density do not show an immigration case")
 
     scores: dict[str, float] = {}
     intro_scores: dict[str, float] = {}

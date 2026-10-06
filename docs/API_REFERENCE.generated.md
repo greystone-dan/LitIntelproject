@@ -126,6 +126,7 @@ Search Analytics Cases
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `limit` (query, optional; integer, default `50`)
@@ -203,7 +204,7 @@ Compare Cohort Assessment Records
 
 Search Analytics Facets
 
-Court/year counts for the current filters, loaded after the results so they never delay them.
+Court, year and case-type counts for the current filters, loaded after the results so they never delay them.
 
 **Parameters**
 
@@ -215,6 +216,7 @@ Court/year counts for the current filters, loaded after the results so they neve
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `cohort_id` (query, optional; string, default `""`)
 
@@ -1815,6 +1817,7 @@ Export Search Analytics Cases
 - `judge` (query, optional; string, default `""`)
 - `court` (query, optional; string, default `""`)
 - `year` (query, optional; string, default `""`)
+- `case_type` (query, optional; string, default `""`)
 - `search_full_text` (query, optional; boolean, default `false`)
 - `sort_by` (query, optional; string, default `"relevance"`)
 - `cohort_id` (query, optional; string, default `""`)

@@ -91,3 +91,12 @@ def test_landmark_rule_stays_quiet_without_pinpoint_or_with_a_party_name():
 def test_landmark_rule_does_not_double_count_a_full_citation():
 	text = "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 at para 10."
 	assert len(refine_document(text).cases.rows) == 1
+
+
+def test_random_seed_and_language_filters(session, monkeypatch, capsys):
+	session.get(Case, 1).language = "fr"
+	session.commit()
+	run(session, monkeypatch, "--language", "fr", "--random-seed", "3", "--limit", "5")
+	assert "decisions=1 " in capsys.readouterr().out
+	run(session, monkeypatch, "--random-seed", "3", "--limit", "1")
+	assert "decisions=1 " in capsys.readouterr().out

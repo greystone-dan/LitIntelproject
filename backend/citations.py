@@ -86,18 +86,18 @@ STANDALONE_CASE_NAME_RE = re.compile(
 	r"\b([A-Z][A-Za-zÀ-ÖØ-öø-ÿ0-9'’\-&,()\[\]. ]{1,120}?\s+v\.?\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ0-9'’\-&,()\[\]. ]{1,120}?)(?=[,.;)\]]|\s|$)",
 	re.IGNORECASE,
 )
-STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
+STATUTE_CIT_RE = re.compile(r"\b(IRPA|IRPR)\s*,?\s*(?:s\.?|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*", re.IGNORECASE)
 LONG_STATUTE_CIT_RE = re.compile(
 	r"\b(?:"
 	r"Immigration and Refugee Protection Act(?:,\s*S\.C\.\s*\d{4},\s*c\.\s*[A-Z0-9.-]+(?:\s*\([^)]*\))?)?"
 	r"|Immigration and Refugee Protection Regulations(?:,\s*SOR/\d{4}-\d+)?"
 	r"|Canadian Charter of Rights and Freedoms(?:,?\s*Part I of the Constitution Act, 1982)?"
 	r"|Criminal Code(?:,\s*R\.S\.C\.\s*\d{4},\s*c\.\s*C-\d+)?"
-	r")\b(?:,?\s*(?:s\.|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)?",
+	r")\b(?:,?\s*(?:s\.|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)?",
 	re.IGNORECASE,
 )
 SHORT_CHARTER_SECTION_RE = re.compile(
-	r"\bCharter\b,?\s*(?:s\.|section)\s*\d{1,3}[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*",
+	r"\bCharter\b,?\s*(?:s\.|section)\s*\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*",
 	re.IGNORECASE,
 )
 SECTION_OF_STATUTE_RE = re.compile(
@@ -963,6 +963,9 @@ def _candidate_rank(start: int, end: int, citation: RawCitationMatch) -> tuple[i
 		score += 90
 	elif citation.kind == "statute":
 		score += 80
+		# A statute match that carries a provision outranks an act-only match on the same words.
+		if re.search(r"\bss?\. \d", norm):
+			score += 10
 	elif citation.kind == "case_short":
 		score += 70
 		if " v. " in norm:
@@ -2205,6 +2208,52 @@ def extract_case_citation_matches(text: str | None) -> list[RawCitationMatch]:
 	return [row for row in extract_raw_citation_matches(text) if row.kind in CASE_CITATION_KINDS]
 
 
+_PROVISION_UNIT = r"(?:sub)?(?:sections?|paragraphs?|paras?\.?|subsecs?\.?|ss?\.|rules?|regulations?)"
+_PROVISION_ITEM = r"R?\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
+_PROVISION_JOIN = r"(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
+_PROVISION_JOIN_UNIT = r"(?:" + _PROVISION_JOIN + r"|\s+(?:and|or)\s+" + _PROVISION_UNIT + r"\s*)"
+_PROVISION_LIST_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN + _PROVISION_ITEM + r")*"
+_PROVISION_LIST_UNITS_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN_UNIT + _PROVISION_ITEM + r")*"
+_REGISTERED_ACT_ALIASES = sorted(
+	{alias for definition in LEGISLATION_REGISTRY.values() for alias in definition["aliases"]},
+	key=len,
+	reverse=True,
+)
+_REGISTERED_ACT_RE = "|".join(re.escape(alias) for alias in _REGISTERED_ACT_ALIASES)
+# "<unit> <list> of [the] <registered act>" for any registered act (not only IRPA/IRPR).
+PROVISION_OF_REGISTERED_ACT_RE = re.compile(
+	r"\b" + _PROVISION_UNIT + r"\s*(?P<list>" + _PROVISION_LIST_UNITS_RE + r")\s+of\s+(?:the\s+)?(?:former\s+)?(?P<act>" + _REGISTERED_ACT_RE + r")\b",
+	re.IGNORECASE,
+)
+# "<registered act>, s. <list>" (including "IRPA, ss 96-97" and "IRPA, s 25.1(1)").
+REGISTERED_ACT_THEN_PROVISION_RE = re.compile(
+	r"\b(?P<act>" + _REGISTERED_ACT_RE + r")\s*,?\s*" + _PROVISION_UNIT + r"\s*(?P<list>" + _PROVISION_LIST_RE + r")",
+	re.IGNORECASE,
+)
+
+
+def _normalize_provision_list(value: str) -> tuple[str, bool]:
+	"""Return the normalized provision text and whether it is a list or range."""
+	text = re.sub(r"\bR(?=\d)", "", _normalize_whitespace(value))
+	text = re.sub(r"\b(?:sub)?(?:sections?|paragraphs?|paras?\.?|subsecs?\.?|ss?\.|rules?|regulations?)\s*", "", text, flags=re.IGNORECASE)
+	if re.search(r",|\s(?:and|or|to)\s|[-\u2013]", text, re.IGNORECASE):
+		return _normalize_section_list(text), True
+	return _normalize_nested_provision(text), False
+
+
+def _extract_provisions_of_registered_acts(content: str) -> list[tuple[int, int, RawCitationMatch]]:
+	rows: list[tuple[int, int, RawCitationMatch]] = []
+	for pattern in (PROVISION_OF_REGISTERED_ACT_RE, REGISTERED_ACT_THEN_PROVISION_RE):
+		for match in pattern.finditer(content):
+			provision, is_list = _normalize_provision_list(match.group("list"))
+			if not provision:
+				continue
+			act = _full_statute_citation_name(match.group("act"))
+			normalized = f"{act} {'ss.' if is_list else 's.'} {provision}"
+			rows.append((match.start(), match.end(), _raw_match("statute", match.group(0), normalized, match.start(), match.end())))
+	return rows
+
+
 def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch]:
 	"""Return only statute and legal-instrument matches from deterministic law rules."""
 	content = text or ""
@@ -2216,6 +2265,7 @@ def extract_statute_reference_matches(text: str | None) -> list[RawCitationMatch
 		for _start, _end, citation in _extract_regex_candidates(content)
 		if citation.kind in STATUTE_REFERENCE_KINDS
 	]
+	candidates.extend(candidate for _start, _end, candidate in _extract_provisions_of_registered_acts(content))
 	candidates.extend(_extract_anchored_provision_candidates(content, candidates))
 	return _select_best_non_overlapping(candidates)
 

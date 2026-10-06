@@ -62,7 +62,7 @@ FRENCH_TO_ENGLISH_COURT = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"
 _FRENCH_COURTS = set(FRENCH_TO_ENGLISH_COURT)
 
 _COURT_ALTERNATION = "|".join(sorted(NEUTRAL_COURTS, key=len, reverse=True))
-NEUTRAL_RE = re.compile(rf"(?<![\w/\[(])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
+NEUTRAL_RE = re.compile(rf"(?<![\w/])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
 CANLII_RE = re.compile(
 	r"(?<![\w/])(?P<year>(?:19|20)\d{2})\s+CanLII\s+(?P<number>\d{1,9})(?:\s*\((?P<court>[A-Za-z][A-Za-z .]{1,20})\))?",
 	re.IGNORECASE,

@@ -1438,18 +1438,51 @@ def clean_search_snippet(raw: str | None) -> str | None:
 	return f"\u2026{text}\u2026"
 
 
+def clean_minister_options(rows: list[tuple[str, int]]) -> list[str]:
+	"""Collapse the minister / government party list for the filter menu.
+
+	Rows are (name, number of cases). Names that differ only by case or spacing become one entry (the most
+	common spelling); names with no letters (years such as "1966") are dropped; a rare name that is a near
+	copy of a much more common one (a typo such as "Atorney General") is dropped from the menu. The cases
+	themselves are untouched, and the filter still matches by text.
+	"""
+	import difflib
+
+	merged: dict[str, tuple[str, int]] = {}
+	for name, count in rows:
+		display = " ".join(str(name or "").split())
+		if not display or not any(ch.isalpha() for ch in display):
+			continue
+		key = display.casefold()
+		best, total = merged.get(key, (display, 0))
+		if count > total and total:
+			best = display
+		merged[key] = (best if total else display, total + int(count))
+	ordered = sorted(merged.values(), key=lambda item: -item[1])
+	kept: list[tuple[str, int]] = []
+	for display, count in ordered:
+		duplicate = any(
+			count * 5 <= other_count
+			and difflib.SequenceMatcher(None, display.casefold(), other.casefold()).ratio() >= 0.88
+			for other, other_count in kept
+		)
+		if not duplicate:
+			kept.append((display, count))
+	return sorted((display for display, _ in kept), key=str.casefold)
+
+
 def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:
 	rows = db.execute(
 		sql_text(
 			"""
-			SELECT DISTINCT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister
+			SELECT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister, COUNT(*) AS n
 			FROM cases
 			WHERE SUBSTRING(title FROM 'Canada [(]([^)]*)[)]') IS NOT NULL
-			ORDER BY minister
+			GROUP BY 1
 			"""
 		)
-	).scalars().all()
-	return {"ministers": [str(value) for value in rows if value]}
+	).all()
+	return {"ministers": clean_minister_options([(str(name), int(n)) for name, n in rows if name])}
 
 
 def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, Any]:

@@ -142,7 +142,7 @@ DOCKET_RE = re.compile(r"(?<![\w-])(?P<docket>(?:IMM|DES|A|T)-\d{1,6}-\d{2})(?![
 # What may sit between two parallel citations or after the last one.
 _TAG = r"\((?:CanLII|QL|Lexis|QuickLaw|[A-Z][A-Za-z.&]{0,6}(?:\s?[A-Z][A-Za-z.&]{0,6}){0,3})\)"
 _GAP_PINPOINT = (
-	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	r"\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?(?:\s*(?:,|and)\s*\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?)*?)"
 )
 # Between parallel citations: a comma, optional court/database tags, optional pinpoint
@@ -581,7 +581,7 @@ def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], 
 # --------------------------------------------------------------------------- back-references
 _PIN_RANGE = r"\d{1,5}(?!\d|\s+(?-i:[A-Z]))(?:\s*(?:[-–]|to|à)\s*\d{1,5}(?!\d|\s+(?-i:[A-Z])))?"
 _PINPOINT_TAIL = (
-	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	rf"{_PIN_RANGE}(?:\s*(?:,|and|et|&)\s*{_PIN_RANGE})*)?"
 )
 IBID_RE = re.compile(rf"(?<![\w.])(?P<word>Ibid(?:em)?\.?|Id\.)(?P<tail>{_PINPOINT_TAIL})", re.UNICODE)

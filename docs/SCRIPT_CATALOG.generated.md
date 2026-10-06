@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 178
+Active scripts documented: 180
 
 ## Catalog
 
@@ -18,6 +18,7 @@ Active scripts documented: 178
 | `agent_policy.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\agent_policy.py --help` |
 | `aggregate_recorded_costs.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\aggregate_recorded_costs.py --list-jobs` |
 | `ai_triage_citation_candidate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help` |
+| `analyze_citation_link_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_citation_link_coverage.py --help` |
 | `analyze_themes_before_after.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\analyze_themes_before_after.py --help` |
 | `apply_judge_aliases.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\apply_judge_aliases.py --help` |
 | `audit_discussion_unit_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\audit_discussion_unit_structure.py --help` |
@@ -55,6 +56,7 @@ Active scripts documented: 178
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
+| `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
@@ -299,6 +301,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\ai_triage_citation_candidate.py --help
+```
+
+## `scripts/analyze_citation_link_coverage.py`
+
+**Purpose:** Explain why unresolved citation rows do not link (read-only: SELECTs only). Each unresolved case-citation row goes into one bucket: already linkable by the standard rules, linkable by the extended exact-key rules, or a named reason it cannot link (cited case not in the library, other court, ambiguous key, name only, back reference, and so on). Also reports what the library's own citation fields look like, because a cite can only link if the library case carries the same key. python scripts/analyze_citation_link_coverage.py --output logs/link_coverage.json python scripts/analyze_citation_link_coverage.py --probe-case 61200 --limit 50000
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\analyze_citation_link_coverage.py --help
 ```
 
 ## `scripts/analyze_themes_before_after.py`
@@ -817,6 +833,20 @@ Active scripts documented: 178
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help
+```
+
+## `scripts/build_refined_citations.py`
+
+**Purpose:** Build side-by-side refined case citations (second-pass extraction) for decisions. Writes only to the new tables `citations_refined` and `citation_refine_status`; the live `citations` table is never touched, so the site keeps reading pass-one data. DRY RUN BY DEFAULT: nothing is written without `--apply`. python scripts/build_refined_citations.py --limit 500 # dry run: counts and a compare to pass one python scripts/build_refined_citations.py --limit 500 --apply # write the first 500 decisions python scripts/build_refined_citations.py --apply --court FC # continue (resumable; skips done decisions) python scripts/build_refined_citations.py --revert --yes # delete all refined rows and status rows for this version One decision per transaction, resumable (decisions with a status row for the same refine version are skipped), capped by --limit, with an optional stop file checked between decisions. Docket rows are not stored (no column for them yet). Statute references and paragraph links are a later step.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_refined_citations.py --help
 ```
 
 ## `scripts/build_statute_demand_report.py`

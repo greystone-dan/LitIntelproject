@@ -1950,6 +1950,19 @@ def _anchored_authority_name(citation: RawCitationMatch) -> str | None:
 	return re.split(r"\s+(?:s|ss)\.\s+", normalized, maxsplit=1, flags=re.IGNORECASE)[0].strip()
 
 
+def _defined_act_anchor(content: str, anchors: list[RawCitationMatch], kind: str) -> RawCitationMatch | None:
+	"""The statute the decision itself defines as "the Act" (e.g. Customs Act ... (the "Act")), if any."""
+	definition = _ACT_DEFINITION_RE.search(content)
+	if definition is None:
+		return None
+	before = [
+		anchor
+		for anchor in anchors
+		if anchor.kind == kind and _anchored_authority_name(anchor) and 0 <= definition.start() - anchor.offset_end <= 160
+	]
+	return max(before, key=lambda item: item.offset_end) if before else None
+
+
 def _extract_anchored_provision_candidates(
 	content: str,
 	anchors: list[RawCitationMatch],
@@ -2042,11 +2055,20 @@ def _extract_anchored_provision_candidates(
 			)
 			if named_after is not None:
 				anchor = named_after
-			elif not sentence_anchors and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE):
-				# "section 18 of the Act" names an instrument we cannot see; do not guess the nearest one.
-				continue
 			else:
 				anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
+				if not sentence_anchors and re.match(
+					r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE
+				):
+					# "section 18 of the Act" names an instrument we cannot see. Guessing the nearest registered act is
+					# usually wrong (Charter, Federal Courts Rules); an unregistered nearest act is the decision's own statute.
+					defined = _defined_act_anchor(content, context_anchors, kind)
+					if defined is not None:
+						anchor = defined
+					else:
+						guessed = parse_legislation_citation(_anchored_authority_name(anchor) or "")
+						if guessed is not None and guessed.instrument_key:
+							continue
 		authority = _anchored_authority_name(anchor)
 		if not authority:
 			continue

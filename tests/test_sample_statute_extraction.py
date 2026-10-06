@@ -119,3 +119,20 @@ def test_case_35113_bracket_continuation_stray_digit_and_canada_act():
     }
     assert not [e for e in result if e["text"].strip().lower() == "canada act"]
     assert ("Section 96", "canada.irpa", "96") in {(e["text"], e["instrument_key"], e["pinpoint"]) for e in result}
+
+
+def test_the_act_defined_in_the_decision_is_used_for_bare_provisions():
+    text = (
+        'The Customs Act R.S.C. 1985 c-1 (2nd Supp.) (the "Act") applies. ' + "x " * 400 +
+        "A Notice pursuant to subsection 124(1) of the Act was issued. " + "y " * 400 +
+        "The Federal Court Act applies. " + "z. " * 400 + "Section 135 of the Act provides an appeal."
+    )
+    keyed = {(e["text"], e["instrument_key"], e["pinpoint"]) for e in analyze_text(text)["extracted"]}
+    assert ("subsection 124(1)", "canada.customs_act", "124(1)") in keyed
+    assert ("Section 135", "canada.customs_act", "135") in keyed
+
+
+def test_bare_of_the_act_with_unregistered_nearest_act_keeps_a_row_without_instrument():
+    text = "The Corrections and Conditional Release Act applies. Subsection 140(1) of the Act provides for reviews."
+    rows = [e for e in analyze_text(text)["extracted"] if e["text"].lower().startswith("subsection")]
+    assert rows and rows[0]["instrument_key"] is None

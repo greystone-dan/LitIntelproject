@@ -67,9 +67,12 @@ CRIMINAL_CASE_MIN_HITS = 25
 NON_IMMIGRATION_TITLE_MIN_HITS = 8
 _PROCEDURAL_INTRO_RE = re.compile(
     r"(?:motion|application|request)\s+(?:\w+\s+){0,3}?(?:for\s+leave\s+)?to\s+(?:intervene|strike|quash)"
-    r"|leave\s+to\s+intervene|for\s+an\s+order\s+striking|(?:motion|request)\s+for\s+an?\s+extension\s+of\s+time|costs\s+(?:against|awarded\s+against)",
+    r"|leave\s+to\s+intervene|for\s+an\s+order\s+striking|(?:motion|request)\s+for\s+an?\s+extension\s+of\s+time|costs\s+(?:against|awarded\s+against)"
+    r"|\bRules?\s+(?:369|397|399)\b|dismiss\w*\s+(?:the\s+\w+\s+)?for\s+mootness|\bmoot(?:ness)?\b[^.]{0,40}\bmotion",
     re.IGNORECASE,
 )
+_VACATE_INTRO_RE = re.compile(r"application\s+(?:\w+\s+){0,4}?to\s+vacate|vacate\s+and\s+nullify|to\s+vacate\s+(?:the\s+)?(?:positive|refugee|Convention)", re.IGNORECASE)
+VACATE_INTRO_BONUS = 12.0
 _PRRA_OFFICER_HC_RE = re.compile(
     r"(?:pre-removal\s+risk\s+assessment|PRRA)\s+officer[^.]{0,160}?(?:humanitarian\s+and\s+compassionate|H&C)", re.IGNORECASE
 )
@@ -85,6 +88,22 @@ _STAY_INTRO_RE = re.compile(
     r"order (?:staying|prohibiting)[^.]{0,40}remov)",
     re.IGNORECASE,
 )
+_REFERRAL_44_RE = re.compile(r"admissibility\s+hearing|(?:subsection|section|s\.)\s?44\b", re.IGNORECASE)
+_RAD_OPENING_RE = re.compile(r"Refugee\s+Appeal\s+Division|\bRAD\b", re.IGNORECASE)
+_PRRA_NAMED_RE = re.compile(r"pre-removal\s+risk\s+assessment|\bPRRA\b", re.IGNORECASE)
+
+def _is_stay_intro(intro: str) -> bool:
+    # The looser stay wording only counts in the first lines; deeper in, a stay motion is just procedural history.
+    return bool(_STAY_INTRO_RE.search(intro) or _STAY_LOOSE_RE.search(intro[:800]))
+
+
+_STAY_LOOSE_RE = re.compile(
+    r"(?:interim |temporary )?stay[^.]{0,120}\bremoval\b|application (?:to|for) (?:an? )?stay|irreparable harm", re.IGNORECASE
+)
+REFERRAL_44_BONUS = 12.0
+LEAD_MIN_SCORE = 8.0
+LEAD_MIN_RATIO = 2.2
+RAD_NO_PRRA_FACTOR = 0.2
 STAY_INTRO_BONUS = 12.0
 JR_SUBJECT_BONUS = 8.0
 _JR_SENTENCE_RE = re.compile(r"[^.]{0,400}?(?:judicial\s+review|set\s+aside|leave\s+to\s+(?:appeal|commence))[^.]{0,400}", re.IGNORECASE)
@@ -405,7 +424,7 @@ def _classify_text(
         docket = header_docket.group(0) if header_docket else docket
 
     reasons, intro, intro_end = split_regions(content)
-    if not PREGATE_RE.search(content):
+    if not PREGATE_RE.search(content) and (court or "").strip().upper() not in {"RPD", "RAD", "IAD", "ID"}:
         if title and _IMMIGRATION_PARTY_RE.search(title):
             return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, {}, [], None,
                                   reason="an immigration department is a party but no immigration statute is named in the text")
@@ -469,7 +488,7 @@ def _classify_text(
             scores[case_type.key] = round(total, 2)
 
     # A decision written to explain a stay of removal is about the stay, whatever risk grounds it discusses.
-    if _STAY_INTRO_RE.search(intro):
+    if _is_stay_intro(intro):
         scores["removal_deferral_stay"] = round(scores.get("removal_deferral_stay", 0.0) + STAY_INTRO_BONUS, 2)
         intro_scores["removal_deferral_stay"] = intro_scores.get("removal_deferral_stay", 0.0) + STAY_INTRO_BONUS
 
@@ -486,10 +505,23 @@ def _classify_text(
 
     # A PRRA officer who decided an H&C application: the case is about the H&C decision.
     # A judicial review of a PRRA decision is a PRRA case, unless it is a stay motion or the officer decided H&C.
-    if (not _STAY_INTRO_RE.search(intro) and not _PRRA_OFFICER_HC_RE.search(intro[:800])
+    if (not _is_stay_intro(intro) and not _PRRA_OFFICER_HC_RE.search(intro[:800])
             and _PRRA_DECISION_RE.search(intro[:500])):
         scores["pre_removal_risk_assessment"] = round(scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS, 2)
         intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
+    # A referral to an admissibility hearing (s. 44) is a removal-proceedings case even when H&C factors were weighed.
+    if _REFERRAL_44_RE.search(intro[:600]) and not _is_stay_intro(intro):
+        scores["removal_admissibility_proceedings"] = round(scores.get("removal_admissibility_proceedings", 0.0) + REFERRAL_44_BONUS, 2)
+        intro_scores["removal_admissibility_proceedings"] = intro_scores.get("removal_admissibility_proceedings", 0.0) + REFERRAL_44_BONUS
+    # A review of a Refugee Appeal Division decision that never names a PRRA is not a PRRA case (RAD new-evidence
+    # provisions read like the PRRA ones).
+    if (_RAD_OPENING_RE.search(intro[:500]) and not _PRRA_NAMED_RE.search(intro[:800])
+            and "pre_removal_risk_assessment" in scores):
+        scores["pre_removal_risk_assessment"] = round(scores["pre_removal_risk_assessment"] * RAD_NO_PRRA_FACTOR, 2)
+    # The Minister's application to vacate a positive refugee decision (s. 109) says so in its opening.
+    if _VACATE_INTRO_RE.search(intro[:700]):
+        scores["refugee_vacation"] = round(scores.get("refugee_vacation", 0.0) + VACATE_INTRO_BONUS, 2)
+        intro_scores["refugee_vacation"] = intro_scores.get("refugee_vacation", 0.0) + VACATE_INTRO_BONUS
     # The opening sentence that names the judicial review says what decision is under review: when it names
     # exactly one subject (refugee claim, H&C, PRRA, study or work permit, visitor visa), that subject leads.
     jr_subject = None
@@ -599,6 +631,51 @@ def _primary_detail(type_hits: list[ProvisionHit]) -> str | None:
     return pool[0][0]
 
 
+_COSTS_INTRO_RE = re.compile(r"bill\s+of\s+costs|assessment\s+of\s+(?:the\s+)?costs|assessment\s+officer|costs\s+pursuant\s+to\s+the\s+judgment", re.IGNORECASE)
+_MOOT_OR_QUASH_RE = re.compile(r"\bmoot(?:ness)?\b|(?:to\s+quash|quashing)\s+(?:the\s+|this\s+|an\s+)?appeal|without\s+jurisdiction|summary\s+(?:dismissal|judgment)|\brule\s+22\b", re.IGNORECASE)
+_CITIZENSHIP_REVOCATION_RE = re.compile(r"revok\w+\s+(?:the\s+)?(?:appellant'?s?\s+|his\s+|her\s+)?citizenship|citizenship[^.]{0,40}revo", re.IGNORECASE)
+
+
+def _opening_fallback(text: str, court: str | None, title: str | None) -> CaseTypeResult | None:
+    """Type a still-unclear immigration-court decision from its opening alone, or call it not immigration.
+
+    Appeal-court motions, costs assessments and short reasons often name no provision the scorer can use, but the
+    opening still says what the matter is. Returns None when the opening does not settle it."""
+    if (court or "").strip().upper() != "FCA":
+        return None
+    _reasons, intro, _end = split_regions(text)
+    head = intro[:800]
+    party = bool(title and _IMMIGRATION_PARTY_RE.search(title))
+    if not party:
+        if _CITIZENSHIP_REVOCATION_RE.search(intro[:1500]):
+            key = "citizenship_revocation"
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, key, None, [], 0.4, {}, [], None,
+                                  reason="typed from the opening of the decision only")
+        if not (_IMMIGRATION_VOCAB_RE.search(intro[:1500]) or _ACT_NAME_RE.search(intro[:1500])
+                or _DOCKET_IMM_RE.search(text[:2500])
+                or re.search(r"citizenship|removal|deport", intro[:1500], re.IGNORECASE)):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], None,
+                                  reason="no immigration subject in the opening of an appeal-court decision")
+        if _COSTS_INTRO_RE.search(head) or _PROCEDURAL_INTRO_RE.search(head) or _MOOT_OR_QUASH_RE.search(head):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, "court_procedure_only", None, [], 0.4, {}, [], None,
+                                  reason="typed from the opening of the decision only")
+        return None
+    if _CITIZENSHIP_REVOCATION_RE.search(intro[:1500]):
+        key = "citizenship_revocation"
+    elif _COSTS_INTRO_RE.search(head):
+        key = "court_procedure_only"
+    elif _PROCEDURAL_INTRO_RE.search(head) or _MOOT_OR_QUASH_RE.search(head):
+        key = "court_procedure_only"
+    elif _STAY_INTRO_RE.search(head):
+        key = "removal_deferral_stay"
+    else:
+        key = jr_subject_type(intro) or opening_subject_type(intro)
+    if not key:
+        return None
+    return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, key, None, [], 0.4, {}, [], None,
+                          reason="typed from the opening of the decision only")
+
+
 def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
     """Classify one decision. A decision that stays unclear is retried once with the subject named in the
     judicial review sentence leading, so the bonus only ever resolves unclear results and never changes a clear one."""
@@ -607,4 +684,11 @@ def classify_text(text: str | None, **kwargs) -> CaseTypeResult:
         retry = _classify_text(text, jr_bonus=JR_SUBJECT_BONUS, **kwargs)
         if retry.status == STATUS_CLASSIFIED:
             return retry
+        fallback = _opening_fallback(text or "", kwargs.get("court"), kwargs.get("title"))
+        if fallback is not None:
+            return fallback
+        ranked = sorted(result.scores.items(), key=lambda item: -item[1])
+        if ranked and ranked[0][1] >= LEAD_MIN_SCORE and (len(ranked) < 2 or ranked[0][1] >= LEAD_MIN_RATIO * ranked[1][1]):
+            return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, ranked[0][0], None, [], 0.3, dict(ranked[:6]), [], result.proceeding,
+                                  reason="leading case type only; low confidence")
     return result

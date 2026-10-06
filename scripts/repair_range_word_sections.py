@@ -1,4 +1,4 @@
-"""Repair statute_references.provision_section values like "34t" that came from "34 to 37".
+"""Repair statute_references.provision_section values like "34t" (from "34 to 37") or "25s" (from "25 s. 3").
 
 The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or
 list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the
@@ -26,7 +26,7 @@ from backend.statutes import parse_provision_identity
 
 SELECT_SQL = text(
     "SELECT id, pinpoint, provision_section FROM statute_references "
-    "WHERE provision_section ~ '^[0-9]{1,3}([.][0-9]+)?[a-z]$' AND pinpoint ~* '^[[:space:]]*[0-9]{1,3}([.][0-9]+)?[[:space:]]*(to|and|th)' "
+    "WHERE provision_section ~ '^[0-9]{1,3}([.][0-9]+)?[a-z]$' AND pinpoint ~* '^[[:space:]]*[0-9]{1,3}([.][0-9]+)?([[:space:]]+[a-z]|(to|and|th))' "
     "AND id > :after ORDER BY id LIMIT :limit"
 )
 UPDATE_SQL = text(

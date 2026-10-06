@@ -7,7 +7,8 @@ from sqlalchemy.ext.compiler import compiles
 from sqlalchemy.orm import Session
 from sqlalchemy.pool import StaticPool
 
-from backend.citation_refine import refine_document
+from backend.citation_refine import CASE_STEPS, refine_document
+from backend.citation_refine.cases import refine_case_citations
 from backend.database import Base, Case, Citation, CitationRefined, CitationRefineStatus
 
 FRENCH = (
@@ -100,3 +101,72 @@ def test_random_seed_and_language_filters(session, monkeypatch, capsys):
 	assert "decisions=1 " in capsys.readouterr().out
 	run(session, monkeypatch, "--random-seed", "3", "--limit", "1")
 	assert "decisions=1 " in capsys.readouterr().out
+
+
+def test_weak_pass_one_short_forms_are_rejected_and_real_ones_kept():
+	from backend.citation_refine.models import RefinedCitation
+	from backend.citation_refine.short_forms import is_weak_short_form
+
+	def short(text, anchor, alias=None, step="pass1"):
+		return RefinedCitation(kind="case_short", citation_text=text, normalized_citation=anchor, offset_start=0, offset_end=1,
+			step=step, action="kept", confidence=0.8, declared_alias=alias)
+
+	weak = [
+		("Nation", "Standingready v. Ocean Man First Nation, 2021 FC 434"),
+		("Bank", "Royal Bank of Canada v. Radius Credit Union Ltd., 2010 SCC 48"),
+		("connection", "Venngo Inc v. Concierge Connection Inc, 2017 FCA 96"),
+		("actuellement disponible seulement en anglais", "Dunn v. Canada (Attorney General), 2025 FC 652"),
+		("Estate", "Jones Estate v. Canada (Attorney General), 2009 FC 646"),
+	]
+	real = [
+		("Jordan", "R. v. Jordan, 2016 SCC 27"),
+		("(Caraan at para 44)", "Caraan v. Canada (Public Safety and Emergency Preparedness), 2013 FC 3"),
+		("Dunsmuir, para. 53", "Dunsmuir v. New Brunswick, 2008 SCC 9, at para. 53"),
+		("Kanthasamy FCA", "Kanthasamy v. Canada (Citizenship and Immigration), 2014 FCA 113"),
+		("WINNING COMBINATION", "Canada (Health) v. The Winning Combination Inc., 2017 FCA 101"),
+	]
+	assert all(is_weak_short_form(short(text, anchor)) for text, anchor in weak)
+	assert not any(is_weak_short_form(short(text, anchor)) for text, anchor in real)
+	assert not is_weak_short_form(short("Nation", "Standingready v. Ocean Man First Nation, 2021 FC 434", alias="Nation"))
+	assert not is_weak_short_form(short("Nation", "Standingready v. Ocean Man First Nation, 2021 FC 434", step="C2_backrefs"))
+
+
+def test_title_block_and_footnote_name_only_rows_are_rejected():
+	from backend.citation_refine.models import RefinedCitation
+	from backend.citation_refine.short_forms import is_weak_short_form
+
+	def name_only(text):
+		return RefinedCitation(kind="case_name", citation_text=text, normalized_citation=text, offset_start=0, offset_end=1,
+			step="pass1", action="kept", confidence=0.4)
+
+	assert all(is_weak_short_form(name_only(t)) for t in ["JUNIOR HERMAN v. THE", "MAHIR YAHYA SHARIF v. MCI", "Hall v. Hill[3"])
+	assert not any(is_weak_short_form(name_only(t)) for t in ["Drummond v. Baylis", "R. v. Jack", "Canada (Attorney General) v. Singh"])
+
+
+_DEFINED_NAMES_TEXT = (
+	"The Respondent relies on Lozano Caceres v Canada (Citizenship and Immigration), 2022 FC 179 [Lozano] as support. "
+	"As stated at paragraph 34 of Lozano: the test is met. "
+	"See Canadian Council for Refugees v Canada (Citizenship and Immigration), 2023 SCC 17 [CCR] at para 158 and "
+	"B010 v Canada (Citizenship and Immigration), 2015 SCC 58. This is the trilogy (Suresh, Febles, B010). "
+	"In light of Mason and CCR, there was a matter to be resolved."
+)
+
+
+def test_defined_names_pinpoint_first_and_bare_acronyms() -> None:
+	rows = refine_document(_DEFINED_NAMES_TEXT).cases.rows
+	step_rows = [row for row in rows if row.step == "C4c_defined_names"]
+	pinpoint_first = [row for row in step_rows if "pinpoint_first" in row.notes]
+	assert [row.citation_text for row in pinpoint_first] == ["at paragraph 34 of Lozano"]
+	assert pinpoint_first[0].pinpoint == "at para. 34"
+	assert "2022 FC 179" in pinpoint_first[0].normalized_citation
+	bare = {row.citation_text: row for row in step_rows if "defined_name" in row.notes}
+	assert list(row.citation_text for row in step_rows if row.citation_text == "B010") == ["B010"]
+	assert "CCR" in bare and "2023 SCC 17" in bare["CCR"].normalized_citation
+	# the bracketed definition itself is never a second row
+	assert not [row for row in rows if row.citation_text == "[CCR]"]
+
+
+def test_defined_names_step_can_be_switched_off() -> None:
+	steps = [step for step in CASE_STEPS if step != "C4c_defined_names"]
+	rows = refine_case_citations(_DEFINED_NAMES_TEXT, steps=steps).rows
+	assert not [row for row in rows if row.step == "C4c_defined_names"]

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 188
+Active scripts documented: 189
 
 ## Catalog
 
@@ -77,6 +77,7 @@ Active scripts documented: 188
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `daily_intake.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\daily_intake.py --help` |
 | `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
@@ -1135,6 +1136,20 @@ Active scripts documented: 188
 
 ```powershell
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
+```
+
+## `scripts/daily_intake.py`
+
+**Purpose:** Daily intake: new decisions from A2AJ, then new Federal Court (IMM) activity records. One run does, in order: 1. Cases. For each court (default FC, FCA, SCC) it asks Hugging Face whether the A2AJ partition has changed since the last completed run (one HEAD request, no download). Only if it changed does it download the partition, import decisions newer than what the library holds (minus a small overlap), skip anything already present, and run the deterministic processing layers (chunks, metadata, outcome, citations, statutes, tags) on each new case. 2. FC activity. New IMM files are found by walking forward from the highest IMM number already stored for the current year, fetching each from the Federal Court registry until several numbers in a row do not exist. A few recently active files are also re-fetched so their newest docket entries arrive. Touched files are re-classified with the existing rule classifier. Everything is deterministic: no AI or model calls. Each run writes one row to ingestion_runs (started, then finished with finished_at and counts). Caps keep a run small: --max-cases, --max-fc-requests, --max-minutes. Re-running is safe: existing cases and docket entries are never duplicated. Usage: python scripts/daily_intake.py --dry-run # report only, writes nothing python scripts/daily_intake.py # the real daily run python scripts/daily_intake.py --skip-activity # cases only python scripts/daily_intake.py --skip-cases # FC activity only
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\daily_intake.py --help
 ```
 
 ## `scripts/deduplicate_a2aj.py`

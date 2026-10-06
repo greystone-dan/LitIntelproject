@@ -35,7 +35,7 @@ jobs:
       #     -> fails on a clean machine (client kwargs come back empty); needs investigation
       - name: Run tests
         run: >
-          python -m pytest -q -n auto
+          python -m pytest -q -n auto --durations=15
           --deselect tests/test_contextual_intelligence.py::test_api_endpoints_contextual_intelligence
           --deselect tests/test_v2_pipeline_runner.py::test_v2_pipeline_dry_run_records_all_stages_without_writes
           --deselect tests/test_run_case_intelligence_request.py::test_build_client_uses_ollama_openai_compatible_endpoint

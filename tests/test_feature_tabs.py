@@ -722,10 +722,10 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     architecture_panel = html[architecture_start:architecture_end]
 
     assert 'class="ilit-about"' in about_panel
-    assert '<h1>iLit: where the project stands</h1>' in about_panel
-    assert 'id="today"' in about_panel
-    assert 'id="how"' in about_panel
-    assert 'id="funding"' in about_panel
+    assert '<h1>iLit: immigration litigation intelligence</h1>' in about_panel
+    for section in ('library', 'search', 'reader', 'intel', 'soon', 'progress', 'principles'):
+        assert f'id="{section}"' in about_panel
+    assert 'id="funding"' not in about_panel
     assert 'Data layer coverage' in architecture_panel
     assert 'id="aboutSummary"' in architecture_panel
     assert architecture_panel.index('Data layer coverage') < architecture_panel.index('Site Architecture')

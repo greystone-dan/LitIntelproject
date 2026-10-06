@@ -86,6 +86,17 @@ _STAY_INTRO_RE = re.compile(
     re.IGNORECASE,
 )
 STAY_INTRO_BONUS = 12.0
+JR_SUBJECT_BONUS = 6.0
+_JR_SENTENCE_RE = re.compile(r"[^.]{0,400}?(?:judicial\s+review|set\s+aside|leave\s+to\s+(?:appeal|commence))[^.]{0,400}", re.IGNORECASE)
+_JR_SUBJECTS = (
+    ("refugee_claim", re.compile(r"Refugee\s+(?:Protection|Appeal)\s+Division|\bRPD\b|\bRAD\b|refugee\s+(?:claim|protection|status)|Convention\s+refugee", re.IGNORECASE)),
+    ("humanitarian_compassionate", re.compile(r"humanitarian\s+and\s+compassionate|\bH\s?&\s?C\b", re.IGNORECASE)),
+    ("pre_removal_risk_assessment", re.compile(r"pre-removal\s+risk\s+assessment|\bPRRA\b", re.IGNORECASE)),
+    ("study_permit", re.compile(r"student\s+visa|study\s+permit", re.IGNORECASE)),
+    ("work_permit", re.compile(r"work\s+permit", re.IGNORECASE)),
+    ("visitor_visa", re.compile(r"visitor\s+visa|temporary\s+resident\s+visa", re.IGNORECASE)),
+)
+_IAD_RE = re.compile(r"Immigration\s+Appeal\s+Division|\bIAD\b", re.IGNORECASE)
 PRRA_OFFICER_HC_BONUS = 8.0
 PRRA_DECISION_BONUS = 8.0
 PROCEDURAL_INTRO_BONUS = 5.0
@@ -429,6 +440,14 @@ def classify_text(
             and _PRRA_DECISION_RE.search(intro[:500])):
         scores["pre_removal_risk_assessment"] = round(scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS, 2)
         intro_scores["pre_removal_risk_assessment"] = intro_scores.get("pre_removal_risk_assessment", 0.0) + PRRA_DECISION_BONUS
+    # The opening sentence that names the judicial review says what decision is under review: when it names
+    # exactly one subject (refugee claim, H&C, PRRA, study or work permit, visitor visa), that subject leads.
+    jr_sentence = _JR_SENTENCE_RE.search(intro[:700])
+    if jr_sentence and not _STAY_INTRO_RE.search(intro) and not _IAD_RE.search(jr_sentence.group(0)):
+        subjects = [key for key, pattern in _JR_SUBJECTS if pattern.search(jr_sentence.group(0))]
+        if len(subjects) == 1 and subjects[0] in scores:
+            scores[subjects[0]] = round(scores[subjects[0]] + JR_SUBJECT_BONUS, 2)
+            intro_scores[subjects[0]] = intro_scores.get(subjects[0], 0.0) + JR_SUBJECT_BONUS
     prra_hc = bool(_PRRA_OFFICER_HC_RE.search(intro[:800]))
     if prra_hc:
         scores["humanitarian_compassionate"] = round(scores.get("humanitarian_compassionate", 0.0) + PRRA_OFFICER_HC_BONUS, 2)

@@ -29,7 +29,7 @@ _WORD_RE = re.compile(
 	r"associate|prothonotary|protonotaire|esquire|esq|maitre|me|supernumerary|the|dr|hon|deputy|assessor|registrar)\b",
 	re.IGNORECASE,
 )
-_SUFFIX_RE = re.compile(r"[,\s]+(?:A\.?\s?C\.?\s?J|C\.?\s?J|D\.?\s?J|J\.?\s?A|J\.?\s?F\.?\s?C\.?\s?C|J|P)\.?\s*$", re.IGNORECASE)
+_SUFFIX_RE = re.compile(r"[,\s]+(?:A\.?\s?C\.?\s?J|C\.?\s?J|D\.?\s?J|J\.?\s?J|J\.?\s?A|J\.?\s?F\.?\s?C\.?\s?C|J|P)\.?\s*$", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
@@ -104,6 +104,9 @@ def parse_judge_name(raw: str) -> JudgeName | None:
 	text = re.sub(r"[^A-Za-zÀ-ÿ'\-,. ]+", " ", text)
 	text = " ".join(text.split()).strip(" ,.")
 	name_text = text
+	if "," in text:  # "Surname, Given" -> "Given Surname" for display
+		last, _, first = text.partition(",")
+		name_text = f"{first.strip()} {last.strip()}".strip()
 	folded = _fold(text)
 	if "," in folded:
 		surname_part, _, given_part = folded.partition(",")
@@ -204,7 +207,18 @@ def group_judge_names(counts: dict[str, int]) -> list[MergeGroup]:
 				else:
 					clusters.append(list(bare))
 			else:
-				review = bare
+				weights = [sum(counts[m] for m in c) for c in clusters]
+				top = max(range(len(clusters)), key=lambda i: weights[i])
+				others = sum(weights) - weights[top]
+				# A clearly dominant person (others are a handful of stray decisions, usually a
+				# typo'd initial) takes the surname-only strings; otherwise leave them for review.
+				if others <= max(3, weights[top] // 50):
+					gender = parsed[clusters[top][0]].gender
+					fits = [b for b in bare if not (parsed[b].gender and gender and parsed[b].gender != gender)]
+					clusters[top].extend(fits)
+					review = [b for b in bare if b not in fits]
+				else:
+					review = bare
 		for cluster in clusters:
 			if len(cluster) > 1 or review:
 				roles = sorted({parsed[m].role for m in cluster})
@@ -223,3 +237,32 @@ def best_display_name(names: list[str]) -> str | None:
 	best = max(parsed, key=lambda p: (len(p.given), p.name_text != p.name_text.upper(), len(p.name_text)))
 	prefix = "Prothonotary" if all(p.role == "prothonotary" for p in parsed) else "Justice"
 	return f"{prefix} {best.name_text}"
+
+
+def split_panel(raw: str) -> list[str]:
+	"""Split a multi-judge field ("Wagner, Richard; Abella, Rosalie; ...") into one string per judge."""
+	text = raw or ""
+	if ";" not in text and re.search(r"\bJJ\.?|\bC\.J\.\s+and\b", text):
+		# Older style: "McLachlin C.J. and Abella, Moldaver and Rowe JJ."
+		return [part.strip() for part in re.split(r",\s*|\s+and\s+", text) if part.strip()]
+	return [part.strip() for part in text.split(";") if part.strip()]
+
+
+def parse_panel(raw: str) -> list[JudgeName]:
+	"""Individual judges named in a panel field; unparseable parts and duplicates are dropped."""
+	seen: set[tuple[str, str]] = set()
+	judges: list[JudgeName] = []
+	for part in split_panel(raw):
+		parsed = parse_judge_name(part)
+		if parsed is None:
+			continue
+		key = (parsed.surname, parsed.initials[:1])
+		if key not in seen:
+			seen.add(key)
+			judges.append(parsed)
+	return judges
+
+
+def is_panel_string(value: str) -> bool:
+	"""True for a whole-panel string ("A; B; C" or "X C.J. and Y, Z JJ.") that is not one judge."""
+	return bool(re.search(r";|\bJJ\.?|\bC\.J\.\s+and\b", value or ""))

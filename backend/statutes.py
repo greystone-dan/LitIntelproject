@@ -63,7 +63,12 @@ def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | No
     is_range_or_list = bool(re.search(r"(?:,|\band\b|\bto\b|[-–])", raw_value, re.IGNORECASE))
     section = match.group("section")
     if section and section[-1].isalpha():
-        section = section[:-1] + section[-1].lower()
+        # A suffix letter counts only when it touches the digits ("7A(1)"); "25 s. 3" or "2 d" are
+        # the next word, not a section "25s" or "2d".
+        if re.match(r"\s*\d{1,3}(?:\.\d+)?[A-Za-z](?![A-Za-z])", (pinpoint or "").lstrip(". ")) is None:
+            section = section[:-1]
+        else:
+            section = section[:-1] + section[-1].lower()
     return (
         section,
         groups[0].lower() if groups else None,

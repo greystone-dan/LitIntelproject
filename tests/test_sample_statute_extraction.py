@@ -34,7 +34,7 @@ def test_bare_rule_ties_to_federal_courts_rules_only_after_they_are_named():
 def test_fc_citizenship_immigration_rules_are_registered():
     result = analyze_text("Rule 9 of the Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22 applies.")
     keyed = {(e["instrument_key"], e["pinpoint"]) for e in result["extracted"]}
-    assert ("canada.fc_citizenship_immigration_rules", "9") in keyed
+    assert ("canada.fc_cirp_rules", "9") in keyed
 
 
 def test_anchored_provision_guards():

@@ -169,7 +169,7 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "source_url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/",
         "url": "https://laws-lois.justice.gc.ca/eng/acts/E-15/section-{section}.html",
     },
-    "canada.fc_citizenship_immigration_rules": {
+    "canada.fc_cirp_rules": {
         "aliases": (
             "Federal Courts Citizenship, Immigration and Refugee Protection Rules",
             "Federal Court Citizenship, Immigration and Refugee Protection Rules",

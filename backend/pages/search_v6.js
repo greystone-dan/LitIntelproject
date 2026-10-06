@@ -111,10 +111,17 @@ $('applyFilters')?.addEventListener('click',event=>{event.preventDefault();$('ca
 
 /* Recent cases: newest decisions first, current filters kept */
 $('recentCases')?.addEventListener('click',()=>{
- $('searchQuery').value='';
+ $('searchQuery').value='';window.__sortChosen=true;
  $('searchSort').value='newest';if($('quickSort'))$('quickSort').value='newest';
  $('caseSearch').requestSubmit();
 });
 
-setSearchStatus('Search by case name or citation, or press Recent cases to see the newest decisions.');
+/* Most cited: cases cited by the most other cases, current filters kept */
+$('mostCitedCases')?.addEventListener('click',()=>{
+ $('searchQuery').value='';window.__sortChosen=true;
+ $('searchSort').value='most_cited';if($('quickSort'))$('quickSort').value='most_cited';
+ $('caseSearch').requestSubmit();
+});
+
+setSearchStatus('Search by case name or citation, or press Recent cases or Most cited.');
 })();

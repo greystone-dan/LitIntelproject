@@ -125,7 +125,7 @@ def test_the_act_defined_in_the_decision_is_used_for_bare_provisions():
     text = (
         'The Customs Act R.S.C. 1985 c-1 (2nd Supp.) (the "Act") applies. ' + "x " * 400 +
         "A Notice pursuant to subsection 124(1) of the Act was issued. " + "y " * 400 +
-        "The Federal Court Act applies. " + "z. " * 400 + "Section 135 of the Act provides an appeal."
+        "The Federal Court Act applies. " + "zz. " * 300 + "Section 135 of the Act provides an appeal."
     )
     keyed = {(e["text"], e["instrument_key"], e["pinpoint"]) for e in analyze_text(text)["extracted"]}
     assert ("subsection 124(1)", "canada.customs_act", "124(1)") in keyed

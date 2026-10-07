@@ -2058,40 +2058,69 @@ def _extract_anchored_provision_candidates(
 	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
 		instrument = _full_statute_citation_name(match.group(1))
 		context_anchors.append(_raw_match("statute", match.group(0), instrument, match.start(), match.end()))
+
+	# Per kind, the anchors that name an authority, ordered by end and by start (ties by list position), so the
+	# lookups below are binary searches. Each lookup returns what the old scan over every anchor returned, ties
+	# included (the earliest anchor in context_anchors wins).
+	anchor_count = len(context_anchors)
+	by_end: dict[str, list[tuple[int, int]]] = defaultdict(list)
+	by_start: dict[str, list[tuple[int, int]]] = defaultdict(list)
+	for position, anchor in enumerate(context_anchors):
+		if authority_name(anchor):
+			by_end[anchor.kind].append((anchor.offset_end, position))
+			by_start[anchor.kind].append((anchor.offset_start, position))
+	for index_list in (*by_end.values(), *by_start.values()):
+		index_list.sort()
+
+	def latest_ending_anchor(kind: str, start: int) -> RawCitationMatch | None:
+		ends = by_end.get(kind, [])
+		upto = bisect_right(ends, (start, anchor_count))
+		if upto == 0 or start - ends[upto - 1][0] > 1500:
+			return None
+		return context_anchors[ends[bisect_left(ends, (ends[upto - 1][0], -1))][1]]
+
+	def closest_anchor_in_sentence(kind: str, sentence_from: int, start: int) -> RawCitationMatch | None:
+		starts = by_start.get(kind, [])
+		low = bisect_left(starts, (sentence_from, -1))
+		best_position: int | None = None
+		best_start = -1
+		index = bisect_left(starts, (start, -1)) - 1
+		while index >= low:
+			anchor_start, position = starts[index]
+			if best_position is not None and anchor_start != best_start:
+				break
+			if context_anchors[position].offset_end <= start:
+				best_position, best_start = position, anchor_start
+			index -= 1
+		return None if best_position is None else context_anchors[best_position]
+
+	def anchor_named_after(kind: str, end: int) -> RawCitationMatch | None:
+		starts = by_start.get(kind, [])
+		window = starts[bisect_left(starts, (end, -1)) : bisect_right(starts, (end + 30, anchor_count))]
+		for _anchor_start, position in sorted(window, key=lambda item: item[1]):
+			candidate = context_anchors[position]
+			if re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE):
+				return candidate
+		return None
+
+	defined_act_by_kind: dict[str, RawCitationMatch | None] = {}
+
 	for match in STANDALONE_PROVISION_RE.finditer(content):
 		start, end = match.span()
 		section_text, end = _standalone_provision_parts(content, match)
 		if anchors_overlap(start, end):
 			continue
 
-		def sentence_break_starts(index: int) -> list[int]:
-			return all_sentence_breaks[: bisect_right(all_sentence_breaks, index)]
-
 		prefix = match.group(1).lower()
 		if "para" in prefix and "(" not in match.group(2):
 			continue
 		kind = "instrument" if prefix.startswith("art") else "statute"
-		eligible = [
-			anchor
-			for anchor in context_anchors
-			if anchor.kind == kind
-			and anchor.offset_end <= start
-			and start - anchor.offset_end <= 1500
-			and authority_name(anchor)
-		]
-		if not eligible:
+		latest_anchor = latest_ending_anchor(kind, start)
+		if latest_anchor is None:
 			continue
-		sentence_breaks = sentence_break_starts(start)
-		sentence_start = sentence_breaks[-1] if sentence_breaks else 0
-		previous_sentence_start = sentence_breaks[-2] if len(sentence_breaks) > 1 else 0
-		sentence_anchors = [
-			anchor
-			for anchor in context_anchors
-			if anchor.kind == kind
-			and previous_sentence_start <= anchor.offset_start < start
-			and anchor.offset_end <= start
-			and authority_name(anchor)
-		]
+		break_count = bisect_right(all_sentence_breaks, start)
+		previous_sentence_start = all_sentence_breaks[break_count - 2] if break_count > 1 else 0
+		sentence_anchor = closest_anchor_in_sentence(kind, previous_sentence_start, start)
 		following_authority = re.search(r"\bof\s+(?:the\s+)?(IRPA|IRPR|Criminal Code)\b", content[end : min(len(content), end + 180)], re.IGNORECASE)
 		if following_authority is None:
 			# "his section 7 rights under the Canadian Charter ..." / "section 7 interests" with the Charter named earlier
@@ -2120,27 +2149,19 @@ def _extract_anchored_provision_candidates(
 				authority_start + len(following_authority.group(1)),
 			)
 		else:
-			named_after = next(
-				(
-					candidate
-					for candidate in context_anchors
-					if candidate.kind == kind
-					and 0 <= candidate.offset_start - end <= 30
-					and authority_name(candidate)
-					and re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
-				),
-				None,
-			)
+			named_after = anchor_named_after(kind, end)
 			if named_after is not None:
 				anchor = named_after
 			else:
-				anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
-				if not sentence_anchors and re.match(
+				anchor = sentence_anchor if sentence_anchor is not None else latest_anchor
+				if sentence_anchor is None and re.match(
 					r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE
 				):
 					# "section 18 of the Act" names an instrument we cannot see. Guessing the nearest registered act is
 					# usually wrong (Charter, Federal Courts Rules); an unregistered nearest act is the decision's own statute.
-					defined = _defined_act_anchor(content, context_anchors, kind)
+					if kind not in defined_act_by_kind:
+						defined_act_by_kind[kind] = _defined_act_anchor(content, context_anchors, kind)
+					defined = defined_act_by_kind[kind]
 					if defined is not None:
 						anchor = defined
 					else:

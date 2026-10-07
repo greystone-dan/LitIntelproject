@@ -120,3 +120,47 @@ def matched_on_sql(query: str, *, search_full_text: bool) -> tuple[str, dict[str
 	if search_full_text:
 		label += "WHEN :match_tokens <> '' AND (c.full_text ILIKE :match_like OR c.summary ILIKE :match_like) THEN 'Full text' "
 	return label + "ELSE 'Metadata' END", params
+
+
+# Plain-language (sentence) queries: match cases that contain most of the content words, not only the exact phrase.
+SENTENCE_STOPWORDS = frozenset(
+	"a an the of to in is was were are be been being for on and or my me i he she it they them his her their "
+	"its that this these those by with as at from not did do does done if because after before when who which "
+	"whom what where why how into than then so out up has have had would could should can may might about over "
+	"under against between through during without within also but any all some no our we you your us".split()
+)
+SENTENCE_MIN_WORDS = 3
+SENTENCE_MAX_WORDS = 6
+
+
+def sentence_words(query: str) -> list[str]:
+	"""Distinct content words of a plain-language query, longest first; [] unless it reads like a sentence."""
+	seen: list[str] = []
+	for word in re.findall(r"[^\W_]+", str(query or "").lower()):
+		if len(word) >= 3 and word not in SENTENCE_STOPWORDS and word not in seen:
+			seen.append(word)
+	if len(seen) < SENTENCE_MIN_WORDS:
+		return []
+	return sorted(seen, key=lambda value: (-len(value), seen.index(value)))[:SENTENCE_MAX_WORDS]
+
+
+def sentence_hits_sql(query: str, *, search_full_text: bool) -> tuple[str, str, dict[str, str]]:
+	"""Return (hit_count_sql, filter_sql, params) for most-of-the-words matching, or empty strings.
+
+	Needs at least 60% of the content words (min 2) in the title, citation and, when body search is on, the
+	summary and full text. Values are bound parameters; no schema or index change.
+	"""
+	words = sentence_words(query)
+	if not words:
+		return "", "", {}
+	columns = ["c.title", "c.citation"] + (["c.summary", "c.full_text"] if search_full_text else [])
+	params: dict[str, str] = {}
+	parts = []
+	for index, word in enumerate(words):
+		name = f"sentence_word_{index}"
+		params[name] = f"%{word}%"
+		clause = " OR ".join(f"COALESCE({column}, '') ILIKE :{name}" for column in columns)
+		parts.append(f"(CASE WHEN {clause} THEN 1 ELSE 0 END)")
+	hits = "(" + " + ".join(parts) + ")"
+	needed = max(2, -(-len(words) * 3 // 5))
+	return hits, f"{hits} >= {needed}", params

@@ -179,6 +179,7 @@ Active scripts documented: 193
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
 | `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
+| `run_live_analysis_mocks.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
@@ -2568,6 +2569,20 @@ Active scripts documented: 193
 
 ```powershell
 .\venv\Scripts\python.exe scripts\run_jobs.py --list
+```
+
+## `scripts/run_live_analysis_mocks.py`
+
+**Purpose:** Run the synthetic Live Analysis documents and score them against expected.json (read-only, nothing stored). Usage: python scripts/run_live_analysis_mocks.py [folder] [--no-library] The default folder is tests/live_analysis_mocks; the long speed document (03) lives in /mnt/project-files/live-analysis/mock-docs and is only scored when it is in the folder given.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help
 ```
 
 ## `scripts/run_local_paragraph_summary_baseline.py`

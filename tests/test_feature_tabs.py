@@ -606,7 +606,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert len(soon) == 13
     assert 'soon-fc-analytics' not in soon
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
-        'about': 'info', 'search': 'research',
+        'about': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
         'research-bench': 'testing',
     }

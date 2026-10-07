@@ -11,15 +11,15 @@
   color:var(--text); font-size:15px; line-height:1.65;
 }
 .ilit-about *{box-sizing:border-box}
-.ilit-about .wrap{max-width:960px;margin:0 auto;padding:4px 0 8px}
+.ilit-about .wrap{max-width:none;margin:0;padding:4px 0 8px}
 .ilit-about .eyebrow{margin:0 0 8px;color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .ilit-about h1{margin:0;font:600 34px/1.1 var(--serif);letter-spacing:-.01em}
-.ilit-about .lede{max-width:68ch;margin:14px 0 0;font-size:16.5px;color:var(--text)}
+.ilit-about .lede{max-width:none;margin:14px 0 0;font-size:16.5px;color:var(--text)}
 .ilit-about section{margin-top:38px;padding-top:28px;border-top:1px solid var(--border)}
 .ilit-about section:first-of-type{border-top:0}
 .ilit-about h2{margin:0;font:600 24px/1.2 var(--serif)}
 .ilit-about h3{margin:0 0 4px;font-size:14.5px;line-height:1.35}
-.ilit-about .intro{max-width:70ch;margin:8px 0 0;color:var(--muted)}
+.ilit-about .intro{max-width:none;margin:8px 0 0;color:var(--muted)}
 .ilit-about p{margin:8px 0 0}
 .ilit-about code{padding:1px 5px;border-radius:3px;background:var(--surface-alt);font-size:.9em}
 .ilit-about a{color:var(--blue)}
@@ -44,7 +44,7 @@
 .ilit-about .card .k{display:block;margin-bottom:6px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
 .ilit-about ul.ticks{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
-.ilit-about ul.ticks li{position:relative;padding-left:24px;max-width:78ch}
+.ilit-about ul.ticks li{position:relative;padding-left:24px}
 .ilit-about ul.ticks li::before{content:"";position:absolute;left:3px;top:.6em;width:9px;height:5px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
 .ilit-about ul.ticks b{font-weight:600}
 
@@ -65,12 +65,12 @@
 .ilit-about .status-list strong{font-size:13.5px}
 .ilit-about .status-list span{color:var(--muted)}
 
-.ilit-about .note{max-width:78ch;margin-top:16px;padding:13px 16px;border:1px solid #e8d9b4;border-radius:6px;background:var(--amber-soft);font-size:13.5px}
+.ilit-about .note{max-width:none;margin-top:16px;padding:13px 16px;border:1px solid #e8d9b4;border-radius:6px;background:var(--amber-soft);font-size:13.5px}
 .ilit-about .note strong{color:var(--amber)}
 .ilit-about .soon-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin:16px 0 0;padding:0;list-style:none}
 .ilit-about .soon-list li{padding:10px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface);font-size:13px;line-height:1.5;color:var(--muted)}
 .ilit-about .soon-list b{display:block;color:var(--text);font-size:13.5px}
-.ilit-about footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px;max-width:78ch}
+.ilit-about footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px}
 
 @media (max-width:760px){
   .ilit-about h1{font-size:28px}
@@ -206,7 +206,7 @@
 (function(){
   document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
     a.addEventListener('click',function(ev){
-      var g=a.dataset.goto,sel=g==='changelog'?'[data-about-view="changelog"]':'.primary-groups [data-group="'+g+'"]';
+      var g=a.dataset.goto,sel=g==='changelog'?'[data-tab="about-changelog"]':'.primary-groups [data-group="'+g+'"]';
       var target=document.querySelector(sel);
       if(!target)return;
       ev.preventDefault();target.click();window.scrollTo({top:0});

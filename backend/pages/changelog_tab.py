@@ -17,9 +17,10 @@ CHANGELOG_PATH = Path(__file__).resolve().parents[2] / "data" / "changelog" / "c
 _CSS = """
 .about-subtabs{display:flex;gap:6px;margin:0 0 14px;padding:0 0 2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .about-subtabs .tab{flex:0 0 auto}
-.cl{max-width:900px;color:var(--text)}
-.cl-head h3{margin:0;font:600 24px/1.15 "Newsreader",serif}
-.cl-head p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.65;max-width:70ch}
+.cl{max-width:none;color:var(--text)}
+.cl-head h2{margin:0;font:600 34px/1.1 "Newsreader",serif;letter-spacing:-.01em}
+.cl-head .cl-sub{margin:8px 0 0;font:600 17px/1.3 "Newsreader",serif}
+.cl-head p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.65;max-width:none}
 .cl-filters{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 4px}
 .cl-chip{border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:999px;padding:5px 11px;font-family:inherit;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer}
 .cl-chip[aria-pressed="true"]{background:var(--rust);border-color:var(--rust);color:#fff}
@@ -35,8 +36,8 @@ _CSS = """
 .cl-theme{padding:1px 7px;border:1px solid var(--border);border-radius:999px;background:var(--surface-alt);font-weight:600}
 .cl-meta a{color:var(--blue)}
 .cl-empty{margin-top:20px;color:var(--muted);font-size:13px}
-.cl-foot{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.6;max-width:70ch}
-@media(max-width:520px){.cl-head h3{font-size:21px}.cl-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.cl-chip{flex:0 0 auto}}
+.cl-foot{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.6}
+@media(max-width:520px){.cl-head h2{font-size:26px}.cl-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.cl-chip{flex:0 0 auto}}
 """
 
 _JS = """
@@ -71,14 +72,14 @@ const summary=document.getElementById('changelogSummary');
 if(summary&&data.entries.length){const dates=data.entries.map(e=>e.date).sort();summary.textContent=data.entries.length+' entries, from '+nice(dates[0])+' to '+nice(dates[dates.length-1])+'.'}
 
 const views={overview:document.getElementById('aboutOverviewPane'),changelog:document.getElementById('aboutChangelogPane')};
-const buttons=document.querySelectorAll('[data-about-view]');
+const navTabs={overview:'[data-tab="about"]',changelog:'[data-tab="about-changelog"]'};
 function showAboutView(name,updateUrl){
   if(!views[name])name='overview';
   Object.entries(views).forEach(([key,pane])=>{pane.hidden=key!==name});
-  buttons.forEach(b=>{const on=b.dataset.aboutView===name;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
+  Object.entries(navTabs).forEach(([key,selector])=>{document.querySelectorAll(selector).forEach(b=>{const on=key===name;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))})});
   if(updateUrl){try{const url=new URL(location.href);if(name==='overview')url.searchParams.delete('about');else url.searchParams.set('about',name);history.replaceState(null,'',url.pathname+url.search+url.hash)}catch(e){}}
 }
-buttons.forEach(b=>b.addEventListener('click',()=>showAboutView(b.dataset.aboutView,true)));
+window.showAboutView=showAboutView;
 try{showAboutView(new URLSearchParams(location.search).get('about')||'overview',false)}catch(e){}
 })();
 """
@@ -98,13 +99,9 @@ def about_panel_html(overview_fragment: str) -> str:
 	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"
-		'<div class="about-subtabs" role="group" aria-label="About views">'
-		'<button class="tab active" type="button" data-about-view="overview" aria-pressed="true">Overview</button>'
-		'<button class="tab" type="button" data-about-view="changelog" aria-pressed="false">Changelog</button>'
-		"</div>\n"
 		f'<div id="aboutOverviewPane">\n{overview_fragment}\n</div>\n'
 		'<div id="aboutChangelogPane" class="cl" hidden>\n'
-		'<div class="cl-head"><div class="about-kicker">Project timeline</div><h3>What has been added, and when</h3>'
+		'<div class="cl-head"><div class="about-kicker">About \u00b7 Project timeline</div><h2>Changelog</h2><p class="cl-sub">What has been added, and when</p>'
 		"<p>A running record of what has been added to iLit, newest first. It is built from the project\u2019s GitHub history "
 		"(merged changes and commits) and written in plain language. Small fixes, documentation-only changes and test or build "
 		'changes are left out. <span id="changelogSummary"></span></p></div>\n'

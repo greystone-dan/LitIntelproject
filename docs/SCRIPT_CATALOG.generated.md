@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 194
+Active scripts documented: 195
 
 ## Catalog
 
@@ -67,6 +67,7 @@ Active scripts documented: 194
 | `case_types_eval.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\case_types_eval.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
+| `check_site_tour.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_site_tour.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
 | `classify_case_types.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_case_types.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
@@ -1001,6 +1002,20 @@ Active scripts documented: 194
 
 ```powershell
 .\venv\Scripts\python.exe scripts\check_saved_searches.py --help
+```
+
+## `scripts/check_site_tour.py`
+
+**Purpose:** Check the site tour in a real browser: every step's target must resolve, and the controls must work. Needs Playwright with Chromium and a running copy of the site. Read-only: it never clicks a step button that writes (the Workbench demo sign-in), so it is safe to point at the live site. python scripts/check_site_tour.py --base-url http://localhost:8001 python scripts/check_site_tour.py --base-url https://www.ilit.ca --shots /tmp/tour-shots python scripts/check_site_tour.py --steps-only # only validate site_tour_steps.json (no browser) A step marked optional, or one that names a feature in "needs", may be skipped without failing the check; every other step must show its card on the page it names. Exit code 1 if any required step failed or the page raised an error.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\check_site_tour.py --help
 ```
 
 ## `scripts/chunk_cases.py`

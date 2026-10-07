@@ -356,6 +356,8 @@
     u.text.textContent=s.text||'';
     u.extra.textContent='';
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
+    clearTimeout(u.slow);
+    if(pending)u.slow=setTimeout(function(){if(ui&&ui.card.classList.contains('pending'))ui.count.textContent='Loading…'},600);   // only a slow step says so
     u.fill.style.width=Math.round(((i+1)/STEPS.length)*100)+'%';
     u.back.disabled=i===0;
     u.next.textContent=i===STEPS.length-1?'Done':'Next';
@@ -479,12 +481,17 @@
       await fetch('/workbench/api/signin',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Demo analyst'})});
     }catch(e){}
   }
+  // Ask for the Federal Court statistics early (read-only) so they are ready by the time the tour reaches them.
+  function warm(){
+    (DATA.warm||[]).forEach(function(u){try{fetch(u,{credentials:'same-origin'}).catch(function(){})}catch(e){}});
+  }
   async function start(){
     caseIds={};pendingLookups={};
     state={i:0,active:true,t0:Date.now()};save(state);
     build();render(0,[],true);
     // sign in and look up the example decisions once, together, so later steps do not wait on them
     await Promise.all([demoSignIn()].concat(Object.keys(CASES).map(resolveCase)));
+    warm();
     var url=new URL(location.href);
     if(url.searchParams.has('tour')){url.searchParams.delete('tour');history.replaceState(null,'',url.pathname+url.search+url.hash)}
     show(0,1);

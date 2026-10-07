@@ -3,7 +3,7 @@
 Needs Playwright with Chromium and a running copy of the site.
 
     python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots
-    python scripts/check_site_tour.py --base-url https://www.ilit.ca --walk --require-data
+    python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data   # on the PC that serves the site
     python scripts/check_site_tour.py --steps-only      # only validate site_tour_steps.json (no browser)
 
 --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the
@@ -89,7 +89,8 @@ def run_probes(base: str) -> int:
     short = 0
     for probe in json.loads(STEPS_FILE.read_text(encoding="utf-8")).get("probes") or []:
         try:
-            with urllib.request.urlopen(base + probe["url"], timeout=60) as response:
+            request = urllib.request.Request(base + probe["url"], headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
+            with urllib.request.urlopen(request, timeout=60) as response:
                 count = len(json.load(response).get("results", []))
         except Exception as error:  # noqa: BLE001
             count, note = -1, f" ({str(error)[:60]})"
@@ -197,7 +198,7 @@ RING_REPORT = """() => {
 }"""
 
 
-def run_walk(base: str, width: int, shots: Path | None) -> int:
+def run_walk(base: str, width: int, shots: Path | None, require_data: bool = False) -> int:
     """Take the tour the way a visitor does: start on About and press only Next, timing each step.
 
     The tour signs in to the Workbench demo and pins decisions as it goes (the same writes a visitor's tour makes).
@@ -243,6 +244,10 @@ def run_walk(base: str, width: int, shots: Path | None) -> int:
             )
             if by_id.get(step_id, {}).get("target") and not main_lit:
                 notes.append("main highlight NOT SHOWN")
+            if by_id.get(step_id, {}).get("needsData") and not page.evaluate(
+                "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
+            ):
+                notes.append("statistics EMPTY")
             index = next((k for k, step in enumerate(steps) if step["id"] == step_id), -1)
             expected = steps[len(seen)]["id"] if len(seen) < len(steps) else None
             while expected and expected != step_id and expected in by_id and len(seen) < len(steps):
@@ -254,7 +259,7 @@ def run_walk(base: str, width: int, shots: Path | None) -> int:
             seen.append(step_id)
             slow = " SLOW" if ms > 6000 else ""
             print(f"{index + 1:>2}  {step_id:<22} {ms:>6}{slow}  {len(rings)} lit{'; ' + '; '.join(notes) if notes else ''}")
-            problems += len(notes)
+            problems += len([note for note in notes if note != "statistics EMPTY" or require_data])
             if shots:
                 shots.mkdir(parents=True, exist_ok=True)
                 page.screenshot(path=str(shots / f"{index + 1:02d}-{step_id}{'-phone' if width < 700 else ''}.png"))
@@ -341,7 +346,7 @@ def main() -> int:
     short = run_probes(base)
     failures = run_controls(base, args.width)
     if args.walk:
-        failures += run_walk(base, args.width, args.shots)
+        failures += run_walk(base, args.width, args.shots, args.require_data)
     if args.each or not args.walk:
         failures += run_browser(base, args.shots if not args.walk else None, shot_ids, args.width, args.demo_sign_in, args.require_data)
     if args.require_data:

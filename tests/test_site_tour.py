@@ -56,6 +56,10 @@ def test_tour_assets_are_served_without_the_database():
     assert styles.status_code == 200 and ".ilit-tour-card" in styles.text
 
 
+def test_tour_warms_only_its_own_read_only_statistics():
+    assert all(url.startswith("/api/fc-activity/") for url in tour_steps()["warm"])
+
+
 def test_tour_makes_no_outside_or_ai_calls():
     source = tour_js()
     assert "fetch(" in source
@@ -99,10 +103,12 @@ def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
 
 def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     data = tour_steps()
-    assert len([s for s in data["steps"] if s["id"].startswith("fc-")]) >= 12
+    fc_steps = [s for s in data["steps"] if s["id"].startswith("fc-")]
+    assert 5 <= len(fc_steps) <= 8                        # grouped panels: more than a glance, not every chart
+    assert sum(len(s.get("also", [])) + 1 for s in fc_steps) >= 15
     assert {"la-paste", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-india-minister-won"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-minister-won"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 

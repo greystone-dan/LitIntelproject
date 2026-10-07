@@ -72,6 +72,7 @@ def test_about_page_has_overview_and_changelog_views_without_network_calls():
 	html = data_explorer_page_html()
 	assert 'data-tab="about-changelog"' in html and 'id="aboutChangelogPane"' in html
 	assert 'id="changelogData"' in html and 'id="aboutChangelogPane"' in html
+	assert 'data-tab="about-how"' in data_explorer_page_html() and 'id="aboutHowPane"' in html
 	script = re.search(r"<script>\s*\(function\(\)\{\nconst data=JSON.parse.*?</script>", html, re.S).group(0)
 	assert "fetch(" not in script
 
@@ -91,13 +92,15 @@ def test_build_script_check_passes():
 
 
 def test_about_text_has_no_stale_figures_or_funding():
-	text = (ROOT / "backend" / "pages" / "about_content.html").read_text(encoding="utf-8")
+	text = "".join((ROOT / "backend" / "pages" / name).read_text(encoding="utf-8") for name in ("about_content.html", "about_how.html"))
 	for stale in ("316,940", "61,000", "1.44 M", "183,010", "705 automated", "About 700", "3 of 10", "13,424", "28 Sept 2026"):
 		assert stale not in text, stale
 	for money in ("US$", "funding", "Funding", "Mac Studio", "MacBook", "subscription", "pricing", "Westlaw", "Lexis"):
 		assert money not in text, money
+	overview = (ROOT / "backend" / "pages" / "about_content.html").read_text(encoding="utf-8")
 	for key in ("cases", "citations", "fc_activity_cases"):
-		assert f'data-live="{key}"' in text
+		assert f'data-live="{key}"' in overview
+	assert "ilitTourStart" in overview and "/future-features" in overview
 
 
 def test_about_coming_soon_list_matches_the_navigation():

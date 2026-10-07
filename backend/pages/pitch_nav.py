@@ -70,6 +70,7 @@ def _tab(group: str, tab: str, panel: str, label: str, active: bool = False, hid
 def _subnav() -> str:
     rows = [
         _tab("info", "about", "aboutPanel", "Overview"),
+        _tab("info", "about-how", "aboutPanel", "How it works"),
         _tab("info", "about-changelog", "aboutPanel", "Changelog"),
         _tab("research", "search", "searchPanel", "Case search", active=True, hidden=False),
         _tab("intel", "judge-profile", "judgeProfilePanel", "Judge Profiles"),
@@ -159,8 +160,9 @@ def _script() -> str:
         "}\n"
         "activateResearchTab=function(tabKey,updateUrl=true){\n"
         "  const wanted=tabKey==='info'?'about':String(tabKey||'search');\n"
-        "  const target=wanted==='about-changelog'?'about':wanted;\n"
-        "  const aboutView=wanted==='about-changelog'?'changelog':wanted==='about'?(!updateUrl&&new URLSearchParams(location.search).get('about')==='changelog'?'changelog':'overview'):null;\n"
+        "  const target=wanted.indexOf('about-')===0?'about':wanted;\n"
+        "  const aboutParam=!updateUrl?new URLSearchParams(location.search).get('about'):null;\n"
+        "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
         "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon;\n"
         "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"

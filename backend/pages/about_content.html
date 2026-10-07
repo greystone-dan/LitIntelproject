@@ -24,6 +24,8 @@
 .ilit-about code{padding:1px 5px;border-radius:3px;background:var(--surface-alt);font-size:.9em}
 .ilit-about a{color:var(--blue)}
 
+.ilit-about .entry-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.ilit-about .entry-buttons .ilit-tour-start{margin:0}
 .ilit-about .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:24px;border:1px solid var(--border);border-radius:6px;background:var(--surface);overflow:hidden}
 .ilit-about .tiles div{padding:16px 18px;border-left:1px solid var(--border)}
 .ilit-about .tiles div:first-child{border-left:0}
@@ -89,13 +91,16 @@
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">About · where the demo stands on 6 October 2026</p>
+    <p class="eyebrow">About</p>
     <h1>iLit: immigration litigation intelligence</h1>
-    <p class="lede">iLit is a research tool for Canadian immigration case law that I am building independently, on public decisions only. It lets you search the library, read a decision with its citations and statute references alongside the text, and see how a judge, an authority or the Federal Court docket fits into the wider picture. This page describes what works today and what does not yet.</p>
-    <button type="button" class="ilit-tour-start" data-ilit-tour-start id="ilitTourStart"><span aria-hidden="true">&#9654;</span> Take a tour</button>
-    <span class="ilit-tour-start-note">A guided walk through the real site: it opens each page, explains it and shows its main features. Press Next to go on, or Exit at any time. The only thing it saves is a few example pins on a demo Workbench.</span>
-    <a class="ilit-tour-start alt" href="/future-features" id="ilitFutureTourStart"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a>
-    <span class="ilit-tour-start-note">A page on what could come next and the work still to do. Nothing on it is built yet.</span>
+    <p class="lede">iLit is a research tool for Canadian immigration case law. Search a library of public decisions, read each one in a clean, formatted view with its citations and statutes beside the text, and see how judges, authorities and the Federal Court docket fit together.</p>
+    <p class="lede">It is being built independently, on public decisions only, and it is a working demonstration rather than a finished product.</p>
+    <div class="entry-buttons">
+      <button type="button" class="ilit-tour-start" data-ilit-tour-start id="ilitTourStart"><span aria-hidden="true">&#9654;</span> Take a tour</button>
+      <a class="ilit-tour-start alt" href="/future-features" id="ilitFutureTourStart"><span aria-hidden="true">&#9776;</span> Roadmap</a>
+      <a class="ilit-tour-start alt" href="?tab=about&amp;about=how" data-goto="how"><span aria-hidden="true">&#9881;</span> How it works</a>
+    </div>
+    <span class="ilit-tour-start-note">The tour is a guided walk through the real site. It opens each page, explains it and shows its main features. The only thing it saves is a few example pins on a demo Workbench. The roadmap lists what could come next; nothing on it is built yet.</span>
     <div class="tiles" role="list">
       <div role="listitem"><b data-live="cases">–</b><span>decisions in the library</span></div>
       <div role="listitem"><b data-live="citations">–</b><span>citation records found in those decisions</span></div>
@@ -104,101 +109,7 @@
     <p class="small" style="margin-top:10px">These three numbers are read from the database when this page opens. If they show a dash, the database could not be reached.</p>
   </header>
 
-  <section id="tabs">
-    <h2>Finding your way around</h2>
-    <p class="intro">The site has three working sections along the top, plus this page. Click a card to go there.</p>
-    <div class="grid">
-      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Case search</span><p>The main page. Find decisions by name, citation or phrase, narrow them with filters, and open one to read it.</p></a>
-      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></a>
-      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer. The full list is further down this page.</p></a>
-      <a class="card go" href="?tab=about&amp;about=changelog" data-goto="changelog"><span class="k">Changelog</span><p>A timeline, newest first, of what has been added to the site and when, with a filter by theme.</p></a>
-    </div>
-  </section>
-
-  <section id="library">
-    <h2>What is in the library</h2>
-    <p class="intro">Decisions from four courts and tribunals, each kept as published with its source address, and split into numbered paragraphs so a result can point to a passage. The counts below were taken from the database on 6 October.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Court or tribunal</th><th class="num">Decisions</th><th>Years covered</th></tr></thead>
-        <tbody>
-          <tr><td>Federal Court (FC)</td><td class="num">35,981</td><td>2001–2026</td></tr>
-          <tr><td>Supreme Court of Canada (SCC)</td><td class="num">10,893</td><td>1877–2026</td></tr>
-          <tr><td>Federal Court of Appeal (FCA)</td><td class="num">7,813</td><td>2001–2026</td></tr>
-          <tr><td>Immigration and Refugee Board, Refugee Protection Division (RPD)</td><td class="num">6,729</td><td>2002–2020</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small" style="margin-top:10px">A further 45 older records carry no decision text. The library is not a complete archive of any of these courts. Immigration Division and Immigration Appeal Division decisions are not in it yet.</p>
-    <p>Alongside the decisions, the library holds a separate record of the Federal Court docket for immigration files: the dated entries recorded on each file, such as filing, leave and judgment. It is a different kind of record from a decision, and it is what the Federal Court Analytics view draws on.</p>
-  </section>
-
-  <section id="search">
-    <h2><span class="tag live">Live</span>Case search</h2>
-    <p class="intro">Search runs entirely on the stored library. Nothing you type is sent to an AI service.</p>
-    <ul class="ticks">
-      <li><b>Find a case.</b> Type a case name, party, citation or phrase. The search looks at names and citations and at the reasons in the decisions themselves. A short plain-words line under the box says what the search is doing.</li>
-      <li><b>See why it matched.</b> Each result shows an excerpt with your words highlighted, the court, date, outcome and how many other decisions cite it.</li>
-      <li><b>Narrow it down.</b> Advanced filters cover court, decision year, decision result, judge, Minister or government party, a tag, and a case that the results must cite. Court and year chips narrow results in one click, and results can be sorted by newest, oldest, relevance or most cited.</li>
-      <li><b>Take results with you.</b> A Copy citation button sits on results and in the reader, and a search can be downloaded as a spreadsheet or Word file.</li>
-    </ul>
-  </section>
-
-  <section id="reader">
-    <h2><span class="tag live">Live</span>The case reader</h2>
-    <p class="intro">Open any result to read the decision in a clean formatted view built from the original text.</p>
-    <ul class="ticks">
-      <li><b>Readable layout.</b> Headings, numbered paragraphs, quotations and signature blocks are set out by fixed rules rather than shown as one block of text. A header row gives the court, citation, case name, file number, decision date, decision maker and outcome, with links to the source.</li>
-      <li><b>Citations and statutes in the text.</b> Citations to other cases and references to statutes are highlighted in place. Hovering over a pinpointed citation shows the paragraph it points to, when that case is in the library, and hovering over a statute reference shows the provision text where it is stored. A citation that cannot be matched says so rather than guessing.</li>
-      <li><b>Around the text.</b> A side panel gives the case information and the authorities and statutes the decision refers to, and there is a search box for the text of the decision itself. A chunk-by-chunk view of the same text is also available.</li>
-      <li><b>Outcomes say when they are unsure.</b> The outcome shown comes from fixed rules read against the decision. If the rules cannot tell, it says “unclear” instead of picking one.</li>
-    </ul>
-    <p class="small">Some reader tools are still unfinished, so they stay hidden unless you switch on “Show experimental” at the top of the reader.</p>
-  </section>
-
-  <section id="intel">
-    <h2><span class="tag live">Live</span>Intelligence / Statistics</h2>
-    <p class="intro">Three views that add up many decisions.</p>
-    <div class="grid three">
-      <div class="card"><h3>Judge Profiles</h3><p>A judge’s decisions in the library, outcomes by issue with the full count shown (unclassified decisions included), Federal Court docket activity, and a side-by-side comparison of two judges. Judge names in the source decisions are written many ways, so duplicate profiles still exist while the cleanup is finished. Read these as descriptions, not rankings.</p></div>
-      <div class="card"><h3>Citation Intelligence</h3><p>Pick one case and see which decisions cite it, how that has changed over time, the courts and outcomes of the citing decisions, and the passages where it is cited.</p></div>
-      <div class="card"><h3>Federal Court Analytics</h3><p>Charts and tables over the Federal Court docket layer: how files progress, leave and judicial review outcomes by year filed, the time between steps, motions by type, judges, counsel and the registry. The docket is typed by Registry staff, so any figure inherits their errors.</p></div>
-    </div>
-  </section>
-
-  <section id="soon">
-    <h2><span class="tag soon">Coming soon</span>Built, not yet ready to rely on</h2>
-    <p class="intro">These exist in the code and open from the Coming soon section, each under a banner saying so, but I do not yet stand behind them. Each one’s own explainer says what it is meant to do.</p>
-    <ul class="soon-list"><!--COMING_SOON_LIST--></ul>
-  </section>
-
-  <section id="progress">
-    <h2><span class="tag wip">In progress</span>Not live yet</h2>
-    <p class="intro">Work that is on its way. None of it should be assumed to be in the live library today.</p>
-    <div class="status-list">
-      <div><strong>Case-type labels</strong><span>Rule-based labels for what kind of case a decision is (for example a judicial review of an immigration decision). The reader chip and the search filter are in the code and only show labels once they are stored in the library, which has not happened yet. No AI is involved.</span></div>
-      <div><strong>Statute library</strong><span>A library of federal statutes with the sections of each Act, the decisions that cite them, and extraction of statute references from decisions. Extraction fixes are being tested against a hand-checked set and the stored references are still being repaired.</span></div>
-      <div><strong>Judge name cleanup</strong><span>Merging the many spellings of each judge into one profile, with every merge reversible, and splitting Supreme Court panels into individual judges. The rules are written and being checked before they are applied to the stored data.</span></div>
-      <div><strong>Citation clean-up</strong><span>Better matching of short forms such as “Vavilov at para 99”, French citations, “Ibid” and “the Act”. It is written to store its results beside the existing ones first, so nothing is overwritten.</span></div>
-      <div><strong>Case fingerprints</strong><span>A way to find similar decisions by subject and shared authorities. A draft only, not connected to the site.</span></div>
-      <div><strong>Keeping the library current</strong><span>A daily intake job is built: it adds new Federal Court, Federal Court of Appeal and Supreme Court decisions, and new Federal Court docket entries for immigration files. It has been run by hand; running it automatically every night is the next step.</span></div>
-      <div><strong>More tribunals</strong><span>Immigration Division and Immigration Appeal Division decisions: a plan exists, but none are in the library.</span></div>
-    </div>
-  </section>
-
-  <section id="principles">
-    <h2>How it works, and what I do not claim</h2>
-    <ul class="ticks">
-      <li><b>No AI is needed to use the site.</b> Search, the reader and the statistics read data that was prepared in advance. What you type and any file you open is not sent to any AI service. AI-related features exist in the code but are switched off by default.</li>
-      <li><b>The original comes first.</b> Each decision is stored as published, and everything shown beside it (outcome, case information, paragraph links, labels) is derived from it by rules and kept as a separate layer. Where a fact cannot be found, the page says so.</li>
-      <li><b>It is a research aid, not legal advice.</b> Automated reading makes mistakes. Check anything that matters against the source decision, which every result links to.</li>
-      <li><b>Public data only.</b> Everything in the library comes from public sources. The site currently runs on my own workstation.</li>
-      <li><b>Source terms.</b> Some source data comes with its own terms of use, which would need to be confirmed before any wider deployment.</li>
-    </ul>
-    <div class="note"><strong>Judge statistics are sensitive.</strong> Figures about individual judges can be misread, so the judge views show full denominators and avoid ranking.</div>
-  </section>
-
-  <footer>Updated 6 October 2026 against the code on the main branch (<a href="https://github.com/greystone-dan/LitIntelproject">github.com/greystone-dan/LitIntelproject</a>). The Changelog tab lists every addition by date.</footer>
+  <footer>Updated 7 October 2026. The How it works tab explains where the data comes from and what is and is not finished; the Changelog tab lists every addition by date.</footer>
 
 </div>
 </div>
@@ -206,7 +117,7 @@
 (function(){
   document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
     a.addEventListener('click',function(ev){
-      var g=a.dataset.goto,sel=g==='changelog'?'[data-tab="about-changelog"]':'.primary-groups [data-group="'+g+'"]';
+      var g=a.dataset.goto,sel=g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
       var target=document.querySelector(sel);
       if(!target)return;
       ev.preventDefault();target.click();window.scrollTo({top:0});

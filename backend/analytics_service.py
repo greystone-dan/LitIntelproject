@@ -1406,7 +1406,8 @@ def fetch_analytics_search_cases(
 		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
-		paragraph_hits = search_paragraph_cases(db, query)
+		# The paragraph index holds decision text, so it is searched only when the full-text box is ticked.
+		paragraph_hits = search_paragraph_cases(db, query) if search_full_text else None
 		if paragraph_hits:
 			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
 			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]

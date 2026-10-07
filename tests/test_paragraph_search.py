@@ -147,7 +147,7 @@ def test_case_search_uses_paragraph_hits_for_filter_order_and_label(monkeypatch)
 	]
 	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: hits)
 	db = AnalyticsDB()
-	analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence")
+	analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence", search_full_text=True)
 	where, order = db.sql.split("WHERE", 1)[1].split("ORDER BY", 1)
 	assert db.params["para_ids"] == [7, 3]
 	assert "c.id = ANY(CAST(:para_ids AS integer[]))" in where
@@ -251,3 +251,13 @@ def test_capital_operators_quotes_filters_and_minus_still_use_operator_search(mo
 		db = AnalyticsDB()
 		analytics_service.fetch_analytics_search_cases(db, query=query)
 		assert "sentence_word_0" not in db.sql, query
+
+
+def test_paragraph_index_is_not_searched_when_the_full_text_box_is_off(monkeypatch):
+	def boom(db, query):
+		raise AssertionError("the paragraph index holds decision text; it needs the full-text box")
+
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", boom)
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="best interests of the child")
+	assert "para_ids" not in db.params and "c.full_text ILIKE" not in db.sql

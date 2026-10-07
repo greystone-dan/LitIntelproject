@@ -1299,12 +1299,24 @@ def _live_reader_response(build: Callable[[], dict[str, Any]]) -> JSONResponse:
 @router.post("/live-analysis/reader")
 async def live_analysis_reader(file: UploadFile = File(...), db: Session = Depends(get_db)) -> JSONResponse:
 	"""Reader-shaped analysis of an uploaded document for markup mode. In memory only; no model is called."""
+	from .analytics_service import get_analytics_cache
+	from .site_tour import is_tour_sample_file
+
 	content = await _read_upload_bounded(file)
 	name = file.filename or "document.docx"
+	# Only the tour's own fictional sample file is ever cached; a person's upload is read once and dropped.
+	demo = is_tour_sample_file(content)
 
 	def build() -> dict[str, Any]:
+		if demo:
+			cached, hit = get_analytics_cache().get("live_reader_demo_file", name=name)
+			if hit:
+				return cached
 		text, paragraphs = extract_document(content, name, file.content_type)
-		return build_live_reader_payload(text, paragraphs, name, db)
+		payload = build_live_reader_payload(text, paragraphs, name, db)
+		if demo:
+			get_analytics_cache().set("live_reader_demo_file", payload, name=name)
+		return payload
 
 	return _live_reader_response(build)
 
@@ -1497,6 +1509,18 @@ def site_tour_script() -> Response:
 	from .site_tour import tour_js
 
 	return Response(tour_js(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/site-tour/sample-memo.docx", include_in_schema=False)
+def site_tour_sample_memo() -> Response:
+	"""The fictional demo memo the tour drops on Live analysis."""
+	from .site_tour import SAMPLE_DOCX_NAME, tour_sample_docx
+
+	return Response(
+		tour_sample_docx(),
+		media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		headers={"Cache-Control": "public, max-age=300", "Content-Disposition": f'inline; filename="{SAMPLE_DOCX_NAME}"'},
+	)
 
 
 @router.get("/future-tour.js", include_in_schema=False)

@@ -68,6 +68,8 @@ _OTHER_REGIME_RE = re.compile(
     re.IGNORECASE,
 )
 _AIR_TRAVEL_RE = re.compile(r"Secure\s+Air\s+Travel\s+Act|Passenger\s+Protect", re.IGNORECASE)
+_CITIZENSHIP_TRIAL_STAY_RE = re.compile(r"stay\s+of\s+(?:a|the)\s+trial\s+under\s+section\s+18\s+of\s+the\s+Citizenship\s+Act", re.IGNORECASE)
+_CONVERT_TO_ACTION_RE = re.compile(r"(?:convert|treat)\w*\s+(?:the\s+|their\s+)?(?:application\s+for\s+)?judicial\s+review\s+(?:in)?to\s+an\s+action|18\.4\(2\)", re.IGNORECASE)
 _CRIMINAL_TITLE_RE = re.compile(r"^(?:R\.|Her Majesty|La Reine|Regina)\s+(?:v\.|c\.)", re.IGNORECASE)
 _IMMIGRATION_TITLE_RE = re.compile(r"Citizenship|Immigration|Public Safety|Refugee|Minister of|Solicitor General|Canada Border|Council for", re.IGNORECASE)
 CRIMINAL_CASE_MIN_HITS = 25
@@ -431,6 +433,11 @@ def _classify_text(
         docket = header_docket.group(0) if header_docket else docket
 
     reasons, intro, intro_end = split_regions(content)
+    if (court or "").strip().upper() == "FCA" and ((title and _IMMIGRATION_PARTY_RE.search(title)) or PREGATE_RE.search(content)):
+        for pattern, key in ((_CITIZENSHIP_TRIAL_STAY_RE, "citizenship_other"), (_CONVERT_TO_ACTION_RE, "court_procedure_only")):
+            if pattern.search(content[:4000]):
+                return CaseTypeResult(TAXONOMY_VERSION, STATUS_CLASSIFIED, key, None, [], 0.4, {}, [], None,
+                                      reason="typed from the motion named in the opening")
     if (court or "").strip().upper() in {"FCA", "SCC"} and (_OTHER_REGIME_RE.search(intro[:800]) or _AIR_TRAVEL_RE.search(content[:6000])) \
             and not _DOCKET_IMM_RE.search(content[:2500]):
         return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], None,

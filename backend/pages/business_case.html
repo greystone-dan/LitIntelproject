@@ -3,263 +3,421 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iLit: business case</title>
+<title>iLit: business case report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root{--surface:#fffef9;--alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#5f6863;--blue:#315d8d;--blue-soft:#e7eef6;--rust:#a4412b;--rust-soft:#f7e8e3;--teal:#176c68;--teal-soft:#edf5f3;--amber:#8a6418;--amber-soft:#f8f0dc;--serif:"Newsreader",Georgia,serif}
+:root{--paper:#fffefb;--alt:#f6f4ec;--rule:#cfcbbd;--text:#1f2421;--muted:#5b645f;--accent:#8c2f3c;--blue:#315d8d;--teal:#176c68;--amber:#8a6418;--amber-soft:#f8f0dc;--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",system-ui,sans-serif}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:#efede4;color:var(--text);font:15px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+body{background:#e9e6dc;color:var(--text);font:16px/1.65 var(--serif)}
 a{color:var(--blue)}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px 56px}
-.eyebrow{margin:26px 0 8px;color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-h1{margin:0;font:600 34px/1.1 var(--serif);letter-spacing:-.01em}
-h2{margin:0;font:600 24px/1.2 var(--serif)}
-h3{margin:0 0 4px;font-size:14.5px;line-height:1.35}
-.lede{max-width:70ch;margin:14px 0 0;font-size:16.5px}
-.toc{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}.toc a{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:12.5px;text-decoration:none;color:var(--text)}
-.toc a:hover{border-color:var(--text)}
-section{margin-top:38px;padding-top:28px;border-top:1px solid var(--border)}
-section p{max-width:74ch;margin:8px 0 0}
-.intro{color:var(--muted)}
-.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:24px;border:1px solid var(--border);border-radius:6px;background:var(--surface);overflow:hidden}
-.tiles div{padding:16px 18px;border-left:1px solid var(--border)}.tiles div:first-child{border-left:0}
-.tiles b{display:block;font:600 26px/1.1 var(--serif);color:var(--rust)}
-.tiles div:nth-child(2) b{color:var(--blue)}.tiles div:nth-child(3) b{color:var(--teal)}.tiles div:nth-child(4) b{color:var(--amber)}
-.tiles span{display:block;margin-top:6px;color:var(--muted);font-size:12.5px;line-height:1.4}
-.note{max-width:78ch;margin-top:16px;padding:13px 16px;border:1px solid #e8d9b4;border-radius:6px;background:var(--amber-soft);font-size:13.5px}
-.note strong{color:var(--amber)}
-.say{max-width:78ch;margin-top:16px;padding:13px 16px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:14.5px}
-.table-wrap{margin-top:16px;overflow-x:auto;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px}
-th,td{padding:9px 14px;border-top:1px solid var(--border);text-align:left;vertical-align:top}
-thead th{border-top:0;background:var(--alt);color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-tr.me td,tr.me th{background:var(--teal-soft)}
-td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
-.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.card{padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
-.card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
-.card .k{display:block;margin-bottom:6px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.card .price{font:600 28px/1.1 var(--serif);margin:2px 0 8px}
-.card ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--muted)}
-.tag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;vertical-align:1px}
-.tag.ok{background:var(--teal-soft);color:var(--teal)}.tag.no{background:var(--amber-soft);color:var(--amber)}.tag.part{background:var(--blue-soft);color:var(--blue)}
-code{padding:1px 5px;border-radius:3px;background:var(--alt);font-size:.9em}
-.calc{margin-top:16px;padding:16px;border:1px solid var(--text);border-radius:6px;background:var(--surface)}
-.calc .inputs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.report{max-width:900px;margin:24px auto 56px;background:var(--paper);border:1px solid var(--rule);padding:56px 64px;box-shadow:0 2px 12px rgba(30,30,20,.08)}
+.sans{font-family:var(--sans)}
+.cover{padding-bottom:28px;border-bottom:3px double var(--text)}
+.cover .org{font:600 11.5px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.cover h1{margin:14px 0 8px;font:600 40px/1.1 var(--serif);letter-spacing:-.01em}
+.cover .sub{font-size:20px;color:var(--muted);margin:0;max-width:60ch}
+.meta{margin-top:24px;display:grid;grid-template-columns:150px 1fr;gap:4px 16px;font:13px/1.5 var(--sans)}
+.meta dt{color:var(--muted);font-weight:600}.meta dd{margin:0}
+h2{margin:44px 0 0;padding-top:20px;border-top:1px solid var(--rule);font:600 26px/1.2 var(--serif)}
+h2 .n{display:inline-block;min-width:34px;color:var(--accent)}
+h3{margin:24px 0 0;font:600 18px/1.3 var(--serif)}
+h3 .n{display:inline-block;min-width:34px;color:var(--accent)}
+p{margin:10px 0 0;max-width:72ch}
+ul,ol.plain{margin:10px 0 0;padding-left:22px;max-width:72ch}li{margin-top:5px}
+.toc{margin:28px 0 0;padding:16px 20px;border:1px solid var(--rule);background:var(--alt);font:13.5px/1.7 var(--sans);columns:2 280px;column-gap:32px}
+.toc b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;column-span:all}
+.toc a{display:block;text-decoration:none;color:var(--text)}.toc a:hover{color:var(--accent)}
+.box{margin-top:16px;padding:14px 18px;border:1px solid var(--text);background:var(--alt);max-width:76ch}
+.box.note{border-color:#e0cf9f;background:var(--amber-soft);font:14px/1.55 var(--sans)}
+.box b.t{display:block;font:600 11px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.cap{margin:20px 0 6px;font:600 12.5px/1.4 var(--sans);color:var(--muted)}
+.tw{overflow-x:auto;border:1px solid var(--rule);background:#fff}
+table{width:100%;border-collapse:collapse;font:13.5px/1.5 var(--sans);min-width:600px}
+th,td{padding:8px 12px;border-top:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{border-top:0;background:var(--alt);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td{font-weight:700;background:var(--alt)}
+tr.me td{background:#edf5f3}
+.st{display:inline-block;padding:1px 8px;border-radius:999px;font:700 11px/1.5 var(--sans)}
+.st.ok{background:#edf5f3;color:var(--teal)}.st.pr{background:#e7eef6;color:var(--blue)}.st.no{background:var(--amber-soft);color:var(--amber)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px;border:1px solid var(--rule);background:#fff}
+.kpis div{padding:14px 16px;border-left:1px solid var(--rule);font:12.5px/1.4 var(--sans);color:var(--muted)}.kpis div:first-child{border-left:0}
+.kpis b{display:block;font:600 24px/1.15 var(--serif);color:var(--accent)}
+.calc{margin-top:14px;padding:16px;border:1px solid var(--text);background:#fff;font-family:var(--sans)}
+.calc .in{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .calc label{display:block;font-size:12px;color:var(--muted);font-weight:600}
-.calc input{display:block;width:100%;margin-top:4px;padding:7px 8px;border:1px solid var(--border);border-radius:4px;font:inherit;background:#fff}
-.calc .out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.calc .out div{padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--alt)}
-.calc .out b{display:block;font:600 22px/1.2 var(--serif)}
-.calc .out span{font-size:12px;color:var(--muted)}
-ol.steps{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-ol.steps li{padding:12px 16px;border:1px solid var(--border);border-left:4px solid var(--rust);border-radius:0 6px 6px 0;background:var(--surface);font-size:14px}
-ol.steps b{display:block;font:600 16px/1.3 var(--serif)}
-ul.plain{margin:12px 0 0;padding-left:20px;max-width:76ch}ul.plain li{margin-top:6px}
-ol.src{columns:2 320px;column-gap:28px;font-size:12.5px;padding-left:22px;margin:14px 0 0}ol.src li{break-inside:avoid;margin-bottom:5px;word-break:break-word}
-footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px;max-width:78ch}
-@media (max-width:760px){h1{font-size:28px}.grid,.grid.three{grid-template-columns:minmax(0,1fr)}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles div:nth-child(3){border-left:0}.tiles div:nth-child(n+3){border-top:1px solid var(--border)}.calc .inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.calc .out{grid-template-columns:minmax(0,1fr)}.wrap{padding:0 14px 44px}}
-@media print{.toc{display:none}}
+.calc input{display:block;width:100%;margin-top:4px;padding:7px 8px;border:1px solid var(--rule);border-radius:4px;font:inherit;background:#fff}
+.calc .out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.calc .out div{padding:10px 12px;border:1px solid var(--rule);background:var(--alt);font-size:12px;color:var(--muted)}
+.calc .out b{display:block;font:600 22px/1.2 var(--serif);color:var(--text)}
+code{padding:1px 5px;background:var(--alt);font-size:.88em}
+ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:24px;margin:12px 0 0;max-width:none}ol.src li{break-inside:avoid;margin-bottom:5px;word-break:break-word}
+.foot{margin-top:40px;padding-top:16px;border-top:3px double var(--text);font:12.5px/1.6 var(--sans);color:var(--muted)}
+@media (max-width:760px){.report{margin:0;padding:28px 18px;border-left:0;border-right:0}.cover h1{font-size:30px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis div:nth-child(3){border-left:0}.kpis div:nth-child(n+3){border-top:1px solid var(--rule)}.calc .in{grid-template-columns:repeat(2,minmax(0,1fr))}.calc .out{grid-template-columns:minmax(0,1fr)}.meta{grid-template-columns:1fr}.meta dt{margin-top:6px}}
+@media print{body{background:#fff}.report{margin:0;border:0;box-shadow:none;padding:0}.toc{break-inside:avoid}h2{break-after:avoid}.tw{break-inside:avoid}.calc{display:none}}
 </style>
 </head>
 <body>
-<main class="wrap">
-<p class="eyebrow">Business case &middot; draft of 7 October 2026 &middot; coming soon</p>
-<h1>Why the Division should back iLit</h1>
-<p class="lede">I have been building iLit on my own, on public decisions only: a research tool that shows how the Federal Court has ruled on immigration issues, which authorities carried the day, and where every Federal Court immigration file stands. This page sets out what else is available to counsel, what iLit adds, what it could be worth, what it would cost, the risks, and what I am asking for. I am not asking to be paid for my time.</p>
-<div class="tiles" role="list">
-<div role="listitem"><b>CanLII only</b><span>the research tool the Division has today, as I understand it</span></div>
-<div role="listitem"><b>25</b><span>users, my working estimate of Division counsel and analysts</span></div>
-<div role="listitem"><b>C$2K&ndash;20K</b><span>one-time, in three sizes, for what I am asking</span></div>
-<div role="listitem"><b>C$104K&ndash;248K</b><span>a year, reported list-price range of a commercial AI platform for 25 seats</span></div>
-</div>
-<div class="note"><strong>How to read this page.</strong> Facts carry a numbered source (see Sources at the end). Anything I inferred is marked <em>inferred</em>. The savings figures are labelled assumptions with a formula you can change, not measurements. Vendor prices are third-party list-range reports, not quotes, and the Division may have different terms.</div>
-<nav class="toc" aria-label="Sections"><a href="#short">The short version</a><a href="#landscape">What is out there</a><a href="#gap">What iLit adds</a><a href="#uses">Use cases</a><a href="#roi">Return on investment</a><a href="#cost">Costs</a><a href="#risks">Risks</a><a href="#deploy">Where it runs</a><a href="#plan">Phased plan</a><a href="#ask">The ask</a><a href="#sources">Sources</a></nav>
+<main class="report">
+<header class="cover">
+<div class="org">Business case report &middot; draft for discussion</div>
+<h1>iLit: immigration litigation intelligence</h1>
+<p class="sub">A case for funding and support from the CBSA Hearings and Litigation Division</p>
+<dl class="meta">
+<dt>Prepared for</dt><dd>CBSA Hearings and Litigation Division (informal, unofficial)</dd>
+<dt>Prepared by</dt><dd>The builder of iLit, independently and in a personal capacity</dd>
+<dt>Date</dt><dd>7 October 2026</dd>
+<dt>Status</dt><dd>Draft for discussion. Not an offer, not a procurement document and not legal advice.</dd>
+<dt>Information used</dt><dd>Public court decisions and public sources only. No CBSA or other protected information is held or used.</dd>
+</dl>
+</header>
 
-<section id="short">
-<h2>The short version</h2>
-<p>Counsel at the Division can find a decision on CanLII, and CanLII now has a plain-language AI search of its own [1,2]. What I did not find in CanLII, or in any Canadian product I looked at, is analysis of how the Minister has fared on an issue across Federal Court immigration decisions, statistics across every Federal Court immigration file, or a check of the authorities in a draft memo against a stored index. iLit does those three things today, with rules that point back to the source text, not generated answers.</p>
-<p>The largest cost I am asking about, about C$20,000 once, is small beside a commercial AI platform for 25 seats (reported C$104K&ndash;248K every year) and smaller still beside commissioning a comparable build (about C$1.45M at federal rate-card ceilings) [3,4]. Break-even is measured in hours of counsel time, not years (see the calculator below).</p>
+<nav class="toc" aria-label="Contents"><b>Contents</b>
+<a href="#s1">1. Executive summary</a><a href="#s2">2. Background and problem</a><a href="#s3">3. Proposed solution</a><a href="#s4">4. What has been built</a><a href="#s5">5. Alternatives available to counsel</a><a href="#s6">6. Users, use cases and value</a><a href="#s7">7. Options considered</a><a href="#s8">8. Deployment: short and long term</a><a href="#s9">9. Costs and funding</a><a href="#s10">10. Return on investment</a><a href="#s11">11. Risks and mitigations</a><a href="#s12">12. Implementation plan and timeline</a><a href="#s13">13. The request and next steps</a><a href="#appA">Appendix A. Resource comparison</a><a href="#appB">Appendix B. Assumptions</a><a href="#appC">Appendix C. Unverified items</a><a href="#appD">Appendix D. Sources</a></nav>
+
+<section id="s1">
+<h2><span class="n">1</span>Executive summary</h2>
+<h3>Purpose</h3>
+<p>This report sets out the case for supporting iLit, a research tool for Canadian immigration case law that I have built independently over about two months, on public decisions only. It describes the problem it addresses, what exists today, the alternatives, what it would cost to continue, the expected value and its limits, the risks, and a staged plan to move from a public prototype to something the Division could use inside its own environment.</p>
+<h3>The problem</h3>
+<p>As I understand it, the Division&rsquo;s only research tool is CanLII, which is free, reliable and now offers a plain-language AI search of its own [1,2]. CanLII helps counsel find and read a decision. It does not, as far as I could find, show how the Minister has fared on an issue across Federal Court immigration decisions, give statistics across every Federal Court immigration file, or check the authorities in a draft memo against a stored index. The same is true of the commercial platforms I reviewed (Appendix A). Those answers currently have to be assembled by hand.</p>
+<h3>The proposal</h3>
+<p>Continue developing iLit in two stages. In the short term, run it on a dedicated private computer I control, with the site hosted on an external server in Canada, using public case law only. In the long term, and only if the Division wishes, move a version inside CBSA infrastructure, where it could also search internal documents under the approvals that handling protected information requires. Nothing in the first stage touches CBSA systems or data.</p>
+<h3>Key findings</h3>
+<ul>
+<li><b>Gap.</b> I found no Canadian product, free or commercial, that offers Federal Court immigration outcome analytics, whole-docket statistics and an authority check on a memo in one place (Appendix A). Whether any vendor offers parts of this under a private quote is unverified.</li>
+<li><b>Working evidence.</b> A library of more than 60,000 decisions, about 1.44 million citations and the docket history of 316,940 Federal Court immigration files is built and searchable. Some features are prototypes and some outcome labels are being corrected (section 4).</li>
+<li><b>Cost.</b> My out-of-pocket spend to date is C$841.32. The funding I would need is C$2,000 to C$20,000 once, in three levels (section 9). A commercial AI platform for 25 seats is reported at C$104,000 to C$248,000 a year, and commissioning a comparable build at about C$1.45 million (sections 7 and 9).</li>
+<li><b>Return.</b> On illustrative assumptions of one hour a week saved by 40% of 25 users, the value is about C$34,500 a year. No time saving has been measured yet, so I present this as a formula with labelled assumptions, not a forecast (section 10).</li>
+<li><b>Safeguards.</b> No AI is used when someone searches or reads. AI is used only to enrich public decisions when they are added. The data licence is non-commercial and is respected (section 11).</li>
+</ul>
+<div class="box"><b class="t">The request, in one paragraph</b>I ask for interest and a few hours from a small group of counsel to trial iLit on real work; an unofficial funding contribution at one of three levels, starting at C$2,000 to C$5,000; and a conversation about where an internal version could eventually be hosted and who would review security and privacy. I am not asking to be paid for my time.</div>
+<div class="kpis" role="list">
+<div role="listitem"><b>60,000+</b>decisions in the library (FC, FCA, SCC, RPD; RAD being added)</div>
+<div role="listitem"><b>316,940</b>Federal Court immigration files with docket history</div>
+<div role="listitem"><b>C$841</b>spent to date out of pocket</div>
+<div role="listitem"><b>C$2K&ndash;20K</b>funding requested, one time, in three levels</div>
+</div>
 </section>
 
-<section id="landscape">
-<h2>What else counsel can use</h2>
-<p class="intro">My research on 7 October 2026. &ldquo;Immigration analytics&rdquo; means Minister-side outcome coding or Federal Court immigration docket statistics. Where I could not confirm something it says so.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Resource</th><th>What it does</th><th>Public price</th><th>Immigration analytics</th></tr></thead>
+<section id="s2">
+<h2><span class="n">2</span>Background and problem statement</h2>
+<h3><span class="n">2.1</span>Context</h3>
+<p>Federal Court immigration litigation is high-volume. The Court reported 2,634 immigration applications for leave and for judicial review pending at 31 March 2026 [20]. Counsel preparing a response need to know how the Court has treated an issue, which authorities it relied on, whether those authorities are still good law, and where a given file stands. These questions recur every week.</p>
+<h3><span class="n">2.2</span>Current state</h3>
+<p>I understand the Division has CanLII and no Westlaw or Lexis subscription. CanLII covers all Canadian courts and tribunals, with paragraph-level noteup, alerts, folders and, since March 2026, a plain-language AI search drawing only on its own database [1,2]. It is the correct starting point and iLit does not replace it.</p>
+<h3><span class="n">2.3</span>Gaps</h3>
+<ul>
+<li><b>Outcomes by issue.</b> Finding decisions is possible; learning how often the Minister succeeded on a given issue, and how that has changed, requires reading them.</li>
+<li><b>Whole-docket view.</b> Most immigration files never produce a published decision, because leave is usually refused without reasons or the file is discontinued. Tools built on decisions never see them. The Court&rsquo;s website shows one file at a time and publishes aggregate counts only [20].</li>
+<li><b>Memo checking.</b> Checking the authorities in a draft is done one citation at a time.</li>
+<li><b>Institutional memory.</b> Positions taken in earlier files are held in documents and in people&rsquo;s memories, not in anything searchable. Internal documents are outside what iLit holds today (section 8).</li>
+<li><b>Hearing-level decisions.</b> I am not aware of any tool, free or commercial, that offers a complete Immigration Division or Immigration Appeal Division dataset. This is a gap across the field, not a feature that iLit lacks relative to others.</li>
+</ul>
+</section>
+
+<section id="s3">
+<h2><span class="n">3</span>Proposed solution</h2>
+<p>iLit reads public decisions and court dockets into structured data, connects them to each other, and offers search, a formatted case reader, citation and authority analysis, outcome and docket statistics, and a memo citation check. It is built on open data from the Refugee Law Lab and A2AJ [17,19] and on the Federal Court&rsquo;s public website.</p>
+<h3><span class="n">3.1</span>Design principles</h3>
+<ul>
+<li><b>Public information only.</b> No internal or protected material is held. Uploaded memos are read in memory and are not stored.</li>
+<li><b>No AI at the point of use.</b> Search, the reader and the statistics do not call any AI service, and nothing a user types is sent to one. AI is used only to enrich public decisions when they are added, and its output is stored as labelled data separate from the source text.</li>
+<li><b>Rules that can be explained.</b> Case types, outcomes, citations and structure are assigned by deterministic rules that point back to the source text, so a result can be checked and defended, unlike a generated answer.</li>
+<li><b>Non-commercial.</b> The Refugee Law Lab data is licensed CC BY-NC 4.0 with attribution [17]. iLit is a non-commercial project and credits its sources.</li>
+</ul>
+</section>
+
+<section id="s4">
+<h2><span class="n">4</span>Evidence of what has been built</h2>
+<p>Everything below was built by one person in about two months. The code base is roughly 95,000 lines of Python in the application and scripts (a raw count including comments and blank lines), plus the web pages, with a test suite of more than 3,200 automated tests that passed in a local run on 7 October 2026. The figures in the second table come from the project&rsquo;s own reports dated 28 September to 4 October 2026 and will have moved since [29].</p>
+<p class="cap">Table 1. Status of the main capabilities (7 October 2026)</p>
+<div class="tw"><table>
+<thead><tr><th>Capability</th><th>Status</th><th>What exists and its limits</th></tr></thead>
 <tbody>
-<tr><td><b>CanLII</b> (the Division&rsquo;s tool)</td><td>All courts and tribunals, statutes, commentary, paragraph-level noteup, alerts and folders. <b>Search+</b> (March 2026) answers plain-language questions from CanLII&rsquo;s own database [1,2].</td><td>Free</td><td>None found. Whether its AI summaries cover Federal Court immigration decisions: <em>unverified</em></td></tr>
-<tr><td><b>Westlaw Advantage Canada</b> with CoCounsel</td><td>Research, KeyCite flags, judicial consideration of statutes, agentic AI; launched 11 Feb 2026 [5,6]</td><td>Not published. Third-party guides report about US$257&ndash;639 per user per month [7]</td><td>None found</td></tr>
-<tr><td><b>Lexis+ / Protégé / Context</b></td><td>Research, drafting, QuickCITE, judge-language analytics. Carries IRB tribunal decisions; I have not confirmed any complete Immigration Division or Immigration Appeal Division dataset [8,9]</td><td>Not published. About US$250&ndash;500 per seat per month reported [10]</td><td>None found for Federal Court immigration outcomes</td></tr>
-<tr><td><b>vLex / Vincent</b>, <b>Clio Work</b> (Clio bought Jurisage in June 2026)</td><td>General AI research and drafting; Jurisage&rsquo;s Compass database covers 470,000+ cases in 43 courts [11,12,13]</td><td>vLex from about US$95 per user per month reported; others quote only</td><td>None found</td></tr>
-<tr><td><b>Alexi</b></td><td>Canadian AI research and memo tool [14]</td><td>Quote only</td><td>None found</td></tr>
-<tr><td><b>Loom Analytics / Court Analytics</b></td><td>Statistics on Canadian case law, judges and success rates, mainly civil litigation [15]</td><td>Quote only</td><td>Federal Court immigration coverage <em>unverified</em></td></tr>
-<tr><td><b>Blue J; Lex Machina; Pre/Dicta</b></td><td>Tax-focused; US courts only; US courts only [16]</td><td>Blue J about US$1,500 per user per year reported</td><td>Not applicable</td></tr>
-<tr><td><b>Refugee Law Lab</b> data and Portal</td><td>Free bulk decisions (Federal Court about 63,500 since 2001; RAD about 29,000) and a Portal with recognition-rate analytics for IRB decisions and their Federal Court reviews [17,18]</td><td>Free, CC BY-NC 4.0 licence</td><td>Yes for refugee decisions. Not Minister-side outcomes across immigration judicial review</td></tr>
-<tr><td><b>A2AJ</b></td><td>Open court and tribunal decisions and statutes, with an API [19]</td><td>Free</td><td>Raw data</td></tr>
-<tr><td><b>Federal Court website</b></td><td>Docket lookup one file at a time; quarterly aggregate statistics (2,634 immigration leave and judicial review applications pending at 31 March 2026) [20]</td><td>Free</td><td>Counts only</td></tr>
-<tr class="me"><td><b>iLit</b></td><td>Paragraph-level search, outcome coding, citation analysis, docket layer, memo check; built on the open data above</td><td>Hosting and upkeep</td><td>Yes (see below)</td></tr>
+<tr><td>Case search and formatted reader</td><td><span class="st ok">Working</span></td><td>Search with filters (court, case type, year); a reader that shows the decision with citations and statutes beside the text. Plain-sentence search takes a few seconds.</td></tr>
+<tr><td>Citation analysis</td><td><span class="st ok">Working</span></td><td>Citations matched to cases and, where the pinpoint can be read, to the paragraph. Citing authorities are profiled over time. Linking rules are still being refined and checked on real cases.</td></tr>
+<tr><td>Federal Court docket layer</td><td><span class="st ok">Working</span></td><td>316,940 immigration files and about 3.59 million entries. About 219,000 files have docket steps classified. Entries are typed by the Registry, so errors carry through.</td></tr>
+<tr><td>Outcome coding (Minister won or lost)</td><td><span class="st pr">Prototype</span></td><td>Rule-based, covering about half of decisions. Some labels are known to be wrong and a correction run is pending. No win rate should be quoted until it has been checked against a hand-graded set.</td></tr>
+<tr><td>Memo citation check</td><td><span class="st pr">Prototype</span></td><td>Finds citations and statute references in standard formats in an uploaded Word or PDF file and resolves them against the library. Nothing is stored.</td></tr>
+<tr><td>Judge and decision-maker pages</td><td><span class="st pr">Prototype</span></td><td>Name matching is imperfect (French names not yet extracted; some values blank). Sensitive; intended to be used issue-first.</td></tr>
+<tr><td>Alerts and saved searches</td><td><span class="st no">Not live</span></td><td>Built but not scheduled. CanLII already offers alerts.</td></tr>
+<tr><td>Treatment of authorities (followed, distinguished)</td><td><span class="st no">Not built</span></td><td>On the roadmap; a large piece of work.</td></tr>
+<tr><td>Internal documents</td><td><span class="st no">Not built</span></td><td>Needs on-premises hosting, sign-in and approvals (section 8).</td></tr>
 </tbody></table></div>
-<p class="small" style="color:var(--muted);font-size:12.5px">Commercial tools are broader than iLit in coverage and drafting. I am not claiming iLit replaces them, only that I found none that does the three things above.</p>
-</section>
-
-<section id="gap">
-<h2>What iLit adds, and what it does not</h2>
-<div class="grid">
-<div class="card"><span class="tag ok">Works today</span><h3>Outcomes by issue</h3><p>Filter decisions to those the Minister won or lost, and see trends by issue. Outcome coding is rule-based and shows its source text. I am still checking its accuracy against a hand-graded set of cases, and some outcomes are known to be wrong, so I would not quote a win rate from it yet.</p></div>
-<div class="card"><span class="tag ok">Works today</span><h3>Every Federal Court immigration file</h3><p>The docket history of 316,940 immigration files and 3.59 million entries, drawn from Refugee Law Lab data and the Court&rsquo;s own site, so statistics can cover files that never produced a decision. The Registry types these entries by hand, so errors in them carry through.</p></div>
-<div class="card"><span class="tag ok">Works today</span><h3>Citations that go to the paragraph</h3><p>Citations are matched to the case and, where the pinpoint can be read, to the exact paragraph, shown on click. Citing authorities are profiled over time.</p></div>
-<div class="card"><span class="tag part">Prototype</span><h3>Memo citation check</h3><p>Upload a Word or PDF memo; the citations and statute references the rules recognise are resolved against the library. The file is read in memory and not stored.</p></div>
-<div class="card"><span class="tag no">Not built</span><h3>Alerts, treatment flags, ID and IAD decisions</h3><p>CanLII has alerts today. iLit has no &ldquo;followed or distinguished&rdquo; flags yet, and no open source exists for Immigration Division and Immigration Appeal Division decisions. These are on the roadmap page.</p></div>
-<div class="card"><span class="tag no">Not the purpose</span><h3>Drafting</h3><p>iLit does not draft text. Normal search uses no AI, and nothing a person types is sent to an AI service.</p></div>
-</div>
-</section>
-
-<section id="uses">
-<h2>Use cases and where the value would come from</h2>
-<p class="intro">Each is a hypothesis to measure with Division staff, not a finding.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Use case</th><th>Today with CanLII</th><th>With iLit</th><th>Value to measure</th></tr></thead>
+<p class="cap">Table 2. Scale (project reports, 28 September to 4 October 2026; counts have since grown)</p>
+<div class="tw"><table>
+<thead><tr><th>Measure</th><th class="r">Figure</th></tr></thead>
 <tbody>
-<tr><td>Find authorities on an issue</td><td>Keyword search, then read whole decisions</td><td>Paragraph-level search and issue tags</td><td>Minutes from question to authorities</td></tr>
-<tr><td>Hearing and judicial review preparation</td><td>Manual reading of past decisions</td><td>How the Court ruled on the issue, which authorities carried the day</td><td>Hours per file prepared</td></tr>
-<tr><td>Docket and workload statistics</td><td>One Federal Court file at a time</td><td>Leave and result patterns across every IMM file</td><td>Time to answer a management or planning question</td></tr>
-<tr><td>Judge and decision-maker patterns</td><td>Not offered</td><td>Judge pages, issue-first (politically sensitive, so used with care)</td><td>Better assignment of effort <em>(inferred)</em></td></tr>
-<tr><td>Checking a memo or brief</td><td>One citation at a time</td><td>All citations resolved at once</td><td>Errors caught before filing</td></tr>
-<tr><td>Consistency of positions</td><td>Depends on who remembers</td><td>Searchable internal documents beside public law (roadmap, needs on-premises hosting and approval)</td><td>Fewer conflicting positions <em>(inferred)</em></td></tr>
+<tr><td>Decisions in the library (FC, FCA, SCC, RPD; RAD being added)</td><td class="r">60,000+</td></tr>
+<tr><td>Citations extracted</td><td class="r">about 1.44 million</td></tr>
+<tr><td>Citations linked to a case in the library</td><td class="r">about 934,000</td></tr>
+<tr><td>Citations pinpointed to a paragraph</td><td class="r">about 183,000</td></tr>
+<tr><td>Federal Court immigration files / docket entries</td><td class="r">316,940 / about 3.59 million</td></tr>
+</tbody></table></div>
+<div class="box note"><b>Limits stated plainly.</b> The site runs from my personal workstation. Intake of new decisions is built but run by hand. No Immigration Division or Immigration Appeal Division decisions are held. A hand-graded accuracy check of outcomes is in progress and accuracy is not yet at the standard I want.</div>
+</section>
+<section id="s5">
+<h2><span class="n">5</span>Alternatives available to counsel</h2>
+<p>I reviewed free and commercial resources on 7 October 2026. &ldquo;Immigration analytics&rdquo; below means Minister-side outcome coding or Federal Court immigration docket statistics. The full comparison with sources and prices is in Appendix A.</p>
+<ul>
+<li><b>CanLII</b> (free) is the benchmark for coverage, alerts and folders, and has plain-language AI search [1,2]. I found no outcome or docket analytics. Whether its AI summaries cover Federal Court immigration decisions is unverified.</li>
+<li><b>Westlaw Advantage Canada with CoCounsel</b> and <b>Lexis+ with Protégé and Context</b> are broad research and drafting platforms, reported at roughly US$250 to US$640 per user per month [7,10]. I found no Federal Court immigration outcome coding in either.</li>
+<li><b>vLex/Vincent, Clio Work/Jurisage and Alexi</b> are general legal AI tools, hosted commercially [11,12,13,14].</li>
+<li><b>Loom Analytics / Court Analytics</b> provides case-law statistics, mainly for civil litigation; its Federal Court immigration coverage is unverified [15].</li>
+<li><b>Refugee Law Lab</b> provides free bulk data and a Portal with recognition-rate analytics for IRB decisions and their judicial reviews [17,18]. It is iLit&rsquo;s data source and a complement, not a competitor.</li>
+</ul>
+<p><b>Finding.</b> Each resource is stronger than iLit in some respect (coverage, drafting, breadth, maintenance). None I found combines the three capabilities in section 2.3. iLit is positioned as a complement to CanLII, not a replacement for any of them.</p>
+</section>
+
+<section id="s6">
+<h2><span class="n">6</span>Users, use cases and value</h2>
+<p>I estimate 25 potential users across Division counsel and analysts. This is my working figure and is not a headcount from the Division. Each use case below is a hypothesis to be measured in a trial, not a finding.</p>
+<p class="cap">Table 3. Use cases</p>
+<div class="tw"><table>
+<thead><tr><th>Use case</th><th>Today (CanLII)</th><th>With iLit</th><th>Measure in a trial</th></tr></thead>
+<tbody>
+<tr><td>Find authorities on an issue</td><td>Keyword search, then read whole decisions</td><td>Paragraph-level search with issue and case-type filters</td><td>Minutes from question to authorities</td></tr>
+<tr><td>Prepare a hearing or judicial review response</td><td>Manual reading of past decisions</td><td>How the Court has ruled on the issue and which authorities carried the day</td><td>Hours per file</td></tr>
+<tr><td>Docket and workload statistics</td><td>One file at a time; aggregate counts from the Court</td><td>Leave and result patterns across every immigration file</td><td>Time to answer a planning question</td></tr>
+<tr><td>Judge and decision-maker patterns</td><td>Not offered</td><td>Judge pages, issue-first; politically sensitive and used with care</td><td>Better allocation of effort (inferred)</td></tr>
+<tr><td>Check a memo or brief</td><td>One citation at a time</td><td>All citations resolved at once against the library</td><td>Errors caught before filing</td></tr>
+<tr><td>Consistency of positions</td><td>Depends on individual memory</td><td>Internal documents searchable beside public law (long-term, needs approval)</td><td>Conflicting positions avoided (inferred)</td></tr>
 <tr><td>Training new counsel</td><td>Mentoring and reading</td><td>Formatted reader, authority profiles, guided tour</td><td>Time to independent research</td></tr>
 </tbody></table></div>
+<p>Most of the value is staff time: faster research and fewer manual checks. Time saved is not cash saved unless it is redeployed or reduces backlog or outside spend, and section 10 treats it that way.</p>
 </section>
 
-<section id="roi">
-<h2>Return on investment: a formula, not a promise</h2>
-<p>I have no measured time savings yet, so I will not state a return as fact. The formula is:</p>
-<p><code>annual value = users &times; share who use it &times; hours saved per user per week &times; working weeks &times; hourly cost</code></p>
-<p>The defaults below are placeholders I chose. Change any of them. The break-even line shows how many hours of counsel time pay back each funding level.</p>
-<div class="calc" id="calc">
-<div class="inputs">
+<section id="s7">
+<h2><span class="n">7</span>Options considered</h2>
+<p class="cap">Table 4. Options for the Division</p>
+<div class="tw"><table>
+<thead><tr><th>Option</th><th>Cost (CAD)</th><th>Advantages</th><th>Disadvantages</th></tr></thead>
+<tbody>
+<tr><td><b>A. Status quo</b> (CanLII only)</td><td>No new cost</td><td>Free, reliable, broad coverage, new AI search</td><td>Analytics gaps in section 2.3 remain, handled by hand</td></tr>
+<tr><td><b>B. Commercial AI platform</b> (Westlaw or Lexis family)</td><td>C$104,000 to C$248,000 a year for 25 seats, reported list range; government discounts unknown [3,7,10]</td><td>Broad coverage, drafting, vendor support, KeyCite or QuickCITE</td><td>Recurring cost; no Federal Court immigration outcome analytics found; hosted by the vendor</td></tr>
+<tr><td><b>C. Commission a build</b></td><td>C$0.84M to C$3.26M (central C$1.45M) plus C$220,000 to C$290,000 a year to run, at federal rate-card ceilings; my estimate, not a quote [3,4,21]</td><td>Formal contract, support, security process built in</td><td>Procurement lead time, fixed requirements, no head start on immigration domain knowledge</td></tr>
+<tr class="me"><td><b>D. Staged iLit</b> (this proposal)</td><td>C$2,000 to C$20,000 one time, plus an estimated C$3,000 to C$8,000 a year to run (section 9)</td><td>Already built; low cost; fast iteration with counsel; no use of CBSA systems in stage one</td><td>Single developer today; runs outside government; accuracy work unfinished; ID and IAD decisions absent</td></tr>
+</tbody></table></div>
+<p><b>Assessment.</b> Option D is the only one that adds the missing analytics at modest cost and can be tested quickly. It does not preclude B or C later: if the trial shows value, the Division could decide to commission a supported build, with iLit as a working specification. Options A and D are also compatible, since iLit links back to CanLII and does not replace it.</p>
+</section>
+
+<section id="s8">
+<h2><span class="n">8</span>Deployment: short term and long term</h2>
+<p>I have researched what is published about Government of Canada requirements. I did not find CBSA-specific policy on any of this and I do not claim one. Where a step depends on a CBSA or Shared Services Canada decision, it is marked as such.</p>
+<h3><span class="n">8.1</span>Short term: private machine, external site, public law only</h3>
+<ul>
+<li><b>AI machine.</b> One dedicated, powerful computer that I own, running open AI models locally to enrich public decisions. A standard work-issued laptop with integrated graphics can run only small demonstration models, which is why a separate machine is a funding item.</li>
+<li><b>Site.</b> Hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
+<li><b>Requirements.</b> Public data and open licences only, attribution to the Refugee Law Lab and A2AJ [17,19], backups, a domain and server. I found no Government of Canada rule that applies to a non-government site holding only public data (inferred).</li>
+<li><b>Estimated cost.</b> The machine as in section 9; a managed Canadian server in the order of C$100 to C$500 a month (my estimate, unquoted).</li>
+<li><b>Decision for the Division.</b> Whether staff may use an outside site that holds only public case law for work. I have no source on this.</li>
+</ul>
+<h3><span class="n">8.2</span>Long term: CBSA internal use</h3>
+<p class="cap">Table 5. What an internal deployment would require</p>
+<div class="tw"><table>
+<thead><tr><th>Area</th><th>What I found (with source)</th><th>Owner</th></tr></thead>
+<tbody>
+<tr><td>Hosting</td><td>A departmental or Shared Services Canada data centre, or a Government of Canada approved commercial cloud. The 2017 Direction on the Secure Use of Commercial Cloud Services allows Protected B information in the public cloud [23]. Shared Services Canada brokers cloud services under framework agreements with eight providers [24]. Whether a Division-level tool may use either route is unverified.</td><td>CBSA IT, Shared Services Canada</td></tr>
+<tr><td>Security</td><td>Protected B, medium integrity, medium availability is the usual baseline, using the Cyber Centre control profile and a cloud provider assessment [23,25,26]. This involves a security assessment and authorization by the department. I have not priced it.</td><td>CBSA security</td></tr>
+<tr><td>Privacy</td><td>The Directive on Privacy Practices requires a privacy impact assessment for a new or substantially modified program using personal information [27]. Internal files will contain personal information.</td><td>CBSA privacy</td></tr>
+<tr><td>AI use</td><td>The Treasury Board guide on generative AI advises engaging legal counsel, privacy and security experts and the Chief Information Officer&rsquo;s office before deploying such tools [28]. The Directive on Automated Decision-Making applies if outputs feed decisions about people [22].</td><td>CBSA, TBS</td></tr>
+<tr><td>Access</td><td>Sign-in through CBSA accounts, roles, an audit log and encryption. No design yet.</td><td>CBSA IT</td></tr>
+<tr><td>Internal repositories</td><td>Connection to Division documents or Immigration Division decisions would need handling rules, markings and approval to copy or index each source. Results would be labelled internal or public.</td><td>Division, privacy, security</td></tr>
+<tr><td>Support and ownership</td><td>A named owner, a second maintainer and a support arrangement, so it does not depend on one person.</td><td>Division, CBSA IT</td></tr>
+</tbody></table></div>
+<p class="cap">Table 6. Decision points</p>
+<div class="tw"><table>
+<thead><tr><th>Decision</th><th>Who decides</th><th>What is needed to decide</th></tr></thead>
+<tbody>
+<tr><td>Is the external public-law site acceptable for work use?</td><td>Division management with CBSA IT and security</td><td>A view on staff use of an outside site holding only public data</td></tr>
+<tr><td>Where would an internal version be hosted?</td><td>CBSA IT, Shared Services Canada</td><td>Options, lead time and cost</td></tr>
+<tr><td>Who owns and supports it?</td><td>Division, CBSA IT</td><td>A named owner and second maintainer</td></tr>
+<tr><td>Which internal sources may be connected?</td><td>Division, privacy, security</td><td>Handling rules and approvals</td></tr>
+<tr><td>Is a local AI model approved for internal documents?</td><td>CBSA security and privacy</td><td>Assessment of model and hardware</td></tr>
+</tbody></table></div>
+</section>
+<section id="s9">
+<h2><span class="n">9</span>Costs and funding</h2>
+<h3><span class="n">9.1</span>Spend to date</h3>
+<p>These are my own out-of-pocket figures, in Canadian dollars. They exclude my time, for which I am not asking to be paid.</p>
+<p class="cap">Table 7. Project spend to date (C$)</p>
+<div class="tw"><table>
+<thead><tr><th>Item</th><th>Type</th><th class="r">Amount (C$)</th></tr></thead>
+<tbody>
+<tr><td>GitHub Copilot (past subscription, not active now)</td><td>Past total</td><td class="r">552.23</td></tr>
+<tr><td>Anthropic API costs to date</td><td>One time</td><td class="r">54.24</td></tr>
+<tr><td>OpenAI API credits</td><td>One time</td><td class="r">60.00</td></tr>
+<tr><td>Cloudflare domain registration</td><td>One time</td><td class="r">14.85</td></tr>
+<tr class="tot"><td>One-time and past total</td><td></td><td class="r">681.32</td></tr>
+<tr><td>Claude subscription</td><td>Ongoing, per month</td><td class="r">160.00</td></tr>
+<tr class="tot"><td>Total to date, counting one month of the subscription</td><td></td><td class="r">841.32</td></tr>
+</tbody></table></div>
+<p>For that spend the project has produced the library, the docket layer and the tools described in section 4. Dividing C$841.32 by roughly 60,000 decisions gives about one and a half cents a decision; this is arithmetic on rough counts and not a unit cost.</p>
+<h3><span class="n">9.2</span>Funding levels requested</h3>
+<p class="cap">Table 8. Three funding levels (one time, C$; hardware and AI figures are estimates) [3]</p>
+<div class="tw"><table>
+<thead><tr><th>Level</th><th class="r">Amount</th><th>Contents</th><th>What it buys</th></tr></thead>
+<tbody>
+<tr><td><b>1. Keep building</b></td><td class="r">about 2,000</td><td>Tool subscriptions for six months (about 850); AI credits for one full pass over the library and experiments (about 1,000); domain, tunnel and off-site backup (about 150)</td><td>The enrichment work already planned, such as issue tagging and paragraph summaries across all decisions</td></tr>
+<tr><td><b>2. Dedicated machine</b></td><td class="r">about 5,000</td><td>Level 1; a used 32 to 36 GB laptop (1,700 to 2,500); 4 TB external storage and a UPS (about 600)</td><td>Moves iLit off a personal workstation; runs mid-size open models locally</td></tr>
+<tr><td><b>3. Long-term platform</b></td><td class="r">15,000 to 20,000</td><td>A high-memory desktop class machine (from about 7,800, about 11,000 to 12,500 at 256 GB, which is my estimate); network backup storage, UPS and warranty (about 1,500); 12 months of subscriptions and credits (3,000 to 4,000)</td><td>Runs large open models fully on site, so all AI reading of decisions and memos could happen without text leaving the machine</td></tr>
+</tbody></table></div>
+<p>AI processing is a small line item. My estimate for one pass over the whole library is about C$510 to C$2,030 depending on the model, and a local model brings it to electricity only [3]. The main reason to run a local model is to keep work product off third-party servers, not cost.</p>
+<h3><span class="n">9.3</span>Running cost</h3>
+<p>My estimate of the annual running cost is C$3,000 to C$8,000: the C$160 monthly subscription (C$1,920 a year) plus an external Canadian server at an assumed C$100 to C$500 a month (C$1,200 to C$6,000 a year). The hosting figure is unquoted. An internal deployment would have its own costs, set by CBSA processes that I have not priced.</p>
+</section>
+
+<section id="s10">
+<h2><span class="n">10</span>Return on investment</h2>
+<p>I have no measured time savings yet, so I do not state a return as fact. The method is a transparent formula with assumptions that can be changed.</p>
+<p><code>annual value = users &times; share who use it &times; hours saved per user per week &times; working weeks &times; loaded hourly cost</code></p>
+<p class="cap">Table 9. Three scenarios (illustrative placeholders, not forecasts)</p>
+<div class="tw"><table>
+<thead><tr><th>Scenario</th><th class="r">Users</th><th class="r">Active share</th><th class="r">Hours / week</th><th class="r">Weeks</th><th class="r">C$ / hour</th><th class="r">Value / year</th></tr></thead>
+<tbody>
+<tr><td>Low</td><td class="r">25</td><td class="r">25%</td><td class="r">0.5</td><td class="r">46</td><td class="r">75</td><td class="r">C$10,781</td></tr>
+<tr><td>Central</td><td class="r">25</td><td class="r">40%</td><td class="r">1</td><td class="r">46</td><td class="r">75</td><td class="r">C$34,500</td></tr>
+<tr><td>High</td><td class="r">25</td><td class="r">60%</td><td class="r">2</td><td class="r">46</td><td class="r">75</td><td class="r">C$103,500</td></tr>
+</tbody></table></div>
+<p>The hourly cost is my placeholder and not a Division figure. Against the estimated running cost of C$3,000 to C$8,000 a year, the central case leaves about C$26,500 to C$31,500 a year of staff time value. A simple payback on Level 2 (C$5,000) at the central case is under two months, and on Level 3 (C$20,000) about seven months; at the low case, Level 3 takes about two years. Payback here counts only the funding, not the time Division staff spend in a trial.</p>
+<div class="calc" id="calc"><div class="in">
 <label>Users<input id="c-users" type="number" min="1" value="25"></label>
 <label>Share who use it (%)<input id="c-share" type="number" min="0" max="100" value="40"></label>
 <label>Hours saved per user per week<input id="c-hours" type="number" min="0" step="0.25" value="1"></label>
 <label>Working weeks a year<input id="c-weeks" type="number" min="1" max="52" value="46"></label>
 <label>Loaded hourly cost (C$)<input id="c-rate" type="number" min="1" value="75"></label>
-</div>
-<div class="out" aria-live="polite">
-<div><b id="o-val">C$34,500</b><span>value per year at these inputs</span></div>
-<div><b id="o-be5">67 hours</b><span>of staff time to repay C$5,000 (all users together)</span></div>
-<div><b id="o-be20">267 hours</b><span>of staff time to repay C$20,000 (all users together)</span></div>
-</div>
-<p style="font-size:12.5px;color:var(--muted)">Defaults: 25 users, 40% active, 1 hour a week, 46 weeks, C$75 an hour gives C$34,500 a year. At 0.5 to 3 hours a week the same formula gives about C$17K to C$103K. Hourly cost is my placeholder, not a Division figure.</p>
-</div>
-<div class="grid" style="margin-top:14px">
-<div class="card"><span class="k">Compared with</span><p>A commercial AI platform for 25 seats: C$104K&ndash;248K a year at reported list ranges, with no Federal Court immigration outcome coding that I found [3]. Not a like-for-like alternative.</p></div>
-<div class="card"><span class="k">Compared with</span><p>Contracting out a comparable build: about C$0.84M&ndash;3.26M, central C$1.45M, then C$220K&ndash;290K a year to run, at federal IT rate-card ceilings [4,21]. My judgement of team shape and duration, not a quote.</p></div>
-</div>
-<p>The first thing worth doing with Division staff is a short timed comparison on real tasks, CanLII alone against CanLII plus iLit. That replaces these placeholders with measured numbers.</p>
-</section>
-
-<section id="cost">
-<h2>What the money buys</h2>
-<p>Everything so far has been built on personal time and accounts: about two months, over 50,000 lines of code, written by one person. These are the three funding levels I described in my overview. All figures are one-time, in Canadian dollars [3].</p>
-<div class="grid three">
-<div class="card"><span class="k">Level 1 &middot; keep building</span><div class="price">about $2,000</div><p>Tool subscriptions for six months, AI credits for one full pass over the library, domain and backups.</p><ul><li>Pays for the enrichment work already planned</li></ul></div>
-<div class="card"><span class="k">Level 2 &middot; dedicated machine</span><div class="price">about $5,000</div><p>Level 1 plus a used 32&ndash;36 GB laptop, external storage and a UPS.</p><ul><li>Moves iLit off a personal workstation</li><li>Runs mid-size open AI models locally</li></ul></div>
-<div class="card"><span class="k">Level 3 &middot; long-term platform</span><div class="price">$15,000&ndash;20,000</div><p>A Mac Studio class machine, backup storage and a year of subscriptions.</p><ul><li>Runs large open models fully on site</li><li>Hardware price at 256 GB is my estimate</li></ul></div>
-</div>
-<p>Running AI over the whole library costs little: my estimate is about C$510&ndash;2,030 for one pass, depending on model, and a local model brings it to electricity only [3]. The main reason to run a local model is keeping work product off third-party servers, not cost.</p>
-<h3 style="margin-top:22px;font-size:17px;font-family:var(--serif)">What it has cost so far</h3>
-<p>These are my own out-of-pocket figures, in Canadian dollars.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Item</th><th>Type</th><th class="num">Amount (C$)</th></tr></thead>
-<tbody>
-<tr><td>GitHub Copilot (past subscription, not active now)</td><td>Past total</td><td class="num">552.23</td></tr>
-<tr><td>Anthropic API costs to date</td><td>One time</td><td class="num">54.24</td></tr>
-<tr><td>OpenAI API credits</td><td>One time</td><td class="num">60.00</td></tr>
-<tr><td>Cloudflare domain registration</td><td>One time</td><td class="num">14.85</td></tr>
-<tr><td><b>One-time and past total</b></td><td></td><td class="num"><b>681.32</b></td></tr>
-<tr><td>Claude subscription</td><td>Ongoing, per month</td><td class="num">160.00</td></tr>
-<tr><td><b>Total to date, counting one month of the subscription</b></td><td></td><td class="num"><b>841.32</b></td></tr>
-</tbody></table></div>
-<p>Going forward the running cost is the C$160 a month subscription, plus any Level 1&ndash;3 funding above. For that spend, over about two months and one person, the project has produced more than 50,000 lines of code, a library of more than 60,000 decisions with about 1.44 million citations, and a docket layer covering 316,940 Federal Court immigration files [3]. Dividing the C$841.32 by the decisions gives roughly one and a half cents a decision; that is simple arithmetic on rough counts, not a unit cost. It excludes my time, which I am not asking to be paid for.</p>
-</section>
-
-<section id="risks">
-<h2>Risks and how I would handle them</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
-<tbody>
-<tr><td>Data residency and security. iLit runs from my workstation today.</td><td>Public decisions only, nothing internal. The long-term plan is hosting in Canada or inside the Division&rsquo;s network, and any internal documents would need security and privacy approval first. It is not approved for protected information and I am not claiming it is.</td></tr>
-<tr><td>AI at the point of use</td><td>None by default. Search, the reader and statistics use no AI service and send no user text anywhere. AI is used only to enrich public decisions when they are added, stored as labelled data. The Directive on Automated Decision-Making would apply if iLit ever fed decisions about people [22].</td></tr>
-<tr><td>Licence of the open data</td><td>Refugee Law Lab data is licensed CC BY-NC 4.0, with attribution and non-commercial use [17]. iLit is a non-commercial project and credits its sources. A Division deployment should have that reading confirmed by counsel.</td></tr>
-<tr><td>Accuracy of coded outcomes</td><td>Rule-based, shows its source, graded against a hand-checked set. Known errors are being fixed. No win rate should be quoted before the check passes.</td></tr>
-<tr><td>One developer</td><td>Plain code, a test suite and written documentation in a public repository, so another developer can take it over. Funding at Level 2 or 3 would help create a second maintainer.</td></tr>
-<tr><td>Coverage gaps</td><td>No ID or IAD decisions. As far as I know, no tool, free or commercial, has a complete ID or IAD dataset, so this is a gap across the whole field, not only in iLit. The Division&rsquo;s own repositories could fill this, which is why on-premises hosting matters.</td></tr>
-</tbody></table></div>
-</section>
-
-<section id="deploy">
-<h2>Where it would run: short term and long term</h2>
-<p class="intro">I have researched what is published about Government of Canada requirements. I have not found CBSA-specific policy on any of this and I do not claim one. Where a step depends on CBSA or Shared Services Canada decisions, it says so.</p>
-<div class="grid">
-<div class="card"><span class="k">Short term &middot; public case law only</span><h3>A dedicated private computer, and a site hosted outside CBSA</h3>
+</div><div class="out" aria-live="polite">
+<div><b id="o-val">C$34,500</b>value per year at these inputs</div>
+<div><b id="o-be5">67 hours</b>of staff time to repay C$5,000</div>
+<div><b id="o-be20">267 hours</b>of staff time to repay C$20,000</div>
+</div></div>
+<h3><span class="n">10.1</span>Benefits not quantified</h3>
 <ul>
-<li><b>The AI machine:</b> one dedicated, powerful computer I own, running open AI models locally on public decisions only. A standard work-issued laptop with integrated graphics can only run small demonstration models, which is why the machine is a separate item (Levels 2 and 3 above).</li>
-<li><b>The site:</b> hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
-<li><b>What it requires:</b> public data and open licences only (the Refugee Law Lab non-commercial licence, with attribution [17]); backups; a domain and tunnel or server. No security authorization is needed for public data <em>(inferred; I found no GC rule that applies to a non-government site holding public data)</em>.</li>
-<li><b>Estimated cost, my estimate and unquoted:</b> the machine as in Levels 2&ndash;3; a managed Canadian-region server in the order of C$100&ndash;500 a month; no additional approvals cost.</li>
-<li><b>Timeline (my planning guess):</b> about 0 to 6 months.</li>
-</ul></div>
-<div class="card"><span class="k">Long term &middot; CBSA internal use</span><h3>An internal server or network, with protected data</h3>
-<ul>
-<li><b>Hosting options:</b> a CBSA or Shared Services Canada data centre, or a Government of Canada approved commercial cloud. The 2017 Direction on the Secure Use of Commercial Cloud Services allows Protected B information in the public cloud [23]. Shared Services Canada brokers cloud services under framework agreements with eight providers [24]. Whether a Division-level tool can use either route is a CBSA decision <em>(unverified)</em>.</li>
-<li><b>Security:</b> Protected B, medium integrity, medium availability is the usual baseline, using the Canadian Centre for Cyber Security control profile and a cloud provider assessment [25,26]. This involves a security assessment and authorization by the department. I have not priced it; it is CBSA&rsquo;s process and cost.</li>
-<li><b>Privacy:</b> the Directive on Privacy Practices requires a privacy impact assessment when personal information is used in a new or substantially modified program [27]. Internal files will contain personal information.</li>
-<li><b>AI use:</b> the Treasury Board guide on generative AI advises engaging legal counsel, privacy and security experts and the Chief Information Officer&rsquo;s office before deploying such tools [28]. The Directive on Automated Decision-Making applies if outputs feed decisions about people [22].</li>
-<li><b>Also needed:</b> accounts and sign-in through CBSA, roles and an audit log, internal repositories connected with approval, and a named owner and support arrangement so it does not depend on one person.</li>
-<li><b>Timeline (my planning guess):</b> about 6 to 24 months, mostly governed by approvals.</li>
-</ul></div>
-</div>
-<div class="table-wrap"><table>
-<thead><tr><th>Decision point</th><th>Who decides</th><th>What I need to know</th></tr></thead>
-<tbody>
-<tr><td>Is the short-term external site acceptable for Division staff to use for work?</td><td>Division management, with CBSA IT and security</td><td>Whether staff may use an outside site that holds only public case law</td></tr>
-<tr><td>Where would an internal version be hosted?</td><td>CBSA IT, Shared Services Canada</td><td>Data centre or approved cloud; cost and lead time</td></tr>
-<tr><td>Who owns and supports it?</td><td>The Division and CBSA IT</td><td>A named owner and a second maintainer</td></tr>
-<tr><td>Which internal repositories, if any, may be connected?</td><td>Division, privacy and security</td><td>Handling rules, markings and approval to copy or index</td></tr>
-<tr><td>Is a local AI model approved for internal documents?</td><td>CBSA security and privacy</td><td>Assessment of the model and hardware</td></tr>
-</tbody></table></div>
-<p class="intro">Risks specific to this stage: approvals may take longer than the build; an external host could be judged unsuitable for work use; and the short-term site should never hold anything that is not public. The sources for these requirements are listed below.</p>
+<li>Fewer citation errors in filed material (inferred).</li>
+<li>More consistent positions across files (inferred, needs internal documents).</li>
+<li>Faster onboarding of new counsel (inferred).</li>
+<li>Planning information from whole-docket statistics.</li>
+</ul>
+<h3><span class="n">10.2</span>How the figures would be replaced with measurements</h3>
+<p>A short timed comparison with a few counsel, CanLII alone against CanLII with iLit, on real tasks drawn from current files. It would record time to answer, errors found and user feedback, and would replace the placeholders in Table 9. If it shows no benefit, I will say so.</p>
 </section>
 
-<section id="plan">
-<h2>Phased plan</h2>
-<ol class="steps">
-<li><b>Phase 1: make it dependable (now to about three months)</b>Finish accuracy checks on outcomes and citations, add the missing court decisions (RAD, newer Federal Court files), schedule daily intake. Funding Level 1.</li>
-<li><b>Phase 2: test it with Division staff (about months 3 to 6)</b>A small group of counsel uses it on real work; I time it against CanLII to replace the placeholders above with measured numbers. Funding Level 2.</li>
-<li><b>Phase 3: a secure home (about months 6 to 12)</b>Hosted in Canada or on the Division&rsquo;s network, with sign-in and logging, and a local AI model. Only then would internal documents be considered. Funding Level 3, and security review.</li>
+<section id="s11">
+<h2><span class="n">11</span>Risks and mitigations</h2>
+<p>Ratings are my own judgement and are not from a formal assessment.</p>
+<p class="cap">Table 10. Risk register</p>
+<div class="tw"><table>
+<thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+<tbody>
+<tr><td>Data safety and residency: iLit runs from a personal workstation today</td><td>Medium</td><td>High if internal data were ever added</td><td>Public data only now. External hosting in Canada in the short term. Any internal data only after security and privacy approval. iLit is not approved for protected information and is not claimed to be.</td></tr>
+<tr><td>AI use at the point of use</td><td>Low</td><td>High</td><td>None by default: search, reading and statistics use no AI service and send no user text anywhere. AI only enriches public decisions at intake, stored as labelled data. Directive on Automated Decision-Making considered if outputs ever feed decisions about people [22].</td></tr>
+<tr><td>Data licence</td><td>Low</td><td>Medium</td><td>Refugee Law Lab data is CC BY-NC 4.0 with attribution [17]. iLit is non-commercial and credits its sources. Counsel to confirm the reading for any Division deployment.</td></tr>
+<tr><td>Accuracy of coded outcomes and links</td><td>Medium</td><td>High</td><td>Rule-based, shows source text, graded against a hand-checked set. Known errors being corrected. No win rate quoted before the check passes.</td></tr>
+<tr><td>Single developer</td><td>High</td><td>High</td><td>Plain code, an automated test suite and written documentation in a public repository. Funding Levels 2 and 3 and a Division owner would help create a second maintainer.</td></tr>
+<tr><td>Approvals take longer than the build</td><td>High</td><td>Medium</td><td>Stage one needs none. Engage CBSA IT, security and privacy early; plan 6 to 24 months for stage two.</td></tr>
+<tr><td>External hosting judged unsuitable for work use</td><td>Medium</td><td>Medium</td><td>Ask early (Table 6). Fallback: trial from a Division-approved environment with the same public data.</td></tr>
+<tr><td>Coverage gaps (no ID or IAD decisions)</td><td>Certain</td><td>Medium</td><td>A gap across the field. Division repositories could fill it in stage two, under approval.</td></tr>
+<tr><td>Sensitivity of judge-level analytics</td><td>Medium</td><td>Medium</td><td>Issue-first views; judge pages as secondary and used with care; no outcome rate quoted from unchecked data.</td></tr>
+<tr><td>Upstream data availability (open datasets and Court site)</td><td>Low to medium</td><td>Medium</td><td>Original data is kept as published; sources are public and replaceable; refresh is scripted.</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="s12">
+<h2><span class="n">12</span>Implementation plan and timeline</h2>
+<p>Durations are my planning estimates, not commitments, and the later phases depend on decisions outside my control.</p>
+<p class="cap">Table 11. Phases</p>
+<div class="tw"><table>
+<thead><tr><th>Phase</th><th>Period</th><th>Scope</th><th>Outputs</th><th>Funding</th></tr></thead>
+<tbody>
+<tr><td><b>0. Prototype</b></td><td>Done (about two months)</td><td>Library, docket layer, reader, citation analysis, memo check</td><td>Section 4 capabilities</td><td>C$841 to date</td></tr>
+<tr><td><b>1. Make it dependable</b></td><td>Months 0 to 3</td><td>Finish accuracy checks on outcomes and citations; add RAD and newer Federal Court decisions; schedule daily intake</td><td>Checked accuracy figures; current library</td><td>Level 1</td></tr>
+<tr><td><b>2. Trial with Division staff</b></td><td>Months 3 to 6</td><td>Small group of counsel uses it on real work; timed comparison against CanLII; dedicated machine and external Canadian hosting</td><td>Measured time savings; user feedback; updated business case</td><td>Level 2</td></tr>
+<tr><td><b>3. Plan an internal home</b></td><td>Months 6 to 12</td><td>With CBSA IT, security and privacy: hosting route, owner, sign-in, assessment scope, privacy impact assessment</td><td>An agreed internal deployment plan and cost</td><td>Level 3 for the local-AI machine; CBSA process costs unpriced</td></tr>
+<tr><td><b>4. Internal deployment</b></td><td>Months 12 to 24</td><td>Hosted inside CBSA or an approved cloud; internal documents considered only after approval</td><td>A supported internal service</td><td>To be determined by CBSA</td></tr>
+</tbody></table></div>
+<p class="cap">Table 12. Decision gates</p>
+<div class="tw"><table>
+<thead><tr><th>Gate</th><th>When</th><th>Decision</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>G1</td><td>End of month 3</td><td>Proceed to a staff trial?</td><td>Checked accuracy; Division interest</td></tr>
+<tr><td>G2</td><td>End of month 6</td><td>Continue and plan an internal home?</td><td>Measured time savings and feedback</td></tr>
+<tr><td>G3</td><td>End of month 12</td><td>Commission a supported internal build, adopt iLit internally, or stop?</td><td>Internal deployment plan and cost; options in Table 4</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="s13">
+<h2><span class="n">13</span>The request and next steps</h2>
+<h3><span class="n">13.1</span>The request</h3>
+<ul>
+<li><b>Interest and time.</b> A small group of counsel willing to try iLit on real files and tell me what is missing.</li>
+<li><b>Funding.</b> An unofficial contribution at Level 1 or Level 2 (C$2,000 to C$5,000) now, with Level 3 (up to C$20,000) considered after the trial results. This is not a procurement and creates no commitment beyond interest.</li>
+<li><b>A conversation</b> with CBSA IT, security and privacy about where an internal version could be hosted and who would own it.</li>
+</ul>
+<h3><span class="n">13.2</span>Next steps</h3>
+<ol class="plain">
+<li>Agree who from the Division would take part in a trial and what tasks to time.</li>
+<li>Complete accuracy checks and publish the figures (Phase 1).</li>
+<li>Confirm whether staff may use an external public-law site (Table 6).</li>
+<li>Run the timed comparison and update this report with measured figures.</li>
 </ol>
 </section>
-
-<section id="ask">
-<h2>The ask</h2>
-<div class="say">
-<p style="margin-top:0">I am not asking for pay or for a procurement. I am asking the Division for three things:</p>
-<ul class="plain">
-<li><b>Interest and a few hours</b> from a small group of counsel to try iLit on real files and tell me what is missing.</li>
-<li><b>An unofficial funding contribution</b> at one of the three levels, starting with Level 1 or 2.</li>
-<li><b>A conversation</b> about where it could eventually be hosted, and who would review security and privacy.</li>
-</ul>
-</div>
-<p class="intro">If the tool does not save counsel time in the trial, the numbers above will show it and I will say so.</p>
+<section id="appA">
+<h2><span class="n">A</span>Appendix A. Resource comparison</h2>
+<p>Prices are third-party list-range reports and not quotes. &ldquo;None found&rdquo; means I found no evidence either way after searching, not that the capability is confirmed absent. Research of 7 October 2026.</p>
+<div class="tw"><table>
+<thead><tr><th>Resource</th><th>What it does</th><th>Public price</th><th>Immigration analytics</th></tr></thead>
+<tbody>
+<tr><td><b>CanLII</b></td><td>All courts and tribunals, statutes, commentary, paragraph noteup, alerts, folders; Search+ plain-language AI search from March 2026 [1,2]</td><td>Free</td><td>None found; AI summary coverage of FC immigration unverified</td></tr>
+<tr><td><b>Westlaw Advantage Canada / CoCounsel</b></td><td>Research, KeyCite flags, judicial consideration, agentic AI; launched 11 Feb 2026 [5,6]</td><td>Not published; about US$257 to US$639 per user per month reported [7]</td><td>None found</td></tr>
+<tr><td><b>Lexis+ / Protégé / Context</b></td><td>Research, drafting, QuickCITE, judge-language analytics; carries IRB tribunal decisions; no complete ID or IAD dataset confirmed [8,9]</td><td>Not published; about US$250 to US$500 per seat per month reported [10]</td><td>None found for FC immigration outcomes</td></tr>
+<tr><td><b>vLex / Vincent; Clio Work / Jurisage</b></td><td>General AI research and drafting; Clio acquired Jurisage in June 2026; Compass database of 470,000+ cases in 43 courts [11,12,13]</td><td>vLex from about US$95 per user per month reported; others quote only</td><td>None found</td></tr>
+<tr><td><b>Alexi</b></td><td>Canadian AI research and memo tool [14]</td><td>Quote only</td><td>None found</td></tr>
+<tr><td><b>Loom Analytics / Court Analytics</b></td><td>Case-law statistics, judges, success rates; mainly civil [15]</td><td>Quote only</td><td>FC immigration coverage unverified</td></tr>
+<tr><td><b>Blue J; Lex Machina; Pre/Dicta</b></td><td>Tax-focused; US courts only; US courts only [16]</td><td>Blue J about US$1,500 per user per year reported</td><td>Not applicable</td></tr>
+<tr><td><b>Refugee Law Lab data and Portal</b></td><td>Free bulk decisions (Federal Court about 63,500 since 2001; RAD about 29,000; others) and a Portal with recognition-rate analytics for IRB decisions and their judicial reviews [17,18]</td><td>Free; CC BY-NC 4.0</td><td>Yes for refugee decisions; not Minister-side outcomes across immigration judicial review</td></tr>
+<tr><td><b>A2AJ</b></td><td>Open court and tribunal decisions, statutes and an API [19]</td><td>Free</td><td>Raw data</td></tr>
+<tr><td><b>Federal Court website</b></td><td>Docket lookup one file at a time; quarterly aggregate statistics [20]</td><td>Free</td><td>Counts only</td></tr>
+<tr class="me"><td><b>iLit</b></td><td>Paragraph-level search, outcome coding, citation analysis, docket layer, memo check, built on the open data above</td><td>Hosting and upkeep</td><td>Yes, with the limits in section 4</td></tr>
+</tbody></table></div>
 </section>
 
-<section id="sources">
-<h2>Sources and assumptions</h2>
-<p class="intro">Accessed 7 October 2026 unless dated. Full research notes and competitor table are in the project files under business-case.</p>
+<section id="appB">
+<h2><span class="n">B</span>Appendix B. Assumptions</h2>
+<ul>
+<li>25 users: my estimate of Division counsel and analysts, not a headcount.</li>
+<li>Share of active users, hours saved and C$75 hourly cost are placeholders chosen for illustration.</li>
+<li>Exchange rate for converted US prices: US$1 = C$1.38 [3].</li>
+<li>Contract build estimate: my judgement of team shape and duration at CanadaBuys ceiling rates, with 220 working days a year and maintenance at 15 to 20% of build cost a year [3,4,21].</li>
+<li>Commercial prices are reported list ranges and exclude any government discount, which exists but is not published.</li>
+<li>One-pass AI cost assumes about 7,000 input and 1,000 output tokens per decision [3].</li>
+<li>External hosting at C$100 to C$500 a month is my unquoted estimate. Phase durations are planning estimates.</li>
+<li>Hardware prices are Canadian list or resale figures from September 2026; the 256 GB configuration price is estimated [3].</li>
+</ul>
+</section>
+
+<section id="appC">
+<h2><span class="n">C</span>Appendix C. Unverified items and gaps</h2>
+<ul>
+<li>Whether CanLII&rsquo;s AI summaries cover Federal Court immigration decisions.</li>
+<li>Loom Analytics&rsquo; Federal Court immigration coverage.</li>
+<li>Any CBSA-specific policy on external hosting, AI tools or research subscriptions. I found none and cite none.</li>
+<li>Whether staff may use an external site that holds only public case law.</li>
+<li>Whether hosting outside the Shared Services Canada framework providers is acceptable for any Division use.</li>
+<li>The cost of a security assessment and authorization and of a privacy impact assessment.</li>
+<li>The Division&rsquo;s actual research hours: I found no study of government counsel research time, so none is cited.</li>
+<li>Government discounts on commercial licences.</li>
+<li>Current accuracy of outcome coding and citation linking, which is still being measured.</li>
+</ul>
+</section>
+
+<section id="appD">
+<h2><span class="n">D</span>Appendix D. Sources</h2>
+<p>Accessed 7 October 2026 unless dated. Research notes and the competitor table are in the project files under business-case.</p>
 <ol class="src">
+
 <li><a href="https://www.lawsociety.bc.ca/news-and-engagement/news/canlii-launches-new-ai-powered-search-tool-search/">Law Society of BC: CanLII Search+</a></li>
 <li><a href="https://www.lawsociety.sk.ca/2026/03/11/canlii-launches-search-to-support-legal-research/">Law Society of Saskatchewan, 11 Mar 2026: CanLII Search+</a></li>
 <li><a href="https://claude.ai/artifact/3GkQisDMAgaTbbuWSnSuVS">iLit Cost and Value, 28 Sept 2026</a> (prices, funding levels, AI cost; CAD at US$1 = C$1.38)</li>
@@ -288,10 +446,13 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color
 <li>Cyber Centre guidance on the security categorization of cloud-based services (ITSP.50.103) and Medium Cloud Control Profile, as summarised in the sources above (secondary)</li>
 <li><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=18309">Treasury Board: Directive on Privacy Practices</a> (replaced the PIA directive on 9 Oct 2024)</li>
 <li><a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html">Government of Canada: Guide on the use of generative artificial intelligence</a></li>
+<li><a href="https://claude.ai/artifact/AaknoWsheQKXQEBWrQipmT">iLit status overview, 28 September 2026</a> (scale figures, features and limits)</li>
+<li><a href="https://claude.ai/artifact/PbpGbAbekaLAxuq1TfXm57">iLit competitor scan, 28 September 2026</a></li>
+<li><a href="https://github.com/greystone-dan/LitIntelproject">iLit repository</a> (public; code, tests and project reports)</li>
 </ol>
-<p class="intro"><b>Assumptions and gaps.</b> 25 users is my estimate. Hourly cost, share of active users and hours saved are placeholders. Prices for commercial tools are reported ranges, not quotes, and exclude any government discount. I could not find a study of how many hours Canadian government counsel spend on research, so none is cited. Hosting costs and timelines in the deployment section are my estimates, not quotes. I found no CBSA-specific policy and no source on whether an external site is acceptable for Division staff to use; the Treasury Board and Cyber Centre sources describe general Government of Canada requirements. Not verified: CanLII AI summaries on Federal Court immigration decisions, and Loom&rsquo;s Federal Court coverage.</p>
 </section>
-<footer>iLit is a non-commercial research project built on public decisions. This page is a draft business case, not an offer, and is not legal advice. It uses no AI at the point of use.</footer>
+
+<div class="foot">iLit is a non-commercial research project built on public decisions. This report is a draft for discussion, is not an offer or a procurement document, and is not legal advice. It uses no AI at the point of use and holds no protected information.</div>
 </main>
 <script>
 (function(){

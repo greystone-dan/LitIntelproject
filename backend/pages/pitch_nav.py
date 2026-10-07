@@ -13,7 +13,7 @@ import re
 
 # (key, name, plain explainer)
 COMING_SOON = [
-    ("business-case", "Business Case", "Why the Division should back iLit: what else counsel can use, what iLit adds, a labelled return-on-investment formula, costs, risks and the ask."),
+    ("business-case", "Business Case", "A formal business case report: problem, solution, evidence, alternatives, deployment options, costs in CAD, return on investment, risks, plan and funding request."),
     ("themes", "Legal Themes & Statutes", "Find the legal themes and arguments that recur across decisions, and see which statutory provisions each one leans on."),
     ("tag-analytics", "Tag Analytics", "See how legal issue tags trend over time, which judges lean on which tags, and which tags come up most often."),
     ("citation-map", "Citation Map", "Start from one case and follow what it cites and what cites it. Compare two cases to find the authorities they share."),

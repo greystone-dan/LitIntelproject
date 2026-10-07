@@ -170,3 +170,27 @@ def test_defined_names_step_can_be_switched_off() -> None:
 	steps = [step for step in CASE_STEPS if step != "C4c_defined_names"]
 	rows = refine_case_citations(_DEFINED_NAMES_TEXT, steps=steps).rows
 	assert not [row for row in rows if row.step == "C4c_defined_names"]
+
+
+_NOISE_TEXT = (
+	"Canada (Attorney General) v. Kostic, 2025 FC 125 was cited. Later, Ms. Kostic wrote to the Court and Kostic argued the point. "
+	"The Court said in Kostic that the rule applies. Kostic at para 12 is clear. Arbour J. stated in Biniaris, at para. 37.\\n"
+)
+
+
+def test_party_mentions_are_dropped_but_real_short_forms_kept() -> None:
+	text = _NOISE_TEXT.replace("\\\\n", "\\n")
+	result = refine_case_citations(text, steps=CASE_STEPS)
+	kept = [row.citation_text for row in result.rows if row.kind == "case_short"]
+	assert [row.citation_text for row in result.rows if row.kind == "case_short" and row.citation_text == "Kostic"] == ["Kostic"]
+	assert not any(row.citation_text == "Kostic" and text[row.offset_end : row.offset_end + 8] == " argued " for row in result.rows)
+	assert any(text[row.offset_start - 3 : row.offset_start] == "in " and row.citation_text == "Kostic" for row in result.rows)
+	assert any(row.citation_text.startswith("Kostic at para 12") for row in result.rows)
+	assert not [row for row in result.rows if row.kind == "neutral" and "Biniaris" in row.citation_text]
+
+
+def test_ibid_in_a_numbered_note_needs_the_citation_in_the_note_before() -> None:
+	filler = "Exhibit R-1, National Documentation Package, item 2.1, a long description of a report on human rights. " * 3
+	text = "9 See Nesbitt v. Canada, 2003 FCT 785.\n10 " + filler + "\n11 Ibid., and item 10.1.\n12 Nesbitt v. Canada, 2003 FCT 785.\n13 Ibid."
+	rows = [row for row in refine_case_citations(text.replace("\\n", "\n"), steps=CASE_STEPS).rows if row.citation_text.startswith("Ibid")]
+	assert [row.citation_text for row in rows] == ["Ibid."]

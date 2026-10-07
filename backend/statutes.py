@@ -28,7 +28,7 @@ def normalize_provision_pinpoint(pinpoint: str | None) -> str:
 
 
 _PROVISION_ITEM = r"\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
-_PROVISION_SEP = r"(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
+_PROVISION_SEP = r"(?:\s*,\s*(?:(?:and|or)\s*)?|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
 _PROVISION_LIST = _PROVISION_ITEM + r"(?:" + _PROVISION_SEP + _PROVISION_ITEM + r")*"
 
 

@@ -105,12 +105,12 @@ SECTION_OF_STATUTE_RE = re.compile(
 	re.IGNORECASE,
 )
 STATUTE_MULTI_SECTION_PREFIX_RE = re.compile(
-	r"\b(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\s*,?\s*(?:ss?\.?|sections?)\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
+	r"\b(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\s*,?\s*(?:ss?\.?|sections?)\s*((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)(?:(?:(?:\s*,\s*(?:(?:and|or)\s*)?)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*))+)",
 	re.IGNORECASE,
 )
 IRPA_IRPR_NESTED_PROVISION_LIST_OF_STATUTE_RE = re.compile(
 	r"\b(?:paragraphs?|paras?\.?|subparagraphs?|subparas?\.?|subsections?|subsecs?\.?)\s*"
-	r"((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))+)(?:(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-–]\s*)"
+	r"((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))+)(?:(?:\s*,\s*(?:(?:and|or)\s*)?|\s+(?:and|or|to)\s+|\s*[-–]\s*)"
 	r"(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*|\(\s*[A-Za-z0-9]+\s*\)))+)\s+of\s+(?:the\s+)?"
 	r"(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations)\b",
 	re.IGNORECASE,
@@ -148,7 +148,7 @@ IRPA_IRPR_BARE_NESTED_PROVISION_OF_STATUTE_RE = re.compile(
 	re.IGNORECASE,
 )
 SECTIONS_OF_STATUTE_RE = re.compile(
-	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+)(?:(?:(?:\s*,\s*(?:and|or)?\s*)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+))++)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
+	r"\b(?:sections?|ss?\.)\s+((?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+)(?:(?:(?:\s*,\s*(?:(?:and|or)\s*)?)|(?:\s+(?:and|or|to)\s+)|(?:\s*[-–]\s*))(?:\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*+))++)\s+of\s+(?:the\s+)?(IRPA|IRPR|Immigration and Refugee Protection Act|Immigration and Refugee Protection Regulations|Canadian Charter of Rights and Freedoms|Charter|Criminal Code)\b",
 	re.IGNORECASE,
 )
 REFUGEE_CONVENTION_ARTICLE_RE = re.compile(
@@ -188,7 +188,7 @@ NAMED_INTERNATIONAL_INSTRUMENT_RE = re.compile(
 STANDALONE_PROVISION_RE = re.compile(
 	r"\b(articles?|arts?\.|sections?|subsections?|paragraphs?|subparagraphs?|ss?\.)\s*"
 	r"(\d{1,3}(?:\.\d+)?[A-Z]{0,2}(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
-	r"(?:(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-–]\s*)"
+	r"(?:(?:\s*,\s*(?:(?:and|or)\s*)?|\s+(?:and|or|to)\s+|\s*[-–]\s*)"
 	r"\d{1,3}(?:\.\d+)?[A-Z]{0,2}(?:\s*\(\s*[A-Za-z0-9]+\s*\))*)*)",
 	re.IGNORECASE,
 )
@@ -2398,7 +2398,7 @@ def extract_case_citation_matches(text: str | None) -> list[RawCitationMatch]:
 
 _PROVISION_UNIT = r"(?:sub)?(?:sections?|paragraphs?|paras?\.?|subsecs?\.?|ss?\.|rules?|regulations?)"
 _PROVISION_ITEM = r"R?\d{1,3}(?:\.\d+)?[A-Za-z]?(?:\s*\(\s*[A-Za-z0-9]+\s*\))*"
-_PROVISION_JOIN = r"(?:\s*,\s*(?:and|or)?\s*|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
+_PROVISION_JOIN = r"(?:\s*,\s*(?:(?:and|or)\s*)?|\s+(?:and|or|to)\s+|\s*[-\u2013]\s*)"
 _PROVISION_JOIN_UNIT = r"(?:" + _PROVISION_JOIN + r"|\s+(?:and|or)\s+" + _PROVISION_UNIT + r"\s*)"
 _PROVISION_LIST_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN + _PROVISION_ITEM + r")*"
 _PROVISION_LIST_UNITS_RE = _PROVISION_ITEM + r"(?:" + _PROVISION_JOIN_UNIT + _PROVISION_ITEM + r")*"

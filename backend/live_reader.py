@@ -20,6 +20,7 @@ from sqlalchemy.orm import Session
 
 from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
+from .live_decision import decision_details, decision_format_blocks, looks_like_decision
 from .paragraph_cited_by_db import load_pinpoint_cited_by
 from .citation_refine import refine_case_citations
 from .citation_refine.pinpoints import target_paragraphs
@@ -214,22 +215,25 @@ def build_live_reader_payload(
 	if session is not None:
 		_attach_pinpoint_text(session, rows)
 	rows.sort(key=lambda r: (r["offset_start"], -r["offset_end"]))
+	is_decision = looks_like_decision(text)
+	details = decision_details(text) if is_decision else None
 	item = {
 		"id": None,
 		"title": filename,
 		"full_text": text,
-		"citation": None,
-		"court": None,
-		"date": None,
-		"judge": None,
+		"citation": (details or {}).get("citation"),
+		"court": (details or {}).get("court"),
+		"date": (details or {}).get("date"),
+		"judge": (details or {}).get("judge"),
 		"source_url": None,
 	}
+	format_blocks = decision_format_blocks(text) if is_decision else format_blocks_for_text(text)
 	return {
 		"item": item,
 		"citations": rows,
 		"readerData": {
 			"case": item,
-			"format_blocks": format_blocks_for_text(text),
+			"format_blocks": format_blocks,
 			"chunks": [],
 			"citations": rows,
 			"tags": [],
@@ -238,8 +242,9 @@ def build_live_reader_payload(
 		},
 		"summary": {
 			**analysis["summary"],
-			"paragraphs": analysis["paragraph_count"],
+			"paragraphs": sum(b["type"] == "para" for b in format_blocks) if is_decision else analysis["paragraph_count"],
 			"characters": analysis["text_length"],
 		},
 		"filename": filename,
+		"decision": details,
 	}

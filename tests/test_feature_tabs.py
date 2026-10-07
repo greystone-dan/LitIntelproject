@@ -1324,6 +1324,6 @@ def test_coming_soon_roadmap_pages_serve_overview_and_every_section():
         assert page.status_code == 200 and b"Coming soon" in page.body
     with pytest.raises(HTTPException):
         routes.coming_soon_page("nope")
-    assert all(item[1] in STATUSES for _, _, _, items in SECTIONS.values() for item in items)
+    assert all(item[2] in STATUSES and len(item) == 7 for area in SECTIONS.values() for item in area['items'])
     assert b"Internal documentation" in routes.coming_soon_page("overview").body
     assert "/coming-soon/overview" in routes._data_explorer_page_html()

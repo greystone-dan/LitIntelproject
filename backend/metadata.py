@@ -129,6 +129,64 @@ def _rpd_header_fields(content: str) -> dict[str, str]:
 	return found
 
 
+_RAD_MARKER_RE = re.compile(r"\bRAD File\b|dossier de la SAR", re.IGNORECASE)
+_RAD_DOCKET_RE = re.compile(r"(?:SAR|RAD File(?: No\.?)?)[^\n:]{0,40}:\s*([A-Z]{2}\d-\d{5})")
+_RAD_DATE_LINE_RE = re.compile(
+	r"(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}"
+)
+_RAD_FRENCH_LABEL_RE = re.compile(r"Appel\b|Date\b|Lieu\b", re.IGNORECASE)
+
+
+def _is_rad_cover(content: str) -> bool:
+	return bool(_RAD_MARKER_RE.search(content[:800])) and not re.search(r"federal\s+court|cour\s+f[ée]d[ée]rale", content[:800], re.IGNORECASE)
+
+
+def _rad_header_fields(content: str) -> dict[str, str]:
+	"""File number, decision date, place and panel member from a Refugee Appeal Division cover page.
+
+	The cover page is bilingual and the English label sits either before or after its value, so each field
+	looks on both sides of the label.
+	"""
+	head = content[:3000]
+	if not _is_rad_cover(head):
+		return {}
+	lines = [line.strip() for line in head.splitlines()]
+	found: dict[str, str] = {}
+	docket = _RAD_DOCKET_RE.search(head[:1200])
+	if docket:
+		found["docket"] = docket.group(1)
+	for index, line in enumerate(lines):
+		if re.fullmatch(r"Date of decision", line, re.IGNORECASE):
+			for candidate in lines[index + 1 : index + 3] + lines[max(0, index - 2) : index][::-1]:
+				if _RAD_DATE_LINE_RE.fullmatch(candidate):
+					found["date"] = candidate
+					break
+			break
+	for index, line in enumerate(lines):
+		if re.fullmatch(r"Appeal\s+(?:considered|heard)(?:\s*/\s*heard)?\s+(?:at|in)", line, re.IGNORECASE):
+			for candidate in lines[index + 1 : index + 2] + lines[max(0, index - 1) : index]:
+				if candidate and not _RAD_FRENCH_LABEL_RE.match(candidate) and len(candidate) <= 80:
+					found["place of hearing"] = candidate
+					break
+			break
+	for index, line in enumerate(lines):
+		if re.fullmatch(r"Panel(?:\s+Tribunal)?", line, re.IGNORECASE):
+			for candidate in lines[index + 1 : index + 3] + lines[max(0, index - 2) : index][::-1]:
+				if not candidate or candidate.lower() == "tribunal":
+					continue
+				name = re.sub(r"^(?:Me|Mme|Mr\.?|Ms\.?|Mrs\.?)\s+", "", candidate)
+				if (
+					len(name) <= 60
+					and 1 < len(name.split()) <= 5
+					and not re.search(r"\d", name)
+					and not _RPD_NOT_A_NAME_RE.search(name)
+				):
+					found["judge"] = name
+					break
+			break
+	return found
+
+
 def extract_case_metadata(text: str | None) -> dict[str, object]:
 	"""Extract the complete metadata payload stored once on a case."""
 	content = text or ""
@@ -142,6 +200,20 @@ def extract_case_metadata(text: str | None) -> dict[str, object]:
 		extracted[field] = value
 		confidence[field] = 0.9
 		sources[field] = {"text": value}
+	rad_fields = _rad_header_fields(content)
+	for field, value in rad_fields.items():
+		extracted[field] = value
+		confidence[field] = 0.9
+		sources[field] = {"text": value}
+	if _is_rad_cover(content):
+		# RAD decisions have no neutral citation or style of cause (the parties are redacted), so only the
+		# file number, date and panel member decide whether the cover page needs a person's review.
+		flags = [flag for flag in extracted.get("_quality_flags") or [] if flag not in {
+			"missing_critical:neutral citation", "missing_critical:style of cause",
+			*(f"missing_critical:{field}" for field in rad_fields),
+		}]
+		extracted["_quality_flags"] = flags
+		extracted["_needs_review"] = any(not extracted.get(field) for field in ("date", "docket", "judge"))
 	for field, (value, score) in derive_intelligence_fields(content, extracted).items():
 		extracted[field] = value
 		confidence[field] = score

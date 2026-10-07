@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 189
+Active scripts documented: 190
 
 ## Catalog
 
@@ -32,6 +32,7 @@ Active scripts documented: 189
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
 | `backfill_panel_judges.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help` |
 | `backfill_rpd_header.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help` |
+| `backfill_statute_instrument_keys.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help` |
 | `backfill_statute_provisions.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help` |
 | `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
@@ -506,6 +507,20 @@ Active scripts documented: 189
 
 ```powershell
 .\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help
+```
+
+## `scripts/backfill_statute_instrument_keys.py`
+
+**Purpose:** Fill statute_references.instrument_key for rows that name a registered act but were stored without a key. About 59% of statute_references have no instrument_key, and most of those name an act the registry already knows ("Patent Act", "Federal Court Rules", "Immigration and Refugee Protection Act, S.C. 2001, c. 27"). This resolves the act name with backend/instrument_resolver.py (exact normalized names only, court-aware for names shared with provincial acts) and writes only the instrument_key column, only where it is still NULL. Dry run by default (counts per instrument and samples). --apply first writes an undo file of every id and key it is about to set; --undo FILE puts those rows back to NULL, only where the key is still the one written.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help
 ```
 
 ## `scripts/backfill_statute_provisions.py`

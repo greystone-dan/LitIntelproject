@@ -242,6 +242,7 @@ test checks that these paths continue to exist.
 | `backend/overruling_risk_routes.py` | Read-only route for direct seed matches and stored resolved citation indicators |
 | `backend/pages/__init__.py` | HTML page-builder package |
 | `backend/pages/about_content.html` | Content template for the About and architecture surface |
+| `backend/pages/business_case.html` | TODO: describe this file |
 | `backend/pages/case_compare.py` | Searchable side-by-side decision comparison page for `/case-compare` and `/compare` |
 | `backend/pages/case_quick_summary.py` | Additive formatted-reader Quick summary renderer and verified paragraph links |
 | `backend/pages/case_summary_card.py` | Conditional formatted-reader card for exact selected passages and source-paragraph links |

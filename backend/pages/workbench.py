@@ -31,7 +31,7 @@ a{color:var(--teal)}
 .userpill b{color:var(--text)}
 .demo-flag{padding:2px 7px;border:1px solid #e3c88d;border-radius:999px;background:var(--amber-soft);color:#7a5714;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .linkbtn{border:0;background:none;color:var(--teal);cursor:pointer;font-size:12px;text-decoration:underline;padding:0}
-main{max-width:1280px;margin:0 auto;padding:18px 28px 48px}
+main{max-width:none;width:100%;margin:0;padding:14px 32px 32px}
 .eyebrow{color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 h1{margin:6px 0 4px;font:700 31px/1.1 "Newsreader",serif}
 .lead{margin:0;color:var(--muted);font-size:13px;max-width:70ch}
@@ -96,7 +96,11 @@ button.tile{cursor:pointer}button.tile:hover{border-color:var(--teal)}
 .timeline div:first-child{border-top:0}.timeline .d{font-family:"IBM Plex Mono",monospace;color:var(--muted)}.timeline .n{background:#fff6f2}
 .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .empty{padding:18px 6px;color:var(--muted);font-size:13px}
-.pin{padding:11px 0;border-top:1px solid var(--border)}.pin:first-child{border-top:0}
+#pinRows{max-height:340px;overflow-y:auto;overscroll-behavior:contain;margin:0 -6px;padding:0 6px}
+.tape{display:inline-flex;padding:3px;background:repeating-linear-gradient(-45deg,#111 0 6px,#f5c400 6px 12px);border-radius:3px;flex:none}.tape b{display:block;padding:1px 8px;background:#f5c400;color:#111;font-size:11px;font-weight:800;letter-spacing:.07em;line-height:1.4;border-radius:2px}
+.ttlrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pin a.ttl{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pin .chips{margin-top:3px!important}.pin .meta{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pin{padding:7px 0;border-top:1px solid var(--border);font-size:13px}.pin:first-child{border-top:0}
 .pin .t{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:start}
 .pin a.ttl{font-weight:600;color:var(--text);text-decoration:none}.pin a.ttl:hover{color:var(--teal);text-decoration:underline}
 .pin .meta{color:var(--muted);font-size:11px}
@@ -152,7 +156,7 @@ _BODY = r'''<body>
 <div class="homegrid">
 <div class="stack">
 <div class="card" id="caseCard">
-<header><div><h2>Case list</h2><div class="hint">IMM files you follow. A flag shows when the stored Federal Court docket has moved since you last viewed the file.</div></div>
+<header><div><div class="ttlrow"><h2>Case list</h2><span class="tape"><b>COMING SOON</b></span></div><div class="hint">IMM files you follow. A flag shows when the stored Federal Court docket has moved since you last viewed the file.</div></div>
 <div class="actions"><button class="btn secondary small" id="markAll" type="button">Mark all viewed</button><a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/workbench/api/cases/export.csv" id="exportCases">Export CSV</a></div></header>
 <div class="body">
 <div class="addrow">
@@ -180,7 +184,8 @@ _BODY = r'''<body>
 <div class="actions"><button class="btn secondary small" id="compareGo" type="button" disabled>Compare selected</button><a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/workbench/api/pins/export.csv">Export CSV</a></div></header>
 <div class="body"><div class="filters" style="margin-top:0"><select id="pFolder" aria-label="Folder"><option value="">All folders</option></select></div><div id="pinRows"><div class="empty">Loading…</div></div></div>
 </div>
-<div class="card"><header><h2>Deadlines</h2></header><div class="body"><div class="mini" id="deadlineList"></div></div></div>
+<div class="card"><header><div class="ttlrow"><h2>Deadlines</h2><span class="tape"><b>COMING SOON</b></span></div></header><div class="body"><div class="mini" id="deadlineList"></div></div></div>
+<div class="card"><header><div class="ttlrow"><h2>Shared Team Space</h2><span class="tape"><b>COMING SOON</b></span></div></header><div class="body"><div class="hint">Share pinned decisions, notes and case lists with colleagues on your team. Not available yet.</div></div></div>
 <div class="card"><header><h2>Saved and recent searches</h2><button class="linkbtn" id="clearRecent" type="button">Clear</button></header><div class="body"><div class="mini" id="recentList"></div></div></div>
 </div>
 </div>

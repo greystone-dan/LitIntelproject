@@ -12,16 +12,18 @@ import csv
 import io
 import re
 from datetime import date, datetime, timedelta, timezone
+from urllib.parse import quote, unquote
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from .database import (
 	Case,
+	Citation,
 	FCActivityClassification,
 	FCProceduralHistory,
 	WorkbenchCase,
@@ -32,6 +34,7 @@ from .database import (
 router = APIRouter()
 
 COOKIE = "ilit_wb_user"
+DISPLAY_COOKIE = "ilit_wb_name"
 _NO_STORE = {"Cache-Control": "no-store"}
 _IMM = re.compile(r"\bIMM\s*-?\s*(\d{1,6})\s*-\s*(\d{2,4})\b", re.IGNORECASE)
 _BARE = re.compile(r"(?<![\w-])(\d{1,6})\s*-\s*(\d{2})(?![\w-])")
@@ -97,6 +100,12 @@ def parse_import_rows(raw: str) -> list[tuple[str, str | None]]:
 def slugify_owner(name: str) -> str:
 	slug = re.sub(r"[^a-z0-9]+", "-", (name or "").strip().lower()).strip("-")[:60]
 	return f"demo-{slug}" if slug else ""
+
+
+def display_name(request: Request, owner: str) -> str:
+	"""The name as typed at sign-in (kept in a cookie); falls back to the title-cased bucket name."""
+	typed = " ".join(unquote(request.cookies.get(DISPLAY_COOKIE, "")).split())[:60]
+	return typed if typed and slugify_owner(typed) == owner else owner[5:].replace("-", " ").title()
 
 
 def current_owner(request: Request) -> str:
@@ -259,7 +268,19 @@ def case_payload(row: WorkbenchCase, state: dict[str, Any], *, detail: bool = Fa
 	return payload
 
 
-def pin_payload(pin: WorkbenchPin, case: Case | None) -> dict[str, Any]:
+def live_cited_by(db: Session, case_ids: list[int]) -> dict[int, int]:
+	"""Distinct citing decisions per case, counted live from citations (the same count the case reader shows)."""
+	if not case_ids:
+		return {}
+	rows = db.execute(
+		select(Citation.target_case_id, func.count(func.distinct(Citation.source_case_id)))
+		.where(Citation.target_case_id.in_(case_ids))
+		.group_by(Citation.target_case_id)
+	).all()
+	return {int(target): int(count) for target, count in rows}
+
+
+def pin_payload(pin: WorkbenchPin, case: Case | None, cited_by: int | None = None) -> dict[str, Any]:
 	return {
 		"id": pin.id,
 		"case_id": pin.case_id,
@@ -268,7 +289,7 @@ def pin_payload(pin: WorkbenchPin, case: Case | None) -> dict[str, Any]:
 		"court": case.court if case else None,
 		"date": case.date.isoformat() if case and case.date else None,
 		"docket": case.docket_number if case else None,
-		"cited_by": case.citing_cases_count if case else None,
+		"cited_by": cited_by if case else None,
 		"notes": pin.notes or "",
 		"tags": pin.tags or [],
 		"folder": pin.folder or "",
@@ -352,7 +373,7 @@ def workbench_me(request: Request) -> JSONResponse:
 	owner = request.cookies.get(COOKIE, "")
 	if not re.fullmatch(r"demo-[a-z0-9-]{1,60}", owner):
 		return _json({"signed_in": False, "demo": True})
-	return _json({"signed_in": True, "demo": True, "owner": owner, "display": owner[5:].replace("-", " ").title()})
+	return _json({"signed_in": True, "demo": True, "owner": owner, "display": display_name(request, owner)})
 
 
 @router.post("/workbench/api/signin", include_in_schema=False)
@@ -360,8 +381,10 @@ def workbench_signin(body: SignInRequest) -> JSONResponse:
 	owner = slugify_owner(body.name)
 	if not owner:
 		raise HTTPException(status_code=422, detail="Enter a name with at least one letter or number.")
-	response = _json({"signed_in": True, "demo": True, "owner": owner, "display": owner[5:].replace("-", " ").title()})
+	typed = " ".join(body.name.split())[:60]
+	response = _json({"signed_in": True, "demo": True, "owner": owner, "display": typed})
 	response.set_cookie(COOKIE, owner, max_age=60 * 60 * 24 * 365, httponly=True, samesite="lax", path="/")
+	response.set_cookie(DISPLAY_COOKIE, quote(typed), max_age=60 * 60 * 24 * 365, samesite="lax", path="/")
 	return response
 
 
@@ -369,6 +392,7 @@ def workbench_signin(body: SignInRequest) -> JSONResponse:
 def workbench_signout() -> JSONResponse:
 	response = _json({"signed_in": False, "demo": True})
 	response.delete_cookie(COOKIE, path="/")
+	response.delete_cookie(DISPLAY_COOKIE, path="/")
 	return response
 
 
@@ -468,7 +492,8 @@ def delete_case(case_id: int, owner: str = Depends(current_owner), db: Session =
 def list_pins(owner: str = Depends(current_owner), db: Session = Depends(get_db)) -> JSONResponse:
 	pins = db.scalars(select(WorkbenchPin).where(WorkbenchPin.owner == owner).order_by(WorkbenchPin.pinned_at.desc())).all()
 	cases = {c.id: c for c in db.scalars(select(Case).where(Case.id.in_([p.case_id for p in pins] or [0]))).all()}
-	return _json({"pins": [pin_payload(p, cases.get(p.case_id)) for p in pins]})
+	counts = live_cited_by(db, [p.case_id for p in pins])
+	return _json({"pins": [pin_payload(p, cases.get(p.case_id), counts.get(p.case_id, 0)) for p in pins]})
 
 
 @router.get("/workbench/api/pins/state", include_in_schema=False)
@@ -492,7 +517,7 @@ def add_pin(body: PinRequest, owner: str = Depends(current_owner), db: Session =
 		pin = WorkbenchPin(owner=owner, case_id=body.case_id, tags=[], folder=" ".join((body.folder or "").split())[:80] or None)
 		db.add(pin)
 		db.commit()
-	return _json({**pin_payload(pin, case), "created": created})
+	return _json({**pin_payload(pin, case, live_cited_by(db, [pin.case_id]).get(pin.case_id, 0)), "created": created})
 
 
 @router.get("/workbench/api/pins/export.csv", include_in_schema=False)
@@ -513,7 +538,7 @@ def update_pin(pin_id: int, body: ItemUpdate, owner: str = Depends(current_owner
 	pin = _owned_pin(db, owner, pin_id)
 	_apply_update(pin, body)
 	db.commit()
-	return _json(pin_payload(pin, db.get(Case, pin.case_id)))
+	return _json(pin_payload(pin, db.get(Case, pin.case_id), live_cited_by(db, [pin.case_id]).get(pin.case_id, 0)))
 
 
 @router.delete("/workbench/api/pins/{pin_id}", include_in_schema=False)

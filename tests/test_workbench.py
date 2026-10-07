@@ -15,6 +15,7 @@ from backend import workbench
 from backend.database import (
 	Base,
 	Case,
+	Citation,
 	FCActivityCase,
 	FCActivityClassification,
 	FCProceduralHistory,
@@ -34,7 +35,7 @@ def env():
 	engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool)
 	Base.metadata.create_all(
 		engine,
-		tables=[t.__table__ for t in (Case, FCActivityCase, FCActivityClassification, FCProceduralHistory, WorkbenchCase, WorkbenchPin)],
+		tables=[t.__table__ for t in (Case, Citation, FCActivityCase, FCActivityClassification, FCProceduralHistory, WorkbenchCase, WorkbenchPin)],
 	)
 	Session = sessionmaker(bind=engine)
 	app = FastAPI()
@@ -84,6 +85,8 @@ def test_api_requires_demo_sign_in_and_signin_sets_cookie(env):
 	_sign_in(client, "Pat Lee")
 	me = client.get("/workbench/api/me").json()
 	assert me["signed_in"] and me["demo"] and me["display"] == "Pat Lee"
+	_sign_in(client, "QA check")
+	assert client.get("/workbench/api/me").json()["display"] == "QA check"  # shown as typed
 	assert client.post("/workbench/api/signin", json={"name": "!!!"}).status_code == 422
 	client.post("/workbench/api/signout")
 	assert client.get("/workbench/api/cases").status_code == 401
@@ -227,3 +230,20 @@ def test_printable_briefs_need_sign_in_and_escape_user_text(env):
 	assert allbrief.status_code == 200 and "Morning brief" in allbrief.text and "IMM-1-24" in allbrief.text
 	client.post("/workbench/api/signout")
 	assert client.get(f"/workbench/brief/case/{case_id}").status_code == 401
+
+
+def test_pin_cited_by_is_counted_live_not_from_the_stored_column(env):
+	client, Session = env
+	with Session() as db:
+		db.add_all([
+			Case(id=7, title="Target", court="FC", date=date(2024, 1, 2), citation="2024 FC 1", citing_cases_count=8797),
+			Case(id=8, title="A", court="FC", date=date(2024, 1, 3)),
+			Case(id=9, title="B", court="FC", date=date(2024, 1, 4)),
+		])
+		db.flush()
+		for source in (8, 8, 9):  # two mentions from one decision still count once
+			db.add(Citation(source_case_id=source, target_case_id=7, citation_text="x", normalized_citation="x"))
+		db.commit()
+	_sign_in(client)
+	client.post("/workbench/api/pins", json={"case_id": 7})
+	assert client.get("/workbench/api/pins").json()["pins"][0]["cited_by"] == 2

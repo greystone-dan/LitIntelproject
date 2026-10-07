@@ -62,6 +62,8 @@ def test_tour_warms_only_its_own_read_only_data():
             assert entry.startswith("/api/fc-activity/"), entry
         elif "post" in entry:                             # the fictional demo memo, read and not stored
             assert entry["post"] == "/live-analysis/reader" and entry["file"] == "/site-tour/sample-memo.docx"
+        elif "years" in entry:                            # the same statistics for the "Last 5 years" step
+            assert all(url.startswith("/api/fc-activity/") for url in [entry["url"], *entry["years"]["then"]])
         else:
             assert entry["url"].startswith("/api/judge-profiles") and entry["top"]["then"].startswith("/api/judge-profiles/")
 

@@ -628,6 +628,13 @@
           }).catch(function(){});return}
         if(w.post){fetch(w.post,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},
           body:JSON.stringify({text:(DATA.texts||{})[w.sample]||'',title:w.title||'Pasted text'})}).catch(function(){});return}
+        if(w.years){                                                 // {url,years:{back,then:[...]}}: the same statistics for the
+          fetch(w.url,{credentials:'same-origin'}).then(function(r){return r.ok?r.json():null}).then(function(d){   // last few years filed
+            var ys=((d&&d.by_year)||[]).map(function(r){return Number(r.year)}).filter(function(y){return y>0});
+            if(!ys.length)return;
+            var from=String(Math.max.apply(null,ys)-w.years.back);
+            w.years.then.forEach(function(u){fetch(u.replace('{}',from),{credentials:'same-origin'}).catch(function(){})});
+          }).catch(function(){});return}
         fetch(w.url,{credentials:'same-origin'}).then(function(r){return r.ok?r.json():[]}).then(function(rows){
           var best=null;(rows||[]).forEach(function(r){if(!best||(r[w.top.by]||0)>(best[w.top.by]||0))best=r});
           if(best)fetch(w.top.then.replace('{}',encodeURIComponent(best[w.top.key])),{credentials:'same-origin'}).catch(function(){});

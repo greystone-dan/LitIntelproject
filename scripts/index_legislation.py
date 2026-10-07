@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -257,6 +258,28 @@ NON_XML_SOURCES = {
 		source_format="html_constitution_1982",
 		source_url="https://laws-lois.justice.gc.ca/eng/const/FullText.html",
 	),
+	# Provincial acts cut from the A2AJ canadian-laws dataset by scripts/extract_a2aj_provincial_acts.py (open tier only).
+	"ontario.immigration_act_2015": SourceDefinition(
+		title="Ontario Immigration Act, 2015",
+		citation="Ontario Immigration Act, 2015, S.O. 2015, c. 8",
+		relative_path="data/reference_library/provincial_json/ontario_immigration_act_2015.json",
+		source_format="json_sections",
+		source_url="https://www.ontario.ca/laws/statute/15o08",
+	),
+	"alberta.immigration_oversight_act": SourceDefinition(
+		title="Immigration Oversight Act",
+		citation="Immigration Oversight Act, S.A. 2026, c. I-0.3",
+		relative_path="data/reference_library/provincial_json/alberta_immigration_oversight_act.json",
+		source_format="json_sections",
+		source_url="https://kings-printer.alberta.ca/",
+	),
+	"manitoba.worker_recruitment_protection_act": SourceDefinition(
+		title="The Worker Recruitment and Protection Act",
+		citation="The Worker Recruitment and Protection Act, C.C.S.M. c. W197",
+		relative_path="data/reference_library/provincial_json/manitoba_worker_recruitment_protection_act.json",
+		source_format="json_sections",
+		source_url="https://web2.gov.mb.ca/laws/statutes/ccsm/w197.php",
+	),
 	"international.refugee_convention": SourceDefinition(
 		title="Convention Relating to the Status of Refugees",
 		citation="Convention Relating to the Status of Refugees",
@@ -445,6 +468,20 @@ def parse_constitution_sections(path: Path, source_format: str) -> list[tuple[st
 	return sections
 
 
+def parse_json_sections(path: Path) -> list[tuple[str, str | None, str]]:
+	"""Sections from an A2AJ snapshot: {"sections": [[number, text], ...]} (see extract_a2aj_provincial_acts.py)."""
+	data = json.loads(path.read_text(encoding="utf-8"))
+	sections: list[tuple[str, str | None, str]] = []
+	seen_numbers: set[str] = set()
+	for number, text in data.get("sections", []):
+		number = str(number).strip()
+		if not number or number in seen_numbers or not str(text).strip():
+			continue
+		seen_numbers.add(number)
+		sections.append((number, None, str(text)))
+	return sections
+
+
 def parse_source_sections(path: Path, source_format: str) -> list[tuple[str, str | None, str]]:
 	if source_format == "xml":
 		return parse_sections(path)
@@ -454,6 +491,8 @@ def parse_source_sections(path: Path, source_format: str) -> list[tuple[str, str
 		return parse_text_sections(path)
 	if source_format in _CONSTITUTION_ACTS:
 		return parse_constitution_sections(path, source_format)
+	if source_format == "json_sections":
+		return parse_json_sections(path)
 	raise ValueError(f"unsupported source format: {source_format}")
 
 

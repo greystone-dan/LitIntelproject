@@ -11,6 +11,7 @@ import json
 import os
 import re
 import time
+from types import SimpleNamespace
 from collections import OrderedDict
 from threading import RLock
 from typing import Any, Callable, Optional
@@ -18,7 +19,7 @@ from typing import Any, Callable, Optional
 import httpx
 from fastapi import HTTPException, status
 from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy.orm import Session, joinedload
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
@@ -54,8 +55,10 @@ from .judge_issue_record import (
 	fetch_judge_profile_issues,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .search_matching import identity_sql, matched_on_sql
+from .paragraph_search import search_paragraph_cases
+from .search_matching import identity_sql, matched_on_sql, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
@@ -1200,6 +1203,8 @@ def _case_type_facet(db, where_clause, facet_params, cohort_ids):
 
 
 _FACET_CACHE: dict[str, tuple[float, dict[str, Any]]] = {}
+# Longest a whole-text scan (no paragraph index hits) may run before the search answers 'too broad'.
+SEARCH_SCAN_TIMEOUT_MS = int(os.getenv("ILIT_SEARCH_SCAN_TIMEOUT_MS", "20000") or 20000)
 _FACET_CACHE_TTL_SECONDS = 600
 _FACET_CACHE_MAX_ENTRIES = 200
 
@@ -1224,6 +1229,29 @@ def _facet_cache_put(key: str, facets: dict[str, Any]) -> None:
 
 def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
 	return {str(k): v for k, v in _page_citation_counts(db, case_ids[:100]).items()}
+
+
+def _page_case_types(db, case_ids: list[int]) -> dict[int, dict[str, Any]]:
+	"""Stored case-type labels for only the cases on the returned page (one indexed query; no classification at read time)."""
+	if not case_ids:
+		return {}
+	try:
+		rows = db.execute(
+			sql_text(
+				"SELECT case_id, taxonomy_version, status, primary_type, primary_detail, second_type, second_detail "
+				"FROM case_type_labels WHERE taxonomy_version = :version AND case_id IN :ids"
+			).bindparams(bindparam("ids", expanding=True)),
+			{"version": TAXONOMY_VERSION, "ids": case_ids},
+		).mappings().all()
+	except SQLAlchemyError:
+		db.rollback()
+		return {}
+	found: dict[int, dict[str, Any]] = {}
+	for row in rows:
+		payload = case_type_payload(SimpleNamespace(**dict(row)))
+		if payload is not None:
+			found[int(row["case_id"])] = {"primary": payload["primary"], "second": payload["second"]}
+	return found
 
 
 def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
@@ -1341,6 +1369,8 @@ def fetch_analytics_search_cases(
 	year = "".join(character for character in year if character.isdigit())[:4]
 	parsed_query = parse_query(query)
 	query_uses_operators = _query_uses_operators(parsed_query)
+	paragraph_case_ids: list[int] = []
+	paragraph_best_chunk: dict[int, int] = {}
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"
 	citation_match, party_match, match_params = identity_sql(query)
 	params.update(match_params)
@@ -1364,8 +1394,25 @@ def fetch_analytics_search_cases(
 		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
-		if search_full_text:
-			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+		paragraph_hits = search_paragraph_cases(db, query)
+		if paragraph_hits:
+			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
+			paragraph_case_ids = [hit["case_id"] for hit in paragraph_hits]
+			paragraph_best_chunk = {hit["case_id"]: hit["best_chunk_id"] for hit in paragraph_hits}
+			params["para_ids"] = paragraph_case_ids
+			query_fields += " OR c.id = ANY(CAST(:para_ids AS integer[]))"
+			match_label = match_label.replace(
+				"ELSE 'Metadata' END", "WHEN c.id = ANY(CAST(:para_ids AS integer[])) THEN 'Paragraph match' ELSE 'Metadata' END"
+			)
+		else:
+			if search_full_text:
+				# Whole-text phrase scan: only without paragraph hits, as OR-ing it in forces a scan of every case.
+				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+			sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
+			if sentence_filter:
+				# A sentence rarely appears verbatim; also accept cases containing most of its content words.
+				query_fields += f" OR {sentence_filter}"
+				params.update(sentence_params)
 		filters.append(f"({query_fields})")
 	if cites:
 		params["cites"] = f"%{cites}%"
@@ -1410,15 +1457,21 @@ def fetch_analytics_search_cases(
 		else:
 			params["court"] = f"%{court}%"
 			filters.append("c.court ILIKE :court")
-	case_type = case_type.strip()
-	if case_type:
-		if case_type in TYPES_BY_KEY:
-			params["case_type"] = case_type
+	# One or more case types, comma separated (a decision matches when its primary or second type is any of them).
+	case_types = [value.strip() for value in case_type.split(",") if value.strip()][:8]
+	if case_types:
+		valid = [value for value in dict.fromkeys(case_types) if value in TYPES_BY_KEY]
+		if valid:
 			params["case_type_version"] = TAXONOMY_VERSION
+			names = []
+			for index, value in enumerate(valid):
+				params[f"case_type_{index}"] = value
+				names.append(f":case_type_{index}")
+			listed = ", ".join(names)
 			filters.append(
 				"EXISTS (SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = c.id "
 				"AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'classified' "
-				"AND (ctl.primary_type = :case_type OR ctl.second_type = :case_type))"
+				f"AND (ctl.primary_type IN ({listed}) OR ctl.second_type IN ({listed})))"
 			)
 		else:
 			filters.append("FALSE")
@@ -1468,6 +1521,19 @@ def fetch_analytics_search_cases(
 			search_full_text=search_full_text,
 		)
 		params.update(ranking_params)
+		if paragraph_case_ids:
+			# After the exact-phrase tiers, cases whose best paragraph ranked higher come first.
+			sort_order_sql = sort_order_sql.replace(
+				"c.date DESC NULLS LAST",
+				"array_position(CAST(:para_ids AS integer[]), c.id) ASC NULLS LAST, c.date DESC NULLS LAST",
+				1,
+			)
+		else:
+			sentence_hits, _, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
+			if sentence_hits:
+				params.update(sentence_params)
+				# After the exact-phrase tiers, cases matching more of the words rank first.
+				sort_order_sql = sort_order_sql.replace("c.date DESC NULLS LAST", f"{sentence_hits} DESC, c.date DESC NULLS LAST", 1)
 		sort_order = sort_order_sql
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
 	snippet_sql = "NULL"
@@ -1502,8 +1568,23 @@ def fetch_analytics_search_cases(
 	)
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
-	rows = db.execute(statement, params).mappings().all()
+	slow_text_scan = bool(query) and search_full_text and not query_uses_operators and not paragraph_case_ids
+	try:
+		if slow_text_scan:
+			# No paragraph index hits: the whole-text scan is bounded so a demo never hangs.
+			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(SEARCH_SCAN_TIMEOUT_MS)}"), {})
+		rows = db.execute(statement, params).mappings().all()
+	except OperationalError as error:
+		if "statement timeout" not in str(error).lower() and "canceling statement" not in str(error).lower():
+			raise
+		db.rollback()
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail="That search was too broad to finish in time. Add more specific words or untick full-text search.",
+		) from error
+	paragraph_snippets = _paragraph_snippets(db, rows, paragraph_best_chunk) if paragraph_best_chunk else {}
 	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
+	case_types = _page_case_types(db, [int(row["id"]) for row in rows])
 	return {
 		"facets": facets,
 		"results": [
@@ -1522,8 +1603,9 @@ def fetch_analytics_search_cases(
 				"unique_cited_authorities": citation_counts.get(int(row["id"]), {}).get("unique_cited_authorities", 0),
 				"resolved_target_cases": citation_counts.get(int(row["id"]), {}).get("resolved_target_cases", 0),
 				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0 if include_citation_stats else None),
+				"case_type": case_types.get(int(row["id"])),
 				"matched_on": row.get("matched_on", "Metadata"),
-				"snippet": clean_search_snippet(row.get("snippet")),
+				"snippet": clean_search_snippet(row.get("snippet") or paragraph_snippets.get(int(row["id"]))),
 			}
 
 			for row in rows
@@ -1532,6 +1614,22 @@ def fetch_analytics_search_cases(
 		"offset": offset,
 		"query_echo": parsed_query["echo"],
 	}
+
+
+def _paragraph_snippets(db: Session, rows: list[Any], best_chunk: dict[int, int]) -> dict[int, str]:
+	"""Opening of each page result's best-matching paragraph, so a sentence search shows why a case matched."""
+	chunk_ids = [best_chunk[int(row["id"])] for row in rows if int(row["id"]) in best_chunk]
+	if not chunk_ids:
+		return {}
+	try:
+		found = db.execute(
+			sql_text("SELECT id, SUBSTRING(text FROM 1 FOR 320) AS excerpt FROM case_chunks WHERE id = ANY(CAST(:ids AS integer[]))"),
+			{"ids": chunk_ids},
+		).mappings().all()
+	except Exception:
+		return {}
+	by_chunk = {int(item["id"]): str(item["excerpt"] or "") for item in found}
+	return {case_id: by_chunk[chunk_id] for case_id, chunk_id in best_chunk.items() if chunk_id in by_chunk}
 
 
 def clean_search_snippet(raw: str | None) -> str | None:

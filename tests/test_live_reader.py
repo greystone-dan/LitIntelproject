@@ -215,3 +215,85 @@ def test_a_failed_lookup_names_its_reason_in_the_summary() -> None:
 	summary = build_live_reader_payload(text, paragraphs, "memo", _BrokenLibrary())["summary"]
 	assert "statement timeout" in summary["library_lookup_error"]
 	assert isinstance(summary["library_lookup_ms"], int)
+
+
+def test_statute_extraction_time_grows_gently_with_text_length() -> None:
+	"""Statute extraction rescanned the whole text for every provision, so a long memo took many seconds."""
+	import time
+
+	from backend.citations import extract_statute_reference_matches
+
+	paragraph = "The officer erred. Under section 96 of the IRPA and subsection 25(1) of the IRPA the test is met. See Smith J. at para 4. "
+	text = paragraph * 400
+	started = time.perf_counter()
+	rows = extract_statute_reference_matches(text)
+	assert rows
+	assert time.perf_counter() - started < 5
+
+
+def test_sentence_breaks_skip_single_letter_initials() -> None:
+	from backend.citations import _sentence_break_ends
+
+	text = "Smith J. said so. Done! Really? Yes"
+	assert _sentence_break_ends(text) == [text.index("so.") + 3, text.index("Done!") + 5, text.index("Really?") + 7]
+	assert _sentence_break_ends(".a. b") == [1]
+
+
+def test_scr_citation_matches_with_or_without_dots() -> None:
+	from backend.live_analysis import _citation_variants
+
+	assert "[1999] 2 SCR 817" in _citation_variants("[1999] 2 S.C.R. 817")
+	assert "[1999] 2 S.C.R. 817" in _citation_variants("[1999] 2 SCR 817")
+
+
+def test_mock_documents_find_their_known_citations_without_a_library() -> None:
+	"""The synthetic memos in tests/live_analysis_mocks: every case, back-reference and statute is still found."""
+	from pathlib import Path
+
+	from scripts.run_live_analysis_mocks import score
+
+	report = score(Path(__file__).parent / "live_analysis_mocks", _NoLibrary())
+	assert report
+	# without a library nothing can be in it, so only check the extraction itself
+	failed = [label for doc in report for label, ok in doc["results"] if not ok and not label.startswith(("case: Vavilov", "case: Baker", "case: Khosa", "case: Dunsmuir", "case: Smith"))]
+	assert failed == []
+
+
+_DECISION = """Citation: Canada (Citizenship and Immigration) v. Khosa, 2009 SCC 12, [2009] 1 S.C.R. 339
+Date: 20090306
+Docket: 31952
+
+Reasons for Judgment:
+
+[1] Binnie J. — This appeal concerns the standard of review of a decision of the Immigration Appeal Division.
+
+[2] The respondent was found to be inadmissible. See Dunsmuir v. New Brunswick, 2008 SCC 9 at para 47.
+
+[3] The appeal is allowed under section 18.1 of the Federal Courts Act.
+
+[4] The first issue is the standard of review.
+
+[5] The second issue is the remedy.
+
+[6] The third issue is costs.
+
+[7] Appeal allowed, without costs.
+"""
+
+
+def test_a_pasted_decision_gets_decision_formatting_and_header_details() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(_DECISION)
+	payload = build_live_reader_payload(text, paragraphs, "Pasted text", _NoLibrary())
+	assert payload["item"]["citation"] == "2009 SCC 12"
+	assert payload["item"]["court"] == "Supreme Court of Canada"
+	assert payload["item"]["date"] == "2009-03-06"
+	assert payload["decision"]["outcome"] == "allowed"
+	assert payload["summary"]["paragraphs"] == 7
+	assert {b["type"] for b in payload["readerData"]["format_blocks"]} >= {"para"}
+
+
+def test_a_memo_gets_no_decision_details() -> None:
+	text, paragraphs = paragraphs_from_pasted_text("Overview\n\n1. The test is reasonableness. See Vavilov, 2019 SCC 65.\n\n2. Second point.")
+	payload = build_live_reader_payload(text, paragraphs, "memo", _NoLibrary())
+	assert payload["decision"] is None
+	assert payload["item"]["citation"] is None

@@ -71,3 +71,9 @@ def test_constitution_acts_resolve_by_year_only():
     assert resolve_instrument_key("British North America Act", "FC") == "canada.constitution_act_1867"
     assert resolve_instrument_key("Constitution Act, 1982", "FCA") == "canada.constitution_act_1982"
     assert resolve_instrument_key("Constitution Act", "FC") is None
+
+
+def test_old_consolidation_is_refused_on_court_aware_names_too():
+    assert resolve_instrument_key("Supreme Court Act, R.S.C. 1927, c. 35", "SCC") is None
+    assert resolve_instrument_key("Privacy Act, R.S.C. 1970, c. P-21", "FC") is None
+    assert resolve_instrument_key("Supreme Court Act", "SCC") == "canada.supreme_court_act"

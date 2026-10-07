@@ -181,10 +181,12 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
 | `backend/citation_refine/landmarks.py` | Bare short forms of landmark cases: "Vavilov at para 85" with no full citation in the decision |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
+| `backend/citation_refine/linking.py` | Resolve refined citation rows to library cases (side tables only) |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
 | `backend/citation_refine/short_forms.py` | Reject pass-one short forms whose alias cannot be a name of the case they were anchored to |
+| `backend/citation_source.py` | Which citation table the read paths use: the live one (default) or the refined side table |
 | `backend/citation_treatment.py` | Pure rules that label how a decision treats a cited authority |
 | `backend/citation_treatment_service.py` | Loads stored citations and verifies treatment labels against source text |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
@@ -222,6 +224,7 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
+| `backend/live_decision.py` | Header details for an uploaded document that is itself a court decision |
 | `backend/live_reader.py` | Reader-shaped payload for an uploaded or pasted document (Live Analysis markup view); in memory, no model |
 | `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |
@@ -282,6 +285,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
+| `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
@@ -302,6 +306,7 @@ test checks that these paths continue to exist.
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
+| `backend/search_thesaurus.py` | Curated immigration-law synonym list used to widen plain-language searches |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/similar_cases.py` | Read-only "similar cases" for the reader: same subject and shares authorities, from stored fingerprints |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |

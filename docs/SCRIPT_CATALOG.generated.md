@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 191
+Active scripts documented: 195
 
 ## Catalog
 
@@ -105,6 +105,7 @@ Active scripts documented: 191
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
+| `extract_a2aj_provincial_acts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
@@ -137,6 +138,7 @@ Active scripts documented: 191
 | `judge_alias_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_alias_report.py --help` |
 | `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
+| `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
@@ -178,6 +180,7 @@ Active scripts documented: 191
 | `run_discussion_units_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_discussion_units_cohort.py --help` |
 | `run_fc_activity_openai_structured_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_fc_activity_openai_structured_pilot.py --help` |
 | `run_jobs.py` | Standalone interval orchestration | DB-free scheduler; opt-in child commands may write or use network; defaults disabled | `.\venv\Scripts\python.exe scripts\run_jobs.py --list` |
+| `run_live_analysis_mocks.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help` |
 | `run_local_paragraph_summary_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_local_paragraph_summary_baseline.py --help` |
 | `run_model_paragraph_experiment.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_model_paragraph_experiment.py --help` |
 | `run_outcome_checker.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_outcome_checker.py --help` |
@@ -191,6 +194,7 @@ Active scripts documented: 191
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -1532,6 +1536,20 @@ Active scripts documented: 191
 .\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help
 ```
 
+## `scripts/extract_a2aj_provincial_acts.py`
+
+**Purpose:** Cut a few provincial acts out of the A2AJ canadian-laws parquet files into small JSON snapshots. Source: https://huggingface.co/datasets/a2aj/canadian-laws (one LEGISLATION-<PROVINCE>.parquet per jurisdiction). Only the acts listed in ACTS are taken, never whole provinces. Each snapshot carries the upstream licence text and is indexed by scripts/index_legislation.py (source format "json_sections"). Tier "open": the dataset's licence note permits reproduction with attribution (Ontario, Alberta, Manitoba). Tier "held": British Columbia (licence field blank), Quebec (CC BY-NC-ND 4.0, non-commercial, no derivatives) and Saskatchewan (non-commercial use by permission). Held acts are only counted unless --include-held is given; do not commit their snapshots until the licence question is settled. Usage: python scripts/extract_a2aj_provincial_acts.py --parquet-dir DIR [--write] [--include-held] Without --write it only prints section counts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help
+```
+
 ## `scripts/extract_citation_network.py`
 
 **Purpose:** Backfill the citation network from case texts and/or stored chunks.
@@ -1980,6 +1998,20 @@ Active scripts documented: 191
 .\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help
 ```
 
+## `scripts/link_refined_citations.py`
+
+**Purpose:** Link refined citation rows (side table ``citations_refined``) to library cases. Dry run by default: reports how many refined rows would link, by kind, and prints examples. ``--apply`` sets ``target_case_id`` on refined rows that resolve to exactly one case (never on the live ``citations`` table) and marks unmatched formal citations ``unresolved``. Resumable: only rows still without a target are looked at. ``--revert --yes`` clears every link this script wrote for the refine version. Nothing on the site reads these rows unless ``CITATIONS_SOURCE=refined`` is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\link_refined_citations.py --help
+```
+
 ## `scripts/llm_tag_candidate_review.py`
 
 **Purpose:** Propose immigration research tags with an external OpenAI pass. This script is read-only: it reads stored decision text and writes only a review report.
@@ -2248,7 +2280,7 @@ Active scripts documented: 191
 
 ## `scripts/reextract_statute_references.py`
 
-**Purpose:** Re-extract statute references with the current rules; dry run compares, apply replaces. Why: older extraction dropped decimal sections ("18.1" stored as "18") and mis-handled lists. This reads the same text the original build used (the preferred chunk set, else full text), runs the current extractor, and compares with the stored rows of the same cases. Dry run (default) writes nothing: it reports counts before and after (rows, rows with an instrument, decimal sections, list rows, rows per instrument) and sample changes. --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL backup file, then replaces that case's rows (one transaction per batch). Restore: scripts that read the backup file, or re-insert rows from it; the backup holds every column. Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all.
+**Purpose:** Re-extract statute references with the current rules; dry run compares, apply replaces. Why: older extraction dropped decimal sections ("18.1" stored as "18") and mis-handled lists. This reads the same text the original build used (the preferred chunk set, else full text), runs the current extractor, and compares with the stored rows of the same cases. Dry run (default) writes nothing: it reports counts before and after (rows, rows with an instrument, decimal sections, list rows, rows per instrument) and sample changes. --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL backup file, then replaces that case's rows (one transaction per batch). --restore BACKUP puts the backed-up rows back (every column, original ids): for each case in the file it deletes the case's current rows and re-inserts the saved ones. If a case appears more than once in the file (re-runs append), the first entry, the oldest rows, is used. --restore-dry-run reports what it would do. Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all; --skip-cases-in BACKUP drops cases a previous apply already backed up (the rest after a first tranche).
 
 **Operational class:** Utility
 
@@ -2554,6 +2586,20 @@ Active scripts documented: 191
 .\venv\Scripts\python.exe scripts\run_jobs.py --list
 ```
 
+## `scripts/run_live_analysis_mocks.py`
+
+**Purpose:** Run the synthetic Live Analysis documents and score them against expected.json (read-only, nothing stored). Usage: python scripts/run_live_analysis_mocks.py [folder] [--no-library] The default folder is tests/live_analysis_mocks; the long speed document (03) lives in /mnt/project-files/live-analysis/mock-docs and is only scored when it is in the folder given.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_live_analysis_mocks.py --help
+```
+
 ## `scripts/run_local_paragraph_summary_baseline.py`
 
 **Purpose:** Generate a bounded, report-only local paragraph-summary baseline.
@@ -2734,6 +2780,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
+```
+
+## `scripts/score_search_gold.py`
+
+**Purpose:** Score the case search box against a gold query set (read-only; run on the PC). Modes: legacy (exact-phrase only, the behaviour before the sentence fix), words (most-of-the-words ILIKE), paragraph (paragraph index; needs the paragraph_search table). Example: python scripts/score_search_gold.py --mode paragraph --out scores_paragraph.json python scripts/score_search_gold.py --compare scores_legacy.json scores_paragraph.json Nothing is written to the database. Landmark and citation queries count a hit when an expected citation is in the top 10; topic and French queries count a hit when a top-10 case text matches every oracle regex (a weak, loose check), and the top 3 titles are printed so a person can read them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_search_gold.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

@@ -156,3 +156,32 @@ def test_structure_labelling_scores_well_above_floor_on_every_split(no_rpd):
         boundary, (hits, total), _, _ = ev.evaluate(subset, ev.APPROACHES["structure+h"])
         assert hits / total >= floor, (split, hits, total)
         assert boundary.interior_hits / boundary.interior_gold >= 0.5, split
+
+
+def test_structure_outline_sections_from_reader_blocks():
+    from backend.case_formatter import format_decision
+    from backend.contextual_authority.case_structure import structure_outline
+
+    text = "\n".join([
+        "Smith v. Canada, 2020 FC 1",
+        "Decision Content",
+        "[1] This is an application for judicial review of a decision refusing a visa.",
+        "[2] The applicant is a citizen of Iran. He applied in 2019 and was interviewed in 2020. The officer wrote to him in March.",
+        "[3] The officer found that he had not shown that he would leave Canada at the end of the stay.",
+        "[4] The issues are whether the decision was reasonable and whether the process was fair.",
+        "II. Analysis",
+        "[5] The standard of review is reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 10.",
+        "[6] The officer's reasons are justified, transparent and intelligible. I see no error.",
+        "[7] The application for judicial review is dismissed. No question is certified.",
+    ])
+    rows = structure_outline(text, format_decision(text))
+    assert [r["role"] for r in rows if r["level"] == 1][0] == "overview"
+    assert rows[-1]["role"] == "disposition" and rows[-1]["para"] == 7
+    assert all(isinstance(r["start"], int) for r in rows)
+
+
+def test_structure_outline_empty_or_tiny():
+    from backend.contextual_authority.case_structure import structure_outline
+
+    assert structure_outline(None, []) == []
+    assert structure_outline("[1] One paragraph only.", []) == []

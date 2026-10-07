@@ -335,6 +335,24 @@ _BARE_CASE_ALIAS_NOISE = {
 }
 
 
+# Words a case's short name is sometimes drawn from ("Alberta (Information and Privacy Commissioner) v. Alberta Teachers'
+# Association" gives "Alberta" and "Association") but that name provinces, cities or kinds of body, not the case. A bare
+# mention made only of these is not a short form; "Dunsmuir" or "Vavilov at para 99" still are.
+_GENERIC_ALIAS_WORDS = frozenset(
+	"""ontario quebec alberta manitoba saskatchewan british columbia nova scotia new brunswick newfoundland labrador
+	prince edward island yukon nunavut northwest territories toronto ottawa montreal vancouver calgary edmonton winnipeg
+	commissioner commission tribunal division association society university council band bands services service
+	solicitor trust group international insurance authority human rights city municipality regional office officer
+	government federal provincial national public health labour union workers college school institute centre center
+	foundation company fund bank financial energy limited employment relations local committee construction alliance""".split()
+)
+
+
+def _is_generic_alias(alias: str) -> bool:
+	words = re.findall(r"[A-Za-z]+", alias.lower())
+	return bool(words) and all(word in _GENERIC_ALIAS_WORDS for word in words)
+
+
 @dataclass(frozen=True)
 class RawCitationMatch:
 	kind: str
@@ -1348,11 +1366,14 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		key=lambda item: (-len(item[0]), item[0]),
 	):
 		alias = alias_anchors[0].alias
-		if len(alias) < 4 or alias_key in _BARE_CASE_ALIAS_NOISE:
+		if len(alias) < 4 or alias_key in _BARE_CASE_ALIAS_NOISE or _is_generic_alias(alias):
 			continue
 		pattern = re.compile(rf"(?<![\w'’-]){re.escape(alias)}(?![\w'’-])", re.IGNORECASE)
 		for alias_match in pattern.finditer(content):
 			start, end = alias_match.span()
+			# A name is capitalised where it is used as one: "group" or "authority" in running text is the word.
+			if alias[:1].isupper() and not content[start:end][:1].isupper():
+				continue
 			if is_federal_court_metadata_position(start):
 				continue
 			if any(
@@ -1963,12 +1984,32 @@ def _defined_act_anchor(content: str, anchors: list[RawCitationMatch], kind: str
 	return max(before, key=lambda item: item.offset_end) if before else None
 
 
+_ASCII_LETTERS = frozenset("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+
+
+def _sentence_break_ends(content: str) -> list[int]:
+	"""Offsets just after each sentence-ending ``.``, ``!`` or ``?``, once for the whole text.
+
+	A full stop after a single letter that is itself a word ("J." in "Smith J. said") is not a break. Computed once
+	and sliced per provision: scanning the text again for every provision made extraction quadratic in its length.
+	"""
+	breaks: list[int] = []
+	for position, character in enumerate(content):
+		if character not in ".!?":
+			continue
+		if position and content[position - 1] in _ASCII_LETTERS and (position < 2 or content[position - 2] not in _ASCII_LETTERS):
+			continue
+		breaks.append(position + 1)
+	return breaks
+
+
 def _extract_anchored_provision_candidates(
 	content: str,
 	anchors: list[RawCitationMatch],
 ) -> list[RawCitationMatch]:
 	rows: list[RawCitationMatch] = []
 	context_anchors = list(anchors)
+	all_sentence_breaks = _sentence_break_ends(content)
 	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
 		instrument = _full_statute_citation_name(match.group(1))
 		context_anchors.append(_raw_match("statute", match.group(0), instrument, match.start(), match.end()))
@@ -1979,15 +2020,7 @@ def _extract_anchored_provision_candidates(
 			continue
 
 		def sentence_break_starts(index: int) -> list[int]:
-			breaks: list[int] = []
-			for position, character in enumerate(content[:index]):
-				if character not in ".!?":
-					continue
-				trailing_word = re.search(r"([A-Za-z]+)$", content[:position])
-				if trailing_word and len(trailing_word.group(1)) == 1 and content[position - 1].isalpha():
-					continue
-				breaks.append(position + 1)
-			return breaks
+			return all_sentence_breaks[: bisect_right(all_sentence_breaks, index)]
 
 		prefix = match.group(1).lower()
 		if "para" in prefix and "(" not in match.group(2):
@@ -2049,7 +2082,7 @@ def _extract_anchored_provision_candidates(
 					if candidate.kind == kind
 					and _anchored_authority_name(candidate)
 					and 0 <= candidate.offset_start - end <= 30
-					and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
+					and re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
 				),
 				None,
 			)

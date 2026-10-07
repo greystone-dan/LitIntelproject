@@ -1313,9 +1313,23 @@ async def live_analysis_reader(file: UploadFile = File(...), db: Session = Depen
 def live_analysis_reader_text(body: LiveReaderTextRequest, db: Session = Depends(get_db)) -> JSONResponse:
 	"""Same as ``/live-analysis/reader`` for pasted text."""
 
+	from .analytics_service import get_analytics_cache
+	from .site_tour import is_tour_sample
+
+	title = body.title.strip() or "Pasted text"
+	# Only the tour's fictional demo document is ever cached; anything a person pastes is read once and dropped.
+	demo = is_tour_sample(body.text)
+
 	def build() -> dict[str, Any]:
+		if demo:
+			cached, hit = get_analytics_cache().get("live_reader_demo", title=title)
+			if hit:
+				return cached
 		text, paragraphs = paragraphs_from_pasted_text(body.text)
-		return build_live_reader_payload(text, paragraphs, body.title.strip() or "Pasted text", db)
+		payload = build_live_reader_payload(text, paragraphs, title, db)
+		if demo:
+			get_analytics_cache().set("live_reader_demo", payload, title=title)
+		return payload
 
 	return _live_reader_response(build)
 
@@ -1972,7 +1986,15 @@ def judge_profile(
 	minister: list[str] | None = Query(default=None),
 	db: Session = Depends(get_db),
 ) -> dict[str, Any]:
-	return fetch_judge_profile_by_slug(db, slug, ministers=minister)
+	from .analytics_service import get_analytics_cache
+
+	ministers = sorted({" ".join(value.split()) for value in (minister or []) if value.strip()})
+	cached, hit = get_analytics_cache().get("judge_profile", slug=slug, ministers=ministers)
+	if hit:
+		return cached
+	result = fetch_judge_profile_by_slug(db, slug, ministers=minister)
+	get_analytics_cache().set("judge_profile", result, slug=slug, ministers=ministers)
+	return result
 
 
 @router.get(

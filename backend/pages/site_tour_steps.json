@@ -17,10 +17,27 @@
       "note": "Vavilov must be found by citation"
     },
     {
-      "id": "cessation-india-minister-won",
-      "url": "/analytics/search/cases?query=citizen%20of%20India%20passport&case_type=refugee_cessation&government_outcome=won&limit=5",
+      "id": "cessation-minister-won",
+      "url": "/analytics/search/cases?case_type=refugee_cessation&government_outcome=won&limit=5",
       "min": 1,
-      "note": "the cessation example: words, case type refugee_cessation, government won"
+      "note": "the cessation example: case type refugee_cessation, government won"
+    }
+  ],
+  "warm": [
+    "/api/fc-activity/dashboard?",
+    "/api/fc-activity/judges?min_decisions=25",
+    "/api/fc-activity/counsel?min_files=15",
+    {
+      "url": "/api/judge-profiles?limit=500",
+      "top": {
+        "by": "decision_count",
+        "key": "slug",
+        "then": "/api/judge-profiles/{}"
+      }
+    },
+    {
+      "post": "/live-analysis/reader-text",
+      "sample": "moa"
     }
   ],
   "steps": [
@@ -159,34 +176,11 @@
       ]
     },
     {
-      "id": "ces-words",
-      "section": "Case search",
-      "url": "/data-explorer?tab=search",
-      "title": "An example: cessation, India, Minister won",
-      "text": "Say you need refugee cessation cases involving India where the Minister won. First a few words that appear in those decisions: citizen of India passport. The words are matched in the decision text.",
-      "target": "#caseSearch",
-      "label": "Words from the reasons",
-      "before": [
-        {
-          "do": "click",
-          "selector": "#toggleAdvancedSearch",
-          "unless": "#searchPanel.sp-adv",
-          "show": true,
-          "label": "Advanced"
-        },
-        {
-          "do": "type",
-          "selector": "#searchQuery",
-          "text": "citizen of India passport"
-        }
-      ]
-    },
-    {
       "id": "ces-type",
       "section": "Case search",
       "url": "/data-explorer?tab=search",
-      "title": "Add the case type",
-      "text": "Next the case type: under Refugee protection I ticked Refugee cessation (s. 108).",
+      "title": "An example: cessation cases the Minister won",
+      "text": "Say you need refugee cessation decisions where the Minister won. First the case type: under Refugee protection I ticked Refugee cessation (s. 108).",
       "target": ".sp-ct-group:has(.sp-ct-box[value='refugee_cessation'])",
       "label": "Refugee cessation",
       "before": [
@@ -196,11 +190,6 @@
           "unless": "#searchPanel.sp-adv",
           "show": true,
           "label": "Advanced"
-        },
-        {
-          "do": "type",
-          "selector": "#searchQuery",
-          "text": "citizen of India passport"
         },
         {
           "do": "open",
@@ -219,7 +208,7 @@
       "section": "Case search",
       "url": "/data-explorer?tab=search",
       "title": "Add the outcome and search",
-      "text": "Last, the outcome: Government won, meaning the Minister prevailed. Pressing it runs the search with all three: the words, the case type and the outcome.",
+      "text": "Then the outcome: Government won, meaning the Minister prevailed. Pressing it runs the search with both filters.",
       "target": "#quickFilters .qf-chip[data-qf='outcome'][data-value='won']",
       "label": "Government won",
       "also": [
@@ -235,11 +224,6 @@
           "unless": "#searchPanel.sp-adv",
           "show": true,
           "label": "Advanced"
-        },
-        {
-          "do": "type",
-          "selector": "#searchQuery",
-          "text": "citizen of India passport"
         },
         {
           "do": "open",
@@ -265,7 +249,7 @@
       "section": "Case search",
       "url": "/data-explorer?tab=search",
       "title": "The matching decisions",
-      "text": "These are the cessation decisions about India where the Minister won. Each row shows the court, date, judge, outcome, case type and how many decisions cite it.",
+      "text": "These are the cessation decisions the Minister won. Each row shows the court, date, judge, outcome, case type and how many decisions cite it. Words typed in the search box, such as a country, narrow the list further.",
       "target": "#searchResults",
       "label": "Results",
       "also": [
@@ -281,11 +265,6 @@
           "unless": "#searchPanel.sp-adv",
           "show": true,
           "label": "Advanced"
-        },
-        {
-          "do": "type",
-          "selector": "#searchQuery",
-          "text": "citizen of India passport"
         },
         {
           "do": "open",
@@ -610,53 +589,90 @@
           "sel": ".fcx-filters",
           "label": "Filters"
         }
-      ]
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12
     },
     {
       "id": "fc-kpis",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "The headline figures",
-      "text": "The key numbers for whatever the filters select, at the top so you can see the size of the group before reading any rate.",
+      "text": "The key numbers for whatever the filters select: files, leave and judicial review grant rates, settlements, median days to the leave decision and stays. They sit at the top so you see the size of the group before reading any rate.",
       "target": "#fcxKpis",
       "label": "Headline figures",
-      "needsData": true
+      "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ]
     },
     {
       "id": "fc-progress",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "How files progress, and grant rates",
-      "text": "Left, the files reaching each stage: leave decision, judicial review, judgment. Right, the share of leave decisions and of merits judgments granted, year by year.",
+      "title": "How files move and how they end",
+      "text": "How many files reach leave, judicial review and judgment; the share granted at each stage, year by year; and how each year's files ended. Click a year to filter the whole page to it.",
       "target": ".fcx-card:has(#fcxFunnel)",
       "label": "Progress",
       "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
       "also": [
         {
           "sel": ".fcx-card:has(#fcxRates)",
           "label": "Grant rates"
+        },
+        {
+          "sel": ".fcx-card:has(#fcxOutcomes)",
+          "label": "Outcomes by year"
         }
       ]
     },
     {
-      "id": "fc-outcomes",
+      "id": "fc-who",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "How each year's files ended",
-      "text": "Leave refused, discontinued, dismissed, granted, settled, still open. Click a year and the whole page filters to it.",
-      "target": ".fcx-card:has(#fcxOutcomes)",
-      "label": "Outcomes by year",
-      "needsData": true
-    },
-    {
-      "id": "fc-bodies",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Who made the decision under review",
-      "text": "Leave grant rates by kind of decision challenged (RPD, RAD, PRRA, visa offices and so on), and the most frequent offices behind them. Click one to filter.",
+      "title": "Which decisions are challenged",
+      "text": "Leave grant rates by the kind of decision under review (RPD, RAD, PRRA, visa offices and so on), and the offices most often behind them. Click a bar or an office to filter.",
       "target": ".fcx-card:has(#fcxBodies)",
       "label": "Decision under review",
       "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
       "also": [
         {
           "sel": ".fcx-card:has(#fcxOffices)",
@@ -665,14 +681,52 @@
       ]
     },
     {
+      "id": "fc-people",
+      "section": "Intelligence / Statistics",
+      "url": "/data-explorer?tab=fc-analytics",
+      "title": "Judges and counsel",
+      "text": "Each dot is a judge with at least 25 leave decisions: leave grant rate across, judicial review grant rate up. Below, applicant counsel with their files and rates. Click a dot or a row to see only those files.",
+      "target": ".fcx-card:has(#fcxJudges)",
+      "label": "Judges",
+      "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
+      "also": [
+        {
+          "sel": ".fcx-card:has(#fcxCounsel)",
+          "label": "Counsel"
+        }
+      ]
+    },
+    {
       "id": "fc-timing",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "How long things take",
-      "text": "Median days between filing, leave decision and judicial review, with the middle half of files as a band; and days to the leave decision by year filed (years with under 30 decisions are left out).",
+      "text": "Median days between filing, leave decision and judicial review, with the middle half of files as a band; and the days to a leave decision by year filed (years with fewer than 30 decisions are left out).",
       "target": ".fcx-card:has(#fcxDurations)",
       "label": "Time between steps",
       "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
       "also": [
         {
           "sel": ".fcx-card:has(#fcxLeaveTime)",
@@ -681,44 +735,25 @@
       ]
     },
     {
-      "id": "fc-motions",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Motions by type",
-      "text": "Ruled motions split granted and dismissed, plus withdrawn and never ruled. The grant rate counts ruled motions only.",
-      "target": ".fcx-card:has(#fcxMotions)",
-      "label": "Motions",
-      "needsData": true
-    },
-    {
-      "id": "fc-judges",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Judges: leave versus judicial review",
-      "text": "Each dot is a judge with at least 25 leave decisions: leave grant rate across, judicial review grant rate up, dot size by decisions. Click a dot to filter to that judge.",
-      "target": ".fcx-card:has(#fcxJudges)",
-      "label": "Judges",
-      "needsData": true
-    },
-    {
-      "id": "fc-counsel",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Applicant counsel",
-      "text": "Counsel named on the applicant's side, with their files and rates. Click a row to see only their files.",
-      "target": ".fcx-card:has(#fcxCounsel)",
-      "label": "Counsel",
-      "needsData": true
-    },
-    {
       "id": "fc-deadlines",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
       "title": "Deadlines and refusals",
-      "text": "Whether the application met the 15-day or 60-day limit in section 72 of IRPA and the Rule 10, 11 and 15 steps; and refusals where no record was filed against refusals on the record, which separates abandoned files from files that lost.",
+      "text": "Whether the application met the 15-day or 60-day limit in section 72 of IRPA and the Rule 10, 11 and 15 steps; and refusals where no record was filed, against refusals on the record, which separates abandoned files from files that lost.",
       "target": ".fcx-card:has(#fcxCompliance)",
       "label": "Deadlines",
       "needsData": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        }
+      ],
+      "timeout": 12,
       "also": [
         {
           "sel": ".fcx-card:has(#fcxRefusals)",
@@ -727,47 +762,49 @@
       ]
     },
     {
-      "id": "fc-registry",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "By registry",
-      "text": "Files by registry office with the leave grant rate. Click one to filter.",
-      "target": ".fcx-card:has(#fcxCities)",
-      "label": "Registries",
-      "needsData": true
-    },
-    {
       "id": "fc-filter-demo",
       "section": "Intelligence / Statistics",
       "url": "/data-explorer?tab=fc-analytics",
-      "title": "Try a filter",
-      "text": "I pressed Last 5 years. Every figure and chart now covers only files filed in those years, and the active filter shows so it can be removed.",
+      "title": "Filter, and read with care",
+      "text": "I pressed Last 5 years: every figure and chart now covers only files filed in those years. Rates use files with an observed decision and show their counts, because small groups are not reliable; motions never ruled on are inferred, and registry entries can contain errors.",
       "target": "#fcxKpis",
       "label": "Last 5 years",
       "also": [
         {
           "sel": "#fcxPresets",
           "label": "Years filed"
+        },
+        {
+          "sel": "p.fcx-note",
+          "label": "Caveats"
         }
       ],
       "needsData": true,
       "before": [
         {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
+        },
+        {
           "do": "click",
           "selector": "#fcxPresets [data-preset='5']",
+          "unless": "#fcxPresets [data-preset='5'][aria-pressed='true']",
           "show": true,
           "label": "Last 5"
+        },
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#fcxStatus",
+            "text": "files in|unavailable"
+          },
+          "timeout": 30
         }
       ]
-    },
-    {
-      "id": "fc-caveat",
-      "section": "Intelligence / Statistics",
-      "url": "/data-explorer?tab=fc-analytics",
-      "title": "Read the rates with the caveats",
-      "text": "Rates use files with an observed decision, and counts sit beside every rate because small groups are not reliable. Motions never ruled on are inferred from what happened next, and Registry entries can contain errors.",
-      "target": "p.fcx-note",
-      "label": "Caveats"
     },
     {
       "id": "workbench-home",
@@ -822,7 +859,7 @@
       "also": [
         {
           "sel": "#laAnalyze",
-          "label": "Analyze"
+          "label": "Read document"
         }
       ],
       "fresh": true,
@@ -840,10 +877,17 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "The document, marked up",
-      "text": "I pressed Analyze. The bar counts the case citations and statute references found, and every one is marked in the text.",
-      "target": ".mk-row",
-      "label": "Counts and layers",
+      "text": "I pressed Read document. The counts show the case citations and statute references found. Each one is marked in the text, and the layer buttons switch them on or off.",
+      "target": [
+        ".v6-stats",
+        ".mk-row"
+      ],
+      "label": "Counts",
       "also": [
+        {
+          "sel": ".reader-layer-legend",
+          "label": "Layers"
+        },
         {
           "sel": "#decisionBody",
           "label": "Marked-up document"
@@ -854,19 +898,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -880,8 +926,14 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "Matched to the library",
-      "text": "This citation is matched to Vavilov in the library, with its pinpoint paragraphs. Short forms such as 'Vavilov, above at para 99' and 'Ibid' are traced back to the same case.",
-      "target": "span.citation-link[data-target-case-id]",
+      "text": "Baker is matched to the decision in the library, with its pinpoint paragraphs (21 to 28). Short forms such as 'Vavilov, above at para 99' and 'Ibid at para 100' are traced back to the case they refer to.",
+      "target": [
+        {
+          "css": "span.citation-link[data-target-case-id]",
+          "text": "^Baker"
+        },
+        "span.citation-link[data-target-case-id]"
+      ],
       "label": "In the library",
       "also": [
         {
@@ -897,19 +949,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -944,19 +998,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -978,19 +1034,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -1024,19 +1082,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",

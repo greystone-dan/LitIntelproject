@@ -56,6 +56,41 @@ def test_tour_assets_are_served_without_the_database():
     assert styles.status_code == 200 and ".ilit-tour-card" in styles.text
 
 
+def test_tour_warms_only_its_own_read_only_data():
+    for entry in tour_steps()["warm"]:
+        if isinstance(entry, str):
+            assert entry.startswith("/api/fc-activity/"), entry
+        elif "post" in entry:                             # the fictional demo memo, read and not stored
+            assert entry["post"] == "/live-analysis/reader-text" and entry["sample"] in tour_steps()["texts"]
+        else:
+            assert entry["url"].startswith("/api/judge-profiles") and entry["top"]["then"].startswith("/api/judge-profiles/")
+
+
+def test_live_analysis_steps_read_the_document_once():
+    for step in tour_steps()["steps"]:
+        for action in step.get("before", []):
+            if action.get("selector") in ("#laText", "#laAnalyze") and step["id"] != "la-paste":
+                assert action.get("unless") == "#decisionBody span.citation-link", step["id"]
+
+
+def test_only_the_demo_document_is_cached(monkeypatch):
+    from backend.analytics_service import get_analytics_cache
+    from backend.database import get_db
+
+    calls = []
+    monkeypatch.setattr(routes, "build_live_reader_payload", lambda text, paragraphs, title, db: calls.append(text) or {"n": len(calls)})
+    app.dependency_overrides[get_db] = lambda: None
+    get_analytics_cache().clear()
+    try:
+        demo = tour_steps()["texts"]["moa"]
+        for text in (demo, demo, "A person's own memo.", "A person's own memo."):
+            assert client.post("/live-analysis/reader-text", json={"text": text}).status_code == 200
+    finally:
+        app.dependency_overrides.clear()
+        get_analytics_cache().clear()
+    assert len(calls) == 3                                # the demo is read once; a person's text every time
+
+
 def test_tour_makes_no_outside_or_ai_calls():
     source = tour_js()
     assert "fetch(" in source
@@ -99,10 +134,12 @@ def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
 
 def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     data = tour_steps()
-    assert len([s for s in data["steps"] if s["id"].startswith("fc-")]) >= 12
+    fc_steps = [s for s in data["steps"] if s["id"].startswith("fc-")]
+    assert 5 <= len(fc_steps) <= 8                        # grouped panels: more than a glance, not every chart
+    assert sum(len(s.get("also", [])) + 1 for s in fc_steps) >= 15
     assert {"la-paste", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-india-minister-won"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-minister-won"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 

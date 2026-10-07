@@ -69,7 +69,8 @@ def _tab(group: str, tab: str, panel: str, label: str, active: bool = False, hid
 
 def _subnav() -> str:
     rows = [
-        _tab("info", "about", "aboutPanel", "About"),
+        _tab("info", "about", "aboutPanel", "Overview"),
+        _tab("info", "about-changelog", "aboutPanel", "Changelog"),
         _tab("research", "search", "searchPanel", "Case search", active=True, hidden=False),
         _tab("intel", "judge-profile", "judgeProfilePanel", "Judge Profiles"),
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
@@ -84,7 +85,7 @@ def _subnav() -> str:
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Case search views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div><a class="ilit-tour-start alt" href="/future-features?tour=1" id="comingSoonFutureTour"><span aria-hidden="true">&#9654;</span> Future features tour</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
@@ -158,9 +159,11 @@ def _script() -> str:
         "}\n"
         "activateResearchTab=function(tabKey,updateUrl=true){\n"
         "  const wanted=tabKey==='info'?'about':String(tabKey||'search');\n"
+        "  const target=wanted==='about-changelog'?'about':wanted;\n"
+        "  const aboutView=wanted==='about-changelog'?'changelog':wanted==='about'?(!updateUrl&&new URLSearchParams(location.search).get('about')==='changelog'?'changelog':'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
         "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon;\n"
-        "  if(!soon){pitchBaseActivate(wanted,updateUrl);}\n"
+        "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"
         "  else{\n"
         "    pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);\n"
         "    lastGroupTabs.soon=soon;pitchShowSoonNav(soon);\n"
@@ -170,7 +173,7 @@ def _script() -> str:
         "    if(head){head.hidden=item.kind!=='text';document.getElementById('comingSoonTitle').textContent=item.name;document.getElementById('comingSoonText').textContent=item.text}\n"
         "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group','soon');url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
         "  }\n"
-        "  const group=soon?'soon':Object.keys(researchGroups).find(key=>researchGroups[key].includes(activeResearchPanels[wanted]?wanted:'search'));\n"
+        "  const group=soon?'soon':Object.keys(researchGroups).find(key=>researchGroups[key].includes(activeResearchPanels[target]?target:'search'));\n"
         "  const nav=document.getElementById('researchViews');\n"
         "  if(nav)nav.setAttribute('aria-label',(pitchLabels[group]||'Site')+' views');\n"
         "  if(nav)nav.hidden=!soon&&[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<2;\n"

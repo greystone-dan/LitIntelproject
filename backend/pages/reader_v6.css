@@ -124,11 +124,12 @@
 .v6-pinbtn{position:absolute;top:8px;right:10px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;color:var(--muted,#6b6a60);cursor:pointer;padding:0}.v6-pinbtn:hover{border-color:var(--teal,#176c68);color:var(--teal,#176c68)}
 .v6-card2.is-pinned .v6-pinbtn{background:var(--teal,#176c68);border-color:var(--teal,#176c68);color:#fff}.v6-card2.is-pinned .v6-pinbtn svg{transform:rotate(-45deg)}
 .v6-sel{outline:2px solid #1f6b66;outline-offset:1px}
-.v6-clear{border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:5px 13px;font-size:14px;font-weight:600;cursor:pointer}.v6-clear[hidden]{display:none}
+.v6-clear{flex:none;white-space:nowrap;border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:5px 13px;font-size:14px;font-weight:600;cursor:pointer}
+.reader-evidence-bar>.reader-layer-legend{flex:none}.v6-clear[hidden]{display:none}
 
 /* Search this decision */
-.v6-ft{margin-left:auto;display:flex;align-items:center;gap:6px}
-.v6-ft input{width:260px;font:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;color:inherit}.v6-ft input:focus{outline:2px solid var(--teal,#176c68)}
+.v6-ft{margin-left:auto;display:flex;align-items:center;gap:6px;min-width:0}
+.v6-ft input{width:260px;min-width:110px;flex:0 1 260px;font:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;color:inherit}.v6-ft input:focus{outline:2px solid var(--teal,#176c68)}
 .v6-ftc{min-width:70px;text-align:right;color:var(--muted,#6b6a60);font-size:14px;font-variant-numeric:tabular-nums}
 .v6-ft button{width:30px;height:30px;border:1px solid var(--border,#d8d5ca);border-radius:6px;background:#fff;cursor:pointer;font-size:15px}.v6-ft button:disabled{opacity:.4;cursor:default}
 .v6-hit{background:#ffd9a0;border-radius:2px}.v6-hit.cur{background:#ff9f1c;outline:2px solid #c46a00}

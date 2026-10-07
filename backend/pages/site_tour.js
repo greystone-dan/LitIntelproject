@@ -181,7 +181,7 @@
   async function doAction(a,token,live){
     if(a.unless&&findVisible(a.unless))return true;
     if(a.when&&!findVisible(a.when))return true;
-    if(a.do==='wait'){await sleep(reduce||!live?0:(a.ms||300));return true}
+    if(a.do==='wait'){await sleep(a.ms||300);return true}
     if(a.do==='waitFor')return !!(await waitFor(a.selector,a.timeout||10,token));
     var times=Math.max(1,a.times||1);
     for(var n=0;n<times;n++){
@@ -189,11 +189,14 @@
       if(!node)return n>0;
       if(live&&ui&&a.do!=='fill'){
         ui.items=[{node:node,sel:null}];
-        await bringIntoView(node,token);place();
+        await bringIntoView(node,token);
+        if(a.high)await lift(node,token);
+        place();
         await pointAt(node,token);
         if(token!==run)return false;
         if(a.do!=='type'&&a.do!=='hover'&&a.do!=='glide')await press();
       }
+      else if(a.do!=='fill'&&a.do!=='type'&&(!onScreen(node)||a.high)){try{nativeIntoView.call(node,{block:a.high?'start':'center'})}catch(e){}}   // Back or a refresh: no show, but act where it can be seen
       if(a.do!=='hover')hoverOff();
       switch(a.do){
         case 'type':await typeInto(node,a.text||'',token,live);break;
@@ -474,6 +477,11 @@
     await glide(null,m.height<=room?m.top-(f.top+Math.min(90,(room-m.height)/2)):m.top-f.top-8,token);
     if(covered(node))await clearSticky(node,token);
   }
+  // For something that opens below itself (a citation card): bring it into the upper part of its panel first.
+  async function lift(node,token){
+    var box=scrollParent(node),r=node.getBoundingClientRect(),top=box?Math.max(0,box.getBoundingClientRect().top):0,h=box?box.getBoundingClientRect().bottom-top:dockTop();
+    if(r.top-top>h*0.4)await glide(box,r.top-top-h*0.2,token);
+  }
   async function settleScroll(token){                               // wait until every scroll has stopped moving
     if(reduce)return;
     var last=null,still=0;
@@ -607,7 +615,7 @@
     // 1. be on the right page
     var url=await resolveUrl(s.url);
     if(token!==run)return;
-    if(url==null)return skipOver(i,token);                         // the example decision is not in this library
+    if(url==null)return skipOver(i,token,'no-case');                         // the example decision is not in this library
     if(!sameLocation(url)){
       if((state.phase==='enter'||state.phase==='lead')&&s.lead){     // "OK, let's move on": light the place it will click, wait for Next
         var spot=findVisible(fillIds(s.via||s.point||''));
@@ -627,7 +635,7 @@
     for(var k=0;k<(s.before||[]).length;k++){
       var done=await doAction(s.before[k],token,false);
       if(token!==run)return;
-      if(!done&&(s.before[k].do==='waitFor'||s.before[k].do==='type'))return skipOver(i,token);
+      if(!done&&(s.before[k].do==='waitFor'||s.before[k].do==='type'))return skipOver(i,token,'before');
     }
     // 3. a step that acts first says what it will do, lighting the place
     if(s.act&&s.act.length&&state.phase!=='back'&&state.phase!=='show'){
@@ -635,7 +643,7 @@
       var spotSel=s.sayTarget||(first&&first.selector);
       var node=spotSel?(await waitFor(spotSel,first&&first.timeout||8,token)):null;
       if(token!==run)return;
-      if(!node&&!s.sayTarget&&first){if(s.optional)return skipOver(i,token)}
+      if(!node&&!s.sayTarget&&first){if(s.optional)return skipOver(i,token,'say-target')}
       if(node)await bringIntoView(node,token);
       if(token!==run)return;
       state.phase='say';
@@ -645,7 +653,7 @@
     if(s.act)for(var q=0;q<s.act.length;q++){                      // Back or a refresh: the same result, without the show
       var ok=await doAction(s.act[q],token,false);
       if(token!==run)return;
-      if(!ok&&(s.act[q].do==='waitFor'||s.act[q].do==='type'))return skipOver(i,token);
+      if(!ok&&(s.act[q].do==='waitFor'||s.act[q].do==='type'))return skipOver(i,token,'act-quiet');
     }
     return result(i,token);
   }
@@ -656,7 +664,7 @@
     for(var k=0;k<s.act.length;k++){
       var ok=await doAction(s.act[k],token,true);
       if(token!==run)return;
-      if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token);
+      if(!ok&&(s.act[k].do==='waitFor'||s.act[k].do==='type'||s.act[k].required))return skipOver(i,token,'act');
     }
     await settleScroll(token);
     return result(i,token);
@@ -666,8 +674,9 @@
     var s=STEPS[i];
     state.nav=(state.nav&&state.nav.i===i?state.nav:{i:i,n:0});
     state.nav.n++;
-    if(state.nav.n>2){state.nav=null;return skipOver(i,token)}     // do not loop if the page will not open
-    state.phase='nav';save(state);
+    if(state.nav.n>2){state.nav=null;return skipOver(i,token,'page')}     // do not loop if the page will not open
+    if(live||(state.phase!=='show'&&state.phase!=='back'))state.phase='nav';   // Back or a refresh arrives showing the result
+    save(state);
     var spot=live?findVisible(fillIds(s.via||s.point||'')):null;
     if(spot){
       ui.items=[{node:spot,sel:null}];
@@ -689,14 +698,14 @@
     var target=null;
     if(s.target)target=await waitFor(s.target,s.timeout||8,token);
     if(token!==run)return;
-    if(s.target&&!target)return skipOver(i,token);                  // missing element or data: skip, never break
+    if(s.target&&!target)return skipOver(i,token,'target');                  // missing element or data: skip, never break
     var items=itemsFor(s,target);
     if(s.settle)await sleep(reduce?0:s.settle);
     if(token!==run)return;
     var main=(items[s.focus||0]||{}).node||target;
     if(!s.noScroll&&!s.top)await bringIntoView(main,token);
     if(token!==run)return;
-    if(s.optional&&main&&!onScreen(main))return skipOver(i,token);  // there but out of sight: skip it
+    if(s.optional&&main&&!onScreen(main))return skipOver(i,token,'off-screen');  // there but out of sight: skip it
     if(!s.act&&!s.hover)hidePointer();
     if(s.hover&&target){await pointAt(target,token);if(token!==run)return;hoverOn(target)}
     state.phase='show';
@@ -713,8 +722,9 @@
     try{hovered.dispatchEvent(new MouseEvent('mouseout',{bubbles:true,cancelable:true,view:window}))}catch(e){}
     hovered=null;
   }
-  function skipOver(i,token){
+  function skipOver(i,token,why){
     if(token!==run)return;
+    (window.__ilitTourSkips=window.__ilitTourSkips||[]).push(STEPS[i].id+': '+(why||'?'));
     var n=i+direction;
     if(n<0){return show(0,1)}                                       // nothing earlier to go back to
     if(n>=STEPS.length)return finish();

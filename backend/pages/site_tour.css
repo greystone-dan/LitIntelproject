@@ -49,3 +49,4 @@
 @media print{.ilit-tour{display:none}}
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
 html.ilit-tour-on body{padding-bottom:120px}   /* room to lift the end of a page above the control bar */
+html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay clear of the control bar */

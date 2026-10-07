@@ -6,10 +6,11 @@
       "label": "Vavilov"
     },
     "cessation": {
-      "citation": "2025 FC 321",
+      "citation": "2022 FC 650",
       "label": "the tour's cessation decision",
       "search": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&sort_by=newest&limit=1&facets=0&citation_stats=0",
-      "note": "picked with scripts/check_site_tour.py --pick-case: an outline, a pinpoint citation to a library case, a statute, a judge"
+      "note": "picked with scripts/check_site_tour.py --pick-case: an outline, a pinpoint citation to a library case, a statute, a judge",
+      "id": 6662
     }
   },
   "texts": {
@@ -56,7 +57,7 @@
     },
     {
       "id": "tour-decision",
-      "url": "/analytics/search/cases?query=2025%20FC%20321&limit=5",
+      "url": "/analytics/search/cases?query=2022%20FC%20650&limit=5",
       "min": 1,
       "note": "the cessation decision the tour opens"
     }
@@ -657,7 +658,23 @@
       "top": true,
       "lead": "Let's open one of these decisions.",
       "leadText": "I'll click the one this tour uses from here on.",
-      "via": "#searchResults .case-result[data-case-id='{cessation}']"
+      "via": "#searchResults .case-result[data-case-id='{cessation}']",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ]
     },
     {
       "id": "reader-header",
@@ -665,7 +682,23 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "1. The header",
       "text": "The court, outcome and title; then the citation, case type, date, docket number and the judge. The counts on the right are the decisions that cite this one, the cases it cites and the statutes it refers to. Copy citation, the Federal Court file and Save to Workbench sit above.",
-      "target": ".reader-head"
+      "target": ".reader-head",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ]
     },
     {
       "id": "reader-text",
@@ -673,7 +706,23 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "2. The decision",
       "text": "The decision itself, formatted, with numbered paragraphs. Citations are marked in gold, statutes and regulations in purple, and topic tags in green; the buttons above switch each colour on or off.",
-      "target": ".reader-pane.source"
+      "target": ".reader-pane.source",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
+      ]
     },
     {
       "id": "reader-side",
@@ -683,6 +732,20 @@
       "text": "The side panel has three tabs. About holds the outcome, case details, the topics found in the text and the Outline. Authorities lists every case and statute the decision cites. Intelligence shows the judge and how this decision has been cited since.",
       "target": "#decisionTarget",
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='about']",
@@ -698,6 +761,20 @@
       "text": "The recorded outcome, with a link down to the part of the decision that disposes of the case, the case details, and the topics found in the text with how often each appears. Pressing a topic steps through the places it is mentioned.",
       "target": "#decisionTarget .v6-pane",
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='about']",
@@ -720,6 +797,20 @@
       "focus": 0,
       "optional": true,
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='about']",
@@ -750,6 +841,20 @@
       "optional": true,
       "settle": 400,
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='about']",
@@ -793,6 +898,22 @@
           "selector": "#decisionTarget [data-v6-judgebox] .v6-tiles, #decisionTarget [data-v6-judgebox] .v6-note:not(:empty)",
           "timeout": 15
         }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
       ]
     },
     {
@@ -804,6 +925,20 @@
       "target": "#decisionTarget",
       "timeout": 15,
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": ".reader-head [data-v6-go='judge']",
@@ -854,7 +989,24 @@
             },
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ]
+          ],
+          "high": true
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },
@@ -890,12 +1042,29 @@
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
           ],
-          "unless": "#decisionBody .v6-card2.v6-case"
+          "unless": "#decisionBody .v6-card2.v6-case",
+          "high": true
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody .v6-card2.v6-case",
           "timeout": 6
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },
@@ -914,6 +1083,20 @@
       "optional": true,
       "before": [
         {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
+        {
           "do": "click",
           "selector": [
             {
@@ -923,7 +1106,8 @@
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
           ],
-          "unless": "#decisionBody .v6-card2.v6-case"
+          "unless": "#decisionBody .v6-card2.v6-case",
+          "high": true
         },
         {
           "do": "waitFor",
@@ -957,7 +1141,24 @@
       "act": [
         {
           "do": "hover",
-          "selector": "#decisionBody .fmt-para mark.chunk-statute"
+          "selector": "#decisionBody .fmt-para mark.chunk-statute",
+          "high": true
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },
@@ -979,12 +1180,29 @@
         {
           "do": "click",
           "selector": "#decisionBody .fmt-para mark.chunk-statute",
-          "unless": "#decisionBody .v6-card2.v6-stat"
+          "unless": "#decisionBody .v6-card2.v6-stat",
+          "high": true
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody .v6-card2.v6-stat",
           "timeout": 6
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },
@@ -1001,6 +1219,22 @@
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='auth']",
           "unless": "#decisionTarget [data-v6-tab='auth'].on"
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },
@@ -1019,6 +1253,20 @@
       "optional": true,
       "settle": 300,
       "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        },
         {
           "do": "click",
           "selector": "#decisionTarget [data-v6-tab='auth']",
@@ -1048,12 +1296,12 @@
         }
       ],
       "optional": true,
-      "say": "Search this decision finds any word in the text. I'll type passport and step through the matches.",
+      "say": "Search this decision finds any word in the text. I'll type cessation and step through the matches.",
       "act": [
         {
           "do": "type",
           "selector": "#v6Search",
-          "text": "passport"
+          "text": "cessation"
         },
         {
           "do": "wait",
@@ -1065,6 +1313,22 @@
           "times": 2,
           "pause": 1100
         }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
+        }
       ]
     },
     {
@@ -1075,13 +1339,29 @@
       "text": "The decision is now pinned to your own list on the Workbench, where we will find it later in the tour.",
       "target": "#v6SaveWb",
       "optional": true,
-      "writes": "This step pinned Vavilov to the demo Workbench list called Demo analyst. Remove it any time from the Workbench.",
+      "writes": "This step saved the tour's cessation decision to the demo Workbench list. Remove it any time from the Workbench.",
       "say": "Last in the reader: Save to Workbench. I'll save this decision for you.",
       "act": [
         {
           "do": "click",
           "selector": "#v6SaveWb",
           "unless": "#v6SaveWb.is-saved"
+        }
+      ],
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#v6Card .v6-facts-strip",
+          "timeout": 20
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody .fmt-para",
+          "timeout": 20
+        },
+        {
+          "do": "wait",
+          "ms": 600
         }
       ]
     },

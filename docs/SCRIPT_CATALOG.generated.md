@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 191
+Active scripts documented: 192
 
 ## Catalog
 
@@ -105,6 +105,7 @@ Active scripts documented: 191
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
+| `extract_a2aj_provincial_acts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
@@ -1530,6 +1531,20 @@ Active scripts documented: 191
 
 ```powershell
 .\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help
+```
+
+## `scripts/extract_a2aj_provincial_acts.py`
+
+**Purpose:** Cut a few provincial acts out of the A2AJ canadian-laws parquet files into small JSON snapshots. Source: https://huggingface.co/datasets/a2aj/canadian-laws (one LEGISLATION-<PROVINCE>.parquet per jurisdiction). Only the acts listed in ACTS are taken, never whole provinces. Each snapshot carries the upstream licence text and is indexed by scripts/index_legislation.py (source format "json_sections"). Tier "open": the dataset's licence note permits reproduction with attribution (Ontario, Alberta, Manitoba). Tier "held": British Columbia (licence field blank), Quebec (CC BY-NC-ND 4.0, non-commercial, no derivatives) and Saskatchewan (non-commercial use by permission). Held acts are only counted unless --include-held is given; do not commit their snapshots until the licence question is settled. Usage: python scripts/extract_a2aj_provincial_acts.py --parquet-dir DIR [--write] [--include-held] Without --write it only prints section counts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help
 ```
 
 ## `scripts/extract_citation_network.py`

@@ -114,6 +114,24 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "source_url": "https://laws-lois.justice.gc.ca/eng/const/FullText.html",
         "url": None,
     },
+    "ontario.immigration_act_2015": {
+        "aliases": ("Ontario Immigration Act, 2015", "Immigration Act, 2015"),
+        "citation": "Ontario Immigration Act, 2015, S.O. 2015, c. 8",
+        "source_url": "https://www.ontario.ca/laws/statute/15o08",
+        "url": None,
+    },
+    "alberta.immigration_oversight_act": {
+        "aliases": ("Immigration Oversight Act",),
+        "citation": "Immigration Oversight Act, S.A. 2026, c. I-0.3",
+        "source_url": "https://kings-printer.alberta.ca/",
+        "url": None,
+    },
+    "manitoba.worker_recruitment_protection_act": {
+        "aliases": ("Worker Recruitment and Protection Act", "The Worker Recruitment and Protection Act"),
+        "citation": "The Worker Recruitment and Protection Act, C.C.S.M. c. W197",
+        "source_url": "https://web2.gov.mb.ca/laws/statutes/ccsm/w197.php",
+        "url": None,
+    },
     "canada.immigration_act": {
         "aliases": ("Immigration Act",),
         "citation": "Immigration Act, R.S.C. 1985, c. I-2",

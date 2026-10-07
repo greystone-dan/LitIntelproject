@@ -533,7 +533,7 @@
       "target": "#searchResults",
       "also": [
         {
-          "sel": ".sp-rail"
+          "sel": ".sp-rail .sp-cols"
         }
       ],
       "timeout": 25,
@@ -725,7 +725,7 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "3. The side panel",
       "text": "Three tabs. About holds the outcome, case details, topics and the Outline. Authorities lists every case and statute the decision cites. Intelligence shows the judge and how this decision has been cited since.",
-      "target": "#decisionTarget",
+      "target": ".reader-pane.target",
       "before": [
         {
           "do": "waitFor",
@@ -880,7 +880,7 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "The judge at a glance",
       "text": "The Intelligence tab opens on the judge: their decisions in the library, how often the government won before them, decisions per year and the most recent ones. Open full judge profile goes further.",
-      "target": "#decisionTarget",
+      "target": ".reader-pane.target",
       "timeout": 15,
       "say": "Now the judge. Next clicks the decision maker's name in the header.",
       "act": [
@@ -917,7 +917,7 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "How it has been cited",
       "text": "How many decisions cite this one and how often, the outcomes of those cases, and citing cases by year and by court.",
-      "target": "#decisionTarget",
+      "target": ".reader-pane.target",
       "timeout": 15,
       "before": [
         {
@@ -1207,7 +1207,7 @@
       "url": "/data-explorer?case_id={cessation}",
       "title": "Authorities",
       "text": "Every case and statute the decision cites, with how many times and at which paragraphs. The arrow on a row shows the cited passage, and the filter at the top finds one quickly.",
-      "target": "#decisionTarget",
+      "target": ".reader-pane.target",
       "say": "Now the Authorities tab. Next opens it.",
       "act": [
         {
@@ -1358,7 +1358,8 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "sayTarget": "#v6SaveWb"
     },
     {
       "id": "judges",
@@ -1381,7 +1382,7 @@
       "url": "/data-explorer?tab=judge-profile",
       "title": "One judge's record",
       "text": "A profile shows the judge's decisions year by year, how the cases came out, and their most cited decisions.",
-      "target": "#jpMain",
+      "target": "#jpMain .ix-hero",
       "optional": true,
       "before": [
         {
@@ -1401,6 +1402,10 @@
           "selector": "#jpMain .ci-header, #jpMain h2, #jpMain h3",
           "timeout": 15
         }
+      ],
+      "span": [
+        "#jpMain .ix-tiles",
+        "#jpMain .ix-grid > .ix-card:first-child"
       ]
     },
     {
@@ -1544,7 +1549,7 @@
       "url": "/workbench",
       "title": "Your Workbench",
       "text": "The Workbench is your own space. The tour signed you in as Demo analyst (no password; the name only keeps lists apart). Your case list follows your IMM files and flags when the Federal Court docket has moved.",
-      "target": "#view-home",
+      "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
       "top": true,
       "lead": "On to the Workbench.",
       "leadText": "Next clicks it in the header.",
@@ -1579,7 +1584,7 @@
       "url": "/live-analysis",
       "title": "Live analysis: any document",
       "text": "Live analysis gives your own documents the same treatment as the decisions in the library: citations recognised and linked, statutes tied to the statute library, topics tagged. It works on a memorandum of argument, a deferral decision, an ID decision or any other Word file, text PDF or pasted text.",
-      "target": "#liveAnalysisPanel",
+      "target": "#liveAnalysisPanel .la-inputs",
       "top": true,
       "fresh": true,
       "lead": "Now Live analysis.",
@@ -1639,7 +1644,7 @@
       ],
       "also": [
         {
-          "sel": "#decisionBody"
+          "sel": ".reader-pane.source"
         }
       ],
       "before": [
@@ -1917,7 +1922,7 @@
       "url": "/live-analysis",
       "title": "Planned: arguments and themes",
       "text": "Not built yet. The next stage is argument and theme parsing. With more development, iLit should be able to identify the arguments raised in submissions, point to decisions that support or refute each one, suggest supporting citations, and flag citations that may be AI fabrications: cases that do not exist, or that do not say what they are cited for.",
-      "target": "#decisionBody",
+      "target": ".reader-pane.source",
       "before": [
         {
           "do": "drop",
@@ -1980,7 +1985,7 @@
       ],
       "lead": "Last, how the library stays current.",
       "leadText": "Next goes to About, How it works.",
-      "point": "#brandHome"
+      "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']"
     },
     {
       "id": "done",

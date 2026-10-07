@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 197
+Active scripts documented: 198
 
 ## Catalog
 
@@ -111,6 +111,7 @@ Active scripts documented: 197
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
 | `extract_seed_cases_from_transcript.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help` |
+| `fc_activity_backlog.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs` |
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
@@ -1620,6 +1621,20 @@ Active scripts documented: 197
 
 ```powershell
 .\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help
+```
+
+## `scripts/fc_activity_backlog.py`
+
+**Purpose:** Overnight FC Activity backlog: fetch docket activity for IMM files that are not resolved yet. "Known" IMM numbers are the union of: fc_activity_cases (citation or raw_payload.imm_number), fc_procedural_history rows with a style of cause, and IMM docket numbers on FC decisions in `cases`. A known number is "resolved" when its fc_activity file has docket entries AND the stored classification says lifecycle_status.status = 'closed'. Everything else is unresolved: not_in_activity known only from decisions / procedural history, no fc_activity file no_documents fc_activity file exists but holds zero docket entries open_or_unknown has entries, lifecycle not 'closed' (or not classified yet) Subcommands (all read-only except `run` without --dry-run): counts totals and a by-year breakdown, plus a runtime estimate run --dry-run fetch and parse the first N unresolved numbers (default 20), write nothing run the real run: additive writes only, resumable, stop file, progress file undo list (default) or remove (--yes) the rows a run added, from its ledger Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted. No AI calls. Two requests per file at the polite 2 s delay plus jitter.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs
 ```
 
 ## `scripts/fc_activity_extractors.py`

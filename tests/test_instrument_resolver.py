@@ -64,3 +64,10 @@ def test_every_alias_target_is_a_registered_instrument():
 
     for key in [*r._ALIASES.values(), *r._FEDERAL_COURT_ONLY.values(), *r._FEDERAL_COURT_AND_SCC.values()]:
         assert key in LEGISLATION_REGISTRY, key
+
+
+def test_constitution_acts_resolve_by_year_only():
+    assert resolve_instrument_key("Constitution Act, 1867", "SCC") == "canada.constitution_act_1867"
+    assert resolve_instrument_key("British North America Act", "FC") == "canada.constitution_act_1867"
+    assert resolve_instrument_key("Constitution Act, 1982", "FCA") == "canada.constitution_act_1982"
+    assert resolve_instrument_key("Constitution Act", "FC") is None

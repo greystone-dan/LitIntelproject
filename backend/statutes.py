@@ -102,6 +102,18 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "citation": "Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982",
         "url": None,
     },
+    "canada.constitution_act_1867": {
+        "aliases": ("Constitution Act, 1867", "Constitution Act 1867", "British North America Act, 1867", "British North America Act", "B.N.A. Act", "BNA Act"),
+        "citation": "Constitution Act, 1867, 30 & 31 Vict., c. 3 (U.K.)",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/const/FullText.html",
+        "url": None,
+    },
+    "canada.constitution_act_1982": {
+        "aliases": ("Constitution Act, 1982", "Constitution Act 1982"),
+        "citation": "Constitution Act, 1982, Schedule B to the Canada Act 1982 (U.K.), 1982, c. 11",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/const/FullText.html",
+        "url": None,
+    },
     "canada.immigration_act": {
         "aliases": ("Immigration Act",),
         "citation": "Immigration Act, R.S.C. 1985, c. I-2",

@@ -4,6 +4,8 @@ from scripts.index_legislation import NON_XML_SOURCES, SOURCE_DEFINITIONS, index
 def test_non_xml_source_definitions_cover_reviewed_sources():
     assert set(NON_XML_SOURCES) == {
         "canada.charter",
+        "canada.constitution_act_1867",
+        "canada.constitution_act_1982",
         "international.refugee_convention",
         "international.refugee_protocol",
     }
@@ -190,3 +192,18 @@ def test_only_enacted_body_sections_are_indexed(tmp_path):
         encoding="utf-8",
     )
     assert [number for number, _, _ in parse_source_sections(xml, "xml")] == ["1"]
+
+
+def test_constitution_acts_split_into_their_own_sections():
+    from pathlib import Path
+
+    from scripts.index_legislation import PROJECT_ROOT, parse_source_sections
+
+    path = PROJECT_ROOT / NON_XML_SOURCES["canada.constitution_act_1867"].relative_path
+    acts_1867 = {number: text for number, _, text in parse_source_sections(path, "html_constitution_1867")}
+    acts_1982 = {number: text for number, _, text in parse_source_sections(path, "html_constitution_1982")}
+    assert "Peace, Order, and good Government" in acts_1867["91"]
+    assert "92A" in acts_1867 and "147" in acts_1867
+    assert "supreme law of Canada" in acts_1982["52"]
+    assert "aboriginal and treaty rights" in acts_1982["35"]
+    assert "52" not in acts_1867 or "supreme law" not in acts_1867["52"]

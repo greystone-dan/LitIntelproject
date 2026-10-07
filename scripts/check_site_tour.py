@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "scroll", "waitFor", "wait", "drop"}
+ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -67,7 +67,13 @@ def validate_steps(data: dict) -> list[str]:
         for key in ("via", "point", "lead"):
             if step.get(key) is not None and not isinstance(step[key], str):
                 problems.append(f"{label}: {key} must be a string")
-        for action in step.get("before", []):
+        if step.get("act") and not step.get("say"):
+            problems.append(f"{label}: a step that acts must first say what it will do (say)")
+        if step.get("say") and not step.get("act"):
+            problems.append(f"{label}: say is only for a step that acts")
+        if (step.get("via") or step.get("point")) and not step.get("lead"):
+            problems.append(f"{label}: via or point needs a lead line")
+        for action in step.get("before", []) + step.get("act", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
             if action.get("do") != "wait" and not action.get("selector"):
@@ -189,7 +195,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.add_init_script(
-                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1}))" % index
+                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'}))" % index
             )
             status = "ok"
             try:
@@ -272,9 +278,10 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
         page.click("[data-ilit-tour-start]")
-        print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights")
+        print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights   (ms: Next to result; 'say' and 'lead' cards are not timed here)")
         last_page, last_y = "", 0
-        for _ in range(len(steps) + 5):
+        before: dict[str, int] = {}
+        for _ in range(3 * len(steps) + 5):
             try:
                 page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
             except Exception:  # noqa: BLE001
@@ -286,6 +293,16 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
             page.wait_for_timeout(350)                         # let the rings settle after the scroll
             step_id = page.get_attribute(".ilit-tour-card", "data-step")
             ms = int(page.get_attribute(".ilit-tour-card", "data-ms") or 0)
+            phase = page.get_attribute(".ilit-tour-card", "data-phase") or "show"
+            if phase != "show":                                # "OK, let's move on" or "I'll ...": press Next to see it happen
+                if not page.evaluate("() => !!document.querySelector('.ilit-tour-ring') && [...document.querySelectorAll('.ilit-tour-ring')].some(r => r.style.display !== 'none')") and phase == "say":
+                    print(f"    {step_id}: nothing lit while saying what comes next")
+                before[step_id] = ms
+                if shots:
+                    shots.mkdir(parents=True, exist_ok=True)
+                    page.screenshot(path=str(shots / f"{len(seen) + 1:02d}-{step_id}-{phase}.png"))
+                page.click(".ilit-tour-btn.primary")
+                continue
             rings = page.evaluate(RING_REPORT)
             notes = []
             for ring in rings:
@@ -304,7 +321,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
             ):
                 notes.append("statistics EMPTY")
-            if step_id == "reader-citation-card" and page.evaluate(
+            if step_id == "reader-cite-card" and page.evaluate(
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 notes.append("citation card has NO PINPOINT")
@@ -349,7 +366,7 @@ def run_controls(base: str, width: int) -> int:
         page.on("pageerror", lambda error: errors.append(str(error)))
 
         def counter() -> str:
-            page.wait_for_selector(".ilit-tour-card:not(.pending) .ilit-tour-count", timeout=45000)
+            page.wait_for_selector(".ilit-tour-card:not(.pending)", timeout=45000)
             return page.locator(".ilit-tour-count").inner_text()
 
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)

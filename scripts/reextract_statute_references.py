@@ -7,8 +7,11 @@ current extractor, and compares with the stored rows of the same cases.
 Dry run (default) writes nothing: it reports counts before and after (rows, rows with an
 instrument, decimal sections, list rows, rows per instrument) and sample changes.
 --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL
-backup file, then replaces that case's rows (one transaction per batch). Restore: scripts that
-read the backup file, or re-insert rows from it; the backup holds every column.
+backup file, then replaces that case's rows (one transaction per batch).
+--restore BACKUP puts the backed-up rows back (every column, original ids): for each case in the
+file it deletes the case's current rows and re-inserts the saved ones. If a case appears more than
+once in the file (re-runs append), the first entry, the oldest rows, is used. --restore-dry-run
+reports what it would do.
 Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all.
 """
 
@@ -149,6 +152,45 @@ def stored_rows(db, case_id: int) -> list[dict[str, Any]]:
     return [{name: getattr(row, name) for name in BACKUP_COLUMNS} for row in result]
 
 
+def read_backup(path: Path) -> dict[int, list[dict[str, Any]]]:
+    """case_id -> saved rows; the first entry per case wins (it holds the pre-re-extraction rows)."""
+    saved: dict[int, list[dict[str, Any]]] = {}
+    with path.open(encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            saved.setdefault(int(record["case_id"]), record["rows"])
+    return saved
+
+
+def restore(backup_path: Path, apply: bool, case_ids: list[int] | None = None, batch_size: int = 50) -> dict[str, int]:
+    """Replace each backed-up case's current rows with the saved rows. Writes only when apply is true."""
+    saved = read_backup(backup_path)
+    wanted = sorted(saved) if not case_ids else [cid for cid in sorted(case_ids) if cid in saved]
+    counts: Counter[str] = Counter()
+    counts["cases_not_in_backup"] = len(set(case_ids or []) - set(saved))
+    with SessionLocal() as db:
+        for index, case_id in enumerate(wanted, 1):
+            if db.get(Case, case_id) is None:
+                counts["case_missing"] += 1
+                continue
+            rows = saved[case_id]
+            counts["current_rows_replaced"] += len(stored_rows(db, case_id))
+            counts["rows_restored"] += len(rows)
+            counts["cases_restored"] += 1
+            if apply:
+                db.execute(delete(StatuteReference).where(StatuteReference.source_case_id == case_id))
+                db.flush()
+                for row in rows:
+                    db.add(StatuteReference(**{name: row.get(name) for name in BACKUP_COLUMNS}))
+                if index % batch_size == 0:
+                    db.commit()
+        if apply:
+            db.commit()
+    return dict(counts)
+
+
 def run(
     case_ids: list[int],
     apply: bool,
@@ -215,7 +257,17 @@ def main() -> None:
         default=None,
         help="write every removed and added row with its surrounding text, one JSON line per changed case (read-only)",
     )
+    parser.add_argument("--restore", type=Path, default=None, help="put the rows saved in this backup file back")
+    parser.add_argument("--restore-dry-run", action="store_true", help="with --restore: report only, write nothing")
     args = parser.parse_args()
+    if args.restore:
+        if not args.restore.exists():
+            parser.error(f"backup file not found: {args.restore}")
+        if not args.restore_dry_run and not args.confirm_statute_reextract:
+            parser.error("--restore writes to the database; add --confirm-statute-reextract (or --restore-dry-run)")
+        result = restore(args.restore, apply=not args.restore_dry_run, case_ids=args.case_id or None, batch_size=args.batch_size)
+        print("mode:", "restore dry run (no writes)" if args.restore_dry_run else "RESTORE", json.dumps(result, sort_keys=True))
+        return
     if not (args.case_id or args.sample or args.all):
         parser.error("choose --case-id, --sample N or --all")
     if args.apply and not args.confirm_statute_reextract:

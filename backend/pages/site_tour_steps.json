@@ -361,18 +361,19 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={vavilov}",
       "title": "Outcome, details and topics",
-      "text": "The left panel gives the recorded outcome, the case details and the topics found in the text. It never hides the decision itself.",
+      "text": "The left panel gives the recorded outcome, the case details and the topics found in the text. The decision stays lit beside it: nothing is hidden or blocked.",
       "target": [
         ".v6-pane",
         ".reader-pane"
-      ]
+      ],
+      "with": "#decisionBody"
     },
     {
       "id": "reader-outline",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={vavilov}",
       "title": "The Outline",
-      "text": "The Outline lists the decision's sections with their paragraph numbers. I jumped to one so you can see the text move; click any row to go there.",
+      "text": "The Outline lists the decision's sections with their paragraph numbers. I jumped to one so you can see the text move; click any row to go there, or scroll the text yourself.",
       "target": ".v6-outline",
       "needs": "Outline (PR 375, merged).",
       "optional": true,
@@ -381,7 +382,8 @@
           "do": "click",
           "selector": ".v6-outline .v6-orow:nth-child(2)"
         }
-      ]
+      ],
+      "with": "#decisionBody"
     },
     {
       "id": "reader-layers",
@@ -419,12 +421,37 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={vavilov}",
       "title": "Authorities",
-      "text": "The Authorities tab lists the cases and statutes this decision cites, how often and at which paragraphs. Open a row to see the passages, or jump to them in the text.",
+      "text": "The Authorities tab lists the cases and statutes this decision cites, how often and at which paragraphs. The decision text stays live beside it.",
       "target": ".v6-pane",
       "before": [
         {
           "do": "click",
           "selector": "[data-v6-tab='auth']"
+        }
+      ],
+      "with": "#decisionBody"
+    },
+    {
+      "id": "reader-authorities-find",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Jump through the decision by authority",
+      "text": "Find takes you to where an authority is cited in the text. I pressed it for the first case in the list: the passage is highlighted in the decision. Press it again to go to the next place it is cited; the text is yours to scroll.",
+      "target": ".v6-pane",
+      "with": "#decisionBody",
+      "optional": true,
+      "before": [
+        {
+          "do": "click",
+          "selector": "[data-v6-tab='auth']"
+        },
+        {
+          "do": "click",
+          "selector": ".v6-find[data-v6-find='cite']"
+        },
+        {
+          "do": "wait",
+          "ms": 900
         }
       ]
     },
@@ -440,7 +467,8 @@
           "do": "click",
           "selector": "[data-v6-tab='intel']"
         }
-      ]
+      ],
+      "with": "#decisionBody"
     },
     {
       "id": "reader-save",

@@ -226,6 +226,11 @@
     var r=null;
     if(t){
       var b=t.getBoundingClientRect();
+      if(ui.withSel){                                               // a second region kept lit and clickable (e.g. the decision text beside the sidebar)
+        var w=ui.withNode&&document.contains(ui.withNode)&&visible(ui.withNode)?ui.withNode:(ui.withNode=findVisible(ui.withSel));
+        if(w){var wb=w.getBoundingClientRect();
+          b={left:Math.min(b.left,wb.left),top:Math.min(b.top,wb.top),right:Math.max(b.right,wb.right),bottom:Math.max(b.bottom,wb.bottom)}}
+      }
       var x=Math.max(0,Math.floor(b.left-pad)),y=Math.max(0,Math.floor(b.top-pad));
       var x2=Math.min(vw,Math.ceil(b.right+pad)),y2=Math.min(vh,Math.ceil(b.bottom+pad));
       r={x:x,y:y,w:Math.max(0,x2-x),h:Math.max(0,y2-y)};            // whole pixels, so the four shades meet without a seam
@@ -269,7 +274,7 @@
   function render(i,target,pending){
     var s=STEPS[i],u=build();
     document.documentElement.classList.add('ilit-tour-on');
-    u.target=target;u.sel=s.target||null;
+    u.target=target;u.sel=s.target||null;u.withSel=s.with||null;u.withNode=null;
     u.kicker.textContent=s.section||'Tour';
     u.title.textContent=s.title||'';
     u.text.textContent=s.text||'';
@@ -356,7 +361,8 @@
     if(token!==run)return;
     if(s.target&&!target)return skipOver(i,token);                  // missing element or data: skip, never break
     render(i,target,false);
-    if(target){scrollTo(target);await sleep(reduce?0:120)}
+    if(target&&!s.with){scrollTo(target);await sleep(reduce?0:120)}
+    else if(target)await sleep(reduce?0:500);                       // the text is already on screen: let the smooth scroll to the passage settle
     if(s.hover&&target){hoverOn(target)}else hoverOff();
   }
   var hovered=null;

@@ -54,6 +54,8 @@ def validate_steps(data: dict) -> list[str]:
 
         if target is not None and not (selector_ok(target) or (isinstance(target, list) and target and all(selector_ok(t) for t in target))):
             problems.append(f"{label}: target must be a selector or a list of selectors")
+        if step.get("with") is not None and not selector_ok(step["with"]):
+            problems.append(f"{label}: with must be a selector")
         for action in step.get("before", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")

@@ -256,7 +256,6 @@ test checks that these paths continue to exist.
 | `backend/pages/explorer_snapshots.js` | Browser behavior for Explorer snapshot views |
 | `backend/pages/fc_analytics.py` | Federal Court activity analytics page |
 | `backend/pages/future_features.html` | TODO: describe this file |
-| `backend/pages/future_tour_steps.json` | TODO: describe this file |
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |
@@ -279,6 +278,7 @@ test checks that these paths continue to exist.
 | `backend/pages/search_v6.js` | TODO: describe this file |
 | `backend/pages/site_tour.css` | Style sheet for the site tour card and spotlight |
 | `backend/pages/site_tour.js` | Site tour script: runs the step-by-step walkthrough of the real site |
+| `backend/pages/site_tour_sample_moa.docx` | Fictional Memorandum of Argument the site tour drops on Live analysis (served at /site-tour/sample-memo.docx) |
 | `backend/pages/site_tour_steps.json` | The site tour's steps as plain data (edit this to change the tour) |
 | `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |

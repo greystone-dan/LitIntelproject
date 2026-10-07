@@ -136,3 +136,13 @@
 .v6-note-sm{font-size:14px;color:var(--muted,#6b6a60);margin:-4px 0 8px}
 
 .v6-orow.v6-sub{padding-left:26px;font-size:14px;color:#444}
+
+/* phones: the action buttons and the facts strip wrap instead of running off the right edge */
+@media(max-width:760px){
+ .v6-actions{margin-left:0;width:100%}
+ .v6-facts-strip{flex-wrap:wrap;margin:6px -12px 0;padding:0 12px}
+ .v6-fs{flex:1 1 40%;padding:8px 12px 8px 0;margin-right:12px}
+ .v6-fs b{max-width:100%}
+ .v6-stats{margin-left:0;width:100%;padding:8px 0;border-top:1px solid var(--border,#d8d5ca)}
+ .v6-stat{flex:1 1 0;min-width:0}
+}

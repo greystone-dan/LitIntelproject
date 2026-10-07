@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T13:20:28.531792+00:00
+Generated: 2026-10-07T13:32:53.009849+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 134 across 131 paths
@@ -2731,16 +2731,6 @@ Handler: `backend.routes.future_features_page`
 
 - Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
 
-### `GET /future-tour.js`
-
-**Hidden from OpenAPI.**
-
-Handler: `backend.routes.future_tour_script`
-
-**Responses**
-
-- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
-
 ### `GET /issue-brief-ui`
 
 **Hidden from OpenAPI.**
@@ -2875,6 +2865,16 @@ Handler: `backend.routes.site_tour_styles`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.site_tour_script`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /site-tour/sample-memo.docx`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.site_tour_sample_memo`
 
 **Responses**
 

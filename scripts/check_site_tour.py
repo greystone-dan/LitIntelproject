@@ -28,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "scroll", "waitFor", "wait"}
+ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "scroll", "waitFor", "wait", "drop"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -60,10 +60,12 @@ def validate_steps(data: dict) -> list[str]:
         if target is not None and not (selector_ok(target) or (isinstance(target, list) and target and all(selector_ok(t) for t in target))):
             problems.append(f"{label}: target must be a selector or a list of selectors")
         for extra in step.get("also", []):
-            if not (selector_ok(extra) or (isinstance(extra, dict) and selector_ok(extra.get("sel")))):
+            sel = extra.get("sel") if isinstance(extra, dict) and "sel" in extra else extra
+            if not (selector_ok(sel) or (isinstance(sel, list) and sel and all(selector_ok(t) for t in sel))):
                 problems.append(f"{label}: each 'also' entry must be a selector or {{sel, label}}")
-        if step.get("via") is not None and not isinstance(step["via"], str):
-            problems.append(f"{label}: via must be a selector")
+        for key in ("via", "point", "lead"):
+            if step.get(key) is not None and not isinstance(step[key], str):
+                problems.append(f"{label}: {key} must be a string")
         for action in step.get("before", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
@@ -71,6 +73,8 @@ def validate_steps(data: dict) -> list[str]:
                 problems.append(f"{label}: action without a selector")
             if action.get("do") == "fill" and action.get("sample") not in (data.get("texts") or {}):
                 problems.append(f"{label}: fill names an unknown sample text")
+            if action.get("do") == "drop" and not str(action.get("file", "")).startswith("/site-tour/"):
+                problems.append(f"{label}: drop must name one of the tour's own sample files (/site-tour/...)")
         for button in step.get("buttons", []):
             if not button.get("label") or not button.get("click"):
                 problems.append(f"{label}: button needs a label and a click selector")
@@ -91,7 +95,7 @@ def run_probes(base: str) -> int:
         try:
             request = urllib.request.Request(base + probe["url"], headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
             with urllib.request.urlopen(request, timeout=60) as response:
-                count = len(json.load(response).get("results", []))
+                count = len(json.load(response).get(probe.get("key", "results"), []))
         except Exception as error:  # noqa: BLE001
             count, note = -1, f" ({str(error)[:60]})"
         else:
@@ -190,7 +194,7 @@ RING_REPORT = """() => {
   const vh = innerHeight, card = document.querySelector('.ilit-tour-card');
   const c = card ? card.getBoundingClientRect() : null, sheet = card && card.classList.contains('sheet');
   return [...document.querySelectorAll('.ilit-tour-ring')].filter(r => r.style.display !== 'none').map(r => {
-    const b = r.getBoundingClientRect(), tag = r.querySelector('.ilit-tour-tag');
+    const b = r.getBoundingClientRect(), tag = null;
     const covered = c ? Math.max(0, Math.min(b.bottom, c.bottom) - Math.max(b.top, c.top)) * Math.max(0, Math.min(b.right, c.right) - Math.max(b.left, c.left)) : 0;
     return {label: tag && !tag.hidden ? tag.textContent : '', top: b.top, bottom: b.bottom, h: b.height, w: b.width,
             shown: Math.max(0, Math.min(b.bottom, sheet ? c.top : vh) - Math.max(b.top, 0)), covered: covered / Math.max(1, b.width * b.height)};
@@ -217,7 +221,8 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
         page.click("[data-ilit-tour-start]")
-        print(f"{'#':>2}  {'step':<22} {'ms':>6}  highlights")
+        print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights")
+        last_page, last_y = "", 0
         for _ in range(len(steps) + 5):
             try:
                 page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
@@ -248,6 +253,10 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
             ):
                 notes.append("statistics EMPTY")
+            if step_id == "reader-citation-card" and page.evaluate(
+                "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
+            ):
+                notes.append("citation card has NO PINPOINT")
             index = next((k for k, step in enumerate(steps) if step["id"] == step_id), -1)
             expected = steps[len(seen)]["id"] if len(seen) < len(steps) else None
             while expected and expected != step_id and expected in by_id and len(seen) < len(steps):
@@ -258,8 +267,11 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 expected = steps[len(seen)]["id"] if len(seen) < len(steps) else None
             seen.append(step_id)
             slow = " SLOW" if ms > 6000 else ""
-            print(f"{index + 1:>2}  {step_id:<22} {ms:>6}{slow}  {len(rings)} lit{'; ' + '; '.join(notes) if notes else ''}")
-            problems += len([note for note in notes if note != "statistics EMPTY" or require_data])
+            here, y = page.evaluate("() => [location.pathname + location.search, Math.round(scrollY)]")
+            moved = abs(y - last_y) if here == last_page else 0      # how far the page scrolled under the visitor
+            last_page, last_y = here, y
+            print(f"{index + 1:>2}  {step_id:<22} {ms:>6}{slow}  {moved:>6}  {len(rings)} lit{'; ' + '; '.join(notes) if notes else ''}")
+            problems += len([note for note in notes if note not in ("statistics EMPTY", "citation card has NO PINPOINT") or require_data])
             if shots:
                 shots.mkdir(parents=True, exist_ok=True)
                 page.screenshot(path=str(shots / f"{index + 1:02d}-{step_id}{'-phone' if width < 700 else ''}.png"))

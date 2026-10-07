@@ -61,7 +61,7 @@ def test_tour_warms_only_its_own_read_only_data():
         if isinstance(entry, str):
             assert entry.startswith("/api/fc-activity/"), entry
         elif "post" in entry:                             # the fictional demo memo, read and not stored
-            assert entry["post"] == "/live-analysis/reader-text" and entry["sample"] in tour_steps()["texts"]
+            assert entry["post"] == "/live-analysis/reader" and entry["file"] == "/site-tour/sample-memo.docx"
         else:
             assert entry["url"].startswith("/api/judge-profiles") and entry["top"]["then"].startswith("/api/judge-profiles/")
 
@@ -69,7 +69,7 @@ def test_tour_warms_only_its_own_read_only_data():
 def test_live_analysis_steps_read_the_document_once():
     for step in tour_steps()["steps"]:
         for action in step.get("before", []):
-            if action.get("selector") in ("#laText", "#laAnalyze") and step["id"] != "la-paste":
+            if action.get("selector") in ("#laDrop", "#laAnalyze"):
                 assert action.get("unless") == "#decisionBody span.citation-link", step["id"]
 
 
@@ -89,6 +89,27 @@ def test_only_the_demo_document_is_cached(monkeypatch):
         app.dependency_overrides.clear()
         get_analytics_cache().clear()
     assert len(calls) == 3                                # the demo is read once; a person's text every time
+
+
+def test_only_the_sample_word_file_is_cached(monkeypatch):
+    from backend.analytics_service import get_analytics_cache
+    from backend.database import get_db
+    from backend.site_tour import tour_sample_docx
+
+    calls = []
+    monkeypatch.setattr(routes, "build_live_reader_payload", lambda text, paragraphs, title, db: calls.append(title) or {"n": len(calls)})
+    app.dependency_overrides[get_db] = lambda: None
+    get_analytics_cache().clear()
+    sample = tour_sample_docx()
+    other = sample.replace(b"word/document.xml", b"word/document.xml", 1) + b"\0"     # same content, different bytes
+    try:
+        for content in (sample, sample, other, other):
+            files = {"file": ("memo.docx", content, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")}
+            client.post("/live-analysis/reader", files=files)
+    finally:
+        app.dependency_overrides.clear()
+        get_analytics_cache().clear()
+    assert len(calls) == 3                                # the sample is read once; any other file every time
 
 
 def test_tour_makes_no_outside_or_ai_calls():
@@ -135,11 +156,11 @@ def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
 def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     data = tour_steps()
     fc_steps = [s for s in data["steps"] if s["id"].startswith("fc-")]
-    assert 5 <= len(fc_steps) <= 8                        # grouped panels: more than a glance, not every chart
-    assert sum(len(s.get("also", [])) + 1 for s in fc_steps) >= 15
-    assert {"la-paste", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
+    assert 4 <= len(fc_steps) <= 6                        # a few narrative steps, not every chart
+    assert all(not s.get("also") for s in fc_steps)    # one box per statistics step
+    assert {"la-safety", "la-drop", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-minister-won"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "cessation-tag-minister-won"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 
@@ -147,42 +168,52 @@ def test_card_stays_in_one_place_on_desktop():
     assert "card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'" in tour_js()
 
 
-def test_future_features_tour_is_valid_and_served():
-    from backend.site_tour import future_tour_js, future_tour_steps
-
-    data = future_tour_steps()
-    assert check_site_tour.validate_steps(data) == []
-    assert {s["url"] for s in data["steps"]} == {"/future-features"}
+def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
     page = client.get("/future-features")
-    assert page.status_code == 200 and "/future-tour.js" in page.text and "/site-tour.js" not in page.text
-    assert "Concept mock-ups, not built yet" in page.text
-    for step in data["steps"]:
-        target = step["target"]
-        assert target.startswith("#") and f'id="{target[1:]}"' in page.text, step["id"]
-    script = client.get("/future-tour.js")
-    assert script.status_code == 200 and script.text.startswith("window.ILIT_TOUR=")
-    assert '"key": "ilit.tour.future.v1"' in future_tour_js() and "fetch(" in future_tour_js()
-
-
-def test_future_tour_is_reachable_from_about_and_coming_soon():
+    assert page.status_code == 200
+    assert "/site-tour.js" not in page.text and "<script" not in page.text
+    assert "Future state, not built yet" in page.text and "Concept mock-up, not built yet" in page.text
+    assert page.text.count('class="facts"') >= 8
     html = routes._data_explorer_page_html()
-    assert html.count('href="/future-features?tour=1"') >= 2
+    assert html.count('href="/future-features"') >= 2
 
 
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Case search", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Finish"]
+    assert order == ["Welcome", "Case search", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name
 
 
-def test_tour_is_scripted_and_lights_several_regions():
-    css, steps = tour_css(), tour_steps()["steps"]
-    assert ".ilit-tour-block{position:fixed;inset:0;pointer-events:auto" in css      # the page underneath takes no clicks
-    assert sum(1 for step in steps if step.get("also")) >= 10
-    reader = {step["id"]: step for step in steps}
-    assert any(extra["sel"] == "#decisionBody" for extra in reader["reader-panel"]["also"])
-    assert reader["reader-open"]["via"].startswith("#searchResults .case-result")     # Next clicks into the case
-    assert any(action.get("do") == "type" and action.get("text") == "Vavilov" for action in reader["vav-words"]["before"])
+def test_tour_is_calm_and_leaves_the_page_usable():
+    css, js, steps = tour_css(), tour_js(), tour_steps()["steps"]
+    assert "ilit-tour-block" not in css and "ilit-tour-tag" not in css      # no click blocker, no labels on the borders
+    assert ".ilit-tour-dim path{fill:rgba(32,37,34,.14)}" in css             # a light shade, not a dark one
+    assert "ilit-tour-cursor" in css and "pointAt(" in js                    # a pointer shows what the tour presses
+    by_id = {step["id"]: step for step in steps}
+    for name in ("search-page", "judges", "workbench-home", "la-safety"):  # each page is introduced before its parts
+        assert by_id[name].get("top") and by_id[name].get("lead"), name
+    assert sum(1 for step in steps if step.get("explore")) >= 8
+    assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
+    assert any(action.get("do") == "type" and action.get("text") == "Vavilov" for action in by_id["vav-words"]["before"])
+    assert any(action.get("do") == "type" and action.get("selector") == "#tagSearch" for action in by_id["adv-tag"]["before"])
+    assert not any("searchQuery" in json.dumps(step.get("before", [])) for step in steps if step["id"].startswith(("adv-", "ces-")))
+    click = by_id["reader-citation-card"]["before"][0]                       # clicks a citation that has a pinpoint
+    assert click["do"] == "click" and any(isinstance(t, dict) and t.get("pin") for t in click["selector"])
+
+
+def test_live_analysis_drops_the_fictional_word_file():
+    drops = [a for step in tour_steps()["steps"] for a in step.get("before", []) if a.get("do") == "drop"]
+    assert drops and all(a["file"] == "/site-tour/sample-memo.docx" for a in drops)
+    response = client.get("/site-tour/sample-memo.docx")
+    assert response.status_code == 200 and response.content[:2] == b"PK"
+    from backend.live_analysis import extract_document
+    text, _ = extract_document(response.content, "memo.docx", None)
+    assert text.startswith("MEMORANDUM OF ARGUMENT (FICTIONAL") and "Baker" in text
+
+
+def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
+    text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
+    assert "built" in text and "run by hand" in text and "being rolled out" in text

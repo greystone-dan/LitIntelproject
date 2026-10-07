@@ -1,12 +1,16 @@
 /* iLit site tour. Colours match the site (cream surface, ink buttons, rust accents). */
 .ilit-tour{position:fixed;inset:0;z-index:900;pointer-events:none;font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;color:#202522}
-.ilit-tour-block{position:fixed;inset:0;pointer-events:auto;background:transparent}
-.ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
-.ilit-tour-dim path{fill:rgba(32,37,34,.58)}
-.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:2px solid #a4412b;border-radius:6px;box-shadow:0 0 0 3px rgba(255,254,249,.85);pointer-events:none}
-.ilit-tour-tag{position:absolute;left:-2px;top:-24px;padding:3px 8px;border-radius:4px 4px 4px 0;background:#a4412b;color:#fff;font-size:11.5px;font-weight:600;line-height:1.3;white-space:nowrap}
-.ilit-tour-ring.tag-below .ilit-tour-tag{top:2px;left:2px;border-radius:0 0 4px 0}   /* no room above: tuck the label inside */
-.ilit-tour-tag[hidden]{display:none}
+/* The page stays usable underneath: a light shade, and a clear border round what the step is about. */
+.ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .3s ease}
+.ilit-tour-dim path{fill:rgba(32,37,34,.14)}
+.ilit-tour.explore .ilit-tour-dim{opacity:0}   /* exploring: no shade at all, only the border */
+.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:3px solid #176c68;border-radius:8px;box-shadow:0 0 0 4px rgba(23,108,104,.16);pointer-events:none}
+.ilit-tour.moving .ilit-tour-ring{transition:transform .35s ease,width .35s ease,height .35s ease}   /* glides between steps, follows scrolling instantly */
+.ilit-tour-cursor{position:fixed;left:0;top:0;z-index:1050;width:26px;height:26px;margin:-3px 0 0 -4px;opacity:0;pointer-events:none;transition-property:transform,opacity;transition-duration:.6s,.2s;transition-timing-function:cubic-bezier(.45,0,.2,1),ease;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.ilit-tour-cursor.on{opacity:1}
+.ilit-tour-cursor::after{content:"";position:absolute;left:-7px;top:-7px;width:22px;height:22px;border-radius:50%;border:2px solid #176c68;opacity:0;transform:scale(.4)}
+.ilit-tour-cursor.press::after{animation:ilit-tour-press .45s ease-out}
+@keyframes ilit-tour-press{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.6)}}
 .ilit-tour-card{position:fixed;z-index:1100;box-sizing:border-box;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;padding:16px 18px 14px;border:1px solid #d8d5ca;border-radius:8px;background:#fffef9;box-shadow:0 12px 32px rgba(32,37,34,.28);pointer-events:auto;outline:none}
 .ilit-tour-card.pending{opacity:.92}
 .ilit-tour-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -15,7 +19,8 @@
 .ilit-tour-x:hover{background:#f1efe8;color:#202522}
 .ilit-tour-title{margin:4px 0 0;font:600 20px/1.2 "Newsreader",Georgia,serif;color:#202522}
 .ilit-tour-text{margin:8px 0 0;font-size:14px;line-height:1.55;color:#202522}
-.ilit-tour-note{margin:8px 0 0;font-size:12px;color:#5f6863}
+.ilit-tour-note{margin:8px 0 0;font-size:12.5px;color:#176c68;font-weight:500}
+.ilit-tour-note:empty{display:none}
 .ilit-tour-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:10px}
 .ilit-tour-extra:empty{display:none}
 .ilit-tour-writes{padding:6px 9px;border-left:3px solid #8a6418;background:#f8f0dc;font-size:12px;color:#5c4510}
@@ -41,7 +46,7 @@
 .ilit-tour-start.alt{margin-top:14px;background:#fff;color:#202522;text-decoration:none}
 .ilit-tour-start.alt:hover{background:#a4412b;color:#fff}
 .ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
-@media (prefers-reduced-motion:reduce){.ilit-tour-bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.ilit-tour-bar i,.ilit-tour-cursor,.ilit-tour.moving .ilit-tour-ring,.ilit-tour-dim{transition:none}.ilit-tour-cursor.press::after{animation:none}}
 @media print{.ilit-tour{display:none}}
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
 html.ilit-tour-on body{padding-bottom:300px}   /* room to lift a region above the card at the end of a page */

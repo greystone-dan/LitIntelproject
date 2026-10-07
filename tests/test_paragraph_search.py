@@ -222,3 +222,32 @@ def test_scan_timeout_becomes_a_friendly_503(monkeypatch):
 		assert error.status_code == 503 and "too broad" in error.detail and db.rolled_back
 	else:
 		raise AssertionError("expected a 503")
+
+
+SENTENCE = "the officer ignored medical evidence about the applicant's child and refused humanitarian and compassionate relief"
+
+
+def test_a_sentence_with_lowercase_and_is_a_plain_sentence_not_an_all_words_operator_query(monkeypatch):
+	hits = [{"case_id": 7, "score": 2.0, "paragraphs": 3, "best_chunk_id": 70}]
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: hits)
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query=SENTENCE, search_full_text=True)
+	where = db.sql.split("WHERE TRUE", 1)[1].split("ORDER BY", 1)[0]
+	assert "c.id = ANY(CAST(:para_ids AS integer[]))" in where
+	assert "c.full_text ILIKE" not in where
+
+
+def test_a_sentence_without_paragraph_hits_matches_most_words_not_all(monkeypatch):
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query=SENTENCE, search_full_text=True)
+	assert "sentence_word_0" in db.sql and ">=" in db.sql
+
+
+def test_capital_operators_quotes_filters_and_minus_still_use_operator_search(monkeypatch):
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+	for query in ["officer fairness AND delay procedural", '"officer ignored" medical evidence child',
+			"court:FC officer ignored medical evidence", "officer ignored medical evidence -costs", "damages and liability"]:
+		db = AnalyticsDB()
+		analytics_service.fetch_analytics_search_cases(db, query=query)
+		assert "sentence_word_0" not in db.sql, query

@@ -131,3 +131,11 @@ def test_previous_about_text_is_kept_in_full_detail_sections():
 		assert f'id="{block}"' in overview, block
 	for block in ("full-library", "full-soon", "full-progress", "full-principles"):
 		assert f'id="{block}"' in how, block
+
+
+def test_how_it_works_keeps_the_restored_diagrams():
+	how = (ROOT / "backend" / "pages" / "about_how.html").read_text(encoding="utf-8")
+	for diagram in ("aboutFlowHow", "aboutFlowJoined", "aboutFlowDocket", "aboutFlowFile", "aboutFlowCitation", "aboutFlowParagraph", "aboutFlowIntake"):
+		assert f'id="{diagram}"' in how, diagram
+	for removed in ("CanLII", "934,000", "funding", "Mac Studio"):
+		assert removed not in how, removed

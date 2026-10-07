@@ -136,3 +136,15 @@ def test_bare_of_the_act_with_unregistered_nearest_act_keeps_a_row_without_instr
     text = "The Railway Act applies. Subsection 140(1) of the Act provides for reviews."
     rows = [e for e in analyze_text(text)["extracted"] if e["text"].lower().startswith("subsection")]
     assert rows and rows[0]["instrument_key"] is None
+
+
+def test_list_continuation_before_named_act_is_not_keyed_to_an_earlier_act():
+    from backend.citations import extract_statute_reference_matches
+
+    text = (
+        "Section 118.1 of the Income Tax Act. An object meets the criteria set out in paragraphs 29(3)(b) and (c) "
+        "of the Cultural Property Export and Import Act and that is it."
+    )
+    normalized = [m.normalized_citation for m in extract_statute_reference_matches(text)]
+    assert not any(n.startswith("Income Tax Act paras.") for n in normalized if n)
+    assert any("Cultural Property Export and Import Act" in n and "29(3)(b)" in n for n in normalized if n)

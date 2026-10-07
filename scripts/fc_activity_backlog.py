@@ -91,6 +91,13 @@ def imm_sort_key(imm: str, newest_first: bool = False) -> tuple[int, int]:
     return (-year, -seq) if newest_first else (year, seq)
 
 
+def run_order_key(row: tuple[str, str], oldest_first: bool = False) -> tuple[int, tuple[int, int]]:
+    """Never-fetched files first (not_in_activity, no_documents), then open_or_unknown; newest year first within each."""
+    imm, category = row
+    rank = CATEGORIES.index(category) if category in CATEGORIES else len(CATEGORIES)
+    return (rank, imm_sort_key(imm, newest_first=not oldest_first))
+
+
 def load_unresolved(db, categories: tuple[str, ...] = CATEGORIES) -> list[tuple[str, str]]:
     rows = db.execute(text(UNRESOLVED_SQL)).all()
     return [(imm, cat) for imm, cat in rows if cat in categories and IMM_RE.match(imm)]
@@ -245,7 +252,7 @@ def cmd_run(args: argparse.Namespace) -> int:
             log("Another backlog run holds the lock; exiting.")
             lock_db.close()
             return 1
-    candidates.sort(key=lambda row: imm_sort_key(row[0], args.newest_first))
+    candidates.sort(key=lambda row: run_order_key(row, args.oldest_first))
     done = set() if args.dry_run or args.ignore_done else read_done(done_path)
     todo = [imm for imm, _cat in candidates if imm not in done]
     limit = 20 if args.dry_run and not args.limit else args.limit
@@ -362,7 +369,7 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--limit", type=int)
     run.add_argument("--max-minutes", type=float, help="stop after this long (e.g. 600 for ten hours)")
     run.add_argument("--categories", default=",".join(CATEGORIES))
-    run.add_argument("--newest-first", action="store_true", help="default is oldest year first")
+    run.add_argument("--oldest-first", action="store_true", help="never-fetched first, then newest year first within each category (default is newest first)")
     run.add_argument("--ignore-done", action="store_true", help="re-fetch numbers already in done.tsv")
     run.add_argument("--run-dir", default=str(DEFAULT_RUN_DIR))
     run.add_argument("--stop-file", help="default: <run-dir>/stop.txt")

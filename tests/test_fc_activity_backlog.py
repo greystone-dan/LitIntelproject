@@ -1,6 +1,6 @@
 """Pure-logic tests for the overnight FC Activity backlog script (no database, no network)."""
 
-from scripts.fc_activity_backlog import estimate_hours, imm_sort_key, read_done, stop_requested
+from scripts.fc_activity_backlog import estimate_hours, imm_sort_key, run_order_key, read_done, stop_requested
 
 
 def test_oldest_first_orders_by_year_then_number():
@@ -30,3 +30,10 @@ def test_stop_file(tmp_path):
 
 def test_estimate_hours():
     assert estimate_hours(900, 4.0) == 1.0
+
+
+def test_run_order_never_fetched_first_then_newest_year():
+    rows = [("IMM-1-22", "open_or_unknown"), ("IMM-9-26", "open_or_unknown"), ("IMM-5-19", "no_documents"),
+            ("IMM-2-24", "not_in_activity"), ("IMM-3-26", "open_or_unknown")]
+    ordered = [imm for imm, _ in sorted(rows, key=run_order_key)]
+    assert ordered == ["IMM-2-24", "IMM-5-19", "IMM-9-26", "IMM-3-26", "IMM-1-22"]

@@ -23,13 +23,15 @@ const outcomeOf=item=>{
  return {cls:'',text:item.decision_outcome?String(item.decision_outcome).replace(/^./,c=>c.toUpperCase()):''};
 };
 const courtClass=court=>['SCC','FCA','FC'].includes(court)?'ct-'+court:'ct-other';
+/* stored case type (no AI); nothing is drawn for decisions without a label */
+const typeBox=t=>{if(!t||!t.primary||!t.primary.label)return '';const text=t.primary.label+(t.primary.provision?` (${t.primary.provision})`:'');return `<div class="sp-boxes sp-typeline"><span class="sp-bx type" title="Case type, worked out from the statute provisions the decision discusses (no AI)">Case type: ${escHtml(text)}</span></div>`;};
 window.professionalResultCard=function(item){
  const out=outcomeOf(item),known=item.cited_by_cases!==undefined&&item.cited_by_cases!==null,count=known?item.cited_by_cases:null;
  const people=[item.judge].filter(Boolean);
  const boxes=[item.citation?`<span class="sp-bx cit">${escHtml(item.citation)}</span>`:'',item.court?`<span class="sp-bx ct ${courtClass(item.court)}">${escHtml(item.court)}</span>`:'',item.date?`<span class="sp-bx">Decision date ${escHtml(item.date)}</span>`:'',...people.map(name=>`<span class="sp-bx">${escHtml(name)}</span>`)].filter(Boolean).join('');
  const cited=known?`Cited by <b>${fmtNum(count)}</b> ${count===1?'decision':'decisions'}<span class="sp-tip"><b>Cited by ${fmtNum(count)} ${count===1?'decision':'decisions'}</b>Other cases in the library that cite this one.</span>`:'Cited by …';
  const snippet=item.snippet&&typeof snippetHtml==='function'?`<p class="sp-snippet">${snippetHtml(item.snippet,window.__spQuery||'')}</p>`:'';
- return `<div class="rc-wrap"><button type="button" class="case-result sp-row" data-case-id="${item.case_id}" aria-label="Open ${escHtml(item.title||'decision')}"><div class="rc-main"><div class="sp-title-line">${escHtml(item.title||'Untitled decision')}</div><div class="sp-boxes">${boxes}</div>${snippet}</div><div class="sp-out ${out.cls}">${out.text?`<i></i>${escHtml(out.text)}`:''}</div><div class="sp-cited">${cited}</div></button></div>`;
+ return `<div class="rc-wrap"><button type="button" class="case-result sp-row" data-case-id="${item.case_id}" aria-label="Open ${escHtml(item.title||'decision')}"><div class="rc-main"><div class="sp-title-line">${escHtml(item.title||'Untitled decision')}</div><div class="sp-boxes">${boxes}</div>${typeBox(item.case_type)}${snippet}</div><div class="sp-out ${out.cls}">${out.text?`<i></i>${escHtml(out.text)}`:''}</div><div class="sp-cited">${cited}</div></button></div>`;
 };
 
 /* "14 decisions" instead of the long status sentence */

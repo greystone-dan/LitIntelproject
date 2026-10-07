@@ -1,0 +1,53 @@
+{
+  "_note": "Synthetic documents. 'find' is text that must be marked as a citation; 'identifier' must appear in its normalized or library citation; 'in_library' is only checked when the run has a library and 'library_ids' lists which cases it holds (live ids: Vavilov 35874, Baker 35899, Dunsmuir 52748, Khosa 58063).",
+  "01-fc-h-and-c-memo.txt": {
+    "cases": [
+      {"find": "Vavilov, 2019 SCC 65", "identifier": "2019 SCC 65", "in_library": true},
+      {"find": "Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817", "identifier": "817", "in_library": true},
+      {"find": "Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61", "identifier": "2015 SCC 61"},
+      {"find": "Khosa, 2009 SCC 12", "identifier": "2009 SCC 12", "in_library": true},
+      {"find": "Dunsmuir v. New Brunswick, 2008 SCC 9", "identifier": "2008 SCC 9", "in_library": true},
+      {"find": "Smith v. Canada (Minister of Citizenship and Immigration), 2021 FC 999", "identifier": "2021 FC 999", "in_library": false}
+    ],
+    "back_references": [
+      {"find": "Vavilov, above at para 99", "points_to": "Vavilov"},
+      {"find": "Ibid at para 100", "points_to": "Vavilov"}
+    ],
+    "statutes": [
+      {"find": "subsection 25(1) of the Immigration and Refugee Protection Act", "instrument": "canada.irpa", "section": "25"},
+      {"find": "s. 25(1) of the IRPA", "instrument": "canada.irpa", "section": "25"},
+      {"find": "Section 72(1) of the IRPA", "instrument": "canada.irpa", "section": "72"},
+      {"find": "section 3(3)(f) of the IRPA", "instrument": "canada.irpa", "section": "3"},
+      {"find": "section 18.1 of the Federal Courts Act", "instrument": "canada.federal_courts_act"}
+    ],
+    "pinpoints": [
+      {"find": "Vavilov, 2019 SCC 65 at paras 10, 99", "paragraphs": [10, 99]},
+      {"find": "Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61 at paras 21-23, 33", "paragraphs": [21, 22, 23, 33]},
+      {"find": "Khosa, 2009 SCC 12 at paras 59-62", "paragraphs": [59, 60, 61, 62]}
+    ]
+  },
+  "02-rpd-refugee-brief.txt": {
+    "cases": [
+      {"find": "Vavilov, 2019 SCC 65", "identifier": "2019 SCC 65", "in_library": true},
+      {"find": "Suresh v. Canada (Minister of Citizenship and Immigration), 2002 SCC 1", "identifier": "2002 SCC 1"},
+      {"find": "Charkaoui v. Canada (Citizenship and Immigration), 2007 SCC 9", "identifier": "2007 SCC 9"},
+      {"find": "Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817", "identifier": "817", "in_library": true}
+    ],
+    "back_references": [
+      {"find": "Suresh, supra at para 78", "points_to": "Suresh"}
+    ],
+    "statutes": [
+      {"find": "sections 96 and 97 of the IRPA", "instrument": "canada.irpa", "section": "96"},
+      {"find": "Section 97(1)(b) of the IRPA", "instrument": "canada.irpa", "section": "97"},
+      {"find": "section 162(2) of the IRPA", "instrument": "canada.irpa", "section": "162"}
+    ],
+    "pinpoints": [
+      {"find": "Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817 at paras 22-28", "paragraphs": [22, 23, 24, 25, 26, 27, 28]}
+    ]
+  },
+  "03-long-memo-speed-test.txt": {
+    "cases": [{"find": "Vavilov, 2019 SCC 65", "identifier": "2019 SCC 65", "in_library": true}],
+    "max_seconds": 8,
+    "min_case_citations": 400
+  }
+}

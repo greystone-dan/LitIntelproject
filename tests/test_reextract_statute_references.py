@@ -49,3 +49,13 @@ def test_read_backup_keeps_first_entry_per_case(tmp_path):
     )
     saved = read_backup(path)
     assert saved == {5: [{"id": 1, "pinpoint": "18"}], 6: []}
+
+
+def test_skip_cases_in_uses_backup_case_ids(tmp_path):
+    import json
+
+    from scripts.reextract_statute_references import read_backup
+
+    path = tmp_path / "b.jsonl"
+    path.write_text(json.dumps({"case_id": 3, "rows": []}) + "\n" + json.dumps({"case_id": 4, "rows": []}) + "\n")
+    assert [c for c in [2, 3, 4, 5] if c not in set(read_backup(path))] == [2, 5]

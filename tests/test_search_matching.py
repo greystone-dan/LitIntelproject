@@ -372,6 +372,42 @@ assert.ok(!resultCard({case_id:7,matched_on:'<img src=x>'}).includes('<img'));
 	assert result.returncode == 0, result.stderr
 
 
+@pytest.mark.parametrize("query", ["procedural fairness", "Baker", "", "the of and", "O'Connor"])
+def test_short_or_stopword_queries_keep_legacy_phrase_search(query):
+	from backend.search_matching import sentence_words
+	assert sentence_words(query) == []
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query=query)
+	assert "sentence_word_" not in db.sql
+
+
+def test_sentence_words_drop_filler_and_keep_longest_distinct_words():
+	from backend.search_matching import sentence_words
+	words = sentence_words("The officer ignored my medical evidence and ignored the doctor")
+	assert words == ["evidence", "officer", "ignored", "medical", "doctor"]
+	assert len(sentence_words("one two three " * 3 + "alpha bravo charlie delta echo foxtrot golf")) <= 6
+
+
+@pytest.mark.parametrize("full_text", [False, True])
+def test_sentence_query_accepts_most_words_and_ranks_by_word_count(full_text):
+	query = "officer ignored my medical evidence"
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query=query, search_full_text=full_text)
+	where, order = db.sql.split("WHERE", 1)[1].split("ORDER BY", 1)
+	assert "c.title ILIKE :query" in where  # exact phrase still accepted
+	assert ":sentence_word_0" in where and ">= 3" in where  # 4 words -> at least 3
+	assert (":sentence_word_0" in order) and order.index("sentence_word_0") < order.index("c.date DESC")
+	assert ("c.full_text" in where) is full_text
+	assert query not in db.sql
+	assert {db.params[f"sentence_word_{i}"] for i in range(4)} == {"%medical%", "%evidence%", "%ignored%", "%officer%"}
+
+
+def test_sentence_query_with_operators_is_left_to_the_operator_compiler():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="officer AND ignored medical evidence")
+	assert "sentence_word_" not in db.sql
+
+
 def test_case_type_filter_reads_stored_labels_with_bound_params():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker", case_type="refugee_claim")

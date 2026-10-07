@@ -1984,12 +1984,32 @@ def _defined_act_anchor(content: str, anchors: list[RawCitationMatch], kind: str
 	return max(before, key=lambda item: item.offset_end) if before else None
 
 
+_ASCII_LETTERS = frozenset("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+
+
+def _sentence_break_ends(content: str) -> list[int]:
+	"""Offsets just after each sentence-ending ``.``, ``!`` or ``?``, once for the whole text.
+
+	A full stop after a single letter that is itself a word ("J." in "Smith J. said") is not a break. Computed once
+	and sliced per provision: scanning the text again for every provision made extraction quadratic in its length.
+	"""
+	breaks: list[int] = []
+	for position, character in enumerate(content):
+		if character not in ".!?":
+			continue
+		if position and content[position - 1] in _ASCII_LETTERS and (position < 2 or content[position - 2] not in _ASCII_LETTERS):
+			continue
+		breaks.append(position + 1)
+	return breaks
+
+
 def _extract_anchored_provision_candidates(
 	content: str,
 	anchors: list[RawCitationMatch],
 ) -> list[RawCitationMatch]:
 	rows: list[RawCitationMatch] = []
 	context_anchors = list(anchors)
+	all_sentence_breaks = _sentence_break_ends(content)
 	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
 		instrument = _full_statute_citation_name(match.group(1))
 		context_anchors.append(_raw_match("statute", match.group(0), instrument, match.start(), match.end()))
@@ -2000,15 +2020,7 @@ def _extract_anchored_provision_candidates(
 			continue
 
 		def sentence_break_starts(index: int) -> list[int]:
-			breaks: list[int] = []
-			for position, character in enumerate(content[:index]):
-				if character not in ".!?":
-					continue
-				trailing_word = re.search(r"([A-Za-z]+)$", content[:position])
-				if trailing_word and len(trailing_word.group(1)) == 1 and content[position - 1].isalpha():
-					continue
-				breaks.append(position + 1)
-			return breaks
+			return all_sentence_breaks[: bisect_right(all_sentence_breaks, index)]
 
 		prefix = match.group(1).lower()
 		if "para" in prefix and "(" not in match.group(2):

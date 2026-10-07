@@ -93,8 +93,7 @@
   <header id="aboutIntro">
     <p class="eyebrow">About</p>
     <h1>iLit: immigration litigation intelligence</h1>
-    <p class="lede" id="aboutWhatIsIlit">iLit is a research tool for Canadian immigration case law. Search a library of public decisions, read each one in a clean, formatted view with its citations and statutes beside the text, and see how judges, authorities and the Federal Court docket fit together.</p>
-    <p class="lede">It is being built independently, on public decisions only, and it is a working demonstration rather than a finished product.</p>
+    <p class="lede" id="aboutWhatIsIlit">iLit is a website for researching Canadian immigration case law. It brings public court and tribunal decisions together in one library, lets you search them, and shows each decision in a clean, formatted view with the cases and statutes it relies on beside the text. It runs in an ordinary web browser; there is nothing to install.</p>
     <div class="entry-buttons" id="aboutEntryButtons">
       <button type="button" class="ilit-tour-start" data-ilit-tour-start id="ilitTourStart"><span aria-hidden="true">&#9654;</span> Take a tour</button>
       <a class="ilit-tour-start alt" href="/future-features" id="ilitFutureTourStart"><span aria-hidden="true">&#9776;</span> Roadmap</a>
@@ -108,6 +107,33 @@
     </div>
     <p class="small" style="margin-top:10px">These three numbers are read from the database when this page opens. If they show a dash, the database could not be reached.</p>
   </header>
+
+  <section id="aboutWhy">
+    <h2>Why it was built</h2>
+    <p>Immigration cases make up a large share of Federal Court work in Canada, and the decisions are public. But they are spread across several court and tribunal websites, they are hard to search together, and the links between them are not shown: which earlier decision a judge relied on, which section of which Act was applied, and how often a point has gone one way or the other.</p>
+    <p>iLit was built to put that in one place, so that answering a question such as “how has the Court treated this issue?” takes minutes of reading instead of hours of hunting. It is a research aid; it does not give legal advice and it does not predict results.</p>
+  </section>
+
+  <section id="aboutWho">
+    <h2>Who it is for</h2>
+    <p>Anyone who reads immigration decisions as part of their work or study: lawyers and paralegals preparing a case, advocates and settlement workers, researchers and students. It is built and run by one person, independently, using public decisions only.</p>
+  </section>
+
+  <section id="aboutWhat">
+    <h2>What you can do with it</h2>
+    <div class="grid three">
+      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Find and read decisions</span><p>Search by case name, citation or phrase from Case search, narrow by court, year, outcome or judge, and open a decision in the formatted reader.</p></a>
+      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">See the bigger picture</span><p>Intelligence / Statistics adds up many decisions: judge profiles, who cites a given case, and Federal Court docket activity over time.</p></a>
+      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Try what is coming</span><p>Coming soon holds tools that are built but not yet ready to rely on, each with a short explanation.</p></a>
+    </div>
+  </section>
+
+  <section id="aboutWhere">
+    <h2>What is in it, and where it comes from</h2>
+    <p>Decisions of the Federal Court, the Federal Court of Appeal, the Supreme Court of Canada and the Refugee Protection Division of the Immigration and Refugee Board, gathered from public sources. Each decision keeps a link to its original, so you can always check the source. It is not a complete archive of any of these bodies, and some tribunals are not in it yet.</p>
+    <p>The How it works tab explains how the information beside each decision is worked out, and what is and is not finished.</p>
+  </section>
+
 
   <footer>Updated 7 October 2026. The How it works tab explains where the data comes from and what is and is not finished; the Changelog tab lists every addition by date.</footer>
 

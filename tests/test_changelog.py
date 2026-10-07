@@ -116,7 +116,7 @@ def test_about_sections_have_stable_anchors_for_the_tour():
 	pages = ROOT / "backend" / "pages"
 	overview = (pages / "about_content.html").read_text(encoding="utf-8")
 	how = (pages / "about_how.html").read_text(encoding="utf-8")
-	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts"):
+	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts", "aboutWhy", "aboutWho", "aboutWhat", "aboutWhere"):
 		assert f'id="{anchor}"' in overview, anchor
 	for anchor in ("aboutHowIntro", "pipeline", "library", "derived", "tabs", "soon", "progress", "principles"):
 		assert f'id="{anchor}"' in how, anchor

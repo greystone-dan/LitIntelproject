@@ -449,6 +449,48 @@ _CLASS = {
 }
 
 
+_RLLR_HEAD_RE = re.compile(r"Tribunal:\s*Refugee\s+Protection\s+Division[\s\S]{0,300}?\bRPD\s+Number:", re.IGNORECASE)
+_RLLR_END_RE = re.compile(r"\n[ \t]*[—–―‒-]{3,}[^\n]{0,30}$", re.MULTILINE)
+_RLLR_CLASS = r"[“\"]?(?:Convention\s+refugees?|persons?\s+in\s+need\s+of\s+protection|people\s+in\s+need\s+of\s+protection|refugees?)"
+_RLLR_REJECT_RE = re.compile(
+	r"(?<!\bto\s)\b(?:reject(?:s|ed|ing)?|den(?:y|ies|ied|ying)|dismiss(?:es|ed|ing)?)\s+(?:all\s+of\s+|both\s+of\s+|each\s+of\s+)?(?:your|the|his|her|their)\s+(?:refugee\s+)?claims?\b"
+	r"|\bclaims?\s+(?:is|are)\s*,?\s*(?:hereby\s+|therefore\s*,?\s+)?(?:rejected|denied|dismissed)\b"
+	r"|\b(?:are|is)\s+(?:neither|not)\s+(?:a\s+)?[“\"]?Convention\s+refugee\b",
+	re.IGNORECASE,
+)
+_RLLR_ACCEPT_RE = re.compile(
+	r"\baccept(?:s|ed|ing)?\s+(?:all\s+of\s+|both\s+of\s+|each\s+of\s+)?(?:your|the|his|her|their)\s+(?:refugee\s+)?claims?\b"
+	r"|\baccept(?:s|ed)?\s+that\s+(?:you|they|he|she|the\s+claimants?)\s+(?:are|is)\s+\w*\s*" + _RLLR_CLASS +
+	r"|\bclaims?\s+(?:for\s+refugee\s+protection\s+)?(?:is|are)\s*,?\s*(?:hereby\s+|therefore\s*,?\s+)?(?:accepted|allowed|granted)\b"
+	r"|\b(?:are|is|be)\s+(?:all\s+|both\s+)?(?:a\s+|an\s+)?" + _RLLR_CLASS,
+	re.IGNORECASE,
+)
+
+
+def _is_rllr_document(content: str) -> bool:
+	"""Refugee Law Lab Reporter copy of a Refugee Protection Division decision (header block with RPD Number)."""
+	return bool(_RLLR_HEAD_RE.search(content[:800]))
+
+
+def _decide_rllr(content: str) -> "Decision | None":
+	"""Read the claim ruling from the closing paragraphs, before the footnotes and the transcript sign-off."""
+	end = _RLLR_END_RE.search(content)
+	text = _strip_footnotes(content[: end.start()] if end else content)
+	for window in (1500, 6000):
+		start = max(0, len(text) - window)
+		section = text[start:]
+		reject = _RLLR_REJECT_RE.search(section)
+		if reject and re.match(r"[^.]{0,200}?\bbut\s+(?:is|are)\s+(?:a\s+)?persons?\s+in\s+need", section[reject.end():], re.IGNORECASE):
+			reject = None  # "not a Convention refugee, but a person in need of protection" is still a granted claim
+		accept = _RLLR_ACCEPT_RE.search(section)
+		if reject and accept:
+			return Decision("mixed", "ruling", reject, start, section, True, 3, "rllr_operative")
+		if reject or accept:
+			match = reject or accept
+			return Decision("dismissed" if reject else "allowed", "ruling", match, start, section, False, 3, "rllr_operative")
+	return None
+
+
 def _decide(content: str) -> "Decision | None":
 	"""Read the disposition. Labels: a ruling, "procedural", or "unclear" (the rules are not sure)."""
 	if not content or not content.strip():
@@ -457,6 +499,10 @@ def _decide(content: str) -> "Decision | None":
 		rad_decision = _decide_rad(content)
 		if rad_decision is not None:
 			return rad_decision
+	if _is_rllr_document(content):
+		rllr_decision = _decide_rllr(content)
+		if rllr_decision is not None:
+			return rllr_decision
 	assessed = _assess_outcome(content)
 	is_tribunal = _is_tribunal_document(content)
 	if assessed is None:
@@ -595,6 +641,8 @@ def _role_from_labelled_parties(text: str) -> str | None:
 
 def _resolve_government_role(content: str, metadata: dict[str, object]) -> str | None:
 	"""Prefer the style of cause, then the title line; fall back to caption role labels."""
+	if _is_rllr_document(content):
+		return None
 	if _is_rad_document(content):
 		# The Minister is a party to a RAD appeal only when the Minister brought it; otherwise there is no government side.
 		return "applicant" if _RAD_MINISTER_APPEAL_RE.search(content[:3500]) else None

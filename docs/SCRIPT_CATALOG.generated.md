@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 189
+Active scripts documented: 190
 
 ## Catalog
 
@@ -161,6 +161,7 @@ Active scripts documented: 189
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
 | `remove_test_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_test_cases.py --help` |
+| `repair_glued_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help` |
 | `repair_range_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_range_word_sections.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
 | `report_fc_activity_coverage.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help` |
@@ -2312,6 +2313,20 @@ Active scripts documented: 189
 
 ```powershell
 .\venv\Scripts\python.exe scripts\remove_test_cases.py --help
+```
+
+## `scripts/repair_glued_word_sections.py`
+
+**Purpose:** Repair statute_references.provision_section values like "25s" or "2d" that came from a word glued to the number. The stored pinpoint has its spaces removed, so "s. 25 ss. 3" or "S. 2(d)" read as section "25s" or "2d" in the first backfill. Real lettered sections are uppercase ("224A", "83A", "1F", "39B") or lowercase before a bracket ("224a(1)"), so this touches only rows whose stored pinpoint has LOWERCASE letters straight after the digits and no bracket, never rows of the Criminal Code or Income Tax Act (old lettered sections), and only when the section can be read again from the cited text itself (reference_text: "section 20.1" -> 20.1, "S. 2d" -> 2). Rows where the text gives no section are left alone. Dry run by default; --apply first writes an undo CSV (id, old section, new section); --undo FILE restores the old values where the row still holds the new one.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help
 ```
 
 ## `scripts/repair_range_word_sections.py`

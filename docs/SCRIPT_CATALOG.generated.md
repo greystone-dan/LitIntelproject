@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 196
+Active scripts documented: 197
 
 ## Catalog
 
@@ -144,6 +144,7 @@ Active scripts documented: 196
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
+| `measure_refined_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help` |
 | `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
 | `mine_a2aj_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help` |
 | `mine_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help` |
@@ -2081,6 +2082,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\measure_real_coverage.py --help
+```
+
+## `scripts/measure_refined_pinpoints.py`
+
+**Purpose:** Measure pinpoints on refined citations, read-only (nothing is written). The refined table does not store the pinpoint yet, so this re-runs the refiner on decisions that already have refined rows and counts the rows that carry a pinpoint. It also counts the same for the first pass alone (pass-one rows, pinpoints read only from the row's own text), which is the "before". python scripts/measure_refined_pinpoints.py --sample 500 --random-seed 7 python scripts/measure_refined_pinpoints.py --sample 500 --csv pinpoint_measure.csv Also checks that the stored refined row count for each decision matches a fresh run (a mismatch means the table was built with older rules).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help
 ```
 
 ## `scripts/measure_tagging_coverage.py`

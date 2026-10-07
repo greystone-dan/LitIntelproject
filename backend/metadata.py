@@ -187,6 +187,22 @@ def _rad_header_fields(content: str) -> dict[str, str]:
 	return found
 
 
+_RLLR_LABELS = {"date": r"Date of Decision", "judge": r"Panel", "docket": r"RPD Number"}
+
+
+def _rllr_header_fields(content: str) -> dict[str, str]:
+	"""Date, panel member and file number from the one-line-per-field header of a Refugee Law Lab Reporter RPD decision."""
+	head = content[:1500]
+	if not re.search(r"Tribunal:\s*Refugee\s+Protection\s+Division", head[:800], re.IGNORECASE) or not re.search(r"RPD Number:", head[:800]):
+		return {}
+	found: dict[str, str] = {}
+	for field, label in _RLLR_LABELS.items():
+		match = re.search(rf"^[ \t]*{label}:[ \t]*([^\n]+)$", head, re.MULTILINE)
+		if match and match.group(1).strip().upper() != "N/A":
+			found[field] = match.group(1).strip()
+	return found
+
+
 def extract_case_metadata(text: str | None) -> dict[str, object]:
 	"""Extract the complete metadata payload stored once on a case."""
 	content = text or ""
@@ -205,6 +221,17 @@ def extract_case_metadata(text: str | None) -> dict[str, object]:
 		extracted[field] = value
 		confidence[field] = 0.9
 		sources[field] = {"text": value}
+	rllr_fields = _rllr_header_fields(content)
+	for field, value in rllr_fields.items():
+		extracted[field] = value
+		confidence[field] = 0.9
+		sources[field] = {"text": value}
+	if rllr_fields:
+		# Reporter copies carry no style of cause (parties are redacted); the header decides whether review is needed.
+		extracted["_quality_flags"] = [flag for flag in extracted.get("_quality_flags") or [] if flag not in {
+			"missing_critical:style of cause", *(f"missing_critical:{field}" for field in rllr_fields),
+		}]
+		extracted["_needs_review"] = any(not extracted.get(field) for field in ("date", "docket", "judge"))
 	if _is_rad_cover(content):
 		# RAD decisions have no neutral citation or style of cause (the parties are redacted), so only the
 		# file number, date and panel member decide whether the cover page needs a person's review.

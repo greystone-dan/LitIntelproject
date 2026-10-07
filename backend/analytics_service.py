@@ -58,7 +58,7 @@ from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
 from .paragraph_search import search_paragraph_cases
-from .search_matching import identity_sql, matched_on_sql, sentence_hits_sql
+from .search_matching import identity_sql, matched_on_sql, sentence_words, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
@@ -1068,6 +1068,18 @@ def _query_uses_operators(parsed_query: dict[str, Any]) -> bool:
 	)
 
 
+def _is_plain_sentence(query: str, parsed_query: dict[str, Any]) -> bool:
+	"""A plain-language sentence whose lowercase "and" / "or" are ordinary words, not search operators.
+
+	Operators must be written in capitals (AND, OR, NOT) or as field filters, quotes, brackets or a leading minus.
+	"""
+	if not sentence_words(query) or any(parsed_query["filters"].values()):
+		return False
+	if re.search(r"[\"()]|(?<!\w)-\w|\b(?:AND|OR|NOT)\b", query):
+		return False
+	return True
+
+
 def _query_expression_sql(
 	expression: dict[str, Any] | None,
 	params: dict[str, Any],
@@ -1368,7 +1380,7 @@ def fetch_analytics_search_cases(
 	court = " ".join(court.split())
 	year = "".join(character for character in year if character.isdigit())[:4]
 	parsed_query = parse_query(query)
-	query_uses_operators = _query_uses_operators(parsed_query)
+	query_uses_operators = _query_uses_operators(parsed_query) and not _is_plain_sentence(query, parsed_query)
 	paragraph_case_ids: list[int] = []
 	paragraph_best_chunk: dict[int, int] = {}
 	minister_expression = "SUBSTRING(c.title FROM 'Canada [(]([^)]*)[)]')"

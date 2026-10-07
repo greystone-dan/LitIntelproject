@@ -322,3 +322,11 @@ def test_live_analysis_goes_full_screen_inside_the_workbench() -> None:
 	assert "ilitLive" in live_analysis_page_html()
 	html = workbench_page_html()
 	assert "reading-live" in html and "ilitLive" in html
+
+
+def test_a_decision_payload_carries_rule_outcome_outline_and_case_type_slots() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(_DECISION)
+	payload = build_live_reader_payload(text, paragraphs, "Pasted text", _NoLibrary())
+	assert payload["item"]["rule_outcome"] == "allowed"
+	assert isinstance(payload["readerData"]["structure_outline"], list)
+	assert "case_type" in payload["readerData"]

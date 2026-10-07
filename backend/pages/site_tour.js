@@ -1,5 +1,6 @@
 /* iLit site tour: a scripted walk through the real site. The visitor only presses Next (or Back, Skip section, Exit);
-   the tour opens the pages, types and clicks for them, and the page underneath does not take clicks while it runs.
+   the tour opens the pages, types and clicks for them with a visible pointer, and the visitor can scroll and look
+   around the page at any time before pressing Next.
    Self-contained: no libraries, no network calls except the site's own search (to find the example decisions).
    The steps are plain data in site_tour_steps.json (injected below as window.ILIT_TOUR).
    State lives in sessionStorage, so the tour survives page changes and a refresh. */
@@ -32,7 +33,7 @@
   function fillIds(sel){
     if(typeof sel==='string')return sel.replace(/\{(\w+)\}/g,function(_,n){return caseIds[n]!=null?caseIds[n]:'0'});
     if(Array.isArray(sel))return sel.map(fillIds);
-    if(sel&&sel.css)return {css:fillIds(sel.css),text:sel.text};
+    if(sel&&sel.css)return {css:fillIds(sel.css),text:sel.text,pin:sel.pin};
     return sel;
   }
   function findVisible(sel){
@@ -41,9 +42,20 @@
       var item=fillIds(list[i]),css=typeof item==='string'?item:item&&item.css,re=item&&item.text?new RegExp(item.text,'i'):null,all;
       if(!css)continue;
       try{all=document.querySelectorAll(css)}catch(e){continue}
-      for(var j=0;j<all.length;j++)if(visible(all[j])&&(!re||re.test(all[j].textContent||'')))return all[j];
+      for(var j=0;j<all.length;j++)if(visible(all[j])&&(!re||re.test(all[j].textContent||''))&&(!item.pin||hasPinpoint(all[j])))return all[j];
     }
     return null;
+  }
+  // A marked citation that the reader matched to a library case at a named paragraph, so its card shows that passage.
+  function hasPinpoint(node){
+    var id=node.getAttribute('data-cite-id');
+    if(!id)return false;
+    try{
+      var p=window.readerState&&window.readerState.payload||(typeof readerState!=='undefined'?readerState.payload:null);   // the reader's own data
+      var rows=((p&&p.readerData&&p.readerData.citations)||[]).concat((p&&p.citations)||[]);
+      for(var k=0;k<rows.length;k++)if(String(rows[k].id)===id)return rows[k].target_case_id!=null&&rows[k].target_paragraph!=null;
+    }catch(e){}
+    return false;
   }
   async function waitFor(sel,seconds,token){
     var end=Date.now()+(seconds||8)*1000;
@@ -112,7 +124,10 @@
 
   /* ---------- actions the tour performs for the visitor (each one is safe to repeat) ---------- */
   async function typeInto(input,text,token){
-    if(input.value===text)return;                                  // already typed (a refresh or Back): do not type it again
+    if(input.value===text){                                        // already typed (a refresh or Back): do not type it again,
+      input.dispatchEvent(new Event('input',{bubbles:true}));        // but let the page show its matches again
+      closeSuggestions();return;
+    }
     input.focus({preventScroll:true});
     input.value='';
     input.dispatchEvent(new Event('input',{bubbles:true}));
@@ -121,7 +136,7 @@
       if(token!==run)return;
       input.value=text.slice(0,i);
       input.dispatchEvent(new Event('input',{bubbles:true}));
-      await sleep(28);
+      await sleep(55);
     }
     closeSuggestions();
   }
@@ -134,6 +149,7 @@
     input.scrollTop=0;
   }
   function pickNode(sel,a){
+    if(typeof sel!=='string')return findVisible(sel);                // {css,text,pin} or a list of alternatives
     var all=[];
     try{all=[].slice.call(document.querySelectorAll(fillIds(sel)))}catch(e){}
     all=all.filter(visible);
@@ -153,9 +169,12 @@
       await sleep(100);
     }
     if(!node)return false;
-    if((a.do==='type'||a.show)&&ui&&!(a.do==='type'&&node.value===a.text)){   // let the visitor watch what the tour types or presses
-      ui.items=[{node:node,sel:null,label:a.label||''}];fitView(ui.items);place();
-      if(a.do!=='type')await sleep(reduce?0:450);
+    if((a.do==='type'||a.show||a.do==='drop')&&ui&&!(a.do==='type'&&node.value===a.text)){   // the visitor watches the pointer go there
+      ui.items=[{node:node,sel:null}];
+      await bringIntoView(node,token);place();
+      await pointAt(node,token);
+      if(token!==run)return false;
+      if(a.do!=='type')await press();
     }
     switch(a.do){
       case 'type':await typeInto(node,a.text||'',token);break;
@@ -165,21 +184,39 @@
       case 'open':if(!node.open)node.open=true;break;
       case 'click':node.click();break;
       case 'submit':if(node.requestSubmit)node.requestSubmit();else node.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));break;
-      case 'scroll':node.scrollIntoView({block:'center'});break;
+      case 'scroll':node.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});break;
+      case 'drop':if(!(await dropFile(node,a)))return false;break;
       default:return false;
     }
     await sleep(60);
     return true;
   }
 
-  /* ---------- the overlay: a dimmed page with one or more lit windows, a ring on each, and the card ---------- */
+  // Drop one of the tour's own fictional sample files on a drop zone, as a person dragging it from their desktop would.
+  async function dropFile(zone,a){
+    try{
+      var r=await fetch(a.file,{credentials:'same-origin'});
+      if(!r.ok)return false;
+      var blob=await r.blob(),file=new File([blob],a.name||a.file.split('/').pop(),{type:blob.type||'application/octet-stream'});
+      var dt=new DataTransfer();dt.items.add(file);
+      zone.dispatchEvent(new DragEvent('dragenter',{bubbles:true,cancelable:true,dataTransfer:dt}));
+      await sleep(reduce?0:350);
+      zone.dispatchEvent(new DragEvent('drop',{bubbles:true,cancelable:true,dataTransfer:dt}));
+      return true;
+    }catch(e){return false}
+  }
+
+  /* ---------- the overlay: a lightly shaded page with a clear border round what each step is about, a pointer, and the card.
+     Nothing blocks the page: the visitor can scroll and look around before pressing Next. ---------- */
   function build(){
     if(ui)return ui;
     var root=el('div','ilit-tour');root.setAttribute('data-ilit-tour','');
-    var block=el('div','ilit-tour-block');root.appendChild(block);    // the page under the tour takes no clicks
     var svg=document.createElementNS(SVGNS,'svg');svg.setAttribute('class','ilit-tour-dim');svg.setAttribute('aria-hidden','true');
     var path=document.createElementNS(SVGNS,'path');path.setAttribute('fill-rule','evenodd');svg.appendChild(path);root.appendChild(svg);
     var rings=el('div','ilit-tour-rings');root.appendChild(rings);
+    var cursor=el('div','ilit-tour-cursor');cursor.setAttribute('aria-hidden','true');
+    cursor.innerHTML='<svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 2l15 11.2-6.6 1.1 3.9 7.3-2.9 1.5-3.9-7.4L4 20.7z" fill="#202522" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    root.appendChild(cursor);
     var card=el('div','ilit-tour-card');
     card.setAttribute('role','dialog');card.setAttribute('aria-label','Site tour');card.setAttribute('tabindex','-1');
     var head=el('div','ilit-tour-head');
@@ -188,6 +225,7 @@
     head.appendChild(kicker);head.appendChild(exitX);
     var title=el('h2','ilit-tour-title');
     var text=el('p','ilit-tour-text');
+    var hint=el('p','ilit-tour-note');
     var extra=el('div','ilit-tour-extra');
     var bar=el('div','ilit-tour-bar');var fill=el('i');bar.appendChild(fill);
     var foot=el('div','ilit-tour-foot');
@@ -198,7 +236,7 @@
     var next=el('button','ilit-tour-btn primary','Next');next.type='button';
     btns.appendChild(back);btns.appendChild(skip);btns.appendChild(next);
     foot.appendChild(count);foot.appendChild(btns);
-    [head,title,text,extra,bar,foot].forEach(function(n){card.appendChild(n)});
+    [head,title,text,hint,extra,bar,foot].forEach(function(n){card.appendChild(n)});
     root.appendChild(card);
     var live=el('div','ilit-tour-live');live.setAttribute('aria-live','polite');root.appendChild(live);
     document.body.appendChild(root);
@@ -206,7 +244,7 @@
     back.onclick=function(){go(-1)};
     next.onclick=function(){go(1)};
     skip.onclick=skipSection;
-    ui={root:root,path:path,rings:rings,card:card,kicker:kicker,title:title,text:text,extra:extra,fill:fill,count:count,back:back,skip:skip,next:next,live:live,items:[]};
+    ui={root:root,path:path,rings:rings,cursor:cursor,card:card,kicker:kicker,title:title,text:text,hint:hint,extra:extra,fill:fill,count:count,back:back,skip:skip,next:next,live:live,items:[]};
     return ui;
   }
   function destroy(){
@@ -257,21 +295,19 @@
       if(!b){holes.push(null);return}
       var x=Math.max(3,b.left-pad),y=Math.max(3,b.top-pad),x2=Math.min(vw-3,b.right+pad),y2=Math.min(floor-3,b.bottom+pad);
       var minH=Math.min(48,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
-      holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y),label:item.label}:null);
+      holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);
     });
-    // one dark sheet with a window cut for each lit region (even-odd fill)
+    // one light shade with a window cut for each region (even-odd fill)
     var d='M0 0H'+vw+'V'+vh+'H0Z';
     holes.forEach(function(h){if(h)d+='M'+h.x+' '+h.y+'h'+h.w+'v'+h.h+'h'+(-h.w)+'Z'});
     ui.path.setAttribute('d',d);
     var rings=ui.rings;
-    while(rings.children.length<holes.length){var r=el('div','ilit-tour-ring');r.appendChild(el('span','ilit-tour-tag'));rings.appendChild(r)}
+    while(rings.children.length<holes.length)rings.appendChild(el('div','ilit-tour-ring'));
     [].forEach.call(rings.children,function(r,k){
       var h=holes[k];
       if(!h){r.style.display='none';return}
       r.style.display='block';
       r.style.transform='translate('+h.x+'px,'+h.y+'px)';r.style.width=h.w+'px';r.style.height=h.h+'px';
-      var tag=r.firstChild;tag.textContent=h.label||'';tag.hidden=!h.label;
-      r.classList.toggle('tag-below',h.y<26);
     });
     if(narrow){card.classList.add('sheet');card.style.cssText='left:0;right:0;top:auto;bottom:0'}
     else{card.classList.remove('sheet');card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'}   // one fixed place, so Next never moves
@@ -288,48 +324,121 @@
       watch=requestAnimationFrame(tick);
     })();
   }
-  // Bring every lit region into view at once, above the card on a phone, without the visitor scrolling.
-  function fitView(items,focus){
-    var nodes=items.map(function(i){return i.node}).filter(function(n){return n&&visible(n)});
-    if(!nodes.length)return;
-    var main=items[focus||0]&&items[focus||0].node&&visible(items[focus||0].node)?items[focus||0].node:nodes[0];
-    nodes=nodes.filter(function(n){return n!==main}).concat([main]);
-    // each region into view inside its own scrolling panel, ending with the main one so it wins any conflict
-    nodes.forEach(function(n){try{n.scrollIntoView({block:'nearest',inline:'nearest'})}catch(e){}});
-    var narrow=window.innerWidth<640,vh=window.innerHeight;
-    var top=12,bottom=narrow?vh-(ui?ui.card.offsetHeight:vh*0.45)-12:vh-12;
-    var rects=nodes.map(function(n){return n.getBoundingClientRect()});
-    if(!narrow&&ui){                                                // desktop: keep regions in the card's column clear of the card
-      var c=ui.card.getBoundingClientRect();
-      if(rects.some(function(r){return r.right>c.left-8}))bottom=c.top-12;
+  // The free part of the screen: above the bottom sheet on a phone, left of the card on a desktop when they overlap.
+  // How far down the screen a bar pinned at the top reaches (a page's sticky search bar or header), at this column.
+  function pinnedTop(x){
+    var hit=document.elementFromPoint(Math.max(2,Math.min(window.innerWidth-2,x)),2);
+    for(var n=hit;n&&n!==document.body&&n!==document.documentElement;n=n.parentElement){
+      var pos=getComputedStyle(n).position;
+      if(pos==='sticky'||pos==='fixed'){var b=n.getBoundingClientRect().bottom;return b<window.innerHeight*0.4?b:0}
     }
-    var uTop=Math.min.apply(null,rects.map(function(r){return r.top})),uBottom=Math.max.apply(null,rects.map(function(r){return r.bottom}));
-    var room=bottom-top,h=uBottom-uTop,delta;
-    if(h<=room)delta=uTop-(top+(room-h)/3);                         // all fit: sit in the upper part of the free space
-    else{                                                           // not all fit (a phone): the main region wins
-      var m=main.getBoundingClientRect();
-      delta=m.height<=room?m.top-(top+(room-m.height)/3):m.top-top;
-    }
-    if(Math.abs(delta)>2){try{window.scrollBy(0,delta)}catch(e){}}
-    clearSticky(main);
+    return 0;
   }
+  function freeArea(node){
+    var narrow=window.innerWidth<640,vh=window.innerHeight,top=12,bottom=vh-12;
+    if(node)top=Math.max(top,pinnedTop(node.getBoundingClientRect().left+20)+10);
+    if(ui&&narrow)bottom=vh-ui.card.offsetHeight-12;
+    else if(ui&&node){
+      var c=ui.card.getBoundingClientRect(),r=node.getBoundingClientRect();
+      if(r.right>c.left-8&&r.height<c.top-24)bottom=c.top-12;     // in the card's column: keep it above the card
+    }
+    return {top:top,bottom:bottom};
+  }
+  function onScreen(node){
+    var r=clipped(node),vw=document.documentElement.clientWidth||window.innerWidth;
+    return !!r&&r.right>8&&r.left<vw-8&&r.bottom>8&&r.top<window.innerHeight-8;
+  }
+  // Something pinned to the screen (a toolbar, a sticky header) sits over the start of the region.
+  function covered(node){
+    var r=clipped(node);
+    if(!r)return true;
+    var x=Math.min(window.innerWidth-2,Math.max(2,r.left+Math.min(40,(r.right-r.left)/2))),y=Math.min(window.innerHeight-2,Math.max(1,r.top+Math.min(12,(r.bottom-r.top)/2)));
+    var hit=document.elementFromPoint(x,y);                          // the tour's own layer takes no pointer events, so it is not hit
+    return !!hit&&!node.contains(hit)&&!hit.contains(node);
+  }
+  function inView(node){
+    var r=clipped(node);
+    if(!r||covered(node))return false;
+    var f=freeArea(node),shown=Math.min(r.bottom,f.bottom)-Math.max(r.top,f.top);
+    if(r.top<f.top-2)return false;                                  // its top is cut off: the visitor would not see where it starts
+    return r.bottom<=f.bottom||shown>=Math.min(350,(r.bottom-r.top)*0.6);   // mostly on screen is enough: do not move the page
+  }
+  // Scroll only when the region is not already on screen, smoothly, and only as far as needed: the page should not jump.
+  async function bringIntoView(node,token){
+    if(!node||!visible(node)||inView(node))return;
+    var full=node.getBoundingClientRect(),cut=clipped(node);
+    if(!cut||cut.right-cut.left<Math.min(full.width,window.innerWidth)*0.8){   // hidden sideways in a row that scrolls across
+      try{node.scrollIntoView({block:'nearest',inline:'nearest',behavior:reduce?'auto':'smooth'})}catch(e){}
+      await settleScroll(token);
+      if(inView(node))return;
+    }
+    var box=scrollParent(node);
+    if(clipped(node)&&covered(node)){                               // on screen but under a pinned bar: move it out from under, no more
+      var before=node.getBoundingClientRect().top;clearSticky(node);await settleScroll(token);
+      if(node.getBoundingClientRect().top!==before&&inView(node))return;
+    }
+    if(box){                                                        // inside a scrolling panel: scroll the panel first
+      var b=box.getBoundingClientRect(),r=node.getBoundingClientRect();
+      if(r.top<b.top||r.bottom>b.bottom){
+        try{box.scrollBy({top:r.top-b.top-Math.max(12,(b.height-Math.min(r.height,b.height))/3),behavior:reduce?'auto':'smooth'})}catch(e){}
+        await settleScroll(token);
+      }
+      if(inView(node))return;
+    }
+    var f=freeArea(node),m=node.getBoundingClientRect(),room=f.bottom-f.top;
+    var delta=m.height<=room?m.top-(f.top+Math.min(90,(room-m.height)/2)):m.top-f.top-8;
+    try{window.scrollBy({top:delta,behavior:reduce?'auto':'smooth'})}catch(e){window.scrollBy(0,delta)}
+    await settleScroll(token);
+    if(covered(node)){clearSticky(node);await settleScroll(token)}
+  }
+  async function settleScroll(token){                               // wait until a smooth scroll has stopped moving
+    if(reduce)return;
+    var last=null,still=0;
+    for(var k=0;k<40&&still<3;k++){
+      await sleep(40);
+      if(token!==run)return;
+      var sig=window.scrollY+','+document.documentElement.scrollTop;
+      [].forEach.call(document.querySelectorAll('.v6-body,.fmt-decision,#decisionBody,.reader-scroll'),function(n){sig+=','+n.scrollTop});
+      still=sig===last?still+1:0;last=sig;
+    }
+  }
+  /* ---------- the pointer ---------- */
+  var pointer={x:null,y:null};
+  async function pointAt(node,token){
+    if(!ui||!node)return;
+    var c=ui.cursor,r=clipped(node)||node.getBoundingClientRect();
+    var x=Math.round(r.left+Math.min(r.width/2,Math.max(16,r.width*0.3))),y=Math.round(r.top+Math.min(r.height/2,22));
+    if(pointer.x==null){                                            // first appearance: start from the card
+      var cr=ui.card.getBoundingClientRect();
+      c.style.transition='none';c.style.transform='translate('+Math.round(cr.left+30)+'px,'+Math.round(cr.top+20)+'px)';
+      c.getBoundingClientRect();c.style.transition='';
+    }
+    c.classList.add('on');
+    var dist=pointer.x==null?400:Math.hypot(x-pointer.x,y-pointer.y);
+    var ms=reduce?0:Math.round(Math.min(900,Math.max(380,dist*1.1)));
+    c.style.transitionDuration=ms+'ms';
+    c.style.transform='translate('+x+'px,'+y+'px)';
+    pointer.x=x;pointer.y=y;
+    await sleep(ms+120);
+  }
+  async function press(){
+    if(!ui)return;
+    ui.cursor.classList.remove('press');ui.cursor.getBoundingClientRect();ui.cursor.classList.add('press');
+    await sleep(reduce?0:260);
+  }
+  function hidePointer(){if(ui){ui.cursor.classList.remove('on');pointer.x=null}}
   // A bar that stays pinned at the top of the page (a toolbar) can sit over the region: move the region below it.
   function clearSticky(main){
-    var block=ui&&ui.root.querySelector('.ilit-tour-block');
-    for(var pass=0;pass<2;pass++){
-      var m=main.getBoundingClientRect(),x=Math.min(window.innerWidth-2,Math.max(2,m.left+Math.min(40,m.width/2))),y=Math.max(1,m.top+3);
-      if(block)block.style.display='none';
-      var hit=document.elementFromPoint(x,y);
-      if(block)block.style.display='';
-      if(!hit||main.contains(hit)||hit.contains(main))return;
-      var bar=hit;
-      while(bar&&bar!==document.body){var pos=getComputedStyle(bar).position;if(pos==='sticky'||pos==='fixed')break;bar=bar.parentElement}
-      if(!bar||bar===document.body)return;
-      var need=bar.getBoundingClientRect().bottom+10-m.top;
-      if(need<=0)return;
-      var box=scrollParent(main);
-      try{if(box)box.scrollTop-=need;else window.scrollBy(0,-need)}catch(e){return}
-    }
+    var m=main.getBoundingClientRect(),x=Math.min(window.innerWidth-2,Math.max(2,m.left+Math.min(40,m.width/2))),y=Math.max(1,m.top+3);
+    var hit=document.elementFromPoint(x,y);
+    if(!hit||main.contains(hit)||hit.contains(main))return;
+    var bar=hit;
+    while(bar&&bar!==document.body){var pos=getComputedStyle(bar).position;if(pos==='sticky'||pos==='fixed')break;bar=bar.parentElement}
+    if(!bar||bar===document.body)return;
+    var need=bar.getBoundingClientRect().bottom+10-m.top;
+    if(need<=0)return;
+    var box=scrollParent(main),how=reduce?'auto':'smooth';
+    try{if(box&&box.scrollTop>=need)box.scrollBy({top:-need,behavior:how});else window.scrollBy({top:-need,behavior:how})}catch(e){}
   }
   function scrollParent(n){
     for(var p=n.parentElement;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){
@@ -347,13 +456,17 @@
     while(last<STEPS.length-1&&sectionOf(last+1)===sec)last++;
     return {n:i-first+1,of:last-first+1};
   }
-  function render(i,items,pending){
+  var EXPLORE_HINT='Scroll and look around as much as you like, then press Next.';
+  function render(i,items,pending,lead){
     var s=STEPS[i],u=build(),sp=sectionPlace(i);
     document.documentElement.classList.add('ilit-tour-on');
+    if(u.items!==items){u.root.classList.add('moving');clearTimeout(u.moving);u.moving=setTimeout(function(){if(ui)ui.root.classList.remove('moving')},420)}
     u.items=items||[];
+    u.root.classList.toggle('explore',!!s.explore&&!pending);
     u.kicker.textContent=(s.section||'Tour')+(sp.of>1?' · '+sp.n+' of '+sp.of:'');
-    u.title.textContent=s.title||'';
-    u.text.textContent=s.text||'';
+    u.title.textContent=lead?lead:(s.title||'');
+    u.text.textContent=lead?'':(s.text||'');
+    u.hint.textContent=!lead&&!pending&&s.explore?EXPLORE_HINT:'';
     u.extra.textContent='';
     u.count.textContent='Step '+(i+1)+' of '+STEPS.length;
     clearTimeout(u.slow);
@@ -399,7 +512,18 @@
       state.nav.n++;
       if(state.nav.n>2){state.nav=null;return skipOver(i,token)}   // do not loop if the page will not open
       save(state);
-      var via=s.via&&direction>0&&state.nav.n===1?findVisible(s.via):null;
+      var via=s.via&&direction>0&&state.nav.n===1?findVisible(fillIds(s.via)):null;
+      // "OK, let's move on": the pointer goes where a person would click (via clicks it; point only shows it, then the
+      // tour opens the page itself, for links that would open somewhere the tour cannot follow, such as a frame)
+      var spot=via||(s.point&&direction>0&&state.nav.n===1?findVisible(fillIds(s.point)):null);
+      if(direction>0&&state.nav.n===1&&(s.lead||spot)){
+        render(i,spot?[{node:spot,sel:null}]:[],true,s.lead||'Moving on');
+        if(spot){
+          await bringIntoView(spot,token);place();
+          await pointAt(spot,token);if(token!==run)return;
+          await press();if(token!==run)return;
+        }else await sleep(reduce?0:900);
+      }
       if(via){
         via.click();
         var end=Date.now()+6000;
@@ -411,6 +535,10 @@
     if(s.fresh&&direction<0&&state.reloaded!==i){state.reloaded=i;save(state);location.reload();return}   // a page that changes as you use it starts clean when you step back to it
     if(state.reloaded!==i)state.reloaded=null;
     save(state);
+    if(s.top&&direction>0){                                         // a page is introduced from its top before its parts
+      if(window.scrollY>4){try{window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})}catch(e){window.scrollTo(0,0)}await settleScroll(token)}
+      if(token!==run)return;
+    }
     // 2. run the step's actions
     var ok=true;
     for(var k=0;k<(s.before||[]).length;k++){
@@ -427,10 +555,14 @@
     if(s.settle)await sleep(reduce?0:s.settle);                    // let a smooth scroll inside the page finish first
     if(token!==run)return;
     hoverOff();
+    if(!s.noScroll&&!s.top)await bringIntoView((items[s.focus||0]||{}).node||target,token);
+    if(token!==run)return;
+    var main=(items[s.focus||0]||{}).node||target;
+    if(s.optional&&main&&!onScreen(main))return skipOver(i,token);  // there but out of sight in this layout (a phone): skip it
     render(i,items,false);
-    if(!s.noScroll)fitView(items,s.focus||0);
     place();
-    if(s.hover&&target)hoverOn(target);
+    if(s.hover&&target){await pointAt(target,token);if(token!==run)return;hoverOn(target)}
+    else if(!s.keepPointer)hidePointer();
     var ms=Date.now()-state.t0;
     window.__ilitTourTimes[s.id]=ms;ui.card.setAttribute('data-ms',String(ms));
     state.t0=null;save(state);
@@ -481,14 +613,19 @@
       await fetch('/workbench/api/signin',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Demo analyst'})});
     }catch(e){}
   }
-  // Ask for the Federal Court statistics early (read-only) so they are ready by the time the tour reaches them.
   // Ask the server for the slow read-only data ahead of the steps that show it, so those steps open at once.
   // An entry is a URL; {url,top:{by,key,then}} also loads the item with the highest "by" from that list;
-  // {post,sample} runs the demo document through the reader (only that fictional text is cached by the server).
+  // {post,sample} or {post,file} runs the demo document through the reader (only the tour's own fictional samples are
+  // cached by the server; anything a person pastes or uploads is read once and dropped).
   function warm(){
     (DATA.warm||[]).forEach(function(w){
       try{
         if(typeof w==='string'){fetch(w,{credentials:'same-origin'}).catch(function(){});return}
+        if(w.post&&w.file){
+          fetch(w.file,{credentials:'same-origin'}).then(function(r){return r.ok?r.blob():null}).then(function(blob){
+            if(!blob)return;var body=new FormData();body.append('file',new File([blob],w.name||w.file.split('/').pop()));
+            return fetch(w.post,{method:'POST',credentials:'same-origin',body:body});
+          }).catch(function(){});return}
         if(w.post){fetch(w.post,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},
           body:JSON.stringify({text:(DATA.texts||{})[w.sample]||'',title:w.title||'Pasted text'})}).catch(function(){});return}
         fetch(w.url,{credentials:'same-origin'}).then(function(r){return r.ok?r.json():[]}).then(function(rows){

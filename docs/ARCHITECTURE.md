@@ -277,6 +277,7 @@ test checks that these paths continue to exist.
 | `backend/pages/search_v6.js` | TODO: describe this file |
 | `backend/pages/site_tour.css` | Style sheet for the site tour card and spotlight |
 | `backend/pages/site_tour.js` | Site tour script: runs the step-by-step walkthrough of the real site |
+| `backend/pages/site_tour_sample_moa.docx` | Fictional Memorandum of Argument the site tour drops on Live analysis (served at /site-tour/sample-memo.docx) |
 | `backend/pages/site_tour_steps.json` | The site tour's steps as plain data (edit this to change the tour) |
 | `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |

@@ -45,30 +45,6 @@ def tour_version() -> str:
     return hashlib.sha1((tour_js() + tour_css()).encode("utf-8")).hexdigest()[:10]
 
 
-# The "Future features" tour: the same engine over a separate step list that walks static concept mock-ups
-# (``/future-features``). It keeps its own saved position and never signs in to the Workbench demo.
-@lru_cache(maxsize=1)
-def future_tour_steps() -> dict:
-    return json.loads((_PAGES / "future_tour_steps.json").read_text(encoding="utf-8"))
-
-
-@lru_cache(maxsize=1)
-def future_tour_js() -> str:
-    data = {key: value for key, value in future_tour_steps().items() if not key.startswith("_")}
-    data.update({"key": "ilit.tour.future.v1", "demoSignIn": False})
-    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    script = (_PAGES / "site_tour.js").read_text(encoding="utf-8")
-    return f"window.ILIT_TOUR={payload};\n{script}"
-
-
-@lru_cache(maxsize=1)
-def future_features_page() -> str:
-    html = (_PAGES / "future_features.html").read_text(encoding="utf-8")
-    version = hashlib.sha1((future_tour_js() + tour_css() + html).encode("utf-8")).hexdigest()[:10]
-    html = html.replace("</head>", f'<link rel="stylesheet" href="/site-tour.css?v={version}">\n</head>', 1)
-    return html.replace("</body>", f'<script src="/future-tour.js?v={version}" defer></script>\n</body>', 1)
-
-
 def inject_site_tour(html: str) -> str:
     """Add the tour's style sheet and script to a page (once)."""
     if "/site-tour.js" in html:

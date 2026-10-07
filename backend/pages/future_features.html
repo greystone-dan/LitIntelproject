@@ -3,35 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iLit: future features (concept mock-ups)</title>
+<title>iLit: future features and roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
+
 :root{--surface:#fffef9;--alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#5f6863;--blue:#315d8d;--blue-soft:#e7eef6;--rust:#a4412b;--rust-soft:#f7e8e3;--teal:#176c68;--teal-soft:#edf5f3;--amber:#8a6418;--amber-soft:#f8f0dc;--red:#9b2c2c;--red-soft:#f8e6e6;--serif:"Newsreader",Georgia,serif}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:#efede4;color:var(--text);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif}
 a{color:var(--blue)}
-.ff-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
-.ff-top .brand{font-weight:800;letter-spacing:-.03em;font-size:16px;color:var(--text);text-decoration:none}
-.ff-top h1{margin:0;font:600 19px/1.2 var(--serif)}
-.ff-top .spacer{flex:1}
-.ff-top a.back,.ff-top button.restart{font:600 12.5px/1 inherit;font-family:inherit;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:5px;padding:8px 12px;text-decoration:none;cursor:pointer;min-height:34px;display:inline-flex;align-items:center}
-.ff-top a.back:hover,.ff-top button.restart:hover{border-color:var(--text)}
-#ff-banner{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:7px 14px;background:repeating-linear-gradient(-45deg,#111 0 12px,#f5c400 12px 24px)}
-#ff-banner span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:3px;font-size:11.5px;text-align:center}
-.ff-tabs{display:flex;gap:4px;flex-wrap:wrap;padding:8px 20px 0}
-.ff-tabs button{font:600 13px/1 inherit;font-family:inherit;padding:10px 14px;min-height:40px;border:1px solid var(--border);border-bottom:0;border-radius:6px 6px 0 0;background:var(--alt);color:var(--muted);cursor:pointer}
-.ff-tabs button[aria-selected="true"]{background:var(--surface);color:var(--text);border-color:var(--text);box-shadow:inset 0 3px 0 var(--rust)}
-.stage{position:relative;margin:0 20px 8px;padding:16px 18px 18px;background:var(--surface);border:1px solid var(--border);border-radius:0 6px 6px 6px}
-.scene[hidden]{display:none}
-.ribbon{display:inline-block;margin:0 0 10px;padding:3px 9px;border:1px dashed var(--amber);border-radius:3px;background:var(--amber-soft);color:#5c4510;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.scene h2{margin:0 0 2px;font:600 22px/1.2 var(--serif)}
-.scene .sub{margin:0 0 10px;color:var(--muted);max-width:70ch}
-.panel{border:1px solid var(--border);border-radius:6px;background:#fff;padding:12px 14px}
-.panel h3{margin:0 0 8px;font:700 11px/1.2 inherit;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}
-.grid2.even{grid-template-columns:1fr 1fr}
 .chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;white-space:nowrap}
 .c-blue{background:var(--blue-soft);color:var(--blue)}.c-teal{background:var(--teal-soft);color:var(--teal)}.c-rust{background:var(--rust-soft);color:var(--rust)}.c-amber{background:var(--amber-soft);color:var(--amber)}.c-red{background:var(--red-soft);color:var(--red)}.c-grey{background:#ecebe4;color:var(--muted)}.c-dark{background:#202522;color:#fff}
 mark{background:#fbe7a1;padding:0 1px}
@@ -82,42 +63,72 @@ table.args tr.gap td{background:var(--amber-soft)}
 .mini{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 6px}
 .rule{margin-top:12px;padding:10px 14px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:13px}
 .rule b{font-family:var(--serif);font-size:15px}
-@media (min-width:900px){body{padding-right:420px}.ribbon{position:absolute;top:14px;right:16px;margin:0}.scene .sub{max-width:92ch}.scene h2{font-size:20px}.hit{padding:6px 0}.panel{padding:10px 12px}.spark{height:56px}.cite-row{padding:6px 0}.cards4 .card{padding:10px 12px}}
-@media (max-width:899px){.grid2,.grid2.even,.cards4{grid-template-columns:1fr}.stage,.ff-tabs{margin-left:12px;margin-right:12px}.ff-tabs{padding-left:0;padding-right:0}.ff-top{padding:10px 12px}.scene h2{font-size:19px}table.args{display:block;overflow-x:auto}}
-@media print{.ff-top .restart{display:none}}
+
+.wrap{max-width:960px;margin:0 auto;padding:0 20px 48px}
+.ff-top{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
+.ff-top .brand{font-weight:800;letter-spacing:-.03em;font-size:16px;color:var(--text);text-decoration:none}
+.ff-top .spacer{flex:1}
+.ff-top a.back{font:600 12.5px/1 inherit;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:5px;padding:9px 12px;text-decoration:none}
+#ff-banner{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:7px 14px;background:repeating-linear-gradient(-45deg,#111 0 12px,#f5c400 12px 24px)}
+#ff-banner span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:3px;font-size:11.5px;text-align:center}
+.eyebrow{margin:28px 0 8px;color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h1{margin:0;font:600 34px/1.1 var(--serif);letter-spacing:-.01em}
+.intro{max-width:70ch;margin:14px 0 0;font-size:16px}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}.toc a{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:12.5px;text-decoration:none;color:var(--text)}
+.toc a:hover{border-color:var(--text)}
+.note{margin-top:18px;padding:12px 16px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:14px}
+.phase{margin-top:40px;padding:14px 18px;border-left:4px solid var(--rust);background:var(--surface);border-radius:0 6px 6px 0}
+.phase h3{margin:0;font:600 19px/1.2 var(--serif)}.phase p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.item{margin-top:26px;padding-top:22px;border-top:1px solid var(--border)}
+.ihead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ihead h2{margin:0;font:600 24px/1.2 var(--serif)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--text);color:#fff;font-weight:700;font-size:14px}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700}
+.tag.wip{background:var(--blue-soft);color:var(--blue)}.tag.con{background:var(--amber-soft);color:var(--amber)}
+.item .lede{max-width:72ch;margin:10px 0 14px;font-size:15.5px}
+.mock{border:1px dashed var(--amber);border-radius:8px;background:#fbf9f1;overflow:hidden;max-width:760px}
+.mockbar{padding:5px 12px;background:var(--amber-soft);color:#5c4510;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.mockbody{padding:12px}
+.facts{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin-top:14px}
+.facts>div{padding:12px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.facts h4{margin:0 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.facts p,.facts li{font-size:13.5px;line-height:1.55}.facts p{margin:0}.facts ul{margin:0;padding-left:18px}
+.card h3{margin:0 0 4px;font:600 16px/1.25 var(--serif)}.card p{margin:0;font-size:13.5px;color:var(--muted)}
+.card{padding:12px 14px;border:1px solid var(--border);border-radius:6px;background:#fff}
+.grid2.even{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media (max-width:760px){.facts,.grid2.even{grid-template-columns:1fr}h1{font-size:28px}.wrap{padding:0 14px 40px}.ff-top{padding:10px 14px}}
+@media print{.ff-top{display:none}}
 </style>
 </head>
 <body>
-<header class="ff-top">
-  <a class="brand" href="/data-explorer?tab=about&amp;group=info" title="Back to iLit">ILIT</a>
-  <h1>Future features</h1>
-  <span class="spacer"></span>
-  <button type="button" class="restart" data-ilit-tour-start>&#9654; Start the tour</button>
-  <a class="back" href="/data-explorer?tab=about&amp;group=info">Back to the site</a>
-</header>
-<div id="ff-banner" role="note"><span>Concept mock-ups, not built yet</span><span>All names, numbers and passages on these screens are invented</span></div>
-
-<nav class="ff-tabs" role="tablist" aria-label="Future features">
-  <button type="button" role="tab" data-scene="search" aria-selected="true">Smart search</button>
-  <button type="button" role="tab" data-scene="cite" aria-selected="false">Citation treatment</button>
-  <button type="button" role="tab" data-scene="repo" aria-selected="false">Agency repositories</button>
-  <button type="button" role="tab" data-scene="args" aria-selected="false">Argument identification</button>
-  <button type="button" role="tab" data-scene="more" aria-selected="false">More on the roadmap</button>
-</nav>
-
-<main class="stage">
-
-<!-- 1. local AI smart search -->
-<section class="scene" id="sc-search" data-for="search">
-  <span class="ribbon">Concept mock-up, not built yet</span>
-  <h2>Smart search that understands the question</h2>
-  <p class="sub">Ask in plain words and get the paragraphs that mean the same thing. It would run on the agency's own computer.</p>
-  <div class="fake-input" id="ms-box" aria-label="Example question (not interactive)">
+<header class="ff-top"><a class="brand" href="/data-explorer?tab=about&amp;group=info">ILIT</a><span class="spacer"></span><a class="back" href="/data-explorer?tab=about&amp;group=info">Back to the site</a></header>
+<div id="ff-banner" role="note"><span>Future state, not built yet</span><span>Mock-ups use invented names and numbers</span></div>
+<main class="wrap">
+<p class="eyebrow">Roadmap &middot; a future-state goal for iLit</p>
+<h1>Future features and the work still to do</h1>
+<p class="intro">This page describes where iLit could go next and what stands in the way. Each item says what exists today, what is left to build and what it depends on. The pictures are concept mock-ups with invented sample data, not screenshots of working features.</p>
+<div class="note"><b>The assumption behind it.</b> The AI features assume the agency can run its own AI model on its own computers. The site&rsquo;s normal search does not use AI at all, and nothing a person types is sent to an outside AI service. Where AI helps, it would run on that on-premises model or when decisions are added to the library, and its work would be stored as data that links back to the source paragraph.</div>
+<nav class="toc" aria-label="Roadmap items"><a href="#alerts">Alerts</a><a href="#workbench">Team Workbench</a><a href="#judges">Judge insights</a><a href="#smart-search">Smart search</a><a href="#citation-treatment">Citation treatment</a><a href="#arguments">Argument identification</a><a href="#repositories">Agency repositories</a><a href="#id-iad">ID / IAD</a><a href="#other">Smaller gaps</a></nav>
+<div class="phase"><h3>Phase 1 &middot; builds on what is already live</h3><p>Needs no new infrastructure beyond finishing work already under way.</p></div><section class="item" id="alerts"><div class="ihead"><span class="num">1</span><h2>Alerts</h2><span class="tag wip">Partly built</span></div>
+<p class="lede">Save a search and get a short list of new decisions that match it, plus a note when an authority you rely on is treated differently.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="panel"><h3>Weekly digest &middot; saved search &ldquo;Section 34 inadmissibility, FC&rdquo;</h3>
+<div class="hit"><div class="meta"><span class="chip c-teal">New</span><b>Sample v. Canada (Public Safety), 2026 FC 1201</b><span class="chip c-grey">Minister lost</span></div></div>
+<div class="hit"><div class="meta"><span class="chip c-teal">New</span><b>Test v. Canada (Public Safety), 2026 FC 1188</b><span class="chip c-grey">Minister won</span></div></div>
+<div class="hit"><div class="meta"><span class="chip c-amber">Authority update</span><b>Example v. Canada (MCI), 2019 FC 100 was distinguished in a new decision</b></div></div></div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>A saved-searches page and an offline digest builder exist and sit in Coming soon. The daily intake that finds new decisions is built but is run by hand, not on a schedule.</p></div><div><h4>Still to do</h4><ul><li>Schedule the daily intake on the host computer</li><li>Give each saved search an owner (needs real sign-in)</li><li>Send the digest by email or show it on the Workbench</li></ul></div><div><h4>Depends on</h4><ul><li>Scheduled daily intake</li><li>Real user accounts, not the demo sign-in</li></ul></div></div></section><section class="item" id="workbench"><div class="ihead"><span class="num">2</span><h2>Workbench for a team</h2><span class="tag wip">Partly built</span></div>
+<p class="lede">The Workbench grows from one analyst&rsquo;s space into shared folders, shared notes and an export of the work to a document.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="panel"><h3>Team folder &middot; &ldquo;Section 34 hearings&rdquo;</h3>
+<div class="hit"><div class="meta"><span class="chip c-blue">Pinned</span><b>Example v. Canada (Public Safety), 2021 FC 560</b></div><p>Note (J. Analyst): useful on &ldquo;organization&rdquo;. Checked 5 Oct.</p></div>
+<div class="hit"><div class="meta"><span class="chip c-blue">Pinned</span><b>Sample v. Canada (MCI), 2023 FC 77</b></div><p>Note (R. Counsel): distinguishes the earlier line. Ask Legal Services.</p></div>
+<div class="mini" style="margin-top:8px"><span class="chip c-grey">3 members</span><span class="chip c-grey">Export to Word</span></div></div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>The Workbench is live with a demo sign-in: a case list with activity flags, pinned decisions and notes for one person. A name picks a private bucket, with no password or real account.</p></div><div><h4>Still to do</h4><ul><li>Shared folders and notes between named people</li><li>Export a folder to Word or CSV</li><li>A history of what was checked and when</li></ul></div><div><h4>Depends on</h4><ul><li>Real user accounts and sign-in</li><li>A decision on where the data is hosted</li></ul></div></div></section><section class="item" id="judges"><div class="ihead"><span class="num">3</span><h2>Judge and decision-maker insights</h2><span class="tag wip">Partly built</span></div>
+<p class="lede">How a judge or Board member has ruled on a given issue, with the count shown beside every figure and a warning when it is small.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="panel"><h3>Sample decision-maker view &middot; issue: procedural fairness</h3>
+<div class="hit"><div class="meta"><b>Decision-maker A</b><span class="chip c-amber">Based on 12 cases</span><span>Minister lost 5 &middot; won 6 &middot; unclassified 1</span></div></div>
+<div class="hit"><div class="meta"><b>Decision-maker B</b><span class="chip c-red">Only 3 cases, too few to read</span></div></div>
+<p style="font-size:12px;color:var(--muted);margin:6px 0 0">Every figure shows its case count. These are descriptions of past decisions, not predictions.</p></div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>Judge Profiles are live: outcomes by issue with the full count and the unclassified decisions shown. Judge names are written many ways in the sources, so some duplicate profiles remain. The judge is extracted for only part of the Federal Court library and for no French decisions. RPD decision-maker names are blank.</p></div><div><h4>Still to do</h4><ul><li>Finish name cleanup across all courts</li><li>Extract decision-makers for the gaps (French, RPD)</li><li>Reach the outcome accuracy needed before any rate is quoted</li></ul></div><div><h4>Depends on</h4><ul><li>Reliable decision-maker names</li><li>Outcome accuracy close to complete (a reviewed gold set of 587 cases exists)</li></ul></div></div></section><div class="phase"><h3>Phase 2 &middot; assumes an on-premises AI model</h3><p>The rule holds: normal search keeps working with no AI. Where AI is used, it runs on the agency&rsquo;s own computers or when decisions are added, and its output is stored as data that links back to the source.</p></div><section class="item" id="smart-search"><div class="ihead"><span class="num">4</span><h2>Local AI smart search</h2><span class="tag con">Concept only</span></div>
+<p class="lede">Ask a question in plain words and get the paragraphs that mean the same thing, with the reason each matched. It would run on the agency&rsquo;s own computer, so no question leaves the network.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="fake-input" id="ms-box" aria-label="Example question (not interactive)">
     <span>What has the Federal Court said when an officer relies on concerns that were never put to the applicant?</span>
     <span class="go">Search</span>
-  </div>
-  <div class="grid2" style="margin-top:12px">
-    <div class="panel" id="ms-results">
+  </div><div style="height:10px"></div><div class="panel" id="ms-results">
       <h3>Best matching passages &middot; 3 of 41 shown</h3>
       <div class="hit"><div class="meta"><span class="chip c-blue">FC</span><b>Example v. Canada (Citizenship and Immigration), 2021 FC 412</b><span class="chip c-teal">Strong match</span></div>
         <p>&hellip; the officer drew an adverse inference from <mark>information the applicant had no chance to answer</mark>, and that is a breach of procedural fairness &hellip;</p>
@@ -127,32 +138,14 @@ table.args tr.gap td{background:var(--amber-soft)}
         <div class="why">Matched on meaning: &ldquo;relies on concerns&rdquo; &asymp; &ldquo;decision turned on&rdquo; (para 15)</div></div>
       <div class="hit"><div class="meta"><span class="chip c-rust">RPD</span><b>RPD file VB7-00000 (2022)</b><span class="chip c-grey">Related</span></div>
         <p>&hellip; credibility questioned using <mark>a document first raised in the reasons</mark> &hellip; (para 41)</p></div>
-    </div>
-    <div class="panel" id="ms-how">
-      <h3>How it would work</h3>
-      <div class="arch">
-        <div class="box"><b>1. At ingest</b>Each paragraph is turned into a numeric &ldquo;fingerprint&rdquo; on the agency's computer and stored with the decision.</div>
-        <div class="box"><b>2. At search</b>Your question is turned into a fingerprint on the same computer and compared with the stored ones.</div>
-        <div class="box in"><b>3. Nothing leaves</b>No question, memo or result is sent to an outside AI service. Every result links to its source paragraph.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 2. citation treatment -->
-<section class="scene" id="sc-cite" data-for="cite" hidden>
-  <span class="ribbon">Concept mock-up, not built yet</span>
-  <h2>How a case is treated by the cases that cite it</h2>
-  <p class="sub">Today the site shows who cites a case. This would show what each one did with it.</p>
-  <div class="grid2">
-    <div>
-      <div class="panel" id="mc-summary">
+    </div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>Search by name, citation or phrase works with no AI, and plain sentences now return quickly. A paragraph search table exists but is empty of scores, and semantic search is paused. Nothing on the live site sends a question to an AI service.</p></div><div><h4>Still to do</h4><ul><li>Choose and test a local embedding model on real questions</li><li>Fill the paragraph fingerprints at ingest</li><li>Show the matching paragraph and the reason for each result</li></ul></div><div><h4>Depends on</h4><ul><li>An on-premises AI model</li><li>Computer capacity to build the fingerprints once</li></ul></div></div></section><section class="item" id="citation-treatment"><div class="ihead"><span class="num">5</span><h2>Advanced citation treatment</h2><span class="tag con">Concept only</span></div>
+<p class="lede">Beyond who cites a case: how each citing decision treated it (followed, applied, distinguished, questioned, criticised), with a plain-language line for each and a warning when the tide turns.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="panel" id="mc-summary">
         <h3>Example v. Canada (Citizenship and Immigration), 2019 FC 100 &middot; cited by 214 decisions</h3>
         <div class="bar" role="img" aria-label="Followed 61 percent, applied 20, distinguished 11, questioned 5, criticised 3">
           <i style="width:61%;background:#176c68"></i><i style="width:20%;background:#315d8d"></i><i style="width:11%;background:#8a6418"></i><i style="width:5%;background:#a4412b"></i><i style="width:3%;background:#9b2c2c"></i></div>
         <div class="legend"><span style="--c:#176c68">Followed 61%</span><span style="--c:#315d8d">Applied 20%</span><span style="--c:#8a6418">Distinguished 11%</span><span style="--c:#a4412b">Questioned 5%</span><span style="--c:#9b2c2c">Criticised 3%</span></div>
-      </div>
-      <div class="panel" id="mc-list" style="margin-top:12px">
+      </div><div style="height:10px"></div><div class="panel" id="mc-list" style="margin-top:12px">
         <h3>What each citing case did</h3>
         <div class="cite-row"><span class="chip c-teal">Followed</span><b>Sample v. Canada (MCI), 2023 FC 77, para 34</b>
           <span class="ai"><b>Summary:</b> Adopts its test for a sponsorship refusal. <a href="#" onclick="return false">Open paragraph</a></span></div>
@@ -160,56 +153,9 @@ table.args tr.gap td{background:var(--amber-soft)}
           <span class="ai"><b>Summary:</b> Not followed: the applicant had notice. <a href="#" onclick="return false">Open paragraph</a></span></div>
         <div class="cite-row"><span class="chip c-red">Criticised</span><b>Demo v. Canada (MCI), 2020 FC 1042, para 18</b>
           <span class="ai"><b>Summary:</b> Reasoning too broad after later guidance. <a href="#" onclick="return false">Open paragraph</a></span></div>
-      </div>
-    </div>
-    <div class="panel" id="mc-trend">
-      <h3>Treatment over time</h3>
-      <div class="spark" role="img" aria-label="Citations per year, rising then flat"><i style="height:12%"></i><i style="height:28%"></i><i style="height:52%"></i><i style="height:84%"></i><i style="height:100%"></i><i style="height:88%"></i><i style="height:74%"></i></div>
-      <div class="spark-x"><span>2019</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span></div>
-      <p style="margin:12px 0 6px;font-size:13px"><span class="chip c-amber">Watch</span> Two of the last five citing cases distinguish it. A reader should check them before relying on it.</p>
-      <p class="need" style="margin:0;font-size:12px;color:var(--muted)">The summaries and labels would be written once, when a decision is added to the library, by a model running on the agency's computer. They are stored as data and always link back to the cited paragraph.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 3. agency repositories -->
-<section class="scene" id="sc-repo" data-for="repo" hidden>
-  <span class="ribbon">Concept mock-up, not built yet</span>
-  <h2>The public library and the agency's own records, in one search</h2>
-  <p class="sub">An agency copy could also search records that are not public, kept on the agency's network.</p>
-  <div class="scope" id="mr-scope">
-    <label class="on"><span class="tick">&#10003;</span> Public library <span class="chip c-grey">FC &middot; FCA &middot; SCC &middot; RPD &middot; RAD</span></label>
-    <label class="on priv"><span class="tick">&#10003;</span> <span class="lock" aria-hidden="true">&#128274;</span> CBSA repository <span class="chip c-rust">Agency network only</span></label>
-  </div>
-  <div class="grid2">
-    <div class="panel" id="mr-results">
-      <h3>Results for &ldquo;inadmissibility, section 34(1)(f)&rdquo;</h3>
-      <div class="hit"><div class="meta"><span class="chip c-rust">&#128274; CBSA</span><b>ID decision, file 0000-00000 (2023)</b><span class="chip c-grey">Not public</span></div>
-        <p>Admissibility hearing &hellip; the member found <mark>reasonable grounds to believe</mark> the person was a member of the organization &hellip;</p></div>
-      <div class="hit"><div class="meta"><span class="chip c-rust">&#128274; CBSA</span><b>Hearing strategy note (Legal Services, 2022)</b><span class="chip c-grey">Internal</span></div>
-        <p>Summary of what has persuaded members on the &ldquo;organization&rdquo; question, with the cases relied on.</p></div>
-      <div class="hit"><div class="meta"><span class="chip c-blue">Public &middot; FC</span><b>Example v. Canada (Public Safety), 2021 FC 560</b><span class="chip c-grey">Public</span></div>
-        <p>&hellip; judicial review of a finding of inadmissibility under <mark>34(1)(f)</mark> &hellip;</p></div>
-    </div>
-    <div class="panel" id="mr-arch">
-      <h3>Where the data would live</h3>
-      <div class="arch">
-        <div class="box in"><b>&#128274; Agency network</b>iLit server, CBSA repository and the local AI model. Sign-in through the agency's own accounts.</div>
-        <div class="arrow">&#8593; public decisions copied in one way, never out</div>
-        <div class="box"><b>Public sources</b>Federal Court, Federal Court of Appeal, Supreme Court, RPD, RAD.</div>
-      </div>
-      <p style="font-size:12px;color:var(--muted);margin:10px 0 0">Private records would never be copied to the public site. Marking and handling rules would be set by the agency.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 4. argument identification -->
-<section class="scene" id="sc-args" data-for="args" hidden>
-  <span class="ribbon">Concept mock-up, not built yet</span>
-  <h2>Argument identification in a filed memorandum</h2>
-  <p class="sub">List each argument in a memorandum, see which are answered, and get a case to cite in reply.</p>
-  <div class="grid2">
-    <div class="panel" id="ma-table">
+      </div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>Citation Intelligence is live: which decisions cite a case, how that changed over time, and the outcomes of the citing decisions. A cleaner citation link set is built in side tables but the site has not been switched to it. Indicators of possible later developments are a short hand-edited list, not complete. Treatment labels exist only as an offline trial.</p></div><div><h4>Still to do</h4><ul><li>Switch the site to the refined citation links</li><li>Label treatment for each citing paragraph, with a visible &ldquo;how assigned&rdquo; line</li><li>Write the one-line summaries at ingest and review a sample by hand</li></ul></div><div><h4>Depends on</h4><ul><li>An on-premises AI model for the summaries</li><li>Human review of a labelled sample before anything is shown</li></ul></div></div></section><section class="item" id="arguments"><div class="ihead"><span class="num">6</span><h2>Argument identification</h2><span class="tag con">Concept only</span></div>
+<p class="lede">List the arguments in a filed memorandum, show which the other side has answered, and suggest a case to cite in reply where one is still open. A person decides what to file.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="panel" id="ma-table">
       <h3>Arguments found &middot; Applicant's memorandum (sample)</h3>
       <table class="args">
         <thead><tr><th>#</th><th>Argument</th><th>Status</th></tr></thead>
@@ -219,60 +165,33 @@ table.args tr.gap td{background:var(--amber-soft)}
           <tr><td>3</td><td>Relies on <i>Old v. Canada</i>, 2015 FC 20 (paras 31&ndash;33)</td><td><span class="chip c-red">Check authority</span><br><small>Overturned on appeal, 2017 FCA 4</small></td></tr>
         </tbody>
       </table>
-    </div>
-    <div class="panel suggest" id="ma-suggest">
+    </div><div style="height:10px"></div><div class="panel suggest" id="ma-suggest">
       <h3 style="color:var(--teal)">Suggested case to cite in reply &middot; argument 2</h3>
       <div class="cn">Example v. Canada (Citizenship and Immigration), 2021 FC 412</div>
       <div class="quote">&ldquo;&hellip; where the applicant was told of the concern and given a fair chance to respond, no breach arises &hellip;&rdquo; <small>para 31</small></div>
       <p style="font-size:12.5px;margin:6px 0">Why: it addresses the same question, found against the applicant on similar facts, and has been followed in 9 of the 11 later cases that cite it.</p>
       <div class="mini"><span class="chip c-teal">Followed 82%</span><span class="chip c-grey">Cited 11 times</span><span class="chip c-dark">Check before filing</span></div>
-    </div>
-  </div>
-  <p style="font-size:12.5px;color:var(--muted);margin:10px 0 0">A person decides what to file. The tool would only point to arguments and to passages, with every suggestion linked to its source. The memorandum would be read in memory on the agency's computer and not stored.</p>
-</section>
-
-<!-- 5. roadmap -->
-<section class="scene" id="sc-more" data-for="more" hidden>
-  <span class="ribbon">Concept mock-up, not built yet</span>
-  <h2>Other things on the list</h2>
-  <p class="sub">Smaller steps that build on what the site already holds.</p>
-  <div class="cards4">
-    <div class="card" id="mx-wb"><h3>Workbench for a team</h3>
-      <p>Shared folders of pinned cases, notes on each decision, and a history of what was checked and when.</p>
-      <div class="mini"><span class="chip c-blue">Folders</span><span class="chip c-blue">Shared notes</span><span class="chip c-blue">Export to Word</span></div>
-      <div class="need"><b>Builds on:</b> the Workbench that is already live.</div></div>
-    <div class="card" id="mx-alerts"><h3>Alerts</h3>
-      <p>Save a search and get a short weekly list of new decisions that match it.</p>
-      <div class="mini"><span class="chip c-teal">New this week: 4</span></div>
-      <div class="need"><b>Needs:</b> the daily intake to be scheduled, and a sign-in so alerts have an owner.</div></div>
-    <div class="card" id="mx-judge"><h3>Judge and decision-maker insights</h3>
-      <p>How a judge or Board member has ruled on a given issue, with the number of cases shown and a warning when it is small.</p>
-      <div class="mini"><span class="chip c-amber">Based on 12 cases</span></div>
-      <div class="need"><b>Needs:</b> reliable names for judges and members across all courts and tribunals.</div></div>
-    <div class="card" id="mx-cov"><h3>Immigration Division and Appeal Division</h3>
-      <p>Decisions of the ID and IAD searched next to the Federal Court cases that review them.</p>
-      <div class="mini"><span class="chip c-rust">&#128274; Agency records</span><span class="chip c-grey">No public source today</span></div>
-      <div class="need"><b>Needs:</b> an agency data feed, as shown in the repositories mock-up.</div></div>
-  </div>
-  <div class="rule" id="mx-rule"><b>The rule behind all of it.</b> Everyone's normal search would still work with no AI at all. Any AI would be used when decisions are added to the library, or on the agency's own computer, and its work would be stored as data you can check.</div>
-</section>
-
+    </div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>Live Analysis reads an uploaded memorandum in memory and lists the cases and statutes it cites, with nothing stored. It does not yet identify arguments or suggest replies. The case structure layer that splits a decision into parts exists.</p></div><div><h4>Still to do</h4><ul><li>Identify arguments and match them to the reply</li><li>Rank suggested reply cases using citation treatment</li><li>Test on real memoranda with lawyers reviewing the suggestions</li></ul></div><div><h4>Depends on</h4><ul><li>An on-premises AI model</li><li>Citation treatment (item 5) for the ranking</li></ul></div></div></section><div class="phase"><h3>Phase 3 &middot; needs agency data and access</h3><p>Depends on decisions and approvals that sit with the agency, not on more software.</p></div><section class="item" id="repositories"><div class="ihead"><span class="num">7</span><h2>Agency repositories beside the public library</h2><span class="tag con">Concept only</span></div>
+<p class="lede">An agency copy of iLit could search records that are not public, such as Immigration Division decisions and internal notes, together with the public library. Private records are labelled and never copied out.</p><div class="mock" aria-label="Concept mock-up"><div class="mockbar">Concept mock-up, not built yet &middot; invented sample data</div><div class="mockbody"><div class="scope" id="mr-scope">
+    <label class="on"><span class="tick">&#10003;</span> Public library <span class="chip c-grey">FC &middot; FCA &middot; SCC &middot; RPD &middot; RAD</span></label>
+    <label class="on priv"><span class="tick">&#10003;</span> <span class="lock" aria-hidden="true">&#128274;</span> CBSA repository <span class="chip c-rust">Agency network only</span></label>
+  </div><div class="panel" id="mr-results">
+      <h3>Results for &ldquo;inadmissibility, section 34(1)(f)&rdquo;</h3>
+      <div class="hit"><div class="meta"><span class="chip c-rust">&#128274; CBSA</span><b>ID decision, file 0000-00000 (2023)</b><span class="chip c-grey">Not public</span></div>
+        <p>Admissibility hearing &hellip; the member found <mark>reasonable grounds to believe</mark> the person was a member of the organization &hellip;</p></div>
+      <div class="hit"><div class="meta"><span class="chip c-rust">&#128274; CBSA</span><b>Hearing strategy note (Legal Services, 2022)</b><span class="chip c-grey">Internal</span></div>
+        <p>Summary of what has persuaded members on the &ldquo;organization&rdquo; question, with the cases relied on.</p></div>
+      <div class="hit"><div class="meta"><span class="chip c-blue">Public &middot; FC</span><b>Example v. Canada (Public Safety), 2021 FC 560</b><span class="chip c-grey">Public</span></div>
+        <p>&hellip; judicial review of a finding of inadmissibility under <mark>34(1)(f)</mark> &hellip;</p></div>
+    </div></div></div>
+<div class="facts"><div><h4>What exists today</h4><p>Only public decisions are held today: the Federal Court, the Federal Court of Appeal, the Supreme Court and the RPD, with the RAD being added. No private records are held and the live site has no agency sign-in.</p></div><div><h4>Still to do</h4><ul><li>Define the connection to the agency repository</li><li>Mark each result as public or private</li><li>Agree handling rules with the agency</li></ul></div><div><h4>Depends on</h4><ul><li>Agency network access and sign-in</li><li>An on-premises deployment</li><li>Security review and approval</li></ul></div></div></section><section class="item" id="id-iad"><div class="ihead"><span class="num">8</span><h2>Immigration Division and Appeal Division coverage</h2><span class="tag con">Concept only</span></div>
+<p class="lede">Decisions of the ID and the IAD searched next to the Federal Court cases that review them. This matters most for hearings work.</p>
+<div class="facts"><div><h4>What exists today</h4><p>None. The tribunal decisions are not in the public datasets used so far, and the library holds none of them.</p></div><div><h4>Still to do</h4><ul><li>Confirm a source and the terms of use</li><li>Import and tag them the same way as other decisions</li><li>Link them to the judicial review decisions that cite them</li></ul></div><div><h4>Depends on</h4><ul><li>An agency data feed (see item 7)</li><li>Licence and privacy approval</li></ul></div></div></section><section class="item" id="other"><div class="ihead"><h2>Smaller gaps on the list</h2></div>
+<div class="grid2 even"><div class="card"><h3>Trust and accuracy</h3><p>Outcome coding is being re-checked against a reviewed set. Some outcomes, such as the Supreme Court&rsquo;s <i>Vavilov</i>, are known to be wrong on the live site until that finishes.</p></div>
+<div class="card"><h3>Save, export and hand off</h3><p>Saved issues exported as a case list (CSV or Word), and a one-page issue brief that shows the number of decisions behind each figure.</p></div>
+<div class="card"><h3>Reader improvements</h3><p>Paragraph citation shading, short extractive case summaries that point to the holding paragraph, and a fuller markup mode.</p></div>
+<div class="card"><h3>Hosting and backup</h3><p>The database and site run on one personal computer and there is no backup yet. The long-term plan is a hosted Canadian cloud, and a backup should come first.</p></div></div></section>
 </main>
-
-<script>
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.ff-tabs [data-scene]'));
-  function show(name){
-    var found=false;
-    tabs.forEach(function(t){var on=t.dataset.scene===name;if(on)found=true;t.setAttribute('aria-selected',String(on))});
-    if(!found)name='search';
-    document.querySelectorAll('.scene').forEach(function(s){s.hidden=s.dataset.for!==name});
-    tabs.forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.scene===name))});
-    try{history.replaceState(null,'','?scene='+name+(location.search.indexOf('tour=1')>-1?'&tour=1':''))}catch(e){}
-  }
-  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.scene)})});
-  show(new URLSearchParams(location.search).get('scene')||'search');
-})();
-</script>
 </body>
 </html>

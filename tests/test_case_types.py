@@ -345,3 +345,10 @@ def test_appeal_court_matter_under_another_regime_is_not_immigration() -> None:
     )
     result = classify_text(text, court="FCA", title="Brar v. Canada (Public Safety and Emergency Preparedness)")
     assert result.status == "not_immigration"
+
+
+def test_appeal_court_motions_named_in_the_opening_are_typed_as_motions() -> None:
+    stay = decision("This is a motion for a stay of a trial under section 18 of the Citizenship Act pending an appeal.", docket="A-1-18")
+    assert classify_text(stay, court="FCA", title="Fast v. Canada (Citizenship and Immigration)").primary_type == "citizenship_other"
+    convert = decision("The respondents moved to treat their application for judicial review as an action under subsection 18.4(2).", docket="A-1-18")
+    assert classify_text(convert, court="FCA", title="Canada (Citizenship and Immigration) v. Hinton").primary_type == "court_procedure_only"

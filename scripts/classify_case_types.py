@@ -37,6 +37,7 @@ def main() -> None:
 	parser.add_argument("--export", help="Write a tab-separated file (id, court, citation, title, docket, status, type, reason, opening text, second type) of the classified rows for review.")
 	parser.add_argument("--export-status", default="not_immigration", help="Only export rows with this status (or primary type); default not_immigration.")
 	parser.add_argument("--export-max", type=int, default=150, help="Stop exporting after this many rows.")
+	parser.add_argument("--export-chars", type=int, default=500, help="Characters of opening text to export per row (default 500).")
 	parser.add_argument("--show-reasons", action="store_true", help="Also print why decisions were not_immigration or unclear.")
 	args = parser.parse_args()
 
@@ -67,7 +68,7 @@ def main() -> None:
 				if args.export and len(export_rows) < args.export_max and args.export_status in (result.status, result.primary_type):
 					text = case.full_text or ""
 					start = text.find("[1]")
-					opening = " ".join(text[max(start, 0):max(start, 0) + 500].split())
+					opening = " ".join(text[max(start, 0):max(start, 0) + args.export_chars].split())
 					fields = [case.id, case.court, case.citation, case.title, case.docket_number, result.status,
 					          result.primary_type, result.reason, opening, result.second_type]
 					export_rows.append("\t".join(str(item or "").replace("\t", " ").replace("\n", " ") for item in fields))

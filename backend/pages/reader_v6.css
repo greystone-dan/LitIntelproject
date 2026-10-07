@@ -5,6 +5,7 @@
 .v6-tc-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 10px}
 .v6-actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
 .v6-actions button,.v6-actions a{border:1px solid var(--border,#d8d5ca);background:#fff;border-radius:6px;padding:5px 12px;font-size:14px;font-weight:600;color:var(--text,#202522);text-decoration:none;cursor:pointer}
+.v6-actions button.is-saved{border-color:var(--teal,#176c68);background:#edf5f3;color:var(--teal,#176c68)}
 .v6-actions button:hover,.v6-actions a:hover{border-color:var(--teal,#176c68);color:var(--teal,#176c68)}
 .v6-facts-strip{display:flex;align-items:stretch;gap:0;border-top:1px solid var(--border,#d8d5ca);margin:6px -22px 0;padding:0 22px}
 .v6-fs{padding:10px 22px 10px 0;margin-right:22px;border-right:1px solid var(--border,#d8d5ca);min-width:0}

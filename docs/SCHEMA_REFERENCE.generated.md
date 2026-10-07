@@ -2,8 +2,8 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T03:15:10.991616+00:00
-Tables: 41
+Generated: 2026-10-07T03:56:50.620643+00:00
+Tables: 43
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
 
@@ -577,6 +577,31 @@ erDiagram
         DATETIME created_at
         DATETIME updated_at
     }
+    workbench_cases {
+        Integer id PK
+        String(80) owner
+        String(50) imm_number
+        String(255) label
+        TEXT notes
+        JSON tags
+        String(80) folder
+        DATE deadline
+        String(120) deadline_label
+        Integer last_seen_entries
+        DATE last_seen_activity_date
+        String(80) last_seen_status
+        DATETIME last_viewed_at
+        DATETIME added_at
+    }
+    workbench_pins {
+        Integer id PK
+        String(80) owner
+        Integer case_id  FK
+        TEXT notes
+        JSON tags
+        String(80) folder
+        DATETIME pinned_at
+    }
     a2aj_cases ||--o{ a2aj_case_map : "a2aj_case_id"
     cases ||--o{ a2aj_case_map : "local_case_id"
     case_chunks ||--o{ case_chunk_embeddings : "chunk_id"
@@ -626,6 +651,7 @@ erDiagram
     statute_versions ||--o{ statute_references_refined : "statute_version_id"
     statute_versions ||--o{ statute_sections : "statute_version_id"
     statutes ||--o{ statute_versions : "statute_id"
+    cases ||--o{ workbench_pins : "case_id"
 ```
 
 ## Table Summary
@@ -673,6 +699,8 @@ erDiagram
 | `statute_sections` | 10 | `id` |
 | `statute_versions` | 10 | `id` |
 | `statutes` | 12 | `id` |
+| `workbench_cases` | 14 | `id` |
+| `workbench_pins` | 7 | `id` |
 
 ## `a2aj_case_map`
 
@@ -1889,3 +1917,59 @@ erDiagram
 - `ix_statutes_instrument_key`: unique index on `instrument_key`
 - `ix_statutes_jurisdiction`: index on `jurisdiction`
 - `ix_statutes_source`: index on `source`
+
+## `workbench_cases`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `owner` | `String(80)` | no | NOT NULL |
+| `imm_number` | `String(50)` | no | NOT NULL |
+| `label` | `String(255)` | yes | - |
+| `notes` | `TEXT` | yes | - |
+| `tags` | `JSON` | yes | - |
+| `folder` | `String(80)` | yes | - |
+| `deadline` | `DATE` | yes | - |
+| `deadline_label` | `String(120)` | yes | - |
+| `last_seen_entries` | `Integer` | no | NOT NULL; default=0 |
+| `last_seen_activity_date` | `DATE` | yes | - |
+| `last_seen_status` | `String(80)` | yes | - |
+| `last_viewed_at` | `DATETIME` | yes | - |
+| `added_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_workbench_cases_owner`: index on `owner`
+
+### Unique Constraints
+
+- `uq_workbench_case_owner_imm`: `owner`, `imm_number`
+
+## `workbench_pins`
+
+### Columns
+
+| Column | Type | Nullable | Constraints and defaults |
+| --- | --- | --- | --- |
+| `id` | `Integer` | no | PK; NOT NULL |
+| `owner` | `String(80)` | no | NOT NULL |
+| `case_id` | `Integer` | no | FK -> cases.id; NOT NULL |
+| `notes` | `TEXT` | yes | - |
+| `tags` | `JSON` | yes | - |
+| `folder` | `String(80)` | yes | - |
+| `pinned_at` | `DATETIME` | no | NOT NULL; default=now() |
+
+### Indexes
+
+- `ix_workbench_pins_case_id`: index on `case_id`
+- `ix_workbench_pins_owner`: index on `owner`
+
+### Unique Constraints
+
+- `uq_workbench_pin_owner_case`: `owner`, `case_id`
+
+### Foreign Keys
+
+- `case_id` -> `cases.id`; on delete `CASCADE`

@@ -23,6 +23,7 @@ from .request_context import (
 )
 from .overruling_risk_routes import router as overruling_risk_router
 from .routes import router
+from .workbench import router as workbench_router
 from .security_headers import SecurityHeadersMiddleware
 
 
@@ -134,6 +135,7 @@ app.add_middleware(RequestContextMiddleware)
 
 app.include_router(router)
 app.include_router(overruling_risk_router)
+app.include_router(workbench_router)
 
 
 @app.get("/")

@@ -187,8 +187,8 @@ def test_repository_has_exactly_one_expected_head():
     config = Config(str(ROOT / "alembic.ini"))
     config.set_main_option("script_location", str(ROOT / "alembic"))
     scripts = ScriptDirectory.from_config(config)
-    assert scripts.get_heads() == ["0042_case_fingerprints"]
-    assert scripts.get_current_head() == "0042_case_fingerprints"
+    assert scripts.get_heads() == ["0043_workbench"]
+    assert scripts.get_current_head() == "0043_workbench"
     assert scripts.get_revision("0001_case_metadata").down_revision is None
     assert scripts.get_revision("0015_fc_activity_classifications").down_revision == "0014_judge_profiles"
 

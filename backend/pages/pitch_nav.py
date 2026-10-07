@@ -16,8 +16,6 @@ COMING_SOON = [
     ("themes", "Legal Themes & Statutes", "Find the legal themes and arguments that recur across decisions, and see which statutory provisions each one leans on."),
     ("tag-analytics", "Tag Analytics", "See how legal issue tags trend over time, which judges lean on which tags, and which tags come up most often."),
     ("citation-map", "Citation Map", "Start from one case and follow what it cites and what cites it. Compare two cases to find the authorities they share."),
-    ("live-analysis", "Live Analysis", "Paste text or upload a Word or text PDF file to list its case citations and statute references with paragraph locations. The file is read in memory and not stored."),
-    ("deidentify", "De-identify", "Swap names, ID numbers, contact details and dates in a document for placeholders, then put them back later with a key file."),
     ("markup", "Markup Reader", "A fuller reading mode with margin notes, citation panels and a case drawer layered over the decision text."),
     ("saved-searches", "Saved Searches & Alerts", "Save a search and review any new decisions that match it."),
     ("precedent-finder", "Precedent Finder", "Describe the legal issue and get the authorities cited by decisions that carry matching issue tags."),
@@ -37,8 +35,6 @@ SOON_TARGETS = {
     "tag-analytics": ("panel", "tag-analytics"),
     "site-architecture": ("panel", "site-architecture"),
     "citation-map": ("page", "/citation-map"),
-    "live-analysis": ("page", "/live-analysis"),
-    "deidentify": ("page", "/deidentify"),
     "saved-searches": ("page", "/saved-searches-ui"),
     "precedent-finder": ("page", "/precedent-finder"),
     "memo-citation-check": ("page", "/memo-citation-check"),
@@ -53,6 +49,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">About</button>
 <button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Case search</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
+<a class="primary-link" href="/workbench">Workbench</a>
 <button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
 <button type="button" data-group="testing" aria-pressed="false" aria-controls="researchViews">Testing</button>
 </nav>"""
@@ -92,6 +89,7 @@ _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
 """
 
 _CSS = """<style>
+.research-nav a.primary-link{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}.research-nav a.primary-link:hover{color:var(--teal)}
 .pitch-embedded .topbar,.pitch-embedded #researchViews{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}

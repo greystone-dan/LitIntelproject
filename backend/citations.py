@@ -2049,7 +2049,7 @@ def _extract_anchored_provision_candidates(
 					if candidate.kind == kind
 					and _anchored_authority_name(candidate)
 					and 0 <= candidate.offset_start - end <= 30
-					and re.match(r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
+					and re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
 				),
 				None,
 			)

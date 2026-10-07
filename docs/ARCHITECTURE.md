@@ -249,6 +249,7 @@ test checks that these paths continue to exist.
 | `backend/pages/changelog_tab.py` | About page views: overview text plus the changelog tab rendered from `data/changelog/changelog.json` |
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
+| `backend/pages/coming_soon_page.py` | Coming soon: the roadmap, one overview page plus one page per section |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |

@@ -295,6 +295,17 @@ _MORE_FEDERAL_INSTRUMENTS = (
     ("canada.presentation_of_persons_regs", ("Presentation of Persons (2003) Regulations",), "Presentation of Persons (2003) Regulations, SOR/2003-323", "regulations/SOR-2003-323"),
     ("canada.reporting_imported_goods_regs", ("Reporting of Imported Goods Regulations",), "Reporting of Imported Goods Regulations, SOR/86-873", "regulations/SOR-86-873"),
     ("canada.tax_court_rules_general", ("Tax Court of Canada Rules (General Procedure)",), "Tax Court of Canada Rules (General Procedure), SOR/90-688a", "regulations/SOR-90-688A"),
+    ("canada.financial_administration_act", ("Financial Administration Act",), "Financial Administration Act, R.S.C. 1985, c. F-11", "acts/F-11"),
+    ("canada.statutory_instruments_act", ("Statutory Instruments Act",), "Statutory Instruments Act, R.S.C. 1985, c. S-22", "acts/S-22"),
+    ("canada.department_cic_act", ("Department of Citizenship and Immigration Act",), "Department of Citizenship and Immigration Act, S.C. 1994, c. 31", "acts/C-29.4"),
+    ("canada.prisons_reformatories_act", ("Prisons and Reformatories Act",), "Prisons and Reformatories Act, R.S.C. 1985, c. P-20", "acts/P-20"),
+    ("canada.transfer_of_offenders_act", ("Transfer of Offenders Act",), "Transfer of Offenders Act, S.C. 2004, c. 21", "acts/T-15"),
+    ("canada.mutual_legal_assistance_act", ("Mutual Legal Assistance in Criminal Matters Act",), "Mutual Legal Assistance in Criminal Matters Act, R.S.C. 1985, c. 30 (4th Supp.)", "acts/M-13.6"),
+    ("canada.identification_of_criminals_act", ("Identification of Criminals Act",), "Identification of Criminals Act, R.S.C. 1985, c. I-1", "acts/I-1"),
+    ("canada.bill_of_rights", ("Canadian Bill of Rights",), "Canadian Bill of Rights, S.C. 1960, c. 44", "acts/C-12.3"),
+    ("canada.pipeda", ("Personal Information Protection and Electronic Documents Act", "PIPEDA",), "Personal Information Protection and Electronic Documents Act, S.C. 2000, c. 5", "acts/P-8.6"),
+    ("canada.carriage_by_air_act", ("Carriage by Air Act",), "Carriage by Air Act, R.S.C. 1985, c. C-26", "acts/C-26"),
+    ("canada.income_tax_regulations", ("Income Tax Regulations",), "Income Tax Regulations, C.R.C., c. 945", "regulations/C.R.C.,_c._945"),
 )
 for _key, _aliases, _citation, _path in _MORE_FEDERAL_INSTRUMENTS:
     LEGISLATION_REGISTRY.setdefault(

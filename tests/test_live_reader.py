@@ -43,7 +43,7 @@ def test_payload_has_the_shape_the_reader_and_markup_mode_read() -> None:
 	assert payload["item"]["full_text"] == text and payload["item"]["id"] is None
 	assert payload["readerData"]["citations"] == payload["citations"]
 	assert payload["readerData"]["format_blocks"]
-	assert payload["readerData"]["evidence_summary"] is None and payload["readerData"]["tags"] == []
+	assert payload["readerData"]["evidence_summary"] is None and isinstance(payload["readerData"]["tags"], list)
 	kinds = {row["citation_kind"] for row in payload["citations"]}
 	assert "statute" in kinds and kinds - {"statute"}
 	for row in payload["citations"]:
@@ -297,3 +297,28 @@ def test_a_memo_gets_no_decision_details() -> None:
 	payload = build_live_reader_payload(text, paragraphs, "memo", _NoLibrary())
 	assert payload["decision"] is None
 	assert payload["item"]["citation"] is None
+
+
+def test_a_document_gets_rule_based_tags_and_opens_formatted() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(
+		"1. The Federal Court reviews the decision on a reasonableness standard under the Immigration and Refugee Protection Act.\n\n"
+		"2. Procedural fairness was not breached. See section 96 of the Act."
+	)
+	payload = build_live_reader_payload(text, paragraphs, "memo", _NoLibrary())
+	tags = payload["readerData"]["tags"]
+	assert tags
+	assert {"forum", "statute", "issue"} <= {tag["category"] for tag in tags}
+	assert all(tag["offset_end"] > tag["offset_start"] for tag in tags)
+	from backend.pages.live_analysis import live_analysis_page_html
+
+	html = live_analysis_page_html()
+	assert "toggle.getAttribute('aria-pressed')==='true')toggle.click()" in html
+
+
+def test_live_analysis_goes_full_screen_inside_the_workbench() -> None:
+	from backend.pages.live_analysis import live_analysis_page_html
+	from backend.pages.workbench import workbench_page_html
+
+	assert "ilitLive" in live_analysis_page_html()
+	html = workbench_page_html()
+	assert "reading-live" in html and "ilitLive" in html

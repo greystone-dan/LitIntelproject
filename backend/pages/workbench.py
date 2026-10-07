@@ -58,6 +58,7 @@ label.fl{display:block;margin:0 0 5px;color:var(--muted);font-size:10px;font-wei
 .subtabs{display:flex;gap:0;margin:16px 0 14px;border-bottom:1px solid var(--border);overflow-x:auto}
 .subtabs button{border:0;background:transparent;padding:10px 14px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
 .subtabs button[aria-selected=true]{color:var(--text);box-shadow:inset 0 -2px var(--rust)}
+.reading-live .toolframe{position:fixed;inset:0;z-index:60;width:100vw;height:100vh;min-height:0;border:0;border-radius:0}
 .toolframe{display:block;width:100%;height:calc(100vh - 210px);min-height:560px;border:1px solid var(--border);border-radius:5px;background:var(--surface)}
 /* home */
 .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
@@ -213,6 +214,7 @@ const fmt=d=>{if(!d)return '';const x=new Date(String(d).slice(0,10)+'T00:00:00'
 const daysTo=d=>Math.round((new Date(d+'T00:00:00')-new Date(new Date().toDateString()))/864e5);
 
 /* ---------- sign-in ---------- */
+window.addEventListener('message',e=>{if(e.origin!==location.origin||!e.data||!e.data.ilitLive)return;const f=$('frame-live');if(!f||e.source!==f.contentWindow)return;document.body.classList.toggle('reading-live',e.data.ilitLive==='open')});
 function showSignin(){$('appView').classList.add('hidden');$('userPill').classList.add('hidden');$('signinView').classList.remove('hidden');setTimeout(()=>$('signinName').focus(),50)}
 async function signIn(name){
   $('signinErr').classList.add('hidden');
@@ -235,6 +237,7 @@ function route(){
   let v=(location.hash||'#home').slice(1);if(!VIEWS.includes(v))v='home';showView(v,false);
 }
 function showView(v,push=true){
+  document.body.classList.remove('reading-live');
   VIEWS.forEach(n=>{$('view-'+n).classList.toggle('hidden',n!==v);$('tab-'+n).setAttribute('aria-selected',String(n===v))});
   const f=$('frame-'+v);if(f&&!f.getAttribute('src'))f.setAttribute('src',f.dataset.src);
   if(push&&location.hash!=='#'+v)history.replaceState(null,'','#'+v);

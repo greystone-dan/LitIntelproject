@@ -243,6 +243,20 @@ NON_XML_SOURCES = {
 		source_format="html",
 		source_url="https://laws-lois.justice.gc.ca/eng/const/page-12.html",
 	),
+	"canada.constitution_act_1867": SourceDefinition(
+		title="Constitution Act, 1867",
+		citation="Constitution Act, 1867, 30 & 31 Vict., c. 3 (U.K.)",
+		relative_path="data/reference_library/non_xml_authorities/constitution_acts_1867_to_1982.html",
+		source_format="html_constitution_1867",
+		source_url="https://laws-lois.justice.gc.ca/eng/const/FullText.html",
+	),
+	"canada.constitution_act_1982": SourceDefinition(
+		title="Constitution Act, 1982",
+		citation="Constitution Act, 1982, Schedule B to the Canada Act 1982 (U.K.), 1982, c. 11",
+		relative_path="data/reference_library/non_xml_authorities/constitution_acts_1867_to_1982.html",
+		source_format="html_constitution_1982",
+		source_url="https://laws-lois.justice.gc.ca/eng/const/FullText.html",
+	),
 	"international.refugee_convention": SourceDefinition(
 		title="Convention Relating to the Status of Refugees",
 		citation="Convention Relating to the Status of Refugees",
@@ -378,6 +392,59 @@ def parse_text_sections(path: Path) -> list[tuple[str, str | None, str]]:
 	return sections
 
 
+_CONSTITUTION_ACTS = {
+	"html_constitution_1867": ("CONSTITUTION ACT, 1867", "CANADA ACT 1982"),
+	"html_constitution_1982": ("CONSTITUTION ACT, 1982", "ENDNOTES"),
+}
+
+
+def parse_constitution_sections(path: Path, source_format: str) -> list[tuple[str, str | None, str]]:
+	"""Split one Act out of the combined Justice Laws page "The Constitution Acts 1867 to 1982"."""
+	start_title, end_title = _CONSTITUTION_ACTS[source_format]
+	soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+	for junk in soup.select("span.wb-invisible, a[href^='#end']"):
+		junk.decompose()
+	headings = soup.find_all("h2")
+	start = next((h for h in headings if h.get_text(" ", strip=True).upper().startswith(start_title)), None)
+	if start is None:
+		return []
+	sections: list[tuple[str, str | None, str]] = []
+	seen_numbers: set[str] = set()
+	label: str | None = None
+	current: list | None = None
+
+	def flush() -> None:
+		if current is not None:
+			number, part_label, parts = current
+			text = " ".join(" ".join(parts).split())
+			if text:
+				sections.append((number, part_label, text))
+
+	for element in start.find_all_next(["h2", "h3", "p", "ul", "ol"]):
+		if element.name == "h2":
+			title = element.get_text(" ", strip=True)
+			if title.upper().startswith(end_title) or title.upper().startswith("ENDNOTES"):
+				break
+			flush()
+			current = None
+			label = title
+		elif element.name == "h3":
+			label = element.get_text(" ", strip=True)
+		elif element.name == "p" and element.select_one("a.sectionLabel") is not None:
+			flush()
+			number = element.select_one("a.sectionLabel").get_text(" ", strip=True)
+			if not number or number in seen_numbers:
+				current = None
+				continue
+			seen_numbers.add(number)
+			body = re.sub(rf"^{re.escape(number)}\s*", "", element.get_text(" ", strip=True))
+			current = [number, label, [body]]
+		elif current is not None and not any(c.startswith("MarginalNote") for c in (element.get("class") or [])):
+			current[2].append(element.get_text(" ", strip=True))
+	flush()
+	return sections
+
+
 def parse_source_sections(path: Path, source_format: str) -> list[tuple[str, str | None, str]]:
 	if source_format == "xml":
 		return parse_sections(path)
@@ -385,6 +452,8 @@ def parse_source_sections(path: Path, source_format: str) -> list[tuple[str, str
 		return parse_html_sections(path)
 	if source_format == "text":
 		return parse_text_sections(path)
+	if source_format in _CONSTITUTION_ACTS:
+		return parse_constitution_sections(path, source_format)
 	raise ValueError(f"unsupported source format: {source_format}")
 
 

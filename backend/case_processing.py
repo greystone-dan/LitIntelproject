@@ -111,14 +111,12 @@ def _run_case_citation_layer(session: Session, case: Case) -> int:
 
 
 def _run_statute_layer(session: Session, case: Case) -> int:
-    chunks = list(
-        session.scalars(
-            select(CaseChunk)
-            .where(CaseChunk.case_id == case.id)
-            .order_by(CaseChunk.chunk_set, CaseChunk.chunk_index)
-        )
-    )
-    return rebuild_statute_references_for_case(session, case, chunks)
+    """Extract from the full text (no chunks), as the stored references and the re-extraction script do.
+
+    Per-chunk extraction loses the nearest-act context for "of the Act" references and prefers heading-only
+    section chunks, which would leave newly ingested cases with far fewer references than the existing library.
+    """
+    return rebuild_statute_references_for_case(session, case, [])
 
 
 def _run_v3_tag_layer(session: Session, case: Case) -> int:

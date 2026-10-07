@@ -7,6 +7,7 @@ stored CaseChunk rows (evaluation texts). The labeller is added below.
 from __future__ import annotations
 
 import re
+from collections import OrderedDict
 
 _NUMBERED_RE = re.compile(r"^\s*\[\d+\]")
 
@@ -306,3 +307,82 @@ def structural_unit_starts(
             if heading or opener:
                 starts.append(i)
     return starts
+
+
+# --------------------------------------------------------------------------- reader outline
+
+STRUCTURE_OUTLINE_VERSION = "case_structure_outline_v1"
+_OUTLINE_BLOCK_TYPES = {"meta", "heading", "para", "text", "listitem", "footer", "signature"}
+_ROLE_TITLES = {
+    "metadata": "Header",
+    "overview": "Overview",
+    "facts": "Facts",
+    "issues": "Issues",
+    "analysis": "Analysis",
+    "disposition": "Disposition",
+}
+
+
+def structure_outline(text: str | None, blocks: Sequence[dict]) -> list[dict]:
+    """Cached wrapper: labelling a long decision takes tens of milliseconds, so repeat opens reuse the rows."""
+    if not text:
+        return []
+    key = tuple((b.get("type"), b.get("start"), b.get("end"), b.get("num")) for b in blocks)
+    return [dict(row) for row in _structure_outline_cached(text, key, [dict(b) for b in blocks])]
+
+
+_OUTLINE_CACHE: "OrderedDict[tuple, list[dict]]" = OrderedDict()
+_OUTLINE_CACHE_SIZE = 256
+
+
+def _structure_outline_cached(text: str, key: tuple, blocks: list[dict]) -> list[dict]:
+    cache_key = (hash(text), len(text), key)
+    hit = _OUTLINE_CACHE.get(cache_key)
+    if hit is not None:
+        _OUTLINE_CACHE.move_to_end(cache_key)
+        return hit
+    rows = _structure_outline_uncached(text, blocks)
+    _OUTLINE_CACHE[cache_key] = rows
+    if len(_OUTLINE_CACHE) > _OUTLINE_CACHE_SIZE:
+        _OUTLINE_CACHE.popitem(last=False)
+    return rows
+
+
+def _structure_outline_uncached(text: str | None, blocks: Sequence[dict]) -> list[dict]:
+    """Outline rows for the formatted reader, built from the reader's own blocks (no AI, nothing stored).
+
+    Each row is ``{"title", "role", "start", "para", "count", "level"}``: ``start`` is the block start
+    offset the reader scrolls to, ``para`` the first numbered paragraph, ``count`` the paragraphs in the
+    section. A major heading printed inside the analysis starts its own row at level 2. Header and
+    footer metadata are left out. Returns ``[]`` when there is too little text to label.
+    """
+    if not text:
+        return []
+    picked = [b for b in blocks if b.get("type") in _OUTLINE_BLOCK_TYPES and text[b["start"]:b["end"]].strip()]
+    if sum(1 for b in picked if b["type"] in {"para", "text"}) < 4:
+        return []
+    paragraphs = [text[b["start"]:b["end"]].strip() for b in picked]
+    roles = label_paragraph_roles(paragraphs)
+    starts = structural_unit_starts(paragraphs, roles)
+    rows: list[dict] = []
+    for n, first in enumerate(starts):
+        last = (starts[n + 1] if n + 1 < len(starts) else len(paragraphs)) - 1
+        role = roles[first]
+        if role == "metadata":
+            continue
+        members = picked[first : last + 1]
+        numbered = [b for b in members if b.get("num") is not None and b["type"] == "para"]
+        head = " ".join(paragraphs[first].split())
+        heading_row = role == "analysis" and picked[first]["type"] == "heading" or (
+            role == "analysis" and bool(rows) and rows[-1]["role"] == "analysis" and heading_kind(paragraphs[first]) is not None
+        )
+        title = head[:90] if heading_row else _ROLE_TITLES[role]
+        rows.append({
+            "title": title,
+            "role": role,
+            "start": picked[first]["start"],
+            "para": numbered[0]["num"] if numbered else None,
+            "count": len(numbered),
+            "level": 2 if heading_row and rows and rows[-1]["role"] == "analysis" else 1,
+        })
+    return rows

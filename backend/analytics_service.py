@@ -11,6 +11,7 @@ import json
 import os
 import re
 import time
+from types import SimpleNamespace
 from collections import OrderedDict
 from threading import RLock
 from typing import Any, Callable, Optional
@@ -54,6 +55,7 @@ from .judge_issue_record import (
 	fetch_judge_profile_issues,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
 from .search_matching import identity_sql, matched_on_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
@@ -1226,6 +1228,29 @@ def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, i
 	return {str(k): v for k, v in _page_citation_counts(db, case_ids[:100]).items()}
 
 
+def _page_case_types(db, case_ids: list[int]) -> dict[int, dict[str, Any]]:
+	"""Stored case-type labels for only the cases on the returned page (one indexed query; no classification at read time)."""
+	if not case_ids:
+		return {}
+	try:
+		rows = db.execute(
+			sql_text(
+				"SELECT case_id, taxonomy_version, status, primary_type, primary_detail, second_type, second_detail "
+				"FROM case_type_labels WHERE taxonomy_version = :version AND case_id IN :ids"
+			).bindparams(bindparam("ids", expanding=True)),
+			{"version": TAXONOMY_VERSION, "ids": case_ids},
+		).mappings().all()
+	except SQLAlchemyError:
+		db.rollback()
+		return {}
+	found: dict[int, dict[str, Any]] = {}
+	for row in rows:
+		payload = case_type_payload(SimpleNamespace(**dict(row)))
+		if payload is not None:
+			found[int(row["case_id"])] = {"primary": payload["primary"], "second": payload["second"]}
+	return found
+
+
 def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 	"""Citation metrics for only the cases on the returned page (two grouped queries, no per-row subqueries)."""
 	if not case_ids:
@@ -1504,6 +1529,7 @@ def fetch_analytics_search_cases(
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
 	rows = db.execute(statement, params).mappings().all()
 	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
+	case_types = _page_case_types(db, [int(row["id"]) for row in rows])
 	return {
 		"facets": facets,
 		"results": [
@@ -1522,6 +1548,7 @@ def fetch_analytics_search_cases(
 				"unique_cited_authorities": citation_counts.get(int(row["id"]), {}).get("unique_cited_authorities", 0),
 				"resolved_target_cases": citation_counts.get(int(row["id"]), {}).get("resolved_target_cases", 0),
 				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0 if include_citation_stats else None),
+				"case_type": case_types.get(int(row["id"])),
 				"matched_on": row.get("matched_on", "Metadata"),
 				"snippet": clean_search_snippet(row.get("snippet")),
 			}

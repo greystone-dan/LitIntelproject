@@ -579,15 +579,17 @@ class NavigationParser(HTMLParser):
             self.controls.append((tag, attributes))
 
 
-def test_primary_navigation_has_exactly_four_left_aligned_groups():
+def test_primary_navigation_has_brand_left_and_groups_right():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
     assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'soon', 'testing']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
-    assert header.index('primary-groups') < header.index('class="brand"')
-    assert header.count('<a ') == 1 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the Workbench is its own page
+    assert header.index('class="brand-home"') < header.index('primary-groups')
+    assert 'href="/data-explorer?tab=about&amp;group=info"' in header
+    assert 'siteExperimentalToggle' not in header and 'Show experimental' not in header
+    assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
@@ -1259,7 +1261,7 @@ def test_unfinished_site_areas_are_hidden_until_show_experimental_is_on():
 
     hide_rule = 'body:not(.reader-experimental) :is([data-group="testing"],#displayCoreCases,#cohortSearchPanel){display:none!important}'
     assert hide_rule in html
-    assert 'id="siteExperimentalToggle"' in html
+    assert 'id="siteExperimentalToggle"' not in html
     assert "#readerExperimentalToggle,#siteExperimentalToggle" in html
 
 
@@ -1299,3 +1301,9 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statute-library'
     assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())
+
+
+def test_main_tab_clicks_load_a_clean_page_and_the_brand_goes_home():
+    html = routes._data_explorer_page_html()
+    assert "location.assign('/data-explorer?tab='+tab+'&group='+button.dataset.group)" in html
+    assert "{info:'about',research:'search',intel:'judge-profile',soon:'soon-themes',testing:'research-bench'}" in html

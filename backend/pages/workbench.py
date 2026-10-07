@@ -25,7 +25,7 @@ a{color:var(--teal)}
 .topnav{display:flex;flex-wrap:wrap;gap:4px}
 .topnav a{display:flex;align-items:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none;justify-content:center}
 .topnav a:hover{color:var(--teal)}.topnav a.active{background:var(--ink);color:#fff}
-.brand{margin-left:auto;display:flex;align-items:baseline;gap:13px}
+.brand{margin-right:auto;display:flex;align-items:baseline;gap:13px;color:inherit;text-decoration:none;padding:6px 10px;border-radius:6px}.brand:hover{background:#f1efe6}
 .brand-name{font:700 28px/1 "Newsreader",serif}.brand-sub{font-size:12px;color:var(--muted)}
 .userpill{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
 .userpill b{color:var(--text)}
@@ -104,21 +104,22 @@ button.tile{cursor:pointer}button.tile:hover{border-color:var(--teal)}
 .mini button.sq{border:0;background:none;padding:0;text-align:left;cursor:pointer;color:var(--text)}.mini button.sq:hover{color:var(--teal);text-decoration:underline}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);padding:9px 16px;border-radius:5px;background:var(--ink);color:#fff;font-size:13px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 @media(max-width:980px){.homegrid{grid-template-columns:minmax(0,1fr)}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){main{padding:14px 16px 40px}.topbar{padding:10px 16px}.brand{margin-left:0;flex-basis:100%}.topnav{width:100%}.topnav a{flex:1;min-width:0;padding:8px 4px}.addrow{grid-template-columns:1fr}.rowhead{grid-template-columns:minmax(0,1fr)}.rowhead .chips{grid-column:1}.detail .two{grid-template-columns:1fr}.toolframe{height:calc(100vh - 160px)}h1{font-size:26px}.card>header{padding:10px 12px}.card>.body{padding:12px}}
+@media(max-width:640px){main{padding:14px 16px 40px}.topbar{padding:10px 16px}.brand{margin:0;flex-basis:100%}.topnav{width:100%;margin-left:0!important}.topnav a{flex:1;min-width:0;padding:8px 4px}.addrow{grid-template-columns:1fr}.rowhead{grid-template-columns:minmax(0,1fr)}.rowhead .chips{grid-column:1}.detail .two{grid-template-columns:1fr}.toolframe{height:calc(100vh - 160px)}h1{font-size:26px}.card>header{padding:10px 12px}.card>.body{padding:12px}}
 </style>
 </head>
 '''
 
 _BODY = r'''<body>
 <header class="topbar">
-<nav class="topnav" aria-label="Primary navigation">
+<a class="brand" href="/data-explorer?tab=about&group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
+<nav class="topnav" style="margin-left:auto" aria-label="Primary navigation">
 <a href="/data-explorer?tab=about">About</a>
 <a href="/data-explorer?tab=search">Case search</a>
 <a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a>
 <a href="/workbench" class="active" aria-current="page">Workbench</a>
+<a href="/data-explorer?tab=soon-themes&group=soon">Coming soon</a>
 </nav>
 <div class="userpill hidden" id="userPill"><span class="demo-flag">Demo</span><span>Signed in as <b id="userName"></b></span><button class="linkbtn" id="signOut" type="button">Sign out</button></div>
-<div class="brand"><div class="brand-name">ILIT</div><div class="brand-sub">Immigration Litigation Intelligence System</div></div>
 </header>
 <main>
 <section id="signinView" class="hidden">

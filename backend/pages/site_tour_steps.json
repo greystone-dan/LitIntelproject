@@ -384,7 +384,7 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={vavilov}",
       "title": "The Outline",
-      "text": "The Outline lists the decision's sections with their paragraph numbers. I pressed one and the text moved to it.",
+      "text": "The Outline lists the decision's sections with their paragraph numbers. I opened it and pressed one, and the text moved to it. It carries a Coming soon tape because the section detection is not reliable on every decision yet.",
       "target": ".v6-outline",
       "also": [
         {
@@ -394,6 +394,14 @@
       "optional": true,
       "settle": 700,
       "before": [
+        {
+          "do": "click",
+          "selector": "[data-v6-tab='about']"
+        },
+        {
+          "do": "click",
+          "selector": "[data-v6-outl-toggle]"
+        },
         {
           "do": "click",
           "selector": ".v6-outline .v6-orow:nth-child(2)",

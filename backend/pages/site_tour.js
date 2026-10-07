@@ -228,7 +228,22 @@
   function liveRect(item){
     if(item.node&&!document.contains(item.node))item.node=null;
     if(!item.node&&item.sel)item.node=findVisible(item.sel);     // the page re-drew the element: find its replacement
-    return item.node&&visible(item.node)?item.node.getBoundingClientRect():null;
+    return item.node&&visible(item.node)?clipped(item.node):null;
+  }
+  // The part of an element that can actually be seen: cut by any scrolling panel it sits in.
+  function clipped(n){
+    var b=n.getBoundingClientRect(),r={left:b.left,top:b.top,right:b.right,bottom:b.bottom,height:b.height,width:b.width};
+    for(var p=n.parentElement;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){
+      var cs=getComputedStyle(p);
+      if(cs.position==='fixed')break;
+      if(cs.overflowY!=='visible'||cs.overflowX!=='visible'){
+        var c=p.getBoundingClientRect();
+        if(cs.overflowY!=='visible'){r.top=Math.max(r.top,c.top);r.bottom=Math.min(r.bottom,c.bottom)}
+        if(cs.overflowX!=='visible'){r.left=Math.max(r.left,c.left);r.right=Math.min(r.right,c.right)}
+      }
+    }
+    if(r.bottom-r.top<2||r.right-r.left<2)return null;
+    return r;
   }
   function round(n){return Math.round(n*10)/10}
   function place(){
@@ -372,7 +387,7 @@
     if(!state.t0)state.t0=Date.now();
     save(state);
     build();
-    render(i,[],true);
+    render(i,(ui&&ui.items)||[],true);                             // keep the last highlights while the next step gets ready (no flash)
     // 1. be on the right page: the tour clicks through where the site would (via), or opens the page itself
     var url=await resolveUrl(s.url);
     if(token!==run)return;

@@ -3,9 +3,9 @@
 .ilit-tour-block{position:fixed;inset:0;pointer-events:auto;background:transparent}
 .ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
 .ilit-tour-dim path{fill:rgba(32,37,34,.58)}
-.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:2px solid #a4412b;border-radius:6px;box-shadow:0 0 0 3px rgba(255,254,249,.85);pointer-events:none;transition:transform .2s ease,width .2s ease,height .2s ease}
+.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:2px solid #a4412b;border-radius:6px;box-shadow:0 0 0 3px rgba(255,254,249,.85);pointer-events:none}
 .ilit-tour-tag{position:absolute;left:-2px;top:-24px;padding:3px 8px;border-radius:4px 4px 4px 0;background:#a4412b;color:#fff;font-size:11.5px;font-weight:600;line-height:1.3;white-space:nowrap}
-.ilit-tour-ring.tag-below .ilit-tour-tag{top:auto;bottom:-24px;border-radius:0 4px 4px 4px}
+.ilit-tour-ring.tag-below .ilit-tour-tag{top:2px;left:2px;border-radius:0 0 4px 0}   /* no room above: tuck the label inside */
 .ilit-tour-tag[hidden]{display:none}
 .ilit-tour-card{position:fixed;z-index:1100;box-sizing:border-box;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;padding:16px 18px 14px;border:1px solid #d8d5ca;border-radius:8px;background:#fffef9;box-shadow:0 12px 32px rgba(32,37,34,.28);pointer-events:auto;outline:none}
 .ilit-tour-card.pending{opacity:.92}
@@ -39,7 +39,7 @@
 .ilit-tour-start{display:inline-flex;align-items:center;gap:8px;min-height:42px;margin:16px 0 0;padding:9px 18px;border:1px solid #202522;border-radius:6px;background:#202522;color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-start:hover{background:#a4412b;border-color:#a4412b}
 .ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
-@media (prefers-reduced-motion:reduce){.ilit-tour-ring,.ilit-tour-bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.ilit-tour-bar i{transition:none}}
 @media print{.ilit-tour{display:none}}
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
 html.ilit-tour-on body{padding-bottom:300px}   /* room to lift a region above the card at the end of a page */

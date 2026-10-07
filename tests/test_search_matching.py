@@ -411,8 +411,8 @@ def test_sentence_query_with_operators_is_left_to_the_operator_compiler():
 def test_case_type_filter_reads_stored_labels_with_bound_params():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker", case_type="refugee_claim")
-	assert "case_type_labels" in db.sql and "ctl.second_type = :case_type" in db.sql
-	assert db.params["case_type"] == "refugee_claim"
+	assert "case_type_labels" in db.sql and "ctl.second_type IN (:case_type_0)" in db.sql
+	assert db.params["case_type_0"] == "refugee_claim"
 	assert db.params["case_type_version"]
 	assert "refugee_claim" not in db.sql
 
@@ -421,7 +421,7 @@ def test_unknown_case_type_matches_nothing_and_is_not_interpolated():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="Baker", case_type="x'; DROP TABLE cases;--")
 	assert "DROP TABLE" not in db.sql
-	assert "case_type" not in db.params
+	assert "case_type_0" not in db.params
 
 
 def test_case_type_facet_uses_stored_labels_and_labels_known_keys():

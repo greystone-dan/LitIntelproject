@@ -233,3 +233,45 @@ def test_live_analysis_drops_the_fictional_word_file():
 def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
     text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
     assert "built" in text and "run by hand" in text and "not yet scheduled" in text
+
+
+def _moment(card, ring, full=None, cursor=None):
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+    return {"vw": 1440, "vh": 900, "focus": 0, "card": box(*card), "dock": box(500, 830, 440, 56),
+            "cursor": box(*cursor) if cursor else None,
+            "items": [{"full": box(*(full or ring)), "seen": box(*(full or ring)), "ring": box(*ring)}]}
+
+
+def test_geometry_checks_catch_what_looks_wrong():
+    problems = check_site_tour.geometry_problems
+    good = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 312), full=(100, 100, 400, 300))
+    assert problems(good) == []
+    cut = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 200), full=(100, 100, 400, 300))
+    assert any("ring cuts target" in p for p in problems(cut))
+    covered = _moment(card=(300, 100, 400, 220), ring=(94, 94, 412, 312))
+    assert any("card covers target" in p for p in problems(covered))
+    over_dock = _moment(card=(500, 700, 400, 220), ring=(94, 94, 412, 312))
+    assert any("control bar" in p for p in problems(over_dock))
+    pointer = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 312), cursor=(950, 150, 26, 26))
+    assert any("pointer on the card" in p for p in problems(pointer))
+    # moving when the old place was still clear is a jump; moving because the old place now covers the target is not
+    assert any("jumped" in p for p in problems(good, previous_card={"x": 600, "y": 400, "w": 400, "h": 220}))
+    far_away = {"x": 1000, "y": 560, "w": 400, "h": 220}   # clear, but too far from what it explains: moving closer is right
+    assert not any("jumped" in p for p in problems(good, previous_card=far_away))
+    target_moved_under_it = _moment(card=(300, 100, 400, 220), ring=(894, 94, 412, 312))
+    assert not any("jumped" in p for p in problems(target_moved_under_it, previous_card={"x": 900, "y": 100, "w": 400, "h": 220}))
+
+
+def test_walk_runs_the_geometry_checks_at_every_card():
+    source = (ROOT / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
+    assert "geometry_problems(g, previous_card)" in source and "MOTION_RECORDER" in source
+    assert "geometry:geometry" in tour_js()
+
+
+def test_card_and_rings_follow_the_layout_rules():
+    js, css = tour_js(), tour_css()
+    for rule in ("function showWhole(", "function makeRoom(", "function steady(", "function keepClear(", "HOLD=", "NEAR="):
+        assert rule in js, rule                                   # whole regions in view; the card stays unless it must move
+    assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
+    assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps
+    assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered

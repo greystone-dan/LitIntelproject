@@ -223,3 +223,16 @@ def test_name_and_year_pinpoint_resolves_to_the_declared_case():
 	last = rows[-1]
 	assert last.kind == "case_short" and last.pinpoint == "at para. 26"
 	assert "2020 FC 350" in last.normalized_citation
+
+
+def test_pinpoint_columns_for_the_refined_table():
+	from scripts.build_refined_citations import pinpoint_columns
+
+	rows = refine_case_citations("See Zed v Canada, 2008 FC 539, 2008 CarswellNat 605 at paras 38-40.").rows
+	assert pinpoint_columns(rows[0]) == {
+		"pinpoint": "at paras. 38-40",
+		"pinpoint_kind": "paragraph",
+		"pinpoint_values": "38,39,40",
+		"target_paragraph": 38,
+	}
+	assert pinpoint_columns(refine_case_citations("See Zed v Canada, 2008 FC 539.").rows[0]) == {}

@@ -2,7 +2,7 @@
 
 This file is generated from `backend.database.Base.metadata` by `scripts/generate_schema_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T13:32:55.239788+00:00
+Generated: 2026-10-07T16:05:50.700252+00:00
 Tables: 43
 
 The reference documents the ORM schema declared in this repository. Apply Alembic migrations for deployment changes; use database inspection as the final authority for an already-running environment.
@@ -239,6 +239,9 @@ erDiagram
         FLOAT confidence
         Integer refine_version
         Integer source_citation_id
+        String(100) pinpoint
+        String(12) pinpoint_kind
+        String(255) pinpoint_values
     }
     discussion_unit_cache {
         Integer id PK
@@ -675,7 +678,7 @@ erDiagram
 | `citation_paragraph_links` | 5 | `id` |
 | `citation_refine_status` | 6 | `source_case_id` |
 | `citations` | 17 | `id` |
-| `citations_refined` | 21 | `id` |
+| `citations_refined` | 24 | `id` |
 | `discussion_unit_cache` | 8 | `id` |
 | `fc_activity_alerts` | 6 | `id` |
 | `fc_activity_cases` | 18 | `id` |
@@ -1209,6 +1212,9 @@ erDiagram
 | `confidence` | `FLOAT` | yes | - |
 | `refine_version` | `Integer` | no | NOT NULL |
 | `source_citation_id` | `Integer` | yes | - |
+| `pinpoint` | `String(100)` | yes | - |
+| `pinpoint_kind` | `String(12)` | yes | - |
+| `pinpoint_values` | `String(255)` | yes | - |
 
 ### Indexes
 

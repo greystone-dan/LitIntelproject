@@ -15,6 +15,8 @@ from sqlalchemy.dialects import postgresql
 from sqlalchemy.orm import configure_mappers
 
 ROOT = Path(__file__).resolve().parents[1]
+# Added to citations_refined by 0044_refined_pinpoints, after the frozen 0039 migration.
+LATER_COLUMNS = {"pinpoint", "pinpoint_kind", "pinpoint_values"}
 TABLE_NAMES = {
     "citations_refined",
     "citation_paragraph_links",
@@ -165,7 +167,9 @@ def test_migration_from_zero_matches_refinement_metadata(monkeypatch, migration)
         assert assert_metadata_parity() == before
 
         command.downgrade(config, migration.down_revision)
-        assert assert_metadata_parity() == before
+        # Refinement tables stay after a downgrade; only the later 0044 columns are dropped.
+        with isolated_engine.connect() as connection:
+            assert TABLE_NAMES <= set(sa.inspect(connection).get_table_names(schema=schema))
         command.upgrade(config, "head")
         assert assert_metadata_parity() == before
     finally:
@@ -262,8 +266,10 @@ def test_models_and_frozen_migration_match(monkeypatch, migration):
     for name in TABLE_NAMES:
         actual = tables[name]
         model = Base.metadata.tables[name]
-        assert set(actual.c.keys()) == set(model.c.keys())
+        assert set(actual.c.keys()) == set(model.c.keys()) - (LATER_COLUMNS if name == "citations_refined" else set())
         for column in model.c:
+            if column.name in LATER_COLUMNS and name == "citations_refined":
+                continue
             assert column_contract(actual.c[column.name]) == column_contract(column), (name, column.name)
         # Compiling DDL never opens a connection.
         metadata = sa.MetaData()
@@ -279,7 +285,7 @@ def test_models_and_frozen_migration_match(monkeypatch, migration):
 @pytest.mark.parametrize(
     "base_name,refined_name,extras",
     [
-        ("citations", "citations_refined", {"refine_step", "confidence", "refine_version", "source_citation_id"}),
+        ("citations", "citations_refined", {"refine_step", "confidence", "refine_version", "source_citation_id", *LATER_COLUMNS}),
         (
             "statute_references",
             "statute_references_refined",
@@ -321,3 +327,23 @@ def test_link_and_status_keys_and_no_new_relationships():
     assert status.c.processed_at.type.timezone
     for model in (CitationParagraphLink, CitationRefined, CitationRefineStatus, StatuteReferenceRefined):
         assert not model.__mapper__.relationships
+
+
+def test_pinpoint_columns_migration_is_additive_and_repeatable():
+    import sqlalchemy as sa
+
+    path = ROOT / "alembic/versions/0044_refined_pinpoints.py"
+    spec = importlib.util.spec_from_file_location("refined_pinpoints_migration", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert module.down_revision == "0043_workbench"
+    engine = sa.create_engine("sqlite://")
+    with engine.begin() as connection:
+        connection.exec_driver_sql("CREATE TABLE citations_refined (id INTEGER PRIMARY KEY, citation_text TEXT)")
+        connection.exec_driver_sql("INSERT INTO citations_refined (citation_text) VALUES ('Vavilov')")
+        module.op = Operations(MigrationContext.configure(connection))
+        module.upgrade()
+        module.upgrade()
+        columns = {column["name"] for column in sa.inspect(connection).get_columns("citations_refined")}
+        assert {"pinpoint", "pinpoint_kind", "pinpoint_values"} <= columns
+        assert connection.exec_driver_sql("SELECT citation_text, pinpoint FROM citations_refined").one() == ("Vavilov", None)

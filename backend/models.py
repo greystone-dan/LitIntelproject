@@ -429,6 +429,8 @@ class CaseReaderDataResponse(BaseModel):
 	metrics: "CitationMetricsResponse | None" = None
 	formatted_html: str | None = None
 	format_blocks: list[dict] = []
+	# Deterministic case-structure outline (Overview, Facts, Issues, Analysis, Disposition); computed on request, not stored.
+	structure_outline: list[dict] = []
 	evidence_summary: CaseEvidenceSummaryResponse | None = None
 	case_summary: CaseSummaryResponse | None = None
 	# Stored per-paragraph "cited by" from the batch job (None until it has run for this case).

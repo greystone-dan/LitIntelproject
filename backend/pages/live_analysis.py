@@ -40,7 +40,8 @@ STYLE = r'''<style>
 .la-note{max-width:820px;color:var(--muted);font-size:12px;line-height:1.55}
 html.wb-embedded .topbar,html.wb-embedded #researchViews{display:none!important}
 html.wb-embedded .center-pane{padding-top:12px}
-body.live-doc-open #v6Card .v6-court,body.live-doc-open #v6Card [data-v6-copy],body.live-doc-open #v6Card .v6-stat[data-v6-go="intel"]{display:none}
+body.live-doc-open #v6Kicker:not(:has(.v6-pill)){display:none}
+body.live-doc-open #v6Kicker .v6-court,body.live-doc-open #v6Kicker [data-v6-copy],body.live-doc-open #v6Card .v6-stat[data-v6-go="intel"]{display:none}
 .la-tools{padding:6px 14px 8px;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0}
 body .reader-head>#laTools#laTools.la-tools{display:flex!important}
 .la-tools button{padding:6px 12px;border:1px solid var(--border);border-radius:5px;background:var(--surface);font:600 12px "IBM Plex Sans",sans-serif;cursor:pointer;color:var(--text)}

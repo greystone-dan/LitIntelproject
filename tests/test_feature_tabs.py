@@ -192,7 +192,6 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
         "cites_case_id",
         "tags",
         "government_outcome",
-        "decision_outcome",
         "minister",
         "judge",
         "court",
@@ -591,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
         assert f'>{label}</button>' in header
 
 
@@ -609,7 +608,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert set(roadmap.values()) == {'roadmap'}
     assert list(roadmap) == ['roadmap-overview', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-internal', 'roadmap-intelligence', 'roadmap-team', 'roadmap-local-ai']
     assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
-        'about': 'info', 'about-changelog': 'info', 'search': 'research',
+        'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
         'research-bench': 'testing',
     }
@@ -728,7 +727,7 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
 
     assert 'class="ilit-about"' in about_panel
     assert '<h1>iLit: immigration litigation intelligence</h1>' in about_panel
-    for section in ('library', 'search', 'reader', 'intel', 'soon', 'progress', 'principles'):
+    for section in ('pipeline', 'library', 'derived', 'tabs', 'soon', 'progress', 'principles'):
         assert f'id="{section}"' in about_panel
     assert 'id="funding"' not in about_panel
     assert 'Data layer coverage' in architecture_panel

@@ -1,0 +1,109 @@
+<div class="ilit-about">
+<div class="wrap">
+
+  <header id="aboutHowIntro">
+    <p class="eyebrow">About · how it was made and how it works</p>
+    <h1>How it works</h1>
+    <p class="lede">iLit was built by one person, with AI-assisted development used to write and check the code. This page explains where the decisions come from, how the information shown beside each one is worked out, what is live today and what is still being built.</p>
+  </header>
+
+  <section id="pipeline">
+    <h2>From a published decision to a page you can search</h2>
+    <ul class="ticks">
+      <li><b>Collected from public sources.</b> Decisions are gathered from the public websites of the courts and tribunals. Each one is kept as published, with its source address, so you can always check the original.</li>
+      <li><b>Split into numbered paragraphs.</b> This is what lets a search result, a citation or a statute reference point at a passage and not just at a whole decision.</li>
+      <li><b>Read by fixed rules.</b> Computer programs following written rules pick out the citations to other cases, the statute and regulation references, the judge, the outcome and the type of case. The same decision always gives the same answer, and no AI is called when you use the site.</li>
+      <li><b>Kept as a separate layer.</b> What the rules find is stored beside the original text and never replaces it. Where a fact cannot be found, the page says so rather than guessing.</li>
+      <li><b>Shown by the site.</b> Search, the reader and the statistics read what was stored in advance. What you type, and any file you open, is not sent to an AI service.</li>
+    </ul>
+  </section>
+
+  <section id="library">
+    <h2>What is in the library</h2>
+    <p class="intro">Immigration decisions from four courts and tribunals. The total is shown on the Overview tab and is read from the database when the page opens.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Court or tribunal</th><th>Years covered</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Federal Court (FC)</td><td>2001–2026</td><td>The largest part of the library. Judicial reviews of immigration decisions.</td></tr>
+          <tr><td>Federal Court of Appeal (FCA)</td><td>2001–2026</td><td>Appeals from the Federal Court.</td></tr>
+          <tr><td>Supreme Court of Canada (SCC)</td><td>1877–2026</td><td>The leading authorities that the lower courts cite.</td></tr>
+          <tr><td>Refugee Protection Division (RPD)</td><td>2002–2020</td><td>Refugee claim decisions of the Immigration and Refugee Board. Later years are being added.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:10px">The library is not a complete archive of any of these courts. Immigration Division and Immigration Appeal Division decisions are not in it, because there is no open source for them yet.</p>
+    <p>Alongside the decisions, the library holds a separate record of the Federal Court docket for immigration files: the dated entries recorded on each file, such as filing, leave and judgment. It is a different kind of record from a decision, and it is what the Federal Court Analytics view draws on.</p>
+  </section>
+
+  <section id="derived">
+    <h2>How each piece of information is worked out</h2>
+    <div class="grid">
+      <div class="card"><h3>Citations</h3><p>References such as “2008 SCC 9” or “Vavilov at para 99” are found by pattern, matched to the decision they name when it is in the library, and linked to the paragraph cited. A citation that cannot be matched says so.</p></div>
+      <div class="card"><h3>Statutes</h3><p>References to Acts and regulations are found by pattern and matched to a stored library of federal statutes, so a hover can show the provision text. Matching is still being improved, so treat a statute link as a pointer, not a guarantee.</p></div>
+      <div class="card"><h3>Outcomes</h3><p>The outcome comes from fixed rules read against the wording of the decision. If the rules cannot tell, the page says “unclear” instead of picking one. Outcome accuracy is still being checked against a hand-reviewed set of decisions.</p></div>
+      <div class="card"><h3>Case types</h3><p>A label for the kind of case, for example a judicial review of a refugee decision, is worked out by rules from the decision’s own text. The label shows in the reader and can be used as a search filter.</p></div>
+      <div class="card"><h3>Judges</h3><p>Judge names are taken from the decisions. They are written many different ways, so a name list is used to merge the spellings. Duplicate or missing profiles still exist.</p></div>
+      <div class="card"><h3>Statistics</h3><p>Judge Profiles, Citation Intelligence and Federal Court Analytics add up the stored results, and show the full count so that unclassified decisions are visible. They describe the library; they do not predict a result.</p></div>
+    </div>
+  </section>
+
+  <section id="tabs">
+    <h2>Finding your way around</h2>
+    <div class="grid">
+      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Research</span><p>Find decisions by name, citation or phrase, narrow them with filters, and open one to read it in the formatted reader.</p></a>
+      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></a>
+      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer.</p></a>
+      <a class="card go" href="?tab=about&amp;about=changelog" data-goto="changelog"><span class="k">Changelog</span><p>A timeline, newest first, of what has been added to the site and when.</p></a>
+    </div>
+  </section>
+
+  <section id="soon">
+    <h2><span class="tag soon">Coming soon</span>Built, not yet ready to rely on</h2>
+    <p class="intro">These exist in the code and open from the Coming soon section, each under a banner saying so, but I do not yet stand behind them. Each one’s own explainer says what it is meant to do.</p>
+    <ul class="soon-list"><!--COMING_SOON_LIST--></ul>
+  </section>
+
+  <section id="progress">
+    <h2><span class="tag wip">In progress</span>Not finished</h2>
+    <p class="intro">Work that is on its way. None of it should be assumed to be complete in the live library today.</p>
+    <div class="status-list">
+      <div><strong>Statute library</strong><span>Federal statutes with the sections of each Act are stored, and the statute references in the decisions are being re-extracted in stages and checked against a hand-reviewed set before the rest is run. Provincial and Quebec statutes are not included.</span></div>
+      <div><strong>Case types</strong><span>Stored for Federal Court, Refugee Protection Division and Supreme Court decisions. Federal Court of Appeal labels are held back because they are not accurate enough yet.</span></div>
+      <div><strong>Outcomes</strong><span>Some outcomes shown are wrong or unclear, including on some well-known decisions. A corrected pass is built but has not been applied to the stored data.</span></div>
+      <div><strong>Judge name cleanup</strong><span>Many spellings have been merged, and every merge can be undone. Supreme Court panels are not yet split into individual judges.</span></div>
+      <div><strong>Citation clean-up</strong><span>Better matching of short forms, French citations, “Ibid” and “the Act” is written and tested on a sample. It stores its results beside the existing ones, and the site has not been switched over to them.</span></div>
+      <div><strong>Keeping the library current</strong><span>A daily intake job is built to add new decisions and docket entries. It is run by hand today; it does not run automatically.</span></div>
+      <div><strong>More tribunals</strong><span>Immigration Division and Immigration Appeal Division decisions are not in the library. There is no open source for them yet.</span></div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <h2>What I do not claim</h2>
+    <ul class="ticks">
+      <li><b>It is a research aid, not legal advice.</b> Automated reading makes mistakes. Check anything that matters against the source decision, which every result links to.</li>
+      <li><b>No accuracy figure is promised.</b> Each automated step is tested against decisions I have read myself, and the weak ones are listed above.</li>
+      <li><b>Public data only.</b> Everything in the library comes from public sources. Files you open in the tools are not stored.</li>
+      <li><b>One workstation.</b> The site and its database currently run on my own computer, so it can be briefly unavailable while it is updated. Moving it to Canadian hosting is the longer-term plan.</li>
+      <li><b>Source terms.</b> Some source data comes with its own terms of use, which would need to be confirmed before any wider deployment.</li>
+    </ul>
+    <div class="note"><strong>Judge statistics are sensitive.</strong> Figures about individual judges can be misread, so the judge views show full counts and avoid ranking.</div>
+  </section>
+
+  <footer>Updated 7 October 2026. The Changelog tab lists every addition by date.</footer>
+
+</div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
+    if(a.closest('#aboutOverviewPane'))return;
+    a.addEventListener('click',function(ev){
+      var g=a.dataset.goto,sel=g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
+      var target=document.querySelector(sel);
+      if(!target)return;
+      ev.preventDefault();target.click();window.scrollTo({top:0});
+    });
+  });
+})();
+</script>

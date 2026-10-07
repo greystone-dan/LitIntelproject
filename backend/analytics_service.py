@@ -19,7 +19,7 @@ from typing import Any, Callable, Optional
 import httpx
 from fastapi import HTTPException, status
 from sqlalchemy import bindparam, case, func, or_, select, text as sql_text
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import OperationalError, SQLAlchemyError
 from sqlalchemy.orm import Session, joinedload
 
 from fc_ingest.document_scraper import _JUDGE_JUNK_PATTERN
@@ -1203,6 +1203,8 @@ def _case_type_facet(db, where_clause, facet_params, cohort_ids):
 
 
 _FACET_CACHE: dict[str, tuple[float, dict[str, Any]]] = {}
+# Longest a whole-text scan (no paragraph index hits) may run before the search answers 'too broad'.
+SEARCH_SCAN_TIMEOUT_MS = int(os.getenv("ILIT_SEARCH_SCAN_TIMEOUT_MS", "20000") or 20000)
 _FACET_CACHE_TTL_SECONDS = 600
 _FACET_CACHE_MAX_ENTRIES = 200
 
@@ -1392,8 +1394,6 @@ def fetch_analytics_search_cases(
 		query_fields = "c.title ILIKE :query OR c.citation ILIKE :query"
 		if params.get("match_citation"):
 			query_fields += f" OR {citation_match}"
-		if search_full_text:
-			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 		paragraph_hits = search_paragraph_cases(db, query)
 		if paragraph_hits:
 			# Sentence query with the paragraph index available: cases whose best paragraph matches the words.
@@ -1405,6 +1405,9 @@ def fetch_analytics_search_cases(
 				"ELSE 'Metadata' END", "WHEN c.id = ANY(CAST(:para_ids AS integer[])) THEN 'Paragraph match' ELSE 'Metadata' END"
 			)
 		else:
+			if search_full_text:
+				# Whole-text phrase scan: only without paragraph hits, as OR-ing it in forces a scan of every case.
+				query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
 			sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
 			if sentence_filter:
 				# A sentence rarely appears verbatim; also accept cases containing most of its content words.
@@ -1559,7 +1562,20 @@ def fetch_analytics_search_cases(
 	)
 	if cohort_ids is not None:
 		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
-	rows = db.execute(statement, params).mappings().all()
+	slow_text_scan = bool(query) and search_full_text and not query_uses_operators and not paragraph_case_ids
+	try:
+		if slow_text_scan:
+			# No paragraph index hits: the whole-text scan is bounded so a demo never hangs.
+			db.execute(sql_text(f"SET LOCAL statement_timeout = {int(SEARCH_SCAN_TIMEOUT_MS)}"), {})
+		rows = db.execute(statement, params).mappings().all()
+	except OperationalError as error:
+		if "statement timeout" not in str(error).lower() and "canceling statement" not in str(error).lower():
+			raise
+		db.rollback()
+		raise HTTPException(
+			status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+			detail="That search was too broad to finish in time. Add more specific words or untick full-text search.",
+		) from error
 	paragraph_snippets = _paragraph_snippets(db, rows, paragraph_best_chunk) if paragraph_best_chunk else {}
 	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
 	case_types = _page_case_types(db, [int(row["id"]) for row in rows])

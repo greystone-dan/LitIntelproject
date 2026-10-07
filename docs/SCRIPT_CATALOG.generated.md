@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 187
+Active scripts documented: 189
 
 ## Catalog
 
@@ -77,6 +77,7 @@ Active scripts documented: 187
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `daily_intake.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\daily_intake.py --help` |
 | `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
@@ -111,6 +112,7 @@ Active scripts documented: 187
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
+| `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
@@ -1136,6 +1138,20 @@ Active scripts documented: 187
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
 ```
 
+## `scripts/daily_intake.py`
+
+**Purpose:** Daily intake: new decisions from A2AJ, then new Federal Court (IMM) activity records. One run does, in order: 1. Cases. For each court (default FC, FCA, SCC) it asks Hugging Face whether the A2AJ partition has changed since the last completed run (one HEAD request, no download). Only if it changed does it download the partition, import decisions newer than what the library holds (minus a small overlap), skip anything already present, and run the deterministic processing layers (chunks, metadata, outcome, citations, statutes, tags) on each new case. 2. FC activity. New IMM files are found by walking forward from the highest IMM number already stored for the current year, fetching each from the Federal Court registry until several numbers in a row do not exist. A few recently active files are also re-fetched so their newest docket entries arrive. Touched files are re-classified with the existing rule classifier. Everything is deterministic: no AI or model calls. Each run writes one row to ingestion_runs (started, then finished with finished_at and counts). Caps keep a run small: --max-cases, --max-fc-requests, --max-minutes. Re-running is safe: existing cases and docket entries are never duplicated. Usage: python scripts/daily_intake.py --dry-run # report only, writes nothing python scripts/daily_intake.py # the real daily run python scripts/daily_intake.py --skip-activity # cases only python scripts/daily_intake.py --skip-cases # FC activity only
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\daily_intake.py --help
+```
+
 ## `scripts/deduplicate_a2aj.py`
 
 **Purpose:** Deduplication logic for A2AJ decisions against existing iLit corpus. Matches A2AJ decisions to existing decisions using: 1. Neutral citation (normalized) + decision date 2. Case name + date (fallback) This prevents duplicate storage and enables citation linking. Note: This is a dry-run proof-of-concept showing dedup logic. Actual implementation requires database access and citation normalization rules.
@@ -1610,6 +1626,20 @@ Active scripts documented: 187
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help
+```
+
+## `scripts/flag_weak_short_form_links.py`
+
+**Purpose:** PARKED 2026-10-06: Daniel asked to leave the live cleanup for later; do not run --apply. Evidence note: /mnt/project-files/citation-refinement/wrong-short-form-links-evidence-2026-10-06.md Find (and optionally unlink) live short-form citations that point at the wrong case. Pass one anchored many capitalised common words ("Lake", "Bank", "Council", "Quebec") to a nearby full citation, and the resolver then linked those rows to the anchored case, so cited-by counts on the live site include links that are not citations of that case. This script re-judges every LINKED short-form row with the same rules the refinement uses (`backend/citation_refine/short_forms.py`) plus one more: the alias must appear as whole words in the linked case's own title. DRY RUN BY DEFAULT: it only reads, prints counts by reason, and writes the suspect rows to a CSV for review. python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv # dry run python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv --apply # unlink the suspects python scripts/flag_weak_short_form_links.py --revert-from logs/weak_links.csv --apply # put the links back `--apply` sets `target_case_id` to NULL and `unresolved` to true on the suspect rows only (the backup CSV holds each row's id and previous target and is written BEFORE any change). Cited-by counts and paragraph cited-by data derive from these links and need their usual recompute afterwards; nothing here recomputes them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help
 ```
 
 ## `scripts/generate_api_reference.py`
@@ -2286,7 +2316,7 @@ Active scripts documented: 187
 
 ## `scripts/repair_range_word_sections.py`
 
-**Purpose:** Repair statute_references.provision_section values like "34t" that came from "34 to 37". The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
+**Purpose:** Repair statute_references.provision_section values like "34t" (from "34 to 37") or "25s" (from "25 s. 3"). The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
 
 **Operational class:** Utility
 

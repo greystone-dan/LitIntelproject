@@ -60,11 +60,11 @@ def test_entry_dates_follow_the_merge_date_of_their_prs():
 
 
 def test_uncovered_pr_becomes_an_auto_entry(monkeypatch):
-	records = {"prs": [{"number": 9999, "title": "Add colour-blind friendly search chips (#9999)", "merged_at": "2026-10-05T12:00:00Z", "author": "x"}], "commits": []}
+	records = {"prs": [{"number": 9999, "title": "Add colour-blind friendly search chips (#9999)", "merged_at": "2026-12-05T12:00:00Z", "author": "x"}], "commits": []}
 	real = build_changelog._load
 	monkeypatch.setattr(build_changelog, "_load", lambda path, default: records if path == build_changelog.RECORDS else real(path, default))
 	first = build_changelog.build()["entries"][0]
-	assert first["auto"] is True and first["date"] == "2026-10-05"
+	assert first["auto"] is True and first["date"] == "2026-12-05"
 	assert first["title"] == "Add colour-blind friendly search chips" and first["theme"] == "search"
 
 
@@ -90,9 +90,20 @@ def test_build_script_check_passes():
 	assert result.returncode == 0, result.stderr
 
 
-def test_about_text_has_no_stale_figures():
+def test_about_text_has_no_stale_figures_or_funding():
 	text = (ROOT / "backend" / "pages" / "about_content.html").read_text(encoding="utf-8")
 	for stale in ("316,940", "61,000", "1.44 M", "183,010", "705 automated", "About 700", "3 of 10", "13,424", "28 Sept 2026"):
 		assert stale not in text, stale
-	for key in ("cases", "citations", "linked_citations", "fc_activity_cases", "fc_activity_documents"):
+	for money in ("US$", "funding", "Funding", "Mac Studio", "MacBook", "subscription", "pricing", "Westlaw", "Lexis"):
+		assert money not in text, money
+	for key in ("cases", "citations", "fc_activity_cases"):
 		assert f'data-live="{key}"' in text
+
+
+def test_about_coming_soon_list_matches_the_navigation():
+	from backend.pages.pitch_nav import COMING_SOON
+
+	html = data_explorer_page_html()
+	list_html = re.search(r'<ul class="soon-list">(.*?)</ul>', html, re.S).group(1)
+	for _key, name, _text in COMING_SOON:
+		assert name.replace("&", "&amp;") in list_html

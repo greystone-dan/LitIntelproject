@@ -63,7 +63,12 @@ def parse_provision_identity(pinpoint: str | None) -> tuple[str | None, str | No
     is_range_or_list = bool(re.search(r"(?:,|\band\b|\bto\b|[-–])", raw_value, re.IGNORECASE))
     section = match.group("section")
     if section and section[-1].isalpha():
-        section = section[:-1] + section[-1].lower()
+        # A suffix letter counts only when it touches the digits ("7A(1)"); "25 s. 3" or "2 d" are
+        # the next word, not a section "25s" or "2d".
+        if re.match(r"\s*\d{1,3}(?:\.\d+)?[A-Za-z](?![A-Za-z])", (pinpoint or "").lstrip(". ")) is None:
+            section = section[:-1]
+        else:
+            section = section[:-1] + section[-1].lower()
     return (
         section,
         groups[0].lower() if groups else None,
@@ -198,9 +203,9 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
     },
     "canada.iad_rules": {
         "aliases": ("Immigration Appeal Division Rules", "IAD Rules"),
-        "citation": "Immigration Appeal Division Rules, SOR/2002-230",
-        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-230/",
-        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2002-230/section-{section}.html",
+        "citation": "Immigration Appeal Division Rules, 2022, SOR/2022-277",
+        "source_url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-277/",
+        "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-277/section-{section}.html",
     },
     "canada.citizenship_regulations": {
         "aliases": ("Citizenship Regulations",),
@@ -215,6 +220,54 @@ LEGISLATION_REGISTRY: dict[str, dict[str, object]] = {
         "url": None,
     },
 }
+
+
+# Further federal instruments whose text is in the library (scripts/index_legislation.py). Aliases are the
+# plain federal titles; where provincial acts share the title (Privacy Act, Interpretation Act, Supreme Court Act)
+# only the full federal citation counts. "Excise Act, 2001" comes before "Excise Act" because the first alias hit wins.
+_MORE_FEDERAL_INSTRUMENTS = (
+    ("canada.patent_act", ("Patent Act",), "Patent Act, R.S.C. 1985, c. P-4", "acts/P-4"),
+    ("canada.competition_act", ("Competition Act",), "Competition Act, R.S.C. 1985, c. C-34", "acts/C-34"),
+    ("canada.bankruptcy_insolvency_act", ("Bankruptcy and Insolvency Act",), "Bankruptcy and Insolvency Act, R.S.C. 1985, c. B-3", "acts/B-3"),
+    ("canada.food_and_drugs_act", ("Food and Drugs Act", "Food and Drug Act"), "Food and Drugs Act, R.S.C. 1985, c. F-27", "acts/F-27"),
+    ("canada.controlled_drugs_substances_act", ("Controlled Drugs and Substances Act", "CDSA"), "Controlled Drugs and Substances Act, S.C. 1996, c. 19", "acts/C-38.8"),
+    ("canada.evidence_act", ("Canada Evidence Act",), "Canada Evidence Act, R.S.C. 1985, c. C-5", "acts/C-5"),
+    ("canada.access_to_information_act", ("Access to Information Act",), "Access to Information Act, R.S.C. 1985, c. A-1", "acts/A-1"),
+    ("canada.fisheries_act", ("Fisheries Act",), "Fisheries Act, R.S.C. 1985, c. F-14", "acts/F-14"),
+    ("canada.labour_code", ("Canada Labour Code",), "Canada Labour Code, R.S.C. 1985, c. L-2", "acts/L-2"),
+    ("canada.criminal_records_act", ("Criminal Records Act",), "Criminal Records Act, R.S.C. 1985, c. C-47", "acts/C-47"),
+    ("canada.csis_act", ("Canadian Security Intelligence Service Act", "CSIS Act"), "Canadian Security Intelligence Service Act, R.S.C. 1985, c. C-23", "acts/C-23"),
+    ("canada.extradition_act", ("Extradition Act",), "Extradition Act, S.C. 1999, c. 18", "acts/E-23.01"),
+    ("canada.security_of_information_act", ("Security of Information Act",), "Security of Information Act, R.S.C. 1985, c. O-5", "acts/O-5"),
+    ("canada.marine_act", ("Canada Marine Act",), "Canada Marine Act, S.C. 1998, c. 10", "acts/C-6.7"),
+    ("canada.employment_insurance_act", ("Employment Insurance Act",), "Employment Insurance Act, S.C. 1996, c. 23", "acts/E-5.6"),
+    ("canada.railway_safety_act", ("Railway Safety Act",), "Railway Safety Act, R.S.C. 1985, c. 32 (4th Supp.)", "acts/R-4.2"),
+    ("canada.crown_liability_proceedings_act", ("Crown Liability and Proceedings Act",), "Crown Liability and Proceedings Act, R.S.C. 1985, c. C-50", "acts/C-50"),
+    ("canada.shipping_act_2001", ("Canada Shipping Act, 2001", "Canada Shipping Act 2001"), "Canada Shipping Act, 2001, S.C. 2001, c. 26", "acts/C-10.15"),
+    ("canada.fpslra", ("Federal Public Sector Labour Relations Act", "Public Service Labour Relations Act"), "Federal Public Sector Labour Relations Act, S.C. 2003, c. 22, s. 2", "acts/P-33.3"),
+    ("canada.pcmltfa", ("Proceeds of Crime (Money Laundering) and Terrorist Financing Act", "PCMLTFA"), "Proceeds of Crime (Money Laundering) and Terrorist Financing Act, S.C. 2000, c. 17", "acts/P-24.501"),
+    ("canada.corrections_conditional_release_act", ("Corrections and Conditional Release Act", "CCRA"), "Corrections and Conditional Release Act, S.C. 1992, c. 20", "acts/C-44.6"),
+    ("canada.youth_criminal_justice_act", ("Youth Criminal Justice Act", "YCJA"), "Youth Criminal Justice Act, S.C. 2002, c. 1", "acts/Y-1.5"),
+    ("canada.indian_act", ("Indian Act",), "Indian Act, R.S.C. 1985, c. I-5", "acts/I-5"),
+    ("canada.human_rights_act", ("Canadian Human Rights Act",), "Canadian Human Rights Act, R.S.C. 1985, c. H-6", "acts/H-6"),
+    ("canada.excise_act_2001", ("Excise Act, 2001", "Excise Act 2001"), "Excise Act, 2001, S.C. 2002, c. 22", "acts/E-14.1"),
+    ("canada.excise_act", ("Excise Act",), "Excise Act, R.S.C. 1985, c. E-14", "acts/E-14"),
+    ("canada.privacy_act", ("Privacy Act, R.S.C. 1985, c. P-21",), "Privacy Act, R.S.C. 1985, c. P-21", "acts/P-21"),
+    ("canada.interpretation_act", ("Interpretation Act, R.S.C. 1985, c. I-21",), "Interpretation Act, R.S.C. 1985, c. I-21", "acts/I-21"),
+    ("canada.supreme_court_act", ("Supreme Court Act, R.S.C. 1985, c. S-26",), "Supreme Court Act, R.S.C. 1985, c. S-26", "acts/S-26"),
+    ("canada.noc_regulations", ("Patented Medicines (Notice of Compliance) Regulations", "NOC Regulations", "PM(NOC) Regulations"), "Patented Medicines (Notice of Compliance) Regulations, SOR/93-133", "regulations/SOR-93-133"),
+    ("canada.food_and_drug_regulations", ("Food and Drug Regulations",), "Food and Drug Regulations, C.R.C., c. 870", "regulations/C.R.C.,_c._870"),
+)
+for _key, _aliases, _citation, _path in _MORE_FEDERAL_INSTRUMENTS:
+    LEGISLATION_REGISTRY.setdefault(
+        _key,
+        {
+            "aliases": _aliases,
+            "citation": _citation,
+            "source_url": f"https://laws-lois.justice.gc.ca/eng/{_path}/",
+            "url": f"https://laws-lois.justice.gc.ca/eng/{_path}/section-{{section}}.html",
+        },
+    )
 
 
 def canonical_citation_name(name: str) -> str:

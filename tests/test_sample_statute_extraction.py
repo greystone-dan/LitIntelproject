@@ -81,3 +81,58 @@ def test_federal_court_immigration_decision_ties_bare_96_to_irpa_not_charter():
 def test_non_immigration_decision_does_not_default_to_irpa():
     text = "The Patent Act (the \"Act\") applies. See section 96 of the Act and section 97."
     assert not [e for e in analyze_text(text, "FC")["extracted"] if e["instrument_key"] == "canada.irpa"]
+
+
+_CASE_35113_TEXT = (
+    "Docket: IMM-20375-24 "
+    "The Applicant relies on subsection 108(4) of the IRPA and says denial of an abeyance would be contrary to his section 7 rights under the "
+    "Canadian Charter of Rights and Freedoms, Part I of the Constitution Act, 1982, being Schedule B to the Canada Act 1982 (UK), 1982, c 11 [Charter]. "
+    "He asks for a remedy under subsection 24(1) of the Charter. The Officer limited the analysis to section 97 of the IRPA as the Applicant did not fall within "
+    "subparagraphs 113(e)(i) or (ii) of the IRPA. Under the compelling reasons exception in subsection 108(4) of the IRPA, paragraph 108(1)(e) does not apply. "
+    "As the PRRA will not be assessed under Section 96, 1 note that pursuant to section 97(1)(b)(iv) of the IRPA the Officer is precluded. "
+    "The first requirement for the application of section 108(4) is met. It is at the removal stage where the section 7 interests are engaged. "
+    "The IRPA, the IRPA and the IRPA again; the IRPA once more."
+)
+
+
+def _keyed(text, court="FC"):
+    return {(e["text"], e["instrument_key"], e["pinpoint"]) for e in analyze_text(text, court)["extracted"]}
+
+
+def test_case_35113_charter_rights_and_interests_stay_with_the_charter():
+    keyed = _keyed(_CASE_35113_TEXT)
+    assert ("section 7", "canada.charter", "7") in keyed
+    assert ("subsection 24(1) of the Charter", "canada.charter", "24(1)") in keyed
+    assert not [k for k in keyed if k[1] == "canada.irpa" and k[2] == "7"]
+
+
+def test_case_35113_bare_irpa_provisions_follow_the_dominant_act():
+    keyed = _keyed(_CASE_35113_TEXT)
+    assert ("section 108(4)", "canada.irpa", "108(4)") in keyed
+    assert ("paragraph 108(1)(e)", "canada.irpa", "108(1)(e)") in keyed
+
+
+def test_case_35113_bracket_continuation_stray_digit_and_canada_act():
+    result = analyze_text(_CASE_35113_TEXT, "FC")["extracted"]
+    assert ("subparagraphs 113(e)(i) or (ii) of the IRPA", "canada.irpa", "113(e)(i),113(e)(ii)") in {
+        (e["text"], e["instrument_key"], e["pinpoint"]) for e in result
+    }
+    assert not [e for e in result if e["text"].strip().lower() == "canada act"]
+    assert ("Section 96", "canada.irpa", "96") in {(e["text"], e["instrument_key"], e["pinpoint"]) for e in result}
+
+
+def test_the_act_defined_in_the_decision_is_used_for_bare_provisions():
+    text = (
+        'The Customs Act R.S.C. 1985 c-1 (2nd Supp.) (the "Act") applies. ' + "x " * 400 +
+        "A Notice pursuant to subsection 124(1) of the Act was issued. " + "y " * 400 +
+        "The Federal Court Act applies. " + "zz. " * 300 + "Section 135 of the Act provides an appeal."
+    )
+    keyed = {(e["text"], e["instrument_key"], e["pinpoint"]) for e in analyze_text(text)["extracted"]}
+    assert ("subsection 124(1)", "canada.customs_act", "124(1)") in keyed
+    assert ("Section 135", "canada.customs_act", "135") in keyed
+
+
+def test_bare_of_the_act_with_unregistered_nearest_act_keeps_a_row_without_instrument():
+    text = "The Radiocommunication Act applies. Subsection 140(1) of the Act provides for reviews."
+    rows = [e for e in analyze_text(text)["extracted"] if e["text"].lower().startswith("subsection")]
+    assert rows and rows[0]["instrument_key"] is None

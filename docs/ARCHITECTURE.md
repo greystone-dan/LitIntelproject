@@ -255,7 +255,6 @@ test checks that these paths continue to exist.
 | `backend/pages/explorer_snapshots.js` | Browser behavior for Explorer snapshot views |
 | `backend/pages/fc_analytics.py` | Federal Court activity analytics page |
 | `backend/pages/future_features.html` | TODO: describe this file |
-| `backend/pages/future_tour_steps.json` | TODO: describe this file |
 | `backend/pages/issue_brief.py` | Printable source-linked issue brief page |
 | `backend/pages/judge_outcomes.py` | Judge outcomes page builder |
 | `backend/pages/live_analysis.py` | Live Analysis page: the research page with a view that opens your own document in the reader's markup mode |

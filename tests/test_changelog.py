@@ -70,7 +70,7 @@ def test_uncovered_pr_becomes_an_auto_entry(monkeypatch):
 
 def test_about_page_has_overview_and_changelog_views_without_network_calls():
 	html = data_explorer_page_html()
-	assert 'data-about-view="overview"' in html and 'data-about-view="changelog"' in html
+	assert 'data-tab="about-changelog"' in html and 'id="aboutChangelogPane"' in html
 	assert 'id="changelogData"' in html and 'id="aboutChangelogPane"' in html
 	script = re.search(r"<script>\s*\(function\(\)\{\nconst data=JSON.parse.*?</script>", html, re.S).group(0)
 	assert "fetch(" not in script

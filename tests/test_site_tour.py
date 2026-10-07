@@ -168,26 +168,14 @@ def test_card_stays_in_one_place_on_desktop():
     assert "card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'" in tour_js()
 
 
-def test_future_features_tour_is_valid_and_served():
-    from backend.site_tour import future_tour_js, future_tour_steps
-
-    data = future_tour_steps()
-    assert check_site_tour.validate_steps(data) == []
-    assert {s["url"] for s in data["steps"]} == {"/future-features"}
+def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
     page = client.get("/future-features")
-    assert page.status_code == 200 and "/future-tour.js" in page.text and "/site-tour.js" not in page.text
-    assert "Concept mock-ups, not built yet" in page.text
-    for step in data["steps"]:
-        target = step["target"]
-        assert target.startswith("#") and f'id="{target[1:]}"' in page.text, step["id"]
-    script = client.get("/future-tour.js")
-    assert script.status_code == 200 and script.text.startswith("window.ILIT_TOUR=")
-    assert '"key": "ilit.tour.future.v1"' in future_tour_js() and "fetch(" in future_tour_js()
-
-
-def test_future_tour_is_reachable_from_about_and_coming_soon():
+    assert page.status_code == 200
+    assert "/site-tour.js" not in page.text and "<script" not in page.text
+    assert "Future state, not built yet" in page.text and "Concept mock-up, not built yet" in page.text
+    assert page.text.count('class="facts"') >= 8
     html = routes._data_explorer_page_html()
-    assert html.count('href="/future-features?tour=1"') >= 2
+    assert html.count('href="/future-features"') >= 2
 
 
 def test_sections_follow_the_header_tabs_without_going_back():

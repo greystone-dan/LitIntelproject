@@ -115,7 +115,7 @@ _BODY = r'''<body>
 <a class="brand" href="/data-explorer?tab=about&group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
 <nav class="topnav" style="margin-left:auto" aria-label="Primary navigation">
 <a href="/data-explorer?tab=about">About</a>
-<a href="/data-explorer?tab=search">Case search</a>
+<a href="/data-explorer?tab=search">Research</a>
 <a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a>
 <a href="/workbench" class="active" aria-current="page">Workbench</a>
 <a href="/data-explorer?tab=soon-themes&group=soon">Coming soon</a>

@@ -183,7 +183,7 @@ def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Case search", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
+    assert order == ["Welcome", "Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name

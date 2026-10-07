@@ -1,6 +1,6 @@
 """Pitch navigation: four top-level tabs on the main explorer page.
 
-About, Case search, Intelligence / Statistics (Judge Profiles, Citation
+About, Research, Intelligence / Statistics (Judge Profiles, Citation
 Intelligence, Federal Court Analytics) and Coming soon (every other feature, each with a
 short explainer). The real pages stay in the code and stay reachable by direct
 URL, for example ``/data-explorer?tab=themes`` or ``/live-analysis``.
@@ -52,7 +52,7 @@ _BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&
 
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">
 <button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">About</button>
-<button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Case search</button>
+<button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Research</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
 <button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
@@ -71,7 +71,7 @@ def _subnav() -> str:
     rows = [
         _tab("info", "about", "aboutPanel", "Overview"),
         _tab("info", "about-changelog", "aboutPanel", "Changelog"),
-        _tab("research", "search", "searchPanel", "Case search", active=True, hidden=False),
+        _tab("research", "search", "searchPanel", "Research", active=True),
         _tab("intel", "judge-profile", "judgeProfilePanel", "Judge Profiles"),
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
@@ -82,7 +82,7 @@ def _subnav() -> str:
         '<a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>',
         '<a class="tab" data-nav-group="testing" href="/citation-pass" hidden>Citation Pass QA</a>',
     ]
-    return '<nav id="researchViews" class="view-tabs group-views" aria-label="Case search views">\n' + "\n".join(rows) + "\n</nav>"
+    return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
 
 _BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
@@ -101,6 +101,7 @@ _CSS = """<style>
 @media(max-width:600px){.topbar .brand-home{flex-basis:100%;margin:0}.topbar .primary-groups{margin-left:0}}
 .research-nav a.primary-link{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}.research-nav a.primary-link:hover{color:var(--teal)}
 .pitch-embedded .topbar,.pitch-embedded #researchViews{display:none!important}
+#researchViews[hidden]{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}
 .cs-banner{margin:0 0 10px}.cs-banner .ilit-tour-start{margin:10px 0 0}.cs-banner .cs-strip{margin:0}
@@ -118,7 +119,7 @@ def _script() -> str:
         info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target}
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
-        "const pitchLabels={info:'About',research:'Case search',intel:'Intelligence and statistics',soon:'Coming soon',testing:'Testing',direct:'Other'};\n"
+        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',soon:'Coming soon',testing:'Testing',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
         "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],soon:['soon'],testing:['research-bench']});\n"

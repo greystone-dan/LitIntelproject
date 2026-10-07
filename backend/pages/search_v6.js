@@ -38,8 +38,19 @@ window.professionalResultCard=function(item){
 const baseSetStatus=window.setSearchStatus;
 window.setSearchStatus=function(message,state){
  const match=/^Showing (\d[\d,]*) matching decisions?\./.exec(message||'');
- if(match){const n=match[1],query=($('searchQuery').value||'').trim();message=`${n} decision${n==='1'?'':'s'}${query?` for “${query}”`:''}`;}
+ if(match){const n=match[1],query=($('searchQuery').value||'').trim();
+  /* a full page of 50 may be only part of the matches: say "50+" until the real total arrives */
+  message=`${Number(n.replace(/,/g,''))>=PAGE?n+'+':n} decision${n==='1'?'':'s'}${query?` for “${query}”`:''}`;}
+ panel.classList.toggle('sp-loading',state==='loading');
  return baseSetStatus(message,state);
+};
+/* the real number of matches, once the counts arrive (a page is capped at 50 rows) */
+window.__spShowTotal=function(total){
+ total=Number(total);if(!Number.isFinite(total)||total<=0)return;
+ const meta=$('searchMeta');if(!meta||meta.dataset.state!=='success')return;
+ const query=($('searchQuery').value||'').trim(),rows=document.querySelectorAll('#searchResults .case-result').length;
+ meta.textContent=`${fmtNum(total)} decision${total===1?'':'s'}${query?` for “${query}”`:''}${total>rows?` · showing the first ${fmtNum(rows)}`:''}`;
+ if(moreButton&&!moreButton.hidden&&rows>=total)moreButton.hidden=true;
 };
 
 /* Show more: next page by offset, appended under the current rows */
@@ -104,14 +115,14 @@ document.addEventListener('click',event=>{
  const target=event.target;
  if(!target.closest)return;
  if(target.closest('#toggleAdvancedSearch')){event.stopImmediatePropagation();event.stopPropagation();setAdvanced(!panel.classList.contains('sp-adv'));return;}
- if(target.closest('#clearSearch')){
+ if(target.closest('#clearSearch,#clearSearchTop')){
   event.stopImmediatePropagation();event.stopPropagation();
   $('caseSearch').reset();$('advancedSearchOptions').reset();
-  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','decisionOutcome','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});
+  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});
   $('ministerFilter').value='';$('searchSort').value='newest';$('quickSort').value='newest';
   if(window.__pickReset)window.__pickReset();
   $('searchResults').innerHTML='';if(moreButton)moreButton.hidden=true;
-  setSearchStatus('Search by case name or citation, or press Recent cases to see the newest decisions.');
+  setSearchStatus('Search by case name or citation, or use Show recent cases or Show most cited.');
   if(typeof qfSync==='function')qfSync();if(typeof updateSearchFilterSummary==='function')updateSearchFilterSummary();
   return;
  }
@@ -202,7 +213,7 @@ $('mostCitedCases')?.addEventListener('click',()=>{
  $('caseSearch').requestSubmit();
 });
 
-setSearchStatus('Search by case name or citation, or press Recent cases or Most cited.');
+setSearchStatus('Search by case name or citation, or use Show recent cases or Show most cited.');
 { /* ?q= opens the search with that text (Workbench recent searches link here) */
  const wanted=new URLSearchParams(location.search).get('q');
  if(wanted&&!$('searchQuery').value){$('searchQuery').value=wanted;setTimeout(()=>$('caseSearch').requestSubmit(),0);}

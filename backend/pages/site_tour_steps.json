@@ -74,23 +74,23 @@
       "section": "Welcome",
       "url": "/data-explorer?tab=about",
       "title": "The tour follows these tabs",
-      "text": "We go left to right: Case search to find and read decisions, Intelligence / Statistics for judges, citations and Federal Court activity, then the Workbench and its document tools. At the end, how the library keeps itself current.",
+      "text": "We go left to right: Research to find and read decisions, Intelligence / Statistics for judges, citations and Federal Court activity, then the Workbench and its document tools. At the end, how the library keeps itself current.",
       "target": "nav.primary-groups"
     },
     {
       "id": "search-page",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
-      "title": "Case search",
+      "title": "Research",
       "text": "This page is where research starts. One box takes a case name, a citation such as 2019 SCC 65, or a few words from the reasons. Filters narrow any search, and results list below with each decision's court, date, outcome and how often it is cited.",
       "target": "#caseSearch",
       "top": true,
-      "lead": "OK, let's move on to Case search.",
+      "lead": "OK, let's move on to Research.",
       "via": "nav.primary-groups [data-group='research']"
     },
     {
       "id": "adv-open",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "The filters",
       "text": "Advanced opens the filters on the left. Outcome (who won) and Court are one click each; below them are case type, decision result, cases citing a decision, topic tags, judge, Minister and year. Every filter combines with the words in the box.",
@@ -107,7 +107,7 @@
     },
     {
       "id": "adv-case-type",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Case type",
       "text": "Case type sorts every decision by the kind of case it is, worked out from the statute provisions it discusses, with no AI. Each group opens to its types; tick one or more.",
@@ -123,7 +123,7 @@
     },
     {
       "id": "adv-tag",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Find a topic tag",
       "text": "Tags are the legal topics found in each decision. Start typing and matching tags appear, with how many decisions carry each. I typed cessation.",
@@ -151,7 +151,7 @@
     },
     {
       "id": "adv-tag-pick",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Select it",
       "text": "I picked the cessation tag. It now sits under the box as a filter; the × removes it.",
@@ -191,7 +191,7 @@
     },
     {
       "id": "ces-won",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Add an outcome",
       "text": "Say you need cessation decisions the Minister won. I pressed Government won, which runs the search with both filters.",
@@ -237,7 +237,7 @@
     },
     {
       "id": "ces-results",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "The matching decisions",
       "text": "These are cessation decisions the Minister won. Each row shows the court, date, judge, outcome and case type, and how many decisions cite it. Words typed in the box would narrow the list further.",
@@ -285,7 +285,7 @@
     },
     {
       "id": "vav-words",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "A search by name",
       "text": "Now a plain search. I cleared the filters and typed Vavilov, the Supreme Court's leading decision on the standard of review.",
@@ -312,7 +312,7 @@
     },
     {
       "id": "vav-results",
-      "section": "Case search",
+      "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "The result",
       "text": "I pressed Search. Vavilov is at the top, with its court, date, outcome and citation count. Next opens it.",

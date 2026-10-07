@@ -1192,6 +1192,12 @@ def _search_facets(db, where_clause, params, cohort_ids):
 		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
 	}
 	facets["case_type"] = _case_type_facet(db, where_clause, facet_params, cohort_ids)
+	total_statement = sql_text(f"SELECT COUNT(*) AS n FROM cases c WHERE {where_clause}")
+	if cohort_ids is not None:
+		total_statement = total_statement.bindparams(bindparam("cohort_ids", expanding=True))
+	# Real number of matching decisions, so a page capped at 50 can still say how many there are.
+	total_rows = db.execute(total_statement, facet_params).mappings().all()
+	facets["total"] = int((total_rows[0].get("n") if total_rows else 0) or 0)
 	return facets
 
 
@@ -1462,13 +1468,18 @@ def fetch_analytics_search_cases(
 	if judge:
 		params["judge"] = f"%{judge}%"
 		filters.append("c.metadata_json->'reader_extracted'->>'judge' ILIKE :judge")
-	if court:
-		if court.strip().upper() == "FC":
-			# Exact match so "FC" does not also match "FCA" or "Federal Court of Appeal".
-			filters.append("UPPER(c.court) IN ('FC', 'FEDERAL COURT')")
-		else:
-			params["court"] = f"%{court}%"
-			filters.append("c.court ILIKE :court")
+	# One or more courts, comma separated (a decision matches when its court is any of them).
+	court_values = [value.strip() for value in court.split(",") if value.strip()][:8]
+	if court_values:
+		court_clauses = []
+		for index, value in enumerate(dict.fromkeys(court_values)):
+			if value.upper() == "FC":
+				# Exact match so "FC" does not also match "FCA" or "Federal Court of Appeal".
+				court_clauses.append("UPPER(c.court) IN ('FC', 'FEDERAL COURT')")
+			else:
+				params[f"court_{index}"] = f"%{value}%"
+				court_clauses.append(f"c.court ILIKE :court_{index}")
+		filters.append("(" + " OR ".join(court_clauses) + ")")
 	# One or more case types, comma separated (a decision matches when its primary or second type is any of them).
 	case_types = [value.strip() for value in case_type.split(",") if value.strip()][:8]
 	if case_types:

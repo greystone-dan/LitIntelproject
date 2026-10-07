@@ -51,6 +51,10 @@ def new_rows_for_texts(texts: list[str], court: str | None = None) -> list[dict[
                     "pinpoint": parsed.pinpoint if parsed else None,
                     "provision_section": parsed.section if parsed else None,
                     "provision_is_range_or_list": bool(parsed.is_range_or_list) if parsed else False,
+                    "reference_text": match.citation_text,
+                    "normalized_reference": match.normalized_citation,
+                    "offset_start": match.offset_start,
+                    "offset_end": match.offset_end,
                 }
             )
     return rows
@@ -84,6 +88,43 @@ def diff_case(old: list[dict[str, Any]], new: list[dict[str, Any]]) -> dict[str,
     }
 
 
+def diff_rows(old: list[dict[str, Any]], new: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """The old rows the new run no longer produces, and the new rows the old run lacked (same key rule as diff_case)."""
+    def leftovers(rows: list[dict[str, Any]], other: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        budget = Counter(row_key(r) for r in other)
+        left: list[dict[str, Any]] = []
+        for row in rows:
+            key = row_key(row)
+            if budget[key] > 0:
+                budget[key] -= 1
+            else:
+                left.append(row)
+        return left
+
+    return leftovers(old, new), leftovers(new, old)
+
+
+def context_of(text: str, start: Any, end: Any, width: int = 110) -> str:
+    if not isinstance(start, int) or not isinstance(end, int):
+        return ""
+    return " ".join(text[max(0, start - width) : end + width].split())
+
+
+def detail_record(case_id: int, text: str, old: list[dict[str, Any]], new: list[dict[str, Any]]) -> dict[str, Any]:
+    removed, added = diff_rows(old, new)
+
+    def shape(row: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "text": row.get("reference_text"),
+            "normalized": row.get("normalized_reference"),
+            "instrument_key": row.get("instrument_key"),
+            "pinpoint": row.get("pinpoint"),
+            "context": context_of(text, row.get("offset_start"), row.get("offset_end")),
+        }
+
+    return {"case_id": case_id, "removed": [shape(r) for r in removed], "added": [shape(r) for r in added]}
+
+
 def select_case_ids(db, case_ids: list[int], sample: int | None, seed: int, include_all: bool, limit: int) -> list[int]:
     if case_ids:
         return sorted(case_ids)
@@ -108,13 +149,20 @@ def stored_rows(db, case_id: int) -> list[dict[str, Any]]:
     return [{name: getattr(row, name) for name in BACKUP_COLUMNS} for row in result]
 
 
-def run(case_ids: list[int], apply: bool, backup_path: Path | None, batch_size: int) -> dict[str, Any]:
+def run(
+    case_ids: list[int],
+    apply: bool,
+    backup_path: Path | None,
+    batch_size: int,
+    detail_path: Path | None = None,
+) -> dict[str, Any]:
     before: Counter[str] = Counter()
     after: Counter[str] = Counter()
     changes: Counter[str] = Counter()
     samples: list[dict[str, Any]] = []
     with SessionLocal() as db:
         backup = backup_path.open("a", encoding="utf-8") if apply and backup_path else None
+        detail = detail_path.open("w", encoding="utf-8") if detail_path else None
         try:
             for index, case_id in enumerate(case_ids, 1):
                 case = db.get(Case, case_id)
@@ -122,13 +170,16 @@ def run(case_ids: list[int], apply: bool, backup_path: Path | None, batch_size: 
                     changes["case_missing"] += 1
                     continue
                 old = stored_rows(db, case_id)
-                new = new_rows_for_texts(case_texts(db, case), case.court)
+                texts = case_texts(db, case)
+                new = new_rows_for_texts(texts, case.court)
                 before.update(summarize(old))
                 after.update(summarize(new))
                 diff = diff_case(old, new)
                 changes.update(diff)
                 if (diff["added"] or diff["removed"]) and len(samples) < 20:
                     samples.append({"case_id": case_id, **diff})
+                if detail is not None and (diff["added"] or diff["removed"]):
+                    detail.write(json.dumps(detail_record(case_id, texts[0], old, new), default=str) + "\n")
                 if apply:
                     if backup is not None:
                         backup.write(json.dumps({"case_id": case_id, "rows": old}, default=str) + "\n")
@@ -142,6 +193,8 @@ def run(case_ids: list[int], apply: bool, backup_path: Path | None, batch_size: 
         finally:
             if backup is not None:
                 backup.close()
+            if detail is not None:
+                detail.close()
     return {"before": dict(before), "after": dict(after), "changes": dict(changes), "samples": samples}
 
 
@@ -156,6 +209,12 @@ def main() -> None:
     parser.add_argument("--confirm-statute-reextract", action="store_true", help="required with --apply")
     parser.add_argument("--backup", type=Path, default=PROJECT_ROOT / "data" / "statute_references_backup.jsonl")
     parser.add_argument("--batch-size", type=int, default=50)
+    parser.add_argument(
+        "--detail-file",
+        type=Path,
+        default=None,
+        help="write every removed and added row with its surrounding text, one JSON line per changed case (read-only)",
+    )
     args = parser.parse_args()
     if not (args.case_id or args.sample or args.all):
         parser.error("choose --case-id, --sample N or --all")
@@ -165,7 +224,7 @@ def main() -> None:
         case_ids = select_case_ids(db, args.case_id, args.sample, args.seed, args.all, args.limit)
     if args.apply:
         args.backup.parent.mkdir(parents=True, exist_ok=True)
-    result = run(case_ids, args.apply, args.backup if args.apply else None, args.batch_size)
+    result = run(case_ids, args.apply, args.backup if args.apply else None, args.batch_size, args.detail_file)
     print("mode:", "APPLY" if args.apply else "dry run (no writes)", "cases:", len(case_ids))
     for key in ("before", "after", "changes"):
         print(key + ":", json.dumps(result[key], sort_keys=True))

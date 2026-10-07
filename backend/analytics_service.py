@@ -1457,15 +1457,21 @@ def fetch_analytics_search_cases(
 		else:
 			params["court"] = f"%{court}%"
 			filters.append("c.court ILIKE :court")
-	case_type = case_type.strip()
-	if case_type:
-		if case_type in TYPES_BY_KEY:
-			params["case_type"] = case_type
+	# One or more case types, comma separated (a decision matches when its primary or second type is any of them).
+	case_types = [value.strip() for value in case_type.split(",") if value.strip()][:8]
+	if case_types:
+		valid = [value for value in dict.fromkeys(case_types) if value in TYPES_BY_KEY]
+		if valid:
 			params["case_type_version"] = TAXONOMY_VERSION
+			names = []
+			for index, value in enumerate(valid):
+				params[f"case_type_{index}"] = value
+				names.append(f":case_type_{index}")
+			listed = ", ".join(names)
 			filters.append(
 				"EXISTS (SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = c.id "
 				"AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'classified' "
-				"AND (ctl.primary_type = :case_type OR ctl.second_type = :case_type))"
+				f"AND (ctl.primary_type IN ({listed}) OR ctl.second_type IN ({listed})))"
 			)
 		else:
 			filters.append("FALSE")

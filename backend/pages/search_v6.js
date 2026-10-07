@@ -107,7 +107,7 @@ document.addEventListener('click',event=>{
  if(target.closest('#clearSearch')){
   event.stopImmediatePropagation();event.stopPropagation();
   $('caseSearch').reset();$('advancedSearchOptions').reset();
-  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','decisionOutcome','judgeFilter','yearFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});
+  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','decisionOutcome','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});
   $('ministerFilter').value='';$('searchFullText').checked=false;$('searchSort').value='newest';$('quickSort').value='newest';
   if(window.__pickReset)window.__pickReset();
   $('searchResults').innerHTML='';if(moreButton)moreButton.hidden=true;
@@ -207,4 +207,38 @@ setSearchStatus('Search by case name or citation, or press Recent cases or Most 
  const wanted=new URLSearchParams(location.search).get('q');
  if(wanted&&!$('searchQuery').value){$('searchQuery').value=wanted;setTimeout(()=>$('caseSearch').requestSubmit(),0);}
 }
+})();
+
+
+/* Advanced: case type, a multi-select. The ticked types go to the search as a comma-separated list; counts come from the
+   facets of the current results (stored labels only, no AI). Courts without labels simply never match a chosen type. */
+(function(){
+ const $=id=>document.getElementById(id),fmtNum=value=>Number(value).toLocaleString('en-CA');
+ const hidden=$('caseTypeFilter'),boxes=$('caseTypeBoxes'),note=$('caseTypeNote');
+ if(!hidden||!boxes)return;
+ const boxList=()=>[...boxes.querySelectorAll('.sp-ct-box')];
+ const sync=()=>{
+  const picked=boxList().filter(box=>box.checked).map(box=>box.value);
+  hidden.value=picked.join(',');
+  if(note)note.textContent=picked.length?picked.length+' selected':'pick one or more';
+  boxes.querySelectorAll('.sp-ct-group').forEach(group=>{group.classList.toggle('has-pick',!!group.querySelector('.sp-ct-box:checked'));if(group.querySelector('.sp-ct-box:checked'))group.open=true;});
+ };
+ boxes.addEventListener('change',event=>{
+  if(!event.target.classList.contains('sp-ct-box'))return;
+  sync();
+  document.getElementById('advancedSearchOptions')?.dispatchEvent(new Event('input',{bubbles:true}));
+  if(typeof qfSync==='function')qfSync();
+ });
+ /* Chip in the results bar: drop a ticked type, or all of them. */
+ window.__ctSyncFromHidden=()=>{const wanted=new Set(String(hidden.value||'').split(',').filter(Boolean));boxList().forEach(box=>{box.checked=wanted.has(box.value);});sync();};
+ window.__ctCounts=rows=>{
+  const counts=new Map((rows||[]).map(row=>[row.value,row.count]));
+  boxes.querySelectorAll('[data-ct-count]').forEach(el=>{const n=counts.get(el.dataset.ctCount);el.textContent=n?fmtNum(n):'';});
+ };
+ const basePaint=window.paintSearchRefine;
+ if(typeof basePaint==='function')window.paintSearchRefine=function(facets,values,count){
+  window.__ctCounts((facets||{}).case_type);
+  return basePaint.apply(this,arguments);
+ };
+ sync();
 })();

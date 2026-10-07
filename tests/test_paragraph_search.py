@@ -5,7 +5,28 @@ import pytest
 from backend import analytics_service, paragraph_search
 from backend.paragraph_search import query_slots, search_paragraph_cases, tier_queries
 from backend.search_thesaurus import THESAURUS, synonyms_for
-from tests.test_search_matching import AnalyticsDB
+
+
+class AnalyticsDB:
+	"""Records the case-search SQL and parameters; returns one canned row."""
+
+	def execute(self, statement, params):
+		self.page_stats = "FROM cases" not in str(statement)
+		if not self.page_stats:
+			self.sql, self.params = str(statement), params
+			self.bindparams = set(statement._bindparams)
+		return self
+
+	def mappings(self):
+		return self
+
+	def all(self):
+		if self.page_stats:
+			return []
+		return [dict(id=7, title="Baker v Canada", citation="[1999] 2 SCR 817", court="SCC",
+			date="1999-07-09", judge=None, minister=None, decision_outcome=None,
+			government_outcome=None, matching_citations=0, citation_mentions=0,
+			unique_cited_authorities=0, resolved_target_cases=0, cited_by_cases=0, matched_on="Party name")]
 
 
 def test_slots_pair_each_content_word_with_synonyms_and_quote_phrases():

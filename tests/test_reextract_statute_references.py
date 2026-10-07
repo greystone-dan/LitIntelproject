@@ -32,3 +32,20 @@ def test_detail_record_lists_removed_and_added_rows_with_context():
     assert [r["instrument_key"] for r in record["removed"]] == [None]
     assert [r["instrument_key"] for r in record["added"]] == ["canada.charter"]
     assert "s. 7" in record["added"][0]["context"]
+
+
+def test_read_backup_keeps_first_entry_per_case(tmp_path):
+    import json
+
+    from scripts.reextract_statute_references import read_backup
+
+    path = tmp_path / "backup.jsonl"
+    path.write_text(
+        json.dumps({"case_id": 5, "rows": [{"id": 1, "pinpoint": "18"}]}) + "\n"
+        + "\n"
+        + json.dumps({"case_id": 5, "rows": [{"id": 9, "pinpoint": "18.1"}]}) + "\n"
+        + json.dumps({"case_id": 6, "rows": []}) + "\n",
+        encoding="utf-8",
+    )
+    saved = read_backup(path)
+    assert saved == {5: [{"id": 1, "pinpoint": "18"}], 6: []}

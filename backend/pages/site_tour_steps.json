@@ -35,6 +35,17 @@
     "/api/fc-activity/judges?min_decisions=25",
     "/api/fc-activity/counsel?min_files=15",
     {
+      "url": "/api/fc-activity/dashboard?",
+      "years": {
+        "back": 4,
+        "then": [
+          "/api/fc-activity/dashboard?year_from={}",
+          "/api/fc-activity/judges?year_from={}&min_decisions=25",
+          "/api/fc-activity/counsel?year_from={}&min_files=15"
+        ]
+      }
+    },
+    {
       "url": "/api/judge-profiles?limit=500",
       "top": {
         "by": "decision_count",

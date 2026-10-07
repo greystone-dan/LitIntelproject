@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import os
 import re
-from bisect import bisect_right
+from bisect import bisect_left, bisect_right, insort
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime
@@ -1958,6 +1958,41 @@ def _extract_regex_candidates(content: str) -> list[tuple[int, int, RawCitationM
 	return candidates
 
 
+def _span_overlap_checker(spans: list[tuple[int, int]]):
+	"""Return overlaps(start, end): True when any span overlaps [start, end) (touching ends do not overlap).
+
+	Same answer as scanning every span, but each query is a binary search instead of a pass over all spans.
+	"""
+	ordered = sorted(spans)
+	starts = [item[0] for item in ordered]
+	furthest_end: list[int] = []
+	running = None
+	for _start, span_end in ordered:
+		running = span_end if running is None or span_end > running else running
+		furthest_end.append(running)
+
+	def overlaps(start: int, end: int) -> bool:
+		count = bisect_left(starts, end)
+		return count > 0 and furthest_end[count - 1] > start
+
+	return overlaps
+
+
+class _GrowingSpanSet:
+	"""Spans added one at a time with an overlap query; both are O(log n) when the kept spans never overlap."""
+
+	def __init__(self) -> None:
+		self._spans: list[tuple[int, int]] = []
+
+	def overlaps(self, start: int, end: int) -> bool:
+		# Kept spans are disjoint, so their ends rise with their starts and the last one starting before ``end`` decides.
+		index = bisect_left(self._spans, (end, -1))
+		return index > 0 and self._spans[index - 1][1] > start
+
+	def add(self, start: int, end: int) -> None:
+		insort(self._spans, (start, end))
+
+
 def _anchored_authority_name(citation: RawCitationMatch) -> str | None:
 	normalized = citation.normalized_citation
 	if citation.kind == "instrument":
@@ -2009,44 +2044,83 @@ def _extract_anchored_provision_candidates(
 ) -> list[RawCitationMatch]:
 	rows: list[RawCitationMatch] = []
 	context_anchors = list(anchors)
+	anchors_overlap = _span_overlap_checker([(anchor.offset_start, anchor.offset_end) for anchor in anchors])
+	authority_cache: dict[int, str | None] = {}
+
+	def authority_name(anchor: RawCitationMatch) -> str | None:
+		# Pure in the anchor; computed once per anchor, not once per provision that looks at it.
+		key = id(anchor)
+		if key not in authority_cache:
+			authority_cache[key] = _anchored_authority_name(anchor)
+		return authority_cache[key]
+
 	all_sentence_breaks = _sentence_break_ends(content)
 	for match in re.finditer(r"\b(IRPA|IRPR|Criminal Code)\b", content, re.IGNORECASE):
 		instrument = _full_statute_citation_name(match.group(1))
 		context_anchors.append(_raw_match("statute", match.group(0), instrument, match.start(), match.end()))
+
+	# Per kind, the anchors that name an authority, ordered by end and by start (ties by list position), so the
+	# lookups below are binary searches. Each lookup returns what the old scan over every anchor returned, ties
+	# included (the earliest anchor in context_anchors wins).
+	anchor_count = len(context_anchors)
+	by_end: dict[str, list[tuple[int, int]]] = defaultdict(list)
+	by_start: dict[str, list[tuple[int, int]]] = defaultdict(list)
+	for position, anchor in enumerate(context_anchors):
+		if authority_name(anchor):
+			by_end[anchor.kind].append((anchor.offset_end, position))
+			by_start[anchor.kind].append((anchor.offset_start, position))
+	for index_list in (*by_end.values(), *by_start.values()):
+		index_list.sort()
+
+	def latest_ending_anchor(kind: str, start: int) -> RawCitationMatch | None:
+		ends = by_end.get(kind, [])
+		upto = bisect_right(ends, (start, anchor_count))
+		if upto == 0 or start - ends[upto - 1][0] > 1500:
+			return None
+		return context_anchors[ends[bisect_left(ends, (ends[upto - 1][0], -1))][1]]
+
+	def closest_anchor_in_sentence(kind: str, sentence_from: int, start: int) -> RawCitationMatch | None:
+		starts = by_start.get(kind, [])
+		low = bisect_left(starts, (sentence_from, -1))
+		best_position: int | None = None
+		best_start = -1
+		index = bisect_left(starts, (start, -1)) - 1
+		while index >= low:
+			anchor_start, position = starts[index]
+			if best_position is not None and anchor_start != best_start:
+				break
+			if context_anchors[position].offset_end <= start:
+				best_position, best_start = position, anchor_start
+			index -= 1
+		return None if best_position is None else context_anchors[best_position]
+
+	def anchor_named_after(kind: str, end: int) -> RawCitationMatch | None:
+		starts = by_start.get(kind, [])
+		window = starts[bisect_left(starts, (end, -1)) : bisect_right(starts, (end + 30, anchor_count))]
+		for _anchor_start, position in sorted(window, key=lambda item: item[1]):
+			candidate = context_anchors[position]
+			if re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE):
+				return candidate
+		return None
+
+	defined_act_by_kind: dict[str, RawCitationMatch | None] = {}
+
 	for match in STANDALONE_PROVISION_RE.finditer(content):
 		start, end = match.span()
 		section_text, end = _standalone_provision_parts(content, match)
-		if any(not (end <= anchor.offset_start or start >= anchor.offset_end) for anchor in anchors):
+		if anchors_overlap(start, end):
 			continue
-
-		def sentence_break_starts(index: int) -> list[int]:
-			return all_sentence_breaks[: bisect_right(all_sentence_breaks, index)]
 
 		prefix = match.group(1).lower()
 		if "para" in prefix and "(" not in match.group(2):
 			continue
 		kind = "instrument" if prefix.startswith("art") else "statute"
-		eligible = [
-			anchor
-			for anchor in context_anchors
-			if anchor.kind == kind
-			and anchor.offset_end <= start
-			and start - anchor.offset_end <= 1500
-			and _anchored_authority_name(anchor)
-		]
-		if not eligible:
+		latest_anchor = latest_ending_anchor(kind, start)
+		if latest_anchor is None:
 			continue
-		sentence_breaks = sentence_break_starts(start)
-		sentence_start = sentence_breaks[-1] if sentence_breaks else 0
-		previous_sentence_start = sentence_breaks[-2] if len(sentence_breaks) > 1 else 0
-		sentence_anchors = [
-			anchor
-			for anchor in context_anchors
-			if anchor.kind == kind
-			and previous_sentence_start <= anchor.offset_start < start
-			and anchor.offset_end <= start
-			and _anchored_authority_name(anchor)
-		]
+		break_count = bisect_right(all_sentence_breaks, start)
+		previous_sentence_start = all_sentence_breaks[break_count - 2] if break_count > 1 else 0
+		sentence_anchor = closest_anchor_in_sentence(kind, previous_sentence_start, start)
 		following_authority = re.search(r"\bof\s+(?:the\s+)?(IRPA|IRPR|Criminal Code)\b", content[end : min(len(content), end + 180)], re.IGNORECASE)
 		if following_authority is None:
 			# "his section 7 rights under the Canadian Charter ..." / "section 7 interests" with the Charter named earlier
@@ -2075,34 +2149,26 @@ def _extract_anchored_provision_candidates(
 				authority_start + len(following_authority.group(1)),
 			)
 		else:
-			named_after = next(
-				(
-					candidate
-					for candidate in context_anchors
-					if candidate.kind == kind
-					and _anchored_authority_name(candidate)
-					and 0 <= candidate.offset_start - end <= 30
-					and re.match(r"(?:\s*(?:,|and|or)?\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?$", content[end : candidate.offset_start], re.IGNORECASE)
-				),
-				None,
-			)
+			named_after = anchor_named_after(kind, end)
 			if named_after is not None:
 				anchor = named_after
 			else:
-				anchor = min(sentence_anchors, key=lambda item: abs(item.offset_start - start)) if sentence_anchors else max(eligible, key=lambda item: item.offset_end)
-				if not sentence_anchors and re.match(
+				anchor = sentence_anchor if sentence_anchor is not None else latest_anchor
+				if sentence_anchor is None and re.match(
 					r"(?:\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the|this|that)\s+(?:Act|Regulations?|Rules?)\b", content[end : end + 50], re.IGNORECASE
 				):
 					# "section 18 of the Act" names an instrument we cannot see. Guessing the nearest registered act is
 					# usually wrong (Charter, Federal Courts Rules); an unregistered nearest act is the decision's own statute.
-					defined = _defined_act_anchor(content, context_anchors, kind)
+					if kind not in defined_act_by_kind:
+						defined_act_by_kind[kind] = _defined_act_anchor(content, context_anchors, kind)
+					defined = defined_act_by_kind[kind]
 					if defined is not None:
 						anchor = defined
 					else:
-						guessed = parse_legislation_citation(_anchored_authority_name(anchor) or "")
+						guessed = parse_legislation_citation(authority_name(anchor) or "")
 						if guessed is not None and guessed.instrument_key:
 							continue
-		authority = _anchored_authority_name(anchor)
+		authority = authority_name(anchor)
 		if not authority:
 			continue
 
@@ -2208,7 +2274,7 @@ def _extract_raw_citation_matches_v2(content: str) -> list[RawCitationMatch]:
 def _select_best_non_overlapping(candidates: list[RawCitationMatch]) -> list[RawCitationMatch]:
 	"""Keep best-ranked citations when spans overlap."""
 	selected: list[RawCitationMatch] = []
-	occupied: list[tuple[int, int]] = []
+	occupied = _GrowingSpanSet()
 	for citation in sorted(
 		candidates,
 		key=lambda item: (
@@ -2218,9 +2284,9 @@ def _select_best_non_overlapping(candidates: list[RawCitationMatch]) -> list[Raw
 		),
 	):
 		start, end = citation.offset_start, citation.offset_end
-		if any(not (end <= occupied_start or start >= occupied_end) for occupied_start, occupied_end in occupied):
+		if occupied.overlaps(start, end):
 			continue
-		occupied.append((start, end))
+		occupied.add(start, end)
 		selected.append(citation)
 
 	selected.sort(key=lambda item: (item.offset_start, item.offset_end))
@@ -2400,12 +2466,13 @@ def _extract_bare_federal_courts_rules(content: str, taken: list[RawCitationMatc
 	first_named = _FEDERAL_COURTS_RULES_NAME_RE.search(content)
 	if first_named is None:
 		return []
+	taken_overlaps = _span_overlap_checker([(row.offset_start, row.offset_end) for row in taken])
 	rows: list[RawCitationMatch] = []
 	for match in BARE_RULE_RE.finditer(content):
 		start, end = match.span()
 		if start < first_named.start():
 			continue
-		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+		if taken_overlaps(start, end):
 			continue
 		before = content[max(0, start - 30) : start]
 		if re.search(r"(?:Tax Court|Supreme Court|Superior Court|Civil Procedure|Court of Appeal|Provincial|Divisional)[^.]{0,20}$", before, re.IGNORECASE):
@@ -2482,6 +2549,7 @@ def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch]
 	act_is_irpa = board or _act_is_irpa(content)
 	dominant = board or (mode == "immigration" and _irpa_dominates(content))
 	charter_named = _CHARTER_NAME_RE.search(content) is not None
+	taken_overlaps = _span_overlap_checker([(row.offset_start, row.offset_end) for row in taken])
 	rows: list[RawCitationMatch] = []
 	for match in STANDALONE_PROVISION_RE.finditer(content):
 		start, end = match.span()
@@ -2495,7 +2563,7 @@ def _extract_default_irpa_provisions(content: str, taken: list[RawCitationMatch]
 			continue
 		if not board and (first_irpa is None or first_irpa.start() >= start):
 			continue
-		if any(not (end <= other.offset_start or start >= other.offset_end) for other in taken):
+		if taken_overlaps(start, end):
 			continue
 		provisions = _normalize_section_list(section_text)
 		leading = re.match(r"\d+", provisions)

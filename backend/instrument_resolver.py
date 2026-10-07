@@ -194,17 +194,14 @@ def resolve_instrument_key(reference: str | None, court: str | None = None) -> s
     if not name:
         return None
     key = _ALIASES.get(name) or _registry_aliases().get(name)
-    if key is not None:
-        # An older consolidation (R.S.C. 1952, 1970) is a different text with different section numbers; the
-        # Criminal Code keeps its existing treatment.
-        if _OLD_CONSOLIDATION_RE.search(raw) and key != "canada.criminal_code":
-            return None
-        return key
-    if _PROVINCIAL_HINT_RE.search(raw):
+    if key is None and not _PROVINCIAL_HINT_RE.search(raw):
+        court_code = (court or "").upper()
+        if name in _FEDERAL_COURT_ONLY and court_code in FEDERAL_COURTS:
+            key = _FEDERAL_COURT_ONLY[name]
+        elif name in _FEDERAL_COURT_AND_SCC and court_code in FEDERAL_AND_SCC:
+            key = _FEDERAL_COURT_AND_SCC[name]
+    # An older consolidation (R.S.C. 1927, 1952, 1970) is a different text with different section numbers; the
+    # Criminal Code keeps its existing treatment.
+    if key is not None and _OLD_CONSOLIDATION_RE.search(raw) and key != "canada.criminal_code":
         return None
-    court_code = (court or "").upper()
-    if name in _FEDERAL_COURT_ONLY and court_code in FEDERAL_COURTS:
-        return _FEDERAL_COURT_ONLY[name]
-    if name in _FEDERAL_COURT_AND_SCC and court_code in FEDERAL_AND_SCC:
-        return _FEDERAL_COURT_AND_SCC[name]
-    return None
+    return key

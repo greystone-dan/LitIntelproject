@@ -313,3 +313,12 @@ def test_a_document_gets_rule_based_tags_and_opens_formatted() -> None:
 
 	html = live_analysis_page_html()
 	assert "toggle.getAttribute('aria-pressed')==='true')toggle.click()" in html
+
+
+def test_live_analysis_goes_full_screen_inside_the_workbench() -> None:
+	from backend.pages.live_analysis import live_analysis_page_html
+	from backend.pages.workbench import workbench_page_html
+
+	assert "ilitLive" in live_analysis_page_html()
+	html = workbench_page_html()
+	assert "reading-live" in html and "ilitLive" in html

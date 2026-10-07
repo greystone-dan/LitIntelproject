@@ -17,7 +17,7 @@ PANEL_HTML = r'''<section id="liveAnalysisPanel" class="panel-card search-layout
 <div class="la-or">or paste text</div>
 <label class="la-paste"><span class="la-sr">Pasted text</span><textarea id="laText" rows="7" placeholder="Paste the text of a memo or decision here. Blank lines separate paragraphs."></textarea></label>
 </div>
-<div class="la-actions"><button type="button" class="la-go" id="laAnalyze" disabled>Read in markup mode</button><button type="button" class="la-clear" id="laClear">Clear</button><span class="la-status" id="laStatus" role="status">Nothing selected yet</span></div>
+<div class="la-actions"><button type="button" class="la-go" id="laAnalyze" disabled>Read document</button><button type="button" class="la-clear" id="laClear">Clear</button><span class="la-status" id="laStatus" role="status">Nothing selected yet</span></div>
 <div class="la-error" id="laError" role="alert" hidden></div>
 <p class="la-note">Headings and paragraph numbers in an uploaded document are worked out from line shape (a heuristic), not read from the file's own styles. The case information panels that rely on a stored decision (judge and discussion units) are not available for your own text.</p>
 </section>
@@ -41,7 +41,7 @@ STYLE = r'''<style>
 html.wb-embedded .topbar,html.wb-embedded #researchViews{display:none!important}
 html.wb-embedded .center-pane{padding-top:12px}
 body.live-doc-open #v6Card .v6-court,body.live-doc-open #v6Card [data-v6-copy],body.live-doc-open #v6Card .v6-stat[data-v6-go="intel"]{display:none}
-.la-tools{padding:8px 20px 0;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0}
+.la-tools{padding:6px 14px 8px;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0}
 body .reader-head>#laTools#laTools.la-tools{display:flex!important}
 .la-tools button{padding:6px 12px;border:1px solid var(--border);border-radius:5px;background:var(--surface);font:600 12px "IBM Plex Sans",sans-serif;cursor:pointer;color:var(--text)}
 .la-tools button:hover{border-color:var(--teal,#176c68);color:var(--teal,#176c68)}
@@ -58,6 +58,7 @@ body .reader-head>#laTools#laTools.la-tools{display:flex!important}
 .la-yes{color:#115450;font-weight:600}.la-no{color:var(--muted)}
 .la-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;border-top:1px solid var(--border)}
 body.live-doc-open [data-side-tab="about"],body.live-doc-open [data-side-tab="structure"],body.live-doc-open [data-mk-act="export"],body.live-doc-open #readerViewToggle,body.live-doc-open #readerCompareLink,body.live-doc-open #readerCopyCite,body.live-doc-open #readerFormatToggle,body.live-doc-open #readerPrintCitation{display:none!important}
+@media(max-width:700px){body.live-doc-open #decisionMeta,body.live-doc-open #decisionEyebrow{display:none}body.live-doc-open .v6-facts-strip{overflow-x:auto;max-width:100%}.la-tools{padding:6px 12px}.la-tools button{padding:5px 9px;font-size:11px}}
 </style>
 '''
 
@@ -151,10 +152,11 @@ function setTools(data){
   $('laAuthCsv').onclick=()=>downloadCsv(authorityRows(lastData),'authorities.csv');
 }
 function clearTools(){const bar=$('laTools');if(bar)bar.remove();lastData=null}
+function tellWorkbench(on){try{if(window.self!==window.top)window.parent.postMessage({ilitLive:on?'open':'close'},location.origin)}catch(e){}}
 function open(data){
   setTools(data);
   const reader=$('caseReaderPanel');
-  document.body.classList.add('live-doc-open');
+  document.body.classList.add('live-doc-open');tellWorkbench(true);
   readerState.caseId=null;readerState.payload={item:data.item,citations:data.citations,readerData:data.readerData};readerState.formatted=true;readerState.mode='normalized';
   $('decisionTitle').textContent=data.filename;
   const s=data.summary||{};
@@ -182,7 +184,7 @@ const previousClose=closeDecisionReader;
 closeDecisionReader=function(){
   previousClose.apply(this,arguments);
   if(!document.body.classList.contains('live-doc-open'))return;
-  document.body.classList.remove('live-doc-open');clearTools();
+  document.body.classList.remove('live-doc-open');tellWorkbench(false);clearTools();
   $('searchPanel').hidden=true;panel.hidden=false;
   const back=$('caseReaderPanel').querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to case results';
 };

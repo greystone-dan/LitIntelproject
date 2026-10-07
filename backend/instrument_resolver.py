@@ -133,6 +133,9 @@ _FEDERAL_COURT_ONLY: dict[str, str] = {
     "access act": "canada.access_to_information_act",
     "human rights act": "canada.human_rights_act",
     "evidence act": "canada.evidence_act",
+    "interest act": "canada.interest_act",
+    "statistics act": "canada.statistics_act",
+    "emergencies act": "canada.emergencies_act",
 }
 _FEDERAL_COURT_AND_SCC: dict[str, str] = {
     "supreme court act": "canada.supreme_court_act",

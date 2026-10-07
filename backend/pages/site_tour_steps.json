@@ -1268,12 +1268,12 @@
           "unless": "#decisionTarget [data-v6-tab='auth'].on"
         }
       ],
-      "say": "Each row can step through every place that authority is cited. Next clicks the first row's button a few times.",
+      "say": "Each row can step through every place that authority is cited. Next clicks the first row's button twice.",
       "act": [
         {
           "do": "click",
           "selector": ".v6-find[data-v6-find='cite']",
-          "times": 3,
+          "times": 2,
           "pause": 1200
         }
       ]
@@ -1306,7 +1306,7 @@
           "do": "click",
           "selector": "#v6SearchNext:not(:disabled)",
           "times": 2,
-          "pause": 1100
+          "pause": 800
         }
       ],
       "before": [

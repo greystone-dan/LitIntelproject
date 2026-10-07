@@ -57,7 +57,7 @@ from .judge_issue_record import (
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
 from .case_types.display import case_type_payload
 from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
-from .search_matching import identity_sql, matched_on_sql
+from .search_matching import identity_sql, matched_on_sql, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
 
 FC_ACTIVITY_DISPLAY_START_YEAR = 2003
@@ -1391,6 +1391,11 @@ def fetch_analytics_search_cases(
 			query_fields += f" OR {citation_match}"
 		if search_full_text:
 			query_fields += " OR c.full_text ILIKE :query OR c.summary ILIKE :query"
+		sentence_hits, sentence_filter, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
+		if sentence_filter:
+			# A sentence rarely appears verbatim; also accept cases containing most of its content words.
+			query_fields += f" OR {sentence_filter}"
+			params.update(sentence_params)
 		filters.append(f"({query_fields})")
 	if cites:
 		params["cites"] = f"%{cites}%"
@@ -1493,6 +1498,11 @@ def fetch_analytics_search_cases(
 			search_full_text=search_full_text,
 		)
 		params.update(ranking_params)
+		sentence_hits, _, sentence_params = sentence_hits_sql(query, search_full_text=search_full_text)
+		if sentence_hits:
+			params.update(sentence_params)
+			# After the exact-phrase tiers, cases matching more of the words rank first.
+			sort_order_sql = sort_order_sql.replace("c.date DESC NULLS LAST", f"{sentence_hits} DESC, c.date DESC NULLS LAST", 1)
 		sort_order = sort_order_sql
 	# A short stored excerpt around a plain full-text match, so a result shows why it matched (no model involved).
 	snippet_sql = "NULL"

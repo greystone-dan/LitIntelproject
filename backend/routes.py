@@ -1513,6 +1513,12 @@ def future_features_page() -> HTMLResponse:
 	return HTMLResponse(render())
 
 
+@router.get("/business-case", include_in_schema=False)
+def business_case_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "business_case.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/site-tour.css", include_in_schema=False)
 def site_tour_styles() -> Response:
 	from .site_tour import tour_css

@@ -64,6 +64,8 @@ html body #searchPanel .case-result.sp-row:hover{background:#f6f9fd;box-shadow:n
 #searchPanel .sp-boxes{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:nowrap;overflow:hidden}
 #searchPanel .sp-bx{display:inline-block;border:1px solid var(--border,#d8d5ca);background:#f8f6ef;border-radius:4px;padding:0 9px;font-size:14px;line-height:23px;color:var(--text,#202522);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
 #searchPanel .sp-bx.cit{background:#e8eef7;border-color:#bcd1ee;color:#1f3d6b;font-weight:700}
+#searchPanel .sp-typeline{margin-top:5px}
+#searchPanel .sp-bx.type{max-width:100%;background:#f1f5ee;border-color:#c5d6bd;color:#2f4a28}
 #searchPanel .sp-bx.ct{color:#fff;font-weight:700;letter-spacing:.03em}
 #searchPanel .sp-bx.ct-SCC{background:#202522;border-color:#202522}
 #searchPanel .sp-bx.ct-FCA{background:#176c68;border-color:#176c68}

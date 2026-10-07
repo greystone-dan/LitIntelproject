@@ -5,6 +5,7 @@ Needs Playwright with Chromium and a running copy of the site.
     python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots
     python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data   # on the PC that serves the site
     python scripts/check_site_tour.py --steps-only      # only validate site_tour_steps.json (no browser)
+    python scripts/check_site_tour.py --pick-case       # read-only: which cessation decision the tour should open
 
 --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the
 milliseconds from pressing Next to the card being ready, any step that was skipped, and any highlight that is
@@ -28,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "scroll", "waitFor", "wait", "drop"}
+ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "waitFor", "wait", "drop", "hover", "glide"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -66,7 +67,13 @@ def validate_steps(data: dict) -> list[str]:
         for key in ("via", "point", "lead"):
             if step.get(key) is not None and not isinstance(step[key], str):
                 problems.append(f"{label}: {key} must be a string")
-        for action in step.get("before", []):
+        if step.get("act") and not step.get("say"):
+            problems.append(f"{label}: a step that acts must first say what it will do (say)")
+        if step.get("say") and not step.get("act"):
+            problems.append(f"{label}: say is only for a step that acts")
+        if (step.get("via") or step.get("point")) and not step.get("lead"):
+            problems.append(f"{label}: via or point needs a lead line")
+        for action in step.get("before", []) + step.get("act", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
             if action.get("do") != "wait" and not action.get("selector"):
@@ -106,6 +113,56 @@ def run_probes(base: str) -> int:
     return short
 
 
+PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&limit=25&facets=0"
+
+
+def _get_json(base: str, path: str):
+    import urllib.request
+
+    request = urllib.request.Request(base + path, headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        return json.load(response)
+
+
+def pick_example_case(base: str) -> int:
+    """Read-only: rank the decisions the tour's filtered search returns (tags cessation and india, citing Vavilov,
+    Government won) by how well each shows off the reader: a long outline, a citation matched to a library case at
+    a paragraph, a statute reference, a judge, and decisions that cite it. Prints the table and the best citation."""
+    found = _get_json(base, "/analytics/search/cases?query=2019%20SCC%2065&limit=5&facets=0").get("results") or []
+    vavilov = next((row["case_id"] for row in found if "2019 SCC 65" in str(row.get("citation"))), None)
+    if vavilov is None:
+        print("Vavilov (2019 SCC 65) is not in this library")
+        return 1
+    rows = _get_json(base, PICK_SEARCH.format(vavilov=vavilov)).get("results") or []
+    print(f"{len(rows)} decisions match the tour's search")
+    ranked = []
+    for rank, row in enumerate(rows, 1):
+        try:
+            reader = _get_json(base, f"/cases/{row['case_id']}/reader-data")
+            statutes = _get_json(base, f"/cases/{row['case_id']}/statute-references")
+        except Exception as error:  # noqa: BLE001
+            print(f"  {row.get('citation')}: reader failed ({str(error)[:60]})")
+            continue
+        outline = len(reader.get("structure_outline") or [])
+        pins = sum(1 for c in reader.get("citations") or [] if c.get("target_case_id") and c.get("target_paragraph") is not None and c.get("citation_kind") != "statute")
+        acts = sum(1 for c in statutes or [] if c.get("instrument_key") or c.get("legislation_url"))
+        cited_by = int((reader.get("metrics") or {}).get("in_degree") or row.get("cited_by_cases") or 0)
+        judge = bool(row.get("judge"))
+        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge
+        score = (100 if usable else 0) + min(outline, 10) * 3 + min(pins, 5) * 2 + min(cited_by, 20) * 2 - rank
+        ranked.append((score, rank, row, outline, pins, acts, cited_by, judge, usable))
+    ranked.sort(key=lambda item: -item[0])
+    print(f"{'score':>5} {'rank':>4}  {'citation':<16} {'outline':>7} {'pinpoints':>9} {'statutes':>8} {'cited by':>8}  judge  title")
+    for score, rank, row, outline, pins, acts, cited_by, judge, usable in ranked:
+        print(f"{score:>5} {rank:>4}  {str(row.get('citation')):<16} {outline:>7} {pins:>9} {acts:>8} {cited_by:>8}  {'yes' if judge else 'no ':<5}  {str(row.get('title'))[:60]}{'' if usable else '  (not usable)'}")
+    best = next((item for item in ranked if item[8]), None)
+    if not best:
+        print("no decision has an outline, a pinpoint citation, a statute and a judge")
+        return 1
+    print(f"BEST: {best[2].get('citation')} (case {best[2]['case_id']}): {best[2].get('title')}")
+    return 0
+
+
 def launch(playwright):
     options = {"args": ["--no-sandbox"]}
     for candidate in (os.environ.get("CHROMIUM_PATH"), "/opt/pw-browsers/chromium"):
@@ -138,7 +195,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.add_init_script(
-                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1}))" % index
+                "if(!sessionStorage.getItem('ilit.tour.v1'))sessionStorage.setItem('ilit.tour.v1',JSON.stringify({i:%d,active:true,dir:1,phase:'show'}))" % index
             )
             status = "ok"
             try:
@@ -221,9 +278,10 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
         page.click("[data-ilit-tour-start]")
-        print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights")
+        print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights   (ms: Next to result; 'say' and 'lead' cards are not timed here)")
         last_page, last_y = "", 0
-        for _ in range(len(steps) + 5):
+        before: dict[str, int] = {}
+        for _ in range(3 * len(steps) + 5):
             try:
                 page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
             except Exception:  # noqa: BLE001
@@ -235,6 +293,16 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
             page.wait_for_timeout(350)                         # let the rings settle after the scroll
             step_id = page.get_attribute(".ilit-tour-card", "data-step")
             ms = int(page.get_attribute(".ilit-tour-card", "data-ms") or 0)
+            phase = page.get_attribute(".ilit-tour-card", "data-phase") or "show"
+            if phase != "show":                                # "OK, let's move on" or "I'll ...": press Next to see it happen
+                if not page.evaluate("() => !!document.querySelector('.ilit-tour-ring') && [...document.querySelectorAll('.ilit-tour-ring')].some(r => r.style.display !== 'none')") and phase == "say":
+                    print(f"    {step_id}: nothing lit while saying what comes next")
+                before[step_id] = ms
+                if shots:
+                    shots.mkdir(parents=True, exist_ok=True)
+                    page.screenshot(path=str(shots / f"{len(seen) + 1:02d}-{step_id}-{phase}.png"))
+                page.click(".ilit-tour-btn.primary")
+                continue
             rings = page.evaluate(RING_REPORT)
             notes = []
             for ring in rings:
@@ -253,7 +321,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
             ):
                 notes.append("statistics EMPTY")
-            if step_id == "reader-citation-card" and page.evaluate(
+            if step_id == "reader-cite-card" and page.evaluate(
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 notes.append("citation card has NO PINPOINT")
@@ -298,7 +366,8 @@ def run_controls(base: str, width: int) -> int:
         page.on("pageerror", lambda error: errors.append(str(error)))
 
         def counter() -> str:
-            page.wait_for_selector(".ilit-tour-card:not(.pending) .ilit-tour-count", timeout=45000)
+            page.wait_for_selector(".ilit-tour-card:not(.pending)", timeout=45000)
+            page.wait_for_selector(".ilit-tour-dock:not(.pending)", timeout=45000)
             return page.locator(".ilit-tour-count").inner_text()
 
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
@@ -309,7 +378,7 @@ def run_controls(base: str, width: int) -> int:
         second = counter()
         if first == second:
             problems.append("Next did not advance")
-        page.click(".ilit-tour-btn:has-text('Back')")
+        page.click(".ilit-tour-btn:has-text('Back'):not([disabled])")
         page.wait_for_function("document.querySelector('.ilit-tour-count')&&document.querySelector('.ilit-tour-count').textContent.startsWith('Step 1 ')", timeout=45000)
         page.reload(wait_until="domcontentloaded")
         if not counter().startswith("Step 1 "):
@@ -343,7 +412,10 @@ def main() -> int:
     parser.add_argument("--steps-only", action="store_true")
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
+    parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
+    if args.pick_case:
+        return pick_example_case(args.base_url.rstrip("/"))
 
     problems = validate_steps(json.loads(STEPS_FILE.read_text(encoding="utf-8")))
     for problem in problems:

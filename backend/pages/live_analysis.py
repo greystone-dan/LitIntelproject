@@ -19,7 +19,7 @@ PANEL_HTML = r'''<section id="liveAnalysisPanel" class="panel-card search-layout
 </div>
 <div class="la-actions"><button type="button" class="la-go" id="laAnalyze" disabled>Read in markup mode</button><button type="button" class="la-clear" id="laClear">Clear</button><span class="la-status" id="laStatus" role="status">Nothing selected yet</span></div>
 <div class="la-error" id="laError" role="alert" hidden></div>
-<p class="la-note">Headings and paragraph numbers in an uploaded document are worked out from line shape (a heuristic), not read from the file's own styles. The case information panels that rely on a stored decision (outcome, judge, discussion units, tags) are not available for your own text.</p>
+<p class="la-note">Headings and paragraph numbers in an uploaded document are worked out from line shape (a heuristic), not read from the file's own styles. The case information panels that rely on a stored decision (judge and discussion units) are not available for your own text.</p>
 </section>
 '''
 
@@ -57,7 +57,7 @@ body .reader-head>#laTools#laTools.la-tools{display:flex!important}
 .la-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
 .la-yes{color:#115450;font-weight:600}.la-no{color:var(--muted)}
 .la-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;border-top:1px solid var(--border)}
-body.live-doc-open [data-side-tab="about"],body.live-doc-open [data-side-tab="structure"],body.live-doc-open [data-side-tab="tags"],body.live-doc-open [data-mk-act="export"],body.live-doc-open #readerViewToggle,body.live-doc-open #readerCompareLink,body.live-doc-open #readerCopyCite,body.live-doc-open #readerFormatToggle,body.live-doc-open #readerPrintCitation{display:none!important}
+body.live-doc-open [data-side-tab="about"],body.live-doc-open [data-side-tab="structure"],body.live-doc-open [data-mk-act="export"],body.live-doc-open #readerViewToggle,body.live-doc-open #readerCompareLink,body.live-doc-open #readerCopyCite,body.live-doc-open #readerFormatToggle,body.live-doc-open #readerPrintCitation{display:none!important}
 </style>
 '''
 
@@ -168,7 +168,7 @@ function open(data){
   const back=reader.querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to Live Analysis';
   panel.hidden=true;$('searchPanel').hidden=true;reader.hidden=false;
   setReaderMode('normalized');
-  const toggle=$('readerMarkupToggle');if(toggle&&toggle.getAttribute('aria-pressed')!=='true')toggle.click();
+  const toggle=$('readerMarkupToggle');if(toggle&&toggle.getAttribute('aria-pressed')==='true')toggle.click();
   reader.scrollIntoView({block:'start'});
 }
 /* A library case opens in a new tab so the uploaded document (held only in this page) is not lost. */

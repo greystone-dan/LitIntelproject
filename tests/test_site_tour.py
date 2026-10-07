@@ -283,6 +283,17 @@ def test_tall_result_lists_are_ringed_from_their_top():
     assert any("ring cuts target" in p for p in problems(fits))
 
 
+def test_a_region_that_cannot_share_the_screen_with_the_target_is_a_note():
+    problems = check_site_tour.geometry_problems
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+    g = _moment(card=(1000, 80, 400, 200), ring=(553, 299, 837, 482), full=(559, 305, 825, 470))
+    g["items"][0]["room"] = box(0, 293, 900, 489)
+    g["items"].append({"full": box(800, 263, 160, 20), "seen": None, "ring": None, "room": box(0, 293, 900, 489)})
+    assert all(p.startswith("note:") for p in problems(g))      # the cited passage fills the panel; its citation sits above
+    g["items"][1]["full"] = box(800, 330, 160, 20)
+    assert "also[1] has no ring" in problems(g)                   # it would fit beside the target, so a missing ring is a fault
+
+
 def test_walk_runs_the_geometry_checks_at_every_card():
     source = (ROOT / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
     assert "geometry_problems(g, previous_card)" in source and "MOTION_RECORDER" in source
@@ -292,7 +303,7 @@ def test_walk_runs_the_geometry_checks_at_every_card():
 def test_card_and_rings_follow_the_layout_rules():
     js, css = tour_js(), tour_css()
     for rule in ("function showWhole(", "function makeRoom(", "function steady(", "function keepClear(", "HOLD=", "NEAR=",
-                 "function rowsEnd(", "function roomBelow(", "function underBar(", "function glidesOverPointer(", "function shownBox("):
+                 "function rowsEnd(", "function roomBelow(", "function boxView(", "function underBar(", "function glidesOverPointer(", "function shownBox("):
         assert rule in js, rule                                   # whole regions in view; the card stays unless it must move
     assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
     assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps

@@ -326,7 +326,7 @@
       var cs=getComputedStyle(p);
       if(cs.position==='fixed')break;
       if(cs.overflowY!=='visible'||cs.overflowX!=='visible'){
-        var c=p.getBoundingClientRect();
+        var c=(cs.overflowY==='auto'||cs.overflowY==='scroll')?boxView(p,n):p.getBoundingClientRect();   // a panel's pinned toolbar hides what scrolls under it
         if(cs.overflowY!=='visible'){r.top=Math.max(r.top,c.top);r.bottom=Math.min(r.bottom,c.bottom)}
         if(cs.overflowX!=='visible'){r.left=Math.max(r.left,c.left);r.right=Math.min(r.right,c.right)}
       }
@@ -615,7 +615,7 @@
     }
     var box=scrollParent(node);
     if(box){                                                        // inside a scrolling panel: scroll the panel first
-      var b=box.getBoundingClientRect(),r=node.getBoundingClientRect();
+      var b=boxView(box),r=node.getBoundingClientRect();
       if(r.top<b.top||r.bottom>b.bottom){
         await glide(box,r.top-b.top-Math.max(12,(b.height-Math.min(r.height,b.height))/3),token);
       }
@@ -642,7 +642,12 @@
       if(!it.node||!visible(it.node))continue;
       var box=scrollParent(it.node);
       if(!box||(main.node!==it.node&&box.contains(main.node)))continue;
-      var b=box.getBoundingClientRect(),r=fullRect(it);
+      var b=boxView(box),r=fullRect(it);
+      if(it===main)items.forEach(function(o){                       // the others lit in the same panel too, when they all fit
+        if(o===main||!o.node||!visible(o.node)||scrollParent(o.node)!==box)return;
+        var w=unite(r,fullRect(o));
+        if(w.height<=b.height-16)r=w;
+      });
       if(r.height>b.height-16)continue;
       if(r.top<b.top+8)await glide(box,r.top-b.top-8,token);
       else if(r.bottom>b.bottom-8)await glide(box,r.bottom-b.bottom+8,token);
@@ -655,7 +660,8 @@
     if(u.height>room-8)u=mr;                                       // not all of it fits: the main region whole, at least
     if(u.height>room-8){                                           // not even that (a long list): start it all at the top of the screen
       var lift=all.top-(f.top+8);
-      if(!keepTop&&lift>2){await glide(null,lift,token);for(var t=0;t<3&&token===run&&underBar(main.node);t++)await clearSticky(main.node,token)}
+      if(!keepTop&&lift>2&&!scrollParent(main.node))await glide(null,lift,token);
+      for(var t=0;t<3&&token===run&&underBar(main.node);t++)await clearSticky(main.node,token);
       return;
     }
     var d=0;
@@ -709,23 +715,38 @@
   }
   // A bar that stays pinned at the top of the page (a toolbar) can sit over the region: move the region below it.
   // How much of the top of an element a bar pinned to the screen (a sticky header) hides: 0 when none does.
-  function underBar(main){
-    for(var a=main;a&&a!==document.body;a=a.parentElement)if(getComputedStyle(a).position==='fixed')return 0;   // a tooltip or dialog floats above the page
+  function stickyAt(main){                                         // the bar pinned over the start of an element, if any
+    for(var a=main;a&&a!==document.body;a=a.parentElement)if(getComputedStyle(a).position==='fixed')return null;   // a tooltip or dialog floats above the page
     var m=main.getBoundingClientRect(),x=Math.min(window.innerWidth-2,Math.max(2,m.left+Math.min(40,m.width/2))),y=Math.max(1,m.top+3);
     var hit=pageAt(x,y);
-    if(!hit||main.contains(hit)||hit.contains(main))return 0;
+    if(!hit||main.contains(hit)||hit.contains(main))return null;
     var bar=hit;
     while(bar&&bar!==document.body){var pos=getComputedStyle(bar).position;if(pos==='sticky'||pos==='fixed')break;bar=bar.parentElement}
-    if(!bar||bar===document.body)return 0;
+    return bar&&bar!==document.body?bar:null;
+  }
+  function underBar(main){
+    var bar=stickyAt(main),m=main.getBoundingClientRect();
+    if(!bar)return 0;
     var under=bar.getBoundingClientRect().bottom-m.top;
     return under>6?under:0;                                         // a tab strip's few pixels of overlap are its design
   }
   async function clearSticky(main,token){
     var under=underBar(main);
     if(!under)return;
-    var need=under+10;
-    var box=scrollParent(main);
+    var need=under+10,box=scrollParent(main);
+    if(box&&box.scrollTop>0&&box.contains(stickyAt(main))){await glide(box,-Math.min(need,box.scrollTop),token);return}   // a header pinned inside its panel: scroll the panel back
     await glide(box&&box.scrollTop>=need?box:null,-need,token);
+  }
+  // The part of a scrolling panel its content shows in: below a toolbar pinned at the panel's top.
+  function boxView(box,inside){                                     // inside: an element in that toolbar is not hidden by it
+    var b=box.getBoundingClientRect(),top=b.top;
+    [0.25,0.5,0.75].forEach(function(f){
+      for(var n=pageAt(b.left+b.width*f,b.top+4);n&&n!==box&&box.contains(n);n=n.parentElement){
+        var pos=getComputedStyle(n).position;
+        if(pos==='sticky'||pos==='fixed'){var r=n.getBoundingClientRect();if(r.bottom<b.top+b.height*0.4&&!(inside&&n.contains(inside)))top=Math.max(top,r.bottom);break}
+      }
+    });
+    return {top:top,bottom:b.bottom,left:b.left,right:b.right,height:b.bottom-top,width:b.width};
   }
   function scrollParent(n){
     for(var p=n.parentElement;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){
@@ -751,11 +772,11 @@
     pointer.x=x;pointer.y=y;c.classList.add('on');place();          // the card makes way for where the pointer is going first
     pointer.x=from.x;pointer.y=from.y;
     var dist=Math.hypot(x-pointer.x,y-pointer.y);
-    var ms=reduce?0:Math.round(Math.min(1200,Math.max(520,dist*1.36)));
+    var ms=reduce||dist<4?0:Math.round(Math.min(1200,Math.max(520,dist*1.36)));   // already there (a button clicked again): no wait
     c.style.transitionDuration=ms+'ms, .2s';
     c.style.transform='translate('+x+'px,'+y+'px)';
     pointer.x=x;pointer.y=y;
-    await sleep(reduce?0:ms+250);
+    await sleep(reduce||!ms?0:ms+250);
   }
   async function press(){
     if(!ui)return;
@@ -1068,7 +1089,7 @@
         var n=item.node&&document.contains(item.node)&&visible(item.node)?item.node:null;
         var room=null;
         if(n){                                                      // the height it could be seen in: the screen, or its panel
-          var f=freeArea(n),sp=scrollParent(n),pb=sp?sp.getBoundingClientRect():null,top=Math.max(f.top,pb?pb.top:f.top);
+          var f=freeArea(n),sp=scrollParent(n),pb=sp?boxView(sp):null,top=Math.max(f.top,pb?pb.top:f.top);
           room={y:round(top),h:round(Math.min(f.bottom,pb?pb.bottom:f.bottom)-top)};
         }
         return {full:n?box(fullRect(item)):null,seen:n?box(liveRect(item)):null,ring:rings[k]||null,room:room,capped:!!item.capped,underBar:n?round(underBar(shownBox(n))):0};

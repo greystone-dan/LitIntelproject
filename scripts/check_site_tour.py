@@ -305,7 +305,13 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
         if not full:
             continue                                     # not on this page (an optional extra region)
         if not ring:
-            problems.append(f"{name} has no ring")
+            main = (g.get("items") or [{}])[g.get("focus", 0)]
+            mf, room = main.get("full"), item.get("room")
+            together = mf and room and max(full["y"] + full["h"], mf["y"] + mf["h"]) - min(full["y"], mf["y"]) > room["h"]
+            if k != g.get("focus", 0) and not item.get("seen") and together:
+                problems.append(f"note: {name} out of view (it and the target do not fit on the screen together)")
+            else:
+                problems.append(f"{name} has no ring")
             continue
         if (item.get("underBar") or 0) > 6:                  # a tab strip overlapping by a few pixels is its design
             problems.append(f"top of {name} hidden by {round(item['underBar'])}px under a bar pinned to the screen")

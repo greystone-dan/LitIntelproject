@@ -651,6 +651,8 @@ def _backref_row(
 
 _NOTE_MARKER_RE = re.compile(r"\[\d{1,3}\]")
 _IBID_RUNNING_TEXT_GAP = 400
+_IBID_BARE_NOTE_GAP = 150
+_BARE_NOTE_NUMBER_RE = re.compile(r"(?<![\w.,])\d{1,3}\s+$")
 
 
 def _ibid_follows(content: str, match: re.Match[str], latest: RefinedCitation) -> bool:
@@ -699,6 +701,8 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 		latest = max(previous, key=lambda row: row.offset_end)
 		if not _ibid_follows(content, match, latest):
 			continue
+		if _BARE_NOTE_NUMBER_RE.search(content[max(0, match.start() - 6) : match.start()]) and match.start() - latest.offset_end > _IBID_BARE_NOTE_GAP:
+			continue  # "14 Ibid." in a numbered note list: the citation must be in the note right before
 		target = _anchor_for(latest, rows_by_span)
 		added.append(_backref_row(content, match, target, match.group("word"), "C2_backrefs"))
 
@@ -897,6 +901,8 @@ def _validate(row: RefinedCitation, current_year: int, self_keys: set[str]) -> R
 			notes.append("pinpoint_truncated")
 	if row.kind == "case_name" and re.search(r"\n", row.citation_text):
 		return None
+	if row.kind == "neutral" and row.step == "pass1" and not re.search(r"\d{4}|\b[A-Z]{2,}\s+\d", row.citation_text):
+		return None  # a phrase ("Arbour J. stated in Biniaris, at para. 37"), not a citation
 	if tuple(notes) == row.notes and confidence == row.confidence:
 		return row
 	return replace(row, notes=tuple(dict.fromkeys(notes)), confidence=confidence)
@@ -1062,7 +1068,7 @@ def refine_case_citations(
 		validated: list[RefinedCitation] = []
 		for row in rows:
 			checked = _validate(row, year_limit, self_keys)
-			if checked is not None and is_weak_short_form(checked):
+			if checked is not None and is_weak_short_form(checked, content):
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, "weak_short_form")))
 				continue
 			if checked is None:

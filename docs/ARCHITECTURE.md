@@ -274,6 +274,9 @@ test checks that these paths continue to exist.
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |
+| `backend/pages/site_tour.css` | Style sheet for the site tour card and spotlight |
+| `backend/pages/site_tour.js` | Site tour script: runs the step-by-step walkthrough of the real site |
+| `backend/pages/site_tour_steps.json` | The site tour's steps as plain data (edit this to change the tour) |
 | `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
@@ -309,6 +312,7 @@ test checks that these paths continue to exist.
 | `backend/search_thesaurus.py` | Curated immigration-law synonym list used to widen plain-language searches |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/similar_cases.py` | Read-only "similar cases" for the reader: same subject and shares authorities, from stored fingerprints |
+| `backend/site_tour.py` | The "Take a tour" walkthrough: a small self-contained script, style sheet and step list |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
 | `backend/statute_sections.py` | Section-level statute library: table of contents with case counts and a per-section view |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |

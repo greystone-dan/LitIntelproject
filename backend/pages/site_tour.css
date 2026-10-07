@@ -1,0 +1,38 @@
+/* iLit site tour. Colours match the site (cream surface, ink buttons, rust accents). */
+.ilit-tour{position:fixed;inset:0;z-index:900;pointer-events:none;font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;color:#202522}
+.ilit-tour-shade{position:fixed;left:0;top:0;width:0;height:0;background:rgba(32,37,34,.58);pointer-events:auto;transition:transform .22s ease,width .22s ease,height .22s ease}
+.ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;border:2px solid #a4412b;border-radius:6px;box-shadow:0 0 0 3px rgba(255,254,249,.85);pointer-events:none;transition:transform .22s ease,width .22s ease,height .22s ease}
+.ilit-tour-card{position:fixed;z-index:1100;box-sizing:border-box;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;padding:16px 18px 14px;border:1px solid #d8d5ca;border-radius:8px;background:#fffef9;box-shadow:0 12px 32px rgba(32,37,34,.28);pointer-events:auto;outline:none}
+.ilit-tour-card.pending{opacity:.92}
+.ilit-tour-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ilit-tour-kicker{color:#a4412b;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-tour-x{flex:0 0 auto;width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#5f6863;font-size:20px;line-height:1;cursor:pointer}
+.ilit-tour-x:hover{background:#f1efe8;color:#202522}
+.ilit-tour-title{margin:4px 0 0;font:600 20px/1.2 "Newsreader",Georgia,serif;color:#202522}
+.ilit-tour-text{margin:8px 0 0;font-size:14px;line-height:1.55;color:#202522}
+.ilit-tour-note{margin:8px 0 0;font-size:12px;color:#5f6863}
+.ilit-tour-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:10px}
+.ilit-tour-extra:empty{display:none}
+.ilit-tour-writes{padding:6px 9px;border-left:3px solid #8a6418;background:#f8f0dc;font-size:12px;color:#5c4510}
+.ilit-tour-bar{height:3px;margin-top:14px;border-radius:2px;background:#e6e3d8;overflow:hidden}
+.ilit-tour-bar i{display:block;height:100%;background:#a4412b;transition:width .25s ease}
+.ilit-tour-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+.ilit-tour-count{font-size:12px;color:#5f6863}
+.ilit-tour-btns{display:flex;gap:6px;flex-wrap:wrap}
+.ilit-tour-btn{min-height:36px;padding:6px 13px;border:1px solid #d8d5ca;border-radius:5px;background:#fff;color:#202522;font:600 13px/1 inherit;font-family:inherit;cursor:pointer}
+.ilit-tour-btn:hover:not(:disabled){border-color:#202522}
+.ilit-tour-btn:disabled{opacity:.45;cursor:default}
+.ilit-tour-btn.primary{border-color:#202522;background:#202522;color:#fff}
+.ilit-tour-btn.quiet{border-color:transparent;background:transparent;color:#5f6863;font-weight:500}
+.ilit-tour-btn.quiet:hover:not(:disabled){color:#202522;text-decoration:underline}
+.ilit-tour-btn.action{border-color:#176c68;color:#176c68}
+.ilit-tour-btn[hidden]{display:none}
+.ilit-tour-btn:focus-visible,.ilit-tour-x:focus-visible,.ilit-tour-start:focus-visible{outline:2px solid #315d8d;outline-offset:2px}
+.ilit-tour-card.sheet{width:auto;max-height:46vh;border-radius:12px 12px 0 0;border-left:0;border-right:0;border-bottom:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+.ilit-tour-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ilit-tour-start{display:inline-flex;align-items:center;gap:8px;min-height:42px;margin:16px 0 0;padding:9px 18px;border:1px solid #202522;border-radius:6px;background:#202522;color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.ilit-tour-start:hover{background:#a4412b;border-color:#a4412b}
+.ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
+@media (prefers-reduced-motion:reduce){.ilit-tour-shade,.ilit-tour-ring,.ilit-tour-bar i{transition:none}}
+@media print{.ilit-tour{display:none}}
+@media (max-width:639px){html.ilit-tour-on body{padding-bottom:50vh}}

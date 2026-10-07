@@ -431,4 +431,6 @@ $('clearRecent').onclick=()=>{try{localStorage.removeItem('ilit_recent_searches'
 
 
 def workbench_page_html() -> str:
-	return _HEAD + _BODY + _SCRIPT
+	from ..site_tour import inject_site_tour
+
+	return inject_site_tour(_HEAD + _BODY + _SCRIPT)

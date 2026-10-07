@@ -1,5 +1,6 @@
 from pathlib import Path
 from backend.degraded_mode import panel_helpers_script
+from backend.site_tour import inject_site_tour
 
 from .fc_analytics import inject_fc_analytics
 from .tag_analytics import inject_tag_analytics
@@ -1788,4 +1789,5 @@ window.addEventListener('afterprint',()=>{
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)
   if pitch_navigation:
     html = apply_pitch_navigation(html)
-  return html.replace('<script>', panel_helpers_script() + '\n<script>', 1)
+  html = html.replace('<script>', panel_helpers_script() + '\n<script>', 1)
+  return inject_site_tour(html)

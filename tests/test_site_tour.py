@@ -86,3 +86,25 @@ def test_tour_script_parses(tmp_path):
     target.write_text(tour_js(), encoding="utf-8")
     result = subprocess.run(["node", "--check", str(target)], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
+
+
+def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
+    steps = tour_steps()["steps"]
+    for step in steps:
+        clicks_save = any(a.get("selector") == "#v6SaveWb" for a in step.get("before", []))
+        assert not clicks_save or step.get("writes"), step["id"]
+    # The only automatic move is skipping a step whose target is missing; a button never calls go().
+    assert "btn.onclick=function(){var node=qs(b.click);if(node)node.click();btn.disabled=true}" in tour_js()
+
+
+def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
+    data = tour_steps()
+    assert len([s for s in data["steps"] if s["id"].startswith("fc-")]) >= 12
+    assert {"la-paste", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
+    assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
+    assert {p["id"] for p in data["probes"]} >= {"cessation-india-minister-won"}
+    assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
+
+
+def test_card_stays_in_one_place_on_desktop():
+    assert "card.style.right='20px';card.style.bottom='20px'" in tour_js()

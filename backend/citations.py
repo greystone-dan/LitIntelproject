@@ -335,6 +335,24 @@ _BARE_CASE_ALIAS_NOISE = {
 }
 
 
+# Words a case's short name is sometimes drawn from ("Alberta (Information and Privacy Commissioner) v. Alberta Teachers'
+# Association" gives "Alberta" and "Association") but that name provinces, cities or kinds of body, not the case. A bare
+# mention made only of these is not a short form; "Dunsmuir" or "Vavilov at para 99" still are.
+_GENERIC_ALIAS_WORDS = frozenset(
+	"""ontario quebec alberta manitoba saskatchewan british columbia nova scotia new brunswick newfoundland labrador
+	prince edward island yukon nunavut northwest territories toronto ottawa montreal vancouver calgary edmonton winnipeg
+	commissioner commission tribunal division association society university council band bands services service
+	solicitor trust group international insurance authority human rights city municipality regional office officer
+	government federal provincial national public health labour union workers college school institute centre center
+	foundation company fund bank financial energy limited employment relations local committee construction alliance""".split()
+)
+
+
+def _is_generic_alias(alias: str) -> bool:
+	words = re.findall(r"[A-Za-z]+", alias.lower())
+	return bool(words) and all(word in _GENERIC_ALIAS_WORDS for word in words)
+
+
 @dataclass(frozen=True)
 class RawCitationMatch:
 	kind: str
@@ -1348,11 +1366,14 @@ def _extract_short_form_case_candidates(content: str, base_matches: list[RawCita
 		key=lambda item: (-len(item[0]), item[0]),
 	):
 		alias = alias_anchors[0].alias
-		if len(alias) < 4 or alias_key in _BARE_CASE_ALIAS_NOISE:
+		if len(alias) < 4 or alias_key in _BARE_CASE_ALIAS_NOISE or _is_generic_alias(alias):
 			continue
 		pattern = re.compile(rf"(?<![\w'’-]){re.escape(alias)}(?![\w'’-])", re.IGNORECASE)
 		for alias_match in pattern.finditer(content):
 			start, end = alias_match.span()
+			# A name is capitalised where it is used as one: "group" or "authority" in running text is the word.
+			if alias[:1].isupper() and not content[start:end][:1].isupper():
+				continue
 			if is_federal_court_metadata_position(start):
 				continue
 			if any(

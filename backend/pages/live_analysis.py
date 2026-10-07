@@ -158,8 +158,10 @@ function open(data){
   $('decisionTitle').textContent=data.filename;
   const s=data.summary||{};
   try{console.info('Live Analysis library lookup',{failed:!!s.library_lookup_failed,error:s.library_lookup_error||null,ms:s.library_lookup_ms,cases:s.case_citations,inLibrary:s.resolved_case_citations})}catch(e){}
-  $('decisionEyebrow').textContent='Your document · read in memory, not stored';
-  $('decisionMeta').innerHTML=[`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].concat(s.library_lookup_failed?['Library could not be checked: '+(s.library_lookup_error||'unknown error')]:[]).map(v=>`<span class="meta-pill">${v}</span>`).join('');
+  $('decisionEyebrow').textContent=(data.decision?'Your decision':'Your document')+' · read in memory, not stored';
+  const d=data.decision||null;
+  const decisionPills=d?[d.citation,d.docket?'Docket '+d.docket:'',d.date,d.judge,d.outcome?'Outcome (rules): '+d.outcome:'',d.case_type?'Type (rules): '+d.case_type.label+(d.case_type.provision?' ('+d.case_type.provision+')':''):''].filter(Boolean):[];
+  $('decisionMeta').innerHTML=decisionPills.map(v=>`<span class="meta-pill">${escHtml(v)}</span>`).concat([`${s.paragraphs} paragraphs`,`${s.case_citations} case citation${s.case_citations===1?'':'s'} (${s.resolved_case_citations} in the library)`,`${s.statute_references} statute reference${s.statute_references===1?'':'s'}`].concat(s.library_lookup_failed?['Library could not be checked: '+(s.library_lookup_error||'unknown error')]:[]).map(v=>`<span class="meta-pill">${v}</span>`)).join('');
   $('decisionTarget').replaceChildren();
   sideState.caseId=null;sideState.tab='authorities';sideState.linkedId=null;
   const back=reader.querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to Live Analysis';

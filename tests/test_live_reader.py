@@ -244,3 +244,56 @@ def test_scr_citation_matches_with_or_without_dots() -> None:
 
 	assert "[1999] 2 SCR 817" in _citation_variants("[1999] 2 S.C.R. 817")
 	assert "[1999] 2 S.C.R. 817" in _citation_variants("[1999] 2 SCR 817")
+
+
+def test_mock_documents_find_their_known_citations_without_a_library() -> None:
+	"""The synthetic memos in tests/live_analysis_mocks: every case, back-reference and statute is still found."""
+	from pathlib import Path
+
+	from scripts.run_live_analysis_mocks import score
+
+	report = score(Path(__file__).parent / "live_analysis_mocks", _NoLibrary())
+	assert report
+	# without a library nothing can be in it, so only check the extraction itself
+	failed = [label for doc in report for label, ok in doc["results"] if not ok and not label.startswith(("case: Vavilov", "case: Baker", "case: Khosa", "case: Dunsmuir", "case: Smith"))]
+	assert failed == []
+
+
+_DECISION = """Citation: Canada (Citizenship and Immigration) v. Khosa, 2009 SCC 12, [2009] 1 S.C.R. 339
+Date: 20090306
+Docket: 31952
+
+Reasons for Judgment:
+
+[1] Binnie J. — This appeal concerns the standard of review of a decision of the Immigration Appeal Division.
+
+[2] The respondent was found to be inadmissible. See Dunsmuir v. New Brunswick, 2008 SCC 9 at para 47.
+
+[3] The appeal is allowed under section 18.1 of the Federal Courts Act.
+
+[4] The first issue is the standard of review.
+
+[5] The second issue is the remedy.
+
+[6] The third issue is costs.
+
+[7] Appeal allowed, without costs.
+"""
+
+
+def test_a_pasted_decision_gets_decision_formatting_and_header_details() -> None:
+	text, paragraphs = paragraphs_from_pasted_text(_DECISION)
+	payload = build_live_reader_payload(text, paragraphs, "Pasted text", _NoLibrary())
+	assert payload["item"]["citation"] == "2009 SCC 12"
+	assert payload["item"]["court"] == "Supreme Court of Canada"
+	assert payload["item"]["date"] == "2009-03-06"
+	assert payload["decision"]["outcome"] == "allowed"
+	assert payload["summary"]["paragraphs"] == 7
+	assert {b["type"] for b in payload["readerData"]["format_blocks"]} >= {"para"}
+
+
+def test_a_memo_gets_no_decision_details() -> None:
+	text, paragraphs = paragraphs_from_pasted_text("Overview\n\n1. The test is reasonableness. See Vavilov, 2019 SCC 65.\n\n2. Second point.")
+	payload = build_live_reader_payload(text, paragraphs, "memo", _NoLibrary())
+	assert payload["decision"] is None
+	assert payload["item"]["citation"] is None

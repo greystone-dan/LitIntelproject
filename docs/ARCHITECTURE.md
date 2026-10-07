@@ -222,6 +222,7 @@ test checks that these paths continue to exist.
 | `backend/legal_tagger_v2.py` | High-precision whitelist tagging comparison layer |
 | `backend/legal_tagger_v3.py` | V3 deterministic legal-tag matching layer |
 | `backend/live_analysis.py` | In-memory uploaded-document analysis and citation resolution |
+| `backend/live_decision.py` | Header details for an uploaded document that is itself a court decision |
 | `backend/live_reader.py` | Reader-shaped payload for an uploaded or pasted document (Live Analysis markup view); in memory, no model |
 | `backend/load_shedding.py` | Opt-in per-process concurrency buckets and debug-only load status |
 | `backend/main.py` | FastAPI app, startup, health, access middleware, and router inclusion |

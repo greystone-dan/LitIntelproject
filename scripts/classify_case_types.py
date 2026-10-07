@@ -37,6 +37,7 @@ def main() -> None:
 	parser.add_argument("--export", help="Write a tab-separated file (id, court, citation, title, docket, status, type, reason, opening text, second type) of the classified rows for review.")
 	parser.add_argument("--export-status", default="not_immigration", help="Only export rows with this status (or primary type); default not_immigration.")
 	parser.add_argument("--export-max", type=int, default=150, help="Stop exporting after this many rows.")
+	parser.add_argument("--include-labelled", action="store_true", help="Also read cases that already have a label (dry run and export only; cannot be combined with --apply).")
 	parser.add_argument("--export-chars", type=int, default=500, help="Characters of opening text to export per row (default 500).")
 	parser.add_argument("--show-reasons", action="store_true", help="Also print why decisions were not_immigration or unclear.")
 	args = parser.parse_args()
@@ -47,8 +48,12 @@ def main() -> None:
 			session.commit()
 			print(f"Removed {removed} rows for {TAXONOMY_VERSION}.")
 			return
+		if args.include_labelled and args.apply:
+			parser.error("--include-labelled is read-only; do not combine it with --apply")
 		done = select(CaseTypeLabel.case_id).where(CaseTypeLabel.taxonomy_version == TAXONOMY_VERSION)
-		query = select(Case.id).where(Case.id.not_in(done)).order_by(Case.id)
+		query = select(Case.id).order_by(Case.id)
+		if not args.include_labelled:
+			query = query.where(Case.id.not_in(done))
 		if args.court:
 			query = query.where(Case.court == args.court)
 		ids = list(session.scalars(query))

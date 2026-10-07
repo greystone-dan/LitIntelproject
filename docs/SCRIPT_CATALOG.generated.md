@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 199
+Active scripts documented: 200
 
 ## Catalog
 
@@ -199,6 +199,7 @@ Active scripts documented: 199
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
+| `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -2854,6 +2855,20 @@ Active scripts documented: 199
 
 ```powershell
 .\venv\Scripts\python.exe scripts\score_search_gold.py --help
+```
+
+## `scripts/seed_tour_fixture.py`
+
+**Purpose:** Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py). The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes wrong on long lists. This adds the 9 example decisions the tour opens (Vavilov, Baker, Dunsmuir, Khosa and five made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find: best interests of the child, non-refoulement statutory interpretation, and cessation involving India won by the Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles and pinpoint linking the real library has. Local only: it refuses any base URL other than localhost, and needs --yes. python scripts/seed_tour_fixture.py --base-url http://localhost:8001 --yes python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --sizes 1440x900,1920x1080
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

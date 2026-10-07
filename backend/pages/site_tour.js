@@ -296,7 +296,7 @@
     if(item.node&&!document.contains(item.node))item.node=null;
     if(!item.node&&item.sel)item.node=findVisible(item.sel);     // the page re-drew the element: find its replacement
     if(!item.node||!visible(item.node))return null;
-    var r=clipped(item.node);
+    var r=clipped(shownBox(item.node));
     spanNodes(item).forEach(function(n){var c=clipped(n);if(r&&c)r=unite(r,c)});
     return r;
   }
@@ -304,9 +304,20 @@
   function unite(a,b){var r={left:Math.min(a.left,b.left),top:Math.min(a.top,b.top),right:Math.max(a.right,b.right),bottom:Math.max(a.bottom,b.bottom)};r.width=r.right-r.left;r.height=r.bottom-r.top;return r}
   // An item's whole box on the page (its span included), whether or not all of it can be seen.
   function fullRect(item){
-    var r=item.node.getBoundingClientRect();r={left:r.left,top:r.top,right:r.right,bottom:r.bottom};
+    var r=shownBox(item.node).getBoundingClientRect();r={left:r.left,top:r.top,right:r.right,bottom:r.bottom};
     spanNodes(item).forEach(function(n){r=unite(r,n.getBoundingClientRect())});
     r.width=r.right-r.left;r.height=r.bottom-r.top;return r;
+  }
+  // An element its own small frame cuts off for good (a long name in a one-line field that hides the rest): the
+  // frame is what can be seen, so the ring goes round the frame.
+  function shownBox(n){
+    for(var p=n.parentElement,d=0;p&&d<3&&p!==document.body;p=p.parentElement,d++){
+      var cs=getComputedStyle(p),r=n.getBoundingClientRect(),b=p.getBoundingClientRect();
+      if(cs.overflowX==='auto'||cs.overflowX==='scroll'||cs.overflowY==='auto'||cs.overflowY==='scroll')break;
+      if(b.width>r.width*2+8||b.height>r.height*2+8)break;         // only a frame about its own size, never a whole panel
+      if((cs.overflowX!=='visible'||cs.overflowY!=='visible')&&(r.left<b.left-1||r.right>b.right+1||r.top<b.top-1||r.bottom>b.bottom+1))return p;
+    }
+    return n;
   }
   // The part of an element that can actually be seen: cut by any scrolling panel it sits in.
   function clipped(n){
@@ -328,11 +339,18 @@
   function place(){
     if(!ui)return;
     var vw=document.documentElement.clientWidth||window.innerWidth,vh=window.innerHeight,pad=6,floor=dockTop()-4;
-    var holes=[];
-    ui.items.forEach(function(item){
-      var b=liveRect(item);
+    var holes=[],rects=ui.items.map(liveRect),across=null;
+    rects.forEach(function(b){if(b)across=across?unite(across,b):b});  // how wide all the lit regions are together
+    ui.items.forEach(function(item,k){
+      var b=rects[k];
       if(!b){holes.push(null);return}
       var x=Math.max(3,b.left-pad),y=Math.max(3,b.top-pad),x2=Math.min(vw-3,b.right+pad),y2=Math.min(floor,b.bottom+pad);
+      item.capped=false;
+      if(b.bottom>floor-pad-2&&fullRect(item).bottom>floor-pad+2){   // taller than the screen: ring its first whole rows
+        var limit=floor-pad-roomBelow(across,vw),end=limit-b.top>=150?rowsEnd(item.node,limit):null;
+        if(end==null&&limit<floor-pad)end=rowsEnd(item.node,floor-pad);
+        if(end!=null){y2=Math.min(y2,end+pad);item.capped=true}
+      }
       var minH=Math.min(40,b.height),minW=Math.min(24,b.width);   // a sliver at the edge of the screen is not worth a ring
       holes.push(x2-x>=minW&&y2-y>=minH&&x2>x&&y2>y?{x:round(x),y:round(y),w:round(x2-x),h:round(y2-y)}:null);
     });
@@ -349,6 +367,30 @@
       r.style.transform='translate('+h.x+'px,'+h.y+'px)';r.style.width=h.w+'px';r.style.height=h.h+'px';
     });
     placeCard(holes[ui.focus]||holes.filter(Boolean)[0]||null,holes,vw,floor);
+  }
+  // A region taller than the screen is ringed round its top part only, ending under its last whole row (a result, a
+  // list entry), never through the middle of one. When the card has no room beside it, the ring stops short to leave
+  // the card a place below it.
+  function roomBelow(b,vw){
+    if(!ui)return 0;
+    var W=Math.min(ui.card.offsetWidth,320),gap=20,m=14;
+    if(b.left-gap-W>=m||vw-b.right-gap-W>=m)return 0;              // it fits beside
+    return ui.card.offsetHeight+gap+m;
+  }
+  function rowsEnd(node,limit){
+    var top=node.getBoundingClientRect().top,end=null;
+    for(var n=node,d=0;n&&d<6;d++){
+      var cut=null;
+      [].forEach.call(n.children,function(k){
+        if(!visible(k))return;
+        var r=k.getBoundingClientRect();
+        if(r.bottom<=limit){if(r.bottom>top+40)end=Math.max(end||0,r.bottom)}
+        else if(r.top<limit&&!cut)cut=k;
+      });
+      if(!cut||cut.getBoundingClientRect().height<limit-cut.getBoundingClientRect().top+160)break;   // a row the cut falls in: end above it
+      n=cut;                                                        // a large block the cut falls in: look at its rows
+    }
+    return end;
   }
   // The card stays where it is for as long as that place is clear: on the screen, off the control bar, and covering
   // no lit region and not the pointer. Only when it must move does it pick a new place: beside the region it is
@@ -367,7 +409,7 @@
       // while the tour is busy clicking, something only passing under the card (the page settling after a click) does not
       // move it: it has to stay in the way a moment. A card that has just spoken moves at once.
       var now=Date.now();
-      if(!ui.card.classList.contains('pending'))ui.blocked=now-HOLD;
+      if(!ui.card.classList.contains('pending')||onPointer(cardAt))ui.blocked=now-HOLD;   // the pointer never waits under it
       else if(!ui.blocked)ui.blocked=now;
       if(now-ui.blocked<HOLD){ui.recheck=ui.blocked+HOLD;return}
       ui.blocked=0;
@@ -394,6 +436,10 @@
     function clear(x,y,k){return onScreen(x,y)&&!blocks.some(function(h){return overlap(x,y,h,k)>0})}
     function near(x,y){return !focus||c.classList.contains('pending')||Math.max(focus.x-(x+W),x-(focus.x+focus.w),focus.y-(y+H),y-(focus.y+focus.h))<=NEAR}   // still beside what it explains (while the tour clicks, it waits where it spoke)
     if(cardAt&&cardAt.width===width&&clear(cardAt.x,cardAt.y,0)&&near(cardAt.x,cardAt.y))return {x:cardAt.x,y:cardAt.y,side:cardAt.side,cover:0,kept:true};
+    if(cardAt&&cardAt.width===width){                               // grown taller or wider at the edge of the screen: nudge it back on
+      var nx=clampX(cardAt.x),ny=clampY(cardAt.y);
+      if(clear(nx,ny,0)&&near(nx,ny))return {x:nx,y:ny,side:cardAt.side,cover:0,kept:true};
+    }
     var spots=[];
     if(focus){
       var h=focus;
@@ -427,11 +473,30 @@
     if(pin>0)out.push({x:0,y:0,w:vw,h:pin,soft:1});
     return out;
   }
+  function onPointer(at){
+    var p=pointerBox();
+    return !!(p&&at)&&at.x<p.x+p.w&&at.x+ui.card.offsetWidth>p.x&&at.y<p.y+p.h&&at.y+ui.card.offsetHeight>p.y;
+  }
+  // Would the card, gliding from where it is to (x, y), pass over the pointer on the way?
+  function glidesOverPointer(x,y){
+    if(!cardAt||!pointerBox())return false;
+    for(var k=0;k<=12;k++)if(onPointer({x:cardAt.x+(x-cardAt.x)*k/12,y:cardAt.y+(y-cardAt.y)*k/12}))return true;
+    return false;
+  }
   function setCard(x,y,side,width){
-    var c=ui.card;
+    var c=ui.card,to='translate('+x+'px,'+y+'px)';
     if(c.style.width!==width)c.style.width=width;
     if(!ui.shown){c.style.transition='none'}                        // the first time on a page it appears in place, without a slide
-    c.style.transform='translate('+x+'px,'+y+'px)';
+    if(ui.shown&&c.style.transform!==to&&!ui.fading&&glidesOverPointer(x,y)){   // it would slide across the pointer: fade over instead
+      ui.fading=true;c.style.transition='opacity .14s ease';c.style.opacity='0';
+      setTimeout(function(){
+        if(!ui)return;
+        c.style.transition='none';c.style.transform='translate('+cardAt.x+'px,'+cardAt.y+'px)';c.getBoundingClientRect();
+        c.style.transition='opacity .2s ease';c.style.opacity='';
+        setTimeout(function(){if(ui){c.style.transition='';ui.fading=false}},220);
+      },150);
+    }
+    else if(!ui.fading)c.style.transform=to;
     if(!ui.shown){c.getBoundingClientRect();c.style.transition='';ui.shown=true}
     cardAt={x:x,y:y,side:side||(cardAt&&cardAt.side),width:width};
   }
@@ -447,14 +512,22 @@
       watch=requestAnimationFrame(tick);
     })();
   }
+  // The page's own element at a point, under the tour's card and control bar.
+  function pageAt(x,y){
+    var all=document.elementsFromPoint?document.elementsFromPoint(x,y):[document.elementFromPoint(x,y)];
+    for(var k=0;k<all.length;k++)if(all[k]&&!(ui&&ui.root.contains(all[k])))return all[k];
+    return null;
+  }
   // How far down the screen a bar pinned at the top reaches (a page's sticky search bar or header), at this column.
   function pinnedTop(x){
-    var hit=document.elementFromPoint(Math.max(2,Math.min(window.innerWidth-2,x)),2);
-    for(var n=hit;n&&n!==document.body&&n!==document.documentElement;n=n.parentElement){
-      var pos=getComputedStyle(n).position;
-      if(pos==='sticky'||pos==='fixed'){var b=n.getBoundingClientRect().bottom;return b<window.innerHeight*0.4?b:0}
-    }
-    return 0;
+    var low=0;
+    [2,24,48].forEach(function(y){                                  // a bar pinned a little below the top edge counts too
+      for(var n=pageAt(Math.max(2,Math.min(window.innerWidth-2,x)),y);n&&n!==document.body&&n!==document.documentElement;n=n.parentElement){
+        var pos=getComputedStyle(n).position;
+        if(pos==='sticky'||pos==='fixed'){var r=n.getBoundingClientRect();if(r.top<=50&&r.bottom<window.innerHeight*0.4)low=Math.max(low,r.bottom);break}
+      }
+    });
+    return low;
   }
   // The free part of the screen: below any pinned bar, above the control bar.
   function freeArea(node){
@@ -471,7 +544,7 @@
     var r=clipped(node);
     if(!r)return true;
     var x=Math.min(window.innerWidth-2,Math.max(2,r.left+Math.min(40,(r.right-r.left)/2))),y=Math.min(window.innerHeight-2,Math.max(1,r.top+Math.min(12,(r.bottom-r.top)/2)));
-    var hit=document.elementFromPoint(x,y);                          // the tour's own layer takes no pointer events, so it is not hit
+    var hit=pageAt(x,y);
     return !!hit&&!node.contains(hit)&&!hit.contains(node);
   }
   function inView(node){
@@ -550,7 +623,7 @@
     }
     var f=freeArea(node),m=node.getBoundingClientRect(),room=f.bottom-f.top;
     await glide(null,m.height<=room?m.top-(f.top+Math.min(90,(room-m.height)/2)):m.top-f.top-8,token);
-    if(covered(node))await clearSticky(node,token);
+    for(var t=0;t<3&&token===run&&underBar(node);t++)await clearSticky(node,token);
   }
   // For something that opens below itself (a citation card): bring it into the upper part of its panel first.
   async function lift(node,token){
@@ -560,9 +633,10 @@
   // Every lit region should be seen whole, so its ring goes right round it. After the main region is in view, move the
   // page (or the panel a region scrolls in) only as far as needed to show the rest too, without losing the main one's
   // top; a page introduced from its top moves down only far enough to show its region whole.
-  async function showWhole(items,focus,token){
+  async function showWhole(items,focus,token,keepTop){
     var main=items[focus];
     if(!main||!main.node||!visible(main.node))return;
+    items.forEach(function(it){if(it.node&&visible(it.node))unclip(it.node)});
     for(var k=0;k<items.length;k++){                               // a region in a panel that scrolls: bring it in there
       var it=items[k];
       if(!it.node||!visible(it.node))continue;
@@ -577,13 +651,28 @@
     var f=freeArea(main.node),u=null;
     items.forEach(function(it){if(it.node&&visible(it.node)&&!scrollParent(it.node)||it===main){var r=fullRect(it);u=u?unite(u,r):r}});
     if(!u)return;
-    var room=f.bottom-f.top,mr=fullRect(main);
+    var room=f.bottom-f.top,mr=fullRect(main),all=u;
     if(u.height>room-8)u=mr;                                       // not all of it fits: the main region whole, at least
-    if(u.height>room-8)return;
+    if(u.height>room-8){                                           // not even that (a long list): start it all at the top of the screen
+      var lift=all.top-(f.top+8);
+      if(!keepTop&&lift>2){await glide(null,lift,token);for(var t=0;t<3&&token===run&&underBar(main.node);t++)await clearSticky(main.node,token)}
+      return;
+    }
     var d=0;
     if(u.bottom>f.bottom-6)d=Math.min(u.bottom-f.bottom+10,u.top-f.top);
     else if(u.top<f.top+2)d=u.top-f.top-10;
     if(Math.abs(d)>2)await glide(null,d,token);
+    for(var t=0;t<3&&token===run&&underBar(main.node);t++)await clearSticky(main.node,token);   // scrolling can pin a bar over its top
+  }
+  // A box that clips without a scroll bar (the reader's frame) can still be left scrolled by a jump inside it, which
+  // hides the top or bottom of a region for good: put it back.
+  function unclip(node){
+    for(var p=node.parentElement;p&&p!==document.body&&p!==document.documentElement;p=p.parentElement){
+      var o=getComputedStyle(p).overflowY;
+      if((o!=='hidden'&&o!=='clip')||!p.scrollTop)continue;
+      var r=node.getBoundingClientRect(),b=p.getBoundingClientRect();
+      if(r.top<b.top-1||r.bottom>b.bottom+1)p.scrollTop=0;
+    }
   }
   // A wide region leaves the card no place beside it. If the region and the card fit one above the other, move the page
   // so the region sits at the top of the free area and the card can speak below it, instead of covering part of it.
@@ -619,15 +708,22 @@
     }
   }
   // A bar that stays pinned at the top of the page (a toolbar) can sit over the region: move the region below it.
-  async function clearSticky(main,token){
+  // How much of the top of an element a bar pinned to the screen (a sticky header) hides: 0 when none does.
+  function underBar(main){
+    for(var a=main;a&&a!==document.body;a=a.parentElement)if(getComputedStyle(a).position==='fixed')return 0;   // a tooltip or dialog floats above the page
     var m=main.getBoundingClientRect(),x=Math.min(window.innerWidth-2,Math.max(2,m.left+Math.min(40,m.width/2))),y=Math.max(1,m.top+3);
-    var hit=document.elementFromPoint(x,y);
-    if(!hit||main.contains(hit)||hit.contains(main))return;
+    var hit=pageAt(x,y);
+    if(!hit||main.contains(hit)||hit.contains(main))return 0;
     var bar=hit;
     while(bar&&bar!==document.body){var pos=getComputedStyle(bar).position;if(pos==='sticky'||pos==='fixed')break;bar=bar.parentElement}
-    if(!bar||bar===document.body)return;
-    var need=bar.getBoundingClientRect().bottom+10-m.top;
-    if(need<=0)return;
+    if(!bar||bar===document.body)return 0;
+    var under=bar.getBoundingClientRect().bottom-m.top;
+    return under>6?under:0;                                         // a tab strip's few pixels of overlap are its design
+  }
+  async function clearSticky(main,token){
+    var under=underBar(main);
+    if(!under)return;
+    var need=under+10;
     var box=scrollParent(main);
     await glide(box&&box.scrollTop>=need?box:null,-need,token);
   }
@@ -651,7 +747,9 @@
       c.style.transition='none';c.style.transform='translate('+pointer.x+'px,'+pointer.y+'px)';
       c.getBoundingClientRect();c.style.transition='';
     }
-    c.classList.add('on');
+    var from={x:pointer.x,y:pointer.y};
+    pointer.x=x;pointer.y=y;c.classList.add('on');place();          // the card makes way for where the pointer is going first
+    pointer.x=from.x;pointer.y=from.y;
     var dist=Math.hypot(x-pointer.x,y-pointer.y);
     var ms=reduce?0:Math.round(Math.min(1200,Math.max(520,dist*1.36)));
     c.style.transitionDuration=ms+'ms, .2s';
@@ -836,7 +934,7 @@
     if(main)await steady(main,token);                               // a list that is still filling in: wait until it stops growing
     if(token!==run)return;
     if(!s.noScroll&&!s.top)await bringIntoView(main,token);
-    if(!s.noScroll)await showWhole(items,s.focus||0,token);         // then the rest of what is lit, when it all fits
+    if(!s.noScroll)await showWhole(items,s.focus||0,token,s.top);         // then the rest of what is lit, when it all fits
     if(!s.noScroll)await makeRoom(s,items[s.focus||0],token);       // and room for the card beside or below it
     if(token!==run)return;
     if(s.optional&&main&&!onScreen(main))return skipOver(i,token,'off-screen');  // there but out of sight: skip it
@@ -968,7 +1066,12 @@
       keep:keepClear().map(function(b){return {x:round(b.x),y:round(b.y),w:round(b.w),h:round(b.h)}}),
       items:ui.items.map(function(item,k){
         var n=item.node&&document.contains(item.node)&&visible(item.node)?item.node:null;
-        return {full:n?box(fullRect(item)):null,seen:n?box(liveRect(item)):null,ring:rings[k]||null};
+        var room=null;
+        if(n){                                                      // the height it could be seen in: the screen, or its panel
+          var f=freeArea(n),sp=scrollParent(n),pb=sp?sp.getBoundingClientRect():null,top=Math.max(f.top,pb?pb.top:f.top);
+          room={y:round(top),h:round(Math.min(f.bottom,pb?pb.bottom:f.bottom)-top)};
+        }
+        return {full:n?box(fullRect(item)):null,seen:n?box(liveRect(item)):null,ring:rings[k]||null,room:room,capped:!!item.capped,underBar:n?round(underBar(shownBox(n))):0};
       })};
   }
   window.ilitTour={start:start,exit:exit,steps:STEPS,resolveUrl:resolveUrl,resolveCase:resolveCase,geometry:geometry,times:function(){return window.__ilitTourTimes}};

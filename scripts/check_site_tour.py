@@ -287,6 +287,7 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
     """What looks wrong in one settled moment of the tour (the dict ilitTour.geometry() returns).
 
     - every lit element has a ring that goes right round it (none of it cut off by the screen, a panel or the bar);
+      one taller than the screen or its panel can show is ringed from its top, across its width, down the screen;
     - the card stays on the screen, off the control bar, and covers no lit element (nor, when it has room elsewhere,
       the site header or a bar pinned at the top of the screen);
     - the pointer, when it shows, is not on the card;
@@ -306,8 +307,19 @@ def geometry_problems(g: dict | None, previous_card: dict | None = None) -> list
         if not ring:
             problems.append(f"{name} has no ring")
             continue
+        if (item.get("underBar") or 0) > 6:                  # a tab strip overlapping by a few pixels is its design
+            problems.append(f"top of {name} hidden by {round(item['underBar'])}px under a bar pinned to the screen")
         cut = max(ring["x"] - full["x"], ring["y"] - full["y"], full["x"] + full["w"] - ring["x"] - ring["w"], full["y"] + full["h"] - ring["y"] - ring["h"])
-        if cut > GEOMETRY_SLACK:
+        room = item.get("room")
+        if cut > GEOMETRY_SLACK and room and full["h"] > room["h"] + GEOMETRY_SLACK:
+            # Taller than the screen (or its panel) can show: the ring goes round its first part. It must start at the
+            # element's top, reach across its whole width, end on the screen and show a real part of it.
+            top_and_sides = max(ring["x"] - full["x"], ring["y"] - full["y"], full["x"] + full["w"] - ring["x"] - ring["w"]) <= GEOMETRY_SLACK
+            if not top_and_sides:
+                problems.append(f"ring misses the top of {name} (taller than the screen: its start must show)")
+            elif ring["h"] < min(150, room["h"] / 3) or ring["y"] + ring["h"] > floor + GEOMETRY_SLACK:
+                problems.append(f"ring shows too little of {name} ({round(ring['h'])}px of a {round(room['h'])}px screen)")
+        elif cut > GEOMETRY_SLACK:
             off = full["y"] < 0 or full["y"] + full["h"] > floor or full["x"] < 0 or full["x"] + full["w"] > g["vw"]
             hidden = bool(seen) and (seen["h"] < full["h"] - GEOMETRY_SLACK or seen["w"] < full["w"] - GEOMETRY_SLACK)
             where = "off screen" if off else ("hidden by its panel" if hidden else "cut")
@@ -366,13 +378,15 @@ MOTION_RECORDER = """(() => {
 })();""" % (CARD_STILL, CARD_STILL)
 
 
-def run_walk(base: str, width: int, shots: Path | None, require_data: bool = False, height: int | None = None) -> int:
+def run_walk(base: str, width: int, shots: Path | None, require_data: bool = False, height: int | None = None,
+             part: tuple[str, str] | None = None) -> int:
     """Take the tour the way a visitor does: start on About and press only Next, timing each step.
 
     The tour signs in to the Workbench demo and pins decisions as it goes (the same writes a visitor's tour makes).
     Reports per step: how long it took after Next, whether it was skipped, and, at every card (lead, say and show),
     what geometry_problems() finds: a ring that cuts its element off, a card over a lit element, off the screen or
-    jumping for no reason, and the pointer on the card. Ends with the count of failing geometric checks."""
+    jumping for no reason, and the pointer on the card. Ends with the count of failing geometric checks.
+    part=(first, last) walks only those steps (from first, as after a refresh there), to re-check a few quickly."""
     from playwright.sync_api import sync_playwright
 
     steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]
@@ -390,7 +404,14 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
         page.click("[data-ilit-tour-start]")
-        print(f"walk at {size}")
+        if part:
+            first = next(k for k, step in enumerate(steps) if step["id"] == part[0])
+            page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
+            page.wait_for_timeout(500)
+            page.evaluate("i => { window.ilitTour.exit(); sessionStorage.setItem('ilit.tour.v1', JSON.stringify({i: i, active: true, phase: 'enter', dir: 1, t0: Date.now()})) }", first)
+            page.reload(wait_until="domcontentloaded")
+            seen.extend(step["id"] for step in steps[:first])
+        print(f"walk at {size}" + (f" (steps {part[0]} to {part[1]})" if part else ""))
         print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights   (ms: Next to result; 'say' and 'lead' cards are not timed here)")
         last_page, last_y = "", 0
         previous_card = None
@@ -476,7 +497,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
             if shots:
                 (shots / size).mkdir(parents=True, exist_ok=True)
                 page.screenshot(path=str(shots / size / f"{len(seen):02d}-{step_id}.png"))
-            if step_id == steps[-1]["id"]:
+            if step_id == steps[-1]["id"] or (part and step_id == part[1]):
                 break
             page.click(".ilit-tour-btn.primary")
         if errors:
@@ -551,6 +572,7 @@ def main() -> int:
     parser.add_argument("--require-data", action="store_true", help="fail when example data is missing (probes short, statistics empty); use on the real library")
     parser.add_argument("--steps-only", action="store_true")
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
+    parser.add_argument("--part", default="", help="with --walk: walk only steps FIRST:LAST (step ids), e.g. plain-search:adv-won")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
     parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
@@ -572,7 +594,7 @@ def main() -> int:
     if args.walk:
         sizes = [tuple(int(n) for n in size.lower().split("x")) for size in args.sizes.split(",") if size] or [(args.width, None)]
         for width, height in sizes:
-            failures += run_walk(base, width, args.shots, args.require_data, height)
+            failures += run_walk(base, width, args.shots, args.require_data, height, tuple(args.part.split(":", 1)) if args.part else None)
     if args.each or not args.walk:
         failures += run_browser(base, args.shots if not args.walk else None, shot_ids, args.width, args.demo_sign_in, args.require_data)
     if args.require_data:

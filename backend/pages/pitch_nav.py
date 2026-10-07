@@ -109,6 +109,7 @@ _CSS = """<style>
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}
 .cs-banner{margin:0 0 10px}.cs-banner .ilit-tour-start{margin:10px 0 0}.cs-banner .cs-strip{margin:0}
 .cs-frame[hidden],#comingSoonHead[hidden]{display:none}
+.cs-frame.cs-frame-flat{border:0;border-radius:0;height:600px;min-height:0;background:transparent}
 .cs-frame{display:block;width:100%;height:calc(100vh - 230px);min-height:520px;border:1px solid var(--border);border-radius:6px;background:#fff}
 #comingSoonPanel{padding:14px}#comingSoonPanel .page-header p{max-width:60ch;font-size:15px;line-height:1.55}
 </style>
@@ -132,7 +133,7 @@ def _script() -> str:
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
         "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',soon:'soon-themes',testing:'research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
-        "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav{display:none!important}';doc.head.appendChild(style)}catch(error){}});\n"
+        "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav{display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
         "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',soon:'soon-themes',testing:'research-bench'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
@@ -176,7 +177,7 @@ def _script() -> str:
         "    lastGroupTabs[item.group]=soon;pitchShowSoonNav(soon,item.group);\n"
         "    const frame=document.getElementById('comingSoonFrame'),head=document.getElementById('comingSoonHead');\n"
         "    const framed=item.kind==='page';\n"
-        "    if(frame){frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (coming soon)':' (in development)')}\n"
+        "    if(frame){const flat=item.group==='roadmap';try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (coming soon)':' (in development)')}\n"
         "    if(head){head.hidden=item.kind!=='text';document.getElementById('comingSoonTitle').textContent=item.name;document.getElementById('comingSoonText').textContent=item.text}\n"
         "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group',item.group);url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
         "  }\n"

@@ -51,3 +51,9 @@ def test_results_page_has_sort_bar_and_facet_chips():
 def test_citation_stats_load_after_results():
     html = data_explorer_page_html()
     assert "params.set('citation_stats','0')" in html and '/analytics/search/citation-stats?ids=' in html
+
+
+def test_search_page_has_no_full_text_checkbox():
+    html = data_explorer_page_html()
+    assert "searchFullText" not in html and "Search the full decision text" not in html
+    assert "Searching case names, citations and decision text..." in html

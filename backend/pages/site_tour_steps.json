@@ -114,20 +114,11 @@
       "section": "Case search",
       "url": "/data-explorer?tab=search",
       "title": "Search in a plain sentence",
-      "text": "I ticked 'Search the full decision text' and typed a plain sentence: the officer failed to consider the best interests of the child. Results are the decisions whose text matches. Avoid the word 'not' in a search: it is read as the NOT operator.",
+      "text": "I typed a plain sentence: the officer failed to consider the best interests of the child. Results are the decisions whose text matches. Avoid the word 'not' in a search: it is read as the NOT operator.",
       "target": "#searchResults .case-result",
       "needs": "Paragraph search path (PR 373, merged). Works on the current site but is faster once deployed.",
       "timeout": 25,
       "before": [
-        {
-          "do": "click",
-          "selector": "#toggleAdvancedSearch",
-          "unless": "#advancedSearchOptions:not([hidden])"
-        },
-        {
-          "do": "check",
-          "selector": "#searchFullText"
-        },
         {
           "do": "type",
           "selector": "#searchQuery",

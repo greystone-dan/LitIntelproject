@@ -45,6 +45,9 @@ SOON_TARGETS = {
     "statutes": ("page", "/statute-library"),
 }
 
+_BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&amp;group=info" title="Back to the About page" aria-label="ILIT, Immigration Litigation Intelligence System: back to the About page"><span class="brand-name">ILIT</span><span class="brand-sub">Immigration Litigation Intelligence System</span></a>
+"""
+
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">
 <button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">About</button>
 <button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Case search</button>
@@ -89,6 +92,10 @@ _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
 """
 
 _CSS = """<style>
+.topbar .brand-home{display:flex;align-items:baseline;gap:13px;margin:0 auto 0 0;padding:6px 10px;border-radius:6px;color:inherit;text-decoration:none;cursor:pointer;min-width:0}
+.topbar .brand-home:hover{background:#f1efe6}.topbar .brand-home:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.topbar .primary-groups{margin-left:auto}
+@media(max-width:600px){.topbar .brand-home{flex-basis:100%;margin:0}.topbar .primary-groups{margin-left:0}}
 .research-nav a.primary-link{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}.research-nav a.primary-link:hover{color:var(--teal)}
 .pitch-embedded .topbar,.pitch-embedded #researchViews{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
@@ -117,6 +124,8 @@ def _script() -> str:
         "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',soon:Object.keys(pitchSoon)[0],testing:'research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
         "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav{display:none!important}';doc.head.appendChild(style)}catch(error){}});\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',soon:'soon-themes',testing:'research-bench'};\n"
+        "document.addEventListener('click',event=>{const button=event.target.closest?.('[data-group]');const tab=button&&pitchCleanStart[button.dataset.group];if(!tab)return;event.preventDefault();event.stopImmediatePropagation();location.assign('/data-explorer?tab='+tab+'&group='+button.dataset.group)},true);\n"
         "const pitchBaseActivate=activateResearchTab;\n"
         "function pitchShowSoonNav(soon){\n"
         "  document.querySelectorAll('[data-group]').forEach(button=>{const on=button.dataset.group==='soon';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on))});\n"
@@ -146,9 +155,9 @@ def _script() -> str:
 
 
 def apply_pitch_navigation(html: str) -> str:
-    html, n = re.subn(r'<nav class="research-nav primary-groups".*?</nav>', lambda _m: _PRIMARY, html, count=1, flags=re.S)
+    html, n = re.subn(r'<header class="topbar">.*?</header>', lambda _m: '<header class="topbar">\n' + _BRAND + _PRIMARY + '\n</header>', html, count=1, flags=re.S)
     if n != 1:
-        raise RuntimeError("pitch navigation: primary nav not found")
+        raise RuntimeError("pitch navigation: header not found")
     html, n = re.subn(r'<nav id="researchViews".*?</nav>', lambda _m: _subnav(), html, count=1, flags=re.S)
     if n != 1:
         raise RuntimeError("pitch navigation: view tabs not found")

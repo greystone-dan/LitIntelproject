@@ -61,6 +61,13 @@ _DECISION_CONTENT_RE = re.compile(r"Decision Content|Contenu de la décision", r
 _FIRST_PARA_RE = re.compile(r"(?:^|\n)\s*\[1\]")
 _EIGHTH_PARA_RE = re.compile(r"(?:^|\n)\s*\[8\]")
 _IMMIGRATION_VOCAB_RE = re.compile(r"Minister of (?:Citizenship|Immigration|Public Safety|Employment and Immigration)|Immigration,? Refugees|Immigration and Refugee Board|Immigration Division|Immigration Appeal Division|Refugee (?:Protection|Appeal) Division|permanent resident|foreign national|Convention refugee|refugee (?:claim|status|protection)|deportation|removal order|visa officer|immigration (?:officer|consequence)", re.IGNORECASE)
+# Matters of other regimes that only mention an immigration body or the Act in passing (the opening names the real subject).
+_OTHER_REGIME_RE = re.compile(
+    r"Public\s+(?:Service|Sector)\s+Labour\s+Relations|Public\s+Service\s+Staffing\s+Tribunal"
+    r"|Access\s+to\s+Information\s+Act|Canadian\s+Human\s+Rights\s+(?:Commission|Tribunal)",
+    re.IGNORECASE,
+)
+_AIR_TRAVEL_RE = re.compile(r"Secure\s+Air\s+Travel\s+Act|Passenger\s+Protect", re.IGNORECASE)
 _CRIMINAL_TITLE_RE = re.compile(r"^(?:R\.|Her Majesty|La Reine|Regina)\s+(?:v\.|c\.)", re.IGNORECASE)
 _IMMIGRATION_TITLE_RE = re.compile(r"Citizenship|Immigration|Public Safety|Refugee|Minister of|Solicitor General|Canada Border|Council for", re.IGNORECASE)
 CRIMINAL_CASE_MIN_HITS = 25
@@ -424,6 +431,10 @@ def _classify_text(
         docket = header_docket.group(0) if header_docket else docket
 
     reasons, intro, intro_end = split_regions(content)
+    if (court or "").strip().upper() in {"FCA", "SCC"} and (_OTHER_REGIME_RE.search(intro[:800]) or _AIR_TRAVEL_RE.search(content[:6000])) \
+            and not _DOCKET_IMM_RE.search(content[:2500]):
+        return CaseTypeResult(TAXONOMY_VERSION, STATUS_NOT_IMMIGRATION, None, None, [], 0.0, {}, [], None,
+                              reason="the opening names another regime (air travel, public service labour, access to information, human rights)")
     if not PREGATE_RE.search(content) and (court or "").strip().upper() not in {"RPD", "RAD", "IAD", "ID"}:
         if title and _IMMIGRATION_PARTY_RE.search(title):
             return CaseTypeResult(TAXONOMY_VERSION, STATUS_UNCLEAR, None, None, [], 0.0, {}, [], None,

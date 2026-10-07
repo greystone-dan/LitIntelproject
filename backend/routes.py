@@ -1478,6 +1478,20 @@ def case_reader_cases(limit: int = 300, db: Session = Depends(get_db)) -> list[d
 	]
 
 
+@router.get("/site-tour.js", include_in_schema=False)
+def site_tour_script() -> Response:
+	from .site_tour import tour_js
+
+	return Response(tour_js(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/site-tour.css", include_in_schema=False)
+def site_tour_styles() -> Response:
+	from .site_tour import tour_css
+
+	return Response(tour_css(), media_type="text/css", headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/data-explorer", response_class=HTMLResponse, include_in_schema=False)
 def data_explorer_page() -> HTMLResponse:
 	return HTMLResponse(content=_data_explorer_page_html(), status_code=status.HTTP_200_OK)

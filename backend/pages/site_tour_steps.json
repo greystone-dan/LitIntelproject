@@ -1,0 +1,451 @@
+{
+  "_help": "Edit this file to change the site tour. 'cases' names the example decisions (found by citation, with the id as a fallback). Each step has: id, section, url (a page of the site; {name} is replaced by a case id from 'cases'), title, text, target (CSS selector or list of selectors tried in order; leave out to show the card in the middle of the screen), before (actions run once the page is ready: type, check, uncheck, click, submit, hover, waitFor, scroll; add 'unless' to skip an action when that selector is visible), buttons (extra buttons on the card; each says what it does), hover (true: show the site's own hover card on the target), optional (true: skip silently when the target is missing, which is also what happens to any step whose target cannot be found), timeout (seconds to wait for the target, default 8), needs (a note for editors: the feature this step depends on). The tour never writes anything unless a step has a button that says so.",
+  "cases": {
+    "vavilov": {
+      "citation": "2019 SCC 65",
+      "id": 35874,
+      "label": "Vavilov"
+    },
+    "baker": {
+      "citation": "[1999] 2 SCR 817",
+      "id": 35899,
+      "label": "Baker"
+    },
+    "dunsmuir": {
+      "citation": "2008 SCC 9",
+      "id": 52748,
+      "label": "Dunsmuir"
+    },
+    "khosa": {
+      "citation": "2009 SCC 12",
+      "id": 58063,
+      "label": "Khosa"
+    },
+    "fc": {
+      "label": "a recent Federal Court decision that cites Vavilov",
+      "search": {
+        "court": "FC",
+        "cites_case_id": "{vavilov}",
+        "sort_by": "newest"
+      },
+      "fallback": {
+        "court": "FC",
+        "sort_by": "newest"
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "welcome",
+      "section": "Welcome",
+      "url": "/data-explorer?tab=about",
+      "title": "Welcome to iLit",
+      "text": "This is a short walk through the real site, using real decisions. I will open pages and run searches for you. Use Next and Back to move, Skip section to jump ahead, or Exit at any time. Nothing is saved or changed unless a step says so.",
+      "target": ".ilit-about header"
+    },
+    {
+      "id": "nav",
+      "section": "Welcome",
+      "url": "/data-explorer?tab=about",
+      "title": "Four places to work",
+      "text": "Case search is where you find and read decisions. Intelligence / Statistics adds up many decisions: judges, citations and Federal Court activity. Workbench is your own list of files and pinned decisions, plus two document tools. Everything runs without AI, on stored data.",
+      "target": [
+        "nav.primary-groups",
+        ".research-nav",
+        ".topnav"
+      ]
+    },
+    {
+      "id": "search-box",
+      "section": "Case search",
+      "url": "/data-explorer?tab=search",
+      "title": "Search by name or citation",
+      "text": "Type a case name or a citation such as 2019 SCC 65. Suggestions appear as you type. Let me search for the Supreme Court's leading decision on standard of review.",
+      "target": "#caseSearch"
+    },
+    {
+      "id": "search-vavilov",
+      "section": "Case search",
+      "url": "/data-explorer?tab=search",
+      "title": "A real search",
+      "text": "I searched for Vavilov. Each result shows the court, date, how the decision came out, and how many decisions cite it. Click a result to read it; I will open one in a moment.",
+      "target": "#searchResults .case-result",
+      "before": [
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "Vavilov"
+        },
+        {
+          "do": "submit",
+          "selector": "#caseSearch"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result"
+        }
+      ]
+    },
+    {
+      "id": "filters",
+      "section": "Case search",
+      "url": "/data-explorer?tab=search",
+      "title": "Narrow with filters",
+      "text": "Advanced opens the filters: outcome, court, judge, Minister, year, tags, and 'cases citing' another decision. They combine, so you can ask for Federal Court decisions that cite Vavilov and went against the Minister.",
+      "target": "#advancedSearchOptions",
+      "before": [
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "Vavilov"
+        },
+        {
+          "do": "click",
+          "selector": "#toggleAdvancedSearch",
+          "unless": "#advancedSearchOptions:not([hidden])"
+        },
+        {
+          "do": "submit",
+          "selector": "#caseSearch"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#advancedSearchOptions"
+        }
+      ]
+    },
+    {
+      "id": "plain-sentence",
+      "section": "Case search",
+      "url": "/data-explorer?tab=search",
+      "title": "Search in a plain sentence",
+      "text": "I ticked 'Search the full decision text' and typed a plain sentence: the officer failed to consider the best interests of the child. Results are the decisions whose text matches. Avoid the word 'not' in a search: it is read as the NOT operator.",
+      "target": "#searchResults .case-result",
+      "needs": "Paragraph search path (PR 373, merged). Works on the current site but is faster once deployed.",
+      "timeout": 25,
+      "before": [
+        {
+          "do": "click",
+          "selector": "#toggleAdvancedSearch",
+          "unless": "#advancedSearchOptions:not([hidden])"
+        },
+        {
+          "do": "check",
+          "selector": "#searchFullText"
+        },
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "the officer failed to consider the best interests of the child"
+        },
+        {
+          "do": "submit",
+          "selector": "#caseSearch"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result",
+          "timeout": 25
+        }
+      ]
+    },
+    {
+      "id": "case-type",
+      "section": "Case search",
+      "url": "/data-explorer?tab=search",
+      "title": "Case type at a glance",
+      "text": "I searched for Citizenship and Immigration. Each result carries a case type, worked out from the statute provisions the decision discusses, for example a humanitarian and compassionate application or a visitor visa. The case type chips narrow the list to one kind of case.",
+      "target": [
+        "#searchRefine .facet-chip[data-facet='case_type']",
+        ".sp-bx.type",
+        ".sp-typeline"
+      ],
+      "optional": true,
+      "needs": "Case type box and filter (merged to main; check it is deployed).",
+      "before": [
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "Citizenship and Immigration"
+        },
+        {
+          "do": "submit",
+          "selector": "#caseSearch"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result"
+        }
+      ]
+    },
+    {
+      "id": "reader-open",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "The formatted reader",
+      "text": "This is Vavilov, formatted as a clean document with numbered paragraphs. The header shows the court, date, citation and how many decisions cite it, cite this, and refer to statutes.",
+      "target": [
+        ".reader-head",
+        "#decisionTitle"
+      ]
+    },
+    {
+      "id": "reader-about",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Outcome, details and topics",
+      "text": "The left panel gives the recorded outcome, the case details and the topics found in the text. It never hides the decision itself.",
+      "target": [
+        ".v6-pane",
+        ".reader-pane"
+      ]
+    },
+    {
+      "id": "reader-outline",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "The Outline",
+      "text": "The Outline lists the decision's sections with their paragraph numbers. I jumped to one so you can see the text move; click any row to go there.",
+      "target": ".v6-outline",
+      "needs": "Outline (PR 375, merged).",
+      "optional": true,
+      "before": [
+        {
+          "do": "click",
+          "selector": ".v6-outline .v6-orow:nth-child(2)"
+        }
+      ]
+    },
+    {
+      "id": "reader-layers",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Citations, statutes and tags in the text",
+      "text": "Citations (gold), statutes (purple) and topic tags (green) are marked in the text. Switch each layer on or off to read the decision clean or fully annotated.",
+      "target": [
+        ".reader-layer-legend",
+        ".reader-evidence-bar"
+      ]
+    },
+    {
+      "id": "reader-citation-card",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Hover a citation",
+      "text": "Hover a marked citation and a card shows what it is and the passage it points to. This is the card for one of the authorities this decision relies on.",
+      "target": ".fmt-decision mark[data-cite-id]:not(.chunk-statute):not(.tag-highlight)",
+      "hover": true,
+      "optional": true
+    },
+    {
+      "id": "reader-statute-card",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Hover a statute",
+      "text": "The same works for statutes and regulations. The card names the provision, and the left panel can show every decision that cites it.",
+      "target": ".fmt-decision mark.chunk-statute[data-authority]",
+      "hover": true,
+      "optional": true
+    },
+    {
+      "id": "reader-authorities",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Authorities",
+      "text": "The Authorities tab lists the cases and statutes this decision cites, how often and at which paragraphs. Open a row to see the passages, or jump to them in the text.",
+      "target": ".v6-pane",
+      "before": [
+        {
+          "do": "click",
+          "selector": "[data-v6-tab='auth']"
+        }
+      ]
+    },
+    {
+      "id": "reader-intelligence",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Intelligence for this decision",
+      "text": "The Intelligence tab adds the picture around this decision: the judge, how the decision has been cited, and links to the wider citation analysis.",
+      "target": ".v6-pane",
+      "before": [
+        {
+          "do": "click",
+          "selector": "[data-v6-tab='intel']"
+        }
+      ]
+    },
+    {
+      "id": "reader-save",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={vavilov}",
+      "title": "Keep it on your Workbench",
+      "text": "Save to Workbench pins a decision to your own list. I will not click it for you; it only works once you have signed in to the Workbench demo.",
+      "target": "#v6SaveWb",
+      "optional": true
+    },
+    {
+      "id": "reader-fc",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={fc}",
+      "title": "A Federal Court decision",
+      "text": "Here is a recent Federal Court decision that cites Vavilov. Federal Court reasons open the same way: header, outcome, outline, and the authorities it applies.",
+      "target": [
+        ".reader-head",
+        "#decisionTitle"
+      ],
+      "optional": true
+    },
+    {
+      "id": "landmarks",
+      "section": "Reading a decision",
+      "url": "/data-explorer?case_id={baker}",
+      "title": "Other landmark decisions",
+      "text": "Baker (humanitarian and compassionate decisions), Dunsmuir (standards of review) and Khosa (Federal Courts Act judicial review) are all in the library. Search any of them by name to read them the same way.",
+      "target": [
+        ".reader-head",
+        "#decisionTitle"
+      ],
+      "optional": true
+    },
+    {
+      "id": "judges",
+      "section": "Judges",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "Judge profiles",
+      "text": "Search a judge to see their decisions in the library, how outcomes split, and which authorities they rely on. Name variants are merged so one judge is not split across spellings.",
+      "target": [
+        "#jpApp",
+        "#judgeProfilePanel"
+      ]
+    },
+    {
+      "id": "judge-open",
+      "section": "Judges",
+      "url": "/data-explorer?tab=judge-profile",
+      "title": "One judge's record",
+      "text": "I opened the first judge in the list. A profile shows that judge's decisions, how they came out, and the authorities they cite.",
+      "target": "#jpMain",
+      "optional": true,
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": "#jpList button, #jpList a, #jpList [role='button'], #jpList li"
+        },
+        {
+          "do": "click",
+          "selector": "#jpList button, #jpList a, #jpList [role='button'], #jpList li"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#jpMain .ci-header, #jpMain h2, #jpMain h3"
+        }
+      ]
+    },
+    {
+      "id": "citation-intelligence",
+      "section": "Citation intelligence",
+      "url": "/data-explorer?tab=citation-intelligence&case_id={vavilov}",
+      "title": "Citation intelligence",
+      "text": "Start from one authority and see who relies on it: which courts and judges cite it, the outcomes of the cases that cite it, the statutes they discuss, and how its use has changed year to year.",
+      "target": [
+        "#ciBody",
+        "#ciApp"
+      ]
+    },
+    {
+      "id": "fc-analytics",
+      "section": "Federal Court analytics",
+      "url": "/data-explorer?tab=fc-analytics",
+      "title": "Federal Court analytics",
+      "text": "Counts and rates across every immigration file in the Federal Court docket, not only the ones you received. Choose a preset or set the years and city, and every chart follows.",
+      "target": [
+        "#fcxPresets",
+        "#fcAnalyticsPanel"
+      ]
+    },
+    {
+      "id": "fc-analytics-kpis",
+      "section": "Federal Court analytics",
+      "url": "/data-explorer?tab=fc-analytics",
+      "title": "From filing to decision",
+      "text": "Filings, leave and merits rates, outcomes and durations. The caveat that applies to all of it: it is built from Registry entries, which can contain errors.",
+      "target": [
+        "#fcxKpis",
+        "#fcxFunnel",
+        "#fcxDashboardBody"
+      ],
+      "optional": true
+    },
+    {
+      "id": "workbench-signin",
+      "section": "Workbench",
+      "url": "/workbench",
+      "title": "Your Workbench (demo)",
+      "text": "The Workbench keeps your own list of IMM files, pinned decisions, and two document tools. Sign-in here is a demo with no password; a name just keeps your list apart. The button below signs in as 'Demo analyst', which creates a small demo list on this site. Skip it if you would rather not.",
+      "target": [
+        "#signinView .signin",
+        "#appView h1"
+      ],
+      "optional": true,
+      "buttons": [
+        {
+          "label": "Sign in as demo analyst",
+          "click": "#signinDemo",
+          "waitFor": "#appView:not(.hidden)",
+          "writes": "Creates a demo list called Demo analyst on this site."
+        }
+      ]
+    },
+    {
+      "id": "workbench-cases",
+      "section": "Workbench",
+      "url": "/workbench",
+      "title": "A case list that flags change",
+      "text": "Paste IMM numbers, or a column from Excel, and the list follows those files. A flag shows when the stored Federal Court docket has moved since you last looked.",
+      "target": "#caseCard",
+      "optional": true
+    },
+    {
+      "id": "workbench-pins",
+      "section": "Workbench",
+      "url": "/workbench",
+      "title": "Pinned decisions",
+      "text": "Decisions you saved from the reader appear here, with folders, notes, and Compare selected for two decisions side by side.",
+      "target": "#pinRows",
+      "optional": true
+    },
+    {
+      "id": "live-analysis",
+      "section": "Document tools",
+      "url": "/workbench#live",
+      "title": "Live analysis",
+      "text": "Bring your own document (a Word file, a text PDF or pasted text) and read it in the same reader, with its citations and statutes marked. It is read in memory, never stored, and no AI is used.",
+      "target": [
+        "#frame-live",
+        "#tab-live"
+      ],
+      "optional": true
+    },
+    {
+      "id": "deidentifier",
+      "section": "Document tools",
+      "url": "/workbench#deid",
+      "title": "De-identifier",
+      "text": "Swap people's names, ID numbers, contact details and specific dates for placeholders such as [PERSON_1] before a document goes anywhere else. A key file puts the details back later. Nothing is stored.",
+      "target": [
+        "#frame-deid",
+        "#tab-deid"
+      ],
+      "optional": true
+    },
+    {
+      "id": "done",
+      "section": "Finish",
+      "url": "/data-explorer?tab=about",
+      "title": "That is the tour",
+      "text": "You have seen search, the formatted reader, judges, citation intelligence, Federal Court analytics, the Workbench and the document tools. Take the tour again from the About page whenever you like. Press Done to explore on your own.",
+      "target": ".ilit-about header"
+    }
+  ]
+}

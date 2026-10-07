@@ -110,3 +110,13 @@ def test_about_coming_soon_list_matches_the_navigation():
 	list_html = re.search(r'<ul class="soon-list">(.*?)</ul>', html, re.S).group(1)
 	for _key, name, _text in COMING_SOON:
 		assert name.replace("&", "&amp;") in list_html
+
+
+def test_about_sections_have_stable_anchors_for_the_tour():
+	pages = ROOT / "backend" / "pages"
+	overview = (pages / "about_content.html").read_text(encoding="utf-8")
+	how = (pages / "about_how.html").read_text(encoding="utf-8")
+	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts"):
+		assert f'id="{anchor}"' in overview, anchor
+	for anchor in ("aboutHowIntro", "pipeline", "library", "derived", "tabs", "soon", "progress", "principles"):
+		assert f'id="{anchor}"' in how, anchor

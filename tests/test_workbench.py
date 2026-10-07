@@ -190,3 +190,40 @@ def test_page_marks_itself_demo_and_has_the_three_views(env):
 	for view in ("Analyst home", "Live analysis", "De-identifier"):
 		assert view in html
 	assert 'data-src="/live-analysis?embed=1"' in html and 'data-src="/deidentify?embed=1"' in html
+
+
+def test_import_rows_read_pasted_tables_with_labels():
+	rows = workbench.parse_import_rows("IMM-1-24\tLopez v MCI\nIMM-2-24,IMM-3-24\n\"IMM-4-24\",\"Singh, Raj\"\nnothing here\nIMM-1-24\tduplicate")
+	assert rows == [("IMM-1-24", "Lopez v MCI"), ("IMM-2-24", None), ("IMM-3-24", None), ("IMM-4-24", "Singh, Raj")]
+
+
+def test_import_label_is_stored_and_milestones_come_from_docket_text(env):
+	client, Session = env
+	_docket(Session, "IMM-1-24", [
+		_entry(1, "Notice of application filed"),
+		_entry(9, "Order granting leave and setting hearing"),
+		_entry(20, "Hearing scheduled for 2026-11-18"),
+	])
+	_sign_in(client)
+	client.post("/workbench/api/cases", json={"text": "IMM-1-24\tLopez v MCI"})
+	case = client.get("/workbench/api/cases").json()["cases"][0]
+	assert case["label"] == "Lopez v MCI"
+	detail = client.get(f"/workbench/api/cases/{case['id']}").json()
+	labels = [m["label"] for m in detail["milestones"]]
+	assert labels[0] == "Filed" and "Leave granted" in labels and "Hearing" in labels
+
+
+def test_printable_briefs_need_sign_in_and_escape_user_text(env):
+	client, Session = env
+	assert client.get("/workbench/brief").status_code == 401
+	_docket(Session, "IMM-1-24", [_entry(1, "Notice of application filed"), _entry(2, "Reply <script>alert(1)</script>")])
+	_sign_in(client)
+	client.post("/workbench/api/cases", json={"text": "IMM-1-24"})
+	case_id = client.get("/workbench/api/cases").json()["cases"][0]["id"]
+	client.patch(f"/workbench/api/cases/{case_id}", json={"notes": "<b>call</b> counsel"})
+	one = client.get(f"/workbench/brief/case/{case_id}")
+	assert one.status_code == 200 and "<script>alert" not in one.text and "&lt;b&gt;call&lt;/b&gt;" in one.text
+	allbrief = client.get("/workbench/brief")
+	assert allbrief.status_code == 200 and "Morning brief" in allbrief.text and "IMM-1-24" in allbrief.text
+	client.post("/workbench/api/signout")
+	assert client.get(f"/workbench/brief/case/{case_id}").status_code == 401

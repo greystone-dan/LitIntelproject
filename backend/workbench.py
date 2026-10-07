@@ -62,6 +62,38 @@ def parse_imm_numbers(raw: str) -> list[str]:
 	return [item for item in found if item and not (item in seen or seen.add(item))]
 
 
+def _cells(line: str) -> list[str]:
+	delimiter = next((d for d in ("\t", "|", ";") if d in line), ",")
+	try:
+		return [c.strip() for c in next(csv.reader([line], delimiter=delimiter))]
+	except (csv.Error, StopIteration):
+		return [line.strip()]
+
+
+def parse_import_rows(raw: str) -> list[tuple[str, str | None]]:
+	"""IMM numbers with an optional label, from pasted lists or table rows (Excel/CSV: "IMM-1-24<TAB>Lopez v MCI").
+
+	A row with exactly one IMM number and other text uses the first other cell as the label. Rows holding several
+	IMM numbers (a plain list) get no label.
+	"""
+	rows: list[tuple[str, str | None]] = []
+	seen: set[str] = set()
+	for line in (raw or "").splitlines():
+		numbers = parse_imm_numbers(line)
+		if not numbers:
+			continue
+		label = None
+		if len(numbers) == 1:
+			others = [c for c in _cells(line) if c and not parse_imm_numbers(c)]
+			if others and len(line) > 12:
+				label = others[0][:255]
+		for imm in numbers:
+			if imm not in seen:
+				seen.add(imm)
+				rows.append((imm, label))
+	return rows
+
+
 def slugify_owner(name: str) -> str:
 	slug = re.sub(r"[^a-z0-9]+", "-", (name or "").strip().lower()).strip("-")[:60]
 	return f"demo-{slug}" if slug else ""
@@ -146,6 +178,34 @@ def fc_state(db: Session, imm: str) -> dict[str, Any]:
 	}
 
 
+_MILESTONES = (
+	("Filed", re.compile(r"notice of application|application for leave|leave application|filed", re.I), True),
+	("Leave granted", re.compile(r"leave\b.{0,40}\bgranted|granting leave|application for leave.{0,40}granted", re.I), False),
+	("Leave dismissed", re.compile(r"leave\b.{0,40}\bdismissed|dismissing.{0,30}leave|leave\b.{0,40}\bdenied", re.I), False),
+	("Hearing", re.compile(r"\bhearing\b|oral hearing|hearing scheduled", re.I), False),
+	("Stay", re.compile(r"\bstay\b|stay of removal", re.I), False),
+	("Judgment", re.compile(r"judgment|reasons for (?:order|judgment)|application.{0,30}(?:allowed|dismissed)", re.I), False),
+	("Discontinued", re.compile(r"discontinu|withdraw", re.I), False),
+)
+
+
+def milestones(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	"""Key docket events found by fixed text rules (first Filed, then every other kind in date order)."""
+	found: list[dict[str, Any]] = []
+	filed_done = False
+	for entry in entries:
+		text = str(entry.get("entry") or "")
+		for label, pattern, first_only in _MILESTONES:
+			if first_only and filed_done:
+				continue
+			if pattern.search(text):
+				if first_only:
+					filed_done = True
+				found.append({"label": label, "date": entry.get("date"), "entry": text[:160]})
+				break
+	return found[-12:]
+
+
 def _snapshot(row: WorkbenchCase, state: dict[str, Any]) -> None:
 	row.last_seen_entries = int(state["entries"] or 0)
 	row.last_seen_activity_date = state["latest_activity"]
@@ -195,6 +255,7 @@ def case_payload(row: WorkbenchCase, state: dict[str, Any], *, detail: bool = Fa
 			{"date": e.get("date"), "entry": str(e.get("entry") or "")[:1200], "re_no": e.get("re_no"), "new": i >= len(state["_entries"]) - new_count and new_count > 0}
 			for i, e in enumerate(state["_entries"])
 		][-80:]
+		payload["milestones"] = milestones(state["_entries"])
 	return payload
 
 
@@ -207,6 +268,7 @@ def pin_payload(pin: WorkbenchPin, case: Case | None) -> dict[str, Any]:
 		"court": case.court if case else None,
 		"date": case.date.isoformat() if case and case.date else None,
 		"docket": case.docket_number if case else None,
+		"cited_by": case.citing_cases_count if case else None,
 		"notes": pin.notes or "",
 		"tags": pin.tags or [],
 		"folder": pin.folder or "",
@@ -323,7 +385,9 @@ def list_cases(owner: str = Depends(current_owner), db: Session = Depends(get_db
 
 @router.post("/workbench/api/cases", include_in_schema=False)
 def add_cases(body: AddCasesRequest, owner: str = Depends(current_owner), db: Session = Depends(get_db)) -> JSONResponse:
-	numbers = parse_imm_numbers(body.text)
+	import_rows = parse_import_rows(body.text)
+	numbers = [imm for imm, _ in import_rows]
+	labels = {imm: label for imm, label in import_rows}
 	if not numbers:
 		raise HTTPException(status_code=422, detail="No IMM numbers found. Use the form IMM-1234-19, one per line or separated by commas.")
 	existing = {row.imm_number for row in db.scalars(select(WorkbenchCase).where(WorkbenchCase.owner == owner)).all()}
@@ -335,7 +399,7 @@ def add_cases(body: AddCasesRequest, owner: str = Depends(current_owner), db: Se
 		if imm in existing:
 			skipped.append(imm)
 			continue
-		row = WorkbenchCase(owner=owner, imm_number=imm, folder=folder, tags=[])
+		row = WorkbenchCase(owner=owner, imm_number=imm, folder=folder, tags=[], label=labels.get(imm))
 		_snapshot(row, fc_state(db, imm))
 		db.add(row)
 		added.append(imm)
@@ -485,6 +549,86 @@ def _csv_safe(value: Any) -> Any:
 	if isinstance(value, str) and value[:1] in ("=", "+", "-", "@", "\t", "\r"):
 		return "'" + value
 	return value
+
+
+# ---------------------------------------------------------------- printable briefs
+
+
+def _owner_or_message(request: Request) -> str | None:
+	owner = request.cookies.get(COOKIE, "")
+	return owner if re.fullmatch(r"demo-[a-z0-9-]{1,60}", owner) else None
+
+
+def _signin_needed() -> HTMLResponse:
+	return HTMLResponse('<!doctype html><meta charset="utf-8"><p style="font:16px sans-serif;margin:30px">Sign in on the <a href="/workbench">Workbench</a> first.</p>', status_code=401)
+
+
+def _case_section(item: dict[str, Any]) -> str:
+	from .pages.workbench_brief import esc
+
+	flag = f'<p class="flag">New since last viewed: {esc("; ".join(item["flag_reasons"]))}.</p>' if item["flagged"] else ""
+	miles = "".join(f"<tr><td>{esc(m['date'])}</td><td>{esc(m['label'])}</td><td>{esc(m['entry'])}</td></tr>" for m in item.get("milestones", []))
+	rows = "".join(
+		f'<tr class="{"new" if e["new"] else ""}"><td>{esc(e["date"])}</td><td>{esc(e["entry"])}</td></tr>' for e in item.get("timeline", [])
+	)
+	dl = f"<p><strong>Deadline:</strong> {esc(item['deadline'])} {esc(item['deadline_label'])}</p>" if item["deadline"] else ""
+	return (
+		f"<h2>{esc(item['imm_number'])} {esc(item['label'] or item['style_of_cause'] or '')}</h2>{flag}"
+		f"<p class=\"muted\">Status: {esc(item['status'] or 'not stored')} &middot; Leave: {esc(item['leave'] or '-')} &middot; Judicial review: {esc(item['judicial_review'] or '-')} &middot; Judge: {esc(item['judge'] or '-')} &middot; {esc(item['entries'])} docket entries"
+		f"{(' &middot; folder ' + esc(item['folder'])) if item['folder'] else ''}{(' &middot; tags ' + esc(', '.join(item['tags']))) if item['tags'] else ''}</p>{dl}"
+		+ (f"<p><strong>Notes</strong></p><div class=\"notes\">{esc(item['notes'])}</div>" if item["notes"] else "")
+		+ (f"<p><strong>Milestones</strong></p><table><tr><th>Date</th><th>Event</th><th>Docket text</th></tr>{miles}</table>" if miles else "")
+		+ (f"<p><strong>Docket</strong></p><table><tr><th style=\"width:92px\">Date</th><th>Entry</th></tr>{rows}</table>" if rows else "<p class=\"muted\">No docket entries are stored for this file yet.</p>")
+	)
+
+
+@router.get("/workbench/brief/case/{case_id}", response_class=HTMLResponse, include_in_schema=False)
+def brief_case(case_id: int, request: Request, db: Session = Depends(get_db)) -> HTMLResponse:
+	from .pages.workbench_brief import brief_page
+
+	owner = _owner_or_message(request)
+	if owner is None:
+		return _signin_needed()
+	row = _owned_case(db, owner, case_id)
+	item = case_payload(row, fc_state(db, row.imm_number), detail=True)
+	return HTMLResponse(brief_page(f"Case brief: {row.imm_number}", "Workbench", _case_section(item)), headers=_NO_STORE)
+
+
+@router.get("/workbench/brief", response_class=HTMLResponse, include_in_schema=False)
+def brief_all(request: Request, db: Session = Depends(get_db)) -> HTMLResponse:
+	"""Morning brief: what moved since you last looked, deadlines, then the whole case list and pinned decisions."""
+	from .pages.workbench_brief import brief_page, esc
+
+	owner = _owner_or_message(request)
+	if owner is None:
+		return _signin_needed()
+	rows = db.scalars(select(WorkbenchCase).where(WorkbenchCase.owner == owner).order_by(WorkbenchCase.imm_number)).all()
+	items = [case_payload(r, fc_state(db, r.imm_number), detail=True) for r in rows]
+	flagged = [i for i in items if i["flagged"]]
+	today = date.today()
+	due = sorted((i for i in items if i["deadline"]), key=lambda i: i["deadline"])
+	html = f"<h2>New activity ({len(flagged)})</h2>"
+	html += "".join(_case_section(i) for i in flagged) if flagged else '<p class="muted">Nothing has moved on your tracked files since you last viewed them.</p>'
+	html += f"<h2>Deadlines ({len(due)})</h2>"
+	html += (
+		"<table><tr><th>Date</th><th>File</th><th>Note</th><th>Days</th></tr>"
+		+ "".join(f"<tr><td>{esc(i['deadline'])}</td><td>{esc(i['imm_number'])} {esc(i['label'] or i['style_of_cause'] or '')}</td><td>{esc(i['deadline_label'])}</td><td>{(date.fromisoformat(i['deadline']) - today).days}</td></tr>" for i in due)
+		+ "</table>"
+	) if due else '<p class="muted">No deadlines set.</p>'
+	html += f"<h2>All tracked files ({len(items)})</h2><table><tr><th>IMM</th><th>Name</th><th>Status</th><th>Latest activity</th><th>Folder</th></tr>"
+	html += "".join(f"<tr><td>{esc(i['imm_number'])}</td><td>{esc(i['label'] or i['style_of_cause'] or '')}</td><td>{esc(i['status'] or '')}</td><td>{esc(i['latest_activity'] or '')}</td><td>{esc(i['folder'])}</td></tr>" for i in items) + "</table>"
+	pins = db.scalars(select(WorkbenchPin).where(WorkbenchPin.owner == owner).order_by(WorkbenchPin.pinned_at.desc())).all()
+	cases = {c.id: c for c in db.scalars(select(Case).where(Case.id.in_([p.case_id for p in pins] or [0]))).all()}
+	html += f"<h2>Pinned decisions ({len(pins)})</h2>"
+	if pins:
+		html += "<table><tr><th>Decision</th><th>Citation</th><th>Notes</th></tr>"
+		for pin in pins:
+			p = pin_payload(pin, cases.get(pin.case_id))
+			html += f"<tr><td>{esc(p['title'])}<div class=\"muted\">{esc(p['court'])} {esc(p['date'])}</div></td><td>{esc(p['citation'])}</td><td>{esc(p['notes'])}</td></tr>"
+		html += "</table>"
+	else:
+		html += '<p class="muted">Nothing pinned yet.</p>'
+	return HTMLResponse(brief_page(f"Morning brief, {today.strftime('%B %d, %Y').replace(' 0', ' ')}", "Workbench", html), headers=_NO_STORE)
 
 
 # ---------------------------------------------------------------- page

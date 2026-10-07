@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T03:00:10.305691+00:00
+Generated: 2026-10-07T03:04:40.554004+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 134 across 131 paths
-Hidden operations: 86 excluded from OpenAPI
+Hidden operations: 88 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -3168,6 +3168,37 @@ Handler: `backend.workbench.summary`
 **Handler parameters**
 
 - `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/brief`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.brief_all`
+
+**Handler parameters**
+
+- `request` (Request; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/brief/case/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.brief_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `request` (Request; required)
 - `db` (Session; default `Depends(get_db)`)
 
 **Responses**

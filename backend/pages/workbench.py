@@ -145,6 +145,7 @@ _BODY = r'''<body>
 </div>
 
 <section id="view-home" role="tabpanel" aria-labelledby="tab-home">
+<div class="card hidden" id="briefCard" style="margin-bottom:14px"><header><div><h2>Morning brief</h2><div class="hint" id="briefSub"></div></div><div class="actions"><a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/workbench/brief" target="_blank" rel="noopener">Printable brief</a><button class="btn small" id="briefSeen" type="button">Mark all viewed</button></div></header><div class="body"><div class="mini" id="briefList"></div></div></div>
 <div class="tiles" id="tiles"></div>
 <div class="homegrid">
 <div class="stack">
@@ -153,10 +154,11 @@ _BODY = r'''<body>
 <div class="actions"><button class="btn secondary small" id="markAll" type="button">Mark all viewed</button><a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/workbench/api/cases/export.csv" id="exportCases">Export CSV</a></div></header>
 <div class="body">
 <div class="addrow">
-<div><label class="fl" for="addText">Add IMM numbers</label><input type="text" id="addText" placeholder="IMM-1234-19, IMM-5678-24 (paste a list if you like)" autocomplete="off"></div>
+<div><label class="fl" for="addText">Add IMM numbers</label><textarea id="addText" rows="2" style="min-height:40px" placeholder="IMM-1234-19, IMM-5678-24. You can also paste rows from Excel (IMM number, then a name)." autocomplete="off"></textarea></div>
 <div><label class="fl" for="addFolder">Folder (optional)</label><input type="text" id="addFolder" list="folderList" maxlength="80" placeholder="e.g. H&amp;C files"></div>
 <button class="btn" id="addGo" type="button">Add to list</button>
 </div>
+<div class="hint" style="margin-top:6px">Bulk import: paste a table, or <label class="linkbtn" style="cursor:pointer">choose a .csv or .txt file<input type="file" id="addFile" accept=".csv,.txt,.tsv,text/plain,text/csv" class="hidden"></label>. Ctrl+Enter adds.</div>
 <div class="err hidden" id="addErr"></div>
 <div class="hint hidden" id="addMsg" style="margin-top:8px"></div>
 <div class="filters">
@@ -177,7 +179,7 @@ _BODY = r'''<body>
 <div class="body"><div class="filters" style="margin-top:0"><select id="pFolder" aria-label="Folder"><option value="">All folders</option></select></div><div id="pinRows"><div class="empty">Loading…</div></div></div>
 </div>
 <div class="card"><header><h2>Deadlines</h2></header><div class="body"><div class="mini" id="deadlineList"></div></div></div>
-<div class="card"><header><h2>Recent searches</h2><button class="linkbtn" id="clearRecent" type="button">Clear</button></header><div class="body"><div class="mini" id="recentList"></div></div></div>
+<div class="card"><header><h2>Saved and recent searches</h2><button class="linkbtn" id="clearRecent" type="button">Clear</button></header><div class="body"><div class="mini" id="recentList"></div></div></div>
 </div>
 </div>
 <datalist id="folderList"></datalist>
@@ -246,7 +248,16 @@ async function loadAll(){
     cases=c.cases;pins=p.pins;summary=s;renderAll();
   }catch(e){$('caseRows').innerHTML='<div class="empty">'+E(e.message)+'</div>'}
 }
-function renderAll(){renderTiles();renderFilters();renderCases();renderPins();renderDeadlines();renderRecent()}
+function renderAll(){renderBrief();renderTiles();renderFilters();renderCases();renderPins();renderDeadlines();renderRecent()}
+function renderBrief(){
+  const flagged=cases.filter(c=>c.flagged),dl=((summary&&summary.deadlines)||[]).filter(d=>d.days<=7);
+  $('briefCard').classList.toggle('hidden',!flagged.length&&!dl.length);
+  $('briefSub').textContent=`${flagged.length} file${flagged.length===1?'':'s'} moved since you last looked${dl.length?`, ${dl.length} deadline${dl.length===1?'':'s'} within a week or overdue`:''}.`;
+  $('briefList').innerHTML=dl.map(d=>`<div class="line"><span><b>${E(d.imm_number)}</b> <span class="hint">${E(d.label)}</span></span><span class="pill ${d.days<0?'over':'warn'}">${d.days<0?'Overdue '+(-d.days)+' d':d.days===0?'Today':'in '+d.days+' d'}</span></div>`).join('')+
+   flagged.slice(0,8).map(c=>`<div class="line"><span style="min-width:0"><button class="sq" type="button" data-brief="${c.id}"><b>${E(c.imm_number)}</b> ${E(c.label||c.style_of_cause||'')}</button><div class="hint">${E(c.flag_reasons.join('; '))}${c.new_entry_preview.length?' · '+E(c.new_entry_preview[c.new_entry_preview.length-1].entry.slice(0,110)):''}</div></span></div>`).join('')+(flagged.length>8?`<div class="hint">and ${flagged.length-8} more in the case list below.</div>`:'');
+  document.querySelectorAll('[data-brief]').forEach(b=>b.onclick=()=>{openCase=Number(b.dataset.brief);renderCases();toggleDetailLoad(cases.find(c=>c.id===openCase));const r=document.querySelector(`.row[data-id="${openCase}"]`);r&&r.scrollIntoView({behavior:'smooth',block:'center'})});
+}
+$('briefSeen').onclick=()=>$('markAll').click();
 
 function renderTiles(){
   const s=summary||{cases:0,flagged:0,pins:0,deadlines:[]};
@@ -289,7 +300,7 @@ function renderCases(){
     return `<div class="row" data-id="${c.id}"><button type="button" class="rowhead" data-open="${c.id}" aria-expanded="${open}">
       <span class="imm">${E(c.imm_number)}</span>
       <span class="soc"><strong>${E(c.label||c.style_of_cause||(c.known?'(no style of cause stored)':'Not in the stored docket data yet'))}</strong><small>${c.known?`${c.entries} docket entries${c.latest_activity?' · latest '+E(fmt(c.latest_activity)):''}`:'Added to your list; flags appear once the file is loaded'}</small></span>
-      <span class="chips">${c.flagged?`<span class="pill flag">● ${E(c.flag_reasons[0])}</span>`:''}${c.status?`<span class="pill">${E(c.status)}</span>`:''}${deadlinePill(c)}${c.tags.slice(0,3).map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}</span></button>${open?detailHtml(c):''}</div>`}).join('');
+      <span class="chips">${c.flagged?`<span class="pill flag">● ${E(c.flag_reasons[0])}</span>`:''}${c.status?`<span class="pill">${E(c.status)}</span>`:''}${c.folder?`<span class="pill" title="Folder">&#128193; ${E(c.folder)}</span>`:''}${deadlinePill(c)}${c.tags.slice(0,3).map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}</span></button>${open?detailHtml(c):''}</div>`}).join('');
   document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>toggleCase(Number(b.dataset.open)));
   if(openCase!==null)wireDetail();
 }
@@ -297,12 +308,14 @@ function detailHtml(c){
   const d=c._detail;
   const nb=c.flagged?`<div class="newbox"><strong>Since you last viewed:</strong> ${c.flag_reasons.map(E).join('; ')}.${c.new_entry_preview.length?`<ul>${c.new_entry_preview.map(e=>`<li><b>${E(fmt(e.date))}</b> ${E(e.entry)}</li>`).join('')}</ul>`:''}</div>`:'';
   const tl=d?(d.timeline.length?`<div class="timeline" role="log" aria-label="Docket entries, newest last">${d.timeline.slice(-25).map(e=>`<div class="${e.new?'n':''}"><span class="d">${E(fmt(e.date))}</span><span>${E(e.entry)}</span></div>`).join('')}</div>`:'<div class="hint">No docket entries are stored for this file yet.</div>'):'<div class="hint">Loading docket…</div>';
+  const ms=d&&d.milestones&&d.milestones.length?`<div class="chips" aria-label="Milestones">${d.milestones.map(m=>`<span class="pill" title="${E(m.entry)}"><b style="margin-right:4px">${E(m.label)}</b>${E(fmt(m.date))}</span>`).join('')}</div>`:'';
   return `<div class="detail">${nb}
    <div class="actions"><button class="btn small" data-act="seen" type="button">${c.flagged?'Mark as viewed':'Mark viewed now'}</button>
    <a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(c.imm_number)}" target="_blank" rel="noopener">Open FC activity</a>
+   <a class="btn secondary small" style="display:inline-flex;align-items:center;text-decoration:none" href="/workbench/brief/case/${c.id}" target="_blank" rel="noopener">Printable case brief</a>
    <button class="btn secondary small" data-act="refresh" type="button" title="Fetches this one file from the Federal Court website and stores the result">Check FC website now</button>
    <button class="btn danger small" data-act="remove" type="button">Remove from list</button><span class="hint" id="detMsg"></span></div>
-   ${tl}
+   ${ms}${tl}
    <div class="two"><div><label class="fl">Notes (saved when you click away)</label><textarea data-f="notes" maxlength="20000">${E(c.notes)}</textarea></div>
    <div><label class="fl">Label (optional)</label><input type="text" data-f="label" maxlength="255" value="${E(c.label||'')}" placeholder="Short name for this file">
    <div style="height:8px"></div><label class="fl">Folder</label><input type="text" data-f="folder" list="folderList" maxlength="80" value="${E(c.folder)}">
@@ -333,7 +346,7 @@ function updateHead(c){/* keep the open row; refresh only its header chips */
   row.innerHTML=tmp.firstChild.firstChild.innerHTML;
 }
 function rowHeadOnly(c){
-  return `<button type="button" class="rowhead"><span class="imm">${E(c.imm_number)}</span><span class="soc"><strong>${E(c.label||c.style_of_cause||(c.known?'(no style of cause stored)':'Not in the stored docket data yet'))}</strong><small>${c.known?`${c.entries} docket entries${c.latest_activity?' · latest '+E(fmt(c.latest_activity)):''}`:'Added to your list; flags appear once the file is loaded'}</small></span><span class="chips">${c.flagged?`<span class="pill flag">● ${E(c.flag_reasons[0])}</span>`:''}${c.status?`<span class="pill">${E(c.status)}</span>`:''}${deadlinePill(c)}${c.tags.slice(0,3).map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}</span></button>`;
+  return `<button type="button" class="rowhead"><span class="imm">${E(c.imm_number)}</span><span class="soc"><strong>${E(c.label||c.style_of_cause||(c.known?'(no style of cause stored)':'Not in the stored docket data yet'))}</strong><small>${c.known?`${c.entries} docket entries${c.latest_activity?' · latest '+E(fmt(c.latest_activity)):''}`:'Added to your list; flags appear once the file is loaded'}</small></span><span class="chips">${c.flagged?`<span class="pill flag">● ${E(c.flag_reasons[0])}</span>`:''}${c.status?`<span class="pill">${E(c.status)}</span>`:''}${c.folder?`<span class="pill" title="Folder">&#128193; ${E(c.folder)}</span>`:''}${deadlinePill(c)}${c.tags.slice(0,3).map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}</span></button>`;
 }
 async function caseAction(act,c,btn){
   try{
@@ -361,7 +374,8 @@ $('addGo').onclick=async()=>{
     await loadAll();
   }catch(e){$('addErr').textContent=e.message;$('addErr').classList.remove('hidden')}
 };
-$('addText').addEventListener('keydown',e=>{if(e.key==='Enter')$('addGo').click()});
+$('addText').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();$('addGo').click()}});
+$('addFile').addEventListener('change',async()=>{const f=$('addFile').files[0];if(!f)return;if(f.size>2e6){toast('That file is too large (2 MB limit).');return}$('addText').value=(await f.text()).slice(0,20000);$('addFile').value='';toast('File read. Check the text, then Add to list.')});
 ['fText','fFolder','fTag','fFlag'].forEach(id=>$(id).addEventListener('input',renderCases));
 $('markAll').onclick=async()=>{if(!cases.some(c=>c.flagged)){toast('Nothing new to mark');return}await post('/workbench/api/cases/seen-all');toast('All files marked as viewed');loadAll()};
 
@@ -375,7 +389,7 @@ function renderPins(){
     const open=openPin===p.id;
     return `<div class="pin" data-pin="${p.id}"><div class="t"><input type="checkbox" data-pick="${p.id}" aria-label="Select to compare" ${picked.has(p.id)?'checked':''}><div><a class="ttl" href="/data-explorer?tab=search&case_id=${p.case_id}" target="_blank" rel="noopener">${E(p.title)}</a>
       <div class="meta">${[p.citation,p.court,fmt(p.date)].filter(Boolean).map(E).join(' · ')}</div>
-      <div class="chips" style="justify-content:flex-start;margin-top:5px">${p.folder?`<span class="pill">${E(p.folder)}</span>`:''}${p.tags.map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}${p.notes?'<span class="pill ok">note</span>':''}<button class="linkbtn" data-pmore="${p.id}" type="button">${open?'Close':'Notes and tags'}</button></div></div></div>
+      <div class="chips" style="justify-content:flex-start;margin-top:5px">${p.folder?`<span class="pill">${E(p.folder)}</span>`:''}${p.tags.map(t=>`<span class="pill tag">${E(t)}</span>`).join('')}${p.cited_by?`<span class="pill" title="Decisions in the library that cite this one">cited by ${Number(p.cited_by).toLocaleString('en-CA')}</span>`:''}${p.notes?'<span class="pill ok">note</span>':''}<button class="linkbtn" data-pmore="${p.id}" type="button">${open?'Close':'Notes and tags'}</button></div></div></div>
       ${open?`<div class="more"><textarea data-pf="notes" placeholder="Notes on this decision" maxlength="20000">${E(p.notes)}</textarea><input type="text" data-pf="tags" placeholder="Tags, comma separated" value="${E(p.tags.join(', '))}"><input type="text" data-pf="folder" list="folderList" placeholder="Folder" maxlength="80" value="${E(p.folder)}"><div class="actions"><button class="btn danger small" data-punpin="${p.id}" type="button">Remove pin</button></div></div>`:''}</div>`}).join('');
   document.querySelectorAll('[data-pick]').forEach(cb=>cb.onchange=()=>{const id=Number(cb.dataset.pick);if(cb.checked){if(picked.size>=2){cb.checked=false;toast('Pick two decisions to compare');return}picked.add(id)}else picked.delete(id);$('compareGo').disabled=picked.size!==2});
   document.querySelectorAll('[data-pmore]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.pmore);openPin=openPin===id?null:id;renderPins()});
@@ -393,10 +407,16 @@ function renderDeadlines(){
   $('deadlineList').innerHTML=d.length?d.map(x=>`<div class="line"><button class="sq" type="button" data-dl="${x.id}">${E(x.imm_number)} <span class="hint">${E(x.label)}</span></button><span class="pill ${x.days<0?'over':x.days<=7?'warn':''}">${x.days<0?'Overdue '+(-x.days)+' d':x.days===0?'Today':fmt(x.deadline)}</span></div>`).join(''):'<div class="hint">No deadlines in the next 30 days. Add one to a file on your case list.</div>';
   document.querySelectorAll('[data-dl]').forEach(b=>b.onclick=()=>{openCase=Number(b.dataset.dl);$('fText').value='';$('fFolder').value='';$('fTag').value='';$('fFlag').checked=false;renderCases();toggleDetailLoad(cases.find(c=>c.id===openCase));const r=document.querySelector(`.row[data-id="${openCase}"]`);r&&r.scrollIntoView({behavior:'smooth',block:'center'})});
 }
-function recent(){try{return JSON.parse(localStorage.getItem('ilit_recent_searches')||'[]')}catch(e){return []}}
+function load(key){try{return JSON.parse(localStorage.getItem(key)||'[]')}catch(e){return []}}
+function store(key,v){try{localStorage.setItem(key,JSON.stringify(v))}catch(e){}}
+const recent=()=>load('ilit_recent_searches'),saved=()=>load('ilit_saved_searches');
 function renderRecent(){
-  const r=recent();
-  $('recentList').innerHTML=r.length?r.slice(0,8).map(x=>`<div class="line"><a href="/data-explorer?tab=search&q=${encodeURIComponent(x.q)}">${E(x.q)}</a><span class="hint">${E(fmt(x.at))}</span></div>`).join(''):'<div class="hint">Searches you run on the case search page appear here (kept in this browser only).</div>';
+  const r=recent(),sv=saved(),isSaved=q=>sv.some(x=>x.q.toLowerCase()===q.toLowerCase());
+  const link=x=>`<a href="/data-explorer?tab=search&q=${encodeURIComponent(x.q)}">${E(x.q)}</a>`;
+  $('recentList').innerHTML=(sv.length?`<div class="hint" style="text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:700">Saved searches</div>`+sv.map(x=>`<div class="line">${link(x)}<button class="linkbtn" data-unsave="${E(x.q)}" type="button" aria-label="Remove saved search ${E(x.q)}">Remove</button></div>`).join(''):'')+
+   (r.length?`<div class="hint" style="text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:700;margin-top:6px">Recent</div>`+r.slice(0,8).map(x=>`<div class="line">${link(x)}<span class="hint">${isSaved(x.q)?'saved':`<button class="linkbtn" data-save="${E(x.q)}" type="button">Save</button>`} · ${E(fmt(x.at))}</span></div>`).join(''):(sv.length?'':'<div class="hint">Searches you run on the case search page appear here, and you can save the ones you repeat. Kept in this browser only.</div>'));
+  document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{const q=b.dataset.save;store('ilit_saved_searches',[{q,at:new Date().toISOString()},...saved()].slice(0,30));renderRecent()});
+  document.querySelectorAll('[data-unsave]').forEach(b=>b.onclick=()=>{store('ilit_saved_searches',saved().filter(x=>x.q!==b.dataset.unsave));renderRecent()});
 }
 $('clearRecent').onclick=()=>{try{localStorage.removeItem('ilit_recent_searches')}catch(e){}renderRecent()};
 

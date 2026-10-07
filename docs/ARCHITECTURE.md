@@ -277,6 +277,7 @@ test checks that these paths continue to exist.
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
 | `backend/pages/workbench.py` | Workbench page: demo sign-in, then three views (Analyst home, Live analysis, De-identifier) |
+| `backend/pages/workbench_brief.py` | Printable Workbench briefs: one page of plain HTML with print styles (no scripts that send data anywhere) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |

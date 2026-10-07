@@ -1302,7 +1302,10 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())
 
 
-def test_main_tab_clicks_load_a_clean_page_and_the_brand_goes_home():
+def test_main_tab_clicks_reset_state_in_page_without_reloading():
     html = routes._data_explorer_page_html()
-    assert "location.assign('/data-explorer?tab='+tab+'&group='+button.dataset.group)" in html
+    assert "function pitchResetState()" in html and "function pitchCleanOpen(group)" in html
+    assert "location.assign('/data-explorer" not in html
     assert "{info:'about',research:'search',intel:'judge-profile',soon:'soon-themes',testing:'research-bench'}" in html
+    for step in ("closeDecisionReader()", "getElementById('clearSearch')?.click()", "ciState.caseId=null", "document.getElementById('fcxClear')?.click()"):
+        assert step in html

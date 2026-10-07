@@ -13,6 +13,7 @@ outcome, judge or tags: those are computed per library decision, not per upload.
 from __future__ import annotations
 
 import re
+import types
 from typing import Any
 
 from sqlalchemy import select
@@ -26,6 +27,7 @@ from .citation_refine import refine_case_citations
 from .citation_refine.pinpoints import target_paragraphs
 from .citations import extract_case_citation_matches
 from .reader_service import (
+	_compute_reader_inferred_tags,
 	MAX_PINPOINT_TEXT_CASES,
 	MAX_PINPOINT_TEXT_PARAGRAPHS,
 	_pinpoint_response_fields,
@@ -198,6 +200,12 @@ def _attach_pinpoint_text(session: Session, rows: list[dict[str, Any]]) -> None:
 			by_id[row_id]["target_cited_by"] = found
 
 
+def document_tags(text: str) -> list[dict[str, Any]]:
+	"""The reader's keyword tags (forum, statute, issue, analysis) found in this text by the same fixed rules, never stored."""
+	holder = types.SimpleNamespace(id=None, full_text=text, summary=None)
+	return [tag.model_dump() for tag in _compute_reader_inferred_tags(holder, [])]
+
+
 def build_live_reader_payload(
 	text: str,
 	paragraphs: list[LiveParagraph],
@@ -236,7 +244,7 @@ def build_live_reader_payload(
 			"format_blocks": format_blocks,
 			"chunks": [],
 			"citations": rows,
-			"tags": [],
+			"tags": document_tags(text),
 			"extracted_metadata": [],
 			"evidence_summary": None,
 		},

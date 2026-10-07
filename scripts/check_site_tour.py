@@ -1,15 +1,20 @@
 """Check the site tour in a real browser: every step's target must resolve, and the controls must work.
 
-Needs Playwright with Chromium and a running copy of the site. Read-only: it never clicks a step button
-that writes (the Workbench demo sign-in), so it is safe to point at the live site.
+Needs Playwright with Chromium and a running copy of the site.
 
-    python scripts/check_site_tour.py --base-url http://localhost:8001
-    python scripts/check_site_tour.py --base-url https://www.ilit.ca --shots /tmp/tour-shots
+    python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots
+    python scripts/check_site_tour.py --base-url https://www.ilit.ca --walk --require-data
     python scripts/check_site_tour.py --steps-only      # only validate site_tour_steps.json (no browser)
 
+--walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the
+milliseconds from pressing Next to the card being ready, any step that was skipped, and any highlight that is
+off screen or hidden behind the card. Like a visitor's tour it signs in to the Workbench demo and pins the
+example decisions. Without --walk (or with --each) every step is also opened on its own, as after a refresh;
+that mode is read-only unless --demo-sign-in is given.
+
 A step marked optional, or one that names a feature in "needs", may be skipped without failing the check;
-every other step must show its card on the page it names. Exit code 1 if any required step failed or the
-page raised an error.
+every other step must show its card on the page it names. Exit code 1 if any required step failed, a highlight
+was off screen, or the page raised an error.
 """
 
 from __future__ import annotations
@@ -23,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "fill", "check", "uncheck", "click", "submit", "scroll", "waitFor", "wait"}
+ACTIONS = {"type", "fill", "check", "uncheck", "open", "click", "submit", "scroll", "waitFor", "wait"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -54,8 +59,11 @@ def validate_steps(data: dict) -> list[str]:
 
         if target is not None and not (selector_ok(target) or (isinstance(target, list) and target and all(selector_ok(t) for t in target))):
             problems.append(f"{label}: target must be a selector or a list of selectors")
-        if step.get("with") is not None and not selector_ok(step["with"]):
-            problems.append(f"{label}: with must be a selector")
+        for extra in step.get("also", []):
+            if not (selector_ok(extra) or (isinstance(extra, dict) and selector_ok(extra.get("sel")))):
+                problems.append(f"{label}: each 'also' entry must be a selector or {{sel, label}}")
+        if step.get("via") is not None and not isinstance(step["via"], str):
+            problems.append(f"{label}: via must be a selector")
         for action in step.get("before", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
@@ -177,6 +185,89 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
     return failures
 
 
+RING_REPORT = """() => {
+  const vh = innerHeight, card = document.querySelector('.ilit-tour-card');
+  const c = card ? card.getBoundingClientRect() : null, sheet = card && card.classList.contains('sheet');
+  return [...document.querySelectorAll('.ilit-tour-ring')].filter(r => r.style.display !== 'none').map(r => {
+    const b = r.getBoundingClientRect(), tag = r.querySelector('.ilit-tour-tag');
+    const covered = c ? Math.max(0, Math.min(b.bottom, c.bottom) - Math.max(b.top, c.top)) * Math.max(0, Math.min(b.right, c.right) - Math.max(b.left, c.left)) : 0;
+    return {label: tag && !tag.hidden ? tag.textContent : '', top: b.top, bottom: b.bottom, h: b.height, w: b.width,
+            shown: Math.max(0, Math.min(b.bottom, sheet ? c.top : vh) - Math.max(b.top, 0)), covered: covered / Math.max(1, b.width * b.height)};
+  });
+}"""
+
+
+def run_walk(base: str, width: int, shots: Path | None) -> int:
+    """Take the tour the way a visitor does: start on About and press only Next, timing each step.
+
+    The tour signs in to the Workbench demo and pins decisions as it goes (the same writes a visitor's tour makes).
+    Reports per step: how long it took after Next, whether it was skipped, and whether every highlight is on screen."""
+    from playwright.sync_api import sync_playwright
+
+    steps = json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]
+    by_id = {step["id"]: step for step in steps}
+    problems = 0
+    seen: list[str] = []
+    with sync_playwright() as pw:
+        browser = launch(pw)
+        context = browser.new_context(viewport={"width": width, "height": 900 if width > 700 else 800})
+        page = context.new_page()
+        errors: list[str] = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
+        page.click("[data-ilit-tour-start]")
+        print(f"{'#':>2}  {'step':<22} {'ms':>6}  highlights")
+        for _ in range(len(steps) + 5):
+            try:
+                page.wait_for_selector(".ilit-tour-card:not(.pending)[data-ms]", timeout=60000)
+            except Exception:  # noqa: BLE001
+                if not page.locator(".ilit-tour").count():
+                    break
+                print("    stuck: the card never finished loading")
+                problems += 1
+                break
+            page.wait_for_timeout(350)                         # let the rings settle after the scroll
+            step_id = page.get_attribute(".ilit-tour-card", "data-step")
+            ms = int(page.get_attribute(".ilit-tour-card", "data-ms") or 0)
+            rings = page.evaluate(RING_REPORT)
+            notes = []
+            for ring in rings:
+                name = ring["label"] or "target"
+                if ring["shown"] < min(40, ring["h"] * 0.9):
+                    notes.append(f"{name} OFF SCREEN")
+                elif ring["covered"] > 0.5 and ring["h"] < 300:
+                    notes.append(f"{name} under the card")
+            main_lit = page.evaluate(
+                "n => { const r = document.querySelectorAll('.ilit-tour-rings > .ilit-tour-ring')[n]; return !!r && r.style.display !== 'none' }",
+                by_id.get(step_id, {}).get("focus", 0),
+            )
+            if by_id.get(step_id, {}).get("target") and not main_lit:
+                notes.append("main highlight NOT SHOWN")
+            index = next((k for k, step in enumerate(steps) if step["id"] == step_id), -1)
+            expected = steps[len(seen)]["id"] if len(seen) < len(steps) else None
+            while expected and expected != step_id and expected in by_id and len(seen) < len(steps):
+                relaxed = by_id[expected].get("optional") or by_id[expected].get("needs")
+                print(f"{len(seen) + 1:>2}  {expected:<22} {'':>6}  SKIPPED{' [relaxed]' if relaxed else ''}")
+                problems += 0 if relaxed else 1
+                seen.append(expected)
+                expected = steps[len(seen)]["id"] if len(seen) < len(steps) else None
+            seen.append(step_id)
+            slow = " SLOW" if ms > 6000 else ""
+            print(f"{index + 1:>2}  {step_id:<22} {ms:>6}{slow}  {len(rings)} lit{'; ' + '; '.join(notes) if notes else ''}")
+            problems += len(notes)
+            if shots:
+                shots.mkdir(parents=True, exist_ok=True)
+                page.screenshot(path=str(shots / f"{index + 1:02d}-{step_id}{'-phone' if width < 700 else ''}.png"))
+            if step_id == steps[-1]["id"]:
+                break
+            page.click(".ilit-tour-btn.primary")
+        if errors:
+            print("page error:", errors[0][:200])
+            problems += 1
+        browser.close()
+    return problems
+
+
 def run_controls(base: str, width: int) -> int:
     """Walk the controls: start from About, Next/Back/Skip, refresh keeps the place, Exit clears it."""
     from playwright.sync_api import sync_playwright
@@ -233,6 +324,8 @@ def main() -> int:
     parser.add_argument("--demo-sign-in", action="store_true", help="sign in to the Workbench demo first (writes a demo user; leave off for the live site)")
     parser.add_argument("--require-data", action="store_true", help="fail when example data is missing (probes short, statistics empty); use on the real library")
     parser.add_argument("--steps-only", action="store_true")
+    parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
+    parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
     args = parser.parse_args()
 
     problems = validate_steps(json.loads(STEPS_FILE.read_text(encoding="utf-8")))
@@ -246,7 +339,11 @@ def main() -> int:
     if args.shots and not shot_ids:
         shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]}
     short = run_probes(base)
-    failures = run_browser(base, args.shots, shot_ids, args.width, args.demo_sign_in, args.require_data) + run_controls(base, args.width)
+    failures = run_controls(base, args.width)
+    if args.walk:
+        failures += run_walk(base, args.width, args.shots)
+    if args.each or not args.walk:
+        failures += run_browser(base, args.shots if not args.walk else None, shot_ids, args.width, args.demo_sign_in, args.require_data)
     if args.require_data:
         failures += short
     print("FAILED" if failures else "all steps resolve")

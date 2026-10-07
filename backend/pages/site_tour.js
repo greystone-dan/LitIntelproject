@@ -8,7 +8,7 @@
 (function(){
   'use strict';
   var DATA=window.ILIT_TOUR||{steps:[],cases:{}};
-  var STEPS=DATA.steps||[],CASES=DATA.cases||{};
+  var STEPS=(DATA.introOn?DATA.intro||[]:[]).concat(DATA.steps||[]),CASES=DATA.cases||{};   // the About introduction is kept, switched off until those pages are final
   var KEY=DATA.key||'ilit.tour.v1',CASE_KEY='ilit.tour.cases';
   if(window.top!==window.self||!STEPS.length)return;           // never inside a frame (the Workbench embeds two tools)
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -406,8 +406,12 @@
   function inView(node){
     var r=clipped(node);
     if(!r||covered(node))return false;
-    var f=freeArea(node),shown=Math.min(r.bottom,f.bottom)-Math.max(r.top,f.top);
+    var f=freeArea(node),shown=Math.min(r.bottom,f.bottom)-Math.max(r.top,f.top),full=node.getBoundingClientRect();
     if(r.top<f.top-2)return false;                                  // its top is cut off: the visitor would not see where it starts
+    var box=scrollParent(node),pb=box?box.getBoundingClientRect():null;
+    var room=Math.min(f.bottom,pb?pb.bottom:f.bottom)-Math.max(f.top,pb?pb.top:f.top);
+    if(full.height<=room-8)                                         // it fits: show all of it, so the ring goes right round it
+      return Math.abs(r.top-full.top)<2&&Math.abs(r.bottom-full.bottom)<2&&r.bottom<=f.bottom;
     return r.bottom<=f.bottom||shown>=Math.min(320,(r.bottom-r.top)*0.6);   // mostly on screen is enough: do not move the page
   }
 
@@ -528,7 +532,7 @@
     }
     c.classList.add('on');
     var dist=Math.hypot(x-pointer.x,y-pointer.y);
-    var ms=reduce?0:Math.round(Math.min(1500,Math.max(650,dist*1.7)));
+    var ms=reduce?0:Math.round(Math.min(1200,Math.max(520,dist*1.36)));
     c.style.transitionDuration=ms+'ms, .2s';
     c.style.transform='translate('+x+'px,'+y+'px)';
     pointer.x=x;pointer.y=y;

@@ -372,10 +372,13 @@ def run_controls(base: str, width: int) -> int:
 
         page.goto(base + "/data-explorer?tab=about", wait_until="domcontentloaded", timeout=60000)
         page.click("[data-ilit-tour-start]")
-        first = counter()
-        page.keyboard.press("ArrowRight")
-        page.wait_for_function("document.querySelector('.ilit-tour-count')&&!document.querySelector('.ilit-tour-count').textContent.startsWith('Step 1 ')", timeout=45000)
-        second = counter()
+        first = second = counter()
+        for _ in range(4):                       # a first step that opens with a lead line takes more than one Next
+            page.keyboard.press("ArrowRight")
+            page.wait_for_timeout(300)
+            second = counter()
+            if not second.startswith("Step 1 "):
+                break
         if first == second:
             problems.append("Next did not advance")
         page.click(".ilit-tour-btn:has-text('Back'):not([disabled])")

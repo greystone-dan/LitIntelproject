@@ -328,6 +328,18 @@ def process_new_cases(case_ids: list[int], budget: Budget) -> dict[str, int]:
     return {"processed": done, "failed": failed}
 
 
+def sync_paragraph_index() -> dict[str, Any]:
+    """Give new paragraph chunks a row in the paragraph search table; never fails the intake."""
+    from backend.paragraph_search_sync import sync_paragraph_search
+
+    try:
+        with SessionLocal() as db:
+            return sync_paragraph_search(db)
+    except Exception as exc:
+        logger.warning("paragraph search sync failed: %s", exc)
+        return {"error": str(exc)[:200]}
+
+
 def run_cases_stage(args: argparse.Namespace, budget: Budget) -> dict[str, Any]:
     result: dict[str, Any] = {"courts": {}, "created": 0, "failed": 0, "seen": 0, "errors": []}
     remaining = args.max_cases
@@ -745,6 +757,8 @@ def run(args: argparse.Namespace) -> int:
                     ingested += cases["created"]
                     failed += cases["failed"]
                     errors += cases["errors"]
+                if not args.skip_cases and not args.dry_run:
+                    summary["paragraph_search"] = sync_paragraph_index()
                 if not args.skip_activity:
                     activity = run_activity_stage(args, budget)
                     summary["fc_activity"] = activity

@@ -283,6 +283,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
+| `backend/paragraph_search_sync.py` | Keep the paragraph_search table in step with case_chunks (additive; no model, no AI) |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |

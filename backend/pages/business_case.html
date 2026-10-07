@@ -75,7 +75,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </header>
 
 <nav class="toc" aria-label="Contents"><b>Contents</b>
-<a href="#s1">1. Executive summary</a><a href="#s2">2. Background and problem</a><a href="#s3">3. Proposed solution</a><a href="#s4">4. What has been built</a><a href="#s5">5. Alternatives available to counsel</a><a href="#s6">6. Users, use cases and value</a><a href="#s7">7. Options considered</a><a href="#s8">8. Deployment: short and long term</a><a href="#s9">9. Costs and funding</a><a href="#s10">10. Return on investment</a><a href="#s11">11. Risks and mitigations</a><a href="#s12">12. Implementation plan and timeline</a><a href="#s13">13. The request and next steps</a><a href="#appA">Appendix A. Resource comparison</a><a href="#appB">Appendix B. Assumptions</a><a href="#appC">Appendix C. Unverified items</a><a href="#appD">Appendix D. Sources</a></nav>
+<a href="#s1">1. Executive summary</a><a href="#s2">2. Background and problem</a><a href="#s3">3. Proposed solution</a><a href="#s4">4. What the site does</a><a href="#s5">5. Evidence of what has been built</a><a href="#s6">6. Alternatives available to counsel</a><a href="#s7">7. Users, use cases and value</a><a href="#s8">8. Options considered</a><a href="#s9">9. Deployment: short and long term</a><a href="#s10">10. Costs and funding</a><a href="#s11">11. Return on investment</a><a href="#s12">12. Risks and mitigations</a><a href="#s13">13. Implementation plan and timeline</a><a href="#s14">14. The request and next steps</a><a href="#appA">Appendix A. Resource comparison</a><a href="#appB">Appendix B. Assumptions</a><a href="#appC">Appendix C. Unverified items</a><a href="#appD">Appendix D. Sources</a></nav>
 
 <section id="s1">
 <h2><span class="n">1</span>Executive summary</h2>
@@ -88,10 +88,10 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <h3>Key findings</h3>
 <ul>
 <li><b>Gap.</b> I found no Canadian product, free or commercial, that offers Federal Court immigration outcome analytics, whole-docket statistics and an authority check on a memo in one place (Appendix A). Whether any vendor offers parts of this under a private quote is unverified.</li>
-<li><b>Working evidence.</b> A library of more than 60,000 decisions, about 1.44 million citations and the docket history of 316,940 Federal Court immigration files is built and searchable. Some features are prototypes and some outcome labels are being corrected (section 4).</li>
-<li><b>Cost.</b> My out-of-pocket spend to date is C$841.32. The funding I would need is C$2,000 to C$20,000 once, in three levels (section 9). A commercial AI platform for 25 seats is reported at C$104,000 to C$248,000 a year, and commissioning a comparable build at about C$1.45 million (sections 7 and 9).</li>
-<li><b>Return.</b> On illustrative assumptions of one hour a week saved by 40% of 25 users, the value is about C$34,500 a year. No time saving has been measured yet, so I present this as a formula with labelled assumptions, not a forecast (section 10).</li>
-<li><b>Safeguards.</b> No AI is used when someone searches or reads. AI is used only to enrich public decisions when they are added. The data licence is non-commercial and is respected (section 11).</li>
+<li><b>Working evidence.</b> A library of more than 60,000 decisions, about 1.44 million citations and the docket history of 316,940 Federal Court immigration files is built and searchable. Some features are prototypes and some outcome labels are being corrected (sections 4 and 5).</li>
+<li><b>Cost.</b> My out-of-pocket spend to date is C$841.32. The funding I would need is C$2,000 to C$20,000 once, in three levels (section 10). A commercial AI platform for 25 seats is reported at C$104,000 to C$248,000 a year, and commissioning a comparable build at about C$1.45 million (sections 7 and 9).</li>
+<li><b>Return.</b> On illustrative assumptions of one hour a week saved by 40% of 25 users, the value is about C$34,500 a year. No time saving has been measured yet, so I present this as a formula with labelled assumptions, not a forecast (section 11).</li>
+<li><b>Safeguards.</b> No AI is used when someone searches or reads. AI is used only to enrich public decisions when they are added. The data licence is non-commercial and is respected (section 12).</li>
 </ul>
 <div class="box"><b class="t">The request, in one paragraph</b>I ask for interest and a few hours from a small group of counsel to trial iLit on real work; an unofficial funding contribution at one of three levels, starting at C$2,000 to C$5,000; and a conversation about where an internal version could eventually be hosted and who would review security and privacy. I am not asking to be paid for my time.</div>
 <div class="kpis" role="list">
@@ -113,7 +113,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <li><b>Outcomes by issue.</b> Finding decisions is possible; learning how often the Minister succeeded on a given issue, and how that has changed, requires reading them.</li>
 <li><b>Whole-docket view.</b> Most immigration files never produce a published decision, because leave is usually refused without reasons or the file is discontinued. Tools built on decisions never see them. The Court&rsquo;s website shows one file at a time and publishes aggregate counts only [20].</li>
 <li><b>Memo checking.</b> Checking the authorities in a draft is done one citation at a time.</li>
-<li><b>Institutional memory.</b> Positions taken in earlier files are held in documents and in people&rsquo;s memories, not in anything searchable. Internal documents are outside what iLit holds today (section 8).</li>
+<li><b>Institutional memory.</b> Positions taken in earlier files are held in documents and in people&rsquo;s memories, not in anything searchable. Internal documents are outside what iLit holds today (section 9).</li>
 <li><b>Hearing-level decisions.</b> I am not aware of any tool, free or commercial, that offers a complete Immigration Division or Immigration Appeal Division dataset. This is a gap across the field, not a feature that iLit lacks relative to others.</li>
 </ul>
 </section>
@@ -131,9 +131,90 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </section>
 
 <section id="s4">
-<h2><span class="n">4</span>Evidence of what has been built</h2>
+<h2><span class="n">4</span>What the site does</h2>
+<p>This section describes what a user can do on the live site at www.ilit.ca today. It is based on the site&rsquo;s own pages (About, How it works and the guided tour) and the code in the repository. It describes only what is built. Features that are built but that I do not yet stand behind are listed separately in Table 3, and ideas that are not built are on the site&rsquo;s Roadmap page and are not claimed here. The intended users are Division counsel and analysts; they are my assumption and I have not interviewed users.</p>
+<p class="cap">Table 1. Capabilities at a glance</p>
+<div class="tw"><table>
+<thead><tr><th>Capability</th><th>What it does</th><th>Intended use and user</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Case search</td><td>One box takes a case name, a citation such as 2019 SCC 65, or a few words from the reasons, with filters for outcome, court, case type, decision result, citing decisions, topic tags, judge, Minister and year</td><td>Counsel finding authorities on an issue</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Formatted case reader</td><td>The decision as a clean document with numbered paragraphs, an outline, and layers that mark citations, statutes and topics</td><td>Counsel reading and checking a decision</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Citations and authorities</td><td>Each citation matched to the case and, where possible, the paragraph; an authorities list per decision; an authority profile showing who relies on it</td><td>Counsel testing how strong or current an authority is</td><td><span class="st ok">Working</span>, linking still being refined</td></tr>
+<tr><td>Statutes</td><td>Federal Acts and regulations stored by section; references in decisions matched to them, with the provision text on hover</td><td>Counsel checking the provisions a decision applied</td><td><span class="st pr">Partly built</span></td></tr>
+<tr><td>Case types</td><td>A label for the kind of case, worked out by rules from the statute provisions a decision discusses, usable as a filter</td><td>Counsel and analysts narrowing a search</td><td><span class="st ok">Working</span> for FC, RPD and SCC; FCA withheld</td></tr>
+<tr><td>Judge profiles</td><td>Each judge&rsquo;s decisions by year, how the cases came out and their most cited decisions, with spellings merged</td><td>Counsel preparing a hearing; managers</td><td><span class="st pr">Prototype</span></td></tr>
+<tr><td>Citation Intelligence</td><td>For one authority: which courts and judges cite it, the outcomes of the citing cases and how its use has changed by year</td><td>Counsel choosing between authorities</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Federal Court Analytics</td><td>Statistics from the Court&rsquo;s own registry for every immigration file, including those that end without reasons</td><td>Managers and counsel planning workload and strategy</td><td><span class="st ok">Working</span>, registry errors carry through</td></tr>
+<tr><td>Workbench</td><td>A personal space to pin decisions, file them in folders with notes, compare two decisions side by side and follow IMM files</td><td>Each counsel keeping their own research</td><td><span class="st pr">Demo</span> (no real accounts yet)</td></tr>
+<tr><td>Live Analysis (memo check)</td><td>Reads a Word or PDF memorandum, marks every case and statute reference, matches them to the library and lists every authority</td><td>Counsel checking their own or the other side&rsquo;s memo</td><td><span class="st pr">Prototype</span></td></tr>
+<tr><td>De-identifier</td><td>Replaces names, ID numbers and dates in a document with placeholders</td><td>Staff preparing a document for wider use</td><td><span class="st pr">Prototype</span></td></tr>
+<tr><td>Guided tour and About pages</td><td>A 41-step walk through the real site, a plain-language explanation of how it works and what is not finished, and a changelog</td><td>New users, reviewers</td><td><span class="st ok">Working</span></td></tr>
+</tbody></table></div>
+
+<h3><span class="n">4.1</span>Case search and filters</h3>
+<p>Search is where research starts. A plain search for a case name returns the case first, with its court, date, judge, outcome, case type and a count of how many decisions cite it. Filters combine with the words typed: outcome (for example, the Minister won), court, case type, result, cases citing a decision, topic tags found in the decisions, judge, Minister and year. Typing a phrase such as a legal test finds decisions that use it. A plain sentence returns results in a few seconds. Nothing typed is sent to an AI service.</p>
+<p><b>Built but not relied on:</b> a separate Quick Search finds the passage, not the case, that says what a user is looking for (Table 3).</p>
+
+<h3><span class="n">4.2</span>The formatted case reader</h3>
+<p>Opening a decision shows it as a clean document with numbered paragraphs. The header gives the court, date and citation and counts the decisions that cite it, the decisions it cites and the statutes it refers to. A panel beside the text holds the recorded outcome, case details, case type and topics found in the text. An outline lists the decision&rsquo;s sections with their paragraph numbers and jumps to each. Citations (marked in gold), statutes (purple) and topic tags (green) can be switched on and off to read the decision clean or annotated. Clicking a citation that points at a paragraph shows that passage in a card, so it can be checked without leaving the page. The Authorities tab lists every case and statute the decision cites, how often and at which paragraphs, with a link that jumps to each place it is cited. The Intelligence tab adds the judge and how the decision has been cited since. Paragraphs that other cases cite are shaded. A decision can be saved to the Workbench.</p>
+
+<h3><span class="n">4.3</span>Citations, authorities and statutes</h3>
+<p>References such as &ldquo;2008 SCC 9&rdquo; or &ldquo;Vavilov at para 99&rdquo; are found by pattern, matched to the decision they name when it is in the library, and linked to the paragraph cited. Short forms are traced back to the full case name earlier in the same decision. A citation that cannot be matched says so. For one authority, Citation Intelligence shows which courts and judges rely on it, the outcomes of the cases that cite it and how its use has changed year by year, with the passages behind each year. References to Acts and regulations are matched to a stored library of federal statutes, so a hover can show the provision text. Statute matching is still being improved and a statute link should be treated as a pointer, not a guarantee. Provincial and Quebec statutes are not included.</p>
+
+<h3><span class="n">4.4</span>Case types</h3>
+<p>Every decision carries a label for the kind of case, for example a judicial review of a refugee decision. It is worked out by fixed rules from the statute provisions the decision discusses, with no AI, so the same decision always gets the same label. Labels are stored for Federal Court, Refugee Protection Division and Supreme Court decisions and can be used as a search filter. Federal Court of Appeal labels are held back because they are not accurate enough yet.</p>
+
+<h3><span class="n">4.5</span>Judge profiles</h3>
+<p>Every judge in the library is listed with a count of decisions, with the many ways a name is written merged into one. A profile shows the judge&rsquo;s decisions year by year, how the cases came out and their most cited decisions. Name cleanup is not finished: some profiles are duplicated or missing, Supreme Court panels are not yet split into individual judges, and French names have not been extracted. Because judge figures can be misread, the views show full counts and avoid ranking, and I would use them issue-first.</p>
+
+<h3><span class="n">4.6</span>Federal Court Analytics</h3>
+<p>This view is built from the Federal Court&rsquo;s own registry record for immigration files: every application for leave and judicial review as filed, including the many that end without published reasons (leave refused, discontinued, settled). It shows headline figures for whatever the filters select: the number of files, how often leave and judicial review are granted, settlements, how long a leave decision takes, and stays of removal. It shows what happens to the files filed, how many reach a leave decision, a hearing and a judgment, and how each year&rsquo;s files ended, which no set of published decisions can show. Judges with at least 25 leave decisions appear as points showing how often they grant leave and judicial review; counsel are listed the same way. Filters such as the last five years change every figure, and rates sit beside their counts because small groups are not reliable. The registry is typed by hand, so entry errors carry through to any statistic.</p>
+
+<h3><span class="n">4.7</span>The Workbench</h3>
+<p>The Workbench is a personal space. A counsel can pin decisions from the reader, organise them in folders with notes, and compare two selected decisions side by side. A case list follows IMM files and a flag shows when the Court&rsquo;s docket for a file has moved. Today it works as a demonstration: sign-in uses a made-up name with no password to keep lists apart, so it is not a secure multi-user system and holds no real accounts. Real sign-in is part of the internal deployment stage (section 9).</p>
+
+<h3><span class="n">4.8</span>Live Analysis and data safety</h3>
+<p>Live Analysis reads a document the user brings, such as a memorandum of argument or a decision, against the library. A Word file or a text PDF is read in memory and dropped: nothing is stored, nothing is sent to an AI model or to any service outside iLit, and closing the page leaves no copy. After reading, the page marks every case citation and statute reference in the text, with layers that switch on and off. Each citation is matched to the decision in the library with the paragraphs cited, short forms such as &ldquo;above at para 99&rdquo; and &ldquo;Ibid&rdquo; are traced back to the case they refer to, and provisions of the Immigration and Refugee Protection Act and the Federal Courts Act are tied to the statute library. Cases the library does not hold are still marked, so the user can see what could not be checked. One table lists every authority in the document, how it was written, whether it is in the library and how often it is mentioned. That table downloads as a spreadsheet, and a single action pins all the library cases from the document to the Workbench as a reading list. The de-identifier, a companion tool, replaces names, ID numbers and dates in a document with placeholders. Both tools are prototypes. Checking a Division draft for gaps against peers, and AI analysis of internal documents, are not built; they depend on the internal deployment in section 9.</p>
+
+<h3><span class="n">4.9</span>Keeping the library current</h3>
+<p>A daily intake job is built. Each run checks the open A2AJ dataset for new Federal Court, Federal Court of Appeal and Supreme Court decisions, adds only the new ones through the same rule-based processing, and reads the Court&rsquo;s registry for new immigration files and docket entries. It has been run by hand and is not yet scheduled to run automatically.</p>
+
+<p class="cap">Table 2. A task-by-task comparison with CanLII-only research</p>
+<div class="tw"><table>
+<thead><tr><th>Task</th><th>Using CanLII alone</th><th>Using iLit alongside CanLII</th></tr></thead>
+<tbody>
+<tr><td>Find the cessation decisions the Minister won</td><td>Keyword search, then open each decision and read to find the result</td><td>Choose the cessation topic tag and the outcome filter; the list shows court, date, judge, outcome and case type. Outcome labels are still being checked, so each result should be confirmed in the text.</td></tr>
+<tr><td>See what a cited paragraph says</td><td>Open the cited case and scroll to the paragraph</td><td>Click the citation; a card shows the passage, where the pinpoint can be read</td></tr>
+<tr><td>Judge how an authority is being used</td><td>A &ldquo;cited by&rdquo; list with paragraph-level noteup [1,2]</td><td>A profile by year, court and judge, with the outcomes of the citing cases</td></tr>
+<tr><td>Know where a Federal Court immigration file stands, or how files typically end</td><td>Read the Court&rsquo;s website one file at a time; the Court publishes aggregate counts [20]</td><td>Statistics across every immigration file, including those without reasons, and a case list that flags when a file&rsquo;s docket moves</td></tr>
+<tr><td>Check the authorities in a memo</td><td>Look up each citation one at a time</td><td>Upload the memo; every citation and statute marked and matched; a table of authorities, which are held, and a spreadsheet; the held cases pinned as a reading list</td></tr>
+<tr><td>Understand a judge&rsquo;s record on an issue</td><td>Read the judge&rsquo;s decisions individually; I found no judge-level summary of record (unverified)</td><td>Decisions by year, outcomes and most cited decisions, shown with full counts</td></tr>
+<tr><td>Narrow by kind of case</td><td>Keywords and subject classes where CanLII has enriched them [2]</td><td>A case type worked out from the statute provisions, as a filter</td></tr>
+<tr><td>Stay informed of new decisions</td><td>myCanLII alerts and folders (CanLII is stronger here) [1,2]</td><td>Not live; saved searches are built but not scheduled</td></tr>
+</tbody></table></div>
+
+<h3><span class="n">4.10</span>Built but not yet relied on</h3>
+<p>Further features are built and open from the site&rsquo;s secondary section, each under a banner saying so. I do not yet stand behind them. They are listed so the scale of the work is clear, not as claims of readiness.</p>
+<p class="cap">Table 3. Features built but not yet relied on</p>
+<div class="tw"><table>
+<thead><tr><th>Feature</th><th>What it is meant to do</th></tr></thead>
+<tbody>
+<tr><td>Legal Themes and Statutes</td><td>Find legal themes that recur across decisions and the statutory provisions each leans on</td></tr>
+<tr><td>Tag Analytics, Tag Finder</td><td>Show how topic tags trend over time and by judge; find decisions that share a decision&rsquo;s tags</td></tr>
+<tr><td>Citation Map, Case Compare</td><td>Follow what a case cites and what cites it; compare two decisions&rsquo; details, tags and citations</td></tr>
+<tr><td>Precedent Finder, Issue Briefs</td><td>From a described issue, list authorities cited by decisions with matching tags; a short brief on one issue tag</td></tr>
+<tr><td>Quick Search</td><td>Search by passage to find the paragraphs that say what the user is looking for</td></tr>
+<tr><td>Saved Searches and Alerts</td><td>Save a search and review new matches</td></tr>
+<tr><td>Markup Reader</td><td>A fuller reading mode with margin notes and a case drawer</td></tr>
+<tr><td>Federal Statutes</td><td>Read a section of the Immigration and Refugee Protection Act or other federal acts and see every decision that cites it</td></tr>
+</tbody></table></div>
+<div class="box note"><b>What this section does not claim.</b> iLit is a research aid and not legal advice; automated reading makes mistakes, and anything that matters should be checked against the source decision, which every result links to. No accuracy figure is promised. The site runs from my own computer, so it can be briefly unavailable while it is updated. Features on the Roadmap page are concepts and are not built.</div>
+</section>
+
+<section id="s5">
+<h2><span class="n">5</span>Evidence of what has been built</h2>
 <p>Everything below was built by one person in about two months. The code base is roughly 95,000 lines of Python in the application and scripts (a raw count including comments and blank lines), plus the web pages, with a test suite of more than 3,200 automated tests that passed in a local run on 7 October 2026. The figures in the second table come from the project&rsquo;s own reports dated 28 September to 4 October 2026 and will have moved since [29].</p>
-<p class="cap">Table 1. Status of the main capabilities (7 October 2026)</p>
+<p class="cap">Table 4. Status of the main capabilities (7 October 2026)</p>
 <div class="tw"><table>
 <thead><tr><th>Capability</th><th>Status</th><th>What exists and its limits</th></tr></thead>
 <tbody>
@@ -145,9 +226,9 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Judge and decision-maker pages</td><td><span class="st pr">Prototype</span></td><td>Name matching is imperfect (French names not yet extracted; some values blank). Sensitive; intended to be used issue-first.</td></tr>
 <tr><td>Alerts and saved searches</td><td><span class="st no">Not live</span></td><td>Built but not scheduled. CanLII already offers alerts.</td></tr>
 <tr><td>Treatment of authorities (followed, distinguished)</td><td><span class="st no">Not built</span></td><td>On the roadmap; a large piece of work.</td></tr>
-<tr><td>Internal documents</td><td><span class="st no">Not built</span></td><td>Needs on-premises hosting, sign-in and approvals (section 8).</td></tr>
+<tr><td>Internal documents</td><td><span class="st no">Not built</span></td><td>Needs on-premises hosting, sign-in and approvals (section 9).</td></tr>
 </tbody></table></div>
-<p class="cap">Table 2. Scale (project reports, 28 September to 4 October 2026; counts have since grown)</p>
+<p class="cap">Table 5. Scale (project reports, 28 September to 4 October 2026; counts have since grown)</p>
 <div class="tw"><table>
 <thead><tr><th>Measure</th><th class="r">Figure</th></tr></thead>
 <tbody>
@@ -159,8 +240,8 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </tbody></table></div>
 <div class="box note"><b>Limits stated plainly.</b> The site runs from my personal workstation. Intake of new decisions is built but run by hand. No Immigration Division or Immigration Appeal Division decisions are held. A hand-graded accuracy check of outcomes is in progress and accuracy is not yet at the standard I want.</div>
 </section>
-<section id="s5">
-<h2><span class="n">5</span>Alternatives available to counsel</h2>
+<section id="s6">
+<h2><span class="n">6</span>Alternatives available to counsel</h2>
 <p>I reviewed free and commercial resources on 7 October 2026. &ldquo;Immigration analytics&rdquo; below means Minister-side outcome coding or Federal Court immigration docket statistics. The full comparison with sources and prices is in Appendix A.</p>
 <ul>
 <li><b>CanLII</b> (free) is the benchmark for coverage, alerts and folders, and has plain-language AI search [1,2]. I found no outcome or docket analytics. Whether its AI summaries cover Federal Court immigration decisions is unverified.</li>
@@ -172,10 +253,10 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <p><b>Finding.</b> Each resource is stronger than iLit in some respect (coverage, drafting, breadth, maintenance). None I found combines the three capabilities in section 2.3. iLit is positioned as a complement to CanLII, not a replacement for any of them.</p>
 </section>
 
-<section id="s6">
-<h2><span class="n">6</span>Users, use cases and value</h2>
+<section id="s7">
+<h2><span class="n">7</span>Users, use cases and value</h2>
 <p>I estimate 25 potential users across Division counsel and analysts. This is my working figure and is not a headcount from the Division. Each use case below is a hypothesis to be measured in a trial, not a finding.</p>
-<p class="cap">Table 3. Use cases</p>
+<p class="cap">Table 6. Use cases</p>
 <div class="tw"><table>
 <thead><tr><th>Use case</th><th>Today (CanLII)</th><th>With iLit</th><th>Measure in a trial</th></tr></thead>
 <tbody>
@@ -187,36 +268,36 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Consistency of positions</td><td>Depends on individual memory</td><td>Internal documents searchable beside public law (long-term, needs approval)</td><td>Conflicting positions avoided (inferred)</td></tr>
 <tr><td>Training new counsel</td><td>Mentoring and reading</td><td>Formatted reader, authority profiles, guided tour</td><td>Time to independent research</td></tr>
 </tbody></table></div>
-<p>Most of the value is staff time: faster research and fewer manual checks. Time saved is not cash saved unless it is redeployed or reduces backlog or outside spend, and section 10 treats it that way.</p>
+<p>Most of the value is staff time: faster research and fewer manual checks. Time saved is not cash saved unless it is redeployed or reduces backlog or outside spend, and section 11 treats it that way.</p>
 </section>
 
-<section id="s7">
-<h2><span class="n">7</span>Options considered</h2>
-<p class="cap">Table 4. Options for the Division</p>
+<section id="s8">
+<h2><span class="n">8</span>Options considered</h2>
+<p class="cap">Table 7. Options for the Division</p>
 <div class="tw"><table>
 <thead><tr><th>Option</th><th>Cost (CAD)</th><th>Advantages</th><th>Disadvantages</th></tr></thead>
 <tbody>
 <tr><td><b>A. Status quo</b> (CanLII only)</td><td>No new cost</td><td>Free, reliable, broad coverage, new AI search</td><td>Analytics gaps in section 2.3 remain, handled by hand</td></tr>
 <tr><td><b>B. Commercial AI platform</b> (Westlaw or Lexis family)</td><td>C$104,000 to C$248,000 a year for 25 seats, reported list range; government discounts unknown [3,7,10]</td><td>Broad coverage, drafting, vendor support, KeyCite or QuickCITE</td><td>Recurring cost; no Federal Court immigration outcome analytics found; hosted by the vendor</td></tr>
 <tr><td><b>C. Commission a build</b></td><td>C$0.84M to C$3.26M (central C$1.45M) plus C$220,000 to C$290,000 a year to run, at federal rate-card ceilings; my estimate, not a quote [3,4,21]</td><td>Formal contract, support, security process built in</td><td>Procurement lead time, fixed requirements, no head start on immigration domain knowledge</td></tr>
-<tr class="me"><td><b>D. Staged iLit</b> (this proposal)</td><td>C$2,000 to C$20,000 one time, plus an estimated C$3,000 to C$8,000 a year to run (section 9)</td><td>Already built; low cost; fast iteration with counsel; no use of CBSA systems in stage one</td><td>Single developer today; runs outside government; accuracy work unfinished; ID and IAD decisions absent</td></tr>
+<tr class="me"><td><b>D. Staged iLit</b> (this proposal)</td><td>C$2,000 to C$20,000 one time, plus an estimated C$3,000 to C$8,000 a year to run (section 10)</td><td>Already built; low cost; fast iteration with counsel; no use of CBSA systems in stage one</td><td>Single developer today; runs outside government; accuracy work unfinished; ID and IAD decisions absent</td></tr>
 </tbody></table></div>
 <p><b>Assessment.</b> Option D is the only one that adds the missing analytics at modest cost and can be tested quickly. It does not preclude B or C later: if the trial shows value, the Division could decide to commission a supported build, with iLit as a working specification. Options A and D are also compatible, since iLit links back to CanLII and does not replace it.</p>
 </section>
 
-<section id="s8">
-<h2><span class="n">8</span>Deployment: short term and long term</h2>
+<section id="s9">
+<h2><span class="n">9</span>Deployment: short term and long term</h2>
 <p>I have researched what is published about Government of Canada requirements. I did not find CBSA-specific policy on any of this and I do not claim one. Where a step depends on a CBSA or Shared Services Canada decision, it is marked as such.</p>
-<h3><span class="n">8.1</span>Short term: private machine, external site, public law only</h3>
+<h3><span class="n">9.1</span>Short term: private machine, external site, public law only</h3>
 <ul>
 <li><b>AI machine.</b> One dedicated, powerful computer that I own, running open AI models locally to enrich public decisions. A standard work-issued laptop with integrated graphics can run only small demonstration models, which is why a separate machine is a funding item.</li>
 <li><b>Site.</b> Hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
 <li><b>Requirements.</b> Public data and open licences only, attribution to the Refugee Law Lab and A2AJ [17,19], backups, a domain and server. I found no Government of Canada rule that applies to a non-government site holding only public data (inferred).</li>
-<li><b>Estimated cost.</b> The machine as in section 9; a managed Canadian server in the order of C$100 to C$500 a month (my estimate, unquoted).</li>
+<li><b>Estimated cost.</b> The machine as in section 10; a managed Canadian server in the order of C$100 to C$500 a month (my estimate, unquoted).</li>
 <li><b>Decision for the Division.</b> Whether staff may use an outside site that holds only public case law for work. I have no source on this.</li>
 </ul>
-<h3><span class="n">8.2</span>Long term: CBSA internal use</h3>
-<p class="cap">Table 5. What an internal deployment would require</p>
+<h3><span class="n">9.2</span>Long term: CBSA internal use</h3>
+<p class="cap">Table 8. What an internal deployment would require</p>
 <div class="tw"><table>
 <thead><tr><th>Area</th><th>What I found (with source)</th><th>Owner</th></tr></thead>
 <tbody>
@@ -228,7 +309,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Internal repositories</td><td>Connection to Division documents or Immigration Division decisions would need handling rules, markings and approval to copy or index each source. Results would be labelled internal or public.</td><td>Division, privacy, security</td></tr>
 <tr><td>Support and ownership</td><td>A named owner, a second maintainer and a support arrangement, so it does not depend on one person.</td><td>Division, CBSA IT</td></tr>
 </tbody></table></div>
-<p class="cap">Table 6. Decision points</p>
+<p class="cap">Table 9. Decision points</p>
 <div class="tw"><table>
 <thead><tr><th>Decision</th><th>Who decides</th><th>What is needed to decide</th></tr></thead>
 <tbody>
@@ -239,11 +320,11 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Is a local AI model approved for internal documents?</td><td>CBSA security and privacy</td><td>Assessment of model and hardware</td></tr>
 </tbody></table></div>
 </section>
-<section id="s9">
-<h2><span class="n">9</span>Costs and funding</h2>
-<h3><span class="n">9.1</span>Spend to date</h3>
+<section id="s10">
+<h2><span class="n">10</span>Costs and funding</h2>
+<h3><span class="n">10.1</span>Spend to date</h3>
 <p>These are my own out-of-pocket figures, in Canadian dollars. They exclude my time, for which I am not asking to be paid.</p>
-<p class="cap">Table 7. Project spend to date (C$)</p>
+<p class="cap">Table 10. Project spend to date (C$)</p>
 <div class="tw"><table>
 <thead><tr><th>Item</th><th>Type</th><th class="r">Amount (C$)</th></tr></thead>
 <tbody>
@@ -255,9 +336,9 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Claude subscription</td><td>Ongoing, per month</td><td class="r">160.00</td></tr>
 <tr class="tot"><td>Total to date, counting one month of the subscription</td><td></td><td class="r">841.32</td></tr>
 </tbody></table></div>
-<p>For that spend the project has produced the library, the docket layer and the tools described in section 4. Dividing C$841.32 by roughly 60,000 decisions gives about one and a half cents a decision; this is arithmetic on rough counts and not a unit cost.</p>
-<h3><span class="n">9.2</span>Funding levels requested</h3>
-<p class="cap">Table 8. Three funding levels (one time, C$; hardware and AI figures are estimates) [3]</p>
+<p>For that spend the project has produced the library, the docket layer and the tools described in section 5. Dividing C$841.32 by roughly 60,000 decisions gives about one and a half cents a decision; this is arithmetic on rough counts and not a unit cost.</p>
+<h3><span class="n">10.2</span>Funding levels requested</h3>
+<p class="cap">Table 11. Three funding levels (one time, C$; hardware and AI figures are estimates) [3]</p>
 <div class="tw"><table>
 <thead><tr><th>Level</th><th class="r">Amount</th><th>Contents</th><th>What it buys</th></tr></thead>
 <tbody>
@@ -266,15 +347,15 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td><b>3. Long-term platform</b></td><td class="r">15,000 to 20,000</td><td>A high-memory desktop class machine (from about 7,800, about 11,000 to 12,500 at 256 GB, which is my estimate); network backup storage, UPS and warranty (about 1,500); 12 months of subscriptions and credits (3,000 to 4,000)</td><td>Runs large open models fully on site, so all AI reading of decisions and memos could happen without text leaving the machine</td></tr>
 </tbody></table></div>
 <p>AI processing is a small line item. My estimate for one pass over the whole library is about C$510 to C$2,030 depending on the model, and a local model brings it to electricity only [3]. The main reason to run a local model is to keep work product off third-party servers, not cost.</p>
-<h3><span class="n">9.3</span>Running cost</h3>
+<h3><span class="n">10.3</span>Running cost</h3>
 <p>My estimate of the annual running cost is C$3,000 to C$8,000: the C$160 monthly subscription (C$1,920 a year) plus an external Canadian server at an assumed C$100 to C$500 a month (C$1,200 to C$6,000 a year). The hosting figure is unquoted. An internal deployment would have its own costs, set by CBSA processes that I have not priced.</p>
 </section>
 
-<section id="s10">
-<h2><span class="n">10</span>Return on investment</h2>
+<section id="s11">
+<h2><span class="n">11</span>Return on investment</h2>
 <p>I have no measured time savings yet, so I do not state a return as fact. The method is a transparent formula with assumptions that can be changed.</p>
 <p><code>annual value = users &times; share who use it &times; hours saved per user per week &times; working weeks &times; loaded hourly cost</code></p>
-<p class="cap">Table 9. Three scenarios (illustrative placeholders, not forecasts)</p>
+<p class="cap">Table 12. Three scenarios (illustrative placeholders, not forecasts)</p>
 <div class="tw"><table>
 <thead><tr><th>Scenario</th><th class="r">Users</th><th class="r">Active share</th><th class="r">Hours / week</th><th class="r">Weeks</th><th class="r">C$ / hour</th><th class="r">Value / year</th></tr></thead>
 <tbody>
@@ -294,21 +375,21 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <div><b id="o-be5">67 hours</b>of staff time to repay C$5,000</div>
 <div><b id="o-be20">267 hours</b>of staff time to repay C$20,000</div>
 </div></div>
-<h3><span class="n">10.1</span>Benefits not quantified</h3>
+<h3><span class="n">11.1</span>Benefits not quantified</h3>
 <ul>
 <li>Fewer citation errors in filed material (inferred).</li>
 <li>More consistent positions across files (inferred, needs internal documents).</li>
 <li>Faster onboarding of new counsel (inferred).</li>
 <li>Planning information from whole-docket statistics.</li>
 </ul>
-<h3><span class="n">10.2</span>How the figures would be replaced with measurements</h3>
-<p>A short timed comparison with a few counsel, CanLII alone against CanLII with iLit, on real tasks drawn from current files. It would record time to answer, errors found and user feedback, and would replace the placeholders in Table 9. If it shows no benefit, I will say so.</p>
+<h3><span class="n">11.2</span>How the figures would be replaced with measurements</h3>
+<p>A short timed comparison with a few counsel, CanLII alone against CanLII with iLit, on real tasks drawn from current files. It would record time to answer, errors found and user feedback, and would replace the placeholders in Table 12. If it shows no benefit, I will say so.</p>
 </section>
 
-<section id="s11">
-<h2><span class="n">11</span>Risks and mitigations</h2>
+<section id="s12">
+<h2><span class="n">12</span>Risks and mitigations</h2>
 <p>Ratings are my own judgement and are not from a formal assessment.</p>
-<p class="cap">Table 10. Risk register</p>
+<p class="cap">Table 13. Risk register</p>
 <div class="tw"><table>
 <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
 <tbody>
@@ -318,17 +399,17 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Accuracy of coded outcomes and links</td><td>Medium</td><td>High</td><td>Rule-based, shows source text, graded against a hand-checked set. Known errors being corrected. No win rate quoted before the check passes.</td></tr>
 <tr><td>Single developer</td><td>High</td><td>High</td><td>Plain code, an automated test suite and written documentation in a public repository. Funding Levels 2 and 3 and a Division owner would help create a second maintainer.</td></tr>
 <tr><td>Approvals take longer than the build</td><td>High</td><td>Medium</td><td>Stage one needs none. Engage CBSA IT, security and privacy early; plan 6 to 24 months for stage two.</td></tr>
-<tr><td>External hosting judged unsuitable for work use</td><td>Medium</td><td>Medium</td><td>Ask early (Table 6). Fallback: trial from a Division-approved environment with the same public data.</td></tr>
+<tr><td>External hosting judged unsuitable for work use</td><td>Medium</td><td>Medium</td><td>Ask early (Table 9). Fallback: trial from a Division-approved environment with the same public data.</td></tr>
 <tr><td>Coverage gaps (no ID or IAD decisions)</td><td>Certain</td><td>Medium</td><td>A gap across the field. Division repositories could fill it in stage two, under approval.</td></tr>
 <tr><td>Sensitivity of judge-level analytics</td><td>Medium</td><td>Medium</td><td>Issue-first views; judge pages as secondary and used with care; no outcome rate quoted from unchecked data.</td></tr>
 <tr><td>Upstream data availability (open datasets and Court site)</td><td>Low to medium</td><td>Medium</td><td>Original data is kept as published; sources are public and replaceable; refresh is scripted.</td></tr>
 </tbody></table></div>
 </section>
 
-<section id="s12">
-<h2><span class="n">12</span>Implementation plan and timeline</h2>
+<section id="s13">
+<h2><span class="n">13</span>Implementation plan and timeline</h2>
 <p>Durations are my planning estimates, not commitments, and the later phases depend on decisions outside my control.</p>
-<p class="cap">Table 11. Phases</p>
+<p class="cap">Table 14. Phases</p>
 <div class="tw"><table>
 <thead><tr><th>Phase</th><th>Period</th><th>Scope</th><th>Outputs</th><th>Funding</th></tr></thead>
 <tbody>
@@ -338,29 +419,29 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td><b>3. Plan an internal home</b></td><td>Months 6 to 12</td><td>With CBSA IT, security and privacy: hosting route, owner, sign-in, assessment scope, privacy impact assessment</td><td>An agreed internal deployment plan and cost</td><td>Level 3 for the local-AI machine; CBSA process costs unpriced</td></tr>
 <tr><td><b>4. Internal deployment</b></td><td>Months 12 to 24</td><td>Hosted inside CBSA or an approved cloud; internal documents considered only after approval</td><td>A supported internal service</td><td>To be determined by CBSA</td></tr>
 </tbody></table></div>
-<p class="cap">Table 12. Decision gates</p>
+<p class="cap">Table 15. Decision gates</p>
 <div class="tw"><table>
 <thead><tr><th>Gate</th><th>When</th><th>Decision</th><th>Evidence</th></tr></thead>
 <tbody>
 <tr><td>G1</td><td>End of month 3</td><td>Proceed to a staff trial?</td><td>Checked accuracy; Division interest</td></tr>
 <tr><td>G2</td><td>End of month 6</td><td>Continue and plan an internal home?</td><td>Measured time savings and feedback</td></tr>
-<tr><td>G3</td><td>End of month 12</td><td>Commission a supported internal build, adopt iLit internally, or stop?</td><td>Internal deployment plan and cost; options in Table 4</td></tr>
+<tr><td>G3</td><td>End of month 12</td><td>Commission a supported internal build, adopt iLit internally, or stop?</td><td>Internal deployment plan and cost; options in Table 7</td></tr>
 </tbody></table></div>
 </section>
 
-<section id="s13">
-<h2><span class="n">13</span>The request and next steps</h2>
-<h3><span class="n">13.1</span>The request</h3>
+<section id="s14">
+<h2><span class="n">14</span>The request and next steps</h2>
+<h3><span class="n">14.1</span>The request</h3>
 <ul>
 <li><b>Interest and time.</b> A small group of counsel willing to try iLit on real files and tell me what is missing.</li>
 <li><b>Funding.</b> An unofficial contribution at Level 1 or Level 2 (C$2,000 to C$5,000) now, with Level 3 (up to C$20,000) considered after the trial results. This is not a procurement and creates no commitment beyond interest.</li>
 <li><b>A conversation</b> with CBSA IT, security and privacy about where an internal version could be hosted and who would own it.</li>
 </ul>
-<h3><span class="n">13.2</span>Next steps</h3>
+<h3><span class="n">14.2</span>Next steps</h3>
 <ol class="plain">
 <li>Agree who from the Division would take part in a trial and what tasks to time.</li>
 <li>Complete accuracy checks and publish the figures (Phase 1).</li>
-<li>Confirm whether staff may use an external public-law site (Table 6).</li>
+<li>Confirm whether staff may use an external public-law site (Table 9).</li>
 <li>Run the timed comparison and update this report with measured figures.</li>
 </ol>
 </section>
@@ -380,7 +461,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td><b>Refugee Law Lab data and Portal</b></td><td>Free bulk decisions (Federal Court about 63,500 since 2001; RAD about 29,000; others) and a Portal with recognition-rate analytics for IRB decisions and their judicial reviews [17,18]</td><td>Free; CC BY-NC 4.0</td><td>Yes for refugee decisions; not Minister-side outcomes across immigration judicial review</td></tr>
 <tr><td><b>A2AJ</b></td><td>Open court and tribunal decisions, statutes and an API [19]</td><td>Free</td><td>Raw data</td></tr>
 <tr><td><b>Federal Court website</b></td><td>Docket lookup one file at a time; quarterly aggregate statistics [20]</td><td>Free</td><td>Counts only</td></tr>
-<tr class="me"><td><b>iLit</b></td><td>Paragraph-level search, outcome coding, citation analysis, docket layer, memo check, built on the open data above</td><td>Hosting and upkeep</td><td>Yes, with the limits in section 4</td></tr>
+<tr class="me"><td><b>iLit</b></td><td>Paragraph-level search, outcome coding, citation analysis, docket layer, memo check, built on the open data above</td><td>Hosting and upkeep</td><td>Yes, with the limits in section 5</td></tr>
 </tbody></table></div>
 </section>
 

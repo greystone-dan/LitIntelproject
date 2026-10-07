@@ -27,6 +27,7 @@ from backend.pages.tag_analytics import inject_tag_analytics
 from backend.pages.tag_finder import tag_finder_page_html
 from backend.pages.testing import testing_page_html as render_testing_page_html
 from backend.pages.theme_explorer import theme_explorer_page_html
+from backend.pages.workbench import workbench_page_html
 
 
 PAGE_RENDERERS = [
@@ -53,6 +54,7 @@ PAGE_RENDERERS = [
     ("tag_finder", tag_finder_page_html),
     ("testing", render_testing_page_html),
     ("theme_explorer", theme_explorer_page_html),
+    ("workbench", workbench_page_html),
 ]
 
 

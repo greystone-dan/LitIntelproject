@@ -12,7 +12,7 @@ import re
 
 OUTCOME_CLASSIFIER_VERSION = "deterministic_outcome_v2"
 _GOVERNMENT_PARTY_RE = re.compile(
-	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada)\b",
+	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p)\b",
 	re.IGNORECASE,
 )
 
@@ -368,6 +368,71 @@ def _same_sentence_concluding(candidate, best, tail: str) -> bool:
 	return not re.search(r"[\n]|\.\s", tail[low:high])
 
 
+_RAD_HEAD_RE = re.compile(r"\bRAD\s+File\b|dossier\s+de\s+la\s+SAR", re.IGNORECASE)
+_RAD_OPERATIVE_RE = re.compile(
+	r"^[ \t]*(?:[IVX]+\.[ \t]*)?(?:REMEDY|REMEDIES|CONCLUSION|DETERMINATION|DECISION)[ \t]*(?=\[\d+\]|$)", re.MULTILINE
+)
+_RAD_ANNEX_RE = re.compile(r"\n[ \t]*(?:ANNEX|APPENDIX|SCHEDULE)\b")
+_RAD_ACTOR = r"(?:I|(?:the\s+)?(?:RAD|Refugee\s+Appeal\s+Division))\s+(?:hereby\s+)?"
+_RAD_DISMISS_RE = re.compile(
+	r"\bappeals?\s+(?:of\s+[^.\n]{1,100}?\s+)?(?:is|are)\s+(?:hereby\s+)?(?:dismissed|denied)\b"
+	rf"|\b{_RAD_ACTOR}(?:dismisses|dismiss|denies|deny)\s+(?:the|this|his|her|their|the\s+Minister['’]s)\s+appeals?\b"
+	rf"|\b{_RAD_ACTOR}confirms?\s+the\s+(?:RPD['’]s\s+)?(?:determination|decision)\b",
+	re.IGNORECASE,
+)
+_RAD_ALLOW_RE = re.compile(
+	r"\bappeals?\s+(?:of\s+[^.\n]{1,100}?\s+)?(?:is|are)\s+(?:hereby\s+)?(?:allowed|granted)\b"
+	rf"|\b{_RAD_ACTOR}(?:allows?|grants?)\s+the\s+appeals?\b"
+	rf"|\b{_RAD_ACTOR}sets?\s+aside\s+the\s+(?:RPD['’]s\s+)?(?:determination|decision)\b"
+	r"|\b(?:determination|decision)\s+of\s+the\s+RPD\s+is\s+set\s+aside\b"
+	rf"|\b{_RAD_ACTOR}refers?\s+(?:the|this|their|his|her)\s+(?:matter|claims?)\s+(?:back\s+)?to\s+the\s+(?:RPD|Refugee\s+Protection\s+Division)\b"
+	rf"|\b{_RAD_ACTOR}substitut\w+\b",
+	re.IGNORECASE,
+)
+_RAD_PROCEDURAL_RE = re.compile(
+	r"\bapplications?\s+(?:for\s+(?:an\s+)?extension\s+of\s+time|to\s+(?:reopen|re-open|reinstate|vacate|change))\b[^.\n]{0,120}?\b(?:is|are)\s+(?:therefore\s+)?(?:allowed|granted|dismissed|denied)\b",
+	re.IGNORECASE,
+)
+_RAD_MINISTER_APPEAL_RE = re.compile(
+	r"\bMinister['’]s\s+(?:Notice\s+of\s+)?appeal\b|\bNotice\s+of\s+Appeal\s+from\s+the\s+Minister\b"
+	r"|\bappeals?\s+(?:filed\s+|brought\s+)?by\s+the\s+Minister\b|\bthe\s+Minister\s+(?:is\s+)?appeal(?:s|ing)\b",
+	re.IGNORECASE,
+)
+
+
+def _is_rad_document(content: str) -> bool:
+	"""Refugee Appeal Division reasons (the cover page carries the RAD file number), not a court judgment reviewing one."""
+	return not _COURT_HEAD_RE.search(content[:800]) and bool(_RAD_HEAD_RE.search(content[:800]))
+
+
+def _decide_rad(content: str) -> "Decision | None":
+	"""Read a RAD disposition from its remedy section: confirm/dismiss, set aside/refer back, or both for different appellants.
+
+	Returns None when the remedy section holds no recognisable ruling so the general rules still decide.
+	"""
+	text = _strip_footnotes(content)
+	paragraphs = list(re.finditer(r"\n\s*\[\d+\]", text))
+	annex = _RAD_ANNEX_RE.search(text, paragraphs[-1].end()) if paragraphs else None
+	if annex:
+		text = text[: annex.start()]
+	markers = [m for m in _RAD_OPERATIVE_RE.finditer(text) if len(text) - m.start() <= 6000]
+	start = markers[-1].start() if markers else max(0, len(text) - 2500)
+	# Section 111(1) is often recited at the top of the remedy; the ruling itself is in the last paragraphs.
+	start = max(start, len(text) - 1800)
+	section = text[start:]
+	dismiss = _RAD_DISMISS_RE.search(section)
+	allow = _RAD_ALLOW_RE.search(section)
+	procedural = _RAD_PROCEDURAL_RE.search(section)
+	if procedural and not dismiss and not allow:
+		return Decision("procedural", "procedural_order", procedural, start, section, False, 3, "rad_operative")
+	if dismiss and allow:
+		return Decision("mixed", "ruling", dismiss, start, section, True, 3, "rad_operative")
+	if dismiss or allow:
+		match = dismiss or allow
+		return Decision("dismissed" if dismiss else "allowed", "ruling", match, start, section, False, 3, "rad_operative")
+	return None
+
+
 class Decision:
 	"""The result of reading a decision's disposition."""
 
@@ -384,10 +449,60 @@ _CLASS = {
 }
 
 
+_RLLR_HEAD_RE = re.compile(r"Tribunal:\s*Refugee\s+Protection\s+Division[\s\S]{0,300}?\bRPD\s+Number:", re.IGNORECASE)
+_RLLR_END_RE = re.compile(r"\n[ \t]*[—–―‒-]{3,}[^\n]{0,30}$", re.MULTILINE)
+_RLLR_CLASS = r"[“\"]?(?:Convention\s+refugees?|persons?\s+in\s+need\s+of\s+protection|people\s+in\s+need\s+of\s+protection|refugees?)"
+_RLLR_REJECT_RE = re.compile(
+	r"(?<!\bto\s)\b(?:reject(?:s|ed|ing)?|den(?:y|ies|ied|ying)|dismiss(?:es|ed|ing)?)\s+(?:all\s+of\s+|both\s+of\s+|each\s+of\s+)?(?:your|the|his|her|their)\s+(?:refugee\s+)?claims?\b"
+	r"|\bclaims?\s+(?:is|are)\s*,?\s*(?:hereby\s+|therefore\s*,?\s+)?(?:rejected|denied|dismissed)\b"
+	r"|\b(?:are|is)\s+(?:neither|not)\s+(?:a\s+)?[“\"]?Convention\s+refugee\b",
+	re.IGNORECASE,
+)
+_RLLR_ACCEPT_RE = re.compile(
+	r"\baccept(?:s|ed|ing)?\s+(?:all\s+of\s+|both\s+of\s+|each\s+of\s+)?(?:your|the|his|her|their)\s+(?:refugee\s+)?claims?\b"
+	r"|\baccept(?:s|ed)?\s+that\s+(?:you|they|he|she|the\s+claimants?)\s+(?:are|is)\s+\w*\s*" + _RLLR_CLASS +
+	r"|\bclaims?\s+(?:for\s+refugee\s+protection\s+)?(?:is|are)\s*,?\s*(?:hereby\s+|therefore\s*,?\s+)?(?:accepted|allowed|granted)\b"
+	r"|\b(?:are|is|be)\s+(?:all\s+|both\s+)?(?:a\s+|an\s+)?" + _RLLR_CLASS,
+	re.IGNORECASE,
+)
+
+
+def _is_rllr_document(content: str) -> bool:
+	"""Refugee Law Lab Reporter copy of a Refugee Protection Division decision (header block with RPD Number)."""
+	return bool(_RLLR_HEAD_RE.search(content[:800]))
+
+
+def _decide_rllr(content: str) -> "Decision | None":
+	"""Read the claim ruling from the closing paragraphs, before the footnotes and the transcript sign-off."""
+	end = _RLLR_END_RE.search(content)
+	text = _strip_footnotes(content[: end.start()] if end else content)
+	for window in (1500, 6000):
+		start = max(0, len(text) - window)
+		section = text[start:]
+		reject = _RLLR_REJECT_RE.search(section)
+		if reject and re.match(r"[^.]{0,200}?\bbut\s+(?:is|are)\s+(?:a\s+)?persons?\s+in\s+need", section[reject.end():], re.IGNORECASE):
+			reject = None  # "not a Convention refugee, but a person in need of protection" is still a granted claim
+		accept = _RLLR_ACCEPT_RE.search(section)
+		if reject and accept:
+			return Decision("mixed", "ruling", reject, start, section, True, 3, "rllr_operative")
+		if reject or accept:
+			match = reject or accept
+			return Decision("dismissed" if reject else "allowed", "ruling", match, start, section, False, 3, "rllr_operative")
+	return None
+
+
 def _decide(content: str) -> "Decision | None":
 	"""Read the disposition. Labels: a ruling, "procedural", or "unclear" (the rules are not sure)."""
 	if not content or not content.strip():
 		return None
+	if _is_rad_document(content):
+		rad_decision = _decide_rad(content)
+		if rad_decision is not None:
+			return rad_decision
+	if _is_rllr_document(content):
+		rllr_decision = _decide_rllr(content)
+		if rllr_decision is not None:
+			return rllr_decision
 	assessed = _assess_outcome(content)
 	is_tribunal = _is_tribunal_document(content)
 	if assessed is None:
@@ -425,6 +540,8 @@ def _government_role(style_or_between: str) -> str | None:
 	text = " ".join(style_or_between.split())
 	# Tribunal captions list "Counsel for the Minister"; that line names a representative, not a party.
 	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|conseil\s+du\s+ministre", " ", text, flags=re.IGNORECASE)
+	# "For the Applicant / For the Respondent" lines label counsel, not the party named just before them.
+	text = re.sub(r"\bfor\s+(?:the\s+)?(?:applicants?|respondents?|appellants?)\b|\bpour\s+(?:le|la|les)\s+\w+", " ", text, flags=re.IGNORECASE)
 	lower = text.lower()
 	if not _GOVERNMENT_PARTY_RE.search(lower):
 		return None
@@ -492,18 +609,62 @@ def _role_from_style(style: str) -> str | None:
 	return "none"
 
 
+_STYLE_LINE_RE = re.compile(r"^[ \t]*(?:STYLE\s+OF\s+CAUSE|INTITUL[ÉE])\s*:?[ \t]*\n?[ \t]*([^\n]{5,250})$", re.IGNORECASE | re.MULTILINE)
+
+
+_ROLE_LABEL_RE = re.compile(r"\b(applicants?|appellants?|respondents?|interveners?|intervenors?)[ \t]*(?=\n|$)", re.IGNORECASE)
+_PARTY_SEPARATOR_RE = re.compile(r"\n[ \t]*(?:and|v\.?|et|[-\u2010-\u2015]+\s*and\s*[-\u2010-\u2015]+)[ \t]*\n", re.IGNORECASE)
+
+
+def _role_from_labelled_parties(text: str) -> str | None:
+	"""Side of the government party when the caption labels each party ("Minister ... Appellant").
+
+	The labels say who brought the proceeding. They beat the order of the names in a title or style of cause,
+	which can follow the lower court (SCC pages are titled "Gladstone v. Canada (Attorney General)" even though the
+	Attorney General is the appellant) and which the Minister can appear on either side of.
+	"""
+	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|for\s+(?:the\s+)?(?:applicants?|respondents?|appellants?)\b", " ", text, flags=re.IGNORECASE)
+	found: set[str] = set()
+	start = 0
+	for match in _ROLE_LABEL_RE.finditer(text):
+		label = match.group(1).lower()
+		segment = text[start : match.start()]
+		start = match.end()
+		if label.startswith("interven"):
+			break
+		segment = _PARTY_SEPARATOR_RE.split("\n" + segment + "\n")[-1]
+		segment = re.split(r"\b(?:between|entre)\s*:", segment, flags=re.IGNORECASE)[-1]
+		if _GOVERNMENT_PARTY_RE.search(segment):
+			found.add("respondent" if label.startswith("respondent") else "applicant")
+	return found.pop() if len(found) == 1 else None
+
+
 def _resolve_government_role(content: str, metadata: dict[str, object]) -> str | None:
 	"""Prefer the style of cause, then the title line; fall back to caption role labels."""
+	if _is_rllr_document(content):
+		return None
+	if _is_rad_document(content):
+		# The Minister is a party to a RAD appeal only when the Minister brought it; otherwise there is no government side.
+		return "applicant" if _RAD_MINISTER_APPEAL_RE.search(content[:3500]) else None
 	style_text = str(metadata.get("style of cause") or "").strip()
 	between_text = str(metadata.get("between") or "").strip()
+	labelled = _role_from_labelled_parties("\n".join(part for part in (between_text, content[:3000]) if part))
+	if labelled:
+		return labelled
 	candidates = [style_text] if style_text else []
+	# Federal Court judgments put "STYLE OF CAUSE:" on a cover page that can sit after the reasons.
+	cover = _STYLE_LINE_RE.search(content or "")
+	if cover:
+		candidates.append(cover.group(1).strip())
 	first_line = content.lstrip()[:300].split("\n", 1)[0].strip() if content else ""
 	if first_line and len(first_line) < 220:
 		candidates.append(first_line)
 	for text in candidates:
 		role = _role_from_style(text)
 		if role == "none":
-			return None
+			# Neither side of the style names a government party by its full name ("CUESTA v. MCI" is the common
+			# abbreviation case), so let the Between block decide before giving up.
+			return _government_role(between_text) if between_text else None
 		if role:
 			return role
 	return _government_role("\n".join(part for part in (style_text, between_text, content[:1200]) if part))
@@ -575,7 +736,9 @@ def derive_outcome_detail(content: str, metadata: dict[str, object]) -> dict[str
 	status = "mixed" if partial else "undetermined"
 	winner = loser = None
 	if role and not partial:
-		applicant_won = (label in {"allowed", "granted", "set_aside", "remitted"}) == (role == "respondent")
+		# "applicant" is the party that brought the proceeding or appeal, whoever it is (the Minister can be the
+		# appellant), so who won depends only on the ruling, never on which side the government is on.
+		applicant_won = label in {"allowed", "granted", "set_aside", "remitted"}
 		status = "won" if applicant_won else "lost"
 		winner = "applicant" if applicant_won else "respondent"
 		loser = "respondent" if winner == "applicant" else "applicant"

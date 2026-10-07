@@ -11,6 +11,7 @@ import json
 import os
 import re
 import time
+from types import SimpleNamespace
 from collections import OrderedDict
 from threading import RLock
 from typing import Any, Callable, Optional
@@ -43,7 +44,7 @@ from .database import (
 from .fc_activity_insights import fetch_fc_activity_judges
 from .judge_aliases import alias_map, member_ids
 from .judge_fc_activity import combine_rows, match_fc_rows
-from .judge_normalization import best_display_name
+from .judge_normalization import best_display_name, is_panel_string
 from .judge_issue_record import (
 	_FEDERAL_COURT_NAMES,
 	_ISSUE_OUTCOME_CATEGORIES,
@@ -54,6 +55,8 @@ from .judge_issue_record import (
 	fetch_judge_profile_issues,
 )
 from .legal_tagger_v3 import ACTIVE_TAG_TAXONOMY_VERSION
+from .case_types.display import case_type_payload
+from .case_types.taxonomy import TAXONOMY_VERSION, TYPES_BY_KEY
 from .paragraph_search import search_paragraph_cases
 from .search_matching import identity_sql, matched_on_sql, sentence_hits_sql
 from .query_syntax import OUTCOME_ALLOWLIST, parse_query
@@ -745,7 +748,8 @@ def _fetch_judge_profiles_impl(
 				JudgeProfile.normalized_name.ilike(pattern),
 			)
 		)
-	rows = [row for row in db.scalars(statement) if row.id not in mapping]
+	# Whole-panel strings ("A; B; C") from the first backfill are not judges; hide them from the list.
+	rows = [row for row in db.scalars(statement) if row.id not in mapping and not is_panel_string(row.display_name)]
 	if mapping:
 		by_id = {row.id: row for row in db.scalars(select(JudgeProfile))}
 		members: dict[int, list[JudgeProfile]] = {}
@@ -1171,10 +1175,31 @@ def _search_facets(db, where_clause, params, cohort_ids):
 			if row.get("label") is not None
 		]
 
-	return {
+	facets = {
 		"court": run("c.court", 8),
 		"year": run("EXTRACT(YEAR FROM c.date)::int", 12),
 	}
+	facets["case_type"] = _case_type_facet(db, where_clause, facet_params, cohort_ids)
+	return facets
+
+
+def _case_type_facet(db, where_clause, facet_params, cohort_ids):
+	"""Counts of matching decisions by stored case type (primary or second main type), read from the stored labels."""
+	statement = sql_text(
+		"SELECT t.label AS label, COUNT(DISTINCT c.id) AS n FROM cases c "
+		"JOIN case_type_labels ctl ON ctl.case_id = c.id AND ctl.taxonomy_version = :case_type_version "
+		"AND ctl.status = 'classified' "
+		"CROSS JOIN LATERAL (VALUES (ctl.primary_type), (ctl.second_type)) AS t(label) "
+		f"WHERE {where_clause} AND t.label IS NOT NULL GROUP BY t.label ORDER BY n DESC, t.label LIMIT 40"
+	)
+	if cohort_ids is not None:
+		statement = statement.bindparams(bindparam("cohort_ids", expanding=True))
+	rows = db.execute(statement, {**facet_params, "case_type_version": TAXONOMY_VERSION}).mappings().all()
+	return [
+		{"value": str(row["label"]), "label": TYPES_BY_KEY[row["label"]].label, "count": int(row["n"])}
+		for row in rows
+		if row.get("label") in TYPES_BY_KEY
+	]
 
 
 _FACET_CACHE: dict[str, tuple[float, dict[str, Any]]] = {}
@@ -1202,6 +1227,29 @@ def _facet_cache_put(key: str, facets: dict[str, Any]) -> None:
 
 def fetch_page_citation_counts(db, case_ids: list[int]) -> dict[str, dict[str, int]]:
 	return {str(k): v for k, v in _page_citation_counts(db, case_ids[:100]).items()}
+
+
+def _page_case_types(db, case_ids: list[int]) -> dict[int, dict[str, Any]]:
+	"""Stored case-type labels for only the cases on the returned page (one indexed query; no classification at read time)."""
+	if not case_ids:
+		return {}
+	try:
+		rows = db.execute(
+			sql_text(
+				"SELECT case_id, taxonomy_version, status, primary_type, primary_detail, second_type, second_detail "
+				"FROM case_type_labels WHERE taxonomy_version = :version AND case_id IN :ids"
+			).bindparams(bindparam("ids", expanding=True)),
+			{"version": TAXONOMY_VERSION, "ids": case_ids},
+		).mappings().all()
+	except SQLAlchemyError:
+		db.rollback()
+		return {}
+	found: dict[int, dict[str, Any]] = {}
+	for row in rows:
+		payload = case_type_payload(SimpleNamespace(**dict(row)))
+		if payload is not None:
+			found[int(row["case_id"])] = {"primary": payload["primary"], "second": payload["second"]}
+	return found
 
 
 def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
@@ -1242,6 +1290,45 @@ def _page_citation_counts(db, case_ids: list[int]) -> dict[int, dict[str, int]]:
 	return counts
 
 
+def _split_tag_values(raw: str) -> list[str]:
+	"""Selected tag values from a comma-separated parameter: normalized, de-duplicated, at most five."""
+	seen: list[str] = []
+	for part in (raw or "").split(","):
+		value = "_".join(part.strip().lower().replace("_", " ").split())
+		if value and value not in seen:
+			seen.append(value)
+	return seen[:5]
+
+
+_TAG_VOCABULARY_CACHE: dict[str, Any] = {"at": 0.0, "rows": []}
+_TAG_VOCABULARY_TTL_SECONDS = 3600
+
+
+def fetch_tag_suggestions(db, query: str, limit: int = 12) -> list[dict[str, Any]]:
+	"""Stored tag values matching what was typed, with the number of decisions carrying each (cached for an hour)."""
+	now = time.monotonic()
+	if not _TAG_VOCABULARY_CACHE["rows"] or now - _TAG_VOCABULARY_CACHE["at"] > _TAG_VOCABULARY_TTL_SECONDS:
+		rows = db.execute(
+			sql_text(
+				"SELECT REPLACE(LOWER(value), ' ', '_') AS value, MIN(category) AS category, COUNT(DISTINCT case_id) AS n "
+				"FROM case_tags WHERE taxonomy_version = :version GROUP BY 1 ORDER BY n DESC"
+			),
+			{"version": ACTIVE_TAG_TAXONOMY_VERSION},
+		).mappings().all()
+		_TAG_VOCABULARY_CACHE["rows"] = [
+			{"value": str(r["value"]), "category": str(r["category"] or ""), "count": int(r["n"] or 0)} for r in rows
+		]
+		_TAG_VOCABULARY_CACHE["at"] = now
+	needle = " ".join((query or "").lower().replace("_", " ").split())
+	matches = [
+		{**row, "label": row["value"].replace("_", " ")}
+		for row in _TAG_VOCABULARY_CACHE["rows"]
+		if not needle or needle in row["value"].replace("_", " ").lower()
+	]
+	matches.sort(key=lambda row: (not row["label"].startswith(needle), -row["count"]))
+	return matches[: max(1, min(limit, 25))]
+
+
 def fetch_analytics_search_cases(
 	db: Session,
 	*,
@@ -1253,6 +1340,9 @@ def fetch_analytics_search_cases(
 	judge: str = "",
 	court: str = "",
 	year: str = "",
+	cites_case_id: int | None = None,
+	tags: str = "",
+	case_type: str = "",
 	search_full_text: bool = False,
 	sort_by: str = "relevance",
 	limit: int = 50,
@@ -1327,6 +1417,24 @@ def fetch_analytics_search_cases(
 			"EXISTS (SELECT 1 FROM citations cited WHERE cited.source_case_id = c.id "
 			"AND (cited.citation_text ILIKE :cites OR cited.normalized_citation ILIKE :cites))"
 		)
+	if cites_case_id:
+		# A case picked from the suggestions: decisions with a resolved citation to exactly that case.
+		params["cites_case_id"] = int(cites_case_id)
+		filters.append(
+			"EXISTS (SELECT 1 FROM citations picked WHERE picked.source_case_id = c.id "
+			"AND picked.target_case_id = :cites_case_id)"
+		)
+	for index, tag_value in enumerate(_split_tag_values(tags)):
+		# Every selected tag must be present on the decision (stored tags, active taxonomy only).
+		# Stored values mix "removal_order" and "removal order", so both spellings are matched.
+		params[f"tag_{index}"] = tag_value
+		params[f"tag_{index}_sp"] = tag_value.replace("_", " ")
+		filters.append(
+			f"EXISTS (SELECT 1 FROM case_tags ct{index} WHERE ct{index}.case_id = c.id "
+			f"AND ct{index}.taxonomy_version = :tag_version "
+			f"AND ct{index}.value IN (:tag_{index}, :tag_{index}_sp))"
+		)
+		params["tag_version"] = ACTIVE_TAG_TAXONOMY_VERSION
 	if government_outcome in {"won", "lost"}:
 		params["government_outcome"] = government_outcome
 		filters.append("c.metadata_json->'reader_extracted'->>'government outcome' = :government_outcome")
@@ -1346,6 +1454,18 @@ def fetch_analytics_search_cases(
 		else:
 			params["court"] = f"%{court}%"
 			filters.append("c.court ILIKE :court")
+	case_type = case_type.strip()
+	if case_type:
+		if case_type in TYPES_BY_KEY:
+			params["case_type"] = case_type
+			params["case_type_version"] = TAXONOMY_VERSION
+			filters.append(
+				"EXISTS (SELECT 1 FROM case_type_labels ctl WHERE ctl.case_id = c.id "
+				"AND ctl.taxonomy_version = :case_type_version AND ctl.status = 'classified' "
+				"AND (ctl.primary_type = :case_type OR ctl.second_type = :case_type))"
+			)
+		else:
+			filters.append("FALSE")
 	if year:
 		params["year"] = f"{year}%"
 		filters.append("COALESCE(c.metadata_json->'reader_extracted'->>'date', '') ILIKE :year")
@@ -1374,7 +1494,16 @@ def fetch_analytics_search_cases(
 		"newest": "c.date DESC NULLS LAST, c.id DESC",
 		"oldest": "c.date ASC NULLS LAST, c.id ASC",
 		"minister": f"COALESCE({minister_expression}, 'Unknown') ASC, c.date DESC NULLS LAST, c.id DESC",
+		"most_cited": "cited_by.n DESC, c.date DESC NULLS LAST, c.id DESC",
 	}.get(sort_by, default_sort)
+	# Live count of distinct citing cases (the stored metrics table is stale), joined only for this sort.
+	cited_by_join = (
+		"JOIN (SELECT target_case_id, COUNT(DISTINCT source_case_id) AS n FROM citations "
+		"WHERE target_case_id IS NOT NULL AND source_case_id <> target_case_id GROUP BY target_case_id) "
+		"cited_by ON cited_by.target_case_id = c.id"
+		if sort_by == "most_cited"
+		else ""
+	)
 	if query and not query_uses_operators and sort_by == "relevance":
 		sort_order_sql, ranking_params = _analytics_case_order_sql(
 			query,
@@ -1417,6 +1546,7 @@ def fetch_analytics_search_cases(
 				,{match_label} AS matched_on
 				,{snippet_sql} AS snippet
 			FROM cases c
+			{cited_by_join}
 			WHERE {where_clause}
 			ORDER BY {sort_order}
 			LIMIT :limit OFFSET :offset
@@ -1432,6 +1562,7 @@ def fetch_analytics_search_cases(
 	rows = db.execute(statement, params).mappings().all()
 	paragraph_snippets = _paragraph_snippets(db, rows, paragraph_best_chunk) if paragraph_best_chunk else {}
 	citation_counts = _page_citation_counts(db, [int(row["id"]) for row in rows]) if include_citation_stats else {}
+	case_types = _page_case_types(db, [int(row["id"]) for row in rows])
 	return {
 		"facets": facets,
 		"results": [
@@ -1449,7 +1580,8 @@ def fetch_analytics_search_cases(
 				"citation_mentions": citation_counts.get(int(row["id"]), {}).get("citation_mentions", 0),
 				"unique_cited_authorities": citation_counts.get(int(row["id"]), {}).get("unique_cited_authorities", 0),
 				"resolved_target_cases": citation_counts.get(int(row["id"]), {}).get("resolved_target_cases", 0),
-				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0),
+				"cited_by_cases": citation_counts.get(int(row["id"]), {}).get("cited_by_cases", 0 if include_citation_stats else None),
+				"case_type": case_types.get(int(row["id"])),
 				"matched_on": row.get("matched_on", "Metadata"),
 				"snippet": clean_search_snippet(row.get("snippet") or paragraph_snippets.get(int(row["id"]))),
 			}
@@ -1486,18 +1618,51 @@ def clean_search_snippet(raw: str | None) -> str | None:
 	return f"\u2026{text}\u2026"
 
 
+def clean_minister_options(rows: list[tuple[str, int]]) -> list[str]:
+	"""Collapse the minister / government party list for the filter menu.
+
+	Rows are (name, number of cases). Names that differ only by case or spacing become one entry (the most
+	common spelling); names with no letters (years such as "1966") are dropped; a rare name that is a near
+	copy of a much more common one (a typo such as "Atorney General") is dropped from the menu. The cases
+	themselves are untouched, and the filter still matches by text.
+	"""
+	import difflib
+
+	merged: dict[str, tuple[str, int]] = {}
+	for name, count in rows:
+		display = " ".join(str(name or "").split())
+		if not display or not any(ch.isalpha() for ch in display):
+			continue
+		key = display.casefold()
+		best, total = merged.get(key, (display, 0))
+		if count > total and total:
+			best = display
+		merged[key] = (best if total else display, total + int(count))
+	ordered = sorted(merged.values(), key=lambda item: -item[1])
+	kept: list[tuple[str, int]] = []
+	for display, count in ordered:
+		duplicate = any(
+			count * 5 <= other_count
+			and difflib.SequenceMatcher(None, display.casefold(), other.casefold()).ratio() >= 0.88
+			for other, other_count in kept
+		)
+		if not duplicate:
+			kept.append((display, count))
+	return sorted((display for display, _ in kept), key=str.casefold)
+
+
 def fetch_analytics_search_ministers(db: Session) -> dict[str, list[str]]:
 	rows = db.execute(
 		sql_text(
 			"""
-			SELECT DISTINCT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister
+			SELECT TRIM(SUBSTRING(title FROM 'Canada [(]([^)]*)[)]')) AS minister, COUNT(*) AS n
 			FROM cases
 			WHERE SUBSTRING(title FROM 'Canada [(]([^)]*)[)]') IS NOT NULL
-			ORDER BY minister
+			GROUP BY 1
 			"""
 		)
-	).scalars().all()
-	return {"ministers": [str(value) for value in rows if value]}
+	).all()
+	return {"ministers": clean_minister_options([(str(name), int(n)) for name, n in rows if name])}
 
 
 def fetch_analytics_search_case_detail(db: Session, case_id: int) -> dict[str, Any]:

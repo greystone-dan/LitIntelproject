@@ -186,6 +186,29 @@ class JudgeProfileAlias(Base):
 	)
 
 
+class CaseTypeLabel(Base):
+	"""Deterministic "what type of case" label for a decision (rule-based, no AI; one row per case and taxonomy version)."""
+
+	__tablename__ = "case_type_labels"
+	__table_args__ = (UniqueConstraint("case_id", "taxonomy_version", name="uq_case_type_label_version"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	taxonomy_version: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+	status: Mapped[str] = mapped_column(String(30), nullable=False, index=True)
+	primary_type: Mapped[str | None] = mapped_column(String(80), nullable=True, index=True)
+	primary_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	secondary_types: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	second_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	second_detail: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	proceeding: Mapped[str | None] = mapped_column(String(60), nullable=True)
+	issues: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
+	confidence: Mapped[float] = mapped_column(Float, nullable=False, server_default="0")
+	scores: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	evidence: Mapped[list | None] = mapped_column(JSON, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
 class CaseJudgeProfile(Base):
 	__tablename__ = "case_judge_profiles"
 	__table_args__ = (UniqueConstraint("case_id", "judge_profile_id", name="uq_case_judge_profile"),)
@@ -1066,3 +1089,54 @@ def init_db() -> None:
 	with engine.begin() as connection:
 		connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
 	Base.metadata.create_all(bind=engine)
+
+
+class CaseFingerprintRecord(Base):
+	"""Stored deterministic fingerprint of one decision (see backend/case_fingerprint.py)."""
+
+	__tablename__ = "case_fingerprints"
+
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), primary_key=True)
+	version: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+	terms: Mapped[dict] = mapped_column(JSON, nullable=False)
+	authorities: Mapped[dict] = mapped_column(JSON, nullable=False)
+	role_chars: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	text_length: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+	computed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class WorkbenchCase(Base):
+	"""One IMM file on a demo analyst's Workbench case list, with the activity state last seen."""
+
+	__tablename__ = "workbench_cases"
+	__table_args__ = (UniqueConstraint("owner", "imm_number", name="uq_workbench_case_owner_imm"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	owner: Mapped[str] = mapped_column(String(80), nullable=False, index=True)
+	imm_number: Mapped[str] = mapped_column(String(50), nullable=False)
+	label: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+	tags: Mapped[list | None] = mapped_column(JSON, nullable=True)
+	folder: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	deadline: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	deadline_label: Mapped[str | None] = mapped_column(String(120), nullable=True)
+	last_seen_entries: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+	last_seen_activity_date: Mapped[date_type | None] = mapped_column(Date, nullable=True)
+	last_seen_status: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	last_viewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+	added_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class WorkbenchPin(Base):
+	"""A library decision a demo analyst saved from the case reader."""
+
+	__tablename__ = "workbench_pins"
+	__table_args__ = (UniqueConstraint("owner", "case_id", name="uq_workbench_pin_owner_case"),)
+
+	id: Mapped[int] = mapped_column(Integer, primary_key=True)
+	owner: Mapped[str] = mapped_column(String(80), nullable=False, index=True)
+	case_id: Mapped[int] = mapped_column(Integer, ForeignKey("cases.id", ondelete="CASCADE"), nullable=False, index=True)
+	notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+	tags: Mapped[list | None] = mapped_column(JSON, nullable=True)
+	folder: Mapped[str | None] = mapped_column(String(80), nullable=True)
+	pinned_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())

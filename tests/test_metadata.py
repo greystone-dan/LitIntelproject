@@ -692,3 +692,65 @@ def test_judge_is_read_from_reasons_for_order_and_order_by_heading():
 		"FEDERAL COURT\nSOLICITORS OF RECORD\nDOCKET: IMM-4657-04\nREASONS FOR ORDER\nAND ORDER BY: MACTAVISH, J.\nDATED: MAY 3, 2005\n"
 	)
 	assert "Mactavish" in (extract_case_metadata(text).get("judge") or "").title()
+
+
+# Real rows: Vavilov (2019 SCC 65, Minister is the appellant) and Ali v. Minister (2026 FC 738), trimmed to the caption
+# and the operative paragraph.
+_VAVILOV = (
+	"Between:\nMinister of Citizenship and Immigration\nAppellant\nand\nAlexander Vavilov\nRespondent\n"
+	"Held: The appeal should be dismissed.\nAppeal dismissed with costs throughout.\n"
+	"Solicitors for the appellant: Attorney General of Canada, Ottawa."
+)
+_ALI = (
+	"JUDGMENT in IMM-20375-24\nTHIS COURT'S JUDGMENT is that:\nThe application for judicial review is allowed. "
+	"The August 21, 2024 decision is set aside and the matter is remitted to a different officer.\n"
+	"STYLE OF CAUSE:\nABDIAZIIZ MOHAMED ALI v THE MINISTER OF CITIZENSHIP AND IMMIGRATION\n"
+	"Jared Will\nFor The Applicant\nJudy Michaely\nFor The Respondent\n"
+)
+
+
+def test_minister_appeal_dismissed_means_the_applicant_side_lost_in_every_field():
+	payload = extract_case_metadata(_VAVILOV)
+	assert payload["government role"] == "applicant"
+	assert payload["government outcome"] == "lost"
+	assert payload["case winner"] == "respondent"
+	detail = payload["outcome detail"]
+	assert (detail["status"], detail["winner"], detail["loser"]) == ("lost", "respondent", "applicant")
+	record = build_case_outcome(_VAVILOV, payload)
+	assert (record["government_outcome"], record["outcome_status"], record["winner_side"]) == ("lost", "lost", "respondent")
+
+
+def test_minister_appeal_allowed_means_the_government_won():
+	text = _VAVILOV.replace("dismissed", "allowed")
+	record = build_case_outcome(text, extract_case_metadata(text))
+	assert record["government_role"] == "applicant"
+	assert (record["government_outcome"], record["outcome_status"], record["winner_side"]) == ("won", "won", "applicant")
+
+
+def test_remitted_judicial_review_is_a_government_loss():
+	payload = extract_case_metadata(_ALI)
+	assert payload["decision outcome"] in {"allowed", "remitted", "set_aside"}
+	assert payload["government role"] == "respondent"
+	assert payload["government outcome"] == "lost"
+	record = build_case_outcome(_ALI, payload)
+	assert (record["outcome_status"], record["winner_side"]) == ("won", "applicant")
+
+
+def test_caption_labels_beat_a_title_that_follows_the_lower_court():
+	# 2005 SCC 21 (real caption): the page title reads "Gladstone v. Canada (Attorney General)", but the AG is the appellant.
+	text = (
+		"Gladstone v. Canada (Attorney General)\nBetween:\nAttorney General of Canada\nAppellant\nv.\n"
+		"Donald Gladstone and William Gladstone\nRespondents\nJudgment: The appeal is allowed."
+	)
+	record = build_case_outcome(text, {})
+	assert (record["government_role"], record["government_outcome"], record["winner_side"]) == ("applicant", "won", "applicant")
+
+
+def test_abbreviated_style_of_cause_falls_back_to_the_caption():
+	# 2005 FC 5 (real caption): the style is "CUESTA v. MCI", which names no government party in full.
+	text = (
+		"BETWEEN:\nALEXANDER JACQUIN CUESTA\nApplicant\nand\nTHE MINISTER OF CITIZENSHIP AND IMMIGRATION\nRespondent\n"
+		"JUDGMENT\nThe application for judicial review is dismissed."
+	)
+	record = build_case_outcome(text, {"style of cause": "CUESTA v. MCI"})
+	assert (record["government_role"], record["government_outcome"]) == ("respondent", "won")

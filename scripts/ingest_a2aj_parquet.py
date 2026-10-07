@@ -115,7 +115,8 @@ def build_case(record: dict) -> CaseIngestRequest | None:
     full_text_hash = hashlib.sha256(full_text.encode("utf-8")).hexdigest()
     return CaseIngestRequest(
         title=title,
-        court=clamp_text(value(record, "dataset"), 255) or "Unknown",
+        # The Refugee Law Lab Reporter (RLLR) is a set of Refugee Protection Division decisions, filed with the RPD.
+        court="RPD" if value(record, "dataset") == "RLLR" else clamp_text(value(record, "dataset"), 255) or "Unknown",
         jurisdiction="Canada",
         date=decision_date,
         citation=citation,

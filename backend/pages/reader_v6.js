@@ -12,6 +12,7 @@
  const v6={caseId:null,tab:'about',isub:'intel',open:null,view:null,stack:[],filter:'',af:'all',cursor:{},intel:new Map(),judges:new Map(),cards:new Map()};
  const fullCaseUrl=id=>`/data-explorer?case_id=${encodeURIComponent(id)}`;
  const openFull=id=>{if(id)window.open(fullCaseUrl(id),'_blank','noopener');};
+ const SHOW_COMPARE=false; /* the Compare page is not pitch-ready; set true to bring the button back */
  const cap=value=>{const text=String(value||'').replace(/_/g,' ').trim();return text.charAt(0).toUpperCase()+text.slice(1);};
  const shortCourt=court=>{const text=String(court||'');if(/supreme court of canada/i.test(text))return 'SCC';if(/federal court of appeal/i.test(text))return 'FCA';if(/federal court/i.test(text))return 'FC';if(/refugee protection/i.test(text))return 'RPD';if(/refugee appeal/i.test(text))return 'RAD';return text;};
  const benchNames=name=>String(name||'').split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const m=/^([^,]+),\s*(.+)$/.exec(x);return m?`${m[2].trim()} ${m[1].trim()}`:x;});
@@ -38,7 +39,9 @@
   ${d.courts&&d.courts.length?`<div class="v6-sec"><h4>By court</h4>${d.courts.map(c=>`<div class="v6-hb"><b>${E(c.court)}</b><span class="t"><i style="width:${c.pct}%"></i></span><span>${N(c.case_count)}</span></div>`).join('')}</div>`:''}
   ${d.judges&&d.judges.length?`<div class="v6-sec"><h4>Judges who cite it most</h4>${d.judges.slice(0,6).map(j=>`<button type="button" class="v6-row" data-v6-judge="${E(j.judge)}"><span><strong>${E(j.judge)}</strong><small>${E(String(j.first_use||'').slice(0,4))}–${E(String(j.latest_use||'').slice(0,4))}</small></span><span class="v6-ct">${N(j.case_count)}</span></button>`).join('')}</div>`:''}
   <a class="v6-link" href="/data-explorer?tab=citation-intelligence&group=research&case_id=${caseId}" target="_blank" rel="noopener">Open full citation intelligence →</a>`;}
- async function fillIntel(box,caseId){box.innerHTML='<div class="v6-note">Loading citation intelligence…</div>';const data=await loadIntel(caseId);if(!box.isConnected)return;box.innerHTML=intelHtml(caseId,data);}
+ function similarRows(rows,why){return rows.map(r=>`<button type="button" class="v6-row" data-v6-newtab="${r.case_id}"><span><strong>${E(r.title)}</strong><small>${E([r.citation,r.court,String(r.date||'').slice(0,4)].filter(Boolean).join(' · '))}${why&&r.shared&&r.shared.length?` · in common: ${E(r.shared.join(', '))}`:''}</small></span></button>`).join('');}
+ function similarHtml(d){if(!d||!d.available||(!d.similar.length&&!d.shares_authorities.length))return '';return `${d.similar.length?`<div class="v6-sec"><h4>Similar cases</h4><div class="v6-note-sm">Decisions about the same subject, matched on legal tags and statute provisions.</div>${similarRows(d.similar,true)}</div>`:''}${d.shares_authorities.length?`<div class="v6-sec"><h4>Shares authorities</h4><div class="v6-note-sm">Decisions that cite many of the same cases.</div>${similarRows(d.shares_authorities,false)}</div>`:''}`;}
+ async function fillIntel(box,caseId){box.innerHTML='<div class="v6-note">Loading citation intelligence…</div>';const data=await loadIntel(caseId);if(!box.isConnected)return;box.innerHTML=intelHtml(caseId,data);getJson(`/api/cases/${caseId}/similar-cases`).then(similar=>{const html=similarHtml(similar);if(html&&box.isConnected){const link=box.querySelector('.v6-link');if(link)link.insertAdjacentHTML('beforebegin',html);else box.insertAdjacentHTML('beforeend',html);}}).catch(()=>{});}
 
  /* ---------- judge profiles (stored profiles) ---------- */
  function judgeHtml(profile){const j=profile.profile||{},o=profile.outcomes||{},total=(o.government_wins||0)+(o.individual_wins||0),yearly=(profile.yearly_decisions||profile.yearly||[]).map(y=>({year:y.year,n:y.decisions})),recent=(profile.decisions||profile.recent||[]).slice(0,5);
@@ -63,11 +66,11 @@
  const facts=rows=>`<dl class="v6-facts">${rows.filter(row=>row&&row[1]!==''&&row[1]!=null).map(([k,v,raw])=>`<dt>${E(k)}</dt><dd>${raw?v:E(v)}</dd>`).join('')}</dl>`;
  function headings(d){const blocks=d.readerData.format_blocks||[],text=Array.from(d.item.full_text||''),out=[];blocks.forEach((b,i)=>{if(b.type!=='heading')return;const title=text.slice(b.start,b.end).join('').replace(/\s+/g,' ').trim();if(!title)return;const next=blocks.slice(i+1).find(x=>x.type==='para'&&x.num!=null);out.push({title,start:b.start,para:next?next.num:null,level:b.level||1});});return out;}
  function aboutHtml(d){
-  const cf=sideCaseFacts(d),outcome=sideOutcome(d.item),meta=d.meta,docket=extractDocketFromPayload(d.item)||cf.docket,tags=sideTagGroups(d.tags).flatMap(g=>g.values.map(v=>({...v,category:g.category}))).sort((a,b)=>b.count-a.count).slice(0,10),heads=headings(d);
+  const cf=sideCaseFacts(d),outcome=sideOutcome(d.item),meta=d.meta,docket=extractDocketFromPayload(d.item)||cf.docket,tags=Array.from(sideTagGroups(d.tags).flatMap(g=>g.values.map(v=>({...v,category:g.category}))).sort((a,b)=>b.count-a.count).reduce((seen,v)=>{const key=String(v.value||v.label||v.name||'').replace(/[_\s]+/g,' ').trim().toLowerCase();if(!seen.has(key))seen.set(key,v);return seen;},new Map()).values()).slice(0,10),heads=headings(d);
   const disposition=[...heads].reverse().find(h=>/disposition|conclusion|judgment|order/i.test(h.title));
-  const names=benchNames(cf.judge),link=n=>`<button type="button" class="v6-lk" data-v6-judge="${E(n)}">${E(n)}</button>`,judge=names.length>1?names.slice(0,3).map(link).join(', ')+(names.length>3?`, <button type="button" class="v6-lk" data-v6-go="judge">and ${names.length-3} more</button>`:''):(cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:''),bench='';
+  const names=benchNames(cf.judge),link=n=>cf.court==='RPD'?E(n):`<button type="button" class="v6-lk" data-v6-judge="${E(n)}">${E(n)}</button>`,judge=names.length>1?names.slice(0,3).map(link).join(', ')+(names.length>3?`, <button type="button" class="v6-lk" data-v6-go="judge">and ${names.length-3} more</button>`:''):(cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:''),bench='';
   return `<div class="v6-card out"><div class="v6-oh"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}</div><p>${outcome?'Recorded in the iLit data for this decision.':'No outcome is recorded for this decision yet.'}</p>${disposition?`<div class="v6-links"><button type="button" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)}</button></div>`:''}</div>
-  <div class="v6-sec"><h4>Case details</h4>${facts([['Court',longCourt(cf.court)],['Decision maker',judge+(bench?'<br>'+bench:''),true],['Docket',docket],['Decided',cf.decided],['Heard',cf.hearing],['Minister or party',d.item.minister||meta.minister],['Language',d.item.language||meta.language],['Jurisdiction',d.item.jurisdiction]])}</div>
+  <div class="v6-sec"><h4>Case details</h4>${facts([['Court',longCourt(cf.court)],['Case type',caseTypeText(d)],['Decision maker',judge+(bench?'<br>'+bench:''),true],['Docket',docket],['Decided',cf.decided],['Heard',cf.hearing],['Minister or party',d.item.minister||meta.minister],['Language',d.item.language||meta.language],['Jurisdiction',d.item.jurisdiction]])}</div>
   ${tags.length?`<div class="v6-sec"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
   ${docket&&isFed(cf.court)?`<div class="v6-card"><h5>Federal Court activity</h5><p>The docket for ${E(docket)} lists filings, hearings and orders when they are in the activity data.</p><div class="v6-links"><a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open full FC activity →</a></div></div>`:''}
   <div class="v6-sec"><h4>Source</h4><div class="v6-links">${d.item.source_url?`<a href="${E(d.item.source_url)}" target="_blank" rel="noopener noreferrer">Original decision ↗</a>`:''}<button type="button" data-v6-go="auth">Authorities this case cites</button></div><p class="v6-small">${E([d.item.source_name||d.item.source_type?`Text from ${d.item.source_name||d.item.source_type}`:'',d.item.processing_status?`Status: ${d.item.processing_status}`:''].filter(Boolean).join('. '))}</p></div>
@@ -124,13 +127,35 @@
  }
  renderReaderSidebar=function(){try{renderPanel();}catch(error){console.warn('Reader panel failed',error);}};
 
+ /* ---------- Save to Workbench (demo sign-in; stored server side per demo user) ---------- */
+ const wb={signedIn:false,pinned:false};
+ function paintSave(label){const b=document.getElementById('v6SaveWb');if(b){b.textContent=label;b.classList.toggle('is-saved',wb.pinned);}}
+ async function syncSave(id){
+  if(!id)return;
+  try{const r=await getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));wb.signedIn=r.signed_in;wb.pinned=r.pinned;}catch(error){wb.signedIn=false;wb.pinned=false;}
+  paintSave(wb.pinned?'Saved to Workbench ✓':'Save to Workbench');
+ }
+ async function saveToWorkbench(id){
+  if(wb.pinned){window.open('/workbench#home','_blank','noopener');return;}
+  if(!wb.signedIn){window.open('/workbench','_blank','noopener');paintSave('Sign in on the Workbench, then save');return;}
+  try{
+   const response=await fetch('/workbench/api/pins',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({case_id:Number(id)})});
+   if(response.status===401){wb.signedIn=false;window.open('/workbench','_blank','noopener');return;}
+   if(!response.ok)throw new Error('failed');
+   wb.pinned=true;paintSave('Saved to Workbench ✓');
+  }catch(error){paintSave('Could not save, try again');}
+ }
+
  /* ---------- title card ---------- */
+ /* stored case type (primary only, no AI); empty for decisions without a label so nothing is drawn */
+ function caseTypeText(d){const t=d&&d.readerData&&d.readerData.case_type,p=t&&t.primary;return p&&p.label?p.label+(p.provision?' ('+p.provision+')':''):'';}
  function renderCard(d){
   let card=document.getElementById('v6Card');if(!card){card=document.createElement('div');card.id='v6Card';document.getElementById('decisionTitle').after(card);}
-  const cf=sideCaseFacts(d),item=d.item,outcome=sideOutcome(item),docket=extractDocketFromPayload(item)||cf.docket,compare=document.getElementById('readerCompareLink'),authorities=sideAuthorityGroups(d.citations).length,acts=sideActGroups(d.citations).reduce((n,g)=>n+g.total,0),citedBy=d.metrics&&d.metrics.in_degree;
+  const cf=sideCaseFacts(d),item=d.item,outcome=sideOutcome(item),docket=extractDocketFromPayload(item)||cf.docket,compare=document.getElementById('readerCompareLink'),authorities=sideAuthorityGroups(d.citations).length,acts=sideActGroups(d.citations).length,citedBy=d.metrics&&d.metrics.in_degree;
   const cell=(label,value,raw)=>value?`<div class="v6-fs"><small>${E(label)}</small><b>${raw?value:E(value)}</b></div>`:'';
-  card.innerHTML=`<div class="v6-tc-top"><span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC activity</a>`:''}</span></div>
-  <div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
+  card.innerHTML=`<div class="v6-tc-top"><span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC activity</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span></div>
+  <div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Case type',caseTypeText(d))}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?(cf.court==='RPD'?E(cf.judge):`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`):'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
+   syncSave(item&&item.id);
  }
 
  /* ---------- find in the text, jump to outline ---------- */
@@ -161,6 +186,7 @@
  side.addEventListener('dblclick',event=>{const m=event.target.closest('[data-v6-case]');if(m){window.getSelection().removeAllRanges();openFull(m.dataset.v6Case);}});
  side.addEventListener('input',event=>{if(event.target.matches('[data-v6-filter]')){v6.filter=event.target.value;renderPanel();}});
  head.addEventListener('click',event=>{const t=event.target;let m;
+  if(t.closest('[data-v6-save]')){saveToWorkbench(t.closest('[data-v6-save]').dataset.v6Save);return;}
   if(t.closest('[data-v6-copy]')){document.getElementById('readerCopyCite')?.click();const b=t.closest('[data-v6-copy]'),old=b.textContent;b.textContent='Copied';setTimeout(()=>{b.textContent=old;},1400);return;}
   if(m=t.closest('[data-v6-go]')){const g=m.dataset.v6Go;if(g==='judge'){v6.tab='intel';v6.isub='judge';v6.view=null;v6.stack=[];if(layout.classList.contains('is-target-collapsed'))document.getElementById('toggleCaseInformation')?.click();return renderPanel();}
    if(g==='intel')return goTab('intel');if(g==='auth-case')return goTab('auth','case');if(g==='auth-stat')return goTab('auth','stat');}});
@@ -206,6 +232,8 @@
  body.addEventListener('dblclick',event=>{const el=event.target.closest(SEL);if(!el)return;clearTimeout(clickTimer);window.getSelection().removeAllRanges();
   const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;if(!row)return;
   if(row.target_case_id)return openFull(row.target_case_id);
+  const sec=/^\d{1,3}(?:\.\d+)?[A-Za-z]?/.exec(String(row.section_number||row.pinpoint||''));
+  if(row.instrument_key&&sec)return void window.open(`/statute-library?act=${encodeURIComponent(row.instrument_key)}&section=${encodeURIComponent(sec[0])}`,'_blank','noopener');
   const url=row.legislation_url||row.authority_document_url;if(url)window.open(url,'_blank','noopener');});
  openLinkedCase=function(){};
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&[...v6.cards.values()].some(c=>c.classList.contains('is-pinned')))clearCards();});
@@ -235,7 +263,7 @@
   ['cites','laws','tags'].forEach(k=>{const b=by(k);if(!b)return;legend.append(b);const dot=b.querySelector('i,.dot,span');const label=[...b.childNodes].reverse().find(n=>n.nodeType===3&&n.nodeValue.trim());if(label)label.nodeValue=' '+names[k];else if(!dot)b.textContent=names[k];});})();
 
  /* The collapsed Counsel, appearances and record block also sits at the start of the decision. */
- (function(){let busy=false;const addTop=()=>{if(busy)return;const root=body.querySelector('.fmt-decision'),foot=body.querySelector('.fmt-footer:not(.fmt-footer-top)');if(!root||!foot||root.querySelector('.fmt-footer-top'))return;busy=true;
+ (function(){let busy=false;const addTop=()=>{if(busy)return;const root=body.querySelector('.fmt-decision'),foot=body.querySelector('.fmt-footer:not(.fmt-footer-top):not(.fmt-source)');if(!root||!foot||root.querySelector('.fmt-footer-top'))return;busy=true;
   const clone=foot.cloneNode(true);clone.classList.add('fmt-footer-top');clone.removeAttribute('open');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
   const kids=[...root.children],anchor=kids.find(c=>c.classList.contains('fmt-caption'))||kids.find(c=>!c.classList.contains('fmt-meta'));
   if(anchor)root.insertBefore(clone,anchor);else root.append(clone);busy=false;};

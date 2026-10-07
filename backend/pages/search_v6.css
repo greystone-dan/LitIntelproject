@@ -15,7 +15,8 @@ html body section#searchPanel.panel-card.search-layout{background:none!important
 #searchPanel .search-actions .sq-go.sq-alt:hover{border-color:#3b7bd1;background:#eef4fc}
 #searchPanel .search-actions .sq-go.sq-alt[aria-expanded="true"]{background:#eef4fc;border-color:#3b7bd1;color:#1f4f93}
 #searchPanel .sp-body{display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start}
-#searchPanel.sp-adv .sp-body{grid-template-columns:280px minmax(0,1fr);gap:20px}
+#searchPanel.sp-adv .sp-body{grid-template-columns:clamp(300px,40vw,600px) minmax(0,1fr);gap:20px}
+@media(min-width:1180px){#searchPanel .sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}#searchPanel .sp-col{min-width:0}#searchPanel .sp-col>:first-child{margin-top:0}}
 #searchPanel #advancedSearchOptions{display:none;margin:0;padding:0;border:0;position:sticky;top:var(--sp-top,112px);max-height:calc(100vh - var(--sp-top,112px) - 16px);overflow:auto;min-width:0}
 #searchPanel.sp-adv #advancedSearchOptions{display:block}
 #searchPanel #advancedSearchOptions::before,#searchPanel #advancedSearchOptions::after{display:none}
@@ -114,3 +115,20 @@ html body #searchPanel .case-result.sp-row:hover{background:#f6f9fd;box-shadow:n
 #searchPanel .sp-ct-group summary{cursor:pointer;padding:6px 10px;font-size:13px;font-weight:600;color:var(--text,#202522)}#searchPanel .sp-ct-group.has-pick summary{color:#2f4a28}
 #searchPanel .sp-ct-opt{display:flex;align-items:baseline;gap:8px;padding:3px 10px 3px 14px;font-size:13px;line-height:1.3;cursor:pointer}#searchPanel .sp-ct-opt:hover{background:#f6f9fd}
 #searchPanel .sp-ct-opt span{flex:1;min-width:0}#searchPanel .sp-ct-opt em{font-style:normal;font-size:12px;color:var(--muted,#6b6a60)}
+
+/* Small browse links under the search bar, the Clear button beside it, and the movement shown while a search runs. All widths. */
+#searchPanel .sp-quick{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:8px 2px 0;font-size:13px;color:var(--muted,#6b6a60)}
+#searchPanel .sp-quick-link{border:0;background:none;padding:2px 0;color:#2a62b0;font:600 13px "IBM Plex Sans",Arial,sans-serif;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;cursor:pointer}
+#searchPanel .sp-quick-link:hover{text-decoration-style:solid}
+#searchPanel .sp-multi-hint{font-weight:400;font-size:12px;color:var(--muted,#6b6a60);margin-left:4px}
+#searchPanel .primary-query .case-finder{position:relative}
+#searchPanel.sp-loading .primary-query .case-finder::after{content:"";position:absolute;left:1px;right:1px;bottom:1px;height:3px;border-radius:0 0 5px 5px;overflow:hidden;background:linear-gradient(90deg,transparent 0,#3b7bd1 40%,#7fb0e8 60%,transparent 100%);background-size:45% 100%;background-repeat:no-repeat;animation:sp-load 1.1s ease-in-out infinite;pointer-events:none}
+#searchPanel.sp-loading #searchQuery{background-image:linear-gradient(100deg,rgba(59,123,209,0) 30%,rgba(59,123,209,.09) 50%,rgba(59,123,209,0) 70%);background-size:200% 100%;background-repeat:no-repeat;animation:sp-shimmer 1.6s linear infinite}
+@keyframes sp-load{0%{background-position:-60% 0}100%{background-position:160% 0}}
+@keyframes sp-shimmer{0%{background-position:150% 0}100%{background-position:-50% 0}}
+@media(prefers-reduced-motion:reduce){#searchPanel.sp-loading .primary-query .case-finder::after,#searchPanel.sp-loading #searchQuery{animation:none}#searchPanel.sp-loading .primary-query .case-finder::after{background:#3b7bd1;opacity:.5}}
+
+/* Case type groups: a tick box that selects every subtype, then the name and arrow that open the list. */
+#searchPanel .sp-ct-group summary{display:flex;align-items:center;gap:8px}
+#searchPanel .sp-ct-all{width:16px;height:16px;margin:0;accent-color:#2a62b0;flex:none;cursor:pointer}
+#searchPanel .sp-ct-name{flex:1;min-width:0}

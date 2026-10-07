@@ -192,7 +192,6 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
         "cites_case_id",
         "tags",
         "government_outcome",
-        "decision_outcome",
         "minister",
         "judge",
         "court",
@@ -591,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
         assert f'>{label}</button>' in header
 
 

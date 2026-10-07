@@ -210,7 +210,7 @@ def live_analysis_page_html() -> str:
 	)
 	html = _replace_once(html, "workbench:'workbenchPanel',", "workbench:'workbenchPanel','live-analysis':'liveAnalysisPanel',")
 	html = _replace_once(html, "workbench:['workbench'],", "workbench:['workbench','live-analysis'],")
-	# This page opens on its own view; the research page's default is Case search.
+	# This page opens on its own view; the research page's default is Research.
 	html = _replace_once(
 		html,
 		"activateResearchTab(params.get('tab')||(researchGroups[group]?lastGroupTabs[group]:'search'),false)",

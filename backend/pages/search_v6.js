@@ -52,7 +52,14 @@ function searchParams(values,offset){
 function afterSearch(){
  const rows=document.querySelectorAll('#searchResults .case-result').length;
  shown=rows;lastValues=searchValues();window.__spQuery=lastValues.query;
+ rememberSearch(lastValues.query);
  if(moreButton){moreButton.hidden=rows<PAGE;moreButton.textContent=`Show ${PAGE} more`;}
+}
+/* Recent searches: kept in this browser only, shown on the Workbench home. */
+function rememberSearch(query){
+ const q=String(query||'').trim().slice(0,200);if(!q)return;
+ try{const list=JSON.parse(localStorage.getItem('ilit_recent_searches')||'[]').filter(x=>x&&x.q&&x.q.toLowerCase()!==q.toLowerCase());
+  list.unshift({q,at:new Date().toISOString()});localStorage.setItem('ilit_recent_searches',JSON.stringify(list.slice(0,20)));}catch(error){}
 }
 const baseRun=window.runProfessionalSearch;
 window.runProfessionalSearch=async function(){
@@ -194,4 +201,8 @@ $('mostCitedCases')?.addEventListener('click',()=>{
 });
 
 setSearchStatus('Search by case name or citation, or press Recent cases or Most cited.');
+{ /* ?q= opens the search with that text (Workbench recent searches link here) */
+ const wanted=new URLSearchParams(location.search).get('q');
+ if(wanted&&!$('searchQuery').value){$('searchQuery').value=wanted;setTimeout(()=>$('caseSearch').requestSubmit(),0);}
+}
 })();

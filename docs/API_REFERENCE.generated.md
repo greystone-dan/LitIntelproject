@@ -2,11 +2,11 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T02:22:53.739083+00:00
+Generated: 2026-10-07T02:58:33.997187+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 134 across 131 paths
-Hidden operations: 67 excluded from OpenAPI
+Hidden operations: 86 excluded from OpenAPI
 
 The live OpenAPI UI is available at `/docs`. This appendix records the route contract present when it was generated. Request/response component definitions remain available in the live schema. Routes deliberately hidden from OpenAPI are appended with their handler signature.
 
@@ -2885,6 +2885,290 @@ Handler: `backend.routes.testing_interface`
 **Hidden from OpenAPI.**
 
 Handler: `backend.routes.theme_explorer_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_page`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.list_cases`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.add_cases`
+
+**Handler parameters**
+
+- `body` (AddCasesRequest; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases/export.csv`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.export_cases`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases/seen-all`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.mark_all_seen`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `DELETE /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.delete_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.case_detail`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `PATCH /workbench/api/cases/{case_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.update_case`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `body` (ItemUpdate; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/cases/{case_id}/seen`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.mark_seen`
+
+**Handler parameters**
+
+- `case_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/me`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_me`
+
+**Handler parameters**
+
+- `request` (Request; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.list_pins`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/pins`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.add_pin`
+
+**Handler parameters**
+
+- `body` (PinRequest; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins/export.csv`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.export_pins`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/pins/state`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.pin_state`
+
+**Handler parameters**
+
+- `request` (Request; required)
+- `case_id` (int; required)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `DELETE /workbench/api/pins/{pin_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.delete_pin`
+
+**Handler parameters**
+
+- `pin_id` (int; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `PATCH /workbench/api/pins/{pin_id}`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.update_pin`
+
+**Handler parameters**
+
+- `pin_id` (int; required)
+- `body` (ItemUpdate; required)
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/signin`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_signin`
+
+**Handler parameters**
+
+- `body` (SignInRequest; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `POST /workbench/api/signout`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.workbench_signout`
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /workbench/api/summary`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.workbench.summary`
+
+**Handler parameters**
+
+- `owner` (str; default `Depends(current_owner)`)
+- `db` (Session; default `Depends(get_db)`)
 
 **Responses**
 

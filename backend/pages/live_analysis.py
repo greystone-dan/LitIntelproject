@@ -38,12 +38,31 @@ STYLE = r'''<style>
 .la-go{background:var(--blue,#2563eb);border-color:var(--blue,#2563eb);color:#fff}.la-go:disabled{opacity:.5;cursor:not-allowed}
 .la-status{color:var(--muted);font-size:12px}.la-error{margin:0 0 10px;padding:9px 12px;border:1px solid #e3b5b5;border-radius:4px;background:#fdf1f1;color:#8a1f1f;font-size:13px}
 .la-note{max-width:820px;color:var(--muted);font-size:12px;line-height:1.55}
+html.wb-embedded .topbar,html.wb-embedded #researchViews{display:none!important}
+html.wb-embedded .center-pane{padding-top:12px}
+.la-tools{padding:8px 20px 0;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0}
+body .reader-head>#laTools#laTools.la-tools{display:flex!important}
+.la-tools button{padding:6px 12px;border:1px solid var(--border);border-radius:5px;background:var(--surface);font:600 12px "IBM Plex Sans",sans-serif;cursor:pointer;color:var(--text)}
+.la-tools button:hover{border-color:var(--teal,#176c68);color:var(--teal,#176c68)}
+.la-tools .la-msg{color:var(--muted);font-size:12px}
+.la-modal{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(32,37,34,.45)}
+.la-modal[hidden]{display:none}
+.la-dialog{display:flex;flex-direction:column;width:min(980px,100%);max-height:88vh;border:1px solid var(--border);border-radius:6px;background:var(--surface);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.la-dialog header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.la-dialog h3{margin:0;font:600 19px "Newsreader",serif}
+.la-dialog .la-scroll{overflow:auto;padding:0 16px 14px}
+.la-table{width:100%;min-width:560px;border-collapse:collapse;font-size:13px}
+.la-table th{position:sticky;top:0;padding:9px 8px;background:var(--surface);border-bottom:1px solid var(--border);text-align:left;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.la-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
+.la-yes{color:#115450;font-weight:600}.la-no{color:var(--muted)}
+.la-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;border-top:1px solid var(--border)}
 body.live-doc-open [data-side-tab="about"],body.live-doc-open [data-side-tab="structure"],body.live-doc-open [data-side-tab="tags"],body.live-doc-open [data-mk-act="export"],body.live-doc-open #readerViewToggle,body.live-doc-open #readerCompareLink,body.live-doc-open #readerCopyCite,body.live-doc-open #readerFormatToggle,body.live-doc-open #readerPrintCitation{display:none!important}
 </style>
 '''
 
 SCRIPT = r'''<script>
 /* Live Analysis: send the document to /live-analysis/reader, then show the reader's markup view over the result. */
+if(window.self!==window.top)document.documentElement.classList.add('wb-embedded');
 (function(){
 const $=id=>document.getElementById(id);
 const panel=$('liveAnalysisPanel'),file=$('laFile'),text=$('laText'),go=$('laAnalyze'),status=$('laStatus'),err=$('laError'),drop=$('laDrop');
@@ -71,7 +90,68 @@ async function analyze(){
   finally{refresh()}
 }
 go.addEventListener('click',analyze);
+
+/* Authority table: every distinct authority the document cites, with library status, as a table and a CSV. */
+const escHtml=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let lastData=null;
+function authorityRows(data){
+  const map=new Map();
+  (data.citations||[]).forEach(c=>{
+    const statute=c.citation_kind==='statute';
+    const key=(statute?'s|':'c|')+String(c.normalized_citation||c.citation_text||'').toLowerCase();
+    let row=map.get(key);
+    if(!row){row={kind:statute?'Statute':'Case',text:c.citation_text||'',title:c.target_title||'',caseId:c.target_case_id||null,inLibrary:statute?!c.unresolved:c.target_case_id!=null,mentions:0};map.set(key,row)}
+    row.mentions+=1;
+    if(!row.title&&c.target_title)row.title=c.target_title;
+  });
+  return [...map.values()].sort((a,b)=>(a.kind===b.kind?0:a.kind==='Case'?-1:1)||b.mentions-a.mentions);
+}
+function csvCell(v){let t=String(v??'');if(/^[=+\-@\t\r]/.test(t))t="'"+t;return /[",\n]/.test(t)?'"'+t.replace(/"/g,'""')+'"':t}
+function authorityCsv(rows){return ['Kind,Citation as written,Title in library,In library,Mentions,Case ID'].concat(rows.map(r=>[r.kind,r.text,r.title,r.inLibrary?'Yes':'No',r.mentions,r.caseId||''].map(csvCell).join(','))).join('\r\n')}
+function downloadCsv(rows,name){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+authorityCsv(rows)],{type:'text/csv'}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},400)}
+function ensureModal(){
+  let m=$('laModal');if(m)return m;
+  m=document.createElement('div');m.id='laModal';m.className='la-modal';m.hidden=true;
+  m.innerHTML='<div class="la-dialog" role="dialog" aria-modal="true" aria-labelledby="laModalTitle"><header><h3 id="laModalTitle">Authorities in this document</h3><button type="button" class="la-clear" id="laModalClose">Close</button></header><div class="la-scroll" id="laModalBody"></div><div class="la-foot" id="laModalFoot"></div></div>';
+  document.body.appendChild(m);
+  m.addEventListener('click',e=>{if(e.target===m)m.hidden=true});
+  m.querySelector('#laModalClose').addEventListener('click',()=>{m.hidden=true});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')m.hidden=true});
+  return m;
+}
+async function saveCasesToWorkbench(rows,msg){
+  const ids=[...new Set(rows.filter(r=>r.caseId).map(r=>r.caseId))];
+  if(!ids.length){msg.textContent='No library cases found to save.';return}
+  msg.textContent='Saving…';let ok=0;
+  for(const id of ids){
+    const r=await fetch('/workbench/api/pins',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({case_id:id})});
+    if(r.status===401){msg.textContent='Sign in on the Workbench home first, then try again.';return}
+    if(r.ok)ok+=1;
+  }
+  msg.textContent=`Saved ${ok} of ${ids.length} library cases to your pinned decisions.`;
+}
+function showAuthorities(){
+  if(!lastData)return;
+  const rows=authorityRows(lastData),m=ensureModal();
+  const cases=rows.filter(r=>r.kind==='Case'),acts=rows.filter(r=>r.kind==='Statute');
+  $('laModalBody').innerHTML=rows.length?`<p class="la-note">${cases.length} distinct case citation${cases.length===1?'':'s'} (${cases.filter(r=>r.inLibrary).length} in the library) and ${acts.length} statute reference${acts.length===1?'':'s'}. Citations are matched by fixed rules, so read them against the document.</p><table class="la-table"><thead><tr><th>Kind</th><th>As written</th><th>In the library</th><th>Mentions</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.kind}</td><td>${escHtml(r.text)}${r.title?`<div class="la-note">${escHtml(r.title)}</div>`:''}</td><td>${r.caseId?`<a class="la-yes" href="/data-explorer?tab=search&case_id=${r.caseId}" target="_blank" rel="noopener">Open case</a>`:r.inLibrary?'<span class="la-yes">Yes</span>':'<span class="la-no">Not found</span>'}</td><td>${r.mentions}</td></tr>`).join('')}</tbody></table>`:'<p class="la-note">No case or statute citations were found in this document.</p>';
+  const foot=$('laModalFoot');
+  foot.innerHTML='<button type="button" class="la-clear" id="laCsv">Download CSV</button><button type="button" class="la-clear" id="laPinAll">Save library cases to Workbench</button><span class="la-status" id="laPinMsg"></span>';
+  $('laCsv').onclick=()=>downloadCsv(rows,'authorities.csv');
+  $('laPinAll').onclick=()=>saveCasesToWorkbench(rows,$('laPinMsg'));
+  m.hidden=false;$('laModalClose').focus();
+}
+function setTools(data){
+  lastData=data;
+  let bar=$('laTools');
+  if(!bar){bar=document.createElement('div');bar.id='laTools';bar.className='la-tools';const toolbar=$('caseReaderPanel').querySelector('.reader-toolbar');(toolbar?toolbar.before.bind(toolbar):$('decisionTarget').before.bind($('decisionTarget')))(bar)}
+  bar.innerHTML='<button type="button" id="laAuth">Authority table</button><button type="button" id="laAuthCsv">Download authorities CSV</button>';
+  $('laAuth').onclick=showAuthorities;
+  $('laAuthCsv').onclick=()=>downloadCsv(authorityRows(lastData),'authorities.csv');
+}
+function clearTools(){const bar=$('laTools');if(bar)bar.remove();lastData=null}
 function open(data){
+  setTools(data);
   const reader=$('caseReaderPanel');
   document.body.classList.add('live-doc-open');
   readerState.caseId=null;readerState.payload={item:data.item,citations:data.citations,readerData:data.readerData};readerState.formatted=true;readerState.mode='normalized';
@@ -99,7 +179,7 @@ const previousClose=closeDecisionReader;
 closeDecisionReader=function(){
   previousClose.apply(this,arguments);
   if(!document.body.classList.contains('live-doc-open'))return;
-  document.body.classList.remove('live-doc-open');
+  document.body.classList.remove('live-doc-open');clearTools();
   $('searchPanel').hidden=true;panel.hidden=false;
   const back=$('caseReaderPanel').querySelector('.return-to-results');if(back)back.innerHTML='&larr; Back to case results';
 };

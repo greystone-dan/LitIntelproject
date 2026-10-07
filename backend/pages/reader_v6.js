@@ -127,13 +127,33 @@
  }
  renderReaderSidebar=function(){try{renderPanel();}catch(error){console.warn('Reader panel failed',error);}};
 
+ /* ---------- Save to Workbench (demo sign-in; stored server side per demo user) ---------- */
+ const wb={signedIn:false,pinned:false};
+ function paintSave(label){const b=document.getElementById('v6SaveWb');if(b){b.textContent=label;b.classList.toggle('is-saved',wb.pinned);}}
+ async function syncSave(id){
+  if(!id)return;
+  try{const r=await getJson('/workbench/api/pins/state?case_id='+encodeURIComponent(id));wb.signedIn=r.signed_in;wb.pinned=r.pinned;}catch(error){wb.signedIn=false;wb.pinned=false;}
+  paintSave(wb.pinned?'Saved to Workbench ✓':'Save to Workbench');
+ }
+ async function saveToWorkbench(id){
+  if(wb.pinned){window.open('/workbench#home','_blank','noopener');return;}
+  if(!wb.signedIn){window.open('/workbench','_blank','noopener');paintSave('Sign in on the Workbench, then save');return;}
+  try{
+   const response=await fetch('/workbench/api/pins',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({case_id:Number(id)})});
+   if(response.status===401){wb.signedIn=false;window.open('/workbench','_blank','noopener');return;}
+   if(!response.ok)throw new Error('failed');
+   wb.pinned=true;paintSave('Saved to Workbench ✓');
+  }catch(error){paintSave('Could not save, try again');}
+ }
+
  /* ---------- title card ---------- */
  function renderCard(d){
   let card=document.getElementById('v6Card');if(!card){card=document.createElement('div');card.id='v6Card';document.getElementById('decisionTitle').after(card);}
   const cf=sideCaseFacts(d),item=d.item,outcome=sideOutcome(item),docket=extractDocketFromPayload(item)||cf.docket,compare=document.getElementById('readerCompareLink'),authorities=sideAuthorityGroups(d.citations).length,acts=sideActGroups(d.citations).length,citedBy=d.metrics&&d.metrics.in_degree;
   const cell=(label,value,raw)=>value?`<div class="v6-fs"><small>${E(label)}</small><b>${raw?value:E(value)}</b></div>`:'';
-  card.innerHTML=`<div class="v6-tc-top"><span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC activity</a>`:''}</span></div>
+  card.innerHTML=`<div class="v6-tc-top"><span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC activity</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span></div>
   <div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?(cf.court==='RPD'?E(cf.judge):`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`):'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
+   syncSave(item&&item.id);
  }
 
  /* ---------- find in the text, jump to outline ---------- */
@@ -164,6 +184,7 @@
  side.addEventListener('dblclick',event=>{const m=event.target.closest('[data-v6-case]');if(m){window.getSelection().removeAllRanges();openFull(m.dataset.v6Case);}});
  side.addEventListener('input',event=>{if(event.target.matches('[data-v6-filter]')){v6.filter=event.target.value;renderPanel();}});
  head.addEventListener('click',event=>{const t=event.target;let m;
+  if(t.closest('[data-v6-save]')){saveToWorkbench(t.closest('[data-v6-save]').dataset.v6Save);return;}
   if(t.closest('[data-v6-copy]')){document.getElementById('readerCopyCite')?.click();const b=t.closest('[data-v6-copy]'),old=b.textContent;b.textContent='Copied';setTimeout(()=>{b.textContent=old;},1400);return;}
   if(m=t.closest('[data-v6-go]')){const g=m.dataset.v6Go;if(g==='judge'){v6.tab='intel';v6.isub='judge';v6.view=null;v6.stack=[];if(layout.classList.contains('is-target-collapsed'))document.getElementById('toggleCaseInformation')?.click();return renderPanel();}
    if(g==='intel')return goTab('intel');if(g==='auth-case')return goTab('auth','case');if(g==='auth-stat')return goTab('auth','stat');}});

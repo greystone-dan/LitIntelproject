@@ -587,7 +587,7 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
-    assert '<a ' not in header
+    assert header.count('<a ') == 1 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the Workbench is its own page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
@@ -599,9 +599,10 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
     soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
     assert set(soon.values()) == {'soon'}
-    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map'} <= set(soon)
+    assert not ({'soon-live-analysis', 'soon-deidentify'} & set(soon))  # both live in the Workbench now
     assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 15
+    assert len(soon) == 13
     assert 'soon-fc-analytics' not in soon
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
         'about': 'info', 'search': 'research',

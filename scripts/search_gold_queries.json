@@ -1,0 +1,467 @@
+{
+ "version": 1,
+ "about": "Gold query set for plain-text search. landmark/citation: success = an expected citation is in the top 10. topic/french: success = a top-10 case whose text matches every oracle regex (weak, loose; also hand-read the top 5). Verify landmark citations exist in the library before scoring.",
+ "queries": [
+  {
+   "id": "L01",
+   "query": "what standard of review applies to a decision of an immigration officer on judicial review",
+   "kind": "landmark",
+   "expect_citations": [
+    "2019 SCC 65"
+   ]
+  },
+  {
+   "id": "L02",
+   "query": "presumption of reasonableness review and when correctness applies",
+   "kind": "landmark",
+   "expect_citations": [
+    "2019 SCC 65"
+   ]
+  },
+  {
+   "id": "L03",
+   "query": "officer must be alert and sensitive to the best interests of the child in a humanitarian decision",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1999] 2 SCR 817",
+    "2015 SCC 61"
+   ]
+  },
+  {
+   "id": "L04",
+   "query": "humanitarian and compassionate relief unusual undeserved disproportionate hardship should not be read narrowly",
+   "kind": "landmark",
+   "expect_citations": [
+    "2015 SCC 61"
+   ]
+  },
+  {
+   "id": "L05",
+   "query": "duty of fairness owed to a person seeking humanitarian relief and reasons for the decision",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1999] 2 SCR 817"
+   ]
+  },
+  {
+   "id": "L06",
+   "query": "what is a particular social group refugee definition grounds",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1993] 2 SCR 689"
+   ]
+  },
+  {
+   "id": "L07",
+   "query": "state protection presumption claimant must provide clear and convincing evidence",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1993] 2 SCR 689",
+    "2008 FCA 94"
+   ]
+  },
+  {
+   "id": "L08",
+   "query": "complicity in crimes against humanity contribution to the organization's crime exclusion from refugee protection",
+   "kind": "landmark",
+   "expect_citations": [
+    "2013 SCC 40"
+   ]
+  },
+  {
+   "id": "L09",
+   "query": "security certificate detention and fairness of the process for a foreign national",
+   "kind": "landmark",
+   "expect_citations": [
+    "2007 SCC 9"
+   ]
+  },
+  {
+   "id": "L10",
+   "query": "refugee claimant entitled to an oral hearing when credibility is in issue under the Charter",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1985] 1 SCR 177"
+   ]
+  },
+  {
+   "id": "L11",
+   "query": "deportation to a country where there is a risk of torture and the Minister's discretion",
+   "kind": "landmark",
+   "expect_citations": [
+    "2002 SCC 1"
+   ]
+  },
+  {
+   "id": "L12",
+   "query": "categories of standard of review correctness and patent unreasonableness",
+   "kind": "landmark",
+   "expect_citations": [
+    "2008 SCC 9"
+   ]
+  },
+  {
+   "id": "L13",
+   "query": "tribunal's interpretation of its home statute and deference immigration appeal division discretionary relief",
+   "kind": "landmark",
+   "expect_citations": [
+    "2009 SCC 12"
+   ]
+  },
+  {
+   "id": "L14",
+   "query": "internal flight alternative two-part test serious possibility of persecution and reasonable to relocate",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1992] 1 FC 706",
+    "[1994] 1 FC 589"
+   ]
+  },
+  {
+   "id": "L15",
+   "query": "permanent resident removal order for serious criminality and Charter challenge",
+   "kind": "landmark",
+   "expect_citations": [
+    "2005 SCC 51",
+    "2002 SCC 3"
+   ]
+  },
+  {
+   "id": "L16",
+   "query": "ministerial relief national security inadmissibility deference",
+   "kind": "landmark",
+   "expect_citations": [
+    "2013 SCC 36"
+   ]
+  },
+  {
+   "id": "L17",
+   "query": "incitement to hatred crimes against humanity removal order permanent resident",
+   "kind": "landmark",
+   "expect_citations": [
+    "2005 SCC 40"
+   ]
+  },
+  {
+   "id": "L18",
+   "query": "exclusion of refugee serious non-political crime and drug trafficking standard of review",
+   "kind": "landmark",
+   "expect_citations": [
+    "[1998] 1 SCR 982"
+   ]
+  },
+  {
+   "id": "T01",
+   "query": "officer ignored my medical evidence",
+   "kind": "topic",
+   "oracle_all": [
+    "psycholog|psychiatr|medical report|doctor|physician|diagnos",
+    "fail\\w* to (consider|address)|ignor|overlook|did not consider|not address"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T02",
+   "query": "claimant is afraid of being killed by the police if returned",
+   "kind": "topic",
+   "oracle_all": [
+    "police",
+    "kill|murder|shot|death",
+    "fear|afraid|risk"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T03",
+   "query": "woman escaping an abusive husband",
+   "kind": "topic",
+   "oracle_all": [
+    "husband|spouse|partner",
+    "abus|beat|violen|assault",
+    "wife|woman|female|gender"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T04",
+   "query": "internal flight alternative city safe to relocate",
+   "kind": "topic",
+   "oracle_all": [
+    "internal flight|IFA|relocat",
+    "viable|reasonable|unduly harsh|safe"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T05",
+   "query": "state protection not available because of corruption",
+   "kind": "topic",
+   "oracle_all": [
+    "state protection|adequate protection",
+    "corrupt|bribe|impunity|ineffective"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T06",
+   "query": "judge did not believe the claimant because the story had inconsistencies",
+   "kind": "topic",
+   "oracle_all": [
+    "credib",
+    "inconsisten|contradict|discrepan|omission"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T07",
+   "query": "false identity documents or fake passport",
+   "kind": "topic",
+   "oracle_all": [
+    "fraudulent|forged|fake|counterfeit|false",
+    "passport|identity document|birth certificate"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T08",
+   "query": "sexual orientation gay claimant persecuted",
+   "kind": "topic",
+   "oracle_all": [
+    "sexual orientation|gay|lesbian|bisexual|homosexual|LGBT",
+    "persecut|violen|discriminat|harm"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T09",
+   "query": "religious conversion and risk of punishment for apostasy",
+   "kind": "topic",
+   "oracle_all": [
+    "convert|conversion|apostasy|baptis",
+    "christian|church|islam|muslim|religio"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T10",
+   "query": "political opinion opposition party member arrested",
+   "kind": "topic",
+   "oracle_all": [
+    "opposition|political party|party member|political opinion|activist",
+    "arrest|detain|interrogat"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T11",
+   "query": "late claim delay in making refugee claim",
+   "kind": "topic",
+   "oracle_all": [
+    "delay|waited|did not claim|failure to claim",
+    "subjective fear|credib"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T12",
+   "query": "children best interests deportation",
+   "kind": "topic",
+   "oracle_all": [
+    "best interests",
+    "child|children",
+    "remov|deport|return"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T13",
+   "query": "female genital mutilation risk for daughter",
+   "kind": "topic",
+   "oracle_all": [
+    "genital|FGM|female circumcision",
+    "daughter|girl"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T14",
+   "query": "gang threatened to kill me for refusing to pay extortion",
+   "kind": "topic",
+   "oracle_all": [
+    "gang|cartel|criminal organi[sz]ation|extortion",
+    "threat|kill|extort"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T15",
+   "query": "is the claimant a member of a particular social group",
+   "kind": "topic",
+   "oracle_all": [
+    "particular social group",
+    "member"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T16",
+   "query": "sur place claim activities in Canada after leaving",
+   "kind": "topic",
+   "oracle_all": [
+    "sur place",
+    "activit|conduct|attend|protest"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T17",
+   "query": "risk to life cruel and unusual treatment or torture",
+   "kind": "topic",
+   "oracle_all": [
+    "torture|cruel and unusual",
+    "section 97|person in need of protection|risk to (his|her|their) life"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T18",
+   "query": "claim abandoned because claimant did not show up to hearing",
+   "kind": "topic",
+   "oracle_all": [
+    "abandon|failed to appear|did not appear",
+    "hearing|claim"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T19",
+   "query": "visa officer found misrepresentation about work experience",
+   "kind": "topic",
+   "oracle_all": [
+    "misrepresent",
+    "experience|employment|work|job letter"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T20",
+   "query": "study permit refused because the officer did not believe the student would leave Canada",
+   "kind": "topic",
+   "oracle_all": [
+    "study permit",
+    "leave canada|bona fide student|intend to leave|temporary resident"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T21",
+   "query": "spousal sponsorship refused as a marriage of convenience",
+   "kind": "topic",
+   "oracle_all": [
+    "marriage|spous|conjugal|common-law",
+    "genuine|bad faith|primary purpose|not genuine|convenience"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T22",
+   "query": "delay in processing my application, asking court to order a decision",
+   "kind": "topic",
+   "oracle_all": [
+    "mandamus|compel",
+    "delay|processing"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T23",
+   "query": "detention review flight risk release on conditions",
+   "kind": "topic",
+   "oracle_all": [
+    "detention",
+    "flight risk|danger to the public|release|conditions"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "T24",
+   "query": "lawyer or consultant gave incompetent advice and I missed my deadline",
+   "kind": "topic",
+   "oracle_all": [
+    "incompeten|negligen|counsel's|consultant|representative",
+    "deadline|missed|time limit|late"
+   ],
+   "note": "weak oracle: regexes over whole case text"
+  },
+  {
+   "id": "N01",
+   "query": "Baker v. Canada",
+   "kind": "citation",
+   "expect_citations": [
+    "[1999] 2 SCR 817"
+   ]
+  },
+  {
+   "id": "N02",
+   "query": "2019 SCC 65",
+   "kind": "citation",
+   "expect_citations": [
+    "2019 SCC 65"
+   ]
+  },
+  {
+   "id": "N03",
+   "query": "Vavilov",
+   "kind": "citation",
+   "expect_citations": [
+    "2019 SCC 65"
+   ]
+  },
+  {
+   "id": "N04",
+   "query": "Kanthasamy",
+   "kind": "citation",
+   "expect_citations": [
+    "2015 SCC 61"
+   ]
+  },
+  {
+   "id": "N05",
+   "query": "Ezokola",
+   "kind": "citation",
+   "expect_citations": [
+    "2013 SCC 40"
+   ]
+  },
+  {
+   "id": "F01",
+   "query": "crainte de persécution protection de l'État insuffisante",
+   "kind": "french",
+   "oracle_all": [
+    "persécution|persecution",
+    "protection de l.etat|state protection"
+   ],
+   "note": "weak oracle; French text may be absent from the library"
+  },
+  {
+   "id": "F02",
+   "query": "demande d'asile refusée parce que le demandeur n'est pas crédible",
+   "kind": "french",
+   "oracle_all": [
+    "cr[ée]dib",
+    "demande d.asile|refugee|demandeur"
+   ],
+   "note": "weak oracle"
+  },
+  {
+   "id": "F03",
+   "query": "interdit de territoire pour fausses déclarations",
+   "kind": "french",
+   "oracle_all": [
+    "interdit de territoire|inadmissib",
+    "fausse|misrepresent|déclaration"
+   ],
+   "note": "weak oracle"
+  }
+ ]
+}

@@ -285,6 +285,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
+| `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
@@ -305,6 +306,7 @@ test checks that these paths continue to exist.
 | `backend/routes.py` | API contracts, request orchestration, and page integration |
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
+| `backend/search_thesaurus.py` | Curated immigration-law synonym list used to widen plain-language searches |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
 | `backend/similar_cases.py` | Read-only "similar cases" for the reader: same subject and shares authorities, from stored fingerprints |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |

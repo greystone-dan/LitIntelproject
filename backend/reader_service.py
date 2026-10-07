@@ -66,6 +66,7 @@ from .models import (
 	CitationMetricsResponse,
 )
 from scripts.inspect_discussion_units import inspect_case
+from .contextual_authority.case_structure import structure_outline
 from .contextual_authority.unit_roles import label_unit_roles
 
 _STATUTE_LIKE_RE = re.compile(
@@ -1255,6 +1256,10 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 	cited_paragraph_counts = _incoming_cited_case_counts(db, case_id)
 
 	format_blocks = format_decision(case.full_text, cited_paragraph_counts)
+	try:
+		outline_rows = structure_outline(case.full_text, format_blocks)
+	except Exception:  # noqa: BLE001 - an outline problem must never break the reader
+		outline_rows = []
 	# Optional stored data: a missing table (migration not applied yet) must never break the reader.
 	try:
 		with db.begin_nested():
@@ -1288,6 +1293,7 @@ def build_case_reader_data(case_id: int, db: Session, include_evidence: bool = T
 		case_type=case_type_payload(case_type_row),
 		paragraph_cited_by=paragraph_cited_by,
 		format_blocks=format_blocks,
+		structure_outline=outline_rows,
 		extracted_summary=_build_reader_extracted_summary(
 			case, outcome, format_blocks, tags, extracted_metadata,
 		),

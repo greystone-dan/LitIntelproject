@@ -194,6 +194,7 @@ Active scripts documented: 194
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -2779,6 +2780,20 @@ Active scripts documented: 194
 
 ```powershell
 .\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
+```
+
+## `scripts/score_search_gold.py`
+
+**Purpose:** Score the case search box against a gold query set (read-only; run on the PC). Modes: legacy (exact-phrase only, the behaviour before the sentence fix), words (most-of-the-words ILIKE), paragraph (paragraph index; needs the paragraph_search table). Example: python scripts/score_search_gold.py --mode paragraph --out scores_paragraph.json python scripts/score_search_gold.py --compare scores_legacy.json scores_paragraph.json Nothing is written to the database. Landmark and citation queries count a hit when an expected citation is in the top 10; topic and French queries count a hit when a top-10 case text matches every oracle regex (a weak, loose check), and the top 3 titles are printed so a person can read them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_search_gold.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

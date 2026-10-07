@@ -185,7 +185,7 @@ def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
+    assert order == ["Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name
@@ -199,7 +199,12 @@ def test_tour_is_calm_and_leaves_the_page_usable():
     by_id = {step["id"]: step for step in steps}
     for name in ("search-page", "judges", "workbench-home", "la-safety"):  # each page is introduced before its parts
         assert by_id[name].get("top") and by_id[name].get("lead"), name
-    assert steps[0]["url"].startswith("/data-explorer?tab=about")          # the tour starts on About
+    data = tour_steps()                                                      # a feature tour for now: the About introduction
+    assert data["introOn"] is False and data["intro"][0]["id"] == "welcome"  # is kept, switched off, until those pages are final
+    assert steps[0]["id"] == "search-page" and "DATA.introOn" in js
+    la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
+    assert "never saved" in la and "never added to the library" in la and "AI model" in la
+    assert by_id["la-coming"]["text"].startswith("Not built yet")
     for step in steps:                                                       # text first, then the action on Next
         assert bool(step.get("act")) == bool(step.get("say")), step["id"]
     assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
@@ -227,4 +232,4 @@ def test_live_analysis_drops_the_fictional_word_file():
 
 def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
     text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
-    assert "built" in text and "run by hand" in text and "being rolled out" in text
+    assert "built" in text and "run by hand" in text and "not yet scheduled" in text

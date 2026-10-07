@@ -335,3 +335,13 @@ def test_refugee_division_decision_without_statute_names_is_still_typed() -> Non
     text = decision("The claimant, a citizen of Cuba, alleges a well-founded fear of persecution by reason of political opinion.", docket="MA9-09861")
     result = classify_text(text, court="RPD", title="MA9-09861")
     assert result.status != "not_immigration"
+
+
+def test_appeal_court_matter_under_another_regime_is_not_immigration() -> None:
+    text = decision(
+        "The Minister suspected the appellants would travel by air to commit a terrorism offence and listed them under the Secure Air Travel Act.",
+        "The Immigration and Refugee Protection Act, section 34, is mentioned only in passing.",
+        docket="A-12-18",
+    )
+    result = classify_text(text, court="FCA", title="Brar v. Canada (Public Safety and Emergency Preparedness)")
+    assert result.status == "not_immigration"

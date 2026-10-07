@@ -80,3 +80,9 @@ def test_court_filter_accepts_several_courts_and_page_reports_total_hook():
     assert "__spShowTotal(f.facets&&f.facets.total)" in html
     assert 'id="decisionOutcome"' not in html and "Decision result" not in html
     assert 'id="clearSearchTop"' in html and 'id="recentCases"' in html and 'id="mostCitedCases"' in html
+
+
+def test_case_type_groups_have_a_select_all_box_and_clear_collapses_them():
+    html = data_explorer_page_html()
+    assert 'class="sp-ct-all"' in html and "window.__ctCollapse" in html and 'class="sp-cols"' in html
+    assert html.index('class="sp-ct"') < html.index('for="citesFilter"')

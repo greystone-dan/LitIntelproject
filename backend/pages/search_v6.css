@@ -15,7 +15,8 @@ html body section#searchPanel.panel-card.search-layout{background:none!important
 #searchPanel .search-actions .sq-go.sq-alt:hover{border-color:#3b7bd1;background:#eef4fc}
 #searchPanel .search-actions .sq-go.sq-alt[aria-expanded="true"]{background:#eef4fc;border-color:#3b7bd1;color:#1f4f93}
 #searchPanel .sp-body{display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start}
-#searchPanel.sp-adv .sp-body{grid-template-columns:280px minmax(0,1fr);gap:20px}
+#searchPanel.sp-adv .sp-body{grid-template-columns:clamp(300px,40vw,600px) minmax(0,1fr);gap:20px}
+@media(min-width:1180px){#searchPanel .sp-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}#searchPanel .sp-col{min-width:0}#searchPanel .sp-col>:first-child{margin-top:0}}
 #searchPanel #advancedSearchOptions{display:none;margin:0;padding:0;border:0;position:sticky;top:var(--sp-top,112px);max-height:calc(100vh - var(--sp-top,112px) - 16px);overflow:auto;min-width:0}
 #searchPanel.sp-adv #advancedSearchOptions{display:block}
 #searchPanel #advancedSearchOptions::before,#searchPanel #advancedSearchOptions::after{display:none}
@@ -126,3 +127,8 @@ html body #searchPanel .case-result.sp-row:hover{background:#f6f9fd;box-shadow:n
 @keyframes sp-load{0%{background-position:-60% 0}100%{background-position:160% 0}}
 @keyframes sp-shimmer{0%{background-position:150% 0}100%{background-position:-50% 0}}
 @media(prefers-reduced-motion:reduce){#searchPanel.sp-loading .primary-query .case-finder::after,#searchPanel.sp-loading #searchQuery{animation:none}#searchPanel.sp-loading .primary-query .case-finder::after{background:#3b7bd1;opacity:.5}}
+
+/* Case type groups: a tick box that selects every subtype, then the name and arrow that open the list. */
+#searchPanel .sp-ct-group summary{display:flex;align-items:center;gap:8px}
+#searchPanel .sp-ct-all{width:16px;height:16px;margin:0;accent-color:#2a62b0;flex:none;cursor:pointer}
+#searchPanel .sp-ct-name{flex:1;min-width:0}

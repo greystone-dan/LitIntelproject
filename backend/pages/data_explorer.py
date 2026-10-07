@@ -23,7 +23,7 @@ def case_type_filter_html() -> str:
 			f'<span>{escape(case_type.label)}</span><em data-ct-count="{escape(case_type.key)}"></em></label>'
 		)
 	body = "".join(
-		f'<details class="sp-ct-group"><summary>{escape(name)}</summary>{"".join(rows)}</details>' for name, rows in groups.items()
+		f'<details class="sp-ct-group"><summary><input type="checkbox" class="sp-ct-all" aria-label="Select every {escape(name)} type"><span class="sp-ct-name">{escape(name)}</span></summary>{"".join(rows)}</details>' for name, rows in groups.items()
 	)
 	return (
 		'<div class="sp-l sp-ct-head">Case type <span class="sp-ct-note" id="caseTypeNote">pick one or more</span></div>'
@@ -507,6 +507,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <div class="sp-body">
 <form class="advanced-search" id="advancedSearchOptions" onsubmit="return false"><div class="sp-rail">
 <div class="sp-rail-head"><strong>Filters</strong><span class="search-filter-summary" id="searchFilterSummary">0 active filters</span></div>
+<div class="sp-cols"><div class="sp-col">
 <div id="quickFilters" aria-label="Quick filters"><h4>Outcome</h4><div class="sp-chips"><button type="button" class="qf-chip" data-qf="outcome" data-value="">Any</button><button type="button" class="qf-chip" data-qf="outcome" data-value="won">Government won</button><button type="button" class="qf-chip" data-qf="outcome" data-value="lost">Individual won</button></div><h4>Court <small class="sp-multi-hint">pick one or more</small></h4><div class="sp-chips"><button type="button" class="qf-chip" data-qf="court" data-value="">Any</button><button type="button" class="qf-chip" data-qf="court" data-value="FC">FC</button><button type="button" class="qf-chip" data-qf="court" data-value="FCA">FCA</button><button type="button" class="qf-chip" data-qf="court" data-value="SCC">SCC</button><button type="button" class="qf-chip" data-qf="court" data-value="RPD">RPD</button></div></div>
 <div hidden><select id="governmentOutcome"><option value="">Any outcome</option><option value="won">Government won</option><option value="lost">Individual won</option></select><input id="courtFilter"><input id="caseTypeFilter"><select id="searchSort"><option value="newest" selected>Newest decision</option><option value="relevance">Relevance</option><option value="most_cited">Most cited</option><option value="oldest">Oldest decision</option><option value="minister">Minister / government party (A-Z)</option></select><select id="searchLimit"><option>10</option><option>25</option><option selected>50</option><option>100</option></select></div>
 <label class="sp-l" for="citesFilter">Cases citing</label><div class="sp-pick"><input id="citesFilter" placeholder="Type a case name, then pick it" autocomplete="off"><input type="hidden" id="citesCaseId"><div class="sp-pick-list" id="citesPickList" hidden></div></div><div class="sp-pick-note" id="citesPickNote" hidden></div>
@@ -514,6 +515,7 @@ html body .search-form input:focus-visible,html body .search-form select:focus-v
 <label class="sp-l" for="judgeFilter">Judge</label><input id="judgeFilter" placeholder="e.g. Zinn">
 <label class="sp-l" for="ministerFilter">Minister / government party</label><select id="ministerFilter"><option value="">Any minister or government party</option></select>
 <label class="sp-l" for="yearFilter">Decision year</label><input id="yearFilter" inputmode="numeric" maxlength="4" placeholder="e.g. 2024">
+</div></div>
 <div class="sp-rail-actions"><button type="submit" class="sp-apply" id="applyFilters">Apply</button><button type="button" id="clearSearch">Clear</button></div>
 <div class="sp-rail-links"><button type="button" class="qf-link" id="displayCoreCases">Display core cases</button><div class="query-tips-control"><button type="button" class="query-tips-trigger" id="searchTipsToggle" popovertarget="searchTipsPopover" aria-controls="searchTipsPopover">Search tips</button><div id="searchTipsPopover" popover role="dialog" aria-label="Case Search query tips"><strong>Combine names and operators</strong><p>Use <code>AND</code>, <code>OR</code>, <code>NOT</code>, or a leading minus: <code>Vavilov AND fairness -delay</code>.</p><p>Filter by court, year, judge, cited authority, or outcome: <code>court:SCC year:2018..2022</code> (or <code>year:2018-2022</code>), <code>judge:Zinn</code>, <code>cites:"2019 SCC 65"</code>, <code>outcome:allowed</code>.</p><p>Put multi-word phrases in quotes. Unknown field names are searched as ordinary words.</p></div></div><div class="saved-search-actions"><button id="saveCurrentSearch" type="button">Save current search</button><a href="/saved-searches-ui">Saved searches</a></div></div>
 </div></form>
@@ -1785,7 +1787,7 @@ window.addEventListener('afterprint',()=>{
   html = html.replace('</head>', '<style>\n' + search_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + search_js + '</script>\n</body>', 1)
   # Advanced filter: case type, a multi-select grouped by area of law (stored labels only; counts arrive with the results).
-  html = html.replace('<label class="sp-l" for="citesFilter">', case_type_filter_html() + '<label class="sp-l" for="citesFilter">', 1)
+  html = html.replace('<label class="sp-l" for="citesFilter">', case_type_filter_html() + '</div><div class="sp-col"><label class="sp-l" for="citesFilter">', 1)
   # Phone layout goes last so it wins over every earlier rule at narrow widths.
   mobile_css = (here / 'mobile_layout.css').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)

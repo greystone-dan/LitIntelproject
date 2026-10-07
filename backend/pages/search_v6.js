@@ -118,7 +118,7 @@ document.addEventListener('click',event=>{
  if(target.closest('#clearSearch,#clearSearchTop')){
   event.stopImmediatePropagation();event.stopPropagation();
   $('caseSearch').reset();$('advancedSearchOptions').reset();
-  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});
+  ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});if(window.__ctSyncFromHidden)window.__ctSyncFromHidden();if(window.__ctCollapse)window.__ctCollapse();
   $('ministerFilter').value='';$('searchSort').value='newest';$('quickSort').value='newest';
   if(window.__pickReset)window.__pickReset();
   $('searchResults').innerHTML='';if(moreButton)moreButton.hidden=true;
@@ -232,8 +232,24 @@ setSearchStatus('Search by case name or citation, or use Show recent cases or Sh
   const picked=boxList().filter(box=>box.checked).map(box=>box.value);
   hidden.value=picked.join(',');
   if(note)note.textContent=picked.length?picked.length+' selected':'pick one or more';
-  boxes.querySelectorAll('.sp-ct-group').forEach(group=>{group.classList.toggle('has-pick',!!group.querySelector('.sp-ct-box:checked'));if(group.querySelector('.sp-ct-box:checked'))group.open=true;});
+  boxes.querySelectorAll('.sp-ct-group').forEach(group=>{
+   const subs=[...group.querySelectorAll('.sp-ct-box')],on=subs.filter(box=>box.checked).length,all=group.querySelector('.sp-ct-all');
+   group.classList.toggle('has-pick',on>0);
+   if(all){all.checked=on>0&&on===subs.length;all.indeterminate=on>0&&on<subs.length;}
+  });
  };
+ /* Ticking a main case type ticks every subtype under it; its arrow (or name) opens the list. */
+ boxes.addEventListener('click',event=>{
+  const all=event.target.closest?.('.sp-ct-all');
+  if(!all)return;
+  const group=all.closest('.sp-ct-group'),wasOpen=group.open;
+  group.querySelectorAll('.sp-ct-box').forEach(box=>{box.checked=all.checked;});
+  setTimeout(()=>{group.open=wasOpen;},0);
+  sync();
+  document.getElementById('advancedSearchOptions')?.dispatchEvent(new Event('input',{bubbles:true}));
+  if(typeof qfSync==='function')qfSync();
+ });
+ window.__ctCollapse=()=>{boxes.querySelectorAll('.sp-ct-group').forEach(group=>{group.open=false;});};
  boxes.addEventListener('change',event=>{
   if(!event.target.classList.contains('sp-ct-box'))return;
   sync();

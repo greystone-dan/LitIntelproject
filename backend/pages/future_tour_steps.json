@@ -1,0 +1,234 @@
+{
+ "_help": "Steps for the Future features tour (concept mock-ups at /future-features). Same fields as site_tour_steps.json; every target is a static mock-up element, so nothing here calls the library, an AI or the database.",
+ "cases": {},
+ "texts": {},
+ "probes": [],
+ "steps": [
+  {
+   "id": "welcome",
+   "section": "Welcome",
+   "url": "/future-features",
+   "title": "Where iLit could go next",
+   "text": "This is a future-state goal tour. It assumes the agency runs its own AI model on its own computers, and walks through concept mock-ups of five features that would use it. None of them is built yet, and every name, number and passage is invented. They show the direction, not what the site does today.",
+   "target": "#ff-banner",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"search\"]"
+    }
+   ]
+  },
+  {
+   "id": "search-ask",
+   "section": "Smart search",
+   "url": "/future-features",
+   "title": "Ask in plain words",
+   "text": "You would type a question the way you would ask a colleague, not a keyword string. The site works today without any AI, and this would be an addition.",
+   "target": "#ms-box",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"search\"]"
+    }
+   ]
+  },
+  {
+   "id": "search-results",
+   "section": "Smart search",
+   "url": "/future-features",
+   "title": "Passages that mean the same thing",
+   "text": "Results would be the matching paragraphs, found by meaning rather than exact words. Each says why it matched and links to the source paragraph.",
+   "target": "#ms-results",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"search\"]"
+    }
+   ]
+  },
+  {
+   "id": "search-how",
+   "section": "Smart search",
+   "url": "/future-features",
+   "title": "Runs on the agency's computer",
+   "text": "Paragraph fingerprints would be made when a decision is added, and your question would be handled on the same computer. Nothing is sent to an outside AI service.",
+   "target": "#ms-how",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"search\"]"
+    }
+   ]
+  },
+  {
+   "id": "cite-summary",
+   "section": "Citation treatment",
+   "url": "/future-features",
+   "title": "Not just who cites a case, but how",
+   "text": "For a case you are about to rely on, this would show how later decisions treated it: followed, applied, distinguished, questioned or criticised.",
+   "target": "#mc-summary",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"cite\"]"
+    }
+   ]
+  },
+  {
+   "id": "cite-list",
+   "section": "Citation treatment",
+   "url": "/future-features",
+   "title": "A plain-language line for each citing case",
+   "text": "Each citing case would get a one-sentence summary of what it did with the authority, with a link to the exact paragraph so you can check it.",
+   "target": "#mc-list",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"cite\"]"
+    }
+   ]
+  },
+  {
+   "id": "cite-trend",
+   "section": "Citation treatment",
+   "url": "/future-features",
+   "title": "A warning when the tide turns",
+   "text": "Treatment over time would flag an authority whose recent citations are drifting from \"followed\" to \"distinguished\". The labels would be written at ingest and stored as data.",
+   "target": "#mc-trend",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"cite\"]"
+    }
+   ]
+  },
+  {
+   "id": "repo-scope",
+   "section": "Agency repositories",
+   "url": "/future-features",
+   "title": "One search, two sources",
+   "text": "An agency copy could search the public library and the agency's own records together, with a clear switch for each. Private records are marked so they are never confused with public ones.",
+   "target": "#mr-scope",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"repo\"]"
+    }
+   ]
+  },
+  {
+   "id": "repo-results",
+   "section": "Agency repositories",
+   "url": "/future-features",
+   "title": "Private decisions next to public ones",
+   "text": "Results could include Immigration Division decisions and internal notes beside Federal Court cases, each labelled by source. The records shown here are invented.",
+   "target": "#mr-results",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"repo\"]"
+    }
+   ]
+  },
+  {
+   "id": "repo-arch",
+   "section": "Agency repositories",
+   "url": "/future-features",
+   "title": "Kept on the agency's network",
+   "text": "Public decisions would flow in one way. Private records stay behind the agency's sign-in and are never copied to the public site.",
+   "target": "#mr-arch",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"repo\"]"
+    }
+   ]
+  },
+  {
+   "id": "args-found",
+   "section": "Argument identification",
+   "url": "/future-features",
+   "title": "Find the arguments in a memorandum",
+   "text": "The tool would list each argument in a filed memorandum, and show which ones the other side has already answered.",
+   "target": "#ma-table",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"args\"]"
+    }
+   ]
+  },
+  {
+   "id": "args-gap",
+   "section": "Argument identification",
+   "url": "/future-features",
+   "title": "Spot the argument still open",
+   "text": "An argument with no answer yet is highlighted, so it is the first thing you see rather than something you find on the fourth read.",
+   "target": "#ma-gap",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"args\"]"
+    }
+   ]
+  },
+  {
+   "id": "args-suggest",
+   "section": "Argument identification",
+   "url": "/future-features",
+   "title": "A case to cite in reply",
+   "text": "For an open argument, the tool would suggest a case that answers it, with the passage, the reason, and how later cases have treated it. A person decides what to file.",
+   "target": "#ma-suggest",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"args\"]"
+    }
+   ]
+  },
+  {
+   "id": "more-team",
+   "section": "More on the roadmap",
+   "url": "/future-features",
+   "title": "Teamwork and alerts",
+   "text": "The Workbench could grow into shared folders and notes for a team, and saved searches could send a short weekly list of new decisions.",
+   "target": "#mx-wb",
+   "with": "#mx-alerts",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"more\"]"
+    }
+   ]
+  },
+  {
+   "id": "more-people",
+   "section": "More on the roadmap",
+   "url": "/future-features",
+   "title": "People and tribunals",
+   "text": "Judge and decision-maker insights would show the number of cases behind every figure. Immigration Division and Appeal Division decisions would need an agency data feed.",
+   "target": "#mx-judge",
+   "with": "#mx-cov",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"more\"]"
+    }
+   ]
+  },
+  {
+   "id": "more-rule",
+   "section": "More on the roadmap",
+   "url": "/future-features",
+   "title": "One rule for all of it",
+   "text": "Normal search keeps working with no AI. Any AI would run when decisions are added, or on the agency's own computer, and its output is stored as data you can check. That is the end of the tour.",
+   "target": "#mx-rule",
+   "before": [
+    {
+     "do": "click",
+     "selector": "[data-scene=\"more\"]"
+    }
+   ]
+  }
+ ]
+}

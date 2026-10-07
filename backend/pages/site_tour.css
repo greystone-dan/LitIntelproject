@@ -38,6 +38,8 @@
 .ilit-tour-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .ilit-tour-start{display:inline-flex;align-items:center;gap:8px;min-height:42px;margin:16px 0 0;padding:9px 18px;border:1px solid #202522;border-radius:6px;background:#202522;color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-start:hover{background:#a4412b;border-color:#a4412b}
+.ilit-tour-start.alt{margin-top:14px;background:#fff;color:#202522;text-decoration:none}
+.ilit-tour-start.alt:hover{background:#a4412b;color:#fff}
 .ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
 @media (prefers-reduced-motion:reduce){.ilit-tour-bar i{transition:none}}
 @media print{.ilit-tour{display:none}}

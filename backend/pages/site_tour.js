@@ -7,7 +7,7 @@
   'use strict';
   var DATA=window.ILIT_TOUR||{steps:[],cases:{}};
   var STEPS=DATA.steps||[],CASES=DATA.cases||{};
-  var KEY='ilit.tour.v1',CASE_KEY='ilit.tour.cases';
+  var KEY=DATA.key||'ilit.tour.v1',CASE_KEY='ilit.tour.cases';
   if(window.top!==window.self||!STEPS.length)return;           // never inside a frame (the Workbench embeds two tools)
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SVGNS='http://www.w3.org/2000/svg';
@@ -503,7 +503,7 @@
     state={i:0,active:true,t0:Date.now()};save(state);
     build();render(0,[],true);
     // sign in and look up the example decisions once, together, so later steps do not wait on them
-    await Promise.all([demoSignIn()].concat(Object.keys(CASES).map(resolveCase)));
+    await Promise.all((DATA.demoSignIn!==false?[demoSignIn()]:[]).concat(Object.keys(CASES).map(resolveCase)));
     warm();
     var url=new URL(location.href);
     if(url.searchParams.has('tour')){url.searchParams.delete('tour');history.replaceState(null,'',url.pathname+url.search+url.hash)}

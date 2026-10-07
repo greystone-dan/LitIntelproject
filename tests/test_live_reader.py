@@ -255,7 +255,7 @@ def test_mock_documents_find_their_known_citations_without_a_library() -> None:
 	report = score(Path(__file__).parent / "live_analysis_mocks", _NoLibrary())
 	assert report
 	# without a library nothing can be in it, so only check the extraction itself
-	failed = [label for doc in report for label, ok in doc["results"] if not ok and not label.startswith(("case: Vavilov", "case: Baker", "case: Khosa", "case: Dunsmuir", "case: Smith", "statute: section 18.1"))]
+	failed = [label for doc in report for label, ok in doc["results"] if not ok and not label.startswith(("case: Vavilov", "case: Baker", "case: Khosa", "case: Dunsmuir", "case: Smith"))]
 	assert failed == []
 
 

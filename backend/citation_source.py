@@ -24,25 +24,28 @@ def citations_source() -> str:
 	return value
 
 
+def _rows(db: Session, statement) -> list:
+	return [row for row, in db.execute(statement)]
+
+
 def _refined_source_ids():
 	return select(CitationRefineStatus.source_case_id).where(CitationRefineStatus.status == "done")
 
 
 def outgoing_citations(db: Session, case_id: int) -> list:
 	if citations_source() == "refined" and db.scalar(select(CitationRefineStatus.source_case_id).where(CitationRefineStatus.source_case_id == case_id, CitationRefineStatus.status == "done")) is not None:
-		return list(db.scalars(select(CitationRefined).where(CitationRefined.source_case_id == case_id).order_by(CitationRefined.id)))
-	return list(db.scalars(select(Citation).where(Citation.source_case_id == case_id).order_by(Citation.id)))
+		return _rows(db, select(CitationRefined).where(CitationRefined.source_case_id == case_id).order_by(CitationRefined.id))
+	return _rows(db, select(Citation).where(Citation.source_case_id == case_id).order_by(Citation.id))
 
 
 def incoming_citations(db: Session, case_id: int) -> list:
 	if citations_source() != "refined":
-		return list(db.scalars(select(Citation).where(Citation.target_case_id == case_id).order_by(Citation.id)))
-	refined = list(db.scalars(select(CitationRefined).where(CitationRefined.target_case_id == case_id).order_by(CitationRefined.id)))
-	legacy = list(
-		db.scalars(
-			select(Citation)
-			.where(Citation.target_case_id == case_id, Citation.source_case_id.not_in(_refined_source_ids()))
-			.order_by(Citation.id)
-		)
+		return _rows(db, select(Citation).where(Citation.target_case_id == case_id).order_by(Citation.id))
+	refined = _rows(db, select(CitationRefined).where(CitationRefined.target_case_id == case_id).order_by(CitationRefined.id))
+	legacy = _rows(
+		db,
+		select(Citation)
+		.where(Citation.target_case_id == case_id, Citation.source_case_id.not_in(_refined_source_ids()))
+		.order_by(Citation.id),
 	)
 	return [*refined, *legacy]

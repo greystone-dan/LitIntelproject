@@ -22,6 +22,7 @@ ROUTE_BUCKET_PREFIXES: tuple[tuple[tuple[str, ...] | None, str, str | None], ...
 	(("POST",), "/api/deidentify/docx", "live_analysis"),
 	(("POST",), "/api/deidentify", "live_analysis"),
 	(("POST",), "/api/reidentify", "live_analysis"),
+	(None, "/workbench/api", None),
 	(("POST",), "/cases/{case_id}/markup-export", "exports"),
 	(("GET",), "/search/export.csv", "exports"),
 	(("GET",), "/search/export.docx", "exports"),

@@ -194,3 +194,32 @@ def test_ibid_in_a_numbered_note_needs_the_citation_in_the_note_before() -> None
 	text = "9 See Nesbitt v. Canada, 2003 FCT 785.\n10 " + filler + "\n11 Ibid., and item 10.1.\n12 Nesbitt v. Canada, 2003 FCT 785.\n13 Ibid."
 	rows = [row for row in refine_case_citations(text.replace("\\n", "\n"), steps=CASE_STEPS).rows if row.citation_text.startswith("Ibid")]
 	assert [row.citation_text for row in rows] == ["Ibid."]
+
+
+def test_parallel_fcj_and_carswell_numbers_keep_the_pinpoint():
+	# 2012 FC 319 para 44: the FCJ number sits between the neutral cite and "at para 12".
+	for text, pinpoint in (
+		("See Lubana v Canada, 2003 FCT 116, 2003 FCJ No 162 at para 12 [Lubana].", "at para. 12"),
+		("See Santos v Canada, 2004 FC 937, [2004] FCJ No 1149 at para 15).", "at para. 15"),
+		("See Zed v Canada, 2008 FC 539, 2008 CarswellNat 605 at para 38).", "at para. 38"),
+	):
+		rows = refine_case_citations(text).rows
+		assert len(rows) == 1 and rows[0].pinpoint == pinpoint
+
+
+def test_pinpoint_after_a_narrative_clause_belongs_to_the_citation():
+	text = "See Zed v Canada, 2008 FC 539, where she said at para 134: x. Also Dubois v The Queen, [1985] 2 SCR 350, the Court stated at p. 358 that y."
+	rows = [row for row in refine_case_citations(text).rows if row.kind == "case"]
+	assert [row.pinpoint for row in rows] == ["at para. 134", "at p. 358"]
+	assert "where she said" not in rows[0].citation_text
+
+
+def test_name_and_year_pinpoint_resolves_to_the_declared_case():
+	text = (
+		"Singh v Canada (Citizenship and Immigration), 2020 FC 350 at para 17 [Singh 2020]. "
+		"Later (Singh 2020 at para 26) the Court agreed."
+	)
+	rows = refine_case_citations(text).rows
+	last = rows[-1]
+	assert last.kind == "case_short" and last.pinpoint == "at para. 26"
+	assert "2020 FC 350" in last.normalized_citation

@@ -71,8 +71,8 @@ renderFilters();renderList();
 const summary=document.getElementById('changelogSummary');
 if(summary&&data.entries.length){const dates=data.entries.map(e=>e.date).sort();summary.textContent=data.entries.length+' entries, from '+nice(dates[0])+' to '+nice(dates[dates.length-1])+'.'}
 
-const views={overview:document.getElementById('aboutOverviewPane'),changelog:document.getElementById('aboutChangelogPane')};
-const navTabs={overview:'[data-tab="about"]',changelog:'[data-tab="about-changelog"]'};
+const views={overview:document.getElementById('aboutOverviewPane'),how:document.getElementById('aboutHowPane'),changelog:document.getElementById('aboutChangelogPane')};
+const navTabs={overview:'[data-tab="about"]',how:'[data-tab="about-how"]',changelog:'[data-tab="about-changelog"]'};
 function showAboutView(name,updateUrl){
   if(!views[name])name='overview';
   Object.entries(views).forEach(([key,pane])=>{pane.hidden=key!==name});
@@ -91,15 +91,17 @@ def load_changelog() -> dict:
 	return {"repo": "", "themes": [], "entries": []}
 
 
-def about_panel_html(overview_fragment: str) -> str:
-	"""Wrap the About overview and the changelog in two switchable views."""
+def about_panel_html(overview_fragment: str, how_fragment: str = "") -> str:
+	"""Wrap the About overview, the How it works page and the changelog in switchable views."""
 	# Kept in an escaped attribute rather than a script block so no entry text can end a script early.
 	soon = "".join(f"<li><b>{html.escape(name)}</b>{html.escape(text)}</li>" for _key, name, text in COMING_SOON)
+	how_fragment = how_fragment.replace("<!--COMING_SOON_LIST-->", soon)
 	overview_fragment = overview_fragment.replace("<!--COMING_SOON_LIST-->", soon)
 	data = html.escape(json.dumps(load_changelog(), ensure_ascii=False), quote=True)
 	return (
 		f"<style>{_CSS}</style>\n"
 		f'<div id="aboutOverviewPane">\n{overview_fragment}\n</div>\n'
+		f'<div id="aboutHowPane" hidden>\n{how_fragment}\n</div>\n'
 		'<div id="aboutChangelogPane" class="cl" hidden>\n'
 		'<div class="cl-head"><div class="about-kicker">About \u00b7 Project timeline</div><h2>Changelog</h2><p class="cl-sub">What has been added, and when</p>'
 		"<p>A running record of what has been added to iLit, newest first. It is built from the project\u2019s GitHub history "

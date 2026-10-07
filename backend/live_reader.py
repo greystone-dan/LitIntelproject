@@ -80,14 +80,14 @@ def _trim_lead_words(row: dict[str, Any]) -> dict[str, Any]:
 	return {**row, "reference_text": row["reference_text"][match.end():], "offset_start": row["offset_start"] + match.end()}
 
 
-def _add_back_references(text: str, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def _add_back_references(text: str, rows: list[dict[str, Any]], case_matches: list[Any]) -> list[dict[str, Any]]:
 	"""Link "Vavilov, above at para 99" and "Ibid at para 20" to the earlier citation they point back to.
 
 	Uses only the back-reference step of ``citation_refine`` over this document, so the shared extractor and
 	stored data are untouched. Every such link is a guess about which earlier citation is meant, and is marked so.
 	"""
 	by_span = {(r["offset_start"], r["offset_end"]): r for r in rows if r["kind"] in {"case", "neutral"}}
-	refined = refine_case_citations(text, pass_one_rows=extract_case_citation_matches(text), steps=("C2_backrefs",))
+	refined = refine_case_citations(text, pass_one_rows=case_matches, steps=("C2_backrefs",))
 	out = list(rows)
 	for ref in refined.rows:
 		if ref.kind != "case_short" or ref.anchor_offset_start is None:
@@ -204,9 +204,10 @@ def build_live_reader_payload(
 	session: Session | None = None,
 ) -> dict[str, Any]:
 	"""The reader payload for one document. ``session`` is read-only and optional (no library: nothing resolves)."""
-	analysis = analyze_extracted(text, paragraphs, filename, session)
+	case_matches = extract_case_citation_matches(text)
+	analysis = analyze_extracted(text, paragraphs, filename, session, case_matches)
 	rows: list[dict[str, Any]] = []
-	case_rows = _add_back_references(text, analysis["case_citations"])
+	case_rows = _add_back_references(text, analysis["case_citations"], case_matches)
 	for source, statute in ((case_rows, False), (analysis["statute_references"], True)):
 		for row in source:
 			rows.append(_reader_citation(row, len(rows) + 1, statute=statute))

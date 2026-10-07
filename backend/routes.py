@@ -22,6 +22,7 @@ from bs4 import BeautifulSoup, NavigableString
 from sqlalchemy import Text, func, or_, select, text as sql_text
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import Select
+from .citation_source import incoming_citations, outgoing_citations
 from .models import ParagraphSimilarityResponse
 from .paragraph_similarity import similar_paragraphs
 from .precedent_finder import (
@@ -1123,23 +1124,13 @@ def _get_case_or_404(case_id: int, db: Session) -> Case:
 @router.get("/cases/{case_id}/citations/outgoing", response_model=list[CitationResponse])
 def get_case_outgoing_citations(case_id: int, db: Session = Depends(get_db)) -> list[CitationResponse]:
 	_get_case_or_404(case_id, db)
-	rows = list(
-		db.execute(
-			select(Citation).where(Citation.source_case_id == case_id).order_by(Citation.id)
-		)
-	)
-	return [CitationResponse.model_validate(citation, from_attributes=True) for citation, in rows]
+	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in outgoing_citations(db, case_id)]
 
 
 @router.get("/cases/{case_id}/citations/incoming", response_model=list[CitationResponse])
 def get_case_incoming_citations(case_id: int, db: Session = Depends(get_db)) -> list[CitationResponse]:
 	_get_case_or_404(case_id, db)
-	rows = list(
-		db.execute(
-			select(Citation).where(Citation.target_case_id == case_id).order_by(Citation.id)
-		)
-	)
-	return [CitationResponse.model_validate(citation, from_attributes=True) for citation, in rows]
+	return [CitationResponse.model_validate(citation, from_attributes=True) for citation in incoming_citations(db, case_id)]
 
 
 @router.get("/cases/{case_id}/citations/passages", response_model=list[CitationResponse])

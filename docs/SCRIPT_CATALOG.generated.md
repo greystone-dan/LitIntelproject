@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 193
+Active scripts documented: 194
 
 ## Catalog
 
@@ -138,6 +138,7 @@ Active scripts documented: 193
 | `judge_alias_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_alias_report.py --help` |
 | `judge_reconciliation_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\judge_reconciliation_report.py --help` |
 | `link_citation_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help` |
+| `link_refined_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\link_refined_citations.py --help` |
 | `llm_tag_candidate_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\llm_tag_candidate_review.py --help` |
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
@@ -1994,6 +1995,20 @@ Active scripts documented: 193
 
 ```powershell
 .\venv\Scripts\python.exe scripts\link_citation_pinpoints.py --help
+```
+
+## `scripts/link_refined_citations.py`
+
+**Purpose:** Link refined citation rows (side table ``citations_refined``) to library cases. Dry run by default: reports how many refined rows would link, by kind, and prints examples. ``--apply`` sets ``target_case_id`` on refined rows that resolve to exactly one case (never on the live ``citations`` table) and marks unmatched formal citations ``unresolved``. Resumable: only rows still without a target are looked at. ``--revert --yes`` clears every link this script wrote for the refine version. Nothing on the site reads these rows unless ``CITATIONS_SOURCE=refined`` is set.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\link_refined_citations.py --help
 ```
 
 ## `scripts/llm_tag_candidate_review.py`

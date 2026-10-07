@@ -539,8 +539,8 @@
       "id": "la-intro",
       "section": "Live analysis",
       "url": "/live-analysis",
-      "title": "Live document analysis",
-      "text": "Bring your own factum, memo or decision and read it the way the case reader shows a decision, with every citation and statute marked and checked against the library. It is read in memory, never stored, and no AI is used.",
+      "title": "From a document to the right cases",
+      "text": "This is where an analyst starts with the other side's filing, or their own, and ends with the cases that matter. Paste or drop the document: every citation and statute is found, checked against the library, and the library cases can be pulled straight onto your Workbench. It is read in memory, never stored, and no AI is used.",
       "target": ".la-privacy",
       "fresh": true
     },
@@ -725,8 +725,8 @@
       "id": "la-table",
       "section": "Live analysis",
       "url": "/live-analysis",
-      "title": "The authority table",
-      "text": "One table of every authority in the document: how it was written, whether it is in the library, and how often it is mentioned. It downloads as a spreadsheet. I did not click 'Save library cases to Workbench'.",
+      "title": "Every authority, and which ones we hold",
+      "text": "One table of every authority in the document: how it was written, whether it is in the library, and how often it is mentioned. This is the shortlist of cases to read for this argument. It also downloads as a spreadsheet.",
       "target": ".la-dialog",
       "before": [
         {
@@ -757,6 +757,69 @@
         {
           "do": "waitFor",
           "selector": ".la-dialog"
+        }
+      ]
+    },
+    {
+      "id": "la-pull-cases",
+      "section": "Live analysis",
+      "url": "/live-analysis",
+      "title": "Pull those cases in one click",
+      "text": "Save library cases to Workbench takes every authority in the document that the library holds and pins it to your list, ready to open, compare and read. I pressed it for you.",
+      "target": ".la-dialog",
+      "before": [
+        {
+          "do": "fill",
+          "selector": "#laText",
+          "sample": "moa",
+          "when": "#laText"
+        },
+        {
+          "do": "click",
+          "selector": "#laAnalyze",
+          "when": "#laText"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#decisionBody span.citation-link",
+          "timeout": 20
+        },
+        {
+          "do": "click",
+          "selector": "#laModalClose",
+          "when": "#laModalClose"
+        },
+        {
+          "do": "click",
+          "selector": "#laAuth"
+        },
+        {
+          "do": "waitFor",
+          "selector": ".la-dialog"
+        },
+        {
+          "do": "click",
+          "selector": "#laPinAll"
+        },
+        {
+          "do": "wait",
+          "ms": 1500
+        }
+      ],
+      "writes": "This step saved the library cases cited in the fictional MOA to the demo Workbench list. Remove them any time from the Workbench."
+    },
+    {
+      "id": "la-workbench",
+      "section": "Live analysis",
+      "url": "/workbench",
+      "title": "The result: a reading list from the document",
+      "text": "The cases cited in the MOA that the library holds are now on your Workbench, with Vavilov among them. From here an analyst can open each one, add notes and compare decisions side by side.",
+      "target": "#pinRows",
+      "optional": true,
+      "before": [
+        {
+          "do": "wait",
+          "ms": 1200
         }
       ]
     },

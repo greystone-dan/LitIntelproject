@@ -90,6 +90,59 @@
     <div class="note"><strong>Judge statistics are sensitive.</strong> Figures about individual judges can be misread, so the judge views show full counts and avoid ranking.</div>
   </section>
 
+
+  <section id="aboutHowFullDetail">
+    <h2>Full detail: the previous About page (continued)</h2>
+    <p class="intro">These sections of the previous About page belong to how the site works and what is finished. They are kept unchanged.</p>
+  <section class="full-block" id="full-library">
+    <h2>What is in the library</h2>
+    <p class="intro">Decisions from four courts and tribunals, each kept as published with its source address, and split into numbered paragraphs so a result can point to a passage. The counts below were taken from the database on 6 October.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Court or tribunal</th><th class="num">Decisions</th><th>Years covered</th></tr></thead>
+        <tbody>
+          <tr><td>Federal Court (FC)</td><td class="num">35,981</td><td>2001–2026</td></tr>
+          <tr><td>Supreme Court of Canada (SCC)</td><td class="num">10,893</td><td>1877–2026</td></tr>
+          <tr><td>Federal Court of Appeal (FCA)</td><td class="num">7,813</td><td>2001–2026</td></tr>
+          <tr><td>Immigration and Refugee Board, Refugee Protection Division (RPD)</td><td class="num">6,729</td><td>2002–2020</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:10px">A further 45 older records carry no decision text. The library is not a complete archive of any of these courts. Immigration Division and Immigration Appeal Division decisions are not in it yet.</p>
+    <p>Alongside the decisions, the library holds a separate record of the Federal Court docket for immigration files: the dated entries recorded on each file, such as filing, leave and judgment. It is a different kind of record from a decision, and it is what the Federal Court Analytics view draws on.</p>
+  </section>
+  <section class="full-block" id="full-soon">
+    <h2><span class="tag soon">Coming soon</span>Built, not yet ready to rely on</h2>
+    <p class="intro">These exist in the code and open from the Coming soon section, each under a banner saying so, but I do not yet stand behind them. Each one’s own explainer says what it is meant to do.</p>
+    <ul class="soon-list"><!--COMING_SOON_LIST--></ul>
+  </section>
+  <section class="full-block" id="full-progress">
+    <h2><span class="tag wip">In progress</span>Not live yet</h2>
+    <p class="intro">Work that is on its way. None of it should be assumed to be in the live library today.</p>
+    <div class="status-list">
+      <div><strong>Case-type labels</strong><span>Rule-based labels for what kind of case a decision is (for example a judicial review of an immigration decision). The reader chip and the search filter are in the code and only show labels once they are stored in the library, which has not happened yet. No AI is involved.</span></div>
+      <div><strong>Statute library</strong><span>A library of federal statutes with the sections of each Act, the decisions that cite them, and extraction of statute references from decisions. Extraction fixes are being tested against a hand-checked set and the stored references are still being repaired.</span></div>
+      <div><strong>Judge name cleanup</strong><span>Merging the many spellings of each judge into one profile, with every merge reversible, and splitting Supreme Court panels into individual judges. The rules are written and being checked before they are applied to the stored data.</span></div>
+      <div><strong>Citation clean-up</strong><span>Better matching of short forms such as “Vavilov at para 99”, French citations, “Ibid” and “the Act”. It is written to store its results beside the existing ones first, so nothing is overwritten.</span></div>
+      <div><strong>Case fingerprints</strong><span>A way to find similar decisions by subject and shared authorities. A draft only, not connected to the site.</span></div>
+      <div><strong>Keeping the library current</strong><span>A daily intake job is built: it adds new Federal Court, Federal Court of Appeal and Supreme Court decisions, and new Federal Court docket entries for immigration files. It has been run by hand; running it automatically every night is the next step.</span></div>
+      <div><strong>More tribunals</strong><span>Immigration Division and Immigration Appeal Division decisions: a plan exists, but none are in the library.</span></div>
+    </div>
+  </section>
+  <section class="full-block" id="full-principles">
+    <h2>How it works, and what I do not claim</h2>
+    <ul class="ticks">
+      <li><b>No AI is needed to use the site.</b> Search, the reader and the statistics read data that was prepared in advance. What you type and any file you open is not sent to any AI service. AI-related features exist in the code but are switched off by default.</li>
+      <li><b>The original comes first.</b> Each decision is stored as published, and everything shown beside it (outcome, case information, paragraph links, labels) is derived from it by rules and kept as a separate layer. Where a fact cannot be found, the page says so.</li>
+      <li><b>It is a research aid, not legal advice.</b> Automated reading makes mistakes. Check anything that matters against the source decision, which every result links to.</li>
+      <li><b>Public data only.</b> Everything in the library comes from public sources. The site currently runs on my own workstation.</li>
+      <li><b>Source terms.</b> Some source data comes with its own terms of use, which would need to be confirmed before any wider deployment.</li>
+    </ul>
+    <div class="note"><strong>Judge statistics are sensitive.</strong> Figures about individual judges can be misread, so the judge views show full denominators and avoid ranking.</div>
+  </section>
+  <p class="small" id="full-footer">Updated 6 October 2026 against the code on the main branch (<a href="https://github.com/greystone-dan/LitIntelproject">github.com/greystone-dan/LitIntelproject</a>). The Changelog tab lists every addition by date.</p>
+  </section>
+
   <footer>Updated 7 October 2026. The Changelog tab lists every addition by date.</footer>
 
 </div>

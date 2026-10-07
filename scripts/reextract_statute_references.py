@@ -12,7 +12,8 @@ backup file, then replaces that case's rows (one transaction per batch).
 file it deletes the case's current rows and re-inserts the saved ones. If a case appears more than
 once in the file (re-runs append), the first entry, the oldest rows, is used. --restore-dry-run
 reports what it would do.
-Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all.
+Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all;
+--skip-cases-in BACKUP drops cases a previous apply already backed up (the rest after a first tranche).
 """
 
 from __future__ import annotations
@@ -257,6 +258,12 @@ def main() -> None:
         default=None,
         help="write every removed and added row with its surrounding text, one JSON line per changed case (read-only)",
     )
+    parser.add_argument(
+        "--skip-cases-in",
+        type=Path,
+        default=None,
+        help="leave out cases already present in this backup file (use for the rest after a first tranche)",
+    )
     parser.add_argument("--restore", type=Path, default=None, help="put the rows saved in this backup file back")
     parser.add_argument("--restore-dry-run", action="store_true", help="with --restore: report only, write nothing")
     args = parser.parse_args()
@@ -274,6 +281,9 @@ def main() -> None:
         parser.error("--apply needs --confirm-statute-reextract")
     with SessionLocal() as db:
         case_ids = select_case_ids(db, args.case_id, args.sample, args.seed, args.all, args.limit)
+    if args.skip_cases_in:
+        done = set(read_backup(args.skip_cases_in))
+        case_ids = [cid for cid in case_ids if cid not in done]
     if args.apply:
         args.backup.parent.mkdir(parents=True, exist_ok=True)
     result = run(case_ids, args.apply, args.backup if args.apply else None, args.batch_size, args.detail_file)

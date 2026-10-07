@@ -8,7 +8,7 @@ def deidentify_page_html() -> str:
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>De-identify | iLit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#182421;--muted:#66756f;--paper:#e8eee9;--surface:#fbfdf9;--line:#cbd8d0;--teal:#087f73;--rust:#bd5638;--gold:#c18a25;--mark:#fdeccc}
 *{box-sizing:border-box}
@@ -62,10 +62,46 @@ textarea.small{min-height:70px}
 .chip em{color:var(--muted);font-style:normal;margin-left:4px}
 .rerun{margin-top:12px;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700}
 .keynote{margin-top:12px;font-size:12px;color:#87341f}
+
+/* Site look (cream paper, Newsreader headings, ink buttons) shared with the research pages and the Workbench. */
+:root{--ink:#202522;--muted:#69726d;--paper:#f1efe8;--surface:#fffef9;--line:#d8d5ca;--teal:#176c68;--rust:#a4412b;--gold:#c28e2d;--mark:#f8f0dc}
+body{font-family:"IBM Plex Sans",sans-serif;background:var(--paper) linear-gradient(rgba(32,37,34,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(32,37,34,.035) 1px,transparent 1px);background-size:auto,26px 26px,26px 26px;font-size:14px}
+header{min-height:68px;padding:10px 24px;border-bottom:1px solid var(--line);background:rgba(255,254,249,.96);justify-content:flex-start;gap:16px}
+.brand{margin-left:auto;display:flex;align-items:baseline;gap:13px;font:700 28px/1 "Newsreader",serif;letter-spacing:0}
+.brand small{display:inline;margin:0;color:var(--muted);font:400 12px "IBM Plex Sans",sans-serif;letter-spacing:0;text-transform:none}
+.nav a{display:flex;align-items:center;min-height:40px;padding:8px 12px;border-radius:5px;font-size:12px;font-weight:600;color:var(--muted)}
+.nav a:hover{color:var(--teal);background:transparent}.nav a.active{background:var(--ink);color:#fff}
+.wrap{width:min(1180px,calc(100% - 56px));padding:18px 0 56px}
+.eyebrow{color:var(--rust);font:700 11px/1 "IBM Plex Sans",sans-serif;letter-spacing:.08em}
+h1{font:700 31px/1.1 "Newsreader",serif;letter-spacing:0;margin:8px 0 6px}
+.lead{max-width:72ch;font-size:13px}
+.privacy{border-left-color:var(--teal);background:#edf5f3;border-radius:0 5px 5px 0}
+.steps{gap:0;margin-top:18px;border-bottom:1px solid var(--line)}
+.step{height:auto;padding:10px 14px;border:0;border-radius:0;background:transparent;color:var(--muted);font:700 11px "IBM Plex Sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.step[aria-selected="true"]{background:transparent;color:var(--ink);box-shadow:inset 0 -2px var(--rust)}
+.panel{margin-top:14px;padding:18px;border:1px solid var(--line);border-radius:5px;background:rgba(255,254,249,.94);box-shadow:none}
+textarea,.field input[type=text]{font-family:"IBM Plex Sans",sans-serif;border-radius:5px}
+.drop{border:1.5px dashed var(--line);background:var(--surface);border-radius:5px}.drop:hover,.drop.drag{border-color:var(--teal);background:#edf5f3}
+.button{height:36px;border-radius:5px;background:var(--ink);font:700 11px "IBM Plex Sans",sans-serif;letter-spacing:.04em}
+.button.secondary{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.button.key{background:var(--rust)}
+.chip{background:#edf1e7;border:1px solid var(--line)}
+.preview{border-radius:5px;font-family:"IBM Plex Sans",sans-serif}.preview mark{font-family:"IBM Plex Mono",monospace;color:#6b4708}
+.names-box{border-radius:5px;background:var(--surface)}
+.warn{border-left-color:var(--gold);background:#f8f0dc;border-radius:0 5px 5px 0}
+.error{border-left-color:var(--rust);background:#f7e8e3;border-radius:0 5px 5px 0}
+.leak{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:5px;background:var(--surface);font-size:12px}
+.leak .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}.leak input{flex:1;min-width:180px;max-width:320px;height:34px;padding:0 10px;border:1px solid var(--line);border-radius:5px;font:13px "IBM Plex Sans",sans-serif}
+.leak .res{font-weight:700}.leak .res.bad{color:var(--rust)}.leak .res.good{color:#115450}
+.preview mark.hit{background:#f4c7b8;color:#6e2312}
+.stat{color:var(--muted);font-size:12px}
+html.wb-embedded header{display:none}
+html.wb-embedded .wrap{padding-top:14px}
+@media(max-width:640px){header{padding:10px 16px}.brand{flex-basis:100%;margin-left:0}.wrap{width:calc(100% - 32px)}.nav{width:100%}.nav a{flex:1;justify-content:center;padding:8px 4px}}
 </style>
 </head>
 <body>
-<header><div class="brand">ILIT <small>De-identify documents</small></div><nav class="nav"><a href="/data-explorer">Research</a><a href="/citation-map">Citation Map</a><a href="/live-analysis">Live Analysis</a><a class="active" href="/deidentify">De-identify</a></nav></header>
+<header><nav class="nav"><a href="/data-explorer?tab=about">About</a><a href="/data-explorer?tab=search">Case search</a><a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a><a class="active" href="/workbench#deid">Workbench</a></nav><div class="brand">ILIT <small>De-identify documents</small></div></header>
 <main class="wrap">
 <div class="eyebrow">Private materials</div>
 <h1>De-identify a document, then put it back together</h1>
@@ -99,7 +135,7 @@ textarea.small{min-height:70px}
 </div>
 </div>
 <details class="opts"><summary>What gets hidden automatically</summary><div class="checks" id="categoryChecks"></div></details>
-<div class="actions"><button class="button" id="runDeid" type="button">De-identify</button><span class="status" id="deidStatus"></span></div>
+<div class="actions"><button class="button" id="runDeid" type="button">De-identify</button><button class="button secondary" id="clearAll" type="button" title="Empty every box and forget the result and key held on this page">Clear everything</button><span class="status" id="deidStatus"></span></div>
 <div class="error hidden" id="deidError"></div>
 
 <div class="result hidden" id="deidResult">
@@ -117,6 +153,9 @@ textarea.small{min-height:70px}
 <button class="button secondary" id="saveDeidDocx" type="button">Download .docx</button>
 </div>
 <p class="keynote">Download the key file before leaving this page. Without it the details cannot be put back.</p>
+<p class="stat" id="deidStat"></p>
+<div class="leak"><strong>Leak check</strong> <span class="hint">Type a name, number or place that must not appear. The result is searched as you type (nothing leaves this page).</span>
+<div class="row"><input type="text" id="leakInput" placeholder="e.g. Maria Lopez, 1234 Main Street" autocomplete="off"><span class="res" id="leakRes"></span><button class="button secondary" id="leakAdd" type="button" hidden>Hide it and run again</button></div></div>
 <div class="preview" id="deidPreview"></div>
 <details class="opts"><summary>Review what was hidden (<span id="keyCount">0</span> placeholders)</summary><table class="keytable" id="keyTable"></table></details>
 </div>
@@ -192,7 +231,36 @@ $('runDeid').onclick=async()=>{
   catch(e){showError('deidError',e.message)}
   finally{$('runDeid').disabled=false;$('deidStatus').textContent=''}};
 
-function renderDeid(){const r=deidResult;
+let keySaved=false;
+function escRe(t){return t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function paintPreview(leak){
+  const r=deidResult;if(!r)return;
+  let html=esc(r.text).replace(/\[[A-Z][A-Z_]*_\d+(?:_[A-Z0-9]+)*\]/g,m=>`<mark>${m}</mark>`);
+  let hits=0;
+  if(leak){const re=new RegExp(escRe(esc(leak)),'gi');html=html.replace(/(<mark>[^<]*<\/mark>)|([^<]+)/g,(m,tag,txt)=>tag?tag:txt.replace(re,x=>{hits+=1;return `<mark class="hit">${x}</mark>`}))}
+  $('deidPreview').innerHTML=html;return hits;
+}
+function runLeak(){
+  const q=$('leakInput').value.trim(),res=$('leakRes'),add=$('leakAdd');
+  if(!deidResult||!q){res.textContent='';res.className='res';add.hidden=true;paintPreview('');return}
+  const hits=paintPreview(q);
+  res.textContent=hits?`Found ${hits} time${hits===1?'':'s'} in the result`:'Not found in the result';res.className='res '+(hits?'bad':'good');add.hidden=!hits;
+}
+$('leakInput').addEventListener('input',runLeak);
+$('leakAdd').onclick=()=>{addLine(/^[\d\s-]+$/.test($('leakInput').value)?'details':'names',$('leakInput').value.trim());$('runDeid').click()};
+$('clearAll').onclick=()=>{
+  if(deidResult&&!keySaved&&!confirm('The key file has not been downloaded. Without it the hidden details cannot be put back. Clear anyway?'))return;
+  document.querySelectorAll('textarea,input[type=text]').forEach(el=>el.value='');
+  ['deidFile','restoreFile','keyFile'].forEach(i=>$(i).value='');
+  $('deidFileName').textContent='Choose or drop a file';$('restoreFileName').textContent='Choose or drop a file';$('keyFileName').textContent='Choose or drop the key file';
+  deidResult=null;restoreResult=null;sessionKey=null;loadedKey=null;keySaved=false;
+  ['deidResult','restoreResult','rerunNote','deidError','restoreError'].forEach(i=>$(i).classList.add('hidden'));
+  $('sessionKeyHint').textContent='';
+};
+window.addEventListener('beforeunload',e=>{if(deidResult&&!keySaved){e.preventDefault();e.returnValue=''}});
+if(window.self!==window.top)document.documentElement.classList.add('wb-embedded');
+function renderDeid(){const r=deidResult;keySaved=false;$('leakInput').value='';$('leakRes').textContent='';$('leakAdd').hidden=true;
+  $('deidStat').textContent=`${(r.text.match(/\S+/g)||[]).length.toLocaleString('en-CA')} words in the de-identified text. Placeholders are highlighted.`;
   $('deidChips').innerHTML=`<span class="chip"><strong>${r.replacements}</strong>replacements</span>`+r.summary.map(s=>`<span class="chip"><strong>${s.count}</strong>${esc(s.label)}</span>`).join('');
   showWarnings('deidWarn',r.warnings);
   renderNames(r);
@@ -208,7 +276,7 @@ function renderNames(r){const found=r.detected_names||[],kept=r.kept_names||[];
   $('foundChips').querySelectorAll('[data-keep]').forEach(b=>b.onclick=()=>{addLine('neverHide',found[b.dataset.keep]);b.parentElement.classList.add('off');b.remove()});
   $('keptChips').querySelectorAll('[data-hide]').forEach(b=>b.onclick=()=>{addLine('names',kept[b.dataset.hide].name);b.parentElement.classList.add('off');b.remove()})}
 $('rerun').onclick=()=>$('runDeid').click();
-$('saveKey').onclick=()=>download(`${baseName()}.key.json`,new Blob([JSON.stringify(deidResult.key,null,2)],{type:'application/json'}));
+$('saveKey').onclick=()=>{keySaved=true;download(`${baseName()}.key.json`,new Blob([JSON.stringify(deidResult.key,null,2)],{type:'application/json'}))};
 $('copyDeid').onclick=e=>copy(deidResult.text,e.target);
 $('saveDeidTxt').onclick=()=>download(`${baseName()}.deidentified.txt`,new Blob([deidResult.text],{type:'text/plain'}));
 $('saveDeidDocx').onclick=()=>downloadDocx(deidResult.text,`${baseName()}.deidentified.docx`);

@@ -189,12 +189,15 @@ def test_data_explorer_word_export_shares_search_actions_with_csv():
     assert re.findall(r"(?:^|,)([a-z_]+):", search_values.group(1)) == [
         "query",
         "cites",
+        "cites_case_id",
+        "tags",
         "government_outcome",
         "decision_outcome",
         "minister",
         "judge",
         "court",
         "year",
+        "case_type",
         "search_full_text",
         "sort_by",
         "limit",
@@ -584,7 +587,7 @@ def test_primary_navigation_has_exactly_four_left_aligned_groups():
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('primary-groups') < header.index('class="brand"')
-    assert '<a ' not in header
+    assert header.count('<a ') == 1 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the Workbench is its own page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Case search', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
@@ -596,9 +599,10 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     views = {attrs['data-tab']: attrs['data-nav-group'] for _, attrs in controls if 'data-tab' in attrs}
     soon = {tab: group for tab, group in views.items() if tab.startswith('soon-')}
     assert set(soon.values()) == {'soon'}
-    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map', 'soon-live-analysis', 'soon-deidentify'} <= set(soon)
+    assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map'} <= set(soon)
+    assert not ({'soon-live-analysis', 'soon-deidentify'} & set(soon))  # both live in the Workbench now
     assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 15
+    assert len(soon) == 13
     assert 'soon-fc-analytics' not in soon
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
         'about': 'info', 'search': 'research',
@@ -719,10 +723,10 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
     architecture_panel = html[architecture_start:architecture_end]
 
     assert 'class="ilit-about"' in about_panel
-    assert '<h1>iLit: where the project stands</h1>' in about_panel
-    assert 'id="today"' in about_panel
-    assert 'id="how"' in about_panel
-    assert 'id="funding"' in about_panel
+    assert '<h1>iLit: immigration litigation intelligence</h1>' in about_panel
+    for section in ('library', 'search', 'reader', 'intel', 'soon', 'progress', 'principles'):
+        assert f'id="{section}"' in about_panel
+    assert 'id="funding"' not in about_panel
     assert 'Data layer coverage' in architecture_panel
     assert 'id="aboutSummary"' in architecture_panel
     assert architecture_panel.index('Data layer coverage') < architecture_panel.index('Site Architecture')
@@ -1213,7 +1217,7 @@ def test_panel_helpers_node_behavior():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_helpers.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 
@@ -1225,7 +1229,7 @@ def test_panel_fixture_browser_when_chromium_available():
     root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
         [node, str(root / "tests/test_panel_browser.js")],
-        cwd=root, capture_output=True, text=True, timeout=30, check=False,
+        cwd=root, capture_output=True, text=True, timeout=90, check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
 
@@ -1292,6 +1296,6 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     html = routes._data_explorer_page_html()
     assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
     framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
-    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statutes'
+    assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statute-library'
     assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())

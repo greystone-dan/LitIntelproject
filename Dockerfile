@@ -10,8 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python packages
+# Copy requirements and install Python packages.
+# CPU-only PyTorch first: the default wheel drags in ~4 GB of unused CUDA
+# libraries, which made the image build (and the layer copy) take ~20 minutes.
 COPY requirements.txt .
+RUN pip install --no-cache-dir --user torch --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 

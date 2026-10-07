@@ -215,3 +215,32 @@ def test_a_failed_lookup_names_its_reason_in_the_summary() -> None:
 	summary = build_live_reader_payload(text, paragraphs, "memo", _BrokenLibrary())["summary"]
 	assert "statement timeout" in summary["library_lookup_error"]
 	assert isinstance(summary["library_lookup_ms"], int)
+
+
+def test_statute_extraction_time_grows_gently_with_text_length() -> None:
+	"""Statute extraction rescanned the whole text for every provision, so a long memo took many seconds."""
+	import time
+
+	from backend.citations import extract_statute_reference_matches
+
+	paragraph = "The officer erred. Under section 96 of the IRPA and subsection 25(1) of the IRPA the test is met. See Smith J. at para 4. "
+	text = paragraph * 400
+	started = time.perf_counter()
+	rows = extract_statute_reference_matches(text)
+	assert rows
+	assert time.perf_counter() - started < 5
+
+
+def test_sentence_breaks_skip_single_letter_initials() -> None:
+	from backend.citations import _sentence_break_ends
+
+	text = "Smith J. said so. Done! Really? Yes"
+	assert _sentence_break_ends(text) == [text.index("so.") + 3, text.index("Done!") + 5, text.index("Really?") + 7]
+	assert _sentence_break_ends(".a. b") == [1]
+
+
+def test_scr_citation_matches_with_or_without_dots() -> None:
+	from backend.live_analysis import _citation_variants
+
+	assert "[1999] 2 SCR 817" in _citation_variants("[1999] 2 S.C.R. 817")
+	assert "[1999] 2 S.C.R. 817" in _citation_variants("[1999] 2 SCR 817")

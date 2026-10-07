@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from io import BytesIO
 import logging
 import re
@@ -172,6 +172,10 @@ def _provision_excerpt(section_text: str, suffix: str) -> str | None:
 	return excerpt
 
 
+_SCR_DOTTED_RE = re.compile(r"\bS\.\s?C\.\s?R\.")
+_SCR_PLAIN_RE = re.compile(r"\bSCR\b")
+
+
 def _citation_variants(value: str) -> set[str]:
 	normalized = " ".join(value.upper().split())
 	variants = {normalized}
@@ -179,6 +183,10 @@ def _citation_variants(value: str) -> set[str]:
 		variants.add(normalized.replace(" FC ", " FCT "))
 	if " FCT " in f" {normalized} ":
 		variants.add(normalized.replace(" FCT ", " FC "))
+	# "[1999] 2 S.C.R. 817" is stored as "[1999] 2 SCR 817" and the reverse; look for both spellings.
+	for variant in list(variants):
+		variants.add(_SCR_DOTTED_RE.sub("SCR", variant))
+		variants.add(_SCR_PLAIN_RE.sub("S.C.R.", variant))
 	return variants
 
 
@@ -268,17 +276,47 @@ def _resolve_local_cases(session: Session, matches: list[Any]) -> tuple[dict[str
 		return {}, f"{type(exc).__name__}: {' '.join(str(exc).split())[:160]}"
 
 
-def analyze_extracted(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
-	return _analyze_text(text, paragraphs, filename, session)
+def _resolve_statute(session: Session, match: Any, cache: dict[str, Any]) -> Any:
+	"""One library lookup per distinct provision: a memo cites the same section many times."""
+	key = match.normalized_citation or match.citation_text
+	found = cache.get(key)
+	if found is None:
+		found = cache[key] = resolve_legislation_reference(session, match)
+	return replace(
+		found,
+		citation_text=match.citation_text,
+		normalized_citation=match.normalized_citation,
+		offset_start=match.offset_start,
+		offset_end=match.offset_end,
+	)
 
 
-def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, session: Session | None = None) -> dict[str, Any]:
-	case_matches = extract_case_citation_matches(text)
+def analyze_extracted(
+	text: str,
+	paragraphs: list[LiveParagraph],
+	filename: str,
+	session: Session | None = None,
+	case_matches: list[Any] | None = None,
+) -> dict[str, Any]:
+	"""``case_matches`` lets a caller that already ran the case-citation extractor reuse its result."""
+	return _analyze_text(text, paragraphs, filename, session, case_matches)
+
+
+def _analyze_text(
+	text: str,
+	paragraphs: list[LiveParagraph],
+	filename: str,
+	session: Session | None = None,
+	case_matches: list[Any] | None = None,
+) -> dict[str, Any]:
+	if case_matches is None:
+		case_matches = extract_case_citation_matches(text)
 	statute_matches = extract_statute_reference_matches(text)
 	started = time.monotonic()
 	resolved_cases, lookup_error = _resolve_local_cases(session, case_matches) if session is not None else ({}, None)
 	lookup_failed = lookup_error is not None
 	lookup_ms = round((time.monotonic() - started) * 1000)
+	statute_cache: dict[str, Any] = {}
 	case_rows: list[dict[str, Any]] = []
 	for match in case_matches:
 		resolved_case = next(
@@ -307,9 +345,7 @@ def _analyze_text(text: str, paragraphs: list[LiveParagraph], filename: str, ses
 				text,
 				paragraphs,
 				match,
-				legislation_resolution=resolve_legislation_reference(session, match)
-				if session is not None
-				else None,
+				legislation_resolution=_resolve_statute(session, match, statute_cache) if session is not None else None,
 			)
 			for match in statute_matches
 		],

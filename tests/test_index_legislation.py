@@ -3,9 +3,14 @@ from scripts.index_legislation import NON_XML_SOURCES, SOURCE_DEFINITIONS, index
 
 def test_non_xml_source_definitions_cover_reviewed_sources():
     assert set(NON_XML_SOURCES) == {
+        "alberta.immigration_oversight_act",
         "canada.charter",
+        "canada.constitution_act_1867",
+        "canada.constitution_act_1982",
         "international.refugee_convention",
         "international.refugee_protocol",
+        "manitoba.worker_recruitment_protection_act",
+        "ontario.immigration_act_2015",
     }
 
     assert NON_XML_SOURCES["canada.charter"].source_format == "html"
@@ -164,3 +169,64 @@ def test_parse_source_sections_rejects_unknown_format(tmp_path):
         assert str(error) == "unsupported source format: pdf"
     else:
         raise AssertionError("unsupported source format should fail")
+
+
+def test_added_justice_laws_snapshots_exist_parse_and_match_their_titles():
+    from pathlib import Path
+
+    from scripts.index_legislation import JUSTICE_LAWS_KEYS, PROJECT_ROOT, verify_identity
+
+    assert len(JUSTICE_LAWS_KEYS) == len(set(JUSTICE_LAWS_KEYS))
+    for key in JUSTICE_LAWS_KEYS:
+        source = SOURCE_DEFINITIONS[key]
+        path = Path(PROJECT_ROOT) / source.relative_path
+        assert path.exists(), key
+        assert verify_identity(path, source.title), key
+        sections = parse_source_sections(path, "xml")
+        assert sections, key
+        assert all(text.strip() for _, _, text in sections), key
+
+
+def test_only_enacted_body_sections_are_indexed(tmp_path):
+    xml = tmp_path / "x.xml"
+    xml.write_text(
+        "<Statute><Body><Section><Label>1</Label><MarginalNote>Short title</MarginalNote><Text>Short.</Text></Section></Body>"
+        "<RelatedOrNotInForce><Section><Label>97.34</Label><Text>quoted amendment</Text></Section></RelatedOrNotInForce></Statute>",
+        encoding="utf-8",
+    )
+    assert [number for number, _, _ in parse_source_sections(xml, "xml")] == ["1"]
+
+
+def test_constitution_acts_split_into_their_own_sections():
+    from pathlib import Path
+
+    from scripts.index_legislation import PROJECT_ROOT, parse_source_sections
+
+    path = PROJECT_ROOT / NON_XML_SOURCES["canada.constitution_act_1867"].relative_path
+    acts_1867 = {number: text for number, _, text in parse_source_sections(path, "html_constitution_1867")}
+    acts_1982 = {number: text for number, _, text in parse_source_sections(path, "html_constitution_1982")}
+    assert "Peace, Order, and good Government" in acts_1867["91"]
+    assert "92A" in acts_1867 and "147" in acts_1867
+    assert "supreme law of Canada" in acts_1982["52"]
+    assert "aboriginal and treaty rights" in acts_1982["35"]
+    assert "52" not in acts_1867 or "supreme law" not in acts_1867["52"]
+
+
+def test_provincial_json_snapshots_split_into_sections_and_resolve_by_name():
+    from scripts.index_legislation import PROJECT_ROOT, parse_source_sections
+
+    from backend.statutes import parse_legislation_citation
+
+    for key, minimum in (
+        ("ontario.immigration_act_2015", 40),
+        ("alberta.immigration_oversight_act", 60),
+        ("manitoba.worker_recruitment_protection_act", 30),
+    ):
+        source = NON_XML_SOURCES[key]
+        assert source.source_format == "json_sections"
+        sections = parse_source_sections(PROJECT_ROOT / source.relative_path, source.source_format)
+        assert len(sections) >= minimum
+        assert all(text.strip() for _, _, text in sections)
+    assert parse_legislation_citation("Immigration Act, 2015, s. 12").instrument_key == "ontario.immigration_act_2015"
+    # The plain federal title stays federal.
+    assert parse_legislation_citation("Immigration Act, s. 12").instrument_key == "canada.immigration_act"

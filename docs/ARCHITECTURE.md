@@ -156,11 +156,18 @@ test checks that these paths continue to exist.
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
+| `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |
+| `backend/case_fingerprint_store.py` | Stored case fingerprints: compute at ingest/batch time, read back into a similarity index |
 | `backend/case_formatter.py` | Deterministic formatting of stored decision text for the reader |
 | `backend/case_processing.py` | Coordinates ordered case-processing stages |
 | `backend/case_reader_ui.py` | Builds the case reader with statute-reference integration |
 | `backend/case_summary.py` | Read-only stored quick-summary API projection with exact paragraph evidence |
 | `backend/case_summary_card.py` | Read-only extractive case-summary card projection with stored outcome, authority, and paragraph-pick evidence |
+| `backend/case_types/__init__.py` | Deterministic case-type labels ("what kind of case is this"). No AI at any point |
+| `backend/case_types/claim_issues.py` | Deterministic "what was the claim decided on" labels for refugee-protection decisions |
+| `backend/case_types/classifier.py` | Deterministic "what type of case is this" classifier |
+| `backend/case_types/display.py` | Turn a stored case_type_labels row into what the site shows. Reads stored data only; no classification, no AI |
+| `backend/case_types/taxonomy.py` | Case-type taxonomy for Canadian immigration and refugee decisions |
 | `backend/citation_intelligence_prompts.py` | Improved LLM prompts for citation intelligence analysis (unit-level issue assessment) |
 | `backend/citation_map.py` | Citation graph and authority analytics |
 | `backend/citation_pipeline/__init__.py` | Citation-extraction package exports |
@@ -172,14 +179,17 @@ test checks that these paths continue to exist.
 | `backend/citation_refine/cases.py` | Refines case-citation candidates |
 | `backend/citation_refine/context.py` | Shared whole-document context for refinement |
 | `backend/citation_refine/instruments.py` | Instrument registry for law-reference refinement |
+| `backend/citation_refine/landmarks.py` | Bare short forms of landmark cases: "Vavilov at para 85" with no full citation in the decision |
 | `backend/citation_refine/laws.py` | Refines statute and treaty references |
 | `backend/citation_refine/models.py` | Shared refinement data shapes |
 | `backend/citation_refine/pinpoints.py` | Parses structured citation pinpoints |
 | `backend/citation_refine/resolution.py` | Links refined references to cases, paragraphs, and provisions |
+| `backend/citation_refine/short_forms.py` | Reject pass-one short forms whose alias cannot be a name of the case they were anchored to |
 | `backend/citation_treatment.py` | Pure rules that label how a decision treats a cited authority |
 | `backend/citation_treatment_service.py` | Loads stored citations and verifies treatment labels against source text |
 | `backend/citations.py` | Extracts, validates, resolves, and measures citation evidence |
 | `backend/contextual_authority/__init__.py` | Contextual-authority analysis package |
+| `backend/contextual_authority/case_structure.py` | Case structure: label every paragraph of a decision with its structural role (no AI) |
 | `backend/contextual_authority/context_units.py` | Builds contextual text units for analysis |
 | `backend/contextual_authority/discussion_units.py` | Deterministic paragraph features and discussion-unit boundaries |
 | `backend/contextual_authority/models.py` | Contextual-authority data models and text hashing |
@@ -201,6 +211,7 @@ test checks that these paths continue to exist.
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
+| `backend/instrument_resolver.py` | Map the act name in a stored statute reference to a registered instrument key, deterministically |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_aliases.py` | Read-side helpers for the reversible judge alias layer |
@@ -260,11 +271,14 @@ test checks that these paths continue to exist.
 | `backend/pages/saved_searches.py` | Saved-search and alert page builder |
 | `backend/pages/search_v6.css` | TODO: describe this file |
 | `backend/pages/search_v6.js` | TODO: describe this file |
+| `backend/pages/statute_library.py` | Browser page for the section-level statute library |
 | `backend/pages/statute_viewer.py` | Statute Library page builder for statute versions and sections |
 | `backend/pages/tag_analytics.py` | Legal-tag analytics page builder |
 | `backend/pages/tag_finder.py` | Tag-based case similarity page builder |
 | `backend/pages/testing.py` | API and search testing page builder |
 | `backend/pages/theme_explorer.py` | Theme discovery page builder |
+| `backend/pages/workbench.py` | Workbench page: demo sign-in, then three views (Analyst home, Live analysis, De-identifier) |
+| `backend/pages/workbench_brief.py` | Printable Workbench briefs: one page of plain HTML with print styles (no scripts that send data anywhere) |
 | `backend/paragraph_cited_by.py` | Paragraph cited-by logic: signal phrases and per-paragraph aggregation (pure, no database) |
 | `backend/paragraph_cited_by_db.py` | Paragraph cited-by storage and reader loaders (batch job writes, reader reads) |
 | `backend/paragraph_cited_by_runner.py` | Paragraph cited-by batch loop (small rested batches, resumable) behind `scripts/build_paragraph_cited_by.py` |
@@ -289,13 +303,16 @@ test checks that these paths continue to exist.
 | `backend/search_matching.py` | Whole-token identity matching shared by search queries |
 | `backend/search_service.py` | Case and passage search/retrieval |
 | `backend/security_headers.py` | Opt-in pure-ASGI response security headers |
+| `backend/similar_cases.py` | Read-only "similar cases" for the reader: same subject and shares authorities, from stored fingerprints |
 | `backend/statute_consideration.py` | Aggregates descriptive decision statistics for statutory sections |
+| `backend/statute_sections.py` | Section-level statute library: table of contents with case counts and a per-section view |
 | `backend/statute_versioning.py` | Selects statute versions by decision date and links references to versions |
 | `backend/statutes.py` | Statute identity and citation parsing |
 | `backend/text_generation_providers.py` | Experimental `/research` generation providers: OpenAI, native Ollama, and OpenAI-SDK compatible endpoints with explicit context/token/JSON capabilities |
 | `backend/theme_discovery.py` | Groups discussion-unit subthemes for theme discovery |
 | `backend/unit_search.py` | Deprecated discussion-unit search helper; matches stored BAAI/bge-m3 embeddings and falls back to keywords |
 | `backend/vector_tables.py` | Builds `chunk_embeddings_<slug>` pgvector table metadata with per-row model name/version columns and PostgreSQL index DDL from a registry entry; compiles only and never connects or executes DDL |
+| `backend/workbench.py` | Workbench: a demo analyst's own space (case list with activity flags, pinned decisions, notes) |
 
 The test suite validates this inventory and the README route list against the
 generated API reference. The generated references are rebuilt from code and

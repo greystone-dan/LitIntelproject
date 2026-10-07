@@ -12,6 +12,9 @@ Steps (each can be switched off by name):
                   becomes an identifier for database lookup.
   C4_pinpoints    parse pinpoints into lists ("paras 85-87 and 99" -> 85, 86, 87, 99;
                   "at p. 841"/"at 841" -> page 841).
+  C4b_landmarks   bare "Vavilov at para 85" with no full citation (landmarks.py).
+  C4c_defined_names  names a decision defines or uses for a cited case: "[CCR]" or an identifier
+                  like "B010" mentioned bare later, and pinpoint-first "at paragraph 34 of Lozano".
   C5_validate     check years against each court's neutral-citation start, flag
                   implausible pinpoints, drop self-citations, score confidence.
 """
@@ -34,9 +37,11 @@ from .models import (
 	Pinpoint,
 	RefinedCitation,
 )
+from .landmarks import landmark_rows
+from .short_forms import is_weak_short_form
 from .pinpoints import BARE_PAGE_RE, TRAILING_PINPOINT_RE, parse_all_pinpoints, parse_bare_page_pinpoint, parse_pinpoint, pinpoint_phrase
 
-CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C5_validate")
+CASE_STEPS = ("C1_gap_scan", "C2_backrefs", "C3_parallel", "C4_pinpoints", "C4b_landmarks", "C4c_defined_names", "C5_validate")
 
 # --------------------------------------------------------------------------- courts and reporters
 # Neutral citation court codes -> first year the code was used (None = no check).
@@ -62,7 +67,7 @@ FRENCH_TO_ENGLISH_COURT = {"CSC": "SCC", "CAF": "FCA", "CF": "FC", "CFPI": "FCT"
 _FRENCH_COURTS = set(FRENCH_TO_ENGLISH_COURT)
 
 _COURT_ALTERNATION = "|".join(sorted(NEUTRAL_COURTS, key=len, reverse=True))
-NEUTRAL_RE = re.compile(rf"(?<![\w/\[(])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
+NEUTRAL_RE = re.compile(rf"(?<![\w/])(?P<year>(?:19|20)\d{{2}})\s+(?P<court>{_COURT_ALTERNATION})\s+(?P<number>\d{{1,5}})\b")
 CANLII_RE = re.compile(
 	r"(?<![\w/])(?P<year>(?:19|20)\d{2})\s+CanLII\s+(?P<number>\d{1,9})(?:\s*\((?P<court>[A-Za-z][A-Za-z .]{1,20})\))?",
 	re.IGNORECASE,
@@ -142,7 +147,7 @@ DOCKET_RE = re.compile(r"(?<![\w-])(?P<docket>(?:IMM|DES|A|T)-\d{1,6}-\d{2})(?![
 # What may sit between two parallel citations or after the last one.
 _TAG = r"\((?:CanLII|QL|Lexis|QuickLaw|[A-Z][A-Za-z.&]{0,6}(?:\s?[A-Z][A-Za-z.&]{0,6}){0,3})\)"
 _GAP_PINPOINT = (
-	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:,?\s*(?:at|aux?|à)\s+(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	r"\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?(?:\s*(?:,|and)\s*\d{1,5}(?:\s*(?:[-–]|to)\s*\d{1,5})?)*?)"
 )
 # Between parallel citations: a comma, optional court/database tags, optional pinpoint
@@ -581,7 +586,7 @@ def _reconcile(entries: list[RefinedCitation], pass_one: list[RefinedCitation], 
 # --------------------------------------------------------------------------- back-references
 _PIN_RANGE = r"\d{1,5}(?!\d|\s+(?-i:[A-Z]))(?:\s*(?:[-–]|to|à)\s*\d{1,5}(?!\d|\s+(?-i:[A-Z])))?"
 _PINPOINT_TAIL = (
-	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
+	r"(?:\s*,?\s*(?:at\s+|aux?\s+|à\s+)?(?:paragraphes?|paragraphs?|paras?\.?|par\.?|pp?\.)\s*"
 	rf"{_PIN_RANGE}(?:\s*(?:,|and|et|&)\s*{_PIN_RANGE})*)?"
 )
 IBID_RE = re.compile(rf"(?<![\w.])(?P<word>Ibid(?:em)?\.?|Id\.)(?P<tail>{_PINPOINT_TAIL})", re.UNICODE)
@@ -731,6 +736,124 @@ def _apply_backrefs(content: str, rows: list[RefinedCitation]) -> list[RefinedCi
 				replaces=tuple((item.offset_start, item.offset_end, item.normalized_citation) for item in inside),
 			)
 		added.append(row)
+
+	result = [row for row in rows if (row.offset_start, row.offset_end) not in removed]
+	result.extend(added)
+	result.sort(key=lambda row: (row.offset_start, row.offset_end))
+	return result
+
+
+# --------------------------------------------------------------------------- defined names and pinpoint-first forms
+_IDENTIFIER_NAME_RE = re.compile(r"^(?=.*\d)[A-Z][A-Z0-9]{2,7}$|^[A-Z]{3,6}$")
+_NUM_LIST = r"\d{1,4}(?:\s*(?:[-–—]|to|à|and|et|,)\s*\d{1,4})*"
+_PIN_FIRST_TMPL = (
+	r"(?P<pin>(?:\b(?:at|au|aux)\s+)?(?:paragraphs?|paragraphes?|paras?\.?)\s+" + _NUM_LIST + r")\s+(?:of|in|de|dans)\s+"
+	r"(?:the\s+(?:decision|case|judgment|reasons)\s+(?:in\s+|of\s+)?|l[’']affaire\s+)?(?P<alias>__ALIAS__)(?![\w-])"
+)
+
+
+def _defined_aliases(rows: list[RefinedCitation]) -> list[tuple[str, RefinedCitation, bool]]:
+	"""(alias, full citation row, distinctive) for names a later bare mention can use.
+
+	"distinctive" aliases (a bracketed definition such as [CCR], or an identifier-like first party such as B010) are
+	safe to match anywhere after the citation; ordinary surnames are left to pass one and only used for pinpoint-first forms.
+	"""
+	out: list[tuple[str, RefinedCitation, bool]] = []
+	for row in rows:
+		if row.kind != "case" or not row.case_name:
+			continue
+		first = re.split(r"\s+(?:v\.?|c\.?)\s+|\s+\(Re\)", row.case_name)[0].strip()
+		seen: set[str] = set()
+		if row.declared_alias and len(row.declared_alias) >= 2:
+			out.append((row.declared_alias, row, True))
+			seen.add(row.declared_alias)
+		if first and first not in seen and _IDENTIFIER_NAME_RE.match(first):
+			out.append((first, row, True))
+			seen.add(first)
+		for alias in _extract_short_aliases(row.case_name):
+			if alias and alias not in seen and len(alias) >= 3:
+				out.append((alias, row, False))
+				seen.add(alias)
+	return out
+
+
+def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[RefinedCitation]:
+	rows_by_span = {(row.offset_start, row.offset_end): row for row in rows}
+	aliases = _defined_aliases(rows)
+	if not aliases:
+		return rows
+	added: list[RefinedCitation] = []
+	removed: set[tuple[int, int]] = set()
+
+	def blocked(start: int, end: int, replace_short: bool = True) -> tuple[bool, list[RefinedCitation]]:
+		inside: list[RefinedCitation] = []
+		for row in [*rows, *added]:
+			if row.offset_end <= start or end <= row.offset_start:
+				continue
+			if replace_short and row.kind in {"case_short", "case_name"} and start <= row.offset_start and row.offset_end <= end:
+				inside.append(row)
+				continue
+			return True, []
+		return False, inside
+
+	def target_before(alias: str, position: int) -> RefinedCitation | None:
+		candidates = [row for name, row, _ in aliases if name == alias and row.offset_end <= position]
+		return max(candidates, key=lambda row: row.offset_end) if candidates else None
+
+	def make(start: int, end: int, target: RefinedCitation, alias: str, note: str, pin_text: str | None) -> RefinedCitation:
+		anchor = _anchor_for(target, rows_by_span)
+		pinpoint = parse_pinpoint(pin_text) if pin_text else None
+		base = _base_citation(anchor.normalized_citation)
+		return RefinedCitation(
+			kind="case_short",
+			citation_text=content[start:end],
+			normalized_citation=f"{base}, {pinpoint_phrase(pinpoint)}" if pinpoint else base,
+			offset_start=start,
+			offset_end=end,
+			step="C4c_defined_names",
+			action=ACTION_ADDED,
+			confidence=0.8,
+			pinpoint=pinpoint_phrase(pinpoint) if pinpoint else None,
+			pinpoints=(pinpoint,) if pinpoint else (),
+			anchor_citation_text=anchor.citation_text,
+			anchor_offset_start=anchor.offset_start,
+			anchor_offset_end=anchor.offset_end,
+			declared_alias=alias,
+			case_name=anchor.case_name,
+			identifiers=anchor.identifiers,
+			notes=(note,),
+		)
+
+	# Pinpoint-first: "As stated at paragraph 34 of Lozano" / "au paragraphe 34 de Lozano".
+	for alias in sorted({name for name, _, _ in aliases}, key=len, reverse=True):
+		for match in re.finditer(_PIN_FIRST_TMPL.replace("__ALIAS__", re.escape(alias)), content):
+			target = target_before(alias, match.start())
+			if target is None:
+				continue
+			start, end = match.start("pin"), match.end("alias")
+			is_blocked, inside = blocked(start, end)
+			if is_blocked:
+				continue
+			row = make(start, end, target, alias, "pinpoint_first", match.group("pin"))
+			if inside:
+				removed.update((item.offset_start, item.offset_end) for item in inside)
+				row = replace(
+					row,
+					action=ACTION_CORRECTED,
+					replaces=tuple((item.offset_start, item.offset_end, item.normalized_citation) for item in inside),
+				)
+			added.append(row)
+
+	# Bare mentions of a name the decision defines or a distinctive identifier ("Mason and CCR", "(Suresh, Febles, B010)").
+	for alias in sorted({name for name, _, distinctive in aliases if distinctive}, key=len, reverse=True):
+		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?!\s+(?:v\.?|c\.?)\s)(?!\])")
+		for match in pattern.finditer(content):
+			target = target_before(alias, match.start())
+			if target is None:
+				continue
+			if blocked(match.start(), match.end(), replace_short=False)[0]:
+				continue
+			added.append(make(match.start(), match.end(), target, alias, "defined_name", None))
 
 	result = [row for row in rows if (row.offset_start, row.offset_end) not in removed]
 	result.extend(added)
@@ -925,6 +1048,12 @@ def refine_case_citations(
 	if "C4_pinpoints" in enabled:
 		rows = [_with_pinpoints(content, row) for row in rows]
 
+	if "C4b_landmarks" in enabled:
+		rows = sorted([*rows, *landmark_rows(content, rows)], key=lambda row: (row.offset_start, row.offset_end))
+
+	if "C4c_defined_names" in enabled:
+		rows = _defined_name_rows(content, rows)
+
 	dropped: list[RefinedCitation] = []
 	if "C5_validate" in enabled:
 		self_keys: set[str] = set()
@@ -933,6 +1062,9 @@ def refine_case_citations(
 		validated: list[RefinedCitation] = []
 		for row in rows:
 			checked = _validate(row, year_limit, self_keys)
+			if checked is not None and is_weak_short_form(checked):
+				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, "weak_short_form")))
+				continue
 			if checked is None:
 				reason = "self_citation" if set(row.identifiers) & self_keys else "noise"
 				dropped.append(replace(row, step="C5_validate", action=ACTION_DROPPED, confidence=0.0, notes=(*row.notes, reason)))

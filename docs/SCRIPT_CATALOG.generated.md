@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 172
+Active scripts documented: 192
 
 ## Catalog
 
@@ -30,11 +30,16 @@ Active scripts documented: 172
 | `backfill_case_tags_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_case_tags_v3.py --help` |
 | `backfill_fc_case_metadata.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_fc_case_metadata.py --help` |
 | `backfill_judge_profiles.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help` |
+| `backfill_panel_judges.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help` |
+| `backfill_rpd_header.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help` |
+| `backfill_statute_instrument_keys.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help` |
+| `backfill_statute_provisions.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help` |
 | `batch_compute_units.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\batch_compute_units.py --help` |
 | `benchmark_case_citations.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_case_citations.py --help` |
 | `benchmark_citation_resolution.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\benchmark_citation_resolution.py --help` |
 | `browser_smoke.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\browser_smoke.py --help` |
 | `build_alert_digest.py` | Saved-search digest rendering | offline JSON input; filesystem output only; no database, network or sending | `.\venv\Scripts\python.exe scripts\build_alert_digest.py --help` |
+| `build_case_fingerprints.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_case_fingerprints.py --help` |
 | `build_changelog.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_changelog.py --help` |
 | `build_citation_sample_candidate.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_citation_sample_candidate.py --help` |
 | `build_core_immigration_set.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_core_immigration_set.py --help` |
@@ -53,14 +58,17 @@ Active scripts documented: 172
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
+| `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
 | `build_tagging_v2_core_candidates.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_tagging_v2_core_candidates.py --help` |
 | `build_treatment_distillation.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_distillation.py --help` |
 | `build_treatment_review_packet.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_review_packet.py --help` |
 | `build_treatment_teacher_fixture.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help` |
+| `case_types_eval.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\case_types_eval.py --help` |
 | `check_generated_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\check_generated_docs.py --help` |
 | `check_saved_searches.py` | Saved-search alert check | bounded database reader; --apply writes unseen case alerts; dry-run is default | `.\venv\Scripts\python.exe scripts\check_saved_searches.py --help` |
 | `chunk_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\chunk_cases.py --help` |
+| `classify_case_types.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_case_types.py --help` |
 | `classify_fc_activity.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\classify_fc_activity.py --help` |
 | `clean_llm_tag_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_llm_tag_report.py --help` |
 | `clean_tag_candidate_report.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\clean_tag_candidate_report.py --help` |
@@ -70,6 +78,7 @@ Active scripts documented: 172
 | `cross_reference_seed_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\cross_reference_seed_cases.py --help` |
 | `curate_a2aj_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_cases.py --help` |
 | `curate_a2aj_immigration_cases.py` | A2AJ curation and canonical import | database writer | `.\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help` |
+| `daily_intake.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\daily_intake.py --help` |
 | `deduplicate_a2aj.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\deduplicate_a2aj.py --help` |
 | `discover_recent_case_themes.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discover_recent_case_themes.py --help` |
 | `discussion_units_ledger.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\discussion_units_ledger.py --help` |
@@ -80,6 +89,7 @@ Active scripts documented: 172
 | `embed_local_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_local_chunks.py --help` |
 | `embed_openai_chunks.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\embed_openai_chunks.py --help` |
 | `eval_models.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\eval_models.py --help` |
+| `evaluate_case_structure.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help` |
 | `evaluate_chunk_parity.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_chunk_parity.py --help` |
 | `evaluate_citation_refinement.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_citation_refinement.py --help` |
 | `evaluate_data_quality.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_data_quality.py --help` |
@@ -89,11 +99,13 @@ Active scripts documented: 172
 | `evaluate_retrieval.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval.py --help` |
 | `evaluate_retrieval_benchmark.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_retrieval_benchmark.py --help` |
 | `evaluate_statute_extraction.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help` |
+| `evaluate_statute_sections.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help` |
 | `evidence_gate.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\evidence_gate.py --help` |
 | `expand_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\expand_legal_concepts.py --help` |
 | `export_fc_activity_package.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_fc_activity_package.py --help` |
 | `export_tagging_v3_canary_review.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\export_tagging_v3_canary_review.py --help` |
 | `extract_a2aj_case_citations_resumable.py` | Citation extraction maintenance | database writer | `.\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help` |
+| `extract_a2aj_provincial_acts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help` |
 | `extract_citation_network.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_citation_network.py --help` |
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
@@ -101,6 +113,8 @@ Active scripts documented: 172
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
+| `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
+| `flag_weak_short_form_links.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help` |
 | `generate_api_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_api_reference.py` |
 | `generate_schema_reference.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_schema_reference.py` |
 | `generate_script_catalog.py` | Documentation generation | read-only | `.\venv\Scripts\python.exe scripts\generate_script_catalog.py` |
@@ -142,10 +156,15 @@ Active scripts documented: 172
 | `quick_search_engine.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\quick_search_engine.py --help` |
 | `reacquire_source_html.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reacquire_source_html.py --help` |
 | `rebuild_citations_controlled.py` | Citation-only rebuild | database writer; dry-run is default and --apply requires explicit confirmation | `.\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help` |
+| `recompute_citation_metrics.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help` |
+| `reextract_statute_references.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help` |
 | `refresh_recent_5000_artifact.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\refresh_recent_5000_artifact.py --help` |
 | `regenerate_docs.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\regenerate_docs.py --help` |
 | `remove_self_case_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_case_citations.py --help` |
 | `remove_self_citations.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_self_citations.py --help` |
+| `remove_test_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\remove_test_cases.py --help` |
+| `repair_glued_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help` |
+| `repair_range_word_sections.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\repair_range_word_sections.py --help` |
 | `report_a2aj_immigration_selection.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_a2aj_immigration_selection.py --help` |
 | `report_fc_activity_coverage.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_coverage.py --help` |
 | `report_fc_activity_motion_unknowns.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\report_fc_activity_motion_unknowns.py --help` |
@@ -171,6 +190,7 @@ Active scripts documented: 172
 | `run_v2_pipeline_case.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_pipeline_case.py --help` |
 | `run_v2_text_only_fast.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\run_v2_text_only_fast.py --help` |
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
+| `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
@@ -311,7 +331,7 @@ Active scripts documented: 172
 
 ## `scripts/apply_judge_aliases.py`
 
-**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
+**Purpose:** Propose, apply or revert judge profile aliases (reversible; dry-run by default). Duplicate judge profiles (same person under different strings) are mapped onto one canonical profile in `judge_profile_aliases`. No profile or case link is rewritten or deleted. python scripts/apply_judge_aliases.py # dry run: print proposed merges python scripts/apply_judge_aliases.py --apply # write alias rows (needs Daniel's go) python scripts/apply_judge_aliases.py --prune # dry run: rule rows the current rules no longer propose python scripts/apply_judge_aliases.py --prune --apply # delete those rows (e.g. Marc/Simon Noël) python scripts/apply_judge_aliases.py --revert # delete every source='rule' alias row
 
 **Operational class:** Utility
 
@@ -463,6 +483,62 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\backfill_judge_profiles.py --help
 ```
 
+## `scripts/backfill_panel_judges.py`
+
+**Purpose:** Create one judge profile per panel member for multi-judge cases (SCC) and link them (dry-run by default). SCC cases store the whole panel in one field ("Wagner, Richard; Abella, Rosalie; ..."). The first profile backfill turned each distinct panel string into a single fake judge. This script splits the panel, finds or creates one profile per judge, and links each case to every panel member. Existing profiles and links are never edited or deleted; reruns add nothing new. python scripts/backfill_panel_judges.py # dry run, SCC python scripts/backfill_panel_judges.py --apply # write (needs Daniel's go) python scripts/backfill_panel_judges.py --courts FCA # panel = the "present" lines ("STRATAS J.A.") FCA decisions store the authoring judge in `judge` (already linked) and the full bench in `present`, one judge per line. Panel members reuse the profile of the same raw string ("NOËL J.A."), so no duplicates appear, and only "J.A." / "C.J." lines count (assessment officers and clerks are skipped).
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_panel_judges.py --help
+```
+
+## `scripts/backfill_rpd_header.py`
+
+**Purpose:** Fix the panel member and place of hearing stored for Refugee Protection Division decisions. Dry run by default. The old extractor left RPD decision makers blank and let "place of hearing" run on through the cover page. This re-reads those two fields from the cover page (`backend.metadata._rpd_header_fields`) and updates only `metadata_json -> reader_extracted -> judge` and `-> place of hearing` on RPD cases. python scripts/backfill_rpd_header.py --limit 20 # dry run: print before/after for 20 cases python scripts/backfill_rpd_header.py --apply # write (needs Daniel's go for the live database) python scripts/backfill_rpd_header.py --revert-file undo.json # put the old values back
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_rpd_header.py --help
+```
+
+## `scripts/backfill_statute_instrument_keys.py`
+
+**Purpose:** Fill statute_references.instrument_key for rows that name a registered act but were stored without a key. About 59% of statute_references have no instrument_key, and most of those name an act the registry already knows ("Patent Act", "Federal Court Rules", "Immigration and Refugee Protection Act, S.C. 2001, c. 27"). This resolves the act name with backend/instrument_resolver.py (exact normalized names only, court-aware for names shared with provincial acts) and writes only the instrument_key column, only where it is still NULL. Dry run by default (counts per instrument and samples). --apply first writes an undo file of every id and key it is about to set; --undo FILE puts those rows back to NULL, only where the key is still the one written.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_instrument_keys.py --help
+```
+
+## `scripts/backfill_statute_provisions.py`
+
+**Purpose:** Fill statute_references.provision_section/subsection/paragraph from the stored pinpoint. The provision_* columns were added after most references were stored, so about 99.9% of rows have a pinpoint such as "36(1)(a)" but an empty provision_section. Statute-consideration queries filter on provision_section and so find almost nothing. This derives the columns from the pinpoint with the same parser the extractor uses. It never changes the pinpoint, the instrument or any other column, and only touches rows whose provision_section is still NULL. Dry run by default (counts and samples only). Use --apply to write.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\backfill_statute_provisions.py --help
+```
+
 ## `scripts/batch_compute_units.py`
 
 **Purpose:** Resumable batch job CLI for computing discussion units across the case corpus. Usage: python scripts/batch_compute_units.py [--start CASE_ID] [--end CASE_ID] [--clear] Examples: # Compute all cases from start (default: case 1) python scripts/batch_compute_units.py # Compute specific range python scripts/batch_compute_units.py --start 1 --end 500 # Clear all cached units and recompute python scripts/batch_compute_units.py --clear # Resume from case 501 after a previous run python scripts/batch_compute_units.py --start 501
@@ -531,6 +607,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_alert_digest.py --help
+```
+
+## `scripts/build_case_fingerprints.py`
+
+**Purpose:** Compute stored case fingerprints for cases that have none (batch job; not run by the live site). Dry run by default: it reports how many cases would be fingerprinted. Use --apply to write. Cheap and read-mostly: it reads cases.full_text and writes only case_fingerprints.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_case_fingerprints.py --help
 ```
 
 ## `scripts/build_changelog.py`
@@ -785,6 +875,20 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help
 ```
 
+## `scripts/build_refined_citations.py`
+
+**Purpose:** Build side-by-side refined case citations (second-pass extraction) for decisions. Writes only to the new tables `citations_refined` and `citation_refine_status`; the live `citations` table is never touched, so the site keeps reading pass-one data. DRY RUN BY DEFAULT: nothing is written without `--apply`. python scripts/build_refined_citations.py --limit 500 # dry run: counts and a compare to pass one python scripts/build_refined_citations.py --limit 500 --apply # write the first 500 decisions python scripts/build_refined_citations.py --language fr --random-seed 1 --limit 500 # random French sample, dry run python scripts/build_refined_citations.py --apply --court FC # continue (resumable; skips done decisions) python scripts/build_refined_citations.py --revert --yes # delete all refined rows and status rows for this version One decision per transaction, resumable (decisions with a status row for the same refine version are skipped), capped by --limit, with an optional stop file checked between decisions. Docket rows are not stored (no column for them yet). Statute references and paragraph links are a later step.
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_refined_citations.py --help
+```
+
 ## `scripts/build_statute_demand_report.py`
 
 **Purpose:** Build a read-only statute and legal-instrument demand catalogue.
@@ -855,6 +959,20 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\build_treatment_teacher_fixture.py --help
 ```
 
+## `scripts/case_types_eval.py`
+
+**Purpose:** Run the case-type classifier over a stratified sample of A2AJ parquet files (read-only, no database). Example: python scripts/case_types_eval.py --parquet-dir /path/to/parquets --per-stratum 40 --out out.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\case_types_eval.py --help
+```
+
 ## `scripts/check_generated_docs.py`
 
 **Purpose:** Check that checked-in generated documentation matches its generators.
@@ -895,6 +1013,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\chunk_cases.py --help
+```
+
+## `scripts/classify_case_types.py`
+
+**Purpose:** Label every decision with its case type (deterministic rules, no AI). Dry run by default. python scripts/classify_case_types.py --limit 200 # dry run: print counts only python scripts/classify_case_types.py --court FC --apply # write rows to case_type_labels python scripts/classify_case_types.py --revert # delete rows of this taxonomy version Only reads `cases` and writes `case_type_labels`. Resumable: decisions that already have a row for the current taxonomy version are skipped.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\classify_case_types.py --help
 ```
 
 ## `scripts/classify_fc_activity.py`
@@ -1021,6 +1153,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\curate_a2aj_immigration_cases.py --help
+```
+
+## `scripts/daily_intake.py`
+
+**Purpose:** Daily intake: new decisions from A2AJ, then new Federal Court (IMM) activity records. One run does, in order: 1. Cases. For each court (default FC, FCA, SCC) it asks Hugging Face whether the A2AJ partition has changed since the last completed run (one HEAD request, no download). Only if it changed does it download the partition, import decisions newer than what the library holds (minus a small overlap), skip anything already present, and run the deterministic processing layers (chunks, metadata, outcome, citations, statutes, tags) on each new case. 2. FC activity. New IMM files are found by walking forward from the highest IMM number already stored for the current year, fetching each from the Federal Court registry until several numbers in a row do not exist. A few recently active files are also re-fetched so their newest docket entries arrive. Touched files are re-classified with the existing rule classifier. Everything is deterministic: no AI or model calls. Each run writes one row to ingestion_runs (started, then finished with finished_at and counts). Caps keep a run small: --max-cases, --max-fc-requests, --max-minutes. Re-running is safe: existing cases and docket entries are never duplicated. Usage: python scripts/daily_intake.py --dry-run # report only, writes nothing python scripts/daily_intake.py # the real daily run python scripts/daily_intake.py --skip-activity # cases only python scripts/daily_intake.py --skip-cases # FC activity only
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\daily_intake.py --help
 ```
 
 ## `scripts/deduplicate_a2aj.py`
@@ -1163,6 +1309,20 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\eval_models.py --help
 ```
 
+## `scripts/evaluate_case_structure.py`
+
+**Purpose:** Score deterministic case-structure labelling against hand-labelled decisions. Gold: 22 Federal Court decisions from 2001-2004 (data/eval/case_structure/gold_fc_2001_2004_v2.json, paragraphs from the stored reports), 30 more hand-labelled FC / FCA / SCC decisions (gold_new_cases.json) and 18 RPD decisions (gold_rpd_labels.json, text read from an extract that is not in the repository). Each case has a 'dev', 'holdout' or 'holdout2' split. Only dev cases may be used for tuning; the holdouts are scored at declared checkpoints. Approaches (all offline, no database, network or AI): main the segmentation on main (continuity + boundary rules) with deterministic unit role labels structure paragraph role labelling by cues + ordered skeleton, units from role changes structure+h the same plus a split at each major heading inside the analysis Run: python scripts/evaluate_case_structure.py [--per-case] [--splits dev holdout holdout2]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_case_structure.py --help
+```
+
 ## `scripts/evaluate_chunk_parity.py`
 
 **Purpose:** Compare HTML-enabled and text-only chunking on a bounded sample.
@@ -1289,6 +1449,20 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\evaluate_statute_extraction.py --help
 ```
 
+## `scripts/evaluate_statute_sections.py`
+
+**Purpose:** Measure section-level statute extraction against the frozen gold set. Gold file: data/eval/statute_section_gold.json (synthetic CBSA-style sentences with the instrument and pinpoint a careful reader would extract; lists are expected one pair per section). Cases with "holdout": true are frozen for before/after comparison: never tune extraction rules on them. Pure measurement, no database, no network. Usage: python scripts/evaluate_statute_sections.py [--split dev|holdout|all] [--misses] [--json out.json]
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\evaluate_statute_sections.py --help
+```
+
 ## `scripts/evidence_gate.py`
 
 **Purpose:** Validate manager-owned completion evidence for a task run.
@@ -1357,6 +1531,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\extract_a2aj_case_citations_resumable.py --help
+```
+
+## `scripts/extract_a2aj_provincial_acts.py`
+
+**Purpose:** Cut a few provincial acts out of the A2AJ canadian-laws parquet files into small JSON snapshots. Source: https://huggingface.co/datasets/a2aj/canadian-laws (one LEGISLATION-<PROVINCE>.parquet per jurisdiction). Only the acts listed in ACTS are taken, never whole provinces. Each snapshot carries the upstream licence text and is indexed by scripts/index_legislation.py (source format "json_sections"). Tier "open": the dataset's licence note permits reproduction with attribution (Ontario, Alberta, Manitoba). Tier "held": British Columbia (licence field blank), Quebec (CC BY-NC-ND 4.0, non-commercial, no derivatives) and Saskatchewan (non-commercial use by permission). Held acts are only counted unless --include-held is given; do not commit their snapshots until the licence question is settled. Usage: python scripts/extract_a2aj_provincial_acts.py --parquet-dir DIR [--write] [--include-held] Without --write it only prints section counts.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\extract_a2aj_provincial_acts.py --help
 ```
 
 ## `scripts/extract_citation_network.py`
@@ -1455,6 +1643,34 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help
+```
+
+## `scripts/fingerprint_pilot.py`
+
+**Purpose:** Read-only pilot: fingerprint a random sample of real cases and see whether the sample conclusions hold. Reads cases.full_text (SELECT only, in a read-only transaction, one connection, lowest process priority, throttled), computes case fingerprints in memory, and writes everything to files. It writes nothing to the database. Output (default ``data/eval/case_fingerprints/pilot/``): * ``fingerprints.jsonl`` one fingerprint per sampled case (terms, authorities, seconds) * ``pilot-report.md`` timing, neighbours for the landmark cases and 20 random cases, and the 150 hand-labelled pairs re-scored on this library * ``pilot-results.json`` the same numbers, machine readable Run it from the repo folder, for example:: ./venv/Scripts/python.exe scripts/fingerprint_pilot.py --fc 1200 --fca 500 --scc 300
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help
+```
+
+## `scripts/flag_weak_short_form_links.py`
+
+**Purpose:** PARKED 2026-10-06: Daniel asked to leave the live cleanup for later; do not run --apply. Evidence note: /mnt/project-files/citation-refinement/wrong-short-form-links-evidence-2026-10-06.md Find (and optionally unlink) live short-form citations that point at the wrong case. Pass one anchored many capitalised common words ("Lake", "Bank", "Council", "Quebec") to a nearby full citation, and the resolver then linked those rows to the anchored case, so cited-by counts on the live site include links that are not citations of that case. This script re-judges every LINKED short-form row with the same rules the refinement uses (`backend/citation_refine/short_forms.py`) plus one more: the alias must appear as whole words in the linked case's own title. DRY RUN BY DEFAULT: it only reads, prints counts by reason, and writes the suspect rows to a CSV for review. python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv # dry run python scripts/flag_weak_short_form_links.py --backup logs/weak_links.csv --apply # unlink the suspects python scripts/flag_weak_short_form_links.py --revert-from logs/weak_links.csv --apply # put the links back `--apply` sets `target_case_id` to NULL and `unresolved` to true on the suspect rows only (the backup CSV holds each row's id and previous target and is written BEFORE any change). Cited-by counts and paragraph cited-by data derive from these links and need their usual recompute afterwards; nothing here recomputes them.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\flag_weak_short_form_links.py --help
 ```
 
 ## `scripts/generate_api_reference.py`
@@ -2031,6 +2247,34 @@ Active scripts documented: 172
 .\venv\Scripts\python.exe scripts\rebuild_citations_controlled.py --help
 ```
 
+## `scripts/recompute_citation_metrics.py`
+
+**Purpose:** Refresh the stored "cited by" numbers (citation_metrics). Dry run by default. The stored in_degree was last computed before many citation links were added or cleaned (Baker showed 0 with about 2,900 citing cases), and counted citation rows. It now counts distinct citing cases, as search does. python scripts/recompute_citation_metrics.py # dry run: stored vs live for sample cases and totals python scripts/recompute_citation_metrics.py --apply # recompute and write all rows (needs Daniel's go)
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\recompute_citation_metrics.py --help
+```
+
+## `scripts/reextract_statute_references.py`
+
+**Purpose:** Re-extract statute references with the current rules; dry run compares, apply replaces. Why: older extraction dropped decimal sections ("18.1" stored as "18") and mis-handled lists. This reads the same text the original build used (the preferred chunk set, else full text), runs the current extractor, and compares with the stored rows of the same cases. Dry run (default) writes nothing: it reports counts before and after (rows, rows with an instrument, decimal sections, list rows, rows per instrument) and sample changes. --apply with --confirm-statute-reextract first writes every old row of each case to a JSONL backup file, then replaces that case's rows (one transaction per batch). --restore BACKUP puts the backed-up rows back (every column, original ids): for each case in the file it deletes the case's current rows and re-inserts the saved ones. If a case appears more than once in the file (re-runs append), the first entry, the oldest rows, is used. --restore-dry-run reports what it would do. Cases are chosen by --case-id, or by a seeded random sample (--sample N --seed S), or --all; --skip-cases-in BACKUP drops cases a previous apply already backed up (the rest after a first tranche).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\reextract_statute_references.py --help
+```
+
 ## `scripts/refresh_recent_5000_artifact.py`
 
 **Purpose:** Refresh the derived recent-5000 paragraph retrieval artifact.
@@ -2085,6 +2329,48 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\remove_self_citations.py --help
+```
+
+## `scripts/remove_test_cases.py`
+
+**Purpose:** List or delete the 20 placeholder "TEST CASE" decisions (ids 61264 to 61283) from the library. Dry run by default. python scripts/remove_test_cases.py # dry run: show the exact rows and what hangs off them python scripts/remove_test_cases.py --apply # delete them (needs Daniel's go for the live database) Only ids 61264-61283 can ever be touched, and only if every one still looks like a test row (title starts with "TEST CASE", citation contains "TEST" and a number). The script refuses to delete anything if another decision cites one of them, or if a row does not look like a test row.
+
+**Operational class:** Canonical enrichment or maintenance
+
+**Write/network risk:** database writer unless dry-run is documented
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\remove_test_cases.py --help
+```
+
+## `scripts/repair_glued_word_sections.py`
+
+**Purpose:** Repair statute_references.provision_section values like "25s" or "2d" that came from a word glued to the number. The stored pinpoint has its spaces removed, so "s. 25 ss. 3" or "S. 2(d)" read as section "25s" or "2d" in the first backfill. Real lettered sections are uppercase ("224A", "83A", "1F", "39B") or lowercase before a bracket ("224a(1)"), so this touches only rows whose stored pinpoint has LOWERCASE letters straight after the digits and no bracket, never rows of the Criminal Code or Income Tax Act (old lettered sections), and only when the section can be read again from the cited text itself (reference_text: "section 20.1" -> 20.1, "S. 2d" -> 2). Rows where the text gives no section are left alone. Dry run by default; --apply first writes an undo CSV (id, old section, new section); --undo FILE restores the old values where the row still holds the new one.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\repair_glued_word_sections.py --help
+```
+
+## `scripts/repair_range_word_sections.py`
+
+**Purpose:** Repair statute_references.provision_section values like "34t" (from "34 to 37") or "25s" (from "25 s. 3"). The first backfill read the "t" of "to" (or the "a" of "and") as a section suffix, so a range or list pinpoint such as "34 to 37" was stored with provision_section "34t". This re-derives only the rows whose section ends in a letter and whose pinpoint runs the section straight into "to", "and" or "th"; it changes a row only when the corrected section is the old one minus that letter. Dry run by default; --apply writes. Safe to run twice.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\repair_range_word_sections.py --help
 ```
 
 ## `scripts/report_a2aj_immigration_selection.py`
@@ -2435,6 +2721,20 @@ Active scripts documented: 172
 
 ```powershell
 .\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help
+```
+
+## `scripts/sample_statute_extraction.py`
+
+**Purpose:** Draw a random sample of real decisions and write the statute references the extractor finds, for hand-checking. READ-ONLY: SELECTs from cases and runs the extractor in memory; writes nothing to the database. For each sampled decision it records every extracted statute reference (text, instrument, pinpoint, context) and every "loose" provision mention (s. 12, subsection 5(1), paragraph 3(b) ...) that no extracted reference covers, so both precision and recall can be hand-checked. Sampling is deterministic for a given --seed (md5 order), per court, so a second run reproduces it. Usage: python scripts/sample_statute_extraction.py --cases-per-court 40 --seed 20261006 --out sample.jsonl
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help
 ```
 
 ## `scripts/scheduled_intake_daemon.py`

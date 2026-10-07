@@ -1,0 +1,521 @@
+{
+ "description": "Second RPD sample (24 decisions, 8 per period before 2017 / 2017-19 / 2020-22, none overlapping gold_rpd_labels.json), labelled once and scored once as an untouched RPD check; never tuned on. Labels only; text comes from rpd-structure-sample-2.sql output (default /mnt/project-files/discussion-units/rpd-structure-sample-2.csv, or RPD_SAMPLE_CSV_2). Split: holdout_rpd.",
+ "cases": {
+  "40114": {
+   "citation": "TB2-09824",
+   "period": "1: before 2017",
+   "n_paragraphs": 51,
+   "text_sha256": "fd31a3bf259fc9ddfea448fbb5c414b0c13ce2475f75ff977ed62ab5fe875dfd",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    3,
+    7,
+    9,
+    49
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "42086": {
+   "citation": "TB0-11840",
+   "period": "1: before 2017",
+   "n_paragraphs": 25,
+   "text_sha256": "8695eaa36155f471372de708e6d4e9ac948e1436fcd2559bdf7e3f1d454476af",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    7,
+    11,
+    24
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "47305": {
+   "citation": "MB2-03544",
+   "period": "1: before 2017",
+   "n_paragraphs": 50,
+   "text_sha256": "8d0765598a8dba1b3414e9efecb41eb276ed43e193d9745bd00deaf5628092a3",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    10,
+    13,
+    48
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "49156": {
+   "citation": "MA9-13508",
+   "period": "1: before 2017",
+   "n_paragraphs": 36,
+   "text_sha256": "46fe2af0c193cc0f11f8cffc44f3a77b8650626490b8fc6e629d2fae53752238",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    2,
+    7,
+    11,
+    33
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "49259": {
+   "citation": "MB1-00608",
+   "period": "1: before 2017",
+   "n_paragraphs": 36,
+   "text_sha256": "aa1d67550656b89e81c552e2269f749fe659ae22eb5a7637b0dd9f628b1aab4a",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    8,
+    10,
+    35
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "49488": {
+   "citation": "MA9-07056",
+   "period": "1: before 2017",
+   "n_paragraphs": 25,
+   "text_sha256": "97e5f86e1aebf16a07b29fb93b85c32011ef45e6c67e548142810007173e66e0",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    7,
+    9,
+    24
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "49759": {
+   "citation": "MA9-07614",
+   "period": "1: before 2017",
+   "n_paragraphs": 34,
+   "text_sha256": "66b3fcfe739d2d5207c3d9f2cebdd51c086b13baf2b581f71f9a9bf3a7abe170",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    15,
+    32
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "50215": {
+   "citation": "TA8-08350",
+   "period": "1: before 2017",
+   "n_paragraphs": 28,
+   "text_sha256": "4636b851d8595c9a0be6c19f534c036b8dd0909e9062df4dccef24645918d584",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    8,
+    9,
+    27
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "40427": {
+   "citation": "TB2-02985",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 80,
+   "text_sha256": "e327bbe01c3541155189d5ba951b1b683bcabaebf4554dcf6c883b63ef37ec88",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    8,
+    10,
+    78
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "40755": {
+   "citation": "TB4-02413",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 33,
+   "text_sha256": "02270a380cfb6477ee8482280ed278528a1bf337445d15ed644c30d01532c254",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    4,
+    6,
+    31
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "43946": {
+   "citation": "VB5-01792",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 25,
+   "text_sha256": "6a4cf7559b556aff99f2d3b0034e2fefab0a00251682abb2df7b4fcc22f4651b",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    4,
+    7,
+    22
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44991": {
+   "citation": "TB7-15932",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 35,
+   "text_sha256": "5265f1dec7888eae2d0e91a2a8f9adcfb7c54911dfcb8916598eec5ea1ef585c",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    5,
+    7,
+    33
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "45514": {
+   "citation": "TB7-00418",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 31,
+   "text_sha256": "99906bca468aaa41f2e9d01a40e0b8a1f194b7c14ac484e4c6b67e56678a5a6a",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    3,
+    6,
+    30
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "45579": {
+   "citation": "TB7-04239",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 57,
+   "text_sha256": "2e3d16812b8cc0041498b44a5e63f4f523715d7517ee9da5c13fcb929af5c45f",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    11,
+    15,
+    55
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "45642": {
+   "citation": "TB6-12254",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 29,
+   "text_sha256": "896be5c4a067ca49c484e5d3a1962a382962dc7cd4f860f01277afdddce701f4",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    7,
+    9,
+    27
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "47945": {
+   "citation": "MB7-08129",
+   "period": "2: 2017-2019",
+   "n_paragraphs": 88,
+   "text_sha256": "cb2718dafe97c3a033b536c71bdd726644ba41889016b12a09ff8bbd1f793dcc",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    13,
+    15,
+    86
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "40948": {
+   "citation": "TB5-00331",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 65,
+   "text_sha256": "99e3ab1c0b0a9d5abd55d0b17e4cda1529ba149964c8ae39dd57a98c69f70af7",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    6,
+    10,
+    64
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44842": {
+   "citation": "TB8-05627",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 71,
+   "text_sha256": "3b81d994d61e7f7e0719a522cccb13f8aae2eda2119dc3dbd764899f0b6cce34",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    4,
+    7,
+    13,
+    70
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44867": {
+   "citation": "TB7-25077",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 28,
+   "text_sha256": "cb77e0e11c9425e83b986de38aec39772b9e3dff6e2f8bff17634b7b92d6eba7",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    3,
+    15,
+    27
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44893": {
+   "citation": "TB8-22028",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 40,
+   "text_sha256": "216ecba8c68c06ff6d538b8fa957eb8cb6b47fbfe59afcddab47e7e3cb5c8f8b",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    4,
+    6,
+    9,
+    38
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44897": {
+   "citation": "TB8-20858",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 48,
+   "text_sha256": "1c55e3e42bdeb20f907ef88707dd66fca2298c00db9076f221e90235120b3321",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    2,
+    5,
+    7,
+    27,
+    46
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "facts",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44911": {
+   "citation": "TB8-15538",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 41,
+   "text_sha256": "65f627b7fedc2fc71e8fe2c0ef9471af346d467b03022849ce596756fb58fff7",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    4,
+    6,
+    9,
+    40
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "44960": {
+   "citation": "TB7-15654",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 69,
+   "text_sha256": "94c69a19c3afbe8725122d2b10e40d7fa0b9f85515e481f69b5c86e034d79e4b",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    9,
+    18,
+    21,
+    67
+   ],
+   "roles": [
+    "metadata",
+    "overview",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  },
+  "45693": {
+   "citation": "TB5-08526",
+   "period": "3: 2020-2022",
+   "n_paragraphs": 28,
+   "text_sha256": "e2e4cdd97ec12ef33aa99795db544933644e6117d07bc2aab051ba14bdd66d55",
+   "split": "holdout_rpd",
+   "starts": [
+    0,
+    1,
+    7,
+    10,
+    27
+   ],
+   "roles": [
+    "metadata",
+    "facts",
+    "issues",
+    "analysis",
+    "disposition"
+   ]
+  }
+ }
+}

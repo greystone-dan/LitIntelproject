@@ -406,3 +406,43 @@ def test_sentence_query_with_operators_is_left_to_the_operator_compiler():
 	db = AnalyticsDB()
 	analytics_service.fetch_analytics_search_cases(db, query="officer AND ignored medical evidence")
 	assert "sentence_word_" not in db.sql
+
+
+def test_case_type_filter_reads_stored_labels_with_bound_params():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Baker", case_type="refugee_claim")
+	assert "case_type_labels" in db.sql and "ctl.second_type = :case_type" in db.sql
+	assert db.params["case_type"] == "refugee_claim"
+	assert db.params["case_type_version"]
+	assert "refugee_claim" not in db.sql
+
+
+def test_unknown_case_type_matches_nothing_and_is_not_interpolated():
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="Baker", case_type="x'; DROP TABLE cases;--")
+	assert "DROP TABLE" not in db.sql
+	assert "case_type" not in db.params
+
+
+def test_case_type_facet_uses_stored_labels_and_labels_known_keys():
+	class FacetDB:
+		def __init__(self):
+			self.statements = []
+
+		def execute(self, statement, params):
+			self.statements.append(str(statement))
+			self.last = str(statement)
+			return self
+
+		def mappings(self):
+			return self
+
+		def all(self):
+			if "case_type_labels" in self.last:
+				return [dict(label="refugee_claim", n=5), dict(label="bogus", n=1)]
+			return []
+
+	db = FacetDB()
+	rows = analytics_service._case_type_facet(db, "1=1", {}, None)
+	assert [r["value"] for r in rows] == ["refugee_claim"] and rows[0]["count"] == 5
+	assert rows[0]["label"]

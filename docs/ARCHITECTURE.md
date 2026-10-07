@@ -211,6 +211,7 @@ test checks that these paths continue to exist.
 | `backend/fc_activity_insights.py` | Aggregates Federal Court activity summaries for display |
 | `backend/health.py` | Bounded liveness and dependency-readiness probes |
 | `backend/ingestion.py` | Canonical create/merge policy and source provenance |
+| `backend/instrument_resolver.py` | Map the act name in a stored statute reference to a registered instrument key, deterministically |
 | `backend/intelligence.py` | Derives case outcomes, roles, issues, and related metadata |
 | `backend/job_runner.py` | Standalone opt-in interval scheduler, DB-free per-job locks, subprocess timeouts and signal cleanup |
 | `backend/judge_aliases.py` | Read-side helpers for the reversible judge alias layer |

@@ -166,3 +166,39 @@ def test_rebuild_missing_with_workers_matches_single_process(session):
     session.commit()
     assert rebuild_missing(session, workers=1) == 2
     assert parallel == {r.case_id: dict(r.terms) for r in session.query(CaseFingerprintRecord)}
+
+
+def test_similar_cases_payload_and_empty_state(session):
+    from backend import similar_cases
+
+    similar_cases.reset_cache()
+    assert similar_cases.build_similar_cases(session, 1)["available"] is False  # nothing stored yet: panel stays hidden
+    session.add_all([_case(1, "A", HC, "2020 FC 1"), _case(2, "B", HC2, "2020 FC 2"), _case(3, "C", CITIZENSHIP, "2020 FC 3")])
+    session.commit()
+    rebuild_missing(session)
+    index = FingerprintIndex(
+        [(r.case_id, CaseFingerprint(r.version, r.terms, r.authorities, r.text_length or 0, r.role_chars or {})) for r in session.query(CaseFingerprintRecord)],
+        min_df_plain=1, min_df_role=1, min_df_authority=1,
+    )
+    payload = similar_cases.build_similar_cases(session, 1, index=index)
+    assert payload["available"] is True
+    assert payload["similar"][0]["case_id"] == 2 and payload["similar"][0]["shared"]
+    assert all(row["case_id"] != 1 for row in payload["similar"] + payload["shares_authorities"])
+    assert payload["shares_authorities"][0]["case_id"] == 2
+    assert similar_cases.build_similar_cases(session, 999, index=index)["available"] is False
+
+
+def test_similar_cases_route_is_registered_and_answers(session):
+    from fastapi import FastAPI
+    from fastapi.testclient import TestClient
+
+    from backend import similar_cases
+    from backend.database import get_db
+    from backend.routes import router
+
+    similar_cases.reset_cache()
+    app = FastAPI()
+    app.include_router(router)  # the real route table, so a missing registration fails here
+    app.dependency_overrides[get_db] = lambda: session
+    body = TestClient(app).get("/api/cases/1/similar-cases").json()
+    assert body == {"available": False, "case_id": 1, "similar": [], "shares_authorities": []}

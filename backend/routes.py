@@ -40,6 +40,7 @@ from .alert_digest import (
 from .prompt_registry import get_prompt
 from .case_summary import router as case_summary_router
 from .case_summary_card import router as case_summary_card_router
+from .similar_cases import router as similar_cases_router
 from .citation_treatment_service import citation_treatment_summary
 
 try:
@@ -335,6 +336,7 @@ router.include_router(statute_consideration_router)
 router.include_router(statute_sections_router)
 router.include_router(case_summary_router)
 router.include_router(case_summary_card_router)
+router.include_router(similar_cases_router)
 
 
 @router.get("/api/search-embedding-status")

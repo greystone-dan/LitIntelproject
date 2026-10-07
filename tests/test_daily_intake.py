@@ -143,6 +143,7 @@ def clean_db(requires_postgres):
         Case,
         CaseSource,
         FCActivityCase,
+        FCProceduralHistory,
         IngestionRun,
         SessionLocal,
         init_db,
@@ -162,6 +163,7 @@ def clean_db(requires_postgres):
                 )
             )
             db.execute(delete(IngestionRun).where(IngestionRun.source_name == "daily_intake_test"))
+            db.execute(delete(FCProceduralHistory).where(FCProceduralHistory.imm_number.like(f"IMM-%-{TEST_YEAR}")))
             db.commit()
 
     wipe()
@@ -426,3 +428,17 @@ def test_files_with_number_only_in_raw_payload_are_found_and_updated_in_place(cl
         assert db.scalar(select(func.count()).select_from(FCActivityCase).where(FCActivityCase.citation == imm)) == 1
         refresh = daily_intake.refresh_candidates(db, 50, 0, 100000, date(1997, 6, 1))
         assert imm in refresh  # found through raw_payload, not only the citation column
+
+
+def test_highest_known_imm_ignores_empty_probe_rows_in_procedural_history(clean_db):
+    from backend.database import FCActivityCase, FCProceduralHistory, SessionLocal
+
+    with SessionLocal() as db:
+        db.add(FCActivityCase(source_key="t-real", citation=None, year=1997, raw_payload={"imm_number": f"IMM-50-{TEST_YEAR}"}))
+        db.add(FCProceduralHistory(imm_number=f"IMM-3000-{TEST_YEAR}", style_of_cause=None))  # empty probe
+        db.add(FCProceduralHistory(imm_number=f"IMM-3001-{TEST_YEAR}", style_of_cause=""))  # empty probe
+        db.commit()
+        assert daily_intake.highest_known_imm(db, TEST_YEAR) == 50
+        db.add(FCProceduralHistory(imm_number=f"IMM-60-{TEST_YEAR}", style_of_cause="DOE v. MCI"))  # real file
+        db.commit()
+        assert daily_intake.highest_known_imm(db, TEST_YEAR) == 60

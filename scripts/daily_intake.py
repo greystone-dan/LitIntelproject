@@ -416,7 +416,9 @@ def highest_known_imm(db, year_suffix: int) -> int:
         "WHERE year IN (:y, :y1) AND citation ~ :p",
         "SELECT max(split_part(raw_payload->>'imm_number', '-', 2)::int) FROM fc_activity_cases "
         "WHERE year IN (:y, :y1) AND raw_payload->>'imm_number' ~ :p",
-        "SELECT max(split_part(imm_number, '-', 2)::int) FROM fc_procedural_history WHERE imm_number ~ :p",
+        # Empty probe rows (no style of cause) exist in fc_procedural_history; they are not real files.
+        "SELECT max(split_part(imm_number, '-', 2)::int) FROM fc_procedural_history "
+        "WHERE imm_number ~ :p AND coalesce(style_of_cause, '') <> ''",
     )
     for query in queries:
         value = db.execute(text(query), {"p": pattern, "y": full_year, "y1": full_year + 1}).scalar()

@@ -10,20 +10,30 @@ classification says lifecycle_status.status = 'closed'. Everything else is unres
   no_documents      fc_activity file exists but holds zero docket entries
   open_or_unknown   has entries, lifecycle not 'closed' (or not classified yet)
 
-Subcommands (all read-only except `run` without --dry-run):
+Subcommands (all read-only except `run` without --dry-run/--out-file, `import` and `undo --yes`):
   counts              totals and a by-year breakdown, plus a runtime estimate
-  run --dry-run       fetch and parse the first N unresolved numbers (default 20), write nothing
+  export-list FILE    write the ordered unresolved list (for a machine with no database)
+  run --dry-run       fetch and parse the first N unresolved numbers (default 20), write nothing;
+                      use --limit 200 to see the speed before a full night
   run                 the real run: additive writes only, resumable, stop file, progress file
+  run --list-file F --out-file R.jsonl [--shard i/n]
+                      second-machine mode: no database; fetched results go to a JSONL file
+  import R.jsonl      add a results file to the database (additive, ledgered, safe to repeat)
   undo                list (default) or remove (--yes) the rows a run added, from its ledger
 
 Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only
 gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted.
-No AI calls. Two requests per file at the polite 2 s delay plus jitter.
+No AI calls. Two requests per file, one file at a time. Pace follows the earlier live sweep
+(2026-09-25/26, 98,301 files at 2,300-11,500 files/hour, no blocks): start at 100 ms between files with a 2 s pause per 20 files
+(sub-2 s is the fetcher's explicit opt-in, approved by Daniel on 2026-10-07 with back-off), double the
+delay after any failure up to 2 s, speed up again after 50 clean files. Any HTTP 403/429 stops the run
+at once; it is never retried around.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -43,7 +53,7 @@ from backend.database import FCActivityCase, FCActivityDocument, SessionLocal  #
 IMM_RE = re.compile(r"^IMM-(\d+)-(\d{2})$")
 ADVISORY_LOCK_KEY = 74_100_262
 CATEGORIES = ("not_in_activity", "no_documents", "open_or_unknown")
-SECONDS_PER_FILE = 4.0  # 2.0 s delay + ~0.25 s mean jitter + two requests; refined by the dry run
+SECONDS_PER_FILE = 0.5  # 2026-09-25/26 sweep: 100 ms delay, ~0.3-0.4 s per file, plus a 2 s pause per 20 files
 DEFAULT_RUN_DIR = PROJECT_ROOT / "data" / "fc_activity_overnight"
 
 UNRESOLVED_SQL = """
@@ -101,6 +111,26 @@ def run_order_key(row: tuple[str, str], oldest_first: bool = False) -> tuple[int
 def load_unresolved(db, categories: tuple[str, ...] = CATEGORIES) -> list[tuple[str, str]]:
     rows = db.execute(text(UNRESOLVED_SQL)).all()
     return [(imm, cat) for imm, cat in rows if cat in categories and IMM_RE.match(imm)]
+
+
+def parse_shard(value: str | None) -> tuple[int, int]:
+    """'2/3' -> (2, 3), 1-based. None -> (1, 1)."""
+    if not value:
+        return (1, 1)
+    match = re.fullmatch(r"(\d+)/(\d+)", value.strip())
+    if not match or not (1 <= int(match.group(1)) <= int(match.group(2))):
+        raise ValueError("--shard must look like i/n with 1 <= i <= n, e.g. 2/2")
+    return int(match.group(1)), int(match.group(2))
+
+
+def in_shard(imm: str, index: int, count: int) -> bool:
+    """Deterministic split by hash of the IMM number, so machines with different lists still never overlap."""
+    return int(hashlib.sha256(imm.encode("utf-8")).hexdigest(), 16) % count == index - 1
+
+
+def read_list_file(path: Path) -> list[str]:
+    return [line.split("\t", 1)[0].strip().upper() for line in path.read_text(encoding="utf-8").splitlines()
+            if IMM_RE.match(line.split("\t", 1)[0].strip().upper())]
 
 
 def read_done(path: Path) -> set[str]:
@@ -225,12 +255,26 @@ def store_additive(db, imm: str, result: dict[str, Any], run_label: str) -> tupl
     return case.id, created, new_ids
 
 
+def cmd_export_list(args: argparse.Namespace) -> int:
+    with SessionLocal() as db:
+        candidates = load_unresolved(db, tuple(args.categories.split(",")))
+    candidates.sort(key=lambda row: run_order_key(row, args.oldest_first))
+    Path(args.file).write_text("".join(f"{imm}\t{cat}\n" for imm, cat in candidates), encoding="utf-8")
+    print(f"Wrote {len(candidates):,} unresolved IMM numbers to {args.file}")
+    return 0
+
+
 def cmd_run(args: argparse.Namespace) -> int:
-    from scripts.daily_intake import build_fc_client, is_missing_file
-    from scripts.fetch_fc_procedural_history import RequestBudget, process_imm, validate_delay_ms
     import random
 
-    validate_delay_ms(args.delay_ms)
+    from scripts.daily_intake import build_fc_client, is_missing_file
+    from scripts.fetch_fc_procedural_history import RequestBudget, _json_safe, process_imm
+
+    shard_index, shard_count = parse_shard(args.shard)
+    offline = bool(args.out_file)
+    if offline and not args.list_file:
+        print("--out-file needs --list-file (the second machine has no database).")
+        return 1
     run_dir = Path(args.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     stop_file = Path(args.stop_file) if args.stop_file else run_dir / "stop.txt"
@@ -244,43 +288,59 @@ def cmd_run(args: argparse.Namespace) -> int:
         log(f"Stop file exists ({stop_file}); delete it to run. Nothing done.")
         return 1
 
-    lock_db = SessionLocal()  # held open for the whole run: the advisory lock lives on this connection
-    with SessionLocal() as db:
-        candidates = load_unresolved(db, tuple(args.categories.split(",")))
-    if not args.dry_run:
-        if not lock_db.execute(text("SELECT pg_try_advisory_lock(:k)"), {"k": ADVISORY_LOCK_KEY}).scalar():
-            log("Another backlog run holds the lock; exiting.")
-            lock_db.close()
-            return 1
-    candidates.sort(key=lambda row: run_order_key(row, args.oldest_first))
+    lock_db = None
+    if args.list_file:
+        candidates = [(imm, "listed") for imm in read_list_file(Path(args.list_file))]
+    else:
+        lock_db = SessionLocal()  # held open for the whole run: the advisory lock lives on this connection
+        with SessionLocal() as db:
+            candidates = load_unresolved(db, tuple(args.categories.split(",")))
+        candidates.sort(key=lambda row: run_order_key(row, args.oldest_first))
+        if not args.dry_run and not offline:
+            if not lock_db.execute(text("SELECT pg_try_advisory_lock(:k)"), {"k": ADVISORY_LOCK_KEY}).scalar():
+                log("Another backlog run holds the lock; exiting.")
+                lock_db.close()
+                return 1
     done = set() if args.dry_run or args.ignore_done else read_done(done_path)
-    todo = [imm for imm, _cat in candidates if imm not in done]
+    todo = [imm for imm, _cat in candidates if imm not in done and in_shard(imm, shard_index, shard_count)]
     limit = 20 if args.dry_run and not args.limit else args.limit
     if limit:
         todo = todo[:limit]
-    log(f"{'DRY RUN: ' if args.dry_run else ''}{len(candidates):,} unresolved, {len(done):,} already done, "
-        f"{len(todo):,} to process (~{estimate_hours(len(todo)):.1f} h)")
+    log(f"{'DRY RUN: ' if args.dry_run else ''}shard {shard_index}/{shard_count}: {len(candidates):,} listed, "
+        f"{len(done):,} already done, {len(todo):,} to process (~{estimate_hours(len(todo)):.1f} h)")
 
     started = time.monotonic()
     request_budget = RequestBudget(max(args.max_requests, 2 * len(todo) * 3))
     stats = {"processed": 0, "files_added": 0, "docs_added": 0, "missing": 0, "failed": 0}
     consecutive_failures = 0
     pause_s = args.issue_pause_s
+    current_delay_ms = args.delay_ms
+    clean_streak = 0
     stopped_by = "finished"
-    done_handle = None if args.dry_run else done_path.open("a", encoding="utf-8", buffering=1)
-    ledger_handle = None if args.dry_run else ledger_path.open("a", encoding="utf-8", buffering=1)
+    writes = not args.dry_run
+    done_handle = done_path.open("a", encoding="utf-8", buffering=1) if writes else None
+    ledger_handle = ledger_path.open("a", encoding="utf-8", buffering=1) if writes and not offline else None
+    out_handle = Path(args.out_file).open("a", encoding="utf-8", buffering=1) if offline and writes else None
 
     def write_progress() -> None:
-        if args.dry_run:
+        if not writes:
             return
         progress_path.write_text(json.dumps({
-            **stats, "remaining": len(todo) - stats["processed"], "stopped_by": stopped_by,
+            **stats, "shard": f"{shard_index}/{shard_count}", "remaining": len(todo) - stats["processed"],
+            "stopped_by": stopped_by, "delay_ms": current_delay_ms,
             "elapsed_minutes": round((time.monotonic() - started) / 60, 1),
             "updated": datetime.now(timezone.utc).isoformat(),
         }, indent=2), encoding="utf-8")
 
+    block_seen: list[int] = []
+
+    def watch_status(response) -> None:  # httpx response hook: a 403/429 means the site is refusing us
+        if response.status_code in (403, 429):
+            block_seen.append(response.status_code)
+
     try:
         with build_fc_client() as client:
+            client.event_hooks["response"].append(watch_status)
             for i, imm in enumerate(todo, 1):
                 if stop_requested(stop_file):
                     stopped_by = "stop file"
@@ -289,15 +349,21 @@ def cmd_run(args: argparse.Namespace) -> int:
                     stopped_by = "time limit"
                     break
                 if i > 1:
-                    time.sleep((args.delay_ms + random.randint(0, args.jitter_ms)) / 1000)
+                    time.sleep((current_delay_ms + random.randint(0, args.jitter_ms)) / 1000)
                 try:
                     result = process_imm(client, imm, request_budget=request_budget)
                 except Exception as exc:  # budget or unexpected
                     result = {"error": str(exc)}
+                if block_seen:
+                    stopped_by = f"HTTP {block_seen[0]} from the Court site: stopped, not retried"
+                    log(f"[BLOCK] {imm}: {stopped_by}")
+                    break
                 if result.get("error"):
                     stats["failed"] += 1
                     consecutive_failures += 1
-                    log(f"[fail] {imm}: {result['error']} (consecutive={consecutive_failures}, pausing {pause_s:.0f}s)")
+                    clean_streak = 0
+                    current_delay_ms = min(args.max_delay_ms, max(current_delay_ms * 2, 250))
+                    log(f"[fail] {imm}: {result['error']} (consecutive={consecutive_failures}, delay now {current_delay_ms} ms, pausing {pause_s:.0f}s)")
                     time.sleep(pause_s)
                     pause_s = min(pause_s * 2, 300)
                     if consecutive_failures >= args.max_consecutive_failures:
@@ -305,6 +371,11 @@ def cmd_run(args: argparse.Namespace) -> int:
                         break
                     continue
                 consecutive_failures, pause_s = 0, args.issue_pause_s
+                clean_streak += 1
+                if clean_streak >= 50 and current_delay_ms > args.delay_ms:
+                    current_delay_ms = max(args.delay_ms, int(current_delay_ms * 0.75))
+                    clean_streak = 0
+                    log(f"[adaptive] 50 clean files; delay back to {current_delay_ms} ms")
                 stats["processed"] += 1
                 if is_missing_file(result):
                     stats["missing"] += 1
@@ -314,6 +385,10 @@ def cmd_run(args: argparse.Namespace) -> int:
                     outcome = "dry"
                     log(f"[{i}/{len(todo)}] {imm}: {len(result.get('entries_json') or [])} entries, "
                         f"status={result.get('case_status')}, would write")
+                elif offline:
+                    outcome = f"fetched:{len(result.get('entries_json') or [])}"
+                    out_handle.write(json.dumps({"imm": imm, "result": _json_safe(result)}) + "\n")
+                    log(f"[{i}/{len(todo)}] {imm}: {len(result.get('entries_json') or [])} entries saved to file")
                 else:
                     with SessionLocal() as db:
                         case_id, created, new_ids = store_additive(db, imm, result, run_label)
@@ -327,14 +402,54 @@ def cmd_run(args: argparse.Namespace) -> int:
                     done_handle.write(f"{imm}\t{outcome}\n")
                 if i % 25 == 0:
                     write_progress()
+                if i % args.batch_size == 0:
+                    time.sleep(args.batch_pause_ms / 1000)
     finally:
         write_progress()
-        lock_db.close()
-        for handle in (done_handle, ledger_handle):
+        if lock_db is not None:
+            lock_db.close()
+        for handle in (done_handle, ledger_handle, out_handle):
             if handle:
                 handle.close()
+    elapsed = max(time.monotonic() - started, 0.001)
     log(f"Stopped: {stopped_by}. {stats}")
+    log(f"Speed: {stats['processed']} files in {elapsed / 60:.1f} min = {stats['processed'] / elapsed * 3600:,.0f} files/hour")
     return 0 if stopped_by in ("finished", "stop file", "time limit") else 2
+
+
+def cmd_import(args: argparse.Namespace) -> int:
+    """Add a second machine's results file to the database: additive, ledgered, safe to run twice."""
+    run_dir = Path(args.run_dir)
+    run_dir.mkdir(parents=True, exist_ok=True)
+    ledger_path = run_dir / "ledger.jsonl"
+    done_path = run_dir / "done.tsv"
+    run_label = f"FC Activity overnight backlog (import) {datetime.now(timezone.utc):%Y-%m-%d}"
+    lines = [line for line in Path(args.file).read_text(encoding="utf-8").splitlines() if line.strip()]
+    done = read_done(done_path)
+    todo = [json.loads(line) for line in lines]
+    todo = [row for row in todo if row["imm"] not in done or args.ignore_done]
+    print(f"{len(lines):,} results in file, {len(todo):,} not imported yet.")
+    if args.dry_run:
+        print("Dry run: nothing written.")
+        return 0
+    files = docs = 0
+    with SessionLocal() as db, ledger_path.open("a", encoding="utf-8", buffering=1) as ledger, done_path.open("a", encoding="utf-8", buffering=1) as done_out:
+        for row in todo:
+            result = row["result"]
+            if not result.get("entries_json") and not result.get("style_of_cause"):
+                done_out.write(f"{row['imm']}\tmissing\n")
+                continue
+            fetched = result.get("fetched_at")
+            if isinstance(fetched, str):
+                result["fetched_at"] = datetime.fromisoformat(fetched)
+            case_id, created, new_ids = store_additive(db, row["imm"], result, run_label)
+            files += int(created)
+            docs += len(new_ids)
+            if created or new_ids:
+                ledger.write(json.dumps({"imm": row["imm"], "case_id": case_id, "case_created": created, "doc_ids": new_ids}) + "\n")
+            done_out.write(f"{row['imm']}\tok:{len(new_ids)}\n")
+    print(f"Imported: {files:,} new files, {docs:,} new docket entries.")
+    return 0
 
 
 def cmd_undo(args: argparse.Namespace) -> int:
@@ -364,6 +479,17 @@ def build_parser() -> argparse.ArgumentParser:
     counts = sub.add_parser("counts", help="read-only counts and runtime estimate")
     counts.add_argument("--json-out")
     counts.set_defaults(func=cmd_counts)
+    export = sub.add_parser("export-list", help="write the ordered unresolved list to a file")
+    export.add_argument("file")
+    export.add_argument("--categories", default=",".join(CATEGORIES))
+    export.add_argument("--oldest-first", action="store_true")
+    export.set_defaults(func=cmd_export_list)
+    imp = sub.add_parser("import", help="add a second machine's results file to the database")
+    imp.add_argument("file")
+    imp.add_argument("--run-dir", default=str(DEFAULT_RUN_DIR))
+    imp.add_argument("--dry-run", action="store_true")
+    imp.add_argument("--ignore-done", action="store_true")
+    imp.set_defaults(func=cmd_import)
     run = sub.add_parser("run", help="fetch unresolved IMM files")
     run.add_argument("--dry-run", action="store_true", help="fetch and parse 20 numbers (or --limit), write nothing")
     run.add_argument("--limit", type=int)
@@ -373,8 +499,11 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--ignore-done", action="store_true", help="re-fetch numbers already in done.tsv")
     run.add_argument("--run-dir", default=str(DEFAULT_RUN_DIR))
     run.add_argument("--stop-file", help="default: <run-dir>/stop.txt")
-    run.add_argument("--delay-ms", type=int, default=2000, help="minimum 2000")
-    run.add_argument("--jitter-ms", type=int, default=500)
+    run.add_argument("--delay-ms", type=int, default=100, help="starting delay between files; backs off after failures")
+    run.add_argument("--max-delay-ms", type=int, default=2000, help="ceiling for automatic back-off")
+    run.add_argument("--jitter-ms", type=int, default=0, help="as in the 2026-09 sweep")
+    run.add_argument("--batch-size", type=int, default=20)
+    run.add_argument("--batch-pause-ms", type=int, default=2000, help="pause after every batch of files")
     run.add_argument("--issue-pause-s", type=float, default=10, help="pause after a failed fetch; doubles up to 300")
     run.add_argument("--max-consecutive-failures", type=int, default=10)
     run.add_argument("--max-requests", type=int, default=100000)

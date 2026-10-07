@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 198
+Active scripts documented: 199
 
 ## Catalog
 
@@ -113,6 +113,7 @@ Active scripts documented: 198
 | `extract_seed_cases_from_transcript.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help` |
 | `fc_activity_backlog.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs` |
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
+| `fc_activity_laptop.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
@@ -1625,7 +1626,7 @@ Active scripts documented: 198
 
 ## `scripts/fc_activity_backlog.py`
 
-**Purpose:** Overnight FC Activity backlog: fetch docket activity for IMM files that are not resolved yet. "Known" IMM numbers are the union of: fc_activity_cases (citation or raw_payload.imm_number), fc_procedural_history rows with a style of cause, and IMM docket numbers on FC decisions in `cases`. A known number is "resolved" when its fc_activity file has docket entries AND the stored classification says lifecycle_status.status = 'closed'. Everything else is unresolved: not_in_activity known only from decisions / procedural history, no fc_activity file no_documents fc_activity file exists but holds zero docket entries open_or_unknown has entries, lifecycle not 'closed' (or not classified yet) Subcommands (all read-only except `run` without --dry-run): counts totals and a by-year breakdown, plus a runtime estimate run --dry-run fetch and parse the first N unresolved numbers (default 20), write nothing run the real run: additive writes only, resumable, stop file, progress file undo list (default) or remove (--yes) the rows a run added, from its ledger Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted. No AI calls. Two requests per file at the polite 2 s delay plus jitter.
+**Purpose:** Overnight FC Activity backlog: fetch docket activity for IMM files that are not resolved yet. "Known" IMM numbers are the union of: fc_activity_cases (citation or raw_payload.imm_number), fc_procedural_history rows with a style of cause, and IMM docket numbers on FC decisions in `cases`. A known number is "resolved" when its fc_activity file has docket entries AND the stored classification says lifecycle_status.status = 'closed'. Everything else is unresolved: not_in_activity known only from decisions / procedural history, no fc_activity file no_documents fc_activity file exists but holds zero docket entries open_or_unknown has entries, lifecycle not 'closed' (or not classified yet) Subcommands (all read-only except `run` without --dry-run/--out-file, `import` and `undo --yes`): counts totals and a by-year breakdown, plus a runtime estimate export-list FILE write the ordered unresolved list (for a machine with no database) run --dry-run fetch and parse the first N unresolved numbers (default 20), write nothing; use --limit 200 to see the speed before a full night run the real run: additive writes only, resumable, stop file, progress file run --list-file F --out-file R.jsonl [--shard i/n] second-machine mode: no database; fetched results go to a JSONL file import R.jsonl add a results file to the database (additive, ledgered, safe to repeat) undo list (default) or remove (--yes) the rows a run added, from its ledger Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted. No AI calls. Two requests per file, one file at a time. Pace follows the earlier live sweep (2026-09-25/26, 98,301 files at 2,300-11,500 files/hour, no blocks): start at 100 ms between files with a 2 s pause per 20 files (sub-2 s is the fetcher's explicit opt-in, approved by Daniel on 2026-10-07 with back-off), double the delay after any failure up to 2 s, speed up again after 50 clean files. Any HTTP 403/429 stops the run at once; it is never retried around.
 
 **Operational class:** Orchestration
 
@@ -1649,6 +1650,20 @@ Active scripts documented: 198
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help
+```
+
+## `scripts/fc_activity_laptop.py`
+
+**Purpose:** FC Activity laptop runner: fetch docket activity for a list of IMM numbers, no database, no installs. Standard library only (Python 3.9+). One file. It reads a plain-text list of IMM numbers (one per line, made on the iLit PC with `fc_activity_backlog.py export-list`), fetches each from the Federal Court site (2 requests per file, one file at a time) and appends the results to a .jsonl file. The PC later imports that file (`fc_activity_backlog.py import`). Nothing is sent anywhere else. Pace follows the 2026-09-25/26 live sweep that fetched 98,300 files with zero errors and no 403/429: 100 ms between files, a 2 s pause after every 20 files. Safety (kept on): * after a failed file the delay doubles (up to 2 s), the run pauses 10 s (doubling to 5 min), and it speeds up again after 50 clean files * any HTTP 403 or 429 stops the whole run at once; it is never retried * 10 failed files in a row stop the run * a stop file ends the run cleanly after the current file; running again resumes where it left off Usage: python fc_activity_laptop.py --list imm_list.txt --test # 200-file speed test, results kept separate python fc_activity_laptop.py --list imm_list.txt # the real run (add --max-minutes 600) stop: create an empty file named stop.txt in the data folder
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help
 ```
 
 ## `scripts/fc_portal_collector.py`

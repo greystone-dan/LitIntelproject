@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STEPS_FILE = ROOT / "backend" / "pages" / "site_tour_steps.json"
-ACTIONS = {"type", "check", "uncheck", "click", "submit", "scroll", "waitFor"}
+ACTIONS = {"type", "fill", "check", "uncheck", "click", "submit", "scroll", "waitFor", "wait"}
 
 
 def validate_steps(data: dict) -> list[str]:
@@ -48,19 +48,47 @@ def validate_steps(data: dict) -> list[str]:
             if name not in cases:
                 problems.append(f"{label}: url names unknown case '{name}'")
         target = step.get("target")
-        if target is not None and not (isinstance(target, str) or (isinstance(target, list) and target and all(isinstance(t, str) for t in target))):
+
+        def selector_ok(item) -> bool:
+            return isinstance(item, str) or (isinstance(item, dict) and isinstance(item.get("css"), str))
+
+        if target is not None and not (selector_ok(target) or (isinstance(target, list) and target and all(selector_ok(t) for t in target))):
             problems.append(f"{label}: target must be a selector or a list of selectors")
         for action in step.get("before", []):
             if action.get("do") not in ACTIONS:
                 problems.append(f"{label}: unknown action {action.get('do')!r}")
-            if not action.get("selector"):
+            if action.get("do") != "wait" and not action.get("selector"):
                 problems.append(f"{label}: action without a selector")
+            if action.get("do") == "fill" and action.get("sample") not in (data.get("texts") or {}):
+                problems.append(f"{label}: fill names an unknown sample text")
         for button in step.get("buttons", []):
             if not button.get("label") or not button.get("click"):
                 problems.append(f"{label}: button needs a label and a click selector")
             if not button.get("writes"):
                 problems.append(f"{label}: a step button must say what it writes (writes)")
+    for probe in data.get("probes") or []:
+        if not (str(probe.get("url", "")).startswith("/") and isinstance(probe.get("min"), int)):
+            problems.append(f"probe {probe.get('id', '?')}: needs a url path and an integer min")
     return problems
+
+
+def run_probes(base: str) -> int:
+    """Search the example data the tour relies on (read-only GETs). Returns how many came back short."""
+    import urllib.request
+
+    short = 0
+    for probe in json.loads(STEPS_FILE.read_text(encoding="utf-8")).get("probes") or []:
+        try:
+            with urllib.request.urlopen(base + probe["url"], timeout=60) as response:
+                count = len(json.load(response).get("results", []))
+        except Exception as error:  # noqa: BLE001
+            count, note = -1, f" ({str(error)[:60]})"
+        else:
+            note = ""
+        verdict = "ok" if count >= probe["min"] else "NO DATA"
+        short += verdict != "ok"
+        print(f"probe {probe['id']:<32} {count:>3} results  {verdict}{note}  - {probe.get('note', '')}")
+    return short
 
 
 def launch(playwright):
@@ -78,7 +106,7 @@ def sign_in(context, base: str) -> None:
         print(f"demo sign-in failed ({response.status}); Workbench steps will be skipped")
 
 
-def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, demo: bool) -> int:
+def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, demo: bool, require_data: bool) -> int:
     from playwright.sync_api import sync_playwright
 
     data = json.loads(STEPS_FILE.read_text(encoding="utf-8"))
@@ -118,6 +146,10 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
                 shown = bool(state and state.get("active") and state.get("i") == index and page.locator(".ilit-tour-card").count())
                 if not shown:
                     status = "skipped"
+                elif step.get("needsData") and not page.evaluate(
+                    "() => /[1-9]/.test(document.querySelector('#fcxKpis')?.innerText || '')"
+                ):
+                    status = "empty"
                 elif step.get("target"):
                     inside = page.evaluate(
                         "() => { const r = document.querySelector('.ilit-tour-ring'); return r && getComputedStyle(r).display !== 'none' && r.getBoundingClientRect().width > 0 }"
@@ -132,7 +164,7 @@ def run_browser(base: str, shots: Path | None, shot_ids: set[str], width: int, d
             relaxed = bool(step.get("optional") or step.get("needs"))
             if errors:
                 status += f" (page error: {errors[0][:80]})"
-            ok = status == "ok" or (status == "skipped" and relaxed)
+            ok = status == "ok" or (status == "skipped" and relaxed) or (status == "empty" and not require_data)
             if not ok:
                 failures += 1
             rows.append((index + 1, step["id"], status + (" [relaxed]" if status == "skipped" and relaxed else "")))
@@ -197,6 +229,7 @@ def main() -> int:
     parser.add_argument("--shot-ids", default="", help="comma list of step ids to photograph (default: all, when --shots is set)")
     parser.add_argument("--width", type=int, default=1280, help="viewport width (390 for a phone)")
     parser.add_argument("--demo-sign-in", action="store_true", help="sign in to the Workbench demo first (writes a demo user; leave off for the live site)")
+    parser.add_argument("--require-data", action="store_true", help="fail when example data is missing (probes short, statistics empty); use on the real library")
     parser.add_argument("--steps-only", action="store_true")
     args = parser.parse_args()
 
@@ -210,7 +243,10 @@ def main() -> int:
     shot_ids = {s for s in args.shot_ids.split(",") if s}
     if args.shots and not shot_ids:
         shot_ids = {step["id"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]}
-    failures = run_browser(base, args.shots, shot_ids, args.width, args.demo_sign_in) + run_controls(base, args.width)
+    short = run_probes(base)
+    failures = run_browser(base, args.shots, shot_ids, args.width, args.demo_sign_in, args.require_data) + run_controls(base, args.width)
+    if args.require_data:
+        failures += short
     print("FAILED" if failures else "all steps resolve")
     return 1 if failures else 0
 

@@ -29,8 +29,9 @@
   function findVisible(sel){
     var list=Array.isArray(sel)?sel:[sel];
     for(var i=0;i<list.length;i++){
-      var all;try{all=document.querySelectorAll(list[i])}catch(e){continue}
-      for(var j=0;j<all.length;j++)if(visible(all[j]))return all[j];
+      var item=list[i],css=typeof item==='string'?item:item.css,re=item&&item.text?new RegExp(item.text,'i'):null,all;
+      try{all=document.querySelectorAll(css)}catch(e){continue}
+      for(var j=0;j<all.length;j++)if(visible(all[j])&&(!re||re.test(all[j].textContent||'')))return all[j];
     }
     return null;
   }
@@ -127,13 +128,41 @@
       await sleep(22);
     }
   }
+  async function fillInto(input,text,token){
+    input.focus();
+    if(reduce){input.value=text;input.dispatchEvent(new Event('input',{bubbles:true}));return}
+    input.value='';
+    for(var i=0;i<text.length;i+=60){
+      if(token!==run)return;
+      input.value=text.slice(0,i+60);
+      input.dispatchEvent(new Event('input',{bubbles:true}));
+      await sleep(12);
+    }
+    input.scrollTop=0;
+  }
+  function pickNode(sel,a){
+    var all=[];
+    try{all=[].slice.call(document.querySelectorAll(sel))}catch(e){}
+    all=all.filter(visible);
+    if(a.match){var re=new RegExp(a.match,'i');all=all.filter(function(n){return re.test(n.textContent||'')})}
+    return all[0]||null;
+  }
   async function doAction(a,token){
     if(a.unless&&findVisible(a.unless))return true;
+    if(a.when&&!findVisible(a.when))return true;
+    if(a.do==='wait'){await sleep(a.ms||500);return true}
     if(a.do==='waitFor')return !!(await waitFor(a.selector,a.timeout||10,token));
-    var node=await waitFor(a.selector,a.timeout||6,token);
+    var node=null,end=Date.now()+(a.timeout||6)*1000;
+    for(;;){
+      if(token!==run)return false;
+      node=pickNode(a.selector,a);
+      if(node||Date.now()>end)break;
+      await sleep(150);
+    }
     if(!node)return false;
     switch(a.do){
       case 'type':await typeInto(node,a.text||'',token);break;
+      case 'fill':await fillInto(node,(DATA.texts||{})[a.sample]||'',token);break;
       case 'check':if(!node.checked)node.click();break;
       case 'uncheck':if(node.checked)node.click();break;
       case 'click':node.click();break;
@@ -141,7 +170,7 @@
       case 'scroll':node.scrollIntoView({block:'center'});break;
       default:return false;
     }
-    await sleep(120);
+    await sleep(150);
     return true;
   }
 
@@ -215,21 +244,12 @@
       ui.ring.style.display='none';
     }
     if(narrow){
-      card.style.left='0';card.style.right='0';card.style.top='auto';card.style.bottom='0';card.style.transform='none';card.classList.add('sheet');
+      card.style.left='0';card.style.right='0';card.style.top='auto';card.style.bottom='0';card.classList.add('sheet');
       return;
     }
-    card.classList.remove('sheet');card.style.right='auto';card.style.bottom='auto';
-    var cw=card.offsetWidth,ch=card.offsetHeight,gap=14,left,top;
-    if(!r){left=(vw-cw)/2;top=(vh-ch)/2}
-    else{
-      if(vh-(r.y+r.h)-gap>=ch){top=r.y+r.h+gap;left=r.x}                    // below
-      else if(r.y-gap>=ch){top=r.y-gap-ch;left=r.x}                         // above
-      else if(vw-(r.x+r.w)-gap>=cw){left=r.x+r.w+gap;top=Math.max(8,r.y)}   // right
-      else if(r.x-gap>=cw){left=r.x-gap-cw;top=Math.max(8,r.y)}             // left
-      else{left=vw-cw-16;top=vh-ch-16}                                      // over the target as a last resort
-    }
-    left=Math.max(12,Math.min(left,vw-cw-12));top=Math.max(12,Math.min(top,vh-ch-12));
-    card.style.left=left+'px';card.style.top=top+'px';card.style.transform='none';
+    // One fixed place on desktop, so Next is always under the same spot.
+    card.classList.remove('sheet');
+    card.style.left='auto';card.style.top='auto';card.style.right='20px';card.style.bottom='20px';
   }
   function set(n,x,y,w,h){n.style.transform='translate('+x+'px,'+y+'px)';n.style.width=w+'px';n.style.height=h+'px'}
   function follow(){
@@ -260,16 +280,11 @@
     u.back.disabled=i===0;
     u.next.textContent=i===STEPS.length-1?'Done':'Next';
     u.skip.hidden=sectionOf(i)===sectionOf(STEPS.length-1)||!STEPS.slice(i+1).some(function(x){return x.section!==s.section});
+    if(s.writes)u.extra.appendChild(el('span','ilit-tour-writes',s.writes));
     (s.buttons||[]).forEach(function(b){
       var btn=el('button','ilit-tour-btn action',b.label);btn.type='button';
-      if(b.writes){var w=el('span','ilit-tour-writes',b.writes);u.extra.appendChild(w)}
-      btn.onclick=async function(){
-        var token=run;btn.disabled=true;
-        var node=qs(b.click);
-        if(node)node.click();
-        if(b.waitFor)await waitFor(b.waitFor,10,token);
-        if(token===run)go(1);
-      };
+      if(b.writes)u.extra.appendChild(el('span','ilit-tour-writes',b.writes));
+      btn.onclick=function(){var node=qs(b.click);if(node)node.click();btn.disabled=true};   // never moves on by itself
       u.extra.appendChild(btn);
     });
     u.live.textContent=(s.title||'')+'. '+(s.text||'');
@@ -282,10 +297,18 @@
     if(!target)return;
     var narrow=window.innerWidth<640;
     try{target.scrollIntoView({block:narrow?'start':'center',inline:'nearest',behavior:'auto'})}catch(e){target.scrollIntoView()}
+    var b=target.getBoundingClientRect();
     if(narrow){                                                    // leave room for the card docked at the bottom
-      var room=window.innerHeight*0.42,b=target.getBoundingClientRect();
+      var room=window.innerHeight*0.42;
       if(b.bottom>window.innerHeight-room){try{window.scrollBy(0,b.bottom-(window.innerHeight-room)+12)}catch(e){}}
       else window.scrollBy(0,-70);
+      return;
+    }
+    // Desktop: the card sits bottom right; lift the target clear of it when they would overlap.
+    var c=ui&&ui.card.getBoundingClientRect();
+    if(c&&b.right>c.left-8&&b.left<c.right&&b.bottom>c.top-16){
+      var need=b.bottom-(c.top-16),allowed=Math.max(0,b.top-84),by=Math.min(need,allowed);
+      if(by>0){try{window.scrollBy(0,by)}catch(e){}}
     }
   }
   var direction=1;
@@ -312,7 +335,10 @@
       location.assign(url);
       return;
     }
-    state.nav=null;save(state);
+    state.nav=null;
+    if(s.fresh&&direction<0&&state.reloaded!==i){state.reloaded=i;save(state);location.reload();return}   // a page that changes as you use it starts clean when you step back to it
+    if(state.reloaded!==i)state.reloaded=null;
+    save(state);
     // 2. run the step's actions
     var ok=true;
     for(var k=0;k<(s.before||[]).length;k++){
@@ -329,8 +355,8 @@
     }
     if(token!==run)return;
     if(s.target&&!target)return skipOver(i,token);                  // missing element or data: skip, never break
-    if(target){scrollTo(target);await sleep(reduce?0:120)}
     render(i,target,false);
+    if(target){scrollTo(target);await sleep(reduce?0:120)}
     if(s.hover&&target){hoverOn(target)}else hoverOff();
   }
   var hovered=null;
@@ -364,8 +390,19 @@
     run++;hoverOff();
     clear();state=null;destroy();
   }
-  function start(){
+  // The tour signs in to the Workbench demo (no password, a made-up name) so a pinned case can be shown.
+  // It never replaces a session that is already signed in.
+  async function demoSignIn(){
+    try{
+      var me=await (await fetch('/workbench/api/me',{credentials:'same-origin'})).json();
+      if(me&&me.signed_in)return;
+      await fetch('/workbench/api/signin',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Demo analyst'})});
+    }catch(e){}
+  }
+  async function start(){
     state={i:0,active:true};save(state);
+    build();render(0,null,true);
+    await demoSignIn();
     var url=new URL(location.href);
     if(url.searchParams.has('tour')){url.searchParams.delete('tour');history.replaceState(null,'',url.pathname+url.search+url.hash)}
     show(0,1);

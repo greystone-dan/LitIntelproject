@@ -531,30 +531,45 @@ def refresh_candidates(db, limit: int, min_age_days: int, active_within_days: in
     """Recently active files not fetched for a while, oldest fetch first, as IMM numbers."""
     if limit <= 0:
         return []
+    # Pick candidate cases first from cheap columns (year, scrape time), then test each for a recent
+    # docket entry with an indexed EXISTS, stopping at the limit. Never aggregate the whole documents
+    # table (3.6M rows) and never read raw_payload for more than the chosen few.
+    params = {
+        "active_since": today - timedelta(days=active_within_days),
+        "stale_before": datetime.now(timezone.utc) - timedelta(days=min_age_days),
+        "limit": limit,
+        "min_year": today.year - 1,
+    }
+    chosen = [
+        row[0]
+        for row in db.execute(
+            text(
+                """
+                SELECT c.id
+                FROM fc_activity_cases c
+                WHERE c.year >= :min_year
+                  AND (c.scraped_timestamp IS NULL OR c.scraped_timestamp < :stale_before)
+                  AND EXISTS (
+                      SELECT 1 FROM fc_activity_documents d
+                      WHERE d.case_id = c.id AND d.doc_dt >= :active_since
+                  )
+                ORDER BY c.scraped_timestamp NULLS FIRST, c.id
+                LIMIT :limit
+                """
+            ),
+            params,
+        )
+    ]
+    if not chosen:
+        return []
     rows = db.execute(
         text(
-            """
-            SELECT COALESCE(c.citation, c.raw_payload->>'imm_number')
-            FROM fc_activity_cases c
-            JOIN (
-                SELECT case_id, max(doc_dt) AS last_doc FROM fc_activity_documents GROUP BY case_id
-            ) d ON d.case_id = c.id
-            WHERE c.year >= :min_year
-              AND COALESCE(c.citation, c.raw_payload->>'imm_number') ~ '^IMM-[0-9]+-[0-9]{2}$'
-              AND d.last_doc >= :active_since
-              AND (c.scraped_timestamp IS NULL OR c.scraped_timestamp < :stale_before)
-            ORDER BY c.scraped_timestamp NULLS FIRST, c.id
-            LIMIT :limit
-            """
+            "SELECT COALESCE(citation, raw_payload->>'imm_number') FROM fc_activity_cases "
+            "WHERE id = ANY(:ids) ORDER BY scraped_timestamp NULLS FIRST, id"
         ),
-        {
-            "active_since": today - timedelta(days=active_within_days),
-            "stale_before": datetime.now(timezone.utc) - timedelta(days=min_age_days),
-            "limit": limit,
-            "min_year": today.year - 1,
-        },
+        {"ids": chosen},
     )
-    return [row[0] for row in rows]
+    return [row[0] for row in rows if row[0] and IMM_PATTERN.match(row[0].strip().upper())]
 
 
 def classify_touched(case_ids: list[int]) -> int:

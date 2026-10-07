@@ -8,7 +8,7 @@ and are skipped when Postgres is not reachable.
 from __future__ import annotations
 
 import hashlib
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import httpx
@@ -442,3 +442,30 @@ def test_highest_known_imm_ignores_empty_probe_rows_in_procedural_history(clean_
         db.add(FCProceduralHistory(imm_number=f"IMM-60-{TEST_YEAR}", style_of_cause="DOE v. MCI"))  # real file
         db.commit()
         assert daily_intake.highest_known_imm(db, TEST_YEAR) == 60
+
+
+def test_refresh_candidates_picks_stale_recently_active_files_only(clean_db):
+    from backend.database import FCActivityCase, FCActivityDocument, SessionLocal
+
+    now = datetime.now(timezone.utc)
+    today = date(1997, 6, 1)
+
+    def make(db, n, scraped, doc_day):
+        case = FCActivityCase(
+            source_key=f"t-ref-{n}", citation=None, year=1997, scraped_timestamp=scraped,
+            raw_payload={"imm_number": f"IMM-{n}-{TEST_YEAR}"},
+        )
+        db.add(case)
+        db.flush()
+        db.add(FCActivityDocument(case_id=case.id, re_no="1", docno="1", doc_dt=doc_day, recorded_entry="x", entry_hash=f"h{n}"))
+
+    with SessionLocal() as db:
+        make(db, 1, now - timedelta(days=30), date(1997, 5, 20))   # stale + active: yes
+        make(db, 2, now - timedelta(days=1), date(1997, 5, 20))    # fetched yesterday: no
+        make(db, 3, now - timedelta(days=30), date(1996, 1, 1))    # no recent activity: no
+        make(db, 4, None, date(1997, 5, 25))                       # never scraped + active: yes, first
+        db.commit()
+        got = daily_intake.refresh_candidates(db, 10, 7, 120, today)
+        mine = [g for g in got if g.endswith(f"-{TEST_YEAR}")]
+        assert mine == [f"IMM-4-{TEST_YEAR}", f"IMM-1-{TEST_YEAR}"]
+        assert daily_intake.refresh_candidates(db, 0, 7, 120, today) == []

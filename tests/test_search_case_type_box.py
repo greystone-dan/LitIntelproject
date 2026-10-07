@@ -61,3 +61,38 @@ def test_v6_reader_title_card_and_about_show_case_type_when_stored():
     assert "cell('Case type',caseTypeText(d))" in js
     assert "['Case type',caseTypeText(d)]" in js
     assert "d.readerData.case_type" in js
+
+
+
+def _search(case_type):
+    from backend.analytics_service import fetch_analytics_search_cases
+
+    db = _FakeDb([])
+    fetch_analytics_search_cases(db, case_type=case_type, include_facets=False, include_citation_stats=False, sort_by="newest")
+    sql, params = db.calls[0]
+    return sql, params
+
+
+def test_filter_accepts_several_case_types_as_bound_params():
+    sql, params = _search("refugee_claim, detention ,refugee_claim")
+    assert "ctl.primary_type IN (:case_type_0, :case_type_1)" in sql and "ctl.second_type IN (:case_type_0, :case_type_1)" in sql
+    assert params["case_type_0"] == "refugee_claim" and params["case_type_1"] == "detention"
+    assert "case_type_2" not in params
+
+
+def test_filter_single_type_still_works_and_unknown_matches_nothing():
+    sql, params = _search("detention")
+    assert "IN (:case_type_0)" in sql and params["case_type_0"] == "detention"
+    sql, _ = _search("not_a_type")
+    assert "FALSE" in sql and "case_type_labels" not in sql
+    sql, _ = _search("")
+    assert "case_type_labels" not in sql
+
+
+def test_advanced_rail_lists_every_type_grouped_with_a_hidden_value_field():
+    from backend.case_types import CASE_TYPES
+    from backend.pages.data_explorer import data_explorer_page_html
+
+    html = data_explorer_page_html()
+    assert 'id="caseTypeBoxes"' in html and '<input id="caseTypeFilter">' in html
+    assert html.count('class="sp-ct-box"') == len(CASE_TYPES)

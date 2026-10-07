@@ -3303,3 +3303,24 @@ def test_legacy_extraction_handles_case_name_chains(monkeypatch):
 	monkeypatch.setenv("CASELIBRARY_CITATION_PIPELINE", "legacy")
 	rows = citations.extract_raw_citation_matches("See Smith v. Canada, 2010 FC 5 at para 3.")
 	assert any(row.kind == "case" and "2010 FC 5" in row.normalized_citation for row in rows)
+
+
+def test_bare_mentions_of_provinces_and_kinds_of_body_are_not_short_forms() -> None:
+	"""Words drawn from a case's party names ("Alberta", "Association", "Commissioner") are not citations by themselves."""
+	from backend.citations import extract_case_citation_matches
+
+	text = (
+		"Alberta (Information and Privacy Commissioner) v. Alberta Teachers' Association, 2011 SCC 61 is the leading case. "
+		"The Alberta legislature met in Toronto. The Association and the Commissioner agreed, and the authority group "
+		"in international law was consulted. Dunsmuir v. New Brunswick, 2008 SCC 9 sets the standard; Dunsmuir is applied."
+	)
+	short = [m.citation_text for m in extract_case_citation_matches(text) if m.kind == "case_short"]
+	assert short == ["Dunsmuir"]
+
+
+def test_pinpointed_short_forms_survive_the_generic_word_filter() -> None:
+	from backend.citations import extract_case_citation_matches
+
+	text = "Dunsmuir v. New Brunswick, 2008 SCC 9 is cited. Later, Dunsmuir at para 47 and Alberta at para 3 are cited."
+	short = {m.citation_text for m in extract_case_citation_matches(text) if m.kind == "case_short"}
+	assert "Dunsmuir at para 47" in short

@@ -10,6 +10,27 @@ from .case_summary_card import inject_case_summary_card
 from .pitch_nav import apply_pitch_navigation
 
 
+def case_type_filter_html() -> str:
+	"""The Advanced "Case type" multi-select: every type in plain words, grouped; counts are filled in by search_v6.js."""
+	from html import escape
+
+	from backend.case_types import CASE_TYPES
+
+	groups: dict[str, list[str]] = {}
+	for case_type in CASE_TYPES:
+		groups.setdefault(case_type.group, []).append(
+			f'<label class="sp-ct-opt"><input type="checkbox" class="sp-ct-box" value="{escape(case_type.key)}">'
+			f'<span>{escape(case_type.label)}</span><em data-ct-count="{escape(case_type.key)}"></em></label>'
+		)
+	body = "".join(
+		f'<details class="sp-ct-group"><summary>{escape(name)}</summary>{"".join(rows)}</details>' for name, rows in groups.items()
+	)
+	return (
+		'<div class="sp-l sp-ct-head">Case type <span class="sp-ct-note" id="caseTypeNote">pick one or more</span></div>'
+		f'<div class="sp-ct" id="caseTypeBoxes">{body}</div>'
+	)
+
+
 def data_explorer_page_html(pitch_navigation: bool = True) -> str:
   html = """<!doctype html>
 <html lang="en">
@@ -909,7 +930,7 @@ function paintSearchRefine(facets,values,count){
  if(values.year)chips.push(`<button type="button" class="facet-chip active" data-facet="year" data-value="" aria-label="Remove year filter ${esc(values.year)}">Year: ${esc(values.year)} ×</button>`);
  else((facets||{}).year||[]).slice(0,8).forEach(row=>chips.push(`<button type="button" class="facet-chip" data-facet="year" data-value="${esc(row.value)}">${esc(row.value)} <span>${num(row.count)}</span></button>`));
  const typeRows=(facets||{}).case_type||[],typeName=value=>(typeRows.find(row=>row.value===value)||{}).label||String(value).replace(/_/g,' ');
- if(values.case_type)chips.push(`<button type="button" class="facet-chip active" data-facet="case_type" data-value="" aria-label="Remove case type filter">Case type: ${esc(typeName(values.case_type))} ×</button>`);
+ if(values.case_type)chips.push(`<button type="button" class="facet-chip active" data-facet="case_type" data-value="" aria-label="Remove case type filter">Case type: ${esc(String(values.case_type).split(',').filter(Boolean).map(typeName).join(', '))} ×</button>`);
  else typeRows.slice(0,8).forEach(row=>chips.push(`<button type="button" class="facet-chip" data-facet="case_type" data-value="${esc(row.value)}" title="Case type">${esc(row.label||row.value)} <span>${num(row.count)}</span></button>`));
  box.innerHTML=chips.join('');
 }
@@ -917,6 +938,7 @@ document.addEventListener('click',event=>{
  const chip=event.target.closest?.('#searchFacets .facet-chip');
  if(!chip)return;
  document.getElementById(chip.dataset.facet==='court'?'courtFilter':chip.dataset.facet==='case_type'?'caseTypeFilter':'yearFilter').value=chip.dataset.value;
+ if(chip.dataset.facet==='case_type'&&window.__ctSyncFromHidden)window.__ctSyncFromHidden();
  runProfessionalSearch();
 });
 document.getElementById('quickSort')?.addEventListener('change',event=>{window.__sortChosen=true;document.getElementById('searchSort').value=event.target.value;runProfessionalSearch();});
@@ -1760,6 +1782,8 @@ window.addEventListener('afterprint',()=>{
   search_js = (here / 'search_v6.js').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + search_css + '</style>\n</head>', 1)
   html = html.replace('</body>', '<script>\n' + search_js + '</script>\n</body>', 1)
+  # Advanced filter: case type, a multi-select grouped by area of law (stored labels only; counts arrive with the results).
+  html = html.replace('<label class="sp-l" for="decisionOutcome">', case_type_filter_html() + '<label class="sp-l" for="decisionOutcome">', 1)
   # Phone layout goes last so it wins over every earlier rule at narrow widths.
   mobile_css = (here / 'mobile_layout.css').read_text(encoding='utf-8')
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)

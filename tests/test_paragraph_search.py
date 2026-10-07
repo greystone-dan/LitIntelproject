@@ -171,3 +171,54 @@ def test_short_and_operator_queries_never_touch_the_paragraph_index(monkeypatch)
 	monkeypatch.setattr(paragraph_search, "_index_ready", boom)
 	for query in ["Baker", "procedural fairness", '"officer ignored my medical evidence"', "fairness AND delay"]:
 		analytics_service.fetch_analytics_search_cases(AnalyticsDB(), query=query)
+
+
+def test_full_text_box_with_paragraph_hits_skips_the_whole_text_scan(monkeypatch):
+	hits = [{"case_id": 7, "score": 2.0, "paragraphs": 3, "best_chunk_id": 70}]
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: hits)
+	db = AnalyticsDB()
+	analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence", search_full_text=True)
+	where = db.sql.split("WHERE TRUE", 1)[1].split("ORDER BY", 1)[0]
+	assert "c.full_text ILIKE" not in where and "c.summary ILIKE" not in where
+	assert "c.id = ANY(CAST(:para_ids AS integer[]))" in where
+
+
+def test_full_text_box_without_paragraph_hits_keeps_the_scan_with_a_timeout(monkeypatch):
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+	statements = []
+
+	class TimedDB(AnalyticsDB):
+		def execute(self, statement, params=None):
+			statements.append(str(statement))
+			return super().execute(statement, params)
+
+	db = TimedDB()
+	analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence", search_full_text=True)
+	assert "c.full_text ILIKE" in db.sql
+	assert any(sql.startswith("SET LOCAL statement_timeout") for sql in statements)
+
+
+def test_scan_timeout_becomes_a_friendly_503(monkeypatch):
+	from fastapi import HTTPException
+	from sqlalchemy.exc import OperationalError
+
+	monkeypatch.setattr(analytics_service, "search_paragraph_cases", lambda db, query: None)
+
+	class SlowDB(AnalyticsDB):
+		rolled_back = False
+
+		def execute(self, statement, params=None):
+			if params is not None and "FROM cases" in str(statement):
+				raise OperationalError("SELECT", {}, Exception("canceling statement due to statement timeout"))
+			return super().execute(statement, params)
+
+		def rollback(self):
+			self.rolled_back = True
+
+	db = SlowDB()
+	try:
+		analytics_service.fetch_analytics_search_cases(db, query="officer ignored my medical evidence", search_full_text=True)
+	except HTTPException as error:
+		assert error.status_code == 503 and "too broad" in error.detail and db.rolled_back
+	else:
+		raise AssertionError("expected a 503")

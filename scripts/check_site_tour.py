@@ -5,6 +5,7 @@ Needs Playwright with Chromium and a running copy of the site.
     python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots
     python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data   # on the PC that serves the site
     python scripts/check_site_tour.py --steps-only      # only validate site_tour_steps.json (no browser)
+    python scripts/check_site_tour.py --pick-case       # read-only: which cessation decision the tour should open
 
 --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the
 milliseconds from pressing Next to the card being ready, any step that was skipped, and any highlight that is
@@ -104,6 +105,56 @@ def run_probes(base: str) -> int:
         short += verdict != "ok"
         print(f"probe {probe['id']:<32} {count:>3} results  {verdict}{note}  - {probe.get('note', '')}")
     return short
+
+
+PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&limit=25&facets=0"
+
+
+def _get_json(base: str, path: str):
+    import urllib.request
+
+    request = urllib.request.Request(base + path, headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        return json.load(response)
+
+
+def pick_example_case(base: str) -> int:
+    """Read-only: rank the decisions the tour's filtered search returns (tags cessation and india, citing Vavilov,
+    Government won) by how well each shows off the reader: a long outline, a citation matched to a library case at
+    a paragraph, a statute reference, a judge, and decisions that cite it. Prints the table and the best citation."""
+    found = _get_json(base, "/analytics/search/cases?query=2019%20SCC%2065&limit=5&facets=0").get("results") or []
+    vavilov = next((row["case_id"] for row in found if "2019 SCC 65" in str(row.get("citation"))), None)
+    if vavilov is None:
+        print("Vavilov (2019 SCC 65) is not in this library")
+        return 1
+    rows = _get_json(base, PICK_SEARCH.format(vavilov=vavilov)).get("results") or []
+    print(f"{len(rows)} decisions match the tour's search")
+    ranked = []
+    for rank, row in enumerate(rows, 1):
+        try:
+            reader = _get_json(base, f"/cases/{row['case_id']}/reader-data")
+            statutes = _get_json(base, f"/cases/{row['case_id']}/statute-references")
+        except Exception as error:  # noqa: BLE001
+            print(f"  {row.get('citation')}: reader failed ({str(error)[:60]})")
+            continue
+        outline = len(reader.get("structure_outline") or [])
+        pins = sum(1 for c in reader.get("citations") or [] if c.get("target_case_id") and c.get("target_paragraph") is not None and c.get("citation_kind") != "statute")
+        acts = sum(1 for c in statutes or [] if c.get("instrument_key") or c.get("legislation_url"))
+        cited_by = int((reader.get("metrics") or {}).get("in_degree") or row.get("cited_by_cases") or 0)
+        judge = bool(row.get("judge"))
+        usable = outline >= 4 and pins >= 1 and acts >= 1 and judge
+        score = (100 if usable else 0) + min(outline, 10) * 3 + min(pins, 5) * 2 + min(cited_by, 20) * 2 - rank
+        ranked.append((score, rank, row, outline, pins, acts, cited_by, judge, usable))
+    ranked.sort(key=lambda item: -item[0])
+    print(f"{'score':>5} {'rank':>4}  {'citation':<16} {'outline':>7} {'pinpoints':>9} {'statutes':>8} {'cited by':>8}  judge  title")
+    for score, rank, row, outline, pins, acts, cited_by, judge, usable in ranked:
+        print(f"{score:>5} {rank:>4}  {str(row.get('citation')):<16} {outline:>7} {pins:>9} {acts:>8} {cited_by:>8}  {'yes' if judge else 'no ':<5}  {str(row.get('title'))[:60]}{'' if usable else '  (not usable)'}")
+    best = next((item for item in ranked if item[8]), None)
+    if not best:
+        print("no decision has an outline, a pinpoint citation, a statute and a judge")
+        return 1
+    print(f"BEST: {best[2].get('citation')} (case {best[2]['case_id']}): {best[2].get('title')}")
+    return 0
 
 
 def launch(playwright):
@@ -343,7 +394,10 @@ def main() -> int:
     parser.add_argument("--steps-only", action="store_true")
     parser.add_argument("--walk", action="store_true", help="take the whole tour pressing only Next, with timings (makes the tour's demo writes)")
     parser.add_argument("--each", action="store_true", help="also open every step on its own, as after a refresh")
+    parser.add_argument("--pick-case", action="store_true", help="read-only: rank the cessation decisions the tour could open and print the best one")
     args = parser.parse_args()
+    if args.pick_case:
+        return pick_example_case(args.base_url.rstrip("/"))
 
     problems = validate_steps(json.loads(STEPS_FILE.read_text(encoding="utf-8")))
     for problem in problems:

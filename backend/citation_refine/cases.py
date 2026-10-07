@@ -136,11 +136,15 @@ _DATABASES = {
 	"RADD": "R.A.D.D.", "IDD": "I.D.D.", "CRDD": "C.R.D.D.", "OJ": "O.J.", "BCJ": "B.C.J.", "AJ": "A.J.", "QJ": "Q.J.",
 }
 _DATABASE_ALTERNATION = "|".join(
-	_reporter_fragment(value).rstrip(r"\s?") for value in sorted(_DATABASES.values(), key=len, reverse=True)
+	_reporter_fragment(value).removesuffix(r"\.?\s?") + r"\.?" for value in sorted(_DATABASES.values(), key=len, reverse=True)
 )
 DATABASE_RE = re.compile(
-	rf"\[(?P<year>(?:19|20)\d{{2}})\]\s*(?P<db>{_DATABASE_ALTERNATION})\s*(?:No|no|n[°o])\.?\s*(?P<number>\d{{1,6}})"
+	rf"(?<![\w/])\[?(?P<year>(?:19|20)\d{{2}})\]?\s*(?P<db>{_DATABASE_ALTERNATION})\s*(?:No|no|n[°o])\.?\s*(?P<number>\d{{1,6}})"
 	r"(?:\s*\((?:QL|Lexis|QuickLaw)\))?"
+)
+# Westlaw Carswell numbers, the usual parallel cite in Federal Court reasons: 2007 CarswellNat 950
+CARSWELL_RE = re.compile(
+	r"(?<![\w/])\[?(?P<year>(?:19|20)\d{2})\]?\s*Carswell(?P<prov>Nat|Ont|BC|Alta|Que|Man|Sask|NS|NB|Nfld|PEI|Yukon|Nun|NWT)\s*(?P<number>\d{1,6})\b"
 )
 DOCKET_RE = re.compile(r"(?<![\w-])(?P<docket>(?:IMM|DES|A|T)-\d{1,6}-\d{2})(?![\w-])")
 
@@ -365,6 +369,21 @@ def _find_cores(content: str) -> list[_Core]:
 				"fr" if db_key in {"ACF", "ACS"} else "en",
 			)
 		)
+	for match in CARSWELL_RE.finditer(content):
+		db_key = "CARSWELL" + match.group("prov").upper()
+		number = int(match.group("number"))
+		cores.append(
+			_Core(
+				match.start(),
+				match.end(),
+				"database",
+				f"{match.group('year')} Carswell{match.group('prov')} {number}",
+				(f"{match.group('year')} {db_key} {number}",),
+				int(match.group("year")),
+				f"Carswell{match.group('prov')}",
+				"en",
+			)
+		)
 	# Drop cores contained in a longer core (e.g. "2013 CanLII 1 (FC)" vs "2013 ... FC").
 	cores.sort(key=lambda core: (core.start, -(core.end - core.start)))
 	kept: list[_Core] = []
@@ -398,6 +417,24 @@ def identifier_keys(value: str | None) -> tuple[str, ...]:
 
 
 # --------------------------------------------------------------------------- building entries
+_NARRATIVE_SUBJECT = (
+	r"(?:he|she|they|it|the\s+(?:Court|Federal\s+Court|Federal\s+Court\s+of\s+Appeal|Supreme\s+Court(?:\s+of\s+Canada)?|Board|majority|Chief\s+Justice|"
+	r"Justice|judge|Tribunal|RAD|RPD)|(?:Chief\s+|Mr\.\s+|Madam\s+)?Justices?\s+[A-Z][\w’'.\-]*(?:\s+[A-Z][\w’'.\-]*){0,3}|[A-Z][\w’'\-]+\s+J\.?(?:A\.?)?)"
+)
+# "..., where she said at para 134:" / ", Justice Mosley noted at para 43" / ", the Court stated at p. 358": the citation's own pinpoint.
+NARRATIVE_PINPOINT_RE = re.compile(
+	r"^\s*[,;]?\s*(?:where|in\s+which|and|which)?\s*(?:also\s+)?" + _NARRATIVE_SUBJECT +
+	r"(?:\s+[a-z’'\-]+){0,5}?,?\s+(?P<pinpoint>at\s+(?:paras?\.?|paragraphs?|pp?\.)\s*(?:\d|\[))"
+)
+
+
+def _narrative_pinpoint(window: str) -> Pinpoint | None:
+	match = NARRATIVE_PINPOINT_RE.match(window)
+	if match is None:
+		return None
+	return parse_pinpoint(window[match.start("pinpoint") : match.start("pinpoint") + 60])
+
+
 def _trailing_extras(content: str, end: int, last_core: _Core) -> tuple[int, list[Pinpoint], str | None]:
 	pinpoints: list[Pinpoint] = []
 	alias: str | None = None
@@ -426,6 +463,10 @@ def _trailing_extras(content: str, end: int, last_core: _Core) -> tuple[int, lis
 			alias = " ".join((declared.group("a") or declared.group("b")).split())
 			end += declared.end()
 			continue
+		if not pinpoints:
+			narrative = _narrative_pinpoint(window)
+			if narrative is not None:
+				pinpoints.append(narrative)
 		break
 	return end, pinpoints, alias
 
@@ -848,6 +889,30 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 				)
 			added.append(row)
 
+	# Name and year: "(Singh 2020 at para 26)", "Khadr 2010 at para 14".
+	for alias in sorted({name for name, _, _ in aliases}, key=len, reverse=True):
+		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r",?\s+(?P<year>(?:19|20)\d{2}),?(?=\s+(?:at|aux?)\s)")
+		for match in pattern.finditer(content):
+			target = target_before(alias, match.start())
+			if target is None or match.group("year") not in target.citation_text:
+				continue
+			pin = TRAILING_PINPOINT_RE.match(content[match.end() : match.end() + 80])
+			if pin is None:
+				continue
+			start, end = match.start(), match.end() + pin.end()
+			is_blocked, inside = blocked(start, end)
+			if is_blocked:
+				continue
+			row = make(start, end, target, alias, "name_year_pinpoint", pin.group("pinpoint"))
+			if inside:
+				removed.update((item.offset_start, item.offset_end) for item in inside)
+				row = replace(
+					row,
+					action=ACTION_CORRECTED,
+					replaces=tuple((item.offset_start, item.offset_end, item.normalized_citation) for item in inside),
+				)
+			added.append(row)
+
 	# Bare mentions of a name the decision defines or a distinctive identifier ("Mason and CCR", "(Suresh, Febles, B010)").
 	for alias in sorted({name for name, _, distinctive in aliases if distinctive}, key=len, reverse=True):
 		pattern = re.compile(r"(?<![\w’'.\[-])" + re.escape(alias) + r"(?![\w’'-])(?!\s+(?:v\.?|c\.?)\s)(?!\])")
@@ -855,9 +920,20 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 			target = target_before(alias, match.start())
 			if target is None:
 				continue
-			if blocked(match.start(), match.end(), replace_short=False)[0]:
-				continue
-			added.append(make(match.start(), match.end(), target, alias, "defined_name", None))
+			pin = TRAILING_PINPOINT_RE.match(content[match.end() : match.end() + 80])
+			end = match.end() + pin.end() if pin is not None else match.end()
+			is_blocked, inside = blocked(match.start(), end)
+			if is_blocked or (inside and end == match.end()):
+				continue  # an existing pass-one row already says this
+			row = make(match.start(), end, target, alias, "defined_name", pin.group("pinpoint") if pin is not None else None)
+			if inside:
+				removed.update((item.offset_start, item.offset_end) for item in inside)
+				row = replace(
+					row,
+					action=ACTION_CORRECTED,
+					replaces=tuple((item.offset_start, item.offset_end, item.normalized_citation) for item in inside),
+				)
+			added.append(row)
 
 	result = [row for row in rows if (row.offset_start, row.offset_end) not in removed]
 	result.extend(added)
@@ -868,12 +944,16 @@ def _defined_name_rows(content: str, rows: list[RefinedCitation]) -> list[Refine
 # --------------------------------------------------------------------------- pinpoints and validation
 def _with_pinpoints(content: str, row: RefinedCitation) -> RefinedCitation:
 	if row.pinpoints:
-		return row
+		return row if row.pinpoint else replace(row, pinpoint=pinpoint_phrase(row.pinpoints[0]))
 	pinpoints = list(parse_all_pinpoints(row.citation_text))
 	if not pinpoints and row.identifiers:
 		bare = parse_bare_page_pinpoint(content[row.offset_end : row.offset_end + 40])
 		if bare is not None and re.search(r"\b(?:SCR|FCR|FC|DLR|IMMLR)\b", " ".join(row.identifiers)):
 			pinpoints.append(bare)
+	if not pinpoints and row.kind in {"case", "neutral", "case_short"}:
+		narrative = _narrative_pinpoint(content[row.offset_end : row.offset_end + 160])
+		if narrative is not None:
+			pinpoints.append(narrative)
 	if not pinpoints:
 		return row
 	return replace(row, pinpoints=tuple(pinpoints), pinpoint=row.pinpoint or pinpoint_phrase(pinpoints[0]))

@@ -82,7 +82,7 @@ def _subnav() -> str:
     return '<nav id="researchViews" class="view-tabs group-views" aria-label="Case search views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div><a class="ilit-tour-start alt" href="/future-features?tour=1" id="comingSoonFutureTour"><span aria-hidden="true">&#9654;</span> Future features tour</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
@@ -100,7 +100,7 @@ _CSS = """<style>
 .pitch-embedded .topbar,.pitch-embedded #researchViews{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}
-.cs-banner{margin:0 0 10px}.cs-banner .cs-strip{margin:0}
+.cs-banner{margin:0 0 10px}.cs-banner .ilit-tour-start{margin:10px 0 0}.cs-banner .cs-strip{margin:0}
 .cs-frame[hidden],#comingSoonHead[hidden]{display:none}
 .cs-frame{display:block;width:100%;height:calc(100vh - 230px);min-height:520px;border:1px solid var(--border);border-radius:6px;background:#fff}
 #comingSoonPanel{padding:14px}#comingSoonPanel .page-header p{max-width:60ch;font-size:15px;line-height:1.55}

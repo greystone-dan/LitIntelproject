@@ -1485,6 +1485,20 @@ def site_tour_script() -> Response:
 	return Response(tour_js(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/future-tour.js", include_in_schema=False)
+def future_tour_script() -> Response:
+	from .site_tour import future_tour_js
+
+	return Response(future_tour_js(), media_type="application/javascript", headers={"Cache-Control": "public, max-age=300"})
+
+
+@router.get("/future-features", include_in_schema=False)
+def future_features_page() -> HTMLResponse:
+	from .site_tour import future_features_page as render
+
+	return HTMLResponse(render())
+
+
 @router.get("/site-tour.css", include_in_schema=False)
 def site_tour_styles() -> Response:
 	from .site_tour import tour_css

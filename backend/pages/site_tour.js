@@ -6,7 +6,7 @@
   'use strict';
   var DATA=window.ILIT_TOUR||{steps:[],cases:{}};
   var STEPS=DATA.steps||[],CASES=DATA.cases||{};
-  var KEY='ilit.tour.v1';
+  var KEY=DATA.key||'ilit.tour.v1';
   if(window.top!==window.self||!STEPS.length)return;           // never inside a frame (the Workbench embeds two tools)
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -408,7 +408,7 @@
   async function start(){
     state={i:0,active:true};save(state);
     build();render(0,null,true);
-    await demoSignIn();
+    if(DATA.demoSignIn!==false)await demoSignIn();
     var url=new URL(location.href);
     if(url.searchParams.has('tour')){url.searchParams.delete('tour');history.replaceState(null,'',url.pathname+url.search+url.hash)}
     show(0,1);

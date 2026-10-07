@@ -108,7 +108,7 @@ document.addEventListener('click',event=>{
   event.stopImmediatePropagation();event.stopPropagation();
   $('caseSearch').reset();$('advancedSearchOptions').reset();
   ['governmentOutcome','courtFilter','citesFilter','citesCaseId','tagSearch','tagFilter','decisionOutcome','judgeFilter','yearFilter','caseTypeFilter'].forEach(id=>{const el=$(id);if(el)el.value='';});document.querySelectorAll('#caseTypeBoxes .sp-ct-box').forEach(box=>{box.checked=false;});
-  $('ministerFilter').value='';$('searchFullText').checked=false;$('searchSort').value='newest';$('quickSort').value='newest';
+  $('ministerFilter').value='';$('searchSort').value='newest';$('quickSort').value='newest';
   if(window.__pickReset)window.__pickReset();
   $('searchResults').innerHTML='';if(moreButton)moreButton.hidden=true;
   setSearchStatus('Search by case name or citation, or press Recent cases to see the newest decisions.');

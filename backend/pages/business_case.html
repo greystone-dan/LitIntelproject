@@ -77,7 +77,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color
 <div role="listitem"><b>C$104K&ndash;248K</b><span>a year, reported list-price range of a commercial AI platform for 25 seats</span></div>
 </div>
 <div class="note"><strong>How to read this page.</strong> Facts carry a numbered source (see Sources at the end). Anything I inferred is marked <em>inferred</em>. The savings figures are labelled assumptions with a formula you can change, not measurements. Vendor prices are third-party list-range reports, not quotes, and the Division may have different terms.</div>
-<nav class="toc" aria-label="Sections"><a href="#short">The short version</a><a href="#landscape">What is out there</a><a href="#gap">What iLit adds</a><a href="#uses">Use cases</a><a href="#roi">Return on investment</a><a href="#cost">Costs</a><a href="#risks">Risks</a><a href="#plan">Phased plan</a><a href="#ask">The ask</a><a href="#sources">Sources</a></nav>
+<nav class="toc" aria-label="Sections"><a href="#short">The short version</a><a href="#landscape">What is out there</a><a href="#gap">What iLit adds</a><a href="#uses">Use cases</a><a href="#roi">Return on investment</a><a href="#cost">Costs</a><a href="#risks">Risks</a><a href="#deploy">Where it runs</a><a href="#plan">Phased plan</a><a href="#ask">The ask</a><a href="#sources">Sources</a></nav>
 
 <section id="short">
 <h2>The short version</h2>
@@ -200,6 +200,40 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color
 </tbody></table></div>
 </section>
 
+<section id="deploy">
+<h2>Where it would run: short term and long term</h2>
+<p class="intro">I have researched what is published about Government of Canada requirements. I have not found CBSA-specific policy on any of this and I do not claim one. Where a step depends on CBSA or Shared Services Canada decisions, it says so.</p>
+<div class="grid">
+<div class="card"><span class="k">Short term &middot; public case law only</span><h3>A dedicated private computer, and a site hosted outside CBSA</h3>
+<ul>
+<li><b>The AI machine:</b> one dedicated, powerful computer I own, running open AI models locally on public decisions only. A standard work-issued laptop with integrated graphics can only run small demonstration models, which is why the machine is a separate item (Levels 2 and 3 above).</li>
+<li><b>The site:</b> hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
+<li><b>What it requires:</b> public data and open licences only (the Refugee Law Lab non-commercial licence, with attribution [17]); backups; a domain and tunnel or server. No security authorization is needed for public data <em>(inferred; I found no GC rule that applies to a non-government site holding public data)</em>.</li>
+<li><b>Estimated cost, my estimate and unquoted:</b> the machine as in Levels 2&ndash;3; a managed Canadian-region server in the order of C$100&ndash;500 a month; no additional approvals cost.</li>
+<li><b>Timeline (my planning guess):</b> about 0 to 6 months.</li>
+</ul></div>
+<div class="card"><span class="k">Long term &middot; CBSA internal use</span><h3>An internal server or network, with protected data</h3>
+<ul>
+<li><b>Hosting options:</b> a CBSA or Shared Services Canada data centre, or a Government of Canada approved commercial cloud. The 2017 Direction on the Secure Use of Commercial Cloud Services allows Protected B information in the public cloud [23]. Shared Services Canada brokers cloud services under framework agreements with eight providers [24]. Whether a Division-level tool can use either route is a CBSA decision <em>(unverified)</em>.</li>
+<li><b>Security:</b> Protected B, medium integrity, medium availability is the usual baseline, using the Canadian Centre for Cyber Security control profile and a cloud provider assessment [25,26]. This involves a security assessment and authorization by the department. I have not priced it; it is CBSA&rsquo;s process and cost.</li>
+<li><b>Privacy:</b> the Directive on Privacy Practices requires a privacy impact assessment when personal information is used in a new or substantially modified program [27]. Internal files will contain personal information.</li>
+<li><b>AI use:</b> the Treasury Board guide on generative AI advises engaging legal counsel, privacy and security experts and the Chief Information Officer&rsquo;s office before deploying such tools [28]. The Directive on Automated Decision-Making applies if outputs feed decisions about people [22].</li>
+<li><b>Also needed:</b> accounts and sign-in through CBSA, roles and an audit log, internal repositories connected with approval, and a named owner and support arrangement so it does not depend on one person.</li>
+<li><b>Timeline (my planning guess):</b> about 6 to 24 months, mostly governed by approvals.</li>
+</ul></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>Decision point</th><th>Who decides</th><th>What I need to know</th></tr></thead>
+<tbody>
+<tr><td>Is the short-term external site acceptable for Division staff to use for work?</td><td>Division management, with CBSA IT and security</td><td>Whether staff may use an outside site that holds only public case law</td></tr>
+<tr><td>Where would an internal version be hosted?</td><td>CBSA IT, Shared Services Canada</td><td>Data centre or approved cloud; cost and lead time</td></tr>
+<tr><td>Who owns and supports it?</td><td>The Division and CBSA IT</td><td>A named owner and a second maintainer</td></tr>
+<tr><td>Which internal repositories, if any, may be connected?</td><td>Division, privacy and security</td><td>Handling rules, markings and approval to copy or index</td></tr>
+<tr><td>Is a local AI model approved for internal documents?</td><td>CBSA security and privacy</td><td>Assessment of the model and hardware</td></tr>
+</tbody></table></div>
+<p class="intro">Risks specific to this stage: approvals may take longer than the build; an external host could be judged unsuitable for work use; and the short-term site should never hold anything that is not public. The sources for these requirements are listed below.</p>
+</section>
+
 <section id="plan">
 <h2>Phased plan</h2>
 <ol class="steps">
@@ -248,8 +282,14 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color
 <li><a href="https://www.fct-cf.ca/en/pages/about-the-court/reports-and-statistics/statistics-march-31-2026">Federal Court: statistics, 31 March 2026</a></li>
 <li>Contract build estimate: my judgement of team shape and duration at the CanadaBuys ceiling rates [4], as set out in [3]</li>
 <li><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592">Treasury Board: Directive on Automated Decision-Making</a></li>
+<li><a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html">Government of Canada Security Control Profile for Cloud-based GC Services</a> and Direction on the Secure Use of Commercial Cloud Services (2017), as summarised on the <a href="https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-canada-protected-b">Protected B</a> and <a href="https://cloud.google.com/security/compliance/protected-b">cloud-provider</a> pages (secondary)</li>
+<li><a href="https://www.canada.ca/en/shared-services/corporate/publications/2024-25/evaluation-ssc-cloud-services.html">Shared Services Canada: evaluation of cloud services, 2024-25</a> (cloud brokering and framework agreements)</li>
+<li><a href="https://www.cyber.gc.ca/sites/default/files/cyber/publications/itsm.50.100-en_0.pdf">Cyber Centre: ITSM.50.100, cloud security risk management</a></li>
+<li>Cyber Centre guidance on the security categorization of cloud-based services (ITSP.50.103) and Medium Cloud Control Profile, as summarised in the sources above (secondary)</li>
+<li><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=18309">Treasury Board: Directive on Privacy Practices</a> (replaced the PIA directive on 9 Oct 2024)</li>
+<li><a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html">Government of Canada: Guide on the use of generative artificial intelligence</a></li>
 </ol>
-<p class="intro"><b>Assumptions and gaps.</b> 25 users is my estimate. Hourly cost, share of active users and hours saved are placeholders. Prices for commercial tools are reported ranges, not quotes, and exclude any government discount. I could not find a study of how many hours Canadian government counsel spend on research, so none is cited. Not verified: CanLII AI summaries on Federal Court immigration decisions, and Loom&rsquo;s Federal Court coverage.</p>
+<p class="intro"><b>Assumptions and gaps.</b> 25 users is my estimate. Hourly cost, share of active users and hours saved are placeholders. Prices for commercial tools are reported ranges, not quotes, and exclude any government discount. I could not find a study of how many hours Canadian government counsel spend on research, so none is cited. Hosting costs and timelines in the deployment section are my estimates, not quotes. I found no CBSA-specific policy and no source on whether an external site is acceptable for Division staff to use; the Treasury Board and Cyber Centre sources describe general Government of Canada requirements. Not verified: CanLII AI summaries on Federal Court immigration decisions, and Loom&rsquo;s Federal Court coverage.</p>
 </section>
 <footer>iLit is a non-commercial research project built on public decisions. This page is a draft business case, not an offer, and is not legal advice. It uses no AI at the point of use.</footer>
 </main>

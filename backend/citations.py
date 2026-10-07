@@ -2038,6 +2038,39 @@ def _sentence_break_ends(content: str) -> list[int]:
 	return breaks
 
 
+_NAMED_AUTHORITY_AFTER_RE = re.compile(
+	r"(?:\s*\([A-Za-z0-9.]+\))*(?:\s*,?\s*(?:and|or)\s*\([A-Za-z0-9.]+\))*\s+of\s+(?:the\s+)?"
+	r"(?P<name>[A-Z][A-Za-z'\u2019\-]*(?:(?:,\s*|\s+)(?:(?:and|of|the|for|on|to|in|at)\s+)*[A-Z][A-Za-z'\u2019\-]*){0,10})"
+)
+
+
+def _unregistered_authority_after(content: str, end: int) -> str | None:
+	"""The act a provision says it belongs to ("s. 22(1) of the Garnishment ... Act", "of the FAA") when we do not register it.
+
+	Attaching such a provision to the nearest registered act earlier in the text is wrong, so the caller keeps the
+	reference unkeyed under this name instead. None when no act is named, the name is generic ("the Act") or it resolves.
+	"""
+	match = _NAMED_AUTHORITY_AFTER_RE.match(content, end, min(len(content), end + 200))
+	if match is None:
+		return None
+	name = match.group("name").strip().rstrip(",")
+	words = name.replace(",", " ").split()
+	for index, word in enumerate(words):
+		if word in ("Act", "Code"):
+			name = " ".join(words[: index + 1])
+			break
+	else:
+		if not re.fullmatch(r"[A-Z]{2,8}", words[0]):
+			return None
+		name = words[0]
+	if name in ("Act", "Code") or len(name) < 3:
+		return None
+	parsed = parse_legislation_citation(name)
+	if parsed is not None and parsed.instrument_key:
+		return None
+	return name
+
+
 def _extract_anchored_provision_candidates(
 	content: str,
 	anchors: list[RawCitationMatch],
@@ -2150,8 +2183,11 @@ def _extract_anchored_provision_candidates(
 			)
 		else:
 			named_after = anchor_named_after(kind, end)
+			unregistered_name = None if named_after is not None or kind != "statute" else _unregistered_authority_after(content, end)
 			if named_after is not None:
 				anchor = named_after
+			elif unregistered_name is not None:
+				anchor = _raw_match("statute", unregistered_name, unregistered_name, end, end)
 			else:
 				anchor = sentence_anchor if sentence_anchor is not None else latest_anchor
 				if sentence_anchor is None and re.match(

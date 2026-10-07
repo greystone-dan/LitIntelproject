@@ -12,7 +12,7 @@ import re
 
 OUTCOME_CLASSIFIER_VERSION = "deterministic_outcome_v2"
 _GOVERNMENT_PARTY_RE = re.compile(
-	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada)\b",
+	r"\b(?:minister|attorney\s+general|public\s+safety|citizenship\s+and\s+immigration|canada\s+border\s+services\s+agency|\bcbsa\b|\bircc\b|government\s+of\s+canada|\bm\.?c\.?i|\bm\.?p\.?s\.?e\.?p)\b",
 	re.IGNORECASE,
 )
 
@@ -425,6 +425,8 @@ def _government_role(style_or_between: str) -> str | None:
 	text = " ".join(style_or_between.split())
 	# Tribunal captions list "Counsel for the Minister"; that line names a representative, not a party.
 	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|conseil\s+du\s+ministre", " ", text, flags=re.IGNORECASE)
+	# "For the Applicant / For the Respondent" lines label counsel, not the party named just before them.
+	text = re.sub(r"\bfor\s+(?:the\s+)?(?:applicants?|respondents?|appellants?)\b|\bpour\s+(?:le|la|les)\s+\w+", " ", text, flags=re.IGNORECASE)
 	lower = text.lower()
 	if not _GOVERNMENT_PARTY_RE.search(lower):
 		return None
@@ -492,18 +494,57 @@ def _role_from_style(style: str) -> str | None:
 	return "none"
 
 
+_STYLE_LINE_RE = re.compile(r"^[ \t]*(?:STYLE\s+OF\s+CAUSE|INTITUL[ÉE])\s*:?[ \t]*\n?[ \t]*([^\n]{5,250})$", re.IGNORECASE | re.MULTILINE)
+
+
+_ROLE_LABEL_RE = re.compile(r"\b(applicants?|appellants?|respondents?|interveners?|intervenors?)[ \t]*(?=\n|$)", re.IGNORECASE)
+_PARTY_SEPARATOR_RE = re.compile(r"\n[ \t]*(?:and|v\.?|et|[-\u2010-\u2015]+\s*and\s*[-\u2010-\u2015]+)[ \t]*\n", re.IGNORECASE)
+
+
+def _role_from_labelled_parties(text: str) -> str | None:
+	"""Side of the government party when the caption labels each party ("Minister ... Appellant").
+
+	The labels say who brought the proceeding. They beat the order of the names in a title or style of cause,
+	which can follow the lower court (SCC pages are titled "Gladstone v. Canada (Attorney General)" even though the
+	Attorney General is the appellant) and which the Minister can appear on either side of.
+	"""
+	text = re.sub(r"(?:counsel|representative)s?\s+(?:for|of)\s+the\s+minister|for\s+(?:the\s+)?(?:applicants?|respondents?|appellants?)\b", " ", text, flags=re.IGNORECASE)
+	found: set[str] = set()
+	start = 0
+	for match in _ROLE_LABEL_RE.finditer(text):
+		label = match.group(1).lower()
+		segment = text[start : match.start()]
+		start = match.end()
+		if label.startswith("interven"):
+			break
+		segment = _PARTY_SEPARATOR_RE.split("\n" + segment + "\n")[-1]
+		segment = re.split(r"\b(?:between|entre)\s*:", segment, flags=re.IGNORECASE)[-1]
+		if _GOVERNMENT_PARTY_RE.search(segment):
+			found.add("respondent" if label.startswith("respondent") else "applicant")
+	return found.pop() if len(found) == 1 else None
+
+
 def _resolve_government_role(content: str, metadata: dict[str, object]) -> str | None:
 	"""Prefer the style of cause, then the title line; fall back to caption role labels."""
 	style_text = str(metadata.get("style of cause") or "").strip()
 	between_text = str(metadata.get("between") or "").strip()
+	labelled = _role_from_labelled_parties("\n".join(part for part in (between_text, content[:3000]) if part))
+	if labelled:
+		return labelled
 	candidates = [style_text] if style_text else []
+	# Federal Court judgments put "STYLE OF CAUSE:" on a cover page that can sit after the reasons.
+	cover = _STYLE_LINE_RE.search(content or "")
+	if cover:
+		candidates.append(cover.group(1).strip())
 	first_line = content.lstrip()[:300].split("\n", 1)[0].strip() if content else ""
 	if first_line and len(first_line) < 220:
 		candidates.append(first_line)
 	for text in candidates:
 		role = _role_from_style(text)
 		if role == "none":
-			return None
+			# Neither side of the style names a government party by its full name ("CUESTA v. MCI" is the common
+			# abbreviation case), so let the Between block decide before giving up.
+			return _government_role(between_text) if between_text else None
 		if role:
 			return role
 	return _government_role("\n".join(part for part in (style_text, between_text, content[:1200]) if part))
@@ -575,7 +616,9 @@ def derive_outcome_detail(content: str, metadata: dict[str, object]) -> dict[str
 	status = "mixed" if partial else "undetermined"
 	winner = loser = None
 	if role and not partial:
-		applicant_won = (label in {"allowed", "granted", "set_aside", "remitted"}) == (role == "respondent")
+		# "applicant" is the party that brought the proceeding or appeal, whoever it is (the Minister can be the
+		# appellant), so who won depends only on the ruling, never on which side the government is on.
+		applicant_won = label in {"allowed", "granted", "set_aside", "remitted"}
 		status = "won" if applicant_won else "lost"
 		winner = "applicant" if applicant_won else "respondent"
 		loser = "respondent" if winner == "applicant" else "applicant"

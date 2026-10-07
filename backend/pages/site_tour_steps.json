@@ -29,6 +29,12 @@
       "note": "the plain search example"
     },
     {
+      "id": "plain-search-2",
+      "url": "/analytics/search/cases?query=non-refoulement%20statutory%20interpretation&limit=5",
+      "min": 3,
+      "note": "the second plain search example"
+    },
+    {
       "id": "cessation-tag",
       "url": "/analytics/search/tags?q=cessation&limit=5",
       "min": 1,
@@ -166,7 +172,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "A plain search",
-      "text": "Every decision whose reasons use those words is listed, with its court, date, judge, outcome and case type, and how often other decisions cite it. I won't open one yet; first, the filters.",
+      "text": "Every decision whose reasons use those words is listed, with its court, date, judge, outcome and case type, and how often other decisions cite it. I won't open one yet.",
       "target": "#searchResults",
       "also": [
         {
@@ -184,6 +190,42 @@
         {
           "do": "click",
           "selector": "#caseSearch .sq-go[type='submit']"
+        },
+        {
+          "do": "waitFor",
+          "selector": "#searchResults .case-result",
+          "timeout": 25
+        }
+      ]
+    },
+    {
+      "id": "plain-search-2",
+      "section": "Research",
+      "url": "/data-explorer?tab=search",
+      "title": "Another plain search",
+      "text": "The search reads the reasons paragraph by paragraph, so a question in plain words finds the passages where judges discuss it, here how non-refoulement shapes the reading of the statute. Again, no case is opened yet.",
+      "target": "#searchResults",
+      "also": [
+        {
+          "sel": "#caseSearch"
+        }
+      ],
+      "timeout": 25,
+      "optional": true,
+      "say": "Plain words work for legal questions too. I'll search for non-refoulement statutory interpretation.",
+      "act": [
+        {
+          "do": "type",
+          "selector": "#searchQuery",
+          "text": "non-refoulement statutory interpretation"
+        },
+        {
+          "do": "click",
+          "selector": "#caseSearch .sq-go[type='submit']"
+        },
+        {
+          "do": "wait",
+          "ms": 400
         },
         {
           "do": "waitFor",

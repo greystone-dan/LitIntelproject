@@ -1752,7 +1752,9 @@ window.addEventListener('afterprint',()=>{
   about_end = html.index('<section id="searchPanel"', about_start)
   about_fragment_path = Path(__file__).resolve().with_name('about_content.html')
   about_fragment = about_fragment_path.read_text(encoding='utf-8') if about_fragment_path.exists() else ''
-  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_panel_html(about_fragment) + '\n</section>\n' + html[about_end:]
+  about_how_path = about_fragment_path.with_name('about_how.html')
+  about_how = about_how_path.read_text(encoding='utf-8') if about_how_path.exists() else ''
+  html = html[:about_start] + '<section id="aboutPanel" class="panel-card search-layout" hidden>\n' + about_panel_html(about_fragment, about_how) + '\n</section>\n' + html[about_end:]
   here = Path(__file__).resolve().parent
   snapshot_css = (here / 'explorer_snapshots.css').read_text(encoding='utf-8')
   snapshot_js = (here / 'explorer_snapshots.js').read_text(encoding='utf-8')

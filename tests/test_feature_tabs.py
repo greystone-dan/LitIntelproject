@@ -606,7 +606,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert len(soon) == 14 and 'soon-business-case' in soon
     assert 'soon-fc-analytics' not in soon
     assert {tab: group for tab, group in views.items() if tab not in soon} == {
-        'about': 'info', 'about-changelog': 'info', 'search': 'research',
+        'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
         'research-bench': 'testing',
     }
@@ -725,7 +725,7 @@ def test_about_tab_contains_interactive_system_map_and_architecture_owns_overvie
 
     assert 'class="ilit-about"' in about_panel
     assert '<h1>iLit: immigration litigation intelligence</h1>' in about_panel
-    for section in ('library', 'search', 'reader', 'intel', 'soon', 'progress', 'principles'):
+    for section in ('pipeline', 'library', 'derived', 'tabs', 'soon', 'progress', 'principles'):
         assert f'id="{section}"' in about_panel
     assert 'id="funding"' not in about_panel
     assert 'Data layer coverage' in architecture_panel

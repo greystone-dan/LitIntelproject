@@ -26,7 +26,19 @@
   "warm": [
     "/api/fc-activity/dashboard?",
     "/api/fc-activity/judges?min_decisions=25",
-    "/api/fc-activity/counsel?min_files=15"
+    "/api/fc-activity/counsel?min_files=15",
+    {
+      "url": "/api/judge-profiles?limit=500",
+      "top": {
+        "by": "decision_count",
+        "key": "slug",
+        "then": "/api/judge-profiles/{}"
+      }
+    },
+    {
+      "post": "/live-analysis/reader-text",
+      "sample": "moa"
+    }
   ],
   "steps": [
     {
@@ -847,7 +859,7 @@
       "also": [
         {
           "sel": "#laAnalyze",
-          "label": "Analyze"
+          "label": "Read document"
         }
       ],
       "fresh": true,
@@ -865,10 +877,17 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "The document, marked up",
-      "text": "I pressed Analyze. The bar counts the case citations and statute references found, and every one is marked in the text.",
-      "target": ".mk-row",
-      "label": "Counts and layers",
+      "text": "I pressed Read document. The counts show the case citations and statute references found. Each one is marked in the text, and the layer buttons switch them on or off.",
+      "target": [
+        ".v6-stats",
+        ".mk-row"
+      ],
+      "label": "Counts",
       "also": [
+        {
+          "sel": ".reader-layer-legend",
+          "label": "Layers"
+        },
         {
           "sel": "#decisionBody",
           "label": "Marked-up document"
@@ -879,19 +898,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -928,19 +949,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -975,19 +998,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -1009,19 +1034,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",
@@ -1055,19 +1082,21 @@
           "do": "fill",
           "selector": "#laText",
           "sample": "moa",
-          "when": "#laText"
+          "when": "#laText",
+          "unless": "#decisionBody span.citation-link"
         },
         {
           "do": "click",
           "selector": "#laAnalyze",
           "when": "#laText",
+          "unless": "#decisionBody span.citation-link",
           "show": true,
-          "label": "Analyze"
+          "label": "Read document"
         },
         {
           "do": "waitFor",
           "selector": "#decisionBody span.citation-link",
-          "timeout": 20
+          "timeout": 40
         },
         {
           "do": "click",

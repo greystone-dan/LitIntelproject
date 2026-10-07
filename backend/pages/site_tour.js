@@ -482,8 +482,21 @@
     }catch(e){}
   }
   // Ask for the Federal Court statistics early (read-only) so they are ready by the time the tour reaches them.
+  // Ask the server for the slow read-only data ahead of the steps that show it, so those steps open at once.
+  // An entry is a URL; {url,top:{by,key,then}} also loads the item with the highest "by" from that list;
+  // {post,sample} runs the demo document through the reader (only that fictional text is cached by the server).
   function warm(){
-    (DATA.warm||[]).forEach(function(u){try{fetch(u,{credentials:'same-origin'}).catch(function(){})}catch(e){}});
+    (DATA.warm||[]).forEach(function(w){
+      try{
+        if(typeof w==='string'){fetch(w,{credentials:'same-origin'}).catch(function(){});return}
+        if(w.post){fetch(w.post,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({text:(DATA.texts||{})[w.sample]||'',title:w.title||'Pasted text'})}).catch(function(){});return}
+        fetch(w.url,{credentials:'same-origin'}).then(function(r){return r.ok?r.json():[]}).then(function(rows){
+          var best=null;(rows||[]).forEach(function(r){if(!best||(r[w.top.by]||0)>(best[w.top.by]||0))best=r});
+          if(best)fetch(w.top.then.replace('{}',encodeURIComponent(best[w.top.key])),{credentials:'same-origin'}).catch(function(){});
+        }).catch(function(){});
+      }catch(e){}
+    });
   }
   async function start(){
     caseIds={};pendingLookups={};

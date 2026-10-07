@@ -21,6 +21,11 @@ def tour_steps() -> dict:
     return json.loads((_PAGES / "site_tour_steps.json").read_text(encoding="utf-8"))
 
 
+def is_tour_sample(text: str) -> bool:
+    """True only for the tour's own fictional demo document, the one pasted text the server may cache."""
+    return any(" ".join(text.split()) == " ".join(sample.split()) for sample in tour_steps().get("texts", {}).values())
+
+
 @lru_cache(maxsize=1)
 def tour_css() -> str:
     return (_PAGES / "site_tour.css").read_text(encoding="utf-8")

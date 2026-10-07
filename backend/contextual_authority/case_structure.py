@@ -7,6 +7,7 @@ stored CaseChunk rows (evaluation texts). The labeller is added below.
 from __future__ import annotations
 
 import re
+from collections import OrderedDict
 
 _NUMBERED_RE = re.compile(r"^\s*\[\d+\]")
 
@@ -323,6 +324,31 @@ _ROLE_TITLES = {
 
 
 def structure_outline(text: str | None, blocks: Sequence[dict]) -> list[dict]:
+    """Cached wrapper: labelling a long decision takes tens of milliseconds, so repeat opens reuse the rows."""
+    if not text:
+        return []
+    key = tuple((b.get("type"), b.get("start"), b.get("end"), b.get("num")) for b in blocks)
+    return [dict(row) for row in _structure_outline_cached(text, key, [dict(b) for b in blocks])]
+
+
+_OUTLINE_CACHE: "OrderedDict[tuple, list[dict]]" = OrderedDict()
+_OUTLINE_CACHE_SIZE = 256
+
+
+def _structure_outline_cached(text: str, key: tuple, blocks: list[dict]) -> list[dict]:
+    cache_key = (hash(text), len(text), key)
+    hit = _OUTLINE_CACHE.get(cache_key)
+    if hit is not None:
+        _OUTLINE_CACHE.move_to_end(cache_key)
+        return hit
+    rows = _structure_outline_uncached(text, blocks)
+    _OUTLINE_CACHE[cache_key] = rows
+    if len(_OUTLINE_CACHE) > _OUTLINE_CACHE_SIZE:
+        _OUTLINE_CACHE.popitem(last=False)
+    return rows
+
+
+def _structure_outline_uncached(text: str | None, blocks: Sequence[dict]) -> list[dict]:
     """Outline rows for the formatted reader, built from the reader's own blocks (no AI, nothing stored).
 
     Each row is ``{"title", "role", "start", "para", "count", "level"}``: ``start`` is the block start

@@ -63,3 +63,14 @@ Test case: 2026 FC 738 (id 35113). The live extractor missed the short forms "B0
 ## Noise rules after the stage-1 redo (2026-10-07)
 
 On the 300 redo rows, about 35 of 67 pass-one short forms were a litigant or person named in the decision, not a citation ("Ms. Kostic wrote", "Apotex filed"). New rules in the refinement (not the live extractor): a bare pass-one short form with no pinpoint and no declared alias is dropped when it follows an honorific (Mr., Ms., Dr., Mme, M.) or is followed by a possessive or a litigant verb (argued, submits, alleges, filed, wrote, initiated, testified, signed). On the 47 source decisions of those rows this dropped 11 of 67; 10 read as litigant mentions and 1 ("Martin does not overrule") was a real reference, so "does not" was removed from the verb list. Also: a pass-one neutral row with no year or reporter number is a phrase and is dropped ("Arbour J. stated in Biniaris, at para. 37"), and "Ibid." that follows a bare note number ("14 Ibid.") links to the previous citation only when it is in the note right before (150 characters). The remaining litigant mentions (subject-position names without a verb cue, such as "Tervita", "the Institution") are not caught yet.
+
+## Missed pinpoints (2012 FC 319 paragraph 44, 2026-10-07)
+
+Paragraph 44 cites Lubana (`2003 FCT 116, 2003 FCJ No 162 at para 12`) and Santos (`2004 FC 937, [2004] FCJ No 1149 at para 15`). Neither the live table nor refine v1 kept the pinpoints. Causes and fixes in `backend/citation_refine/cases.py`:
+
+- **Quicklaw numbers without periods or brackets.** `[2004] FCJ No 1149` and `2003 FCJ No 162` were never read as parallel citations (the pattern demanded a literal full stop). They now join the chain, so the pinpoint after them is kept.
+- **Carswell numbers** (`2007 CarswellNat 950 at para 42`) are now parallel citations too.
+- **Pinpoint after a clause** (`, where she said at para 134:`, `, Justice Mosley noted at para 43`, `, the Court stated at p. 358`) is attached to the citation just before it. The row text still ends at the citation.
+- **Name and year** (`Singh 2020 at para 26`) resolves to the case declared as `[Singh 2020]` or the one with that year.
+
+Measured on 140 FC/FCA decisions (spread over 2002 to 2026; sample of live full text, refine run locally): rows with a pinpoint 913 to 990. Of the places where a pinpoint phrase follows a citation in the same clause, 13 of 114 were kept before and 32 of 62 after (the rest are mostly "At paragraph 5 of that decision" and "above" forms that name no citation). On 2012 FC 319 the rows with a pinpoint went from 14 of 54 to 27 of 50.

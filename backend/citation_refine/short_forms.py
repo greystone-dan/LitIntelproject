@@ -54,7 +54,7 @@ def _weak_case_name(row: RefinedCitation) -> bool:
 	return bool(_FOOTNOTE_ARTIFACT_RE.search(text) or _TITLE_BLOCK_RE.match(text))
 
 
-def is_weak_short_form(row: RefinedCitation) -> bool:
+def _weak_by_alias(row: RefinedCitation) -> bool:
 	if row.kind == "case_name" and row.step == "pass1":
 		return _weak_case_name(row)
 	if row.kind != "case_short" or row.step != "pass1" or row.declared_alias:
@@ -79,3 +79,30 @@ def is_weak_short_form(row: RefinedCitation) -> bool:
 	return not any(
 		tokens[start : start + size] == words for tokens in candidates for start in range(max(len(tokens) - size + 1, 0))
 	)
+
+
+_HONORIFIC_BEFORE_RE = re.compile(r"(?:\b(?:Mr|Ms|Mrs|Mx|Dr|Mme|Mlle|Madame|Monsieur|Miss|Messrs)\.?|\bM\.|\bMe)\s+$")
+_PARTY_AFTER_RE = re.compile(
+	r"^(?:['’]s\b|\s+(?:argued|argues|submits|submitted|alleges|alleged|claims|claimed|filed|wrote|initiated|testified|signed|"
+	r"a soutenu|soutient|prétend|a déposé)\b)"
+)
+
+
+def _party_mention(row: RefinedCitation, content: str) -> bool:
+	"""A bare name that is a litigant in this decision ("Ms. Kostic", "Tervita's", "Apotex argued"), not a citation.
+
+	Only for short forms without a pinpoint or a declared alias: a pinpoint ("Kostic at para 5") is always a citation.
+	"""
+	if row.pinpoints or row.pinpoint:
+		return False
+	before = content[max(0, row.offset_start - 12) : row.offset_start]
+	after = content[row.offset_end : row.offset_end + 24]
+	return bool(_HONORIFIC_BEFORE_RE.search(before) or _PARTY_AFTER_RE.match(after))
+
+
+def is_weak_short_form(row: RefinedCitation, content: str | None = None) -> bool:
+	if _weak_by_alias(row):
+		return True
+	if content is not None and row.kind == "case_short" and row.step == "pass1" and not row.declared_alias:
+		return _party_mention(row, content)
+	return False

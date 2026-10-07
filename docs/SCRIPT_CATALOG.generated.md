@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 194
+Active scripts documented: 195
 
 ## Catalog
 
@@ -196,6 +196,7 @@ Active scripts documented: 194
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
+| `sync_paragraph_search.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sync_paragraph_search.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
 | `tag_cases_v2.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v2.py --help` |
 | `tag_cases_v3.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases_v3.py --help` |
@@ -2807,6 +2808,20 @@ Active scripts documented: 194
 
 ```powershell
 .\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help
+```
+
+## `scripts/sync_paragraph_search.py`
+
+**Purpose:** Add new paragraph chunks to the paragraph_search table (catch-up after imports; additive). Dry run by default: prints how many paragraphs are waiting. Use --apply to add them, --prune to also drop index rows whose chunk was deleted by re-chunking. Run after RAD/RLLR imports or any bulk chunking; the daily intake does the same step automatically. Undo for one run: none needed (rows are derived from case_chunks); to remove everything: DROP TABLE paragraph_search.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\sync_paragraph_search.py --help
 ```
 
 ## `scripts/tag_cases.py`

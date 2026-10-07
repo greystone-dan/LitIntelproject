@@ -21,6 +21,7 @@ from sqlalchemy.orm import Session
 
 from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
+from .contextual_authority.case_structure import structure_outline
 from .live_decision import decision_details, decision_format_blocks, looks_like_decision
 from .paragraph_cited_by_db import load_pinpoint_cited_by
 from .citation_refine import refine_case_citations
@@ -206,6 +207,13 @@ def document_tags(text: str) -> list[dict[str, Any]]:
 	return [tag.model_dump() for tag in _compute_reader_inferred_tags(holder, [])]
 
 
+def _outline(text: str, blocks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+	try:
+		return structure_outline(text, blocks)
+	except Exception:  # noqa: BLE001 - an outline problem must never break the reader
+		return []
+
+
 def build_live_reader_payload(
 	text: str,
 	paragraphs: list[LiveParagraph],
@@ -234,6 +242,7 @@ def build_live_reader_payload(
 		"date": (details or {}).get("date"),
 		"judge": (details or {}).get("judge"),
 		"source_url": None,
+		"rule_outcome": (details or {}).get("outcome"),
 	}
 	format_blocks = decision_format_blocks(text) if is_decision else format_blocks_for_text(text)
 	return {
@@ -247,6 +256,8 @@ def build_live_reader_payload(
 			"tags": document_tags(text),
 			"extracted_metadata": [],
 			"evidence_summary": None,
+			"structure_outline": _outline(text, format_blocks),
+			"case_type": {"primary": details["case_type"]} if details and details.get("case_type") else None,
 		},
 		"summary": {
 			**analysis["summary"],

@@ -184,6 +184,17 @@ _JUSTICE_LAWS = (
 	("canada.presentation_of_persons_regs", "Presentation of Persons (2003) Regulations", "SOR/2003-323", "SOR-2003-323.xml", "regulations/SOR-2003-323"),
 	("canada.reporting_imported_goods_regs", "Reporting of Imported Goods Regulations", "SOR/86-873", "SOR-86-873.xml", "regulations/SOR-86-873"),
 	("canada.tax_court_rules_general", "Tax Court of Canada Rules (General Procedure)", "SOR/90-688a", "SOR-90-688A.xml", "regulations/SOR-90-688A"),
+	("canada.financial_administration_act", "Financial Administration Act", "R.S.C. 1985, c. F-11", "F-11.xml", "acts/F-11"),
+	("canada.statutory_instruments_act", "Statutory Instruments Act", "R.S.C. 1985, c. S-22", "S-22.xml", "acts/S-22"),
+	("canada.department_cic_act", "Department of Citizenship and Immigration Act", "S.C. 1994, c. 31", "C-29.4.xml", "acts/C-29.4"),
+	("canada.prisons_reformatories_act", "Prisons and Reformatories Act", "R.S.C. 1985, c. P-20", "P-20.xml", "acts/P-20"),
+	("canada.transfer_of_offenders_act", "Transfer of Offenders Act", "S.C. 2004, c. 21", "T-15.xml", "acts/T-15"),
+	("canada.mutual_legal_assistance_act", "Mutual Legal Assistance in Criminal Matters Act", "R.S.C. 1985, c. 30 (4th Supp.)", "M-13.6.xml", "acts/M-13.6"),
+	("canada.identification_of_criminals_act", "Identification of Criminals Act", "R.S.C. 1985, c. I-1", "I-1.xml", "acts/I-1"),
+	("canada.bill_of_rights", "Canadian Bill of Rights", "S.C. 1960, c. 44", "C-12.3.xml", "acts/C-12.3"),
+	("canada.pipeda", "Personal Information Protection and Electronic Documents Act", "S.C. 2000, c. 5", "P-8.6.xml", "acts/P-8.6"),
+	("canada.carriage_by_air_act", "Carriage by Air Act", "R.S.C. 1985, c. C-26", "C-26.xml", "acts/C-26"),
+	("canada.income_tax_regulations", "Income Tax Regulations", "C.R.C., c. 945", "CRC-c-945.xml", "regulations/C.R.C.,_c._945"),
 )
 
 for _key, _title, _citation, _file, _path in _JUSTICE_LAWS:

@@ -67,6 +67,19 @@ def refined_rows_for(case: Case):
 	return result.rows
 
 
+def pinpoint_columns(row) -> dict:
+	"""Pinpoint text, kind, stated numbers and (for paragraphs) the first paragraph, for the refined table."""
+	if not row.pinpoints:
+		return {}
+	first = row.pinpoints[0]
+	return {
+		"pinpoint": (row.pinpoint or first.display())[:100],
+		"pinpoint_kind": first.kind[:12],
+		"pinpoint_values": ",".join(str(value) for value in first.values)[:255] or None,
+		"target_paragraph": first.values[0] if first.kind == "paragraph" and first.values else None,
+	}
+
+
 def build_for_case(session, case: Case, version: int, apply: bool) -> tuple[int, int]:
 	"""Return (refined row count, pass-one row count). Writes only when apply is true."""
 	rows = refined_rows_for(case)
@@ -93,6 +106,7 @@ def build_for_case(session, case: Case, version: int, apply: bool) -> tuple[int,
 					refine_step=row.step,
 					confidence=row.confidence,
 					refine_version=version,
+					**pinpoint_columns(row),
 				)
 			)
 		status = session.get(CitationRefineStatus, case.id)

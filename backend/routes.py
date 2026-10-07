@@ -1529,6 +1529,16 @@ def future_features_page() -> HTMLResponse:
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/coming-soon/{section}", include_in_schema=False)
+def coming_soon_page(section: str) -> HTMLResponse:
+	from .pages.coming_soon_page import render
+
+	page = render(section)
+	if page is None:
+		raise HTTPException(status_code=404, detail="Unknown Coming soon page")
+	return HTMLResponse(page, headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/business-case", include_in_schema=False)
 def business_case_page() -> HTMLResponse:
 	page = Path(__file__).resolve().parent / "pages" / "business_case.html"

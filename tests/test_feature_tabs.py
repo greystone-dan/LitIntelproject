@@ -581,7 +581,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     html = routes._data_explorer_page_html()
     header = html.split('<header class="topbar">', 1)[1].split('</header>', 1)[0]
     controls = NavigationParser(header).controls
-    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'soon', 'testing']
+    assert [attrs['data-group'] for _, attrs in controls] == ['info', 'research', 'intel', 'roadmap', 'soon', 'testing']
     assert all(tag == 'button' and attrs['aria-controls'] == 'researchViews' for tag, attrs in controls)
     assert [attrs['data-group'] for _, attrs in controls if attrs['aria-pressed'] == 'true'] == ['research']
     assert header.index('class="brand-home"') < header.index('primary-groups')
@@ -590,7 +590,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
-    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Testing'):
+    for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
         assert f'>{label}</button>' in header
 
 
@@ -602,16 +602,19 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert {'soon-themes', 'soon-tag-analytics', 'soon-citation-map'} <= set(soon)
     assert not ({'soon-live-analysis', 'soon-deidentify'} & set(soon))  # both live in the Workbench now
     assert {'soon-site-architecture', 'soon-statutes', 'soon-quick-search', 'soon-tag-finder'} <= set(soon)
-    assert len(soon) == 14 and 'soon-business-case' in soon
+    assert len(soon) == 13 and 'soon-business-case' not in soon
     assert 'soon-fc-analytics' not in soon
-    assert {tab: group for tab, group in views.items() if tab not in soon} == {
+    roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
+    assert set(roadmap.values()) == {'roadmap'}
+    assert list(roadmap) == ['roadmap-overview', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-internal', 'roadmap-intelligence', 'roadmap-team', 'roadmap-local-ai']
+    assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
         'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
         'research-bench': 'testing',
     }
     links = {attrs['href']: attrs['data-nav-group'] for tag, attrs in controls if tag == 'a'}
     assert links == {'/discussion-units-sandbox': 'testing', '/citation-pass': 'testing'}
-    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'soon', 'testing'))
+    assert all('hidden' in attrs for _, attrs in controls if attrs.get('data-nav-group') in ('info', 'intel', 'soon', 'roadmap', 'testing'))
 
 
 @pytest.mark.parametrize(('query', 'selected', 'group'), [
@@ -621,7 +624,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     ('?tab=judge-profile&judge=smith', 'judge-profile', 'intel'),
     ('?tab=fc-history&imm=IMM-12-26', 'fc-history', 'direct'), ('?tab=fc-analytics', 'fc-analytics', 'intel'),
     ('?tab=themes', 'themes', 'direct'), ('?tab=research-bench', 'research-bench', 'testing'),
-    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'soon', 'soon'), ('?tab=soon-themes', 'themes', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
+    ('?tab=soon-citation-map', 'soon', 'soon'), ('?group=soon', 'themes', 'soon'), ('?group=roadmap', 'soon', 'roadmap'), ('?tab=roadmap-team', 'soon', 'roadmap'), ('?tab=soon-themes', 'themes', 'soon'), ('?group=intel', 'judge-profile', 'intel'),
     ('?group=workbench', 'search', 'research'), ('?group=testing', 'research-bench', 'testing'),
     ('?group=info', 'about', 'info'), ('?group=research', 'search', 'research'),
     ('?tab=search&case_id=7', 'search', 'research'),
@@ -1296,7 +1299,7 @@ def test_coming_soon_items_load_their_real_page_under_the_banner():
     html = routes._data_explorer_page_html()
     assert 'id="comingSoonBanner"' in html and 'id="comingSoonFrame"' in html
     framed = {key: target for key, (kind, target) in SOON_TARGETS.items() if kind == 'page'}
-    assert framed['business-case'] == '/business-case'
+    assert 'business-case' not in framed
     assert framed['citation-map'] == '/citation-map' and framed['statutes'] == '/statute-library'
     assert {key for key, _, _ in COMING_SOON} - set(SOON_TARGETS) == {'markup'}
     assert all(path in {r.path for r in routes.router.routes} for path in framed.values())
@@ -1306,6 +1309,21 @@ def test_main_tab_clicks_reset_state_in_page_without_reloading():
     html = routes._data_explorer_page_html()
     assert "function pitchResetState()" in html and "function pitchCleanOpen(group)" in html
     assert "location.assign('/data-explorer" not in html
-    assert "{info:'about',research:'search',intel:'judge-profile',soon:'soon-themes',testing:'research-bench'}" in html
+    assert "{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',soon:'soon-themes',testing:'research-bench'}" in html
     for step in ("closeDecisionReader()", "getElementById('clearSearch')?.click()", "ciState.caseId=null", "document.getElementById('fcxClear')?.click()"):
         assert step in html
+
+
+def test_coming_soon_roadmap_pages_serve_overview_and_every_section():
+    from fastapi import HTTPException
+
+    from backend.pages.coming_soon_page import ORDER, SECTIONS, STATUSES
+
+    for slug in ORDER:
+        page = routes.coming_soon_page(slug)
+        assert page.status_code == 200 and b"Coming soon" in page.body
+    with pytest.raises(HTTPException):
+        routes.coming_soon_page("nope")
+    assert all(item[1] in STATUSES for _, _, _, items in SECTIONS.values() for item in items)
+    assert b"Internal documentation" in routes.coming_soon_page("overview").body
+    assert "/coming-soon/overview" in routes._data_explorer_page_html()

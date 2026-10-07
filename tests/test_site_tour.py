@@ -133,9 +133,10 @@ def test_about_page_has_the_tour_button():
     assert 'data-ilit-tour-start' in html and "Take a tour" in html
 
 
-def test_tour_css_covers_phone_and_reduced_motion():
+def test_tour_css_covers_reduced_motion_and_a_separate_control_bar():
     css = tour_css()
-    assert "prefers-reduced-motion" in css and "max-width:639px" in css and ".sheet" in css
+    assert "prefers-reduced-motion" in css
+    assert ".ilit-tour-dock" in css and ".ilit-tour-card" in css   # Next/Back/Skip sit apart from the speech card
 
 
 @pytest.mark.skipif(not shutil.which("node"), reason="node is needed to syntax-check the script")
@@ -162,12 +163,13 @@ def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     assert all(not s.get("also") for s in fc_steps)    # one box per statistics step
     assert {"la-safety", "la-drop", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "cessation-tag-minister-won"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "india-tag", "cessation-india-won", "plain-search-2", "tour-decision"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 
-def test_card_stays_in_one_place_on_desktop():
-    assert "card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'" in tour_js()
+def test_card_follows_the_highlight_and_controls_stay_in_the_dock():
+    js = tour_js()
+    assert "function placeCard(" in js and "ilit-tour-dock" in js
 
 
 def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
@@ -183,7 +185,7 @@ def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
+    assert order == ["Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name
@@ -197,13 +199,25 @@ def test_tour_is_calm_and_leaves_the_page_usable():
     by_id = {step["id"]: step for step in steps}
     for name in ("search-page", "judges", "workbench-home", "la-safety"):  # each page is introduced before its parts
         assert by_id[name].get("top") and by_id[name].get("lead"), name
-    assert sum(1 for step in steps if step.get("explore")) >= 8
+    data = tour_steps()                                                      # a feature tour for now: the About introduction
+    assert data["introOn"] is False and data["intro"][0]["id"] == "welcome"  # is kept, switched off, until those pages are final
+    assert steps[0]["id"] == "search-page" and "DATA.introOn" in js
+    la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
+    assert "never saved" in la and "never added to the library" in la and "AI model" in la
+    assert by_id["la-coming"]["text"].startswith("Not built yet")
+    for step in steps:                                                       # text first, then the action on Next
+        assert bool(step.get("act")) == bool(step.get("say")), step["id"]
     assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
-    assert any(action.get("do") == "type" and action.get("text") == "Vavilov" for action in by_id["vav-words"]["before"])
-    assert any(action.get("do") == "type" and action.get("selector") == "#tagSearch" for action in by_id["adv-tag"]["before"])
-    assert not any("searchQuery" in json.dumps(step.get("before", [])) for step in steps if step["id"].startswith(("adv-", "ces-")))
-    click = by_id["reader-citation-card"]["before"][0]                       # clicks a citation that has a pinpoint
+    typed = {a.get("text") for name in ("plain-search", "plain-search-2") for a in by_id[name]["act"] if a.get("do") == "type"}
+    assert typed == {"best interests of the child", "non-refoulement statutory interpretation"}
+    filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-india", "adv-cites")])
+    assert "cessation" in filters and "india" in filters and "2019 SCC 65" in filters
+    assert not any(a.get("do") in ("type", "fill") and a.get("selector") == "#searchQuery"   # filters only, no typed query
+                   for step in steps if step["id"].startswith("adv-") for a in step.get("before", []) + (step.get("act") or []))
+    click = by_id["reader-cite-card"]["act"][0]                              # clicks a citation that has a pinpoint
     assert click["do"] == "click" and any(isinstance(t, dict) and t.get("pin") for t in click["selector"])
+    readers = [s for s in steps if s["section"] == "Reading a decision"]
+    assert all("{cessation}" in s.get("url", "") for s in readers)            # one cessation decision throughout
 
 
 def test_live_analysis_drops_the_fictional_word_file():
@@ -218,4 +232,4 @@ def test_live_analysis_drops_the_fictional_word_file():
 
 def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
     text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
-    assert "built" in text and "run by hand" in text and "being rolled out" in text
+    assert "built" in text and "run by hand" in text and "not yet scheduled" in text

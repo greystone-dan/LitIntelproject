@@ -26,6 +26,19 @@ def is_tour_sample(text: str) -> bool:
     return any(" ".join(text.split()) == " ".join(sample.split()) for sample in tour_steps().get("texts", {}).values())
 
 
+SAMPLE_DOCX_NAME = "Memorandum of Argument (fictional).docx"
+
+
+@lru_cache(maxsize=1)
+def tour_sample_docx() -> bytes:
+    """The tour's fictional Memorandum of Argument as a Word file, dropped on Live analysis like a real upload."""
+    return (_PAGES / "site_tour_sample_moa.docx").read_bytes()
+
+
+def is_tour_sample_file(content: bytes) -> bool:
+    return content == tour_sample_docx()
+
+
 @lru_cache(maxsize=1)
 def tour_css() -> str:
     return (_PAGES / "site_tour.css").read_text(encoding="utf-8")

@@ -91,7 +91,7 @@ def test_tour_script_parses(tmp_path):
 def test_steps_that_write_say_so_and_the_tour_never_moves_on_by_itself():
     steps = tour_steps()["steps"]
     for step in steps:
-        clicks_save = any(a.get("selector") == "#v6SaveWb" for a in step.get("before", []))
+        clicks_save = any(a.get("selector") in ("#v6SaveWb", "#laPinAll") for a in step.get("before", []))
         assert not clicks_save or step.get("writes"), step["id"]
     # The only automatic move is skipping a step whose target is missing; a button never calls go().
     assert "btn.onclick=function(){var node=qs(b.click);if(node)node.click();btn.disabled=true}" in tour_js()
@@ -107,4 +107,23 @@ def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
 
 
 def test_card_stays_in_one_place_on_desktop():
-    assert "card.style.right='20px';card.style.bottom='20px'" in tour_js()
+    assert "card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'" in tour_js()
+
+
+def test_sections_follow_the_header_tabs_without_going_back():
+    sections = [step["section"] for step in tour_steps()["steps"]]
+    order = list(dict.fromkeys(sections))
+    assert order == ["Welcome", "Case search", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Finish"]
+    for name in order:                                   # each section is one unbroken run of steps
+        first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
+        assert set(sections[first:last + 1]) == {name}, name
+
+
+def test_tour_is_scripted_and_lights_several_regions():
+    css, steps = tour_css(), tour_steps()["steps"]
+    assert ".ilit-tour-block{position:fixed;inset:0;pointer-events:auto" in css      # the page underneath takes no clicks
+    assert sum(1 for step in steps if step.get("also")) >= 10
+    reader = {step["id"]: step for step in steps}
+    assert any(extra["sel"] == "#decisionBody" for extra in reader["reader-panel"]["also"])
+    assert reader["reader-open"]["via"].startswith("#searchResults .case-result")     # Next clicks into the case
+    assert any(action.get("do") == "type" and action.get("text") == "Vavilov" for action in reader["vav-words"]["before"])

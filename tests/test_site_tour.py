@@ -262,6 +262,27 @@ def test_geometry_checks_catch_what_looks_wrong():
     assert not any("jumped" in p for p in problems(target_moved_under_it, previous_card={"x": 900, "y": 100, "w": 400, "h": 220}))
 
 
+def test_tall_result_lists_are_ringed_from_their_top():
+    # The real library's results run to thousands of pixels: a ring round their first rows is right, as long as it
+    # starts at the list's top, spans its width and shows a real part of it.
+    problems = check_site_tour.geometry_problems
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+
+    def tall(ring, under=0):
+        g = _moment(card=(900, 560, 400, 220), ring=ring, full=(30, 210, 1380, 5200))
+        g["items"][0].update(seen=box(30, 210, 1380, 620), room=box(0, 12, 1440, 804), underBar=under)
+        return g
+
+    assert problems(tall((24, 204, 1392, 330))) == []                       # its first whole rows, the card below
+    assert any("misses the top" in p for p in problems(tall((24, 400, 1392, 300))))
+    assert any("too little" in p for p in problems(tall((24, 204, 1392, 90))))
+    assert any("under a bar pinned" in p for p in problems(tall((24, 204, 1392, 330), under=40)))
+    # one that would fit on the screen is still a cut
+    fits = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 200), full=(100, 100, 400, 300))
+    fits["items"][0]["room"] = box(0, 12, 1440, 804)
+    assert any("ring cuts target" in p for p in problems(fits))
+
+
 def test_walk_runs_the_geometry_checks_at_every_card():
     source = (ROOT / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
     assert "geometry_problems(g, previous_card)" in source and "MOTION_RECORDER" in source
@@ -270,7 +291,8 @@ def test_walk_runs_the_geometry_checks_at_every_card():
 
 def test_card_and_rings_follow_the_layout_rules():
     js, css = tour_js(), tour_css()
-    for rule in ("function showWhole(", "function makeRoom(", "function steady(", "function keepClear(", "HOLD=", "NEAR="):
+    for rule in ("function showWhole(", "function makeRoom(", "function steady(", "function keepClear(", "HOLD=", "NEAR=",
+                 "function rowsEnd(", "function roomBelow(", "function underBar(", "function glidesOverPointer(", "function shownBox("):
         assert rule in js, rule                                   # whole regions in view; the card stays unless it must move
     assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
     assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps

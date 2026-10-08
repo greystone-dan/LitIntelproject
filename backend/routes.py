@@ -173,6 +173,7 @@ from .analytics_service import (
 	_judge_outcome_counts,
 	_profile_reader_metadata,
 	fetch_about_stats,
+	fetch_about_library,
 	fetch_all_tag_analytics,
 	fetch_analytics_search_case_detail,
 	fetch_analytics_search_cases,
@@ -1767,6 +1768,15 @@ def get_data_explorer(
 @router.get("/api/about/stats", response_model=dict[str, int], include_in_schema=False)
 def about_stats(db: Session = Depends(get_db), response: Response = None) -> dict[str, int]:  # type: ignore[assignment]
 	result, was_hit = fetch_about_stats(db)
+	if response is not None:
+		response.headers["X-Cache"] = "hit" if was_hit else "miss"
+	return result
+
+
+@router.get("/api/about/library", response_model=dict[str, Any], include_in_schema=False)
+def about_library(db: Session = Depends(get_db), response: Response = None) -> dict[str, Any]:  # type: ignore[assignment]
+	"""Decisions per court and the years each covers, read live for the How it works page."""
+	result, was_hit = fetch_about_library(db)
 	if response is not None:
 		response.headers["X-Cache"] = "hit" if was_hit else "miss"
 	return result

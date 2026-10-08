@@ -2,7 +2,7 @@
 
 This file is generated from `backend.main:app.openapi()` by `scripts/generate_api_reference.py`. Do not edit it manually.
 
-Generated: 2026-10-07T18:35:25.615187+00:00
+Generated: 2026-10-08T08:48:32.778408+00:00
 OpenAPI title: FastAPI
 OpenAPI version: 0.1.0
 OpenAPI operations: 134 across 131 paths
@@ -1985,6 +1985,21 @@ Handler: `backend.main.access_logout`
 **Handler parameters**
 
 - `request` (Request; required)
+
+**Responses**
+
+- Not declared in OpenAPI; inspect the route handler or exercise the endpoint for the current response contract.
+
+### `GET /api/about/library`
+
+**Hidden from OpenAPI.**
+
+Handler: `backend.routes.about_library`
+
+**Handler parameters**
+
+- `db` (Session; default `Depends(get_db)`)
+- `response` (Response; default `None`)
 
 **Responses**
 

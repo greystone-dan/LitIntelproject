@@ -9,7 +9,7 @@
  const E=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const N=value=>Number(value||0).toLocaleString('en-CA');
  const getJson=async url=>{const response=await fetch(url);if(!response.ok)throw new Error(`Request failed (${response.status})`);return response.json();};
- const v6={caseId:null,tab:'about',isub:'intel',open:null,view:null,stack:[],filter:'',af:'all',cursor:{},intel:new Map(),judges:new Map(),cards:new Map()};
+ const v6={caseId:null,tab:'about',isub:'intel',open:null,outline:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{},intel:new Map(),judges:new Map(),cards:new Map()};
  const fullCaseUrl=id=>`/data-explorer?case_id=${encodeURIComponent(id)}`;
  const openFull=id=>{if(id)window.open(fullCaseUrl(id),'_blank','noopener');};
  const SHOW_COMPARE=false; /* the Compare page is not pitch-ready; set true to bring the button back */
@@ -31,14 +31,13 @@
  /* ---------- intelligence (stored citation figures) ---------- */
  function spark(rows,key){if(!rows||!rows.length)return '';const max=Math.max(...rows.map(row=>row[key]),1),w=300,h=52,bw=w/rows.length;return `<svg class="v6-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${rows.map((row,index)=>{const bh=Math.max(1,row[key]/max*(h-4));return `<rect x="${index*bw+1}" y="${h-bh}" width="${Math.max(1,bw-2)}" height="${bh}" fill="#176c68" opacity=".78"><title>${E(row.year)}: ${row[key]}</title></rect>`;}).join('')}</svg><div class="v6-years"><span>${E(rows[0].year)}</span><span>${E(rows[rows.length-1].year)}</span></div>`;}
  function outcomeBar(o){const total=o.total_cases||0;if(!total)return '';const segs=[['government_win','#315d8d','Government won'],['government_loss','#2f8a5a','Government lost'],['mixed','#c28e2d','Mixed'],['unknown','#b9b5a6','Unclassified']];return `<div class="v6-bar">${segs.map(([k,c])=>`<i style="width:${(o[k]||0)/total*100}%;background:${c}"></i>`).join('')}</div><div class="v6-legend">${segs.map(([k,c,l])=>`<span><b style="background:${c}"></b>${l} ${N(o[k])}</span>`).join('')}</div>`;}
- function loadIntel(caseId){if(!v6.intel.has(caseId)){const base=`/api/citation-intelligence/${caseId}`;v6.intel.set(caseId,Promise.all(['overview','outcomes','timeline','courts','judges?limit=8'].map(part=>getJson(`${base}/${part}`).catch(()=>null))).then(([overview,outcomes,timeline,courts,judges])=>({overview,outcomes,timeline,courts,judges})));}return v6.intel.get(caseId);}
+ function loadIntel(caseId){if(!v6.intel.has(caseId)){const base=`/api/citation-intelligence/${caseId}`;v6.intel.set(caseId,Promise.all(['overview','outcomes','timeline','courts'].map(part=>getJson(`${base}/${part}`).catch(()=>null))).then(([overview,outcomes,timeline,courts])=>({overview,outcomes,timeline,courts})));}return v6.intel.get(caseId);}
  function intelHtml(caseId,d){const o=d.overview;if(!o)return '<div class="v6-note">No citation intelligence is stored for this decision yet.</div>';
   return `<div class="v6-tiles"><div class="v6-tile"><b>${N(o.unique_citing_cases)}</b><span>Citing cases</span></div><div class="v6-tile"><b>${N(o.total_occurrences)}</b><span>Mentions</span></div><div class="v6-tile"><b>${E(o.avg_mentions_per_case)}</b><span>Avg per case</span></div></div>
   ${d.outcomes?`<div class="v6-sec"><h4>Outcome of citing cases</h4>${outcomeBar(d.outcomes)}</div>`:''}
   ${d.timeline&&d.timeline.length?`<div class="v6-sec"><h4>Citing cases per year</h4>${spark(d.timeline,'citing_cases')}</div>`:''}
   ${d.courts&&d.courts.length?`<div class="v6-sec"><h4>By court</h4>${d.courts.map(c=>`<div class="v6-hb"><b>${E(c.court)}</b><span class="t"><i style="width:${c.pct}%"></i></span><span>${N(c.case_count)}</span></div>`).join('')}</div>`:''}
-  ${d.judges&&d.judges.length?`<div class="v6-sec"><h4>Judges who cite it most</h4>${d.judges.slice(0,6).map(j=>`<button type="button" class="v6-row" data-v6-judge="${E(j.judge)}"><span><strong>${E(j.judge)}</strong><small>${E(String(j.first_use||'').slice(0,4))}–${E(String(j.latest_use||'').slice(0,4))}</small></span><span class="v6-ct">${N(j.case_count)}</span></button>`).join('')}</div>`:''}
-  <a class="v6-link" href="/data-explorer?tab=citation-intelligence&group=research&case_id=${caseId}" target="_blank" rel="noopener">Open full citation intelligence →</a>`;}
+  <a class="v6-link" href="/data-explorer?tab=citation-intelligence&group=research&case_id=${caseId}" target="_blank" rel="noopener">Open full citation intelligence ↗</a>`;}
  function similarRows(rows,why){return rows.map(r=>`<button type="button" class="v6-row" data-v6-newtab="${r.case_id}"><span><strong>${E(r.title)}</strong><small>${E([r.citation,r.court,String(r.date||'').slice(0,4)].filter(Boolean).join(' · '))}${why&&r.shared&&r.shared.length?` · in common: ${E(r.shared.join(', '))}`:''}</small></span></button>`).join('');}
  function similarHtml(d){if(!d||!d.available||(!d.similar.length&&!d.shares_authorities.length))return '';return `${d.similar.length?`<div class="v6-sec"><h4>Similar cases</h4><div class="v6-note-sm">Decisions about the same subject, matched on legal tags and statute provisions.</div>${similarRows(d.similar,true)}</div>`:''}${d.shares_authorities.length?`<div class="v6-sec"><h4>Shares authorities</h4><div class="v6-note-sm">Decisions that cite many of the same cases.</div>${similarRows(d.shares_authorities,false)}</div>`:''}`;}
  async function fillIntel(box,caseId){box.innerHTML='<div class="v6-note">Loading citation intelligence…</div>';const data=await loadIntel(caseId);if(!box.isConnected)return;box.innerHTML=intelHtml(caseId,data);getJson(`/api/cases/${caseId}/similar-cases`).then(similar=>{const html=similarHtml(similar);if(html&&box.isConnected){const link=box.querySelector('.v6-link');if(link)link.insertAdjacentHTML('beforebegin',html);else box.insertAdjacentHTML('beforeend',html);}}).catch(()=>{});}
@@ -49,33 +48,46 @@
   ${total?`<div class="v6-sec"><h4>Outcomes</h4><div class="v6-bar"><i style="width:${o.government_wins/total*100}%;background:#315d8d"></i><i style="width:${o.individual_wins/total*100}%;background:#2f8a5a"></i></div><div class="v6-legend"><span><b style="background:#315d8d"></b>Government ${N(o.government_wins)}</span><span><b style="background:#2f8a5a"></b>Individual ${N(o.individual_wins)}</span><span>Unclassified ${N(o.unclassified)}</span></div></div>`:''}
   ${yearly.length?`<div class="v6-sec"><h4>Decisions per year</h4>${spark(yearly,'n')}</div>`:''}
   ${recent.length?`<div class="v6-sec"><h4>Recent decisions</h4>${recent.map(r=>`<div class="v6-line"><strong>${E(r.title)}</strong><small>${E([r.citation,r.date||r.decision_date].filter(Boolean).join(' · '))}</small></div>`).join('')}</div>`:''}
-  ${j.slug?`<a class="v6-link" href="/judges/${encodeURIComponent(j.slug)}" target="_blank" rel="noopener">Open full judge profile →</a>`:''}`;}
- async function loadJudge(name){if(!v6.judges.has(name)){const clean=name.replace(/^(The Honourable|Justice|Mr\.|Madam|Madame)\s+/ig,'').replace(/,?\s*(C\.?J\.?|J\.?|J\.A\.?)$/i,'').trim();
-   v6.judges.set(name,getJson(`/api/judge-profiles?q=${encodeURIComponent(clean)}&limit=5`).then(list=>{const low=name.toLowerCase(),hit=(list||[]).find(p=>(p.aliases||[]).some(a=>String(a).toLowerCase()===low))||(list||[])[0];return hit?getJson(`/api/judge-profiles/${encodeURIComponent(hit.slug)}`):null;}).catch(()=>null));}
-  return v6.judges.get(name);}
+  ${j.slug?`<a class="v6-link" href="/judges/${encodeURIComponent(j.slug)}" target="_blank" rel="noopener">Open full judge profile ↗</a>`:''}`;}
+ const plain=text=>String(text||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z\s'-]/g,' ').replace(/\s+/g,' ').trim();
+ const TITLE_WORDS=new Set(['the','honourable','hon','justice','mr','mrs','ms','mme','madam','madame','chief','deputy','associate','puisne','j','ja','cj','cjc','jj','jja']);
+ /* A decision-maker string as the case stores it ("Justice Gagné", "Grammond, Sébastien", "Mr. Justice Noël J.") to the words that can identify a profile. */
+ function judgeTokens(name){const raw=String(name||'').split(';')[0],comma=/^([^,]+),\s*(.+)$/.exec(raw),ordered=comma?`${comma[2]} ${comma[1]}`:raw;return plain(ordered).split(' ').map(t=>t.replace(/^[-']+|[-']+$/g,'')).filter(t=>t.length>1&&!TITLE_WORDS.has(t));}
+ async function loadJudge(name,court){const ck=name+'|'+shortCourt(court);if(!v6.judges.has(ck)){
+   v6.judges.set(ck,(async()=>{const tokens=judgeTokens(name);if(!tokens.length)return null;const surname=tokens[tokens.length-1];
+    const find=async q=>{try{return await getJson(`/api/judge-profiles?q=${encodeURIComponent(q)}&limit=30`);}catch(error){return [];}};
+    let list=await find(surname);if(!(list||[]).length&&surname!==String(name).toLowerCase())list=await find(String(name).replace(/^(?:the\s+)?(?:hon\w*\.?\s+)?(?:(?:mr|mme|madam|madame)\.?\s+)?(?:chief\s+)?justice\s+/i,'').replace(/[,.].*$/,'').trim());
+    const wantCourt=shortCourt(court);
+    const scored=(list||[]).map(p=>{const hay=plain([p.display_name,...(p.aliases||[])].join(' '));const hits=tokens.filter(t=>new RegExp(`(^| )${t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}( |$)`).test(hay)).length;return {p,hits,court:(p.primary_court||'')===wantCourt?1:0,n:p.decision_count||0};}).filter(x=>x.hits>=1&&plain((x.p.display_name+' '+(x.p.aliases||[]).join(' '))).includes(surname)).sort((a,b)=>b.hits-a.hits||b.court-a.court||b.n-a.n);
+    const best=scored[0];if(!best)return null;
+    try{return await getJson(`/api/judge-profiles/${encodeURIComponent(best.p.slug)}`);}catch(error){return null;}})());}
+  return v6.judges.get(ck);}
  async function fillJudge(box,name,court){
   const bench=benchNames(name);
   if(bench.length>1){box.innerHTML=`<div class="v6-who">Bench of ${bench.length}<small>Open a judge to see their profile.</small></div>${bench.map(n=>`<button type="button" class="v6-row" data-v6-judge="${E(n)}"><span><strong>${E(n)}</strong></span><span class="v6-chev">▸</span></button>`).join('')}`;return;}
   if(isScc(court)){box.innerHTML='<div class="v6-note">Judge profiles do not cover the Supreme Court of Canada yet.</div>';return;}
   if(!name){box.innerHTML='<div class="v6-note">The decision maker is not recorded for this case.</div>';return;}
-  box.innerHTML='<div class="v6-note">Loading judge profile…</div>';const profile=await loadJudge(name);if(!box.isConnected)return;
+  box.innerHTML='<div class="v6-note">Loading judge profile…</div>';const profile=await loadJudge(name,court);if(!box.isConnected)return;
   box.innerHTML=profile?`<div class="v6-who">${E((profile.profile||{}).display_name||name)}<small>${E((profile.profile||{}).primary_court||'')}</small></div>${judgeHtml(profile)}`:`<div class="v6-note">No judge profile for ${E(name)} yet. Profiles cover Federal Court and Federal Court of Appeal decision-makers.</div>`;}
 
  /* ---------- left panel ---------- */
  const subTabs=(items,current,attr)=>`<div class="v6-subtabs">${items.map(([key,label])=>`<button type="button" ${attr}="${key}" class="${current===key?'on':''}">${label}</button>`).join('')}</div>`;
- const facts=rows=>`<dl class="v6-facts">${rows.filter(row=>row&&row[1]!==''&&row[1]!=null).map(([k,v,raw])=>`<dt>${E(k)}</dt><dd>${raw?v:E(v)}</dd>`).join('')}</dl>`;
  function outlineRows(d){const sec=(d.readerData&&d.readerData.structure_outline)||[],heads=headings(d);if(!sec.length)return heads;const have=new Set(sec.map(r=>r.start)),extra=heads.filter(h=>!have.has(h.start)).map(h=>({title:h.title,start:h.start,para:h.para,level:2}));return sec.concat(extra).sort((a,b)=>a.start-b.start);}
  function headings(d){const blocks=d.readerData.format_blocks||[],text=Array.from(d.item.full_text||''),out=[];blocks.forEach((b,i)=>{if(b.type!=='heading')return;const title=text.slice(b.start,b.end).join('').replace(/\s+/g,' ').trim();if(!title)return;const next=blocks.slice(i+1).find(x=>x.type==='para'&&x.num!=null);out.push({title,start:b.start,para:next?next.num:null,level:b.level||1});});return out;}
+ const kv=rows=>{const list=rows.filter(row=>row&&row[1]!==''&&row[1]!=null);return list.length?`<div class="v6-kv">${list.map(([k,v])=>`<div><small>${E(k)}</small><b>${E(v)}</b></div>`).join('')}</div>`:'';};
+ const LANG={en:'English',fr:'French',english:'English',french:'French'};
+ const TAPE='<span class="v6-tape"><b>COMING SOON</b></span>';
  function aboutHtml(d){
   const cf=sideCaseFacts(d),outcome=sideOutcome(d.item),meta=d.meta,docket=extractDocketFromPayload(d.item)||cf.docket,tags=Array.from(sideTagGroups(d.tags).flatMap(g=>g.values.map(v=>({...v,category:g.category}))).sort((a,b)=>b.count-a.count).reduce((seen,v)=>{const key=String(v.value||v.label||v.name||'').replace(/[_\s]+/g,' ').trim().toLowerCase();if(!seen.has(key))seen.set(key,v);return seen;},new Map()).values()).slice(0,10),heads=headings(d),outl=outlineRows(d);
   const disposition=[...outl].reverse().find(h=>h.role==='disposition')||[...heads].reverse().find(h=>/disposition|conclusion|judgment|order/i.test(h.title));
-  const names=benchNames(cf.judge),link=n=>cf.court==='RPD'?E(n):`<button type="button" class="v6-lk" data-v6-judge="${E(n)}">${E(n)}</button>`,judge=names.length>1?names.slice(0,3).map(link).join(', ')+(names.length>3?`, <button type="button" class="v6-lk" data-v6-go="judge">and ${names.length-3} more</button>`:''):(cf.judge?`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`:''),bench='';
-  return `<div class="v6-card out"><div class="v6-oh"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}</div><p>${outcome?(outcome.note||'Recorded in the iLit data for this decision.'):'No outcome is recorded for this decision yet.'}</p>${disposition?`<div class="v6-links"><button type="button" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)}</button></div>`:''}</div>
-  <div class="v6-sec"><h4>Case details</h4>${facts([['Court',longCourt(cf.court)],['Case type',caseTypeText(d)],['Decision maker',judge+(bench?'<br>'+bench:''),true],['Docket',docket],['Decided',cf.decided],['Heard',cf.hearing],['Minister or party',d.item.minister||meta.minister],['Language',d.item.language||meta.language],['Jurisdiction',d.item.jurisdiction]])}</div>
-  ${tags.length?`<div class="v6-sec"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
-  ${docket&&isFed(cf.court)?`<div class="v6-card"><h5>Federal Court activity</h5><p>The docket for ${E(docket)} lists filings, hearings and orders when they are in the activity data.</p><div class="v6-links"><a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">Open full FC activity →</a></div></div>`:''}
-  <div class="v6-sec"><h4>Source</h4><div class="v6-links">${d.item.source_url?`<a href="${E(d.item.source_url)}" target="_blank" rel="noopener noreferrer">Original decision ↗</a>`:''}<button type="button" data-v6-go="auth">Authorities this case cites</button></div><p class="v6-small">${E([d.item.source_name||d.item.source_type?`Text from ${d.item.source_name||d.item.source_type}`:'',d.item.processing_status?`Status: ${d.item.processing_status}`:''].filter(Boolean).join('. '))}</p></div>
-  ${outl.length?`<div class="v6-sec"><h4>Outline</h4><div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>1?' v6-sub':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para)}</span>`:''}</button>`).join('')}</div></div>`:''}`;}
+  /* The title card already shows citation, case type, dates, docket, decision maker and the counts; this panel only adds what it does not. */
+  const lang=String(d.item.language||meta.language||'').trim(),status=[d.item.source_name||d.item.source_type?`Text from ${d.item.source_name||d.item.source_type}`:'',d.item.processing_status?`status: ${d.item.processing_status}`:''].filter(Boolean).join(', ');
+  const details=kv([['Court',longCourt(cf.court)],['Minister or party',d.item.minister||meta.minister],['Language',LANG[lang.toLowerCase()]||lang],['Jurisdiction',d.item.jurisdiction]]);
+  const links=[d.item.source_url?`<a href="${E(d.item.source_url)}" target="_blank" rel="noopener noreferrer">Original decision ↗</a>`:'',docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">Full FC activity ↗</a>`:''].filter(Boolean).join('');
+  return `<div class="v6-outrow"><span class="v6-ol">Outcome</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:'<span class="v6-pill none">Not recorded</span>'}${disposition?`<button type="button" class="v6-lk" data-v6-outline="${disposition.start}">Go to ${E(disposition.title)} ↓</button>`:''}</div>${outcome&&outcome.note?`<div class="v6-small v6-outnote">${E(outcome.note)}</div>`:''}
+  ${details||links||status?`<div class="v6-sec v6-compact"><h4>Case details</h4>${details}${links?`<div class="v6-links">${links}</div>`:''}${status?`<div class="v6-small">${E(status)}</div>`:''}</div>`:''}
+  ${tags.length?`<div class="v6-sec v6-compact"><h4>Topics in the text</h4><div class="v6-chips">${tags.map(t=>`<button type="button" class="v6-chip" data-v6-find="tag" data-v6-needles="${E(String(t.value).toLowerCase())}" data-v6-key="tag:${E(t.value)}">${E(cap(t.value))}<b>${t.count}</b></button>`).join('')}</div></div>`:''}
+  ${outl.length?`<div class="v6-sec v6-compact"><button type="button" class="v6-outbtn${v6.outline?' open':''}" data-v6-outl-toggle aria-expanded="${v6.outline}"><span class="v6-ot">Outline<small>${outl.length} section${outl.length===1?'':'s'}</small></span>${TAPE}<span class="v6-chev">${v6.outline?'▾':'▸'}</span></button>${v6.outline?`<div class="v6-outline">${outl.map(h=>`<button type="button" class="v6-orow${h.level>1?' v6-sub':''}" data-v6-outline="${h.start}"><span>${E(h.title)}</span>${h.para?`<span class="v6-ct">${E(h.para)}</span>`:''}</button>`).join('')}</div>`:''}</div>`:''}`;}
 
  function authorityRows(d){
   const q=v6.filter.toLowerCase(),cases=v6.af==='stat'?[]:sideAuthorityGroups(d.citations).filter(g=>!q||(g.label+' '+g.citation).toLowerCase().includes(q)).map(g=>({k:'case',key:'c:'+g.key,g})),
@@ -84,38 +96,44 @@
  function caseBody(g,d){
   const rows=g.rows.filter(r=>r.target_case_id&&r.target_paragraph!=null),seen=new Set(),pins=[];rows.forEach(r=>{const k=String(r.target_paragraph);if(!seen.has(k)&&pins.length<3){seen.add(k);pins.push(r);}});
   const texts=pins.map(row=>{const r=hoverRow(row.id)||row,info=hoverCitationInfo(r);if(info.fetch&&!r._hoverFetched)hoverFetchText(r).then(ok=>{if(ok)renderPanel();});return info.text?citedTextHtml(info.text):`<div class="v6-note">${E(info.note||'')}</div>`;}).join('');
-  const body=g.caseId?(texts||'<div class="v6-note">Cited without a paragraph number, so there is no pinpoint to show.</div>'):'<div class="v6-note">iLit has not matched this citation to a case in its library, so there is no case to open.</div>';
-  return `<div class="v6-abody">${body}${g.caseId?`<div class="v6-links"><button type="button" class="pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Intelligence →</button><button type="button" data-v6-newtab="${g.caseId}">Open full case ↗</button></div><div class="v6-small">Double-click the citation in the text, or this row, to open the case in a new tab.</div>`:''}</div>`;}
- function actBody(g){return `<div class="v6-abody">${g.sections.map(s=>{const name=s.number?`Section ${s.number}${s.pinpoint&&s.pinpoint!==s.number?` (${s.pinpoint})`:''}`:(s.pinpoint?`Pinpoint ${s.pinpoint}`:'Whole Act or general reference');return `<div class="v6-sect"><div class="v6-sect-h"><strong>${E(name)}</strong><span class="v6-ct">${s.rows.length}</span>${s.url?`<a href="${E(s.url)}" target="_blank" rel="noopener noreferrer">Read ↗</a>`:''}</div>${s.text?citedTextHtml(s.text,true):''}</div>`;}).join('')}${g.url?`<div class="v6-links"><a href="${E(g.url)}" target="_blank" rel="noopener noreferrer">Open the Act on Justice Laws ↗</a></div>`:''}</div>`;}
+  const body=g.caseId?(texts||'<div class="v6-note">Cited without a paragraph number, so there is no pinpoint to show.</div>'):'<div class="v6-note">iLit has not matched this citation to a case in its library, so there is no paragraph to show.</div>';
+  return `<div class="v6-abody"><div class="v6-small">Paragraph text from the cited decision</div>${body}</div>`;}
+ function actBody(g){return `<div class="v6-abody">${g.sections.map(s=>{const name=s.number?`Section ${s.number}${s.pinpoint&&s.pinpoint!==s.number?` (${s.pinpoint})`:''}`:(s.pinpoint?`Pinpoint ${s.pinpoint}`:'Whole Act or general reference');return `<div class="v6-sect"><div class="v6-sect-h"><strong>${E(name)}</strong><span class="v6-ct">${s.rows.length}</span>${s.url?`<a href="${E(s.url)}" target="_blank" rel="noopener noreferrer">Read ↗</a>`:''}</div>${s.text?citedTextHtml(s.text,true):''}</div>`;}).join('')}</div>`;}
+ const findGroup=(kind,needles,key)=>{const at=`data-v6-find="${kind}" data-v6-needles="${E(needles)}" data-v6-key="${E(key)}"`;return `<span class="v6-fg"><button type="button" class="v6-fn" ${at} data-v6-dir="-1" title="Previous place in the text" aria-label="Previous place in the text">↑</button><button type="button" class="v6-find" ${at} title="Next place in the text">${E(v6.cfind&&v6.cfind[key]||'Find')}</button><button type="button" class="v6-fn" ${at} data-v6-dir="1" title="Next place in the text" aria-label="Next place in the text">↓</button></span>`;};
  function authoritiesHtml(d){
   const all=authorityRows(d),nCase=sideAuthorityGroups(d.citations).length,nStat=sideActGroups(d.citations).length;
   const chips=[['all','All',nCase+nStat],['case','Cases',nCase],['stat','Statutes',nStat]].map(([k,l,n])=>`<button type="button" class="v6-fchip${v6.af===k?' on':''}" data-v6-af="${k}">${l}<b>${N(n)}</b></button>`).join('');
-  const rows=all.map(r=>{const open=v6.open===r.key,g=r.g;
-   if(r.k==='case'){const paras=[...g.paras].slice(0,3).join(', ');return `<div class="v6-arow case${open?' open':''}"><div class="v6-rw"><button type="button" class="v6-main" data-v6-row="${E(r.key)}" ${g.caseId?`data-v6-case="${g.caseId}"`:''}><span><strong>${E(g.label)}</strong><small>${E([g.citation&&g.citation!==g.label?g.citation:'',`cited ${g.rows.length} time${g.rows.length===1?'':'s'}`,paras?`at ${paras}`:''].filter(Boolean).join(' · '))}</small></span><span class="v6-chev">${open?'▾':'▸'}</span></button><button type="button" class="v6-find" data-v6-find="cite" data-v6-needles="${E([...g.jump].join('|'))}" data-v6-key="${E(r.key)}" title="Find in the text">Find</button></div>${open?caseBody(g,d):''}</div>`;}
+  const rows=all.map(r=>{const open=v6.open===r.key,g=r.g,toggle=label=>`<button type="button" class="v6-ab${open?' on':''}" data-v6-row="${E(r.key)}" aria-expanded="${open}" title="${open?'Hide':'Show'} the paragraph text">${label} ${open?'▾':'▸'}</button>`;
+   if(r.k==='case'){const n=g.rows.length,paras=[...g.paras].slice(0,4).join(', ');
+    return `<div class="v6-arow case${open?' open':''}"><div class="v6-ah"${g.caseId?` data-v6-case="${g.caseId}"`:''}><span class="v6-at"><strong>${E(g.label)}</strong>${g.citation&&g.citation!==g.label?`<small>${E(g.citation)}</small>`:''}</span><span class="v6-cnt" title="Times cited in this decision"><b>${n}</b>${n===1?'citation':'citations'}</span></div>${paras?`<div class="v6-asub">at ${E(paras)}</div>`:''}<div class="v6-aact">${findGroup('cite',[...g.jump].join('|'),r.key)}${g.caseId?`<button type="button" class="v6-ab pri" data-v6-ent="${g.caseId}" data-v6-title="${E(g.label)}" data-v6-cite="${E(g.citation)}">Citation intelligence</button><button type="button" class="v6-ab" data-v6-newtab="${g.caseId}">Full case ↗</button>${toggle('Text')}`:'<span class="v6-small">Not matched to a case in the library</span>'}</div>${open?caseBody(g,d):''}</div>`;}
    const needles=g.sections.flatMap(s=>[...s.jump]).join('|');
-   return `<div class="v6-arow stat${open?' open':''}"><div class="v6-rw"><button type="button" class="v6-main" data-v6-row="${E(r.key)}"><span><strong>${E(g.title)}</strong><small>${E(g.sections.slice(0,3).map(s=>s.number?`s. ${s.number}`:'general').join(' · '))}</small></span><span class="v6-ct">${g.total}</span><span class="v6-chev">${open?'▾':'▸'}</span></button><button type="button" class="v6-find" data-v6-find="act" data-v6-needles="${E(needles)}" data-v6-key="${E(r.key)}" title="Find in the text">Find</button></div>${open?actBody(g):''}</div>`;}).join('');
+   return `<div class="v6-arow stat${open?' open':''}"><div class="v6-ah"><span class="v6-at"><strong>${E(g.title)}</strong><small>${E(g.sections.slice(0,3).map(s=>s.number?`s. ${s.number}`:'general').join(' · '))}</small></span><span class="v6-cnt" title="Times cited in this decision"><b>${g.total}</b>${g.total===1?'citation':'citations'}</span></div><div class="v6-aact">${findGroup('act',needles,r.key)}<button type="button" class="v6-ab pri" data-v6-stat="${E(g.title)}" data-v6-sub="${E(g.sections.slice(0,3).map(s=>s.number?`s. ${s.number}`:'').filter(Boolean).join(' · '))}">Statute intelligence</button>${g.url?`<a class="v6-ab" href="${E(g.url)}" target="_blank" rel="noopener noreferrer">Read the Act ↗</a>`:''}${toggle('Text')}</div>${open?actBody(g):''}</div>`;}).join('');
   return `<div class="v6-legend2"><span><i class="c"></i>Case citations</span><span><i class="s"></i>Statutes and regulations</span></div><input class="v6-filter" type="search" data-v6-filter placeholder="Filter authorities" value="${E(v6.filter)}"><div class="v6-fchips">${chips}</div>${rows||'<div class="v6-note">Nothing matches.</div>'}`;}
 
- const ititle=(kind,name,sub,back,extra)=>`<div class="v6-ititle">${back?`<button type="button" class="v6-bk" data-v6-back>← ${E(back)}</button>`:''}<div class="k">${E(kind)}</div><h3>${E(name)}</h3><div class="s">${E(sub)}</div>${extra||''}</div>`;
+ const COLLAPSE='<button type="button" class="v6-collapse" data-v6-collapse title="Hide this panel" aria-label="Hide the case panel"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+ const ititle=(kind,name,sub,back,extra,tabbed)=>`<div class="v6-ititle">${tabbed?'':COLLAPSE}${back?`<button type="button" class="v6-bk" data-v6-back>← ${E(back)}</button>`:''}<div class="k">${E(kind)}</div><h3>${E(name)}</h3><div class="s">${E(sub)}</div>${extra||''}</div>`;
  function intelligenceHtml(entity,d){
   const isThis=!entity,cf=sideCaseFacts(d),court=isThis?cf.court:entity.court||'',name=isThis?(cf.name||'This case'):entity.title,sub=isThis?[cf.citation,metricsLine(d)].filter(Boolean).join(' · '):[entity.cite].filter(Boolean).join(' · ');
   const back=isThis?'':(v6.stack.length?v6.stack[v6.stack.length-1].label:'Authorities');
   const extra=isThis?'':`<div class="v6-links"><button type="button" data-v6-newtab="${entity.id}">Open full case ↗</button></div>`;
   const pane=v6.isub==='intel'?`<div data-v6-intel="${isThis?readerState.caseId:entity.id}"></div>`:`<div data-v6-judgebox data-v6-judge-name="${E(isThis?cf.judge:entity.judge||'')}" data-v6-court="${E(court)}" ${isThis?'':`data-v6-entity="${entity.id}"`}></div>`;
-  return ititle(isThis?'This case':'Cited case',name,sub,back,extra)+subTabs([['intel','Intelligence'],['judge','Judge profile']],v6.isub,'data-v6-isub')+`<div class="v6-pane">${pane}</div>`;}
+  return ititle(isThis?'This case':'Cited case',name,sub,back,extra,isThis&&!v6.view)+subTabs([['intel','Citation intelligence'],['judge','Judge profile']],v6.isub,'data-v6-isub')+`<div class="v6-pane">${pane}</div>`;}
+ function statuteHtml(view){const back=v6.stack.length?v6.stack[v6.stack.length-1].label:'Authorities';
+  return ititle('Statute',view.title,view.sub||'',back)+`<div class="v6-pane"><div class="v6-soon">${TAPE}<h4>Statute intelligence</h4><p>Coming soon.</p></div></div>`;}
  function metricsLine(d){const n=d.metrics&&d.metrics.in_degree;return n!=null?`cited by ${N(n)} cases`:'';}
 
  const TABS=[['about','About'],['auth','Authorities'],['intel','Intelligence']];
  function panelHtml(d){
   if(v6.view&&v6.view.type==='judge')return `${ititle('Judge profile',v6.view.name,'',v6.stack.length?v6.stack[v6.stack.length-1].label:'Case')}<div class="v6-pane"><div data-v6-judgebox data-v6-judge-name="${E(v6.view.name)}" data-v6-court=""></div></div>`;
+  if(v6.view&&v6.view.type==='statute')return statuteHtml(v6.view);
   if(v6.view&&v6.view.type==='case')return intelligenceHtml(v6.view.entity,d);
-  const tabs=`<nav class="v6-tabs" role="tablist">${TABS.map(([k,l])=>`<button type="button" role="tab" data-v6-tab="${k}" class="${v6.tab===k?'on':''}" aria-selected="${v6.tab===k}">${l}</button>`).join('')}</nav>`;
+  const tabs=`<nav class="v6-tabs" role="tablist">${TABS.map(([k,l])=>`<button type="button" role="tab" data-v6-tab="${k}" class="${v6.tab===k?'on':''}" aria-selected="${v6.tab===k}">${l}</button>`).join('')}${COLLAPSE}</nav>`;
   const content=v6.tab==='about'?`<div class="v6-pane">${aboutHtml(d)}</div>`:v6.tab==='auth'?`<div class="v6-pane">${authoritiesHtml(d)}</div>`:intelligenceHtml(null,d);
   return tabs+content;}
  function renderPanel(){
   if(!readerState.payload)return;
   const d=sideData();
-  if(v6.caseId!==readerState.caseId){Object.assign(v6,{caseId:readerState.caseId,tab:'about',isub:'intel',open:null,view:null,stack:[],filter:'',af:'all',cursor:{}});clearCards();}
+  if(v6.caseId!==readerState.caseId){Object.assign(v6,{caseId:readerState.caseId,tab:'about',isub:'intel',open:null,outline:false,view:null,stack:[],filter:'',af:'all',cursor:{},cfind:{}});clearCards();}
   const keep=side.querySelector('[data-v6-filter]'),focused=keep&&document.activeElement===keep,pos=keep?keep.selectionStart:0,scroll=side.querySelector('.v6-pane');const top=scroll?scroll.scrollTop:0;
   side.innerHTML=panelHtml(d);
   const pane=side.querySelector('.v6-pane');if(pane&&top)pane.scrollTop=top;
@@ -151,24 +169,26 @@
  /* stored case type (primary only, no AI); empty for decisions without a label so nothing is drawn */
  function caseTypeText(d){const t=d&&d.readerData&&d.readerData.case_type,p=t&&t.primary;return p&&p.label?p.label+(p.provision?' ('+p.provision+')':''):'';}
  function renderCard(d){
-  let card=document.getElementById('v6Card');if(!card){card=document.createElement('div');card.id='v6Card';document.getElementById('decisionTitle').after(card);}
+  const title=document.getElementById('decisionTitle');let kick=document.getElementById('v6Kicker'),card=document.getElementById('v6Card');
+  if(!kick){kick=document.createElement('div');kick.id='v6Kicker';title.before(kick);}
+  if(!card){card=document.createElement('div');card.id='v6Card';title.after(card);}
   const cf=sideCaseFacts(d),item=d.item,outcome=sideOutcome(item),docket=extractDocketFromPayload(item)||cf.docket,compare=document.getElementById('readerCompareLink'),authorities=sideAuthorityGroups(d.citations).length,acts=sideActGroups(d.citations).length,citedBy=d.metrics&&d.metrics.in_degree;
   const cell=(label,value,raw)=>value?`<div class="v6-fs"><small>${E(label)}</small><b>${raw?value:E(value)}</b></div>`:'';
-  card.innerHTML=`<div class="v6-tc-top"><span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}">FC activity</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span></div>
-  <div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Case type',caseTypeText(d))}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?(cf.court==='RPD'?E(cf.judge):`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`):'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
+  kick.innerHTML=`<span class="v6-court">${E(shortCourt(cf.court)||'Court')}</span>${outcome?`<span class="v6-pill ${outcome.cls}">${E(outcome.text)}</span>`:''}<span class="v6-actions"><button type="button" data-v6-copy>Copy citation</button>${item.source_url?`<a href="${E(item.source_url)}" target="_blank" rel="noopener noreferrer">Case source ↗</a>`:''}${compare&&SHOW_COMPARE?`<a href="${E(compare.getAttribute('href')||'/compare')}">Compare with…</a>`:''}${docket&&isFed(cf.court)?`<a href="/data-explorer?tab=fc-history&imm=${encodeURIComponent(docket)}" target="_blank" rel="noopener">FC activity ↗</a>`:''}${item.id?`<button type="button" data-v6-save="${E(item.id)}" id="v6SaveWb">Save to Workbench</button>`:''}</span>`;
+  card.innerHTML=`<div class="v6-facts-strip">${cell('Citation',cf.citation)}${cell('Case type',caseTypeText(d))}${cell('Decided',cf.decided)}${cell(/^IMM/i.test(docket)?'Docket (IMM no.)':'File no.',docket)}${cell('Decision maker',cf.judge?(cf.court==='RPD'?E(cf.judge):`<button type="button" class="v6-lk" data-v6-go="judge">${E(benchLabel(cf.judge))}</button>`):'',true)}${cell('Heard',cf.hearing)}<span class="v6-stats"><button type="button" class="v6-stat" data-v6-go="intel"><b>${citedBy==null?'-':N(citedBy)}</b><span>Cited by</span></button><button type="button" class="v6-stat" data-v6-go="auth-case"><b>${N(authorities)}</b><span>Cites</span></button><button type="button" class="v6-stat" data-v6-go="auth-stat"><b>${N(acts)}</b><span>Statutes</span></button></span></div>`;
    syncSave(item&&item.id);
  }
 
  /* ---------- find in the text, jump to outline ---------- */
  function flash(el){document.querySelectorAll('.v6-flash').forEach(x=>x.classList.remove('v6-flash'));el.classList.add('v6-flash');setTimeout(()=>el.classList.remove('v6-flash'),1800);}
  function findMarks(button){return sideFindMarks(button.dataset.v6Find==='cite'?'cite':button.dataset.v6Find,button.dataset.v6Needles||'');}
- function runFind(button){const marks=findMarks(button),key=button.dataset.v6Key;if(!marks.length){const old=button.textContent;button.textContent='Not in text';setTimeout(()=>{button.textContent=old;},1500);return;}
-  const index=((v6.cursor[key]??-1)+1)%marks.length;v6.cursor[key]=index;const target=marks[index];target.scrollIntoView({behavior:'smooth',block:'center'});flash(target);
-  if(button.classList.contains('v6-find')){button.textContent=`${index+1} of ${marks.length}`;clearTimeout(button._t);button._t=setTimeout(()=>{button.textContent='Find';},2400);}}
+ function runFind(button,dir){const marks=findMarks(button),key=button.dataset.v6Key,group=button.closest('.v6-fg'),label=group?group.querySelector('.v6-find'):button;if(!marks.length){const old=label.textContent;label.textContent='Not in text';setTimeout(()=>{label.textContent=old;},1500);return;}
+  const index=((v6.cursor[key]??(dir<0?0:-1))+(dir<0?-1:1)+marks.length)%marks.length;v6.cursor[key]=index;const target=marks[index];target.scrollIntoView({behavior:'smooth',block:'center'});flash(target);
+  if(label.classList.contains('v6-find')){label.textContent=`${index+1} of ${marks.length}`;(v6.cfind=v6.cfind||{})[key]=label.textContent;}}
  function jumpOutline(start){const el=document.getElementById('decision-source-'+start);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});flash(el);}}
 
  /* ---------- left panel clicks ---------- */
- function go(view){if(v6.view)v6.stack.push({view:v6.view,isub:v6.isub,label:v6.view.type==='judge'?'Judge':(v6.view.entity.title||'Case').slice(0,28)});else v6.stack.push({view:null,isub:v6.isub,label:v6.tab==='auth'?'Authorities':'Case'});v6.view=view;v6.isub='intel';renderPanel();}
+ function go(view){if(v6.view)v6.stack.push({view:v6.view,isub:v6.isub,label:v6.view.type==='judge'?'Judge':v6.view.type==='statute'?'Statute':(v6.view.entity.title||'Case').slice(0,28)});else v6.stack.push({view:null,isub:v6.isub,label:v6.tab==='auth'?'Authorities':'Case'});v6.view=view;v6.isub='intel';renderPanel();}
  function back(){const prev=v6.stack.pop();if(prev){v6.view=prev.view;v6.isub=prev.isub;}else v6.view=null;renderPanel();}
  function goTab(tab,af){if(layout.classList.contains('is-target-collapsed'))document.getElementById('toggleCaseInformation')?.click();v6.view=null;v6.stack=[];v6.tab=tab;v6.isub='intel';if(af)v6.af=af;v6.open=null;v6.filter='';renderPanel();}
  side.addEventListener('click',event=>{const t=event.target;let m;
@@ -176,7 +196,10 @@
   if(m=t.closest('[data-v6-tab]')){v6.tab=m.dataset.v6Tab;v6.isub='intel';v6.filter='';return renderPanel();}
   if(m=t.closest('[data-v6-isub]')){v6.isub=m.dataset.v6Isub;return renderPanel();}
   if(m=t.closest('[data-v6-af]')){v6.af=m.dataset.v6Af;return renderPanel();}
-  if(m=t.closest('[data-v6-find]'))return runFind(m);
+  if(t.closest('[data-v6-collapse]')){document.getElementById('toggleCaseInformation')?.click();return;}
+  if(m=t.closest('[data-v6-outl-toggle]')){v6.outline=!v6.outline;return renderPanel();}
+  if(m=t.closest('[data-v6-find]'))return runFind(m,Number(m.dataset.v6Dir||1));
+  if(m=t.closest('[data-v6-stat]'))return go({type:'statute',title:m.dataset.v6Stat,sub:m.dataset.v6Sub||''});
   if(m=t.closest('[data-v6-outline]'))return jumpOutline(m.dataset.v6Outline);
   if(m=t.closest('[data-v6-go]')){const g=m.dataset.v6Go;if(g==='judge'){v6.tab='intel';v6.isub='judge';v6.view=null;v6.stack=[];return renderPanel();}return goTab(g);}
   if(m=t.closest('[data-v6-judge]'))return go({type:'judge',name:m.dataset.v6Judge});
@@ -210,26 +233,37 @@
   if(kind==='tag'){const title=String(el.getAttribute('title')||''),parts=title.split(': ');return `<div class="v6-ck">Tag</div><div class="v6-ct2">${E(cap(el.dataset.authority||el.textContent))}</div>${parts.length>1?`<div class="v6-cl">${E(cap(parts[0]))}</div>`:''}`;}
   const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;
   if(!row)return `<div class="v6-ck">${kind==='stat'?'Statute or regulation':'Cited case'}</div><div class="v6-ct2">${E(el.textContent)}</div>`;
-  const info=hoverCitationInfo(row);if(info.fetch&&!row._hoverFetched)hoverFetchText(row).then(ok=>{if(!ok)return;const card=v6.cards.get(cardKey(el));if(card&&card.isConnected){const pin=card.querySelector('.v6-pinbtn');card.innerHTML=citationCardHtml(el);card.appendChild(pin);}});
+  const info=hoverCitationInfo(row);if(info.fetch&&!row._hoverFetched)hoverFetchText(row).then(ok=>{if(!ok)return;const card=v6.cards.get(cardKey(el));if(card&&card.isConnected){const btns=card.querySelector('.v6-cbtns');card.innerHTML=citationCardHtml(el);card.appendChild(btns);}});
   return `<div class="v6-ck">${E(info.kind)}</div><div class="v6-ct2">${E(info.title)}</div>${info.label?`<div class="v6-cl">${E(info.label)}</div>`:''}${info.text?citedTextHtml(info.text,kind==='stat'):`<div class="v6-cn">${E(info.note||'')}</div>`}${row.target_case_id?'<div class="v6-dh">Double-click the citation to open this case in a new tab</div>':''}`;}
+ /* Card buttons: an "i" that opens the citation in the left panel's Intelligence view (a statute goes to its Coming soon page) and a pin. */
+ const INFO_I='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="4.9" r="1" fill="currentColor"/><path d="M8 7.3v4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+ function cardButtons(el){const kind=el?kindOf(el):'para',row=el&&el.dataset.citeId?hoverRow(el.dataset.citeId):null;
+  const info=kind==='case'?(row&&row.target_case_id?`<button type="button" class="v6-ibtn" data-v6-i="case" title="Open this citation in Intelligence" aria-label="Open this citation in Intelligence">${INFO_I}</button>`:`<button type="button" class="v6-ibtn" disabled title="iLit has not matched this citation to a case, so there is no intelligence to show" aria-label="No intelligence for this citation">${INFO_I}</button>`):kind==='stat'?`<button type="button" class="v6-ibtn" data-v6-i="stat" title="Statute intelligence" aria-label="Statute intelligence">${INFO_I}</button>`:'';
+  return `<span class="v6-cbtns">${info}<button type="button" class="v6-pinbtn" title="Pin this card so it stays" aria-label="Pin card">${PIN}</button></span>`;}
+ function openIntel(card){const key=card.dataset.v6Key,el=[...document.querySelectorAll('#decisionBody [data-v6-card-key]')].find(x=>x.dataset.v6CardKey===key);if(!el)return;
+  if(layout.classList.contains('is-target-collapsed'))document.getElementById('toggleCaseInformation')?.click();
+  if(kindOf(el)==='stat'){const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null,info=row?hoverCitationInfo(row):null;go({type:'statute',title:(info&&info.title)||el.textContent,sub:(info&&info.label)||''});}
+  else{const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;if(!row||!row.target_case_id)return;go({type:'case',entity:{id:row.target_case_id,title:row.target_title||row.target_citation||el.textContent,cite:row.target_citation||'',judge:'',court:''}});}
+  side.scrollTop=0;}
  const cardKey=el=>'c:'+(el.dataset.citeId||el.textContent);
  function showCard(el){
   const key=cardKey(el),old=v6.cards.get(key);
   if(old){if(!old.classList.contains('is-pinned'))dropCard(key);return;}
   dropUnpinned();const block=blockOf(el);if(!block)return;
-  const card=document.createElement('div');card.className='v6-card2 v6-'+kindOf(el);card.dataset.v6Key=key;card.innerHTML=citationCardHtml(el)+`<button type="button" class="v6-pinbtn" title="Pin this card so it stays" aria-label="Pin card">${PIN}</button>`;
+  const card=document.createElement('div');card.className='v6-card2 v6-'+kindOf(el);card.dataset.v6Key=key;card.innerHTML=citationCardHtml(el)+cardButtons(el);
   block.after(card);v6.cards.set(key,card);el.classList.add('v6-sel');el.dataset.v6CardKey=key;requestAnimationFrame(()=>io.observe(card));}
  function showParaCard(para){
   const key='p:'+para.dataset.para,old=v6.cards.get(key);if(old){if(!old.classList.contains('is-pinned'))dropCard(key);return;}
   dropUnpinned();const title=String(para.getAttribute('title')||''),count=(/(\d[\d,]*)/.exec(title)||[])[1]||'';
   const card=document.createElement('div');card.className='v6-card2 v6-para';card.dataset.v6Key=key;
-  card.innerHTML=`<div class="v6-ck">Paragraph ${E(para.dataset.para)}</div><div class="v6-ct2">${count?`Cited by ${E(count)} case${Number(count.replace(/,/g,''))===1?'':'s'}`:'Cited by other cases'}</div><div class="v6-cl">${E(title.replace(/^Cited by [\d,]+ cases?[.:]?\s*/i,'')||'Other decisions in the iLit library cite this paragraph by number.')}</div><button type="button" class="v6-pinbtn" title="Pin this card so it stays" aria-label="Pin card">${PIN}</button>`;
+  card.innerHTML=`<div class="v6-ck">Paragraph ${E(para.dataset.para)}</div><div class="v6-ct2">${count?`Cited by ${E(count)} case${Number(count.replace(/,/g,''))===1?'':'s'}`:'Cited by other cases'}</div><div class="v6-cl">${E(title.replace(/^Cited by [\d,]+ cases?[.:]?\s*/i,'')||'Other decisions in the iLit library cite this paragraph by number.')}</div>${cardButtons(null)}`;
   para.after(card);v6.cards.set(key,card);requestAnimationFrame(()=>io.observe(card));}
  let clickTimer=null;
  body.addEventListener('click',event=>{
+  const ib=event.target.closest('.v6-ibtn');if(ib){if(!ib.disabled)openIntel(ib.closest('.v6-card2'));return;}
   const pin=event.target.closest('.v6-pinbtn');if(pin){const card=pin.closest('.v6-card2');card.classList.toggle('is-pinned');pin.title=card.classList.contains('is-pinned')?'Unpin':'Pin this card so it stays';updateClear();return;}
   const num=event.target.closest('.fmt-para.is-cited-by .fmt-para-num');if(num){showParaCard(num.closest('.fmt-para'));return;}
-  const el=event.target.closest(SEL);if(!el||event.target.closest('.v6-card2'))return;event.stopImmediatePropagation();clearTimeout(clickTimer);clickTimer=setTimeout(()=>showCard(el),230);},true);
+  const el=event.target.closest(SEL);if(!el||event.target.closest('.v6-card2'))return;if(body.classList.contains('hide-'+{case:'cites',stat:'laws',tag:'tags'}[kindOf(el)]))return;event.stopImmediatePropagation();clearTimeout(clickTimer);clickTimer=setTimeout(()=>showCard(el),230);},true);
  body.addEventListener('dblclick',event=>{const el=event.target.closest(SEL);if(!el)return;clearTimeout(clickTimer);window.getSelection().removeAllRanges();
   const row=el.dataset.citeId?hoverRow(el.dataset.citeId):null;if(!row)return;
   if(row.target_case_id)return openFull(row.target_case_id);

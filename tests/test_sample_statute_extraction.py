@@ -148,3 +148,41 @@ def test_list_continuation_before_named_act_is_not_keyed_to_an_earlier_act():
     normalized = [m.normalized_citation for m in extract_statute_reference_matches(text)]
     assert not any(n.startswith("Income Tax Act paras.") for n in normalized if n)
     assert any("Cultural Property Export and Import Act" in n and "29(3)(b)" in n for n in normalized if n)
+
+
+def test_long_provision_list_without_an_act_does_not_blow_up():
+    import time
+
+    from backend.citations import extract_statute_reference_matches
+
+    # "ss. 1, 2, 3 ... were relevant": the list never reaches "of the <Act>", so the matcher has to give up.
+    # Whitespace after each comma used to be matchable two ways, doubling the work per item (22 items took seconds).
+    text = "ss. " + ", ".join(str(100 + i) for i in range(22)) + " were relevant."
+    started = time.perf_counter()
+    assert not extract_statute_reference_matches(text)
+    assert time.perf_counter() - started < 1.0
+    started = time.perf_counter()
+    long_text = "ss. " + ", ".join(str(100 + i % 800) for i in range(20000)) + " were relevant."
+    extract_statute_reference_matches(long_text)
+    assert time.perf_counter() - started < 5.0
+
+
+def test_provision_of_an_unregistered_named_act_is_not_keyed_to_an_earlier_registered_act():
+    from backend.citations import extract_statute_reference_matches
+    from backend.statutes import parse_legislation_citation
+
+    def keys(text):
+        found = []
+        for match in extract_statute_reference_matches(text):
+            if any(label in (match.normalized_citation or "") for label in (" s. ", " ss. ", " para. ", " paras. ")):
+                parsed = parse_legislation_citation(match.normalized_citation)
+                found.append((match.citation_text, parsed.instrument_key if parsed else None))
+        return found
+
+    # SARA, FAA and a provincial act are not registered: keep the reference, but unkeyed.
+    assert keys("The Fisheries Act is relevant. Subsection 58(5) of the Species at Risk Act requires an order.") == [("Subsection 58(5)", None)]
+    assert keys("The Income Tax Act applies. Paragraph 12(1)(d) of the FAA is quoted.") == [("Paragraph 12(1)(d)", None)]
+    assert keys("Customs Act (the Act): s. 22(1) of the Garnishment, Attachment and Pension Diversion Act applies.") == [("s. 22(1)", None)]
+    # A registered act named after the provision, or the decision's own "the Act", behaves as before.
+    assert keys("The Fisheries Act is relevant. Section 5 of the Controlled Drugs and Substances Act applies.")[0][1] == "canada.controlled_drugs_substances_act"
+    assert keys("The Income Tax Act applies. Section 85(1) of the Income Tax Act defers gain.")[0][1] == "canada.income_tax_act"

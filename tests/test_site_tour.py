@@ -133,9 +133,10 @@ def test_about_page_has_the_tour_button():
     assert 'data-ilit-tour-start' in html and "Take a tour" in html
 
 
-def test_tour_css_covers_phone_and_reduced_motion():
+def test_tour_css_covers_reduced_motion_and_a_separate_control_bar():
     css = tour_css()
-    assert "prefers-reduced-motion" in css and "max-width:639px" in css and ".sheet" in css
+    assert "prefers-reduced-motion" in css
+    assert ".ilit-tour-dock" in css and ".ilit-tour-card" in css   # Next/Back/Skip sit apart from the speech card
 
 
 @pytest.mark.skipif(not shutil.which("node"), reason="node is needed to syntax-check the script")
@@ -162,12 +163,13 @@ def test_fc_activity_has_its_own_walkthrough_and_example_data_is_probed():
     assert all(not s.get("also") for s in fc_steps)    # one box per statistics step
     assert {"la-safety", "la-drop", "la-run", "la-table"} <= {s["id"] for s in data["steps"]}
     assert data["texts"]["moa"].startswith("MEMORANDUM OF ARGUMENT (FICTIONAL")
-    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "cessation-tag-minister-won"}
+    assert {p["id"] for p in data["probes"]} >= {"cessation-tag", "india-tag", "cessation-india-won", "plain-search-2", "tour-decision"}
     assert "/analytics/search/cases" in tour_steps()["probes"][0]["url"]
 
 
-def test_card_stays_in_one_place_on_desktop():
-    assert "card.style.cssText='left:auto;top:auto;right:20px;bottom:20px'" in tour_js()
+def test_card_follows_the_highlight_and_controls_stay_in_the_dock():
+    js = tour_js()
+    assert "function placeCard(" in js and "ilit-tour-dock" in js
 
 
 def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
@@ -183,7 +185,7 @@ def test_future_features_is_a_static_page_linked_from_about_and_coming_soon():
 def test_sections_follow_the_header_tabs_without_going_back():
     sections = [step["section"] for step in tour_steps()["steps"]]
     order = list(dict.fromkeys(sections))
-    assert order == ["Welcome", "Case search", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
+    assert order == ["Research", "Reading a decision", "Intelligence / Statistics", "Workbench", "Live analysis", "Keeping it current"]
     for name in order:                                   # each section is one unbroken run of steps
         first, last = sections.index(name), len(sections) - 1 - sections[::-1].index(name)
         assert set(sections[first:last + 1]) == {name}, name
@@ -197,13 +199,25 @@ def test_tour_is_calm_and_leaves_the_page_usable():
     by_id = {step["id"]: step for step in steps}
     for name in ("search-page", "judges", "workbench-home", "la-safety"):  # each page is introduced before its parts
         assert by_id[name].get("top") and by_id[name].get("lead"), name
-    assert sum(1 for step in steps if step.get("explore")) >= 8
+    data = tour_steps()                                                      # a feature tour for now: the About introduction
+    assert data["introOn"] is False and data["intro"][0]["id"] == "welcome"  # is kept, switched off, until those pages are final
+    assert steps[0]["id"] == "search-page" and "DATA.introOn" in js
+    la = by_id["la-private"]["text"]                                         # Live analysis: worded as the code behaves
+    assert "never saved" in la and "never added to the library" in la and "AI model" in la
+    assert by_id["la-coming"]["text"].startswith("Not built yet")
+    for step in steps:                                                       # text first, then the action on Next
+        assert bool(step.get("act")) == bool(step.get("say")), step["id"]
     assert by_id["reader-open"]["via"].startswith("#searchResults .case-result")  # Next clicks into the case
-    assert any(action.get("do") == "type" and action.get("text") == "Vavilov" for action in by_id["vav-words"]["before"])
-    assert any(action.get("do") == "type" and action.get("selector") == "#tagSearch" for action in by_id["adv-tag"]["before"])
-    assert not any("searchQuery" in json.dumps(step.get("before", [])) for step in steps if step["id"].startswith(("adv-", "ces-")))
-    click = by_id["reader-citation-card"]["before"][0]                       # clicks a citation that has a pinpoint
+    typed = {a.get("text") for name in ("plain-search", "plain-search-2") for a in by_id[name]["act"] if a.get("do") == "type"}
+    assert typed == {"best interests of the child", "non-refoulement statutory interpretation"}
+    filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-india", "adv-cites")])
+    assert "cessation" in filters and "india" in filters and "2019 SCC 65" in filters
+    assert not any(a.get("do") in ("type", "fill") and a.get("selector") == "#searchQuery"   # filters only, no typed query
+                   for step in steps if step["id"].startswith("adv-") for a in step.get("before", []) + (step.get("act") or []))
+    click = by_id["reader-cite-card"]["act"][0]                              # clicks a citation that has a pinpoint
     assert click["do"] == "click" and any(isinstance(t, dict) and t.get("pin") for t in click["selector"])
+    readers = [s for s in steps if s["section"] == "Reading a decision"]
+    assert all("{cessation}" in s.get("url", "") for s in readers)            # one cessation decision throughout
 
 
 def test_live_analysis_drops_the_fictional_word_file():
@@ -218,4 +232,79 @@ def test_live_analysis_drops_the_fictional_word_file():
 
 def test_freshness_section_does_not_claim_the_intake_runs_on_its_own():
     text = {step["id"]: step for step in tour_steps()["steps"]}["fresh"]["text"]
-    assert "built" in text and "run by hand" in text and "being rolled out" in text
+    assert "built" in text and "run by hand" in text and "not yet scheduled" in text
+
+
+def _moment(card, ring, full=None, cursor=None):
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+    return {"vw": 1440, "vh": 900, "focus": 0, "card": box(*card), "dock": box(500, 830, 440, 56),
+            "cursor": box(*cursor) if cursor else None,
+            "items": [{"full": box(*(full or ring)), "seen": box(*(full or ring)), "ring": box(*ring)}]}
+
+
+def test_geometry_checks_catch_what_looks_wrong():
+    problems = check_site_tour.geometry_problems
+    good = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 312), full=(100, 100, 400, 300))
+    assert problems(good) == []
+    cut = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 200), full=(100, 100, 400, 300))
+    assert any("ring cuts target" in p for p in problems(cut))
+    covered = _moment(card=(300, 100, 400, 220), ring=(94, 94, 412, 312))
+    assert any("card covers target" in p for p in problems(covered))
+    over_dock = _moment(card=(500, 700, 400, 220), ring=(94, 94, 412, 312))
+    assert any("control bar" in p for p in problems(over_dock))
+    pointer = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 312), cursor=(950, 150, 26, 26))
+    assert any("pointer on the card" in p for p in problems(pointer))
+    # moving when the old place was still clear is a jump; moving because the old place now covers the target is not
+    assert any("jumped" in p for p in problems(good, previous_card={"x": 600, "y": 400, "w": 400, "h": 220}))
+    far_away = {"x": 1000, "y": 560, "w": 400, "h": 220}   # clear, but too far from what it explains: moving closer is right
+    assert not any("jumped" in p for p in problems(good, previous_card=far_away))
+    target_moved_under_it = _moment(card=(300, 100, 400, 220), ring=(894, 94, 412, 312))
+    assert not any("jumped" in p for p in problems(target_moved_under_it, previous_card={"x": 900, "y": 100, "w": 400, "h": 220}))
+
+
+def test_tall_result_lists_are_ringed_from_their_top():
+    # The real library's results run to thousands of pixels: a ring round their first rows is right, as long as it
+    # starts at the list's top, spans its width and shows a real part of it.
+    problems = check_site_tour.geometry_problems
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+
+    def tall(ring, under=0):
+        g = _moment(card=(900, 560, 400, 220), ring=ring, full=(30, 210, 1380, 5200))
+        g["items"][0].update(seen=box(30, 210, 1380, 620), room=box(0, 12, 1440, 804), underBar=under)
+        return g
+
+    assert problems(tall((24, 204, 1392, 330))) == []                       # its first whole rows, the card below
+    assert any("misses the top" in p for p in problems(tall((24, 400, 1392, 300))))
+    assert any("too little" in p for p in problems(tall((24, 204, 1392, 90))))
+    assert any("under a bar pinned" in p for p in problems(tall((24, 204, 1392, 330), under=40)))
+    # one that would fit on the screen is still a cut
+    fits = _moment(card=(900, 100, 400, 220), ring=(94, 94, 412, 200), full=(100, 100, 400, 300))
+    fits["items"][0]["room"] = box(0, 12, 1440, 804)
+    assert any("ring cuts target" in p for p in problems(fits))
+
+
+def test_a_region_that_cannot_share_the_screen_with_the_target_is_a_note():
+    problems = check_site_tour.geometry_problems
+    box = lambda x, y, w, h: {"x": x, "y": y, "w": w, "h": h}  # noqa: E731
+    g = _moment(card=(1000, 80, 400, 200), ring=(553, 299, 837, 482), full=(559, 305, 825, 470))
+    g["items"][0]["room"] = box(0, 293, 900, 489)
+    g["items"].append({"full": box(800, 263, 160, 20), "seen": None, "ring": None, "room": box(0, 293, 900, 489)})
+    assert all(p.startswith("note:") for p in problems(g))      # the cited passage fills the panel; its citation sits above
+    g["items"][1]["full"] = box(800, 330, 160, 20)
+    assert "also[1] has no ring" in problems(g)                   # it would fit beside the target, so a missing ring is a fault
+
+
+def test_walk_runs_the_geometry_checks_at_every_card():
+    source = (ROOT / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
+    assert "geometry_problems(g, previous_card)" in source and "MOTION_RECORDER" in source
+    assert "geometry:geometry" in tour_js()
+
+
+def test_card_and_rings_follow_the_layout_rules():
+    js, css = tour_js(), tour_css()
+    for rule in ("function showWhole(", "function makeRoom(", "function steady(", "function keepClear(", "HOLD=", "NEAR=",
+                 "function rowsEnd(", "function roomBelow(", "function boxView(", "function underBar(", "function glidesOverPointer(", "function shownBox("):
+        assert rule in js, rule                                   # whole regions in view; the card stays unless it must move
+    assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
+    assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps
+    assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered

@@ -116,7 +116,26 @@ def test_about_sections_have_stable_anchors_for_the_tour():
 	pages = ROOT / "backend" / "pages"
 	overview = (pages / "about_content.html").read_text(encoding="utf-8")
 	how = (pages / "about_how.html").read_text(encoding="utf-8")
-	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts"):
+	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts", "aboutWhy", "aboutWho", "aboutWhat", "aboutWhere"):
 		assert f'id="{anchor}"' in overview, anchor
 	for anchor in ("aboutHowIntro", "pipeline", "library", "derived", "tabs", "soon", "progress", "principles"):
 		assert f'id="{anchor}"' in how, anchor
+
+
+def test_previous_about_text_is_kept_in_full_detail_sections():
+	pages = ROOT / "backend" / "pages"
+	overview = (pages / "about_content.html").read_text(encoding="utf-8")
+	how = (pages / "about_how.html").read_text(encoding="utf-8")
+	assert 'id="aboutFullDetail"' in overview and 'id="aboutHowFullDetail"' in how
+	for block in ("full-intro", "full-tabs", "full-search", "full-reader", "full-intel"):
+		assert f'id="{block}"' in overview, block
+	for block in ("full-library", "full-soon", "full-progress", "full-principles"):
+		assert f'id="{block}"' in how, block
+
+
+def test_how_it_works_keeps_the_restored_diagrams():
+	how = (ROOT / "backend" / "pages" / "about_how.html").read_text(encoding="utf-8")
+	for diagram in ("aboutFlowHow", "aboutFlowJoined", "aboutFlowDocket", "aboutFlowFile", "aboutFlowCitation", "aboutFlowParagraph", "aboutFlowIntake"):
+		assert f'id="{diagram}"' in how, diagram
+	for removed in ("CanLII", "934,000", "funding", "Mac Studio"):
+		assert removed not in how, removed

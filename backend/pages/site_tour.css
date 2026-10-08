@@ -3,51 +3,52 @@
 /* The page stays usable underneath: a light shade, and a clear border round what the step is about. */
 .ilit-tour-dim{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .3s ease}
 .ilit-tour-dim path{fill:rgba(32,37,34,.14)}
-.ilit-tour.explore .ilit-tour-dim{opacity:0}   /* exploring: no shade at all, only the border */
 .ilit-tour-ring{position:fixed;left:0;top:0;width:0;height:0;box-sizing:border-box;border:3px solid #176c68;border-radius:8px;box-shadow:0 0 0 4px rgba(23,108,104,.16);pointer-events:none}
-.ilit-tour.moving .ilit-tour-ring{transition:transform .35s ease,width .35s ease,height .35s ease}   /* glides between steps, follows scrolling instantly */
-.ilit-tour-cursor{position:fixed;left:0;top:0;z-index:1050;width:26px;height:26px;margin:-3px 0 0 -4px;opacity:0;pointer-events:none;transition-property:transform,opacity;transition-duration:.6s,.2s;transition-timing-function:cubic-bezier(.45,0,.2,1),ease;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.ilit-tour.moving .ilit-tour-ring{transition:transform .55s cubic-bezier(.45,0,.2,1),width .55s ease,height .55s ease}   /* glides between steps, follows scrolling instantly */
+.ilit-tour-cursor{position:fixed;left:0;top:0;z-index:1200;width:26px;height:26px;margin:-3px 0 0 -4px;opacity:0;pointer-events:none;transition-property:transform,opacity;transition-duration:.6s,.2s;transition-timing-function:cubic-bezier(.45,0,.2,1),ease;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
 .ilit-tour-cursor.on{opacity:1}
 .ilit-tour-cursor::after{content:"";position:absolute;left:-7px;top:-7px;width:22px;height:22px;border-radius:50%;border:2px solid #176c68;opacity:0;transform:scale(.4)}
 .ilit-tour-cursor.press::after{animation:ilit-tour-press .45s ease-out}
 @keyframes ilit-tour-press{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.6)}}
-.ilit-tour-card{position:fixed;z-index:1100;box-sizing:border-box;width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;padding:16px 18px 14px;border:1px solid #d8d5ca;border-radius:8px;background:#fffef9;box-shadow:0 12px 32px rgba(32,37,34,.28);pointer-events:auto;outline:none}
-.ilit-tour-card.pending{opacity:.92}
-.ilit-tour-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.ilit-tour-kicker{color:#a4412b;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.ilit-tour-x{flex:0 0 auto;width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#5f6863;font-size:20px;line-height:1;cursor:pointer}
-.ilit-tour-x:hover{background:#f1efe8;color:#202522}
-.ilit-tour-title{margin:4px 0 0;font:600 20px/1.2 "Newsreader",Georgia,serif;color:#202522}
-.ilit-tour-text{margin:8px 0 0;font-size:14px;line-height:1.55;color:#202522}
-.ilit-tour-note{margin:8px 0 0;font-size:12.5px;color:#176c68;font-weight:500}
-.ilit-tour-note:empty{display:none}
-.ilit-tour-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:10px}
+/* The speech card: it sits beside what it explains and glides with it. */
+.ilit-tour-card{position:fixed;left:0;top:0;z-index:1100;box-sizing:border-box;width:min(400px,calc(100vw - 28px));max-height:calc(100vh - 120px);overflow:auto;padding:18px 20px 18px;border:1px solid #cfd8d4;border-left:4px solid #176c68;border-radius:8px;background:#fffef9;box-shadow:0 14px 34px rgba(32,37,34,.24);pointer-events:auto;outline:none}
+.ilit-tour-card{transition:transform .5s cubic-bezier(.45,0,.2,1)}   /* it moves only when it must, and then glides */
+.ilit-tour-card.pending{opacity:.9}
+.ilit-tour-kicker{color:#176c68;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-tour-title{margin:5px 0 0;font:600 23px/1.2 "Newsreader",Georgia,serif;color:#202522}
+.ilit-tour-text{margin:9px 0 0;font-size:16.5px;line-height:1.55;color:#202522}
+.ilit-tour-text:empty{display:none}
+.ilit-tour-extra{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:12px}
 .ilit-tour-extra:empty{display:none}
-.ilit-tour-writes{padding:6px 9px;border-left:3px solid #8a6418;background:#f8f0dc;font-size:12px;color:#5c4510}
-.ilit-tour-bar{height:3px;margin-top:14px;border-radius:2px;background:#e6e3d8;overflow:hidden}
-.ilit-tour-bar i{display:block;height:100%;background:#a4412b;transition:width .25s ease}
-.ilit-tour-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
-.ilit-tour-count{font-size:12px;color:#5f6863}
-.ilit-tour-btns{display:flex;gap:6px;flex-wrap:wrap}
-.ilit-tour-btn{min-height:36px;padding:6px 13px;border:1px solid #d8d5ca;border-radius:5px;background:#fff;color:#202522;font:600 13px/1 inherit;font-family:inherit;cursor:pointer}
+.ilit-tour-writes{padding:7px 10px;border-left:3px solid #8a6418;background:#f8f0dc;font-size:13px;color:#5c4510}
+/* The control bar: always in the same place, so the mouse can rest on Next. */
+.ilit-tour-dock{position:fixed;left:50%;bottom:18px;z-index:1100;display:flex;align-items:center;gap:8px;box-sizing:border-box;max-width:calc(100vw - 24px);padding:9px 10px 9px 18px;transform:translateX(-50%);border:1px solid #d8d5ca;border-radius:10px;background:#fffef9;box-shadow:0 10px 28px rgba(32,37,34,.25);pointer-events:auto}
+.ilit-tour-where{display:flex;flex-direction:column;gap:5px;min-width:150px;margin-right:8px}
+.ilit-tour-count{font-size:13px;color:#5f6863;white-space:nowrap}
+.ilit-tour-bar{width:150px;height:4px;border-radius:2px;background:#e6e3d8;overflow:hidden}
+.ilit-tour-bar i{display:block;height:100%;background:#176c68;transition:width .25s ease}
+.ilit-tour-x{flex:0 0 auto;width:34px;height:34px;margin-left:2px;border:0;border-radius:5px;background:transparent;color:#5f6863;font-size:22px;line-height:1;cursor:pointer}
+.ilit-tour-x:hover{background:#f1efe8;color:#202522}
+.ilit-tour-btn{min-height:40px;padding:7px 16px;border:1px solid #d8d5ca;border-radius:6px;background:#fff;color:#202522;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-btn:hover:not(:disabled){border-color:#202522}
 .ilit-tour-btn:disabled{opacity:.45;cursor:default}
-.ilit-tour-card.pending .ilit-tour-btn.primary{opacity:.6}
-.ilit-tour-btn.primary{border-color:#202522;background:#202522;color:#fff}
+.ilit-tour-btn.primary{min-width:96px;border-color:#202522;background:#202522;color:#fff}
+.ilit-tour-dock.pending .ilit-tour-btn.primary{opacity:.55}
 .ilit-tour-btn.quiet{border-color:transparent;background:transparent;color:#5f6863;font-weight:500}
 .ilit-tour-btn.quiet:hover:not(:disabled){color:#202522;text-decoration:underline}
 .ilit-tour-btn.action{border-color:#176c68;color:#176c68}
 .ilit-tour-btn[hidden]{display:none}
 .ilit-tour-btn:focus-visible,.ilit-tour-x:focus-visible,.ilit-tour-start:focus-visible{outline:2px solid #315d8d;outline-offset:2px}
-.ilit-tour-card.sheet{width:auto;max-height:46vh;border-radius:12px 12px 0 0;border-left:0;border-right:0;border-bottom:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
 .ilit-tour-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .ilit-tour-start{display:inline-flex;align-items:center;gap:8px;min-height:42px;margin:16px 0 0;padding:9px 18px;border:1px solid #202522;border-radius:6px;background:#202522;color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
 .ilit-tour-start:hover{background:#a4412b;border-color:#a4412b}
 .ilit-tour-start.alt{margin-top:14px;background:#fff;color:#202522;text-decoration:none}
 .ilit-tour-start.alt:hover{background:#a4412b;color:#fff}
 .ilit-tour-start-note{display:block;margin-top:6px;color:#5f6863;font-size:12.5px}
-@media (prefers-reduced-motion:reduce){.ilit-tour-bar i,.ilit-tour-cursor,.ilit-tour.moving .ilit-tour-ring,.ilit-tour-dim{transition:none}.ilit-tour-cursor.press::after{animation:none}}
+@media (prefers-reduced-motion:reduce){.ilit-tour-bar i,.ilit-tour-cursor,.ilit-tour.moving .ilit-tour-ring,.ilit-tour-card,.ilit-tour-dim{transition:none}.ilit-tour-cursor.press::after{animation:none}}
 @media print{.ilit-tour{display:none}}
 html.ilit-tour-on #searchSuggestions{display:none!important}   /* the tour types for the visitor; the suggestion list would only cover the page */
-html.ilit-tour-on body{padding-bottom:300px}   /* room to lift a region above the card at the end of a page */
-@media (max-width:639px){html.ilit-tour-on body{padding-bottom:50vh}}
+html.ilit-tour-on body{padding-bottom:120px}   /* room to lift the end of a page above the control bar */
+html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}   /* the whole reader fits above the control bar, so its ring goes right round it */
+html.ilit-tour-on .la-modal{padding-bottom:96px}   /* a dialog's buttons stay clear of the control bar */
+html.ilit-tour-on .la-modal{justify-content:flex-start;padding-left:24px}html.ilit-tour-on .la-dialog{width:min(980px,calc(100vw - 480px))}   /* and the dialog leaves room beside it for the card */

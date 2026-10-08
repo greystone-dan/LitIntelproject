@@ -1,6 +1,6 @@
 """Pitch navigation: four top-level tabs on the main explorer page.
 
-About, Case search, Intelligence / Statistics (Judge Profiles, Citation
+About, Research, Intelligence / Statistics (Judge Profiles, Citation
 Intelligence, Federal Court Analytics) and Coming soon (every other feature, each with a
 short explainer). The real pages stay in the code and stay reachable by direct
 URL, for example ``/data-explorer?tab=themes`` or ``/live-analysis``.
@@ -11,9 +11,10 @@ from __future__ import annotations
 import json
 import re
 
+from .coming_soon_page import LABELS as ROADMAP_LABELS, ORDER as ROADMAP_ORDER
+
 # (key, name, plain explainer)
 COMING_SOON = [
-    ("business-case", "Business Case", "A formal business case report: problem, solution, evidence, alternatives, deployment options, costs in CAD, return on investment, risks, plan and funding request."),
     ("themes", "Legal Themes & Statutes", "Find the legal themes and arguments that recur across decisions, and see which statutory provisions each one leans on."),
     ("tag-analytics", "Tag Analytics", "See how legal issue tags trend over time, which judges lean on which tags, and which tags come up most often."),
     ("citation-map", "Citation Map", "Start from one case and follow what it cites and what cites it. Compare two cases to find the authorities they share."),
@@ -32,7 +33,6 @@ COMING_SOON = [
 # How each Coming soon item loads under the banner: an explorer panel that is already in the page,
 # a real page shown in a same-origin frame, or None (explainer only).
 SOON_TARGETS = {
-    "business-case": ("page", "/business-case"),
     "themes": ("panel", "themes"),
     "tag-analytics": ("panel", "tag-analytics"),
     "site-architecture": ("panel", "site-architecture"),
@@ -52,10 +52,11 @@ _BRAND = """<a class="brand-home" id="brandHome" href="/data-explorer?tab=about&
 
 _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navigation">
 <button type="button" data-group="info" aria-pressed="false" aria-controls="researchViews">About</button>
-<button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Case search</button>
+<button type="button" class="active" data-group="research" aria-pressed="true" aria-controls="researchViews">Research</button>
 <button type="button" data-group="intel" aria-pressed="false" aria-controls="researchViews">Intelligence / Statistics</button>
 <a class="primary-link" href="/workbench">Workbench</a>
-<button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
+<button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
+<button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Development</button>
 <button type="button" data-group="testing" aria-pressed="false" aria-controls="researchViews">Testing</button>
 </nav>"""
 
@@ -72,21 +73,22 @@ def _subnav() -> str:
         _tab("info", "about", "aboutPanel", "Overview"),
         _tab("info", "about-how", "aboutPanel", "How it works"),
         _tab("info", "about-changelog", "aboutPanel", "Changelog"),
-        _tab("research", "search", "searchPanel", "Case search", active=True, hidden=False),
+        _tab("research", "search", "searchPanel", "Research", active=True),
         _tab("intel", "judge-profile", "judgeProfilePanel", "Judge Profiles"),
         _tab("intel", "citation-intelligence", "citationIntelligencePanel", "Citation Intelligence"),
         _tab("intel", "fc-analytics", "fcAnalyticsPanel", "Federal Court Analytics"),
     ]
+    rows += [_tab("roadmap", f"roadmap-{key}", "comingSoonPanel", ROADMAP_LABELS[key]) for key in ROADMAP_ORDER]
     rows += [_tab("soon", f"soon-{key}", "comingSoonPanel", name.replace("&", "&amp;")) for key, name, _ in COMING_SOON]
     rows += [
         _tab("testing", "research-bench", "researchBenchPanel", "Research Bench"),
         '<a class="tab" data-nav-group="testing" href="/discussion-units-sandbox" hidden>Discussion Units Sandbox</a>',
         '<a class="tab" data-nav-group="testing" href="/citation-pass" hidden>Citation Pass QA</a>',
     ]
-    return '<nav id="researchViews" class="view-tabs group-views" aria-label="Case search views">\n' + "\n".join(rows) + "\n</nav>"
+    return '<nav id="researchViews" class="view-tabs group-views" aria-label="Research views">\n' + "\n".join(rows) + "\n</nav>"
 
 
-_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="Coming soon"><span>Coming soon</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
+_BANNER = """<div id="comingSoonBanner" class="cs-banner" hidden><div class="cs-strip" role="img" aria-label="In development"><span>In development</span></div><a class="ilit-tour-start alt" href="/future-features" id="comingSoonFutureTour"><span aria-hidden="true">&#9776;</span> Future features and roadmap</a></div>
 """
 
 _PANEL = _BANNER + """<section id="comingSoonPanel" class="panel-card" hidden>
@@ -102,10 +104,12 @@ _CSS = """<style>
 @media(max-width:600px){.topbar .brand-home{flex-basis:100%;margin:0}.topbar .primary-groups{margin-left:0}}
 .research-nav a.primary-link{display:flex;align-items:center;justify-content:center;min-width:72px;min-height:40px;padding:8px 12px;border-radius:5px;color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}.research-nav a.primary-link:hover{color:var(--teal)}
 .pitch-embedded .topbar,.pitch-embedded #researchViews{display:none!important}
+#researchViews[hidden]{display:none!important}
 .cs-strip{display:flex;align-items:center;justify-content:center;min-height:44px;margin:0 0 14px;border-radius:6px;background:repeating-linear-gradient(-45deg,#111 0 14px,#f5c400 14px 28px)}
 .cs-strip span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:3px;font-size:13px}
 .cs-banner{margin:0 0 10px}.cs-banner .ilit-tour-start{margin:10px 0 0}.cs-banner .cs-strip{margin:0}
 .cs-frame[hidden],#comingSoonHead[hidden]{display:none}
+.cs-frame.cs-frame-flat{border:0;border-radius:0;height:600px;min-height:0;background:transparent}
 .cs-frame{display:block;width:100%;height:calc(100vh - 230px);min-height:520px;border:1px solid var(--border);border-radius:6px;background:#fff}
 #comingSoonPanel{padding:14px}#comingSoonPanel .page-header p{max-width:60ch;font-size:15px;line-height:1.55}
 </style>
@@ -116,19 +120,21 @@ def _script() -> str:
     info = {}
     for key, name, text in COMING_SOON:
         kind, target = SOON_TARGETS.get(key, ("text", ""))
-        info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target}
+        info[f"soon-{key}"] = {"name": name, "text": text, "kind": kind, "target": target, "group": "soon"}
+    for key in ROADMAP_ORDER:
+        info[f"roadmap-{key}"] = {"name": ROADMAP_LABELS[key], "text": "", "kind": "page", "target": f"/coming-soon/{key}", "group": "roadmap"}
     return (
         "const pitchSoon=" + json.dumps(info) + ";\n"
-        "const pitchLabels={info:'About',research:'Case search',intel:'Intelligence and statistics',soon:'Coming soon',testing:'Testing',direct:'Other'};\n"
+        "const pitchLabels={info:'About',research:'Research',intel:'Intelligence and statistics',roadmap:'Coming soon',soon:'Development',testing:'Testing',direct:'Other'};\n"
         "activeResearchPanels.soon='comingSoonPanel';\n"
         "for(const key of Object.keys(researchGroups))delete researchGroups[key];\n"
-        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],soon:['soon'],testing:['research-bench']});\n"
+        "Object.assign(researchGroups,{info:['about'],research:['search'],intel:['judge-profile','citation-intelligence','fc-analytics'],roadmap:['soon'],soon:['soon'],testing:['research-bench']});\n"
         "researchGroups.direct=Object.keys(activeResearchPanels).filter(key=>!Object.values(researchGroups).some(list=>list.includes(key)));\n"
         "for(const key of Object.keys(lastGroupTabs))delete lastGroupTabs[key];\n"
-        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',soon:Object.keys(pitchSoon)[0],testing:'research-bench'});\n"
+        "Object.assign(lastGroupTabs,{info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',soon:'soon-themes',testing:'research-bench'});\n"
         "const pitchFrame=document.getElementById('comingSoonFrame');\n"
-        "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav{display:none!important}';doc.head.appendChild(style)}catch(error){}});\n"
-        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',soon:'soon-themes',testing:'research-bench'};\n"
+        "if(pitchFrame&&pitchFrame.addEventListener)pitchFrame.addEventListener('load',()=>{try{const doc=pitchFrame.contentDocument;if(!doc||!doc.head)return;const style=doc.createElement('style');style.textContent='.topbar,#researchViews,.research-nav{display:none!important}';doc.head.appendChild(style);if(pitchFrame.getAttribute('data-auto')==='1'){const fit=()=>{pitchFrame.style.height=Math.ceil(doc.documentElement.scrollHeight)+'px'};fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(doc.documentElement);if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(fit)}}catch(error){}});\n"
+        "const pitchCleanStart={info:'about',research:'search',intel:'judge-profile',roadmap:'roadmap-overview',soon:'soon-themes',testing:'research-bench'};\n"
         "function pitchResetState(){\n"
         "  const attempt=step=>{try{step()}catch(error){}};\n"
         "  attempt(()=>{const reader=document.getElementById('caseReaderPanel');if(reader&&!reader.hidden&&typeof closeDecisionReader==='function')closeDecisionReader()});\n"
@@ -153,9 +159,9 @@ def _script() -> str:
         "  event.preventDefault();event.stopImmediatePropagation();pitchCleanOpen(button.dataset.group);\n"
         "},true);\n"
         "const pitchBaseActivate=activateResearchTab;\n"
-        "function pitchShowSoonNav(soon){\n"
-        "  document.querySelectorAll('[data-group]').forEach(button=>{const on=button.dataset.group==='soon';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on))});\n"
-        "  document.querySelectorAll('[data-nav-group]').forEach(item=>{item.hidden=item.dataset.navGroup!=='soon'});\n"
+        "function pitchShowSoonNav(soon,groupKey){\n"
+        "  document.querySelectorAll('[data-group]').forEach(button=>{const on=button.dataset.group===groupKey;button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on))});\n"
+        "  document.querySelectorAll('[data-nav-group]').forEach(item=>{item.hidden=item.dataset.navGroup!==groupKey});\n"
         "  document.querySelectorAll('[data-tab]').forEach(tab=>{const on=tab.dataset.tab===soon;tab.classList.toggle('active',on);tab.setAttribute('aria-pressed',String(on))});\n"
         "}\n"
         "activateResearchTab=function(tabKey,updateUrl=true){\n"
@@ -164,18 +170,18 @@ def _script() -> str:
         "  const aboutParam=!updateUrl?new URLSearchParams(location.search).get('about'):null;\n"
         "  const aboutView=wanted.indexOf('about-')===0?wanted.slice(6):wanted==='about'?(aboutParam==='changelog'||aboutParam==='how'?aboutParam:'overview'):null;\n"
         "  const soon=pitchSoon[wanted]?wanted:null,item=soon?pitchSoon[soon]:null;\n"
-        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon;\n"
+        "  const banner=document.getElementById('comingSoonBanner');if(banner)banner.hidden=!soon||pitchSoon[soon].group!=='soon';\n"
         "  if(!soon){pitchBaseActivate(target,updateUrl);if(aboutView&&window.showAboutView)window.showAboutView(aboutView,updateUrl)}\n"
         "  else{\n"
         "    pitchBaseActivate(item.kind==='panel'?item.target:'soon',false);\n"
-        "    lastGroupTabs.soon=soon;pitchShowSoonNav(soon);\n"
+        "    lastGroupTabs[item.group]=soon;pitchShowSoonNav(soon,item.group);\n"
         "    const frame=document.getElementById('comingSoonFrame'),head=document.getElementById('comingSoonHead');\n"
         "    const framed=item.kind==='page';\n"
-        "    if(frame){frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+' (coming soon)'}\n"
+        "    if(frame){const flat=item.group==='roadmap';try{frame.setAttribute('data-auto',flat?'1':'0');frame.setAttribute('class',flat?'cs-frame cs-frame-flat':'cs-frame');if(!flat)frame.style.height=''}catch(error){}frame.hidden=!framed;if(framed&&frame.getAttribute('src')!==item.target)frame.setAttribute('src',item.target);if(framed)frame.title=item.name+(item.group==='roadmap'?' (coming soon)':' (in development)')}\n"
         "    if(head){head.hidden=item.kind!=='text';document.getElementById('comingSoonTitle').textContent=item.name;document.getElementById('comingSoonText').textContent=item.text}\n"
-        "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group','soon');url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
+        "    if(updateUrl){const url=new URL(location.href);url.searchParams.set('tab',soon);url.searchParams.set('group',item.group);url.searchParams.delete('case_id');history.pushState(null,'',url.pathname+url.search+url.hash)}\n"
         "  }\n"
-        "  const group=soon?'soon':Object.keys(researchGroups).find(key=>researchGroups[key].includes(activeResearchPanels[target]?target:'search'));\n"
+        "  const group=soon?item.group:Object.keys(researchGroups).find(key=>researchGroups[key].includes(activeResearchPanels[target]?target:'search'));\n"
         "  const nav=document.getElementById('researchViews');\n"
         "  if(nav)nav.setAttribute('aria-label',(pitchLabels[group]||'Site')+' views');\n"
         "  if(nav)nav.hidden=!soon&&[...(nav.querySelectorAll?.('[data-nav-group]')||[])].filter(item=>!item.hidden).length<2;\n"

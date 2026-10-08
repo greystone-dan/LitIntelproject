@@ -101,7 +101,7 @@ html.wb-embedded .wrap{padding-top:14px}
 </style>
 </head>
 <body>
-<header><nav class="nav"><a href="/data-explorer?tab=about">About</a><a href="/data-explorer?tab=search">Case search</a><a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a><a class="active" href="/workbench#deid">Workbench</a></nav><div class="brand">ILIT <small>De-identify documents</small></div></header>
+<header><nav class="nav"><a href="/data-explorer?tab=about">About</a><a href="/data-explorer?tab=search">Research</a><a href="/data-explorer?tab=judge-profile">Intelligence / Statistics</a><a class="active" href="/workbench#deid">Workbench</a></nav><div class="brand">ILIT <small>De-identify documents</small></div></header>
 <main class="wrap">
 <div class="eyebrow">Private materials</div>
 <h1>De-identify a document, then put it back together</h1>

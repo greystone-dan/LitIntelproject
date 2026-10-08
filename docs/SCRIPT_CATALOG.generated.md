@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 196
+Active scripts documented: 200
 
 ## Catalog
 
@@ -111,7 +111,9 @@ Active scripts documented: 196
 | `extract_fc_citation_evidence.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\extract_fc_citation_evidence.py --help` |
 | `extract_irpa_irpr_references.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\extract_irpa_irpr_references.py --help` |
 | `extract_seed_cases_from_transcript.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help` |
+| `fc_activity_backlog.py` | Orchestration | database/network job runner | `.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs` |
 | `fc_activity_extractors.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help` |
+| `fc_activity_laptop.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help` |
 | `fc_portal_collector.py` | Federal Court source acquisition | network and filesystem writer | `.\venv\Scripts\python.exe scripts\fc_portal_collector.py --help` |
 | `fetch_fc_procedural_history.py` | Source acquisition or canonical import | network and/or database writer | `.\venv\Scripts\python.exe scripts\fetch_fc_procedural_history.py --help` |
 | `fingerprint_pilot.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\fingerprint_pilot.py --help` |
@@ -144,6 +146,7 @@ Active scripts documented: 196
 | `map_fc_seed_to_local_cases.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\map_fc_seed_to_local_cases.py --help` |
 | `measure_precision.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_precision.py --help` |
 | `measure_real_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_real_coverage.py --help` |
+| `measure_refined_pinpoints.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help` |
 | `measure_tagging_coverage.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\measure_tagging_coverage.py --help` |
 | `mine_a2aj_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_a2aj_concepts.py --help` |
 | `mine_legal_concepts.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\mine_legal_concepts.py --help` |
@@ -196,6 +199,7 @@ Active scripts documented: 196
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
+| `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
 | `snapshot_v2_pipeline_baseline.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\snapshot_v2_pipeline_baseline.py --help` |
 | `tag_cases.py` | Canonical enrichment or maintenance | database writer unless dry-run is documented | `.\venv\Scripts\python.exe scripts\tag_cases.py --help` |
@@ -1007,7 +1011,7 @@ Active scripts documented: 196
 
 ## `scripts/check_site_tour.py`
 
-**Purpose:** Check the site tour in a real browser: every step's target must resolve, and the controls must work. Needs Playwright with Chromium and a running copy of the site. python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data # on the PC that serves the site python scripts/check_site_tour.py --steps-only # only validate site_tour_steps.json (no browser) --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the milliseconds from pressing Next to the card being ready, any step that was skipped, and any highlight that is off screen or hidden behind the card. Like a visitor's tour it signs in to the Workbench demo and pins the example decisions. Without --walk (or with --each) every step is also opened on its own, as after a refresh; that mode is read-only unless --demo-sign-in is given. A step marked optional, or one that names a feature in "needs", may be skipped without failing the check; every other step must show its card on the page it names. Exit code 1 if any required step failed, a highlight was off screen, or the page raised an error.
+**Purpose:** Check the site tour in a real browser: every step's target must resolve, and the controls must work. Needs Playwright with Chromium and a running copy of the site. python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --shots /tmp/tour-shots python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --require-data # on the PC that serves the site python scripts/check_site_tour.py --walk --sizes 1440x900,1920x1080 --shots /tmp/tour-shots # geometry at both desktop sizes python scripts/check_site_tour.py --steps-only # only validate site_tour_steps.json (no browser) python scripts/check_site_tour.py --pick-case # read-only: which cessation decision the tour should open --walk takes the tour as a visitor does (start on About, press only Next) and prints, for each step, the milliseconds from pressing Next to the card being ready, any step that was skipped, and, at every card, the geometric checks in geometry_problems(): each ring goes right round its element, the card covers no lit element, stays on screen and does not jump when its last place was still clear, and the pointer is never on the card. Like a visitor's tour it signs in to the Workbench demo and pins the example decisions. Without --walk (or with --each) every step is also opened on its own, as after a refresh; that mode is read-only unless --demo-sign-in is given. A step marked optional, or one that names a feature in "needs", may be skipped without failing the check; every other step must show its card on the page it names. Exit code 1 if any required step failed, a geometric check failed, or the page raised an error.
 
 **Operational class:** Utility
 
@@ -1621,6 +1625,20 @@ Active scripts documented: 196
 .\venv\Scripts\python.exe scripts\extract_seed_cases_from_transcript.py --help
 ```
 
+## `scripts/fc_activity_backlog.py`
+
+**Purpose:** Overnight FC Activity backlog: fetch docket activity for IMM files that are not resolved yet. "Known" IMM numbers are the union of: fc_activity_cases (citation or raw_payload.imm_number), fc_procedural_history rows with a style of cause, and IMM docket numbers on FC decisions in `cases`. A known number is "resolved" when its fc_activity file has docket entries AND the stored classification says lifecycle_status.status = 'closed'. Everything else is unresolved: not_in_activity known only from decisions / procedural history, no fc_activity file no_documents fc_activity file exists but holds zero docket entries open_or_unknown has entries, lifecycle not 'closed' (or not classified yet) Subcommands (all read-only except `run` without --dry-run/--out-file, `import` and `undo --yes`): counts totals and a by-year breakdown, plus a runtime estimate export-list FILE write the ordered unresolved list (for a machine with no database) run --dry-run fetch and parse the first N unresolved numbers (default 20), write nothing; use --limit 200 to see the speed before a full night run the real run: additive writes only, resumable, stop file, progress file run --list-file F --out-file R.jsonl [--shard i/n] second-machine mode: no database; fetched results go to a JSONL file import R.jsonl add a results file to the database (additive, ledgered, safe to repeat) undo list (default) or remove (--yes) the rows a run added, from its ledger Writes are additive: new fc_activity_cases / fc_activity_documents rows only. Existing files only gain missing docket entries (and a blank case name/date is filled); nothing is overwritten or deleted. No AI calls. Two requests per file, one file at a time. Pace follows the earlier live sweep (2026-09-25/26, 98,301 files at 2,300-11,500 files/hour, no blocks): start at 100 ms between files with a 2 s pause per 20 files (sub-2 s is the fetcher's explicit opt-in, approved by Daniel on 2026-10-07 with back-off), double the delay after any failure up to 2 s, speed up again after 50 clean files. Any HTTP 403/429 stops the run at once; it is never retried around.
+
+**Operational class:** Orchestration
+
+**Write/network risk:** database/network job runner
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_backlog.py --list-jobs
+```
+
 ## `scripts/fc_activity_extractors.py`
 
 **Purpose:** Additional evidence-backed fields extracted from Federal Court docket entries. Each extractor reads the docket entries of one IMM file (``ActivityEvent`` objects from ``scripts.classify_fc_activity``) and returns a JSON-ready dict. Every value carries the entry it came from so a reviewer can check it, and a field is left ``unknown`` rather than guessed when the registry text does not say.
@@ -1633,6 +1651,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\fc_activity_extractors.py --help
+```
+
+## `scripts/fc_activity_laptop.py`
+
+**Purpose:** FC Activity laptop runner: fetch docket activity for a list of IMM numbers, no database, no installs. Standard library only (Python 3.9+). One file. It reads a plain-text list of IMM numbers (one per line, made on the iLit PC with `fc_activity_backlog.py export-list`), fetches each from the Federal Court site (2 requests per file, one file at a time) and appends the results to a .jsonl file. The PC later imports that file (`fc_activity_backlog.py import`). Nothing is sent anywhere else. Pace follows the 2026-09-25/26 live sweep that fetched 98,300 files with zero errors and no 403/429: 100 ms between files, a 2 s pause after every 20 files. Safety (kept on): * after a failed file the delay doubles (up to 2 s), the run pauses 10 s (doubling to 5 min), and it speeds up again after 50 clean files * any HTTP 403 or 429 stops the whole run at once; it is never retried * 10 failed files in a row stop the run * a stop file ends the run cleanly after the current file; running again resumes where it left off Usage: python fc_activity_laptop.py --list imm_list.txt --test # 200-file speed test, results kept separate python fc_activity_laptop.py --list imm_list.txt # the real run (add --max-minutes 600) stop: create an empty file named stop.txt in the data folder
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\fc_activity_laptop.py --help
 ```
 
 ## `scripts/fc_portal_collector.py`
@@ -2081,6 +2113,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\measure_real_coverage.py --help
+```
+
+## `scripts/measure_refined_pinpoints.py`
+
+**Purpose:** Measure pinpoints on refined citations, read-only (nothing is written). The refined table does not store the pinpoint yet, so this re-runs the refiner on decisions that already have refined rows and counts the rows that carry a pinpoint. It also counts the same for the first pass alone (pass-one rows, pinpoints read only from the row's own text), which is the "before". python scripts/measure_refined_pinpoints.py --sample 500 --random-seed 7 python scripts/measure_refined_pinpoints.py --sample 500 --csv pinpoint_measure.csv Also checks that the stored refined row count for each decision matches a fresh run (a mismatch means the table was built with older rules).
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\measure_refined_pinpoints.py --help
 ```
 
 ## `scripts/measure_tagging_coverage.py`
@@ -2809,6 +2855,20 @@ Active scripts documented: 196
 
 ```powershell
 .\venv\Scripts\python.exe scripts\score_search_gold.py --help
+```
+
+## `scripts/seed_tour_fixture.py`
+
+**Purpose:** Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py). The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes wrong on long lists. This adds the 9 example decisions the tour opens (Vavilov, Baker, Dunsmuir, Khosa and five made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find: best interests of the child, non-refoulement statutory interpretation, and cessation involving India won by the Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles and pinpoint linking the real library has. Local only: it refuses any base URL other than localhost, and needs --yes. python scripts/seed_tour_fixture.py --base-url http://localhost:8001 --yes python scripts/check_site_tour.py --base-url http://localhost:8001 --walk --sizes 1440x900,1920x1080
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help
 ```
 
 ## `scripts/select_discussion_unit_cohort.py`

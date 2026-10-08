@@ -667,6 +667,11 @@ class CitationRefined(Base):
 	confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
 	refine_version: Mapped[int] = mapped_column(Integer, nullable=False)
 	source_citation_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	# The pinpoint as written ("at paras. 34-38"), its kind (paragraph, page, footnote) and the stated numbers ("34,35,36,37,38").
+	# target_paragraph holds the first stated paragraph, as on the live citations table.
+	pinpoint: Mapped[str | None] = mapped_column(String(100), nullable=True)
+	pinpoint_kind: Mapped[str | None] = mapped_column(String(12), nullable=True)
+	pinpoint_values: Mapped[str | None] = mapped_column(String(255), nullable=True)
 
 
 class CitationParagraphLink(Base):

@@ -84,6 +84,23 @@ def _loose(text: str) -> str:
 	return re.sub(r"[\"'`]", "", norm(text)).strip(" .,;:")
 
 
+def _snap(quote: str, nums: list[int], paragraphs: list[dict]) -> str:
+	"""No model call: for a quote that is not in the decision, return the real sentence in the cited paragraphs that shares most of its words (at least half), else ''."""
+	words = {w for w in re.findall(r"[a-z0-9]+", quote.lower()) if len(w) > 2}
+	if len(words) < 3:
+		return ""
+	best, best_score = "", 0.0
+	for p in paragraphs:
+		if p["paragraph_index"] not in nums:
+			continue
+		for sentence in re.split(r"(?<=[.;?!])\s+", p["text"].replace("\n", " ")):
+			sw = {w for w in re.findall(r"[a-z0-9]+", sentence.lower()) if len(w) > 2}
+			score = len(words & sw) / len(words) if words else 0.0
+			if score > best_score:
+				best, best_score = sentence.strip(), score
+	return best if best_score >= 0.5 else ""
+
+
 def verify(result: dict, paragraphs: list[dict]) -> dict:
 	"""Strict check (exact, in a cited paragraph), loose check (ignores quote marks/end punctuation), and where the quote really is."""
 	texts = {p["paragraph_index"]: norm(p["text"]) for p in paragraphs}
@@ -115,6 +132,11 @@ def verify(result: dict, paragraphs: list[dict]) -> dict:
 				counts["quote_found_elsewhere"] += 1
 			else:
 				counts["quote_not_found"] += 1
+			if not (item["quote_verified"] or item["quote_loose_verified"] or item["quote_found_in"]):
+				fix = _snap(item.get("quote", ""), nums, paragraphs)
+				if fix:
+					item["quote_snapped"] = fix
+					counts["quote_snapped_to_real_sentence"] = counts.get("quote_snapped_to_real_sentence", 0) + 1
 	for theme in result.get("themes", []):
 		bad_numbers += sum(n not in valid for n in theme.get("paragraphs", []))
 	counts["paragraph_numbers_not_in_decision"] = bad_numbers
@@ -179,9 +201,9 @@ def main() -> int:
 				issues, usage_a = call_json(client, ledger, run=args.run, model=args.model, messages=msgs_a, schema_name="issue_map",
 					schema=v3.SCHEMA_V4_ISSUES, max_output_tokens=2500, est_input_tokens=est_a, label=f"issues case {case_id}")
 				usd_a = usage_a["usd"]
-				system_b = system + v3.V4_EXTRA + "ISSUES: " + json.dumps(issues["issues"])
+				system_b = system + v3.V4_PATCH + v3.V4_EXTRA + "ISSUES: " + json.dumps(issues["issues"])
 			else:
-				system_b = system + v3.V4_EXTRA
+				system_b = system + v3.V4_PATCH + v3.V4_EXTRA
 			messages = build(report, paragraphs, system_b)
 			est_dry = est_a + int(sum(len(m["content"]) for m in messages) / 3.2)
 		else:

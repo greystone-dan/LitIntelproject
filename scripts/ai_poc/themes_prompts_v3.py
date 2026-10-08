@@ -109,3 +109,13 @@ V4_EXTRA = (
 	"(a standard-of-review or remedy issue goes in holdings), and each party argument tied to it must be in arguments. Do not add rows for things the Court does not discuss. "
 	"The issue map is a guide, not truth: fix it if the decision shows otherwise.\n"
 )
+
+# Added only for v4, from the round 1 and 2 results (see loop/round2-scoring.md).
+V4_PATCH = (
+	"QUOTES. The quote is evidence, the claim is your own words. Copy the quote from the paragraph exactly; never paraphrase it and never put your own summary in the quote field. "
+	"If you cannot find an exact sentence that says it, use the closest exact sentence in the cited paragraph.\n"
+	"SIDES. A complaint about the decision below is the applicant's argument, not the tribunal's. Findings made by the tribunal below are tribunal_below rows. "
+	"Something the judge says in the first person is never an argument row. When the Court says 'I agree with X that ... but ...', record X's argument as partly_accepted and say what part in outcome_note.\n"
+	"Also record: what the Court says a party should have done or provided but did not; facts about the claimant that the Court treats as important to the result; "
+	"and any reason the Court gives for refusing to ask for more (for example, that some evidence was already provided).\n"
+)

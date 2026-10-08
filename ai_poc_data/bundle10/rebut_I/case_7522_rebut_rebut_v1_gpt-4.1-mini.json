@@ -1,0 +1,1098 @@
+{
+ "case_id": 7522,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "I",
+ "run": "bundle_rebut_I",
+ "usage": {
+  "usd": 0.0157832
+ },
+ "verification": {
+  "points": 66,
+  "calls": 15,
+  "answered": 18,
+  "points_returned": 66,
+  "answer_ids_dropped": 82
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Protection Division rejected the claims because it was not satisfied that the respondents had established their personal identities as citizens of Eritrea.",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "5.1"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "As I will explain in the reasons that follow, the Minister has not persuaded me that the RAD\u2019s identity finding is unreasonable.",
+   "why": "The court finds the RAD's identity finding reasonable, rejecting the RPD's rejection of identity."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Appeal Division concluded that the Refugee Protection Division erred in its findings regarding identity and found that the respondents had established their personal identities.",
+   "party_ids": [
+    "2.2",
+    "2.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.1"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "As I will explain in the reasons that follow, the Minister has not persuaded me that the RAD\u2019s identity finding is unreasonable.",
+   "why": "The court agrees the RAD's finding on identity is reasonable, accepting the RAD's conclusion that identity was established."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Appeal Division found that the respondents are Convention refugees based on objective country condition evidence about risks faced by returnees who left illegally or claimed asylum.",
+   "party_ids": [
+    "2.3",
+    "2.4"
+   ],
+   "answered": false,
+   "verdict": "not_decided",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not decide on the reasonableness of the RAD's Convention refugee status finding."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Appeal Division set aside the Refugee Protection Division's determination and substituted its own decision pursuant to paragraph 111(1)(b) of the Immigration and Refugee Protection Act.",
+   "party_ids": [
+    "2.5"
+   ],
+   "answered": false,
+   "verdict": "not_decided",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not address the RAD's setting aside the RPD's decision under paragraph 111(1)(b)."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "The Minister applies for judicial review of the Refugee Appeal Division's decision under subsection 72(1) of the Immigration and Refugee Protection Act, challenging both the substance and manner of the decision.",
+   "party_ids": [
+    "4.1",
+    "4.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Minister's application for judicial review challenging substance and manner of the RAD decision."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "The Minister submits that the Refugee Appeal Division's findings on identity and Convention refugee status are unreasonable.",
+   "party_ids": [
+    "4.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "5.1",
+    "5.4"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "As I will explain in the reasons that follow, the Minister has not persuaded me that the RAD\u2019s identity finding is unreasonable. Since this is a sufficient basis to set aside the decision and remit the matter to a new decision maker, it is neither necessary nor appropriate to consider whether the RAD\u2019s determination that the respondents are Convention refugees is unreasonable.",
+   "why": "The court rejects the Minister's submission that the RAD's findings on identity and refugee status are unreasonable, deferring refugee status reasonableness."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The Minister submits that the Refugee Appeal Division did not have jurisdiction to consider the sur place aspects of the respondents' claims.",
+   "party_ids": [
+    "4.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "5.2"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "Further, I do not agree with the Minister that the RAD lacked jurisdiction to consider the sur place aspects of the respondents\u2019 claims.",
+   "why": "The court disagrees that the RAD lacked jurisdiction to consider sur place claims."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "The Minister submits that if the Refugee Appeal Division had jurisdiction to consider sur place claims, it breached procedural fairness by making a positive determination without giving the Minister notice and an opportunity to be heard.",
+   "party_ids": [
+    "4.5"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.3"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "However, I do agree that the RAD did not comply with the requirements of procedural fairness.",
+   "why": "The court agrees the RAD breached procedural fairness by not giving notice and opportunity to be heard on sur place claims."
+  },
+  {
+   "pid": "P9",
+   "party_by": "respondent",
+   "party_text": "Ms. Alazar testified that she left for Canada with her sons with their father's permission, who made all the arrangements, and they have kept regular contact with him since arriving in Canada.",
+   "party_ids": [
+    "17.1",
+    "17.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Ms. Alazar's testimony about leaving with father's permission and maintaining contact."
+  },
+  {
+   "pid": "P10",
+   "party_by": "respondent",
+   "party_text": "Ms. Alazar provided a letter from Mr. Nablush confirming he did not object to her taking their sons to Canada or seeking refugee protection on their behalf, supported by his Eritrean driver's licence as proof of identity.",
+   "party_ids": [
+    "18.1",
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the letter from Mr. Nablush and his driver's licence as proof of identity and non-objection."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The respondents did not provide any primary forms of identification to establish their personal identities but provided documentary evidence including birth certificates, letters from community members, church membership confirmation, and family photographs to corroborate their identities.",
+   "party_ids": [
+    "19.1",
+    "19.2",
+    "19.3",
+    "19.4",
+    "19.5",
+    "19.6",
+    "19.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the lack of primary ID but accepts the documentary evidence provided to corroborate identity."
+  },
+  {
+   "pid": "P12",
+   "party_by": "respondent",
+   "party_text": "The respondents relied on the letter from Mr. Nablush as evidence of their personal identities.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts reliance on Mr. Nablush's letter as evidence of identity."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "The Minister raised concerns about the claimants' personal identities and the credibility of their claims, highlighting inconsistencies, contradictions, and omissions, and submitted that the principal claimant cannot be regarded as a credible witness.",
+   "party_ids": [
+    "26.1",
+    "26.2",
+    "26.3",
+    "26.4",
+    "26.5"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "30.2",
+    "30.3",
+    "30.4"
+   ],
+   "answer_paragraphs": [
+    30
+   ],
+   "answer_quote": "In summary, this conclusion was based on the following considerations: The respondents did not present any primary forms of identification.Given the objective evidence that it is difficult to obtain Eritrean passports, the RPD found that it was reasonable that they did not have passports.The RPD noted that Ms. Alazar had explained that her national identity card was seized when she was arrested and was not returned to her.The RPD stated: \u201cRegardless of the alleged circumstances of why the national identity card was not presented, the panel notes that the principal claimant did not proffer it as establishing her personal identity or country of nationality.\u201d The only documentation tendered by the respondents to establish their identities was the birth certificates.The RPD concluded that the birth certificates were not authentic and, as such, carried no weight in establishing identity.Further, the tendering of inauthentic documents undermined the respondents\u2019 credibility.The RPD concluded that the birth certificates were not authentic for the following reasons: o As stated in the reports of the CBSA document examiner, the birth certificates do not contain any recognizable security features.Further, there was no photograph, signature or biometric information that would link the document to the bearer. o The reports also stated that while there was no evidence that the documents had been altered, the print methods used to produce them \u201care commercially available and therefore highly subject to illegitimate production.\u201d o An official stamp on each document that was partly in English misspelled the word \u201ccemetery\u201d as \u201ccemetry\u201d. o Reports in the National Documentation Package confirmed the availability and prevalence of fraudulent identity documents in Eritrea and in Eritrean communities abroad. The reasons given by Ms. Alazar for not trying to obtain other documentation to support her and her sons\u2019 identities \u2013 she did not want to endanger her mother, her brother or her former employer \u2013 are not borne out by the evidence.Specifically, there was no evidence that Ms. Alazar\u2019s mother or brother \u201cwere experiencing any problems at the hands of the Eritrean authorities.\u201dThis, in turn, undermined the credibility of the respondents with respect to their identities.",
+   "why": "The court accepts the Minister's concerns about identity and credibility based on the RPD's findings on documents and explanations."
+  },
+  {
+   "pid": "P14",
+   "party_by": "respondent",
+   "party_text": "The respondents submitted that the evidence presented was sufficient to establish their personal identities and that Ms. Alazar provided moving and credible testimony about her experiences of rape and torture in Eritrea, with no evidence contradicting her oral evidence.",
+   "party_ids": [
+    "27.1",
+    "27.3",
+    "27.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "30.5"
+   ],
+   "answer_paragraphs": [
+    30
+   ],
+   "answer_quote": "The letters from two community members attesting to their knowledge of Ms. Alazar were unswor",
+   "why": "The court rejects the respondents' claim of sufficient evidence and credible testimony due to undermined credibility and inauthentic documents."
+  },
+  {
+   "pid": "P15",
+   "party_by": "respondent",
+   "party_text": "Counsel for the respondents submitted that the Board Member must consider Ms. Alazar's subjective fear of returning to Eritrea given her past experiences, and that returning her to Eritrea would be a travesty of justice.",
+   "party_ids": [
+    "27.5",
+    "27.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond to the respondents' submission about subjective fear and travesty of justice."
+  },
+  {
+   "pid": "P16",
+   "party_by": "respondent",
+   "party_text": "Counsel did not make specific submissions regarding fear of persecution or ill-treatment based on illegal departure from Eritrea or seeking asylum in Canada.",
+   "party_ids": [
+    "28.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not address the lack of submissions regarding fear based on illegal departure or asylum seeking."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD rejected the respondents' claims, with the dispositive issue being identity.",
+   "party_ids": [
+    "29.1",
+    "29.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the RPD rejected the claims with identity as the dispositive issue."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD concluded on a balance of probabilities that the respondents failed to establish their identities.",
+   "party_ids": [
+    "30.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's conclusion that the respondents failed to establish their identities."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The respondents did not present any primary forms of identification, but the RPD found it reasonable they did not have passports given the difficulty obtaining Eritrean passports.",
+   "party_ids": [
+    "30.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that respondents did not present primary IDs but it was reasonable given difficulty obtaining Eritrean passports."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD noted Ms. Alazar explained her national identity card was seized when arrested and not returned, but she did not proffer it as establishing her identity or nationality.",
+   "party_ids": [
+    "30.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's note that Ms. Alazar explained her ID card was seized but she did not proffer it to establish identity."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "The only documentation tendered to establish identities was birth certificates, which the RPD concluded were not authentic and carried no weight, undermining the respondents' credibility.",
+   "party_ids": [
+    "30.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's conclusion that birth certificates were not authentic and undermined credibility."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the birth certificates lacked recognizable security features, had no photograph, signature or biometric information, and the print methods were commercially available and subject to illegitimate production.",
+   "party_ids": [
+    "30.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's detailed reasons on lack of security features and print methods of birth certificates."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "An official stamp on each birth certificate misspelled the word 'cemetery' as 'cemetry'.",
+   "party_ids": [
+    "30.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's observation of the misspelling on the official stamp on birth certificates."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "Reports confirmed the availability and prevalence of fraudulent identity documents in Eritrea and Eritrean communities abroad.",
+   "party_ids": [
+    "30.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's reliance on reports confirming prevalence of fraudulent documents in Eritrea and abroad."
+  },
+  {
+   "pid": "P25",
+   "party_by": "tribunal_below",
+   "party_text": "The reasons given by Ms. Alazar for not trying to obtain other documentation to support identities, such as not wanting to endanger family or employer, were not borne out by evidence and undermined credibility.",
+   "party_ids": [
+    "30.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Ms. Alazar's reasons for not obtaining other documents were not supported by evidence and undermined credibility."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "The respondents appealed to the RAD and tendered new evidence including an affidavit from Ms. Alazar and statutory declarations from two individuals attesting to their knowledge of Ms. Alazar in Eritrea.",
+   "party_ids": [
+    "32.1",
+    "33.1",
+    "33.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the respondents tendered new evidence including an affidavit and statutory declarations."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "The respondents requested a hearing if the RAD impugned the credibility of Ms. Alazar\u2019s affidavit or had concerns about the new evidence or contrary sworn testimony.",
+   "party_ids": [
+    "34.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondents requested a hearing if the RAD impugned credibility or had concerns about new evidence or contrary testimony."
+  },
+  {
+   "pid": "P28",
+   "party_by": "respondent",
+   "party_text": "The respondents contended that the new evidence met the test for admission and further established Ms. Alazar\u2019s identity on the balance of probabilities.",
+   "party_ids": [
+    "35.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the respondents' contention that the new evidence met the test for admission and established identity."
+  },
+  {
+   "pid": "P29",
+   "party_by": "respondent",
+   "party_text": "The respondents contended that the RPD erred in its analysis of the evidence leading to the conclusion that they failed to establish their identities, identifying several alleged errors.",
+   "party_ids": [
+    "35.2",
+    "35.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondents' contention that the RPD erred in its analysis and identified several errors."
+  },
+  {
+   "pid": "P30",
+   "party_by": "respondent",
+   "party_text": "The respondents requested that the RAD quash the RPD decision and either order a new hearing or substitute its own positive determination.",
+   "party_ids": [
+    "35.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the respondents' request that the RAD quash the RPD decision and order a new hearing or substitute its own determination."
+  },
+  {
+   "pid": "P31",
+   "party_by": "respondent",
+   "party_text": "The respondents argued that the RPD decision made findings refuted by the new evidence and that the RPD\u2019s findings about the birth certificate were erroneous.",
+   "party_ids": [
+    "35.5",
+    "35.6"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "41.1"
+   ],
+   "answer_paragraphs": [
+    41
+   ],
+   "answer_quote": "The RAD agreed with the respondents that the RPD erred in its assessment of their birth certificates, in drawing a negative inference from their failure to obtain better identity documents from family members in Eritrea, and in its assessment of Mr. Nablush\u2019s driver\u2019s licence.",
+   "why": "The court accepts that the RPD made findings refuted by new evidence and erroneous findings about the birth certificate."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found that the statutory declaration from Mr. Hagos met the test for admission under subsection 110(4) of the IRPA but the one from Mr. Berhe did not.",
+   "party_ids": [
+    "38.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "38.7"
+   ],
+   "answer_paragraphs": [
+    38
+   ],
+   "answer_quote": "Accordingly, his statutory declaration met the test for new evidence under subsection 110(4) of the IRPA.",
+   "why": "The RAD found Mr. Hagos's declaration admissible but Mr. Berhe's inadmissible."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found both statutory declarations repeated details from earlier letters and were provided in response to RPD findings, so could not have been reasonably expected at the time of the rejection of the claims.",
+   "party_ids": [
+    "38.2",
+    "38.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD found both declarations repeated earlier details and were in response to RPD findings, thus not reasonably expected earlier."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found Mr. Berhe\u2019s statutory declaration lacked credibility due to inconsistent explanations for not attending the RPD hearing and was inadmissible, but would consider his unsworn letter from the RPD record.",
+   "party_ids": [
+    "38.4",
+    "38.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD found Mr. Berhe's declaration lacked credibility and was inadmissible but considered his unsworn letter."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found Mr. Hagos\u2019s explanation for not attending the RPD hearing consistent with Ms. Alazar\u2019s and credible, so his statutory declaration met the test for new evidence under subsection 110(4) of the IRPA.",
+   "party_ids": [
+    "38.6",
+    "38.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD found Mr. Hagos's explanation credible and his declaration admissible."
+  },
+  {
+   "pid": "P36",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD admitted additional photographs tendered by the respondents as new evidence because they responded to RPD concerns and could not have reasonably been expected at the time of the rejection of the claims.",
+   "party_ids": [
+    "39.1",
+    "39.2",
+    "39.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD admitted additional photographs as new evidence responding to RPD concerns and not reasonably expected earlier."
+  },
+  {
+   "pid": "P37",
+   "party_by": "tribunal_below",
+   "party_text": "Despite admitting the new evidence, the RAD denied the respondents\u2019 request for a hearing under subsection 110(6) of the IRPA, concluding a hearing was not warranted as the new evidence would not justify allowing or rejecting the claims if accepted.",
+   "party_ids": [
+    "40.1",
+    "40.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD denied the hearing request under subsection 110(6) as the new evidence would not justify allowing or rejecting the claims."
+  },
+  {
+   "pid": "P38",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD agreed with the respondents that the RPD erred in its assessment of their birth certificates, in drawing a negative inference from their failure to obtain better identity documents from family members in Eritrea, and in its assessment of Mr. Nablush\u2019s driver\u2019s licence.",
+   "party_ids": [
+    "41.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD agreed the RPD erred in assessing birth certificates, drawing negative inference from failure to get better documents, and assessing the driver's licence."
+  },
+  {
+   "pid": "P39",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD agreed with the respondents that it was an error for the RPD to make a finding of inauthenticity on the basis of the general prevalence of fraudulent documents regarding the birth certificates.",
+   "party_ids": [
+    "42.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD agreed it was an error to find inauthenticity based on general prevalence of fraudulent documents."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "There was no evidence that a genuine Eritrean birth certificate would have had security features that were missing from the ones that were tendered.",
+   "party_ids": [
+    "42.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD found no evidence that genuine birth certificates would have security features missing from the tendered ones."
+  },
+  {
+   "pid": "P41",
+   "party_by": "tribunal_below",
+   "party_text": "The misspelling of a word on a document from a country where English is not a first language should not be used to impugn its credibility.",
+   "party_ids": [
+    "42.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD stated misspelling should not impugn credibility for documents from non-English first language countries."
+  },
+  {
+   "pid": "P42",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD could see no basis for finding that the birth certificates are not authentic.",
+   "party_ids": [
+    "42.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD saw no basis to find the birth certificates not authentic."
+  },
+  {
+   "pid": "P43",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found that Ms. Alazar\u2019s explanation for why she did not enlist her family to help her was credible in light of objective country condition evidence demonstrating the risks to family members of persons who have fled Eritrea.",
+   "party_ids": [
+    "43.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "43.2"
+   ],
+   "answer_paragraphs": [
+    43
+   ],
+   "answer_quote": "The RAD found that the RPD had erred in drawing a negative inference on this basis.",
+   "why": "The court accepts the RAD's finding that Ms. Alazar's explanation was credible and that the RPD erred in drawing a negative inference."
+  },
+  {
+   "pid": "P44",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found that the RPD had erred in drawing a negative inference from the failure to seek assistance of family members in Eritrea.",
+   "party_ids": [
+    "43.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's finding that the RPD erred in drawing a negative inference from failure to seek family assistance."
+  },
+  {
+   "pid": "P45",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found that Ms. Alazar had established on a balance of probabilities that she is married to Mr. Nablush.",
+   "party_ids": [
+    "44.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's finding that Ms. Alazar established on a balance of probabilities that she is married to Mr. Nablush."
+  },
+  {
+   "pid": "P46",
+   "party_by": "tribunal_below",
+   "party_text": "This finding was based on Ms. Alazar\u2019s testimony at the RPD, the letter from Mr. Nablush accepted by the RPD, and new evidence in the form of photographs of their wedding.",
+   "party_ids": [
+    "44.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's basis for the marriage finding including testimony, letter, and wedding photographs."
+  },
+  {
+   "pid": "P47",
+   "party_by": "tribunal_below",
+   "party_text": "Mr. Nablush\u2019s driver\u2019s licence supports the respondents\u2019 overall identity and presence of the family in Eritrea during the material time.",
+   "party_ids": [
+    "44.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Mr. Nablush's driver's licence supports the respondents' identity and presence in Eritrea."
+  },
+  {
+   "pid": "P48",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found that the RPD erred in concluding otherwise about Mr. Nablush\u2019s driver\u2019s licence.",
+   "party_ids": [
+    "44.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's finding that the RPD erred in concluding otherwise about the driver's licence."
+  },
+  {
+   "pid": "P49",
+   "party_by": "tribunal_below",
+   "party_text": "On the basis of the evidence before it, the RAD found that the respondents had established their claimed identities as Eritrean citizens.",
+   "party_ids": [
+    "45.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's finding that the respondents established their Eritrean identities."
+  },
+  {
+   "pid": "P50",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD found the respondents to be Convention refugees based on their established identities and objective country condition evidence showing risks upon return to Eritrea.",
+   "party_ids": [
+    "46.1",
+    "46.2",
+    "46.3",
+    "46.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RAD's finding that respondents are Convention refugees based on identity and country conditions."
+  },
+  {
+   "pid": "P51",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD allowed the appeal and set aside the RPD\u2019s determination, substituting its own determination that the respondents are Convention refugees.",
+   "party_ids": [
+    "47.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the RAD allowed the appeal and substituted its own determination that respondents are Convention refugees."
+  },
+  {
+   "pid": "P52",
+   "party_by": "applicant",
+   "party_text": "The Minister argues that the RAD did not have jurisdiction to consider the sur place aspect of the claims and should have referred the matter back to the RPD for re-determination due to material errors in the RPD's identity findings.",
+   "party_ids": [
+    "53.1",
+    "53.2",
+    "53.3",
+    "54.1",
+    "54.2",
+    "54.3",
+    "54.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "60.2"
+   ],
+   "answer_paragraphs": [
+    60
+   ],
+   "answer_quote": "As I will explain, I do not agree.",
+   "why": "The court rejects the Minister's argument that the RAD lacked jurisdiction to consider sur place claims and that it should have referred the matter back to the RPD."
+  },
+  {
+   "pid": "P53",
+   "party_by": "applicant",
+   "party_text": "The Minister challenges the procedural fairness of the RAD's process, alleging it breached requirements by determining sur place refugee status without giving the Minister notice and an opportunity to be heard.",
+   "party_ids": [
+    "55.1",
+    "55.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text states the procedural fairness standard and burden but does not yet decide if the RAD breached procedural fairness."
+  },
+  {
+   "pid": "P54",
+   "party_by": "applicant",
+   "party_text": "The Minister submits that the RAD's identity findings are unreasonable because it failed to address two arguments made at the RPD: the implausibility of Ms. Alazar's explanation for lacking a national identity card and the incredibility of her ignorance about the passports used for travel.",
+   "party_ids": [
+    "57.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "58.1",
+    "58.2",
+    "58.3",
+    "58.4",
+    "58.5",
+    "59.1",
+    "59.5"
+   ],
+   "answer_paragraphs": [
+    58,
+    59
+   ],
+   "answer_quote": "I do not agree. It is well-established that a decision maker is not required to address every argument that arises on the record (Vavilov at para 91, citing Newfoundland and Labrador Nurses\u2019 Union v Newfoundland and Labrador (Treasury Board), 2011 SCC 62, [2011] 3 SCR 708, at para 16). This latitude is especially apt when, as is the case here, the arguments in question were not made on the appeal to the RAD but only earlier in the process, to the RPD. The RPD did not adopt those arguments in its reasons and, as a result, they were not addressed in the respondents\u2019 submissions to the RAD. As the Supreme Court observes in Vavilov, the review of an administrative decision \u201ccan be divorced neither from the institutional context in which the decision was made nor from the history of the proceedings\u201d (at para 91). In any event, these arguments are peripheral to the core issues relating to the question of identity in this case. Bearing in mind that it is not my role to reweigh evidence and that deference is owed to the decision maker on this issue, the Minister has not persuaded me that there is any basis to interfere with the RAD\u2019s findings on identity.",
+   "why": "The court finds the RAD's identity findings reasonable and not required to address every argument not raised on appeal."
+  },
+  {
+   "pid": "P55",
+   "party_by": "applicant",
+   "party_text": "The RAD did not have jurisdiction to consider the respondents\u2019 sur place claims and committed a reviewable error by determining the respondents to be Convention refugees on this basis.",
+   "party_ids": [
+    "60.1",
+    "60.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court disagrees that the RAD lacked jurisdiction to consider sur place claims and rejects the claim of reviewable error."
+  },
+  {
+   "pid": "P56",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD determined the respondents to be Convention refugees solely on the basis that, as returnees who left illegally or claimed asylum, they had a well-founded fear of persecution, a finding characterized as a sur place claim.",
+   "party_ids": [
+    "63.1",
+    "63.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the RAD determined the respondents to be Convention refugees based on sur place claims."
+  },
+  {
+   "pid": "P57",
+   "party_by": "applicant",
+   "party_text": "The RAD did not have jurisdiction to consider sur place claims because the RPD did not address this issue, so the RAD could not substitute its determination under paragraph 111(1)(b) of the IRPA.",
+   "party_ids": [
+    "64.1",
+    "64.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "65.1",
+    "65.2",
+    "65.3",
+    "65.4",
+    "65.5",
+    "66.1"
+   ],
+   "answer_paragraphs": [
+    65,
+    66
+   ],
+   "answer_quote": "There is support for the Minister\u2019s position in this Court\u2019s jurisprudence. In Jianzhu v Canada (Citizenship and Immigration), 2015 FC 551 at para 12, Justice Simpson held as follows with respect to a RAD decision dismissing an appeal and finding that the applicants did not have a sur place claim when the RPD had not made any findings in relation to the sur place claim (which was based on religious practice in Canada): In my view, the RAD lacked jurisdiction to independently decide the Sur Place Claim. The RAD did not cite any authority for taking this step, and section 111(1)(b) of [the IRPA] does not apply because there was no RPD decision to set aside. In these circumstances, since it felt that the issue ought to have been decided, the RAD should have referred the Sur Place Claim back to the RPD for a decision. Given that it did not take this approach, the RAD\u2019s decision was unreasonable. Similarly, in Ojarikre v Canada (Citizenship and Immigration), 2015 FC 896 at para 20, Justice Annis held as follows with respect to a RAD decision dismissing an appeal on the basis of an Internal Flight Alternative when this issue was not addressed in the RPD\u2019s decision or raised by either party in the appeal to the RAD: The Court is in agreement with the Applicant\u2019s submissions that the RAD does not possess the jurisdiction to consider an issue that, although fully canvassed before the RPD, was not relied upon in its decision and therefore was not the subject matter of the Applicant\u2019s appeal.",
+   "why": "The court acknowledges the Minister's argument and supporting jurisprudence but ultimately rejects the claim that the RAD lacked jurisdiction to consider sur place claims not addressed by the RPD."
+  },
+  {
+   "pid": "P58",
+   "party_by": "applicant",
+   "party_text": "In Jianzhu, the RAD lacked jurisdiction to independently decide a sur place claim not addressed by the RPD and should have referred the claim back to the RPD; failure to do so made the RAD\u2019s decision unreasonable.",
+   "party_ids": [
+    "65.1",
+    "65.2",
+    "65.3",
+    "65.4",
+    "65.5"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "67.1"
+   ],
+   "answer_paragraphs": [
+    67
+   ],
+   "answer_quote": "With all due respect to those who hold a different view, I am not persuaded that the RAD deciding an appeal on a basis not addressed by the RPD raises a jurisdictional issue (as opposed to an issue of procedural fairness, a topic I will address below).",
+   "why": "The court rejects that this is a jurisdictional issue, treating it as procedural fairness instead."
+  },
+  {
+   "pid": "P59",
+   "party_by": "applicant",
+   "party_text": "In Ojarikre, the RAD does not have jurisdiction to consider an issue not relied upon in the RPD\u2019s decision and not the subject matter of the appeal.",
+   "party_ids": [
+    "66.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "67.1"
+   ],
+   "answer_paragraphs": [
+    67
+   ],
+   "answer_quote": "With all due respect to those who hold a different view, I am not persuaded that the RAD deciding an appeal on a basis not addressed by the RPD raises a jurisdictional issue (as opposed to an issue of procedural fairness, a topic I will address below).",
+   "why": "The court rejects that the RAD lacks jurisdiction to consider such issues, viewing it as a procedural fairness matter."
+  },
+  {
+   "pid": "P60",
+   "party_by": "applicant",
+   "party_text": "Jianzhu and Ojarikre were decided before Huruglica, which clarified the RAD\u2019s jurisdiction.",
+   "party_ids": [
+    "72.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges that Jianzhu and Ojarikre were decided before Huruglica, confirming the point."
+  },
+  {
+   "pid": "P61",
+   "party_by": "respondent",
+   "party_text": "Deciding an appeal on a new ground without first giving notice to the parties can breach procedural fairness.",
+   "party_ids": [
+    "75.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "75.3"
+   ],
+   "answer_paragraphs": [
+    75
+   ],
+   "answer_quote": "Justice Hughes expressed this exception to the general rule as follows in Husian v Canada (Citizenship and Immigration), 2015 FC 684 at para 10: \u201cThe point is that if the RAD chooses to take a frolic and venture into the record to make further substantive findings, it should give some sort of notice to the parties and give them an opportunity to make submissions.\u201d",
+   "why": "The court accepts that deciding on a new ground without notice can breach procedural fairness, citing case law."
+  },
+  {
+   "pid": "P62",
+   "party_by": "respondent",
+   "party_text": "The Minister cannot claim the benefit of the procedural fairness test because he did not intervene in the appeal to the RAD and was not a party to the appeal.",
+   "party_ids": [
+    "79.3",
+    "79.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "80.1",
+    "80.2",
+    "80.3",
+    "83.1",
+    "83.2",
+    "83.3",
+    "83.4"
+   ],
+   "answer_paragraphs": [
+    80,
+    83
+   ],
+   "answer_quote": "I do not agree that the notion of who is a party to an appeal to the RAD for purposes of the kind of notice at issue here should be construed so narrowly. In my view, applying the Baker factors (Baker at paras 21 to 28), the Minister has a right to procedural fairness even in appeals in which he has not intervened. This includes the right to notice that a new issue is being considered by the RAD and the opportunity to make submissions in relation to it. These provisions leave no room for doubt that the Minister has procedural fairness rights before the RAD even in cases where he has not (or has not yet) intervened. Central to these rights is the right to notice of material developments as they occur, from the commencement of an appeal through to its conclusion. Crucially, such notice allows the Minister to make informed and timely decisions about whether to intervene in a pending appeal and whether to pursue an application for leave and judicial review of a decision once it is made. Thus, I cannot agree with the respondents that, having opted not to intervene after receiving their Record, the Minister had no right to notice of a subsequent development affecting the determination of the appeal and the respondents\u2019 claims for protection.",
+   "why": "The court rejects the respondents' submission and holds the Minister has procedural fairness rights even without intervening."
+  },
+  {
+   "pid": "P63",
+   "party_by": "respondent",
+   "party_text": "Rule 1 of the RAD Rules defines 'party' as the person and, if the Minister intervenes, the Minister, implying the Minister is not a party if he does not intervene.",
+   "party_ids": [
+    "81.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "81.3",
+    "82.1",
+    "82.2",
+    "82.3",
+    "82.4",
+    "82.5",
+    "82.6",
+    "82.7",
+    "82.8",
+    "82.9",
+    "82.10",
+    "82.11"
+   ],
+   "answer_paragraphs": [
+    81,
+    82
+   ],
+   "answer_quote": "However, I do not agree that, for procedural fairness purposes, this is exhaustive of the Minister\u2019s interest in appeals to the RAD by persons concerned. The Minister\u2019s broad and continuing interest in such appeals is confirmed elsewhere in the RAD Rules. Most importantly, the Minister may intervene in an appeal as of right \u201cat any time before the Division makes a decision\u201d (RAD Rules, subrule 4(1)). The RAD Rules also recognize the Minister\u2019s interest in appeals separate and apart from any intervention. Among other things, they provide that: When an appeal is filed by the person concerned, the RAD must provide a copy of the notice of appeal to the Minister without delay (RAD Rules, subrule 2(2)). When an appeal by the person concerned is perfected, the RAD must provide a copy of the Appellant\u2019s Record to the Minister without delay (RAD Rules, subrule 3(2)). When a party wants to challenge the constitutional validity, applicability or operability of a legislative provision, that party must, among other things, provide a copy of the notice to this effect to the Minister, \u201ceven if the Minister has not yet intervened in the appeal\u201d (RAD Rules, subrule 25(3)(b)). For the purpose of a request to conduct an appeal proceeding in public, the Minister is considered a party \u201ceven if the Minister has not yet intervened in the appeal\u201d (RAD Rules, subrule 42(1)). If the Chairperson of the IRB orders that an appeal be heard by a three-member panel, the RAD must notify the parties of this without delay, including the Minister \u201ceven if the Minister has not yet intervened in the appeal\u201d (RAD Rules, subrule 43(1)). If the person concerned applies to reinstate an appeal that was withdrawn, the RAD must, without delay, provide a copy of the application to the Minister (RAD Rules, subrule 48(3)). If the person concerned applies to reopen an appeal that has been decided or declared abandoned, the RAD must, without delay, provide a copy of the application to the Minister (RAD Rules, subrule 49(3)). When the RAD makes a final decision on an appeal, it must provide notice in writing of the decision to the Minister (among others) (RAD Rules, subrule 50(1).",
+   "why": "The court rejects that definition as exhaustive and shows multiple RAD Rules recognize the Minister's interest even without intervention."
+  },
+  {
+   "pid": "P64",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD decided the claims only on the threshold issue of personal identity and did not address the merits of the claims.",
+   "party_ids": [
+    "85.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD decided only on personal identity and did not address merits."
+  },
+  {
+   "pid": "P65",
+   "party_by": "tribunal_below",
+   "party_text": "The respondents\u2019 appeal to the RAD was limited to the threshold issue of identity.",
+   "party_ids": [
+    "85.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the respondents' appeal to the RAD was limited to the threshold issue of identity."
+  },
+  {
+   "pid": "P66",
+   "party_by": "respondent",
+   "party_text": "The sur place claims were part of the claims presented to the RPD and presumably included in the respondents' alternative request for relief to the RAD.",
+   "party_ids": [
+    "86.1",
+    "86.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the sur place claims were part of the claims to the RPD and included in the respondents' alternative request to the RAD."
+  }
+ ]
+}

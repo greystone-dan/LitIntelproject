@@ -1,0 +1,120 @@
+{
+ "case_id": 16152,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "H",
+ "run": "bundle_rebut_H",
+ "usage": {
+  "usd": 0.0009568000000000001
+ },
+ "verification": {
+  "points": 6,
+  "calls": 1,
+  "answered": 3,
+  "points_returned": 6,
+  "answer_ids_dropped": 2
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "It was reasonable for her, given her particular situation, not to seek state protection.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "10.1",
+    "10.2",
+    "12.1"
+   ],
+   "answer_paragraphs": [
+    10,
+    12
+   ],
+   "answer_quote": "An Applicant's subjective reluctance to engage the state in providing protection is not a sufficient basis to conclude that state protection is not available or effective. In this case, the Applicant never sought any aspect of state protection, even when her mother came to her physical and emotional aid. The RPD's decision, read as a whole, is a reasonable and balanced decision.",
+   "why": "The court finds the RPD's decision reasonable and notes the applicant never sought state protection, rejecting the reasonableness of not seeking it."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The societal values and the shame of accusing a husband of abuse, her emotional dependence on her husband, and her loneliness in Korea are all factors which make her failure to seek state protection reasonable.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not specifically address the societal values, shame, emotional dependence, or loneliness factors."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The RPD failed to consider whether state protection was effective in Korea.",
+   "party_ids": [
+    "8.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "12.2"
+   ],
+   "answer_paragraphs": [
+    12
+   ],
+   "answer_quote": "It would be unreasonable to suggest that the RPD must conduct a full review of the effectiveness of state protection in Korea (even if that were possible) in the absence of significant evidence of its ineffectiveness.",
+   "why": "The court states it would be unreasonable to require a full review of state protection effectiveness without significant evidence, rejecting the claim that the RPD failed to consider effectiveness."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The RPD's error was to consider whether organizational structures were in place to the exclusion of considering whether those structures functioned properly.",
+   "party_ids": [
+    "8.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "11.2",
+    "12.3"
+   ],
+   "answer_paragraphs": [
+    11,
+    12
+   ],
+   "answer_quote": "The RPD took account of the state structure for the protection of abused women; it considered the U.S. DOS reports which referred to some problems in executing on the policies of increased protection for abused women. There is nothing to suggest that Korea's state protection is a sham or an exercise of \"form over substance\".",
+   "why": "The court notes the RPD considered both structures and reports on their execution, finding no evidence of sham protection, thus rejecting the error claim."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The Applicant never sought any aspect of state protection, even when her mother came to her physical and emotional aid.",
+   "party_ids": [
+    "10.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant never sought state protection, even with her mother's aid."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD took account of the state structure for the protection of abused women and considered U.S. DOS reports noting some problems in executing policies of increased protection for abused women.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD considered state structures and U.S. DOS reports on protection issues."
+  }
+ ]
+}

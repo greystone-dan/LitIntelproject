@@ -1,0 +1,638 @@
+{
+ "case_id": 19499,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "HIK",
+ "run": "bundle_rebut_HIK",
+ "usage": {
+  "usd": 0.0082728
+ },
+ "verification": {
+  "points": 39,
+  "calls": 8,
+  "answered": 13,
+  "points_returned": 36,
+  "answer_ids_dropped": 36
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "Mr. Yu claims that the Public Security Bureau raided his house church gathering, he went into hiding, and his family was harassed because of his religious activities.",
+   "party_ids": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "6.2",
+    "6.3",
+    "8.3",
+    "8.4",
+    "8.5"
+   ],
+   "answer_paragraphs": [
+    6,
+    8
+   ],
+   "answer_quote": "The Board accepted that the applicant was a Christian, and that he attended underground gatherings at a house church. However, the Board stated that \u201cthe determinative issue in this case is whether it is credible that the claimant is sought by the authorities because he is a member of an underground Christian Church in Fujian, China.\u201d Based on its review of the documentary evidence, and without specifically stating that it found the applicant not to be credible, the Board concluded that the applicant did not have an objectively well-founded fear of persecution. The Board determined, \u2026 based on a balance of probabilities, that the church group that [the applicant] attended was not raided and therefore, no one has been jailed, nor is the PSB looking to arrest and imprison him for illegal religious activities. The panel\u2019s determination is based on a preference of the documentary evidence over the claimant\u2019s evidence.",
+   "why": "The Board accepted Mr. Yu was a Christian attending house church but rejected the credibility of his claim that he was sought by authorities for this reason."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "Mr. Yu feared severe punishment if caught, arranged to come to Canada with a human trafficker, and made a refugee claim after arriving.",
+   "party_ids": [
+    "5.1",
+    "5.2",
+    "5.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "6.3",
+    "8.3",
+    "8.4",
+    "8.5"
+   ],
+   "answer_paragraphs": [
+    6,
+    8
+   ],
+   "answer_quote": "However, the Board stated that \u201cthe determinative issue in this case is whether it is credible that the claimant is sought by the authorities because he is a member of an underground Christian Church in Fujian, China.\u201d Based on its review of the documentary evidence, and without specifically stating that it found the applicant not to be credible, the Board concluded that the applicant did not have an objectively well-founded fear of persecution. The Board determined, \u2026 based on a balance of probabilities, that the church group that [the applicant] attended was not raided and therefore, no one has been jailed, nor is the PSB looking to arrest and imprison him for illegal religious activities. The panel\u2019s determination is based on a preference of the documentary evidence over the claimant\u2019s evidence.",
+   "why": "The Board concluded Mr. Yu did not have an objectively well-founded fear and rejected his claim based on documentary evidence over his testimony."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "Mr. Yu claims his parents continue to be harassed by the Public Security Bureau due to his Christian activities.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond to the claim about continued harassment of Mr. Yu's parents after he came to Canada."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Protection Division found that Mr. Yu was a Christian who attended underground house church gatherings but questioned the credibility of his claim that he was sought by authorities for this reason.",
+   "party_ids": [
+    "6.1",
+    "6.2",
+    "6.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board accepted Mr. Yu was a Christian attending underground gatherings but questioned the credibility of his claim that he was sought by authorities."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found that religious persecution of Protestant house churches occurs in China but is less likely in Fujian Province, noting limited documentary evidence of persecution there.",
+   "party_ids": [
+    "7.1",
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board found religious persecution occurs in China but is less likely in Fujian due to limited documentary evidence."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The Board drew a negative inference from the lack of documentary evidence of persecution in Fujian Province, expecting persuasive evidence to support claims of raids and imprisonment there.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board drew a negative inference from the lack of documentary evidence of persecution in Fujian Province."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found that factors typically present in persecution cases did not apply to Mr. Yu and concluded he did not have an objectively well-founded fear of persecution.",
+   "party_ids": [
+    "8.2",
+    "8.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board found the factors did not apply and concluded no well-founded fear of persecution."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The Board determined on a balance of probabilities that the church Mr. Yu attended was not raided and no one was jailed or sought for illegal religious activities, preferring documentary evidence over his testimony.",
+   "party_ids": [
+    "8.4",
+    "8.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board determined on balance of probabilities no raid occurred and preferred documentary evidence over testimony."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found that Christians in China can freely worship at registered patriotic churches and did not accept Mr. Yu's claim that such churches emphasize worship of the Chinese Communist Party over God.",
+   "party_ids": [
+    "9.4",
+    "9.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board found Christians can freely worship at registered churches and did not accept the claim about worship emphasis."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that Mr. Yu would not be prevented from practicing his religion at a patriotic church if he returned to China.",
+   "party_ids": [
+    "9.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board concluded the applicant would not be prevented from practicing religion at a patriotic church."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The Board also concluded that Mr. Yu would not face a serious possibility of persecution if he practiced religion in an unregistered house church in Fujian Province.",
+   "party_ids": [
+    "10.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board concluded no serious possibility of persecution in unregistered house churches in Fujian Province."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The Board rejected Mr. Yu's refugee claim based on the above findings.",
+   "party_ids": [
+    "10.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board rejected the refugee claim based on the above findings."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "The Board erred in its findings concerning the practice of Christianity in China.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.2",
+    "14.1",
+    "15.1",
+    "15.2",
+    "15.3",
+    "15.4"
+   ],
+   "answer_paragraphs": [
+    12,
+    14,
+    15
+   ],
+   "answer_quote": "Whether the Board erred in concluding that the applicant could freely practice his religion in a patriotic church; and 2. The respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion and because the cases he relies on are distinguishable. The Board failed to consider several key pieces of evidence that supported the applicant\u2019s assertion that he could not freely practice his religion at a patriotic church. A 2007 report by the U.S. Department of State noted reports that patriotic church \u201ctheology places submission to the state\u2019s authority above submission to Christ\u2019s authority.\u201d A 2007 IRB Response to Information Request notes \u201creports that patriotic organizations sometimes interfere in doctrinal decision of registered religious groups.\u201d A 2005 IRB Response to Information Request notes the Chinese government\u2019s \u201c\u2018Theological Construction Campaign\u2019 which was implemented in official Protestant seminaries,\u201d and that this campaign led to the proliferation of house churches.",
+   "why": "The court accepts the applicant's point that the Board erred in concluding free practice in patriotic churches, noting failure to consider key evidence."
+  },
+  {
+   "pid": "P14",
+   "party_by": "applicant",
+   "party_text": "The Board erred in preferring a lack of documentary evidence over the Applicant\u2019s otherwise credible evidence.",
+   "party_ids": [
+    "11.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.3",
+    "14.1"
+   ],
+   "answer_paragraphs": [
+    12,
+    14
+   ],
+   "answer_quote": "Whether the Board erred in relying on documentary evidence regarding the consequences of practising Christianity in Fujian Province in preference to the applicant\u2019s evidence without making specific findings about the truthfulness of the applicant\u2019s account of events. The respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion and because the cases he relies on are distinguishable.",
+   "why": "The court accepts that the Board erred in preferring documentary evidence over the applicant's credible evidence without specific findings."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "The Board erred by misconstruing evidence and by ignoring relevant evidence in finding that there are no incidents of arrest in Fujian Province.",
+   "party_ids": [
+    "11.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not address whether the Board erred regarding incidents of arrest in Fujian Province."
+  },
+  {
+   "pid": "P16",
+   "party_by": "applicant",
+   "party_text": "The Board erred in relying on documentary evidence without making specific findings about the truthfulness of the Applicant\u2019s account of events.",
+   "party_ids": [
+    "11.5"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.3",
+    "14.1"
+   ],
+   "answer_paragraphs": [
+    12,
+    14
+   ],
+   "answer_quote": "Whether the Board erred in relying on documentary evidence regarding the consequences of practising Christianity in Fujian Province in preference to the applicant\u2019s evidence without making specific findings about the truthfulness of the applicant\u2019s account of events. The respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion and because the cases he relies on are distinguishable.",
+   "why": "The court accepts that the Board erred by relying on documentary evidence without specific findings on the applicant's truthfulness."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The Board erred in concluding that the applicant could freely practice his religion in a patriotic church because it failed to properly consider documentary evidence and jurisprudence supporting his assessment that patriotic churches prioritize the state over God.",
+   "party_ids": [
+    "13.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.2",
+    "14.1",
+    "15.1",
+    "15.2",
+    "15.3",
+    "15.4"
+   ],
+   "answer_paragraphs": [
+    12,
+    14,
+    15
+   ],
+   "answer_quote": "Whether the Board erred in concluding that the applicant could freely practice his religion in a patriotic church; and 2. The respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion and because the cases he relies on are distinguishable. The Board failed to consider several key pieces of evidence that supported the applicant\u2019s assertion that he could not freely practice his religion at a patriotic church. A 2007 report by the U.S. Department of State noted reports that patriotic church \u201ctheology places submission to the state\u2019s authority above submission to Christ\u2019s authority.\u201d A 2007 IRB Response to Information Request notes \u201creports that patriotic organizations sometimes interfere in doctrinal decision of registered religious groups.\u201d A 2005 IRB Response to Information Request notes the Chinese government\u2019s \u201c\u2018Theological Construction Campaign\u2019 which was implemented in official Protestant seminaries,\u201d and that this campaign led to the proliferation of house churches.",
+   "why": "The court accepts the applicant's point that the Board failed to consider evidence supporting the priority of the state in patriotic churches."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "The applicant said that he could not practice his religion in a patriotic church because those churches put the state above God.",
+   "party_ids": [
+    "13.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant's assertion about patriotic churches prioritizing the state over God."
+  },
+  {
+   "pid": "P19",
+   "party_by": "respondent",
+   "party_text": "The Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion and because the cases he relies on are distinguishable.",
+   "party_ids": [
+    "14.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the respondent's submission that the Board's conclusion was reasonable due to lack of direct evidence and distinguishable cases."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "The Board did not consider several key pieces of evidence supporting the applicant\u2019s assertion that he could not freely practice his religion at a patriotic church.",
+   "party_ids": [
+    "15.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "15.2",
+    "15.3",
+    "15.4"
+   ],
+   "answer_paragraphs": [
+    15
+   ],
+   "answer_quote": "A 2007 report by the U.S. Department of State noted reports that patriotic church \u201ctheology places submission to the state\u2019s authority above submission to Christ\u2019s authority.\u201d A 2007 IRB Response to Information Request notes \u201creports that patriotic organizations sometimes interfere in doctrinal decision of registered religious groups.\u201d A 2005 IRB Response to Information Request notes the Chinese government\u2019s \u201c\u2018Theological Construction Campaign\u2019 which was implemented in official Protestant seminaries,\u201d and that this campaign led to the proliferation of house churches.",
+   "why": "The court accepts that the Board failed to consider key evidence supporting the applicant's assertion about religious practice restrictions."
+  },
+  {
+   "pid": "P22",
+   "party_by": "respondent",
+   "party_text": "The Board\u2019s failure to consider the evidence does not amount to a reviewable error because the applicant failed to lead direct evidence and because the Board\u2019s reasoning regarding a more liberal approach to religion in Fujian Province outweighs the failure to consider the documentary record.",
+   "party_ids": [
+    "16.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "16.3",
+    "17.1",
+    "17.2",
+    "17.3",
+    "19.1",
+    "19.3"
+   ],
+   "answer_paragraphs": [
+    16,
+    17,
+    19
+   ],
+   "answer_quote": "I do not agree. While it is preferable to have direct evidence, there is no obligation on a claimant to lead direct evidence in support of the allegations made. In particular, there was no obligation for the claimant in this case to attend a patriotic church to see for himself whether the church preached worship of the Chinese Communist Party over God. Where the documentary record supports a claimant\u2019s allegations, and those allegations are found to be credible, this alone is sufficient. It was an error to rely on the absence of direct evidence, as the Board did in this case, where the documentary record supported the applicant\u2019s allegations. The Board failed to consider contradictory evidence that supported the applicant\u2019s allegations, and the decision is unreasonable on this basis.",
+   "why": "The court rejects the respondent's argument that the Board's failure to consider evidence was not a reviewable error."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "The applicant stated before the Board that he could not attend a patriotic church because it stresses worship of the party above God and violates the first commandment.",
+   "party_ids": [
+    "18.1",
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the applicant's statement about the reason for not attending patriotic churches."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The Board did not probe the applicant\u2019s belief in the importance of the first commandment and made no negative credibility finding regarding this belief; it found he was a practising Christian.",
+   "party_ids": [
+    "18.3",
+    "18.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the Board did not probe the applicant's belief and made no negative credibility finding."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "The applicant cites cases where the Court quashed Board decisions because the documentary record supported distinctions between patriotic churches and house churches, supporting allegations of restrictions on freedom of religion in patriotic churches.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the applicant's citation of cases where the Court quashed Board decisions based on documentary records."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "The respondent attempts to distinguish Zhu and Song, arguing that in this case the Board considered the applicant\u2019s religious conviction and that Song was based on cumulative errors, not solely on patriotic churches.",
+   "party_ids": [
+    "21.1",
+    "21.2",
+    "21.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "22.4",
+    "22.5",
+    "22.6"
+   ],
+   "answer_paragraphs": [
+    22
+   ],
+   "answer_quote": "The respondent is correct that in Song the Board\u2019s decision was overturned because of cumulative errors. The respondent is also correct that in Zhu, the Board\u2019s decision was overturned because the Board failed to consider the claimant\u2019s religious conviction. The present case is akin to Zhou, where the Board\u2019s decision was overturned because it failed to consider evidence that supported the claimant\u2019s allegation of theological difference between patriotic churches and house churches.",
+   "why": "The court accepts the respondent's distinction of Zhu and Song and agrees the Board considered religious conviction but erred in this case."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that the applicant could freely practice his religion in a patriotic church.",
+   "party_ids": [
+    "23.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds the Board's decision that the applicant could freely practice in a patriotic church was unreasonable."
+  },
+  {
+   "pid": "P27",
+   "party_by": "applicant",
+   "party_text": "The Board\u2019s preference for the documentary evidence over the applicant\u2019s testimony was unreasonable because it had found him to be credible.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "27.1",
+    "27.2",
+    "27.3",
+    "27.4"
+   ],
+   "answer_paragraphs": [
+    27
+   ],
+   "answer_quote": "In this case, the applicant correctly notes that the Board made no explicit negative credibility finding regarding his testimony. Rather, he submits, the Board preferred the documentary evidence and concluded \u201cbased on a balance of probabilities, that the authorities did not raid the gathering.\u201d He submits that this finding was only open to the Board if it first provided reasons for finding his evidence to be not credible. I do not accept the applicant\u2019s submission.",
+   "why": "The court rejects the applicant's claim that the Board's preference for documentary evidence was unreasonable without negative credibility findings."
+  },
+  {
+   "pid": "P31",
+   "party_by": "respondent",
+   "party_text": "The Board\u2019s discussion and application of factors increasing the risk of persecution in Fujian Province was legitimate, and its conclusion that the applicant and his church did not possess these factors supported its finding that the incidents of persecution did not happen.",
+   "party_ids": [
+    "25.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the respondent's submission that the Board's discussion and application of risk factors was legitimate and supported its finding."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "The Board made no explicit negative credibility finding regarding his testimony but preferred the documentary evidence and concluded on a balance of probabilities that the authorities did not raid the gathering, which was only open if it first found his evidence not credible.",
+   "party_ids": [
+    "27.1",
+    "27.2",
+    "27.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "27.4",
+    "28.5"
+   ],
+   "answer_paragraphs": [
+    27,
+    28
+   ],
+   "answer_quote": "I do not accept the applicant\u2019s submission. That was not the case here as Mr. Yu was found to be credible with respect to those parts of his evidence relating to his Christian beliefs.",
+   "why": "The court rejects the applicant's submission, noting the Board did not find him not credible and accepted parts of his evidence."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that the alleged persecutory events had not been proven to have occurred.",
+   "party_ids": [
+    "34.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Board's conclusion that the alleged persecutory events were not proven."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The Board based its conclusion on the lack of documentary evidence of religious persecution in Fujian Province and on evidence that certain risk factors were present where persecution occurred, but these factors were absent in the applicant's case.",
+   "party_ids": [
+    "34.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Board's reasoning based on lack of documentary evidence and absence of risk factors."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "Because the risk factors were not present in the applicant's case, the Board reasonably concluded it was unlikely he was at risk of persecution.",
+   "party_ids": [
+    "34.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Board's conclusion that the absence of risk factors made persecution unlikely."
+  },
+  {
+   "pid": "P36",
+   "party_by": "applicant",
+   "party_text": "The applicant challenged the Board's characterization of his house church and referred the Court to his oral testimony transcript.",
+   "party_ids": [
+    "35.1",
+    "35.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "35.4"
+   ],
+   "answer_paragraphs": [
+    35
+   ],
+   "answer_quote": "Having reviewed the evidence that was before the Board, I find that its assessment of the character of the applicant and his house church was reasonable.",
+   "why": "The court rejects the applicant's challenge, finding the Board's assessment reasonable."
+  },
+  {
+   "pid": "P37",
+   "party_by": "applicant",
+   "party_text": "The applicant affirmed under oath the truth of his Personal Information Form which provided greater detail about his house church and its ten adherents.",
+   "party_ids": [
+    "35.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the applicant affirmed the truth of his detailed Personal Information Form."
+  },
+  {
+   "pid": "P38",
+   "party_by": "tribunal_below",
+   "party_text": "The Board erred in finding that the applicant could freely practise his religion at a patriotic church in China.",
+   "party_ids": [
+    "36.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Board erred on this point but says it does not require setting aside the decision."
+  },
+  {
+   "pid": "P39",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found on a balance of probabilities that the applicant's house church was not raided by authorities and that there was no serious possibility of fearing persecution if the applicant practised religion in an unregistered house church associated with him prior to coming to Canada.",
+   "party_ids": [
+    "37.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "38.1",
+    "38.2"
+   ],
+   "answer_paragraphs": [
+    38
+   ],
+   "answer_quote": "Therefore, the result that there was not a serious possibility that the applicant would be persecuted or that he would be subjected personally to a danger of torture or to a risk to his life, or a risk of cruel and unusual treatment or punishment should he return to his country of origin was a reasonable conclusion. As such, the denial of the applicant\u2019s refugee claim was reasonable and cannot be set aside.",
+   "why": "The court accepts the Board's findings as reasonable and upholds the conclusion of no serious possibility of persecution."
+  }
+ ]
+}

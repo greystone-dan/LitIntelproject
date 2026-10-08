@@ -1,0 +1,1800 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5",
+ "run": "mini25_dev",
+ "usage": {
+  "usd": 0.017372400000000003
+ },
+ "verification": {
+  "items": 96,
+  "quote_exact_in_cited": 96,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 6,
+  "calls": 7,
+  "paragraph_coverage": 0.982,
+  "rows": {
+   "themes": 4,
+   "arguments": 19,
+   "holdings": 70,
+   "rebuttals": 0,
+   "authorities": 7,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is allowed because the Appeal Division's decision to grant leave to appeal was unreasonable due to errors of law and lack of transparency in its reasons, requiring the decision to be set aside and remitted for reconsideration by a different member.",
+  "themes": [
+   {
+    "name": "Requirement for objective medical evidence",
+    "summary": "A claimant must provide objective medical evidence of disability existing on or before the MQP to qualify for CPP disability benefits, and the Appeal Division erred in law by suggesting otherwise.",
+    "paragraphs": [
+     37,
+     38,
+     39,
+     40,
+     41
+    ]
+   },
+   {
+    "name": "Standard of review and reasonableness",
+    "summary": "The judicial review applies a reasonableness standard focusing on justification, transparency, and intelligibility of the Appeal Division's decision, which was found lacking.",
+    "paragraphs": [
+     25,
+     26,
+     27,
+     28,
+     29,
+     43,
+     44,
+     52,
+     53
+    ]
+   },
+   {
+    "name": "Grounds for leave to appeal under the Department of Employment and Social Development Act",
+    "summary": "Leave to appeal is limited to specific grounds including errors of law, and the Appeal Division must identify a clear and permissible ground to grant leave.",
+    "paragraphs": [
+     22,
+     31,
+     32,
+     33,
+     34,
+     47,
+     48,
+     49,
+     50
+    ]
+   },
+   {
+    "name": "Transparency in administrative decision-making",
+    "summary": "Transparency requires clear, understandable reasons so affected parties and reviewing courts can comprehend the basis for decisions, which was deficient in the Appeal Division's reasons.",
+    "paragraphs": [
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Introduction and summary of decision",
+    "first_paragraph": 1,
+    "last_paragraph": 11,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Background and factual context",
+    "first_paragraph": 12,
+    "last_paragraph": 21,
+    "disposition": "other"
+   },
+   {
+    "label": "Legal framework for leave to appeal and standard of review",
+    "first_paragraph": 22,
+    "last_paragraph": 35,
+    "disposition": "other"
+   },
+   {
+    "label": "Assessment of Appeal Division's decision and errors of law",
+    "first_paragraph": 36,
+    "last_paragraph": 41,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Transparency and adequacy of Appeal Division's reasons",
+    "first_paragraph": 42,
+    "last_paragraph": 51,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and remedy",
+    "first_paragraph": 52,
+    "last_paragraph": 56,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Appeal Division granted the respondent, Ms Angell, leave to appeal from a decision of the SST General Division dated March 26, 2018.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division granted Ms Angell leave to appeal from a decision of the SST General Division dated March 26, 2018.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Division gave Ms. Angell permission to appeal the General Division\u2019s decision.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division gave Ms Angell permission to appeal the General Division's decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Division gave Ms. Angell permission to appeal the General Division\u2019s decision.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "Ms Angell was granted permission to appeal the General Division's decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The AGC has requested that I set aside the Appeal Division\u2019s decision that gave Ms Angell permission to appeal.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The AGC requests that the Court set aside the Appeal Division's decision granting Ms Angell permission to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The General Division found that Ms Angell must prove, on a balance of probabilities, that she was disabled as defined in the CPP on or before the end of the MQP, i.e. by December 31, 2013. It noted that paragraph 42(2)(a) of the CPP defines a \u201cdisability\u201d as a physical or mental disability that is severe and prolonged. The General Division held that a person is considered to have a severe disability if a person is incapable regularly of pursuing any substantially gainful occupation. The General Division also held that a disability is prolonged if it is likely to be long, continued and of indefinite duration or is likely to result in death.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.2",
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The General Division found Ms Angell must prove on a balance of probabilities that she was disabled as defined in the CPP by December 31, 2013, and defined disability as severe and prolonged, with severe meaning incapable regularly of pursuing any substantially gainful occupation, and prolonged meaning likely long, continued, indefinite or resulting in death.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "According to the General Division, a claimant must provide some objective medical evidence of her disability, which must relate to the date of the MQP and show that the disability has been occurring continuously since that date. The General Division found that the claimant must provide not only credible oral evidence but also some objective medical evidence to satisfy the burden of proof to show the disability.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The General Division held that a claimant must provide objective medical evidence relating to the MQP date showing continuous disability since then, along with credible oral evidence, to satisfy the burden of proof.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The General Division concluded in this case that Ms Angell failed to provide any objective medical evidence to corroborate her oral evidence. It found the disability she experienced was not severe. It therefore did not make a finding on whether disability was prolonged. The General Division dismissed her appeal, thereby upholding the denial of her disability benefits.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2",
+     "20.3",
+     "20.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The General Division concluded Ms Angell failed to provide any objective medical evidence to corroborate her oral evidence, found her disability was not severe, and dismissed her appeal without deciding on whether the disability was prolonged.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In its decision granting leave to appeal, the Appeal Division noted that the Department Of Employment And Social Development Act, SC 2005, c 34, contemplates only three grounds of appeal that the Appeal Division may consider: whether the General Division failed to observe a principle of natural justice or made a jurisdictional error; made an error in law; or based its decision on an erroneous finding of fact that it made in a perverse or capricious manner for without regard for the material before it.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division noted that the Department Of Employment And Social Development Act contemplates only three grounds of appeal: failure to observe a principle of natural justice or jurisdictional error; error in law; or erroneous finding of fact made perversely or capriciously.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Division noted that under subs. 58(2) of the Act, leave to appeal may also be refused if the appeal has no reasonable chance of success.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division noted that leave to appeal may be refused if the appeal has no reasonable chance of success under subs. 58(2) of the Act.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In granting leave to appeal, the Appeal Division concluded that the General Division \u201cmay have erred in law, and this requires intervention by the Appeal Division\u201d.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division concluded that the General Division may have erred in law, requiring intervention by the Appeal Division.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The AGC has applied for judicial review of this decision.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The AGC has applied for judicial review of the Appeal Division's decision granting leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On this application for judicial review, the AGC makes a number of arguments to support its submission that the Appeal Division\u2019s decision to grant leave was unreasonable.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "respondent",
+    "claim": "The AGC argues that the Appeal Division's decision to grant leave was unreasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "First, the AGC submits that the Appeal Division\u2019s decision incorrectly found an error of law by the General Division.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "respondent",
+    "claim": "The Appeal Division incorrectly found an error of law by the General Division.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The AGC submits that the General Division made no error and that the Appeal Division was incorrect to conclude, at paragraph 9 of its decision, that \u201cthe courts do not require that the medical evidence relate directly to a claimant\u2019s condition at the MQP and thereafter\u201d [emphasis added].",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "respondent",
+    "claim": "The General Division made no error and the Appeal Division was incorrect to conclude that courts do not require medical evidence to relate directly to a claimant's condition at the MQP and thereafter.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Second, the AGC submits that a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to obtain disability benefits: Gholipour v Canada (Attorney General), 2017 FCA 99, at para 6.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "respondent",
+    "claim": "A claimant must provide objective medical evidence to support a finding of disability on or before the MQP to obtain disability benefits.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The AGC contends that in this case, with reference to paragraphs 25 and 26 of the General Division\u2019s reasons, there is no arguable case on which Ms Angell\u2019s appeal can succeed based on the objective medical evidence.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "respondent",
+    "claim": "There is no arguable case on which Ms Angell\u2019s appeal can succeed based on the objective medical evidence, referencing paragraphs 25 and 26 of the General Division\u2019s reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Therefore, the AGC maintained that the Appeal Division erred (implicitly) in finding that her appeal had a reasonable chance of success under subs. 58(2) of the Department of Employment and Social Development Act.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "respondent",
+    "claim": "The Appeal Division erred implicitly in finding that Ms Angell\u2019s appeal had a reasonable chance of success under subsection 58(2) of the Department of Employment and Social Development Act.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "For that reason, the AGC submits, the appeal decision did not fall within the range of possible, acceptable outcomes that are defensible by the facts and law, as required by Vavilov.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "respondent",
+    "claim": "The Appeal Division\u2019s decision did not fall within the range of possible, acceptable outcomes defensible by the facts and law, as required by Vavilov.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The AGC also submitted that Ms Angell did not have a reasonable chance of success on the merits of the appeal, such that leave to appeal must be refused under subs. 58(2) of the Department of Employment and Social Development Act. I will not address that issue in these reasons, as it is a question for the Appeal Division.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1",
+     "42.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "made_by": "respondent",
+    "claim": "Ms Angell did not have a reasonable chance of success on the merits of the appeal, so leave to appeal should be refused under subs. 58(2) of the Department of Employment and Social Development Act.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court will not address this issue as it is for the Appeal Division.",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Attorney General of Canada (\u201cAGC\u201d) seeks judicial review of a decision of the Appeal Division of the Social Security Tribunal (\u201cSST\u201d) dated November 22, 2018.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Attorney General of Canada seeks judicial review of a decision of the Appeal Division of the Social Security Tribunal dated November 22, 2018."
+   },
+   {
+    "quote": "The General Division denied Ms. Angel\u2019s application for disability pension benefits under the Canada Pension Plan, RSC 1985, c C-8 (the \u201cCPP\u201d).",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The General Division denied Ms Angell's application for disability pension benefits under the Canada Pension Plan."
+   },
+   {
+    "quote": "For the reasons that follow, the application is allowed.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is allowed."
+   },
+   {
+    "quote": "The decision of the Appeal Division will be set aside and the matter remitted back to the Appeal Division for a new decision on leave to appeal made by a different member.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The decision of the Appeal Division is set aside and the matter is remitted back to the Appeal Division for a new decision on leave to appeal by a different member."
+   },
+   {
+    "quote": "I heard this application by videoconference. Ms Angell did not have a lawyer to represent her.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Angell did not have a lawyer to represent her and participated by videoconference."
+   },
+   {
+    "quote": "I listened carefully to what she had to say. I asked her some questions and she answered very helpfully and capably to explain her situation. I thank her for what she said. I also listened carefully to the points made by the lawyer for the AGC. I thank him too, and commend the sensitivity displayed during his submissions.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3",
+     "5.4",
+     "5.5",
+     "5.6",
+     "5.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The Court listened carefully to Ms Angell and the AGC's lawyer and commended their conduct."
+   },
+   {
+    "quote": "The Court\u2019s role right now is not to decide whether or not Ms Angell is entitled to disability benefits under the CPP. I am concerned only with the Appeal Division\u2019s decision to grant Ms. Angell permission, or \u201cleave\u201d, to appeal the decision of the General Division that denied her disability benefits.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Court's role is not to decide entitlement to disability benefits but only to review the Appeal Division's decision to grant leave to appeal."
+   },
+   {
+    "quote": "In law, Ms. Angell must obtain permission from the Appeal Division before she can appeal the decision of the General Division that denied her disability benefits. Permission to appeal can only be granted by the Appeal Division in some circumstances, which are defined by Parliament in a law called the Department of Employment and Social Development Act.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "Ms Angell must obtain permission from the Appeal Division before appealing the General Division's decision, and permission can only be granted in circumstances defined by Parliament in the Department of Employment and Social Development Act."
+   },
+   {
+    "quote": "My task is to decide whether to do so.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Court must decide whether to set aside the Appeal Division's decision."
+   },
+   {
+    "quote": "If I do, the Appeal Division must decide over again whether Ms Angell should be given permission to appeal.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "If the Court sets aside the decision, the Appeal Division must reconsider whether to grant permission to appeal."
+   },
+   {
+    "quote": "If I decide not to set aside the Appeal Division\u2019s decision, Ms Angell can proceed with her appeal at the Appeal Division.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "If the Court does not set aside the decision, Ms Angell can proceed with her appeal at the Appeal Division."
+   },
+   {
+    "quote": "I have decided that I must set aside the Appeal Division\u2019s decision to grant Ms Angell permission to appeal.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has decided to set aside the Appeal Division's decision to grant Ms Angell permission to appeal."
+   },
+   {
+    "quote": "I have not made a new decision on whether to grant leave to appeal. A member of the Appeal Division, someone other than the person who made it already, will have to make a new decision on that point.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2",
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has not made a new decision on whether to grant leave to appeal; a different member of the Appeal Division must make that decision."
+   },
+   {
+    "quote": "I have also not decided the appeal itself \u201con its merits\u201d. That is also the job of the Appeal Division, if Ms Angell is granted permission to appeal in the decision to come.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has not decided the appeal on its merits; that is the job of the Appeal Division if leave to appeal is granted."
+   },
+   {
+    "quote": "The AGC therefore succeeds on this application.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The AGC succeeds on this application for judicial review."
+   },
+   {
+    "quote": "Ms Angell applied for a disability pension under the CPP. The basis for Ms. Angel\u2019s disability benefit application was sleep apnea, arthritis in her left knee and right hip, and hyperthyroidism/Hashimoto\u2019s disease.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Angell applied for a disability pension under the CPP based on sleep apnea, arthritis in her left knee and right hip, and hyperthyroidism/Hashimoto\u2019s disease."
+   },
+   {
+    "quote": "Ms Angell worked for Canada Post for more than 20 years in Nova Scotia, before moving west to Alberta to work in construction. She then returned to Nova Scotia.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Angell worked for Canada Post for more than 20 years in Nova Scotia, then worked in construction in Alberta, and later returned to Nova Scotia."
+   },
+   {
+    "quote": "Ms Angell had a knee replacement operation in March 2015. She advises that she cannot stand now and cannot work as a result of her knee issues, which include a Baker\u2019s cyst behind one knee.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Angell had a knee replacement operation in March 2015 and cannot stand or work due to knee issues including a Baker\u2019s cyst."
+   },
+   {
+    "quote": "It took a long time for Ms Angell\u2019s medical records to be sent to her. From her submissions at the hearing, I understand she has them all now and they have been filed for the purposes of her disability benefits application.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "It took a long time for Ms Angell\u2019s medical records to be sent to her, but she now has them and they have been filed for her disability benefits application."
+   },
+   {
+    "quote": "In order to be eligible for a disability pension under the CPP, Ms Angell must meet the requirements set out in that legislation. Specifically, under paragraph 44(1)(b) of the CPP, an applicant must be disabled as defined in the CPP on or before the end of a minimum qualifying period or \u201cMQP\u201d. The determination of the MQP is based on the applicant\u2019s contributions to the CPP. In this case, the MQP ended on December 31, 2013.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2",
+     "16.3",
+     "16.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "To be eligible for a CPP disability pension, Ms Angell must meet requirements including being disabled as defined in the CPP on or before the end of a minimum qualifying period (MQP), which ended December 31, 2013 in this case."
+   },
+   {
+    "quote": "Initially, the Minister of Employment and Social Development denied Ms Angell\u2019s claim. The Minister denied the claim again on reconsideration. Ms Angell appealed to the General Division of the SST. The General Division upheld the Minister\u2019s decision. In a decision dated March 26, 2018, the General Division concluded that Ms Angell had provided insufficient objective medical evidence of a severe disability existing on or before the MQP.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2",
+     "17.3",
+     "17.4",
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "The Minister of Employment and Social Development denied Ms Angell\u2019s claim initially and on reconsideration; the General Division upheld the denial, finding insufficient objective medical evidence of a severe disability existing on or before the MQP."
+   },
+   {
+    "quote": "Ms Angell requested leave to appeal to the Appeal Division of the SST. By decision dated November 22, 2018, a member of the Appeal Division granted leave to appeal. The Appeal Division concluded that the General Division may have erred in law.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2",
+     "21.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Angell requested leave to appeal to the Appeal Division, which granted leave and concluded the General Division may have erred in law."
+   },
+   {
+    "quote": "The standard of review on this application is reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65; Canada (Attorney General) v Dean, 2020 FC 206 (Boswell, J), at para 18.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "standard_of_review",
+    "statement": "The standard of review on this application is reasonableness, as established in Canada (Minister of Citizenship and Immigration) v Vavilov and Canada (Attorney General) v Dean."
+   },
+   {
+    "quote": "Reasonableness is the presumed standard applicable to judicial review of administrative decisions.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness is the presumed standard applicable to judicial review of administrative decisions."
+   },
+   {
+    "quote": "This presumption of reasonableness review applies to all aspects of the decision: Vavilov, at paras 16, 23 and 25.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of reasonableness review applies to all aspects of the decision."
+   },
+   {
+    "quote": "The presumption may be rebutted by legislative intent, or if the rule of law requires a different standard: Vavilov, para 17, 23 and 69.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of reasonableness may be rebutted by legislative intent or if the rule of law requires a different standard."
+   },
+   {
+    "quote": "The presumption is not rebutted in this case.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of reasonableness review is not rebutted in this case."
+   },
+   {
+    "quote": "As Justice Boswell noted earlier this year in Dean, the standard of review of the Appeal Division was also reasonableness prior to Vavilov.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of review of the Appeal Division was reasonableness prior to Vavilov, as noted by Justice Boswell in Dean."
+   },
+   {
+    "quote": "As will become clear, my conclusion on this application is consistent with the helpful reasons of Justice Boswell in Dean.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The Court's conclusion on this application is consistent with Justice Boswell's reasons in Dean."
+   },
+   {
+    "quote": "In conducting a reasonableness review, a court must consider the outcome of the administrative decision in light of its underlying rationale, in order to ensure that the decision as a whole is transparent, intelligible and justified: Vavilov, at para 15.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "In conducting a reasonableness review, a court must consider the outcome of the administrative decision in light of its underlying rationale to ensure the decision is transparent, intelligible and justified."
+   },
+   {
+    "quote": "The focus of reasonableness review is on the decision made by the decision maker, including both the reasoning process (i.e. the rationale) that led to the decision and the outcome: Vavilov, at paras 83, 86; Delta Air Lines Inc. v. Luk\u00e1cs, 2018 SCC 2, [2018] 1 SCR 6, at para 12.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "The focus of reasonableness review is on the decision made by the decision maker, including both the rationale and the outcome."
+   },
+   {
+    "quote": "The starting point is the reasons provided by the decision maker: Vavilov, at para 84.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "The starting point for reasonableness review is the reasons provided by the decision maker."
+   },
+   {
+    "quote": "When reviewing for reasonableness, the court asks \u201cwhether the decision bears the hallmarks of reasonableness \u2013 justification, transparency and intelligibility \u2013 and whether it is justified in relation to the relevant factual and legal constraints that bear on the decision\u201d: Vavilov, at para 99.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "When reviewing for reasonableness, the court asks whether the decision bears the hallmarks of reasonableness \u2013 justification, transparency and intelligibility \u2013 and whether it is justified in relation to relevant factual and legal constraints."
+   },
+   {
+    "quote": "To intervene, the reviewing court must be satisfied that there are \u201csufficiently serious shortcomings\u201d in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "To intervene, the reviewing court must be satisfied there are sufficiently serious shortcomings in the decision such that it cannot be said to exhibit justification, intelligibility and transparency."
+   },
+   {
+    "quote": "Flaws or shortcomings must be more than superficial or peripheral to the merits of the decision, or a \u201cminor misstep\u201d.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "Flaws or shortcomings must be more than superficial or peripheral to the merits of the decision, or a minor misstep."
+   },
+   {
+    "quote": "The problem must be sufficiently central or significant to render the decision unreasonable: Vavilov, at para 100.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "The problem must be sufficiently central or significant to render the decision unreasonable."
+   },
+   {
+    "quote": "A decision will not be reasonable if the reasons, read in conjunction with the record, do not make it possible to understand the decision maker\u2019s reasoning on a critical point: Vavilov, at para 103; Patel v Canada (Citizenship and Immigration), 2020 FC 77 (Diner, J.), at para 9.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "legal_test",
+    "statement": "A decision will not be reasonable if the reasons, read with the record, do not make it possible to understand the decision maker\u2019s reasoning on a critical point."
+   },
+   {
+    "quote": "With these principles in mind, I turn to the Appeal Division\u2019s decision in this case.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The Court will apply these principles to the Appeal Division\u2019s decision in this case."
+   },
+   {
+    "quote": "Section 55 of the Department of Employment And Social Development Act provides that any decision of the General Division may be appealed to the Appeal Division by any person who is the subject of the decision.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "legal_test",
+    "statement": "Section 55 of the Act allows any person subject to a General Division decision to appeal to the Appeal Division."
+   },
+   {
+    "quote": "Under subs. 56(1), an appeal to the Appeal Division may only be brought if leave to appeal is granted.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "legal_test",
+    "statement": "Under subs. 56(1), an appeal to the Appeal Division may only be brought if leave to appeal is granted."
+   },
+   {
+    "quote": "Two provisions constrain whether the Appeal Division may grant leave to appeal. First, the \u201conly\u201d grounds of appeal are set out in paragraphs 58(1)(a), (b) and (c), which provide: (a) the General Division failed to observe a principle of natural justice or otherwise acted beyond or refused to exercise its jurisdiction; (b) the General Division erred in law in making its decision, whether or not the error appears on the face of the record; or (c) the General Division based its decision on an erroneous finding of fact that it made in a perverse or capricious manner without regard for the material before it.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1",
+     "32.2",
+     "32.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "legal_test",
+    "statement": "The only grounds of appeal are those set out in paragraphs 58(1)(a), (b) and (c): failure to observe a principle of natural justice or jurisdictional error; error in law; or erroneous finding of fact made perversely or capriciously."
+   },
+   {
+    "quote": "Second, subs. 58(2) provides that \u201c[l]eave to appeal is refused if the Appeal Division is satisfied that the appeal has no reasonable chance of success.\u201d",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "legal_test",
+    "statement": "Leave to appeal is refused if the Appeal Division is satisfied the appeal has no reasonable chance of success."
+   },
+   {
+    "quote": "Subsection 58(4) provides that the Appeal Division \u201cmust give written reasons for its decision to grant or refuse leave\u201d and send copies to the appellant and any other party.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "legal_test",
+    "statement": "The Appeal Division must give written reasons for its decision to grant or refuse leave and send copies to the parties."
+   },
+   {
+    "quote": "If leave is granted, the application for leave to appeal become the notice of appeal: subs. 58(5).",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "legal_test",
+    "statement": "If leave is granted, the application for leave to appeal becomes the notice of appeal."
+   },
+   {
+    "quote": "I agree with the AGC. The Appeal Division was incorrect to conclude that the General Division erred in law on this issue.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "I agree with the AGC that the Appeal Division was incorrect to conclude that the General Division erred in law on the issue of medical evidence relating directly to the claimant's condition at the MQP and thereafter."
+   },
+   {
+    "quote": "There was therefore no ground of appeal on that basis in paragraph 58(1)(b) of the Department of Employment and Social Development Act.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "There was no ground of appeal on the basis that the General Division erred in law regarding medical evidence relating to the MQP under paragraph 58(1)(b) of the Department of Employment and Social Development Act."
+   },
+   {
+    "quote": "I agree with the AGC that a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to qualify for disability benefits under the CPP.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "I agree with the AGC that a claimant must provide objective medical evidence to support a finding of disability on or before the MQP to qualify for disability benefits under the CPP."
+   },
+   {
+    "quote": "Thus, to the extent that the Appeal Division concluded in its reasons at paragraphs 7-8 that no such objective medical evidence is required, the Appeal Division was incorrect in law.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "To the extent the Appeal Division concluded that no objective medical evidence is required, it was incorrect in law."
+   },
+   {
+    "quote": "However, I have an additional concern related to the transparency of the Appeal Division\u2019s reasons, beyond the errors of law already identified.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has an additional concern about the transparency of the Appeal Division's reasons beyond the errors of law already identified."
+   },
+   {
+    "quote": "Ms Boros was convicted in absentia of offences in Romania. Years later, Romania requested the extradition of Ms Boros. There were years of further delay in Canada before an Authority to Proceed was issued under the Extradition Act, SC 1999, c. 18. Ms Boros requested that the Minister of Justice exercise his discretion not to surrender her. The Minister rejected that request, with reasons set out in a lengthy letter.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.3",
+     "45.4",
+     "45.5",
+     "45.6",
+     "45.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "background_fact",
+    "statement": "Ms Boros was convicted in absentia in Romania and faced extradition proceedings in Canada with significant delays and lack of transparent reasons from the Minister of Justice."
+   },
+   {
+    "quote": "The Court of Appeal held that the Minister\u2019s letter did not address the delays transparently. At paragraph 29, the Court concluded that the Minister\u2019s letter covered a long period of time but shed \u201cvery little light on what happened\u201d. The Court explained, at paragraphs 29-30: This general approach denies Ms. Boros the opportunity to understand why the process took so long. It also deprives this court of the ability to gauge the reasonableness of the Minister\u2019s decision in terms of whether his officials could have advanced this file more expeditiously and what efforts were made, if any, to encourage Romanian officials to act with diligence in responding to requests from its Canadian counterparts. Moreover, the 18-month delay between the issuance of the ATP and the summons is not explained. The combined Canadian delay of nearly 8 years is not addressed beyond an implicit general claim that these matters take a long time. In our view, this is inadequate.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.8",
+     "45.9",
+     "45.10",
+     "45.11",
+     "45.12",
+     "45.13",
+     "45.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "The Minister's letter did not transparently address the delays, providing very little explanation and denying Ms Boros the opportunity to understand the process delays or the court the ability to assess reasonableness."
+   },
+   {
+    "quote": "The requirement for transparency in administrative decision-making ensures that the decision-maker discloses the reasoning process that led to its decision, in the reasons provided and in light of the record that was before the decision-maker (see Vavilov, at paras 91-96).",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "legal_test",
+    "statement": "Transparency in administrative decision-making requires the decision-maker to disclose the reasoning process that led to its decision in the reasons provided and in light of the record before it, as per Vavilov at paras 91-96."
+   },
+   {
+    "quote": "As Boros and Vancouver Airport Authority suggest, transparency ensures that the person(s) affected by a decision understand why the decision was made; it ensures that a reviewing court has the ability to understand the basis for the decision on an application for judicial review \u2013 in other words, the ability to determine whether the decision was reasonable; and it ensures that others affected by the decision are provided with satisfactorily guidance. See also Vancouver Airport Authority, at paras 13-14.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.2",
+     "46.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "Transparency ensures affected persons understand why a decision was made, allows reviewing courts to determine reasonableness, and provides guidance to others affected by the decision, as supported by Boros and Vancouver Airport Authority."
+   },
+   {
+    "quote": "In my view, in a decision granting leave to appeal under s. 56 of the Department Of Employment and Social Development Act, and providing its required reasons under subs. 58(4), the Appeal Division should not only identify a ground of appeal that falls within the available grounds in paragraphs 58(1)(a), (b) or (c). It should also communicate with clarity what that successful ground(s) of appeal is (are).",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1",
+     "47.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "In granting leave to appeal under s. 56 and providing reasons under subs. 58(4), the Appeal Division should identify a ground of appeal within paragraphs 58(1)(a), (b), or (c) and clearly communicate what that ground is."
+   },
+   {
+    "quote": "Providing a clear description, even if briefly, assists both the parties to the appeal and the panel of the Appeal Division that will eventually hear the appeal on its merits. When they read the written reasons for granting leave, together with the application for leave to appeal (which becomes the notice of appeal under subs. 58(5)), they will understand why leave to appeal was granted.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.3",
+     "47.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "Providing a clear description of the successful ground(s) of appeal assists the parties and the Appeal Division panel hearing the merits to understand why leave was granted."
+   },
+   {
+    "quote": "In this case, the Appeal Division sought to identify an error of law and stated at paragraph 9 that \u201cthe courts do not require that the medical evidence relate directly to a claimant\u2019s condition at the MQP and thereafter\u201d [emphasis added]. In my view, when viewed independently or with paragraph 7 of the Appeal Division\u2019s reasons, this statement in paragraph 9 does not exhibit the transparency required for administrative decisions under Vavilov and does not achieve one of the purposes of a decision to grant leave to appeal \u2013 identifying and describing with clarity a legal error that meets the test under s. 58 and will be addressed on its merits on the appeal.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Division's statement that courts do not require medical evidence to relate directly to a claimant's condition at the MQP lacks the transparency required under Vavilov and does not clearly identify a legal error meeting the test under s. 58."
+   },
+   {
+    "quote": "The Appeal Division\u2019s reasons in paragraph 9 did not explain or elaborate on what it meant when it stated that the courts do not require that the medical evidence \u201crelate directly to\u201d a claimant\u2019s condition at the MQP and thereafter. In addition to that gap in communicating what the Appeal Division decided and why, neither the phrase \u201crelate directly to\u201d nor the sentence as a whole related to anything in paragraph 7 of the Appeal Division\u2019s reasons. The only reference to a court decision in paragraph 7 is through a footnote referring to Warren v Canada (Attorney General), cited above. However, Justice D\u00e9cary\u2019s reasons in Warren did not discuss objective medical evidence that directly or indirectly relates to a claimant\u2019s condition.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1",
+     "49.2",
+     "49.3",
+     "49.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Division's reasons did not explain or elaborate on what it meant by medical evidence not needing to relate directly to the claimant's condition at the MQP, nor did it relate to anything in its own paragraph 7 or cited court decisions."
+   },
+   {
+    "quote": "Paragraph 7 of the Appeal Division\u2019s reasons referred, via two other footnotes, to paragraphs 22 and 25 of the General Division\u2019s decision. However, neither of those paragraphs contained a discussion of court decisions or a legal issue concerning direct versus indirect evidence to support a claim for disability benefits under the CPP. The General Division\u2019s reasoning recognized that a medical report may be dated after the MQP but refer to findings in respect of a disability that existed before or at the MQP. Its reasons also discussed what may constitute \u201cobjective\u201d evidence and discussed whether Ms Angell provided any objective medical evidence to corroborate her oral evidence. However, I am unable to detect any analysis or reference to a court decision or a legal issue related to \u201cindirect\u201d (as opposed to \u201cdirect\u201d) evidence to support a disability at the MQP and thereafter. The Appeal Division\u2019s reasoning therefore does not appear to respond or refer to anything in its own reasons, in the only court decision it cited, or to any specific legal reasoning in the General Division\u2019s decision.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.5",
+     "49.6",
+     "49.7",
+     "49.8",
+     "49.9",
+     "49.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "conclusion",
+    "statement": "The General Division's decision did not discuss legal issues concerning direct versus indirect medical evidence to support a disability claim at the MQP and thereafter, and the Appeal Division's reasoning does not respond to any such legal issue."
+   },
+   {
+    "quote": "Bearing in mind the objectives of a transparent decision, the Appeal Division\u2019s reasons did not sufficiently communicate what it decided and why, did not identify for the parties a permitted ground for appeal on the merits, and will not enable the panel of the Appeal Division hearing the merits of the appeal to identify the legal error that will be at issue (something that may have greater importance when the proposed appellant is not represented by legal counsel). See Vavilov, at paras 86, 94-100, 102-103; Vancouver Airport Authority, at paras 13-14 and 16(d).",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1",
+     "50.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Division's reasons did not sufficiently communicate what it decided and why, did not identify a permitted ground for appeal on the merits, and will not enable the panel hearing the appeal to identify the legal error at issue, which is especially important for unrepresented appellants."
+   },
+   {
+    "quote": "While it is possible to hypothesize about what the Appeal Division meant in paragraph 9, to do so would be speculative. A reviewing court cannot build its own bridge across an apparent gap in a decision-maker\u2019s reasoning, nor determine whether that court-constructed conduit would have been correct in law. Doing so would re-write the decision-maker\u2019s reasons. See Vavilov, at paras 83, 96-98; Komolafe v Canada (Citizenship and Immigration), 2013 FC 431 (Rennie, J), at para 11 (quoted with approval in Vavilov, at para 97); and Rezaei v Canada (Immigration, Refugees and Citizenship), 2020 FC 444 (LeBlanc, J), at para 28.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1",
+     "51.2",
+     "51.3",
+     "51.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "legal_test",
+    "statement": "A reviewing court cannot fill gaps in a decision-maker's reasoning or rewrite the decision-maker's reasons by hypothesizing about unclear statements, as established in Vavilov and related cases."
+   },
+   {
+    "quote": "In order for a decision to be set aside on the basis that it is unreasonable, Vavilov requires that the reviewing court be satisfied that there are \u201csufficiently serious shortcomings in the decision such that it cannot be said to exhibit the requisite degree of justification, intelligibility and transparency\u201d: at para 100.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "legal_test",
+    "statement": "A decision is unreasonable if there are sufficiently serious shortcomings such that it lacks justification, intelligibility and transparency, as required by Vavilov."
+   },
+   {
+    "quote": "In this case, having paid close attention to its reasons, I conclude that the shortcomings in the Appeal Division\u2019s decision are sufficiently serious to undermine both the reasoning and the outcome reached by the Appeal Division to grant leave to appeal.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The shortcomings in the Appeal Division's decision are sufficiently serious to undermine both its reasoning and outcome to grant leave to appeal."
+   },
+   {
+    "quote": "The shortcomings include one or more errors of law on the very issue at stake on the application for leave to appeal, namely, whether there was an error of law made by the General Division.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The shortcomings include one or more errors of law on the key issue of whether the General Division made an error of law."
+   },
+   {
+    "quote": "In addition, the Appeal Division\u2019s reasons do not contain a transparent explanation of how it reached its conclusion on that central issue of whether to grant leave to appeal: Vavilov, at paras 86, 96, 100, 102-103; Senadheerage v. Canada (Citizenship and Immigration), 2020 FC 968 (Grammond, J.), at paras 36-42.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Division's reasons lack a transparent explanation of how it reached its conclusion on granting leave to appeal."
+   },
+   {
+    "quote": "These shortcomings cause me to lose confidence in the outcome reached by the Appeal Division: Vavilov, at para 106.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "These shortcomings cause the Court to lose confidence in the outcome reached by the Appeal Division."
+   },
+   {
+    "quote": "Accordingly, the decision of the Appeal Division granting leave to appeal must be set aside.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "The decision of the Appeal Division granting leave to appeal must be set aside."
+   },
+   {
+    "quote": "Given the analysis above, I need not assess whether the Appeal Division\u2019s reasons for granting leave to appeal sufficiently addressed subs. 58(2) of the Department of Employment and Social Development Act.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "The Court need not assess whether the Appeal Division's reasons sufficiently addressed subsection 58(2) of the Department of Employment and Social Development Act."
+   },
+   {
+    "quote": "I will also not consider the AGC\u2019s submission that, in the circumstances here, Ms Angell did not have a reasonable chance of success on the appeal under subs. 58(2).",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "The Court will not consider the AGC's submission that Ms Angell did not have a reasonable chance of success on the appeal under subsection 58(2)."
+   },
+   {
+    "quote": "It will be for the Appeal Division on redetermination to deal with the latter issue.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "It will be for the Appeal Division on redetermination to deal with whether Ms Angell had a reasonable chance of success on the appeal under subsection 58(2)."
+   },
+   {
+    "quote": "The AGC requested that the application be granted without costs. I agree.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1",
+     "56.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "The AGC's request that the application be granted without costs is agreed to."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "The Federal Court of Appeal has held that a claimant must demonstrate an entitlement to disability benefits by reason of a severe and prolonged disability that existed prior to the expiry of the MQP and continuously thereafter: Brennan v Attorney General of Canada, 2011 FCA 318, at para 8.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "authority": "The Federal Court of Appeal held that a claimant must demonstrate entitlement to disability benefits by reason of a severe and prolonged disability that existed prior to the expiry of the MQP and continuously thereafter (Brennan v Attorney General of Canada, 2011 FCA 318, at para 8).",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In addition to Gholipour, see also Warren v Canada (Attorney General), 2008 FCA 377, at para 4 and the cases cited there; and Dean, at para 24.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "authority": "In addition to Gholipour, see also Warren v Canada (Attorney General), 2008 FCA 377, at para 4 and the cases cited there; and Dean, at para 24, supporting the requirement for objective medical evidence.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Further, paragraph 68(1)(a) of the Canada Pension Plan Regulations, CRC, c 385, provides that if an applicant claims to be disabled within the meaning of the CPP, the applicant \u201cshall supply\u201d a \u201creport of any physical or mental disability\u201d. The regulation states that the report is to include the nature, extent and prognosis of the disability; the findings upon which the diagnosis and prognosis were made; limitations resulting from the disability; and any other pertinent information, including recommendations for further diagnostic work or treatment, that may be relevant.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.3",
+     "40.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "authority": "Paragraph 68(1)(a) of the Canada Pension Plan Regulations requires an applicant claiming disability to supply a report of any physical or mental disability including nature, extent, prognosis, findings, limitations, and other pertinent information.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Transparency is one of the three hallmarks of administrative decision-making, along with justification and intelligibility: Vavilov, at para 15; Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 SCR 190, at para 47.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "authority": "Transparency is one of the three hallmarks of administrative decision-making, along with justification and intelligibility, as established in Vavilov at para 15 and Dunsmuir v. New Brunswick at para 47.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Vancouver Airport Authority v PSAC, 2010 FCA 158, [2011] 4 FCR 425, Stratas JA held that justification and intelligibility are present when \u201cthe basis for a decision has been given and the basis is understandable, with some discernible rationality and logic\u201d.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "authority": "Justification and intelligibility require that the basis for a decision be given and understandable with discernible rationality and logic, as held by Stratas JA in Vancouver Airport Authority v PSAC.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Justice Stratas also stated that transparency \u201cspeaks to the ability of observers to scrutinize and understand what an administrative decision maker has decided and why\u201d: at paragraph 16(d).",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "authority": "Transparency means the ability of observers to scrutinize and understand what an administrative decision maker has decided and why, per Stratas JA in Vancouver Airport Authority v PSAC at para 16(d).",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Court of Appeal for Ontario recently set aside an administrative decision owing to concerns about transparency in Romania v Boros, 2020 ONCA 216.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "authority": "The Ontario Court of Appeal set aside an administrative decision due to transparency concerns in Romania v Boros, 2020 ONCA 216.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

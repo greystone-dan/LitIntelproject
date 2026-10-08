@@ -1,0 +1,1253 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5",
+ "run": "mini25_dev",
+ "usage": {
+  "usd": 0.0153064
+ },
+ "verification": {
+  "items": 61,
+  "quote_exact_in_cited": 61,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 6,
+  "calls": 7,
+  "paragraph_coverage": 0.769,
+  "rows": {
+   "themes": 4,
+   "arguments": 17,
+   "holdings": 42,
+   "rebuttals": 0,
+   "authorities": 2,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is allowed because the Refugee Appeal Division's decision was unreasonable due to flawed implausibility findings and improper handling of corroboration requirements, and the internal flight alternative analysis was also flawed.",
+  "themes": [
+   {
+    "name": "Implausibility Findings Standard",
+    "summary": "The court emphasized that implausibility findings require the clearest of cases and the RAD failed to provide a rational basis for its implausibility conclusions, relying instead on speculation.",
+    "paragraphs": [
+     13,
+     14,
+     15,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Corroboration Requirement Principles",
+    "summary": "The court synthesized case law to clarify that corroboration is only required when there is an independent reason to doubt credibility or plausibility and the evidence is reasonably available, and that the RAD failed to apply this framework properly.",
+    "paragraphs": [
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36
+    ]
+   },
+   {
+    "name": "RAD's Failure to Provide Rational Analysis",
+    "summary": "The RAD's decision lacked a rational chain of analysis, failing to explain why corroboration was required or to address key evidence, rendering the decision unreasonable.",
+    "paragraphs": [
+     11,
+     42,
+     43,
+     44,
+     45,
+     46
+    ]
+   },
+   {
+    "name": "Internal Flight Alternative Misapplication",
+    "summary": "The RAD confused the IFA analysis with the persecution analysis by not assuming the claimant had a well-founded fear of persecution when assessing the IFA, leading to an erroneous conclusion.",
+    "paragraphs": [
+     47,
+     48,
+     49,
+     50,
+     51
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Standard of Review",
+    "first_paragraph": 10,
+    "last_paragraph": 10,
+    "disposition": "other"
+   },
+   {
+    "label": "Assessment of Evidence - Implausibility Findings",
+    "first_paragraph": 11,
+    "last_paragraph": 20,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Assessment of Evidence - Corroboration Requirement and Analysis",
+    "first_paragraph": 21,
+    "last_paragraph": 46,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Assessment of Evidence - Rejection of Corroborating Evidence",
+    "first_paragraph": 43,
+    "last_paragraph": 45,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Internal Flight Alternative (IFA) Analysis",
+    "first_paragraph": 47,
+    "last_paragraph": 51,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Remedy - Judicial Review Outcome",
+    "first_paragraph": 52,
+    "last_paragraph": 52,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "First, the decision-maker found certain parts of his narrative implausible, without providing a firm basis for this finding.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The decision-maker found parts of his narrative implausible without a firm basis for this finding.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Second, it found that Mr. Senadheerage failed to provide corroborative evidence, without explaining why corroboration was required in the circumstances and why such evidence would be reasonably available.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The decision-maker found that he failed to provide corroborative evidence without explaining why corroboration was required and why such evidence would be reasonably available.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In a short decision, the Refugee Protection Division [RPD] of the Immigration and Refugee Board [IRB] rejected Mr. Senadheerage\u2019s claim. The RPD held that it was unbelievable that the CID would have acted as it did if it were really looking for Mr. Senadheerage. As to the businessman or his thugs, there was no evidence that they had any interest in harming him.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2",
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Refugee Protection Division rejected his claim, finding it unbelievable that the CID would act as it did if really looking for him, and found no evidence the businessman or thugs wanted to harm him.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Most importantly, the RPD found that Mr. Senadheerage has an internal flight alternative [IFA] in the two cities where members of his family have relocated, essentially because no one had sought to harm them there and objective country information suggested that the police would be unable to find him if he relocated.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found he had an internal flight alternative in the two cities where his family relocated, as no harm was sought there and police would be unable to find him if he relocated.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Refugee Appeal Division [RAD] of the IRB dismissed Mr. Senadheerage\u2019s appeal. For reasons that I will analyze in more detail below, the RAD found that there was insufficient evidence that either the CID or the businessman\u2019s thugs had any remaining interest in harming Mr. Senadheerage. The RAD also confirmed the RPD\u2019s analysis with respect to the IFA.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2",
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Refugee Appeal Division dismissed his appeal, finding insufficient evidence that the CID or thugs had any remaining interest in harming him and confirmed the RPD's internal flight alternative analysis.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Mr. Senadheerage now seeks judicial review of the RAD\u2019s decision.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "He seeks judicial review of the RAD's decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "He alleges that the RAD erred in finding his story implausible, in rejecting his corroborative evidence and in requiring additional corroboration. For the following reasons, I agree that the RAD committed some of these errors.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2",
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding his story implausible, in rejecting his corroborative evidence and in requiring additional corroboration.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD\u2019s first ground for finding that Mr. Senadheerage had no well-founded fear of persecution is that both the CID and the businessman\u2019s thugs had lost any interest in him. Among the reasons for that conclusion, the RAD stated that if they still had interest in Mr. Senadheerage, the CID and the thugs would have looked for members of his family and, in the case of the CID, friends and co-workers. Moreover, the RAD found that it was illogical that the CID would have gone to Mr. Senadheerage\u2019s house in February 2018, as they would have known that he had left the country. It also stated that the CID would no longer be interested in Mr. Senadheerage, as he was no longer employed with the business suspected of illegal activities and could therefore not provide any new information about these illegal activities.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2",
+     "12.3",
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found that both the CID and the businessman\u2019s thugs had lost any interest in Mr. Senadheerage, and that if they still had interest, they would have looked for his family and friends, and that the CID would not have gone to his house in February 2018 knowing he had left the country, and that the CID would no longer be interested as he was no longer employed with the business suspected of illegal activities.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "A second basis for the RAD\u2019s rejection of Mr. Senadheerage\u2019s claim is the vagueness or lack of corroboration of crucial aspects of the claim. In particular, Mr. Senadheerage failed to provide any documentary evidence supporting his testimony regarding the death threats the businessman made against him, which were relayed to him by a co-worker. Moreover, he failed to provide a letter or an affidavit from his mother, with whom he still has contact, even though his mother is his only source of information with respect to significant events, including the CID\u2019s and the thugs\u2019 visits to the house in 2017 and 2018.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2",
+     "21.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD rejected Mr. Senadheerage's claim due to vagueness or lack of corroboration of crucial aspects, including no documentary evidence of death threats relayed by a co-worker and no letter from his mother about visits to his house.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Given the lack of such a letter, the RAD found that the February 2018 visits did not occur.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found that the February 2018 visits to the house did not occur due to lack of a letter from the mother.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD gave very succinct reasons for requiring corroboration of the death threats made by the businessman and relayed to Mr. Senadheerage by a co-worker, simply noting that this was \u201cimportant information.\u201d In my view, a more fulsome explanation was needed to justify a need for corroboration. There is no discussion of potential explanations for the lack of corroborative documents, even though one can easily understand that the co-worker would be reluctant to sign a document attesting to the death threats.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.2",
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD required corroboration of death threats as important information but gave only succinct reasons and did not consider explanations for lack of documents.",
+    "treatment": "rejected",
+    "outcome_note": "Court found this requirement unreasonable and lacking explanation.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD also noted the lack of corroboration of the CID\u2019s and the thugs\u2019 visits to Mr. Senadheerage\u2019s house at various moments. It stated that \u201cit is reasonable to expect some sort of corroboration of these events given that they go to the heart of the claim and because he has provided other supporting documentation.\u201d Elsewhere in the decision, the RAD notes that Mr. Senadheerage remains in contact with his mother and could have obtained a letter from her. In making these remarks, the RAD appears to have reversed the two-step approach outlined above and focused on the presumptive availability of corroborative evidence as a ground for requiring corroboration. Moreover, Mr. Senadheerage was not questioned on these issues at the hearing before the RPD and was not afforded an opportunity to explain why he could not obtain, for example, a statement from his mother.",
+    "paragraphs": [
+     39,
+     40
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2",
+     "39.3",
+     "40.1",
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39,
+     40
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD required corroboration of visits by CID and thugs to the claimant's house, expecting some corroboration since the claimant had other supporting documentation and contact with his mother.",
+    "treatment": "rejected",
+    "outcome_note": "Court found RAD reversed the two-step approach and did not allow claimant to explain lack of corroboration.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Nevertheless, one understands that the RAD was concerned with the fact that Mr. Senadheerage did not himself witness any of the events allegedly taking place after the CID released him. As a result, large parts of the claim were based only on hearsay. Pursuant to section 170(g) and (h) of the Act, hearsay is admissible before the RPD, provided it is considered \u201ccredible or trustworthy.\u201d Ensuring the trustworthiness of hearsay may be valid grounds for requiring corroboration.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1",
+     "41.2",
+     "41.3",
+     "41.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD was concerned that large parts of the claim were based on hearsay, which may justify requiring corroboration to ensure trustworthiness.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court accepts hearsay as a valid ground but notes RAD did not make this explicit.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Mr. Senadheerage also challenges the RAD\u2019s rejection of a newspaper article and a lawyer\u2019s letter corroborating some of his allegations. I am unable to agree with him.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1",
+     "44.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant challenges the RAD's rejection of a newspaper article and a lawyer's letter corroborating some of his allegations.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagreed with the applicant's challenge.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD analyzed that evidence and provided reasons for giving it little weight. In substance, the RAD noted that the evidence was vague as to the events involving Mr. Senadheerage and did not appear to match his narrative.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.3",
+     "44.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD analyzed the newspaper article and lawyer's letter and gave them little weight because the evidence was vague and did not match the applicant's narrative.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "No mention is made of a letter from a friend to whom Mr. Senadheerage revealed his story. The friend explains that he relayed the information to members of the opposition, who used it to slander the government. Mr. Senadheerage explicitly asked the RAD to consider this letter. The RAD should have responded to this argument. Nonetheless, it contributes to the decision\u2019s overall unreasonableness.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.2",
+     "45.3",
+     "45.4",
+     "45.5",
+     "45.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant submitted a letter from a friend who relayed his story to opposition members, which the RAD failed to address.",
+    "treatment": "partly_accepted",
+    "outcome_note": "The RAD should have responded to this argument; failure contributes to overall unreasonableness.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister, however, argues that the RAD\u2019s IFA finding stands independently of its conclusion regarding Mr. Senadheerage\u2019s lack of a well-founded fear of persecution. Thus, according to the Minister, the rejection of Mr. Senadheerage\u2019s claim for asylum was inevitable and the decision should be confirmed on that sole basis.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1",
+     "47.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD's IFA finding stands independently of its conclusion regarding Mr. Senadheerage's lack of a well-founded fear of persecution, so the rejection of the asylum claim was inevitable on that basis alone.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "Mr. Senadheerage is a citizen of Sri Lanka who claimed asylum in Canada, alleging the following facts.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Senadheerage is a Sri Lankan citizen who claimed asylum in Canada."
+   },
+   {
+    "quote": "He is a civil engineer and worked for some time in another country. Upon returning to Sri Lanka in June 2017, he began employment with a business owned by a prominent businessman with close connections to the government then in power.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2",
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "He is a civil engineer who worked abroad before returning to Sri Lanka in June 2017 to work for a business owned by a prominent businessman connected to the government."
+   },
+   {
+    "quote": "He quickly discovered that the business engaged in some illegal activities. In July 2017, he was arrested and questioned by the Criminal Investigation Department [CID] of the Sri Lankan police. He was beaten and held in custody for three days.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2",
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "He discovered the business engaged in illegal activities and was arrested, beaten, and held by the Sri Lankan police's Criminal Investigation Department in July 2017."
+   },
+   {
+    "quote": "He was released only after he agreed to speak about the illegal activities in which the business was engaged. He undertook to report to the CID every month.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.4",
+     "4.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "He was released after agreeing to report monthly to the CID about the illegal activities."
+   },
+   {
+    "quote": "Immediately after his release, thugs in the service of the businessman visited his house, where he lived with his parents, wife and child. He was absent at that time, but the thugs said to his mother that they would come back for him. Upon learning of this, Mr. Senadheerage went into hiding and arranged for his parents, wife and child to move in with relatives in two different cities. A few days later, he left for the United States.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2",
+     "5.3",
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "After release, thugs linked to the businessman threatened his family, prompting him to go into hiding and arrange for his family to move to relatives in two cities before he left for the United States."
+   },
+   {
+    "quote": "While Mr. Senadheerage was in the United States, he learned that the CID visited his house in August 2017, when he failed to report to them. He told a friend in Sri Lanka about what had happened to him. That friend then relayed the story of his persecution to opposition politicians, who used it publicly to embarrass the government, as it involved a businessman closely associated with the government.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2",
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "While in the United States, he learned the CID visited his house when he failed to report, and his story was publicized by opposition politicians after a friend relayed it."
+   },
+   {
+    "quote": "Mr. Senadheerage then learned from another friend that the businessman said that he would kill him if he found him. In February 2018, he learned that both the CID and the businessman\u2019s thugs visited his empty house, searching for him. At that time, he decided to make his way to Canada, where he claimed asylum.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.4",
+     "6.5",
+     "6.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "He learned the businessman threatened to kill him and that both the CID and thugs searched his empty house in February 2018, leading him to seek asylum in Canada."
+   },
+   {
+    "quote": "On an application for judicial review in immigration and refugee matters, the standard of review is reasonableness: Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov].",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of review on judicial review in immigration and refugee matters is reasonableness, per Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65."
+   },
+   {
+    "quote": "Even though the reviewing court may look to the record to understand the basis for the decision, the decision itself must be justified, not only justifiable. Thus, it must exhibit a rational chain of analysis that complies with the legal constraints bearing on the decision-maker: Vavilov, at paragraphs 102-107.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.3",
+     "10.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "The decision must be justified, not only justifiable, exhibiting a rational chain of analysis complying with legal constraints on the decision-maker."
+   },
+   {
+    "quote": "As a result, the RAD\u2019s decision does not exhibit a rational chain of analysis, which makes it unreasonable according to the Vavilov framework.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD\u2019s decision does not exhibit a rational chain of analysis, which makes it unreasonable according to the Vavilov framework."
+   },
+   {
+    "quote": "These are implausibility findings. In substance, the RAD is saying that the events cannot have happened as recounted by Mr. Senadheerage.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "These are implausibility findings, meaning the RAD is saying the events could not have happened as recounted by Mr. Senadheerage."
+   },
+   {
+    "quote": "This Court, however, has set a high threshold before immigration decision-makers can make a finding of implausibility. Such a finding may be made only in the \u201cclearest of cases:\u201d Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776 [Valtchev]; see also Lawani v Canada (Citizenship and Immigration), 2018 FC 924 at paragraph 26. In Valtchev, at paragraph 7, Justice Muldoon explained when implausibility findings may be made: \u2026plausibility findings should be made only in the clearest of cases, i.e., if the facts as presented are outside the realm of what could reasonably be expected, or where the documentary evidence demonstrates that the events could not have happened in the manner asserted by the claimant.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2",
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14,
+     15
+    ],
+    "kind": "legal_test",
+    "statement": "A finding of implausibility may be made only in the 'clearest of cases', where facts are outside what could reasonably be expected or documentary evidence shows the events could not have happened as asserted."
+   },
+   {
+    "quote": "In the present case, the RAD did not explain the basis for its implausibility findings. It did not point to any specific information in the NDP for Sri Lanka that would contradict Mr. Senadheerage\u2019s account of the events.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD did not explain the basis for its implausibility findings and did not point to any specific contradictory information in the National Documentation Package for Sri Lanka."
+   },
+   {
+    "quote": "The findings appear to be based on the RAD\u2019s own views of what is likely or unlikely. In doing so, however, the RAD did not consider the distinction between plausibility and likelihood, which is at the core of cases such as Valtchev and Al Dya.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3",
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD\u2019s findings appear to be based on its own views of what is likely or unlikely, failing to consider the distinction between plausibility and likelihood."
+   },
+   {
+    "quote": "There is, however, no evidence providing a reasonable basis for an inference in this regard. Moreover, there is nothing inherently implausible in the CID\u2019s and the thugs\u2019 failure to question Mr. Senadheerage\u2019s family members.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "There is no evidence providing a reasonable basis to infer that the CID and thugs would have known Mr. Senadheerage had left the country in February 2018 or that they would have questioned his family members."
+   },
+   {
+    "quote": "In short, the RAD assumes too many unknown facts and, in doing so, leaves the realm of reasoning to enter that of speculation.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD assumes too many unknown facts and moves from reasoning into speculation regarding the agents of persecution\u2019s actions."
+   },
+   {
+    "quote": "While the RAD may have formed a view about the CID\u2019s or the thugs\u2019 most likely course of action, this is not one of the \u201cclearest of cases\u201d in which it could find that Mr. Senadheerage\u2019s account was implausible. In fact, the RAD\u2019s findings amount to speculation about what a \u201creasonable agent of persecution\u201d would do. This Court has repeatedly cautioned against such reasoning: Venegas Beltran v Canada (Citizenship and Immigration), 2011 FC 1475 at paragraph 8; Reyad Gad v Canada (Citizenship and Immigration), 2011 FC 303 at paragraph 11; Soos v Canada (Citizenship and Immigration), 2019 FC 455 at paragraphs 12-16.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2",
+     "19.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "This is not one of the 'clearest of cases' where the RAD could find Mr. Senadheerage\u2019s account implausible; the RAD\u2019s findings amount to speculation about what a reasonable agent of persecution would do, which the Court has repeatedly cautioned against."
+   },
+   {
+    "quote": "Thus, I find that this aspect of the RAD\u2019s decision is unreasonable.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "This aspect of the RAD\u2019s decision is unreasonable."
+   },
+   {
+    "quote": "In my view, the RAD\u2019s decision is unreasonable in significant respects. While there might have been some valid reasons to require corroboration with respect to some issues, the RAD appears to have started from the premise that there is a general requirement for corroboration. As a result, I am unable to discern a rational chain of reasoning in the decision.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2",
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's decision is unreasonable in significant respects because it started from a premise of a general requirement for corroboration without a rational chain of reasoning."
+   },
+   {
+    "quote": "The law of evidence typically does not require testimony to be corroborated by written documents. The IRB, however, frequently requires asylum claimants to corroborate their claim with written evidence. A significant number of decisions take the position that corroboration is only required where the claimant\u2019s credibility is in doubt for reasons other than the mere lack of corroboration: Dundar v Canada (Citizenship and Immigration), 2007 FC 1026 at paragraph 22; Ortega Ayala v Canada (Citizenship and Immigration), 2011 FC 611 at paragraphs 19-21 [Ortega Ayala]; Ndjavera, at paragraph 6; Thus, as my colleague Justice John Norris stated, \u201c There is no general requirement for corroboration and a panel errs if it makes an adverse credibility finding on the basis of the absence of corroborative evidence alone:\u201d Chen v Canada (Citizenship and Immigration), 2019 FC 162 at paragraph 28.",
+    "paragraphs": [
+     23,
+     26
+    ],
+    "evidence_ids": [
+     "23.1",
+     "23.3",
+     "26.1",
+     "26.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23,
+     26
+    ],
+    "kind": "legal_test",
+    "statement": "There is no general requirement for corroboration in immigration and refugee cases; corroboration is only required where there is reason to doubt the claimant's credibility for reasons other than mere lack of corroboration."
+   },
+   {
+    "quote": "Moreover, the IRB may dismiss a claim for lack of corroboration only if it would have been reasonable in the circumstances to require the claimant to obtain corroborative evidence. Thus, the corroboration analysis is a two-step process. First, one must inquire whether a shortcoming in the evidence triggers a requirement for corroboration. Second, one must ask whether the corroborative evidence was reasonably available or whether the claimant provided a satisfactory explanation for its absence.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1",
+     "28.2",
+     "28.3",
+     "28.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "The corroboration analysis is a two-step process: first, identify if a shortcoming triggers a requirement for corroboration; second, determine if corroborative evidence was reasonably available or if there is a satisfactory explanation for its absence."
+   },
+   {
+    "quote": "A detailed summary of the RPD hearing prepared for Mr. Senadheerage\u2019s counsel does not show that he was questioned on this matter. Thus, it was unreasonable for the RAD to require corroboration with respect to the death threats.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.4",
+     "38.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "It was unreasonable for the RAD to require corroboration of the death threats without questioning the claimant or considering reasons for lack of corroboration."
+   },
+   {
+    "quote": "In making these remarks, the RAD appears to have reversed the two-step approach outlined above and focused on the presumptive availability of corroborative evidence as a ground for requiring corroboration. Moreover, Mr. Senadheerage was not questioned on these issues at the hearing before the RPD and was not afforded an opportunity to explain why he could not obtain, for example, a statement from his mother.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1",
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD reversed the two-step approach by focusing on presumed availability of corroboration as a ground for requiring it and failed to give the claimant an opportunity to explain absence of corroboration."
+   },
+   {
+    "quote": "I am concerned, however, that the RAD may have required corroboration because of its flawed implausibility findings, instead of a desire to buttress the trustworthiness of hearsay. None of this is made explicit in the decision. The RAD did not make any explicit negative credibility findings. It did not follow the legal framework outlined above.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1",
+     "42.2",
+     "42.3",
+     "42.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Ensuring trustworthiness of hearsay may be a valid ground for requiring corroboration, but the RAD did not explicitly state this or follow the proper legal framework."
+   },
+   {
+    "quote": "As a result, its decision \u201cfail[s] to reveal a rational chain of analysis:\u201d Vavilov, at paragraph 103.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's decision fails to reveal a rational chain of analysis and is therefore unreasonable under Vavilov."
+   },
+   {
+    "quote": "I must also say that the fact that Mr. Senadheerage provided some documentary evidence is not grounds for requiring additional corroboration.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "conclusion",
+    "statement": "The fact that the applicant provided some documentary evidence does not justify requiring additional corroboration."
+   },
+   {
+    "quote": "The availability of some evidence does not prove the availability of other evidence.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "conclusion",
+    "statement": "The availability of some evidence does not prove the availability of other evidence."
+   },
+   {
+    "quote": "Having reviewed the evidence, I find that the RAD\u2019s conclusions were not unreasonable.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's conclusions to give little weight to the corroborating evidence were not unreasonable."
+   },
+   {
+    "quote": "Its failure to do so may not, alone, have rendered its decision unreasonable. Nonetheless, it contributes to the decision\u2019s overall unreasonableness.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.6",
+     "45.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's failure to address the letter from the friend may not alone render the decision unreasonable but contributes to its overall unreasonableness."
+   },
+   {
+    "quote": "To summarize, the RAD\u2019s analysis of the evidence is flawed in many respects. The RAD does not provide a reasonable explanation for its implausibility findings.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1",
+     "46.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's analysis of the evidence is flawed in many respects and does not provide a reasonable explanation for its implausibility findings."
+   },
+   {
+    "quote": "While some aspects of the case might justify a requirement for corroboration, the RAD\u2019s analysis overlooks crucial issues and does not evince a rational chain of analysis.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "While some aspects might justify a requirement for corroboration, the RAD overlooked crucial issues and did not show a rational chain of analysis."
+   },
+   {
+    "quote": "I am unable to say what decision the RAD would have reached had it not made those errors. As a result, I must send the case back for redetermination.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.4",
+     "46.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The Court cannot say what decision the RAD would have reached without these errors and must send the case back for redetermination."
+   },
+   {
+    "quote": "I disagree.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "I disagree that the rejection of the asylum claim was inevitable based solely on the IFA finding."
+   },
+   {
+    "quote": "In many cases, the IRB uses an IFA as the main ground for dismissing a claim. In other cases, such as this one, it is an alternative ground.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "kind": "background_fact",
+    "statement": "In some cases, the IRB uses an IFA as the main ground for dismissing a claim, but in others, like this one, it is an alternative ground."
+   },
+   {
+    "quote": "When an IFA is used as an alternative ground, care must be taken to separate the IFA analysis from that of the well-founded fear of persecution: see, by analogy, Chaudhry v Canada (Citizenship and Immigration), 2020 FC 902 at paragraph 21. Indeed, at the IFA stage, the decision-maker must assume that his or her decision regarding persecution is wrong. One must assume that the claimant has a well-founded fear of persecution in one part of the country and proceed to determine if that fear extends to the whole country.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1",
+     "49.2",
+     "49.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "legal_test",
+    "statement": "When an IFA is used as an alternative ground, the decision-maker must separate the IFA analysis from the well-founded fear of persecution analysis and assume the claimant has a well-founded fear of persecution in one part of the country to determine if that fear extends to the whole country."
+   },
+   {
+    "quote": "If the decision-maker fails to make the distinction, the IFA analysis becomes a mere restatement of the findings with respect to persecution.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "conclusion",
+    "statement": "If the decision-maker fails to distinguish between the persecution analysis and the IFA analysis, the IFA analysis becomes a mere restatement of the findings on persecution."
+   },
+   {
+    "quote": "In this case, it appears that the RAD confused the two issues, at least in significant part. The main ground for the IFA finding is \u201cthe lack of credible, probative evidence that the agents of persecution are actively seeking him out and have retained an interest in harming him.\u201d But that misses the mark. The RAD had to assume the opposite.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1",
+     "50.2",
+     "50.3",
+     "50.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD confused the issues by basing the IFA finding mainly on the lack of credible evidence that agents of persecution are actively seeking the claimant, which is the opposite of what must be assumed at the IFA stage."
+   },
+   {
+    "quote": "The real question is, what if the agents of persecution still want to harm Mr. Senadheerage? Would he be able to protect himself by moving to another part of the country? The RAD does not directly address that question.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.5",
+     "50.6",
+     "50.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The real question at the IFA stage is whether the claimant would be able to protect himself by moving to another part of the country if agents of persecution still want to harm him, but the RAD did not directly address this question."
+   },
+   {
+    "quote": "I am, however, unable to say that it would have come to the same conclusion had it not made the error identified above.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "I cannot say the RAD would have reached the same conclusion on the IFA finding if it had not made the error of conflating the persecution and IFA analyses."
+   },
+   {
+    "quote": "Thus, I cannot sustain the decision on the basis of the IFA finding.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "I cannot sustain the decision on the basis of the IFA finding."
+   },
+   {
+    "quote": "As several aspects of the RAD\u2019s decision are unreasonable, the application for judicial review will be allowed and the matter will be sent back for redetermination.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is allowed because several aspects of the RAD's decision are unreasonable."
+   },
+   {
+    "quote": "As several aspects of the RAD\u2019s decision are unreasonable, the application for judicial review will be allowed and the matter will be sent back for redetermination.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The matter will be sent back to the RAD for redetermination."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "Such a finding may be made only in the \u201cclearest of cases:\u201d Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776 [Valtchev]; see also Lawani v Canada (Citizenship and Immigration), 2018 FC 924 at paragraph 26. In Al Dya v Canada (Citizenship and Immigration), 2020 FC 901 [Al Dya], my colleague Justice Nicholas McHaffie reviewed the case law with respect to this issue since Valtchev was rendered. He noted that \u201cthe unusual or improbable does occur, and that it is unreasonable to reject evidence as not credible simply because the events it describes are unusual:\u201d Al Dya, at paragraph 35. In Valtchev, at paragraph 7, Justice Muldoon explained when implausibility findings may be made: \u2026plausibility findings should be made only in the clearest of cases, i.e., if the facts as presented are outside the realm of what could reasonably be expected, or where the documentary evidence demonstrates that the events could not have happened in the manner asserted by the claimant. Indeed, in Al Dya, the main basis for the implausibility finding was that the applicant\u2019s statements were contradicted by the National Documentation Package [NDP].",
+    "paragraphs": [
+     14,
+     15,
+     16
+    ],
+    "evidence_ids": [
+     "14.2",
+     "14.3",
+     "14.4",
+     "15.1",
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14,
+     15,
+     16
+    ],
+    "authority": "The Court relies on Valtchev v Canada and Al Dya v Canada for the high threshold for implausibility findings and the distinction between plausibility and likelihood.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The absence of a general requirement for corroboration is usually considered a corollary of the well-known presumption of truthfulness established by the Federal Court of Appeal in Maldonado v Canada (Minister of Employment and Immigration), [1980] 2 FC 302 at 305 (CA): \u201cWhen an applicant swears to the truth of certain allegations, this creates a presumption that those allegations are true unless there be reason to doubt their truthfulness.\u201d Requiring corroboration in the absence of a pre-existing \u201creason to doubt\u201d would effectively reverse the Maldonado presumption.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1",
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "authority": "The presumption of truthfulness established in Maldonado means requiring corroboration without reason to doubt reverses this presumption.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

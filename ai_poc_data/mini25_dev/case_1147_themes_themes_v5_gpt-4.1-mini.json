@@ -1,0 +1,1484 @@
+{
+ "case_id": 1147,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5",
+ "run": "mini25_dev",
+ "usage": {
+  "usd": 0.016274800000000002
+ },
+ "verification": {
+  "items": 76,
+  "quote_exact_in_cited": 76,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 6,
+  "calls": 7,
+  "paragraph_coverage": 0.907,
+  "rows": {
+   "themes": 4,
+   "arguments": 28,
+   "holdings": 41,
+   "rebuttals": 1,
+   "authorities": 6,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application by Ms. Ambroise against the RAD decision rejecting her refugee claim based on an internal flight alternative (IFA) in Cap-Ha\u00eftien is dismissed because the RAD's decision was reasonable and there was no breach of procedural fairness.",
+  "themes": [
+   {
+    "name": "Internal Flight Alternative (IFA) test",
+    "summary": "The decision focuses on whether the RAD reasonably applied the two-prong IFA test, assessing risk of persecution and reasonableness of relocation to Cap-Ha\u00eftien.",
+    "paragraphs": [
+     11,
+     13,
+     16,
+     17,
+     33,
+     37
+    ]
+   },
+   {
+    "name": "Risk of sexual violence and state protection",
+    "summary": "The RAD's assessment of the risk of sexual violence and the lack of state protection in Haiti was reasonable and did not require further analysis once no serious possibility of persecution was found.",
+    "paragraphs": [
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     29,
+     31
+    ]
+   },
+   {
+    "name": "Procedural fairness and notice of IFA",
+    "summary": "The court found no breach of procedural fairness despite the IFA being raised late in the hearing, as the claimant had a reasonable opportunity to respond.",
+    "paragraphs": [
+     38,
+     39,
+     40,
+     41,
+     42
+    ]
+   },
+   {
+    "name": "Employment and reasonableness of relocation",
+    "summary": "The RAD reasonably concluded that Ms. Ambroise's inability to find nursing work in Cap-Ha\u00eftien did not make the IFA unreasonable.",
+    "paragraphs": [
+     34,
+     35,
+     36,
+     37
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Standard of review for RAD's IFA determination",
+    "first_paragraph": 6,
+    "last_paragraph": 6,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Standard of review for procedural fairness issue",
+    "first_paragraph": 7,
+    "last_paragraph": 10,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Reasonableness of RAD's IFA determination",
+    "first_paragraph": 11,
+    "last_paragraph": 37,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Procedural fairness regarding notice of IFA at RPD hearing",
+    "first_paragraph": 38,
+    "last_paragraph": 42,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Judicial review application disposition",
+    "first_paragraph": 4,
+    "last_paragraph": 4,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Refugee Appeal Division (RAD) rejected the refugee protection claim because it determined that Ms. Ambroise had an internal flight alternative (IFA) in Cap-Ha\u00eftien, where other members of her family live.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD rejected the refugee protection claim because it found Ms. Ambroise had an internal flight alternative in Cap-Ha\u00eftien where her family lives.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Ms. Ambroise alleges that the RAD erred in its analysis of the two-prong IFA test.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD erred in its analysis of the two-prong IFA test.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She argues that the RAD failed to recognize that state protection for women is lacking throughout Haiti and that the IFA would be unreasonable for her because she would face a serious risk of sexual violence and would be unable to obtain employment in her profession.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD failed to recognize that state protection for women is lacking throughout Haiti and that the IFA would be unreasonable for her due to risk of sexual violence and inability to work as a nurse.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She also argues that the RAD\u2019s decision breached procedural fairness because the Refugee Protection Division (RPD) member failed to state at the outset of the hearing that an IFA would be raised.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD\u2019s decision breached procedural fairness because the RPD member failed to state at the outset of the hearing that an IFA would be raised.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Ms. Ambroise raised seven issues, which fall under one of two main issues: Did the RAD err in analyzing the viability of an IFA in Cap-Ha\u00eftien? Did the RPD breach procedural fairness by failing to warn Ms. Ambroise at the outset of the hearing that an IFA would be raised?",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise raised seven issues that fall under two main issues: whether the RAD erred in analyzing the viability of an IFA in Cap-Ha\u00eftien and whether the RPD breached procedural fairness by failing to warn her at the outset that an IFA would be raised.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The parties agree that this issue must be reviewed on a standard of reasonableness (Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 16, 23\u201325; Tariq v Canada (Citizenship and Immigration), 2017 FC 1017 at para 14).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The issue of the RAD's determination regarding an IFA must be reviewed on a standard of reasonableness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The parties agree that this issue must be reviewed on a standard of reasonableness (Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 16, 23\u201325; Tariq v Canada (Citizenship and Immigration), 2017 FC 1017 at para 14).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "respondent",
+    "claim": "The issue of the RAD's determination regarding an IFA must be reviewed on a standard of reasonableness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The parties also agree that the second issue, that of procedural fairness, must be reviewed on a standard of correctness (Alkhoury v Canada (Citizenship and Immigration), 2020 FC 153 at para 10).",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The issue of procedural fairness must be reviewed on a standard of correctness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Federal Court of Appeal recently confirmed that this standard applies to issues of procedural fairness, although it reiterated that the analysis is not really one that involves a standard of review, but rather \u201cwhether or not procedural fairness has been met\u201d (Canadian Association of Refugee Lawyers v Canada (Immigration, Refugees and Citizenship), 2020 FCA 196 [CARL] at para 35; Canadian Pacific Railway Limited v Canada (Attorney General), 2018 FCA 69 at para 54).",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The standard of correctness applies to issues of procedural fairness, but the analysis is about whether procedural fairness has been met, not a standard of review per se.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Some decisions of this Court have concluded that the correctness standard always applies to the RAD\u2019s analyses of alleged breaches of procedural fairness before the RPD (Tariq at paras 15\u201316; But v Canada (Citizenship and Immigration), 2016 FC 626 at para 4; Eshetie v Canada (Citizenship and Immigration), 2019 FC 1036 at para 23; Lakatos v Canada (Citizenship and Immigration), 2018 FC 1061 at paras 11\u201312).",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some decisions hold that the correctness standard always applies to RAD's analyses of alleged breaches of procedural fairness before the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Other decisions have found that the reasonableness standard applies (Zhang v Canada (Citizenship and Immigration), 2015 FC 1031 at paras 27\u201338; Gebremedhin v Canada (Immigration, Refugees and Citizenship), 2017 FC 497 at para 11; XY v Canada (Citizenship and Immigration), 2020 FC 39 at para 26).",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Other decisions have found that the reasonableness standard applies to RAD's analyses of alleged breaches of procedural fairness before the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "During the hearing, the RPD proposed an IFA in Cap-Ha\u00eftien, her hometown and the place where her mother, a sister, her brother and her son live. Ms. Ambroise alleged that an IFA in Cap-Ha\u00eftien was not viable because she would still face a risk that the men who assaulted would her find her there, as well as a more general risk of sexual violence. She also testified that she would have difficulty finding a job as a nurse in Cap-Ha\u00eftien, which has only one hospital. Despite these arguments, the RPD concluded that there was a viable IFA in Cap-Ha\u00eftien, and it rejected the claim.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2",
+     "16.3",
+     "16.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD proposed an IFA in Cap-Ha\u00eftien, Ms. Ambroise's hometown, and rejected her claim, finding the IFA viable despite her arguments about risk and difficulty finding work.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Like the RPD, the RAD found that Ms. Ambroise\u2019s account of the attack in Port-au-Prince was plausible. However, the RAD considered there to be no basis to Ms. Ambroise\u2019s allegations that her two attackers had the ability and motivation to find her wherever she might be. It therefore concluded that Ms. Ambroise failed to establish a serious possibility of persecution in Cap-Ha\u00eftien by her attackers. Regarding the second prong of the IFA test, the RAD concluded that Ms. Ambroise failed to establish that it would be unreasonable to relocate to Cap-Ha\u00eftien. The RAD therefore determined that there was a viable IFA and dismissed Ms. Ambroise\u2019s appeal and refugee protection claim.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2",
+     "17.3",
+     "17.4",
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found Ms. Ambroise's account of the attack plausible but concluded she failed to establish a serious possibility of persecution by her attackers in Cap-Ha\u00eftien and failed to show it would be unreasonable to relocate there, thus finding a viable IFA and dismissing her appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD concluded that a refugee protection claim cannot be based solely on reports of the situation in the country. It determined that neither the reports on the situation in Haiti nor Ms. Ambroise\u2019s actions supported the conclusion that all Haitian women face a serious possibility of persecution and that Ms. Ambroise feared this persecution.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2",
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD concluded that a refugee claim cannot be based solely on country reports and that Ms. Ambroise did not establish a serious possibility of persecution from general gender-based violence in Haiti.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Ms. Ambroise alleges that the RAD erred by failing to analyze the lack of state protection in Haiti. Referring to the Supreme Court of Canada\u2019s decision in Canada (Attorney General) v Ward, [1993] 2 SCR 689, and Justice O\u2019Reilly\u2019s decision in Velasquez v Canada (Citizenship and Immigration), 2010 FC 1201, Ms. Ambroise argues that the RAD should have analyzed the effectiveness of state protection before it concluded that there was an IFA.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise argues the RAD erred by failing to analyze the lack of state protection in Haiti before concluding there was a viable IFA.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Ms. Ambroise further argues that the RAD\u2019s decision is unreasonable given the evidence of conditions in Haiti, including sexual violence and criminal impunity. She refers to two decisions of this Court that also dealt with refugee protection claims based on allegations of sexual violence in Haiti, Dezameau v Canada (Citizenship and Immigration), 2010 FC 559, and Josile v Canada (Citizenship and Immigration), 2011 FC 39. In Dezameau and Josile, the Court set aside RPD decisions that found sexual violence to be a risk of general criminality with no nexus to a Convention ground (Dezameau at paras 22\u201324, citing Immigration and Refugee Board of Canada, Guideline 4: Women Refugee Claimants Fearing Gender-Related Persecution; Josile at paras 7, 18\u201331). In both cases, the Court concluded that the RPD was required to examine the evidence and determine whether there was \u201cmore than a mere possibility\u201d that the applicant risked suffering this harm in Haiti (Dezameau at paras 31, 32, 39; Josile at para 36). That said, the Court did not find in these cases that the applicants established such a risk or that all women in Haiti were subjected to such a risk. On the contrary, Justice Pinard in Dezameau pointed out the following at paragraph 29: This is not to say that membership in a particular social group is sufficient to result in a finding of persecution. In Josile, Justice Martineau also noted the importance of up-to-date evidence and the applicant\u2019s personal situation (Josile at paras 38\u201339).",
+    "paragraphs": [
+     24,
+     25,
+     26,
+     27
+    ],
+    "evidence_ids": [
+     "24.1",
+     "24.2",
+     "25.1",
+     "25.2",
+     "26.1",
+     "26.2",
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24,
+     25,
+     26,
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise argues the RAD's decision is unreasonable given evidence of sexual violence and criminal impunity in Haiti, citing prior cases Dezameau and Josile.",
+    "treatment": "partly_accepted",
+    "outcome_note": "The Court agrees the RAD must consider evidence and personal circumstances but found no error in this case.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this case, the RAD did not find sexual violence to be a general risk and did not doubt that a risk of sexual violence has a nexus to a Convention ground. On the contrary, the RAD referred to Dezameau, citing the passage reproduced above, at paragraph 26. It also adopted the conclusion of Associate Chief Justice Gagn\u00e9 in Jean that \u201c[a] refugee protection claim cannot rely solely on the evidence found in the National Documentation Package of the country about which the fear is being raised\u201d (Jean v Canada (Citizenship and Immigration), 2019 FC 242 at para 19). The RAD\u2019s reasons state that it was aware of \u201cthe gender-based violence in Haiti\u201d, but that it was also aware of \u201cthe importance of taking into account each one\u2019s personal circumstances, their current or future living conditions, and their family circle\u201d, citing Josile.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1",
+     "29.3",
+     "29.4",
+     "29.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD did not find sexual violence to be a general risk and acknowledged the nexus to a Convention ground, citing relevant case law and considering personal circumstances.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD stated its opinion that \u201c[e]ven if the documentary evidence reports that the situation of women in Haiti is far from enviable, I do not agree that all Haitian women face a serious possibility of persecution\u201d.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD stated that not all Haitian women face a serious possibility of persecution despite the difficult situation of women in Haiti.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I agree with Ms. Ambroise that the question before the RAD was not whether \u201call Haitian women\u201d face persecution, but only whether Ms. Ambroise does.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise argued that the RAD should have considered whether she specifically faced persecution, not all Haitian women.",
+    "treatment": "accepted",
+    "outcome_note": "Court agrees the question was about Ms. Ambroise specifically, not all women.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Yet, aside from the risk posed by the attackers in the Port-au-Prince incident, the risk of persecution raised by Ms. Ambroise is that of [translation] \u201cgeneralized violence against women in Haiti\u201d. The RAD\u2019s analysis in this regard therefore also applied to Ms. Ambroise.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.3",
+     "31.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD applied its analysis of generalized violence against women in Haiti to Ms. Ambroise's claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Ms. Ambroise also disputed the RAD\u2019s conclusion that her attackers in Port-au-Prince did not have the ability or interest to look for her in Cap-Ha\u00eftien. She made reference to Dominguez Bando, in which Justice No\u00ebl found it unreasonable to conclude that there was an IFA despite the applicant\u2019s credible evidence of sexual assault (Dominguez Bando v Canada (Citizenship and Immigration), 2007 FC 980 at para 10).",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1",
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise disputed the RAD's conclusion that her attackers in Port-au-Prince would not pursue her in Cap-Ha\u00eftien, citing Dominguez Bando.",
+    "treatment": "rejected",
+    "outcome_note": "No equivalent evidence of pursuit in this case unlike Dominguez Bando.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In her submissions to the RAD, Ms. Ambroise did not deal with the second prong of the IFA test or the reasonableness of relocating to Cap-Ha\u00eftien.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise did not address the second prong of the IFA test or reasonableness of relocating to Cap-Ha\u00eftien in her RAD submissions.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, Ms. Ambroise raised the fact that she testified that it would be impossible for her to find work as a nurse because there was only one hospital in Cap-Ha\u00eftien.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise argued it would be impossible to find work as a nurse in Cap-Ha\u00eftien due to only one hospital.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She also disputed the RPD\u2019s conclusion that she could find a job as a secretary, a field in which she is also a graduate.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "She disputed the RPD's conclusion that she could find a job as a secretary, a field in which she is also qualified.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD considered these allegations and determined that the inability to find employment as a nurse would not put Ms. Ambroise\u2019s life or safety at risk such that Cap-Ha\u00eftien would not be a reasonable IFA.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found that inability to find employment as a nurse would not put Ms. Ambroise's life or safety at risk to make Cap-Ha\u00eftien an unreasonable IFA.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Ms. Ambroise alleges that the RAD\u2019s conclusion is unreasonable given the case law stating that the inability to find employment in one\u2019s field of work in an IFA \u201cmay or may not make the IFA unreasonable\u201d (Mchedlishvilli v Canada (Citizenship and Immigration), 2010 FC 630 at para 16(6)).",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "applicant",
+    "claim": "Ms. Ambroise argued the RAD's conclusion was unreasonable given case law that inability to find employment in one's field may or may not make the IFA unreasonable (Mchedlishvilli).",
+    "treatment": "rejected",
+    "outcome_note": "Court finds only exceptional circumstances justify unreasonableness based on employment issues.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Ms. Ambroise states that this was a breach of procedural fairness.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "applicant",
+    "claim": "The late raising of the IFA at the RPD hearing was a breach of procedural fairness.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The question raised by Ms. Ambroise is whether the IFA must be raised at the outset of the hearing and not during the hearing.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "applicant",
+    "claim": "The IFA must be raised at the outset of the hearing and not during the hearing.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "Belynda Ambroise, a Haitian citizen who worked as a nurse in Port-au-Prince, was sexually assaulted on a bus on her way to work on June 22, 2016. She claimed refugee protection in Canada, fearing her attackers and sexual violence.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1",
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Ms. Ambroise is a Haitian citizen who was sexually assaulted and claimed refugee protection in Canada."
+   },
+   {
+    "quote": "I am of the opinion that the RAD\u2019s decision is reasonable. The RAD\u2019s analysis of the danger or risk that Ms. Ambroise would face in the identified IFA within the meaning of section 97 of the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA), and the RAD\u2019s conclusion that there was no \u201cserious possibility\u201d that Ms. Ambroise would face persecution as a Haitian woman in the IFA within the meaning of section 96 were reasonable on the basis of the submissions raised by Ms. Ambroise.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1",
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD\u2019s decision is reasonable regarding the danger or risk Ms. Ambroise would face in the identified IFA under sections 96 and 97 of IRPA."
+   },
+   {
+    "quote": "I am also of the opinion that it was reasonable for the RAD to conclude that Ms. Ambroise failed to meet the high threshold for establishing that the identified IFA is unreasonable.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "It was reasonable for the RAD to conclude that Ms. Ambroise failed to meet the high threshold for establishing that the identified IFA is unreasonable."
+   },
+   {
+    "quote": "In addition, I am of the opinion that there was no breach of procedural fairness. Although Ms. Ambroise was not warned about it at the outset of the hearing, she was informed during the hearing that an IFA would be raised, and she and her counsel were given an opportunity to present evidence and make submissions in that regard.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.4",
+     "3.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "There was no breach of procedural fairness because although Ms. Ambroise was not warned at the outset, she was informed during the hearing that an IFA would be raised and given opportunity to present evidence and submissions."
+   },
+   {
+    "quote": "For these reasons, the application for judicial review is dismissed.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is dismissed."
+   },
+   {
+    "quote": "A reasonable decision is one that is justified, transparent and intelligible from the perspective of the individuals to whom the decision applies, \u201cbased on an internally coherent and rational chain of analysis\u201d read holistically and with sensitivity to the administrative setting, from the record before the decision maker and the submissions of the parties (Vavilov at paras 81, 85, 91, 94\u201396, 99, 127\u2013128).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "A reasonable decision is one that is justified, transparent and intelligible from the perspective of the individuals to whom the decision applies, based on an internally coherent and rational chain of analysis read holistically and with sensitivity to the administrative setting, from the record before the decision maker and the submissions of the parties."
+   },
+   {
+    "quote": "The justification of the decision is in light of the evidence that was before the decision maker (Vavilov at paras 125\u201326).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "The justification of the decision is in light of the evidence that was before the decision maker."
+   },
+   {
+    "quote": "Administrative decision makers are not required to respond \u201cto every argument or line of possible analysis\u201d raised by the parties, but the reasonableness of a decision may be compromised if the decision maker fails to consider relevant evidence (Vavilov at paras 125\u201328).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "Administrative decision makers are not required to respond to every argument or line of possible analysis raised by the parties, but the reasonableness of a decision may be compromised if the decision maker fails to consider relevant evidence."
+   },
+   {
+    "quote": "In my view, this dispute must be resolved on the basis of the recent decision of the Court of Appeal in CARL, where the Court suggested that issues of procedural fairness should be analyzed outside the scope of judicial review, and therefore outside the standard of reasonableness (CARL at para 35).",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "Issues of procedural fairness should be analyzed outside the scope of judicial review and therefore outside the standard of reasonableness."
+   },
+   {
+    "quote": "I therefore agree with the parties that the standard that applies to the second issue is the standard that applies to issues of procedural fairness, whether it be called the correctness standard or simply the fairness standard.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The standard that applies to procedural fairness issues is the correctness or fairness standard."
+   },
+   {
+    "quote": "That said, the applicable standard does not affect the outcome in any event, given my conclusion on this issue.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The applicable standard of review for procedural fairness does not affect the outcome in this case."
+   },
+   {
+    "quote": "The concept of an IFA is inherent to the definition of a Convention refugee under section 96 of the IRPA because the claimant must be a refugee from a country, not from some subdivision or region of a country (Thirunavukkarasu v Canada (Minister of Employment and Immigration), [1994] 1 FC 589 (CA) at 592\u2013593; Velasquez v Canada (Citizenship and Immigration), 2010 FC 1201 at para 15).",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "The concept of an internal flight alternative (IFA) requires that a refugee claimant must be a refugee from a country as a whole, not just a part or region of it."
+   },
+   {
+    "quote": "If a refugee protection claimant can seek safety in their own country, they are expected to do so rather than seek refugee protection in Canada (Thirunavukkarasu at 593; Olusola v Canada (Citizenship and Immigration), 2020 FC 799 at para 7).",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "If a refugee claimant can seek safety in another part of their own country, they are expected to do so rather than seek refugee protection in Canada."
+   },
+   {
+    "quote": "Similarly, the definition of a person in need of protection set out in section 97 of the IRPA requires that the person face a risk of harm \u201cin every part of that country\u201d (Sanchez v Canada (Citizenship and Immigration), 2007 FCA 99 at para 16; IRPA, s 97(1)(b)(ii)). Therefore, the existence of a viable IFA is fatal to a claim under section 96 or section 97, regardless of the merits of other aspects of the claim (Barragan Gonzalez v Canada (Citizenship and Immigration), 2015 FC 502 at paras 45\u201346; Olusola at para 7).",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "legal_test",
+    "statement": "A person in need of protection must face a risk of harm in every part of the country; the existence of a viable IFA is fatal to a claim under sections 96 or 97 of the IRPA."
+   },
+   {
+    "quote": "To rebut the viability of an identified IFA, a claimant must satisfy the RAD, on a balance of probabilities, that (1) the claimant will be subject to persecution (on a \u201cserious possibility\u201d standard), or a section 97 danger or risk (on a \u201cmore likely than not\u201d standard) in the proposed IFA; and (2) in all the circumstances, including circumstances particular to the claimant, conditions in the IFA are such that it would be unreasonable for the claimant to seek refuge there (Olusola at para 8, citing Thirunavukkarasu at 595\u201397; Hamdan v Canada (Immigration, Refugees and Citizenship), 2017 FC 643 at paras 10\u201312). Both of these prongs must be satisfied to conclude that a refugee protection claimant does not have a viable IFA.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2",
+     "13.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "To rebut the viability of an identified IFA, a claimant must satisfy the RAD on a balance of probabilities that (1) they face a serious possibility of persecution or a more likely than not risk of danger in the proposed IFA, and (2) it would be unreasonable for them to seek refuge there considering all circumstances."
+   },
+   {
+    "quote": "Ms. Ambroise\u2019s refugee protection claim alleges that two men beat and sexually assaulted her in broad daylight on a bus in Port-au-Prince on June 22, 2016. Her attackers took her nurse\u2019s badge and her wallet, which contained identity documents, stating that they would know where to find her the next time. She fears her attackers, as well as endemic sexual violence in Haiti.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2",
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "Ms. Ambroise alleges she was beaten and sexually assaulted by two men on a bus in Port-au-Prince in June 2016, and fears them and endemic sexual violence in Haiti."
+   },
+   {
+    "quote": "I agree with the Minister that this conclusion also applies to the issue of persecution in the first prong of the IFA test. Indeed, it is the same issue, namely whether the applicant is in danger of persecution (Thirunavukkarasu at 592\u2013593).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5",
+     "18.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's conclusion that Ms. Ambroise did not face a serious possibility of persecution from general gender-based violence applies equally to the first prong of the IFA test regarding persecution risk in Cap-Ha\u00eftien."
+   },
+   {
+    "quote": "Although the RAD\u2019s analysis was brief, I cannot conclude from the evidence and arguments before it that it was unreasonable.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's analysis of the IFA and risk of persecution was brief but not unreasonable on the evidence and arguments before it."
+   },
+   {
+    "quote": "In my opinion, her arguments are in fact a request for the Court to carry out its own analysis of the refugee protection claim and to draw its own conclusions. That is not the role of the Court in reasonableness review (Vavilov at para 83).",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.2",
+     "30.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The Court will not substitute its own analysis for that of the RAD in a reasonableness review."
+   },
+   {
+    "quote": "There is no doubt that Ms. Ambroise experienced a traumatic and intolerable incident.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "background_fact",
+    "statement": "Ms. Ambroise experienced a traumatic and intolerable incident."
+   },
+   {
+    "quote": "However, the analysis of a refugee claim is prospective, not retrospective (CARL at para 75; Pour-Shariati v Canada (Minister of Employment and Immigration, [1995] 1 FC 767 at para 17; IRPA, ss 96, 97).",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "legal_test",
+    "statement": "The analysis of a refugee claim is prospective, not retrospective, as per CARL, Pour-Shariati, and IRPA sections 96 and 97."
+   },
+   {
+    "quote": "In my view, it was not unreasonable for the RAD to determine that, on a balance of probabilities, there was not a \u201cserious possibility\u201d that Ms. Ambroise would face persecution as a woman in Cap-Ha\u00eftien.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "It was not unreasonable for the RAD to find there was not a serious possibility that Ms. Ambroise would face persecution as a woman in Cap-Ha\u00eftien on a balance of probabilities."
+   },
+   {
+    "quote": "There is no equivalent evidence in this case. On the contrary, the evidence before the RAD was that the attackers were strangers, that Ms. Ambroise had not been pursued since the June 2016 incident, and that there was no established connection between this incident and another incident at work in April 2016 where a man threatened her. I do not find it unreasonable for the RAD to conclude that Ms. Ambroise failed to establish, on a balance of probabilities, that she would face a risk of persecution or danger from those men in Cap-Ha\u00eftien. b) Second prong: Reasonableness of Cap-Ha\u00eftien as IFA",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.4",
+     "32.5",
+     "32.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD reasonably concluded Ms. Ambroise failed to establish on a balance of probabilities that she would face risk from her attackers in Cap-Ha\u00eftien."
+   },
+   {
+    "quote": "Once the RAD was satisfied that there was no \u201cserious possibility\u201d that Ms. Ambroise would face persecution within the meaning of section 96 or a danger or risk within the meaning of section 97 in Cap-Ha\u00eftien, it had to determine whether the identified IFA was nevertheless unreasonable. The threshold for the second prong of the IFA test is high, and the applicant must establish \u201cactual and concrete evidence\u201d of conditions that \u201cwould jeopardize the life and safety\u201d of a claimant attempting to relocate temporarily to a safe area (Ranganathan v Canada (Minister of Citizenship and Immigration), [2001] 2 FC 164 (FCA) at para 15; Olusola at para 9).",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "legal_test",
+    "statement": "The second prong of the IFA test requires actual and concrete evidence that conditions would jeopardize the life and safety of a claimant relocating temporarily to a safe area."
+   },
+   {
+    "quote": "I am of the opinion that the RAD did not err in concluding that the IFA is not unreasonable in that Ms. Ambroise may have to give up her profession as a nurse and return to a position as a secretary.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD did not err in concluding the IFA is not unreasonable because Ms. Ambroise may have to give up nursing and work as a secretary."
+   },
+   {
+    "quote": "The applicant\u2019s burden of showing that the IFA would not be reasonable in the circumstances is high.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "legal_test",
+    "statement": "The applicant bears a high burden to show that the IFA would be unreasonable in the circumstances."
+   },
+   {
+    "quote": "The RAD reasonably concluded that Ms. Ambroise failed to discharge that burden.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD reasonably concluded Ms. Ambroise failed to discharge the burden to show the IFA was unreasonable."
+   },
+   {
+    "quote": "The RAD considered Ms. Ambroise\u2019s allegations relating to the second prong, applied the relevant case law, and reached a reasonable conclusion.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD considered Ms. Ambroise's allegations, applied relevant case law, and reached a reasonable conclusion on the IFA reasonableness."
+   },
+   {
+    "quote": "In the circumstances, there is no reason for this Court to intervene (Vavilov at paras 111\u201312, 125\u201328).",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "There is no reason for the Court to intervene in the RAD's IFA determination."
+   },
+   {
+    "quote": "As noted above, the existence of a viable IFA is fatal to a refugee protection claim under section 96 or section 97. Therefore, the issue of an IFA \u201cis always an issue in a refugee hearing\u201d (Alkhoury at para 13).",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "legal_test",
+    "statement": "The existence of a viable IFA is fatal to a refugee protection claim under sections 96 or 97, so the IFA is always an issue in a refugee hearing."
+   },
+   {
+    "quote": "However, it is established case law that there is an onus on the Minister and the RPD to warn the claimant if an IFA is going to be raised (Thirunavukkarasu at 596). This protects the claimant\u2019s right to be heard and gives the claimant notice of the case to be met (Thirunavukkarasu at 596).",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.3",
+     "39.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "legal_test",
+    "statement": "There is an onus on the Minister and the RPD to warn the claimant if an IFA is going to be raised, to protect the claimant's right to be heard and give notice of the case to be met."
+   },
+   {
+    "quote": "In my opinion, procedural fairness does not require that an IFA be raised at the outset of the hearing, although it is preferable to do so as early as possible, even before the hearing (Figueroa v Canada (Citizenship and Immigration), 2016 FC 521 at para 56).",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "Procedural fairness does not require that an IFA be raised at the outset of the hearing, although it is preferable to do so as early as possible, even before the hearing."
+   },
+   {
+    "quote": "The duty of procedural fairness is met if the applicant has the opportunity to adequately respond to the possibility of an IFA.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "legal_test",
+    "statement": "The duty of procedural fairness is met if the applicant has the opportunity to adequately respond to the possibility of an IFA."
+   },
+   {
+    "quote": "In this case, I find that Ms. Ambroise was reasonably informed about the main issues the RPD was going to raise and that she had a reasonable opportunity to present her perspective.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Ms. Ambroise was reasonably informed about the main issues the RPD was going to raise and had a reasonable opportunity to present her perspective."
+   },
+   {
+    "quote": "Although the IFA was raised towards the end of the hearing before the RPD, counsel for Ms. Ambroise was able to take advantage of his question period to ask Ms. Ambroise about the IFA. He also made submissions regarding the IFA at the end of the hearing.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.2",
+     "42.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Although the IFA was raised towards the end of the hearing, counsel for Ms. Ambroise was able to question her about the IFA and make submissions regarding it at the end of the hearing."
+   },
+   {
+    "quote": "Like Justice Pentney, I am of the opinion that Ms. Ambroise had the opportunity at the hearing to present her case regarding the IFA (Alkhoury at para 15; Tariq at para 29).",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Ms. Ambroise had the opportunity at the hearing to present her case regarding the IFA."
+   },
+   {
+    "quote": "I note that Ms. Ambroise did not seek leave from the RPD to present any further evidence or submissions after the hearing.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "party_gap",
+    "statement": "Ms. Ambroise did not seek leave from the RPD to present further evidence or submissions after the hearing."
+   },
+   {
+    "quote": "She also did not request that the RAD allow further evidence under subsection 110(4) of IRPA on the grounds that she did not have a reasonable opportunity to present it to the RPD.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "party_gap",
+    "statement": "Ms. Ambroise did not request that the RAD allow further evidence under subsection 110(4) of IRPA on the grounds of lack of reasonable opportunity to present it to the RPD."
+   },
+   {
+    "quote": "In these circumstances, I cannot conclude that there was a breach of procedural fairness.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "There was no breach of procedural fairness in the circumstances of this case."
+   },
+   {
+    "quote": "Consequently, the application for judicial review is dismissed.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "remedy",
+    "statement": "The application for judicial review is dismissed."
+   },
+   {
+    "quote": "Neither party has proposed a question for certification. I agree that no certifiable question arises in the matter.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.2",
+     "43.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "remedy",
+    "statement": "No certifiable question arises in the matter."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "In Ward, the Supreme Court states that having established that the claimant has a fear, a panel is entitled to presume that persecution will be likely and the fear well-founded if there is an absence of state protection (Ward at 722). However, the Supreme Court does not require a panel to analyze state protection if the fear has not been established. In this case, the RAD determined that there was no \u201cserious possibility\u201d that Ms. Ambroise would face persecution in Cap-Ha\u00eftien; therefore, I conclude that the RAD was not required to analyze state protection.",
+    "paragraphs": [
+     21,
+     23
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2",
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21,
+     23
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "The RAD was not required to analyze state protection because it found no serious possibility of persecution in Cap-Ha\u00eftien, and state protection analysis is only necessary if fear of persecution is established."
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "This is also consistent with the conclusion of the Federal Court of Appeal in Kreishan v Canada (Citizenship and Immigration), 2019 FCA 223, where Justice Rennie stated, at paragraph 46: Before leaving this point, a caveat. It is important to note that the standard of review by which the Federal Court reviews RPD and RAD decisions does not preclude consideration of the merits or factual findings of either tribunal. Reasonableness and its criteria of justification, intelligibility and transparency, apply to how these tribunals assess the evidence before them and the inferences which may be drawn from that evidence, and correctness applies to the fairness of the procedure of the RPD hearing [Emphasis added; citation omitted]",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2",
+     "9.3",
+     "9.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "authority": "The Federal Court of Appeal in Kreishan confirmed that reasonableness applies to how tribunals assess evidence and correctness applies to procedural fairness of the RPD hearing.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "She made reference to Dominguez Bando, in which Justice No\u00ebl found it unreasonable to conclude that there was an IFA despite the applicant\u2019s credible evidence of sexual assault (Dominguez Bando v Canada (Citizenship and Immigration), 2007 FC 980 at para 10). However, Ms. Dominguez Bando\u2019s evidence was that her persecutor had already pursued her elsewhere in Mexico and even in Canada through her family.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.2",
+     "32.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "authority": "Dominguez Bando was cited where it was found unreasonable to deny IFA despite credible evidence of sexual assault because the persecutor pursued the applicant elsewhere.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Thirunavukkarasu, the Court of Appeal discussed the \u201creasonableness\u201d of an IFA. It stated that it is \u201c[not] enough for refugee claimants to say that they do not like the weather in a safe area, or that they have no friends or relatives there, or that they may not be able to find suitable work there\u201d [emphasis added] (Thirunavukkarasu at 598; see also Elusme v Canada (Citizenship and Immigration), 2020 FC 225 at paras 25\u201327).",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1",
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "authority": "Thirunavukkarasu held that dislike of weather, lack of friends or relatives, or inability to find suitable work is not enough to render an IFA unreasonable.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Even though the rule in Thirunavukkarasu is not \u201cabsolute\u201d, it is only in exceptional circumstances that a mere lack of employment opportunities in the identified IFA would be sufficient to render the IFA unreasonable (Mora Alcca v Canada (Citizenship and Immigration), 2020 FC 236 at paras 15\u201316, citing Fernandez Cuevas v Canada (Citizenship and Immigration), 2005 FC 1169).",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "authority": "Mora Alcca and Fernandez Cuevas confirm that lack of employment opportunities alone rarely makes an IFA unreasonable.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Tariq, Justice Boswell determined that the RPD \u201cclearly raised\u201d the IFA during the hearing and that the applicant \u201ccould have adduced evidence\u201d in this regard to the RPD (Tariq at para 29).",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "authority": "In Tariq, the RPD raised the IFA during the hearing and the applicant could have adduced evidence in response.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Justice Pentney stated in Alkhoury, \u201c[T]he PA\u2019s counsel had an opportunity to pursue this at the hearing, either by further questioning, leading further evidence, making submissions, or by requesting the opportunity to lead further evidence or make further submissions following the hearing\u201d (Alkhoury at para 15).",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "authority": "As stated in Alkhoury, the applicant's counsel had an opportunity to pursue the IFA at the hearing by questioning, evidence, submissions, or requesting further evidence or submissions.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

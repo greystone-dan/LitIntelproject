@@ -129,10 +129,8 @@ def window_text(order: list[str], table: dict[str, dict], sid: str) -> tuple[str
 	return "\n".join(f"{x} {table[x]['text']}" for x in ids), ids
 
 
-def load_arguments(themes_dir: Path | None, case_id: int, model: str) -> list[dict]:
-	if themes_dir is None:
-		return []
-	for path in sorted(themes_dir.glob(f"case_{case_id}_themes_*.json")):
+def load_arguments(themes_dirs: list[Path] | None, case_id: int, model: str) -> list[dict]:
+	for path in sorted(p for d in themes_dirs or [] for p in d.glob(f"case_{case_id}_themes_themes_v5_*.json")):
 		data = json.loads(path.read_text(encoding="utf-8"))
 		args = data.get("result", {}).get("arguments", [])
 		return [{"id": f"A{n}", "by": a.get("made_by", ""), "claim": a.get("claim", ""), "paras": a.get("paragraphs", []), "treatment": a.get("treatment", "")} for n, a in enumerate(args[:MAX_ARGS], 1)]
@@ -209,7 +207,7 @@ def main() -> int:
 	parser.add_argument("--cases", required=True)
 	parser.add_argument("--out-dir", type=Path, required=True)
 	parser.add_argument("--ledger", type=Path, required=True)
-	parser.add_argument("--themes-dir", type=Path, default=None, help="Folder with the v5 themes outputs for the same cases (gives the argument list)")
+	parser.add_argument("--themes-dir", type=Path, action="append", help="Folder with the v5 themes outputs for the same cases (gives the argument list)")
 	parser.add_argument("--send", action="store_true")
 	parser.add_argument("--reports-dir", type=Path, action="append")
 	parser.add_argument("--meta-csv", type=Path, action="append")

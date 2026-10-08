@@ -1,4 +1,4 @@
-"""Full-decision themes and arguments, using the deterministic discussion units as a map. Report-only; open case law only.
+"""Full-decision themes, arguments, court holdings, rebuttals, authorities and left-open issues (prompt themes_v2; v1 had only themes and arguments), using the deterministic discussion units as a map. Report-only; open case law only.
 
 The model gets the whole decision as numbered paragraphs plus the rule-based unit boundaries, and returns themes and
 arguments. Every argument must carry paragraph numbers and a short VERBATIM quote; the script checks each quote against
@@ -21,62 +21,118 @@ for entry in (PROJECT_ROOT, PROJECT_ROOT / "scripts" / "ai_poc"):
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "themes_v1"
+PROMPT_VERSION = "themes_v2"
 SYSTEM = (
-	"You read one Canadian immigration or refugee court or tribunal decision and extract its themes and arguments for a legal researcher. "
+	"You read one Canadian immigration or refugee court or tribunal decision and extract what a litigator needs from it. "
 	"The decision is given as paragraphs [n]. The units list is a rule-based map of where the decision changes subject; use it as a guide, "
-	"not as truth. Use only the decision text; never invent facts, cases or paragraph numbers.\n"
-	"themes: 3 to 8 themes the reasons actually turn on, each with a short name (2 to 8 words), a one-sentence summary, and the paragraph "
-	"numbers where it is discussed.\n"
-	"arguments: the distinct arguments made, in the order they appear. For each: who made it (applicant, respondent, tribunal_below, court), "
-	"the claim in one sentence, how the court dealt with it (accepted, rejected, not_decided), the main authority it rests on as cited in the text "
-	"(or empty), the paragraph numbers, and a quote of 25 words or fewer copied exactly, character for character, from one of those paragraphs.\n"
+	"not as truth. Use only the decision text; never invent facts, cases or paragraph numbers. The case header says who is the applicant and who is the respondent on this "
+	"application; use it. Every item needs 1 to 3 paragraph numbers (the paragraphs that actually say it, never a long range) and a quote of 25 words or fewer "
+	"copied exactly, character for character, from one of those paragraphs. Do not stitch two passages together with '...'.\n"
+	"Fill each list separately and do not leave out an item because it overlaps another list.\n"
+	"themes: 3 to 8 themes the reasons turn on: a short name (2 to 8 words), a one-sentence summary, and the key paragraph numbers.\n"
+	"arguments: only what a PARTY (applicant, respondent) or the tribunal below argued or decided, one row per distinct point, in order. "
+	"made_by is applicant, respondent or tribunal_below. Never put the judge's own reasoning here. "
+	"treatment is what the court did with it: accepted, partly_accepted (accepted in part or accepted but found harmless), rejected, or not_decided "
+	"(the court expressly declined to decide it).\n"
+	"holdings: what the COURT itself decides and the legal tests and rules it states or applies, one row each: a conclusion on an issue, a test, a safeguard, a "
+	"standard of review, or the remedy. kind is one of conclusion, legal_test, standard_of_review, remedy, other. Include each separate point the court makes in order to reach its result.\n"
+	"rebuttals: where the court answers a party's point specifically, one row per point: what the point was, how the court answered it, and who made the point.\n"
+	"authorities: the main cases or provisions the court relies on, with how it treated each: followed, applied, distinguished, rejected, or mentioned.\n"
+	"left_open: issues the court expressly says it does not decide, with the reason.\n"
 	"overall: one or two sentences giving the result and the main reason, in plain language."
 )
+_QP = {"paragraphs": {"type": "array", "items": {"type": "integer"}}, "quote": {"type": "string"}}
+
+
+def _obj(props: dict) -> dict:
+	return {"type": "object", "additionalProperties": False, "required": list(props), "properties": props}
+
+
 SCHEMA = {
-	"type": "object", "additionalProperties": False, "required": ["themes", "arguments", "overall"],
+	"type": "object", "additionalProperties": False,
+	"required": ["overall", "themes", "arguments", "holdings", "rebuttals", "authorities", "left_open"],
 	"properties": {
 		"overall": {"type": "string"},
-		"themes": {"type": "array", "items": {"type": "object", "additionalProperties": False,
-			"required": ["name", "summary", "paragraphs"],
-			"properties": {"name": {"type": "string"}, "summary": {"type": "string"}, "paragraphs": {"type": "array", "items": {"type": "integer"}}}}},
-		"arguments": {"type": "array", "items": {"type": "object", "additionalProperties": False,
-			"required": ["made_by", "claim", "treatment", "authority", "paragraphs", "quote"],
-			"properties": {
-				"made_by": {"type": "string", "enum": ["applicant", "respondent", "tribunal_below", "court"]},
-				"claim": {"type": "string"},
-				"treatment": {"type": "string", "enum": ["accepted", "rejected", "not_decided"]},
-				"authority": {"type": "string"},
-				"paragraphs": {"type": "array", "items": {"type": "integer"}},
-				"quote": {"type": "string"}}}},
+		"themes": {"type": "array", "items": _obj({"name": {"type": "string"}, "summary": {"type": "string"}, "paragraphs": _QP["paragraphs"]})},
+		"arguments": {"type": "array", "items": _obj({
+			"made_by": {"type": "string", "enum": ["applicant", "respondent", "tribunal_below"]},
+			"claim": {"type": "string"},
+			"treatment": {"type": "string", "enum": ["accepted", "partly_accepted", "rejected", "not_decided"]},
+			"authority": {"type": "string"}, **_QP})},
+		"holdings": {"type": "array", "items": _obj({
+			"kind": {"type": "string", "enum": ["conclusion", "legal_test", "standard_of_review", "remedy", "other"]},
+			"statement": {"type": "string"}, **_QP})},
+		"rebuttals": {"type": "array", "items": _obj({
+			"point": {"type": "string"}, "made_by": {"type": "string", "enum": ["applicant", "respondent", "tribunal_below"]},
+			"court_answer": {"type": "string"}, **_QP})},
+		"authorities": {"type": "array", "items": _obj({
+			"authority": {"type": "string"},
+			"treatment": {"type": "string", "enum": ["followed", "applied", "distinguished", "rejected", "mentioned"]},
+			"why": {"type": "string"}, **_QP})},
+		"left_open": {"type": "array", "items": _obj({"issue": {"type": "string"}, "reason": {"type": "string"}, **_QP})},
 	},
 }
+ITEM_LISTS = ("arguments", "holdings", "rebuttals", "authorities", "left_open")
 
 
 def norm(text: str) -> str:
 	return re.sub(r"\s+", " ", text.replace("’", "'").replace("“", '"').replace("”", '"')).strip().lower()
 
 
+def _loose(text: str) -> str:
+	"""Compare without quotation marks or end punctuation, which models often change."""
+	return re.sub(r"[\"'`]", "", norm(text)).strip(" .,;:")
+
+
 def verify(result: dict, paragraphs: list[dict]) -> dict:
+	"""Strict check (exact, in a cited paragraph), loose check (ignores quote marks/end punctuation), and where the quote really is."""
 	texts = {p["paragraph_index"]: norm(p["text"]) for p in paragraphs}
+	loose = {n: _loose(t) for n, t in texts.items()}
 	valid = set(texts)
-	verified = checked = bad_numbers = 0
-	for arg in result.get("arguments", []):
-		quote = norm(arg.get("quote", ""))
-		nums = [n for n in arg.get("paragraphs", []) if n in valid]
-		bad_numbers += len(arg.get("paragraphs", [])) - len(nums)
-		arg["quote_verified"] = bool(quote) and any(quote in texts[n] for n in nums)
-		checked += 1
-		verified += arg["quote_verified"]
+	counts = {"items": 0, "quote_exact_in_cited": 0, "quote_loose_in_cited": 0, "quote_found_elsewhere": 0, "quote_not_found": 0, "quote_has_ellipsis": 0}
+	bad_numbers = 0
+	for key in ITEM_LISTS:
+		for item in result.get(key, []):
+			nums = [n for n in item.get("paragraphs", []) if n in valid]
+			bad_numbers += len(item.get("paragraphs", [])) - len(nums)
+			quote = norm(item.get("quote", ""))
+			lq = _loose(item.get("quote", ""))
+			counts["items"] += 1
+			if "..." in quote or "\u2026" in quote:
+				counts["quote_has_ellipsis"] += 1
+			item["quote_verified"] = bool(quote) and any(quote in texts[n] for n in nums)
+			item["quote_loose_verified"] = bool(lq) and any(lq in loose[n] for n in nums)
+			item["quote_found_in"] = [n for n in sorted(valid) if lq and lq in loose[n]]
+			if item["quote_verified"]:
+				counts["quote_exact_in_cited"] += 1
+			elif item["quote_loose_verified"]:
+				counts["quote_loose_in_cited"] += 1
+			elif item["quote_found_in"]:
+				counts["quote_found_elsewhere"] += 1
+			else:
+				counts["quote_not_found"] += 1
 	for theme in result.get("themes", []):
 		bad_numbers += sum(n not in valid for n in theme.get("paragraphs", []))
-	return {"arguments": checked, "quotes_verified": verified, "paragraph_numbers_not_in_decision": bad_numbers}
+	counts["paragraph_numbers_not_in_decision"] = bad_numbers
+	counts["rows"] = {k: len(result.get(k, [])) for k in ("themes",) + ITEM_LISTS}
+	return counts
+
+
+# Who is who on the application, so the model does not guess sides (the five review cases).
+PARTIES = {
+	126: "Espinosa v. Canada (Minister of Citizenship and Immigration). Applicant = Mr Espinosa (the refugee claimant). Respondent = the Minister. Below = the Immigration and Refugee Board.",
+	1046: "Canada (Minister of Human Resources Development) v. Gattellaro. Applicant = the Minister. Respondent = Ms Gattellaro (the CPP claimant). Below = a member of the Pension Appeal Board.",
+	1147: "Ambroise v. Canada (Citizenship and Immigration). Applicant = Ms Ambroise (the refugee claimant). Respondent = the Minister. Below = the Refugee Appeal Division (RAD), and before it the RPD.",
+	1292: "Senadheerage v. Canada (Citizenship and Immigration), 2020 FC 968. Applicant = Mr Senadheerage (the refugee claimant). Respondent = the Minister. Below = the Refugee Appeal Division (RAD).",
+	1540: "Canada (Attorney General) v. Angell. Applicant = the Attorney General of Canada (AGC). Respondent = Ms Angell (the CPP claimant, no lawyer). Below = the Appeal Division of the Social Security Tribunal.",
+}
 
 
 def build(report: dict, paragraphs: list[dict]) -> list[dict]:
 	units = [{"unit": u["discussion_unit_id"].split(":")[-1], "from": u["start_paragraph"], "to": u["end_paragraph"]} for u in report.get("discussion_units", [])]
 	body = "\n\n".join(f"[{p['paragraph_index']}] {p['text']}" for p in paragraphs)
-	user = f"units (rule-based, container paragraph positions): {json.dumps(units)}\n\ndecision:\n{body}"
+	header = f"case: {PARTIES[report['case_id']]}\n\n" if report.get("case_id") in PARTIES else ""
+	user = f"{header}units (rule-based, container paragraph positions): {json.dumps(units)}\n\ndecision:\n{body}"
 	return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
 
 
@@ -97,14 +153,14 @@ def main() -> int:
 		paragraphs = load_paragraphs(report)
 		messages = build(report, paragraphs)
 		est_in = int(sum(len(m["content"]) for m in messages) / 3.2)
-		out_cap = 12000 if args.model.startswith(("gpt-5", "o4")) else 5000
+		out_cap = 12000 if args.model.startswith(("gpt-5", "o4")) else 9000
 		if not args.send:
 			print(json.dumps({"case_id": case_id, "model": args.model, "est_input_tokens": est_in, "est_usd_max": round(cost_usd(args.model, est_in, out_cap), 4)}))
 			continue
 		data, usage = call_json(client, ledger, run=args.run, model=args.model, messages=messages, schema_name="themes_arguments",
 			schema=SCHEMA, max_output_tokens=out_cap, est_input_tokens=est_in, label=f"themes case {case_id}")
 		check = verify(data, paragraphs)
-		(args.out_dir / f"case_{case_id}_themes_{args.model}.json").write_text(json.dumps({
+		(args.out_dir / f"case_{case_id}_themes_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({
 			"case_id": case_id, "model": args.model, "prompt_version": PROMPT_VERSION, "run": args.run, "usage": usage,
 			"verification": check, "result": data}, indent=1), encoding="utf-8")
 		print(json.dumps({"case_id": case_id, "model": args.model, "usd": round(usage["usd"], 4), **check}), flush=True)

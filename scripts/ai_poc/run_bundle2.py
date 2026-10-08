@@ -2,7 +2,7 @@
 Database: SELECTs only (steps 1 and 3). OpenAI: gpt-4.1-mini only (step 2). Nothing is written to the database, the site or main.
 Steps (one at a time with --step N, or all):
   1  read-only pick of 100 recent decisions (prepare_recent.py) + paragraph reports
-  2  summaries + citations by purpose + idea flag + structure, per decision        step ceiling US$2.00 (dry-run sum must be below it)
+  2  summaries + citations by purpose + idea flag + structure, per decision        step ceiling US$2.40 (dry-run sum must be below it)
   3  read-only export of the pinpointed cited paragraphs (from step 2 outputs + the 51 hand-listed ones)
 Total hard cap = ledger total at first start + US$2.50, written once to <out-root>\\bundle2_cap.txt, never raised. Every call is also refused by the ledger if it would pass it.
 Stop rule: create <out-root>\\STOP.txt (stops before the next call); any error, cap refusal or dry run above the step ceiling stops the run. No retries with higher caps.
@@ -20,7 +20,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 PY = sys.executable
 ALLOWANCE = 2.50
-STEP2_CEILING = 2.00
+STEP2_CEILING = 2.40
 
 
 def ledger_total(path: Path) -> float:

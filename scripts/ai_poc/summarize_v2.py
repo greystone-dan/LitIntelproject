@@ -21,7 +21,7 @@ from summarize_paragraphs import clean  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
 PROMPT_VERSION = "para_v2"
-VARIANTS = ("base", "brief", "role")  # base = fixes only; brief = case brief (parties, issues) read first and shown with every chunk; role = adds a one-word paragraph role
+VARIANTS = ("base", "brief", "role", "g3", "ctx3")  # g3 = one summary per group of 3 consecutive paragraphs; ctx3 = per-paragraph summaries with the neighbouring paragraphs shown as context only; base = fixes only; brief = case brief (parties, issues) read first and shown with every chunk; role = adds a one-word paragraph role
 CHUNK = 30
 
 SYSTEM_SUM = """You read numbered paragraphs of a Canadian court or tribunal decision. For EVERY paragraph shown, in order, return:
@@ -44,6 +44,17 @@ SCHEMA_SUM = {"type": "object", "additionalProperties": False, "required": ["par
 		"summary": {"type": "string"},
 		"ideas": {"type": "string", "enum": ["single", "multiple"]},
 		"idea_list": {"type": "array", "items": {"type": "string"}}}}}}}
+
+SYSTEM_G3 = """You read numbered paragraphs of a Canadian court or tribunal decision, already split into groups of three consecutive paragraphs (the last group of a chunk may have fewer). For EVERY group shown, in order, return:
+- para: the first paragraph number of the group; last: the last paragraph number of the group.
+- speaker: court (the decision-maker's own reasoning, findings or statement of the law), party (a party's or counsel's position or concession being reported), below (a report of the decision under review), evidence (testimony, affidavit, document or expert report being described), other (procedure, headings, quoted statute wording), or mixed if the group clearly has more than one speaker.
+- summary: ONE plain sentence, at most 40 words, saying what the group says: the points made and who makes them. If the decision-maker answers, accepts or rejects an earlier point, say so. Use only the text shown.
+- ideas: "single" if the group develops one main point, "multiple" if two or more separate points; idea_list: when "multiple", each point in a few words.
+Ignore footnote numbers and footnote text that run into a paragraph. Do not skip any group."""
+SCHEMA_G3 = {"type": "object", "additionalProperties": False, "required": ["groups"], "properties": {"groups": {"type": "array", "items": {
+	"type": "object", "additionalProperties": False, "required": ["para", "last", "speaker", "summary", "ideas", "idea_list"],
+	"properties": {"para": {"type": "integer"}, "last": {"type": "integer"}, "speaker": {"type": "string", "enum": ["court", "party", "below", "evidence", "other", "mixed"]},
+		"summary": {"type": "string"}, "ideas": {"type": "string", "enum": ["single", "multiple"]}, "idea_list": {"type": "array", "items": {"type": "string"}}}}}}}
 
 SYSTEM_BRIEF = """Read this Canadian court or tribunal decision and return a case brief for a reader who will summarize it paragraph by paragraph: who the parties are (and who is the applicant/appellant), what is being challenged, and the 2 to 5 issues the decision-maker deals with, in plain words. At most 120 words in total. Use only the text."""
 SCHEMA_BRIEF = {"type": "object", "additionalProperties": False, "required": ["brief"], "properties": {"brief": {"type": "string"}}}
@@ -73,11 +84,21 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 		it["required"].append("role")
 		it["properties"]["role"] = {"type": "string", "enum": ["facts", "procedural_history", "issue", "law", "analysis", "conclusion", "disposition", "other"]}
 	state = {"brief": ""}
-	render = lambda ch: [{"role": "system", "content": sysmsg + (("\n\nCase brief (for orientation only; summarize each paragraph from its own text):\n" + state["brief"]) if state["brief"] else "")}, {"role": "user", "content": pre + "\n\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in ch)}]  # noqa: E731
+	idx = {p["paragraph_index"]: i for i, p in enumerate(paras)}
+
+	def ctx_block(ch):
+		i0, i1 = idx[ch[0]["paragraph_index"]], idx[ch[-1]["paragraph_index"]]
+		before = paras[max(0, i0 - 1):i0]
+		after = paras[i1 + 1:i1 + 2]
+		return before, after
+	render = lambda ch: [{"role": "system", "content": sysmsg + (("\n\nCase brief (for orientation only; summarize each paragraph from its own text):\n" + state["brief"]) if state["brief"] else "")}, {"role": "user", "content": pre + (("CONTEXT ONLY, do not summarize (previous paragraph):\n" + "\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in ctx_block(ch)[0]) + "\n\nPARAGRAPHS TO SUMMARIZE:\n") if variant == "ctx3" and ctx_block(ch)[0] else "") + "\n\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in ch) + (("\n\nCONTEXT ONLY, do not summarize (next paragraph):\n" + "\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in ctx_block(ch)[1])) if variant == "ctx3" and ctx_block(ch)[1] else "")}]  # noqa: E731
 	chunks = [paras[i:i + CHUNK] for i in range(0, len(paras), CHUNK)]
+	if variant == "g3":
+		render = lambda ch: [{"role": "system", "content": SYSTEM_G3}, {"role": "user", "content": pre + "\n\n".join(  # noqa: E731
+			f"GROUP {g[0]['paragraph_index']}-{g[-1]['paragraph_index']}:\n" + "\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in g) for g in (ch[i:i + 3] for i in range(0, len(ch), 3)))}]
 	if not send:
 		tin = sum(est(render(c)) for c in chunks) + 2500 + (sum(len(p["text"]) for p in paras) // 3 + 400 + 250 * len(chunks) if variant == "brief" else 0)
-		tout = 90 * len(paras) * (1.1 if variant == "role" else 1) + 1200 + (250 if variant == "brief" else 0)
+		tout = 90 * len(paras) * (1.1 if variant == "role" else 0.5 if variant == "g3" else 1) + 1200 + (250 if variant == "brief" else 0)
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "paragraphs": len(paras), "calls": len(chunks) + 1, "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 
@@ -87,14 +108,23 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 			raise SystemExit(3)
 
 	usd, rows, dropped = 0.0, {}, 0
+	covered_by_group = set()
 
 	def ask(ch):
 		nonlocal usd, dropped
 		stop()
 		msgs = render(ch)
-		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="summaries", schema=schema, max_output_tokens=min(16000, 400 + 200 * len(ch)), est_input_tokens=est(msgs), label=f"para case {case_id}")
+		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="summaries", schema=(SCHEMA_G3 if variant == "g3" else schema), max_output_tokens=min(16000, 400 + 200 * len(ch)), est_input_tokens=est(msgs), label=f"para case {case_id}")
 		usd += u["usd"]
 		want = {p["paragraph_index"] for p in ch}
+		if variant == "g3":
+			for r in data["groups"]:
+				if r["para"] in want and r["para"] not in rows:
+					rows[r["para"]] = r
+					covered_by_group.update(range(r["para"], r["last"] + 1))
+				else:
+					dropped += 1
+			return
 		for r in data["paragraphs"]:
 			if r["para"] in want and r["para"] not in rows:
 				rows[r["para"]] = r
@@ -109,12 +139,13 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 		state["brief"] = b["brief"]
 	for ch in chunks:
 		ask(ch)
-	retried = sorted({p["paragraph_index"] for p in paras} - set(rows))
+	have = lambda: set(rows) | covered_by_group  # noqa: E731
+	retried = sorted({p["paragraph_index"] for p in paras} - have())
 	if retried:
 		ask([p for p in paras if p["paragraph_index"] in set(retried)])
-	missing = sorted({p["paragraph_index"] for p in paras} - set(rows))
+	missing = sorted({p["paragraph_index"] for p in paras} - have())
 	ordered = [rows[k] for k in sorted(rows)]
-	listing = "\n".join(f"{r['para']}\t{r['speaker']}\t{r['summary']}" for r in ordered)
+	listing = "\n".join(f"{r['para']}{('-' + str(r['last'])) if variant == 'g3' else ''}\t{r['speaker']}\t{r['summary']}" for r in ordered)
 	msgs = [{"role": "system", "content": SYSTEM_STRUCT}, {"role": "user", "content": pre + listing}]
 	stop()
 	struct, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="structure", schema=SCHEMA_STRUCT, max_output_tokens=2500, est_input_tokens=est(msgs), label=f"struct case {case_id}")

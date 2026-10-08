@@ -2,8 +2,8 @@
 Steps (one at a time with --step N, or all):
   1  read-only pick of 100 NEW recent decisions (excludes batch 1) + paragraph reports; RPD from 2018, more SCC
   2  variant 'base' (fixes only) on all 100 + the 4 batch-1 decisions that lost paragraphs (re-run reports from --prior-reports);
-     variants 'brief' and 'role' on the first 30 decisions of the pick only.     step ceiling US$2.40 (dry-run sum must be below it)
-Total hard cap = ledger total at first start + US$2.50, written once to <out-root>\\bundle3_cap.txt, never raised. Every call is also refused by the ledger if it would pass it.
+     variants 'brief', 'role', 'g3' (one summary per 3-paragraph group) and 'ctx3' (neighbouring paragraphs as context) on the first 30 decisions of the pick only.     step ceiling US$2.90 (dry-run sum must be below it)
+Total hard cap = ledger total at first start + US$3.00, written once to <out-root>\\bundle3_cap.txt, never raised. Every call is also refused by the ledger if it would pass it.
 Stop rule: create <out-root>\\STOP.txt (stops before the next call); any error, cap refusal or dry run above the ceiling stops the run.
 """
 from __future__ import annotations
@@ -18,8 +18,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PY = sys.executable
-ALLOWANCE = 2.50
-STEP2_CEILING = 2.40
+ALLOWANCE = 3.00
+STEP2_CEILING = 2.90
 RETRY = ["35739", "30484", "6202", "61482"]
 AB_N = 30
 QUOTA = "FC=30,FCA=15,SCC=15,RPD=20,RAD=20"
@@ -83,7 +83,7 @@ def main() -> int:
 				return 2
 		elif s == "2":
 			new = [r["case_id"] for r in csv.DictReader((recent / "selection.csv").open(encoding="utf-8"))]
-			jobs = [("base", new + RETRY), ("brief", new[:AB_N]), ("role", new[:AB_N])]
+			jobs = [("base", new + RETRY), ("brief", new[:AB_N]), ("role", new[:AB_N]), ("g3", new[:AB_N]), ("ctx3", new[:AB_N])]
 			now = ledger_total(args.ledger)
 			cap = min(hard, math.ceil((now + STEP2_CEILING) * 100) / 100)
 

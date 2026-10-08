@@ -12,6 +12,7 @@ import argparse
 import csv
 import glob
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -20,6 +21,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
 from extract_themes_v5 import META, header, index_sentences, render  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
+
+# Optional context arms (A/B test of our own data): H = nearest section heading above the window, I = the fixed list of refugee claim issues,
+# K = court sentences that carry a disagreement cue are marked with "*" (code-found, not model-found).
+CUE_RE = re.compile(r"\b(I do not agree|I disagree|do(es)? not agree|cannot agree|not persuaded|I reject|cannot accept|do not accept|with respect|without merit|no merit|misconstrue|misread|mischaracteri[sz]|is not correct|is not persuasive|I am not satisfied|failed to (show|establish|demonstrate)|has not (shown|established|demonstrated))\b", re.I)
+
+
+def issue_list() -> str:
+	from backend.case_types.claim_issues import ISSUE_CUES
+
+	return ", ".join(k.replace("_", " ") for k in ISSUE_CUES)
+
+
+def heading_above(report: dict, para: int) -> str:
+	best = ""
+	for p in sorted(report.get("paragraphs", []), key=lambda x: x["paragraph_index"]):
+		if p["paragraph_index"] > para:
+			break
+		if p.get("is_heading") and str(p.get("text", "")).strip():
+			best = str(p["text"]).strip()[:120]
+	return best
 
 PROMPT_VERSION = "rebut_v1"
 WINDOW_AFTER = 2
@@ -73,7 +94,7 @@ def groups(points: list[dict]) -> list[list[dict]]:
 	return out
 
 
-def run_case(client, ledger, run, model, case_id, report, themes, send):
+def run_case(client, ledger, run, model, case_id, report, themes, send, context="", stop_file=None):
 	paragraphs = load_paragraphs(report)
 	table = index_sentences(paragraphs)
 	numbers = sorted({p["paragraph_index"] for p in paragraphs})
@@ -84,16 +105,29 @@ def run_case(client, ledger, run, model, case_id, report, themes, send):
 		lo, hi = min(p["lo"] for p in g), max(p["hi"] for p in g)
 		paras = {n for n in numbers if lo <= n <= hi + WINDOW_AFTER}
 		listing = "\n".join(f"{p['pid']} ({p['by']}; stated at {', '.join(p['ids'])}): {p['text']}" for p in g)
-		user = (head + "\n\n" if head else "") + f"Party points:\n{listing}\n\ntext:\n{render(table, paras)}"
+		body = render(table, paras)
+		if "K" in context:
+			body = "\n".join(("* " if CUE_RE.search(ln) and not any(ln.startswith(i + " ") for p in g for i in p["ids"]) else "") + ln for ln in body.split("\n"))
+		extra = ""
+		if "H" in context and heading_above(report, lo):
+			extra += f"Section heading above this text: {heading_above(report, lo)}\n"
+		if "I" in context:
+			extra += f"Typical issues in refugee decisions (for orientation only): {issue_list()}\n"
+		if "K" in context:
+			extra += "Sentences marked * contain a disagreement or rejection cue found by a word list; they may or may not answer a point.\n"
+		user = (head + "\n\n" if head else "") + extra + f"Party points:\n{listing}\n\ntext:\n{body}"
 		calls.append((g, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]))
 	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
 	if not send:
 		tin = sum(est(m) for _, m in calls)
 		tout = sum(300 + 110 * len(g) for g, _ in calls)
-		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "points": len(points), "calls": len(calls), "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
+		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "context": context, "points": len(points), "calls": len(calls), "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 	usd, out_rows, bad_ids = 0.0, [], 0
 	for g, msgs in calls:
+		if stop_file is not None and stop_file.exists():
+			print(json.dumps({"stopped": "stop file found", "case_id": case_id}), flush=True)
+			raise SystemExit(3)
 		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="rebuttal_pass", schema=SCHEMA, max_output_tokens=300 + 150 * len(g), est_input_tokens=est(msgs), label=f"rebut case {case_id} {g[0]['pid']}")
 		usd += u["usd"]
 		by_pid = {p["pid"]: p for p in g}
@@ -123,6 +157,8 @@ def main() -> int:
 	ap.add_argument("--reports-dir", type=Path, action="append")
 	ap.add_argument("--meta-csv", type=Path, action="append")
 	ap.add_argument("--cap-usd", type=float, default=None)
+	ap.add_argument("--context", default="", help="letters from H, I, K (see top of file); empty = control")
+	ap.add_argument("--stop-file", type=Path, default=None, help="if this file exists the run stops before the next call")
 	args = ap.parse_args()
 	for m in args.meta_csv or []:
 		for row in csv.DictReader(m.open(encoding="utf-8-sig")):
@@ -136,11 +172,11 @@ def main() -> int:
 		hits = sorted(glob.glob(str(args.themes_dir / f"case_{cid}_themes_*.json")))
 		if path is None or not hits:
 			raise SystemExit(f"missing report or themes file for case {cid}")
-		out = run_case(client, ledger, args.run, args.model, cid, json.loads(path.read_text(encoding="utf-8")), json.loads(Path(hits[-1]).read_text(encoding="utf-8")), args.send)
+		out = run_case(client, ledger, args.run, args.model, cid, json.loads(path.read_text(encoding="utf-8")), json.loads(Path(hits[-1]).read_text(encoding="utf-8")), args.send, args.context, args.stop_file)
 		if out is None:
 			continue
-		(args.out_dir / f"case_{cid}_rebut_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({"case_id": cid, "model": args.model, "prompt_version": PROMPT_VERSION, "run": args.run, "usage": {"usd": out["usd"]}, "verification": out["verification"], "result": out["result"]}, indent=1), encoding="utf-8")
-		print(json.dumps({"case_id": cid, "model": args.model, "prompt": PROMPT_VERSION, "usd": round(out["usd"], 4), **out["verification"]}), flush=True)
+		(args.out_dir / f"case_{cid}_rebut_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({"case_id": cid, "model": args.model, "prompt_version": PROMPT_VERSION, "context": args.context, "run": args.run, "usage": {"usd": out["usd"]}, "verification": out["verification"], "result": out["result"]}, indent=1), encoding="utf-8")
+		print(json.dumps({"case_id": cid, "model": args.model, "prompt": PROMPT_VERSION, "context": args.context, "usd": round(out["usd"], 4), **out["verification"]}), flush=True)
 	print(json.dumps({"spent_total_usd": round(ledger.total(), 4)}))
 	return 0
 

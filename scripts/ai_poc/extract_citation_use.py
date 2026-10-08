@@ -156,7 +156,7 @@ UNIT_PRIORITY = {"R": 0, "H": 1, "L": 2, "A": 3}  # court's own voice first when
 
 def load_arguments(themes_dirs: list[Path] | None, case_id: int, model: str) -> list[dict]:
 	"""What the Court is arguing or deciding: arguments, rebuttals, holdings, left-open issues from the v5 themes output."""
-	for path in sorted(p for d in themes_dirs or [] for p in d.glob(f"case_{case_id}_themes_themes_v5_*.json")):
+	for path in sorted(p for d in themes_dirs or [] for p in d.glob(f"case_{case_id}_themes_themes_v5*.json")):
 		res = json.loads(path.read_text(encoding="utf-8")).get("result", {})
 		units: list[dict] = []
 		for prefix, key, field in (("A", "arguments", "claim"), ("R", "rebuttals", "court_answer"), ("H", "holdings", "statement"), ("L", "left_open", "issue")):

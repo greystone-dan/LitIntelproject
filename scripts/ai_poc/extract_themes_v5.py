@@ -30,8 +30,13 @@ for entry in (PROJECT_ROOT, PROJECT_ROOT / "scripts" / "ai_poc"):
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "themes_v5"
+PROMPT_VERSION = "themes_v5b"  # v5 + smaller chunks, uncovered-paragraph pass, left_open relabel, applicant rule
 META: dict[int, dict] = {}
+CHUNK_TRIGGER = 14  # an issue range longer than this many paragraphs is split (v5 used 25)
+CHUNK = 10  # paragraphs per call when split (v5 used 20)
+GAP_MIN_RUN = 3  # an uncovered run of at least this many paragraphs gets a second look
+GAP_MAX_RUNS = 4  # per case, to keep cost bounded
+LEFT_OPEN_CUES = re.compile(r"\b(need not|does not need to|do not need to|need not decide|will not (?:consider|decide|assess|address)|declin\w+ to (?:decide|consider|rule|address)|without deciding|not necessary to decide|unnecessary to decide|leaves? (?:open|for)|is not (?:necessary|required) to)\b", re.I)
 
 PARTIES = {
 	126: "Espinosa v. Canada (Minister of Citizenship and Immigration). Applicant = Mr Espinosa (the refugee claimant). Respondent = the Minister. Below = the Immigration and Refugee Board.",
@@ -148,7 +153,7 @@ SPEAKER = (
 	"WHO IS SPEAKING. 'the applicant says / argues / submits', 'counsel submits', 'the respondent relies on' report a party: kind party_argument, by that party. "
 	"'The Board / RAD / RPD / Appeal Division found' reports the decision below: kind finding_below, by tribunal_below. "
 	"The judge's own voice ('I am not persuaded', 'In my view', 'I agree', 'I find', 'the Court', 'this application is dismissed') is the Court: kind court_holding, legal_test, standard_of_review, rebuttal, authority, left_open or remedy, by court. "
-	"A holding is something the Court itself says; never record the Court's reasoning as a party's argument. Sides come from the case header, not from who wins. "
+	"A holding is something the Court itself says; never record the Court's reasoning as a party's argument. Sides come from the case header, not from who wins: the header says who the applicant is, so use it exactly, even when the applicant is the Minister or the Attorney General (their arguments are then by applicant, and the other party's are by respondent). "
 	"If the Court says 'I agree with X that ... but ...', record X's argument with result partly_accepted and say what part in note.\n"
 )
 
@@ -231,9 +236,9 @@ def partition(issues: list[dict], paragraph_numbers: list[int]) -> list[dict]:
 	out = []
 	for r in ranges:
 		span = [n for n in paragraph_numbers if r["start"] <= n <= r["end"]]
-		if len(span) > 25:
-			for j in range(0, len(span), 20):
-				chunk = span[j:j + 20]
+		if len(span) > CHUNK_TRIGGER:
+			for j in range(0, len(span), CHUNK):
+				chunk = span[j:j + CHUNK]
 				out.append({**r, "start": chunk[0], "end": chunk[-1]})
 		else:
 			out.append(r)
@@ -253,6 +258,9 @@ def build_result(map_result: dict, rows: list[dict], table: dict[str, dict]) -> 
 		quote = " ".join(table[e]["text"] for e in ids)
 		common = {"quote": quote, "paragraphs": paras, "evidence_ids": ids, "quote_verified": True, "quote_loose_verified": True, "quote_found_in": paras}
 		kind, by = row["kind"], row["by"]
+		if kind in ("court_holding", "legal_test") and by == "court" and LEFT_OPEN_CUES.search(row["text"]):
+			row = {**row, "relabelled_from": kind}
+			kind = "left_open"
 		if kind in ("party_argument", "finding_below"):
 			result["arguments"].append({**common, "made_by": by if by != "court" else "tribunal_below", "claim": row["text"], "treatment": row["result"] if row["result"] != "none" else "accepted",
 				"outcome_note": row["note"], "kind": kind})
@@ -277,7 +285,7 @@ def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, s
 	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
 	map_msgs = [{"role": "system", "content": SYSTEM_MAP}, {"role": "user", "content": (head + "\n\n" if head else "") + "decision:\n" + full_text}]
 	if not send:
-		n_issues = 6
+		n_issues = max(6, -(-len(numbers) // 9) + 2)
 		est_in = est(map_msgs) + est([{"role": "system", "content": SYSTEM_ISSUE}] * n_issues) + int(len(full_text) / 3.2) * 1.1
 		worst = cost_usd(model, int(est_in), 2500 + n_issues * 3000)
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "sentences": len(table), "est_input_tokens": int(est_in), "est_usd_max": round(worst, 4)}))
@@ -300,6 +308,30 @@ def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, s
 		for row in data["rows"]:
 			row["_range"] = [r["start"], r["end"]]
 			rows.append(row)
+	covered = {table[e]["para"] for row in rows for e in row.get("evidence", []) if e in table}
+	runs, cur = [], []
+	for n in [x for x in numbers if x != 0]:
+		if n in covered:
+			if len(cur) >= GAP_MIN_RUN:
+				runs.append(cur)
+			cur = []
+		else:
+			cur.append(n)
+	if len(cur) >= GAP_MIN_RUN:
+		runs.append(cur)
+	gap_calls = 0
+	for run_paras in runs[:GAP_MAX_RUNS]:
+		run_paras = run_paras[:CHUNK]
+		body = render(table, set(run_paras))
+		user = (head + "\n\n" if head else "") + f"All parts of the decision, for context: {labels}\nThis part: paragraphs {run_paras[0]} to {run_paras[-1]}, which the first pass produced no rows for. Check whether any argument, finding, holding, test or other row type is stated here; if the paragraphs only describe background with nothing a litigator needs, return no rows.\n\ntext:\n{body}"
+		msgs = [{"role": "system", "content": SYSTEM_ISSUE}, {"role": "user", "content": user}]
+		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="rows", schema=SCHEMA_ROWS, max_output_tokens=2000, est_input_tokens=est(msgs), label=f"gap case {case_id} {run_paras[0]}-{run_paras[-1]}")
+		usd += u["usd"]
+		gap_calls += 1
+		for row in data["rows"]:
+			row["_range"] = [run_paras[0], run_paras[-1]]
+			row["_gap_pass"] = True
+			rows.append(row)
 	bad = [(i, row) for i, row in enumerate(rows) if not [e for e in row.get("evidence", []) if e in table]]
 	repaired = 0
 	if bad:
@@ -320,7 +352,7 @@ def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, s
 	check = {"items": sum(len(result[k]) for k in ("arguments", "holdings", "rebuttals", "authorities", "left_open")),
 		"quote_exact_in_cited": sum(len(result[k]) for k in ("arguments", "holdings", "rebuttals", "authorities", "left_open")),
 		"quote_loose_in_cited": 0, "quote_found_elsewhere": 0, "quote_not_found": 0, "quote_has_ellipsis": 0, "paragraph_numbers_not_in_decision": 0,
-		"rows_without_evidence_after_repair": len(result["rows_without_evidence"]), "evidence_repaired": repaired, "issues": len(ranges), "calls": 1 + len(ranges) + (1 if bad else 0),
+		"rows_without_evidence_after_repair": len(result["rows_without_evidence"]), "evidence_repaired": repaired, "issues": len(ranges), "calls": 1 + len(ranges) + gap_calls + (1 if bad else 0), "gap_pass_calls": gap_calls,
 		"paragraph_coverage": round(len(cited & set(numbers)) / len(numbers), 3) if numbers else 0.0,
 		"rows": {k: len(result[k]) for k in ("themes", "arguments", "holdings", "rebuttals", "authorities", "left_open")}}
 	return {"usd": usd, "result": result, "verification": check}

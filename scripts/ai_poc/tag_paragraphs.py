@@ -1,4 +1,4 @@
-"""Paragraph tagging v2 (topic + role) for the 300 Core cases. Report-only; no database; open case law only.
+"""Paragraph tagging v2/v3 (topic + role) for the 300 Core cases. Report-only; no database; open case law only.
 
 Dry run by default (counts, token and cost estimate, no network). --send calls the model.
 Fixes from the 2026-09-24 gpt-4.1-nano run: whole case in one call with json_object mode and max_tokens=6000 (long
@@ -50,6 +50,35 @@ SYSTEM_V2 = (
 	"confidence: 0 to 1; use 0.5 or lower for headings, fragments, block quotations or paragraphs whose role is genuinely ambiguous."
 )
 
+SYSTEM_V3 = (
+	"You label the paragraphs of a Canadian immigration or refugee court or tribunal decision for a legal researcher. "
+	"Return exactly one assessment for every supplied paragraph, in the same order, copying paragraph_index exactly. "
+	"Judge each paragraph from its own text; earlier_topic_hint is only for keeping topic wording consistent.\n"
+	"topic: 2 to 8 plain words naming the specific point (for example 'RAD credibility finding on identity documents', "
+	"'standard of review: reasonableness'), never a generic word like 'Analysis'. Reuse the identical wording for adjacent "
+	"paragraphs that continue the same point; change it only when the point changes.\n"
+	"role: choose by asking WHO is speaking and WHAT the paragraph does, using these rules in order:\n"
+	"1. disposition: the court's result or order (application allowed or dismissed, matter returned, costs, question certified), "
+	"including a result announced in an opening or closing summary.\n"
+	"2. issue_framing: says what the court will or will not decide, lists the issues, names the standard of review to be applied, "
+	"or sets out the overall approach.\n"
+	"3. procedural_history: steps and decisions that came before this proceeding: earlier hearings, appeals, who decided what and when, "
+	"including the opening description of the decision under review.\n"
+	"4. background_facts: the claimant's or applicant's own life events and circumstances (not what a tribunal made of them).\n"
+	"5. party_position: reports what a party or the decision-maker below argued, submitted, found or reasoned. The court is describing, not yet deciding.\n"
+	"6. legal_test: states the governing law: statutes, rules, tests, standards of review as law, and what cases held, even when cases are cited by name.\n"
+	"7. reasoning_application: the court's OWN analysis or conclusion on a point, applying law to the facts or evaluating the reasoning below ('In my view', 'I agree', 'the RAD erred').\n"
+	"8. evidence_assessment: only when the paragraph mainly summarises or weighs a specific item of evidence or the record (documents, testimony, reports) without the court yet stating a conclusion.\n"
+	"9. other: headings, style of cause, counsel lists, signature blocks, page furniture, unreadable text.\n"
+	"Examples: 'The Board found the applicant lacked a subjective fear.' -> party_position. 'I am satisfied the Board could reasonably conclude delay showed no fear.' -> reasoning_application. "
+	"'The Court of Appeal set aside a decision for lack of transparency in Boros.' -> legal_test. 'For these reasons the application is dismissed.' -> disposition. "
+	"'The applicant argues the Board misconstrued the psychological report.' -> party_position. 'The report was based on one interview and found no current problems.' -> evidence_assessment.\n"
+	"explanation: one sentence of 25 words or fewer saying what the paragraph does, using only the paragraph text. Do not invent facts, citations, names or paragraph numbers.\n"
+	"confidence: a number 0 to 1 for how sure you are of the ROLE: 0.9 when the paragraph clearly fits one role, 0.7 when two roles are plausible, 0.5 or lower when it is a heading, fragment or block quotation. Vary it; do not give every paragraph the same value."
+)
+SYSTEMS = {"v2": SYSTEM_V2, "v3": SYSTEM_V3}
+PROMPT = {"version": "v2"}
+
 SCHEMA = {
 	"type": "object",
 	"additionalProperties": False,
@@ -92,11 +121,11 @@ def build_messages(case_id: int, chunk: list[dict], previous_topic: str | None) 
 		"earlier_topic_hint": previous_topic or "",
 		"paragraphs": [{"paragraph_index": p["paragraph_index"], "text": p["text"]} for p in chunk],
 	}
-	return [{"role": "system", "content": SYSTEM_V2}, {"role": "user", "content": json.dumps(payload, ensure_ascii=True)}]
+	return [{"role": "system", "content": SYSTEMS[PROMPT["version"]]}, {"role": "user", "content": json.dumps(payload, ensure_ascii=True)}]
 
 
 def estimate_tokens(chunk: list[dict]) -> int:
-	return int(len(SYSTEM_V2) / 3.5 + sum(len(p["text"]) for p in chunk) / 3.0 + 40 * len(chunk))
+	return int(len(SYSTEMS[PROMPT["version"]]) / 3.5 + sum(len(p["text"]) for p in chunk) / 3.0 + 40 * len(chunk))
 
 
 def tag_chunk(client, ledger, model, run, case_id, chunk, previous_topic, usage_total):
@@ -154,7 +183,7 @@ def tag_case(client, ledger, model, run, case_id, out_dir, force):
 	ordered = [assessments[p["paragraph_index"]] for p in paragraphs if p["paragraph_index"] in assessments]
 	missing = [p["paragraph_index"] for p in paragraphs if p["paragraph_index"] not in assessments]
 	result = {
-		"case_id": case_id, "model": model, "prompt_version": PROMPT_VERSION, "run": run,
+		"case_id": case_id, "model": model, "prompt_version": "tag_" + PROMPT["version"], "run": run,
 		"paragraph_count": len(paragraphs), "tagged_count": len(ordered), "missing_paragraph_indices": missing,
 		"errors": errors, "usage": usage_total, "assessments": ordered,
 		"status": "complete" if not missing else ("partial" if ordered else "failed"),
@@ -172,10 +201,12 @@ def main() -> int:
 	parser.add_argument("--ledger", type=Path, required=True, help="Shared spend ledger (JSON lines), same file for every run")
 	parser.add_argument("--cases", help="Comma-separated case ids; default all 300")
 	parser.add_argument("--limit", type=int, help="Use only the first N case ids (sorted)")
+	parser.add_argument("--prompt", choices=sorted(SYSTEMS), default="v2")
 	parser.add_argument("--workers", type=int, default=4)
 	parser.add_argument("--force", action="store_true")
 	parser.add_argument("--send", action="store_true", help="Call the model; otherwise dry run")
 	args = parser.parse_args()
+	PROMPT["version"] = args.prompt
 	ids = sorted(int(m.group(1)) for f in REPORTS.glob("case_*_deterministic.json") if (m := re.match(r"case_(\d+)_", f.name)))
 	if args.cases:
 		ids = [int(x) for x in args.cases.split(",")]

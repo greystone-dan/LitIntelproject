@@ -30,7 +30,9 @@ STATUS_MEANING = {
 	"concept": "An idea only. Nothing is built, and it needs something the site does not have yet, such as an on-premises model or agency sign-in.",
 }
 
-ORDER = ["overview", "accuracy", "expansion", "internal", "intelligence", "team", "local-ai"]
+# Ordered from closest to today to furthest out: fix what is there, grow it, read it better, then
+# the parts that need agency sign-in, agency data or agency hardware.
+ORDER = ["overview", "accuracy", "expansion", "intelligence", "team", "internal", "local-ai"]
 LABELS = {"overview": "Overview", **{key: value["label"] for key, value in SECTIONS.items()}}
 
 _EXTRA_CSS = """
@@ -54,6 +56,12 @@ body{font-family:"IBM Plex Sans",system-ui,sans-serif;padding:14px 18px 28px}
 .ilit-about .area .counts{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
 .ilit-about .area .counts .tag{margin:0}
 .ilit-about .sub{margin:18px 0 0;font:600 11px/1.3 var(--sans, inherit);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.ilit-about .area-card .counts{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.ilit-about .area-card .counts .tag{margin:0}
+.ilit-about .area-card{scroll-margin-top:12px}
+.ilit-about .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:34px;padding-top:18px;border-top:1px solid var(--border);font-size:14px}
+.ilit-about .pager a{color:var(--blue);text-decoration:none}.ilit-about .pager a:hover{text-decoration:underline}
+.ilit-about .glance td:first-child{font-weight:600}
 @media(max-width:760px){.ilit-about .glance thead{display:none}.ilit-about .glance,.ilit-about .glance tbody{display:block}.ilit-about .glance tr{display:block;padding:11px 14px;border-top:1px solid var(--border)}.ilit-about .glance tr:first-child{border-top:0}.ilit-about .glance td{display:block;width:auto!important;padding:2px 0;border:0;white-space:normal!important}.ilit-about .glance td:nth-child(2){margin:3px 0 4px}.ilit-about .glance td:first-child{white-space:normal}.ilit-about .status-list div.chiprow{grid-template-columns:minmax(0,1fr)}}
 """
 
@@ -93,34 +101,64 @@ def _first_sentence(text: str) -> str:
 	return match.group(1) if match else text
 
 
-_FOOTER = "<footer>Coming soon lists work that is not finished. A label says how far each item has got, and “Concept only” means no part of it exists. Things that already run but are not ready to rely on are under Development.</footer>"
+_FOOTER = "<footer>Coming soon lists work that is not finished. A label says how far each item has got, and “Concept only” means no part of it exists. Nothing here is a promise.</footer>"
 _RULE = "<b>The rule behind all of it.</b> Normal search uses no AI, and nothing a person types is sent to an outside AI service. Where AI would help, it would run on the agency’s own computers or when decisions are added, and its work would be stored as data that links back to the source paragraph."
+_STATUS_ORDER = ["built", "partly", "progress", "planned", "concept"]
+
+
+def _counts(items: list) -> str:
+	found = [status for status in _STATUS_ORDER if any(item[2] == status for item in items)]
+	return "".join(
+		f'<span class="tag {status}">{sum(1 for item in items if item[2] == status)} {STATUSES[status].lower()}</span>' for status in found
+	)
 
 
 def _overview() -> str:
-	areas = ""
-	for slug in ORDER[1:]:
+	cards = ""
+	for number, slug in enumerate(ORDER[1:], 1):
 		area = SECTIONS[slug]
-		rows = "".join(
-			f'<div class="chiprow"><strong>{_e(item[1])}</strong><span>{_tag(item[2])} {_e(_first_sentence(item[5]))}</span></div>' for item in area["items"]
+		cards += (
+			f'<a class="card go area-card" id="{slug}" href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">'
+			f'<span class="k">{number} · {_e(area["label"])}</span><p>{_e(area["summary"])}</p>'
+			f'<div class="counts">{_counts(area["items"])}</div></a>'
 		)
-		areas += (
-			f'<section class="area" id="{slug}"><h2>{_tab_link(slug, area["label"])}</h2>'
-			f'<p>{_e(area["lede"])}</p><div class="status-list">{rows}</div>'
-			f'<p class="small"><a href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">Read the full {_e(area["label"].lower())} page &rarr;</a></p></section>'
-		)
+	now = "".join(
+		f'<div class="chiprow"><strong>{_e(item[1])}</strong><span>{_tag(item[2])} {_e(item[5])} '
+		f'<a href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">{_e(SECTIONS[slug]["label"])} &rarr;</a></span></div>'
+		for slug in ORDER[1:]
+		for item in SECTIONS[slug]["items"]
+		if item[2] == "progress"
+	)
 	meanings = "".join(f'<div class="chiprow"><strong>{_tag(key)}</strong><span>{_e(text)}</span></div>' for key, text in STATUS_MEANING.items())
 	return (
 		'<header><p class="eyebrow">Coming soon</p><h1>Where iLit is going next</h1>'
-		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and statute links. This section describes what comes next, in six areas, and is honest about how far each piece has got. Each area has its own tab above, with a full page of detail.</p>'
+		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. '
+		'What comes next falls into six areas. They are ordered from closest to today to furthest out: first making what exists more accurate, '
+		'then growing the library, then features that read decisions more deeply, and last the parts that would need the agency’s own sign-in, documents or computers.</p>'
 		f'<div class="note">{_RULE}</div></header>'
-		f"{areas}"
+		'<section id="areas"><h2>Six areas</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
+		f'<div class="grid three areas">{cards}</div></section>'
+		'<section id="now"><h2>Being worked on now</h2><p class="intro">The items labelled “In progress”, across all six areas.</p>'
+		f'<div class="status-list">{now}</div></section>'
 		'<section id="labels"><h2>How to read the labels</h2><p class="intro">Every item carries one of these five labels. “Built” appears only where the feature is on the site today.</p>'
 		f'<div class="status-list">{meanings}</div></section>'
-		'<section id="elsewhere"><h2>Other places to look</h2>'
-		'<p>Tools that already run but are not ready to rely on are under the <b>Development</b> tab at the top. The original long roadmap, with its concept pictures, is still available as <a href="/future-features" target="_top">one page</a>. The case for funding the project is not on this list for now.</p></section>'
+		'<section id="elsewhere"><h2>The longer roadmap</h2>'
+		'<p>The original long roadmap, with its concept pictures, is still available as <a href="/future-features" target="_top">one page</a>. Some tools that already run but are not ready to rely on are kept in a separate development area, outside the main site.</p></section>'
 		+ _FOOTER
 	)
+
+
+def _pager(slug: str) -> str:
+	index = ORDER.index(slug)
+	links = []
+	if index > 1:
+		prev = ORDER[index - 1]
+		links.append(f'<a href="/data-explorer?tab=roadmap-{prev}&amp;group=roadmap" target="_top">&larr; {_e(LABELS[prev])}</a>')
+	links.append('<a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap" target="_top">All six areas</a>')
+	if index < len(ORDER) - 1:
+		nxt = ORDER[index + 1]
+		links.append(f'<a href="/data-explorer?tab=roadmap-{nxt}&amp;group=roadmap" target="_top">{_e(LABELS[nxt])} &rarr;</a>')
+	return f'<nav class="pager" aria-label="Coming soon areas">{"".join(links)}</nav>'
 
 
 def _section_page(slug: str) -> str:
@@ -146,7 +184,7 @@ def _section_page(slug: str) -> str:
 			f'<div><strong>What it needs</strong><span>{_e(needs)}</span></div>'
 			"</div></section>"
 		)
-	return body + _FOOTER
+	return body + _pager(slug) + _FOOTER
 
 
 def render(slug: str) -> str | None:

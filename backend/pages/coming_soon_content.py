@@ -138,7 +138,7 @@ SECTIONS = {
 				"A citation check lists the authorities a memo cites, shows how each has since been treated, and flags those that look overturned or questioned. A gap check suggests commonly cited authorities on related issues that the memo does not mention.",
 				"Early versions exist. The gap check works on decisions already in the library, not on uploaded briefs.",
 			], "Running a draft factum through the check the day before filing and finding a case that was overturned last year.",
-			"Early versions open from the Development tab.",
+			"Early versions exist in the development area, outside the main site.",
 			"Reliable treatment labels (see Increased intelligence) and a version that works on uploaded documents without storing them."),
 			("institutional-memory", "The Division’s earlier positions", "concept", [
 				"Past submissions and notes on what has persuaded members could be searched by issue, so a new file starts from what the Division has already argued, not from a blank page.",
@@ -183,13 +183,13 @@ SECTIONS = {
 				"Themes group the arguments that recur across decisions, such as the recurring complaints about credibility findings or about reasons for a refusal, and show which statutory provisions each one leans on.",
 				"A first Legal Themes page exists. It is built on tags and will be sharper once discussion units are stored.",
 			], "Seeing the three most common ways applicants attack a credibility finding, with a sample decision for each.",
-			"A Legal Themes and Statutes page opens from the Development tab.",
+			"A Legal Themes and Statutes page exists in the development area, outside the main site.",
 			"Stored discussion units, better tags and a plain-language label for each theme."),
 			("neighbourhoods", "Citation neighbourhoods", "partly", [
 				"Start from one case and see what it relies on, what cites it and what is cited alongside it, grouped by issue. Compare two cases and see the authorities they share.",
 				"The Citation Map page does the first part today. Grouping by issue and showing neighbourhoods inside the reader come next.",
 			], "Starting from a leading decision and finding the other authorities that are always cited with it.",
-			"Citation Map opens from the Development tab.",
+			"A Citation Map page exists in the development area, outside the main site.",
 			"Cleaner citation links, grouping by issue and a neighbourhood panel in the reader."),
 			("fingerprints", "Case fingerprints and similar cases", "partly", [
 				"A fingerprint describes a decision by its tags, statute sections and cited authorities. Two decisions with similar fingerprints are similar cases, and the site can say why.",
@@ -228,13 +228,13 @@ SECTIONS = {
 				"Highlight a passage in the reader, write a note, and choose whether it is private or shared with the team. The note stays attached to that paragraph whenever anyone opens the case.",
 				"Notes would carry into exports so that the reasoning travels with the citation.",
 			], "Highlighting the test in a decision, adding “distinguishable, no notice given”, and having a colleague see it on the same paragraph.",
-			"Not built. The Markup Reader in the Development tab is a layout study; it saves nothing.",
+			"Not built. The Markup Reader in the development area is a layout study; it saves nothing.",
 			"Accounts and a place to store notes, and the reader changes to show them."),
 			("alerts", "Saved searches and alerts", "partly", [
 				"Save a search and get a short list of new decisions that match it, with a note when an authority you rely on is later distinguished.",
 				"A saved-searches page and a digest builder exist. They are early versions, and they depend on the daily intake being scheduled.",
 			], "A Monday digest of every new Federal Court decision on section 34, with the Minister’s result on each.",
-			"Saved searches and an offline digest builder open from the Development tab.",
+			"Saved searches and an offline digest builder exist in the development area, outside the main site.",
 			"A scheduled daily intake, owners for saved searches and delivery of the digest in the Workbench or by email."),
 			("export", "Export and hand-off", "planned", [
 				"Turn a folder into a case list in Word or CSV, or a short issue brief that shows the number of decisions behind every figure.",

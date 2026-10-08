@@ -430,6 +430,46 @@ def _fetch_about_stats_impl(db: Session) -> dict[str, int]:
 	}
 
 
+def _fetch_about_library_impl(db: Session) -> dict[str, Any]:
+	"""Decisions per court with the first and last decision year, for the How it works page.
+
+	Only records that hold decision text are counted per court; the few without text are counted apart.
+	"""
+	rows = db.execute(
+		select(
+			Case.court,
+			func.count(Case.id),
+			func.min(func.extract("year", Case.date)),
+			func.max(func.extract("year", Case.date)),
+		)
+		.where(Case.full_text.is_not(None))
+		.group_by(Case.court)
+	).all()
+	without_text = int(db.scalar(select(func.count(Case.id)).where(Case.full_text.is_(None))) or 0)
+	courts = [
+		{
+			"court": str(court or ""),
+			"decisions": int(count or 0),
+			"first_year": int(first) if first is not None else None,
+			"last_year": int(last) if last is not None else None,
+		}
+		for court, count, first, last in rows
+	]
+	courts.sort(key=lambda row: (-row["decisions"], row["court"]))
+	return {"courts": courts, "total": sum(row["decisions"] for row in courts), "without_text": without_text}
+
+
+def fetch_about_library(db: Session) -> tuple[dict[str, Any], bool]:
+	"""Fetch the per-court library breakdown with TTL caching. Returns (result, was_hit)."""
+	cache = get_analytics_cache()
+	cached_value, was_hit = cache.get("about_library")
+	if was_hit:
+		return cached_value, True
+	result = _fetch_about_library_impl(db)
+	cache.set("about_library", result)
+	return result, False
+
+
 def fetch_fc_history_imm(db: Session, imm: str) -> dict[str, Any]:
 	normalized = (imm or "").strip().upper()
 	if not normalized or not re.fullmatch(r"IMM-\d{1,6}-\d{2,4}", normalized, flags=re.IGNORECASE):

@@ -98,9 +98,10 @@ def test_about_text_has_no_stale_figures_or_funding():
 	for money in ("US$", "funding", "Funding", "Mac Studio", "MacBook", "subscription", "pricing", "Westlaw", "Lexis"):
 		assert money not in text, money
 	overview = (ROOT / "backend" / "pages" / "about_content.html").read_text(encoding="utf-8")
-	for key in ("cases", "citations", "fc_activity_cases"):
+	for key in ("cases", "fc_activity_cases", "fc_activity_documents"):
 		assert f'data-live="{key}"' in overview
-	assert "ilitTourStart" in overview and "/future-features" in overview
+	assert overview.count("data-live=") == 3
+	assert "ilitTourStart" in overview and 'data-goto="roadmap"' in overview
 
 
 def test_about_coming_soon_list_matches_the_navigation():
@@ -118,19 +119,24 @@ def test_about_sections_have_stable_anchors_for_the_tour():
 	how = (pages / "about_how.html").read_text(encoding="utf-8")
 	for anchor in ("aboutIntro", "aboutWhatIsIlit", "aboutEntryButtons", "aboutCounts", "aboutWhy", "aboutWho", "aboutWhat", "aboutWhere"):
 		assert f'id="{anchor}"' in overview, anchor
-	for anchor in ("aboutHowIntro", "pipeline", "library", "derived", "tabs", "soon", "progress", "principles"):
+	for anchor in ("aboutHowIntro", "howContents", "howBasics", "pipeline", "library", "derived", "howUse", "tabs", "soon", "progress", "principles"):
 		assert f'id="{anchor}"' in how, anchor
 
 
-def test_previous_about_text_is_kept_in_full_detail_sections():
+def test_previous_about_text_is_kept_in_a_folded_archive_on_how_it_works():
 	pages = ROOT / "backend" / "pages"
 	overview = (pages / "about_content.html").read_text(encoding="utf-8")
 	how = (pages / "about_how.html").read_text(encoding="utf-8")
-	assert 'id="aboutFullDetail"' in overview and 'id="aboutHowFullDetail"' in how
-	for block in ("full-intro", "full-tabs", "full-search", "full-reader", "full-intel"):
-		assert f'id="{block}"' in overview, block
-	for block in ("full-library", "full-soon", "full-progress", "full-principles"):
-		assert f'id="{block}"' in how, block
+	assert 'id="full-' not in overview  # the Overview stays short and basic
+	archive = how[how.index('<details class="archive" id="aboutArchive">'):]
+	for block in ("full-intro", "full-tabs", "full-search", "full-reader", "full-intel", "full-library", "full-soon", "full-progress", "full-principles"):
+		assert f'id="{block}"' in archive, block
+
+
+def test_how_it_works_reads_court_counts_live():
+	how = (ROOT / "backend" / "pages" / "about_how.html").read_text(encoding="utf-8")
+	assert "fetch('/api/about/library')" in how and 'id="howLibraryRows"' in how
+	assert "run by hand" in how and "does not yet run automatically" in how
 
 
 def test_how_it_works_keeps_the_restored_diagrams():
@@ -139,3 +145,17 @@ def test_how_it_works_keeps_the_restored_diagrams():
 		assert f'id="{diagram}"' in how, diagram
 	for removed in ("CanLII", "934,000", "funding", "Mac Studio"):
 		assert removed not in how, removed
+
+
+def test_about_library_lists_courts_largest_first():
+	from decimal import Decimal
+	from unittest.mock import MagicMock
+
+	from backend.analytics_service import _fetch_about_library_impl
+
+	db = MagicMock()
+	db.execute.return_value.all.return_value = [("SCC", 10, Decimal(1877), Decimal(2026)), ("FC", 30, 2001, 2026), (None, 1, None, None)]
+	db.scalar.return_value = 45
+	result = _fetch_about_library_impl(db)
+	assert [row["court"] for row in result["courts"]] == ["FC", "SCC", ""]
+	assert result["courts"][1]["first_year"] == 1877 and result["total"] == 41 and result["without_text"] == 45
